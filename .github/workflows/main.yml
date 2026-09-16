@@ -1,0 +1,68 @@
+# Runs the real production build on GitHub's own servers.
+# The finished artifact can then be uploaded to Namecheap.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Production build
+        run: npm run build
+
+      - name: Verify the build actually produced output
+        run: |
+          if [ ! -d ".next" ]; then
+            echo "::error::.next was not created — the build did not actually succeed"
+            exit 1
+          fi
+
+          if [ ! -f ".next/BUILD_ID" ]; then
+            echo "::error::.next exists but has no BUILD_ID — build looks incomplete"
+            exit 1
+          fi
+
+          echo "Build verified: .next/BUILD_ID = $(cat .next/BUILD_ID)"
+
+      - name: Assemble the Namecheap deployment package
+        run: |
+          mkdir -p deploy
+
+          cp -r .next deploy/
+          cp -r public deploy/
+          cp -r messages deploy/
+          cp server.js deploy/
+          cp package.json deploy/
+          cp next.config.mjs deploy/
+
+          mkdir -p deploy/src
+          cp -r src/i18n deploy/src/
+
+      - name: Zip the package
+        run: |
+          cd deploy
+          zip -rq ../moneyquest-namecheap-built.zip . -x "node_modules/*"
+          cd ..
+
+          echo "--- Archive root contents ---"
+          unzip -l moneyquest-namecheap-built.zip | head -30
+
+      - name: Upload Namecheap deployment package
+        uses: actions/upload-artifact@v4
+        with:
+          name: moneyquest-namecheap-built
+          path: moneyquest-namecheap-built.zip
+          retention-days: 14
