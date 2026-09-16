@@ -20,7 +20,7 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-        - name: Verify i18n files
+      - name: Verify i18n files
         run: |
           echo "Current directory:"
           pwd
@@ -28,9 +28,9 @@ jobs:
           ls -la src/i18n
           echo "request.ts:"
           ls -la src/i18n/request.ts
-          - name: Production build
-        run: npm run build
 
+      - name: Production build
+        run: npm run build
       - name: Verify the build actually produced output
         run: |
           if [ ! -d ".next" ]; then
