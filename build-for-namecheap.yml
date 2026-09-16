@@ -1,4 +1,4 @@
-name: Build Money Quest for Namecheap
+name:.github/workflows/build-for-namecheap.yml
 
 # Runs the real production build on GitHub's own servers (full memory,
 # full network access — neither of which this project's Namecheap
