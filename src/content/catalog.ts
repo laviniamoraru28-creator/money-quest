@@ -128,8 +128,11 @@ export function getActivityHref(worldId: string, entry: CatalogEntry): string {
 
 /** Minimal shape of next-intl's translator this function needs — kept
  * structural rather than importing next-intl's own type, matching the
- * same reasoning as report.ts's Translator type. */
-type Translator = { (key: string, values?: Record<string, unknown>): string; raw: (key: string) => unknown };
+ * same reasoning as report.ts's Translator type. Deliberately only
+ * `raw` — see all-scenarios.ts's identical type for why a wider,
+ * unused callable signature here would (and, before this fix,
+ * elsewhere did) break under the real next-intl type. */
+type Translator = { raw: (key: string) => unknown };
 
 /**
  * t.raw() — next-intl's API for a structured JSON value, not a single

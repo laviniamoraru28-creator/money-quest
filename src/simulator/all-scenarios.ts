@@ -19,8 +19,19 @@ export const SCENARIO_KEYS: string[] = SCENARIO_STRUCTURES.map((s) => s.key);
 
 /** Minimal shape of next-intl's translator this function needs — kept
  * structural rather than importing next-intl's own type, matching the
- * same reasoning as report.ts's Translator type. */
-type Translator = { (key: string, values?: Record<string, unknown>): string; raw: (key: string) => unknown };
+ * same reasoning as report.ts's Translator type. Deliberately only
+ * `raw` — that's the only method either function below actually
+ * calls. An earlier version also declared a callable `(key, values?)
+ * => string` signature that was never used by this file at all; it
+ * looked harmless but made this type WIDER than next-intl's real
+ * translator (whose `values` parameter only accepts next-intl's own
+ * TranslationValues, not an arbitrary Record<string, unknown>), which
+ * is exactly backwards for a parameter type — TypeScript correctly
+ * rejected passing the real, narrower `t` in. Keeping the type to
+ * only the methods actually called sidesteps the mismatch entirely,
+ * rather than trying to hand-copy next-intl's own (more complex,
+ * versioned) type signature here. */
+type Translator = { raw: (key: string) => unknown };
 
 /**
  * t.raw() — next-intl's API for a structured JSON value — retrieves
