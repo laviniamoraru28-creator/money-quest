@@ -20,15 +20,20 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Verify i18n files
+      - name: Verify repository contents
         run: |
           echo "Current directory:"
           pwd
-          echo "src/i18n contents:"
-          ls -la src/i18n
-          echo "request.ts:"
-          ls -la src/i18n/request.ts
-
+          echo "Git commit:"
+          git rev-parse HEAD
+          echo "Top-level files:"
+          ls -la
+          echo "Git tracked src files:"
+          git ls-files | grep '^src/' | head -50 || true
+          echo "Check src directory:"
+          ls -la src || true
+          echo "Check i18n directory:"
+          ls -la src/i18n || true
       - name: Production build
         run: npm run build
       - name: Verify the build actually produced output
