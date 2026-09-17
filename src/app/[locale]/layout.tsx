@@ -90,7 +90,19 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} dir={direction} className={`${spaceGrotesk.variable} ${atkinsonHyperlegible.variable}`}>
       <body>
-        <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
+        {/* locale={locale} is required here, not optional — without it,
+            next-intl's CLIENT-side context (what useLocale()/useTranslations()
+            read from inside every "use client" component) doesn't reliably
+            know which locale it's in, independent of the SERVER-rendered
+            messages already being correct above. This was the actual root
+            cause of /ro loading but showing English: every client
+            component, including LanguageSwitcher (which calls useLocale()
+            directly to know both what to display as "current" and what to
+            switch away from), was reading an unreliable/default locale
+            regardless of the URL. */}
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          {children}
+        </NextIntlClientProvider>
       </body>
     </html>
   );
