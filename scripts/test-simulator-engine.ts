@@ -79,17 +79,29 @@ const scenario: SimScenario = {
 
 let state = createInitialState(scenario);
 
+// noUncheckedIndexedAccess correctly flags scenario.weeks[n] as possibly
+// undefined — TypeScript can't retain "this literal has exactly 5
+// elements" through the SimWeek[] type on SimScenario. Destructuring
+// once here, with an explicit guard, replaces every later
+// scenario.weeks[n] indexing with a named, guaranteed-defined
+// variable — safer than repeating a check at each of the 7 places
+// below that used to index directly, and more readable too.
+const [week1, week2, week3, week4, week5] = scenario.weeks;
+if (!week1 || !week2 || !week3 || !week4 || !week5) {
+  throw new Error("Test scenario must have exactly 5 weeks — fix the scenario literal above");
+}
+
 // Week 1: plain week, no event. Allocate evenly-ish.
 const w1Alloc: WeekAllocation = { needs: 400, wants: 300, savings: 200, giving: 50, unexpected: 50 };
-check("Week 1 spendable income", getSpendableIncome(scenario.weeks[0]), 1000);
-let result = applyWeek(state, scenario, scenario.weeks[0], w1Alloc);
+check("Week 1 spendable income", getSpendableIncome(week1), 1000);
+let result = applyWeek(state, scenario, week1, w1Alloc);
 state = result.newState;
 check("After week 1, balance (200 savings + 50 unexpected)", state.balanceMinorUnits, 250);
 check("After week 1, totalSavings", state.totalSavingsMinorUnits, 200);
 
 // Week 2: expense event, cost 300, buffer allocation only 200 -> shortfall of 100
 const w2Alloc: WeekAllocation = { needs: 400, wants: 300, savings: 100, giving: 0, unexpected: 200 };
-result = applyWeek(state, scenario, scenario.weeks[1], w2Alloc);
+result = applyWeek(state, scenario, week2, w2Alloc);
 state = result.newState;
 // balance before event: 250 + 100(savings) + 200(unexpected) = 550
 // expense cost 300: covered by 200 buffer, shortfall 100 drawn from balance
@@ -100,7 +112,7 @@ check("Total unexpected spent tracks full cost even on shortfall", state.totalUn
 
 // Week 3: opportunity event, child chooses to buy (cost 500 from wants)
 const w3Alloc: WeekAllocation = { needs: 400, wants: 300, savings: 200, giving: 50, unexpected: 50 };
-result = applyWeek(state, scenario, scenario.weeks[2], w3Alloc, "buy");
+result = applyWeek(state, scenario, week3, w3Alloc, "buy");
 state = result.newState;
 // balance before choice: 250 + 200(savings) + 50(unexpected) = 500
 // choice cost 500 drawn from balance -> 0
@@ -108,15 +120,15 @@ check("After week 3 (bought the game), balance", state.balanceMinorUnits, 0);
 check("Week 3 wants total includes base wants across all weeks plus the choice cost", state.totalWantsMinorUnits, 300 + 300 + 300 + 500);
 
 // Week 4: windfall — spendable income should be 500 base + 500 bonus = 1000
-check("Week 4 spendable income includes windfall bonus", getSpendableIncome(scenario.weeks[3]), 1000);
+check("Week 4 spendable income includes windfall bonus", getSpendableIncome(week4), 1000);
 const w4Alloc: WeekAllocation = { needs: 300, wants: 200, savings: 400, giving: 50, unexpected: 50 };
-result = applyWeek(state, scenario, scenario.weeks[3], w4Alloc);
+result = applyWeek(state, scenario, week4, w4Alloc);
 state = result.newState;
 check("After week 4, totalSavings", state.totalSavingsMinorUnits, 200 + 100 + 200 + 400);
 
 // Week 5: milestone check. totalSavings so far = 900, goal target = 1000 -> NOT yet met
 const w5Alloc: WeekAllocation = { needs: 0, wants: 0, savings: 0, giving: 0, unexpected: 0 };
-result = applyWeek(state, scenario, scenario.weeks[4], w5Alloc);
+result = applyWeek(state, scenario, week5, w5Alloc);
 check("Milestone NOT falsely celebrated when goal isn't actually met", result.eventConsequence, "Not quite yet — keep going!");
 
 console.log(failures === 0 ? "\n✅ All simulator engine checks passed." : `\n❌ ${failures} check(s) failed.`);

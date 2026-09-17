@@ -87,7 +87,7 @@ async function main() {
       { name: "Learn", url: "https://moneyquest.app/en/learn" },
       { name: sample.title, url: "https://moneyquest.app/en/learn/saving-money-for-kids" },
     ]);
-    check("Breadcrumb schema has one ListItem per entry, in order", breadcrumbs.itemListElement.length === 3 && breadcrumbs.itemListElement[0].position === 1);
+    check("Breadcrumb schema has one ListItem per entry, in order", breadcrumbs.itemListElement.length === 3 && breadcrumbs.itemListElement[0]?.position === 1);
   }
 
 

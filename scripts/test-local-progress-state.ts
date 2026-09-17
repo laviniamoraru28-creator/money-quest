@@ -9,11 +9,30 @@ import {
   computeWeeksToGoal,
   removeGoal,
 } from "../src/lib/local-progress/state";
+import type { LocalGoal, LocalProgressState } from "../src/lib/local-progress/state";
 
 let failures = 0;
 function check(label: string, condition: boolean) {
   console.log(`${condition ? "✅" : "❌"} ${label}`);
   if (!condition) failures++;
+}
+
+/** noUncheckedIndexedAccess correctly flags every state.goals[0] access
+ * below as possibly undefined, since TypeScript can't statically know
+ * a goal exists just because createGoal() ran earlier in the same test
+ * block. That's a real, useful guard, worth honoring here rather than
+ * suppressing even though this is test code: every call site below
+ * genuinely expects exactly one goal to exist at that point (a goal
+ * was just created, or just contributed/withdrawn from, immediately
+ * before). A clear, immediate throw is the correct failure mode if
+ * that assumption is ever wrong — a far more useful error than the
+ * "Cannot read properties of undefined" a silent fallback would
+ * produce a line later, and safer than an `as` cast, which would
+ * accept an actually-empty array without complaint. */
+function firstGoal(state: LocalProgressState): LocalGoal {
+  const goal = state.goals[0];
+  if (goal === undefined) throw new Error("Expected at least one goal to exist at this point in the test");
+  return goal;
 }
 
 // --- Level ---
@@ -45,18 +64,18 @@ check("Level 1 at 99 XP (not yet)", computeLevel(99) === 1);
   let state = createDefaultState();
   state = applyActivityCompletion(state, "a1", true, 10, 1000).state;
   state = createGoal(state, "A toy robot", 500);
-  check("A new goal starts at 0 progress", state.goals[0].currentMinorUnits === 0);
-  check("A new goal is not achieved", state.goals[0].achievedAt === null);
+  check("A new goal starts at 0 progress", firstGoal(state).currentMinorUnits === 0);
+  check("A new goal is not achieved", firstGoal(state).achievedAt === null);
 
-  const contributeResult = contributeToGoal(state, state.goals[0].id, 500);
+  const contributeResult = contributeToGoal(state, firstGoal(state).id, 500);
   check("A valid contribution succeeds", contributeResult.success);
   check("Reaching the exact target achieves the goal", contributeResult.goalAchieved);
   check("Wallet balance decreases by the contributed amount", contributeResult.state.walletBalanceMinorUnits === 500);
 
-  const overContribute = contributeToGoal(state, state.goals[0].id, 99999);
+  const overContribute = contributeToGoal(state, firstGoal(state).id, 99999);
   check("Contributing more than the wallet holds fails safely, doesn't go negative", !overContribute.success && overContribute.state.walletBalanceMinorUnits === 1000);
 
-  const afterRemoval = removeGoal(contributeResult.state, contributeResult.state.goals[0].id);
+  const afterRemoval = removeGoal(contributeResult.state, firstGoal(contributeResult.state).id);
   check("Removing a goal actually removes it", afterRemoval.goals.length === 0);
 }
 
@@ -65,26 +84,26 @@ check("Level 1 at 99 XP (not yet)", computeLevel(99) === 1);
   let state = createDefaultState();
   state = applyActivityCompletion(state, "a1", true, 10, 1000).state;
   state = createGoal(state, "A bike", 800);
-  state = contributeToGoal(state, state.goals[0].id, 300).state;
-  check("Contribution landed before testing withdraw", state.goals[0].currentMinorUnits === 300);
+  state = contributeToGoal(state, firstGoal(state).id, 300).state;
+  check("Contribution landed before testing withdraw", firstGoal(state).currentMinorUnits === 300);
 
-  const withdrawResult = withdrawFromGoal(state, state.goals[0].id, 100);
+  const withdrawResult = withdrawFromGoal(state, firstGoal(state).id, 100);
   check("A valid withdrawal succeeds", withdrawResult.success);
-  check("Withdrawing reduces the goal's progress", withdrawResult.state.goals[0].currentMinorUnits === 200);
+  check("Withdrawing reduces the goal's progress", firstGoal(withdrawResult.state).currentMinorUnits === 200);
   check("Withdrawing returns the money to the wallet", withdrawResult.state.walletBalanceMinorUnits === 800); // 1000 - 300 + 100
 
-  const overWithdraw = withdrawFromGoal(state, state.goals[0].id, 99999);
+  const overWithdraw = withdrawFromGoal(state, firstGoal(state).id, 99999);
   check(
     "Withdrawing more than the goal holds fails safely, doesn't go negative",
-    !overWithdraw.success && overWithdraw.state.goals[0].currentMinorUnits === 300
+    !overWithdraw.success && firstGoal(overWithdraw.state).currentMinorUnits === 300
   );
 
-  const zeroWithdraw = withdrawFromGoal(state, state.goals[0].id, 0);
+  const zeroWithdraw = withdrawFromGoal(state, firstGoal(state).id, 0);
   check("Withdrawing zero or less is rejected, not treated as a no-op success", !zeroWithdraw.success);
 
-  const achievedState = contributeToGoal(state, state.goals[0].id, 500).state; // reaches 800/800
-  check("Goal is achieved before testing withdraw-after-achieved", achievedState.goals[0].achievedAt !== null);
-  const withdrawAfterAchieved = withdrawFromGoal(achievedState, achievedState.goals[0].id, 50);
+  const achievedState = contributeToGoal(state, firstGoal(state).id, 500).state; // reaches 800/800
+  check("Goal is achieved before testing withdraw-after-achieved", firstGoal(achievedState).achievedAt !== null);
+  const withdrawAfterAchieved = withdrawFromGoal(achievedState, firstGoal(achievedState).id, 50);
   check("Withdrawing from an already-achieved goal is rejected", !withdrawAfterAchieved.success);
 }
 
