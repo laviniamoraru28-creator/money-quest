@@ -54,8 +54,6 @@ jobs:
         run: |
           mkdir -p deploy
 
-          cp -r .next deploy/
-          cp -r public deploy/
           cp -r messages deploy/
           cp server.js deploy/
           cp package.json deploy/
