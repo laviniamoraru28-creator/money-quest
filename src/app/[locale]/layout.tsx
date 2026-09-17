@@ -80,6 +80,10 @@ export default async function LocaleLayout({
   children: ReactNode;
   params: { locale: string };
 }) {
+  // TEMPORARY DIAGNOSTIC LOGGING — unconditional, production-visible.
+  // Remove once the /ro-renders-English cause is confirmed.
+  console.log("[LOCALE-DIAG] layout.tsx: params.locale received as:", locale);
+
   if (!isSupportedLocale(locale)) {
     notFound();
   }
