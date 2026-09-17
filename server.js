@@ -35,7 +35,28 @@ app
   .then(() => {
     createServer(async (req, res) => {
       try {
+        // --- TEMPORARY DIAGNOSTIC LOGGING — added to identify why
+        // locale-prefixed paths (e.g. /ro) aren't resolving correctly
+        // in this specific Namecheap/Passenger deployment. Logs the
+        // exact raw request path and the proxy-forwarding headers
+        // Passenger typically sets, so we can see, directly from
+        // cPanel's log viewer, whether the real path is even reaching
+        // this Node process intact. Remove this block once the cause
+        // is confirmed — it is not meant to stay in production.
+        console.log(
+          "[DIAG]",
+          JSON.stringify({
+            rawUrl: req.url,
+            host: req.headers.host,
+            xForwardedFor: req.headers["x-forwarded-for"],
+            xForwardedHost: req.headers["x-forwarded-host"],
+            xForwardedProto: req.headers["x-forwarded-proto"],
+            xForwardedPath: req.headers["x-forwarded-path"],
+          })
+        );
         const parsedUrl = parse(req.url, true);
+        console.log("[DIAG] parsed pathname:", parsedUrl.pathname);
+        // --- END TEMPORARY DIAGNOSTIC LOGGING ---
         await handle(req, res, parsedUrl);
       } catch (err) {
         console.error("Error occurred handling", req.url, err);
