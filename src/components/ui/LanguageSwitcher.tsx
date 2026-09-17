@@ -2,17 +2,30 @@
 
 import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
-import { usePathname, useRouter } from "@/i18n/navigation";
+import { usePathname } from "@/i18n/navigation";
 import { LOCALES, LOCALE_LABELS, type Locale } from "@/i18n/config";
 
 /**
  * The one language selector component used everywhere the brief requires
  * it (public site header, dashboard header, and — once a Settings page
  * exists — there too): same component, different mounting point, never
- * a re-implementation. Switches language via next-intl's locale-aware
- * router, which preserves the current page (a parent switching from
- * English to Romanian on the Dashboard stays on the Dashboard, in
- * Romanian) rather than bouncing to the homepage.
+ * a re-implementation. Switches language by constructing the target
+ * locale's URL and doing a full page navigation, preserving the
+ * current page (a parent switching from English to Romanian on the
+ * Dashboard stays on the Dashboard, in Romanian) rather than bouncing
+ * to the homepage.
+ *
+ * A FULL navigation (`window.location.href`), not next-intl's
+ * client-side router — deliberately, and only after finding this
+ * broken in the actual Namecheap/custom-server deployment: the
+ * client-side router's locale switch performs a soft, RSC-payload
+ * navigation through the SAME custom server.js this app runs behind
+ * on that host, which was producing a 404 there specifically — while
+ * a full page load to the very same target URL (typed directly, or
+ * via a normal link) worked correctly. A full navigation sidesteps
+ * that RSC-payload code path entirely, at the cost of a full page
+ * reload on every language switch rather than an instant client-side
+ * swap — an honest, visible tradeoff, not a silent one.
  *
  * Accessibility: every option is a real, individually focusable
  * `<button>`, so Tab/Shift+Tab and Enter/Space work correctly, and
@@ -26,7 +39,6 @@ export function LanguageSwitcher() {
   const locale = useLocale() as Locale;
   const t = useTranslations();
   const pathname = usePathname();
-  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -40,7 +52,12 @@ export function LanguageSwitcher() {
 
   function handleSelect(nextLocale: Locale) {
     setIsOpen(false);
-    router.replace(pathname, { locale: nextLocale });
+    // pathname from next-intl's usePathname() is already locale-stripped
+    // (e.g. "/parent-info", or "/" for the homepage) — see this
+    // component's own doc comment above for why this is a full
+    // navigation, not router.replace(pathname, { locale: nextLocale }).
+    const target = pathname === "/" ? `/${nextLocale}` : `/${nextLocale}${pathname}`;
+    window.location.href = target;
   }
 
   return (
