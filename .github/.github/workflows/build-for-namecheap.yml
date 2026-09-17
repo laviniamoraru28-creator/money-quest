@@ -1,0 +1,103 @@
+name: Build Money Quest for Namecheap
+
+# Runs the real production build on GitHub's own servers (full memory,
+# full network access — neither of which this project's Namecheap
+# Stellar plan has enough of for `next build`'s WASM-SWC fallback
+# path). Produces a downloadable artifact containing exactly the
+# runtime files this deployment needs — .next, messages, server.js,
+# package.json, next.config.mjs, src/i18n (see the step below for why
+# src/i18n specifically is kept even though the rest of src/ isn't
+# needed at runtime). No public/ — this app has no static assets that
+# need it (see that step's own comment) — with everything already at
+# the archive root, no outer wrapper folder.
+#
+# To use: push this repository to GitHub (a free private repo is
+# fine — nothing here needs to be public), then either push a commit
+# or trigger it manually from the Actions tab. When it finishes,
+# download "moneyquest-namecheap-built" from the run's Artifacts
+# section — that zip is what goes to Namecheap, not this repository
+# itself.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          # Matches this project's package.json "engines" requirement
+          # and the Node version configured in Namecheap's cPanel
+          # Node.js App screen — keeping these in sync matters because
+          # a build produced under a different major Node version can
+          # behave differently at runtime.
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Production build
+        run: npm run build
+
+      - name: Verify the build actually produced output
+        run: |
+          if [ ! -d ".next" ]; then
+            echo "::error::.next was not created — the build did not actually succeed"
+            exit 1
+          fi
+          if [ ! -f ".next/BUILD_ID" ]; then
+            echo "::error::.next exists but has no BUILD_ID — build looks incomplete"
+            exit 1
+          fi
+          echo "Build verified: .next/BUILD_ID = $(cat .next/BUILD_ID)"
+
+      - name: Assemble the Namecheap deployment package
+        run: |
+          mkdir -p deploy
+          cp -r .next deploy/
+          cp -r messages deploy/
+          cp server.js deploy/
+          cp package.json deploy/
+          cp next.config.mjs deploy/
+          # public/ is deliberately NOT copied here — this app has no
+          # static assets that need it. Every illustration is an
+          # inline SVG React component, the sound system synthesizes
+          # tones live via the Web Audio API (no audio files), fonts
+          # are self-hosted automatically by next/font/google at
+          # build time, and the favicon is served via Next's own
+          # src/app/icon.svg convention. Verified by searching the
+          # whole codebase for any reference to a file that would
+          # need to live in public/ — none exists. The repository's
+          # public/ folder is empty, which is exactly why this step
+          # used to fail: Git doesn't track empty directories at all,
+          # so it was never actually present after checkout to copy
+          # from in the first place.
+          # src/i18n is kept (not all of src/) because next-intl's
+          # build plugin wires the request-config module path in at
+          # build time; keeping the original source removes any risk
+          # of that reference breaking at server startup, at the cost
+          # of a few small files — see the chat conversation this
+          # workflow came from for the full reasoning. Everything
+          # else in src/ is already compiled into .next and isn't
+          # read again at runtime.
+          mkdir -p deploy/src
+          cp -r src/i18n deploy/src/
+
+      - name: Zip the package with files at the archive root
+        run: |
+          cd deploy
+          zip -rq ../moneyquest-namecheap-built.zip . -x "node_modules/*"
+          cd ..
+          echo "--- Archive root contents ---"
+          unzip -l moneyquest-namecheap-built.zip | head -20
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: moneyquest-namecheap-built
+          path: moneyquest-namecheap-built.zip
+          retention-days: 14
