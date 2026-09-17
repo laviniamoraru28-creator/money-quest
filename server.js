@@ -44,7 +44,7 @@ app
         // this Node process intact. Remove this block once the cause
         // is confirmed — it is not meant to stay in production.
         console.log(
-          "[DIAG]",
+          "[LOCALE-DIAG]",
           JSON.stringify({
             rawUrl: req.url,
             host: req.headers.host,
@@ -55,7 +55,7 @@ app
           })
         );
         const parsedUrl = parse(req.url, true);
-        console.log("[DIAG] parsed pathname:", parsedUrl.pathname);
+        console.log("[LOCALE-DIAG] parsed pathname:", parsedUrl.pathname);
         // --- END TEMPORARY DIAGNOSTIC LOGGING ---
         await handle(req, res, parsedUrl);
       } catch (err) {
