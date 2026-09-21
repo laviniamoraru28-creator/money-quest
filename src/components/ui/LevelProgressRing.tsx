@@ -7,9 +7,9 @@ interface LevelProgressRingProps {
 
 /**
  * A simple circular progress indicator — flat stroke, no gradient or
- * shadow, matching the same visual language as Coin.tsx and
- * HeroIllustration.tsx (solid fills/strokes only). Deliberately just a
- * ring with a number, not a competitive-feeling scoreboard element —
+ * shadow, matching the same visual language as Coin.tsx (solid fills/
+ * strokes only). Deliberately just a ring with a number, not a
+ * competitive-feeling scoreboard element —
  * consistent with "no unnecessary competitive pressure" from the
  * Journey brief: this shows a child their own progress, not a
  * comparison against anyone else.

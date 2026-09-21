@@ -3,7 +3,6 @@ import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
-import { HeroIllustration } from "@/components/marketing/HeroIllustration";
 
 export default async function LandingPage() {
   const t = await getTranslations();
@@ -51,8 +50,15 @@ export default async function LandingPage() {
                 {t("nav.forParents")}
               </Link>
             </div>
-            <div aria-hidden="true" className="flex justify-center">
-              <HeroIllustration className="h-64 w-64 md:h-80 md:w-80" />
+            <div className="flex justify-center">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/money-quest/homepage-hero.webp"
+                alt={t("landing.heroImageAlt")}
+                width={800}
+                height={800}
+                className="h-64 w-64 rounded-2xl object-cover md:h-80 md:w-80"
+              />
             </div>
           </div>
         </section>
@@ -96,7 +102,7 @@ export default async function LandingPage() {
               <li>✓ {t("landing.trust4")}</li>
             </ul>
             <Link href="/parent-info" className="mt-sm inline-block text-teal hover:underline">
-              Read our full Parent Information page →
+              {t("landing.readFullParentInfoLink")}
             </Link>
           </div>
         </section>
