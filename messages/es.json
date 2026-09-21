@@ -76,7 +76,15 @@
     "notReadyForAgeGroup": "Este juego aún no está listo para tu grupo de edad - ¡vuelve pronto!",
     "everyCoinPlanned": "¡Cada moneda está planificada!",
     "coinsLeftToPlan": "{amount} por planificar",
-    "chooseAnyOption": "Aquí no hay una única respuesta correcta - elige lo que sientas que es verdad para ti."
+    "chooseAnyOption": "Aquí no hay una única respuesta correcta - elige lo que sientas que es verdad para ti.",
+    "allocateInstructions": "Tienes <bold>{amount}</bold> para planificar. Repártelo entre las categorías de abajo.",
+    "itemsToSort": "Elementos para clasificar",
+    "tapItemThenBucket": "Toca un elemento arriba y luego toca un cubo para clasificarlo.",
+    "selectedItemHint": "Seleccionado: {item}. Ahora toca un cubo abajo.",
+    "matchThese": "Empareja estos",
+    "withThese": "Con estos",
+    "matched": "¡Emparejado!",
+    "notAMatch": "No es pareja - inténtalo de nuevo."
   },
   "simulator": {
     "weekOf": "{week} de {total}",
@@ -137,7 +145,13 @@
     "reducedMotionLabel": "Reducir animaciones",
     "focusModeLabel": "Modo de concentración",
     "focusModeHint": "Oculta los detalles extra para que solo se vea la actividad principal.",
-    "listenToLessonLabel": "Escucha la lección"
+    "listenToLessonLabel": "Escucha la lección",
+    "mainNavigationLabel": "Principal"
+  },
+  "characters": {
+    "pip": "Pip",
+    "sage": "Sage el Búho",
+    "zip": "Zip la Ardilla"
   },
   "footer": {
     "privacy": "Privacidad",

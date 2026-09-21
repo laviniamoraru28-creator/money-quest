@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import type { MechanicProps } from "../registry";
 import type { AllocateRound } from "../types";
 import { formatCurrency } from "@/lib/currency/format";
@@ -14,6 +15,7 @@ const STEP_MINOR_UNITS = 100; // adjust in whole "coin" steps of 1.00 in major u
 // if a game config ever needs much smaller or larger totals than that.
 
 export function AllocateMechanic({ round, currencyCode, uiLocale, usesCurrency, onAnswer, isResolved }: MechanicProps<AllocateRound>) {
+  const t = useTranslations();
   const initial = Object.fromEntries(round.categories.map((c) => [c.key, 0]));
   const [allocations, setAllocations] = useState<Record<string, number>>(initial);
   const [checked, setChecked] = useState(false);
@@ -47,13 +49,15 @@ export function AllocateMechanic({ round, currencyCode, uiLocale, usesCurrency, 
   return (
     <div>
       <p className="text-sm text-ink/70">
-        You have <span className="font-bold text-teal">{fmt(round.totalMinorUnits)}</span> to plan. Split it across
-        the categories below.
+        {t.rich("game.allocateInstructions", {
+          amount: fmt(round.totalMinorUnits),
+          bold: (chunks) => <span className="font-bold text-teal">{chunks}</span>,
+        })}
       </p>
 
       <div className="mt-sm grid gap-2xs">
         {round.categories.map((category) => {
-          const target = round.targets.find((t) => t.categoryKey === category.key);
+          const target = round.targets.find((tgt) => tgt.categoryKey === category.key);
           const value = allocations[category.key] ?? 0;
           const withinTolerance = target ? Math.abs(value - target.targetMinorUnits) <= target.toleranceMinorUnits : true;
 
@@ -63,7 +67,7 @@ export function AllocateMechanic({ round, currencyCode, uiLocale, usesCurrency, 
               <div className="flex items-center gap-2xs">
                 <button
                   type="button"
-                  aria-label={`Decrease ${category.label}`}
+                  aria-label={t("a11y.decreaseCategory", { category: category.label })}
                   disabled={isResolved || value === 0}
                   onClick={() => adjust(category.key, -STEP_MINOR_UNITS)}
                   className="grid h-touch-min w-touch-min place-items-center rounded-sm border border-ink/20 text-lg disabled:opacity-30"
@@ -78,7 +82,7 @@ export function AllocateMechanic({ round, currencyCode, uiLocale, usesCurrency, 
                 )}
                 <button
                   type="button"
-                  aria-label={`Increase ${category.label}`}
+                  aria-label={t("a11y.increaseCategory", { category: category.label })}
                   disabled={isResolved || remaining <= 0}
                   onClick={() => adjust(category.key, STEP_MINOR_UNITS)}
                   className="grid h-touch-min w-touch-min place-items-center rounded-sm border border-ink/20 text-lg disabled:opacity-30"

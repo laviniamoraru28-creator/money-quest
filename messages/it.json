@@ -76,7 +76,15 @@
     "notReadyForAgeGroup": "Questo gioco non è ancora pronto per la tua fascia d'età - torna presto!",
     "everyCoinPlanned": "Ogni moneta è pianificata!",
     "coinsLeftToPlan": "{amount} ancora da pianificare",
-    "chooseAnyOption": "Non c'è un'unica risposta giusta qui - scegli quello che ti sembra vero per te."
+    "chooseAnyOption": "Non c'è un'unica risposta giusta qui - scegli quello che ti sembra vero per te.",
+    "allocateInstructions": "Hai <bold>{amount}</bold> da pianificare. Suddividili tra le categorie qui sotto.",
+    "itemsToSort": "Oggetti da ordinare",
+    "tapItemThenBucket": "Tocca un oggetto sopra, poi tocca un contenitore per ordinarlo.",
+    "selectedItemHint": "Selezionato: {item}. Ora tocca un contenitore qui sotto.",
+    "matchThese": "Abbina questi",
+    "withThese": "Con questi",
+    "matched": "Abbinato!",
+    "notAMatch": "Non corrisponde - riprova."
   },
   "simulator": {
     "weekOf": "{week} di {total}",
@@ -137,7 +145,13 @@
     "reducedMotionLabel": "Riduci le animazioni",
     "focusModeLabel": "Modalità concentrazione",
     "focusModeHint": "Nasconde i dettagli extra in modo che si veda solo l'attività principale.",
-    "listenToLessonLabel": "Ascolta la lezione"
+    "listenToLessonLabel": "Ascolta la lezione",
+    "mainNavigationLabel": "Principale"
+  },
+  "characters": {
+    "pip": "Pip",
+    "sage": "Sage il Gufo",
+    "zip": "Zip lo Scoiattolo"
   },
   "footer": {
     "privacy": "Privacy",

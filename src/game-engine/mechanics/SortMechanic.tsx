@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import type { MechanicProps } from "../registry";
 import type { SortRound } from "../types";
 
@@ -11,6 +12,7 @@ import type { SortRound } from "../types";
  * nothing to provide an alternative to).
  */
 export function SortMechanic({ round, onAnswer, isResolved }: MechanicProps<SortRound>) {
+  const t = useTranslations();
   const [placements, setPlacements] = useState<Record<string, string>>({});
   const [selectedItemId, setSelectedItemId] = useState<string | null>(null);
   const [checked, setChecked] = useState(false);
@@ -32,7 +34,7 @@ export function SortMechanic({ round, onAnswer, isResolved }: MechanicProps<Sort
 
   return (
     <div>
-      <div className="flex flex-wrap gap-2xs" role="list" aria-label="Items to sort">
+      <div className="flex flex-wrap gap-2xs" role="list" aria-label={t("game.itemsToSort")}>
         {round.items.map((item) => {
           const isPlaced = Boolean(placements[item.id]);
           return (
@@ -62,8 +64,8 @@ export function SortMechanic({ round, onAnswer, isResolved }: MechanicProps<Sort
 
       <p className="mt-sm text-sm text-ink/70" aria-live="polite">
         {selectedItemId
-          ? `Selected: ${round.items.find((i) => i.id === selectedItemId)?.label}. Now tap a bucket below.`
-          : "Tap an item above, then tap a bucket to sort it."}
+          ? t("game.selectedItemHint", { item: round.items.find((i) => i.id === selectedItemId)?.label ?? "" })
+          : t("game.tapItemThenBucket")}
       </p>
 
       <div className="mt-2xs grid grid-cols-2 gap-sm">

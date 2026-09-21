@@ -1,3 +1,7 @@
+"use client";
+
+import { useTranslations } from "next-intl";
+
 interface CharacterProps {
   size?: number;
   className?: string;
@@ -11,8 +15,9 @@ interface CharacterProps {
  * a punished or upset one, matching the product's explicit rule
  * against shaming language for mistakes. */
 export function CharacterZip({ size = 64, className = "" }: CharacterProps) {
+  const t = useTranslations();
   return (
-    <svg width={size} height={size} viewBox="0 0 64 64" className={className} role="img" aria-label="Zip the Squirrel">
+    <svg width={size} height={size} viewBox="0 0 64 64" className={className} role="img" aria-label={t("characters.zip")}>
       {/* Tail */}
       <path d="M46,44 Q60,40 56,20 Q52,4 36,10 Q50,12 50,26 Q50,38 40,42 Z" fill="#D13E19" />
       {/* Body */}

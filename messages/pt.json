@@ -76,7 +76,15 @@
     "notReadyForAgeGroup": "Este jogo ainda não está pronto para a tua faixa etária - volta em breve!",
     "everyCoinPlanned": "Cada moeda está planeada!",
     "coinsLeftToPlan": "{amount} por planear",
-    "chooseAnyOption": "Não há uma única resposta certa aqui - escolhe o que sentires que é verdade para ti."
+    "chooseAnyOption": "Não há uma única resposta certa aqui - escolhe o que sentires que é verdade para ti.",
+    "allocateInstructions": "Tens <bold>{amount}</bold> para planear. Divide-o entre as categorias abaixo.",
+    "itemsToSort": "Itens para ordenar",
+    "tapItemThenBucket": "Toca num item acima e depois toca num balde para o ordenar.",
+    "selectedItemHint": "Selecionado: {item}. Agora toca num balde abaixo.",
+    "matchThese": "Associa estes",
+    "withThese": "Com estes",
+    "matched": "Correspondido!",
+    "notAMatch": "Não corresponde - tenta novamente."
   },
   "simulator": {
     "weekOf": "{week} de {total}",
@@ -137,7 +145,13 @@
     "reducedMotionLabel": "Reduzir animações",
     "focusModeLabel": "Modo de foco",
     "focusModeHint": "Esconde detalhes extra para que apenas a atividade principal apareça.",
-    "listenToLessonLabel": "Ouvir a lição"
+    "listenToLessonLabel": "Ouvir a lição",
+    "mainNavigationLabel": "Principal"
+  },
+  "characters": {
+    "pip": "Pip",
+    "sage": "Sage a Coruja",
+    "zip": "Zip o Esquilo"
   },
   "footer": {
     "privacy": "Privacidade",

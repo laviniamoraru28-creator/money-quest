@@ -1,3 +1,7 @@
+"use client";
+
+import { useTranslations } from "next-intl";
+
 interface CharacterProps {
   size?: number;
   className?: string;
@@ -10,8 +14,9 @@ interface CharacterProps {
  * its own — the character should support the lesson content, not
  * compete with it for a child's attention. */
 export function CharacterSage({ size = 64, className = "" }: CharacterProps) {
+  const t = useTranslations();
   return (
-    <svg width={size} height={size} viewBox="0 0 64 64" className={className} role="img" aria-label="Sage the Owl">
+    <svg width={size} height={size} viewBox="0 0 64 64" className={className} role="img" aria-label={t("characters.sage")}>
       {/* Body */}
       <ellipse cx="32" cy="36" rx="22" ry="24" fill="#5B4B8A" />
       {/* Face disc */}

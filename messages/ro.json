@@ -76,7 +76,15 @@
     "notReadyForAgeGroup": "Acest joc nu este încă pregătit pentru grupa ta de vârstă - revino în curând!",
     "everyCoinPlanned": "Fiecare monedă este planificată!",
     "coinsLeftToPlan": "{amount} rămase de planificat",
-    "chooseAnyOption": "Nu există un singur răspuns corect aici - alege ce ți se pare potrivit pentru tine."
+    "chooseAnyOption": "Nu există un singur răspuns corect aici - alege ce ți se pare potrivit pentru tine.",
+    "allocateInstructions": "Ai <bold>{amount}</bold> de planificat. Împarte suma între categoriile de mai jos.",
+    "itemsToSort": "Obiecte de sortat",
+    "tapItemThenBucket": "Atinge un obiect mai sus, apoi atinge un coș pentru a-l sorta.",
+    "selectedItemHint": "Selectat: {item}. Acum atinge un coș mai jos.",
+    "matchThese": "Potrivește acestea",
+    "withThese": "Cu acestea",
+    "matched": "Potrivire!",
+    "notAMatch": "Nu se potrivește - încearcă din nou."
   },
   "simulator": {
     "weekOf": "{week} din {total}",
@@ -137,7 +145,13 @@
     "reducedMotionLabel": "Reduce animațiile",
     "focusModeLabel": "Mod de concentrare",
     "focusModeHint": "Ascunde detaliile suplimentare astfel încât să se vadă doar activitatea principală.",
-    "listenToLessonLabel": "Ascultă lecția"
+    "listenToLessonLabel": "Ascultă lecția",
+    "mainNavigationLabel": "Principal"
+  },
+  "characters": {
+    "pip": "Pip",
+    "sage": "Sage Bufnița",
+    "zip": "Zip Veverița"
   },
   "footer": {
     "privacy": "Confidențialitate",

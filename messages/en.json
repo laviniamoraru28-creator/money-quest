@@ -76,7 +76,15 @@
     "notReadyForAgeGroup": "This game isn't ready for your age group yet - check back soon!",
     "everyCoinPlanned": "Every coin is planned!",
     "coinsLeftToPlan": "{amount} left to plan",
-    "chooseAnyOption": "There is no single right answer here - choose what feels true for you."
+    "chooseAnyOption": "There is no single right answer here - choose what feels true for you.",
+    "allocateInstructions": "You have <bold>{amount}</bold> to plan. Split it across the categories below.",
+    "itemsToSort": "Items to sort",
+    "tapItemThenBucket": "Tap an item above, then tap a bucket to sort it.",
+    "selectedItemHint": "Selected: {item}. Now tap a bucket below.",
+    "matchThese": "Match these",
+    "withThese": "With these",
+    "matched": "Matched!",
+    "notAMatch": "Not a match - try again."
   },
   "simulator": {
     "weekOf": "{week} of {total}",
@@ -137,7 +145,13 @@
     "reducedMotionLabel": "Reduce animations",
     "focusModeLabel": "Focus mode",
     "focusModeHint": "Hides extra details so only the main activity shows.",
-    "listenToLessonLabel": "Listen to the lesson"
+    "listenToLessonLabel": "Listen to the lesson",
+    "mainNavigationLabel": "Main"
+  },
+  "characters": {
+    "pip": "Pip",
+    "sage": "Sage the Owl",
+    "zip": "Zip the Squirrel"
   },
   "footer": {
     "privacy": "Privacy",

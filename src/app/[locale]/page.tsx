@@ -13,7 +13,7 @@ export default async function LandingPage() {
       <header className="border-b border-ink/10 bg-white">
         <div className="mx-auto flex max-w-[1200px] items-center justify-between px-sm py-xs">
           <span className="font-display text-lg font-bold text-teal">{t("common.moneyQuest")}</span>
-          <nav className="hidden gap-md text-base md:flex" aria-label="Main">
+          <nav className="hidden gap-md text-base md:flex" aria-label={t("a11y.mainNavigationLabel")}>
             <Link href="/learn" className="hover:text-teal">{t("nav.learn")}</Link>
             <Link href="/#how-it-works" className="hover:text-teal">{t("nav.howItWorks")}</Link>
             <Link href="/parent-info" className="hover:text-teal">{t("nav.forParents")}</Link>

@@ -1,3 +1,7 @@
+"use client";
+
+import { useTranslations } from "next-intl";
+
 interface CharacterProps {
   size?: number;
   className?: string;
@@ -13,8 +17,9 @@ interface CharacterProps {
  * disappear when scaled down.
  */
 export function CharacterPip({ size = 64, className = "" }: CharacterProps) {
+  const t = useTranslations();
   return (
-    <svg width={size} height={size} viewBox="0 0 64 64" className={className} role="img" aria-label="Pip">
+    <svg width={size} height={size} viewBox="0 0 64 64" className={className} role="img" aria-label={t("characters.pip")}>
       {/* Head */}
       <circle cx="32" cy="30" r="20" fill="#F4C77A" />
       {/* Adventure cap */}

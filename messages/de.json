@@ -76,7 +76,15 @@
     "notReadyForAgeGroup": "Dieses Spiel ist für deine Altersgruppe noch nicht bereit - schau bald wieder vorbei!",
     "everyCoinPlanned": "Jede Münze ist eingeplant!",
     "coinsLeftToPlan": "{amount} noch einzuplanen",
-    "chooseAnyOption": "Es gibt hier keine einzige richtige Antwort - wähle, was sich für dich richtig anfühlt."
+    "chooseAnyOption": "Es gibt hier keine einzige richtige Antwort - wähle, was sich für dich richtig anfühlt.",
+    "allocateInstructions": "Du hast <bold>{amount}</bold> zu verplanen. Teile den Betrag auf die Kategorien unten auf.",
+    "itemsToSort": "Gegenstände zum Sortieren",
+    "tapItemThenBucket": "Tippe oben auf einen Gegenstand und dann auf einen Korb, um ihn einzusortieren.",
+    "selectedItemHint": "Ausgewählt: {item}. Tippe jetzt unten auf einen Korb.",
+    "matchThese": "Ordne diese zu",
+    "withThese": "Diesen zu",
+    "matched": "Passt zusammen!",
+    "notAMatch": "Kein Treffer - versuch es noch einmal."
   },
   "simulator": {
     "weekOf": "{week} von {total}",
@@ -137,7 +145,13 @@
     "reducedMotionLabel": "Animationen reduzieren",
     "focusModeLabel": "Fokusmodus",
     "focusModeHint": "Blendet zusätzliche Details aus, sodass nur die Hauptaktivität angezeigt wird.",
-    "listenToLessonLabel": "Lektion anhören"
+    "listenToLessonLabel": "Lektion anhören",
+    "mainNavigationLabel": "Hauptnavigation"
+  },
+  "characters": {
+    "pip": "Pip",
+    "sage": "Sage die Eule",
+    "zip": "Zip das Eichhörnchen"
   },
   "footer": {
     "privacy": "Datenschutz",

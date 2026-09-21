@@ -76,7 +76,15 @@
     "notReadyForAgeGroup": "Dit spel is nog niet klaar voor jouw leeftijdsgroep - kom snel terug!",
     "everyCoinPlanned": "Elke munt is gepland!",
     "coinsLeftToPlan": "{amount} nog te plannen",
-    "chooseAnyOption": "Er is hier geen enkel juist antwoord - kies wat voor jou klopt."
+    "chooseAnyOption": "Er is hier geen enkel juist antwoord - kies wat voor jou klopt.",
+    "allocateInstructions": "Je hebt <bold>{amount}</bold> om te verdelen. Verdeel het over de categorieën hieronder.",
+    "itemsToSort": "Items om te sorteren",
+    "tapItemThenBucket": "Tik op een item hierboven en tik dan op een bak om het te sorteren.",
+    "selectedItemHint": "Geselecteerd: {item}. Tik nu op een bak hieronder.",
+    "matchThese": "Koppel deze",
+    "withThese": "Aan deze",
+    "matched": "Gekoppeld!",
+    "notAMatch": "Geen match - probeer opnieuw."
   },
   "simulator": {
     "weekOf": "{week} van {total}",
@@ -137,7 +145,13 @@
     "reducedMotionLabel": "Animaties verminderen",
     "focusModeLabel": "Focusmodus",
     "focusModeHint": "Verbergt extra details zodat alleen de hoofdactiviteit wordt getoond.",
-    "listenToLessonLabel": "Luister naar de les"
+    "listenToLessonLabel": "Luister naar de les",
+    "mainNavigationLabel": "Hoofdmenu"
+  },
+  "characters": {
+    "pip": "Pip",
+    "sage": "Sage de Uil",
+    "zip": "Zip de Eekhoorn"
   },
   "footer": {
     "privacy": "Privacy",

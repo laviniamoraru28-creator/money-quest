@@ -76,7 +76,15 @@
     "notReadyForAgeGroup": "Ta gra nie jest jeszcze gotowa dla twojej grupy wiekowej - wróć wkrótce!",
     "everyCoinPlanned": "Każda moneta jest zaplanowana!",
     "coinsLeftToPlan": "{amount} pozostało do zaplanowania",
-    "chooseAnyOption": "Nie ma tu jednej właściwej odpowiedzi - wybierz to, co wydaje ci się słuszne."
+    "chooseAnyOption": "Nie ma tu jednej właściwej odpowiedzi - wybierz to, co wydaje ci się słuszne.",
+    "allocateInstructions": "Masz <bold>{amount}</bold> do zaplanowania. Rozdziel tę kwotę między poniższe kategorie.",
+    "itemsToSort": "Przedmioty do posortowania",
+    "tapItemThenBucket": "Dotknij przedmiotu powyżej, a potem dotknij kosza, aby go posortować.",
+    "selectedItemHint": "Wybrano: {item}. Teraz dotknij kosza poniżej.",
+    "matchThese": "Dopasuj te",
+    "withThese": "Do tych",
+    "matched": "Dopasowano!",
+    "notAMatch": "To nie pasuje - spróbuj ponownie."
   },
   "simulator": {
     "weekOf": "{week} z {total}",
@@ -137,7 +145,13 @@
     "reducedMotionLabel": "Ogranicz animacje",
     "focusModeLabel": "Tryb skupienia",
     "focusModeHint": "Ukrywa dodatkowe szczegóły, tak by widoczne było tylko główne zadanie.",
-    "listenToLessonLabel": "Posłuchaj lekcji"
+    "listenToLessonLabel": "Posłuchaj lekcji",
+    "mainNavigationLabel": "Menu główne"
+  },
+  "characters": {
+    "pip": "Pip",
+    "sage": "Sage Sowa",
+    "zip": "Zip Wiewiórka"
   },
   "footer": {
     "privacy": "Prywatność",

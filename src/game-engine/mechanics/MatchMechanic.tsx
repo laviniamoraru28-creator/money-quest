@@ -1,12 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import type { MechanicProps } from "../registry";
 import type { MatchRound } from "../types";
 
 /** Tap-tap matching (select a left item, then its right pair) rather than
  * drag — same accessibility rationale as SortMechanic. */
 export function MatchMechanic({ round, onAnswer, isResolved }: MechanicProps<MatchRound>) {
+  const t = useTranslations();
   const [matchedIds, setMatchedIds] = useState<Set<string>>(new Set());
   const [selectedLeftId, setSelectedLeftId] = useState<string | null>(null);
   const [wrongFlash, setWrongFlash] = useState<string | null>(null);
@@ -33,14 +35,14 @@ export function MatchMechanic({ round, onAnswer, isResolved }: MechanicProps<Mat
       next.add(pairId);
       setMatchedIds(next);
       setSelectedLeftId(null);
-      setStatusMessage("Matched!");
+      setStatusMessage(t("game.matched"));
 
       if (next.size === round.pairs.length) {
         onAnswer(true); // matching mechanic: reaching full completion IS the correct answer
       }
     } else {
       setWrongFlash(pairId);
-      setStatusMessage("Not a match - try again.");
+      setStatusMessage(t("game.notAMatch"));
       setTimeout(() => setWrongFlash(null), 1200); // long enough to actually register, not just a flicker
       setSelectedLeftId(null);
     }
@@ -57,7 +59,7 @@ export function MatchMechanic({ round, onAnswer, isResolved }: MechanicProps<Mat
       </p>
 
       <div className="mt-2xs grid grid-cols-2 gap-md">
-        <div className="grid gap-2xs" role="list" aria-label="Match these">
+        <div className="grid gap-2xs" role="list" aria-label={t("game.matchThese")}>
           {round.pairs.map((pair) => {
             const isMatched = matchedIds.has(pair.id);
             return (
@@ -85,7 +87,7 @@ export function MatchMechanic({ round, onAnswer, isResolved }: MechanicProps<Mat
             );
           })}
         </div>
-        <div className="grid gap-2xs" role="list" aria-label="With these">
+        <div className="grid gap-2xs" role="list" aria-label={t("game.withThese")}>
           {shuffledRight.map((pair) => {
             const isMatched = matchedIds.has(pair.id);
             const isWrongFlash = wrongFlash === pair.id;

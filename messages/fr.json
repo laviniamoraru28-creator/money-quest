@@ -76,7 +76,15 @@
     "notReadyForAgeGroup": "Ce jeu n'est pas encore prêt pour ta tranche d'âge - reviens bientôt !",
     "everyCoinPlanned": "Chaque pièce est planifiée !",
     "coinsLeftToPlan": "{amount} restant à planifier",
-    "chooseAnyOption": "Il n'y a pas de bonne réponse unique ici - choisis ce qui te semble juste."
+    "chooseAnyOption": "Il n'y a pas de bonne réponse unique ici - choisis ce qui te semble juste.",
+    "allocateInstructions": "Tu as <bold>{amount}</bold> à répartir. Partage cette somme entre les catégories ci-dessous.",
+    "itemsToSort": "Éléments à trier",
+    "tapItemThenBucket": "Touche un élément ci-dessus, puis touche un bac pour le trier.",
+    "selectedItemHint": "Sélectionné : {item}. Touche maintenant un bac ci-dessous.",
+    "matchThese": "Associe ceux-ci",
+    "withThese": "Avec ceux-ci",
+    "matched": "Associé !",
+    "notAMatch": "Ce n'est pas une paire - réessaie."
   },
   "simulator": {
     "weekOf": "{week} sur {total}",
@@ -137,7 +145,13 @@
     "reducedMotionLabel": "Réduire les animations",
     "focusModeLabel": "Mode concentration",
     "focusModeHint": "Masque les détails supplémentaires pour ne montrer que l'activité principale.",
-    "listenToLessonLabel": "Écouter la leçon"
+    "listenToLessonLabel": "Écouter la leçon",
+    "mainNavigationLabel": "Principal"
+  },
+  "characters": {
+    "pip": "Pip",
+    "sage": "Sage la Chouette",
+    "zip": "Zip l'Écureuil"
   },
   "footer": {
     "privacy": "Confidentialité",
