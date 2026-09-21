@@ -123,6 +123,121 @@
     "insightBufferHeldUp": "Je \"Voor het geval dat\"-buffer hield goed stand tegen wat er ook gebeurde - goede planning.",
     "insightGivingNoticed": "Je hebt ruimte gemaakt om te geven, terwijl je al het andere beheerde - dat is het opmerken waard."
   },
+  "investingLab": {
+    "pageTitle": "Investeringslab",
+    "simulationBanner": "SIMULATIE - ALLEEN VIRTUEEL GELD",
+    "simulationExplainer": "Alles hier gebruikt verzonnen bedrijven en nepgeld om te leren. Er zijn geen echte bedrijven, geen echte beurs en geen echt geld bij betrokken.",
+    "guardrailIntro": "Beleggingen kunnen waarde verliezen net zo goed als ze kunnen winnen, en keuzes met een hoger mogelijk rendement brengen meestal ook meer risico met zich mee. Dit is een leersimulatie, geen beleggingsadvies - niets hier belooft wat er echt zou gebeuren.",
+    "cashLabel": "Virtueel geld",
+    "portfolioValueLabel": "Portefeuillewaarde",
+    "overallChangeLabel": "{amount} ({percent} %) sinds je begon",
+    "companiesTitle": "Fictieve bedrijven",
+    "companyListLabel": "Fictieve bedrijven",
+    "holdingsTitle": "Jouw posities",
+    "diversificationTitle": "Spreiding",
+    "watchlistTitle": "Volglijst",
+    "watchlistEmptyHint": "Nog niets op je volglijst - tik op „Toevoegen aan volglijst” bij een bedrijf om het in de gaten te houden zonder het te kopen.",
+    "transactionHistoryTitle": "Transactiegeschiedenis",
+    "timeMachineTitle": "Tijdmachine",
+    "timeMachineIntro": "Bekijk hoe een verzonnen belegging uit het verleden tot vandaag zou zijn veranderd - een manier om te ontdekken hoe onvoorspelbaar de korte termijn kan zijn, en hoe anders de lange termijn eruit kan zien.",
+    "resetConfirm": "Dit wist je Investeringslab-portefeuille, posities en geschiedenis op dit apparaat. Dit kan niet ongedaan worden gemaakt. Doorgaan?",
+    "resetButton": "Investeringslab resetten",
+    "removeFromWatchlist": "Verwijderen van volglijst",
+    "addToWatchlist": "Toevoegen aan volglijst",
+    "companyNewsTitle": "Bedrijfsnieuws",
+    "eventPositiveLabel": "Goed nieuws",
+    "eventNegativeLabel": "Slecht nieuws",
+    "buySharesLabel": "Aandelen kopen",
+    "insufficientCash": "Je hebt niet genoeg virtueel geld voor zoveel aandelen.",
+    "boughtSharesConfirmation": "Je hebt {shares} aandelen van {company} gekocht.",
+    "buyButton": "Kopen",
+    "maxAffordableHint": "Je zou je nu tot {shares} aandelen kunnen veroorloven.",
+    "sector": {
+      "renewableEnergy": "Hernieuwbare energie",
+      "games": "Games",
+      "healthyFood": "Gezond eten",
+      "transport": "Vervoer",
+      "technology": "Technologie",
+      "natureAndEnvironment": "Natuur & milieu"
+    },
+    "riskProfile": {
+      "lower": "Sector met lager risico - beweegt meestal stabieler",
+      "medium": "Sector met gemiddeld risico - beweegt in een gematigd tempo op en neer",
+      "higher": "Sector met hoger risico - kan snel op en neer schommelen"
+    },
+    "noHoldingsYet": "Je bezit nog geen fictieve aandelen - koop er hierboven om ze hier te zien.",
+    "sharesLabel": "Aandelen",
+    "averagePriceLabel": "Gemiddelde prijs",
+    "currentPriceLabel": "Huidige prijs",
+    "currentValueLabel": "Huidige waarde",
+    "sellSharesLabel": "Te verkopen aandelen van {company}",
+    "insufficientShares": "Je bezit niet zoveel aandelen om te verkopen.",
+    "soldSharesConfirmation": "Je hebt {shares} aandelen van {company} verkocht.",
+    "sellButton": "Verkopen",
+    "diversificationAllCashHint": "Zodra je aandelen van meer dan één bedrijf bezit, zie je hier hoe gespreid je portefeuille is.",
+    "diversificationChartLabel": "Hoe je portefeuille verdeeld is over bedrijven en contant geld",
+    "diversificationExplainer": "Virtueel geld over verschillende bedrijven verdelen (spreiden) zorgt ervoor dat een slecht presterend bedrijf minder invloed heeft op je hele portefeuille - maar het verwijdert het risico niet volledig.",
+    "noTransactionsYet": "Nog geen aan- of verkopen.",
+    "transactionBuyLine": "Kocht {shares} aandelen van {company}",
+    "transactionSellLine": "Verkocht {shares} aandelen van {company}",
+    "timeMachineCompanyLabel": "Bedrijf",
+    "timeMachineAmountLabel": "Verzonnen belegd bedrag",
+    "timeMachineDaysAgoLabel": "Hoe lang geleden",
+    "timeMachineYearsAgo": "{years} jaar geleden",
+    "timeMachineResultIntro": "{shares} aandelen die toen voor {amount} zijn gekocht, zouden nu waard zijn:",
+    "timeMachineTooSmallHint": "Dat verzonnen bedrag was toen niet genoeg voor zelfs maar één heel aandeel.",
+    "timeMachineDisclaimer": "Dit gebruikt vaste, verzonnen prijzen uit het verleden, alleen om te leren. Prestaties uit het verleden garanderen nooit wat er in de toekomst zou gebeuren - echt of fictief.",
+    "chartPeriodGroupLabel": "Periode van de grafiek",
+    "period": {
+      "1D": "1D",
+      "1W": "1W",
+      "1M": "1M",
+      "3M": "3M",
+      "1Y": "1J",
+      "5Y": "5J"
+    },
+    "chartFictionalNote": "Deze prijzen zijn gesimuleerd om te leren - geen echte marktgegevens.",
+    "companies": {
+      "sunbeam-energy": {
+        "name": "Sunbeam Energy Co.",
+        "description": "Een fictief bedrijf dat zonnepanelen en andere apparatuur voor hernieuwbare energie maakt."
+      },
+      "pixel-quest-games": {
+        "name": "Pixel Quest Games",
+        "description": "Een fictief bedrijf dat videogames maakt, waaronder zijn populaire Pixel Quest-reeks."
+      },
+      "green-bite-foods": {
+        "name": "Green Bite Foods",
+        "description": "Een fictief bedrijf dat gezonde snacks en kant-en-klaarmaaltijden maakt."
+      },
+      "skyline-transit": {
+        "name": "Skyline Transit",
+        "description": "Een fictief bedrijf dat bussen en treinen in en rond steden exploiteert."
+      },
+      "nimbus-tech": {
+        "name": "Nimbus Tech",
+        "description": "Een fictief bedrijf dat computers, telefoons en andere gadgets maakt."
+      },
+      "wildwood-nature-co": {
+        "name": "Wildwood Nature Co.",
+        "description": "Een fictief bedrijf dat bomen plant en natuurreservaten beheert."
+      }
+    },
+    "events": {
+      "sunbeam-breakthrough": "Sunbeam Energy kondigde een nieuw soort zonnepaneel aan dat zelfs bij bewolkt weer werkt.",
+      "sunbeam-supply-problem": "Sunbeam Energy had moeite om genoeg van een materiaal te krijgen dat nodig is voor zijn zonnepanelen.",
+      "pixelquest-hit-launch": "Pixel Quest Games bracht een nieuw spel uit dat zich in de eerste maand uitstekend verkocht.",
+      "pixelquest-disappointing-reviews": "Het nieuwste spel van Pixel Quest Games kreeg teleurstellende beoordelingen van spelers.",
+      "greenbite-positive-response": "De nieuwe gezonde snack van Green Bite Foods kreeg een zeer positieve reactie van klanten.",
+      "greenbite-supply-problem": "Green Bite Foods had een tekort aan een van zijn belangrijkste ingrediënten.",
+      "skyline-fewer-passengers": "Skyline Transit had in een kwartaal minder reizigers dan verwacht.",
+      "skyline-strong-pass-sales": "Skyline Transit verkocht veel nieuwe reisabonnementen nadat de prijs was verlaagd.",
+      "nimbus-new-gadget": "Nimbus Tech bracht een nieuwe gadget uit die snel populair werd.",
+      "nimbus-technical-problem": "Nimbus Tech had een technisch probleem dat duur was om te herstellen.",
+      "wildwood-discovery": "Wildwood Nature Co. ontdekte een nieuwe manier om bossen sneller te laten herstellen na bosbranden.",
+      "wildwood-slow-season": "Wildwood Nature Co. had een rustiger seizoen dan gebruikelijk voor bezoeken aan zijn natuurreservaten."
+    }
+  },
   "categories": {
     "needs": "Behoeften",
     "wants": "Wensen",
@@ -217,7 +332,8 @@
     "amountToWithdraw": "Uit te geven bedrag",
     "spendSome": "Geef iets uit",
     "moneyPersonalityLink": "Geldpersoonlijkheid",
-    "levelActivityProgress": "Level {level} · Activiteit {position} van {total}"
+    "levelActivityProgress": "Level {level} · Activiteit {position} van {total}",
+    "investingLabLink": "Investeringslab →"
   },
   "parentInfo": {
     "title": "Informatie voor Ouders",
@@ -1145,6 +1261,384 @@
       "rewardMessage": "Munten verdiend voor het serieus nadenken over goed geven, niet alleen geven.",
       "parentNote": "Deze les beveelt bewust geen specifiek goed doel of specifieke organisatie aan, aangezien dat een persoonlijke en gezinsbeslissing is die deze app geen basis heeft om voor jou te nemen. Als je tiener echte liefdadige giften wil verkennen, is het samen bekijken van de eigen gepubliceerde informatie van een goed doel een oprecht goede, praktische activiteit die verder gaat dan wat deze les alleen kan bieden.",
       "commonMisconception": "Tieners slaan soms door naar een van beide uitersten - geven zonder enig nadenken, of zo sceptisch worden over alle geven dat ze er helemaal mee stoppen - in plaats van uit te komen bij doordachte, geïnformeerde vrijgevigheid."
+    },
+    "explorer-digital_money-l1": {
+      "title": "Geld dat je niet kunt vasthouden",
+      "learningObjective": "Herkennen dat geld digitaal kan zijn (zoals een pasje tegen een apparaat houden) naast fysieke munten en briefjes.",
+      "shortIntroduction": "Soms ziet geld er helemaal niet uit als munten - laten we kijken wat dat betekent!",
+      "story": "In de winkel houdt mama een pasje tegen een apparaatje in plaats van munten te geven. Piep! De winkelier zegt „dank je wel” en geeft haar het brood. Er is geen enkele munt bewogen - maar de betaling is toch gelukt!",
+      "keyConcept": "Geld kan digitaal zijn - cijfers die tussen rekeningen bewegen - niet alleen munten en briefjes die je kunt vasthouden.",
+      "vocabulary": [
+        {
+          "term": "digitaal geld",
+          "definition": "Geld dat als cijfers in een computer bestaat, niet als munten of briefjes die je kunt vasthouden"
+        },
+        {
+          "term": "pasje",
+          "definition": "Een klein plastic hulpmiddel waarmee je dingen kunt betalen zonder munten of briefjes te gebruiken"
+        }
+      ],
+      "explanation": "Toen mama haar pasje tegen het apparaat hield, wisselde er geen munt of briefje van eigenaar. In plaats daarvan ging een getal omlaag op haar rekening en een getal omhoog op de rekening van de winkel. Het is nog steeds echt geld - het beweegt alleen anders.",
+      "interactiveActivity": "Sorteer plaatjes in „fysiek geld” (munten, briefjes) en „digitaal geld” (een pasje tegen een apparaat, een online betaalscherm).",
+      "gameIdea": "Digitaal of fysiek?: sorteer betaalplaatjes in de juiste groep.",
+      "challenge": "Vraag een volwassene om je een digitale betaling te laten zien die hij of zij vandaag heeft gedaan, zoals pinnen of betalen met de telefoon.",
+      "quiz": {
+        "question": "Wat is een voorbeeld van digitaal geld?",
+        "options": [
+          "Een pasje tegen een apparaat houden om te betalen",
+          "Een munt in je zak",
+          "Een papieren briefje",
+          "Een spaarpot"
+        ],
+        "correctAnswer": "Een pasje tegen een apparaat houden om te betalen",
+        "explanation": "Een pasje tegen een apparaat houden verplaatst cijfers tussen rekeningen in plaats van munten of briefjes te geven - dat maakt het digitaal geld."
+      },
+      "feedback": {
+        "success": "Precies goed - pinnen is digitaal geld in actie! 💳",
+        "retry": "Denk aan wat er gebeurde toen mama's pasje „piep” deed in de winkel."
+      },
+      "rewardMessage": "Munten verdiend omdat je digitaal geld in actie hebt herkend!",
+      "parentNote": "Deze les introduceert het basisidee dat geld digitaal kan bewegen, zonder dat het nodig is om uit te leggen hoe kaartnetwerken of bankoverschrijvingen echt werken - dat detail is op deze leeftijd niet nodig. Als je kind je een pasje ziet gebruiken of met de telefoon ziet betalen, versterkt het hardop benoemen ervan („kijk, dat is digitaal geld dat beweegt”) dit mooi.",
+      "commonMisconception": "Jonge kinderen denken soms dat een pasje „het geld” zelf is, in plaats van een hulpmiddel dat geld verplaatst dat al op een rekening staat."
+    },
+    "builder-digital_money-l1": {
+      "title": "Hoe een betaling met pasje echt werkt",
+      "learningObjective": "In eenvoudige woorden uitleggen wat er achter de schermen gebeurt bij een betaling met pasje of contactloos, en basisveiligheidsgewoontes begrijpen zoals een pincode geheimhouden.",
+      "shortIntroduction": "Pinnen lijkt razendsnel, maar achter de schermen gebeuren een paar echte stappen om het geld veilig te verplaatsen.",
+      "story": "Omar koopt een stripboek met de familiepas. Hij ziet op het kleine scherm een bedrag verschijnen, dan komt er een groen vinkje. Zijn oudere neef legt uit: „Dat vinkje betekent dat de winkel net heeft gecontroleerd of er genoeg geld op de rekening staat, en het heeft overgemaakt - allemaal in ongeveer een seconde.”",
+      "keyConcept": "Een betaling met pasje controleert snel of er genoeg geld beschikbaar is, en verplaatst dat bedrag dan van de rekening van de koper naar de rekening van de verkoper - bijna meteen.",
+      "vocabulary": [
+        {
+          "term": "contactloos betalen",
+          "definition": "Een betaling waarbij je een pasje of apparaat tegen een terminal houdt, in plaats van het in te steken of door te halen"
+        },
+        {
+          "term": "pincode",
+          "definition": "Een privécijfercode die bewijst dat een pasje echt door de eigenaar wordt gebruikt"
+        },
+        {
+          "term": "betalingsbevestiging",
+          "definition": "Het bericht of vinkje dat laat zien dat een betaling echt is gelukt"
+        }
+      ],
+      "explanation": "Achter het tegen een apparaat houden van een pasje controleert een betaalnetwerk snel of er genoeg geld op de rekening staat, en verplaatst dan precies dat bedrag naar de verkoper. Het groene vinkje of de kassabon zijn de betalingsbevestiging - het bewijs dat het echt is gebeurd, niet alleen dat een apparaat piepte. Een pincode bestaat zodat alleen de echte eigenaar (of iemand die vertrouwd wordt) het pasje kan gebruiken voor grotere betalingen.",
+      "interactiveActivity": "Doorloop de stappen van een betaling met pasje in de juiste volgorde: tegen het apparaat houden, saldo controleren, bevestigen, bon.",
+      "gameIdea": "Betaalstappen: zet de stappen van een betaling met pasje in de juiste volgorde.",
+      "challenge": "De volgende keer dat een volwassene met pasje betaalt, vraag hem of haar om je de bevestiging te laten zien - het vinkje, de bon of het bericht dat laat zien dat het werkte.",
+      "quiz": {
+        "question": "Wat laat een betalingsbevestiging eigenlijk zien?",
+        "options": [
+          "Dat de betaling echt is gelukt",
+          "Dat het pasje leeg is",
+          "Dat de winkel gesloten is",
+          "Niets belangrijks"
+        ],
+        "correctAnswer": "Dat de betaling echt is gelukt",
+        "explanation": "Een betalingsbevestiging - een vinkje, een bon of een bericht - is het bewijs dat het geld echt is verplaatst, daarom is het de moeite waard om dit te controleren in plaats van aan te nemen dat een betaling is gelukt."
+      },
+      "feedback": {
+        "success": "Precies - die bevestiging is een bewijs, geen versiering! ✅",
+        "retry": "Denk aan wat Omars neef uitlegde over het groene vinkje."
+      },
+      "rewardMessage": "Munten verdiend omdat je begreep hoe een betaling met pasje echt werkt!",
+      "parentNote": "Deze les houdt het technische detail bewust beperkt tot wat op deze leeftijd echt nuttig is: dat een betaling wordt gecontroleerd en bevestigd, en dat een pincode die beschermt. Het is een goed moment om een eenvoudige gezinsregel af te spreken: pincodes en wachtwoorden worden met niemand gedeeld, ook niet met vrienden - niet omdat iemand onbetrouwbaar zou zijn, maar omdat het een gewoonte is die het waard is om vroeg op te bouwen.",
+      "commonMisconception": "Kinderen nemen soms aan dat een betaling altijd werkt zodra het pasje het apparaat raakt, zonder te beseffen dat er eerst een controle van het beschikbare geld plaatsvindt, en dat een betaling geweigerd kan worden."
+    },
+    "strategist-digital_money-l1": {
+      "title": "Veilig en alert met digitaal geld",
+      "learningObjective": "Praktische gewoontes toepassen om digitale uitgaven veilig en kritisch te beheren, waaronder betalingsberichten controleren en uitgaven bijhouden, en herkennen waarom digitaal geld minder „echt” kan aanvoelen dan contant geld.",
+      "shortIntroduction": "Digitaal geld is handig - en juist daarom heeft het wat meer bewuste aandacht nodig dan contant geld.",
+      "story": "Priya merkt dat ze deze maand meer heeft uitgegeven dan verwacht, ook al herinnert ze zich geen enkele grote aankoop. Als ze de geschiedenis van haar digitale portemonnee bekijkt, ziet ze verschillende kleine betalingen die ze nauwelijks had opgemerkt toen ze ze deed - elke leek op dat moment te klein om erover na te denken.",
+      "keyConcept": "Omdat digitale betalingen niets fysieks overhandigen, kunnen ze op het moment zelf minder „echt” aanvoelen - waardoor bewust controleren wat je uitgeeft en betalingen bevestigen echt nuttige gewoontes zijn.",
+      "vocabulary": [
+        {
+          "term": "digitale portemonnee",
+          "definition": "Een app of rekening die betaalgegevens opslaat en digitale uitgaven bijhoudt"
+        },
+        {
+          "term": "betalingsbevestiging",
+          "definition": "Een bericht of bon die bewijst dat een betaling echt is gelukt, de moeite waard om te controleren voordat je aanneemt dat het werkte"
+        },
+        {
+          "term": "phishingbericht",
+          "definition": "Een nepbericht dat doet alsof het van een echte betaaldienst komt, gemaakt om iemand te misleiden om privégegevens prijs te geven"
+        }
+      ],
+      "explanation": "Een munt overhandigen is een kleine fysieke handeling die op dat moment voelbaar is; een pasje tegen een apparaat houden of een betaling in een app goedkeuren kan bijna moeiteloos aanvoelen, en juist daarom kunnen meerdere kleine digitale betalingen ongemerkt oplopen. De gewoonte om echt te kijken waarvoor je betaalt, betalingsbevestigingen te controleren in plaats van aan te nemen dat ze werkten, en af en toe een uitgavengeschiedenis te bekijken, zijn allemaal manieren om digitaal geld net zo „echt” te laten aanvoelen als contant geld. Het helpt ook om nepbetalingsberichten te herkennen - phishingpogingen die het uiterlijk van een echte betaaldienst nabootsen om iemand privégegevens te laten intypen; echte betaaldiensten vragen nooit per bericht om een volledig wachtwoord of pincode.",
+      "interactiveActivity": "Bekijk een voorbeeldgeschiedenis van een digitale portemonnee en zoek welke posten meer optellen dan verwacht, plus één bericht dat eruitziet als een echt betalingsverzoek maar dat niet is.",
+      "gameIdea": "Uitgaventracker: bekijk een week aan verzonnen digitale transacties en zoek het patroon.",
+      "challenge": "Bedenk een digitale gewoonte die je deze week zou kunnen opbouwen - zoals een bon controleren, of vragen hoeveel een abonnement eigenlijk per maand kost.",
+      "quiz": {
+        "question": "Waarom kun je digitale uitgaven makkelijker uit het oog verliezen dan contante uitgaven?",
+        "options": [
+          "Omdat er geen fysieke, elke keer voelbare handeling bij komt kijken",
+          "Omdat digitaal geld minder waard is",
+          "Omdat digitale betalingen altijd fouten zijn",
+          "Omdat contant geld niet snel uitgegeven kan worden"
+        ],
+        "correctAnswer": "Omdat er geen fysieke, elke keer voelbare handeling bij komt kijken",
+        "explanation": "Contant geld overhandigen is een kleine fysieke handeling die elke keer voelbaar is; een snelle tik of app-goedkeuring kan daarmee vergeleken moeiteloos aanvoelen, en juist daarom kunnen meerdere kleine digitale betalingen oplopen zonder dat iemand het echt merkt."
+      },
+      "feedback": {
+        "success": "Precies - dat opmerken is de eerste stap om grip te houden op digitale uitgaven. 📱",
+        "retry": "Denk na over waarom Priya's uitgaven stegen zonder één grote aankoop."
+      },
+      "rewardMessage": "Munten verdiend omdat je zorgvuldig hebt nagedacht over alertheid met digitaal geld!",
+      "parentNote": "Deze les gaat niet over het beperken van digitale betalingen, maar over het opbouwen van bewust bewustzijn - dezelfde vaardigheid die ook volwassenen moeten oefenen. Als je tiener toegang heeft tot een pasje of digitale portemonnee, is het af en toe samen bekijken van een uitgavengeschiedenis (zonder oordeel) een echt nuttige gedeelde gewoonte, geen controle.",
+      "commonMisconception": "Tieners nemen soms aan dat ze, omdat ze zich comfortabel voelen met apps en pasjes, automatisch hun uitgaven goed bijhouden - vertrouwd zijn met de technologie en bewust zijn van het uitgegeven bedrag zijn twee verschillende dingen."
+    },
+    "explorer-investing_basics-l1": {
+      "title": "Sparen of je geld laten groeien",
+      "learningObjective": "Het basisverschil begrijpen tussen geld sparen en geld beleggen, op een eenvoudig niveau.",
+      "shortIntroduction": "Sparen houdt je munten veilig - beleggen is een ander idee waarbij je geld kan groeien, maar dat is niet gegarandeerd.",
+      "story": "Leo spaart al maanden munten in een pot - zijn stapel groeit alleen als hij er meer aan toevoegt. Zijn oudere zus legt uit dat sommige volwassenen geld in plaats daarvan in dingen stoppen die „beleggingen” heten, in de hoop dat het bedrag vanzelf groeit met de tijd - maar ze voegt er snel aan toe: „het kan ook krimpen. Niets is beloofd.”",
+      "keyConcept": "Sparen houdt geld veilig en ongewijzigd tot je er meer aan toevoegt. Beleggen betekent geld gebruiken om te proberen het met de tijd te laten groeien, maar het bedrag kan stijgen of dalen - het is nooit gegarandeerd.",
+      "vocabulary": [
+        {
+          "term": "sparen",
+          "definition": "Geld veilig bewaren zonder het uit te geven"
+        },
+        {
+          "term": "beleggen",
+          "definition": "Geld op een manier gebruiken die het met de tijd zou kunnen laten groeien, maar zonder garantie - het kan ook waarde verliezen"
+        }
+      ],
+      "explanation": "Een spaarpot verandert alleen als je er meer munten in doet of er wat uithaalt. Beleggen is anders: volwassenen gebruiken geld soms om mede-eigenaar te worden van dingen, zoals bedrijven, in de hoop dat de waarde stijgt - maar precies zoals het verhaal uitlegt, kan die ook krimpen. Niemand kan beloven dat beleggen meer geld oplevert.",
+      "interactiveActivity": "Sorteer uitspraken in „dit beschrijft sparen” en „dit beschrijft beleggen”.",
+      "gameIdea": "Sparen of beleggen?: sorteer eenvoudige voorbeelden in de juiste groep.",
+      "challenge": "Vraag een volwassene of hij of zij het woord „beleggen” eerder heeft gehoord en wat het voor hem of haar betekent.",
+      "quiz": {
+        "question": "Wat is anders aan beleggen vergeleken met sparen?",
+        "options": [
+          "De waarde van een belegging kan stijgen of dalen, zonder garantie",
+          "Beleggen levert altijd meer geld op",
+          "Beleggen is precies hetzelfde als sparen",
+          "Beleggen betekent al je geld in één keer uitgeven"
+        ],
+        "correctAnswer": "De waarde van een belegging kan stijgen of dalen, zonder garantie",
+        "explanation": "Anders dan een spaarpot, die alleen verandert als je munten toevoegt of weghaalt, kan de waarde van een belegging echt vanzelf stijgen of dalen - en niemand kan beloven in welke richting."
+      },
+      "feedback": {
+        "success": "Precies goed - beleggen is nooit een garantie, omhoog of omlaag! 🌱",
+        "retry": "Denk aan wat Leo's zus voorzichtig toevoegde over beleggen."
+      },
+      "rewardMessage": "Munten verdiend omdat je het verschil tussen sparen en beleggen begreep!",
+      "parentNote": "Deze les houdt beleggen op deze leeftijd bewust conceptueel en abstract - zonder echte producten, platforms of cijfers - omdat het hier simpelweg gaat om het idee dat geld gebruikt kan worden om vanzelf te groeien, en dat dit altijd echte onzekerheid met zich meebrengt. Er is nog niets waarop een jong kind nu zou moeten handelen.",
+      "commonMisconception": "Jonge kinderen nemen soms aan dat beleggen gewoon een snellere manier van sparen is, in plaats van te begrijpen dat het echte onzekerheid en mogelijk verlies inhoudt."
+    },
+    "builder-investing_basics-l1": {
+      "title": "Een klein stukje van een bedrijf bezitten",
+      "learningObjective": "Begrijpen wat een aandeel voorstelt (een klein stukje eigendom in een bedrijf) en dat de waarde kan stijgen of dalen afhankelijk van hoe het bedrijf presteert.",
+      "shortIntroduction": "Als je een „aandeel” van een bedrijf koopt, kijk je niet alleen naar een getal - je bezit een piepklein stukje van een echt bedrijf.",
+      "story": "Mei's oom bezit een klein stukje van een speelgoedbedrijf omdat hij enkele van hun „aandelen” heeft gekocht. Als het bedrijf een speelgoed uitbrengt dat heel goed verkoopt, stijgt de waarde van zijn aandelen een beetje. Als het bedrijf een slecht jaar heeft, kan de waarde dalen. Hij zegt tegen Mei: „Ik bezit een piepklein stukje van dat bedrijf - dus hoe het gaat, raakt mij ook een beetje.”",
+      "keyConcept": "Een aandeel is een klein stukje eigendom in een echt bedrijf. De waarde weerspiegelt meestal hoe goed mensen denken dat het bedrijf het doet - daarom kan die stijgen of dalen.",
+      "vocabulary": [
+        {
+          "term": "aandeel",
+          "definition": "Een klein stukje eigendom in een bedrijf"
+        },
+        {
+          "term": "effect",
+          "definition": "Een ander woord voor aandelen - kleine stukjes eigendom in een bedrijf"
+        },
+        {
+          "term": "bedrijf",
+          "definition": "Een onderneming die iets maakt of verkoopt en die veel verschillende eigenaren kan hebben via aandelen"
+        }
+      ],
+      "explanation": "Bedrijven kunnen tegelijk aan veel verschillende mensen toebehoren, elk met een bepaald aantal aandelen. Als het goed gaat met een bedrijf - bijvoorbeeld door een populair nieuw product - willen vaak meer mensen er een stukje van bezitten, waardoor de aandelenkoers meestal stijgt. Heeft het moeilijkheden, dan kan het omgekeerde gebeuren. Daarom betekent aandelen bezitten dat je je echt bekommert om hoe het bedrijf presteert, niet alleen naar een getal kijken.",
+      "interactiveActivity": "Bekijk een paar verzonnen bedrijfsscenario's (een succesproduct, een slechte recensie) en voorspel of de aandelenwaarde waarschijnlijk zou stijgen of dalen, en waarom.",
+      "gameIdea": "Het Investeringslab: verken fictieve bedrijven en zie hoe verzonnen gebeurtenissen hun gesimuleerde aandelenkoersen beïnvloeden.",
+      "challenge": "Denk aan een bedrijf waarvan je producten gebruikt. Wat denk je dat er zou gebeuren als het iets zou uitbrengen waar mensen dol op zouden zijn?",
+      "quiz": {
+        "question": "Wat betekent het echt om een aandeel van een bedrijf te bezitten?",
+        "options": [
+          "Een klein stukje van dat echte bedrijf bezitten",
+          "In dienst zijn bij dat bedrijf",
+          "Gratis producten krijgen van dat bedrijf",
+          "Niets bijzonders"
+        ],
+        "correctAnswer": "Een klein stukje van dat echte bedrijf bezitten",
+        "explanation": "Een aandeel vertegenwoordigt echt, al is het klein, eigendom in een bedrijf - daarom weerspiegelt de waarde meestal hoe het dat bedrijf echt gaat."
+      },
+      "feedback": {
+        "success": "Precies - een aandeel is echt eigendom, hoe klein ook! 📈",
+        "retry": "Denk aan wat Mei's oom echt bezit door zijn aandelen."
+      },
+      "rewardMessage": "Munten verdiend omdat je begreep wat het echt betekent om een aandeel te bezitten!",
+      "parentNote": "Deze les introduceert het concept van aandeeleigendom met volledig fictieve voorbeelden - het noemt of beoordeelt bewust geen enkel echt bedrijf, en is geen aanbeveling om iets te kopen. Het Investeringslab van Money Quest (een aparte, op zichzelf staande functie) laat je kind dit idee verder verkennen met volledig fictieve bedrijven en virtueel geld.",
+      "commonMisconception": "Kinderen van deze leeftijd denken soms dat een „aandelenkoers” een willekeurig getal is, in plaats van het te verbinden met echt eigendom in een echt, functionerend bedrijf."
+    },
+    "strategist-investing_basics-l1": {
+      "title": "Risico, spreiding en tijd",
+      "learningObjective": "Risico en beloning begrijpen, spreiding, samengestelde groei als concept, en waarom beleggen verschilt van gokken en een langetermijnvisie vereist in plaats van een garantie op resultaten.",
+      "shortIntroduction": "Beleggen beloont geduld en risicospreiding - geen snelle gokjes, en nooit gegarandeerde resultaten.",
+      "story": "Jamal beslist, als puur gedachte-experiment met verzonnen geld in het Investeringslab, of hij alles in één spannend bedrijf steekt of het over meerdere verschillende verspreidt. Zijn oudere nicht, die economie studeert, merkt op: „Alles op één plek zetten betekent dat één slecht resultaat alles raakt. Spreiden verwijdert het risico niet - maar het betekent dat je niet afhankelijk bent van maar één resultaat.”",
+      "keyConcept": "Beleggen brengt een echte afweging tussen risico en mogelijke beloning met zich mee, en geld over verschillende dingen verspreiden (spreiding) kan de afhankelijkheid van één enkel resultaat verminderen - maar verwijdert het risico nooit volledig. Tijd speelt ook een rol: beleggen is over het algemeen een langetermijnidee, geen snel gokje.",
+      "vocabulary": [
+        {
+          "term": "risico en beloning",
+          "definition": "Het idee dat een kans op grotere winst meestal ook een grotere kans op verlies met zich meebrengt"
+        },
+        {
+          "term": "spreiding",
+          "definition": "Geld over meerdere verschillende dingen verdelen in plaats van over één, zodat geen enkel resultaat alles bepaalt"
+        },
+        {
+          "term": "samengestelde groei",
+          "definition": "Het idee dat winsten zelf met de tijd meer winsten kunnen opleveren, zodat groei zich opstapelt naarmate geld langer belegd blijft"
+        }
+      ],
+      "explanation": "Een hogere mogelijke beloning gaat bijna altijd samen met een hoger mogelijk risico - die afweging kan niet worden omzeild. Spreiding verwijdert het risico niet, maar zorgt ervoor dat één bedrijf dat het slecht doet niet het hele resultaat bepaalt. Tijd speelt ook een rol: samengestelde groei is het idee dat winsten over een lange periode zelf verdere winsten kunnen gaan opleveren - een van de redenen waarom beleggen meestal wordt gezien als een langetermijnactiviteit in plaats van een manier om snel geld te verdienen. Dit maakt beleggen ook precies fundamenteel anders dan gokken: gokken is meestal een korte, geïsoleerde gebeurtenis met kansen die tegen de speler werken, terwijl beleggen (ook al brengt het echt risico met zich mee en geen garanties) verbonden is met echte, doorlopende bedrijven en meestal geduld beloont boven gokken.",
+      "interactiveActivity": "Vergelijk twee verzonnen portefeuilles in het Investeringslab - één geconcentreerd in één bedrijf, één verspreid over meerdere - en bespreek wat er met elk gebeurt na een gesimuleerde gebeurtenis.",
+      "gameIdea": "Het Investeringslab: koop, verkoop en spreid tussen fictieve bedrijven, en gebruik de Tijdmachine om te zien hoe een verzonnen belegging zou kunnen zijn veranderd over een langere gesimuleerde periode.",
+      "challenge": "Probeer in het Investeringslab een verzonnen bedrag over minstens drie verschillende fictieve bedrijven te verspreiden, en bekijk daarna je Spreidingspaneel.",
+      "quiz": {
+        "question": "Wat is een belangrijk verschil tussen beleggen en gokken?",
+        "options": [
+          "Beleggen is verbonden met echte, doorlopende bedrijven, niet met één geïsoleerde gok",
+          "Beleggen garandeert altijd winst",
+          "Gokken garandeert altijd winst",
+          "Er is geen echt verschil"
+        ],
+        "correctAnswer": "Beleggen is verbonden met echte, doorlopende bedrijven, niet met één geïsoleerde gok",
+        "explanation": "Gokken is meestal een geïsoleerde gebeurtenis met kansen tegen de speler; beleggen is, ook al brengt het echt risico met zich mee en geen garanties, verbonden met echte bedrijven over de tijd en beloont meestal geduld boven gokken."
+      },
+      "feedback": {
+        "success": "Precies - die verbinding met echte, doorlopende bedrijven is het belangrijkste verschil. 🎯",
+        "retry": "Denk aan wat Jamals nicht uitlegde over het verspreiden van verzonnen geld over meerdere bedrijven."
+      },
+      "rewardMessage": "Munten verdiend omdat je serieus hebt nagedacht over risico, spreiding en tijd!",
+      "parentNote": "Deze les beveelt nooit een echt beleggingsproduct, platform, aandeel of strategie aan en is geen financieel advies - het doel is puur conceptueel: kennis over risico/beloning, spreiding en langetermijndenken, met behulp van het Investeringslab van Money Quest en de volledig fictieve bedrijven en virtueel geld ervan om de ideeën concreet te maken zonder echt financieel risico. Als je tiener echte beleggingsopties wil begrijpen, is dat een gesprek (en een beslissing) voor jou en, waar passend, een echte financiële professional - nooit deze app.",
+      "commonMisconception": "Tieners verwarren beleggen soms met gokken, of nemen aan dat geld over meerdere dingen verspreiden veiligheid garandeert, in plaats van te begrijpen dat het de afhankelijkheid van één resultaat alleen vermindert (nooit verwijdert)."
+    },
+    "explorer-junior_isa-l1": {
+      "title": "Een speciale spaarrekening alleen voor kinderen (Verenigd Koninkrijk)",
+      "learningObjective": "In eenvoudige woorden begrijpen dat een Junior ISA een spaarrekening uit het Verenigd Koninkrijk is die aan een kind toebehoort, ook al beheert een volwassene die.",
+      "shortIntroduction": "In het Verenigd Koninkrijk bestaat een speciaal soort spaarrekening die aan een kind toebehoort, ook al beheert een volwassene die.",
+      "story": "Freya's oma heeft geld gestort in iets dat een „Junior ISA” heet, voor haar. Freya vroeg of het echt van haar was. Haar moeder legde uit: „Ja - dat geld is van jou. Oma en ik zorgen er alleen voor tot je oud genoeg bent om het zelf te beheren.”",
+      "keyConcept": "Een Junior ISA (JISA) is een spaarrekening uit het Verenigd Koninkrijk die aan een kind toebehoort, ook al beheert een ouder of voogd die terwijl het kind jong is.",
+      "vocabulary": [
+        {
+          "term": "Junior ISA",
+          "definition": "Een spaarrekening uit het Verenigd Koninkrijk voor kinderen, beheerd door een ouder of voogd, waarbij het geld aan het kind toebehoort"
+        },
+        {
+          "term": "Verenigd Koninkrijk",
+          "definition": "Het land waar deze specifieke spaarrekening bestaat"
+        }
+      ],
+      "explanation": "Een Junior ISA wordt geopend door een ouder of voogd, maar het geld erin behoort echt toe aan het kind voor wie het geopend werd - niet aan de volwassene die het beheert. Andere landen hebben andere systemen om kinderen te helpen sparen, dus een Junior ISA specifiek is iets van het Verenigd Koninkrijk.",
+      "interactiveActivity": "Praat met een volwassene over wie het geld van een Junior ISA echt toebehoort, en waarom een volwassene het toch beheert.",
+      "gameIdea": "Van wie is het geld?: koppel spaarscenario's aan wie het geld echt toebehoort.",
+      "challenge": "Vraag een volwassene in je gezin of hij of zij weet wat een Junior ISA is.",
+      "quiz": {
+        "question": "Aan wie behoort het geld in een Junior ISA echt toe?",
+        "options": [
+          "Aan het kind voor wie het geopend werd",
+          "Aan de ouder of voogd die het beheert",
+          "Aan de bank",
+          "Aan niemand in het bijzonder"
+        ],
+        "correctAnswer": "Aan het kind voor wie het geopend werd",
+        "explanation": "Ook al beheert een ouder of voogd een Junior ISA, het geld erin behoort echt toe aan het kind - de volwassene zorgt er alleen voor."
+      },
+      "feedback": {
+        "success": "Precies goed - het is echt Freya's geld, ook al beheert haar moeder het! 🇬🇧",
+        "retry": "Denk aan wat Freya's moeder uitlegde over wie het geld echt toebehoort."
+      },
+      "rewardMessage": "Munten verdiend omdat je begreep van wie het geld van een Junior ISA echt is!",
+      "parentNote": "Dit is een les specifiek voor het Verenigd Koninkrijk over Junior ISA's, opgenomen omdat veel Money Quest-gezinnen in het Verenigd Koninkrijk wonen - het wordt gepresenteerd als een echt, bestaand onderdeel van het Britse spaarsysteem, niet als iets dat elk gezin zal hebben of nodig zal hebben. Niets hier suggereert dat een kind er zelf een zou moeten openen of beheren.",
+      "commonMisconception": "Kinderen nemen soms aan dat geld op een rekening die door een volwassene wordt beheerd, aan die volwassene toebehoort, in plaats van te begrijpen dat een Junior ISA specifiek bedoeld is om aan het kind toe te behoren.",
+      "countryVariesNote": "Junior ISA's zijn een spaarrekening specifiek voor het Verenigd Koninkrijk. Andere landen hebben hun eigen, andere systemen om namens een kind te sparen."
+    },
+    "builder-junior_isa-l1": {
+      "title": "Vergrendeld tot 18: hoe een Junior ISA werkt",
+      "learningObjective": "Begrijpen dat een Junior ISA normaal vergrendeld is tot het kind 18 wordt, dat er contante en aandelenversies bestaan, en dat een ouder of voogd het beheert tot het kind 16 wordt.",
+      "shortIntroduction": "Een Junior ISA is niet zomaar een spaarrekening - het heeft eigen regels over wie het beheert en wanneer het gebruikt kan worden.",
+      "story": "Tomasz' vader opende voor hem een Junior ISA toen hij klein was. Tomasz, nu 13 jaar oud, vroeg of hij geld kon opnemen voor een nieuwe fiets. Zijn vader legde uit: „Nog niet - het is normaal vergrendeld tot je 18 wordt. En er zijn eigenlijk twee soorten: een in contant geld, zoals een normale spaarrekening, en een met aandelen, waarbij het geld in plaats daarvan wordt belegd.”",
+      "keyConcept": "Een Junior ISA is normaal vergrendeld tot het kind 18 wordt. Er zijn twee soorten - contant (werkt als een spaarrekening) en aandelen (het geld wordt belegd) - en een ouder of voogd beheert het tot het kind 16 wordt.",
+      "vocabulary": [
+        {
+          "term": "contante Junior ISA",
+          "definition": "Een soort Junior ISA waarbij geld gewoon wordt gespaard, zoals in een normale spaarrekening"
+        },
+        {
+          "term": "Junior ISA met aandelen",
+          "definition": "Een soort Junior ISA waarbij het geld wordt belegd in plaats van gewoon gespaard, zodat de waarde kan stijgen of dalen"
+        },
+        {
+          "term": "vergrendeld tot 18",
+          "definition": "Geld in een Junior ISA kan normaal niet worden opgenomen voordat het kind 18 wordt"
+        }
+      ],
+      "explanation": "Een Junior ISA bestaat in twee soorten: een contante versie, waarbij geld gewoon veilig wordt bewaard zoals in een gewone spaarrekening, en een aandelenversie, waarbij het geld wordt belegd - wat betekent dat de waarde met de tijd kan stijgen of dalen, net als de beleggingsideeën die elders in Money Quest behandeld worden. Wat het type ook is, het geld is normaal vergrendeld tot het kind 18 wordt. Tot het kind 16 wordt, beheert een ouder of voogd de rekening namens hem of haar.",
+      "interactiveActivity": "Vergelijk een contante Junior ISA en een met aandelen - van welke kan de waarde dagelijks veranderen, en welke blijft stabiel?",
+      "gameIdea": "Contant of belegd?: sorteer kenmerken van een Junior ISA in het juiste type.",
+      "challenge": "Vraag een volwassene welk type Junior ISA - als hij of zij er een zou kiezen - hij of zij zou kiezen, en waarom.",
+      "quiz": {
+        "question": "Wanneer kan geld in een Junior ISA normaal worden opgenomen?",
+        "options": [
+          "Zodra het kind 18 wordt",
+          "Zodra de rekening geopend wordt",
+          "Wanneer de ouder dat beslist",
+          "Het kan nooit worden opgenomen"
+        ],
+        "correctAnswer": "Zodra het kind 18 wordt",
+        "explanation": "Een Junior ISA is normaal vergrendeld tot het kind 18 wordt - dat geldt zowel voor een contante als voor een aandelen-Junior-ISA."
+      },
+      "feedback": {
+        "success": "Precies goed - 18 is de normale leeftijd waarop het ontgrendeld wordt. 🔓",
+        "retry": "Denk aan wat Tomasz' vader uitlegde over wanneer het geld normaal beschikbaar is."
+      },
+      "rewardMessage": "Munten verdiend omdat je begreep hoe een Junior ISA echt werkt!",
+      "parentNote": "Deze les legt de algemene structuur van een Britse Junior ISA uit (contant versus aandelen, de mijlpalen op 16 en 18 jaar) op conceptueel niveau - het is geen financieel advies over welk type te kiezen, en regels kunnen met de tijd veranderen, dus controleer altijd de actuele, officiële informatie voordat je een echte beslissing neemt.",
+      "commonMisconception": "Kinderen nemen soms aan dat een Junior ISA met aandelen precies zo werkt als een contante, zonder te beseffen dat de waarde echt kan stijgen of dalen omdat het geld belegd is.",
+      "countryVariesNote": "Junior ISA's, inclusief het hier beschreven onderscheid tussen contant en aandelen, zijn specifiek voor het Verenigd Koninkrijk. Andere landen hebben andere regels voor spaar- en beleggingsrekeningen van kinderen."
+    },
+    "strategist-junior_isa-l1": {
+      "title": "Junior ISA's: eigendom, tijdstippen en veranderende regels",
+      "learningObjective": "De eigendoms- en leeftijdsmijlpalen van een Britse Junior ISA begrijpen (beheerd door een ouder/voogd tot 16 jaar, gecontroleerd door het kind vanaf 16 jaar, opname mogelijk vanaf 18 jaar), en dat toelagen en regels - inclusief de huidige jaarlijkse limiet - met de tijd kunnen veranderen.",
+      "shortIntroduction": "De regels van een Junior ISA zijn echt de moeite waard om te begrijpen - maar, net als belastingregels in het algemeen, kunnen en zullen ze veranderen.",
+      "story": "Aaliyah, 16 jaar oud, heeft net het beheer van haar eigen Junior ISA overgenomen van haar ouders - al kan ze nog steeds niets opnemen tot ze 18 wordt. Nieuwsgierig zoekt ze de huidige regels op en ontdekt dat voor het belastingjaar 2026/27 het maximumbedrag dat in een jaar op een Junior ISA gestort mag worden 9.000 Britse pond (£9.000) is. Ze merkt ook een opmerking op dat dit bedrag eerder al is veranderd en in toekomstige jaren opnieuw kan veranderen.",
+      "keyConcept": "Een Britse Junior ISA heeft duidelijke eigendoms- en tijdmijlpalen - het kind neemt het beheer over op 16 jaar maar kan nog steeds niet opnemen tot 18 jaar - en de regels ervan, inclusief het jaarlijks te storten bedrag, worden per belastingjaar vastgesteld en kunnen veranderen.",
+      "vocabulary": [
+        {
+          "term": "ISA",
+          "definition": "Individual Savings Account (individuele spaarrekening) - een algemeen soort Britse rekening waarop sparen of beleggen kan groeien zonder dat bepaalde Britse belastingen van toepassing zijn, binnen vastgestelde grenzen"
+        },
+        {
+          "term": "belastingjaar",
+          "definition": "De periode van 12 maanden waarvoor de Britse financiële regels, inclusief de ISA-toelagen, worden vastgesteld"
+        },
+        {
+          "term": "jaarlijkse toelage",
+          "definition": "Het maximumbedrag dat binnen een belastingjaar op een rekening zoals een Junior ISA gestort mag worden"
+        }
+      ],
+      "explanation": "Een ISA is in het algemeen een soort Britse rekening waarop geld gespaard of belegd kan worden zonder dat bepaalde Britse belastingen van toepassing zijn, tot vastgestelde grenzen. Een Junior ISA is de versie voor kinderen: een ouder of voogd beheert het tot het kind 16 wordt, waarna het kind het beheer zelf kan overnemen - maar opnames zijn normaal nog steeds niet toegestaan vóór 18 jaar. Elk belastingjaar stelt de overheid een jaarlijkse toelage vast - het maximumbedrag dat dat jaar gestort mag worden. Voor het belastingjaar 2026/27 is dat bedrag 9.000 Britse pond (£9.000). Dit is het HUIDIGE bedrag, niet permanent: toelagen en regels zijn in eerdere jaren veranderd en kunnen weer veranderen, dus het is altijd de moeite waard om de actuele, officiële informatie te controleren in plaats van aan te nemen dat een cijfer voor altijd vaststaat.",
+      "interactiveActivity": "Zet de mijlpalen van een Junior ISA in de juiste volgorde: rekening geopend, kind wordt 16, kind wordt 18.",
+      "gameIdea": "Tijdlijnbouwer: rangschik de mijlpalen van een Junior ISA (opening, 16 jaar, 18 jaar) in de juiste volgorde.",
+      "challenge": "Zoek (samen met een volwassene, uit een officiële bron) op wat de Junior-ISA-toelage dit belastingjaar echt is, en vergelijk dat met het cijfer van £9.000 uit deze les.",
+      "quiz": {
+        "question": "Wat klopt over het cijfer van £9.000, de Junior-ISA-toelage in deze les?",
+        "options": [
+          "Het is het huidige cijfer voor 2026/27 en kan in toekomstige jaren veranderen",
+          "Het is een vast bedrag dat nooit zal veranderen",
+          "Het is het totaal dat iemand ooit op een Junior ISA kan sparen",
+          "Het geldt in elk land"
+        ],
+        "correctAnswer": "Het is het huidige cijfer voor 2026/27 en kan in toekomstige jaren veranderen",
+        "explanation": "Junior-ISA-toelages worden per Brits belastingjaar vastgesteld en zijn al eerder veranderd - het cijfer van £9.000 is specifiek het HUIDIGE (2026/27), geen permanente regel."
+      },
+      "feedback": {
+        "success": "Precies goed - controleer altijd het huidige cijfer in plaats van aan te nemen dat het nooit verandert. 📅",
+        "retry": "Denk aan wat Aaliyah opmerkte toen ze de huidige regels opzocht."
+      },
+      "rewardMessage": "Munten verdiend omdat je begreep hoe de regels en mijlpalen van een Junior ISA echt werken!",
+      "parentNote": "Deze les noemt de Britse Junior-ISA-jaarlijkse toelage voor 2026/27 (£9.000) als een feitelijk, gedateerd referentiepunt, expliciet gemarkeerd als huidig en niet permanent - Britse ISA-regels en -toelages worden door de overheid vastgesteld en kunnen in toekomstige belastingjaren veranderen, dus bevestig altijd actuele details bij een officiële bron (zoals GOV.UK) voordat je een echte beslissing neemt. Deze les is alleen educatief en is geen financieel of fiscaal advies.",
+      "commonMisconception": "Tieners nemen soms aan dat een cijfer zoals een toelage, eenmaal geleerd, voor altijd vaststaat, in plaats van te begrijpen dat Britse belastingregels worden herzien en van jaar tot jaar kunnen veranderen.",
+      "countryVariesNote": "ISA's en Junior ISA's, inclusief de hier beschreven toelagecijfers en leeftijdsmijlpalen, zijn specifiek voor het Britse belasting- en spaarsysteem. Andere landen hebben totaal andere regels voor spaar- en beleggingsrekeningen van kinderen."
     }
   },
   "games": {

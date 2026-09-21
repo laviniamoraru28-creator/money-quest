@@ -38,7 +38,18 @@ function pass(label: string) {
   console.log(`✅ ${label}`);
 }
 
-const REQUIRED_TOPICS = ["money_basics", "needs_wants", "saving", "currencies", "scams", "long_term_thinking", "giving"];
+const REQUIRED_TOPICS = [
+  "money_basics",
+  "needs_wants",
+  "saving",
+  "currencies",
+  "scams",
+  "long_term_thinking",
+  "giving",
+  "digital_money",
+  "investing_basics",
+  "junior_isa",
+];
 const AGE_BANDS: AgeBand[] = ["explorer", "builder", "strategist"];
 
 // --- Coverage: every topic has all 3 age bands ---
@@ -54,7 +65,7 @@ for (const topic of REQUIRED_TOPICS) {
 }
 check(`All ${REQUIRED_TOPICS.length} topics have all 3 age bands (${REQUIRED_TOPICS.length * 3} lessons expected)`, coverageOk);
 check(`Exactly ${REQUIRED_TOPICS.length * 3} lessons exist in total`, ALL_LESSONS.length === REQUIRED_TOPICS.length * 3);
-if (coverageOk) pass("Full 7-topic x 3-age-band coverage confirmed");
+if (coverageOk) pass(`Full ${REQUIRED_TOPICS.length}-topic x 3-age-band coverage confirmed`);
 
 // --- No duplicate ids ---
 const ids = ALL_LESSONS.map((l) => l.id);
@@ -121,10 +132,14 @@ for (const lesson of ALL_LESSONS) {
 }
 check("No feedback text uses a shaming pattern", noShaming);
 
-// --- No UK-only institution names outside a UK-specific context (this curriculum has none) ---
+// --- No UK-only institution names outside a UK-specific context ---
+// junior_isa is the one topic that IS explicitly, deliberately UK-specific
+// (see Stage 3A's Junior ISA content and its countryVariesNote field) —
+// every other topic must still stay currency/country-neutral.
 const UK_ONLY_TERMS = [/\bISA\b/, /premium bonds/i, /\bHMRC\b/, /national insurance/i, /\bNS&I\b/];
 let noUkOnlyTerms = true;
 for (const lesson of ALL_LESSONS) {
+  if (lesson.topicId === "junior_isa") continue;
   const allText = [lesson.explanation, lesson.story, lesson.keyConcept, lesson.parentNote].join(" ");
   for (const pattern of UK_ONLY_TERMS) {
     if (pattern.test(allText)) {
@@ -133,19 +148,23 @@ for (const lesson of ALL_LESSONS) {
     }
   }
 }
-check("No lesson references a UK-only financial institution or scheme", noUkOnlyTerms);
+check("No lesson outside junior_isa references a UK-only financial institution or scheme", noUkOnlyTerms);
 
 // --- Currency neutrality: no hardcoded currency symbols in narrative text ---
+// Same junior_isa exemption: its whole point is a UK-specific, £-denominated
+// annual allowance figure, explicitly labelled as the current tax year's
+// figure rather than a universal one (see Stage 3A's Part D content).
 const CURRENCY_SYMBOLS = /[£$€¥]/;
 let noHardcodedSymbols = true;
 for (const lesson of ALL_LESSONS) {
+  if (lesson.topicId === "junior_isa") continue;
   const narrativeText = [lesson.story, lesson.explanation, lesson.shortIntroduction].join(" ");
   if (CURRENCY_SYMBOLS.test(narrativeText)) {
     console.log(`   ❌ ${lesson.id}: narrative text contains a hardcoded currency symbol`);
     noHardcodedSymbols = false;
   }
 }
-check("No lesson's narrative text hardcodes a specific currency symbol (uses 'coins' instead)", noHardcodedSymbols);
+check("No lesson outside junior_isa hardcodes a specific currency symbol (uses 'coins' instead)", noHardcodedSymbols);
 
 // --- Reading-level sanity: explorer sentences should be noticeably shorter than strategist ---
 function avgSentenceWordCount(text: string): number {

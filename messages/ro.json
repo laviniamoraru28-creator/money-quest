@@ -123,6 +123,121 @@
     "insightBufferHeldUp": "Rezerva ta „Pentru orice eventualitate” a rezistat bine la orice a apărut - planificare bună.",
     "insightGivingNoticed": "Ai făcut loc pentru a dona, chiar și în timp ce gestionai totul - merită remarcat."
   },
+  "investingLab": {
+    "pageTitle": "Laboratorul de Investiții",
+    "simulationBanner": "SIMULARE - DOAR BANI VIRTUALI",
+    "simulationExplainer": "Totul aici folosește companii inventate și bani imaginari, pentru învățare. Nu sunt implicate companii reale, o bursă reală sau bani reali.",
+    "guardrailIntro": "Investițiile pot pierde din valoare la fel de bine cum pot câștiga, iar alegerile cu potențial de câștig mai mare vin de obicei cu un risc mai mare. Aceasta este o simulare de învățare, nu un sfat de investiții - nimic de aici nu promite ce s-ar întâmpla cu adevărat.",
+    "cashLabel": "Bani virtuali",
+    "portfolioValueLabel": "Valoarea portofoliului",
+    "overallChangeLabel": "{amount} ({percent}%) de când ai început",
+    "companiesTitle": "Companii fictive",
+    "companyListLabel": "Companii fictive",
+    "holdingsTitle": "Ce deții",
+    "diversificationTitle": "Diversificare",
+    "watchlistTitle": "Lista de urmărire",
+    "watchlistEmptyHint": "Nimic în lista de urmărire încă - apasă „Adaugă la urmărire” pe orice companie ca să o ții sub observație fără să cumperi.",
+    "transactionHistoryTitle": "Istoric de tranzacții",
+    "timeMachineTitle": "Mașina Timpului",
+    "timeMachineIntro": "Vezi cum s-ar fi schimbat până azi o investiție imaginară din trecut - un mod de a explora cât de imprevizibil poate fi termenul scurt și cât de diferit poate arăta termenul lung.",
+    "resetConfirm": "Aceasta șterge portofoliul, tranzacțiile și istoricul tău din Laboratorul de Investiții de pe acest dispozitiv. Nu poate fi anulat. Continui?",
+    "resetButton": "Resetează Laboratorul de Investiții",
+    "removeFromWatchlist": "Scoate din lista de urmărire",
+    "addToWatchlist": "Adaugă la urmărire",
+    "companyNewsTitle": "Știri despre companie",
+    "eventPositiveLabel": "Vești bune",
+    "eventNegativeLabel": "Vești proaste",
+    "buySharesLabel": "Cumpără acțiuni",
+    "insufficientCash": "Nu ai suficienți bani virtuali pentru atâtea acțiuni.",
+    "boughtSharesConfirmation": "Ai cumpărat {shares} acțiuni la {company}.",
+    "buyButton": "Cumpără",
+    "maxAffordableHint": "Ți-ai putea permite până la {shares} acțiuni chiar acum.",
+    "sector": {
+      "renewableEnergy": "Energie regenerabilă",
+      "games": "Jocuri",
+      "healthyFood": "Alimente sănătoase",
+      "transport": "Transport",
+      "technology": "Tehnologie",
+      "natureAndEnvironment": "Natură și mediu"
+    },
+    "riskProfile": {
+      "lower": "Sector cu risc mai mic - tinde să se miște mai constant",
+      "medium": "Sector cu risc mediu - se mișcă în sus și în jos într-un ritm moderat",
+      "higher": "Sector cu risc mai mare - poate oscila rapid în sus și în jos"
+    },
+    "noHoldingsYet": "Nu deții încă nicio acțiune fictivă - cumpără câteva mai sus ca să le vezi aici.",
+    "sharesLabel": "Acțiuni",
+    "averagePriceLabel": "Preț mediu",
+    "currentPriceLabel": "Preț actual",
+    "currentValueLabel": "Valoare actuală",
+    "sellSharesLabel": "Acțiuni de vândut la {company}",
+    "insufficientShares": "Nu deții atâtea acțiuni de vândut.",
+    "soldSharesConfirmation": "Ai vândut {shares} acțiuni la {company}.",
+    "sellButton": "Vinde",
+    "diversificationAllCashHint": "Odată ce deții acțiuni la mai mult de o companie, aici va apărea cât de răspândit este portofoliul tău.",
+    "diversificationChartLabel": "Cum este împărțit portofoliul tău între companii și numerar",
+    "diversificationExplainer": "Împărțirea banilor virtuali între companii diferite (diversificare) înseamnă că o companie care merge prost afectează mai puțin tot portofoliul - dar nu elimină riscul complet.",
+    "noTransactionsYet": "Nicio cumpărare sau vânzare încă.",
+    "transactionBuyLine": "Ai cumpărat {shares} acțiuni la {company}",
+    "transactionSellLine": "Ai vândut {shares} acțiuni la {company}",
+    "timeMachineCompanyLabel": "Companie",
+    "timeMachineAmountLabel": "Sumă imaginară investită",
+    "timeMachineDaysAgoLabel": "Cu cât timp în urmă",
+    "timeMachineYearsAgo": "cu {years} ani în urmă",
+    "timeMachineResultIntro": "{shares} acțiuni cumpărate atunci cu {amount} ar valora acum:",
+    "timeMachineTooSmallHint": "Suma imaginară nu a fost suficientă ca să cumperi nici măcar o acțiune întreagă atunci.",
+    "timeMachineDisclaimer": "Aceasta folosește prețuri trecute fixe și inventate, doar pentru învățare. Performanța trecută nu garantează niciodată ce s-ar întâmpla în viitor - real sau fictiv.",
+    "chartPeriodGroupLabel": "Perioada graficului",
+    "period": {
+      "1D": "1Z",
+      "1W": "1S",
+      "1M": "1L",
+      "3M": "3L",
+      "1Y": "1A",
+      "5Y": "5A"
+    },
+    "chartFictionalNote": "Aceste prețuri sunt simulate pentru învățare - nu sunt date reale de piață.",
+    "companies": {
+      "sunbeam-energy": {
+        "name": "Sunbeam Energy Co.",
+        "description": "O companie fictivă care produce panouri solare și alte echipamente de energie regenerabilă."
+      },
+      "pixel-quest-games": {
+        "name": "Pixel Quest Games",
+        "description": "O companie fictivă care produce jocuri video, inclusiv popularul ei serial Pixel Quest."
+      },
+      "green-bite-foods": {
+        "name": "Green Bite Foods",
+        "description": "O companie fictivă care produce gustări sănătoase și mâncăruri gata preparate."
+      },
+      "skyline-transit": {
+        "name": "Skyline Transit",
+        "description": "O companie fictivă care operează autobuze și trenuri în și în jurul orașelor."
+      },
+      "nimbus-tech": {
+        "name": "Nimbus Tech",
+        "description": "O companie fictivă care produce calculatoare, telefoane și alte gadgeturi."
+      },
+      "wildwood-nature-co": {
+        "name": "Wildwood Nature Co.",
+        "description": "O companie fictivă care plantează copaci și administrează rezervații naturale."
+      }
+    },
+    "events": {
+      "sunbeam-breakthrough": "Sunbeam Energy a anunțat un nou tip de panou solar care funcționează chiar și pe vreme înnorată.",
+      "sunbeam-supply-problem": "Sunbeam Energy a avut probleme să obțină destul dintr-un material necesar pentru panourile solare.",
+      "pixelquest-hit-launch": "Pixel Quest Games a lansat un joc nou care s-a vândut extrem de bine în prima lună.",
+      "pixelquest-disappointing-reviews": "Cel mai nou joc de la Pixel Quest Games a primit recenzii dezamăgitoare din partea jucătorilor.",
+      "greenbite-positive-response": "Noua gustare sănătoasă de la Green Bite Foods a primit un răspuns foarte pozitiv din partea clienților.",
+      "greenbite-supply-problem": "Green Bite Foods a avut o lipsă a unuia dintre ingredientele sale cheie.",
+      "skyline-fewer-passengers": "Skyline Transit a avut mai puțini pasageri decât se aștepta într-un trimestru.",
+      "skyline-strong-pass-sales": "Skyline Transit a vândut multe abonamente noi de călătorie după ce le-a scăzut prețul.",
+      "nimbus-new-gadget": "Nimbus Tech a lansat un gadget nou care a devenit rapid popular.",
+      "nimbus-technical-problem": "Nimbus Tech a avut o problemă tehnică a cărei reparare a fost costisitoare.",
+      "wildwood-discovery": "Wildwood Nature Co. a descoperit un nou mod de a ajuta pădurile să-și revină mai repede după incendii.",
+      "wildwood-slow-season": "Wildwood Nature Co. a avut un sezon mai slab decât de obicei pentru vizitele la rezervațiile naturale."
+    }
+  },
   "categories": {
     "needs": "Nevoi",
     "wants": "Dorințe",
@@ -217,7 +332,8 @@
     "amountToWithdraw": "Suma de cheltuit",
     "spendSome": "Cheltuiește o parte",
     "moneyPersonalityLink": "Personalitatea Financiară",
-    "levelActivityProgress": "Nivelul {level} · Activitatea {position} din {total}"
+    "levelActivityProgress": "Nivelul {level} · Activitatea {position} din {total}",
+    "investingLabLink": "Laboratorul de Investiții →"
   },
   "parentInfo": {
     "title": "Informații pentru Părinți",
@@ -1145,6 +1261,384 @@
       "rewardMessage": "Monede câștigate pentru că te-ai gândit serios la a dărui bine, nu doar la a dărui.",
       "parentNote": "Această lecție nu recomandă în mod deliberat nicio organizație caritabilă sau cauză specifică, deoarece aceasta este o decizie personală și de familie pe care această aplicație nu are baza să o ia în locul tău. Dacă adolescentul tău vrea să exploreze dăruirea caritabilă reală, analizarea împreună a informațiilor publicate de o cauză este o activitate cu adevărat bună și practică, care depășește ceea ce poate oferi doar această lecție.",
       "commonMisconception": "Adolescenții uneori oscilează spre una dintre extreme - dăruind fără nicio gândire, sau devenind atât de sceptici față de toată dăruirea încât încetează complet să o mai ia în considerare - în loc să ajungă la o generozitate chibzuită, informată."
+    },
+    "explorer-digital_money-l1": {
+      "title": "Bani pe care nu îi poți ține în mână",
+      "learningObjective": "Să recunoască faptul că banii pot fi digitali (ca o atingere de card), nu doar monede și bancnote fizice.",
+      "shortIntroduction": "Uneori banii nu arată deloc ca niște monede - hai să vedem ce înseamnă asta!",
+      "story": "La magazin, mama atinge un card de un aparat mic în loc să dea monede. Bip! Vânzătoarea spune „mulțumesc” și îi dă pâinea. Nicio monedă nu s-a mișcat - dar plata tot s-a făcut!",
+      "keyConcept": "Banii pot fi digitali - niște numere care se mută între conturi - nu doar monede și bancnote pe care le poți ține în mână.",
+      "vocabulary": [
+        {
+          "term": "bani digitali",
+          "definition": "Bani care există ca niște numere într-un calculator, nu ca monede sau bancnote pe care le poți ține în mână"
+        },
+        {
+          "term": "card",
+          "definition": "Un obiect mic din plastic care poate plăti lucruri fără să folosești monede sau bancnote"
+        }
+      ],
+      "explanation": "Când mama a atins cardul, nicio monedă sau bancnotă nu și-a schimbat locul. În schimb, un număr a scăzut în contul ei și un număr a crescut în contul magazinului. Tot bani adevărați sunt - doar se mută altfel.",
+      "interactiveActivity": "Sortează imagini în „bani fizici” (monede, bancnote) și „bani digitali” (o atingere de card, un ecran de plată online).",
+      "gameIdea": "Digital sau fizic?: sortează imagini cu plăți în grupa potrivită.",
+      "challenge": "Roagă un adult să-ți arate o plată digitală pe care a făcut-o azi, cum ar fi o atingere de card sau o plată de pe telefon.",
+      "quiz": {
+        "question": "Care dintre acestea este un exemplu de bani digitali?",
+        "options": [
+          "Atingerea unui card pentru a plăti",
+          "O monedă în buzunar",
+          "O bancnotă de hârtie",
+          "O pușculiță"
+        ],
+        "correctAnswer": "Atingerea unui card pentru a plăti",
+        "explanation": "Atingerea unui card mută numere între conturi în loc să dai monede sau bancnote - asta îi face bani digitali."
+      },
+      "feedback": {
+        "success": "Exact - atingerea cardului este bani digitali în acțiune! 💳",
+        "retry": "Gândește-te ce s-a întâmplat când cardul mamei a făcut „bip” la magazin."
+      },
+      "rewardMessage": "Monede câștigate pentru că ai recunoscut banii digitali în acțiune!",
+      "parentNote": "Această lecție introduce ideea de bază că banii se pot muta digital, fără să fie nevoie să explice cum funcționează cu adevărat rețelele de carduri sau transferurile bancare - acel detaliu nu este necesar la această vârstă. Dacă cel mic te vede atingând un card sau plătind cu telefonul, să spui cu voce tare ce se întâmplă („uite, ăștia sunt bani digitali care se mută”) întărește frumos ideea.",
+      "commonMisconception": "Copiii mici cred uneori că un card „este” banii în sine, nu un instrument care mută bani care există deja într-un cont."
+    },
+    "builder-digital_money-l1": {
+      "title": "Cum funcționează cu adevărat o plată cu cardul",
+      "learningObjective": "Să explice, în termeni simpli, ce se întâmplă în spatele unei plăți cu cardul sau fără contact, și să înțeleagă obiceiuri simple de siguranță, precum păstrarea PIN-ului privat.",
+      "shortIntroduction": "O atingere de card pare instantanee, dar câțiva pași reali se întâmplă în spate ca banii să se mute în siguranță.",
+      "story": "Omar cumpără o revistă cu cardul familiei. Se uită la micul ecran care arată o sumă, apoi apare o bifă verde. Vărul lui mai mare îi explică: „Bifa aceea înseamnă că magazinul tocmai a verificat că există suficienți bani în cont și i-a mutat - totul în aproape o secundă.”",
+      "keyConcept": "O plată cu cardul verifică rapid dacă există suficienți bani, apoi mută suma respectivă din contul cumpărătorului în contul vânzătorului - aproape instantaneu.",
+      "vocabulary": [
+        {
+          "term": "plată fără contact",
+          "definition": "O plată făcută atingând un card sau un dispozitiv lângă un aparat, în loc să-l introduci sau să-l treci prin el"
+        },
+        {
+          "term": "PIN",
+          "definition": "Un cod numeric privat care dovedește că un card este folosit cu adevărat de proprietarul lui"
+        },
+        {
+          "term": "confirmare de plată",
+          "definition": "Mesajul sau bifa care arată că o plată chiar a trecut"
+        }
+      ],
+      "explanation": "În spatele unei atingeri de card, o rețea de plăți verifică rapid dacă în cont sunt suficienți bani, apoi mută exact suma respectivă către vânzător. Bifa verde sau bonul sunt confirmarea plății - dovada că s-a întâmplat cu adevărat, nu doar că un aparat a făcut bip. Un PIN există ca doar proprietarul cardului (sau cineva în care are încredere) să îl poată folosi pentru plăți mai mari.",
+      "interactiveActivity": "Parcurge pașii unei plăți cu cardul în ordine: atingere, verificarea soldului, confirmare, bon.",
+      "gameIdea": "Pașii plății: pune etapele unei plăți cu cardul în ordinea corectă.",
+      "challenge": "Data viitoare când un adult plătește cu cardul, roagă-l să-ți arate confirmarea - bifa, bonul sau mesajul care arată că a mers.",
+      "quiz": {
+        "question": "Ce arată de fapt o confirmare de plată?",
+        "options": [
+          "Că plata chiar a trecut",
+          "Că nu mai sunt bani pe card",
+          "Că magazinul este închis",
+          "Nimic important"
+        ],
+        "correctAnswer": "Că plata chiar a trecut",
+        "explanation": "O confirmare de plată - o bifă, un bon sau un mesaj - este dovada că banii chiar s-au mutat, de aceea merită verificată în loc să presupui că plata a mers."
+      },
+      "feedback": {
+        "success": "Exact - confirmarea aceea este o dovadă, nu doar o decorație! ✅",
+        "retry": "Gândește-te ce a explicat vărul lui Omar despre bifa verde."
+      },
+      "rewardMessage": "Monede câștigate pentru că ai înțeles cum funcționează cu adevărat o plată cu cardul!",
+      "parentNote": "Această lecție păstrează în mod deliberat detaliile tehnice la ceea ce este cu adevărat util la această vârstă: că o plată este verificată și confirmată și că un PIN o protejează. Este un moment bun să stabiliți o regulă simplă în familie: PIN-urile și parolele nu se dau nimănui, nici prietenilor - nu pentru că cineva nu ar fi de încredere, ci pentru că este un obicei bun de format din timp.",
+      "commonMisconception": "Copiii cred uneori că o plată merge mereu în momentul în care cardul atinge aparatul, fără să știe că se face mai întâi o verificare a banilor disponibili și că plata poate fi refuzată."
+    },
+    "strategist-digital_money-l1": {
+      "title": "Siguranță și atenție cu banii digitali",
+      "learningObjective": "Să aplice obiceiuri practice pentru gestionarea sigură și atentă a cheltuielilor digitale, inclusiv verificarea mesajelor de plată și urmărirea cheltuielilor, și să recunoască de ce banii digitali pot părea mai puțin „reali” decât numerarul.",
+      "shortIntroduction": "Banii digitali sunt comozi - iar tocmai de asta au nevoie de puțin mai multă atenție conștientă decât numerarul.",
+      "story": "Priya observă că a cheltuit mai mult luna aceasta decât se aștepta, deși nu își amintește nicio cumpărătură mare. Uitându-se prin istoricul portofelului digital, vede mai multe plăți mici pe care abia le-a observat când le-a făcut - fiecare a părut prea mică pentru a fi băgată în seamă atunci.",
+      "keyConcept": "Pentru că plățile digitale nu implică predarea fizică a nimic, ele pot părea mai puțin „reale” în acel moment - de aceea a verifica deliberat ce cheltuiești și a confirma plățile sunt obiceiuri cu adevărat utile.",
+      "vocabulary": [
+        {
+          "term": "portofel digital",
+          "definition": "O aplicație sau un cont care stochează detaliile de plată și urmărește cheltuielile digitale"
+        },
+        {
+          "term": "confirmare de plată",
+          "definition": "Un mesaj sau un bon care dovedește că o plată chiar a trecut, merită verificat înainte să presupui că a mers"
+        },
+        {
+          "term": "mesaj de phishing",
+          "definition": "Un mesaj fals care se dă drept un serviciu real de plată, creat ca să păcălească pe cineva să dea detalii private"
+        }
+      ],
+      "explanation": "Predarea unei monede este o mică acțiune fizică ce se simte în acel moment; atingerea unui card sau confirmarea unei plăți dintr-o aplicație poate părea aproape fără efort, tocmai de aceea mai multe plăți mici digitale se pot aduna neobservate. Obiceiul de a verifica pentru ce plătești cu adevărat, de a controla confirmările de plată în loc să presupui că au mers și de a revedea din când în când istoricul cheltuielilor sunt toate moduri de a păstra banii digitali la fel de „reali” ca numerarul. Ajută și să recunoști mesajele false de plată - încercări de phishing care copiază aspectul unui serviciu real de plată ca să păcălească pe cineva să scrie detalii private; serviciile de plată reale nu cer niciodată o parolă sau un PIN complet printr-un mesaj.",
+      "interactiveActivity": "Analizează un istoric de portofel digital și găsește care intrări se adună la mai mult decât te-ai fi așteptat, plus un mesaj făcut să pară o cerere reală de plată, dar care nu este.",
+      "gameIdea": "Urmăritorul de cheltuieli: analizează o săptămână de tranzacții digitale imaginare și găsește tiparul.",
+      "challenge": "Gândește-te la un obicei digital pe care l-ai putea forma săptămâna aceasta - cum ar fi verificarea unui bon sau întrebarea cât costă de fapt un abonament în fiecare lună.",
+      "quiz": {
+        "question": "De ce poate fi mai ușor să pierzi șirul cheltuielilor digitale decât al celor cu numerar?",
+        "options": [
+          "Pentru că nu implică o acțiune fizică simțită de fiecare dată",
+          "Pentru că banii digitali valorează mai puțin",
+          "Pentru că plățile digitale sunt mereu greșeli",
+          "Pentru că numerarul nu poate fi cheltuit repede"
+        ],
+        "correctAnswer": "Pentru că nu implică o acțiune fizică simțită de fiecare dată",
+        "explanation": "Predarea numerarului este o mică acțiune fizică ce se simte de fiecare dată; o atingere rapidă sau o confirmare din aplicație poate părea fără efort prin comparație, de aceea mai multe plăți mici digitale se pot aduna fără ca nimeni să observe cu adevărat."
+      },
+      "feedback": {
+        "success": "Exact - a observa asta este primul pas spre a rămâne stăpân pe cheltuielile digitale. 📱",
+        "retry": "Gândește-te de ce au crescut cheltuielile Priyei fără nicio cumpărătură mare."
+      },
+      "rewardMessage": "Monede câștigate pentru că ai gândit atent despre atenția la banii digitali!",
+      "parentNote": "Această lecție nu este despre restricționarea plăților digitale, ci despre formarea unei atenții conștiente - aceeași abilitate pe care și adulții trebuie să o exerseze. Dacă adolescentul tău are acces la un card sau un portofel digital, să revedeți împreună din când în când istoricul cheltuielilor (fără reproșuri) este un obicei cu adevărat util, nu doar un control.",
+      "commonMisconception": "Adolescenții presupun uneori că, fiindcă se descurcă bine cu aplicații și carduri, își urmăresc automat bine cheltuielile - confortul cu tehnologia și conștientizarea sumei cheltuite sunt două lucruri diferite."
+    },
+    "explorer-investing_basics-l1": {
+      "title": "Economisire vs. creșterea banilor",
+      "learningObjective": "Să înțeleagă diferența de bază dintre economisirea banilor și investirea lor, la un nivel simplu.",
+      "shortIntroduction": "Economisirea îți păstrează monedele în siguranță - investirea este o idee diferită, în care banii pot crește, dar nu este garantat.",
+      "story": "Leo economisește monede într-un borcan de luni de zile - grămada lui crește doar când adaugă mai multe. Sora lui mai mare îi explică faptul că unii adulți pun banii în ceva numit „investiții” în schimb, sperând ca suma să crească de la sine în timp - dar adaugă repede: „poate și să scadă. Nimic nu este promis.”",
+      "keyConcept": "Economisirea păstrează banii în siguranță și neschimbați până când adaugi mai mult. Investirea înseamnă să folosești banii ca să încerci să-i faci să crească în timp, dar suma poate crește sau scădea - nu este niciodată garantat.",
+      "vocabulary": [
+        {
+          "term": "economisire",
+          "definition": "Păstrarea banilor în siguranță fără să îi cheltuiești"
+        },
+        {
+          "term": "investire",
+          "definition": "Folosirea banilor într-un mod care i-ar putea face să crească în timp, dar fără nicio garanție - pot și să scadă în valoare"
+        }
+      ],
+      "explanation": "Un borcan de economii se schimbă doar când pui mai multe monede sau scoți câteva. Investirea este diferită: uneori adulții folosesc banii ca să devină coproprietari ai unor lucruri, cum ar fi companiile, sperând ca valoarea să crească - dar exact cum spune povestea, poate și să scadă. Nimeni nu poate promite că investirea va aduce mai mulți bani.",
+      "interactiveActivity": "Sortează afirmații în „descrie economisirea” și „descrie investirea”.",
+      "gameIdea": "Economisire sau investire?: sortează exemple simple în grupa corectă.",
+      "challenge": "Întreabă un adult dacă a auzit cuvântul „investire” înainte și ce înseamnă pentru el.",
+      "quiz": {
+        "question": "Ce este diferit la investire față de economisire?",
+        "options": [
+          "Valoarea unei investiții poate crește sau scădea, fără garanție",
+          "Investirea aduce mereu mai mulți bani",
+          "Investirea este exact la fel ca economisirea",
+          "Investirea înseamnă să cheltuiești toți banii deodată"
+        ],
+        "correctAnswer": "Valoarea unei investiții poate crește sau scădea, fără garanție",
+        "explanation": "Spre deosebire de un borcan de economii, care se schimbă doar când adaugi sau scoți monede, valoarea unei investiții poate crește sau scădea de la sine cu adevărat - și nimeni nu poate promite în ce direcție."
+      },
+      "feedback": {
+        "success": "Exact - investirea nu este niciodată o garanție, nici în sus, nici în jos! 🌱",
+        "retry": "Gândește-te ce a adăugat cu grijă sora lui Leo despre investire."
+      },
+      "rewardMessage": "Monede câștigate pentru că ai înțeles diferența dintre economisire și investire!",
+      "parentNote": "Această lecție păstrează în mod deliberat investirea conceptuală și abstractă la această vârstă - fără produse, platforme sau cifre reale - fiindcă scopul aici este pur și simplu ideea că banii pot fi folosiți ca să încerce să crească de la sine, și că asta implică mereu o incertitudine reală. Nu este nimic anume la care un copil mic ar trebui să acționeze acum.",
+      "commonMisconception": "Copiii mici presupun uneori că investirea este doar un mod mai rapid de a economisi, în loc să înțeleagă că implică o incertitudine reală și o posibilă pierdere."
+    },
+    "builder-investing_basics-l1": {
+      "title": "Deținerea unei mici bucăți dintr-o companie",
+      "learningObjective": "Să înțeleagă ce reprezintă o acțiune (o mică bucată de proprietate într-o companie) și că valoarea ei poate crește sau scădea în funcție de cum merge compania.",
+      "shortIntroduction": "Când cumperi o „acțiune” a unei companii, nu doar urmărești o cifră - deții cu adevărat o bucățică dintr-o afacere reală.",
+      "story": "Unchiul lui Mei deține o bucățică dintr-o companie de jucării fiindcă a cumpărat câteva dintre „acțiunile” ei. Când compania lansează o jucărie care se vinde foarte bine, valoarea acțiunilor lui crește puțin. Când compania are un an prost, valoarea poate scădea. El îi spune Meei: „Dețin o bucățică mică din compania aceea - deci și pe mine mă afectează puțin cum merge ea.”",
+      "keyConcept": "O acțiune este o mică bucată de proprietate într-o companie reală. Valoarea ei tinde să reflecte cât de bine cred oamenii că merge acea companie - de aceea poate crește sau scădea.",
+      "vocabulary": [
+        {
+          "term": "acțiune",
+          "definition": "O mică bucată de proprietate într-o companie"
+        },
+        {
+          "term": "titlu de valoare",
+          "definition": "Un alt fel de a spune acțiuni - mici bucăți de proprietate într-o companie"
+        },
+        {
+          "term": "companie",
+          "definition": "O afacere care produce sau vinde ceva, care poate avea mulți proprietari diferiți prin acțiuni"
+        }
+      ],
+      "explanation": "Companiile pot fi deținute simultan de mulți oameni diferiți, fiecare având un anumit număr de acțiuni. Dacă o companie merge bine - de exemplu, un produs nou foarte popular - mai mulți oameni vor adesea să dețină o bucată din ea, așa că prețul acțiunilor tinde să crească. Dacă întâmpină greutăți, se poate întâmpla opusul. De aceea, a deține acțiuni înseamnă să-ți pese cu adevărat cum performează compania, nu doar să urmărești o cifră.",
+      "interactiveActivity": "Analizează câteva scenarii fictive de companii (un produs de succes, o recenzie proastă) și prezice dacă valoarea acțiunilor ar crește sau ar scădea probabil, și de ce.",
+      "gameIdea": "Laboratorul de Investiții: explorează companii fictive și vezi cum evenimente imaginare le afectează prețurile simulate ale acțiunilor.",
+      "challenge": "Gândește-te la o companie ale cărei produse le folosești. Ce crezi că s-ar întâmpla cu ea dacă ar lansa ceva ce lumea ar iubi?",
+      "quiz": {
+        "question": "Ce înseamnă de fapt să deții o acțiune a unei companii?",
+        "options": [
+          "Deții o mică bucată din acea companie reală",
+          "Ești angajat al acelei companii",
+          "Primești produse gratuite de la acea companie",
+          "Nimic important"
+        ],
+        "correctAnswer": "Deții o mică bucată din acea companie reală",
+        "explanation": "O acțiune reprezintă o proprietate reală, oricât de mică, într-o companie - tocmai de aceea valoarea ei tinde să reflecte cum merge cu adevărat acea companie."
+      },
+      "feedback": {
+        "success": "Exact - o acțiune este proprietate reală, oricât de mică! 📈",
+        "retry": "Gândește-te ce deține de fapt unchiul lui Mei prin acțiunile lui."
+      },
+      "rewardMessage": "Monede câștigate pentru că ai înțeles ce înseamnă cu adevărat deținerea unei acțiuni!",
+      "parentNote": "Această lecție introduce ideea de deținere de acțiuni folosind exemple complet fictive - nu menționează sau evaluează în mod deliberat nicio companie reală și nu este o recomandare de a cumpăra ceva. Laboratorul de Investiții din Money Quest (o funcție separată, de sine stătătoare) îi permite copilului tău să exploreze mai departe ideea cu companii complet fictive și bani virtuali.",
+      "commonMisconception": "Copiii de această vârstă cred uneori că „prețul unei acțiuni” este o cifră arbitrară, în loc să o lege de proprietatea reală într-o afacere adevărată și funcțională."
+    },
+    "strategist-investing_basics-l1": {
+      "title": "Risc, diversificare și timp",
+      "learningObjective": "Să înțeleagă riscul și recompensa, diversificarea, creșterea compusă ca și concept, și de ce investirea este diferită de jocurile de noroc și are nevoie de o perspectivă pe termen lung, nu de o garanție a rezultatelor.",
+      "shortIntroduction": "Investirea recompensează răbdarea și distribuirea riscului - nu presupunerile rapide, și niciodată rezultate garantate.",
+      "story": "Jamal decide, ca simplu experiment de gândire cu bani imaginari în Laboratorul de Investiții, dacă să pună totul într-o companie interesantă sau să distribuie banii la mai multe companii diferite. Vărul lui mai mare, care studiază economia, îi atrage atenția: „A pune totul într-un singur loc înseamnă că un rezultat prost afectează totul. Distribuirea nu elimină riscul - dar înseamnă că nu depinzi doar de un singur rezultat.”",
+      "keyConcept": "Investirea implică un compromis real între risc și recompensă potențială, iar distribuirea banilor la mai multe lucruri diferite (diversificare) poate reduce dependența de un singur rezultat - deși nu elimină niciodată complet riscul. Contează și timpul: investirea este, în general, o idee pe termen lung, nu o presupunere rapidă.",
+      "vocabulary": [
+        {
+          "term": "risc și recompensă",
+          "definition": "Ideea că o șansă la un câștig mai mare vine de obicei cu o șansă mai mare de pierdere"
+        },
+        {
+          "term": "diversificare",
+          "definition": "Distribuirea banilor la mai multe lucruri diferite în loc de unul singur, astfel încât niciun rezultat singular să nu decidă totul"
+        },
+        {
+          "term": "creștere compusă",
+          "definition": "Ideea că un câștig poate genera el însuși alte câștiguri în timp, astfel încât creșterea se poate construi pe ea însăși cu cât banii rămân investiți mai mult"
+        }
+      ],
+      "explanation": "O recompensă potențială mai mare vine aproape mereu cu un risc potențial mai mare - nu există o cale de a ocoli acest compromis. Diversificarea nu elimină riscul, dar înseamnă că o singură companie care merge prost nu decide întregul rezultat. Contează și timpul: creșterea compusă este ideea că, pe o perioadă lungă, orice câștig poate începe să genereze el însuși alte câștiguri - unul dintre motivele pentru care investirea este de obicei privită ca o activitate pe termen lung, nu ca un mod de a face bani rapid. Tocmai de aceea investirea este fundamental diferită de jocurile de noroc: jocurile de noroc sunt de obicei un eveniment scurt și izolat, cu șanse defavorabile jucătorului, în timp ce investirea (deși implică un risc real și fără garanții) este legată de afaceri reale, aflate în desfășurare, și tinde să recompenseze răbdarea, nu ghicitul.",
+      "interactiveActivity": "Compară două portofolii imaginare în Laboratorul de Investiții - unul concentrat într-o singură companie, altul distribuit la mai multe - și discutați ce se întâmplă cu fiecare după un eveniment simulat.",
+      "gameIdea": "Laboratorul de Investiții: cumpără, vinde și diversifică între companii fictive, și folosește Mașina Timpului ca să vezi cum s-ar fi putut schimba o investiție imaginară pe o perioadă simulată mai lungă.",
+      "challenge": "În Laboratorul de Investiții, încearcă să distribui o sumă imaginară la cel puțin trei companii fictive diferite, apoi verifică panoul de Diversificare.",
+      "quiz": {
+        "question": "Care este o diferență cheie între investire și jocurile de noroc?",
+        "options": [
+          "Investirea este legată de afaceri reale, aflate în desfășurare, nu de un singur pariu izolat",
+          "Investirea garantează mereu profit",
+          "Jocurile de noroc garantează mereu profit",
+          "Nu există nicio diferență reală"
+        ],
+        "correctAnswer": "Investirea este legată de afaceri reale, aflate în desfășurare, nu de un singur pariu izolat",
+        "explanation": "Jocurile de noroc sunt de obicei un eveniment izolat cu șanse defavorabile jucătorului; investirea, deși implică un risc real și fără garanții, este legată de afaceri reale în timp și tinde să recompenseze răbdarea, nu ghicitul."
+      },
+      "feedback": {
+        "success": "Exact - acea legătură cu afaceri reale, aflate în desfășurare, este diferența cheie. 🎯",
+        "retry": "Gândește-te ce a explicat vărul lui Jamal despre distribuirea banilor imaginari la mai multe companii."
+      },
+      "rewardMessage": "Monede câștigate pentru că te-ai gândit serios la risc, diversificare și timp!",
+      "parentNote": "Această lecție nu recomandă niciodată vreun produs, platformă, acțiune sau strategie de investiții reală și nu este consultanță financiară - scopul ei este pur conceptual: alfabetizare privind riscul/recompensa, diversificarea și gândirea pe termen lung, folosind Laboratorul de Investiții din Money Quest și companiile lui complet fictive și banii virtuali pentru a face ideile concrete fără nicio miză financiară reală. Dacă adolescentul tău vrea să înțeleagă opțiuni reale de investiții, aceea este o discuție (și o decizie) pentru tine și, unde este cazul, un profesionist financiar adevărat - niciodată această aplicație.",
+      "commonMisconception": "Adolescenții confundă uneori investirea cu jocurile de noroc, sau presupun că distribuirea banilor la mai multe lucruri garantează siguranța, în loc să înțeleagă că doar reduce (niciodată nu elimină) dependența de un singur rezultat."
+    },
+    "explorer-junior_isa-l1": {
+      "title": "Un cont de economii special, doar pentru copii (Marea Britanie)",
+      "learningObjective": "Să înțeleagă, în termeni simpli, că un Junior ISA este un cont de economii din Marea Britanie care aparține unui copil, chiar dacă un adult are grijă de el.",
+      "shortIntroduction": "În Marea Britanie există un tip special de cont de economii care aparține unui copil, chiar dacă un adult îl administrează.",
+      "story": "Bunica Freyei a pus niște bani într-un lucru numit „Junior ISA” pentru ea. Freya a întrebat dacă banii sunt cu adevărat ai ei. Mama i-a explicat: „Da - banii aceia sunt ai tăi. Bunica și cu mine doar avem grijă de ei până când vei fi destul de mare să-i administrezi singură.”",
+      "keyConcept": "Un Junior ISA (JISA) este un cont de economii din Marea Britanie care aparține unui copil, chiar dacă un părinte sau tutore îl administrează pentru el cât timp este mic.",
+      "vocabulary": [
+        {
+          "term": "Junior ISA",
+          "definition": "Un cont de economii din Marea Britanie pentru copii, administrat de un părinte sau tutore, în care banii aparțin copilului"
+        },
+        {
+          "term": "Marea Britanie",
+          "definition": "Regatul Unit - această lecție descrie un cont de economii care există doar acolo"
+        }
+      ],
+      "explanation": "Un Junior ISA este deschis de un părinte sau tutore, dar banii din el aparțin cu adevărat copilului pentru care a fost deschis - nu adultului care îl administrează. Alte țări au sisteme diferite pentru a ajuta copiii să economisească, așa că un Junior ISA în particular este un lucru specific Marii Britanii.",
+      "interactiveActivity": "Discută cu un adult despre cui aparțin de fapt banii dintr-un Junior ISA și de ce îl administrează totuși un adult.",
+      "gameIdea": "Ai cui sunt banii?: potrivește scenarii de economisire cu cine aparțin de fapt banii.",
+      "challenge": "Întreabă un adult din familia ta dacă știe ce este un Junior ISA.",
+      "quiz": {
+        "question": "Cui aparțin de fapt banii dintr-un Junior ISA?",
+        "options": [
+          "Copilului pentru care a fost deschis",
+          "Părintelui sau tutorelui care îl administrează",
+          "Băncii",
+          "Nimănui anume"
+        ],
+        "correctAnswer": "Copilului pentru care a fost deschis",
+        "explanation": "Chiar dacă un părinte sau tutore administrează un Junior ISA, banii din el aparțin cu adevărat copilului - adultul doar are grijă de ei."
+      },
+      "feedback": {
+        "success": "Exact - sunt cu adevărat banii Freyei, chiar dacă mama ei îi administrează! 🇬🇧",
+        "retry": "Gândește-te ce a explicat mama Freyei despre cui aparțin cu adevărat banii."
+      },
+      "rewardMessage": "Monede câștigate pentru că ai înțeles ai cui sunt cu adevărat banii dintr-un Junior ISA!",
+      "parentNote": "Aceasta este o lecție specifică Marii Britanii despre Junior ISA, inclusă fiindcă multe familii Money Quest sunt din Marea Britanie - este prezentată ca o parte reală, existentă a sistemului britanic de economii, nu ca ceva ce fiecare familie va avea sau va avea nevoie să folosească. Nimic de aici nu sugerează că un copil ar trebui să deschidă sau să administreze unul singur.",
+      "commonMisconception": "Copiii presupun uneori că banii dintr-un cont administrat de un adult aparțin acelui adult, în loc să înțeleagă că un Junior ISA este special conceput să aparțină copilului.",
+      "countryVariesNote": "Junior ISA este un cont de economii specific Marii Britanii. Alte țări au propriile lor sisteme, diferite, pentru economisirea în numele unui copil."
+    },
+    "builder-junior_isa-l1": {
+      "title": "Blocat până la 18 ani: cum funcționează un Junior ISA",
+      "learningObjective": "Să înțeleagă că un Junior ISA este de obicei blocat până când copilul împlinește 18 ani, că există variante cash și cu acțiuni, și că un părinte sau tutore îl administrează până când copilul împlinește 16 ani.",
+      "shortIntroduction": "Un Junior ISA nu este doar un cont de economii - vine cu propriile lui reguli despre cine îl administrează și când poate fi folosit.",
+      "story": "Tatăl lui Tomasz i-a deschis un Junior ISA când era mic. Tomasz, acum de 13 ani, a întrebat dacă poate scoate niște bani pentru o bicicletă nouă. Tatăl lui i-a explicat: „Nu încă - de obicei este blocat până împlinești 18 ani. Și există de fapt două tipuri: unul cash, ca un cont normal de economii, și unul cu acțiuni, în care banii sunt investiți în schimb.”",
+      "keyConcept": "Un Junior ISA este de obicei blocat până când copilul împlinește 18 ani. Există două tipuri - cash (funcționează ca un cont de economii) și cu acțiuni (banii sunt investiți) - iar un părinte sau tutore îl administrează până când copilul împlinește 16 ani.",
+      "vocabulary": [
+        {
+          "term": "Junior ISA cash",
+          "definition": "Un tip de Junior ISA în care banii sunt pur și simplu economisiți, ca într-un cont normal de economii"
+        },
+        {
+          "term": "Junior ISA cu acțiuni",
+          "definition": "Un tip de Junior ISA în care banii sunt investiți în loc să fie doar economisiți, astfel încât valoarea lor poate crește sau scădea"
+        },
+        {
+          "term": "blocat până la 18 ani",
+          "definition": "Banii dintr-un Junior ISA nu pot fi de obicei retrași până când copilul împlinește 18 ani"
+        }
+      ],
+      "explanation": "Un Junior ISA vine în două tipuri: o variantă cash, în care banii sunt pur și simplu păstrați în siguranță ca într-un cont obișnuit de economii, și o variantă cu acțiuni, în care banii sunt investiți - ceea ce înseamnă că valoarea lor poate crește sau scădea în timp, exact ca ideile despre investire discutate în altă parte în Money Quest. Indiferent de tip, banii sunt de obicei blocați până când copilul împlinește 18 ani. Până când copilul împlinește 16 ani, un părinte sau tutore administrează contul în numele lui.",
+      "interactiveActivity": "Compară un Junior ISA cash și unul cu acțiuni - a cărui valoare se poate schimba de la o zi la alta și care rămâne constantă?",
+      "gameIdea": "Cash sau investit?: sortează caracteristicile unui Junior ISA în tipul corect.",
+      "challenge": "Întreabă un adult ce tip de Junior ISA - dacă vreunul - crede că ar alege, și de ce.",
+      "quiz": {
+        "question": "Când pot fi de obicei retrași banii dintr-un Junior ISA?",
+        "options": [
+          "Odată ce copilul împlinește 18 ani",
+          "Imediat ce contul este deschis",
+          "Oricând decide părintele",
+          "Nu pot fi retrași niciodată"
+        ],
+        "correctAnswer": "Odată ce copilul împlinește 18 ani",
+        "explanation": "Un Junior ISA este de obicei blocat până când copilul împlinește 18 ani - asta este adevărat fie că este un Junior ISA cash, fie unul cu acțiuni."
+      },
+      "feedback": {
+        "success": "Exact - 18 ani este vârsta normală la care se deblochează. 🔓",
+        "retry": "Gândește-te ce a explicat tatăl lui Tomasz despre când sunt de obicei disponibili banii."
+      },
+      "rewardMessage": "Monede câștigate pentru că ai înțeles cum funcționează cu adevărat un Junior ISA!",
+      "parentNote": "Această lecție explică structura generală a unui Junior ISA din Marea Britanie (cash vs. cu acțiuni, reperele de vârstă 16 și 18 ani) la nivel conceptual - nu este consultanță financiară despre ce tip să alegi, iar regulile se pot schimba în timp, așa că verificați mereu informațiile oficiale actuale înainte de a lua orice decizie reală.",
+      "commonMisconception": "Copiii presupun uneori că un Junior ISA cu acțiuni funcționează exact ca unul cash, fără să realizeze că valoarea lui poate chiar crește sau scădea fiindcă banii sunt investiți.",
+      "countryVariesNote": "Junior ISA, inclusiv distincția dintre variantele cash și cu acțiuni descrisă aici, este specifică Marii Britanii. Alte țări au reguli diferite pentru conturile de economii și investiții ale copiilor."
+    },
+    "strategist-junior_isa-l1": {
+      "title": "Junior ISA: proprietate, momente cheie și reguli care se schimbă",
+      "learningObjective": "Să înțeleagă reperele de proprietate și de vârstă ale unui Junior ISA din Marea Britanie (administrat de un părinte/tutore până la 16 ani, controlat de copil de la 16 ani, retragere posibilă de la 18 ani), și că alocările și regulile - inclusiv plafonul anual actual - se pot schimba în timp.",
+      "shortIntroduction": "Regulile unui Junior ISA sunt cu adevărat utile de înțeles - dar, exact ca regulile fiscale în general, se pot schimba și chiar se schimbă.",
+      "story": "Aaliyah, de 16 ani, tocmai a preluat administrarea propriului Junior ISA de la părinții ei - deși tot nu poate retrage nimic până împlinește 18 ani. Curioasă, caută regulile actuale și găsește că, pentru anul fiscal 2026/27, suma maximă care poate fi depusă într-un Junior ISA într-un an este de 9.000 de lire sterline (£9.000). Observă și o notă care spune că această sumă s-a schimbat înainte și se poate schimba din nou în anii următori.",
+      "keyConcept": "Un Junior ISA din Marea Britanie are repere clare de proprietate și de vârstă - copilul preia administrarea la 16 ani, dar tot nu poate retrage bani până la 18 ani - iar regulile lui, inclusiv suma anuală care poate fi depusă, sunt stabilite pentru fiecare an fiscal și se pot schimba.",
+      "vocabulary": [
+        {
+          "term": "ISA",
+          "definition": "Individual Savings Account (Cont individual de economii) - un tip general de cont din Marea Britanie în care economiile sau investițiile pot crește fără să se aplice anumite taxe britanice, în limite stabilite"
+        },
+        {
+          "term": "an fiscal",
+          "definition": "Perioada de 12 luni pentru care sunt stabilite regulile financiare din Marea Britanie, inclusiv plafoanele pentru ISA"
+        },
+        {
+          "term": "plafon anual",
+          "definition": "Suma maximă care poate fi depusă într-un cont precum un Junior ISA într-un an fiscal"
+        }
+      ],
+      "explanation": "Un ISA, în general, este un tip de cont din Marea Britanie în care banii pot fi economisiți sau investiți fără ca anumite taxe britanice să se aplice, până la niște limite stabilite. Un Junior ISA este varianta pentru copii: un părinte sau tutore îl administrează până când copilul împlinește 16 ani, moment în care copilul poate prelua administrarea singur - dar retragerile tot nu sunt permise, de obicei, înainte de 18 ani. În fiecare an fiscal, guvernul stabilește un plafon anual - suma maximă care poate fi depusă în acel an. Pentru anul fiscal 2026/27, această sumă este de 9.000 de lire sterline (£9.000). Aceasta este cifra ACTUALĂ, nu una permanentă: plafoanele și regulile s-au schimbat în anii trecuți și se pot schimba din nou, așa că merită mereu verificate informațiile oficiale actuale, în loc să presupunem că o cifră rămâne fixă pentru totdeauna.",
+      "interactiveActivity": "Pune reperele unui Junior ISA în ordine: contul este deschis, copilul împlinește 16 ani, copilul împlinește 18 ani.",
+      "gameIdea": "Constructorul de cronologie: aranjează reperele unui Junior ISA (deschidere, 16 ani, 18 ani) în ordinea corectă.",
+      "challenge": "Caută (împreună cu un adult, dintr-o sursă oficială) care este de fapt plafonul actual pentru Junior ISA în acest an fiscal, și compară-l cu cifra de £9.000 din această lecție.",
+      "quiz": {
+        "question": "Ce este adevărat despre cifra de £9.000, plafonul pentru Junior ISA din această lecție?",
+        "options": [
+          "Este cifra actuală pentru 2026/27 și s-ar putea schimba în anii următori",
+          "Este o sumă fixă care nu se va schimba niciodată",
+          "Este totalul pe care o persoană îl poate economisi vreodată într-un Junior ISA",
+          "Se aplică în orice țară"
+        ],
+        "correctAnswer": "Este cifra actuală pentru 2026/27 și s-ar putea schimba în anii următori",
+        "explanation": "Plafoanele pentru Junior ISA sunt stabilite pentru fiecare an fiscal britanic și s-au schimbat înainte - cifra de £9.000 este specific cea ACTUALĂ (2026/27), nu o regulă permanentă."
+      },
+      "feedback": {
+        "success": "Exact - verifică mereu cifra actuală în loc să presupui că nu se schimbă niciodată. 📅",
+        "retry": "Gândește-te ce a observat Aaliyah când a căutat regulile actuale."
+      },
+      "rewardMessage": "Monede câștigate pentru că ai înțeles cum funcționează cu adevărat regulile și momentele cheie ale unui Junior ISA!",
+      "parentNote": "Această lecție menționează plafonul anual pentru Junior ISA din Marea Britanie pentru 2026/27 (£9.000) ca un reper factual, datat, marcat în mod explicit ca actual, nu permanent - regulile și plafoanele pentru ISA sunt stabilite de guvern și se pot schimba în anii fiscali viitori, așa că verificați mereu detaliile actuale dintr-o sursă oficială (precum GOV.UK) înainte de a lua orice decizie reală. Această lecție este doar educativă și nu reprezintă consultanță financiară sau fiscală.",
+      "commonMisconception": "Adolescenții presupun uneori că o cifră precum un plafon, odată învățată, rămâne fixă pentru totdeauna, în loc să înțeleagă că regulile fiscale britanice sunt revizuite și se pot schimba de la un an la altul.",
+      "countryVariesNote": "ISA și Junior ISA, inclusiv cifrele de plafon și reperele de vârstă descrise aici, sunt specifice sistemului fiscal și de economii din Marea Britanie. Alte țări au reguli complet diferite pentru conturile de economii și investiții ale copiilor."
     }
   },
   "games": {

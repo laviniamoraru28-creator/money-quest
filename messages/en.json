@@ -123,6 +123,121 @@
     "insightBufferHeldUp": "Your \"Just in case\" buffer held up well against whatever came up - nice planning.",
     "insightGivingNoticed": "You made space for giving, even while managing everything else - that's worth noticing."
   },
+  "investingLab": {
+    "pageTitle": "Investing Lab",
+    "simulationBanner": "SIMULATION - VIRTUAL MONEY ONLY",
+    "simulationExplainer": "Everything here uses made-up companies and pretend money for learning. No real companies, no real stock market, and no real money are involved.",
+    "guardrailIntro": "Investments can lose value as well as gain it, and choices with higher potential returns usually carry higher risk too. This is a learning simulation, not investing advice - nothing here promises what would really happen.",
+    "cashLabel": "Virtual cash",
+    "portfolioValueLabel": "Portfolio value",
+    "overallChangeLabel": "{amount} ({percent}%) since you started",
+    "companiesTitle": "Fictional companies",
+    "companyListLabel": "Fictional companies",
+    "holdingsTitle": "Your holdings",
+    "diversificationTitle": "Diversification",
+    "watchlistTitle": "Watchlist",
+    "watchlistEmptyHint": "Nothing on your watchlist yet - tap \"Add to watchlist\" on any company to keep an eye on it without buying.",
+    "transactionHistoryTitle": "Transaction history",
+    "timeMachineTitle": "Time Machine",
+    "timeMachineIntro": "See how a pretend past investment would have changed by today - a way to explore how unpredictable the short term can be, and how different the long term can look.",
+    "resetConfirm": "This clears your Investing Lab portfolio, holdings, and history on this device. This can't be undone. Continue?",
+    "resetButton": "Reset Investing Lab",
+    "removeFromWatchlist": "Remove from watchlist",
+    "addToWatchlist": "Add to watchlist",
+    "companyNewsTitle": "Company news",
+    "eventPositiveLabel": "Good news",
+    "eventNegativeLabel": "Bad news",
+    "buySharesLabel": "Buy shares",
+    "insufficientCash": "You don't have enough virtual cash for that many shares.",
+    "boughtSharesConfirmation": "Bought {shares} shares of {company}.",
+    "buyButton": "Buy",
+    "maxAffordableHint": "You could afford up to {shares} shares right now.",
+    "sector": {
+      "renewableEnergy": "Renewable energy",
+      "games": "Games",
+      "healthyFood": "Healthy food",
+      "transport": "Transport",
+      "technology": "Technology",
+      "natureAndEnvironment": "Nature & environment"
+    },
+    "riskProfile": {
+      "lower": "Lower-risk sector - tends to move more steadily",
+      "medium": "Medium-risk sector - moves up and down at a moderate pace",
+      "higher": "Higher-risk sector - can swing up and down quickly"
+    },
+    "noHoldingsYet": "You don't own any fictional shares yet - buy some above to see them here.",
+    "sharesLabel": "Shares",
+    "averagePriceLabel": "Average price",
+    "currentPriceLabel": "Current price",
+    "currentValueLabel": "Current value",
+    "sellSharesLabel": "Shares of {company} to sell",
+    "insufficientShares": "You don't own that many shares to sell.",
+    "soldSharesConfirmation": "Sold {shares} shares of {company}.",
+    "sellButton": "Sell",
+    "diversificationAllCashHint": "Once you own shares in more than one company, this will show how spread out your portfolio is.",
+    "diversificationChartLabel": "How your portfolio is spread across companies and cash",
+    "diversificationExplainer": "Spreading virtual money across different companies (diversifying) means one company doing badly affects your whole portfolio less - but it doesn't remove risk altogether.",
+    "noTransactionsYet": "No buys or sells yet.",
+    "transactionBuyLine": "Bought {shares} shares of {company}",
+    "transactionSellLine": "Sold {shares} shares of {company}",
+    "timeMachineCompanyLabel": "Company",
+    "timeMachineAmountLabel": "Pretend amount invested",
+    "timeMachineDaysAgoLabel": "How long ago",
+    "timeMachineYearsAgo": "{years}-year lookback",
+    "timeMachineResultIntro": "{shares} shares bought for {amount} back then would be worth:",
+    "timeMachineTooSmallHint": "That pretend amount wasn't enough to buy even one whole share back then.",
+    "timeMachineDisclaimer": "This uses fixed, made-up past prices for learning only. Past performance never guarantees what would happen in the future - real or fictional.",
+    "chartPeriodGroupLabel": "Chart time period",
+    "period": {
+      "1D": "1D",
+      "1W": "1W",
+      "1M": "1M",
+      "3M": "3M",
+      "1Y": "1Y",
+      "5Y": "5Y"
+    },
+    "chartFictionalNote": "These prices are simulated for learning - not real market data.",
+    "companies": {
+      "sunbeam-energy": {
+        "name": "Sunbeam Energy Co.",
+        "description": "A fictional company that makes solar panels and other renewable energy equipment."
+      },
+      "pixel-quest-games": {
+        "name": "Pixel Quest Games",
+        "description": "A fictional company that makes video games, including its popular Pixel Quest series."
+      },
+      "green-bite-foods": {
+        "name": "Green Bite Foods",
+        "description": "A fictional company that makes healthy snacks and ready meals."
+      },
+      "skyline-transit": {
+        "name": "Skyline Transit",
+        "description": "A fictional company that runs buses and trains in and around cities."
+      },
+      "nimbus-tech": {
+        "name": "Nimbus Tech",
+        "description": "A fictional company that makes computers, phones, and other gadgets."
+      },
+      "wildwood-nature-co": {
+        "name": "Wildwood Nature Co.",
+        "description": "A fictional company that plants trees and runs nature reserves."
+      }
+    },
+    "events": {
+      "sunbeam-breakthrough": "Sunbeam Energy announced a new kind of solar panel that works even on cloudy days.",
+      "sunbeam-supply-problem": "Sunbeam Energy had trouble getting enough of a material it needs to make solar panels.",
+      "pixelquest-hit-launch": "Pixel Quest Games launched a new game that sold extremely well in its first month.",
+      "pixelquest-disappointing-reviews": "Pixel Quest Games' newest game got disappointing reviews from players.",
+      "greenbite-positive-response": "Green Bite Foods' new healthy snack got a very positive response from customers.",
+      "greenbite-supply-problem": "Green Bite Foods had a shortage of one of its key ingredients.",
+      "skyline-fewer-passengers": "Skyline Transit had fewer passengers than expected one quarter.",
+      "skyline-strong-pass-sales": "Skyline Transit sold a lot of new travel passes after lowering their price.",
+      "nimbus-new-gadget": "Nimbus Tech launched a new gadget that quickly became popular.",
+      "nimbus-technical-problem": "Nimbus Tech had a technical problem that was expensive to fix.",
+      "wildwood-discovery": "Wildwood Nature Co. discovered a new way to help forests recover faster after wildfires.",
+      "wildwood-slow-season": "Wildwood Nature Co. had a slower season than usual for new nature reserve visits."
+    }
+  },
   "categories": {
     "needs": "Needs",
     "wants": "Wants",
@@ -217,7 +332,8 @@
     "amountToWithdraw": "Amount to spend",
     "spendSome": "Spend some",
     "moneyPersonalityLink": "Money Personality",
-    "levelActivityProgress": "Level {level} · Activity {position} of {total}"
+    "levelActivityProgress": "Level {level} · Activity {position} of {total}",
+    "investingLabLink": "Investing Lab →"
   },
   "parentInfo": {
     "title": "Parent Information",
@@ -1145,6 +1261,384 @@
       "rewardMessage": "Coins earned for thinking seriously about giving well, not just giving.",
       "parentNote": "This lesson deliberately doesn't recommend any specific charity or cause, since that's a personal and family decision this app has no basis to make for you. If your teen wants to explore real charitable giving, looking at a cause's own published information together is a genuinely good, practical activity that goes beyond what this lesson alone can offer.",
       "commonMisconception": "Teenagers sometimes swing to either extreme - giving without any thought at all, or becoming so skeptical of all giving that they stop considering it altogether - rather than landing on thoughtful, informed generosity."
+    },
+    "explorer-digital_money-l1": {
+      "title": "Money You Can't Hold",
+      "learningObjective": "Recognise that money can be digital (like a card tap) as well as physical coins and notes.",
+      "shortIntroduction": "Sometimes money doesn't look like coins at all - let's see what that means!",
+      "story": "At the shop, Mum taps a card on a little machine instead of handing over coins. Beep! The shopkeeper says 'thank you' and hands over the bread. No coins moved at all - but the payment still happened!",
+      "keyConcept": "Money can be digital - numbers that move between accounts - not just physical coins and notes you can hold.",
+      "vocabulary": [
+        {
+          "term": "digital money",
+          "definition": "Money that exists as numbers on a computer, not as coins or notes you can hold"
+        },
+        {
+          "term": "card",
+          "definition": "A small plastic tool that can pay for things without using coins or notes"
+        }
+      ],
+      "explanation": "When Mum tapped her card, no coins or notes changed hands. Instead, a number went down in her account and a number went up in the shop's account. It's still real money - it just moves in a different way.",
+      "interactiveActivity": "Sort pictures into 'physical money' (coins, notes) and 'digital money' (a card tap, an online payment screen).",
+      "gameIdea": "Digital or Physical?: sort payment pictures into the correct group.",
+      "challenge": "Ask a grown-up to show you one digital payment they've made today, like a card tap or a phone payment.",
+      "quiz": {
+        "question": "Which of these is an example of digital money?",
+        "options": [
+          "Tapping a card to pay",
+          "A coin in your pocket",
+          "A paper note",
+          "A piggy bank"
+        ],
+        "correctAnswer": "Tapping a card to pay",
+        "explanation": "Tapping a card moves numbers between accounts instead of handing over coins or notes - that's what makes it digital money."
+      },
+      "feedback": {
+        "success": "That's right - tapping a card is digital money in action! 💳",
+        "retry": "Think about what happened when Mum's card went 'beep' at the shop."
+      },
+      "rewardMessage": "Coins earned for spotting digital money in action!",
+      "parentNote": "This lesson introduces the very basic idea that money can move digitally, without needing to explain how card networks or bank transfers actually work underneath - that detail isn't necessary at this age. If your child sees you tap a card or pay with a phone, narrating it out loud ('see, that's digital money moving') reinforces this nicely.",
+      "commonMisconception": "Young children sometimes think a card 'is' the money itself, rather than a tool that moves money that already exists in an account."
+    },
+    "builder-digital_money-l1": {
+      "title": "How a Card Payment Actually Works",
+      "learningObjective": "Explain, in simple terms, what happens behind the scenes during a card or contactless payment, and understand basic payment safety habits like keeping a PIN private.",
+      "shortIntroduction": "A card tap looks instant, but a few real steps happen behind the scenes to move the money safely.",
+      "story": "Omar buys a comic with his family's shopping card. He watches the little screen show an amount, then a green tick appears. His older cousin explains: 'That tick means the shop just checked that there's enough money in the account, and moved it over - all in about a second.'",
+      "keyConcept": "A card payment quickly checks that enough money is available, then moves that amount from the buyer's account to the seller's account - all almost instantly.",
+      "vocabulary": [
+        {
+          "term": "contactless payment",
+          "definition": "A payment made by tapping a card or device near a machine, instead of inserting or swiping it"
+        },
+        {
+          "term": "PIN",
+          "definition": "A private number code that proves a card is really being used by its owner"
+        },
+        {
+          "term": "payment confirmation",
+          "definition": "The message or tick that shows a payment has actually gone through"
+        }
+      ],
+      "explanation": "Behind a card tap, a payment network quickly checks the account has enough money, then moves that exact amount to the seller. The green tick or receipt is the payment confirmation - proof it genuinely happened, not just that a machine beeped. A PIN exists so that only the real owner (or someone they trust) can use the card for larger payments.",
+      "interactiveActivity": "Walk through the steps of a card payment in order: tap, check balance, confirm, receipt.",
+      "gameIdea": "Payment Steps: put the stages of a card payment into the correct order.",
+      "challenge": "Next time a grown-up pays with a card, ask them to point out the confirmation - the tick, receipt, or message that shows it worked.",
+      "quiz": {
+        "question": "What does a payment confirmation actually show?",
+        "options": [
+          "That the payment genuinely went through",
+          "That the card is empty",
+          "That the shop is closed",
+          "Nothing important"
+        ],
+        "correctAnswer": "That the payment genuinely went through",
+        "explanation": "A payment confirmation - a tick, receipt, or message - is proof the money actually moved, which is why it's worth checking rather than assuming a payment worked."
+      },
+      "feedback": {
+        "success": "Exactly - that confirmation is proof, not just decoration! ✅",
+        "retry": "Think about what Omar's cousin explained the green tick actually meant."
+      },
+      "rewardMessage": "Coins earned for understanding how a card payment really works!",
+      "parentNote": "This lesson deliberately keeps the technical detail to what's genuinely useful at this age: that a payment is checked and confirmed, and that a PIN protects it. It's a good moment to agree on a simple family rule: PINs and passwords are never shared, even with friends - not because anyone's untrustworthy, but because it's a habit worth building early.",
+      "commonMisconception": "Children sometimes assume a payment always works the moment a card touches a machine, without realising a check for available money happens first, and that it can be declined."
+    },
+    "strategist-digital_money-l1": {
+      "title": "Staying Safe and Aware With Digital Money",
+      "learningObjective": "Apply practical habits for managing digital spending safely and critically, including checking payment messages and tracking spending, and recognise why digital money can feel less 'real' than cash.",
+      "shortIntroduction": "Digital money is convenient - but its convenience is exactly why it needs a bit more conscious attention than cash.",
+      "story": "Priya notices she's spent more this month than she expected, even though she doesn't remember any one big purchase. Looking back through her digital wallet's history, she sees several small payments she'd barely registered making - each felt too small to think about at the time.",
+      "keyConcept": "Because digital payments don't involve physically handing anything over, they can feel less 'real' in the moment - which makes deliberately checking what you're spending and confirming payments genuinely worthwhile habits.",
+      "vocabulary": [
+        {
+          "term": "digital wallet",
+          "definition": "An app or account that stores payment details and tracks digital spending"
+        },
+        {
+          "term": "payment confirmation",
+          "definition": "A message or receipt proving a payment genuinely went through, worth checking before assuming it did"
+        },
+        {
+          "term": "phishing message",
+          "definition": "A fake message pretending to be from a real payment service, designed to trick someone into giving away private details"
+        }
+      ],
+      "explanation": "Handing over a coin is a small physical action that registers in the moment; tapping a card or approving an app payment can feel almost effortless, which is exactly why several small digital payments can add up unnoticed. Building the habit of glancing at what you're actually paying for, checking payment confirmations rather than assuming they worked, and occasionally reviewing a spending history are all ways to keep digital money feeling just as 'real' as cash. It also helps to recognise fake payment messages - phishing attempts that copy a real payment service's look to trick someone into typing in private details; genuine payment services never ask for a full password or PIN by message.",
+      "interactiveActivity": "Review a sample digital wallet history and spot which entries add up to more than expected, plus one message designed to look like a real payment request but isn't.",
+      "gameIdea": "Spending Tracker: review a week of pretend digital transactions and spot the pattern.",
+      "challenge": "Think of one digital habit you could build this week - like checking a receipt, or asking what a subscription actually costs each month.",
+      "quiz": {
+        "question": "Why can digital spending be easier to lose track of than cash spending?",
+        "options": [
+          "Because it doesn't involve a physical, felt action each time",
+          "Because digital money is worth less",
+          "Because digital payments are always mistakes",
+          "Because cash can't be spent quickly"
+        ],
+        "correctAnswer": "Because it doesn't involve a physical, felt action each time",
+        "explanation": "Handing over cash is a small physical action that registers each time; a quick tap or app approval can feel effortless by comparison, which is exactly why several small digital payments can add up without anyone quite noticing."
+      },
+      "feedback": {
+        "success": "Exactly - noticing that is the first step to staying in control of digital spending. 📱",
+        "retry": "Think about why Priya's spending crept up without any single big purchase."
+      },
+      "rewardMessage": "Coins earned for thinking carefully about staying aware with digital money!",
+      "parentNote": "This lesson is not about restricting digital payments, but about building conscious awareness - the same skill adults have to practise too. If your teen has any access to a card or digital wallet, reviewing a spending history together occasionally (without judgement) is a genuinely useful shared habit, not just a check-up.",
+      "commonMisconception": "Teenagers sometimes assume that because they're comfortable using apps and cards, they're automatically tracking their spending well - comfort with the technology and awareness of the total spent are two different things."
+    },
+    "explorer-investing_basics-l1": {
+      "title": "Saving vs Growing Your Money",
+      "learningObjective": "Understand the basic difference between saving money and investing it, at a simple level.",
+      "shortIntroduction": "Saving keeps your coins safe - investing is a different idea where your money can grow, but it isn't guaranteed.",
+      "story": "Leo has been saving coins in a jar for months - his pile only grows when he adds more. His older sister explains that some grown-ups put money into things called 'investments' instead, hoping the amount grows by itself over time - but she's quick to add: 'it can also shrink. Nothing is promised.'",
+      "keyConcept": "Saving keeps money safe and unchanged until you add to it. Investing means using money to try to grow it over time, but the amount can go up or down - it's never guaranteed.",
+      "vocabulary": [
+        {
+          "term": "saving",
+          "definition": "Keeping money safe without spending it"
+        },
+        {
+          "term": "investing",
+          "definition": "Using money in a way that could grow it over time, but with no guarantee - it can also lose value"
+        }
+      ],
+      "explanation": "A savings jar only changes when you put more coins in or take some out. Investing is different: grown-ups sometimes use money to become part-owners of things, like companies, hoping the value grows - but exactly like the story explains, it can shrink too. Nobody can promise investing will make more money.",
+      "interactiveActivity": "Sort statements into 'this describes saving' and 'this describes investing'.",
+      "gameIdea": "Saving or Investing?: sort simple examples into the correct group.",
+      "challenge": "Ask a grown-up if they've heard the word 'investing' before, and what it means to them.",
+      "quiz": {
+        "question": "What is different about investing compared to saving?",
+        "options": [
+          "Investing's value can go up or down, with no guarantee",
+          "Investing always makes more money",
+          "Investing is exactly the same as saving",
+          "Investing means spending all your money at once"
+        ],
+        "correctAnswer": "Investing's value can go up or down, with no guarantee",
+        "explanation": "Unlike a savings jar, which only changes when you add or remove coins, an investment's value can genuinely go up or down by itself - and nobody can promise which way it will go."
+      },
+      "feedback": {
+        "success": "Exactly right - investing is never a guarantee, up or down! 🌱",
+        "retry": "Think about what Leo's sister was careful to add about investing."
+      },
+      "rewardMessage": "Coins earned for understanding the difference between saving and investing!",
+      "parentNote": "This lesson deliberately keeps investing conceptual and abstract at this age - no real products, platforms, or numbers - since the goal here is simply the idea that money can be used to try to grow itself, and that this always carries genuine uncertainty. There's nothing for a young child to act on yet.",
+      "commonMisconception": "Young children sometimes assume investing is just a faster way to save, rather than understanding that it involves real uncertainty and possible loss."
+    },
+    "builder-investing_basics-l1": {
+      "title": "Owning a Small Piece of a Company",
+      "learningObjective": "Understand what a share/stock represents (a small piece of ownership in a company) and that its value can rise or fall based on how the company is doing.",
+      "shortIntroduction": "When you buy a 'share' of a company, you're not just watching a number - you're owning a tiny piece of a real business.",
+      "story": "Mei's uncle owns a small piece of a toy company because he bought some of its 'shares'. When the company releases a toy that sells really well, the value of his shares goes up a bit. When the company has a bad year, the value can go down. He tells Mei: 'I own a tiny piece of that company - so how it does affects me too, a little.'",
+      "keyConcept": "A share (or stock) is a small piece of ownership in a real company. Its value tends to reflect how people think that company is doing - which is why it can rise or fall.",
+      "vocabulary": [
+        {
+          "term": "share",
+          "definition": "A small piece of ownership in a company"
+        },
+        {
+          "term": "stock",
+          "definition": "Another word for shares - small pieces of ownership in a company"
+        },
+        {
+          "term": "company",
+          "definition": "A business that makes or sells something, which can have many different owners through shares"
+        }
+      ],
+      "explanation": "Companies can be owned by many different people at once, each holding a number of shares. If a company does well - say, a popular new product - more people often want to own a piece of it, so share prices tend to rise. If it struggles, the opposite can happen. This is why owning shares means genuinely caring how the company performs, not just watching a number.",
+      "interactiveActivity": "Look at a few fictional company scenarios (a hit product, a bad review) and predict whether its share value would likely rise or fall, and why.",
+      "gameIdea": "The Investing Lab: explore fictional companies and see how pretend events affect their simulated share prices.",
+      "challenge": "Think of a company whose products you use. What do you think would happen to it if it released something people loved?",
+      "quiz": {
+        "question": "What does owning a share of a company actually mean?",
+        "options": [
+          "Owning a small piece of that real company",
+          "Being an employee of that company",
+          "Getting free products from that company",
+          "Nothing meaningful"
+        ],
+        "correctAnswer": "Owning a small piece of that real company",
+        "explanation": "A share represents real, if small, ownership in a company - which is exactly why its value tends to reflect how that company is actually doing."
+      },
+      "feedback": {
+        "success": "Exactly - a share is real ownership, however small! 📈",
+        "retry": "Think about what Mei's uncle actually owns when he holds shares."
+      },
+      "rewardMessage": "Coins earned for understanding what owning a share really means!",
+      "parentNote": "This lesson introduces the concept of shares/stock ownership using entirely fictional examples - it deliberately does not mention or evaluate any real company, and isn't a recommendation to buy anything. Money Quest's Investing Lab (a separate, free-standing feature) lets your child explore this idea further with entirely fictional companies and pretend money.",
+      "commonMisconception": "Children this age sometimes think of a 'share price' as an arbitrary number, rather than connecting it to real ownership in an actual, functioning business."
+    },
+    "strategist-investing_basics-l1": {
+      "title": "Risk, Diversification, and Time",
+      "learningObjective": "Understand risk and reward, diversification, compound growth as a concept, and why investing differs from gambling and requires a long-term view rather than a guarantee of returns.",
+      "shortIntroduction": "Investing rewards patience and spreading risk - not quick guesses, and never guaranteed outcomes.",
+      "story": "Jamal is deciding, purely as a thought experiment with pretend money in the Investing Lab, whether to put everything into one exciting company or spread it across several different ones. His older cousin, who studies economics, points out: 'Putting everything in one place means one bad result affects everything. Spreading it out doesn't remove risk - but it means you're not relying on just one outcome.'",
+      "keyConcept": "Investing involves a genuine trade-off between risk and potential reward, and spreading money across different things (diversification) can reduce reliance on any single outcome - though it never removes risk entirely. Time also matters: investing is generally a long-term idea, not a quick guess.",
+      "vocabulary": [
+        {
+          "term": "risk and reward",
+          "definition": "The idea that a chance of a bigger gain usually comes with a bigger chance of loss too"
+        },
+        {
+          "term": "diversification",
+          "definition": "Spreading money across several different things instead of just one, so no single result decides everything"
+        },
+        {
+          "term": "compound growth",
+          "definition": "The idea that gains can themselves earn further gains over time, so growth can build on itself the longer money stays invested"
+        }
+      ],
+      "explanation": "Higher potential reward almost always comes with higher potential risk - there's no way around that trade-off. Diversification doesn't eliminate risk, but it means a single company doing badly doesn't decide the whole outcome. Time matters too: compound growth is the idea that, over a long period, any gains can themselves start generating further gains - which is one reason investing is usually thought of as a long-term activity rather than a way to make quick money. This is also exactly why investing is fundamentally different from gambling: gambling is typically a short, isolated event with odds stacked against the player, while investing (even though it carries real risk and no guarantees) is connected to real, ongoing businesses and tends to reward patience over guesswork.",
+      "interactiveActivity": "Compare two pretend portfolios in the Investing Lab - one concentrated in a single company, one spread across several - and discuss what happens to each after a simulated event.",
+      "gameIdea": "The Investing Lab: buy, sell, and diversify across fictional companies, and use the Time Machine to see how a pretend investment might have changed over a longer simulated period.",
+      "challenge": "In the Investing Lab, try spreading a pretend amount across at least three different fictional companies, then check your Diversification panel.",
+      "quiz": {
+        "question": "What is one key difference between investing and gambling?",
+        "options": [
+          "Investing is connected to real, ongoing businesses rather than a single isolated bet",
+          "Investing always guarantees a profit",
+          "Gambling always guarantees a profit",
+          "There is no real difference"
+        ],
+        "correctAnswer": "Investing is connected to real, ongoing businesses rather than a single isolated bet",
+        "explanation": "Gambling is typically one isolated event with odds against the player; investing, despite carrying real and genuine risk, is connected to real businesses over time and tends to reward patience rather than guesswork."
+      },
+      "feedback": {
+        "success": "Exactly - that connection to real, ongoing businesses is the key difference. 🎯",
+        "retry": "Think about what Jamal's cousin explained about spreading pretend money across several companies."
+      },
+      "rewardMessage": "Coins earned for thinking seriously about risk, diversification, and time!",
+      "parentNote": "This lesson deliberately never recommends any real investment product, platform, stock, or strategy, and is not financial advice - its goal is purely conceptual literacy: risk/reward, diversification, and long-term thinking, using Money Quest's Investing Lab and its entirely fictional companies and virtual money to make the ideas concrete without any real financial stakes. If your teen wants to understand real investment options, that's a conversation (and decision) for you and, where appropriate, a genuine financial professional - never this app.",
+      "commonMisconception": "Teenagers sometimes conflate investing with gambling, or assume that spreading money across several things guarantees safety, rather than understanding it only reduces (never removes) reliance on any single result."
+    },
+    "explorer-junior_isa-l1": {
+      "title": "A Special Savings Account Just for Kids (UK)",
+      "learningObjective": "Understand, in simple terms, that a Junior ISA is a UK savings account that belongs to a child, even though a grown-up looks after it.",
+      "shortIntroduction": "In the UK, there's a special kind of savings account that belongs to a child, even though a grown-up manages it.",
+      "story": "Freya's grandma put some money into something called a 'Junior ISA' for her. Freya asked if it was really hers. Her mum explained: 'Yes - that money belongs to you. Grandma and I just look after it until you're old enough to manage it yourself.'",
+      "keyConcept": "A Junior ISA (JISA) is a UK savings account that belongs to a child, even though a parent or guardian manages it for them while they're young.",
+      "vocabulary": [
+        {
+          "term": "Junior ISA",
+          "definition": "A UK savings account for children, managed by a parent or guardian, where the money belongs to the child"
+        },
+        {
+          "term": "UK",
+          "definition": "The United Kingdom - this lesson describes a savings account that only exists there"
+        }
+      ],
+      "explanation": "A Junior ISA is opened by a parent or guardian, but the money inside genuinely belongs to the child it's for - not the adult who manages it. Other countries have different systems for helping children save, so a Junior ISA specifically is a UK thing.",
+      "interactiveActivity": "Talk with a grown-up about who a Junior ISA's money actually belongs to, and why an adult manages it anyway.",
+      "gameIdea": "Whose Money Is It?: match savings scenarios to who the money actually belongs to.",
+      "challenge": "Ask a grown-up in your family if they know what a Junior ISA is.",
+      "quiz": {
+        "question": "Who does the money in a Junior ISA actually belong to?",
+        "options": [
+          "The child it was opened for",
+          "The parent or guardian who manages it",
+          "The bank",
+          "Nobody in particular"
+        ],
+        "correctAnswer": "The child it was opened for",
+        "explanation": "Even though a parent or guardian manages a Junior ISA, the money inside genuinely belongs to the child - the adult is just looking after it."
+      },
+      "feedback": {
+        "success": "That's right - it's genuinely Freya's money, even though her mum manages it! 🇬🇧",
+        "retry": "Think about what Freya's mum explained about who the money really belongs to."
+      },
+      "rewardMessage": "Coins earned for understanding whose money a Junior ISA really is!",
+      "parentNote": "This is a UK-specific lesson about Junior ISAs, included because many Money Quest families are in the UK - it's presented as a real, existing feature of the UK savings system, not as something every family will have access to or need. Nothing here suggests a child should open or manage one independently.",
+      "commonMisconception": "Children sometimes assume money in an account with an adult's name attached to the management belongs to that adult, rather than understanding a Junior ISA is specifically designed to belong to the child.",
+      "countryVariesNote": "Junior ISAs are a UK-specific savings account. Other countries have their own, different systems for saving on a child's behalf."
+    },
+    "builder-junior_isa-l1": {
+      "title": "Locked Until 18: How a Junior ISA Works",
+      "learningObjective": "Understand that a Junior ISA is normally locked until a child turns 18, that there are cash and stocks-and-shares versions, and that a parent/guardian manages it until the child turns 16.",
+      "shortIntroduction": "A Junior ISA isn't just a savings account - it comes with its own particular rules about who manages it and when it can be used.",
+      "story": "Tomasz's dad opened a Junior ISA for him when he was small. Tomasz, now 13, asked if he could take some money out for a new bike. His dad explained: 'Not yet - it's normally locked until you turn 18. And there are actually two kinds: a cash one, like a normal savings account, and a stocks-and-shares one, where the money is invested instead.'",
+      "keyConcept": "A Junior ISA is normally locked until the child turns 18. There are two types - cash (works like a savings account) and stocks-and-shares (the money is invested) - and a parent or guardian manages it until the child turns 16.",
+      "vocabulary": [
+        {
+          "term": "cash Junior ISA",
+          "definition": "A type of Junior ISA where money is simply saved, like a normal savings account"
+        },
+        {
+          "term": "stocks-and-shares Junior ISA",
+          "definition": "A type of Junior ISA where the money is invested instead of simply saved, so its value can go up or down"
+        },
+        {
+          "term": "locked until 18",
+          "definition": "The money in a Junior ISA normally cannot be withdrawn until the child turns 18"
+        }
+      ],
+      "explanation": "A Junior ISA comes in two types: a cash version, where money is simply kept safe like an ordinary savings account, and a stocks-and-shares version, where the money is invested - meaning its value can rise or fall over time, just like the investing ideas covered elsewhere in Money Quest. Whichever type it is, the money is normally locked away until the child turns 18. Until the child turns 16, a parent or guardian manages the account on their behalf.",
+      "interactiveActivity": "Compare a cash Junior ISA and a stocks-and-shares Junior ISA - which one's value can change day to day, and which one stays steady?",
+      "gameIdea": "Cash or Invested?: sort Junior ISA features into the correct type.",
+      "challenge": "Ask a grown-up which type of Junior ISA - if any - they think they'd choose, and why.",
+      "quiz": {
+        "question": "When can money in a Junior ISA normally be taken out?",
+        "options": [
+          "Once the child turns 18",
+          "As soon as the account is opened",
+          "Whenever the parent decides",
+          "It can never be taken out"
+        ],
+        "correctAnswer": "Once the child turns 18",
+        "explanation": "A Junior ISA is normally locked until the child turns 18 - that's true whether it's a cash or a stocks-and-shares Junior ISA."
+      },
+      "feedback": {
+        "success": "Exactly right - 18 is the normal age it unlocks. 🔓",
+        "retry": "Think about what Tomasz's dad explained about when the money is normally available."
+      },
+      "rewardMessage": "Coins earned for understanding how a Junior ISA actually works!",
+      "parentNote": "This lesson explains the general structure of a UK Junior ISA (cash vs stocks-and-shares, the age-16 and age-18 milestones) at a conceptual level - it is not financial advice about which type to choose, and rules can change over time, so always check current, official guidance before making any real decisions.",
+      "commonMisconception": "Children sometimes assume a stocks-and-shares Junior ISA works exactly like a cash one, not realising its value can actually go up or down because the money is invested.",
+      "countryVariesNote": "Junior ISAs, including the cash and stocks-and-shares distinction described here, are specific to the UK. Other countries have different rules for children's savings and investment accounts."
+    },
+    "strategist-junior_isa-l1": {
+      "title": "Junior ISAs: Ownership, Timing, and Changing Rules",
+      "learningObjective": "Understand the ownership and age milestones of a UK Junior ISA (managed by a parent/guardian until 16, controlled by the child from 16, withdrawable from 18), and that allowances and rules - including the current annual limit - can change over time.",
+      "shortIntroduction": "A Junior ISA's rules are genuinely useful to understand - but exactly like tax rules generally, they can and do change.",
+      "story": "Aaliyah, 16, just took over managing her own Junior ISA from her parents - though she still can't withdraw anything until she turns 18. Curious, she looks up the current rules and finds that for the 2026/27 tax year, the most that can be paid into a Junior ISA in one year is £9,000. She also notices a note that this amount has changed before and could change again in future years.",
+      "keyConcept": "A UK Junior ISA has clear ownership and timing milestones - the child takes over managing it at 16 but still can't withdraw until 18 - and its rules, including the annual amount that can be paid in, are set for each tax year and can change.",
+      "vocabulary": [
+        {
+          "term": "ISA",
+          "definition": "Individual Savings Account - a general type of UK account where savings or investments can grow without certain UK taxes applying, within set limits"
+        },
+        {
+          "term": "tax year",
+          "definition": "The 12-month period UK financial rules, including ISA allowances, are set for"
+        },
+        {
+          "term": "annual allowance",
+          "definition": "The maximum amount that can be paid into an account like a Junior ISA within one tax year"
+        }
+      ],
+      "explanation": "An ISA, in general, is a UK account type where money can be saved or invested without certain UK taxes applying to it, up to set limits. A Junior ISA is the version for children: a parent or guardian manages it until the child turns 16, at which point the child can take over managing it themselves - but withdrawals still normally aren't allowed until age 18. Every tax year, the government sets an annual allowance - the most that can be paid in that year. For the 2026/27 tax year, that figure is £9,000. This is the CURRENT figure, not a permanent one: allowances and rules have changed in past years and can change again, so it's always worth checking current, official information rather than assuming a figure stays fixed forever.",
+      "interactiveActivity": "Put the Junior ISA milestones in order: account opened, child turns 16, child turns 18.",
+      "gameIdea": "Timeline Builder: arrange Junior ISA milestones (opened, age 16, age 18) in the correct order.",
+      "challenge": "Look up (with a grown-up, from an official source) what this tax year's Junior ISA allowance actually is, and compare it with the £9,000 figure from this lesson.",
+      "quiz": {
+        "question": "What is true about the £9,000 Junior ISA allowance figure in this lesson?",
+        "options": [
+          "It's the current 2026/27 figure and could change in future years",
+          "It's a fixed amount that will never change",
+          "It's the total a person can ever save in a Junior ISA",
+          "It applies in every country"
+        ],
+        "correctAnswer": "It's the current 2026/27 figure and could change in future years",
+        "explanation": "Junior ISA allowances are set per UK tax year and have changed before - the £9,000 figure is specifically the CURRENT (2026/27) one, not a permanent rule."
+      },
+      "feedback": {
+        "success": "Exactly right - always check the current figure rather than assuming it never changes. 📅",
+        "retry": "Think about what Aaliyah noticed when she looked up the current rules."
+      },
+      "rewardMessage": "Coins earned for understanding how Junior ISA rules and timing actually work!",
+      "parentNote": "This lesson states the 2026/27 UK Junior ISA annual allowance (£9,000) as a factual, dated reference point, explicitly flagged as current rather than permanent - UK ISA rules and allowances are set by the government and can change in future tax years, so always confirm current details from an official source (such as GOV.UK) before making any real decisions. This lesson is educational only and is not financial or tax advice.",
+      "commonMisconception": "Teenagers sometimes assume a figure like an allowance limit, once learned, stays fixed forever, rather than understanding that UK tax rules are reviewed and can change from year to year.",
+      "countryVariesNote": "ISAs and Junior ISAs, including the allowance figures and age milestones described here, are specific to the UK tax and savings system. Other countries have entirely different rules for children's savings and investment accounts."
     }
   },
   "games": {

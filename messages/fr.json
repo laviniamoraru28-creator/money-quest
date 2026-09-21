@@ -123,6 +123,121 @@
     "insightBufferHeldUp": "Ta réserve « au cas où » a bien résisté à ce qui s'est présenté - bonne planification.",
     "insightGivingNoticed": "Tu as fait de la place pour donner, tout en gérant tout le reste - c'est à noter."
   },
+  "investingLab": {
+    "pageTitle": "Laboratoire d'Investissement",
+    "simulationBanner": "SIMULATION - ARGENT VIRTUEL UNIQUEMENT",
+    "simulationExplainer": "Tout ici utilise des entreprises inventées et de l'argent fictif pour apprendre. Aucune vraie entreprise, aucune vraie bourse, et aucun vrai argent ne sont impliqués.",
+    "guardrailIntro": "Les investissements peuvent perdre de la valeur tout comme ils peuvent en gagner, et les choix au potentiel de gain plus élevé comportent généralement plus de risque aussi. Ceci est une simulation d'apprentissage, pas un conseil d'investissement - rien ici ne garantit ce qui se passerait vraiment.",
+    "cashLabel": "Argent virtuel",
+    "portfolioValueLabel": "Valeur du portefeuille",
+    "overallChangeLabel": "{amount} ({percent} %) depuis le début",
+    "companiesTitle": "Entreprises fictives",
+    "companyListLabel": "Entreprises fictives",
+    "holdingsTitle": "Tes placements",
+    "diversificationTitle": "Diversification",
+    "watchlistTitle": "Liste de suivi",
+    "watchlistEmptyHint": "Rien dans ta liste de suivi pour l'instant - touche « Ajouter au suivi » sur une entreprise pour la surveiller sans l'acheter.",
+    "transactionHistoryTitle": "Historique des transactions",
+    "timeMachineTitle": "Machine à Remonter le Temps",
+    "timeMachineIntro": "Découvre comment un investissement imaginaire du passé aurait changé jusqu'à aujourd'hui - une façon d'explorer à quel point le court terme peut être imprévisible, et à quel point le long terme peut sembler différent.",
+    "resetConfirm": "Ceci efface ton portefeuille, tes placements et ton historique du Laboratoire d'Investissement sur cet appareil. C'est irréversible. Continuer ?",
+    "resetButton": "Réinitialiser le Laboratoire d'Investissement",
+    "removeFromWatchlist": "Retirer du suivi",
+    "addToWatchlist": "Ajouter au suivi",
+    "companyNewsTitle": "Actualités de l'entreprise",
+    "eventPositiveLabel": "Bonne nouvelle",
+    "eventNegativeLabel": "Mauvaise nouvelle",
+    "buySharesLabel": "Acheter des actions",
+    "insufficientCash": "Tu n'as pas assez d'argent virtuel pour autant d'actions.",
+    "boughtSharesConfirmation": "Tu as acheté {shares} actions de {company}.",
+    "buyButton": "Acheter",
+    "maxAffordableHint": "Tu pourrais te permettre jusqu'à {shares} actions maintenant.",
+    "sector": {
+      "renewableEnergy": "Énergie renouvelable",
+      "games": "Jeux vidéo",
+      "healthyFood": "Alimentation saine",
+      "transport": "Transport",
+      "technology": "Technologie",
+      "natureAndEnvironment": "Nature et environnement"
+    },
+    "riskProfile": {
+      "lower": "Secteur à risque plus faible - tend à évoluer plus régulièrement",
+      "medium": "Secteur à risque moyen - monte et descend à un rythme modéré",
+      "higher": "Secteur à risque plus élevé - peut monter et descendre rapidement"
+    },
+    "noHoldingsYet": "Tu ne possèdes encore aucune action fictive - achètes-en ci-dessus pour les voir apparaître ici.",
+    "sharesLabel": "Actions",
+    "averagePriceLabel": "Prix moyen",
+    "currentPriceLabel": "Prix actuel",
+    "currentValueLabel": "Valeur actuelle",
+    "sellSharesLabel": "Actions de {company} à vendre",
+    "insufficientShares": "Tu ne possèdes pas autant d'actions à vendre.",
+    "soldSharesConfirmation": "Tu as vendu {shares} actions de {company}.",
+    "sellButton": "Vendre",
+    "diversificationAllCashHint": "Dès que tu posséderas des actions de plus d'une entreprise, ceci montrera comment ton portefeuille est réparti.",
+    "diversificationChartLabel": "Comment ton portefeuille est réparti entre entreprises et argent liquide",
+    "diversificationExplainer": "Répartir l'argent virtuel entre différentes entreprises (diversifier) fait qu'une entreprise qui va mal affecte moins tout le portefeuille - mais cela n'élimine pas le risque complètement.",
+    "noTransactionsYet": "Pas encore d'achats ni de ventes.",
+    "transactionBuyLine": "A acheté {shares} actions de {company}",
+    "transactionSellLine": "A vendu {shares} actions de {company}",
+    "timeMachineCompanyLabel": "Entreprise",
+    "timeMachineAmountLabel": "Montant imaginaire investi",
+    "timeMachineDaysAgoLabel": "Il y a combien de temps",
+    "timeMachineYearsAgo": "il y a {years} ans",
+    "timeMachineResultIntro": "{shares} actions achetées alors pour {amount} vaudraient aujourd'hui :",
+    "timeMachineTooSmallHint": "Ce montant imaginaire ne suffisait pas pour acheter ne serait-ce qu'une action entière à ce moment-là.",
+    "timeMachineDisclaimer": "Ceci utilise des prix passés fixes et inventés, uniquement pour apprendre. Les performances passées ne garantissent jamais ce qui se passerait dans le futur - réel ou fictif.",
+    "chartPeriodGroupLabel": "Période du graphique",
+    "period": {
+      "1D": "1J",
+      "1W": "1S",
+      "1M": "1M",
+      "3M": "3M",
+      "1Y": "1A",
+      "5Y": "5A"
+    },
+    "chartFictionalNote": "Ces prix sont simulés pour l'apprentissage - ce ne sont pas de vraies données de marché.",
+    "companies": {
+      "sunbeam-energy": {
+        "name": "Sunbeam Energy Co.",
+        "description": "Une entreprise fictive qui fabrique des panneaux solaires et d'autres équipements d'énergie renouvelable."
+      },
+      "pixel-quest-games": {
+        "name": "Pixel Quest Games",
+        "description": "Une entreprise fictive qui crée des jeux vidéo, dont sa populaire série Pixel Quest."
+      },
+      "green-bite-foods": {
+        "name": "Green Bite Foods",
+        "description": "Une entreprise fictive qui fabrique des collations saines et des plats préparés."
+      },
+      "skyline-transit": {
+        "name": "Skyline Transit",
+        "description": "Une entreprise fictive qui gère des bus et des trains dans et autour des villes."
+      },
+      "nimbus-tech": {
+        "name": "Nimbus Tech",
+        "description": "Une entreprise fictive qui fabrique des ordinateurs, des téléphones et d'autres gadgets."
+      },
+      "wildwood-nature-co": {
+        "name": "Wildwood Nature Co.",
+        "description": "Une entreprise fictive qui plante des arbres et gère des réserves naturelles."
+      }
+    },
+    "events": {
+      "sunbeam-breakthrough": "Sunbeam Energy a annoncé un nouveau type de panneau solaire qui fonctionne même par temps nuageux.",
+      "sunbeam-supply-problem": "Sunbeam Energy a eu du mal à trouver assez d'un matériau nécessaire à ses panneaux solaires.",
+      "pixelquest-hit-launch": "Pixel Quest Games a lancé un nouveau jeu qui s'est extrêmement bien vendu dès son premier mois.",
+      "pixelquest-disappointing-reviews": "Le tout dernier jeu de Pixel Quest Games a reçu des critiques décevantes de la part des joueurs.",
+      "greenbite-positive-response": "La nouvelle collation saine de Green Bite Foods a reçu un accueil très positif des clients.",
+      "greenbite-supply-problem": "Green Bite Foods a connu une pénurie de l'un de ses ingrédients clés.",
+      "skyline-fewer-passengers": "Skyline Transit a compté moins de passagers que prévu lors d'un trimestre.",
+      "skyline-strong-pass-sales": "Skyline Transit a vendu beaucoup de nouveaux abonnements de voyage après avoir baissé leur prix.",
+      "nimbus-new-gadget": "Nimbus Tech a lancé un nouveau gadget qui est rapidement devenu populaire.",
+      "nimbus-technical-problem": "Nimbus Tech a eu un problème technique coûteux à réparer.",
+      "wildwood-discovery": "Wildwood Nature Co. a découvert une nouvelle façon d'aider les forêts à se rétablir plus vite après des incendies.",
+      "wildwood-slow-season": "Wildwood Nature Co. a connu une saison plus calme que d'habitude pour les visites de ses réserves naturelles."
+    }
+  },
   "categories": {
     "needs": "Besoins",
     "wants": "Désirs",
@@ -217,7 +332,8 @@
     "amountToWithdraw": "Montant à dépenser",
     "spendSome": "Dépenser un peu",
     "moneyPersonalityLink": "Personnalité Financière",
-    "levelActivityProgress": "Niveau {level} · Activité {position} sur {total}"
+    "levelActivityProgress": "Niveau {level} · Activité {position} sur {total}",
+    "investingLabLink": "Laboratoire d'Investissement →"
   },
   "parentInfo": {
     "title": "Informations pour les Parents",
@@ -1145,6 +1261,384 @@
       "rewardMessage": "Pièces gagnées pour avoir réfléchi sérieusement à bien donner, pas juste à donner.",
       "parentNote": "Cette leçon ne recommande délibérément aucune œuvre caritative ou cause spécifique, car c'est une décision personnelle et familiale que cette appli n'a aucune base pour prendre à ta place. Si ton ado veut explorer le don caritatif réel, regarder ensemble les informations publiées par une cause est une activité vraiment bonne et pratique qui va au-delà de ce que cette leçon seule peut offrir.",
       "commonMisconception": "Les ados basculent parfois vers l'un ou l'autre extrême - donner sans aucune réflexion, ou devenir si sceptiques envers tout don qu'ils cessent complètement d'y penser - plutôt que d'arriver à une générosité réfléchie et informée."
+    },
+    "explorer-digital_money-l1": {
+      "title": "De l'argent qu'on ne peut pas tenir",
+      "learningObjective": "Reconnaître que l'argent peut être numérique (comme approcher une carte) et pas seulement des pièces et des billets physiques.",
+      "shortIntroduction": "Parfois, l'argent ne ressemble pas du tout à des pièces - voyons ce que ça veut dire !",
+      "story": "Au magasin, maman approche une carte d'une petite machine au lieu de donner des pièces. Bip ! La commerçante dit « merci » et lui donne le pain. Aucune pièce n'a bougé - mais le paiement a quand même eu lieu !",
+      "keyConcept": "L'argent peut être numérique - des chiffres qui se déplacent entre des comptes - pas seulement des pièces et des billets qu'on peut tenir.",
+      "vocabulary": [
+        {
+          "term": "argent numérique",
+          "definition": "De l'argent qui existe sous forme de chiffres dans un ordinateur, pas de pièces ou de billets qu'on peut tenir"
+        },
+        {
+          "term": "carte",
+          "definition": "Un petit outil en plastique qui peut payer des choses sans utiliser de pièces ni de billets"
+        }
+      ],
+      "explanation": "Quand maman a approché sa carte, aucune pièce ni aucun billet n'a changé de main. À la place, un chiffre a baissé sur son compte et un chiffre a augmenté sur le compte du magasin. C'est toujours de l'argent réel - il se déplace juste autrement.",
+      "interactiveActivity": "Trie des images en « argent physique » (pièces, billets) et « argent numérique » (une carte qu'on approche, un écran de paiement en ligne).",
+      "gameIdea": "Numérique ou physique ? : trie des images de paiement dans le bon groupe.",
+      "challenge": "Demande à un adulte de te montrer un paiement numérique qu'il a fait aujourd'hui, comme approcher une carte ou payer avec son téléphone.",
+      "quiz": {
+        "question": "Lequel de ces exemples est de l'argent numérique ?",
+        "options": [
+          "Approcher une carte pour payer",
+          "Une pièce dans la poche",
+          "Un billet en papier",
+          "Une tirelire"
+        ],
+        "correctAnswer": "Approcher une carte pour payer",
+        "explanation": "Approcher une carte déplace des chiffres entre des comptes au lieu de donner des pièces ou des billets - c'est ce qui en fait de l'argent numérique."
+      },
+      "feedback": {
+        "success": "Exactement - approcher la carte, c'est de l'argent numérique en action ! 💳",
+        "retry": "Repense à ce qui s'est passé quand la carte de maman a fait « bip » au magasin."
+      },
+      "rewardMessage": "Pièces gagnées pour avoir repéré l'argent numérique en action !",
+      "parentNote": "Cette leçon introduit l'idée de base que l'argent peut se déplacer numériquement, sans avoir besoin d'expliquer comment fonctionnent vraiment les réseaux de cartes ou les virements bancaires - ce détail n'est pas nécessaire à cet âge. Si votre enfant vous voit approcher une carte ou payer avec un téléphone, le dire à voix haute (« regarde, c'est de l'argent numérique qui se déplace ») renforce bien l'idée.",
+      "commonMisconception": "Les jeunes enfants pensent parfois qu'une carte « est » l'argent lui-même, plutôt qu'un outil qui déplace de l'argent qui existe déjà sur un compte."
+    },
+    "builder-digital_money-l1": {
+      "title": "Comment fonctionne vraiment un paiement par carte",
+      "learningObjective": "Expliquer, en termes simples, ce qui se passe en coulisses lors d'un paiement par carte ou sans contact, et comprendre des habitudes de sécurité de base comme garder son code confidentiel.",
+      "shortIntroduction": "Approcher sa carte semble instantané, mais quelques étapes réelles se produisent en coulisses pour déplacer l'argent en toute sécurité.",
+      "story": "Omar achète une bande dessinée avec la carte familiale. Il regarde le petit écran afficher un montant, puis une coche verte apparaît. Son cousin plus âgé lui explique : « Cette coche veut dire que le magasin vient de vérifier qu'il y a assez d'argent sur le compte, et l'a transféré - tout ça en une seconde environ. »",
+      "keyConcept": "Un paiement par carte vérifie rapidement qu'il y a assez d'argent disponible, puis déplace ce montant du compte de l'acheteur vers celui du vendeur - presque instantanément.",
+      "vocabulary": [
+        {
+          "term": "paiement sans contact",
+          "definition": "Un paiement fait en approchant une carte ou un appareil d'une machine, au lieu de l'insérer ou de le glisser"
+        },
+        {
+          "term": "code confidentiel",
+          "definition": "Un code numérique privé qui prouve qu'une carte est vraiment utilisée par son propriétaire"
+        },
+        {
+          "term": "confirmation de paiement",
+          "definition": "Le message ou la coche qui montre qu'un paiement a vraiment été effectué"
+        }
+      ],
+      "explanation": "Derrière un paiement par carte, un réseau de paiement vérifie rapidement que le compte contient assez d'argent, puis transfère exactement ce montant au vendeur. La coche verte ou le ticket sont la confirmation de paiement - la preuve que ça s'est vraiment passé, pas juste qu'une machine a fait bip. Un code confidentiel existe pour que seul le vrai propriétaire (ou une personne de confiance) puisse utiliser la carte pour des paiements plus importants.",
+      "interactiveActivity": "Remets dans l'ordre les étapes d'un paiement par carte : approcher, vérifier le solde, confirmer, ticket.",
+      "gameIdea": "Étapes du paiement : remets les étapes d'un paiement par carte dans le bon ordre.",
+      "challenge": "La prochaine fois qu'un adulte paie par carte, demande-lui de te montrer la confirmation - la coche, le ticket ou le message qui prouve que ça a marché.",
+      "quiz": {
+        "question": "Que montre vraiment une confirmation de paiement ?",
+        "options": [
+          "Que le paiement a vraiment été effectué",
+          "Que la carte est vide",
+          "Que le magasin est fermé",
+          "Rien d'important"
+        ],
+        "correctAnswer": "Que le paiement a vraiment été effectué",
+        "explanation": "Une confirmation de paiement - une coche, un ticket ou un message - est la preuve que l'argent a vraiment bougé, c'est pourquoi ça vaut la peine de la vérifier plutôt que de supposer qu'un paiement a marché."
+      },
+      "feedback": {
+        "success": "Exactement - cette confirmation est une preuve, pas juste une décoration ! ✅",
+        "retry": "Repense à ce que le cousin d'Omar a expliqué sur la coche verte."
+      },
+      "rewardMessage": "Pièces gagnées pour avoir compris comment fonctionne vraiment un paiement par carte !",
+      "parentNote": "Cette leçon garde volontairement le détail technique à ce qui est réellement utile à cet âge : qu'un paiement est vérifié et confirmé, et qu'un code confidentiel le protège. C'est un bon moment pour convenir d'une règle familiale simple : les codes confidentiels et les mots de passe ne se partagent jamais, même avec des amis - pas parce que quelqu'un ne serait pas digne de confiance, mais parce que c'est une bonne habitude à prendre tôt.",
+      "commonMisconception": "Les enfants supposent parfois qu'un paiement fonctionne toujours dès que la carte touche la machine, sans réaliser qu'une vérification de l'argent disponible a lieu d'abord, et qu'il peut être refusé."
+    },
+    "strategist-digital_money-l1": {
+      "title": "Rester en sécurité et attentif avec l'argent numérique",
+      "learningObjective": "Appliquer des habitudes pratiques pour gérer les dépenses numériques de façon sûre et critique, y compris vérifier les messages de paiement et suivre ses dépenses, et reconnaître pourquoi l'argent numérique peut sembler moins « réel » que les espèces.",
+      "shortIntroduction": "L'argent numérique est pratique - et c'est justement pour ça qu'il mérite un peu plus d'attention consciente que les espèces.",
+      "story": "Priya remarque qu'elle a dépensé plus ce mois-ci que prévu, même si elle ne se souvient d'aucun gros achat. En regardant l'historique de son portefeuille numérique, elle voit plusieurs petits paiements qu'elle avait à peine remarqués en les faisant - chacun semblait trop petit pour y penser sur le moment.",
+      "keyConcept": "Comme les paiements numériques n'impliquent rien à donner physiquement, ils peuvent sembler moins « réels » sur le moment - ce qui fait que vérifier délibérément ses dépenses et confirmer les paiements sont des habitudes vraiment utiles.",
+      "vocabulary": [
+        {
+          "term": "portefeuille numérique",
+          "definition": "Une application ou un compte qui stocke les informations de paiement et suit les dépenses numériques"
+        },
+        {
+          "term": "confirmation de paiement",
+          "definition": "Un message ou un reçu prouvant qu'un paiement a vraiment été effectué, qu'il vaut la peine de vérifier avant de supposer que ça a marché"
+        },
+        {
+          "term": "message d'hameçonnage",
+          "definition": "Un faux message qui prétend venir d'un vrai service de paiement, conçu pour pousser quelqu'un à révéler des informations privées"
+        }
+      ],
+      "explanation": "Donner une pièce est une petite action physique qui se remarque sur le moment ; approcher une carte ou approuver un paiement dans une application peut sembler presque sans effort, ce qui explique justement pourquoi plusieurs petits paiements numériques peuvent s'additionner sans qu'on le remarque. Prendre l'habitude de regarder ce qu'on paie vraiment, de vérifier les confirmations de paiement plutôt que de supposer qu'elles ont fonctionné, et de revoir de temps en temps un historique de dépenses sont autant de façons de garder l'argent numérique aussi « réel » que les espèces. Il aide aussi de savoir reconnaître les faux messages de paiement - des tentatives d'hameçonnage qui copient l'apparence d'un vrai service de paiement pour pousser quelqu'un à taper des informations privées ; les vrais services de paiement ne demandent jamais un mot de passe ou un code confidentiel complet par message.",
+      "interactiveActivity": "Examine un exemple d'historique de portefeuille numérique et repère quelles entrées s'additionnent plus qu'attendu, plus un message conçu pour ressembler à une vraie demande de paiement sans l'être.",
+      "gameIdea": "Suivi des dépenses : examine une semaine de transactions numériques fictives et repère le schéma.",
+      "challenge": "Pense à une habitude numérique que tu pourrais adopter cette semaine - comme vérifier un reçu, ou demander combien coûte vraiment un abonnement chaque mois.",
+      "quiz": {
+        "question": "Pourquoi les dépenses numériques peuvent-elles être plus faciles à perdre de vue que les dépenses en espèces ?",
+        "options": [
+          "Parce qu'elles n'impliquent pas d'action physique ressentie à chaque fois",
+          "Parce que l'argent numérique vaut moins",
+          "Parce que les paiements numériques sont toujours des erreurs",
+          "Parce que les espèces ne peuvent pas être dépensées rapidement"
+        ],
+        "correctAnswer": "Parce qu'elles n'impliquent pas d'action physique ressentie à chaque fois",
+        "explanation": "Donner des espèces est une petite action physique qui se remarque à chaque fois ; un rapide contact ou une approbation dans une application peut sembler sans effort en comparaison, c'est exactement pourquoi plusieurs petits paiements numériques peuvent s'additionner sans que personne ne le remarque vraiment."
+      },
+      "feedback": {
+        "success": "Exactement - le remarquer est le premier pas pour garder le contrôle des dépenses numériques. 📱",
+        "retry": "Repense à pourquoi les dépenses de Priya ont augmenté sans aucun gros achat unique."
+      },
+      "rewardMessage": "Pièces gagnées pour avoir réfléchi sérieusement à l'attention avec l'argent numérique !",
+      "parentNote": "Cette leçon ne cherche pas à restreindre les paiements numériques, mais à construire une attention consciente - la même compétence que les adultes doivent aussi pratiquer. Si votre adolescent a accès à une carte ou à un portefeuille numérique, revoir ensemble un historique de dépenses de temps en temps (sans jugement) est une habitude partagée vraiment utile, pas juste un contrôle.",
+      "commonMisconception": "Les adolescents supposent parfois qu'être à l'aise avec les applications et les cartes signifie automatiquement bien suivre leurs dépenses - être à l'aise avec la technologie et être conscient du montant dépensé sont deux choses différentes."
+    },
+    "explorer-investing_basics-l1": {
+      "title": "Épargner ou faire grandir son argent",
+      "learningObjective": "Comprendre la différence de base entre épargner de l'argent et l'investir, à un niveau simple.",
+      "shortIntroduction": "Épargner garde tes pièces en sécurité - investir est une idée différente où ton argent peut grandir, mais ce n'est pas garanti.",
+      "story": "Léo épargne des pièces dans un bocal depuis des mois - son tas ne grandit que quand il en ajoute. Sa grande sœur lui explique que certains adultes placent l'argent dans des choses appelées « investissements » à la place, en espérant que la somme grandisse toute seule avec le temps - mais elle ajoute vite : « elle peut aussi rétrécir. Rien n'est promis. »",
+      "keyConcept": "Épargner garde l'argent en sécurité et inchangé jusqu'à ce que tu en ajoutes. Investir signifie utiliser l'argent pour essayer de le faire grandir avec le temps, mais la somme peut monter ou descendre - ce n'est jamais garanti.",
+      "vocabulary": [
+        {
+          "term": "épargner",
+          "definition": "Garder de l'argent en sécurité sans le dépenser"
+        },
+        {
+          "term": "investir",
+          "definition": "Utiliser l'argent d'une façon qui pourrait le faire grandir avec le temps, mais sans garantie - il peut aussi perdre de la valeur"
+        }
+      ],
+      "explanation": "Un bocal d'épargne ne change que lorsqu'on y met plus de pièces ou qu'on en retire. Investir est différent : les adultes utilisent parfois l'argent pour devenir copropriétaires de choses, comme des entreprises, en espérant que la valeur augmente - mais exactement comme l'explique l'histoire, elle peut aussi diminuer. Personne ne peut promettre qu'investir rapportera plus d'argent.",
+      "interactiveActivity": "Trie des phrases en « ceci décrit l'épargne » et « ceci décrit l'investissement ».",
+      "gameIdea": "Épargner ou investir ? : trie des exemples simples dans le bon groupe.",
+      "challenge": "Demande à un adulte s'il a déjà entendu le mot « investir » et ce que ça signifie pour lui.",
+      "quiz": {
+        "question": "Qu'est-ce qui est différent avec l'investissement comparé à l'épargne ?",
+        "options": [
+          "La valeur d'un investissement peut monter ou descendre, sans garantie",
+          "Investir rapporte toujours plus d'argent",
+          "Investir est exactement la même chose qu'épargner",
+          "Investir signifie dépenser tout son argent d'un coup"
+        ],
+        "correctAnswer": "La valeur d'un investissement peut monter ou descendre, sans garantie",
+        "explanation": "Contrairement à un bocal d'épargne, qui ne change que lorsqu'on ajoute ou retire des pièces, la valeur d'un investissement peut vraiment monter ou descendre toute seule - et personne ne peut promettre dans quel sens."
+      },
+      "feedback": {
+        "success": "Exactement - investir n'est jamais une garantie, à la hausse comme à la baisse ! 🌱",
+        "retry": "Repense à ce que la sœur de Léo a pris soin d'ajouter sur l'investissement."
+      },
+      "rewardMessage": "Pièces gagnées pour avoir compris la différence entre épargner et investir !",
+      "parentNote": "Cette leçon garde volontairement l'investissement conceptuel et abstrait à cet âge - sans produits, plateformes ou chiffres réels - car l'objectif ici est simplement l'idée que l'argent peut être utilisé pour essayer de grandir tout seul, et que cela comporte toujours une véritable incertitude. Il n'y a rien sur quoi un jeune enfant devrait agir pour l'instant.",
+      "commonMisconception": "Les jeunes enfants supposent parfois qu'investir n'est qu'une façon plus rapide d'épargner, plutôt que de comprendre que cela implique une véritable incertitude et une perte possible."
+    },
+    "builder-investing_basics-l1": {
+      "title": "Posséder un petit morceau d'une entreprise",
+      "learningObjective": "Comprendre ce que représente une action (un petit morceau de propriété d'une entreprise) et que sa valeur peut monter ou descendre selon les résultats de l'entreprise.",
+      "shortIntroduction": "Quand tu achètes une « action » d'une entreprise, tu ne fais pas que regarder un chiffre - tu possèdes un tout petit morceau d'une vraie entreprise.",
+      "story": "L'oncle de Mei possède un petit morceau d'une entreprise de jouets parce qu'il a acheté certaines de ses « actions ». Quand l'entreprise sort un jouet qui se vend très bien, la valeur de ses actions augmente un peu. Quand l'entreprise a une mauvaise année, la valeur peut baisser. Il dit à Mei : « Je possède un tout petit morceau de cette entreprise - donc comment elle se porte m'affecte un peu, moi aussi. »",
+      "keyConcept": "Une action est un petit morceau de propriété d'une vraie entreprise. Sa valeur tend à refléter ce que les gens pensent des résultats de cette entreprise - c'est pourquoi elle peut monter ou descendre.",
+      "vocabulary": [
+        {
+          "term": "action",
+          "definition": "Un petit morceau de propriété d'une entreprise"
+        },
+        {
+          "term": "titre",
+          "definition": "Un autre mot pour les actions - de petits morceaux de propriété d'une entreprise"
+        },
+        {
+          "term": "entreprise",
+          "definition": "Une activité qui fabrique ou vend quelque chose, qui peut avoir de nombreux propriétaires différents grâce aux actions"
+        }
+      ],
+      "explanation": "Les entreprises peuvent appartenir à de nombreuses personnes en même temps, chacune détenant un certain nombre d'actions. Si une entreprise réussit bien - par exemple, un nouveau produit très populaire - plus de gens veulent souvent en posséder un morceau, donc le prix des actions a tendance à monter. Si elle a des difficultés, l'inverse peut se produire. C'est pourquoi posséder des actions signifie se soucier vraiment des résultats de l'entreprise, pas juste regarder un chiffre.",
+      "interactiveActivity": "Regarde quelques scénarios fictifs d'entreprises (un produit à succès, une mauvaise critique) et prédis si la valeur de ses actions monterait ou baisserait probablement, et pourquoi.",
+      "gameIdea": "Le Laboratoire d'Investissement : explore des entreprises fictives et observe comment des événements imaginaires affectent leurs prix d'actions simulés.",
+      "challenge": "Pense à une entreprise dont tu utilises les produits. Que penses-tu qu'il lui arriverait si elle sortait quelque chose que les gens adoreraient ?",
+      "quiz": {
+        "question": "Que signifie vraiment posséder une action d'une entreprise ?",
+        "options": [
+          "Posséder un petit morceau de cette vraie entreprise",
+          "Être employé de cette entreprise",
+          "Recevoir des produits gratuits de cette entreprise",
+          "Rien de particulier"
+        ],
+        "correctAnswer": "Posséder un petit morceau de cette vraie entreprise",
+        "explanation": "Une action représente une propriété réelle, même petite, dans une entreprise - c'est exactement pourquoi sa valeur tend à refléter comment cette entreprise se porte vraiment."
+      },
+      "feedback": {
+        "success": "Exactement - une action est une propriété réelle, aussi petite soit-elle ! 📈",
+        "retry": "Repense à ce que l'oncle de Mei possède vraiment en détenant des actions."
+      },
+      "rewardMessage": "Pièces gagnées pour avoir compris ce que signifie vraiment posséder une action !",
+      "parentNote": "Cette leçon introduit le concept de propriété par actions en utilisant des exemples entièrement fictifs - elle ne mentionne ni n'évalue délibérément aucune entreprise réelle, et n'est pas une recommandation d'achat. Le Laboratoire d'Investissement de Money Quest (une fonctionnalité distincte et autonome) permet à votre enfant d'explorer davantage cette idée avec des entreprises entièrement fictives et de l'argent virtuel.",
+      "commonMisconception": "Les enfants de cet âge pensent parfois qu'un « cours d'action » est un chiffre arbitraire, plutôt que de le relier à une propriété réelle dans une entreprise véritable et fonctionnelle."
+    },
+    "strategist-investing_basics-l1": {
+      "title": "Risque, diversification et temps",
+      "learningObjective": "Comprendre le risque et la récompense, la diversification, la croissance composée comme concept, et pourquoi investir diffère du pari et nécessite une vision à long terme plutôt qu'une garantie de résultats.",
+      "shortIntroduction": "Investir récompense la patience et la répartition du risque - pas les paris rapides, et jamais de résultats garantis.",
+      "story": "Jamal se demande, comme pure expérience de pensée avec de l'argent imaginaire dans le Laboratoire d'Investissement, s'il faut tout placer dans une entreprise passionnante ou répartir entre plusieurs différentes. Sa cousine plus âgée, qui étudie l'économie, fait remarquer : « Tout mettre au même endroit veut dire qu'un mauvais résultat affecte tout. Répartir n'élimine pas le risque - mais ça veut dire que tu ne dépends pas d'un seul résultat. »",
+      "keyConcept": "Investir implique un vrai compromis entre risque et récompense potentielle, et répartir l'argent entre différentes choses (diversification) peut réduire la dépendance à un seul résultat - mais n'élimine jamais complètement le risque. Le temps compte aussi : investir est en général une idée à long terme, pas un pari rapide.",
+      "vocabulary": [
+        {
+          "term": "risque et récompense",
+          "definition": "L'idée qu'une chance de gain plus important vient généralement avec une chance de perte plus importante aussi"
+        },
+        {
+          "term": "diversification",
+          "definition": "Répartir l'argent entre plusieurs choses différentes plutôt qu'une seule, pour qu'aucun résultat unique ne décide de tout"
+        },
+        {
+          "term": "croissance composée",
+          "definition": "L'idée que les gains peuvent eux-mêmes générer d'autres gains avec le temps, si bien que la croissance peut s'accumuler d'autant plus que l'argent reste investi longtemps"
+        }
+      ],
+      "explanation": "Une récompense potentielle plus élevée s'accompagne presque toujours d'un risque potentiel plus élevé - il n'y a aucun moyen de contourner ce compromis. La diversification n'élimine pas le risque, mais elle fait qu'une seule entreprise qui va mal ne décide pas de tout le résultat. Le temps compte aussi : la croissance composée est l'idée que, sur une longue période, les gains peuvent eux-mêmes commencer à générer d'autres gains - une des raisons pour lesquelles investir est généralement considéré comme une activité à long terme plutôt qu'un moyen de gagner de l'argent rapidement. C'est aussi exactement ce qui rend l'investissement fondamentalement différent du pari : le pari est typiquement un événement court et isolé avec des probabilités défavorables au joueur, tandis qu'investir (même s'il comporte un risque réel et aucune garantie) est lié à de vraies entreprises, en activité continue, et tend à récompenser la patience plutôt que les suppositions.",
+      "interactiveActivity": "Compare deux portefeuilles imaginaires dans le Laboratoire d'Investissement - l'un concentré dans une seule entreprise, l'autre réparti entre plusieurs - et discutez de ce qui arrive à chacun après un événement simulé.",
+      "gameIdea": "Le Laboratoire d'Investissement : achète, vends et diversifie entre des entreprises fictives, et utilise la Machine à Remonter le Temps pour voir comment un investissement imaginaire aurait pu changer sur une période simulée plus longue.",
+      "challenge": "Dans le Laboratoire d'Investissement, essaie de répartir une somme imaginaire entre au moins trois entreprises fictives différentes, puis vérifie ton panneau de Diversification.",
+      "quiz": {
+        "question": "Quelle est une différence clé entre investir et parier ?",
+        "options": [
+          "Investir est lié à de vraies entreprises en activité continue plutôt qu'à un pari isolé",
+          "Investir garantit toujours un profit",
+          "Parier garantit toujours un profit",
+          "Il n'y a pas de vraie différence"
+        ],
+        "correctAnswer": "Investir est lié à de vraies entreprises en activité continue plutôt qu'à un pari isolé",
+        "explanation": "Parier est typiquement un événement isolé avec des probabilités défavorables au joueur ; investir, même s'il comporte un risque réel et aucune garantie, est lié à de vraies entreprises dans la durée et tend à récompenser la patience plutôt que les suppositions."
+      },
+      "feedback": {
+        "success": "Exactement - ce lien avec de vraies entreprises en activité continue est la différence clé. 🎯",
+        "retry": "Repense à ce que la cousine de Jamal a expliqué sur la répartition d'argent imaginaire entre plusieurs entreprises."
+      },
+      "rewardMessage": "Pièces gagnées pour avoir sérieusement réfléchi au risque, à la diversification et au temps !",
+      "parentNote": "Cette leçon ne recommande jamais aucun produit, plateforme, action ou stratégie d'investissement réel, et ne constitue pas un conseil financier - son objectif est purement conceptuel : littératie sur le risque/la récompense, la diversification et la pensée à long terme, en utilisant le Laboratoire d'Investissement de Money Quest et ses entreprises entièrement fictives et son argent virtuel pour rendre les idées concrètes sans aucun enjeu financier réel. Si votre adolescent veut comprendre de vraies options d'investissement, c'est une conversation (et une décision) pour vous et, le cas échéant, un véritable professionnel de la finance - jamais cette application.",
+      "commonMisconception": "Les adolescents confondent parfois investissement et pari, ou supposent que répartir l'argent entre plusieurs choses garantit la sécurité, plutôt que de comprendre que cela ne fait que réduire (jamais éliminer) la dépendance à un seul résultat."
+    },
+    "explorer-junior_isa-l1": {
+      "title": "Un compte d'épargne spécial rien que pour les enfants (Royaume-Uni)",
+      "learningObjective": "Comprendre, en termes simples, qu'un Junior ISA est un compte d'épargne du Royaume-Uni qui appartient à un enfant, même si un adulte s'en occupe.",
+      "shortIntroduction": "Au Royaume-Uni, il existe un type spécial de compte d'épargne qui appartient à un enfant, même si un adulte le gère.",
+      "story": "La grand-mère de Freya a mis de l'argent dans quelque chose appelé « Junior ISA » pour elle. Freya a demandé si c'était vraiment le sien. Sa maman lui a expliqué : « Oui - cet argent t'appartient. Mamie et moi, on s'en occupe juste jusqu'à ce que tu sois assez grande pour le gérer toi-même. »",
+      "keyConcept": "Un Junior ISA (JISA) est un compte d'épargne du Royaume-Uni qui appartient à un enfant, même si un parent ou un tuteur le gère pendant qu'il est jeune.",
+      "vocabulary": [
+        {
+          "term": "Junior ISA",
+          "definition": "Un compte d'épargne du Royaume-Uni pour les enfants, géré par un parent ou un tuteur, où l'argent appartient à l'enfant"
+        },
+        {
+          "term": "Royaume-Uni",
+          "definition": "Le pays où existe ce compte d'épargne en particulier"
+        }
+      ],
+      "explanation": "Un Junior ISA est ouvert par un parent ou un tuteur, mais l'argent qu'il contient appartient vraiment à l'enfant pour qui il a été ouvert - pas à l'adulte qui le gère. D'autres pays ont des systèmes différents pour aider les enfants à épargner, donc un Junior ISA en particulier est une chose propre au Royaume-Uni.",
+      "interactiveActivity": "Discute avec un adulte de qui possède vraiment l'argent d'un Junior ISA, et pourquoi un adulte le gère quand même.",
+      "gameIdea": "À qui est cet argent ? : associe des scénarios d'épargne à qui possède vraiment l'argent.",
+      "challenge": "Demande à un adulte de ta famille s'il sait ce qu'est un Junior ISA.",
+      "quiz": {
+        "question": "À qui appartient vraiment l'argent d'un Junior ISA ?",
+        "options": [
+          "À l'enfant pour qui il a été ouvert",
+          "Au parent ou tuteur qui le gère",
+          "À la banque",
+          "À personne en particulier"
+        ],
+        "correctAnswer": "À l'enfant pour qui il a été ouvert",
+        "explanation": "Même si un parent ou un tuteur gère un Junior ISA, l'argent qu'il contient appartient vraiment à l'enfant - l'adulte ne fait que s'en occuper."
+      },
+      "feedback": {
+        "success": "Exactement - c'est vraiment l'argent de Freya, même si sa maman le gère ! 🇬🇧",
+        "retry": "Repense à ce que la maman de Freya a expliqué sur à qui appartient vraiment l'argent."
+      },
+      "rewardMessage": "Pièces gagnées pour avoir compris à qui appartient vraiment l'argent d'un Junior ISA !",
+      "parentNote": "Ceci est une leçon spécifique au Royaume-Uni sur les Junior ISA, incluse car de nombreuses familles Money Quest se trouvent au Royaume-Uni - elle est présentée comme une partie réelle et existante du système d'épargne britannique, pas comme quelque chose que toute famille aura ou dont elle aura besoin. Rien ici ne suggère qu'un enfant devrait en ouvrir ou en gérer un seul.",
+      "commonMisconception": "Les enfants supposent parfois que l'argent d'un compte géré par un adulte appartient à cet adulte, plutôt que de comprendre qu'un Junior ISA est spécifiquement conçu pour appartenir à l'enfant.",
+      "countryVariesNote": "Les Junior ISA sont un compte d'épargne spécifique au Royaume-Uni. D'autres pays ont leurs propres systèmes, différents, pour épargner au nom d'un enfant."
+    },
+    "builder-junior_isa-l1": {
+      "title": "Bloqué jusqu'à 18 ans : comment fonctionne un Junior ISA",
+      "learningObjective": "Comprendre qu'un Junior ISA est normalement bloqué jusqu'à ce que l'enfant ait 18 ans, qu'il existe des versions en espèces et en actions, et qu'un parent ou tuteur le gère jusqu'à ce que l'enfant ait 16 ans.",
+      "shortIntroduction": "Un Junior ISA n'est pas juste un compte d'épargne - il vient avec ses propres règles sur qui le gère et quand il peut être utilisé.",
+      "story": "Le papa de Tomasz lui a ouvert un Junior ISA quand il était petit. Tomasz, maintenant âgé de 13 ans, a demandé s'il pouvait retirer de l'argent pour un nouveau vélo. Son papa lui a expliqué : « Pas encore - c'est normalement bloqué jusqu'à tes 18 ans. Et il y a en fait deux types : un en espèces, comme un compte d'épargne normal, et un en actions, où l'argent est investi à la place. »",
+      "keyConcept": "Un Junior ISA est normalement bloqué jusqu'à ce que l'enfant ait 18 ans. Il existe deux types - en espèces (fonctionne comme un compte d'épargne) et en actions (l'argent est investi) - et un parent ou tuteur le gère jusqu'à ce que l'enfant ait 16 ans.",
+      "vocabulary": [
+        {
+          "term": "Junior ISA en espèces",
+          "definition": "Un type de Junior ISA où l'argent est simplement épargné, comme dans un compte d'épargne normal"
+        },
+        {
+          "term": "Junior ISA en actions",
+          "definition": "Un type de Junior ISA où l'argent est investi au lieu d'être simplement épargné, si bien que sa valeur peut monter ou descendre"
+        },
+        {
+          "term": "bloqué jusqu'à 18 ans",
+          "definition": "L'argent d'un Junior ISA ne peut normalement pas être retiré avant que l'enfant ait 18 ans"
+        }
+      ],
+      "explanation": "Un Junior ISA existe en deux types : une version en espèces, où l'argent est simplement gardé en sécurité comme dans un compte d'épargne ordinaire, et une version en actions, où l'argent est investi - ce qui signifie que sa valeur peut monter ou descendre avec le temps, tout comme les idées d'investissement abordées ailleurs dans Money Quest. Quel que soit le type, l'argent est normalement bloqué jusqu'à ce que l'enfant ait 18 ans. Jusqu'à ses 16 ans, un parent ou tuteur gère le compte en son nom.",
+      "interactiveActivity": "Compare un Junior ISA en espèces et un en actions - lequel peut changer de valeur au jour le jour, et lequel reste stable ?",
+      "gameIdea": "Espèces ou investi ? : trie les caractéristiques d'un Junior ISA dans le bon type.",
+      "challenge": "Demande à un adulte quel type de Junior ISA - le cas échéant - il pense qu'il choisirait, et pourquoi.",
+      "quiz": {
+        "question": "Quand l'argent d'un Junior ISA peut-il normalement être retiré ?",
+        "options": [
+          "Une fois que l'enfant a 18 ans",
+          "Dès que le compte est ouvert",
+          "Quand le parent le décide",
+          "Il ne peut jamais être retiré"
+        ],
+        "correctAnswer": "Une fois que l'enfant a 18 ans",
+        "explanation": "Un Junior ISA est normalement bloqué jusqu'à ce que l'enfant ait 18 ans - c'est vrai qu'il s'agisse d'un Junior ISA en espèces ou en actions."
+      },
+      "feedback": {
+        "success": "Exactement - 18 ans est l'âge normal auquel il se débloque. 🔓",
+        "retry": "Repense à ce que le papa de Tomasz a expliqué sur quand l'argent est normalement disponible."
+      },
+      "rewardMessage": "Pièces gagnées pour avoir compris comment fonctionne vraiment un Junior ISA !",
+      "parentNote": "Cette leçon explique la structure générale d'un Junior ISA britannique (espèces contre actions, les étapes de 16 et 18 ans) à un niveau conceptuel - ce n'est pas un conseil financier sur quel type choisir, et les règles peuvent changer avec le temps, alors vérifiez toujours les informations officielles actuelles avant de prendre une vraie décision.",
+      "commonMisconception": "Les enfants supposent parfois qu'un Junior ISA en actions fonctionne exactement comme un en espèces, sans réaliser que sa valeur peut vraiment monter ou descendre parce que l'argent est investi.",
+      "countryVariesNote": "Les Junior ISA, y compris la distinction espèces/actions décrite ici, sont spécifiques au Royaume-Uni. D'autres pays ont des règles différentes pour les comptes d'épargne et d'investissement des enfants."
+    },
+    "strategist-junior_isa-l1": {
+      "title": "Junior ISA : propriété, échéances et règles qui changent",
+      "learningObjective": "Comprendre les étapes de propriété et d'âge d'un Junior ISA britannique (géré par un parent ou tuteur jusqu'à 16 ans, contrôlé par l'enfant dès 16 ans, retrait possible dès 18 ans), et que les plafonds et règles - y compris le plafond annuel actuel - peuvent changer avec le temps.",
+      "shortIntroduction": "Les règles d'un Junior ISA méritent vraiment d'être comprises - mais, exactement comme les règles fiscales en général, elles peuvent changer et changent vraiment.",
+      "story": "Aaliyah, 16 ans, vient de reprendre la gestion de son propre Junior ISA de ses parents - même si elle ne peut toujours rien retirer avant ses 18 ans. Curieuse, elle cherche les règles actuelles et découvre que, pour l'année fiscale 2026/27, le montant maximum pouvant être versé sur un Junior ISA en une année est de 9 000 livres sterling (9 000 £). Elle remarque aussi une note indiquant que ce montant a déjà changé et pourrait changer de nouveau dans les années à venir.",
+      "keyConcept": "Un Junior ISA britannique a des étapes claires de propriété et de temps - l'enfant prend le contrôle de la gestion à 16 ans mais ne peut toujours pas retirer avant 18 ans - et ses règles, y compris le montant annuel pouvant être versé, sont fixées pour chaque année fiscale et peuvent changer.",
+      "vocabulary": [
+        {
+          "term": "ISA",
+          "definition": "Individual Savings Account (compte d'épargne individuel) - un type général de compte britannique où l'épargne ou l'investissement peuvent croître sans que certains impôts britanniques s'appliquent, dans des limites fixées"
+        },
+        {
+          "term": "année fiscale",
+          "definition": "La période de 12 mois pour laquelle sont fixées les règles financières britanniques, y compris les plafonds des ISA"
+        },
+        {
+          "term": "plafond annuel",
+          "definition": "Le montant maximum pouvant être versé sur un compte comme un Junior ISA au cours d'une année fiscale"
+        }
+      ],
+      "explanation": "Un ISA, en général, est un type de compte britannique où l'argent peut être épargné ou investi sans que certains impôts britanniques s'appliquent, jusqu'à des limites fixées. Un Junior ISA est la version pour les enfants : un parent ou tuteur le gère jusqu'à ce que l'enfant ait 16 ans, moment où l'enfant peut reprendre lui-même la gestion - mais les retraits ne sont normalement toujours pas autorisés avant 18 ans. Chaque année fiscale, le gouvernement fixe un plafond annuel - le montant maximum pouvant être versé cette année-là. Pour l'année fiscale 2026/27, ce chiffre est de 9 000 livres sterling (9 000 £). C'est le chiffre ACTUEL, pas permanent : les plafonds et les règles ont déjà changé les années précédentes et peuvent changer de nouveau, donc il vaut toujours la peine de vérifier les informations officielles actuelles plutôt que de supposer qu'un chiffre reste fixe pour toujours.",
+      "interactiveActivity": "Remets dans l'ordre les étapes d'un Junior ISA : ouverture du compte, l'enfant a 16 ans, l'enfant a 18 ans.",
+      "gameIdea": "Constructeur de chronologie : range les étapes d'un Junior ISA (ouverture, 16 ans, 18 ans) dans le bon ordre.",
+      "challenge": "Cherche (avec un adulte, à partir d'une source officielle) quel est vraiment le plafond du Junior ISA cette année fiscale, et compare-le au chiffre de 9 000 £ de cette leçon.",
+      "quiz": {
+        "question": "Qu'est-ce qui est vrai à propos du chiffre de 9 000 £, le plafond du Junior ISA dans cette leçon ?",
+        "options": [
+          "C'est le chiffre actuel de 2026/27 et il pourrait changer dans les années à venir",
+          "C'est un montant fixe qui ne changera jamais",
+          "C'est le total qu'une personne peut épargner sur un Junior ISA au cours de sa vie",
+          "Cela s'applique dans tous les pays"
+        ],
+        "correctAnswer": "C'est le chiffre actuel de 2026/27 et il pourrait changer dans les années à venir",
+        "explanation": "Les plafonds des Junior ISA sont fixés pour chaque année fiscale britannique et ont déjà changé - le chiffre de 9 000 £ est spécifiquement celui ACTUEL (2026/27), pas une règle permanente."
+      },
+      "feedback": {
+        "success": "Exactement - vérifie toujours le chiffre actuel plutôt que de supposer qu'il ne change jamais. 📅",
+        "retry": "Repense à ce qu'Aaliyah a remarqué en cherchant les règles actuelles."
+      },
+      "rewardMessage": "Pièces gagnées pour avoir compris comment fonctionnent vraiment les règles et les étapes d'un Junior ISA !",
+      "parentNote": "Cette leçon indique le plafond annuel du Junior ISA britannique pour 2026/27 (9 000 £) comme un repère factuel et daté, explicitement signalé comme actuel plutôt que permanent - les règles et plafonds des ISA sont fixés par le gouvernement et peuvent changer lors des futures années fiscales, alors confirmez toujours les détails actuels auprès d'une source officielle (comme GOV.UK) avant de prendre une vraie décision. Cette leçon est uniquement éducative et ne constitue pas un conseil financier ou fiscal.",
+      "commonMisconception": "Les adolescents supposent parfois qu'un chiffre comme un plafond, une fois appris, reste fixe pour toujours, plutôt que de comprendre que les règles fiscales britanniques sont revues et peuvent changer d'une année à l'autre.",
+      "countryVariesNote": "Les ISA et les Junior ISA, y compris les chiffres de plafond et les étapes d'âge décrits ici, sont spécifiques au système fiscal et d'épargne britannique. D'autres pays ont des règles complètement différentes pour les comptes d'épargne et d'investissement des enfants."
     }
   },
   "games": {

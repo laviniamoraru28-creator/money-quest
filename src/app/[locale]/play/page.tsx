@@ -152,6 +152,9 @@ export default function PlayPage() {
             <Link href="/play/money-personality" className="text-teal hover:underline">
               {t("play.moneyPersonalityLink")}
             </Link>
+            <Link href="/play/investing-lab" className="text-teal hover:underline">
+              {t("play.investingLabLink")}
+            </Link>
           </div>
           <ResetProgressButton />
         </div>

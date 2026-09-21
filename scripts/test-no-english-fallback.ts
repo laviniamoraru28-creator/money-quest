@@ -23,6 +23,23 @@ const MIN_LENGTH_TO_FLAG = 15;
 const ALLOWED_IDENTICAL = new Set([
   "common.moneyQuest", // a brand name, correctly untranslated everywhere
   "landing.copyright", // "© {year} Money Quest" — a symbol, a placeholder, and a brand name; nothing to translate
+  // The Investing Lab's fictional company names (src/investing-lab/structures.ts)
+  // are brand names by design — kept identical across every locale the same
+  // way real company names (and Money Quest's own) are, per the doc comment
+  // on LocalizedCompanyText in src/investing-lab/localized-types.ts. Only
+  // each company's description is genuinely translated.
+  "investingLab.companies.sunbeam-energy.name",
+  "investingLab.companies.pixel-quest-games.name",
+  "investingLab.companies.green-bite-foods.name",
+  "investingLab.companies.skyline-transit.name",
+  "investingLab.companies.nimbus-tech.name",
+  "investingLab.companies.wildwood-nature-co.name",
+  // "Diversification" is spelled and used identically in French — a genuine
+  // shared-Latin-root cognate (confirmed, not a lazy English fallback),
+  // the same category the doc comment above already carves out for
+  // loanwords/interjections.
+  "investingLab.diversificationTitle",
+  "curriculum.strategist-investing_basics-l1.vocabulary.1.term",
 ]);
 
 // Structural/technical fields within games.* that must NEVER be
