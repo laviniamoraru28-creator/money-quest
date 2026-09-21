@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { formatCurrency } from "@/lib/currency/format";
 import { getHoldingCurrentValue, getHoldingGainLoss } from "../engine";
+import { sentenceEndAfterName } from "../localized-types";
 import type { DisplayCompany } from "../localized-types";
 import type { Holding } from "../types";
 
@@ -145,7 +146,7 @@ function HoldingRow({
             if (result.error === "insufficientShares") {
               setFeedback(t("investingLab.insufficientShares"));
             } else {
-              setFeedback(t("investingLab.soldSharesConfirmation", { shares: requested, company: companyName }));
+              setFeedback(t("investingLab.soldSharesConfirmation", { shares: requested, company: companyName, period: sentenceEndAfterName(companyName) }));
               setSellInput("");
             }
           }}

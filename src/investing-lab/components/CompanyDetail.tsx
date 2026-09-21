@@ -5,6 +5,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { formatCurrency } from "@/lib/currency/format";
 import { getSeriesForPeriod, getCurrentPrice } from "../engine";
 import { PriceChart } from "./PriceChart";
+import { sentenceEndAfterName } from "../localized-types";
 import type { DisplayCompany } from "../localized-types";
 import type { PricePoint, TimePeriod } from "../types";
 
@@ -121,7 +122,7 @@ export function CompanyDetail({ company, series, period, onPeriodChange, cashMin
               if (result.error === "insufficientCash") {
                 setFeedback(t("investingLab.insufficientCash"));
               } else {
-                setFeedback(t("investingLab.boughtSharesConfirmation", { shares, company: company.name }));
+                setFeedback(t("investingLab.boughtSharesConfirmation", { shares, company: company.name, period: sentenceEndAfterName(company.name) }));
                 setSharesInput("");
               }
             }}

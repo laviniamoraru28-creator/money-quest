@@ -15,12 +15,20 @@ import { AccessibilityMenu } from "@/components/ui/AccessibilityMenu";
  * scroll/spacing — it floats above everything, always reachable,
  * consistent with these being persistent preference controls rather
  * than page content.
+ *
+ * Stacked vertically below `sm` (a plain row above it, unchanged from
+ * before): on a 390px-wide phone, full-bleed page content has no side
+ * gutter for this to float in, so a horizontal pair sitting flush
+ * against the corner could span over a third of a two-column card's
+ * width. Stacking halves that horizontal footprint — the pair still
+ * occupies the same corner and both controls stay exactly as
+ * reachable, just arranged in a narrower column.
  */
 export default function PlayLayout({ children }: { children: ReactNode }) {
   return (
     <>
       {children}
-      <div className="fixed bottom-sm right-sm z-50 flex items-end gap-2xs">
+      <div className="fixed bottom-sm right-sm z-50 flex flex-col items-end gap-2xs sm:flex-row sm:items-end">
         <AccessibilityMenu />
         <SoundToggle />
       </div>

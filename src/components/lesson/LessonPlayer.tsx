@@ -122,9 +122,9 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
           own doc comment on scope). Right page: the actual reading
           content, broken into short sections rather than one long
           block of prose, per the redesign brief. */}
-      <div className="overflow-hidden rounded-xl shadow-floating md:grid md:grid-cols-2">
+      <div className="overflow-hidden rounded-xl shadow-floating md:grid md:grid-cols-5">
         <div
-          className="relative flex items-center justify-center p-lg"
+          className="relative flex items-center justify-center p-lg md:col-span-2"
           style={{ backgroundColor: `${worldThemeColor}22` }}
         >
           <LessonIllustration topicId={activity.topicId} worldThemeColor={worldThemeColor} className="h-48 w-48 md:h-64 md:w-64" />
@@ -133,8 +133,8 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
           </span>
         </div>
 
-        <div className="relative bg-cream p-lg">
-          <div className="flex items-start justify-between gap-sm">
+        <div className="relative bg-cream p-lg md:col-span-3">
+          <div className="flex flex-col items-start gap-2xs">
             <h2 className="font-display text-xl font-bold">{activity.title}</h2>
             <ReadAloudButton
               text={`${activity.content.shortIntroduction} ${activity.content.explanation} ${activity.content.story}`}
