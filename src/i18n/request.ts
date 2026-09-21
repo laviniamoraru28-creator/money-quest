@@ -17,13 +17,7 @@ import { LOCALES, DEFAULT_LOCALE, isSupportedLocale } from "./config";
  */
 export default getRequestConfig(async ({ requestLocale }) => {
   const requested = await requestLocale;
-  // TEMPORARY DIAGNOSTIC LOGGING — unconditional (NOT gated behind the
-  // NODE_ENV check below, unlike onError's dev-only warning), since
-  // this needs to be visible on the live production deployment to
-  // diagnose the /ro-renders-English issue. Remove once resolved.
-  console.log("[LOCALE-DIAG] request.ts: raw requestLocale from next-intl:", requested);
   const locale = requested && isSupportedLocale(requested) ? requested : DEFAULT_LOCALE;
-  console.log("[LOCALE-DIAG] request.ts: final resolved locale:", locale);
 
   if (!LOCALES.includes(locale as (typeof LOCALES)[number])) {
     notFound();
