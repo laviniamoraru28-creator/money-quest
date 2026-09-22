@@ -26,7 +26,7 @@
   "landing": {
     "heroTitle": "Leer over geld door te spelen, ontdekken en beslissingen te nemen.",
     "heroSubtitle": "Money Quest is een gratis financiële-geletterdheidswereld voor kinderen van 6 tot 14 jaar - questen, een fictieve portemonnee en echte vaardigheden. Geen account nodig.",
-    "heroImageAlt": "Vier kinderen verkennen samen een kaart, met bordjes voor Verdienen, Sparen, Uitgeven, Geven en Investeren die een heuvel op leiden naar een vlag met de tekst Jouw Toekomst.",
+    "heroImageAlt": "Een lachend kind met een telefoon met de Money Quest-app, naast het Money Quest-logo en de tekst Skills for Life.",
     "ctaGetStartedFree": "Begin je Money Quest",
     "ctaSeeHowItWorks": "Bekijk hoe het werkt",
     "whyFree": "Money Quest is gratis voor gezinnen, mogelijk gemaakt door privacyvriendelijke advertenties die alleen op pagina's voor ouders worden getoond - nooit binnen de ervaring van je kind. Nooit aankopen door kinderen.",
@@ -2216,7 +2216,7 @@
               "mechanic": "sort",
               "prompt": "Sommige hiervan combineren een behoefte met een wens erbovenop. Sorteer op de BELANGRIJKSTE reden om het te kopen.",
               "hint": "Een basispaar schoenen is een behoefte. De duurdere merkversie is een wens die bovenop die behoefte komt.",
-              "explanation": "Je hebt schoenen nodig voor school - maar de designerversie van 150 pond is niet nodig als een paar van 30 pond net zo goed werkt. De extra kosten zijn het \"wens\"-deel.",
+              "explanation": "Je hebt schoenen nodig voor school - maar de designerversie van 150 euro is niet nodig als een paar van 30 euro net zo goed werkt. De extra kosten zijn het \"wens\"-deel.",
               "buckets": [
                 {
                   "key": "need",
@@ -2614,7 +2614,7 @@
               "prompt": "Hier is een advertentie voor een online winkel. Tik op alles wat aanvoelt als een waarschuwingssignaal.",
               "hint": "Als een prijs onmogelijk laag lijkt voor wat je krijgt, is dat het waard om nog eens te bekijken.",
               "explanation": "Een gloednieuwe spelconsole voor bijna niets, gecombineerd met druk om je te haasten, is een klassiek teken van een nepwinkel - echte winkels hoeven je meestal niet te haasten naar een onmogelijk goede deal.",
-              "scenario": "\"Gloednieuwe spelconsoles - slechts 5 pond per stuk! HANDEL NU, bijna uitverkocht!\"",
+              "scenario": "\"Gloednieuwe spelconsoles - slechts 5 euro per stuk! HANDEL NU, bijna uitverkocht!\"",
               "items": [
                 {
                   "id": "brand",
@@ -2623,7 +2623,7 @@
                 },
                 {
                   "id": "price",
-                  "text": "slechts 5 pond per stuk",
+                  "text": "slechts 5 euro per stuk",
                   "isSuspicious": true
                 },
                 {
@@ -2726,11 +2726,11 @@
               "prompt": "Hier is een advertentie voor een online winkel. Tik op alles wat aanvoelt als een waarschuwingssignaal.",
               "hint": "Denk na of een echte winkel je ooit zo onder druk zou zetten.",
               "explanation": "Een scherm met een aftellende timer naast een enorme korting is ontworpen om je te laten beslissen voordat je tijd hebt gehad om na te denken - een echte winkel hoeft dat niet te doen.",
-              "scenario": "\"Sneakers ter waarde van 80 pond voor slechts 9,99! Aanbieding verdwijnt over 3 minuten - mis het niet!\"",
+              "scenario": "\"Sneakers ter waarde van 80 euro voor slechts 9,99! Aanbieding verdwijnt over 3 minuten - mis het niet!\"",
               "items": [
                 {
                   "id": "trainers",
-                  "text": "Sneakers ter waarde van 80 pond",
+                  "text": "Sneakers ter waarde van 80 euro",
                   "isSuspicious": false
                 },
                 {
@@ -2792,7 +2792,7 @@
               "prompt": "Een bericht vraagt je snel voor iets te betalen. Tik op alles wat aanvoelt als een waarschuwingssignaal.",
               "hint": "Gevraagd worden om op een ongebruikelijke manier snel te betalen, voordat je iets kunt controleren, is op zichzelf al een sterk waarschuwingssignaal.",
               "explanation": "Te horen krijgen dat je onmiddellijk moet betalen, op een ongebruikelijke manier, voordat je tijd hebt gehad om te controleren of de verkoper eigenlijk wel echt is, is ontworpen om te voorkomen dat je merkt dat er iets mis is - echte verkopers hoeven een betaling niet zo te haasten.",
-              "scenario": "\"Artikel voor jou gereserveerd! Betaal de aanbetaling van 45 pond nu meteen met een cadeaukaartcode om het veilig te stellen voordat iemand anders het doet.\"",
+              "scenario": "\"Artikel voor jou gereserveerd! Betaal de aanbetaling van 45 euro nu meteen met een cadeaukaartcode om het veilig te stellen voordat iemand anders het doet.\"",
               "items": [
                 {
                   "id": "reserved",
@@ -2801,7 +2801,7 @@
                 },
                 {
                   "id": "gift-card",
-                  "text": "betaal de aanbetaling van 45 pond nu meteen met een cadeaukaartcode",
+                  "text": "betaal de aanbetaling van 45 euro nu meteen met een cadeaukaartcode",
                   "isSuspicious": true
                 },
                 {
@@ -2917,33 +2917,33 @@
             {
               "id": "shopping-choice",
               "mechanic": "mission",
-              "prompt": "Je hebt 10 pond om uit te geven op de markt. Wat zou je doen?",
+              "prompt": "Je hebt 10 euro om uit te geven op de markt. Wat zou je doen?",
               "hint": "Er is hier geen enkel juist antwoord - denk na over wat vandaag het belangrijkst voor je is.",
               "explanation": "Elke keuze gebruikt je geld een beetje anders - geen enkele is fout, ze leiden gewoon tot verschillende dingen.",
-              "situation": "Je hebt 10 pond om uit te geven op de markt.",
+              "situation": "Je hebt 10 euro om uit te geven op de markt.",
               "choices": [
                 {
                   "key": "toy",
                   "label": "Een speeltje kopen",
-                  "consequence": "Je hebt het speeltje gekocht! Het is leuk om iets nieuws te hebben, maar nu heb je nog maar 4 pond voor de rest van vandaag.",
+                  "consequence": "Je hebt het speeltje gekocht! Het is leuk om iets nieuws te hebben, maar nu heb je nog maar 4 euro voor de rest van vandaag.",
                   "costMinorUnits": 600
                 },
                 {
                   "key": "snack",
                   "label": "Een snack kopen",
-                  "consequence": "Je hebt een lekkere snack gekocht en hebt nog 8 pond over - genoeg voor nog iets anders ook.",
+                  "consequence": "Je hebt een lekkere snack gekocht en hebt nog 8 euro over - genoeg voor nog iets anders ook.",
                   "costMinorUnits": 200
                 },
                 {
                   "key": "book",
                   "label": "Een boek kopen",
-                  "consequence": "Je hebt een boek gekocht om steeds opnieuw te lezen - en je hebt nog 5 pond over.",
+                  "consequence": "Je hebt een boek gekocht om steeds opnieuw te lezen - en je hebt nog 5 euro over.",
                   "costMinorUnits": 500
                 },
                 {
                   "key": "save",
                   "label": "Alles sparen",
-                  "consequence": "Je hebt alle 10 pond veilig bewaard. Vandaag niets om te laten zien, maar klaar voor iets groters later."
+                  "consequence": "Je hebt alle 10 euro veilig bewaard. Vandaag niets om te laten zien, maar klaar voor iets groters later."
                 }
               ]
             },
@@ -3006,15 +3006,15 @@
             {
               "id": "budget-the-week",
               "mechanic": "mission",
-              "prompt": "Je hebt 15 pond voor de week: een snack voor het schoolreisje, een verjaardagscadeau voor een vriend, en wat overblijft is voor jou. Wat zou je doen?",
+              "prompt": "Je hebt 15 euro voor de week: een snack voor het schoolreisje, een verjaardagscadeau voor een vriend, en wat overblijft is voor jou. Wat zou je doen?",
               "hint": "Denk na over wat zeker gebeurt, en wat optioneel is.",
               "explanation": "Plannen voor meerdere dingen tegelijk - sommige nodig, sommige gewenst - is precies wat een echt wekelijks budget inhoudt.",
-              "situation": "Je hebt 15 pond voor de week: een snack voor het schoolreisje, een verjaardagscadeau voor een vriend, en wat overblijft is voor jou.",
+              "situation": "Je hebt 15 euro voor de week: een snack voor het schoolreisje, een verjaardagscadeau voor een vriend, en wat overblijft is voor jou.",
               "choices": [
                 {
                   "key": "cover-both-first",
                   "label": "Eerst snack en cadeau betalen, de rest houden",
-                  "consequence": "Je dekte beide dingen die je nodig had, en hield 4 pond over voor jezelf - een solide plan."
+                  "consequence": "Je dekte beide dingen die je nodig had, en hield 4 euro over voor jezelf - een solide plan."
                 },
                 {
                   "key": "nice-gift-skip-snack",
@@ -3031,37 +3031,37 @@
             {
               "id": "compare-before-buying",
               "mechanic": "mission",
-              "prompt": "Je hebt een nieuwe waterfles nodig. De ene winkel verkoopt hem voor 8 pond, de andere verkoopt bijna dezelfde voor 5 pond. Wat zou je doen?",
+              "prompt": "Je hebt een nieuwe waterfles nodig. De ene winkel verkoopt hem voor 8 euro, de andere verkoopt bijna dezelfde voor 5 euro. Wat zou je doen?",
               "hint": "Een hogere prijs betekent niet altijd een beter product - het gaat om wat je echt krijgt.",
               "explanation": "Prijzen vergelijken voordat je koopt is een van de eenvoudigste manieren om je geld verder te laten gaan.",
-              "situation": "Je hebt een nieuwe waterfles nodig. De ene winkel verkoopt hem voor 8 pond, de andere verkoopt bijna dezelfde voor 5 pond.",
+              "situation": "Je hebt een nieuwe waterfles nodig. De ene winkel verkoopt hem voor 8 euro, de andere verkoopt bijna dezelfde voor 5 euro.",
               "choices": [
                 {
                   "key": "cheaper",
-                  "label": "De fles van 5 pond kopen",
-                  "consequence": "Je kreeg wat je nodig had en spaarde 3 pond - geld dat nu vrij is voor iets anders.",
+                  "label": "De fles van 5 euro kopen",
+                  "consequence": "Je kreeg wat je nodig had en spaarde 3 euro - geld dat nu vrij is voor iets anders.",
                   "costMinorUnits": 500
                 },
                 {
                   "key": "pricier",
-                  "label": "Toch de fles van 8 pond kopen",
-                  "consequence": "Je betaalde 3 pond meer voor een zeer vergelijkbare fles - soms is dat het waard om een reden die je belangrijk vindt, soms is het gewoon extra kosten.",
+                  "label": "Toch de fles van 8 euro kopen",
+                  "consequence": "Je betaalde 3 euro meer voor een zeer vergelijkbare fles - soms is dat het waard om een reden die je belangrijk vindt, soms is het gewoon extra kosten.",
                   "costMinorUnits": 800
                 },
                 {
                   "key": "check-why",
                   "label": "Eerst controleren wat echt anders is",
-                  "consequence": "Je ontdekte dat de flessen bijna identiek waren, dus de extra 3 pond kochten niets dat je echt zou gebruiken."
+                  "consequence": "Je ontdekte dat de flessen bijna identiek waren, dus de extra 3 euro kochten niets dat je echt zou gebruiken."
                 }
               ]
             },
             {
               "id": "surprise-repair-cost",
               "mechanic": "mission",
-              "prompt": "Je fiets heeft een lekke band en de reparatie kost 6 pond - geld dat je opzij had gezet voor een spel dat je wilde. Wat zou je doen?",
+              "prompt": "Je fiets heeft een lekke band en de reparatie kost 6 euro - geld dat je opzij had gezet voor een spel dat je wilde. Wat zou je doen?",
               "hint": "Een behoefte die plotseling opduikt kan een plan veranderen dat je al had gemaakt - dat is normaal, geen mislukking.",
               "explanation": "Echte budgetten worden soms onderbroken door echte problemen - het plan aanpassen is de vaardigheid, geen fout.",
-              "situation": "Je fiets heeft een lekke band en de reparatie kost 6 pond - geld dat je opzij had gezet voor een spel dat je wilde.",
+              "situation": "Je fiets heeft een lekke band en de reparatie kost 6 euro - geld dat je opzij had gezet voor een spel dat je wilde.",
               "choices": [
                 {
                   "key": "fix-bike",
@@ -3114,10 +3114,10 @@
             {
               "id": "give-or-keep",
               "mechanic": "mission",
-              "prompt": "Je hebt 20 pond gespaard. Het gezin van een vriend maakt een moeilijke tijd door, en je klas verzamelt geld om te helpen. Wat zou je doen?",
+              "prompt": "Je hebt 20 euro gespaard. Het gezin van een vriend maakt een moeilijke tijd door, en je klas verzamelt geld om te helpen. Wat zou je doen?",
               "hint": "Er is hier geen verplicht bedrag - denk na over wat goed aanvoelt voor jouw eigen situatie.",
               "explanation": "Beslissen hoeveel van je eigen geld je geeft, als je al geeft, is een echt persoonlijke keuze zonder één juist bedrag.",
-              "situation": "Je hebt 20 pond gespaard. Het gezin van een vriend maakt een moeilijke tijd door, en je klas verzamelt geld om te helpen.",
+              "situation": "Je hebt 20 euro gespaard. Het gezin van een vriend maakt een moeilijke tijd door, en je klas verzamelt geld om te helpen.",
               "choices": [
                 {
                   "key": "give-some",
@@ -4154,8 +4154,8 @@
         {
           "heading": "Wat een geldwerkblad echt nuttig maakt",
           "paragraphs": [
-            "Een werkblad is maar zo goed als het denken dat het vraagt. De meest voorkomende faalmodus is een werkblad dat een kind vraagt een definitie op te halen (\"wat is een budget?\") in plaats van er een toe te passen (\"hier is £10 - verdeel het over deze vier potten en leg uit waarom\"). Het tweede type levert echt leren op; het eerste levert een uit het hoofd geleerde zin op die binnen een week vervaagt.",
-            "Specifiek voor een klaslokaal-omgeving levert een werkblad zonder één juist antwoord - waarbij twee leerlingen redelijkerwijs dezelfde £10 anders zouden kunnen verdelen - meestal betere discussie op dan een met één correct totaal om tegen te controleren."
+            "Een werkblad is maar zo goed als het denken dat het vraagt. De meest voorkomende faalmodus is een werkblad dat een kind vraagt een definitie op te halen (\"wat is een budget?\") in plaats van er een toe te passen (\"hier is 10 euro - verdeel het over deze vier potten en leg uit waarom\"). Het tweede type levert echt leren op; het eerste levert een uit het hoofd geleerde zin op die binnen een week vervaagt.",
+            "Specifiek voor een klaslokaal-omgeving levert een werkblad zonder één juist antwoord - waarbij twee leerlingen redelijkerwijs dezelfde 10 euro anders zouden kunnen verdelen - meestal betere discussie op dan een met één correct totaal om tegen te controleren."
           ]
         },
         {
@@ -4166,7 +4166,7 @@
           "list": [
             "6-8 jaar: fysieke, visuele werkbladen - afbeeldingen van items sorteren in behoeften/wensen-kolommen, een pot inkleuren terwijl een spaardoel zich vult.",
             "9-11 jaar: eenvoudige toewijzingswerkbladen met een vast totaal om te verdelen over gelabelde categorieën, plus één open \"leg je keuze uit\"-regel.",
-            "12-14 jaar: korte scenario-gebaseerde werkbladen (\"je hebt £30 en deze drie doelen - wat zou je doen en waarom\") die om redenering vragen, niet alleen een ingevulde tabel."
+            "12-14 jaar: korte scenario-gebaseerde werkbladen (\"je hebt 30 euro en deze drie doelen - wat zou je doen en waarom\") die om redenering vragen, niet alleen een ingevulde tabel."
           ]
         },
         {

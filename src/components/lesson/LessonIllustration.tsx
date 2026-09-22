@@ -5,20 +5,23 @@ interface LessonIllustrationProps {
 }
 
 /**
- * Topics without their own hand-drawn SVG motif below (renderTopicMotif's
- * `default` case would otherwise show them all as one plain undifferentiated
- * circle) — digital_money, investing_basics and junior_isa were added in
- * Stage 3A, after this SVG system was built, and never got a matching
- * motif. Filled with real illustrations instead of new SVG work, reusing
- * the same photo across every lesson that shares a topic (not one per
- * lesson) — e.g. every digital_money lesson at every age band shows the
- * same wallet image, matching how every other topic already shares one
- * motif across its explorer/builder/strategist lessons.
+ * Topics with a supplied illustration, used in place of the hand-drawn
+ * SVG motif below for these 7 specific topics only — reusing the same
+ * photo across every lesson that shares a topic (not one per lesson),
+ * matching how every other topic already shares one motif across its
+ * explorer/builder/strategist lessons. long_term_thinking, giving, and
+ * junior_isa keep their existing SVG motif (junior_isa's own default
+ * circle included) — no illustration was supplied for those, so they
+ * are deliberately left alone rather than reusing an unrelated photo.
  */
 const PHOTO_TOPIC_IMAGES: Record<string, string> = {
-  digital_money: "/images/money-quest/lessons/digital-money-wallet.webp",
-  investing_basics: "/images/money-quest/lessons/investing-growth-chart.webp",
-  junior_isa: "/images/money-quest/lessons/junior-isa-piggy-bank.webp",
+  money_basics: "/images/money-quest/lessons/money-basics.webp",
+  needs_wants: "/images/money-quest/lessons/needs-wants.webp",
+  saving: "/images/money-quest/lessons/saving.webp",
+  digital_money: "/images/money-quest/lessons/digital-money.webp",
+  currencies: "/images/money-quest/lessons/currencies.webp",
+  scams: "/images/money-quest/lessons/scams.webp",
+  investing_basics: "/images/money-quest/lessons/investing.webp",
 };
 
 /**

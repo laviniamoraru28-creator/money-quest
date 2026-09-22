@@ -26,7 +26,7 @@
   "landing": {
     "heroTitle": "Învață despre bani jucându-te, explorând și luând decizii.",
     "heroSubtitle": "Money Quest este o lume gratuită de educație financiară pentru copii de 6–14 ani - misiuni, un portofel fictiv și abilități reale. Fără cont necesar.",
-    "heroImageAlt": "Patru copii explorează împreună o hartă, cu indicatoare pentru Câștigă, Economisește, Cheltuiește, Dăruiește și Investește care urcă un deal spre un steag pe care scrie Viitorul Tău.",
+    "heroImageAlt": "Un copil zâmbitor ținând un telefon pe care se vede aplicația Money Quest, lângă logo-ul Money Quest și textul Skills for Life.",
     "ctaGetStartedFree": "Începe-ți Aventura Money Quest",
     "ctaSeeHowItWorks": "Vezi cum funcționează",
     "whyFree": "Money Quest este gratuit pentru familii, susținut de publicitate respectuoasă a intimității, afișată doar pe paginile pentru părinți - niciodată în experiența copilului tău. Fără achiziții pentru copii, niciodată.",
@@ -2216,7 +2216,7 @@
               "mechanic": "sort",
               "prompt": "Unele dintre acestea combină o nevoie cu o dorință suprapusă. Sortează după MOTIVUL PRINCIPAL pentru cumpărare.",
               "hint": "O pereche de pantofi de bază este o nevoie. Cea mai scumpă versiune de designer este o dorință suprapusă peste acea nevoie.",
-              "explanation": "Ai nevoie de pantofi pentru școală - dar versiunea de designer de 150 de lire nu este necesară când o pereche de 30 de lire funcționează la fel de bine. Costul suplimentar este partea de „dorință”.",
+              "explanation": "Ai nevoie de pantofi pentru școală - dar versiunea de designer de 150 de lei nu este necesară când o pereche de 30 de lei funcționează la fel de bine. Costul suplimentar este partea de „dorință”.",
               "buckets": [
                 {
                   "key": "need",
@@ -2614,7 +2614,7 @@
               "prompt": "Iată o reclamă pentru un magazin online. Atinge orice pare a fi un semn de avertizare.",
               "hint": "Dacă un preț pare imposibil de mic pentru ce primești, merită o a doua privire.",
               "explanation": "O consolă de jocuri nouă pentru aproape nimic, combinată cu presiunea de a te grăbi, este un semn clasic al unui magazin fals - magazinele adevărate de obicei nu au nevoie să te grăbească spre o afacere imposibil de bună.",
-              "scenario": "„Console de jocuri complet noi - doar 5 lire fiecare! ACȚIONEAZĂ ACUM, aproape epuizate!”",
+              "scenario": "„Console de jocuri complet noi - doar 5 lei fiecare! ACȚIONEAZĂ ACUM, aproape epuizate!”",
               "items": [
                 {
                   "id": "brand",
@@ -2623,7 +2623,7 @@
                 },
                 {
                   "id": "price",
-                  "text": "doar 5 lire fiecare",
+                  "text": "doar 5 lei fiecare",
                   "isSuspicious": true
                 },
                 {
@@ -2726,16 +2726,16 @@
               "prompt": "Iată o reclamă pentru un magazin online. Atinge orice pare a fi un semn de avertizare.",
               "hint": "Gândește-te dacă un magazin adevărat te-ar presa vreodată în felul acesta.",
               "explanation": "Un ecran care arată un cronometru care scade lângă o reducere uriașă este conceput să te facă să decizi înainte să ai timp să te gândești - un magazin adevărat nu are nevoie să facă asta.",
-              "scenario": "„Adidași în valoare de 80 de lire pentru doar 9,99 lire! Oferta dispare în 3 minute - nu rata!”",
+              "scenario": "„Adidași în valoare de 80 de lei pentru doar 9,99 lei! Oferta dispare în 3 minute - nu rata!”",
               "items": [
                 {
                   "id": "trainers",
-                  "text": "Adidași în valoare de 80 de lire",
+                  "text": "Adidași în valoare de 80 de lei",
                   "isSuspicious": false
                 },
                 {
                   "id": "price",
-                  "text": "doar 9,99 lire",
+                  "text": "doar 9,99 lei",
                   "isSuspicious": true
                 },
                 {
@@ -2792,7 +2792,7 @@
               "prompt": "Un mesaj îți cere să plătești rapid pentru ceva. Atinge orice pare a fi un semn de avertizare.",
               "hint": "A ți se cere să plătești într-un mod neobișnuit, rapid, înainte să poți verifica ceva, este în sine un semn puternic de avertizare.",
               "explanation": "A ți se spune să plătești imediat, într-un mod neobișnuit, înainte să ai timp să verifici dacă vânzătorul este măcar real, este conceput să te împiedice să observi că ceva nu este în regulă - vânzătorii adevărați nu au nevoie să grăbească o plată în felul acesta.",
-              "scenario": "„Articol rezervat pentru tine! Plătește avansul de 45 de lire chiar acum printr-un cod de card cadou pentru a-l asigura înainte să o facă altcineva.”",
+              "scenario": "„Articol rezervat pentru tine! Plătește avansul de 45 de lei chiar acum printr-un cod de card cadou pentru a-l asigura înainte să o facă altcineva.”",
               "items": [
                 {
                   "id": "reserved",
@@ -2801,7 +2801,7 @@
                 },
                 {
                   "id": "gift-card",
-                  "text": "plătește avansul de 45 de lire chiar acum printr-un cod de card cadou",
+                  "text": "plătește avansul de 45 de lei chiar acum printr-un cod de card cadou",
                   "isSuspicious": true
                 },
                 {
@@ -2917,33 +2917,33 @@
             {
               "id": "shopping-choice",
               "mechanic": "mission",
-              "prompt": "Ai 10 lire de cheltuit la piață. Ce ai face?",
+              "prompt": "Ai 10 lei de cheltuit la piață. Ce ai face?",
               "hint": "Nu există un singur răspuns corect aici - gândește-te la ce contează cel mai mult pentru tine azi.",
               "explanation": "Fiecare alegere folosește banii tăi puțin diferit - niciuna nu este greșită, doar duc la lucruri diferite.",
-              "situation": "Ai 10 lire de cheltuit la piață.",
+              "situation": "Ai 10 lei de cheltuit la piață.",
               "choices": [
                 {
                   "key": "toy",
                   "label": "Cumpără o jucărie",
-                  "consequence": "Ai cumpărat jucăria! Este distractiv să ai ceva nou, dar acum mai ai doar 4 lire pentru orice altceva azi.",
+                  "consequence": "Ai cumpărat jucăria! Este distractiv să ai ceva nou, dar acum mai ai doar 4 lei pentru orice altceva azi.",
                   "costMinorUnits": 600
                 },
                 {
                   "key": "snack",
                   "label": "Cumpără o gustare",
-                  "consequence": "Ai cumpărat o gustare gustoasă și mai ai încă 8 lire - suficient pentru altceva.",
+                  "consequence": "Ai cumpărat o gustare gustoasă și mai ai încă 8 lei - suficient pentru altceva.",
                   "costMinorUnits": 200
                 },
                 {
                   "key": "book",
                   "label": "Cumpără o carte",
-                  "consequence": "Ai cumpărat o carte pe care o poți citi din nou și din nou - și mai ai 5 lire rămase.",
+                  "consequence": "Ai cumpărat o carte pe care o poți citi din nou și din nou - și mai ai 5 lei rămase.",
                   "costMinorUnits": 500
                 },
                 {
                   "key": "save",
                   "label": "Economisește totul",
-                  "consequence": "Ai păstrat toate cele 10 lire în siguranță. Nimic de arătat azi, dar sunt gata pentru ceva mai mare mai târziu."
+                  "consequence": "Ai păstrat toate cele 10 lei în siguranță. Nimic de arătat azi, dar sunt gata pentru ceva mai mare mai târziu."
                 }
               ]
             },
@@ -3006,15 +3006,15 @@
             {
               "id": "budget-the-week",
               "mechanic": "mission",
-              "prompt": "Ai 15 lire pentru săptămâna aceasta pentru o gustare de excursie școlară, un cadou pentru ziua de naștere a unui prieten, iar ce rămâne este al tău. Ce ai face?",
+              "prompt": "Ai 15 lei pentru săptămâna aceasta pentru o gustare de excursie școlară, un cadou pentru ziua de naștere a unui prieten, iar ce rămâne este al tău. Ce ai face?",
               "hint": "Gândește-te la ce lucruri se întâmplă sigur, și care sunt opționale.",
               "explanation": "Planificarea pentru mai multe lucruri deodată - unele necesare, altele dorite - este exact ce presupune un buget săptămânal real.",
-              "situation": "Ai 15 lire pentru săptămâna aceasta: o gustare pentru excursia școlii, un cadou pentru ziua de naștere a unui prieten, și orice rămâne este al tău.",
+              "situation": "Ai 15 lei pentru săptămâna aceasta: o gustare pentru excursia școlii, un cadou pentru ziua de naștere a unui prieten, și orice rămâne este al tău.",
               "choices": [
                 {
                   "key": "cover-both-first",
                   "label": "Plătește mai întâi gustarea și cadoul, păstrează restul",
-                  "consequence": "Ai acoperit ambele lucruri de care aveai nevoie și ai păstrat 4 lire pentru tine - un plan solid."
+                  "consequence": "Ai acoperit ambele lucruri de care aveai nevoie și ai păstrat 4 lei pentru tine - un plan solid."
                 },
                 {
                   "key": "nice-gift-skip-snack",
@@ -3031,37 +3031,37 @@
             {
               "id": "compare-before-buying",
               "mechanic": "mission",
-              "prompt": "Ai nevoie de o sticlă de apă nouă. Un magazin o vinde cu 8 lire, altul vinde aproape aceeași sticlă cu 5 lire. Ce ai face?",
+              "prompt": "Ai nevoie de o sticlă de apă nouă. Un magazin o vinde cu 8 lei, altul vinde aproape aceeași sticlă cu 5 lei. Ce ai face?",
               "hint": "Un preț mai mare nu înseamnă întotdeauna un produs mai bun - contează ce primești de fapt.",
               "explanation": "Compararea prețurilor înainte de a cumpăra este unul dintre cele mai simple moduri de a-ți face banii să meargă mai departe.",
-              "situation": "Ai nevoie de o sticlă de apă nouă. Un magazin o vinde cu 8 lire, altul vinde aproape aceeași sticlă cu 5 lire.",
+              "situation": "Ai nevoie de o sticlă de apă nouă. Un magazin o vinde cu 8 lei, altul vinde aproape aceeași sticlă cu 5 lei.",
               "choices": [
                 {
                   "key": "cheaper",
-                  "label": "Cumpără-o pe cea de 5 lire",
-                  "consequence": "Ai obținut ce aveai nevoie și ai economisit 3 lire - bani liberi acum pentru altceva.",
+                  "label": "Cumpără-o pe cea de 5 lei",
+                  "consequence": "Ai obținut ce aveai nevoie și ai economisit 3 lei - bani liberi acum pentru altceva.",
                   "costMinorUnits": 500
                 },
                 {
                   "key": "pricier",
-                  "label": "Cumpără-o pe cea de 8 lire oricum",
-                  "consequence": "Ai plătit cu 3 lire mai mult pentru o sticlă foarte asemănătoare - uneori merită pentru un motiv la care ții, alteori este doar cost în plus.",
+                  "label": "Cumpără-o pe cea de 8 lei oricum",
+                  "consequence": "Ai plătit cu 3 lei mai mult pentru o sticlă foarte asemănătoare - uneori merită pentru un motiv la care ții, alteori este doar cost în plus.",
                   "costMinorUnits": 800
                 },
                 {
                   "key": "check-why",
                   "label": "Verifică mai întâi ce este de fapt diferit",
-                  "consequence": "Ai aflat că sticlele erau aproape identice, așa că cele 3 lire în plus nu cumpărau ceva ce ai fi folosit cu adevărat."
+                  "consequence": "Ai aflat că sticlele erau aproape identice, așa că cele 3 lei în plus nu cumpărau ceva ce ai fi folosit cu adevărat."
                 }
               ]
             },
             {
               "id": "surprise-repair-cost",
               "mechanic": "mission",
-              "prompt": "Bicicleta ta are o roată dezumflată și repararea costă 6 lire - bani pe care îi puseseși deoparte pentru un joc pe care ți-l doreai. Ce ai face?",
+              "prompt": "Bicicleta ta are o roată dezumflată și repararea costă 6 lei - bani pe care îi puseseși deoparte pentru un joc pe care ți-l doreai. Ce ai face?",
               "hint": "O nevoie care apare brusc poate schimba un plan pe care îl făcuseși deja - este normal, nu un eșec.",
               "explanation": "Bugetele reale sunt uneori întrerupte de probleme reale - ajustarea planului este abilitatea, nu o greșeală.",
-              "situation": "Bicicleta ta are o roată dezumflată și repararea costă 6 lire - bani pe care îi puseseși deoparte pentru un joc pe care ți-l doreai.",
+              "situation": "Bicicleta ta are o roată dezumflată și repararea costă 6 lei - bani pe care îi puseseși deoparte pentru un joc pe care ți-l doreai.",
               "choices": [
                 {
                   "key": "fix-bike",
@@ -3114,10 +3114,10 @@
             {
               "id": "give-or-keep",
               "mechanic": "mission",
-              "prompt": "Ai economisit 20 de lire. Familia unui prieten trece printr-o perioadă grea, iar clasa ta strânge bani pentru a ajuta. Ce ai face?",
+              "prompt": "Ai economisit 20 de lei. Familia unui prieten trece printr-o perioadă grea, iar clasa ta strânge bani pentru a ajuta. Ce ai face?",
               "hint": "Nu există o sumă obligatorie aici - gândește-te la ce ți se pare potrivit pentru situația ta.",
               "explanation": "Decizia cât din banii tăi să dăruiești, dacă deloc, este o alegere cu adevărat personală, fără o singură sumă corectă.",
-              "situation": "Ai economisit 20 de lire. Familia unui prieten trece printr-o perioadă grea, iar clasa ta strânge bani pentru a ajuta.",
+              "situation": "Ai economisit 20 de lei. Familia unui prieten trece printr-o perioadă grea, iar clasa ta strânge bani pentru a ajuta.",
               "choices": [
                 {
                   "key": "give-some",
@@ -4138,8 +4138,8 @@
         {
           "heading": "Ce face o fișă de lucru despre bani cu adevărat utilă",
           "paragraphs": [
-            "O fișă de lucru este la fel de bună ca gândirea pe care o cere. Cel mai frecvent mod de eșec este o fișă care cere unui copil să-și amintească o definiție („ce este un buget?”) mai degrabă decât să o aplice („iată 10 lire - împarte-le între aceste patru borcane și explică de ce”). Al doilea tip produce învățare reală; primul produce o propoziție memorată care se estompează într-o săptămână.",
-            "Pentru o clasă specific, o fișă de lucru fără un singur răspuns corect - unde doi elevi ar putea în mod rezonabil împărți aceleași 10 lire diferit - tinde să genereze o discuție mai bună decât una cu un total corect unic de verificat."
+            "O fișă de lucru este la fel de bună ca gândirea pe care o cere. Cel mai frecvent mod de eșec este o fișă care cere unui copil să-și amintească o definiție („ce este un buget?”) mai degrabă decât să o aplice („iată 10 lei - împarte-le între aceste patru borcane și explică de ce”). Al doilea tip produce învățare reală; primul produce o propoziție memorată care se estompează într-o săptămână.",
+            "Pentru o clasă specific, o fișă de lucru fără un singur răspuns corect - unde doi elevi ar putea în mod rezonabil împărți aceleași 10 lei diferit - tinde să genereze o discuție mai bună decât una cu un total corect unic de verificat."
           ]
         },
         {
@@ -4150,7 +4150,7 @@
           "list": [
             "6-8 ani: fișe de lucru fizice, vizuale - sortarea imaginilor cu obiecte în coloane nevoi/dorințe, colorarea unui borcan pe măsură ce un obiectiv de economisire se umple.",
             "9-11 ani: fișe de lucru simple de alocare cu un total fix de împărțit pe categorii etichetate, plus o linie deschisă „explică-ți alegerea”.",
-            "12-14 ani: fișe de lucru scurte, bazate pe scenarii („ai 30 de lire și aceste trei obiective - ce ai face și de ce”) care cer raționament, nu doar un tabel completat."
+            "12-14 ani: fișe de lucru scurte, bazate pe scenarii („ai 30 de lei și aceste trei obiective - ce ai face și de ce”) care cer raționament, nu doar un tabel completat."
           ]
         },
         {

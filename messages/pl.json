@@ -26,7 +26,7 @@
   "landing": {
     "heroTitle": "Ucz się o pieniądzach, bawiąc się, odkrywając i podejmując decyzje.",
     "heroSubtitle": "Money Quest to bezpłatny świat edukacji finansowej dla dzieci w wieku 6–14 lat - questy, fikcyjny portfel i prawdziwe umiejętności. Bez konieczności zakładania konta.",
-    "heroImageAlt": "Czworo dzieci wspólnie odkrywa mapę, z drogowskazami Zarabiaj, Oszczędzaj, Wydawaj, Dawaj i Inwestuj prowadzącymi na wzgórze do flagi z napisem Twoja Przyszłość.",
+    "heroImageAlt": "Uśmiechnięte dziecko trzymające telefon z aplikacją Money Quest, obok logo Money Quest i napisu Skills for Life.",
     "ctaGetStartedFree": "Rozpocznij swoją Money Quest",
     "ctaSeeHowItWorks": "Zobacz, jak to działa",
     "whyFree": "Money Quest jest bezpłatny dla rodzin, finansowany dzięki reklamom szanującym prywatność, wyświetlanym wyłącznie na stronach dla rodziców - nigdy w obrębie doświadczenia twojego dziecka. Nigdy żadnych zakupów dokonywanych przez dzieci.",
@@ -2216,7 +2216,7 @@
               "mechanic": "sort",
               "prompt": "Niektóre z nich łączą potrzebę z zachcianką nałożoną na wierzch. Posortuj według GŁÓWNEGO POWODU zakupu.",
               "hint": "Podstawowa para butów to potrzeba. Najdroższa wersja markowa to zachcianka nałożona na tę potrzebę.",
-              "explanation": "Potrzebujesz butów do szkoły - ale wersja markowa za 150 funtów nie jest potrzebna, gdy para za 30 funtów działa równie dobrze. Dodatkowy koszt to część \"zachcianki\".",
+              "explanation": "Potrzebujesz butów do szkoły - ale wersja markowa za 150 złotych nie jest potrzebna, gdy para za 30 złotych działa równie dobrze. Dodatkowy koszt to część \"zachcianki\".",
               "buckets": [
                 {
                   "key": "need",
@@ -2614,7 +2614,7 @@
               "prompt": "Oto reklama sklepu internetowego. Dotknij wszystkiego, co wydaje się sygnałem ostrzegawczym.",
               "hint": "Jeśli cena wydaje się niemożliwie niska za to, co dostajesz, warto przyjrzeć się jej ponownie.",
               "explanation": "Zupełnie nowa konsola do gier za prawie nic, w połączeniu z presją, by się spieszyć, to klasyczny znak fałszywego sklepu - prawdziwe sklepy zwykle nie muszą cię poganiać do niemożliwie dobrej oferty.",
-              "scenario": "\"Zupełnie nowe konsole do gier - tylko 5 funtów każda! DZIAŁAJ TERAZ, prawie wyprzedane!\"",
+              "scenario": "\"Zupełnie nowe konsole do gier - tylko 5 złotych każda! DZIAŁAJ TERAZ, prawie wyprzedane!\"",
               "items": [
                 {
                   "id": "brand",
@@ -2623,7 +2623,7 @@
                 },
                 {
                   "id": "price",
-                  "text": "tylko 5 funtów każda",
+                  "text": "tylko 5 złotych każda",
                   "isSuspicious": true
                 },
                 {
@@ -2726,11 +2726,11 @@
               "prompt": "Oto reklama sklepu internetowego. Dotknij wszystkiego, co wydaje się sygnałem ostrzegawczym.",
               "hint": "Pomyśl, czy prawdziwy sklep kiedykolwiek wywierałby na ciebie taką presję.",
               "explanation": "Ekran pokazujący malejący licznik czasu obok ogromnej zniżki ma na celu skłonienie cię do decyzji, zanim będziesz miał czas pomyśleć - prawdziwy sklep nie musi tego robić.",
-              "scenario": "\"Buty sportowe warte 80 funtów za jedyne 9,99! Oferta znika za 3 minuty - nie przegap!\"",
+              "scenario": "\"Buty sportowe warte 80 złotych za jedyne 9,99! Oferta znika za 3 minuty - nie przegap!\"",
               "items": [
                 {
                   "id": "trainers",
-                  "text": "Buty sportowe warte 80 funtów",
+                  "text": "Buty sportowe warte 80 złotych",
                   "isSuspicious": false
                 },
                 {
@@ -2792,7 +2792,7 @@
               "prompt": "Wiadomość prosi cię o szybką zapłatę za coś. Dotknij wszystkiego, co wydaje się sygnałem ostrzegawczym.",
               "hint": "Proszenie o zapłatę w nietypowy sposób, szybko, zanim będziesz mógł cokolwiek sprawdzić, samo w sobie jest silnym sygnałem ostrzegawczym.",
               "explanation": "Powiedzenie ci, byś zapłacił natychmiast, w nietypowy sposób, zanim będziesz miał czas sprawdzić, czy sprzedawca w ogóle jest prawdziwy, ma na celu powstrzymanie cię przed zauważeniem, że coś jest nie tak - prawdziwi sprzedawcy nie muszą tak poganiać płatności.",
-              "scenario": "\"Przedmiot zarezerwowany dla ciebie! Zapłać zaliczkę 45 funtów już teraz kodem karty podarunkowej, by go zabezpieczyć, zanim zrobi to ktoś inny.\"",
+              "scenario": "\"Przedmiot zarezerwowany dla ciebie! Zapłać zaliczkę 45 złotych już teraz kodem karty podarunkowej, by go zabezpieczyć, zanim zrobi to ktoś inny.\"",
               "items": [
                 {
                   "id": "reserved",
@@ -2801,7 +2801,7 @@
                 },
                 {
                   "id": "gift-card",
-                  "text": "zapłać zaliczkę 45 funtów już teraz kodem karty podarunkowej",
+                  "text": "zapłać zaliczkę 45 złotych już teraz kodem karty podarunkowej",
                   "isSuspicious": true
                 },
                 {
@@ -2917,33 +2917,33 @@
             {
               "id": "shopping-choice",
               "mechanic": "mission",
-              "prompt": "Masz 10 funtów do wydania na targu. Co byś zrobił?",
+              "prompt": "Masz 10 złotych do wydania na targu. Co byś zrobił?",
               "hint": "Nie ma tu jednej właściwej odpowiedzi - pomyśl, co jest dla ciebie dziś najważniejsze.",
               "explanation": "Każdy wybór wykorzystuje twoje pieniądze trochę inaczej - żaden nie jest zły, po prostu prowadzą do różnych rzeczy.",
-              "situation": "Masz 10 funtów do wydania na targu.",
+              "situation": "Masz 10 złotych do wydania na targu.",
               "choices": [
                 {
                   "key": "toy",
                   "label": "Kup zabawkę",
-                  "consequence": "Kupiłeś zabawkę! Fajnie jest mieć coś nowego, ale teraz masz tylko 4 funty na cokolwiek innego dzisiaj.",
+                  "consequence": "Kupiłeś zabawkę! Fajnie jest mieć coś nowego, ale teraz masz tylko 4 złote na cokolwiek innego dzisiaj.",
                   "costMinorUnits": 600
                 },
                 {
                   "key": "snack",
                   "label": "Kup przekąskę",
-                  "consequence": "Kupiłeś smaczną przekąskę i wciąż masz 8 funtów - wystarczająco na coś jeszcze.",
+                  "consequence": "Kupiłeś smaczną przekąskę i wciąż masz 8 złotych - wystarczająco na coś jeszcze.",
                   "costMinorUnits": 200
                 },
                 {
                   "key": "book",
                   "label": "Kup książkę",
-                  "consequence": "Kupiłeś książkę, którą możesz czytać wielokrotnie - i wciąż masz 5 funtów.",
+                  "consequence": "Kupiłeś książkę, którą możesz czytać wielokrotnie - i wciąż masz 5 złotych.",
                   "costMinorUnits": 500
                 },
                 {
                   "key": "save",
                   "label": "Zaoszczędź wszystko",
-                  "consequence": "Zachowałeś wszystkie 10 funtów bezpiecznie. Nic do pokazania dzisiaj, ale gotowe na coś większego później."
+                  "consequence": "Zachowałeś wszystkie 10 złotych bezpiecznie. Nic do pokazania dzisiaj, ale gotowe na coś większego później."
                 }
               ]
             },
@@ -3006,15 +3006,15 @@
             {
               "id": "budget-the-week",
               "mechanic": "mission",
-              "prompt": "Masz 15 funtów na ten tydzień: przekąskę na wycieczkę szkolną, prezent urodzinowy dla znajomego, a to, co zostanie, jest twoje. Co byś zrobił?",
+              "prompt": "Masz 15 złotych na ten tydzień: przekąskę na wycieczkę szkolną, prezent urodzinowy dla znajomego, a to, co zostanie, jest twoje. Co byś zrobił?",
               "hint": "Pomyśl, co na pewno się wydarzy, a co jest opcjonalne.",
               "explanation": "Planowanie kilku rzeczy naraz - niektórych potrzebnych, innych chcianych - to dokładnie to, na czym polega prawdziwy tygodniowy budżet.",
-              "situation": "Masz 15 funtów na ten tydzień: przekąskę na wycieczkę szkolną, prezent urodzinowy dla znajomego, a to, co zostanie, jest twoje.",
+              "situation": "Masz 15 złotych na ten tydzień: przekąskę na wycieczkę szkolną, prezent urodzinowy dla znajomego, a to, co zostanie, jest twoje.",
               "choices": [
                 {
                   "key": "cover-both-first",
                   "label": "Zapłać najpierw za przekąskę i prezent, zachowaj resztę",
-                  "consequence": "Pokryłeś obie potrzebne rzeczy i zostały ci 4 funty dla siebie - solidny plan."
+                  "consequence": "Pokryłeś obie potrzebne rzeczy i zostały ci 4 złote dla siebie - solidny plan."
                 },
                 {
                   "key": "nice-gift-skip-snack",
@@ -3031,37 +3031,37 @@
             {
               "id": "compare-before-buying",
               "mechanic": "mission",
-              "prompt": "Potrzebujesz nowej butelki na wodę. Jeden sklep sprzedaje ją za 8 funtów, inny sprzedaje niemal taką samą za 5 funtów. Co byś zrobił?",
+              "prompt": "Potrzebujesz nowej butelki na wodę. Jeden sklep sprzedaje ją za 8 złotych, inny sprzedaje niemal taką samą za 5 złotych. Co byś zrobił?",
               "hint": "Wyższa cena nie zawsze oznacza lepszy produkt - liczy się to, co naprawdę dostajesz.",
               "explanation": "Porównywanie cen przed zakupem to jeden z najprostszych sposobów, by twoje pieniądze starczyły na dłużej.",
-              "situation": "Potrzebujesz nowej butelki na wodę. Jeden sklep sprzedaje ją za 8 funtów, inny sprzedaje niemal taką samą za 5 funtów.",
+              "situation": "Potrzebujesz nowej butelki na wodę. Jeden sklep sprzedaje ją za 8 złotych, inny sprzedaje niemal taką samą za 5 złotych.",
               "choices": [
                 {
                   "key": "cheaper",
-                  "label": "Kup tę za 5 funtów",
-                  "consequence": "Dostałeś to, czego potrzebowałeś, i zaoszczędziłeś 3 funty - pieniądze teraz wolne na coś innego.",
+                  "label": "Kup tę za 5 złotych",
+                  "consequence": "Dostałeś to, czego potrzebowałeś, i zaoszczędziłeś 3 złote - pieniądze teraz wolne na coś innego.",
                   "costMinorUnits": 500
                 },
                 {
                   "key": "pricier",
-                  "label": "Kup mimo to tę za 8 funtów",
-                  "consequence": "Zapłaciłeś 3 funty więcej za bardzo podobną butelkę - czasem warto to zrobić z powodu, który dla ciebie się liczy, czasem to po prostu dodatkowy koszt.",
+                  "label": "Kup mimo to tę za 8 złotych",
+                  "consequence": "Zapłaciłeś 3 złote więcej za bardzo podobną butelkę - czasem warto to zrobić z powodu, który dla ciebie się liczy, czasem to po prostu dodatkowy koszt.",
                   "costMinorUnits": 800
                 },
                 {
                   "key": "check-why",
                   "label": "Najpierw sprawdź, co naprawdę jest inne",
-                  "consequence": "Odkryłeś, że butelki były niemal identyczne, więc dodatkowe 3 funty nie kupowały niczego, z czego naprawdę byś skorzystał."
+                  "consequence": "Odkryłeś, że butelki były niemal identyczne, więc dodatkowe 3 złote nie kupowały niczego, z czego naprawdę byś skorzystał."
                 }
               ]
             },
             {
               "id": "surprise-repair-cost",
               "mechanic": "mission",
-              "prompt": "Twój rower ma przebitą oponę, a naprawa kosztuje 6 funtów - pieniądze, które odłożyłeś na grę, której chciałeś. Co byś zrobił?",
+              "prompt": "Twój rower ma przebitą oponę, a naprawa kosztuje 6 złotych - pieniądze, które odłożyłeś na grę, której chciałeś. Co byś zrobił?",
               "hint": "Potrzeba, która pojawia się nagle, może zmienić plan, który już miałeś - to normalne, nie porażka.",
               "explanation": "Prawdziwe budżety czasem przerywają prawdziwe problemy - dostosowanie planu to umiejętność, nie błąd.",
-              "situation": "Twój rower ma przebitą oponę, a naprawa kosztuje 6 funtów - pieniądze, które odłożyłeś na grę, której chciałeś.",
+              "situation": "Twój rower ma przebitą oponę, a naprawa kosztuje 6 złotych - pieniądze, które odłożyłeś na grę, której chciałeś.",
               "choices": [
                 {
                   "key": "fix-bike",
@@ -3114,10 +3114,10 @@
             {
               "id": "give-or-keep",
               "mechanic": "mission",
-              "prompt": "Masz zaoszczędzone 20 funtów. Rodzina znajomego przechodzi trudny czas, a twoja klasa zbiera pieniądze, by pomóc. Co byś zrobił?",
+              "prompt": "Masz zaoszczędzone 20 złotych. Rodzina znajomego przechodzi trudny czas, a twoja klasa zbiera pieniądze, by pomóc. Co byś zrobił?",
               "hint": "Nie ma tu obowiązkowej kwoty - pomyśl, co wydaje ci się właściwe dla twojej sytuacji.",
               "explanation": "Decydowanie, ile własnych pieniędzy dać, jeśli w ogóle, to naprawdę osobisty wybór bez jednej właściwej kwoty.",
-              "situation": "Masz zaoszczędzone 20 funtów. Rodzina znajomego przechodzi trudny czas, a twoja klasa zbiera pieniądze, by pomóc.",
+              "situation": "Masz zaoszczędzone 20 złotych. Rodzina znajomego przechodzi trudny czas, a twoja klasa zbiera pieniądze, by pomóc.",
               "choices": [
                 {
                   "key": "give-some",
@@ -4154,8 +4154,8 @@
         {
           "heading": "Co sprawia, że karta pracy o pieniądzach jest naprawdę przydatna",
           "paragraphs": [
-            "Karta pracy jest tak dobra, jak myślenie, o które prosi. Najczęstszym trybem awarii jest karta pracy, która prosi dziecko o przypomnienie definicji (\"czym jest budżet?\"), zamiast ją zastosować (\"masz tu 10 funtów - podziel je między te cztery słoiki i wyjaśnij dlaczego\"). Drugi rodzaj daje prawdziwą naukę; pierwszy daje zapamiętane zdanie, które blednie w ciągu tygodnia.",
-            "Konkretnie dla środowiska klasowego, karta pracy bez jednej właściwej odpowiedzi - gdzie dwoje uczniów mogłoby rozsądnie podzielić te same 10 funtów inaczej - zwykle generuje lepszą dyskusję niż taka z jedną poprawną sumą do sprawdzenia."
+            "Karta pracy jest tak dobra, jak myślenie, o które prosi. Najczęstszym trybem awarii jest karta pracy, która prosi dziecko o przypomnienie definicji (\"czym jest budżet?\"), zamiast ją zastosować (\"masz tu 10 złotych - podziel je między te cztery słoiki i wyjaśnij dlaczego\"). Drugi rodzaj daje prawdziwą naukę; pierwszy daje zapamiętane zdanie, które blednie w ciągu tygodnia.",
+            "Konkretnie dla środowiska klasowego, karta pracy bez jednej właściwej odpowiedzi - gdzie dwoje uczniów mogłoby rozsądnie podzielić te same 10 złotych inaczej - zwykle generuje lepszą dyskusję niż taka z jedną poprawną sumą do sprawdzenia."
           ]
         },
         {
@@ -4166,7 +4166,7 @@
           "list": [
             "6-8 lat: fizyczne, wizualne karty pracy - sortowanie obrazków przedmiotów do kolumn potrzeby/zachcianki, kolorowanie słoika w miarę wypełniania się celu oszczędnościowego.",
             "9-11 lat: proste karty pracy przydziału ze stałą sumą do podziału między oznaczone kategorie, plus jedna otwarta linia \"wyjaśnij swój wybór\".",
-            "12-14 lat: krótkie karty pracy oparte na scenariuszach (\"masz 30 funtów i te trzy cele - co byś zrobił i dlaczego\"), które proszą o rozumowanie, a nie tylko wypełnioną tabelę."
+            "12-14 lat: krótkie karty pracy oparte na scenariuszach (\"masz 30 złotych i te trzy cele - co byś zrobił i dlaczego\"), które proszą o rozumowanie, a nie tylko wypełnioną tabelę."
           ]
         },
         {

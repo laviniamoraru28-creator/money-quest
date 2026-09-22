@@ -26,7 +26,7 @@
   "landing": {
     "heroTitle": "Apprends l'argent en jouant, en explorant et en prenant des décisions.",
     "heroSubtitle": "Money Quest est un monde gratuit d'éducation financière pour les enfants de 6 à 14 ans - des quêtes, un portefeuille fictif et de vraies compétences. Aucun compte nécessaire.",
-    "heroImageAlt": "Quatre enfants explorent ensemble une carte, avec des panneaux Gagner, Épargner, Dépenser, Donner et Investir qui montent une colline vers un drapeau indiquant Ton Avenir.",
+    "heroImageAlt": "Un enfant souriant tenant un téléphone qui affiche l'application Money Quest, à côté du logo Money Quest et du texte Skills for Life.",
     "ctaGetStartedFree": "Commence ta Money Quest",
     "ctaSeeHowItWorks": "Voir comment ça marche",
     "whyFree": "Money Quest est gratuit pour les familles, financé par une publicité respectueuse de la vie privée affichée uniquement sur les pages destinées aux parents - jamais dans l'expérience de votre enfant. Aucun achat pour enfants, jamais.",
@@ -2216,7 +2216,7 @@
               "mechanic": "sort",
               "prompt": "Certains de ces éléments mélangent un besoin avec une envie en plus. Trie selon la RAISON PRINCIPALE de l'achat.",
               "hint": "Une paire de chaussures basiques est un besoin. La version designer plus chère est une envie ajoutée par-dessus ce besoin.",
-              "explanation": "Tu as besoin de chaussures pour l'école - mais la version designer à 150 £ n'est pas nécessaire quand une paire à 30 £ fonctionne tout aussi bien. Le coût supplémentaire, c'est la part « envie ».",
+              "explanation": "Tu as besoin de chaussures pour l'école - mais la version designer à 150 euros n'est pas nécessaire quand une paire à 30 euros fonctionne tout aussi bien. Le coût supplémentaire, c'est la part « envie ».",
               "buckets": [
                 {
                   "key": "need",
@@ -2614,7 +2614,7 @@
               "prompt": "Voici une publicité pour une boutique en ligne. Touche tout ce qui ressemble à un signe d'alerte.",
               "hint": "Si un prix semble incroyablement bas pour ce que tu obtiens, ça vaut le coup d'y regarder à deux fois.",
               "explanation": "Une console de jeux toute neuve pour presque rien, combinée à une pression pour te presser, est un signe classique d'une fausse boutique - les vraies boutiques n'ont généralement pas besoin de te presser vers une offre incroyablement bonne.",
-              "scenario": "« Consoles de jeux toutes neuves - seulement 5 livres chacune ! AGIS MAINTENANT, presque épuisées ! »",
+              "scenario": "« Consoles de jeux toutes neuves - seulement 5 euros chacune ! AGIS MAINTENANT, presque épuisées ! »",
               "items": [
                 {
                   "id": "brand",
@@ -2623,7 +2623,7 @@
                 },
                 {
                   "id": "price",
-                  "text": "seulement 5 livres chacune",
+                  "text": "seulement 5 euros chacune",
                   "isSuspicious": true
                 },
                 {
@@ -2726,11 +2726,11 @@
               "prompt": "Voici une publicité pour une boutique en ligne. Touche tout ce qui ressemble à un signe d'alerte.",
               "hint": "Réfléchis à si une vraie boutique te mettrait un jour la pression comme ça.",
               "explanation": "Un écran montrant un compte à rebours qui diminue à côté d'une réduction énorme est conçu pour te faire décider avant que tu aies eu le temps de réfléchir - une vraie boutique n'a pas besoin de faire ça.",
-              "scenario": "« Baskets d'une valeur de 80 livres pour seulement 9,99 ! L'offre disparaît dans 3 minutes - ne rate pas ça ! »",
+              "scenario": "« Baskets d'une valeur de 80 euros pour seulement 9,99 ! L'offre disparaît dans 3 minutes - ne rate pas ça ! »",
               "items": [
                 {
                   "id": "trainers",
-                  "text": "Baskets d'une valeur de 80 livres",
+                  "text": "Baskets d'une valeur de 80 euros",
                   "isSuspicious": false
                 },
                 {
@@ -2792,7 +2792,7 @@
               "prompt": "Un message te demande de payer rapidement pour quelque chose. Touche tout ce qui ressemble à un signe d'alerte.",
               "hint": "Être demandé de payer d'une façon inhabituelle, vite, avant de pouvoir vérifier quoi que ce soit, est en soi un signe d'alerte fort.",
               "explanation": "Être dit de payer immédiatement, d'une façon inhabituelle, avant d'avoir eu le temps de vérifier si le vendeur est même réel, est conçu pour t'empêcher de remarquer que quelque chose ne va pas - les vrais vendeurs n'ont pas besoin de presser un paiement comme ça.",
-              "scenario": "« Article réservé pour toi ! Paie l'acompte de 45 livres tout de suite par code de carte cadeau pour le sécuriser avant que quelqu'un d'autre ne le fasse. »",
+              "scenario": "« Article réservé pour toi ! Paie l'acompte de 45 euros tout de suite par code de carte cadeau pour le sécuriser avant que quelqu'un d'autre ne le fasse. »",
               "items": [
                 {
                   "id": "reserved",
@@ -2801,7 +2801,7 @@
                 },
                 {
                   "id": "gift-card",
-                  "text": "paie l'acompte de 45 livres tout de suite par code de carte cadeau",
+                  "text": "paie l'acompte de 45 euros tout de suite par code de carte cadeau",
                   "isSuspicious": true
                 },
                 {
@@ -2917,33 +2917,33 @@
             {
               "id": "shopping-choice",
               "mechanic": "mission",
-              "prompt": "Tu as 10 livres à dépenser au marché. Que ferais-tu ?",
+              "prompt": "Tu as 10 euros à dépenser au marché. Que ferais-tu ?",
               "hint": "Il n'y a pas de bonne réponse unique ici - pense à ce qui compte le plus pour toi aujourd'hui.",
               "explanation": "Chaque choix utilise ton argent un peu différemment - aucun n'est faux, ils mènent juste à des choses différentes.",
-              "situation": "Tu as 10 livres à dépenser au marché.",
+              "situation": "Tu as 10 euros à dépenser au marché.",
               "choices": [
                 {
                   "key": "toy",
                   "label": "Acheter un jouet",
-                  "consequence": "Tu as acheté le jouet ! C'est amusant d'avoir quelque chose de nouveau, mais il ne te reste que 4 livres pour le reste de la journée.",
+                  "consequence": "Tu as acheté le jouet ! C'est amusant d'avoir quelque chose de nouveau, mais il ne te reste que 4 euros pour le reste de la journée.",
                   "costMinorUnits": 600
                 },
                 {
                   "key": "snack",
                   "label": "Acheter un goûter",
-                  "consequence": "Tu as acheté un bon goûter et il te reste encore 8 livres - assez pour autre chose aussi.",
+                  "consequence": "Tu as acheté un bon goûter et il te reste encore 8 euros - assez pour autre chose aussi.",
                   "costMinorUnits": 200
                 },
                 {
                   "key": "book",
                   "label": "Acheter un livre",
-                  "consequence": "Tu as acheté un livre à relire encore et encore - et il te reste 5 livres.",
+                  "consequence": "Tu as acheté un livre à relire encore et encore - et il te reste 5 euros.",
                   "costMinorUnits": 500
                 },
                 {
                   "key": "save",
                   "label": "Tout épargner",
-                  "consequence": "Tu as gardé les 10 livres en sécurité. Rien à montrer aujourd'hui, mais prêtes pour quelque chose de plus grand plus tard."
+                  "consequence": "Tu as gardé les 10 euros en sécurité. Rien à montrer aujourd'hui, mais prêtes pour quelque chose de plus grand plus tard."
                 }
               ]
             },
@@ -3006,15 +3006,15 @@
             {
               "id": "budget-the-week",
               "mechanic": "mission",
-              "prompt": "Tu as 15 livres pour la semaine : un goûter pour la sortie scolaire, un cadeau d'anniversaire pour un ami, et ce qui reste est à toi. Que ferais-tu ?",
+              "prompt": "Tu as 15 euros pour la semaine : un goûter pour la sortie scolaire, un cadeau d'anniversaire pour un ami, et ce qui reste est à toi. Que ferais-tu ?",
               "hint": "Réfléchis à ce qui arrive sûrement, et à ce qui est optionnel.",
               "explanation": "Planifier pour plusieurs choses à la fois - certaines nécessaires, d'autres voulues - c'est exactement ce qu'implique un vrai budget hebdomadaire.",
-              "situation": "Tu as 15 livres pour la semaine : un goûter pour la sortie scolaire, un cadeau d'anniversaire pour un ami, et ce qui reste est à toi.",
+              "situation": "Tu as 15 euros pour la semaine : un goûter pour la sortie scolaire, un cadeau d'anniversaire pour un ami, et ce qui reste est à toi.",
               "choices": [
                 {
                   "key": "cover-both-first",
                   "label": "Payer d'abord le goûter et le cadeau, garder le reste",
-                  "consequence": "Tu as couvert les deux choses dont tu avais besoin, et il t'est resté 4 livres pour toi - un bon plan."
+                  "consequence": "Tu as couvert les deux choses dont tu avais besoin, et il t'est resté 4 euros pour toi - un bon plan."
                 },
                 {
                   "key": "nice-gift-skip-snack",
@@ -3031,37 +3031,37 @@
             {
               "id": "compare-before-buying",
               "mechanic": "mission",
-              "prompt": "Tu as besoin d'une nouvelle gourde. Un magasin la vend 8 livres, un autre vend presque la même 5 livres. Que ferais-tu ?",
+              "prompt": "Tu as besoin d'une nouvelle gourde. Un magasin la vend 8 euros, un autre vend presque la même 5 euros. Que ferais-tu ?",
               "hint": "Un prix plus élevé ne signifie pas toujours un meilleur produit - ce qui compte, c'est ce que tu obtiens vraiment.",
               "explanation": "Comparer les prix avant d'acheter est l'un des moyens les plus simples de faire durer ton argent plus longtemps.",
-              "situation": "Tu as besoin d'une nouvelle gourde. Un magasin la vend 8 livres, un autre vend presque la même 5 livres.",
+              "situation": "Tu as besoin d'une nouvelle gourde. Un magasin la vend 8 euros, un autre vend presque la même 5 euros.",
               "choices": [
                 {
                   "key": "cheaper",
-                  "label": "Acheter celle à 5 livres",
-                  "consequence": "Tu as eu ce dont tu avais besoin et économisé 3 livres - de l'argent maintenant libre pour autre chose.",
+                  "label": "Acheter celle à 5 euros",
+                  "consequence": "Tu as eu ce dont tu avais besoin et économisé 3 euros - de l'argent maintenant libre pour autre chose.",
                   "costMinorUnits": 500
                 },
                 {
                   "key": "pricier",
-                  "label": "Acheter celle à 8 livres quand même",
-                  "consequence": "Tu as payé 3 livres de plus pour une gourde très similaire - parfois ça vaut le coup pour une raison qui te tient à cœur, parfois c'est juste un coût en plus.",
+                  "label": "Acheter celle à 8 euros quand même",
+                  "consequence": "Tu as payé 3 euros de plus pour une gourde très similaire - parfois ça vaut le coup pour une raison qui te tient à cœur, parfois c'est juste un coût en plus.",
                   "costMinorUnits": 800
                 },
                 {
                   "key": "check-why",
                   "label": "Vérifier d'abord ce qui est vraiment différent",
-                  "consequence": "Tu as découvert que les gourdes étaient presque identiques, donc les 3 livres en plus n'achetaient rien que tu utiliserais vraiment."
+                  "consequence": "Tu as découvert que les gourdes étaient presque identiques, donc les 3 euros en plus n'achetaient rien que tu utiliserais vraiment."
                 }
               ]
             },
             {
               "id": "surprise-repair-cost",
               "mechanic": "mission",
-              "prompt": "Le pneu de ton vélo est crevé et la réparation coûte 6 livres - de l'argent que tu avais mis de côté pour un jeu que tu voulais. Que ferais-tu ?",
+              "prompt": "Le pneu de ton vélo est crevé et la réparation coûte 6 euros - de l'argent que tu avais mis de côté pour un jeu que tu voulais. Que ferais-tu ?",
               "hint": "Un besoin qui surgit soudainement peut changer un plan que tu avais déjà fait - c'est normal, pas un échec.",
               "explanation": "Les vrais budgets sont parfois interrompus par de vrais problèmes - ajuster le plan est la compétence, pas une erreur.",
-              "situation": "Le pneu de ton vélo est crevé et la réparation coûte 6 livres - de l'argent que tu avais mis de côté pour un jeu que tu voulais.",
+              "situation": "Le pneu de ton vélo est crevé et la réparation coûte 6 euros - de l'argent que tu avais mis de côté pour un jeu que tu voulais.",
               "choices": [
                 {
                   "key": "fix-bike",
@@ -3114,10 +3114,10 @@
             {
               "id": "give-or-keep",
               "mechanic": "mission",
-              "prompt": "Tu as 20 livres épargnées. La famille d'un ami traverse une période difficile, et ta classe collecte de l'argent pour aider. Que ferais-tu ?",
+              "prompt": "Tu as 20 euros épargnées. La famille d'un ami traverse une période difficile, et ta classe collecte de l'argent pour aider. Que ferais-tu ?",
               "hint": "Il n'y a pas de montant obligatoire ici - réfléchis à ce qui te semble juste pour ta propre situation.",
               "explanation": "Décider combien de ton propre argent donner, si tant est que tu donnes, est un choix vraiment personnel sans montant unique correct.",
-              "situation": "Tu as 20 livres épargnées. La famille d'un ami traverse une période difficile, et ta classe collecte de l'argent pour aider.",
+              "situation": "Tu as 20 euros épargnées. La famille d'un ami traverse une période difficile, et ta classe collecte de l'argent pour aider.",
               "choices": [
                 {
                   "key": "give-some",
@@ -4154,8 +4154,8 @@
         {
           "heading": "Ce qui rend une fiche sur l'argent vraiment utile",
           "paragraphs": [
-            "Une fiche vaut ce que vaut la réflexion qu'elle demande. Le mode d'échec le plus courant est une fiche qui demande à un enfant de se rappeler une définition (« qu'est-ce qu'un budget ? ») plutôt que d'en appliquer une (« voici 10 livres - répartis-les entre ces quatre bocaux et explique pourquoi »). Le second type produit un vrai apprentissage ; le premier produit une phrase mémorisée qui s'efface en une semaine.",
-            "Pour un cadre de classe en particulier, une fiche sans réponse unique correcte - où deux élèves pourraient raisonnablement répartir les mêmes 10 livres différemment - tend à générer une meilleure discussion qu'une avec un seul total correct à vérifier."
+            "Une fiche vaut ce que vaut la réflexion qu'elle demande. Le mode d'échec le plus courant est une fiche qui demande à un enfant de se rappeler une définition (« qu'est-ce qu'un budget ? ») plutôt que d'en appliquer une (« voici 10 euros - répartis-les entre ces quatre bocaux et explique pourquoi »). Le second type produit un vrai apprentissage ; le premier produit une phrase mémorisée qui s'efface en une semaine.",
+            "Pour un cadre de classe en particulier, une fiche sans réponse unique correcte - où deux élèves pourraient raisonnablement répartir les mêmes 10 euros différemment - tend à générer une meilleure discussion qu'une avec un seul total correct à vérifier."
           ]
         },
         {
@@ -4166,7 +4166,7 @@
           "list": [
             "6-8 ans : fiches physiques, visuelles - trier des images d'objets en colonnes besoins/envies, colorier un bocal au fur et à mesure qu'un objectif d'épargne se remplit.",
             "9-11 ans : fiches simples d'allocation avec un total fixe à répartir entre des catégories étiquetées, plus une ligne ouverte « explique ton choix ».",
-            "12-14 ans : courtes fiches basées sur des scénarios (« tu as 30 livres et ces trois objectifs - que ferais-tu et pourquoi ») qui demandent du raisonnement, pas juste un tableau rempli."
+            "12-14 ans : courtes fiches basées sur des scénarios (« tu as 30 euros et ces trois objectifs - que ferais-tu et pourquoi ») qui demandent du raisonnement, pas juste un tableau rempli."
           ]
         },
         {

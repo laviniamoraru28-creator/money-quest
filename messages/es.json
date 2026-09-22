@@ -26,7 +26,7 @@
   "landing": {
     "heroTitle": "Aprende sobre el dinero jugando, explorando y tomando decisiones.",
     "heroSubtitle": "Money Quest es un mundo gratuito de educación financiera para niños de 6 a 14 años - misiones, una billetera ficticia y habilidades reales. No se necesita cuenta.",
-    "heroImageAlt": "Cuatro niños explorando juntos un mapa, con señales para Ganar, Ahorrar, Gastar, Dar e Invertir que suben una colina hacia una bandera que dice Tu Futuro.",
+    "heroImageAlt": "Un niño sonriente sosteniendo un teléfono que muestra la aplicación Money Quest, junto al logotipo de Money Quest y el texto Skills for Life.",
     "ctaGetStartedFree": "Comienza tu Money Quest",
     "ctaSeeHowItWorks": "Ver cómo funciona",
     "whyFree": "Money Quest es gratuito para las familias, financiado por publicidad respetuosa de la privacidad que se muestra solo en páginas para padres - nunca dentro de la experiencia de tu hijo. Nunca hay compras infantiles.",
@@ -2216,7 +2216,7 @@
               "mechanic": "sort",
               "prompt": "Algunas de estas mezclan una necesidad con un deseo encima. Clasifica según la RAZÓN PRINCIPAL para comprarlo.",
               "hint": "Un par de zapatos básicos es una necesidad. La versión de diseñador más cara es un deseo añadido encima de esa necesidad.",
-              "explanation": "Necesitas zapatos para el colegio - pero la versión de diseñador de 150 libras no es necesaria cuando un par de 30 libras funciona igual de bien. El coste extra es la parte de \"deseo\".",
+              "explanation": "Necesitas zapatos para el colegio - pero la versión de diseñador de 150 euros no es necesaria cuando un par de 30 euros funciona igual de bien. El coste extra es la parte de \"deseo\".",
               "buckets": [
                 {
                   "key": "need",
@@ -2614,7 +2614,7 @@
               "prompt": "Aquí hay un anuncio de una tienda en línea. Toca cualquier cosa que parezca una señal de advertencia.",
               "hint": "Si un precio parece imposiblemente bajo para lo que obtienes, vale la pena mirarlo dos veces.",
               "explanation": "Una consola de videojuegos totalmente nueva por casi nada, combinada con presión para darte prisa, es una señal clásica de una tienda falsa - las tiendas reales normalmente no necesitan apresurarte hacia una oferta imposiblemente buena.",
-              "scenario": "\"¡Consolas de videojuegos totalmente nuevas - solo 5 libras cada una! ACTÚA YA, casi agotadas!\"",
+              "scenario": "\"¡Consolas de videojuegos totalmente nuevas - solo 5 euros cada una! ACTÚA YA, casi agotadas!\"",
               "items": [
                 {
                   "id": "brand",
@@ -2623,7 +2623,7 @@
                 },
                 {
                   "id": "price",
-                  "text": "solo 5 libras cada una",
+                  "text": "solo 5 euros cada una",
                   "isSuspicious": true
                 },
                 {
@@ -2726,11 +2726,11 @@
               "prompt": "Aquí hay un anuncio de una tienda en línea. Toca cualquier cosa que parezca una señal de advertencia.",
               "hint": "Piensa si una tienda real alguna vez te presionaría así.",
               "explanation": "Una pantalla que muestra un temporizador que se reduce junto a un descuento enorme está diseñada para hacerte decidir antes de que hayas tenido tiempo de pensar - una tienda real no necesita hacer eso.",
-              "scenario": "\"¡Zapatillas que valen 80 libras por solo 9,99! La oferta desaparece en 3 minutos - ¡no te la pierdas!\"",
+              "scenario": "\"¡Zapatillas que valen 80 euros por solo 9,99! La oferta desaparece en 3 minutos - ¡no te la pierdas!\"",
               "items": [
                 {
                   "id": "trainers",
-                  "text": "Zapatillas que valen 80 libras",
+                  "text": "Zapatillas que valen 80 euros",
                   "isSuspicious": false
                 },
                 {
@@ -2792,7 +2792,7 @@
               "prompt": "Un mensaje te pide que pagues rápido por algo. Toca cualquier cosa que parezca una señal de advertencia.",
               "hint": "Que te pidan pagar de una forma inusual, rápido, antes de que puedas comprobar nada, es en sí misma una fuerte señal de advertencia.",
               "explanation": "Que te digan que pagues inmediatamente, de una forma inusual, antes de que tengas tiempo de comprobar si el vendedor es siquiera real, está diseñado para impedir que notes que algo va mal - los vendedores genuinos no necesitan apresurar un pago así.",
-              "scenario": "\"¡Artículo reservado para ti! Paga el depósito de 45 libras ahora mismo con un código de tarjeta regalo para asegurarlo antes de que lo haga otra persona.\"",
+              "scenario": "\"¡Artículo reservado para ti! Paga el depósito de 45 euros ahora mismo con un código de tarjeta regalo para asegurarlo antes de que lo haga otra persona.\"",
               "items": [
                 {
                   "id": "reserved",
@@ -2801,7 +2801,7 @@
                 },
                 {
                   "id": "gift-card",
-                  "text": "paga el depósito de 45 libras ahora mismo con un código de tarjeta regalo",
+                  "text": "paga el depósito de 45 euros ahora mismo con un código de tarjeta regalo",
                   "isSuspicious": true
                 },
                 {
@@ -2917,33 +2917,33 @@
             {
               "id": "shopping-choice",
               "mechanic": "mission",
-              "prompt": "Tienes 10 libras para gastar en el mercado. ¿Qué harías?",
+              "prompt": "Tienes 10 euros para gastar en el mercado. ¿Qué harías?",
               "hint": "Aquí no hay una única respuesta correcta - piensa en qué es lo más importante para ti hoy.",
               "explanation": "Cada elección usa tu dinero de forma un poco diferente - ninguna es incorrecta, solo llevan a cosas distintas.",
-              "situation": "Tienes 10 libras para gastar en el mercado.",
+              "situation": "Tienes 10 euros para gastar en el mercado.",
               "choices": [
                 {
                   "key": "toy",
                   "label": "Comprar un juguete",
-                  "consequence": "¡Compraste el juguete! Es divertido tener algo nuevo, pero ahora solo te quedan 4 libras para cualquier otra cosa hoy.",
+                  "consequence": "¡Compraste el juguete! Es divertido tener algo nuevo, pero ahora solo te quedan 4 euros para cualquier otra cosa hoy.",
                   "costMinorUnits": 600
                 },
                 {
                   "key": "snack",
                   "label": "Comprar un tentempié",
-                  "consequence": "Compraste un tentempié sabroso y todavía tienes 8 libras - suficiente para algo más también.",
+                  "consequence": "Compraste un tentempié sabroso y todavía tienes 8 euros - suficiente para algo más también.",
                   "costMinorUnits": 200
                 },
                 {
                   "key": "book",
                   "label": "Comprar un libro",
-                  "consequence": "Compraste un libro para leer una y otra vez - y todavía te quedan 5 libras.",
+                  "consequence": "Compraste un libro para leer una y otra vez - y todavía te quedan 5 euros.",
                   "costMinorUnits": 500
                 },
                 {
                   "key": "save",
                   "label": "Ahorrarlo todo",
-                  "consequence": "Guardaste las 10 libras a salvo. Nada que mostrar hoy, pero listas para algo más grande más adelante."
+                  "consequence": "Guardaste las 10 euros a salvo. Nada que mostrar hoy, pero listas para algo más grande más adelante."
                 }
               ]
             },
@@ -3006,15 +3006,15 @@
             {
               "id": "budget-the-week",
               "mechanic": "mission",
-              "prompt": "Tienes 15 libras para la semana: un tentempié para la excursión escolar, un regalo de cumpleaños para un amigo, y lo que sobre es tuyo. ¿Qué harías?",
+              "prompt": "Tienes 15 euros para la semana: un tentempié para la excursión escolar, un regalo de cumpleaños para un amigo, y lo que sobre es tuyo. ¿Qué harías?",
               "hint": "Piensa en qué cosas ocurren seguro, y cuáles son opcionales.",
               "explanation": "Planificar para varias cosas a la vez - algunas necesarias, otras deseadas - es exactamente lo que implica un presupuesto semanal real.",
-              "situation": "Tienes 15 libras para la semana: un tentempié para la excursión escolar, un regalo de cumpleaños para un amigo, y lo que sobre es tuyo.",
+              "situation": "Tienes 15 euros para la semana: un tentempié para la excursión escolar, un regalo de cumpleaños para un amigo, y lo que sobre es tuyo.",
               "choices": [
                 {
                   "key": "cover-both-first",
                   "label": "Pagar primero el tentempié y el regalo, guardar el resto",
-                  "consequence": "Cubriste ambas cosas que necesitabas, y te quedaron 4 libras para ti - un buen plan."
+                  "consequence": "Cubriste ambas cosas que necesitabas, y te quedaron 4 euros para ti - un buen plan."
                 },
                 {
                   "key": "nice-gift-skip-snack",
@@ -3031,37 +3031,37 @@
             {
               "id": "compare-before-buying",
               "mechanic": "mission",
-              "prompt": "Necesitas una botella de agua nueva. Una tienda la vende por 8 libras, otra vende casi la misma por 5 libras. ¿Qué harías?",
+              "prompt": "Necesitas una botella de agua nueva. Una tienda la vende por 8 euros, otra vende casi la misma por 5 euros. ¿Qué harías?",
               "hint": "Un precio más alto no siempre significa un mejor producto - lo que importa es lo que realmente obtienes.",
               "explanation": "Comparar precios antes de comprar es una de las formas más simples de hacer que tu dinero rinda más.",
-              "situation": "Necesitas una botella de agua nueva. Una tienda la vende por 8 libras, otra vende casi la misma por 5 libras.",
+              "situation": "Necesitas una botella de agua nueva. Una tienda la vende por 8 euros, otra vende casi la misma por 5 euros.",
               "choices": [
                 {
                   "key": "cheaper",
-                  "label": "Comprar la de 5 libras",
-                  "consequence": "Conseguiste lo que necesitabas y ahorraste 3 libras - dinero ahora libre para otra cosa.",
+                  "label": "Comprar la de 5 euros",
+                  "consequence": "Conseguiste lo que necesitabas y ahorraste 3 euros - dinero ahora libre para otra cosa.",
                   "costMinorUnits": 500
                 },
                 {
                   "key": "pricier",
-                  "label": "Comprar la de 8 libras de todas formas",
-                  "consequence": "Pagaste 3 libras más por una botella muy parecida - a veces vale la pena por una razón que valoras, a veces es solo coste extra.",
+                  "label": "Comprar la de 8 euros de todas formas",
+                  "consequence": "Pagaste 3 euros más por una botella muy parecida - a veces vale la pena por una razón que valoras, a veces es solo coste extra.",
                   "costMinorUnits": 800
                 },
                 {
                   "key": "check-why",
                   "label": "Comprobar primero qué es realmente diferente",
-                  "consequence": "Descubriste que las botellas eran casi idénticas, así que las 3 libras extra no compraban nada que fueras a usar realmente."
+                  "consequence": "Descubriste que las botellas eran casi idénticas, así que las 3 euros extra no compraban nada que fueras a usar realmente."
                 }
               ]
             },
             {
               "id": "surprise-repair-cost",
               "mechanic": "mission",
-              "prompt": "A tu bici se le pinchó una rueda y arreglarla cuesta 6 libras - dinero que habías guardado para un juego que querías. ¿Qué harías?",
+              "prompt": "A tu bici se le pinchó una rueda y arreglarla cuesta 6 euros - dinero que habías guardado para un juego que querías. ¿Qué harías?",
               "hint": "Una necesidad que surge de repente puede cambiar un plan que ya habías hecho - eso es normal, no un fracaso.",
               "explanation": "Los presupuestos reales a veces se ven interrumpidos por problemas reales - ajustar el plan es la habilidad, no un error.",
-              "situation": "A tu bici se le pinchó una rueda y arreglarla cuesta 6 libras - dinero que habías guardado para un juego que querías.",
+              "situation": "A tu bici se le pinchó una rueda y arreglarla cuesta 6 euros - dinero que habías guardado para un juego que querías.",
               "choices": [
                 {
                   "key": "fix-bike",
@@ -3114,10 +3114,10 @@
             {
               "id": "give-or-keep",
               "mechanic": "mission",
-              "prompt": "Tienes 20 libras ahorradas. La familia de un amigo está pasando por un momento difícil, y tu clase está recolectando dinero para ayudar. ¿Qué harías?",
+              "prompt": "Tienes 20 euros ahorradas. La familia de un amigo está pasando por un momento difícil, y tu clase está recolectando dinero para ayudar. ¿Qué harías?",
               "hint": "Aquí no hay una cantidad obligatoria - piensa en lo que te parece adecuado para tu propia situación.",
               "explanation": "Decidir cuánto de tu propio dinero dar, si acaso, es una elección genuinamente personal sin una única cantidad correcta.",
-              "situation": "Tienes 20 libras ahorradas. La familia de un amigo está pasando por un momento difícil, y tu clase está recolectando dinero para ayudar.",
+              "situation": "Tienes 20 euros ahorradas. La familia de un amigo está pasando por un momento difícil, y tu clase está recolectando dinero para ayudar.",
               "choices": [
                 {
                   "key": "give-some",
@@ -4154,8 +4154,8 @@
         {
           "heading": "Qué hace que una ficha de dinero sea realmente útil",
           "paragraphs": [
-            "Una ficha es tan buena como el pensamiento que pide. El modo de fallo más común es una ficha que pide a un niño recordar una definición (\"¿qué es un presupuesto?\") en lugar de aplicarla (\"aquí tienes 10 libras - repártelas entre estos cuatro tarros y explica por qué\"). El segundo tipo produce aprendizaje genuino; el primero produce una frase memorizada que se desvanece en una semana.",
-            "Para un entorno de aula específicamente, una ficha sin una única respuesta correcta - donde dos estudiantes podrían razonablemente repartir las mismas 10 libras de forma diferente - tiende a generar mejor discusión que una con un único total correcto para comprobar."
+            "Una ficha es tan buena como el pensamiento que pide. El modo de fallo más común es una ficha que pide a un niño recordar una definición (\"¿qué es un presupuesto?\") en lugar de aplicarla (\"aquí tienes 10 euros - repártelas entre estos cuatro tarros y explica por qué\"). El segundo tipo produce aprendizaje genuino; el primero produce una frase memorizada que se desvanece en una semana.",
+            "Para un entorno de aula específicamente, una ficha sin una única respuesta correcta - donde dos estudiantes podrían razonablemente repartir las mismas 10 euros de forma diferente - tiende a generar mejor discusión que una con un único total correcto para comprobar."
           ]
         },
         {
@@ -4166,7 +4166,7 @@
           "list": [
             "6-8 años: fichas físicas y visuales - clasificar imágenes de artículos en columnas de necesidades/deseos, colorear un tarro mientras se llena una meta de ahorro.",
             "9-11 años: fichas simples de asignación con un total fijo para repartir entre categorías etiquetadas, más una línea abierta de \"explica tu elección\".",
-            "12-14 años: fichas cortas basadas en escenarios (\"tienes 30 libras y estas tres metas - ¿qué harías y por qué\") que piden razonamiento, no solo una tabla completada."
+            "12-14 años: fichas cortas basadas en escenarios (\"tienes 30 euros y estas tres metas - ¿qué harías y por qué\") que piden razonamiento, no solo una tabla completada."
           ]
         },
         {

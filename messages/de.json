@@ -26,7 +26,7 @@
   "landing": {
     "heroTitle": "Lerne über Geld, indem du spielst, erkundest und Entscheidungen triffst.",
     "heroSubtitle": "Money Quest ist eine kostenlose Welt für finanzielle Bildung für Kinder von 6 bis 14 Jahren - Quests, eine fiktive Geldbörse und echte Fähigkeiten. Kein Konto nötig.",
-    "heroImageAlt": "Vier Kinder erkunden gemeinsam eine Karte mit Wegweisern für Verdienen, Sparen, Ausgeben, Geben und Investieren, die einen Hügel hinauf zu einer Flagge mit der Aufschrift Deine Zukunft führen.",
+    "heroImageAlt": "Ein lächelndes Kind hält ein Handy mit der Money-Quest-App hoch, daneben das Money-Quest-Logo und der Schriftzug Skills for Life.",
     "ctaGetStartedFree": "Starte deine Money Quest",
     "ctaSeeHowItWorks": "So funktioniert's ansehen",
     "whyFree": "Money Quest ist für Familien kostenlos, finanziert durch datenschutzfreundliche Werbung, die nur auf Eltern-Seiten angezeigt wird - niemals innerhalb der Erfahrung deines Kindes. Niemals Käufe durch Kinder.",
@@ -2216,7 +2216,7 @@
               "mechanic": "sort",
               "prompt": "Manche davon vermischen ein Bedürfnis mit einem darübergelegten Wunsch. Sortiere nach dem HAUPTGRUND für den Kauf.",
               "hint": "Ein einfaches Paar Schuhe ist ein Bedürfnis. Die teuerste Designerversion ist ein Wunsch, der über dieses Bedürfnis gelegt wird.",
-              "explanation": "Du brauchst Schuhe für die Schule - aber die 150-Pfund-Designerversion ist nicht nötig, wenn ein 30-Pfund-Paar genauso gut funktioniert. Die zusätzlichen Kosten sind der „Wunsch”-Teil.",
+              "explanation": "Du brauchst Schuhe für die Schule - aber die 150-Euro-Designerversion ist nicht nötig, wenn ein 30-Euro-Paar genauso gut funktioniert. Die zusätzlichen Kosten sind der „Wunsch”-Teil.",
               "buckets": [
                 {
                   "key": "need",
@@ -2614,7 +2614,7 @@
               "prompt": "Hier ist eine Werbung für einen Online-Shop. Tippe auf alles, was sich wie ein Warnzeichen anfühlt.",
               "hint": "Wenn ein Preis für das, was du bekommst, unmöglich niedrig erscheint, lohnt sich ein zweiter Blick.",
               "explanation": "Eine brandneue Spielkonsole für fast nichts, kombiniert mit Druck, dich zu beeilen, ist ein klassisches Zeichen eines gefälschten Shops - echte Shops müssen dich normalerweise nicht zu einem unmöglich guten Angebot drängen.",
-              "scenario": "„Brandneue Spielkonsolen - nur 5 Pfund pro Stück! JETZT HANDELN, fast ausverkauft!”",
+              "scenario": "„Brandneue Spielkonsolen - nur 5 Euro pro Stück! JETZT HANDELN, fast ausverkauft!”",
               "items": [
                 {
                   "id": "brand",
@@ -2623,7 +2623,7 @@
                 },
                 {
                   "id": "price",
-                  "text": "nur 5 Pfund pro Stück",
+                  "text": "nur 5 Euro pro Stück",
                   "isSuspicious": true
                 },
                 {
@@ -2726,11 +2726,11 @@
               "prompt": "Hier ist eine Werbung für einen Online-Shop. Tippe auf alles, was sich wie ein Warnzeichen anfühlt.",
               "hint": "Denk darüber nach, ob ein echter Laden dich jemals so unter Druck setzen würde.",
               "explanation": "Ein Bildschirm, der einen schrumpfenden Timer neben einem riesigen Rabatt zeigt, ist darauf ausgelegt, dich zu einer Entscheidung zu bringen, bevor du Zeit zum Nachdenken hattest - ein echter Laden muss das nicht tun.",
-              "scenario": "„Turnschuhe im Wert von 80 Pfund für nur 9,99! Angebot verschwindet in 3 Minuten - nicht verpassen!”",
+              "scenario": "„Turnschuhe im Wert von 80 Euro für nur 9,99! Angebot verschwindet in 3 Minuten - nicht verpassen!”",
               "items": [
                 {
                   "id": "trainers",
-                  "text": "Turnschuhe im Wert von 80 Pfund",
+                  "text": "Turnschuhe im Wert von 80 Euro",
                   "isSuspicious": false
                 },
                 {
@@ -2792,7 +2792,7 @@
               "prompt": "Eine Nachricht bittet dich, schnell für etwas zu bezahlen. Tippe auf alles, was sich wie ein Warnzeichen anfühlt.",
               "hint": "Gebeten zu werden, auf ungewöhnliche Weise, schnell, zu bezahlen, bevor du irgendetwas überprüfen kannst, ist an sich schon ein starkes Warnzeichen.",
               "explanation": "Dir zu sagen, sofort zu bezahlen, auf ungewöhnliche Weise, bevor du Zeit hattest zu prüfen, ob der Verkäufer überhaupt echt ist, soll dich davon abhalten zu bemerken, dass etwas nicht stimmt - echte Verkäufer müssen eine Zahlung nicht so drängen.",
-              "scenario": "„Artikel für dich reserviert! Zahle die 45-Pfund-Anzahlung sofort per Geschenkkartencode, um ihn zu sichern, bevor es jemand anderes tut.”",
+              "scenario": "„Artikel für dich reserviert! Zahle die 45-Euro-Anzahlung sofort per Geschenkkartencode, um ihn zu sichern, bevor es jemand anderes tut.”",
               "items": [
                 {
                   "id": "reserved",
@@ -2801,7 +2801,7 @@
                 },
                 {
                   "id": "gift-card",
-                  "text": "zahle die 45-Pfund-Anzahlung sofort per Geschenkkartencode",
+                  "text": "zahle die 45-Euro-Anzahlung sofort per Geschenkkartencode",
                   "isSuspicious": true
                 },
                 {
@@ -2917,33 +2917,33 @@
             {
               "id": "shopping-choice",
               "mechanic": "mission",
-              "prompt": "Du hast 10 Pfund zum Ausgeben auf dem Markt. Was würdest du tun?",
+              "prompt": "Du hast 10 Euro zum Ausgeben auf dem Markt. Was würdest du tun?",
               "hint": "Es gibt hier keine einzige richtige Antwort - denk darüber nach, was dir heute am wichtigsten ist.",
               "explanation": "Jede Wahl nutzt dein Geld etwas anders - keine ist falsch, sie führen nur zu unterschiedlichen Dingen.",
-              "situation": "Du hast 10 Pfund zum Ausgeben auf dem Markt.",
+              "situation": "Du hast 10 Euro zum Ausgeben auf dem Markt.",
               "choices": [
                 {
                   "key": "toy",
                   "label": "Ein Spielzeug kaufen",
-                  "consequence": "Du hast das Spielzeug gekauft! Es macht Spaß, etwas Neues zu haben, aber jetzt hast du nur noch 4 Pfund für alles andere heute.",
+                  "consequence": "Du hast das Spielzeug gekauft! Es macht Spaß, etwas Neues zu haben, aber jetzt hast du nur noch 4 Euro für alles andere heute.",
                   "costMinorUnits": 600
                 },
                 {
                   "key": "snack",
                   "label": "Einen Snack kaufen",
-                  "consequence": "Du hast einen leckeren Snack gekauft und hast noch 8 Pfund übrig - genug für noch etwas anderes.",
+                  "consequence": "Du hast einen leckeren Snack gekauft und hast noch 8 Euro übrig - genug für noch etwas anderes.",
                   "costMinorUnits": 200
                 },
                 {
                   "key": "book",
                   "label": "Ein Buch kaufen",
-                  "consequence": "Du hast ein Buch gekauft, das du immer wieder lesen kannst - und hast noch 5 Pfund übrig.",
+                  "consequence": "Du hast ein Buch gekauft, das du immer wieder lesen kannst - und hast noch 5 Euro übrig.",
                   "costMinorUnits": 500
                 },
                 {
                   "key": "save",
                   "label": "Alles sparen",
-                  "consequence": "Du hast alle 10 Pfund sicher aufbewahrt. Heute nichts vorzuzeigen, aber bereit für etwas Größeres später."
+                  "consequence": "Du hast alle 10 Euro sicher aufbewahrt. Heute nichts vorzuzeigen, aber bereit für etwas Größeres später."
                 }
               ]
             },
@@ -3006,15 +3006,15 @@
             {
               "id": "budget-the-week",
               "mechanic": "mission",
-              "prompt": "Du hast 15 Pfund für die Woche: einen Snack für den Schulausflug, ein Geburtstagsgeschenk für einen Freund, und was übrig bleibt, gehört dir. Was würdest du tun?",
+              "prompt": "Du hast 15 Euro für die Woche: einen Snack für den Schulausflug, ein Geburtstagsgeschenk für einen Freund, und was übrig bleibt, gehört dir. Was würdest du tun?",
               "hint": "Denk darüber nach, was sicher passiert und was optional ist.",
               "explanation": "Für mehrere Dinge gleichzeitig zu planen - manche nötig, manche gewünscht - ist genau das, was ein echtes Wochenbudget bedeutet.",
-              "situation": "Du hast 15 Pfund für die Woche: einen Snack für den Schulausflug, ein Geburtstagsgeschenk für einen Freund, und was übrig bleibt, gehört dir.",
+              "situation": "Du hast 15 Euro für die Woche: einen Snack für den Schulausflug, ein Geburtstagsgeschenk für einen Freund, und was übrig bleibt, gehört dir.",
               "choices": [
                 {
                   "key": "cover-both-first",
                   "label": "Zuerst Snack und Geschenk bezahlen, den Rest behalten",
-                  "consequence": "Du hast beide nötigen Dinge abgedeckt und hattest noch 4 Pfund für dich übrig - ein solider Plan."
+                  "consequence": "Du hast beide nötigen Dinge abgedeckt und hattest noch 4 Euro für dich übrig - ein solider Plan."
                 },
                 {
                   "key": "nice-gift-skip-snack",
@@ -3031,37 +3031,37 @@
             {
               "id": "compare-before-buying",
               "mechanic": "mission",
-              "prompt": "Du brauchst eine neue Wasserflasche. Ein Laden verkauft sie für 8 Pfund, ein anderer verkauft fast dieselbe für 5 Pfund. Was würdest du tun?",
+              "prompt": "Du brauchst eine neue Wasserflasche. Ein Laden verkauft sie für 8 Euro, ein anderer verkauft fast dieselbe für 5 Euro. Was würdest du tun?",
               "hint": "Ein höherer Preis bedeutet nicht immer ein besseres Produkt - wichtig ist, was du wirklich bekommst.",
               "explanation": "Preise vor dem Kauf zu vergleichen ist eine der einfachsten Arten, dein Geld weiter reichen zu lassen.",
-              "situation": "Du brauchst eine neue Wasserflasche. Ein Laden verkauft sie für 8 Pfund, ein anderer verkauft fast dieselbe für 5 Pfund.",
+              "situation": "Du brauchst eine neue Wasserflasche. Ein Laden verkauft sie für 8 Euro, ein anderer verkauft fast dieselbe für 5 Euro.",
               "choices": [
                 {
                   "key": "cheaper",
-                  "label": "Die für 5 Pfund kaufen",
-                  "consequence": "Du hast bekommen, was du brauchtest, und 3 Pfund gespart - Geld, das jetzt für etwas anderes frei ist.",
+                  "label": "Die für 5 Euro kaufen",
+                  "consequence": "Du hast bekommen, was du brauchtest, und 3 Euro gespart - Geld, das jetzt für etwas anderes frei ist.",
                   "costMinorUnits": 500
                 },
                 {
                   "key": "pricier",
-                  "label": "Die für 8 Pfund trotzdem kaufen",
-                  "consequence": "Du hast 3 Pfund mehr für eine sehr ähnliche Flasche bezahlt - manchmal lohnt sich das aus einem Grund, der dir wichtig ist, manchmal ist es nur zusätzliche Kosten.",
+                  "label": "Die für 8 Euro trotzdem kaufen",
+                  "consequence": "Du hast 3 Euro mehr für eine sehr ähnliche Flasche bezahlt - manchmal lohnt sich das aus einem Grund, der dir wichtig ist, manchmal ist es nur zusätzliche Kosten.",
                   "costMinorUnits": 800
                 },
                 {
                   "key": "check-why",
                   "label": "Erst prüfen, was wirklich anders ist",
-                  "consequence": "Du hast herausgefunden, dass die Flaschen fast identisch waren, sodass die zusätzlichen 3 Pfund nichts kauften, das du wirklich genutzt hättest."
+                  "consequence": "Du hast herausgefunden, dass die Flaschen fast identisch waren, sodass die zusätzlichen 3 Euro nichts kauften, das du wirklich genutzt hättest."
                 }
               ]
             },
             {
               "id": "surprise-repair-cost",
               "mechanic": "mission",
-              "prompt": "Dein Fahrrad hat einen platten Reifen und die Reparatur kostet 6 Pfund - Geld, das du für ein Spiel zurückgelegt hattest, das du wolltest. Was würdest du tun?",
+              "prompt": "Dein Fahrrad hat einen platten Reifen und die Reparatur kostet 6 Euro - Geld, das du für ein Spiel zurückgelegt hattest, das du wolltest. Was würdest du tun?",
               "hint": "Ein plötzlich auftauchendes Bedürfnis kann einen bereits gemachten Plan ändern - das ist normal, kein Versagen.",
               "explanation": "Echte Budgets werden manchmal von echten Problemen unterbrochen - den Plan anzupassen ist die Fähigkeit, kein Fehler.",
-              "situation": "Dein Fahrrad hat einen platten Reifen und die Reparatur kostet 6 Pfund - Geld, das du für ein Spiel zurückgelegt hattest, das du wolltest.",
+              "situation": "Dein Fahrrad hat einen platten Reifen und die Reparatur kostet 6 Euro - Geld, das du für ein Spiel zurückgelegt hattest, das du wolltest.",
               "choices": [
                 {
                   "key": "fix-bike",
@@ -3114,10 +3114,10 @@
             {
               "id": "give-or-keep",
               "mechanic": "mission",
-              "prompt": "Du hast 20 Pfund gespart. Die Familie eines Freundes macht eine schwere Zeit durch, und deine Klasse sammelt Geld, um zu helfen. Was würdest du tun?",
+              "prompt": "Du hast 20 Euro gespart. Die Familie eines Freundes macht eine schwere Zeit durch, und deine Klasse sammelt Geld, um zu helfen. Was würdest du tun?",
               "hint": "Es gibt hier keinen vorgeschriebenen Betrag - denk darüber nach, was sich für deine eigene Situation richtig anfühlt.",
               "explanation": "Zu entscheiden, wie viel von deinem eigenen Geld du gibst, wenn überhaupt, ist eine wirklich persönliche Entscheidung ohne einen einzigen richtigen Betrag.",
-              "situation": "Du hast 20 Pfund gespart. Die Familie eines Freundes macht eine schwere Zeit durch, und deine Klasse sammelt Geld, um zu helfen.",
+              "situation": "Du hast 20 Euro gespart. Die Familie eines Freundes macht eine schwere Zeit durch, und deine Klasse sammelt Geld, um zu helfen.",
               "choices": [
                 {
                   "key": "give-some",
@@ -4154,8 +4154,8 @@
         {
           "heading": "Was ein Geld-Arbeitsblatt wirklich nützlich macht",
           "paragraphs": [
-            "Ein Arbeitsblatt ist nur so gut wie das Denken, das es verlangt. Der häufigste Fehlermodus ist ein Arbeitsblatt, das ein Kind bittet, eine Definition abzurufen („was ist ein Budget?”), statt eine anzuwenden („hier sind 10 Pfund - teile sie auf diese vier Gläser auf und erkläre warum”). Die zweite Art erzeugt echtes Lernen; die erste erzeugt einen auswendig gelernten Satz, der innerhalb einer Woche verblasst.",
-            "Speziell für ein Klassenzimmer tendiert ein Arbeitsblatt ohne eine einzige richtige Antwort - bei dem zwei Schüler dieselben 10 Pfund vernünftigerweise unterschiedlich aufteilen könnten - dazu, eine bessere Diskussion zu erzeugen als eines mit einer einzigen korrekten Summe zum Abgleichen."
+            "Ein Arbeitsblatt ist nur so gut wie das Denken, das es verlangt. Der häufigste Fehlermodus ist ein Arbeitsblatt, das ein Kind bittet, eine Definition abzurufen („was ist ein Budget?”), statt eine anzuwenden („hier sind 10 Euro - teile sie auf diese vier Gläser auf und erkläre warum”). Die zweite Art erzeugt echtes Lernen; die erste erzeugt einen auswendig gelernten Satz, der innerhalb einer Woche verblasst.",
+            "Speziell für ein Klassenzimmer tendiert ein Arbeitsblatt ohne eine einzige richtige Antwort - bei dem zwei Schüler dieselben 10 Euro vernünftigerweise unterschiedlich aufteilen könnten - dazu, eine bessere Diskussion zu erzeugen als eines mit einer einzigen korrekten Summe zum Abgleichen."
           ]
         },
         {
@@ -4166,7 +4166,7 @@
           "list": [
             "6-8 Jahre: physische, visuelle Arbeitsblätter - Bilder von Gegenständen in Bedürfnis-/Wunsch-Spalten sortieren, ein Glas ausmalen, während sich ein Sparziel füllt.",
             "9-11 Jahre: einfache Zuweisungs-Arbeitsblätter mit einer festen Summe, die auf beschriftete Kategorien aufgeteilt wird, plus eine offene „erkläre deine Wahl”-Zeile.",
-            "12-14 Jahre: kurze szenariobasierte Arbeitsblätter („du hast 30 Pfund und diese drei Ziele - was würdest du tun und warum”), die Begründung verlangen, nicht nur eine ausgefüllte Tabelle."
+            "12-14 Jahre: kurze szenariobasierte Arbeitsblätter („du hast 30 Euro und diese drei Ziele - was würdest du tun und warum”), die Begründung verlangen, nicht nur eine ausgefüllte Tabelle."
           ]
         },
         {

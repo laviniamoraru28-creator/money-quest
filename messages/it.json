@@ -26,7 +26,7 @@
   "landing": {
     "heroTitle": "Impara il denaro giocando, esplorando e prendendo decisioni.",
     "heroSubtitle": "Money Quest è un mondo gratuito di educazione finanziaria per bambini dai 6 ai 14 anni - missioni, un portafoglio fittizio e abilità reali. Nessun account necessario.",
-    "heroImageAlt": "Quattro bambini esplorano insieme una mappa, con cartelli per Guadagnare, Risparmiare, Spendere, Donare e Investire che salgono una collina verso una bandiera con scritto Il Tuo Futuro.",
+    "heroImageAlt": "Un bambino sorridente che mostra un telefono con l'app Money Quest, accanto al logo Money Quest e alla scritta Skills for Life.",
     "ctaGetStartedFree": "Inizia la tua Money Quest",
     "ctaSeeHowItWorks": "Guarda come funziona",
     "whyFree": "Money Quest è gratuito per le famiglie, sostenuto da pubblicità rispettosa della privacy mostrata solo sulle pagine per i genitori - mai all'interno dell'esperienza di tuo figlio. Mai acquisti per bambini.",
@@ -2216,7 +2216,7 @@
               "mechanic": "sort",
               "prompt": "Alcuni di questi mescolano un bisogno con un desiderio sopra. Ordina in base al MOTIVO PRINCIPALE dell'acquisto.",
               "hint": "Un paio di scarpe di base è un bisogno. La versione firmata più costosa è un desiderio sovrapposto a quel bisogno.",
-              "explanation": "Hai bisogno di scarpe per la scuola - ma la versione firmata da 150 sterline non è necessaria quando un paio da 30 sterline funziona altrettanto bene. Il costo extra è la parte \"desiderio\".",
+              "explanation": "Hai bisogno di scarpe per la scuola - ma la versione firmata da 150 euro non è necessaria quando un paio da 30 euro funziona altrettanto bene. Il costo extra è la parte \"desiderio\".",
               "buckets": [
                 {
                   "key": "need",
@@ -2614,7 +2614,7 @@
               "prompt": "Ecco una pubblicità di un negozio online. Tocca qualsiasi cosa sembri un segnale d'allarme.",
               "hint": "Se un prezzo sembra impossibilmente basso per quello che ottieni, vale la pena guardare due volte.",
               "explanation": "Una console per videogiochi nuova di zecca per quasi niente, unita alla pressione di affrettarsi, è un segno classico di un negozio falso - i negozi veri di solito non hanno bisogno di affrettarti verso un affare impossibilmente buono.",
-              "scenario": "\"Console per videogiochi nuove di zecca - solo 5 sterline l'una! AGISCI ORA, quasi esaurite!\"",
+              "scenario": "\"Console per videogiochi nuove di zecca - solo 5 euro l'una! AGISCI ORA, quasi esaurite!\"",
               "items": [
                 {
                   "id": "brand",
@@ -2623,7 +2623,7 @@
                 },
                 {
                   "id": "price",
-                  "text": "solo 5 sterline l'una",
+                  "text": "solo 5 euro l'una",
                   "isSuspicious": true
                 },
                 {
@@ -2726,11 +2726,11 @@
               "prompt": "Ecco una pubblicità di un negozio online. Tocca qualsiasi cosa sembri un segnale d'allarme.",
               "hint": "Pensa se un vero negozio ti metterebbe mai sotto pressione in questo modo.",
               "explanation": "Uno schermo che mostra un timer che si riduce accanto a uno sconto enorme è progettato per farti decidere prima che tu abbia avuto tempo di pensare - un vero negozio non ha bisogno di farlo.",
-              "scenario": "\"Scarpe da ginnastica del valore di 80 sterline a soli 9,99! L'offerta scompare tra 3 minuti - non perdertela!\"",
+              "scenario": "\"Scarpe da ginnastica del valore di 80 euro a soli 9,99! L'offerta scompare tra 3 minuti - non perdertela!\"",
               "items": [
                 {
                   "id": "trainers",
-                  "text": "Scarpe da ginnastica del valore di 80 sterline",
+                  "text": "Scarpe da ginnastica del valore di 80 euro",
                   "isSuspicious": false
                 },
                 {
@@ -2792,7 +2792,7 @@
               "prompt": "Un messaggio ti chiede di pagare velocemente per qualcosa. Tocca qualsiasi cosa sembri un segnale d'allarme.",
               "hint": "Ti venga chiesto di pagare in modo insolito, velocemente, prima che tu possa controllare qualcosa, è di per sé un forte segnale d'allarme.",
               "explanation": "Dirti di pagare immediatamente, in modo insolito, prima che tu abbia il tempo di controllare se il venditore sia anche reale, è progettato per impedirti di notare che qualcosa non va - i veri venditori non hanno bisogno di affrettare un pagamento così.",
-              "scenario": "\"Articolo riservato per te! Paga subito la caparra di 45 sterline con un codice carta regalo per assicurartelo prima che lo faccia qualcun altro.\"",
+              "scenario": "\"Articolo riservato per te! Paga subito la caparra di 45 euro con un codice carta regalo per assicurartelo prima che lo faccia qualcun altro.\"",
               "items": [
                 {
                   "id": "reserved",
@@ -2801,7 +2801,7 @@
                 },
                 {
                   "id": "gift-card",
-                  "text": "paga subito la caparra di 45 sterline con un codice carta regalo",
+                  "text": "paga subito la caparra di 45 euro con un codice carta regalo",
                   "isSuspicious": true
                 },
                 {
@@ -2917,33 +2917,33 @@
             {
               "id": "shopping-choice",
               "mechanic": "mission",
-              "prompt": "Hai 10 sterline da spendere al mercato. Cosa faresti?",
+              "prompt": "Hai 10 euro da spendere al mercato. Cosa faresti?",
               "hint": "Non c'è un'unica risposta giusta qui - pensa a cosa conta di più per te oggi.",
               "explanation": "Ogni scelta usa i tuoi soldi in modo un po' diverso - nessuna è sbagliata, portano solo a cose diverse.",
-              "situation": "Hai 10 sterline da spendere al mercato.",
+              "situation": "Hai 10 euro da spendere al mercato.",
               "choices": [
                 {
                   "key": "toy",
                   "label": "Comprare un giocattolo",
-                  "consequence": "Hai comprato il giocattolo! È divertente avere qualcosa di nuovo, ma ora hai solo 4 sterline per qualsiasi altra cosa oggi.",
+                  "consequence": "Hai comprato il giocattolo! È divertente avere qualcosa di nuovo, ma ora hai solo 4 euro per qualsiasi altra cosa oggi.",
                   "costMinorUnits": 600
                 },
                 {
                   "key": "snack",
                   "label": "Comprare uno spuntino",
-                  "consequence": "Hai comprato uno spuntino gustoso e hai ancora 8 sterline - abbastanza anche per qualcos'altro.",
+                  "consequence": "Hai comprato uno spuntino gustoso e hai ancora 8 euro - abbastanza anche per qualcos'altro.",
                   "costMinorUnits": 200
                 },
                 {
                   "key": "book",
                   "label": "Comprare un libro",
-                  "consequence": "Hai comprato un libro da rileggere più volte - e ti restano 5 sterline.",
+                  "consequence": "Hai comprato un libro da rileggere più volte - e ti restano 5 euro.",
                   "costMinorUnits": 500
                 },
                 {
                   "key": "save",
                   "label": "Risparmiare tutto",
-                  "consequence": "Hai tenuto al sicuro tutte le 10 sterline. Niente da mostrare oggi, ma pronte per qualcosa di più grande più avanti."
+                  "consequence": "Hai tenuto al sicuro tutte le 10 euro. Niente da mostrare oggi, ma pronte per qualcosa di più grande più avanti."
                 }
               ]
             },
@@ -3006,15 +3006,15 @@
             {
               "id": "budget-the-week",
               "mechanic": "mission",
-              "prompt": "Hai 15 sterline per la settimana: uno spuntino per la gita scolastica, un regalo di compleanno per un amico, e quello che resta è tuo. Cosa faresti?",
+              "prompt": "Hai 15 euro per la settimana: uno spuntino per la gita scolastica, un regalo di compleanno per un amico, e quello che resta è tuo. Cosa faresti?",
               "hint": "Pensa a quali cose accadono di sicuro, e quali sono opzionali.",
               "explanation": "Pianificare più cose insieme - alcune necessarie, altre desiderate - è esattamente ciò che comporta un vero budget settimanale.",
-              "situation": "Hai 15 sterline per la settimana: uno spuntino per la gita scolastica, un regalo di compleanno per un amico, e quello che resta è tuo.",
+              "situation": "Hai 15 euro per la settimana: uno spuntino per la gita scolastica, un regalo di compleanno per un amico, e quello che resta è tuo.",
               "choices": [
                 {
                   "key": "cover-both-first",
                   "label": "Pagare prima spuntino e regalo, tenere il resto",
-                  "consequence": "Hai coperto entrambe le cose di cui avevi bisogno, e ti sono rimaste 4 sterline per te - un buon piano."
+                  "consequence": "Hai coperto entrambe le cose di cui avevi bisogno, e ti sono rimaste 4 euro per te - un buon piano."
                 },
                 {
                   "key": "nice-gift-skip-snack",
@@ -3031,37 +3031,37 @@
             {
               "id": "compare-before-buying",
               "mechanic": "mission",
-              "prompt": "Hai bisogno di una nuova borraccia. Un negozio la vende a 8 sterline, un altro vende quasi la stessa a 5 sterline. Cosa faresti?",
+              "prompt": "Hai bisogno di una nuova borraccia. Un negozio la vende a 8 euro, un altro vende quasi la stessa a 5 euro. Cosa faresti?",
               "hint": "Un prezzo più alto non significa sempre un prodotto migliore - conta cosa ottieni davvero.",
               "explanation": "Confrontare i prezzi prima di comprare è uno dei modi più semplici per far durare di più i tuoi soldi.",
-              "situation": "Hai bisogno di una nuova borraccia. Un negozio la vende a 8 sterline, un altro vende quasi la stessa a 5 sterline.",
+              "situation": "Hai bisogno di una nuova borraccia. Un negozio la vende a 8 euro, un altro vende quasi la stessa a 5 euro.",
               "choices": [
                 {
                   "key": "cheaper",
-                  "label": "Comprare quella da 5 sterline",
-                  "consequence": "Hai ottenuto ciò di cui avevi bisogno e risparmiato 3 sterline - soldi ora liberi per altro.",
+                  "label": "Comprare quella da 5 euro",
+                  "consequence": "Hai ottenuto ciò di cui avevi bisogno e risparmiato 3 euro - soldi ora liberi per altro.",
                   "costMinorUnits": 500
                 },
                 {
                   "key": "pricier",
-                  "label": "Comprare comunque quella da 8 sterline",
-                  "consequence": "Hai pagato 3 sterline in più per una borraccia molto simile - a volte ne vale la pena per un motivo che apprezzi, a volte è solo costo extra.",
+                  "label": "Comprare comunque quella da 8 euro",
+                  "consequence": "Hai pagato 3 euro in più per una borraccia molto simile - a volte ne vale la pena per un motivo che apprezzi, a volte è solo costo extra.",
                   "costMinorUnits": 800
                 },
                 {
                   "key": "check-why",
                   "label": "Controllare prima cosa è davvero diverso",
-                  "consequence": "Hai scoperto che le borracce erano quasi identiche, quindi le 3 sterline extra non compravano nulla che avresti davvero usato."
+                  "consequence": "Hai scoperto che le borracce erano quasi identiche, quindi le 3 euro extra non compravano nulla che avresti davvero usato."
                 }
               ]
             },
             {
               "id": "surprise-repair-cost",
               "mechanic": "mission",
-              "prompt": "La tua bici ha una gomma bucata e ripararla costa 6 sterline - soldi che avevi messo da parte per un gioco che volevi. Cosa faresti?",
+              "prompt": "La tua bici ha una gomma bucata e ripararla costa 6 euro - soldi che avevi messo da parte per un gioco che volevi. Cosa faresti?",
               "hint": "Un bisogno che emerge all'improvviso può cambiare un piano che avevi già fatto - è normale, non un fallimento.",
               "explanation": "I budget reali a volte vengono interrotti da problemi reali - adattare il piano è l'abilità, non un errore.",
-              "situation": "La tua bici ha una gomma bucata e ripararla costa 6 sterline - soldi che avevi messo da parte per un gioco che volevi.",
+              "situation": "La tua bici ha una gomma bucata e ripararla costa 6 euro - soldi che avevi messo da parte per un gioco che volevi.",
               "choices": [
                 {
                   "key": "fix-bike",
@@ -3114,10 +3114,10 @@
             {
               "id": "give-or-keep",
               "mechanic": "mission",
-              "prompt": "Hai risparmiato 20 sterline. La famiglia di un amico sta attraversando un momento difficile, e la tua classe sta raccogliendo soldi per aiutare. Cosa faresti?",
+              "prompt": "Hai risparmiato 20 euro. La famiglia di un amico sta attraversando un momento difficile, e la tua classe sta raccogliendo soldi per aiutare. Cosa faresti?",
               "hint": "Non c'è un importo obbligatorio qui - pensa a cosa ti sembra giusto per la tua situazione.",
               "explanation": "Decidere quanto dei tuoi soldi donare, se donarne, è una scelta genuinamente personale senza un unico importo corretto.",
-              "situation": "Hai risparmiato 20 sterline. La famiglia di un amico sta attraversando un momento difficile, e la tua classe sta raccogliendo soldi per aiutare.",
+              "situation": "Hai risparmiato 20 euro. La famiglia di un amico sta attraversando un momento difficile, e la tua classe sta raccogliendo soldi per aiutare.",
               "choices": [
                 {
                   "key": "give-some",
@@ -4154,8 +4154,8 @@
         {
           "heading": "Cosa rende una scheda sul denaro davvero utile",
           "paragraphs": [
-            "Una scheda vale quanto il pensiero che richiede. La modalità di fallimento più comune è una scheda che chiede a un bambino di ricordare una definizione (\"cos'è un budget?\") piuttosto che applicarne una (\"ecco 10 sterline - dividile tra questi quattro barattoli e spiega perché\"). Il secondo tipo produce apprendimento genuino; il primo produce una frase memorizzata che svanisce entro una settimana.",
-            "Per un contesto di classe in particolare, una scheda senza un'unica risposta giusta - dove due studenti potrebbero ragionevolmente dividere le stesse 10 sterline diversamente - tende a generare una discussione migliore rispetto a una con un unico totale corretto da verificare."
+            "Una scheda vale quanto il pensiero che richiede. La modalità di fallimento più comune è una scheda che chiede a un bambino di ricordare una definizione (\"cos'è un budget?\") piuttosto che applicarne una (\"ecco 10 euro - dividile tra questi quattro barattoli e spiega perché\"). Il secondo tipo produce apprendimento genuino; il primo produce una frase memorizzata che svanisce entro una settimana.",
+            "Per un contesto di classe in particolare, una scheda senza un'unica risposta giusta - dove due studenti potrebbero ragionevolmente dividere le stesse 10 euro diversamente - tende a generare una discussione migliore rispetto a una con un unico totale corretto da verificare."
           ]
         },
         {
@@ -4166,7 +4166,7 @@
           "list": [
             "6-8 anni: schede fisiche, visive - smistare immagini di oggetti in colonne bisogni/desideri, colorare un barattolo mentre si riempie un obiettivo di risparmio.",
             "9-11 anni: semplici schede di allocazione con un totale fisso da dividere tra categorie etichettate, più una riga aperta \"spiega la tua scelta\".",
-            "12-14 anni: brevi schede basate su scenari (\"hai 30 sterline e questi tre obiettivi - cosa faresti e perché\") che richiedono ragionamento, non solo una tabella completata."
+            "12-14 anni: brevi schede basate su scenari (\"hai 30 euro e questi tre obiettivi - cosa faresti e perché\") che richiedono ragionamento, non solo una tabella completata."
           ]
         },
         {
