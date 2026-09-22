@@ -86,7 +86,13 @@
     "matchThese": "Abbina questi",
     "withThese": "Con questi",
     "matched": "Abbinato!",
-    "notAMatch": "Non corrisponde - riprova."
+    "notAMatch": "Non corrisponde - riprova.",
+    "checkMyPlan": "Controlla il mio piano",
+    "tapSuspicious": "Tocca qualsiasi cosa ti sembri sospetta.",
+    "goodCatch": "Ottima osservazione!",
+    "missedWarningSign": "Questo era un segnale d'allarme",
+    "actuallyFine": "In realtà questo andava bene",
+    "checkWhatIFound": "Controlla cosa ho trovato"
   },
   "simulator": {
     "weekOf": "{week} di {total}",
@@ -285,6 +291,7 @@
     "olderLearner": "Avanzato",
     "olderLearnerRange": "12-14 anni",
     "yourWorldMap": "La Tua Mappa dei Mondi",
+    "moreFeaturesTitle": "Altro da Esplorare",
     "changeLevel": "Cambia livello",
     "yourCoins": "Le tue monete virtuali",
     "currency": "Valuta",

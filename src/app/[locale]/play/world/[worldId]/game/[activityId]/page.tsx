@@ -4,7 +4,7 @@ import { useParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { useLocalProgress } from "@/lib/local-progress/use-local-progress";
-import { getGameByKey, parseGameActivityId, getNextActivityInWorld, getPreviousActivityInWorld, getActivityPosition, getActivityHref } from "@/content/catalog";
+import { getGameByKey, parseGameActivityId, getNextActivityAcrossWorlds, getPreviousActivityAcrossWorlds, getActivityPosition, getActivityHref } from "@/content/catalog";
 import { GameShell } from "@/game-engine/GameShell";
 
 export default function GamePage() {
@@ -30,10 +30,10 @@ export default function GamePage() {
     );
   }
 
-  const nextEntry = getNextActivityInWorld(params.worldId, state.ageBand, params.activityId, t);
-  const nextActivityHref = nextEntry ? getActivityHref(params.worldId, nextEntry) : null;
-  const previousEntry = getPreviousActivityInWorld(params.worldId, state.ageBand, params.activityId, t);
-  const previousActivityHref = previousEntry ? getActivityHref(params.worldId, previousEntry) : null;
+  const nextEntry = getNextActivityAcrossWorlds(params.worldId, state.ageBand, params.activityId, t);
+  const nextActivityHref = nextEntry ? getActivityHref(nextEntry.worldId, nextEntry) : null;
+  const previousEntry = getPreviousActivityAcrossWorlds(params.worldId, state.ageBand, params.activityId, t);
+  const previousActivityHref = previousEntry ? getActivityHref(previousEntry.worldId, previousEntry) : null;
   const activityPosition = getActivityPosition(params.worldId, state.ageBand, params.activityId, t);
 
   return (

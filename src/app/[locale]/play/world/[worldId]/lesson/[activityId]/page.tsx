@@ -4,7 +4,7 @@ import { useParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { useLocalProgress } from "@/lib/local-progress/use-local-progress";
-import { getLessonStructureById, getNextActivityInWorld, getPreviousActivityInWorld, getActivityPosition, getActivityHref } from "@/content/catalog";
+import { getLessonStructureById, getNextActivityAcrossWorlds, getPreviousActivityAcrossWorlds, getActivityPosition, getActivityHref } from "@/content/catalog";
 import { buildActivityDetailFromLesson } from "@/lib/domain/activity";
 import type { LocalizedLessonText } from "@/content/curriculum/localized-types";
 import { LessonPlayer } from "@/components/lesson/LessonPlayer";
@@ -37,10 +37,10 @@ export default function LessonPage() {
   const localizedText = t.raw(`curriculum.${structure.id}`) as LocalizedLessonText;
   const activity = buildActivityDetailFromLesson(structure, localizedText, state.completedActivityIds, state.currencyCode, state.ageBand);
 
-  const nextEntry = getNextActivityInWorld(params.worldId, state.ageBand, structure.id, t);
-  const nextActivityHref = nextEntry ? getActivityHref(params.worldId, nextEntry) : null;
-  const previousEntry = getPreviousActivityInWorld(params.worldId, state.ageBand, structure.id, t);
-  const previousActivityHref = previousEntry ? getActivityHref(params.worldId, previousEntry) : null;
+  const nextEntry = getNextActivityAcrossWorlds(params.worldId, state.ageBand, structure.id, t);
+  const nextActivityHref = nextEntry ? getActivityHref(nextEntry.worldId, nextEntry) : null;
+  const previousEntry = getPreviousActivityAcrossWorlds(params.worldId, state.ageBand, structure.id, t);
+  const previousActivityHref = previousEntry ? getActivityHref(previousEntry.worldId, previousEntry) : null;
   const activityPosition = getActivityPosition(params.worldId, state.ageBand, structure.id, t);
 
   return (

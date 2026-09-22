@@ -93,24 +93,26 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
   return (
     <div className="flex flex-col gap-md">
       {/* Journey navigation — a real "Back" (to the previous activity,
-          not just to the World menu) alongside a simple "Activity X
-          of Y" position indicator, so a child always knows where they
-          are and can always step backward without returning to a
-          menu, matching the redesign brief's navigation requirements. */}
-      <div className="flex items-center justify-between text-sm">
-        {previousActivityHref ? (
-          <button
-            type="button"
-            onClick={() => router.push(previousActivityHref)}
-            className="inline-flex min-h-touch-min items-center gap-3xs rounded-full border border-ink/15 bg-white px-sm text-ink/70 hover:bg-fog"
-          >
+          not just to the World menu) and an always-visible "Back to
+          World" button, alongside a simple "Activity X of Y" position
+          indicator, so a child always knows where they are and always
+          has both stepping-backward options without returning to a
+          menu first, matching the redesign brief's navigation
+          requirements. Real Button components (not muted text links)
+          so both read as actionable controls, not secondary metadata;
+          flex-wrap keeps this from overflowing on narrow phones when a
+          locale's labels run long. */}
+      <div className="flex flex-wrap items-center gap-xs text-sm">
+        {previousActivityHref && (
+          <Button variant="secondary" onClick={() => router.push(previousActivityHref)}>
             <span aria-hidden="true">←</span> {t("common.back")}
-          </button>
-        ) : (
-          <span />
+          </Button>
         )}
+        <Button variant="secondary" onClick={() => router.push(backToWorldHref)}>
+          <span aria-hidden="true">🗺️</span> {t("game.backToTheWorld")}
+        </Button>
         {activityPosition && (
-          <span className="rounded-full bg-teal/10 px-sm py-3xs font-medium text-teal">
+          <span className="ml-auto rounded-full bg-teal/10 px-sm py-3xs font-medium text-teal">
             {world && t("play.levelActivityProgress", { level: world.orderIndex, position: activityPosition.position, total: activityPosition.total })}
           </span>
         )}

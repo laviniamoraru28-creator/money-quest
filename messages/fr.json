@@ -86,7 +86,13 @@
     "matchThese": "Associe ceux-ci",
     "withThese": "Avec ceux-ci",
     "matched": "Associé !",
-    "notAMatch": "Ce n'est pas une paire - réessaie."
+    "notAMatch": "Ce n'est pas une paire - réessaie.",
+    "checkMyPlan": "Vérifier mon plan",
+    "tapSuspicious": "Touche tout ce qui te semble suspect.",
+    "goodCatch": "Bien vu !",
+    "missedWarningSign": "C'était un signal d'alarme",
+    "actuallyFine": "En fait, ça allait très bien",
+    "checkWhatIFound": "Vérifier ce que j'ai trouvé"
   },
   "simulator": {
     "weekOf": "{week} sur {total}",
@@ -285,6 +291,7 @@
     "olderLearner": "Avancé",
     "olderLearnerRange": "12-14 ans",
     "yourWorldMap": "Ta Carte des Mondes",
+    "moreFeaturesTitle": "Plus à Explorer",
     "changeLevel": "Changer de niveau",
     "yourCoins": "Tes pièces virtuelles",
     "currency": "Devise",

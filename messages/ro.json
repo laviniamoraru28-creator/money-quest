@@ -86,7 +86,13 @@
     "matchThese": "Potrivește acestea",
     "withThese": "Cu acestea",
     "matched": "Potrivire!",
-    "notAMatch": "Nu se potrivește - încearcă din nou."
+    "notAMatch": "Nu se potrivește - încearcă din nou.",
+    "checkMyPlan": "Verifică planul meu",
+    "tapSuspicious": "Atinge orice ți se pare suspect.",
+    "goodCatch": "Bine observat!",
+    "missedWarningSign": "Acesta era un semnal de alarmă",
+    "actuallyFine": "Acesta era de fapt în regulă",
+    "checkWhatIFound": "Verifică ce am găsit"
   },
   "simulator": {
     "weekOf": "{week} din {total}",
@@ -285,6 +291,7 @@
     "olderLearner": "Avansat",
     "olderLearnerRange": "12-14 ani",
     "yourWorldMap": "Harta Ta a Lumilor",
+    "moreFeaturesTitle": "Mai Multe de Explorat",
     "changeLevel": "Schimbă nivelul",
     "yourCoins": "Monedele tale virtuale",
     "currency": "Monedă",

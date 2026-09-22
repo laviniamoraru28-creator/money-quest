@@ -5,9 +5,26 @@ interface LessonIllustrationProps {
 }
 
 /**
+ * Topics without their own hand-drawn SVG motif below (renderTopicMotif's
+ * `default` case would otherwise show them all as one plain undifferentiated
+ * circle) — digital_money, investing_basics and junior_isa were added in
+ * Stage 3A, after this SVG system was built, and never got a matching
+ * motif. Filled with real illustrations instead of new SVG work, reusing
+ * the same photo across every lesson that shares a topic (not one per
+ * lesson) — e.g. every digital_money lesson at every age band shows the
+ * same wallet image, matching how every other topic already shares one
+ * motif across its explorer/builder/strategist lessons.
+ */
+const PHOTO_TOPIC_IMAGES: Record<string, string> = {
+  digital_money: "/images/money-quest/lessons/digital-money-wallet.webp",
+  investing_basics: "/images/money-quest/lessons/investing-growth-chart.webp",
+  junior_isa: "/images/money-quest/lessons/junior-isa-piggy-bank.webp",
+};
+
+/**
  * The "left page" illustration for a book-style lesson — one flexible
- * component covering all 21 lessons via topicId + the lesson's own
- * World theme color, rather than 21 individually hand-drawn scenes.
+ * component covering all lessons via topicId + the lesson's own
+ * World theme color, rather than individually hand-drawn scenes.
  * This is an honest scope decision, not a placeholder: illustrating
  * each lesson bespoke would be a much larger undertaking than this
  * pass covers, and this delivers a real, topic-relevant, non-generic
@@ -19,6 +36,16 @@ interface LessonIllustrationProps {
  * the website's own established language.
  */
 export function LessonIllustration({ topicId, worldThemeColor, className = "" }: LessonIllustrationProps) {
+  const photoSrc = PHOTO_TOPIC_IMAGES[topicId];
+  if (photoSrc) {
+    return (
+      <div className={`relative grid place-items-center rounded-full ${className}`} style={{ backgroundColor: `${worldThemeColor}22` }} aria-hidden="true">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={photoSrc} alt="" className="h-[70%] w-[70%] object-contain" width={512} height={512} />
+      </div>
+    );
+  }
+
   return (
     <svg viewBox="0 0 320 320" className={className} role="img" aria-hidden="true">
       <circle cx="160" cy="160" r="150" fill={worldThemeColor} opacity="0.14" />

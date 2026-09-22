@@ -86,7 +86,13 @@
     "matchThese": "Koppel deze",
     "withThese": "Aan deze",
     "matched": "Gekoppeld!",
-    "notAMatch": "Geen match - probeer opnieuw."
+    "notAMatch": "Geen match - probeer opnieuw.",
+    "checkMyPlan": "Controleer mijn plan",
+    "tapSuspicious": "Tik op alles wat verdacht aanvoelt.",
+    "goodCatch": "Goed opgemerkt!",
+    "missedWarningSign": "Dit was een waarschuwingssignaal",
+    "actuallyFine": "Dit was eigenlijk prima",
+    "checkWhatIFound": "Controleer wat ik heb gevonden"
   },
   "simulator": {
     "weekOf": "{week} van {total}",
@@ -285,6 +291,7 @@
     "olderLearner": "Gevorderd",
     "olderLearnerRange": "12-14 jaar",
     "yourWorldMap": "Jouw Wereldkaart",
+    "moreFeaturesTitle": "Meer om te Ontdekken",
     "changeLevel": "Niveau wijzigen",
     "yourCoins": "Jouw virtuele munten",
     "currency": "Valuta",

@@ -2,15 +2,17 @@
 
 import { useParams } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
+import { Link, useRouter } from "@/i18n/navigation";
 import { useLocalProgress } from "@/lib/local-progress/use-local-progress";
 import { getWorldById } from "@/content/worlds";
 import { getWorldCatalog } from "@/content/catalog";
 import { LevelBadgeStar } from "@/components/ui/LevelBadgeStar";
+import { Button } from "@/components/ui/Button";
 import type { AgeBand } from "@/types/database.types";
 
 export default function WorldPage() {
   const params = useParams<{ worldId: string }>();
+  const router = useRouter();
   const t = useTranslations();
   const { state, isLoaded } = useLocalProgress();
 
@@ -47,10 +49,10 @@ export default function WorldPage() {
   return (
     <div className="min-h-screen bg-fog px-sm py-lg">
       <main className="mx-auto max-w-[700px]">
-        <Link href="/play" className="text-sm text-teal hover:underline">
-          {t("nav.backToWorldMap")}
-        </Link>
-        <div className="mt-2xs flex items-center gap-xs">
+        <Button variant="secondary" onClick={() => router.push("/play")}>
+          <span aria-hidden="true">←</span> {t("nav.backToWorldMap")}
+        </Button>
+        <div className="mt-sm flex items-center gap-xs">
           <div>
             <p className="text-xs font-medium uppercase tracking-wide text-ink/50">
               {t("play.levelLabel", { number: world.orderIndex })}

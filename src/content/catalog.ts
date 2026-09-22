@@ -4,6 +4,7 @@ import { GAME_STRUCTURES } from "@/game-engine/structures";
 import { buildGameConfigFromStructure } from "@/game-engine/build-config";
 import type { LocalizedGameText } from "@/game-engine/localized-types";
 import type { GameConfig } from "@/game-engine/types";
+import { WORLDS } from "@/content/worlds";
 
 /**
  * The single, database-free source of every piece of educational
@@ -117,6 +118,63 @@ export function getActivityPosition(worldId: string, ageBand: AgeBand, currentAc
   const currentIndex = catalog.findIndex((entry) => entry.id === currentActivityId);
   if (currentIndex === -1) return null;
   return { position: currentIndex + 1, total: catalog.length };
+}
+
+/**
+ * The cross-world sequel to getNextActivityInWorld(): when the current
+ * activity is the last one in its own world/age-band, this continues
+ * the journey into the first activity of the next world in WORLDS'
+ * orderIndex sequence (skipping any world that happens to have no
+ * activities for this age band, though every current world/age-band
+ * combination has at least one). Returns null only when there is no
+ * next world left at all — i.e. this really is the last activity in
+ * the entire age band's journey, which is the one case where "Level
+ * complete" is still the right screen to show.
+ *
+ * Kept as a separate function rather than changing
+ * getNextActivityInWorld() itself, since that function's own
+ * single-world scoping is still exactly right for anything that only
+ * needs "is there another activity in *this* world" (e.g. a future
+ * per-world completion check) without wanting the cross-world
+ * continuation this one adds.
+ */
+export function getNextActivityAcrossWorlds(worldId: string, ageBand: AgeBand, currentActivityId: string, t: (key: string) => string): CatalogEntry | null {
+  const withinWorld = getNextActivityInWorld(worldId, ageBand, currentActivityId, t);
+  if (withinWorld) return withinWorld;
+
+  const currentWorld = WORLDS.find((w) => w.id === worldId);
+  if (!currentWorld) return null;
+
+  const laterWorlds = WORLDS.filter((w) => w.orderIndex > currentWorld.orderIndex).sort((a, b) => a.orderIndex - b.orderIndex);
+  for (const world of laterWorlds) {
+    const catalog = getWorldCatalog(world.id, ageBand, t);
+    if (catalog.length > 0) return catalog[0] ?? null;
+  }
+  return null;
+}
+
+/**
+ * The mirror of getNextActivityAcrossWorlds() for "Back": when the
+ * current activity is the first one in its own world/age-band, this
+ * steps back into the *last* activity of the previous world in
+ * WORLDS' orderIndex sequence, so a child arriving at the start of a
+ * new world can still step backward into the world they just finished
+ * rather than hitting a dead end. Returns null only when there is no
+ * earlier world at all.
+ */
+export function getPreviousActivityAcrossWorlds(worldId: string, ageBand: AgeBand, currentActivityId: string, t: (key: string) => string): CatalogEntry | null {
+  const withinWorld = getPreviousActivityInWorld(worldId, ageBand, currentActivityId, t);
+  if (withinWorld) return withinWorld;
+
+  const currentWorld = WORLDS.find((w) => w.id === worldId);
+  if (!currentWorld) return null;
+
+  const earlierWorlds = WORLDS.filter((w) => w.orderIndex < currentWorld.orderIndex).sort((a, b) => b.orderIndex - a.orderIndex);
+  for (const world of earlierWorlds) {
+    const catalog = getWorldCatalog(world.id, ageBand, t);
+    if (catalog.length > 0) return catalog[catalog.length - 1] ?? null;
+  }
+  return null;
 }
 
 /** Builds the correct /play URL for a catalog entry — the one place

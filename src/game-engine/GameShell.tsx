@@ -210,28 +210,26 @@ export function GameShell({ config, ageBand, difficulty = "standard", currencyCo
   return (
     <div className="flex flex-col gap-sm">
       {/* Journey navigation — same "Back to the previous activity" +
-          "Activity X of Y" pattern as LessonPlayer, so the two
-          activity types (lessons and games) give a child identical
-          navigation and positioning cues throughout a World. Shown
-          only on the "still playing" view, not the completion screen
-          below — there, the Next/Back-to-World buttons already are
-          the navigation, and a back-to-previous-activity link at
-          that point would just replay the game the child just
-          finished. */}
-      <div className="flex items-center justify-between text-sm">
-        {previousActivityHref ? (
-          <button
-            type="button"
-            onClick={() => router.push(previousActivityHref)}
-            className="inline-flex min-h-touch-min items-center gap-3xs rounded-full border border-ink/15 bg-white px-sm text-ink/70 hover:bg-fog"
-          >
+          always-visible "Back to World" + "Activity X of Y" pattern as
+          LessonPlayer, so the two activity types (lessons and games)
+          give a child identical navigation and positioning cues
+          throughout a World. Real Button components, not muted text
+          links, matching LessonPlayer's own reasoning. Shown only on
+          the "still playing" view, not the completion screen below —
+          there, the Next/Back-to-World buttons already are the
+          navigation, and a back-to-previous-activity link at that
+          point would just replay the game the child just finished. */}
+      <div className="flex flex-wrap items-center gap-xs text-sm">
+        {previousActivityHref && (
+          <Button variant="secondary" onClick={() => router.push(previousActivityHref)}>
             <span aria-hidden="true">←</span> {t("common.back")}
-          </button>
-        ) : (
-          <span />
+          </Button>
         )}
+        <Button variant="secondary" onClick={() => router.push(backHref)}>
+          <span aria-hidden="true">🗺️</span> {t("game.backToTheWorld")}
+        </Button>
         {activityPosition && (
-          <span className="rounded-full bg-teal/10 px-sm py-3xs font-medium text-teal">
+          <span className="ml-auto rounded-full bg-teal/10 px-sm py-3xs font-medium text-teal">
             {world && t("play.levelActivityProgress", { level: world.orderIndex, position: activityPosition.position, total: activityPosition.total })}
           </span>
         )}

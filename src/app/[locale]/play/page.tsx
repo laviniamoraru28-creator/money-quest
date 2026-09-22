@@ -141,21 +141,51 @@ export default function PlayPage() {
           })}
         </div>
 
-        <div className="mt-md flex items-center justify-between text-sm">
-          <div className="flex flex-wrap gap-md">
-            <Link href="/play/goals" className="text-teal hover:underline">
-              {t("play.mySavingsGoals")}
-            </Link>
-            <Link href="/play/simulator" className="text-teal hover:underline">
-              {t("play.moneyLifeSimulator")}
-            </Link>
-            <Link href="/play/money-personality" className="text-teal hover:underline">
-              {t("play.moneyPersonalityLink")}
-            </Link>
-            <Link href="/play/investing-lab" className="text-teal hover:underline">
-              {t("play.investingLabLink")}
-            </Link>
-          </div>
+        {/* More features — upgraded from a row of small text links to
+            clearly-identifiable cards, matching the same visual
+            language as the World cards above, so these existing
+            features (nothing new here) are actually discoverable
+            rather than easy to miss at the bottom of the page. */}
+        <h2 className="mt-lg font-display text-lg font-bold">{t("play.moreFeaturesTitle")}</h2>
+        <div className="mt-sm grid gap-sm sm:grid-cols-3">
+          <Link
+            href="/play/goals"
+            className="flex items-center gap-xs rounded-lg border-2 border-ink/10 bg-white p-sm shadow-resting transition-shadow hover:shadow-floating hover:border-teal"
+          >
+            <span aria-hidden="true" className="text-2xl">🎯</span>
+            <span className="font-medium">{t("play.mySavingsGoals")}</span>
+          </Link>
+          <Link
+            href="/play/simulator"
+            className="flex items-center gap-xs rounded-lg border-2 border-ink/10 bg-white p-sm shadow-resting transition-shadow hover:shadow-floating hover:border-teal"
+          >
+            <span aria-hidden="true" className="text-2xl">🧭</span>
+            <span className="font-medium">{t("play.moneyLifeSimulator")}</span>
+          </Link>
+          <Link
+            href="/play/money-personality"
+            className="flex items-center gap-xs rounded-lg border-2 border-ink/10 bg-white p-sm shadow-resting transition-shadow hover:shadow-floating hover:border-teal"
+          >
+            <span aria-hidden="true" className="text-2xl">🧠</span>
+            <span className="font-medium">{t("play.moneyPersonalityLink")}</span>
+          </Link>
+          <Link
+            href="/play/investing-lab"
+            className="flex items-center gap-xs rounded-lg border-2 border-ink/10 bg-white p-sm shadow-resting transition-shadow hover:shadow-floating hover:border-teal"
+          >
+            <span aria-hidden="true" className="text-2xl">📈</span>
+            <span className="font-medium">{t("play.investingLabLink")}</span>
+          </Link>
+          <Link
+            href="/feedback"
+            className="flex items-center gap-xs rounded-lg border-2 border-ink/10 bg-white p-sm shadow-resting transition-shadow hover:shadow-floating hover:border-teal"
+          >
+            <span aria-hidden="true" className="text-2xl">⭐</span>
+            <span className="font-medium">{t("footer.feedback")}</span>
+          </Link>
+        </div>
+
+        <div className="mt-md flex justify-end text-sm">
           <ResetProgressButton />
         </div>
       </main>

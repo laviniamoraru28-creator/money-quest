@@ -1,10 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import type { MechanicProps } from "../registry";
 import type { SpotRound } from "../types";
 
 export function SpotMechanic({ round, onAnswer, isResolved }: MechanicProps<SpotRound>) {
+  const t = useTranslations();
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
   const [checked, setChecked] = useState(false);
 
@@ -30,7 +32,7 @@ export function SpotMechanic({ round, onAnswer, isResolved }: MechanicProps<Spot
     <div>
       <p className="rounded-sm bg-fog p-sm text-base italic text-ink/80">{round.scenario}</p>
 
-      <p className="mt-sm text-sm text-ink/70">Tap anything that feels suspicious.</p>
+      <p className="mt-sm text-sm text-ink/70">{t("game.tapSuspicious")}</p>
 
       <div className="mt-2xs grid gap-2xs">
         {round.items.map((item) => {
@@ -57,9 +59,17 @@ export function SpotMechanic({ round, onAnswer, isResolved }: MechanicProps<Spot
               ].join(" ")}
             >
               {item.text}
-              {correctlyFlagged && <span className="ml-2xs text-sm font-medium text-success">✓ Good catch!</span>}
-              {missedFlag && <span className="ml-2xs text-sm font-medium text-error">✗ This was a warning sign</span>}
-              {wronglyFlagged && <span className="ml-2xs text-sm font-medium text-warning">This one was actually fine</span>}
+              {correctlyFlagged && (
+                <span className="ml-2xs text-sm font-medium text-success">
+                  <span aria-hidden="true">✓</span> {t("game.goodCatch")}
+                </span>
+              )}
+              {missedFlag && (
+                <span className="ml-2xs text-sm font-medium text-error">
+                  <span aria-hidden="true">✗</span> {t("game.missedWarningSign")}
+                </span>
+              )}
+              {wronglyFlagged && <span className="ml-2xs text-sm font-medium text-warning">{t("game.actuallyFine")}</span>}
             </button>
           );
         })}
@@ -72,7 +82,7 @@ export function SpotMechanic({ round, onAnswer, isResolved }: MechanicProps<Spot
           onClick={submit}
           className="mt-md min-h-touch-min-child w-full rounded-lg bg-teal px-md py-xs font-medium text-white shadow-resting disabled:opacity-40"
         >
-          Check what I found
+          {t("game.checkWhatIFound")}
         </button>
       )}
     </div>

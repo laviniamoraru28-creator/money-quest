@@ -97,9 +97,9 @@ export function AllocateMechanic({ round, currencyCode, uiLocale, usesCurrency, 
 
       <p className="mt-sm text-sm font-medium" aria-live="polite">
         {remaining === 0 ? (
-          <span className="text-success">Every coin is planned!</span>
+          <span className="text-success">{t("game.everyCoinPlanned")}</span>
         ) : (
-          <span className="text-ink/70">{fmt(remaining)} left to plan</span>
+          <span className="text-ink/70">{t("game.coinsLeftToPlan", { amount: fmt(remaining) })}</span>
         )}
       </p>
 
@@ -110,7 +110,7 @@ export function AllocateMechanic({ round, currencyCode, uiLocale, usesCurrency, 
           onClick={submit}
           className="mt-md min-h-touch-min-child w-full rounded-lg bg-teal px-md py-xs font-medium text-white shadow-resting disabled:opacity-40"
         >
-          Check my plan
+          {t("game.checkMyPlan")}
         </button>
       )}
     </div>

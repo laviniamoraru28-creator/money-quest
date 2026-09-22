@@ -86,7 +86,13 @@
     "matchThese": "Match these",
     "withThese": "With these",
     "matched": "Matched!",
-    "notAMatch": "Not a match - try again."
+    "notAMatch": "Not a match - try again.",
+    "checkMyPlan": "Check my plan",
+    "tapSuspicious": "Tap anything that feels suspicious.",
+    "goodCatch": "Good catch!",
+    "missedWarningSign": "This was a warning sign",
+    "actuallyFine": "This one was actually fine",
+    "checkWhatIFound": "Check what I found"
   },
   "simulator": {
     "weekOf": "{week} of {total}",
@@ -285,6 +291,7 @@
     "olderLearner": "Older Learner",
     "olderLearnerRange": "Ages 12-14",
     "yourWorldMap": "Your World Map",
+    "moreFeaturesTitle": "More to Explore",
     "changeLevel": "Change level",
     "yourCoins": "Your virtual coins",
     "currency": "Currency",

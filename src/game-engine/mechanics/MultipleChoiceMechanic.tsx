@@ -1,10 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import type { MechanicProps } from "../registry";
 import type { MultipleChoiceRound } from "../types";
 
 export function MultipleChoiceMechanic({ round, onAnswer, isResolved }: MechanicProps<MultipleChoiceRound>) {
+  const t = useTranslations();
   const [selected, setSelected] = useState<string | null>(null);
   const [checked, setChecked] = useState(false);
 
@@ -17,7 +19,7 @@ export function MultipleChoiceMechanic({ round, onAnswer, isResolved }: Mechanic
   return (
     <div>
       <fieldset disabled={isResolved || checked}>
-        <legend className="sr-only">Answer options</legend>
+        <legend className="sr-only">{t("lesson.answerOptions")}</legend>
         <div className="grid gap-2xs">
           {round.options.map((option) => {
             const isSelected = selected === option;
@@ -39,13 +41,13 @@ export function MultipleChoiceMechanic({ round, onAnswer, isResolved }: Mechanic
                 {showAsCorrect && (
                   <span className="ml-auto text-success">
                     <span aria-hidden="true">✓</span>
-                    <span className="sr-only"> Correct answer</span>
+                    <span className="sr-only"> {t("lesson.correctAnswerSuffix")}</span>
                   </span>
                 )}
                 {showAsIncorrect && (
                   <span className="ml-auto text-error">
                     <span aria-hidden="true">✗</span>
-                    <span className="sr-only"> Not the correct answer</span>
+                    <span className="sr-only"> {t("lesson.yourAnswerNotQuiteSuffix")}</span>
                   </span>
                 )}
               </label>
@@ -61,7 +63,7 @@ export function MultipleChoiceMechanic({ round, onAnswer, isResolved }: Mechanic
           onClick={submit}
           className="mt-md min-h-touch-min-child w-full rounded-lg bg-teal px-md py-xs font-medium text-white shadow-resting disabled:opacity-40"
         >
-          Check my answer
+          {t("lesson.checkMyAnswer")}
         </button>
       )}
     </div>

@@ -75,10 +75,13 @@ export default function MoneyPersonalityPage() {
   return (
     <div className="min-h-screen bg-fog px-sm py-lg">
       <main className="mx-auto max-w-[700px]">
-        <Link href="/play" className="text-sm text-teal hover:underline">
-          {content.backToWorldMap}
+        <Link
+          href="/play"
+          className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal transition-colors duration-quick hover:bg-teal/5"
+        >
+          <span aria-hidden="true">←</span> {content.backToWorldMap}
         </Link>
-        <h1 className="mt-2xs font-display text-2xl font-bold">{content.title}</h1>
+        <h1 className="mt-sm font-display text-2xl font-bold">{content.title}</h1>
         <p className="mt-2xs text-base text-ink/70">{content.subtitle}</p>
 
         {!started && (
