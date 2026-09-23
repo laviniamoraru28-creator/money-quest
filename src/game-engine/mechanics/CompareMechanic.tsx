@@ -1,11 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import type { MechanicProps } from "../registry";
 import type { CompareRound } from "../types";
 import { formatCurrency } from "@/lib/currency/format";
 
 export function CompareMechanic({ round, currencyCode, uiLocale, usesCurrency, onAnswer, isResolved }: MechanicProps<CompareRound>) {
+  const t = useTranslations();
   const [selected, setSelected] = useState<string | null>(null);
   const [checked, setChecked] = useState(false);
 
@@ -42,9 +44,15 @@ export function CompareMechanic({ round, currencyCode, uiLocale, usesCurrency, o
                 {usesCurrency ? formatCurrency(option.amountMinorUnits, currencyCode, uiLocale) : option.amountMinorUnits}
               </p>
               {option.detail && <p className="text-sm text-ink/70">{option.detail}</p>}
-              {showResult && isCorrectOption && <p className="mt-2xs text-sm font-medium text-success">✓ Best choice</p>}
+              {showResult && isCorrectOption && (
+                <p className="mt-2xs text-sm font-medium text-success">
+                  <span aria-hidden="true">✓</span> {t("game.bestChoice")}
+                </p>
+              )}
               {showResult && isSelected && !isCorrectOption && (
-                <p className="mt-2xs text-sm font-medium text-error">✗ Not the best value here</p>
+                <p className="mt-2xs text-sm font-medium text-error">
+                  <span aria-hidden="true">✗</span> {t("game.notBestValue")}
+                </p>
               )}
             </button>
           );
@@ -58,7 +66,7 @@ export function CompareMechanic({ round, currencyCode, uiLocale, usesCurrency, o
           onClick={submit}
           className="mt-md min-h-touch-min-child w-full rounded-lg bg-teal px-md py-xs font-medium text-white shadow-resting disabled:opacity-40"
         >
-          Check my choice
+          {t("game.checkMyChoice")}
         </button>
       )}
     </div>

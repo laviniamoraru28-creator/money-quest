@@ -18,7 +18,12 @@ export const config = {
     // Excludes /api/* in addition to the existing static-asset
     // exclusions — API routes must never go through next-intl's locale
     // detection/redirect logic, which would try to rewrite them under
-    // a locale prefix and break them entirely.
-    "/((?!api/|_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
+    // a locale prefix and break them entirely. `.pdf` added alongside
+    // the image extensions for the same reason: the printable
+    // worksheets under public/worksheets/ are locale-independent
+    // static files (see public/worksheets/README.txt) and must be
+    // reachable at their exact path, not redirected under a locale
+    // prefix where no such file exists.
+    "/((?!api/|_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp|pdf)$).*)",
   ],
 };

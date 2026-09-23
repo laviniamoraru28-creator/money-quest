@@ -16,6 +16,7 @@
     "safety": "Safety",
     "getStarted": "Get started",
     "backHome": "← Back home",
+    "home": "Home",
     "backToWorldMap": "← World Map",
     "learn": "Learn"
   },
@@ -65,7 +66,16 @@
     "realLifeScenario": "Real-Life Scenario",
     "whatWouldYouDo": "What would you do?",
     "keyIdea": "Key idea",
-    "tryThisAtHome": "Try this at home!"
+    "tryThisAtHome": "Try this at home!",
+    "printableWorksheetButton": "Printable worksheet"
+  },
+  "worksheet": {
+    "pageTitle": "Printable Worksheet",
+    "openButton": "Open worksheet (PDF)",
+    "printHint": "Opens in a new tab. Use your browser's Print option there to print it or save it as a PDF.",
+    "englishOnlyNote": "This worksheet is available in English only.",
+    "answerKeyLink": "Answer key for parents and teachers (PDF)",
+    "backToLesson": "Back to lesson"
   },
   "game": {
     "roundOf": "Round {current} of {total}",
@@ -92,7 +102,15 @@
     "goodCatch": "Good catch!",
     "missedWarningSign": "This was a warning sign",
     "actuallyFine": "This one was actually fine",
-    "checkWhatIFound": "Check what I found"
+    "checkWhatIFound": "Check what I found",
+    "checkMyChoice": "Check my choice",
+    "bestChoice": "Best choice",
+    "notBestValue": "Not the best value here",
+    "yourAnswerLabel": "Your answer",
+    "yourAnswerLabelCurrency": "Your answer (in {code})",
+    "checkMySorting": "Check my sorting",
+    "matchedBadge": "Matched",
+    "notAMatchBadge": "Not a match"
   },
   "simulator": {
     "weekOf": "{week} of {total}",
@@ -269,7 +287,8 @@
     "focusModeLabel": "Focus mode",
     "focusModeHint": "Hides extra details so only the main activity shows.",
     "listenToLessonLabel": "Listen to the lesson",
-    "mainNavigationLabel": "Main"
+    "mainNavigationLabel": "Main",
+    "categoryMayNeedAdjusting": "- this category may need adjusting"
   },
   "characters": {
     "pip": "Pip",
@@ -330,6 +349,7 @@
     "soundOnLabel": "Sound is on - tap to mute",
     "soundOffLabel": "Sound is muted - tap to turn on",
     "levelLabel": "Level {number}",
+    "yourLevelLabel": "Your level: {level}",
     "levelComplete": "Level complete!",
     "planYourSavingTitle": "Plan it out",
     "weeklyAmountLabel": "Weekly amount",

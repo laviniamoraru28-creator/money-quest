@@ -62,12 +62,20 @@ export default function InvestingLabPage() {
   return (
     <div className="min-h-screen bg-fog px-sm py-lg">
       <main className="mx-auto max-w-[700px]">
-        <Link
-          href="/play"
-          className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal transition-colors duration-quick hover:bg-teal/5"
-        >
-          <span aria-hidden="true">←</span> {t("nav.backToWorldMap")}
-        </Link>
+        <div className="flex flex-wrap gap-2xs">
+          <Link
+            href="/"
+            className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal transition-colors duration-quick hover:bg-teal/5"
+          >
+            <span aria-hidden="true">🏠</span> {t("nav.home")}
+          </Link>
+          <Link
+            href="/play"
+            className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal transition-colors duration-quick hover:bg-teal/5"
+          >
+            <span aria-hidden="true">←</span> {t("nav.backToWorldMap")}
+          </Link>
+        </div>
         <h1 className="mt-sm font-display text-2xl font-bold">{t("investingLab.pageTitle")}</h1>
 
         <div className="mt-2xs rounded-md border-2 border-gold bg-gold/10 p-sm">

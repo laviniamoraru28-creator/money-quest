@@ -88,7 +88,7 @@ export function SortMechanic({ round, onAnswer, isResolved }: MechanicProps<Sort
           onClick={checkAnswers}
           className="mt-md min-h-touch-min-child w-full rounded-lg bg-teal px-md py-xs font-medium text-white shadow-resting"
         >
-          Check my sorting
+          {t("game.checkMySorting")}
         </button>
       )}
     </div>

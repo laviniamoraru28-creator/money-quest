@@ -1,11 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import type { MechanicProps } from "../registry";
 import type { NumericRound } from "../types";
 import { getCurrencyOption } from "@/lib/currency/format";
 
 export function NumericMechanic({ round, currencyCode, usesCurrency, onAnswer, isResolved }: MechanicProps<NumericRound>) {
+  const t = useTranslations();
   // Note: this component shows a currency SYMBOL beside an input field
   // (an affordance, not a formatted amount), so it doesn't call
   // formatCurrency() and doesn't need uiLocale — unlike CompareMechanic/
@@ -42,7 +44,7 @@ export function NumericMechanic({ round, currencyCode, usesCurrency, onAnswer, i
       <p className="rounded-sm bg-fog p-sm text-base text-ink/80">{round.givenContext}</p>
 
       <label htmlFor={`numeric-${round.id}`} className="mt-sm block text-sm font-medium">
-        Your answer{usesCurrency && currency ? ` (in ${currency.code})` : ""}
+        {usesCurrency && currency ? t("game.yourAnswerLabelCurrency", { code: currency.code }) : t("game.yourAnswerLabel")}
       </label>
       <div className="mt-2xs flex items-center gap-2xs">
         {usesCurrency && currency && currency.symbolPosition === "before" && (
@@ -69,7 +71,7 @@ export function NumericMechanic({ round, currencyCode, usesCurrency, onAnswer, i
           onClick={submit}
           className="mt-md min-h-touch-min-child w-full rounded-lg bg-teal px-md py-xs font-medium text-white shadow-resting disabled:opacity-40"
         >
-          Check my answer
+          {t("lesson.checkMyAnswer")}
         </button>
       )}
     </div>

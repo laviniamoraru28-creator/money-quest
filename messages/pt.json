@@ -16,6 +16,7 @@
     "safety": "Segurança",
     "getStarted": "Começar",
     "backHome": "← Voltar ao início",
+    "home": "Início",
     "backToWorldMap": "← Mapa dos Mundos",
     "learn": "Aprender"
   },
@@ -65,7 +66,16 @@
     "realLifeScenario": "Cenário da Vida Real",
     "whatWouldYouDo": "O que farias?",
     "keyIdea": "Ideia principal",
-    "tryThisAtHome": "Experimenta em casa!"
+    "tryThisAtHome": "Experimenta em casa!",
+    "printableWorksheetButton": "Ficha para imprimir"
+  },
+  "worksheet": {
+    "pageTitle": "Ficha para imprimir",
+    "openButton": "Abrir ficha (PDF)",
+    "printHint": "Abre num novo separador. Usa a opção Imprimir do teu navegador para a imprimir ou guardar como PDF.",
+    "englishOnlyNote": "Esta ficha está disponível apenas em inglês.",
+    "answerKeyLink": "Guia de respostas para pais e professores (PDF)",
+    "backToLesson": "Voltar à lição"
   },
   "game": {
     "roundOf": "Ronda {current} de {total}",
@@ -92,7 +102,15 @@
     "goodCatch": "Boa observação!",
     "missedWarningSign": "Isto era um sinal de alerta",
     "actuallyFine": "Isto estava na verdade bem",
-    "checkWhatIFound": "Verificar o que encontrei"
+    "checkWhatIFound": "Verificar o que encontrei",
+    "checkMyChoice": "Verificar a minha escolha",
+    "bestChoice": "Melhor escolha",
+    "notBestValue": "Não é a melhor opção aqui",
+    "yourAnswerLabel": "A tua resposta",
+    "yourAnswerLabelCurrency": "A tua resposta (em {code})",
+    "checkMySorting": "Verificar a minha organização",
+    "matchedBadge": "Correspondido",
+    "notAMatchBadge": "Não corresponde"
   },
   "simulator": {
     "weekOf": "{week} de {total}",
@@ -269,7 +287,8 @@
     "focusModeLabel": "Modo de foco",
     "focusModeHint": "Esconde detalhes extra para que apenas a atividade principal apareça.",
     "listenToLessonLabel": "Ouvir a lição",
-    "mainNavigationLabel": "Principal"
+    "mainNavigationLabel": "Principal",
+    "categoryMayNeedAdjusting": "- esta categoria pode precisar de ajuste"
   },
   "characters": {
     "pip": "Pip",
@@ -330,6 +349,7 @@
     "soundOnLabel": "O som está ativado - toca para silenciar",
     "soundOffLabel": "O som está silenciado - toca para ativar",
     "levelLabel": "Nível {number}",
+    "yourLevelLabel": "O teu nível: {level}",
     "levelComplete": "Nível concluído!",
     "planYourSavingTitle": "Planeia isto",
     "weeklyAmountLabel": "Quantia semanal",
@@ -1524,8 +1544,8 @@
     "explorer-junior_isa-l1": {
       "title": "Uma conta poupança especial só para crianças (Reino Unido)",
       "learningObjective": "Compreender, em termos simples, que uma Junior ISA é uma conta poupança do Reino Unido que pertence a uma criança, mesmo que um adulto trate dela.",
-      "shortIntroduction": "No Reino Unido existe um tipo especial de conta poupança que pertence a uma criança, mesmo que um adulto a giro.",
-      "story": "A avó da Freya colocou algum dinheiro numa coisa chamada «Junior ISA» para ela. A Freya perguntou se era mesmo dela. A mãe explicou-lhe: «Sim - esse dinheiro é teu. A avó e eu só tratamos dele até seres suficientemente crescida para o giro sozinha.»",
+      "shortIntroduction": "No Reino Unido existe um tipo especial de conta poupança que pertence a uma criança, mesmo que um adulto a gira.",
+      "story": "A avó da Freya colocou algum dinheiro numa coisa chamada «Junior ISA» para ela. A Freya perguntou se era mesmo dela. A mãe explicou-lhe: «Sim - esse dinheiro é teu. A avó e eu só tratamos dele até seres suficientemente crescida para o gerires sozinha.»",
       "keyConcept": "Uma Junior ISA (JISA) é uma conta poupança do Reino Unido que pertence a uma criança, mesmo que um pai, mãe ou tutor a gira enquanto ela é pequena.",
       "vocabulary": [
         {
@@ -1553,7 +1573,7 @@
         "explanation": "Mesmo que um pai, mãe ou tutor gira uma Junior ISA, o dinheiro lá dentro pertence mesmo à criança - o adulto só trata dele."
       },
       "feedback": {
-        "success": "Exato - é mesmo o dinheiro da Freya, ainda que a mãe dela o giro! 🇬🇧",
+        "success": "Exato - é mesmo o dinheiro da Freya, ainda que a mãe dela o gira! 🇬🇧",
         "retry": "Pensa no que a mãe da Freya explicou sobre a quem pertence realmente o dinheiro."
       },
       "rewardMessage": "Moedas ganhas por compreenderes de quem é realmente o dinheiro de uma Junior ISA!",
@@ -3856,7 +3876,7 @@
     "subtitle": "Um olhar leve, só por diversão, sobre como costumas pensar sobre dinheiro. Não há uma resposta certa, e nenhum tipo é melhor do que outro.",
     "startButton": "Começar",
     "retakeButton": "Repetir",
-    "backToWorldMap": "Voltar ao Mapa do Mundo",
+    "backToWorldMap": "Voltar ao Mapa dos Mundos",
     "resultIntro": "O teu resultado Money Quest:",
     "challengeLabel": "O teu desafio Money Quest:",
     "questions": [

@@ -6,13 +6,13 @@ interface LessonIllustrationProps {
 
 /**
  * Topics with a supplied illustration, used in place of the hand-drawn
- * SVG motif below for these 7 specific topics only — reusing the same
+ * SVG motif below for these 8 specific topics only — reusing the same
  * photo across every lesson that shares a topic (not one per lesson),
  * matching how every other topic already shares one motif across its
- * explorer/builder/strategist lessons. long_term_thinking, giving, and
- * junior_isa keep their existing SVG motif (junior_isa's own default
- * circle included) — no illustration was supplied for those, so they
- * are deliberately left alone rather than reusing an unrelated photo.
+ * explorer/builder/strategist lessons. long_term_thinking and giving
+ * keep their existing SVG motif — no illustration has been supplied
+ * for those, so they are deliberately left alone rather than reusing
+ * an unrelated photo.
  */
 const PHOTO_TOPIC_IMAGES: Record<string, string> = {
   money_basics: "/images/money-quest/lessons/money-basics.webp",
@@ -22,6 +22,7 @@ const PHOTO_TOPIC_IMAGES: Record<string, string> = {
   currencies: "/images/money-quest/lessons/currencies.webp",
   scams: "/images/money-quest/lessons/scams.webp",
   investing_basics: "/images/money-quest/lessons/investing.webp",
+  junior_isa: "/images/money-quest/lessons/junior-isa.webp",
 };
 
 /**

@@ -80,7 +80,7 @@ export function MatchMechanic({ round, onAnswer, isResolved }: MechanicProps<Mat
                 {isMatched && (
                   <span className="ml-2xs text-success">
                     <span aria-hidden="true">✓</span>
-                    <span className="sr-only"> Matched</span>
+                    <span className="sr-only"> {t("game.matchedBadge")}</span>
                   </span>
                 )}
               </button>
@@ -108,13 +108,13 @@ export function MatchMechanic({ round, onAnswer, isResolved }: MechanicProps<Mat
                 {isMatched && (
                   <span className="ml-2xs text-success">
                     <span aria-hidden="true">✓</span>
-                    <span className="sr-only"> Matched</span>
+                    <span className="sr-only"> {t("game.matchedBadge")}</span>
                   </span>
                 )}
                 {isWrongFlash && (
                   <span className="ml-2xs text-error">
                     <span aria-hidden="true">✗</span>
-                    <span className="sr-only"> Not a match</span>
+                    <span className="sr-only"> {t("game.notAMatchBadge")}</span>
                   </span>
                 )}
               </button>

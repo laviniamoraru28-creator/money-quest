@@ -12,6 +12,7 @@ import { EventCard } from "./EventCard";
 import { WeekSummaryCard } from "./WeekSummaryCard";
 import { FinalReportCard } from "./FinalReportCard";
 import { ProgressBar } from "@/components/ui/ProgressBar";
+import { Button } from "@/components/ui/Button";
 
 interface SimulatorShellProps {
   scenario: SimScenario;
@@ -120,6 +121,14 @@ export function SimulatorShell({ scenario, currencyCode, simulationActivityId, b
 
   return (
     <div className="flex flex-col gap-sm">
+      <div className="flex flex-wrap gap-xs">
+        <Button type="button" variant="secondary" onClick={() => router.push(backHref)}>
+          {t("nav.backToWorldMap")}
+        </Button>
+        <Button type="button" variant="secondary" onClick={() => router.push("/")}>
+          <span aria-hidden="true">🏠</span> {t("nav.home")}
+        </Button>
+      </div>
       <div>
         <p className="text-sm text-ink/70">
           {t("simulator.weekOf", { week: week.weekLabel, total: scenario.weeks.length })}

@@ -16,6 +16,7 @@
     "safety": "Veiligheid",
     "getStarted": "Aan de slag",
     "backHome": "← Terug naar home",
+    "home": "Home",
     "backToWorldMap": "← Wereldkaart",
     "learn": "Leren"
   },
@@ -65,7 +66,16 @@
     "realLifeScenario": "Scenario uit het Echte Leven",
     "whatWouldYouDo": "Wat zou jij doen?",
     "keyIdea": "Kernidee",
-    "tryThisAtHome": "Probeer dit thuis!"
+    "tryThisAtHome": "Probeer dit thuis!",
+    "printableWorksheetButton": "Afdrukbaar werkblad"
+  },
+  "worksheet": {
+    "pageTitle": "Afdrukbaar werkblad",
+    "openButton": "Werkblad openen (PDF)",
+    "printHint": "Opent in een nieuw tabblad. Gebruik daar de afdrukoptie van je browser om het af te drukken of als PDF op te slaan.",
+    "englishOnlyNote": "Dit werkblad is alleen in het Engels beschikbaar.",
+    "answerKeyLink": "Antwoordenblad voor ouders en leerkrachten (PDF)",
+    "backToLesson": "Terug naar de les"
   },
   "game": {
     "roundOf": "Ronde {current} van {total}",
@@ -92,7 +102,15 @@
     "goodCatch": "Goed opgemerkt!",
     "missedWarningSign": "Dit was een waarschuwingssignaal",
     "actuallyFine": "Dit was eigenlijk prima",
-    "checkWhatIFound": "Controleer wat ik heb gevonden"
+    "checkWhatIFound": "Controleer wat ik heb gevonden",
+    "checkMyChoice": "Controleer mijn keuze",
+    "bestChoice": "Beste keuze",
+    "notBestValue": "Hier niet de beste keuze",
+    "yourAnswerLabel": "Jouw antwoord",
+    "yourAnswerLabelCurrency": "Jouw antwoord (in {code})",
+    "checkMySorting": "Controleer mijn sortering",
+    "matchedBadge": "Gematcht",
+    "notAMatchBadge": "Geen match"
   },
   "simulator": {
     "weekOf": "{week} van {total}",
@@ -269,7 +287,8 @@
     "focusModeLabel": "Focusmodus",
     "focusModeHint": "Verbergt extra details zodat alleen de hoofdactiviteit wordt getoond.",
     "listenToLessonLabel": "Luister naar de les",
-    "mainNavigationLabel": "Hoofdmenu"
+    "mainNavigationLabel": "Hoofdmenu",
+    "categoryMayNeedAdjusting": "- deze categorie moet mogelijk worden aangepast"
   },
   "characters": {
     "pip": "Pip",
@@ -330,6 +349,7 @@
     "soundOnLabel": "Geluid staat aan - tik om te dempen",
     "soundOffLabel": "Geluid is gedempt - tik om aan te zetten",
     "levelLabel": "Level {number}",
+    "yourLevelLabel": "Jouw niveau: {level}",
     "levelComplete": "Level voltooid!",
     "planYourSavingTitle": "Plan het",
     "weeklyAmountLabel": "Wekelijks bedrag",

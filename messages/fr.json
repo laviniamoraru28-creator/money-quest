@@ -16,6 +16,7 @@
     "safety": "Sécurité",
     "getStarted": "Commencer",
     "backHome": "← Retour à l'accueil",
+    "home": "Accueil",
     "backToWorldMap": "← Carte des Mondes",
     "learn": "Apprendre"
   },
@@ -29,12 +30,12 @@
     "heroImageAlt": "Un enfant souriant tenant un téléphone qui affiche l'application Money Quest, à côté du logo Money Quest et du texte Skills for Life.",
     "ctaGetStartedFree": "Commence ta Money Quest",
     "ctaSeeHowItWorks": "Voir comment ça marche",
-    "whyFree": "Money Quest est gratuit pour les familles, financé par une publicité respectueuse de la vie privée affichée uniquement sur les pages destinées aux parents - jamais dans l'expérience de votre enfant. Aucun achat pour enfants, jamais.",
+    "whyFree": "Money Quest est gratuit pour les familles, financé par une publicité respectueuse de la vie privée affichée uniquement sur les pages destinées aux parents - jamais dans l'expérience de ton enfant. Aucun achat pour enfants, jamais.",
     "howItWorksTitle": "Comment ça marche",
     "step1Title": "1. Choisis un niveau",
     "step1Body": "Choisis un niveau d'apprentissage - sans inscription, sans compte, enregistré uniquement sur cet appareil.",
     "step2Title": "2. Explore un Monde",
-    "step2Body": "Des histoires, des mini-jeux et des défis enseignent de vraies compétences - besoins contre désirs, épargne et plus encore - par le jeu, pas par des leçons.",
+    "step2Body": "Des histoires, des mini-jeux et des défis enseignent de vraies compétences - besoins contre envies, épargne et plus encore - par le jeu, pas par des leçons.",
     "step3Title": "3. Regarde tes progrès grandir",
     "step3Body": "Vois ton niveau, tes pièces et tes quêtes terminées grandir directement sur ton propre appareil - aucun compte nécessaire pour les suivre.",
     "forParentsTitle": "Conçu pour gagner la confiance des parents",
@@ -44,7 +45,7 @@
     "trust4": "Aucun compte, aucune inscription, et aucune information personnelle jamais collectée",
     "readFullParentInfoLink": "Lis toute notre page d'Informations pour les Parents →",
     "safetyTitle": "La sécurité avant tout",
-    "safetyBody": "Nous ne demandons jamais à votre enfant son vrai nom, son adresse, son école ou toute information financière. Chaque jeu, histoire et défi est vérifié selon de véritables cadres d'éducation financière de l'OCDE, de la CFPB et du UK Money and Pensions Service.",
+    "safetyBody": "Nous ne demandons jamais à ton enfant son vrai nom, son adresse, son école ou toute information financière. Chaque jeu, histoire et défi est vérifié selon de véritables cadres d'éducation financière de l'OCDE, de la CFPB et du UK Money and Pensions Service.",
     "copyright": "© {year} Money Quest"
   },
   "dashboard": {
@@ -65,7 +66,16 @@
     "realLifeScenario": "Scénario de la Vie Réelle",
     "whatWouldYouDo": "Que ferais-tu ?",
     "keyIdea": "Idée clé",
-    "tryThisAtHome": "Essaie ça à la maison !"
+    "tryThisAtHome": "Essaie ça à la maison !",
+    "printableWorksheetButton": "Fiche imprimable"
+  },
+  "worksheet": {
+    "pageTitle": "Fiche imprimable",
+    "openButton": "Ouvrir la fiche (PDF)",
+    "printHint": "S'ouvre dans un nouvel onglet. Utilise l'option Imprimer de ton navigateur pour l'imprimer ou l'enregistrer en PDF.",
+    "englishOnlyNote": "Cette fiche n'est disponible qu'en anglais.",
+    "answerKeyLink": "Corrigé pour les parents et les enseignants (PDF)",
+    "backToLesson": "Retour à la leçon"
   },
   "game": {
     "roundOf": "Manche {current} sur {total}",
@@ -92,7 +102,15 @@
     "goodCatch": "Bien vu !",
     "missedWarningSign": "C'était un signal d'alarme",
     "actuallyFine": "En fait, ça allait très bien",
-    "checkWhatIFound": "Vérifier ce que j'ai trouvé"
+    "checkWhatIFound": "Vérifier ce que j'ai trouvé",
+    "checkMyChoice": "Vérifier mon choix",
+    "bestChoice": "Meilleur choix",
+    "notBestValue": "Pas la meilleure option ici",
+    "yourAnswerLabel": "Ta réponse",
+    "yourAnswerLabelCurrency": "Ta réponse (en {code})",
+    "checkMySorting": "Vérifier mon tri",
+    "matchedBadge": "Associé",
+    "notAMatchBadge": "Pas associé"
   },
   "simulator": {
     "weekOf": "{week} sur {total}",
@@ -109,7 +127,7 @@
     "startingBalance": "Solde virtuel de départ",
     "incomeReceived": "Revenus reçus",
     "spentOnNeeds": "Dépensé en besoins",
-    "spentOnWants": "Dépensé en désirs",
+    "spentOnWants": "Dépensé en envies",
     "given": "Donné",
     "saved": "Épargné",
     "remainingBalance": "Solde virtuel restant",
@@ -248,7 +266,7 @@
   },
   "categories": {
     "needs": "Besoins",
-    "wants": "Désirs",
+    "wants": "Envies",
     "savings": "Épargne",
     "giving": "Dons",
     "unexpected": "Au cas où"
@@ -269,7 +287,8 @@
     "focusModeLabel": "Mode concentration",
     "focusModeHint": "Masque les détails supplémentaires pour ne montrer que l'activité principale.",
     "listenToLessonLabel": "Écouter la leçon",
-    "mainNavigationLabel": "Principal"
+    "mainNavigationLabel": "Principal",
+    "categoryMayNeedAdjusting": "- cette catégorie pourrait nécessiter un ajustement"
   },
   "characters": {
     "pip": "Pip",
@@ -330,6 +349,7 @@
     "soundOnLabel": "Le son est activé - touche pour couper",
     "soundOffLabel": "Le son est coupé - touche pour activer",
     "levelLabel": "Niveau {number}",
+    "yourLevelLabel": "Ton niveau : {level}",
     "levelComplete": "Niveau terminé !",
     "planYourSavingTitle": "Planifie ça",
     "weeklyAmountLabel": "Montant hebdomadaire",
@@ -348,7 +368,7 @@
     "title": "Informations pour les Parents",
     "intro": "Réponses en langage simple aux questions auxquelles nous aimerions voir répondre avant de laisser un enfant utiliser un site comme celui-ci.",
     "q1Title": "Que fait ce site ?",
-    "q1Body": "Money Quest enseigne aux enfants l'éducation financière à travers des leçons, des quiz et des jeux - besoins contre désirs, épargne, dépenses, budget, gains, protection contre les arnaques et plus encore. Tout l'argent dans l'application est fictif.",
+    "q1Body": "Money Quest enseigne aux enfants l'éducation financière à travers des leçons, des quiz et des jeux - besoins contre envies, épargne, dépenses, budget, gains, protection contre les arnaques et plus encore. Tout l'argent dans l'application est fictif.",
     "q2Title": "Quelles informations collecte-t-il ?",
     "q2Body": "Aucune qui identifie ton enfant. La seule chose que le site demande est un niveau d'apprentissage (Débutant, Primaire ou Avancé) afin que les leçons soient écrites au bon niveau de lecture - et ce choix n'est jamais envoyé où que ce soit ; il est enregistré uniquement dans ce navigateur.",
     "q3Title": "Quelles informations NE collecte-t-il PAS ?",
@@ -402,7 +422,7 @@
     "readMorePrefix": "En savoir plus sur notre page",
     "parentInfoLink": "Informations pour les Parents",
     "readMoreMiddle": ". Des questions sur cette politique ?",
-    "contactUsLink": "Contactez-nous"
+    "contactUsLink": "Contacte-nous"
   },
   "curriculum": {
     "explorer-money_basics-l1": {
@@ -1307,7 +1327,7 @@
         "retry": "Repense à ce qui s'est passé quand la carte de maman a fait « bip » au magasin."
       },
       "rewardMessage": "Pièces gagnées pour avoir repéré l'argent numérique en action !",
-      "parentNote": "Cette leçon introduit l'idée de base que l'argent peut se déplacer numériquement, sans avoir besoin d'expliquer comment fonctionnent vraiment les réseaux de cartes ou les virements bancaires - ce détail n'est pas nécessaire à cet âge. Si votre enfant vous voit approcher une carte ou payer avec un téléphone, le dire à voix haute (« regarde, c'est de l'argent numérique qui se déplace ») renforce bien l'idée.",
+      "parentNote": "Cette leçon introduit l'idée de base que l'argent peut se déplacer numériquement, sans avoir besoin d'expliquer comment fonctionnent vraiment les réseaux de cartes ou les virements bancaires - ce détail n'est pas nécessaire à cet âge. Si ton enfant te voit approcher une carte ou payer avec un téléphone, le dire à voix haute (« regarde, c'est de l'argent numérique qui se déplace ») renforce bien l'idée.",
       "commonMisconception": "Les jeunes enfants pensent parfois qu'une carte « est » l'argent lui-même, plutôt qu'un outil qui déplace de l'argent qui existe déjà sur un compte."
     },
     "builder-digital_money-l1": {
@@ -1393,7 +1413,7 @@
         "retry": "Repense à pourquoi les dépenses de Priya ont augmenté sans aucun gros achat unique."
       },
       "rewardMessage": "Pièces gagnées pour avoir réfléchi sérieusement à l'attention avec l'argent numérique !",
-      "parentNote": "Cette leçon ne cherche pas à restreindre les paiements numériques, mais à construire une attention consciente - la même compétence que les adultes doivent aussi pratiquer. Si votre adolescent a accès à une carte ou à un portefeuille numérique, revoir ensemble un historique de dépenses de temps en temps (sans jugement) est une habitude partagée vraiment utile, pas juste un contrôle.",
+      "parentNote": "Cette leçon ne cherche pas à restreindre les paiements numériques, mais à construire une attention consciente - la même compétence que les adultes doivent aussi pratiquer. Si ton adolescent a accès à une carte ou à un portefeuille numérique, revoir ensemble un historique de dépenses de temps en temps (sans jugement) est une habitude partagée vraiment utile, pas juste un contrôle.",
       "commonMisconception": "Les adolescents supposent parfois qu'être à l'aise avec les applications et les cartes signifie automatiquement bien suivre leurs dépenses - être à l'aise avec la technologie et être conscient du montant dépensé sont deux choses différentes."
     },
     "explorer-investing_basics-l1": {
@@ -1475,7 +1495,7 @@
         "retry": "Repense à ce que l'oncle de Mei possède vraiment en détenant des actions."
       },
       "rewardMessage": "Pièces gagnées pour avoir compris ce que signifie vraiment posséder une action !",
-      "parentNote": "Cette leçon introduit le concept de propriété par actions en utilisant des exemples entièrement fictifs - elle ne mentionne ni n'évalue délibérément aucune entreprise réelle, et n'est pas une recommandation d'achat. Le Laboratoire d'Investissement de Money Quest (une fonctionnalité distincte et autonome) permet à votre enfant d'explorer davantage cette idée avec des entreprises entièrement fictives et de l'argent virtuel.",
+      "parentNote": "Cette leçon introduit le concept de propriété par actions en utilisant des exemples entièrement fictifs - elle ne mentionne ni n'évalue délibérément aucune entreprise réelle, et n'est pas une recommandation d'achat. Le Laboratoire d'Investissement de Money Quest (une fonctionnalité distincte et autonome) permet à ton enfant d'explorer davantage cette idée avec des entreprises entièrement fictives et de l'argent virtuel.",
       "commonMisconception": "Les enfants de cet âge pensent parfois qu'un « cours d'action » est un chiffre arbitraire, plutôt que de le relier à une propriété réelle dans une entreprise véritable et fonctionnelle."
     },
     "strategist-investing_basics-l1": {
@@ -1518,7 +1538,7 @@
         "retry": "Repense à ce que la cousine de Jamal a expliqué sur la répartition d'argent imaginaire entre plusieurs entreprises."
       },
       "rewardMessage": "Pièces gagnées pour avoir sérieusement réfléchi au risque, à la diversification et au temps !",
-      "parentNote": "Cette leçon ne recommande jamais aucun produit, plateforme, action ou stratégie d'investissement réel, et ne constitue pas un conseil financier - son objectif est purement conceptuel : littératie sur le risque/la récompense, la diversification et la pensée à long terme, en utilisant le Laboratoire d'Investissement de Money Quest et ses entreprises entièrement fictives et son argent virtuel pour rendre les idées concrètes sans aucun enjeu financier réel. Si votre adolescent veut comprendre de vraies options d'investissement, c'est une conversation (et une décision) pour vous et, le cas échéant, un véritable professionnel de la finance - jamais cette application.",
+      "parentNote": "Cette leçon ne recommande jamais aucun produit, plateforme, action ou stratégie d'investissement réel, et ne constitue pas un conseil financier - son objectif est purement conceptuel : littératie sur le risque/la récompense, la diversification et la pensée à long terme, en utilisant le Laboratoire d'Investissement de Money Quest et ses entreprises entièrement fictives et son argent virtuel pour rendre les idées concrètes sans aucun enjeu financier réel. Si ton adolescent veut comprendre de vraies options d'investissement, c'est une conversation (et une décision) pour toi et, le cas échéant, un véritable professionnel de la finance - jamais cette application.",
       "commonMisconception": "Les adolescents confondent parfois investissement et pari, ou supposent que répartir l'argent entre plusieurs choses garantit la sécurité, plutôt que de comprendre que cela ne fait que réduire (jamais éliminer) la dépendance à un seul résultat."
     },
     "explorer-junior_isa-l1": {
@@ -3524,7 +3544,7 @@
                 },
                 {
                   "id": "tap-card",
-                  "label": "Toucher une carte dans un magasin",
+                  "label": "Approcher une carte dans un magasin",
                   "correctBucketKey": "digital"
                 },
                 {
@@ -3830,7 +3850,7 @@
     "title": "Éducation Financière pour Enfants : Un Guide pour Parents et Enseignants",
     "description": "Des conseils pratiques, adaptés à chaque âge, pour apprendre aux enfants à gérer l'argent - épargne, budget, besoins contre envies, et plus - écrits pour les parents, enseignants et familles.",
     "introPrefix": "L'éducation financière des enfants n'a pas besoin d'attendre l'adolescence, ni d'un manuel. Voici une bibliothèque pratique et adaptée à chaque âge de conseils pour les parents et les enseignants - couvrant l'épargne, le budget, les besoins contre les envies, les devises et des activités concrètes - écrite par l'équipe derrière",
-    "introSuffix": ", un monde gratuit d'éducation financière pour les enfants de 6 à 14 ans.",
+    "introSuffix": ", une plateforme gratuite d'éducation financière pour les enfants de 6 à 14 ans.",
     "ctaTitle": "Voir ces idées en action",
     "ctaBody": "Money Quest transforme chaque sujet ci-dessus en un jeu ou une activité gratuite et adaptée à l'âge."
   },
@@ -3856,7 +3876,7 @@
     "subtitle": "Un regard léger, juste pour le plaisir, sur ta façon de penser à l'argent. Il n'y a pas de bonne réponse, et aucun type n'est meilleur qu'un autre.",
     "startButton": "Commencer",
     "retakeButton": "Recommencer",
-    "backToWorldMap": "Retour à la Carte du Monde",
+    "backToWorldMap": "Retour à la Carte des Mondes",
     "resultIntro": "Ton résultat Money Quest :",
     "challengeLabel": "Ton défi Money Quest :",
     "questions": [
@@ -4188,7 +4208,7 @@
       ]
     },
     "currency-education": {
-      "title": "Éducation sur les Devises pour Enfants : Enseigner l'Argent",
+      "title": "Éducation sur les Devises pour Enfants : L'Argent à Travers les Cultures",
       "metaDescription": "Comment présenter aux enfants l'idée que différents pays utilisent des monnaies différentes, pourquoi les taux de change existent, et des façons simples de rendre la devise concrète.",
       "sections": [
         {

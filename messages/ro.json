@@ -16,6 +16,7 @@
     "safety": "Siguranță",
     "getStarted": "Începe acum",
     "backHome": "← Înapoi acasă",
+    "home": "Acasă",
     "backToWorldMap": "← Harta Lumilor",
     "learn": "Ghid"
   },
@@ -65,7 +66,16 @@
     "realLifeScenario": "Scenariu din Viața Reală",
     "whatWouldYouDo": "Ce ai face?",
     "keyIdea": "Idee cheie",
-    "tryThisAtHome": "Încearcă asta acasă!"
+    "tryThisAtHome": "Încearcă asta acasă!",
+    "printableWorksheetButton": "Fișă de lucru printabilă"
+  },
+  "worksheet": {
+    "pageTitle": "Fișă de lucru printabilă",
+    "openButton": "Deschide fișa (PDF)",
+    "printHint": "Se deschide într-o filă nouă. Folosește opțiunea Printează a browserului pentru a o tipări sau a o salva ca PDF.",
+    "englishOnlyNote": "Această fișă este disponibilă doar în engleză.",
+    "answerKeyLink": "Ghid de răspunsuri pentru părinți și profesori (PDF)",
+    "backToLesson": "Înapoi la lecție"
   },
   "game": {
     "roundOf": "Runda {current} din {total}",
@@ -92,7 +102,15 @@
     "goodCatch": "Bine observat!",
     "missedWarningSign": "Acesta era un semnal de alarmă",
     "actuallyFine": "Acesta era de fapt în regulă",
-    "checkWhatIFound": "Verifică ce am găsit"
+    "checkWhatIFound": "Verifică ce am găsit",
+    "checkMyChoice": "Verifică alegerea mea",
+    "bestChoice": "Cea mai bună alegere",
+    "notBestValue": "Nu este cea mai bună variantă aici",
+    "yourAnswerLabel": "Răspunsul tău",
+    "yourAnswerLabelCurrency": "Răspunsul tău (în {code})",
+    "checkMySorting": "Verifică sortarea mea",
+    "matchedBadge": "Potrivit",
+    "notAMatchBadge": "Nu se potrivește"
   },
   "simulator": {
     "weekOf": "{week} din {total}",
@@ -269,7 +287,8 @@
     "focusModeLabel": "Mod de concentrare",
     "focusModeHint": "Ascunde detaliile suplimentare astfel încât să se vadă doar activitatea principală.",
     "listenToLessonLabel": "Ascultă lecția",
-    "mainNavigationLabel": "Principal"
+    "mainNavigationLabel": "Principal",
+    "categoryMayNeedAdjusting": "- această categorie ar putea avea nevoie de ajustări"
   },
   "characters": {
     "pip": "Pip",
@@ -330,6 +349,7 @@
     "soundOnLabel": "Sunetul este activat - atinge pentru a opri",
     "soundOffLabel": "Sunetul este oprit - atinge pentru a activa",
     "levelLabel": "Nivelul {number}",
+    "yourLevelLabel": "Nivelul tău: {level}",
     "levelComplete": "Nivel finalizat!",
     "planYourSavingTitle": "Planifică",
     "weeklyAmountLabel": "Suma săptămânală",
@@ -1314,7 +1334,7 @@
       "title": "Cum funcționează cu adevărat o plată cu cardul",
       "learningObjective": "Să explice, în termeni simpli, ce se întâmplă în spatele unei plăți cu cardul sau fără contact, și să înțeleagă obiceiuri simple de siguranță, precum păstrarea PIN-ului privat.",
       "shortIntroduction": "O atingere de card pare instantanee, dar câțiva pași reali se întâmplă în spate ca banii să se mute în siguranță.",
-      "story": "Omar cumpără o revistă cu cardul familiei. Se uită la micul ecran care arată o sumă, apoi apare o bifă verde. Vărul lui mai mare îi explică: „Bifa aceea înseamnă că magazinul tocmai a verificat că există suficienți bani în cont și i-a mutat - totul în aproape o secundă.”",
+      "story": "Omar cumpără o bandă desenată cu cardul familiei. Se uită la micul ecran care arată o sumă, apoi apare o bifă verde. Vărul lui mai mare îi explică: „Bifa aceea înseamnă că magazinul tocmai a verificat că există suficienți bani în cont și i-a mutat - totul în aproape o secundă.”",
       "keyConcept": "O plată cu cardul verifică rapid dacă există suficienți bani, apoi mută suma respectivă din contul cumpărătorului în contul vânzătorului - aproape instantaneu.",
       "vocabulary": [
         {
@@ -2975,10 +2995,10 @@
             {
               "id": "unexpected-expense",
               "mechanic": "mission",
-              "prompt": "Ți s-a rupt șireul pe drumul spre școală! Ai nevoie de unul nou. Ce ai face?",
+              "prompt": "Ți s-a rupt șiretul pe drumul spre școală! Ai nevoie de unul nou. Ce ai face?",
               "hint": "Problemele surpriză se întâmplă tuturor - există câteva moduri diferite de a rezolva aceasta.",
               "explanation": "Problemele neașteptate apar uneori - a avea mai multe moduri de a le rezolva este o abilitate utilă.",
-              "situation": "Ți s-a rupt șireul pe drumul spre școală! Ai nevoie de unul nou.",
+              "situation": "Ți s-a rupt șiretul pe drumul spre școală! Ai nevoie de unul nou.",
               "choices": [
                 {
                   "key": "use-savings",
@@ -3856,7 +3876,7 @@
     "subtitle": "O privire ușoară, doar de distracție, asupra modului în care tinzi să te gândești la bani. Nu există un răspuns corect, și niciun tip nu este mai bun decât altul.",
     "startButton": "Începe",
     "retakeButton": "Reia testul",
-    "backToWorldMap": "Înapoi la Harta Lumii",
+    "backToWorldMap": "Înapoi la Harta Lumilor",
     "resultIntro": "Rezultatul tău Money Quest:",
     "challengeLabel": "Provocarea ta Money Quest:",
     "questions": [

@@ -16,6 +16,7 @@
     "safety": "Seguridad",
     "getStarted": "Empezar",
     "backHome": "← Volver al inicio",
+    "home": "Inicio",
     "backToWorldMap": "← Mapa de Mundos",
     "learn": "Aprende"
   },
@@ -65,7 +66,16 @@
     "realLifeScenario": "Escenario de la Vida Real",
     "whatWouldYouDo": "¿Qué harías?",
     "keyIdea": "Idea clave",
-    "tryThisAtHome": "¡Prueba esto en casa!"
+    "tryThisAtHome": "¡Prueba esto en casa!",
+    "printableWorksheetButton": "Ficha imprimible"
+  },
+  "worksheet": {
+    "pageTitle": "Ficha imprimible",
+    "openButton": "Abrir ficha (PDF)",
+    "printHint": "Se abre en una pestaña nueva. Usa la opción Imprimir de tu navegador para imprimirla o guardarla como PDF.",
+    "englishOnlyNote": "Esta ficha solo está disponible en inglés.",
+    "answerKeyLink": "Guía de respuestas para padres y profesores (PDF)",
+    "backToLesson": "Volver a la lección"
   },
   "game": {
     "roundOf": "Ronda {current} de {total}",
@@ -92,7 +102,15 @@
     "goodCatch": "¡Buena observación!",
     "missedWarningSign": "Esto era una señal de alarma",
     "actuallyFine": "Esto en realidad estaba bien",
-    "checkWhatIFound": "Comprobar lo que encontré"
+    "checkWhatIFound": "Comprobar lo que encontré",
+    "checkMyChoice": "Comprobar mi elección",
+    "bestChoice": "Mejor elección",
+    "notBestValue": "No es la mejor opción aquí",
+    "yourAnswerLabel": "Tu respuesta",
+    "yourAnswerLabelCurrency": "Tu respuesta (en {code})",
+    "checkMySorting": "Comprobar mi clasificación",
+    "matchedBadge": "Coincide",
+    "notAMatchBadge": "No coincide"
   },
   "simulator": {
     "weekOf": "{week} de {total}",
@@ -269,7 +287,8 @@
     "focusModeLabel": "Modo de concentración",
     "focusModeHint": "Oculta los detalles extra para que solo se vea la actividad principal.",
     "listenToLessonLabel": "Escucha la lección",
-    "mainNavigationLabel": "Principal"
+    "mainNavigationLabel": "Principal",
+    "categoryMayNeedAdjusting": "- esta categoría podría necesitar un ajuste"
   },
   "characters": {
     "pip": "Pip",
@@ -330,6 +349,7 @@
     "soundOnLabel": "El sonido está activado - toca para silenciar",
     "soundOffLabel": "El sonido está silenciado - toca para activar",
     "levelLabel": "Nivel {number}",
+    "yourLevelLabel": "Tu nivel: {level}",
     "levelComplete": "¡Nivel completado!",
     "planYourSavingTitle": "Planifícalo",
     "weeklyAmountLabel": "Cantidad semanal",
@@ -1306,7 +1326,7 @@
         "success": "Exacto - ¡acercar la tarjeta es dinero digital en acción! 💳",
         "retry": "Piensa en lo que pasó cuando la tarjeta de mamá hizo «bip» en la tienda."
       },
-      "rewardMessage": "Monedas ganadas por identificar el dinero digital en acción!",
+      "rewardMessage": "¡Monedas ganadas por identificar el dinero digital en acción!",
       "parentNote": "Esta lección introduce la idea básica de que el dinero puede moverse digitalmente, sin necesidad de explicar cómo funcionan realmente las redes de tarjetas o las transferencias bancarias - ese detalle no es necesario a esta edad. Si tu hijo o hija te ve acercar una tarjeta o pagar con el móvil, decirlo en voz alta («mira, eso es dinero digital moviéndose») refuerza bien la idea.",
       "commonMisconception": "Los niños pequeños a veces creen que la tarjeta «es» el dinero, en lugar de una herramienta que mueve dinero que ya existe en una cuenta."
     },
@@ -1349,7 +1369,7 @@
         "success": "Exacto - ¡esa confirmación es una prueba, no solo un adorno! ✅",
         "retry": "Piensa en lo que explicó el primo de Omar sobre el tique verde."
       },
-      "rewardMessage": "Monedas ganadas por entender cómo funciona realmente un pago con tarjeta!",
+      "rewardMessage": "¡Monedas ganadas por entender cómo funciona realmente un pago con tarjeta!",
       "parentNote": "Esta lección mantiene deliberadamente el detalle técnico en lo realmente útil a esta edad: que un pago se comprueba y se confirma, y que un PIN lo protege. Es un buen momento para acordar una regla familiar sencilla: los PIN y las contraseñas no se comparten con nadie, ni siquiera con amistades - no porque nadie sea poco fiable, sino porque es un buen hábito que conviene formar pronto.",
       "commonMisconception": "A veces los niños suponen que un pago siempre funciona en el momento en que la tarjeta toca la máquina, sin darse cuenta de que antes se comprueba el dinero disponible, y que puede ser rechazado."
     },
@@ -1392,7 +1412,7 @@
         "success": "Exacto - darse cuenta de eso es el primer paso para controlar el gasto digital. 📱",
         "retry": "Piensa en por qué el gasto de Priya subió sin ninguna compra grande."
       },
-      "rewardMessage": "Monedas ganadas por pensar con cuidado sobre la atención con el dinero digital!",
+      "rewardMessage": "¡Monedas ganadas por pensar con cuidado sobre la atención con el dinero digital!",
       "parentNote": "Esta lección no trata de restringir los pagos digitales, sino de formar una atención consciente - la misma habilidad que también las personas adultas deben practicar. Si tu hijo o hija adolescente tiene acceso a una tarjeta o monedero digital, revisar juntos el historial de gasto de vez en cuando (sin juzgar) es un hábito compartido realmente útil, no solo una revisión.",
       "commonMisconception": "A veces las personas adolescentes suponen que, por sentirse cómodas con aplicaciones y tarjetas, automáticamente están siguiendo bien su gasto - la comodidad con la tecnología y la conciencia de cuánto se ha gastado son cosas distintas."
     },
@@ -1431,7 +1451,7 @@
         "success": "Exacto - ¡invertir nunca es una garantía, ni al alza ni a la baja! 🌱",
         "retry": "Piensa en lo que la hermana de Leo tuvo cuidado de añadir sobre invertir."
       },
-      "rewardMessage": "Monedas ganadas por entender la diferencia entre ahorrar e invertir!",
+      "rewardMessage": "¡Monedas ganadas por entender la diferencia entre ahorrar e invertir!",
       "parentNote": "Esta lección mantiene deliberadamente la inversión conceptual y abstracta a esta edad - sin productos, plataformas ni cifras reales - porque el objetivo aquí es simplemente la idea de que el dinero puede usarse para intentar crecer por sí mismo, y que eso siempre implica una incertidumbre real. No hay nada sobre lo que un niño o niña pequeña deba actuar todavía.",
       "commonMisconception": "Los niños pequeños a veces suponen que invertir es solo una forma más rápida de ahorrar, en lugar de entender que implica una incertidumbre real y una posible pérdida."
     },
@@ -1474,7 +1494,7 @@
         "success": "Exacto - ¡una acción es propiedad real, por pequeña que sea! 📈",
         "retry": "Piensa en lo que realmente posee el tío de Mei al tener acciones."
       },
-      "rewardMessage": "Monedas ganadas por entender lo que realmente significa poseer una acción!",
+      "rewardMessage": "¡Monedas ganadas por entender lo que realmente significa poseer una acción!",
       "parentNote": "Esta lección introduce el concepto de propiedad mediante acciones usando ejemplos totalmente ficticios - no menciona ni evalúa deliberadamente ninguna empresa real, y no es una recomendación para comprar nada. El Laboratorio de Inversiones de Money Quest (una función independiente) permite a tu hijo o hija explorar más esta idea con empresas totalmente ficticias y dinero virtual.",
       "commonMisconception": "A esta edad, a veces los niños creen que el «precio de una acción» es un número arbitrario, en lugar de conectarlo con la propiedad real en un negocio real y en funcionamiento."
     },
@@ -1517,7 +1537,7 @@
         "success": "Exacto - esa conexión con negocios reales y en marcha es la diferencia clave. 🎯",
         "retry": "Piensa en lo que explicó la prima de Jamal sobre repartir dinero imaginario entre varias empresas."
       },
-      "rewardMessage": "Monedas ganadas por pensar en serio sobre el riesgo, la diversificación y el tiempo!",
+      "rewardMessage": "¡Monedas ganadas por pensar en serio sobre el riesgo, la diversificación y el tiempo!",
       "parentNote": "Esta lección nunca recomienda ningún producto, plataforma, acción o estrategia de inversión real, y no es asesoramiento financiero - su objetivo es puramente conceptual: alfabetización sobre riesgo/recompensa, diversificación y pensamiento a largo plazo, usando el Laboratorio de Inversiones de Money Quest y sus empresas totalmente ficticias y dinero virtual para hacer las ideas concretas sin ningún riesgo financiero real. Si tu hijo o hija adolescente quiere entender opciones de inversión reales, esa es una conversación (y una decisión) para ti y, cuando corresponda, una persona profesional financiera real - nunca esta aplicación.",
       "commonMisconception": "A veces las personas adolescentes confunden invertir con apostar, o suponen que repartir el dinero entre varias cosas garantiza la seguridad, en lugar de entender que solo reduce (nunca elimina) la dependencia de un único resultado."
     },
@@ -1556,7 +1576,7 @@
         "success": "Exacto - ¡es de verdad el dinero de Freya, aunque su madre lo administre! 🇬🇧",
         "retry": "Piensa en lo que explicó la madre de Freya sobre a quién pertenece realmente el dinero."
       },
-      "rewardMessage": "Monedas ganadas por entender de quién es realmente el dinero de una Junior ISA!",
+      "rewardMessage": "¡Monedas ganadas por entender de quién es realmente el dinero de una Junior ISA!",
       "parentNote": "Esta es una lección específica del Reino Unido sobre las Junior ISA, incluida porque muchas familias de Money Quest están en el Reino Unido - se presenta como una parte real y existente del sistema de ahorro británico, no como algo que toda familia vaya a tener o necesitar. Nada aquí sugiere que un niño o niña deba abrir o administrar una por su cuenta.",
       "commonMisconception": "A veces los niños suponen que el dinero de una cuenta con el nombre de una persona adulta en la gestión pertenece a esa persona adulta, en lugar de entender que una Junior ISA está pensada específicamente para pertenecer al niño o niña.",
       "countryVariesNote": "Las Junior ISA son una cuenta de ahorro específica del Reino Unido. Otros países tienen sus propios sistemas, distintos, para ahorrar en nombre de un niño o niña."
@@ -1600,7 +1620,7 @@
         "success": "Exacto - 18 es la edad normal en que se desbloquea. 🔓",
         "retry": "Piensa en lo que explicó el padre de Tomasz sobre cuándo suele estar disponible el dinero."
       },
-      "rewardMessage": "Monedas ganadas por entender cómo funciona realmente una Junior ISA!",
+      "rewardMessage": "¡Monedas ganadas por entender cómo funciona realmente una Junior ISA!",
       "parentNote": "Esta lección explica la estructura general de una Junior ISA del Reino Unido (efectivo frente a acciones, los hitos de los 16 y los 18 años) a nivel conceptual - no es asesoramiento financiero sobre qué tipo elegir, y las reglas pueden cambiar con el tiempo, así que conviene comprobar siempre la información oficial actual antes de tomar cualquier decisión real.",
       "commonMisconception": "A veces los niños suponen que una Junior ISA de acciones funciona exactamente igual que una en efectivo, sin darse cuenta de que su valor puede realmente subir o bajar porque el dinero está invertido.",
       "countryVariesNote": "Las Junior ISA, incluida la distinción entre efectivo y acciones descrita aquí, son específicas del Reino Unido. Otros países tienen reglas distintas para las cuentas de ahorro e inversión de menores."
@@ -1644,7 +1664,7 @@
         "success": "Exacto - comprueba siempre la cifra actual en lugar de suponer que nunca cambia. 📅",
         "retry": "Piensa en lo que notó Aaliyah al buscar las reglas actuales."
       },
-      "rewardMessage": "Monedas ganadas por entender cómo funcionan realmente las reglas y los momentos clave de una Junior ISA!",
+      "rewardMessage": "¡Monedas ganadas por entender cómo funcionan realmente las reglas y los momentos clave de una Junior ISA!",
       "parentNote": "Esta lección indica la asignación anual de la Junior ISA del Reino Unido para 2026/27 (£9000) como una referencia factual y fechada, marcada explícitamente como actual y no permanente - las reglas y asignaciones de las ISA las fija el gobierno y pueden cambiar en futuros años fiscales, así que confirma siempre los detalles vigentes en una fuente oficial (como GOV.UK) antes de tomar cualquier decisión real. Esta lección es solo educativa y no constituye asesoramiento financiero o fiscal.",
       "commonMisconception": "A veces las personas adolescentes suponen que una cifra como un límite, una vez aprendida, se mantiene fija para siempre, en lugar de entender que las reglas fiscales británicas se revisan y pueden cambiar de un año a otro.",
       "countryVariesNote": "Las ISA y las Junior ISA, incluidas las cifras de asignación y los hitos de edad descritos aquí, son específicas del sistema fiscal y de ahorro del Reino Unido. Otros países tienen reglas completamente distintas para las cuentas de ahorro e inversión de menores."
@@ -1952,7 +1972,7 @@
                 {
                   "id": "wash-car",
                   "left": "🚗 Lavar todo el coche",
-                  "right": "Trabajo duro - gana lo más"
+                  "right": "Trabajo duro - gana más"
                 }
               ]
             }
@@ -2943,7 +2963,7 @@
                 {
                   "key": "save",
                   "label": "Ahorrarlo todo",
-                  "consequence": "Guardaste las 10 euros a salvo. Nada que mostrar hoy, pero listas para algo más grande más adelante."
+                  "consequence": "Guardaste los 10 euros a salvo. Nada que mostrar hoy, pero listos para algo más grande más adelante."
                 }
               ]
             },
@@ -3051,7 +3071,7 @@
                 {
                   "key": "check-why",
                   "label": "Comprobar primero qué es realmente diferente",
-                  "consequence": "Descubriste que las botellas eran casi idénticas, así que las 3 euros extra no compraban nada que fueras a usar realmente."
+                  "consequence": "Descubriste que las botellas eran casi idénticas, así que los 3 euros extra no compraban nada que fueras a usar realmente."
                 }
               ]
             },
@@ -3524,7 +3544,7 @@
                 },
                 {
                   "id": "tap-card",
-                  "label": "Tocar una tarjeta en una tienda",
+                  "label": "Acercar una tarjeta en una tienda",
                   "correctBucketKey": "digital"
                 },
                 {
@@ -3856,7 +3876,7 @@
     "subtitle": "Una mirada ligera y solo por diversión a cómo sueles pensar sobre el dinero. No hay una respuesta correcta, y ningún tipo es mejor que otro.",
     "startButton": "Empezar",
     "retakeButton": "Hacerlo de nuevo",
-    "backToWorldMap": "Volver al Mapa del Mundo",
+    "backToWorldMap": "Volver al Mapa de Mundos",
     "resultIntro": "Tu resultado de Money Quest:",
     "challengeLabel": "Tu desafío de Money Quest:",
     "questions": [
@@ -3962,7 +3982,7 @@
   },
   "notFound": {
     "title": "Vaya, no encontramos esa página",
-    "body": "Esa página no existe, o puede que se haya movido. No hay nada mal con tu cuenta - vamos a llevarte a algún lugar conocido.",
+    "body": "Esa página no existe, o puede que se haya movido. No pasa nada con tu cuenta - vamos a llevarte a algún lugar conocido.",
     "homeLink": "Ir a la página de inicio"
   },
   "contact": {
@@ -4155,7 +4175,7 @@
           "heading": "Qué hace que una ficha de dinero sea realmente útil",
           "paragraphs": [
             "Una ficha es tan buena como el pensamiento que pide. El modo de fallo más común es una ficha que pide a un niño recordar una definición (\"¿qué es un presupuesto?\") en lugar de aplicarla (\"aquí tienes 10 euros - repártelas entre estos cuatro tarros y explica por qué\"). El segundo tipo produce aprendizaje genuino; el primero produce una frase memorizada que se desvanece en una semana.",
-            "Para un entorno de aula específicamente, una ficha sin una única respuesta correcta - donde dos estudiantes podrían razonablemente repartir las mismas 10 euros de forma diferente - tiende a generar mejor discusión que una con un único total correcto para comprobar."
+            "Para un entorno de aula específicamente, una ficha sin una única respuesta correcta - donde dos estudiantes podrían razonablemente repartir los mismos 10 euros de forma diferente - tiende a generar mejor discusión que una con un único total correcto para comprobar."
           ]
         },
         {

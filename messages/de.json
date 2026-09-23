@@ -16,6 +16,7 @@
     "safety": "Sicherheit",
     "getStarted": "Loslegen",
     "backHome": "← Zurück zur Startseite",
+    "home": "Startseite",
     "backToWorldMap": "← Weltkarte",
     "learn": "Lernen"
   },
@@ -65,7 +66,16 @@
     "realLifeScenario": "Szenario aus dem echten Leben",
     "whatWouldYouDo": "Was würdest du tun?",
     "keyIdea": "Kernidee",
-    "tryThisAtHome": "Zu Hause ausprobieren!"
+    "tryThisAtHome": "Zu Hause ausprobieren!",
+    "printableWorksheetButton": "Druckbares Arbeitsblatt"
+  },
+  "worksheet": {
+    "pageTitle": "Druckbares Arbeitsblatt",
+    "openButton": "Arbeitsblatt öffnen (PDF)",
+    "printHint": "Öffnet sich in einem neuen Tab. Nutze dort die Druckoption deines Browsers, um es zu drucken oder als PDF zu speichern.",
+    "englishOnlyNote": "Dieses Arbeitsblatt ist nur auf Englisch verfügbar.",
+    "answerKeyLink": "Lösungsschlüssel für Eltern und Lehrkräfte (PDF)",
+    "backToLesson": "Zurück zur Lektion"
   },
   "game": {
     "roundOf": "Runde {current} von {total}",
@@ -84,7 +94,7 @@
     "tapItemThenBucket": "Tippe oben auf einen Gegenstand und dann auf einen Korb, um ihn einzusortieren.",
     "selectedItemHint": "Ausgewählt: {item}. Tippe jetzt unten auf einen Korb.",
     "matchThese": "Ordne diese zu",
-    "withThese": "Diesen zu",
+    "withThese": "Mit diesen",
     "matched": "Passt zusammen!",
     "notAMatch": "Kein Treffer - versuch es noch einmal.",
     "checkMyPlan": "Meinen Plan prüfen",
@@ -92,7 +102,15 @@
     "goodCatch": "Gut erkannt!",
     "missedWarningSign": "Das war ein Warnzeichen",
     "actuallyFine": "Das war eigentlich in Ordnung",
-    "checkWhatIFound": "Prüfen, was ich gefunden habe"
+    "checkWhatIFound": "Prüfen, was ich gefunden habe",
+    "checkMyChoice": "Meine Wahl prüfen",
+    "bestChoice": "Beste Wahl",
+    "notBestValue": "Hier nicht das beste Angebot",
+    "yourAnswerLabel": "Deine Antwort",
+    "yourAnswerLabelCurrency": "Deine Antwort (in {code})",
+    "checkMySorting": "Meine Sortierung prüfen",
+    "matchedBadge": "Passt zusammen",
+    "notAMatchBadge": "Passt nicht zusammen"
   },
   "simulator": {
     "weekOf": "{week} von {total}",
@@ -110,7 +128,7 @@
     "incomeReceived": "Erhaltenes Einkommen",
     "spentOnNeeds": "Ausgegeben für Bedürfnisse",
     "spentOnWants": "Ausgegeben für Wünsche",
-    "given": "Gespendet",
+    "given": "Gegeben",
     "saved": "Gespart",
     "remainingBalance": "Virtuelles Restguthaben",
     "goalLabel": "Ziel: {name}",
@@ -129,7 +147,7 @@
     "insightShortfallSingle": "Unerwartete Kosten kamen einmal auf, und dein „Für alle Fälle”-Puffer reichte nicht ganz aus, um sie zu decken - also musste es stattdessen aus deinem Guthaben kommen. Genau deshalb hilft es, etwas für Überraschungen zurückzulegen, auch wenn noch nichts dringend erscheint.",
     "insightShortfallMultiple": "Unerwartete Kosten kamen {count}-mal auf, und dein „Für alle Fälle”-Puffer reichte nicht ganz aus, um sie zu decken - also musste es stattdessen aus deinem Guthaben kommen. Genau deshalb hilft es, etwas für Überraschungen zurückzulegen, auch wenn noch nichts dringend erscheint.",
     "insightBufferHeldUp": "Dein „Für alle Fälle”-Puffer hat sich gegen alles, was auftauchte, gut gehalten - gute Planung.",
-    "insightGivingNoticed": "Du hast Platz zum Spenden geschaffen, während du alles andere gemanagt hast - das ist bemerkenswert."
+    "insightGivingNoticed": "Du hast Platz zum Geben geschaffen, während du alles andere gemanagt hast - das ist bemerkenswert."
   },
   "investingLab": {
     "pageTitle": "Investment-Labor",
@@ -250,7 +268,7 @@
     "needs": "Bedürfnisse",
     "wants": "Wünsche",
     "savings": "Ersparnisse",
-    "giving": "Spenden",
+    "giving": "Geben",
     "unexpected": "Für alle Fälle"
   },
   "errors": {
@@ -264,12 +282,13 @@
     "breadcrumbLabel": "Brotkrümelnavigation",
     "readAloudLabel": "Dies vorlesen",
     "stopReadingLabel": "Vorlesen stoppen",
-    "accessibilityMenuLabel": "Barrierefreiheit-Einstellungen",
+    "accessibilityMenuLabel": "Barrierefreiheitseinstellungen",
     "reducedMotionLabel": "Animationen reduzieren",
     "focusModeLabel": "Fokusmodus",
     "focusModeHint": "Blendet zusätzliche Details aus, sodass nur die Hauptaktivität angezeigt wird.",
     "listenToLessonLabel": "Lektion anhören",
-    "mainNavigationLabel": "Hauptnavigation"
+    "mainNavigationLabel": "Hauptnavigation",
+    "categoryMayNeedAdjusting": "- diese Kategorie muss eventuell angepasst werden"
   },
   "characters": {
     "pip": "Pip",
@@ -330,6 +349,7 @@
     "soundOnLabel": "Ton ist an - tippen zum Stummschalten",
     "soundOffLabel": "Ton ist stumm - tippen zum Einschalten",
     "levelLabel": "Level {number}",
+    "yourLevelLabel": "Dein Level: {level}",
     "levelComplete": "Level geschafft!",
     "planYourSavingTitle": "Plane es",
     "weeklyAmountLabel": "Wöchentlicher Betrag",
@@ -445,7 +465,7 @@
         "retry": "Fast! Denk daran, was die Verkäuferin in der Geschichte wirklich wollte."
       },
       "rewardMessage": "Du hast deine allerersten Money-Quest-Münzen verdient, weil du gelernt hast, wofür Geld da ist!",
-      "parentNote": "Diese Lektion führt die grundlegendste Idee der finanziellen Bildung ein: dass Geld gegen Waren und Dienstleistungen eingetauscht wird, ohne anzunehmen, dass ein Kind dies bereits versteht. Mit 6-8 Jahren verstehen Kinder oft noch, dass eine Verkäuferin bestimmte Münzen möchte, nicht nur „eine nette Geste” - dies mit echten Münzen beim Einkaufen zu üben, ist eine der wirksamsten Sachen, die du diese Woche tun kannst.",
+      "parentNote": "Diese Lektion führt die grundlegendste Idee der finanziellen Bildung ein: dass Geld gegen Waren und Dienstleistungen eingetauscht wird, ohne anzunehmen, dass ein Kind dies bereits versteht. Mit 6-8 Jahren begreifen Kinder oft noch nicht ganz, dass eine Verkäuferin bestimmte Münzen möchte, nicht nur „eine nette Geste” - dies mit echten Münzen beim Einkaufen zu üben, ist eine der wirksamsten Sachen, die du diese Woche tun kannst.",
       "commonMisconception": "Kinder in diesem Alter denken oft, dass jeder kleine, runde oder glänzende Gegenstand als Geld zählt."
     },
     "builder-money_basics-l1": {
@@ -1447,8 +1467,8 @@
           "definition": "Ein kleines Stück Eigentum an einem Unternehmen"
         },
         {
-          "term": "Wertpapier",
-          "definition": "Ein anderes Wort für Aktien - kleine Stücke Eigentum an einem Unternehmen"
+          "term": "Anteil",
+          "definition": "Ein anderes Wort für eine Aktie - ein kleines Stück Eigentum an einem Unternehmen"
         },
         {
           "term": "Unternehmen",

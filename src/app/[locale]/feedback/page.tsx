@@ -71,8 +71,11 @@ export default function FeedbackPage() {
   return (
     <div className="min-h-screen bg-fog px-sm py-lg">
       <main className="mx-auto max-w-[600px]">
-        <Link href="/" className="text-sm text-teal hover:underline">
-          ← {t("common.moneyQuest")}
+        <Link
+          href="/"
+          className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal transition-colors duration-quick hover:bg-teal/5"
+        >
+          <span aria-hidden="true">🏠</span> {t("nav.home")}
         </Link>
         <h1 className="mt-2xs font-display text-2xl font-bold">{t("feedback.title")}</h1>
         <p className="mt-2xs text-base text-ink/70">{t("feedback.privacyNote")}</p>

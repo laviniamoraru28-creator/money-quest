@@ -78,7 +78,7 @@ export function AllocateMechanic({ round, currencyCode, uiLocale, usesCurrency, 
                   {fmt(value)}
                 </span>
                 {checked && !withinTolerance && (
-                  <span className="sr-only"> - this category may need adjusting</span>
+                  <span className="sr-only"> {t("a11y.categoryMayNeedAdjusting")}</span>
                 )}
                 <button
                   type="button"

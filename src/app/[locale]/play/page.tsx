@@ -8,10 +8,12 @@ import { getWorldCatalog } from "@/content/catalog";
 import { formatCurrency } from "@/lib/currency/format";
 import { CURRENCIES } from "@/data/currencies";
 import { Card } from "@/components/ui/Card";
+import { Button } from "@/components/ui/Button";
 import { ProgressBar } from "@/components/ui/ProgressBar";
 import { LevelProgressRing } from "@/components/ui/LevelProgressRing";
 import { LevelBadgeStar } from "@/components/ui/LevelBadgeStar";
 import { CharacterPip } from "@/components/characters/CharacterPip";
+import { LEVEL_OPTIONS } from "@/content/level-options";
 import type { AgeBand } from "@/types/database.types";
 
 /**
@@ -22,13 +24,11 @@ import type { AgeBand } from "@/types/database.types";
  * selection must not be stored on the server and must not identify
  * the child." There is genuinely nowhere for it to be stored except
  * here, since there is no longer a server-side profile of any kind to
- * store it in.
+ * store it in. LEVEL_OPTIONS itself lives in content/level-options.ts
+ * so other pages that need to display a child's current level as a
+ * word (rather than the internal ageBand id) can reuse the exact same
+ * definitions instead of duplicating them.
  */
-const LEVEL_OPTIONS: { ageBand: AgeBand; labelKey: string; rangeKey: string }[] = [
-  { ageBand: "explorer", labelKey: "play.earlyLearner", rangeKey: "play.earlyLearnerRange" },
-  { ageBand: "builder", labelKey: "play.primary", rangeKey: "play.primaryRange" },
-  { ageBand: "strategist", labelKey: "play.olderLearner", rangeKey: "play.olderLearnerRange" },
-];
 
 export default function PlayPage() {
   const uiLocale = useLocale();
@@ -43,7 +43,13 @@ export default function PlayPage() {
     return (
       <div className="min-h-screen bg-fog px-sm py-lg">
         <main className="mx-auto max-w-lg text-center">
-          <div className="flex justify-center">
+          <Link
+            href="/"
+            className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal transition-colors duration-quick hover:bg-teal/5"
+          >
+            <span aria-hidden="true">🏠</span> {t("nav.home")}
+          </Link>
+          <div className="mt-sm flex justify-center">
             <CharacterPip size={80} />
           </div>
           <h1 className="mt-sm font-display text-2xl font-bold">{t("play.chooseYourLevel")}</h1>
@@ -69,11 +75,19 @@ export default function PlayPage() {
   return (
     <div className="min-h-screen bg-fog px-sm py-lg">
       <main className="mx-auto max-w-[900px]">
-        <div className="flex items-center justify-between">
+        <div className="flex flex-wrap items-center justify-between gap-xs">
           <h1 className="font-display text-2xl font-bold">{t("play.yourWorldMap")}</h1>
-          <button type="button" onClick={() => setAgeBand(null)} className="text-sm text-teal hover:underline">
-            {t("play.changeLevel")}
-          </button>
+          <div className="flex flex-wrap gap-xs">
+            <Link
+              href="/"
+              className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal transition-colors duration-quick hover:bg-teal/5"
+            >
+              <span aria-hidden="true">🏠</span> {t("nav.home")}
+            </Link>
+            <Button type="button" variant="secondary" onClick={() => setAgeBand(null)}>
+              {t("play.changeLevel")}
+            </Button>
+          </div>
         </div>
 
         <div className="mt-sm grid gap-sm sm:grid-cols-3">
@@ -185,7 +199,7 @@ export default function PlayPage() {
           </Link>
         </div>
 
-        <div className="mt-md flex justify-end text-sm">
+        <div className="mt-md flex justify-end">
           <ResetProgressButton />
         </div>
       </main>
@@ -197,16 +211,16 @@ function ResetProgressButton() {
   const t = useTranslations();
   const { resetProgress } = useLocalProgress();
   return (
-    <button
+    <Button
       type="button"
+      variant="destructive"
       onClick={() => {
         if (window.confirm(t("play.resetConfirm"))) {
           resetProgress();
         }
       }}
-      className="text-ink/40 hover:text-error hover:underline"
     >
       {t("play.resetProgress")}
-    </button>
+    </Button>
   );
 }

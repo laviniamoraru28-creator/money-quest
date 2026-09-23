@@ -87,9 +87,13 @@ export function applyWeek(
 
   if (event?.type === "milestone") {
     const goalMet = newTotalSavings >= scenario.savingsGoal.targetMinorUnits;
-    eventConsequence = goalMet
-      ? event.celebrationMessage ?? "You reached your savings goal!"
-      : event.notYetMessage ?? "You're getting closer to your goal - keep it up!";
+    // No English fallback here on purpose: every scenario's milestone
+    // event supplies both messages in every locale (see
+    // scripts/validate-translations.ts), so a missing one should
+    // surface as an absent sentence in WeekSummaryCard, never as a
+    // stray English string dropped into an otherwise fully translated
+    // report.
+    eventConsequence = goalMet ? event.celebrationMessage : event.notYetMessage;
   }
 
   if (event?.type === "windfall") {

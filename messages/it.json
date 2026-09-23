@@ -16,6 +16,7 @@
     "safety": "Sicurezza",
     "getStarted": "Inizia",
     "backHome": "← Torna alla home",
+    "home": "Home",
     "backToWorldMap": "← Mappa dei Mondi",
     "learn": "Impara"
   },
@@ -65,7 +66,16 @@
     "realLifeScenario": "Scenario di Vita Reale",
     "whatWouldYouDo": "Cosa faresti?",
     "keyIdea": "Idea chiave",
-    "tryThisAtHome": "Provalo a casa!"
+    "tryThisAtHome": "Provalo a casa!",
+    "printableWorksheetButton": "Scheda stampabile"
+  },
+  "worksheet": {
+    "pageTitle": "Scheda stampabile",
+    "openButton": "Apri la scheda (PDF)",
+    "printHint": "Si apre in una nuova scheda. Usa l'opzione Stampa del tuo browser per stamparla o salvarla come PDF.",
+    "englishOnlyNote": "Questa scheda è disponibile solo in inglese.",
+    "answerKeyLink": "Guida alle risposte per genitori e insegnanti (PDF)",
+    "backToLesson": "Torna alla lezione"
   },
   "game": {
     "roundOf": "Round {current} di {total}",
@@ -92,7 +102,15 @@
     "goodCatch": "Ottima osservazione!",
     "missedWarningSign": "Questo era un segnale d'allarme",
     "actuallyFine": "In realtà questo andava bene",
-    "checkWhatIFound": "Controlla cosa ho trovato"
+    "checkWhatIFound": "Controlla cosa ho trovato",
+    "checkMyChoice": "Controlla la mia scelta",
+    "bestChoice": "Scelta migliore",
+    "notBestValue": "Non è la scelta migliore qui",
+    "yourAnswerLabel": "La tua risposta",
+    "yourAnswerLabelCurrency": "La tua risposta (in {code})",
+    "checkMySorting": "Controlla il mio ordinamento",
+    "matchedBadge": "Abbinato",
+    "notAMatchBadge": "Non abbinato"
   },
   "simulator": {
     "weekOf": "{week} di {total}",
@@ -269,7 +287,8 @@
     "focusModeLabel": "Modalità concentrazione",
     "focusModeHint": "Nasconde i dettagli extra in modo che si veda solo l'attività principale.",
     "listenToLessonLabel": "Ascolta la lezione",
-    "mainNavigationLabel": "Principale"
+    "mainNavigationLabel": "Principale",
+    "categoryMayNeedAdjusting": "- questa categoria potrebbe dover essere modificata"
   },
   "characters": {
     "pip": "Pip",
@@ -330,6 +349,7 @@
     "soundOnLabel": "L'audio è attivo - tocca per disattivare",
     "soundOffLabel": "L'audio è disattivato - tocca per attivare",
     "levelLabel": "Livello {number}",
+    "yourLevelLabel": "Il tuo livello: {level}",
     "levelComplete": "Livello completato!",
     "planYourSavingTitle": "Pianificalo",
     "weeklyAmountLabel": "Importo settimanale",
@@ -3856,7 +3876,7 @@
     "subtitle": "Uno sguardo leggero, solo per divertimento, su come tendi a pensare al denaro. Non c'è una risposta giusta, e nessun tipo è migliore di un altro.",
     "startButton": "Inizia",
     "retakeButton": "Rifallo",
-    "backToWorldMap": "Torna alla Mappa del Mondo",
+    "backToWorldMap": "Torna alla Mappa dei Mondi",
     "resultIntro": "Il tuo risultato Money Quest:",
     "challengeLabel": "La tua sfida Money Quest:",
     "questions": [

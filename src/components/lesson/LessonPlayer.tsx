@@ -111,6 +111,9 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
         <Button variant="secondary" onClick={() => router.push(backToWorldHref)}>
           <span aria-hidden="true">🗺️</span> {t("game.backToTheWorld")}
         </Button>
+        <Button variant="secondary" onClick={() => router.push("/")}>
+          <span aria-hidden="true">🏠</span> {t("nav.home")}
+        </Button>
         {activityPosition && (
           <span className="ml-auto rounded-full bg-teal/10 px-sm py-3xs font-medium text-teal">
             {world && t("play.levelActivityProgress", { level: world.orderIndex, position: activityPosition.position, total: activityPosition.total })}

@@ -16,6 +16,7 @@
     "safety": "Bezpieczeństwo",
     "getStarted": "Zacznij",
     "backHome": "← Powrót do strony głównej",
+    "home": "Strona główna",
     "backToWorldMap": "← Mapa Światów",
     "learn": "Ucz się"
   },
@@ -65,7 +66,16 @@
     "realLifeScenario": "Scenariusz z Prawdziwego Życia",
     "whatWouldYouDo": "Co byś zrobił?",
     "keyIdea": "Kluczowa idea",
-    "tryThisAtHome": "Wypróbuj to w domu!"
+    "tryThisAtHome": "Wypróbuj to w domu!",
+    "printableWorksheetButton": "Karta do druku"
+  },
+  "worksheet": {
+    "pageTitle": "Karta do druku",
+    "openButton": "Otwórz kartę (PDF)",
+    "printHint": "Otwiera się w nowej karcie. Użyj opcji Drukuj w przeglądarce, aby wydrukować lub zapisać jako PDF.",
+    "englishOnlyNote": "Ta karta jest dostępna tylko w języku angielskim.",
+    "answerKeyLink": "Klucz odpowiedzi dla rodziców i nauczycieli (PDF)",
+    "backToLesson": "Wróć do lekcji"
   },
   "game": {
     "roundOf": "Runda {current} z {total}",
@@ -92,7 +102,15 @@
     "goodCatch": "Dobrze zauważone!",
     "missedWarningSign": "To był sygnał ostrzegawczy",
     "actuallyFine": "To było w porządku",
-    "checkWhatIFound": "Sprawdź, co znalazłem/znalazłam"
+    "checkWhatIFound": "Sprawdź, co znalazłem/znalazłam",
+    "checkMyChoice": "Sprawdź mój wybór",
+    "bestChoice": "Najlepszy wybór",
+    "notBestValue": "To nie najlepsza opcja",
+    "yourAnswerLabel": "Twoja odpowiedź",
+    "yourAnswerLabelCurrency": "Twoja odpowiedź (w {code})",
+    "checkMySorting": "Sprawdź moje sortowanie",
+    "matchedBadge": "Dopasowane",
+    "notAMatchBadge": "Niedopasowane"
   },
   "simulator": {
     "weekOf": "{week} z {total}",
@@ -117,7 +135,7 @@
     "whatThisShows": "Co to pokazuje",
     "backToMyWorld": "Powrót do mojego Świata",
     "somethingHappened": "Coś się wydarzyło w tym tygodniu",
-    "costLabel": "Koszt: {amount} - zostanie to pobrane z tego, co odłożyłeś na wypadek \"Na wszelki wypadek\" w tym tygodniu.",
+    "costLabel": "Koszt: {amount} - zostanie to pobrane z tego, co odłożyłeś na „Wszelki wypadek” w tym tygodniu.",
     "addingUpReport": "Obliczanie twojego raportu…",
     "weekComplete": "{week} ukończony",
     "youChose": "Wybrałeś: {choice}",
@@ -269,7 +287,8 @@
     "focusModeLabel": "Tryb skupienia",
     "focusModeHint": "Ukrywa dodatkowe szczegóły, tak by widoczne było tylko główne zadanie.",
     "listenToLessonLabel": "Posłuchaj lekcji",
-    "mainNavigationLabel": "Menu główne"
+    "mainNavigationLabel": "Menu główne",
+    "categoryMayNeedAdjusting": "- ta kategoria może wymagać poprawki"
   },
   "characters": {
     "pip": "Pip",
@@ -330,6 +349,7 @@
     "soundOnLabel": "Dźwięk jest włączony - dotknij, aby wyciszyć",
     "soundOffLabel": "Dźwięk jest wyciszony - dotknij, aby włączyć",
     "levelLabel": "Poziom {number}",
+    "yourLevelLabel": "Twój poziom: {level}",
     "levelComplete": "Poziom ukończony!",
     "planYourSavingTitle": "Zaplanuj to",
     "weeklyAmountLabel": "Kwota tygodniowa",
@@ -947,7 +967,7 @@
       "title": "Rozpoznawanie oszustwa",
       "learningObjective": "Identyfikacja typowych sygnałów ostrzegawczych oszustwa internetowego, takich jak pilność, tajemniczość i prośby o dane osobowe.",
       "shortIntroduction": "Oszustwa zwykle mają wspólnych kilka sygnałów ostrzegawczych - gdy już wiesz, czego szukać, znacznie łatwiej je rozpoznać.",
-      "story": "Zara dostaje wiadomość rzekomo od znanej gry, w którą gra: \"Twoje konto zostanie usunięte za 10 minut, jeśli nie wpiszesz tutaj hasła!\" Wydaje się to pilne i przerażające. Zara zatrzymuje się zamiast wpadać w panikę, i zauważa trzy rzeczy: wiadomość ją poganya, chce hasła, i przyszła z adresu, który nie do końca pasuje do zwykłych wiadomości prawdziwej gry.",
+      "story": "Zara dostaje wiadomość rzekomo od znanej gry, w którą gra: \"Twoje konto zostanie usunięte za 10 minut, jeśli nie wpiszesz tutaj hasła!\" Wydaje się to pilne i przerażające. Zara zatrzymuje się zamiast wpadać w panikę, i zauważa trzy rzeczy: wiadomość ją poganiała, chce hasła, i przyszła z adresu, który nie do końca pasuje do zwykłych wiadomości prawdziwej gry.",
       "keyConcept": "Oszustwa często mają wspólne sygnały ostrzegawcze: pilność (poganianie cię do szybkiego działania), tajemniczość (proszenie, byś nikomu nie mówił), oraz prośby o dane osobowe, takie jak hasła.",
       "vocabulary": [
         {
@@ -1019,7 +1039,7 @@
           "Wymaganie zaawansowanych umiejętności technicznych, by się na to nabrać"
         ],
         "correctAnswer": "Wywołanie silnego uczucia, by ominąć staranne myślenie",
-        "explanation": "Różne oszustwa wykorzystują różne emocje - podniecenie, strach, zaufanie - ale podstawowy mechanizm jest ten sam: silne uczucie jest wykorzystywane, by zwarciowo ominąć staranne myślenie, zanim ktoś zdąży niezależnie zweryfikować twierdzenie."
+        "explanation": "Różne oszustwa wykorzystują różne emocje - podniecenie, strach, zaufanie - ale podstawowy mechanizm jest ten sam: silne uczucie jest wykorzystywane, by ominąć staranne myślenie, zanim ktoś zdąży niezależnie zweryfikować twierdzenie."
       },
       "feedback": {
         "success": "Dokładnie tak - gdy już widzisz mechanizm, konkretne przebranie ma mniejsze znaczenie. 🎯",
@@ -1110,7 +1130,7 @@
     "strategist-long_term_thinking-l1": {
       "title": "Duże decyzje, długie horyzonty czasowe",
       "learningObjective": "Ćwiczenie ważenia krótkoterminowej atrakcyjności decyzji względem jej długoterminowych konsekwencji, przy użyciu prawdziwego, wiarygodnego scenariusza.",
-      "shortIntroduction": "Największe decyzje finansowe w życiu rozgrywają się na przestrzeni lat, nie dni - i naprawdę trudno się do nich zaplanować.",
+      "shortIntroduction": "Największe decyzje finansowe w życiu rozgrywają się na przestrzeni lat, nie dni - i naprawdę trudno je zaplanować.",
       "story": "Aisha zastanawia się, jak wyda pieniądze zarobione z pracy na pół etatu - wszystkie na rzeczy, których chce teraz, czy część odłożyć na coś większego za lata, jak samochód, dalszą edukację, czy po prostu więcej swobody w podejmowaniu przyszłych wyborów. Nie ma jednej właściwej odpowiedzi. Ale zauważa, że celowe niedecydowanie samo w sobie jest decyzją - oznacza to po prostu wydanie wszystkiego domyślnie.",
       "keyConcept": "Długoterminowe decyzje finansowe wiążą się z prawdziwymi kompromisami bez jednej właściwej odpowiedzi, ale podjęcie decyzji celowo - a nie domyślnie - zwykle prowadzi do wyników, z których ludzie są bardziej zadowoleni później.",
       "vocabulary": [
@@ -3732,7 +3752,7 @@
     },
     "builder-standard": {
       "title": "Zarządzanie Miesiącem Kieszonkowego",
-      "savingsGoalName": "Nowy akcesorium do konsoli do gier",
+      "savingsGoalName": "Nowe akcesorium do konsoli do gier",
       "weeks": [
         {
           "weekLabel": "Tydzień 1"
@@ -3856,7 +3876,7 @@
     "subtitle": "Lekkie, czysto rozrywkowe spojrzenie na to, jak zwykle myślisz o pieniądzach. Nie ma tu właściwej odpowiedzi, a żaden typ nie jest lepszy od innego.",
     "startButton": "Zacznij",
     "retakeButton": "Zrób ponownie",
-    "backToWorldMap": "Powrót do Mapy Świata",
+    "backToWorldMap": "Powrót do Mapy Światów",
     "resultIntro": "Twój wynik Money Quest:",
     "challengeLabel": "Twoje wyzwanie Money Quest:",
     "questions": [
@@ -4199,7 +4219,7 @@
           ]
         },
         {
-          "heading": "Wprowadzanie kursów wymiany bez przeszkadzania matematyki",
+          "heading": "Wprowadzanie kursów wymiany, żeby matematyka nie przeszkadzała",
           "paragraphs": [
             "Dla młodszych dzieci celem nie jest obliczenie dokładnego kursu wymiany - to uchwycenie, że TA SAMA kwota jednej waluty może być warta inną kwotę drugiej, i że to się zmienia w czasie. Proste, konkretne porównanie (\"właśnie teraz za 1 funta dostajesz około 1,27 dolara - rok temu była to inna liczba\") czyni ideę namacalną bez wymagania prawdziwych obliczeń.",
             "Dla starszych dzieci naprawdę gotowych na arytmetykę, prawdziwe, aktualne porównanie - przeliczenie konkretnej ceny między dwiema walutami - jest dużo bardziej angażujące niż abstrakcyjny, już rozwiązany przykład, ponieważ odpowiada na pytanie (\"ile to by naprawdę kosztowało tam?\"), którego sens widzą."

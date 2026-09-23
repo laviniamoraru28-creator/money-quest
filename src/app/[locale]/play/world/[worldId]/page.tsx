@@ -49,9 +49,14 @@ export default function WorldPage() {
   return (
     <div className="min-h-screen bg-fog px-sm py-lg">
       <main className="mx-auto max-w-[700px]">
-        <Button variant="secondary" onClick={() => router.push("/play")}>
-          <span aria-hidden="true">←</span> {t("nav.backToWorldMap")}
-        </Button>
+        <div className="flex flex-wrap gap-xs">
+          <Button variant="secondary" onClick={() => router.push("/")}>
+            <span aria-hidden="true">🏠</span> {t("nav.home")}
+          </Button>
+          <Button variant="secondary" onClick={() => router.push("/play")}>
+            <span aria-hidden="true">←</span> {t("nav.backToWorldMap")}
+          </Button>
+        </div>
         <div className="mt-sm flex items-center gap-xs">
           <div>
             <p className="text-xs font-medium uppercase tracking-wide text-ink/50">
