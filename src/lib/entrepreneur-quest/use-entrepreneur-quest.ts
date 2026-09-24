@@ -12,9 +12,21 @@ import {
   completePitch as completePitchPure,
   runSimulator,
   applySimulatorRun,
+  completeRunActivity as completeRunActivityPure,
+  completeProblem as completeProblemPure,
+  setStockLevel as setStockLevelPure,
+  applyPivotChoice as applyPivotChoicePure,
+  applyGrowDecision as applyGrowDecisionPure,
+  completeAiLabActivity as completeAiLabActivityPure,
+  updateBusinessReview as updateBusinessReviewPure,
+  startRescue as startRescuePure,
+  recordRescueDecision as recordRescueDecisionPure,
+  finishRescue as finishRescuePure,
   type EntrepreneurQuestState,
   type BusinessProfile,
   type BusinessLogo,
+  type BusinessReview,
+  type EQStockLevel,
   type SimulatorInput,
 } from "./state";
 
@@ -140,6 +152,70 @@ export function useEntrepreneurQuest() {
     setState(fresh);
   }, []);
 
+  const completeRunActivity = useCallback(
+    (activityId: string) => {
+      persist(completeRunActivityPure(state, activityId));
+    },
+    [state, persist]
+  );
+
+  const completeProblem = useCallback(
+    (problemId: string) => {
+      persist(completeProblemPure(state, problemId));
+    },
+    [state, persist]
+  );
+
+  const setStockLevel = useCallback(
+    (level: EQStockLevel) => {
+      persist(setStockLevelPure(state, level));
+    },
+    [state, persist]
+  );
+
+  const applyPivotChoice = useCallback(
+    (choiceKey: string) => {
+      persist(applyPivotChoicePure(state, choiceKey));
+    },
+    [state, persist]
+  );
+
+  const applyGrowDecision = useCallback(
+    (choiceKey: string) => {
+      persist(applyGrowDecisionPure(state, choiceKey));
+    },
+    [state, persist]
+  );
+
+  const completeAiLabActivity = useCallback(
+    (activityId: string) => {
+      persist(completeAiLabActivityPure(state, activityId));
+    },
+    [state, persist]
+  );
+
+  const updateBusinessReview = useCallback(
+    <K extends keyof BusinessReview>(field: K, value: BusinessReview[K]) => {
+      persist(updateBusinessReviewPure(state, field, value));
+    },
+    [state, persist]
+  );
+
+  const startRescue = useCallback(() => {
+    persist(startRescuePure(state));
+  }, [state, persist]);
+
+  const recordRescueDecision = useCallback(
+    (problemId: string, responseKey: string) => {
+      persist(recordRescueDecisionPure(state, problemId, responseKey));
+    },
+    [state, persist]
+  );
+
+  const finishRescue = useCallback(() => {
+    persist(finishRescuePure(state));
+  }, [state, persist]);
+
   return {
     state,
     isLoaded,
@@ -152,5 +228,15 @@ export function useEntrepreneurQuest() {
     completePitch,
     runBusinessSimulator,
     resetBusiness,
+    completeRunActivity,
+    completeProblem,
+    setStockLevel,
+    applyPivotChoice,
+    applyGrowDecision,
+    completeAiLabActivity,
+    updateBusinessReview,
+    startRescue,
+    recordRescueDecision,
+    finishRescue,
   };
 }

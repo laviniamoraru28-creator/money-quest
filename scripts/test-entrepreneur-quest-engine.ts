@@ -101,7 +101,17 @@ check("awardBadge accumulates distinct badges", progressState.earnedBadgeIds, [E
 // own running stats, not just show narrative flavor text. ---
 let effectState = createDefaultState();
 effectState = updateBusinessField(effectState, "priceMinorUnits", 500);
-check("stats start at the neutral baseline", effectState.stats, { salesCount: 0, revenueMinorUnits: 0, costsMinorUnits: 0, reputationOutOf5: 3.5 });
+check("stats start at the neutral baseline", effectState.stats, {
+  salesCount: 0,
+  revenueMinorUnits: 0,
+  costsMinorUnits: 0,
+  reputationOutOf5: 3.5,
+  cashMinorUnits: 5000,
+  customersTotal: 0,
+  repeatCustomers: 0,
+  stockLevel: "medium",
+  demandLevel: "medium",
+});
 
 effectState = recordDecision(effectState, "product-unclear", "explain-simply");
 check("a decision with reputationDelta +0.3 moves reputation", effectState.stats.reputationOutOf5, 3.8);

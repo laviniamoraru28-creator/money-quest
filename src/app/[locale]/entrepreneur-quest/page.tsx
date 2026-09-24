@@ -13,6 +13,7 @@ import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { ProgressBar } from "@/components/ui/ProgressBar";
 import { EntrepreneurQuestLogo } from "@/components/entrepreneur-quest/EntrepreneurQuestLogo";
+import { DashboardExpander } from "@/components/entrepreneur-quest/DashboardExpander";
 
 const EQ_BADGE_ID_LIST = Object.values(EQ_BADGE_IDS);
 
@@ -55,6 +56,10 @@ export default function EntrepreneurQuestHubPage() {
         <p className="mt-2xs text-base text-ink/70">{t("entrepreneurQuest.hubIntro")}</p>
         <p className="mt-2xs text-xs text-ink/50">{t("entrepreneurQuest.virtualMoneyExplainer")}</p>
 
+        {hasStarted && (
+          <PhaseProgressStrip buildDone={state.pitchCompleted} rescueGrowUnlocked={state.completedProblemIds.length > 0} />
+        )}
+
         {hasStarted ? (
           <CompanyDashboard
             state={state}
@@ -94,6 +99,28 @@ export default function EntrepreneurQuestHubPage() {
             <div className="flex items-center gap-xs rounded-lg border-2 border-ink/10 bg-white/60 p-sm opacity-60">
               <span aria-hidden="true" className="text-2xl">📇</span>
               <span className="text-sm text-ink/60">{t("entrepreneurQuest.pitchLinkLockedHint")}</span>
+            </div>
+          )}
+          {state.pitchCompleted ? (
+            <Link href="/entrepreneur-quest/run" className="flex items-center gap-xs rounded-lg border-2 border-ink/10 bg-white p-sm shadow-resting transition-shadow hover:shadow-floating hover:border-teal">
+              <span aria-hidden="true" className="text-2xl">🏃</span>
+              <span className="font-medium">{t("entrepreneurQuest.run.hubTitle")}</span>
+            </Link>
+          ) : (
+            <div className="flex items-center gap-xs rounded-lg border-2 border-ink/10 bg-white/60 p-sm opacity-60">
+              <span aria-hidden="true" className="text-2xl">🏃</span>
+              <span className="text-sm text-ink/60">{t("entrepreneurQuest.run.lockedHint")}</span>
+            </div>
+          )}
+          {state.completedProblemIds.length > 0 ? (
+            <Link href="/entrepreneur-quest/rescue-grow" className="flex items-center gap-xs rounded-lg border-2 border-ink/10 bg-white p-sm shadow-resting transition-shadow hover:shadow-floating hover:border-teal">
+              <span aria-hidden="true" className="text-2xl">🚀</span>
+              <span className="font-medium">{t("entrepreneurQuest.rescueGrow.hubTitle")}</span>
+            </Link>
+          ) : (
+            <div className="flex items-center gap-xs rounded-lg border-2 border-ink/10 bg-white/60 p-sm opacity-60">
+              <span aria-hidden="true" className="text-2xl">🚀</span>
+              <span className="text-sm text-ink/60">{t("entrepreneurQuest.rescueGrow.lockedHint")}</span>
             </div>
           )}
         </div>
@@ -144,6 +171,42 @@ export default function EntrepreneurQuestHubPage() {
         )}
       </main>
     </div>
+  );
+}
+
+/** A small Build -> Run -> Rescue & Grow progress strip (v2) — purely
+ * informational, matches the brief's own phase names, computed from
+ * existing state (pitchCompleted, completedProblemIds) rather than a
+ * new stored "current phase" field, so there's only ever one source
+ * of truth for how far along the child is. */
+function PhaseProgressStrip({ buildDone, rescueGrowUnlocked }: { buildDone: boolean; rescueGrowUnlocked: boolean }) {
+  const t = useTranslations();
+  return (
+    <div className="mt-sm flex flex-wrap items-center gap-2xs text-sm">
+      <PhaseChip label={t("entrepreneurQuest.phases.build")} done={buildDone} locked={false} />
+      <span aria-hidden="true" className="text-ink/30">
+        →
+      </span>
+      <PhaseChip label={t("entrepreneurQuest.phases.run")} done={false} locked={!buildDone} />
+      <span aria-hidden="true" className="text-ink/30">
+        →
+      </span>
+      <PhaseChip label={t("entrepreneurQuest.phases.rescueGrow")} done={false} locked={!rescueGrowUnlocked} />
+    </div>
+  );
+}
+
+function PhaseChip({ label, done, locked }: { label: string; done: boolean; locked: boolean }) {
+  return (
+    <span
+      className={[
+        "rounded-full px-sm py-3xs font-medium",
+        done ? "bg-success/15 text-success" : locked ? "bg-ink/5 text-ink/40" : "bg-teal/10 text-teal",
+      ].join(" ")}
+    >
+      {done ? "✓ " : ""}
+      {label}
+    </span>
   );
 }
 
@@ -216,6 +279,16 @@ function CompanyDashboard({
           value={`⭐ ${t("entrepreneurQuest.dashboard.reputationValue", { stars: stats.reputationOutOf5.toFixed(1) })}`}
         />
       </dl>
+
+      <DashboardExpander>
+        <dl className="grid grid-cols-2 gap-sm">
+          <DashboardStat label={t("entrepreneurQuest.dashboard.cashLabel")} value={formatCurrency(stats.cashMinorUnits, currencyCode, uiLocale)} />
+          <DashboardStat label={t("entrepreneurQuest.dashboard.customersTotalLabel")} value={String(stats.customersTotal)} />
+          <DashboardStat label={t("entrepreneurQuest.dashboard.repeatCustomersLabel")} value={String(stats.repeatCustomers)} />
+          <DashboardStat label={t("entrepreneurQuest.dashboard.stockLabel")} value={t(`entrepreneurQuest.levels.${stats.stockLevel}`)} />
+          <DashboardStat label={t("entrepreneurQuest.dashboard.demandLabel")} value={t(`entrepreneurQuest.demandLevels.${stats.demandLevel}`)} />
+        </dl>
+      </DashboardExpander>
 
       <label htmlFor="eq-dashboard-goal" className="mt-sm block text-sm font-medium">
         {t("entrepreneurQuest.dashboard.goalLabel")}

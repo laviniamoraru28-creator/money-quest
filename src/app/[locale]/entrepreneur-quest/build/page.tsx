@@ -15,6 +15,9 @@ import {
   EQ_LOGO_SHAPE_IDS,
   EQ_LOGO_COLOR_IDS,
   EQ_LOGO_SYMBOL_OPTIONS,
+  EQ_MARKET_DETECTIVE_SCENARIO,
+  EQ_DEMAND_LADDER,
+  EQ_TEST_IDEA_TEST_FIRST_KEY,
   getEQStageByOrder,
 } from "@/content/entrepreneur-quest/structures";
 import { Card } from "@/components/ui/Card";
@@ -25,6 +28,7 @@ import type { MissionRound } from "@/game-engine/types";
 import type { BusinessLogo, BusinessProfile } from "@/lib/entrepreneur-quest/state";
 import { EntrepreneurQuestLogo } from "@/components/entrepreneur-quest/EntrepreneurQuestLogo";
 import { CategorySelect } from "@/components/entrepreneur-quest/CategorySelect";
+import { BarRow } from "@/components/entrepreneur-quest/BarRow";
 
 /** Which single free-text BusinessProfile field each "reflect-text"
  * stage collects — kept here (not in structures.ts) since it's a
@@ -129,6 +133,34 @@ export default function EntrepreneurQuestBuildPage() {
               onChange={(value) => updateBusinessField(reflectField, value)}
               onContinue={goToNextStage}
               showSafetyHint={stage.id === "name-your-business"}
+            />
+          )}
+
+          {stage.id === "research-demand" && (
+            <MarketDetectiveStage
+              stepIndex={missionStepIndex}
+              currencyCode={progressState.currencyCode}
+              uiLocale={uiLocale}
+              onChoose={(eventId, choiceKey) => recordDecision(eventId, choiceKey)}
+              onFinishStage={goToNextStage}
+            />
+          )}
+
+          {stage.id === "test-the-idea" && stage.missionEventIds && (
+            <MissionStage
+              stageId={stage.id}
+              eventIds={stage.missionEventIds}
+              stepIndex={missionStepIndex}
+              currencyCode={progressState.currencyCode}
+              uiLocale={uiLocale}
+              onChoose={(eventId, choiceKey) => {
+                recordDecision(eventId, choiceKey);
+                if (eventId === "test-before-invest") {
+                  updateBusinessField("testedIdeaFirst", choiceKey === EQ_TEST_IDEA_TEST_FIRST_KEY);
+                }
+              }}
+              onAdvanceStep={() => setMissionStepIndex((i) => i + 1)}
+              onFinishStage={goToNextStage}
             />
           )}
 
@@ -263,6 +295,80 @@ export default function EntrepreneurQuestBuildPage() {
           )}
         </Card>
       </main>
+    </div>
+  );
+}
+
+/**
+ * "Research Demand" (v2, brief section 4-5): the Market Detective's
+ * ONE fixed fictional market, shown as plain data cards (never a
+ * single "right answer" is implied — the reflection choice further
+ * below is a genuine MissionMechanic with no correct pick), plus the
+ * Idea -> Interest -> Demand -> Purchases -> Repeat ladder as plain
+ * width-bars (BarRow — no chart library exists in this codebase).
+ */
+function MarketDetectiveStage({
+  stepIndex,
+  currencyCode,
+  uiLocale,
+  onChoose,
+  onFinishStage,
+}: {
+  stepIndex: number;
+  currencyCode: string;
+  uiLocale: string;
+  onChoose: (eventId: string, choiceKey: string) => void;
+  onFinishStage: () => void;
+}) {
+  const t = useTranslations();
+  const scenario = EQ_MARKET_DETECTIVE_SCENARIO;
+  return (
+    <div className="mt-sm">
+      <p className="font-medium">{t("entrepreneurQuest.marketDetective.scenarioTitle")}</p>
+      <div className="mt-2xs grid grid-cols-2 gap-2xs">
+        <DataCard label={t("entrepreneurQuest.marketDetective.interestedCustomersLabel")} value={String(scenario.interestedCustomers)} />
+        <DataCard label={t("entrepreneurQuest.marketDetective.recentBuyersLabel")} value={String(scenario.recentBuyers)} />
+        <DataCard label={t("entrepreneurQuest.marketDetective.competitorCountLabel")} value={String(scenario.competitorCount)} />
+        <DataCard label={t("entrepreneurQuest.marketDetective.competitorPriceLabel")} value={formatCurrency(scenario.competitorPriceMinorUnits, currencyCode, uiLocale)} />
+        <DataCard label={t("entrepreneurQuest.marketDetective.productionCostLabel")} value={formatCurrency(scenario.productionCostMinorUnits, currencyCode, uiLocale)} />
+        <DataCard label={t("entrepreneurQuest.marketDetective.weekendDemandLabel")} value={t(`entrepreneurQuest.demandLevels.${scenario.weekendDemand}`)} />
+        <DataCard label={t("entrepreneurQuest.marketDetective.winterDemandLabel")} value={t(`entrepreneurQuest.demandLevels.${scenario.winterDemand}`)} />
+      </div>
+
+      <p className="mt-md font-medium">{t("entrepreneurQuest.marketDetective.demandLadderTitle")}</p>
+      <div className="mt-2xs">
+        {EQ_DEMAND_LADDER.map((step) => (
+          <BarRow
+            key={step.key}
+            label={t(`entrepreneurQuest.marketDetective.demandLadder.${step.key}`)}
+            value={step.value}
+            maxValue={100}
+            displayValue={String(step.value)}
+          />
+        ))}
+      </div>
+
+      <div className="mt-md">
+        <MissionStage
+          stageId="research-demand"
+          eventIds={["market-detective-reflection"]}
+          stepIndex={stepIndex}
+          currencyCode={currencyCode}
+          uiLocale={uiLocale}
+          onChoose={onChoose}
+          onAdvanceStep={() => {}}
+          onFinishStage={onFinishStage}
+        />
+      </div>
+    </div>
+  );
+}
+
+function DataCard({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="rounded-sm border border-ink/10 p-xs">
+      <p className="text-xs text-ink/50">{label}</p>
+      <p className="text-base font-medium text-ink">{value}</p>
     </div>
   );
 }
