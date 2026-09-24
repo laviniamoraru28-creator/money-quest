@@ -361,6 +361,7 @@
     "amountToWithdraw": "Cantidad a gastar",
     "spendSome": "Gastar algo",
     "moneyPersonalityLink": "Personalidad del Dinero",
+    "entrepreneurQuestLink": "Entrepreneur Quest →",
     "levelActivityProgress": "Nivel {level} · Actividad {position} de {total}",
     "investingLabLink": "Laboratorio de Inversiones →"
   },
@@ -404,6 +405,8 @@
     "pq5Body": "Funciona bien tanto junto a tu hijo durante las primeras lecciones, como algo que explora de forma independiente una vez que se sienta cómodo con ello. Después de una lección, un buen seguimiento es simplemente preguntar \"¿qué aprendiste?\" - las lecciones son lo bastante cortas como para que suela recordar el ejemplo concreto, no solo un tema vago.",
     "pq6Title": "¿Cómo puedo hablar con mi hijo sobre el dinero en casa?",
     "pq6Body": "Algunos puntos de partida: pregúntale qué haría con una cantidad fija de dinero antes de decirle qué harías tú. Al comprar juntos, pregunta en voz alta \"¿lo necesitamos, o lo queremos?\", para que la distinción se convierta en un hábito y no solo en una regla. Si quiere algo caro, calculad juntos cuántas semanas de ahorro llevaría - un número concreto suele calar mejor que un \"quizás más adelante\". Nada de esto requiere compartir tus propias finanzas con él - la conversación importa más que los detalles.",
+    "pq7Title": "¿Qué es Entrepreneur Quest?",
+    "pq7Body": "Una nueva sección de Money Quest donde tu hijo construye un pequeño negocio virtual, paso a paso: encontrar un problema, dar forma a una idea, fijar un precio, y tomar decisiones cuando las cosas no salen como estaba previsto. En el camino, practica educación financiera, resolución de problemas, creatividad, toma de decisiones, comunicación, planificación, trabajo en equipo y conceptos básicos de negocio - todo con dinero virtual, guardado solo en este dispositivo. Está diseñado para desarrollar estas habilidades a través del juego, no para animar a un niño a montar un negocio real sin la guía y la participación de un adulto.",
     "privacySectionTitle": "Privacidad y Tus Datos"
   },
   "privacyPage": {
@@ -3982,6 +3985,503 @@
     "thankYouTitle": "¡Gracias!",
     "savedLocallyNote": "Tu comentario se guarda solo en este dispositivo - Money Quest todavía no tiene un servidor al que enviarlo.",
     "saveFailedNote": "No pudimos guardar tu comentario en este dispositivo ahora mismo - tu navegador podría estar bloqueando el almacenamiento."
+  },
+  "entrepreneurQuest": {
+    "hubTitle": "Entrepreneur Quest",
+    "hubTagline": "Aprende a convertir una idea en un negocio.",
+    "hubIntro": "Construye tu propio negocio virtual, paso a paso. Tomarás decisiones reales, verás qué pasa, y aprenderás haciendo - no solo leyendo y pulsando Siguiente.",
+    "virtualMoneyExplainer": "Todo el dinero de Entrepreneur Quest es virtual, solo para practicar. No es dinero real.",
+    "myBusinessTitle": "Mi Negocio",
+    "myBusinessEmptyHint": "Todavía no has empezado un negocio. ¡Vamos a construir uno!",
+    "startBuildingButton": "Empezar a Construir tu Negocio",
+    "continueBuildingButton": "Seguir Construyendo tu Negocio",
+    "stageProgress": "Etapa {current} de {total}",
+    "buildLink": "Construye tu Negocio",
+    "simulatorLink": "Simulador de Negocios",
+    "challengesLink": "Retos de Negocios",
+    "pitchLink": "Mi Presentación de Negocio",
+    "pitchLinkLockedHint": "Termina de construir tu negocio primero para desbloquear tu presentación.",
+    "badgesEarnedTitle": "Tus Insignias",
+    "noBadgesYetHint": "Completa etapas y retos para ganar tu primera insignia.",
+    "realWorldMissionsTitle": "Misiones del Mundo Real (Opcional)",
+    "realWorldMissionsHint": "Estas son solo para fijarte en cosas del mundo real - no hay nada que anotar ni enviar.",
+    "realWorldMissionDoneLabel": "Marcar como hecho",
+    "resetBusinessButton": "Empezar un Negocio Nuevo",
+    "resetBusinessConfirm": "Esto borrará tu negocio actual y empezarás de cero. ¿Estás seguro?",
+    "backToHub": "Volver a Entrepreneur Quest",
+    "continueButton": "Continuar",
+    "saveAndContinueButton": "Guardar y Continuar",
+    "stages": {
+      "find-a-problem": {
+        "title": "Encuentra un Problema",
+        "learnText": "Todo buen negocio empieza resolviendo un problema. Un problema es algo que molesta a la gente, les hace perder tiempo, o es difícil de hacer.",
+        "fieldLabel": "¿Qué problema podría resolver tu negocio?",
+        "placeholder": "Por ejemplo: Mis amigos nunca encuentran una botella de agua que les guste."
+      },
+      "create-an-idea": {
+        "title": "Crea una Idea",
+        "learnText": "Ahora convierte ese problema en una idea. Tu idea es tu respuesta al problema que encontraste.",
+        "fieldLabel": "¿Cuál es tu idea?",
+        "placeholder": "Por ejemplo: Podría hacer pegatinas de colores para botellas de agua."
+      },
+      "name-your-business": {
+        "title": "Ponle Nombre a tu Negocio",
+        "learnText": "Un buen nombre de negocio es corto, fácil de recordar, y da una pista sobre lo que haces.",
+        "fieldLabel": "¿Cómo se llamará tu negocio?",
+        "placeholder": "Por ejemplo: Sticker Splash"
+      },
+      "create-your-logo": {
+        "title": "Crea tu Logo",
+        "learnText": "Un logo es un pequeño dibujo que ayuda a la gente a reconocer tu negocio de un vistazo. Elige una forma, un color y un símbolo que se parezcan a tu negocio.",
+        "shapeLabel": "Elige una forma",
+        "colorLabel": "Elige un color",
+        "symbolLabel": "Elige un símbolo",
+        "sloganLabel": "Escribe un eslogan corto (opcional)",
+        "sloganPlaceholder": "Por ejemplo: Dale color a tu mundo"
+      },
+      "choose-your-product": {
+        "title": "Elige tu Producto",
+        "learnText": "Tu producto es la cosa (o servicio) que realmente vas a vender. Elige la categoría que mejor le va, y luego descríbelo con tus propias palabras.",
+        "categoryLabel": "¿Qué tipo de producto o servicio es?",
+        "descriptionLabel": "Describe tu producto o servicio",
+        "descriptionPlaceholder": "Por ejemplo: Un paquete de 10 pegatinas resistentes al agua."
+      },
+      "choose-your-customer": {
+        "title": "Elige tu Cliente",
+        "learnText": "Un cliente es la persona que realmente compraría tu producto. Pensar en ellos te ayuda a crear algo que de verdad quieran."
+      },
+      "understand-costs": {
+        "title": "Entiende los Costos",
+        "learnText": "Los costos son cuánto dinero se necesita para hacer un artículo. Si te cuesta un poco de dinero hacer una pulsera, ese es tu costo por artículo.",
+        "fieldLabel": "¿Cuánto te cuesta hacer UN artículo?",
+        "helpText": "Este es el dinero que gastas en materiales para un solo artículo, no para todo tu negocio."
+      },
+      "set-your-price": {
+        "title": "Fija tu Precio",
+        "learnText": "Tu precio es cuánto le cobras a un cliente por un artículo. Un punto de partida común es cobrar más o menos el doble de lo que te cuesta hacerlo - pero es tu decisión.",
+        "fieldLabel": "¿Cuánto vas a cobrar por un artículo?",
+        "helpText": "Un precio bajo puede hacer que más gente compre, pero te queda menos dinero por artículo. Un precio alto significa más dinero por artículo, pero puede que compre menos gente."
+      },
+      "create-your-marketing": {
+        "title": "Crea tu Marketing",
+        "learnText": "Marketing significa contarle a la gente sobre tu negocio para que sepan que existe, y entiendan qué hace. Elige un enfoque, y luego mira qué pasa."
+      },
+      "make-your-first-sale": {
+        "title": "Haz tu Primera Venta",
+        "learnText": "¡Es hora de ver qué pasa! Decidirás cómo gastar tu dinero inicial, y luego descubrirás cómo van tus primeras ventas.",
+        "ctaButton": "Ir al Simulador de Negocios"
+      },
+      "calculate-your-profit": {
+        "title": "Calcula tu Ganancia",
+        "learnText": "La ganancia es el dinero que te queda después de pagar tus costos. Ganancia = Ventas menos Costos.",
+        "resultHint": "Aquí está tu ganancia del Simulador de Negocios.",
+        "noRunYetHint": "Visita primero el Simulador de Negocios para ver aquí un número real de ganancia."
+      },
+      "handle-competition": {
+        "title": "Maneja la Competencia",
+        "learnText": "Un competidor es otro negocio que vende algo parecido al tuyo. Casi todos los negocios tienen competidores."
+      },
+      "handle-a-customer-problem": {
+        "title": "Resuelve un Problema con un Cliente",
+        "learnText": "Los negocios reales a veces tienen problemas con los clientes. Lo que importa es cómo respondes."
+      },
+      "make-a-business-decision": {
+        "title": "Toma una Decisión de Negocio",
+        "learnText": "Los buenos dueños de negocios piensan bien sus decisiones en lugar de simplemente adivinar."
+      },
+      "grow-your-business": {
+        "title": "Haz Crecer tu Negocio",
+        "learnText": "A veces las cosas no salen como estaba planeado. Hacer crecer un negocio a menudo significa intentarlo de nuevo con algo nuevo."
+      },
+      "create-your-final-pitch": {
+        "title": "Crea tu Presentación Final de Negocio",
+        "learnText": "¡Has construido un negocio! Responde estas dos últimas preguntas, y luego verás tu presentación de negocio ya armada.",
+        "whyChooseLabel": "¿Por qué podría la gente elegir tu negocio?",
+        "whyChoosePlaceholder": "Por ejemplo: Mis pegatinas son resistentes al agua y vienen en colores brillantes que nadie más tiene.",
+        "nextStepLabel": "¿Cuál sería tu próximo paso?",
+        "nextStepPlaceholder": "Por ejemplo: Preguntarles a cinco amigos qué otros diseños de pegatinas les gustarían.",
+        "viewPitchButton": "Ver Mi Presentación de Negocio"
+      }
+    },
+    "decisionEvents": {
+      "product-unclear": {
+        "situation": "A algunos clientes les gusta tu producto, pero no entienden bien qué hace.",
+        "choices": [
+          {
+            "key": "explain-simply",
+            "label": "Escribe una frase sencilla que explique qué hace tu producto",
+            "consequence": "Ahora más gente entiende tu producto, y algunos deciden comprarlo. ¡Las palabras claras sí que ayudan!"
+          },
+          {
+            "key": "add-picture",
+            "label": "Muestra una foto de alguien usándolo",
+            "consequence": "Verlo en acción ayuda a la gente a entenderlo más rápido. Unos cuantos clientes más se animan a probarlo."
+          },
+          {
+            "key": "do-nothing",
+            "label": "Déjalo como está y espera a que la gente lo entienda sola",
+            "consequence": "Algunos clientes siguen confundidos, y algunos deciden no comprar. Explicar con claridad casi siempre ayuda más que quedarse callado."
+          }
+        ]
+      },
+      "competitor-lower-price": {
+        "situation": "Un competidor empieza a vender algo parecido a tu producto, pero por menos dinero.",
+        "choices": [
+          {
+            "key": "lower-price",
+            "label": "Baja tu precio para igualar el suyo",
+            "consequence": "Más gente vuelve a elegir tu producto, pero te queda menos dinero por cada uno que vendes."
+          },
+          {
+            "key": "explain-value",
+            "label": "Mantén tu precio, pero explica por qué tu producto lo vale",
+            "consequence": "Algunos clientes están de acuerdo y se quedan contigo. Otros siguen eligiendo la opción más barata."
+          },
+          {
+            "key": "ignore",
+            "label": "Deja todo exactamente igual",
+            "consequence": "Algunos clientes se van hacia la opción más barata. Tener competencia es normal - suele ayudar responder de alguna manera."
+          }
+        ]
+      },
+      "materials-cost-increase": {
+        "situation": "Los materiales que necesitas para hacer tu producto de repente se vuelven más caros.",
+        "choices": [
+          {
+            "key": "raise-price",
+            "label": "Sube un poco tu precio para cubrir el costo extra",
+            "consequence": "Tu ganancia por artículo se mantiene saludable, aunque algunos clientes sensibles al precio quizá compren con menos frecuencia."
+          },
+          {
+            "key": "absorb-cost",
+            "label": "Mantén tu precio igual y gana menos por artículo",
+            "consequence": "Los clientes no notan ningún cambio, pero te queda menos dinero de cada venta."
+          },
+          {
+            "key": "find-cheaper-materials",
+            "label": "Busca una forma más barata de hacer tu producto",
+            "consequence": "Si encuentras una, esto puede resolver el problema por completo, aunque puede llevarte algo de tiempo descubrirla."
+          }
+        ]
+      },
+      "too-expensive-feedback": {
+        "situation": "Un cliente te dice que tu producto es demasiado caro.",
+        "choices": [
+          {
+            "key": "ask-why",
+            "label": "Pregúntale qué precio le parecería justo",
+            "consequence": "Aprendes algo útil sobre lo que esperan los clientes, aunque no cambies tu precio."
+          },
+          {
+            "key": "offer-smaller-version",
+            "label": "Ofrece una versión más pequeña y barata de tu producto",
+            "consequence": "Algunos clientes que no podían pagar la versión completa compran la pequeña en su lugar."
+          },
+          {
+            "key": "stand-firm",
+            "label": "Explica que tu precio refleja tus costos y tu esfuerzo",
+            "consequence": "Algunos clientes lo entienden y se quedan. A otros les sigue pareciendo demasiado - y está bien."
+          }
+        ]
+      },
+      "more-orders-than-expected": {
+        "situation": "¡Muchísima más gente de la que esperabas quiere comprarte!",
+        "choices": [
+          {
+            "key": "make-more",
+            "label": "Intenta hacer más producto para seguir el ritmo",
+            "consequence": "Vendes más, pero hacer más deprisa cuesta más tiempo y esfuerzo de lo habitual."
+          },
+          {
+            "key": "raise-price-slightly",
+            "label": "Sube un poco tu precio ya que hay mucha demanda",
+            "consequence": "Ganas más por artículo, aunque algunos clientes decidan esperar o buscar en otro lugar."
+          },
+          {
+            "key": "waitlist",
+            "label": "Diles a los clientes extra que pronto tendrás más listo",
+            "consequence": "Los clientes dispuestos a esperar normalmente igual te compran más tarde."
+          }
+        ]
+      },
+      "teammate-wants-change": {
+        "situation": "Alguien que te ayuda con tu negocio quiere cambiar el producto de una forma que no tienes clara.",
+        "choices": [
+          {
+            "key": "hear-them-out",
+            "label": "Pídele que te explique bien su idea antes de decidir",
+            "consequence": "Aprendes más sobre lo que piensa, lo que hace mucho más fácil decidir juntos."
+          },
+          {
+            "key": "say-no",
+            "label": "Di que no y deja el producto exactamente igual",
+            "consequence": "El producto se queda igual, pero puede que tu compañero sienta que no lo escuchan la próxima vez que tenga una idea."
+          },
+          {
+            "key": "try-a-test-version",
+            "label": "Prueba su idea en solo unos pocos artículos primero, como prueba",
+            "consequence": "Así puedes ver si el cambio realmente funciona antes de cambiarlo todo."
+          }
+        ]
+      },
+      "fewer-sales-than-expected": {
+        "situation": "Esta semana vendiste menos de lo que esperabas.",
+        "choices": [
+          {
+            "key": "ask-customers",
+            "label": "Pregúntale a algunas personas por qué no compraron",
+            "consequence": "Consigues información real que puedes usar para mejorar, aunque a veces sea difícil de escuchar."
+          },
+          {
+            "key": "try-something-new",
+            "label": "Prueba un precio distinto o una nueva forma de explicar tu producto",
+            "consequence": "Probar algo nuevo a veces funciona mejor, y a veces no. De cualquier forma, aprendes algo."
+          },
+          {
+            "key": "keep-going",
+            "label": "Sigue haciendo exactamente lo mismo y mira qué pasa",
+            "consequence": "Algunas semanas son simplemente más lentas que otras. Pero si esto sigue pasando, puede valer la pena probar algo diferente."
+          }
+        ]
+      }
+    },
+    "challenges": {
+      "five-pound-challenge": {
+        "title": "El Reto de los {amount}",
+        "situation": "Tienes {amount} de dinero virtual. ¿Qué podrías crear con eso?",
+        "choices": [
+          {
+            "key": "cheap-materials",
+            "label": "Compra unos materiales baratos y haz varios artículos pequeños",
+            "consequence": "Puedes hacer más artículos para vender, aunque cada uno sea sencillo."
+          },
+          {
+            "key": "one-good-material",
+            "label": "Gástalo todo en un material de mejor calidad",
+            "consequence": "Puedes hacer menos artículos, pero cada uno puede parecer más especial y valer más."
+          },
+          {
+            "key": "save-some",
+            "label": "Ahorra una parte y gasta el resto con cuidado",
+            "consequence": "Empiezas más pequeño, pero todavía te queda algo de dinero por si lo necesitas más adelante."
+          }
+        ]
+      },
+      "pricing-challenge": {
+        "title": "El Reto de los Precios",
+        "situation": "Tu producto cuesta {amount} hacerlo. ¿Qué precio elegirás?",
+        "choices": [
+          {
+            "key": "price-low",
+            "label": "Cobra solo un poco más de lo que te cuesta",
+            "consequence": "Más gente puede pagarlo, pero solo te queda una pequeña cantidad de cada venta."
+          },
+          {
+            "key": "price-double",
+            "label": "Cobra más o menos el doble de lo que te cuesta",
+            "consequence": "Una elección común y equilibrada - la mayoría de los negocios empiezan por aquí."
+          },
+          {
+            "key": "price-high",
+            "label": "Cobra mucho más de lo que te cuesta",
+            "consequence": "Ganas mucho con cada venta, pero es posible que menos gente decida comprar."
+          }
+        ]
+      },
+      "customer-challenge": {
+        "title": "El Reto de los Clientes",
+        "situation": "Parece que a nadie le interesa tu producto. ¿Qué podrías cambiar?",
+        "choices": [
+          {
+            "key": "ask-people",
+            "label": "Pregúntale a algunas personas qué querrían en realidad",
+            "consequence": "Consigues ideas reales y útiles, aunque algunas te sorprendan."
+          },
+          {
+            "key": "change-product",
+            "label": "Cambia el producto para resolver un problema más grande",
+            "consequence": "Esto puede ayudar de verdad, aunque lleva más tiempo y esfuerzo rehacerlo."
+          },
+          {
+            "key": "same-different-customer",
+            "label": "Deja el producto igual, pero piensa en quién más podría quererlo",
+            "consequence": "A veces el cliente correcto era simplemente distinto de lo que pensabas al principio."
+          }
+        ]
+      },
+      "marketing-challenge": {
+        "title": "El Reto del Marketing",
+        "situation": "Tienes {amount} de dinero virtual para marketing. ¿Cómo lo usarás?",
+        "choices": [
+          {
+            "key": "tell-friends",
+            "label": "Pide a amigos y familiares que ayuden a correr la voz",
+            "consequence": "Esto no cuesta nada y puede ayudar de verdad - la gente confía en las recomendaciones de quienes conoce."
+          },
+          {
+            "key": "make-a-poster",
+            "label": "Gástalo en hacer un cartel o letrero llamativo",
+            "consequence": "Un cartel claro y atractivo puede llamar la atención de la gente que pasa por ahí."
+          },
+          {
+            "key": "spend-it-all",
+            "label": "Gástalo todo intentando llegar a la mayor cantidad de gente posible",
+            "consequence": "Llegas a más gente, pero no te queda nada de sobra si surge algo inesperado."
+          }
+        ]
+      },
+      "bad-review-challenge": {
+        "title": "El Reto de la Mala Reseña",
+        "situation": "Un cliente no está contento con lo que te compró.",
+        "choices": [
+          {
+            "key": "apologize-and-fix",
+            "label": "Discúlpate y ofrécete a arreglarlo o cambiarlo",
+            "consequence": "La mayoría de los clientes descontentos se sienten mucho mejor cuando alguien se toma en serio su problema."
+          },
+          {
+            "key": "explain-politely",
+            "label": "Explica con amabilidad por qué el producto funciona así",
+            "consequence": "Esto a veces ayuda, especialmente si el cliente entendió algo mal."
+          },
+          {
+            "key": "ignore-it",
+            "label": "Ignóralo y pasa al siguiente cliente",
+            "consequence": "El cliente descontento puede contarles a otros su experiencia. Responder normalmente ayuda más que quedarse en silencio."
+          }
+        ]
+      }
+    },
+    "challengesListTitle": "Retos de Negocios",
+    "challengesListIntro": "Retos cortos e independientes que puedes probar cuando quieras - cada uno enseña algo distinto sobre cómo llevar un negocio.",
+    "challengeCompletedBadge": "Completado",
+    "realWorldMissions": {
+      "find-a-problem-at-home": "Mira a tu alrededor, en casa o en el colegio. ¿Puedes encontrar un problema que tenga la gente?",
+      "notice-what-people-buy": "Encuentra algo que la gente compre habitualmente. ¿Por qué crees que lo compran?",
+      "improve-a-product-you-use": "Elige un producto que uses. ¿Qué podría hacerlo mejor?",
+      "ask-someone-what-they-would-change": "Pregúntale a alguien qué cambiaría de un producto que usa."
+    },
+    "badges": {
+      "eq-problem-solver": {
+        "name": "El Solucionador de Problemas",
+        "description": "Encontraste un problema real que resolver"
+      },
+      "eq-idea-finder": {
+        "name": "El Buscador de Ideas",
+        "description": "Convertiste un problema en una idea"
+      },
+      "eq-money-manager": {
+        "name": "El Gestor del Dinero",
+        "description": "Calculaste la ganancia de un negocio"
+      },
+      "eq-marketing-explorer": {
+        "name": "El Explorador del Marketing",
+        "description": "Practicaste cómo contarle a la gente sobre un negocio"
+      },
+      "eq-young-founder": {
+        "name": "El Joven Fundador",
+        "description": "Completaste una presentación de negocio completa"
+      }
+    },
+    "simulator": {
+      "title": "Simulador de Negocios",
+      "intro": "¡Es hora de ver cómo le va a tu negocio! Decide cómo gastar tu dinero inicial, y luego descubre qué pasa.",
+      "startingMoneyLabel": "Tu dinero inicial",
+      "allocateInstructions": "Decide cómo gastar tus {amount}.",
+      "categoryMaterials": "Materiales",
+      "categoryPackaging": "Empaque",
+      "categoryAdvertising": "Publicidad",
+      "categorySavedAside": "Dinero apartado",
+      "seeResultButton": "Ver Qué Pasa",
+      "resultTitle": "Esto es lo que Pasó",
+      "unitsMadeLabel": "Hiciste {count} artículos",
+      "unitsSoldLabel": "Vendiste {count} de ellos",
+      "salesLabel": "Ventas",
+      "costsLabel": "Costos",
+      "profitLabel": "Ganancia",
+      "remainingLabel": "El dinero que tienes ahora",
+      "formulaReminder": "Ganancia = Ventas - Costos",
+      "explanationProfit": "¡Obtuviste una ganancia de {profit}! Ventas menos Costos es igual a Ganancia.",
+      "explanationLoss": "Esta vez, tus costos fueron más altos que tus ventas. Eso pasa a veces - puedes intentarlo de nuevo con decisiones diferentes.",
+      "tryAgainButton": "Probar Decisiones Diferentes"
+    },
+    "pitch": {
+      "title": "Mi Primer Negocio",
+      "myBusinessIsLabel": "Mi negocio es...",
+      "itHelpsLabel": "Ayuda con...",
+      "myCustomersAreLabel": "Mis clientes son...",
+      "myProductIsLabel": "Mi producto o servicio es...",
+      "itCostsMeLabel": "Me cuesta...",
+      "iWouldChargeLabel": "Cobraría...",
+      "iCouldMakeLabel": "Podría ganar...",
+      "whyChooseLabel": "La gente podría elegir mi negocio porque...",
+      "nextStepLabel": "Mi próximo paso sería...",
+      "perItemSuffix": "por artículo",
+      "notSetYet": "Todavía no decidido",
+      "editBusinessButton": "Editar Mi Negocio",
+      "notReadyTitle": "Tu Presentación Todavía No Está Lista",
+      "notReadyHint": "Termina de construir tu negocio primero, y tu presentación aparecerá aquí.",
+      "goToBuildButton": "Seguir Construyendo tu Negocio",
+      "reputationLabel": "La reputación de mi negocio es...",
+      "reputationValue": "{stars} de 5 estrellas"
+    },
+    "productCategories": {
+      "food": "Comida",
+      "art": "Arte",
+      "crafts": "Manualidades",
+      "games": "Juegos",
+      "pets": "Mascotas",
+      "sports": "Deportes",
+      "fashion": "Moda",
+      "technology": "Tecnología",
+      "education": "Educación",
+      "environment": "Medio Ambiente",
+      "helping-people": "Ayudar a la Gente",
+      "other": "Algo Más"
+    },
+    "customerCategories": {
+      "kids": "Niños",
+      "families": "Familias",
+      "teens": "Adolescentes",
+      "adults": "Adultos",
+      "school-community": "Mi Comunidad Escolar",
+      "neighbors": "Vecinos",
+      "animal-lovers": "Amantes de los Animales",
+      "other": "Otra Persona"
+    },
+    "marketingApproaches": {
+      "poster": "Hacer un Cartel",
+      "social-style-advert": "Anuncio Estilo Redes Sociales",
+      "word-of-mouth": "Boca a Boca",
+      "school-community-idea": "Idea Escolar o Comunitaria",
+      "special-offer": "Oferta Especial"
+    },
+    "logoShapes": {
+      "circle": "Círculo",
+      "square": "Cuadrado",
+      "hexagon": "Hexágono",
+      "star": "Estrella"
+    },
+    "safety": {
+      "nameHint": "Usa un nombre divertido e inventado para tu negocio - no tu nombre completo real, dirección, número de teléfono, ni el nombre de tu colegio."
+    },
+    "dashboard": {
+      "title": "Mi Empresa",
+      "productLabel": "Producto",
+      "customersLabel": "Clientes",
+      "priceLabel": "Precio",
+      "costLabel": "Costo",
+      "profitPerSaleLabel": "Ganancia por venta",
+      "salesLabel": "Ventas",
+      "revenueLabel": "Ingresos",
+      "costsLabel": "Costos",
+      "profitLabel": "Ganancia",
+      "reputationLabel": "Reputación",
+      "reputationValue": "{stars}/5",
+      "goalLabel": "Objetivo actual",
+      "goalPlaceholder": "Por ejemplo: Hacer 20 ventas",
+      "saveGoalButton": "Guardar Objetivo"
+    }
   },
   "notFound": {
     "title": "Vaya, no encontramos esa página",
