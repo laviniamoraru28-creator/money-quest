@@ -4101,6 +4101,14 @@
         "nextStepLabel": "Care ar fi următorul tău pas?",
         "nextStepPlaceholder": "De exemplu: Întreabă cinci prieteni ce alte modele de abțibilduri și-ar dori.",
         "viewPitchButton": "Vezi Prezentarea Afacerii Mele"
+      },
+      "research-demand": {
+        "title": "Cercetează Cererea",
+        "learnText": "Înainte să construiască ceva, antreprenorii isteți verifică dacă oamenii chiar vor cumpăra. Uită-te la datele de piață de mai jos."
+      },
+      "test-the-idea": {
+        "title": "Testează Ideea",
+        "learnText": "E tentant să sari direct la construit - dar testarea unei idei mici mai întâi te poate scuti de o greșeală costisitoare."
       }
     },
     "decisionEvents": {
@@ -4241,6 +4249,41 @@
             "key": "keep-going",
             "label": "Continuă să faci exact același lucru și vezi ce urmează",
             "consequence": "Unele săptămâni sunt pur și simplu mai lente decât altele. Dar dacă asta continuă, poate merită să încerci ceva diferit."
+          }
+        ]
+      },
+      "market-detective-reflection": {
+        "situation": "Uitându-te la datele de piață pentru Păstrăv Proaspăt, ce crezi?",
+        "choices": [
+          {
+            "key": "looks-like-a-good-opportunity",
+            "label": "Asta pare o oportunitate grozavă",
+            "consequence": "Mulți clienți interesați sunt un semn bun! Dar ține minte: cererea mare nu înseamnă automat profit mare - depinde tot de costuri și de câți competitori vând deja."
+          },
+          {
+            "key": "needs-more-thought",
+            "label": "Asta are nevoie de mai multă gândire înainte să decizi",
+            "consequence": "Instinct bun - doar 75 din cei 300 de oameni interesați au cumpărat de fapt recent, și există deja 4 competitori. Este isteț să sapi mai adânc înainte să te angajezi."
+          },
+          {
+            "key": "not-sure-yet",
+            "label": "Nu sunt sigur încă",
+            "consequence": "E un punct de plecare corect - antreprenorii adevărați au deseori nevoie de mai multe informații înainte să fie siguri. Uită-te din nou la prețurile competitorilor și la tiparul cererii."
+          }
+        ]
+      },
+      "test-before-invest": {
+        "situation": "Ai niște bani de pornire. Cum vrei să începi?",
+        "choices": [
+          {
+            "key": "spend-it-all-now",
+            "label": "Cheltuiește tot imediat pentru a construi afacerea",
+            "consequence": "Ești implicat complet din prima zi - dar dacă ideea nu merge, ai cheltuit deja tot ca să afli asta."
+          },
+          {
+            "key": "test-a-little-first",
+            "label": "Cheltuiește puțin mai întâi ca să testezi dacă clienții chiar vor cumpăra",
+            "consequence": "Afli devreme - și ieftin - dacă oamenii chiar își doresc asta, înainte să riști totul pe ea."
           }
         ]
       }
@@ -4480,7 +4523,625 @@
       "reputationValue": "{stars}/5",
       "goalLabel": "Obiectiv actual",
       "goalPlaceholder": "De exemplu: Fă 20 de vânzări",
-      "saveGoalButton": "Salvează Obiectivul"
+      "saveGoalButton": "Salvează Obiectivul",
+      "cashLabel": "Numerar",
+      "customersTotalLabel": "Clienți",
+      "repeatCustomersLabel": "Clienți Fideli",
+      "stockLabel": "Stoc",
+      "demandLabel": "Cerere",
+      "showMoreButton": "Arată mai multe detalii",
+      "showLessButton": "Arată mai puține detalii"
+    },
+    "phases": {
+      "build": "Construiește",
+      "run": "Administrează",
+      "rescueGrow": "Salvează și Dezvoltă"
+    },
+    "levels": {
+      "low": "Scăzut",
+      "medium": "Mediu",
+      "high": "Ridicat"
+    },
+    "demandLevels": {
+      "low": "Scăzută",
+      "medium": "Medie",
+      "high": "Ridicată",
+      "seasonal-high": "Ridicată (Sezonieră)",
+      "seasonal-low": "Scăzută (Sezonieră)"
+    },
+    "problemFlow": {
+      "investigateLabel": "Investighează",
+      "tapToReveal": "Atinge pentru a dezvălui",
+      "causeLabel": "Care este cauza probabilă?",
+      "responseLabel": "Ce vei face?"
+    },
+    "problemsListIntro": "Afacerile reale se lovesc de probleme. Investighează fiecare problemă folosind datele, apoi decide cum să răspunzi.",
+    "marketDetective": {
+      "scenarioTitle": "Păstrăv Proaspăt: O Piață de Investigat",
+      "interestedCustomersLabel": "Clienți Interesați",
+      "recentBuyersLabel": "Cumpărători Recenți",
+      "competitorCountLabel": "Competitori",
+      "competitorPriceLabel": "Prețul Mediu al Competitorilor",
+      "productionCostLabel": "Costul Estimat de Producție",
+      "weekendDemandLabel": "Cererea în Weekend",
+      "winterDemandLabel": "Cererea de Iarnă",
+      "demandLadderTitle": "De la Interes la Clienți Fideli",
+      "demandLadder": {
+        "likeTheIdea": "Oameni cărora le place ideea",
+        "mightBuy": "Oameni care ar putea cumpăra",
+        "actuallyBuy": "Oameni care chiar cumpără",
+        "becomeRepeatCustomers": "Oameni care devin clienți fideli"
+      }
+    },
+    "problems": {
+      "not-enough-customers": {
+        "title": "Nu Sunt Suficienți Clienți",
+        "situation": "Afacerea ta funcționează de ceva vreme, dar aproape nimeni nu cumpără.",
+        "responsePrompt": "Ce vei face?",
+        "clues": {
+          "footTraffic": "Mai puțini oameni ți-au vizitat taraba sau magazinul decât luna trecută.",
+          "onlineViews": "Nu prea mulți oameni se uită la postările sau anunțurile tale.",
+          "competitorActivity": "O afacere asemănătoare din apropiere a fost plină de clienți."
+        },
+        "causes": {
+          "wrong-customer-group": {
+            "label": "Poate nu ajungi la clienții potriviți",
+            "feedback": "E posibil - merită să verifici cui încerci de fapt să vinzi."
+          },
+          "weak-marketing": {
+            "label": "Poate nu suficienți oameni știu despre afacerea ta",
+            "feedback": "S-ar putea să fie asta - dacă oamenii nu știu că exiști, nu pot cumpăra de la tine."
+          },
+          "price-too-high": {
+            "label": "Poate prețul tău li se pare prea mare oamenilor",
+            "feedback": "Merită luat în calcul și asta - prețul influențează câți oameni decid să cumpere."
+          }
+        },
+        "responses": {
+          "improve-marketing": {
+            "label": "Spune mai multor oameni despre afacerea ta",
+            "consequence": "Cheltuiești puțin mai mult ca să răspândești vestea, iar câțiva clienți noi te găsesc."
+          },
+          "research-customers": {
+            "label": "Întreabă oamenii ce își doresc de fapt",
+            "consequence": "Nu vinzi mai mult imediat, dar înveți ceva ce te-ar putea ajuta mai târziu."
+          },
+          "lower-price-temporarily": {
+            "label": "Scade prețul pentru o perioadă scurtă",
+            "consequence": "Mai mulți oameni decid să încerce produsul tău, deși câștigi puțin mai puțin la fiecare."
+          }
+        }
+      },
+      "costs-increased": {
+        "title": "Costurile Au Crescut",
+        "situation": "Materialele pe care le folosești pentru produsul tău au devenit brusc mai scumpe.",
+        "responsePrompt": "Ce vei face?",
+        "clues": {
+          "supplierPriceNotice": "Furnizorul tău ți-a trimis un mesaj că prețurile lui au crescut.",
+          "fuelPrices": "Costul combustibilului și al livrării a crescut și el.",
+          "wageChanges": "Nu s-a schimbat nimic la cât plătești pentru ajutor - partea asta a rămas la fel."
+        },
+        "causes": {
+          "supplier-price-rise": {
+            "label": "Furnizorul tău pur și simplu cere mai mult acum",
+            "feedback": "Asta se potrivește cu ce spunea mesajul furnizorului."
+          },
+          "inflation": {
+            "label": "Prețurile cresc peste tot în acest moment",
+            "feedback": "Și asta face parte din poveste - uneori multe costuri cresc împreună."
+          },
+          "more-materials-needed": {
+            "label": "Folosești mai multe materiale decât înainte",
+            "feedback": "E posibil, dar indiciile arată mai degrabă spre schimbarea de preț a furnizorului."
+          }
+        },
+        "responses": {
+          "absorb-the-cost": {
+            "label": "Păstrează prețul la fel și câștigă mai puțin profit",
+            "consequence": "Clienții nu observă nicio schimbare, dar rămâi cu mai puțini bani din fiecare vânzare."
+          },
+          "raise-your-price": {
+            "label": "Crește puțin prețul ca să acoperi diferența",
+            "consequence": "Profitul pe produs rămâne sănătos, deși câțiva clienți ar putea cumpăra mai rar."
+          },
+          "find-a-cheaper-supplier": {
+            "label": "Caută un furnizor mai ieftin",
+            "consequence": "Dacă găsești unul, asta poate rezolva complet problema - deși ar putea dura și calitatea ar putea fi diferită."
+          }
+        }
+      },
+      "negative-review": {
+        "title": "O Recenzie Negativă",
+        "situation": "Un client a lăsat o recenzie spunând că nu a fost mulțumit de ce a cumpărat.",
+        "responsePrompt": "Ce vei face?",
+        "clues": {
+          "reviewText": "Recenzia spune că produsul a ajuns puțin deteriorat.",
+          "otherReviews": "Toate celelalte recenzii recente au fost pozitive.",
+          "returnRequests": "E prima dată când cineva cere o înlocuire."
+        },
+        "causes": {
+          "product-fault": {
+            "label": "Ceva nu a mers bine cu acest produs anume",
+            "feedback": "Se potrivește - celelalte recenzii sunt bune, deci pare un caz izolat."
+          },
+          "unclear-instructions": {
+            "label": "Poate instrucțiunile nu au fost suficient de clare",
+            "feedback": "Posibil, dar recenzia vorbește despre deteriorare, nu despre confuzie."
+          },
+          "slow-response": {
+            "label": "Poate ai răspuns prea târziu",
+            "feedback": "Merită luat în calcul, dar recenzia în sine vorbește despre produsul ajuns deteriorat."
+          }
+        },
+        "responses": {
+          "apologise-and-fix": {
+            "label": "Cere-ți scuze și oferă-te să-l repari sau să-l înlocuiești",
+            "consequence": "Clientul se simte ascultat, iar majoritatea oamenilor se simt mult mai bine când problema lor este luată în serios."
+          },
+          "offer-replacement": {
+            "label": "Trimite o înlocuire gratuită",
+            "consequence": "Te costă puțin, dar clientul este mulțumit și ar putea cumpăra din nou de la tine."
+          },
+          "ignore-and-move-on": {
+            "label": "Lasă așa și treci mai departe la alți clienți",
+            "consequence": "Clientul nemulțumit ar putea povesti altora despre experiența lui - de obicei, a răspunde ajută mai mult decât tăcerea."
+          }
+        }
+      },
+      "sales-falling": {
+        "title": "Vânzările Scad",
+        "situation": "Vânzările tale au tot scăzut în ultimele săptămâni.",
+        "responsePrompt": "Ce vei face?",
+        "clues": {
+          "salesChart": "Vânzările erau constante, apoi au început să scadă acum vreo trei săptămâni.",
+          "competitorPrices": "Un competitor a început să vândă ceva asemănător mai ieftin cam în aceeași perioadă.",
+          "customerFeedback": "Câțiva clienți au spus că produsul tău pare 'la fel ca întotdeauna'."
+        },
+        "causes": {
+          "price-too-high-now": {
+            "label": "Prețul tău pare mare comparat cu cel al competitorului",
+            "feedback": "Momentul se potrivește cu apariția competitorului - asta pare probabil."
+          },
+          "new-competitor": {
+            "label": "Un competitor nou îți ia niște clienți",
+            "feedback": "Asta se potrivește bine cu momentul."
+          },
+          "product-losing-novelty": {
+            "label": "Clienții doar s-au obișnuit cu produsul",
+            "feedback": "E posibil și asta - comentariile despre 'la fel ca întotdeauna' sugerează acest lucru."
+          }
+        },
+        "responses": {
+          "run-a-special-offer": {
+            "label": "Fă o ofertă specială de scurtă durată",
+            "consequence": "Câțiva clienți care se îndepărtaseră revin să încerce din nou."
+          },
+          "refresh-the-product": {
+            "label": "Reînnoiește sau îmbunătățește produsul",
+            "consequence": "Costă puțin să faci schimbarea, dar clienții observă ceva nou și câțiva se întorc."
+          },
+          "ask-customers-directly": {
+            "label": "Întreabă clienții direct ce cred",
+            "consequence": "Nu vinzi mai mult imediat, dar afli ceva util pe care poți acționa."
+          }
+        }
+      },
+      "rising-costs-eating-profit": {
+        "title": "De Ce Nu Facem Bani?",
+        "situation": "Vânzările cresc și veniturile cresc și ele - dar profitul tot scade.",
+        "responsePrompt": "Ce vei face?",
+        "clues": {
+          "priceHistory": "Prețul tău nu s-a schimbat de luni de zile.",
+          "productionCostHistory": "Producerea fiecărui produs a devenit, încet, puțin mai scumpă în timp.",
+          "advertisingSpend": "Ai cheltuit tot mai mult pe reclamă ca să menții creșterea vânzărilor."
+        },
+        "causes": {
+          "advertising-spend-too-high": {
+            "label": "Reclama costă mai mult decât aduce",
+            "feedback": "Se potrivește - a cheltui mai mult ca să menții aceeași creștere consumă din profit."
+          },
+          "waste-in-production": {
+            "label": "Poate se irosesc niște materiale",
+            "feedback": "Merită verificat, deși indiciile arată mai clar spre creșterea costurilor de reclamă și de producție."
+          },
+          "discounts-too-generous": {
+            "label": "Poate reducerile au fost prea generoase",
+            "feedback": "Posibil - reducerile pot micșora profitul pe tăcute chiar și atunci când vânzările par bune."
+          }
+        },
+        "responses": {
+          "review-advertising-spend": {
+            "label": "Verifică dacă reclama merită costul ei",
+            "consequence": "Reduci ce nu funcționează, iar costurile scad fără să pierzi multe vânzări."
+          },
+          "reduce-waste": {
+            "label": "Caută modalități de a reduce risipa din producție",
+            "consequence": "E nevoie de puțin efort ca să găsești sursa, dar acum fiecare produs costă puțin mai puțin de făcut."
+          },
+          "adjust-discounts": {
+            "label": "Oferă reduceri mai mici",
+            "consequence": "Rămâi cu mai mult din fiecare vânzare, deși câțiva clienți care căutau reduceri cumpără mai puțin."
+          }
+        }
+      },
+      "profit-but-no-cash": {
+        "title": "Profit, Dar Fără Numerar",
+        "situation": "Cifrele tale arată profit - dar nu ai suficienți bani disponibili chiar acum ca să plătești ce ai nevoie.",
+        "responsePrompt": "Ce vei face?",
+        "clues": {
+          "unpaidInvoices": "Unii clienți încă nu te-au plătit pentru comenzile recente.",
+          "cashOnHand": "Banii pe care îi ai de fapt disponibili sunt mult mai puțini decât cifra profitului tău.",
+          "upcomingBills": "Ai o factură de la furnizor care trebuie plătită foarte curând."
+        },
+        "causes": {
+          "customers-pay-late": {
+            "label": "Clienții te plătesc mai târziu decât te așteptai",
+            "feedback": "Asta se potrivește cu facturile neplătite."
+          },
+          "spent-too-much-on-equipment": {
+            "label": "Ai cheltuit mult pe echipamente recent",
+            "feedback": "Posibil, dar indiciile arată mai degrabă spre bani care ți se datorează, nu spre bani cheltuiți de tine."
+          },
+          "stock-tied-up-money": {
+            "label": "Banii sunt blocați în stocul nevândut",
+            "feedback": "Și asta e o posibilitate reală - stocul este bani care încă nu s-au transformat în numerar."
+          }
+        },
+        "responses": {
+          "ask-for-faster-payment": {
+            "label": "Cere clienților să plătească mai repede",
+            "consequence": "Unii clienți plătesc mai repede odată ce li se cere, aducând numerarul care ți se datora."
+          },
+          "use-savings": {
+            "label": "Folosește banii puși deoparte",
+            "consequence": "Acoperă diferența pentru moment, deși rezerva ta rămâne mai mică după aceea."
+          },
+          "delay-a-purchase": {
+            "label": "Amână o achiziție pe care o plănuiai",
+            "consequence": "Asta eliberează niște numerar acum, deși ai putea pierde oportunitatea pentru care era."
+          }
+        }
+      },
+      "too-much-stock": {
+        "title": "Prea Mult Stoc Nevândut",
+        "situation": "Ai făcut mai multe produse decât ai reușit să vinzi, iar acestea ocupă spațiu.",
+        "responsePrompt": "Ce vei face?",
+        "clues": {
+          "stockRoomPhoto": "Spațiul tău de depozitare este mai plin ca oricând.",
+          "unsoldItemsList": "Unele produse stau nevândute de săptămâni întregi.",
+          "seasonalTrend": "Cererea pentru acest tip de produs este de obicei mai mică în această perioadă a anului."
+        },
+        "causes": {
+          "over-ordered": {
+            "label": "Ai făcut sau ai comandat mai mult decât aveai nevoie",
+            "feedback": "Se potrivește cu ce arată cifrele de depozitare."
+          },
+          "demand-was-seasonal": {
+            "label": "Cererea scade în mod natural în această perioadă a anului",
+            "feedback": "Se potrivește și cu tiparul sezonier."
+          },
+          "product-less-popular-than-expected": {
+            "label": "Produsul nu a fost atât de popular pe cât te așteptai",
+            "feedback": "Posibil - merită ținut minte pentru data viitoare."
+          }
+        },
+        "responses": {
+          "run-a-clearance-sale": {
+            "label": "Vinde stocul în plus la preț redus",
+            "consequence": "Transformi stocul nevândut în numerar, chiar dacă câștigi mai puțin la fiecare produs."
+          },
+          "donate-or-repurpose": {
+            "label": "Donează sau reutilizează stocul în plus",
+            "consequence": "Nu primești bani înapoi, dar eliberezi spațiul și reputația ta primește un mic impuls."
+          },
+          "order-less-next-time": {
+            "label": "Ține minte doar să comanzi mai puțin data viitoare",
+            "consequence": "Nimic nu se schimbă acum, dar ai învățat ceva pentru următoarea comandă."
+          }
+        }
+      }
+    },
+    "run": {
+      "hubTitle": "Administrează-ți Afacerea",
+      "hubIntro": "Compania ta există acum - dar să o administrezi bine înseamnă să iei decizii reale despre prețuri, furnizori, numerar și problemele care apar pe parcurs.",
+      "lockedTitle": "Nu Ești Încă Pregătit",
+      "lockedHint": "Termină mai întâi construirea afacerii tale, apoi revino aici ca să începi să o administrezi.",
+      "pricingExperimentLink": "Experiment de Preț",
+      "supplierAndStockLink": "Furnizori și Stoc",
+      "cashFlowLink": "Flux de Numerar",
+      "problemsLink": "Probleme de Afaceri",
+      "problemsProgress": "{done} din {total} rezolvate",
+      "pricingExperiment": {
+        "intro": "Același produs poate fi prețuit diferit. Vezi ce se întâmplă cu vânzările, veniturile, costurile și profitul la trei prețuri diferite.",
+        "priceColumn": "Preț",
+        "unitsSoldColumn": "Unități Vândute",
+        "reflectionPrompt": "Uitându-te la cifre, ce preț ai alege pentru o afacere ca aceasta?",
+        "reflectionChoices": {
+          "pick-low-price": {
+            "label": "Cel mai mic preț",
+            "consequence": "Mulți oameni cumpără, dar câștigi cel mai puțin de la fiecare - vezi dacă profitul total este chiar cel mai mare."
+          },
+          "pick-middle-price": {
+            "label": "Prețul din mijloc",
+            "consequence": "Un echilibru între câți oameni cumpără și cât câștigi de la fiecare."
+          },
+          "pick-high-price": {
+            "label": "Cel mai mare preț",
+            "consequence": "Mai puțini oameni cumpără, dar câștigi mai mult din fiecare vânzare - verifică dacă asta înseamnă mai mult sau mai puțin profit în total."
+          }
+        }
+      },
+      "supplierAndStock": {
+        "intro": "Alegerea unui furnizor este un compromis - rareori există un răspuns perfect. Compară opțiunile, apoi decide.",
+        "supplierColumn": "Furnizor",
+        "priceLevelLabel": "Preț",
+        "deliverySpeedLabel": "Viteza de Livrare",
+        "minimumOrderLabel": "Comandă Minimă",
+        "qualityLabel": "Calitate",
+        "supplierPrompt": "Ce furnizor vei alege?",
+        "suppliers": {
+          "supplier-a": {
+            "label": "Furnizorul A",
+            "consequence": "Economisești bani la materiale, dar livrările durează mai mult și trebuie să comanzi mult odată."
+          },
+          "supplier-b": {
+            "label": "Furnizorul B",
+            "consequence": "Primești materialele repede și poți comanda cantități mici, dar plătești mai mult pentru asta."
+          },
+          "supplier-c": {
+            "label": "Furnizorul C",
+            "consequence": "Plătești puțin mai mult decât cea mai ieftină opțiune, dar livrarea este de încredere și calitatea este ridicată."
+          }
+        },
+        "stockPrompt": "Cât stoc vei comanda?",
+        "stockChoices": {
+          "order-a-lot": {
+            "label": "Comandă mult, ca să fii sigur",
+            "consequence": "Nu vei rămâne fără stoc, dar dacă nu se vinde tot, vei fi irosit bani pe stoc nevândut."
+          },
+          "order-just-enough": {
+            "label": "Comandă exact cât te aștepți să vinzi",
+            "consequence": "O abordare echilibrată - deși dacă cererea crește brusc, s-ar putea să rămâi fără stoc."
+          },
+          "order-a-little-and-restock": {
+            "label": "Comandă puțin și reaprovizionează-te mai târziu dacă e nevoie",
+            "consequence": "Eviți risipa, dar dacă cererea crește rapid, ai putea pierde câteva vânzări înainte să sosească reaprovizionarea."
+          }
+        }
+      },
+      "cashFlow": {
+        "intro": "Chiar și o afacere profitabilă poate avea probleme cu banii dacă numerarul nu sosește atunci când e nevoie de el.",
+        "decisionPrompt": "Ce vei face?",
+        "scenarioText": "Un client comandă produse de {orderAmount}, dar nu va plăti timp de {days} zile. Între timp, tot trebuie să plătești {upfrontCosts} pentru materiale, salarii, electricitate și transport chiar acum.",
+        "profitVsCashExplainer": "Profitul este bani pe care i-ai câștigat pe hârtie. Numerarul este bani pe care chiar îi poți cheltui azi - și nu sunt mereu același lucru.",
+        "choices": {
+          "wait-for-payment": {
+            "label": "Așteaptă să sosească plata",
+            "consequence": "Nu cheltuiești nimic în plus, dar vei avea foarte puțin numerar disponibil până sosește plata."
+          },
+          "use-savings-to-cover-costs": {
+            "label": "Folosește banii economisiți ca să acoperi costurile acum",
+            "consequence": "Facturile tale sunt plătite la timp, deși economiile tale sunt mai mici până sosește plata."
+          },
+          "ask-for-partial-payment-upfront": {
+            "label": "Cere clientului să plătească o parte în avans",
+            "consequence": "Primești puțin numerar imediat, ceea ce ajută la acoperirea costurilor cât timp aștepți restul."
+          }
+        }
+      }
+    },
+    "aiLab": {
+      "hubTitle": "Laboratorul AI pentru Afaceri",
+      "hubLink": "Laboratorul AI pentru Afaceri",
+      "simulatedAiLabel": "Asistent AI Simulat (nu este AI real)",
+      "askAi": {
+        "title": "Cu Ce Poate Ajuta AI-ul?",
+        "intro": "Instrumentele AI pot ajuta un proprietar de afacere să gândească - dar nu iau decizii în locul tău. Atinge o întrebare ca să vezi cum ar putea răspunde un asistent AI.",
+        "questions": {
+          "brainstorm-ideas": {
+            "question": "Mă poți ajuta să găsesc idei de afaceri?",
+            "answer": "Iată câteva direcții la care să te gândești: rezolvarea unei probleme pe care o observi des, îmbunătățirea a ceva ce oamenii deja folosesc sau combinarea a două lucruri care îți plac. Care dintre acestea ți se potrivește cel mai bine?"
+          },
+          "customer-research-questions": {
+            "question": "Ce întrebări ar trebui să le pun clienților mei?",
+            "answer": "Încearcă să întrebi: Ce problemă speri că rezolvă asta? Ce te-ar face să alegi asta în locul altceva? Care e singurul lucru care te-ar face să cumperi din nou?"
+          },
+          "marketing-ideas": {
+            "question": "Cum pot spune mai multor oameni despre afacerea mea?",
+            "answer": "Câteva idei: roagă clienții mulțumiți să spună unui prieten, fă un afiș simplu și clar sau oferă o mică ofertă specială clienților noi."
+          },
+          "analyse-feedback": {
+            "question": "Cum înțeleg părerile clienților?",
+            "answer": "Încearcă să grupezi comentariile pe teme - preț, calitate, viteză, prietenie - apoi vezi ce temă apare cel mai des. De obicei, aceea merită rezolvată prima."
+          },
+          "compare-options": {
+            "question": "Cum compar doi furnizori?",
+            "answer": "Fă o listă cu ce contează cel mai mult pentru tine - preț, viteză, calitate, încredere - apoi compară fiecare furnizor cu aceeași listă, unul lângă altul."
+          }
+        }
+      },
+      "promptQuality": {
+        "title": "Cum Să Pui Întrebări Bune",
+        "intro": "Felul în care pui o întrebare unui asistent AI schimbă cât de utilă poate fi răspunsul lui.",
+        "question": "Care dintre acestea este cea mai utilă întrebare pe care i-o poți pune unui asistent AI?",
+        "options": {
+          "poor": "Ajută-mi afacerea.",
+          "better": "Vânzările brutăriei mele au scăzut de la 80 de comenzi la 50 de comenzi pe săptămână. Dă-mi motive posibile pe care ar trebui să le investighez.",
+          "best": "Iată cifrele mele de vânzări, prețurile și părerile clienților. Ce tipare ar trebui să investighez și ce ar trebui să verific înainte să decid ceva?"
+        }
+      },
+      "wrongAnswer": {
+        "title": "AI-ul Poate Greși",
+        "intro": "Un asistent AI poate suna încrezător și totuși să greșească. Merită mereu să-i verifici răspunsul cu informațiile tale reale.",
+        "aiSuggestion": "Pe baza tendințelor generale, vânzările tale probabil scad pentru că prețul tău este prea mare. Ar trebui să-l scazi.",
+        "realData": "Dar propriile tale date de vânzări arată de fapt altceva: prețul tău nu s-a schimbat de luni de zile, iar vânzările au început să scadă abia după ce a apărut un competitor nou în apropiere.",
+        "choices": {
+          "trust-the-ai": {
+            "label": "Ai încredere în sugestia AI-ului și scade prețul",
+            "consequence": "Ai putea scădea prețul din motivul greșit - cauza reală pare a fi noul competitor, nu prețul tău."
+          },
+          "check-the-data-first": {
+            "label": "Verifică-ți propriile date înainte să decizi",
+            "consequence": "Instinct bun - datele tale arată o altă cauză decât cea sugerată de AI, deci verificarea întâi te ajută să eviți soluția greșită."
+          },
+          "ask-ai-to-explain": {
+            "label": "Cere-i AI-ului să explice de ce crede asta",
+            "consequence": "Cerându-i motivul poate dezvălui că nu s-a uitat de fapt atent la datele tale - un obicei util înainte să ai încredere în orice sugestie."
+          }
+        }
+      },
+      "privacy": {
+        "title": "AI și Confidențialitatea",
+        "intro": "Nu împărtăși niciodată informații personale reale - numele, adresa, numărul de telefon sau detalii private despre clienți - cu niciun instrument AI.",
+        "quizQuestion": "Care dintre acestea este sigur să-i spui unui asistent AI despre afacerea ta?",
+        "quizOptions": {
+          "product-name": "Numele produsului tău",
+          "real-address": "Adresa ta de acasă",
+          "customer-phone-number": "Numărul de telefon al unui client"
+        }
+      }
+    },
+    "rescueGrow": {
+      "hubTitle": "Salvează și Dezvoltă",
+      "hubIntro": "Afacerile reale trec prin momente grele și decizii mari. Exersează diagnosticarea problemelor, decizia de a schimba direcția și alegerea cum - sau dacă - să te dezvolți.",
+      "hubLink": "Salvează și Dezvoltă",
+      "lockedTitle": "Nu Ești Încă Pregătit",
+      "lockedHint": "Încearcă mai întâi cel puțin o Problemă de Afaceri din Administrează-ți Afacerea, apoi revino aici.",
+      "pivotLink": "Schimbare de Direcție",
+      "growLink": "Dezvoltă-te sau Rămâi Mic",
+      "ethicsLink": "Etica în Afaceri",
+      "businessRescueLink": "Salvarea Afacerii",
+      "reviewLink": "Analiza Afacerii",
+      "pivot": {
+        "intro": "Uneori o afacere trebuie să-și schimbe direcția ca să reușească. Nu există un singur răspuns corect aici - doar compromisuri.",
+        "situation": "{businessName} nu se dezvoltă așa cum sperai. Ce vei face?",
+        "choices": {
+          "keep-model": {
+            "label": "Păstrează totul la fel deocamdată",
+            "consequence": "Nimic nu se schimbă imediat - uneori asta e decizia corectă, iar alteori o afacere are nevoie de mai mult timp înainte să decidă să se schimbe."
+          },
+          "change-customer": {
+            "label": "Încearcă să ajungi la un alt grup de clienți",
+            "consequence": "Afacerea ta se concentrează acum pe un grup nou de clienți - un nou început real, care vine cu propriile necunoscute."
+          },
+          "change-product": {
+            "label": "Schimbă ce vinzi de fapt",
+            "consequence": "Afacerea ta oferă acum ceva diferit - o schimbare adevărată de direcție, cu lucruri noi de învățat despre ce funcționează."
+          },
+          "stop-idea": {
+            "label": "Decide să oprești această idee",
+            "consequence": "Nu orice idee trebuie să continue pentru totdeauna - a recunoaște când să te oprești este și ea o abilitate reală în afaceri."
+          }
+        }
+      },
+      "grow": {
+        "intro": "Dezvoltarea unei afaceri crește ce ai putea câștiga - dar și ce ai putea risca. Să rămâi mic este de asemenea o alegere cu adevărat valabilă.",
+        "situation": "Afacerea ta merge bine. Vrei să o dezvolți sau să o păstrezi așa cum e?",
+        "choices": {
+          "stay-small": {
+            "label": "Păstrează afacerea la aceeași dimensiune",
+            "consequence": "Nimic nu se schimbă - o alegere stabilă, cu risc mai mic, care este deseori la fel de înțeleaptă ca dezvoltarea."
+          },
+          "hire-help": {
+            "label": "Găsește pe cineva care să te ajute",
+            "consequence": "Poți produce și vinde mai mult, dar a plăti pentru ajutor costă bani în avans."
+          },
+          "buy-equipment": {
+            "label": "Cumpără echipament mai bun",
+            "consequence": "Produsele tale se îmbunătățesc și poți produce mai mult, deși echipamentul în sine costă bani acum."
+          },
+          "expand-to-new-market": {
+            "label": "Încearcă să vinzi unui grup mai mare de clienți",
+            "consequence": "Ai putea ajunge la mult mai mulți oameni, dar dacă te întinzi prea mult poți acorda mai puțină atenție personală fiecărui client."
+          }
+        }
+      },
+      "ethics": {
+        "scenarios": {
+          "misleading-ad": {
+            "situation": "Ai putea descrie produsul tău într-un fel care sună mai bine decât este de fapt.",
+            "choices": {
+              "honest-ad": {
+                "label": "Descrie-l cinstit, chiar dacă sună mai puțin interesant",
+                "consequence": "Clienții primesc exact ce se așteptau - o încredere de genul acesta tinde să dureze."
+              },
+              "slightly-exaggerate": {
+                "label": "Exagerează puțin ca să sune mai bine",
+                "consequence": "Câțiva oameni în plus cumpără la început, dar unii s-ar putea simți dezamăgiți când nu se potrivește chiar."
+              },
+              "mislead-customers": {
+                "label": "Descrie-l într-un fel despre care știi că nu e chiar adevărat",
+                "consequence": "Ai putea vinde mai mult imediat, dar clienții care se simt induși în eroare de multe ori nu se mai întorc - sau povestesc altora."
+              }
+            }
+          },
+          "hiding-a-problem": {
+            "situation": "Ai observat o mică problemă la produsul tău după ce ai vândut deja mai multe.",
+            "choices": {
+              "tell-customers": {
+                "label": "Spune-le clienților care l-au cumpărat despre problemă",
+                "consequence": "E incomod să recunoști, dar clienții apreciază de obicei sinceritatea mai mult decât îi deranjează problema în sine."
+              },
+              "fix-quietly": {
+                "label": "Repar-o discret pentru viitorii clienți",
+                "consequence": "Viitorii clienți primesc un produs mai bun, deși cei care au cumpărat deja nu află niciodată."
+              },
+              "hide-it": {
+                "label": "Nu spune nimic și speră că nimeni nu observă",
+                "consequence": "Dacă e observată mai târziu, clienții ar putea simți că le-a fost ascunsă intenționat - ceea ce poate costa mai multă încredere decât problema inițială."
+              }
+            }
+          },
+          "cheap-questionable-supplier": {
+            "situation": "Există un furnizor mult mai ieftin, dar ai auzit că își tratează angajații prost.",
+            "choices": {
+              "choose-ethical-supplier": {
+                "label": "Alege un furnizor despre care știi că tratează oamenii corect",
+                "consequence": "Plătești puțin mai mult, dar te poți simți bine cu privire la felul în care e făcut produsul tău."
+              },
+              "choose-cheap-supplier": {
+                "label": "Alege oricum furnizorul mai ieftin",
+                "consequence": "Economisești bani, dar dacă clienții află vreodată, ar putea afecta serios felul în care văd afacerea ta."
+              },
+              "ask-questions-first": {
+                "label": "Pune mai multe întrebări înainte să decizi",
+                "consequence": "Instinct bun - a afla mai multe înainte să decizi te ajută să faci o alegere cu care te simți confortabil."
+              }
+            }
+          }
+        }
+      },
+      "businessRescue": {
+        "introStory": "Bine ai venit la Ferma de Păstrăv. Această mică afacere cu pește funcționează de ceva vreme, dar pierde bani și are nevoie de ajutorul tău. Iată cum stau lucrurile chiar acum:",
+        "startButton": "Începe Salvarea",
+        "outcomes": {
+          "improved": {
+            "title": "Afacerea S-a Îmbunătățit!",
+            "text": "Alegerile tale au ajutat la întoarcerea situației - veniturile au crescut, costurile au fost ținute sub control, iar clienții sunt mai mulțumiți ca înainte."
+          },
+          "stabilised": {
+            "title": "Afacerea S-a Stabilizat",
+            "text": "Lucrurile nu sunt perfecte, dar afacerea este într-o poziție mai stabilă decât atunci când ai început - un pas solid în direcția corectă."
+          },
+          "needs-pivot": {
+            "title": "Această Afacere Ar Putea Avea Nevoie de o Schimbare Mai Mare",
+            "text": "Alegerile tale au ajutat puțin, dar încrederea a scăzut mai mult decât se spera - uneori o afacere are nevoie de o schimbare mai mare de direcție, nu doar de mici ajustări."
+          },
+          "still-struggling": {
+            "title": "Încă Se Luptă",
+            "text": "Afacerea nu și-a revenit încă - și acesta este de asemenea un rezultat realist. Afacerile reale nu-și revin întotdeauna repede, chiar și cu decizii bune."
+          }
+        }
+      },
+      "review": {
+        "intro": "Oprește-te o clipă să te uiți înapoi la afacerea ta și să te gândești la ce ai învățat.",
+        "whatWorkedLabel": "Ce a mers bine?",
+        "whatWorkedPlaceholder": "De exemplu: Clienților le-a plăcut ideea mea de marketing.",
+        "whatDidntWorkLabel": "Ce nu a mers?",
+        "whatDidntWorkPlaceholder": "De exemplu: Prețul meu ar fi putut fi prea mare la început.",
+        "whatWouldChangeLabel": "Ce ai schimba data viitoare?",
+        "whatWouldChangePlaceholder": "De exemplu: Mi-aș testa ideea înainte să cheltuiesc toți banii."
+      }
     }
   },
   "articles": {
