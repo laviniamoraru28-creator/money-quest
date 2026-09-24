@@ -102,7 +102,7 @@
     "goodCatch": "Dobrze zauważone!",
     "missedWarningSign": "To był sygnał ostrzegawczy",
     "actuallyFine": "To było w porządku",
-    "checkWhatIFound": "Sprawdź, co znalazłem/znalazłam",
+    "checkWhatIFound": "Sprawdź, co znalazłem",
     "checkMyChoice": "Sprawdź mój wybór",
     "bestChoice": "Najlepszy wybór",
     "notBestValue": "To nie najlepsza opcja",
@@ -175,7 +175,7 @@
     "eventNegativeLabel": "Zła wiadomość",
     "buySharesLabel": "Kup akcje",
     "insufficientCash": "Nie masz wystarczająco dużo wirtualnej gotówki na tyle akcji.",
-    "boughtSharesConfirmation": "Kupiłeś/kupiłaś {shares, plural, one {# akcję} few {# akcje} many {# akcji} other {# akcji}} {company}{period}",
+    "boughtSharesConfirmation": "Kupiłeś {shares, plural, one {# akcję} few {# akcje} many {# akcji} other {# akcji}} {company}{period}",
     "buyButton": "Kup",
     "maxAffordableHint": "Teraz stać cię na maksymalnie {shares, plural, one {# akcję} few {# akcje} many {# akcji} other {# akcji}}.",
     "sector": {
@@ -198,7 +198,7 @@
     "currentValueLabel": "Aktualna wartość",
     "sellSharesLabel": "Akcje {company} do sprzedania",
     "insufficientShares": "Nie posiadasz aż tylu akcji do sprzedania.",
-    "soldSharesConfirmation": "Sprzedałeś/sprzedałaś {shares, plural, one {# akcję} few {# akcje} many {# akcji} other {# akcji}} {company}{period}",
+    "soldSharesConfirmation": "Sprzedałeś {shares, plural, one {# akcję} few {# akcje} many {# akcji} other {# akcji}} {company}{period}",
     "sellButton": "Sprzedaj",
     "diversificationAllCashHint": "Gdy będziesz posiadać akcje więcej niż jednej firmy, tutaj zobaczysz, jak rozłożony jest twój portfel.",
     "diversificationChartLabel": "Jak twój portfel jest rozłożony między firmy a gotówkę",
@@ -496,9 +496,9 @@
         "question": "Który z tych sposobów pozwala komuś zarobić pieniądze?",
         "options": [
           "Wykonywanie pracy",
-          "Bardzo mocne życzenie sobie tego",
+          "Usilne życzenie sobie tego",
           "Czekanie na deszczowy dzień",
-          "Poproszenie nieznajomego"
+          "Proszenie nieznajomego"
         ],
         "correctAnswer": "Wykonywanie pracy",
         "explanation": "Pieniądze zarabia się poprzez wykonywanie jakiejś pracy - zawodowej, zadania lub sprzedaży czegoś. Życzenie sobie, czekanie i proszenie nieznajomych nie są niezawodnymi sposobami zarabiania pieniędzy."
@@ -2746,7 +2746,7 @@
               "prompt": "Oto reklama sklepu internetowego. Dotknij wszystkiego, co wydaje się sygnałem ostrzegawczym.",
               "hint": "Pomyśl, czy prawdziwy sklep kiedykolwiek wywierałby na ciebie taką presję.",
               "explanation": "Ekran pokazujący malejący licznik czasu obok ogromnej zniżki ma na celu skłonienie cię do decyzji, zanim będziesz miał czas pomyśleć - prawdziwy sklep nie musi tego robić.",
-              "scenario": "\"Buty sportowe warte 80 złotych za jedyne 9,99! Oferta znika za 3 minuty - nie przegap!\"",
+              "scenario": "\"Buty sportowe warte 80 złotych za jedyne 9,99 zł! Oferta znika za 3 minuty - nie przegap!\"",
               "items": [
                 {
                   "id": "trainers",
@@ -2755,7 +2755,7 @@
                 },
                 {
                   "id": "price",
-                  "text": "jedyne 9,99",
+                  "text": "jedyne 9,99 zł",
                   "isSuspicious": true
                 },
                 {
@@ -3906,7 +3906,7 @@
           "Współczujesz mu, ale zachowujesz swoje monety",
           "Zastanawiasz się, czy możesz pomóc, nie psując własnego planu",
           "Nie jesteś pewien - zwykle i tak wydajesz to, co masz",
-          "Dobrze to przemyśliwasz przed decyzją",
+          "Dobrze to przemyślasz przed decyzją",
           "Oferujesz pomoc, jeśli możesz"
         ]
       },
@@ -3964,7 +3964,7 @@
     "market-town": "Następnym razem, gdy pójdziesz na zakupy, porównaj trzy ceny przed wyborem.",
     "golden-vault": "Wybierzcie razem coś, czego chcesz, i zróbcie na to plan oszczędnościowy.",
     "sky-exchange": "Zapytaj dorosłego, jak wyglądają pieniądze w innym kraju.",
-    "guardian-gate": "Zapytaj dorosłego, czy kiedykolwiek zauważył wiadomość-oszustwo i co go zdradziło.",
+    "guardian-gate": "Zapytaj dorosłego, czy kiedykolwiek zauważył oszukańczą wiadomość i co go zdradziło.",
     "horizon-peaks": "Zapytaj dorosłego, co robi, gdy musi oszczędzać na coś dużego.",
     "kindness-grove": "Zapytaj dorosłego o sytuację, kiedy komuś coś dał lub się czymś podzielił."
   },
@@ -4190,16 +4190,16 @@
           ]
         },
         {
-          "heading": "Uwaga o tym, czego jeszcze nie zbudowaliśmy",
+          "heading": "Darmowe karty pracy do pobrania, wewnątrz każdej pasującej lekcji",
           "paragraphs": [
-            "Szczerze mówiąc: ta strona obecnie opisuje rodzaj kart pracy, które dobrze działają, i zasady stojące za nimi, zamiast bezpośrednio udostępniać do pobrania karty pracy PDF - to prawdziwa luka w treści, nie ukryta, i jest to najbardziej naturalne następne uzupełnienie tej strony. W międzyczasie każda z powyższych zasad jest w pełni zademonstrowana we własnych grach Money Quest Zbuduj Budżet i Oszczędzaj lub Wydawaj, które są dokładnym interaktywnym odpowiednikiem tego rodzaju karty pracy."
+            "Oprócz powyższych zasad, Money Quest zawiera teraz 20 darmowych, gotowych do druku kart pracy w formacie PDF, z których każda jest dopasowana do konkretnej lekcji w trzech grupach wiekowych, a także jeden klucz odpowiedzi obejmujący je wszystkie. Otwórz pasującą lekcję w Money Quest, a znajdziesz tam czekający link do karty pracy - nie każda lekcja ma go jeszcze, ale te, które go mają, obejmują najważniejsze tematy, takie jak oszczędzanie, oszustwa, pieniądze cyfrowe oraz potrzeby kontra zachcianki. Same karty pracy są na razie dostępne tylko w języku angielskim, niezależnie od tego, jakiego języka używasz w pozostałej części Money Quest. W międzyczasie każda zasada z tej strony jest też w pełni pokazana w grach Money Quest Zbuduj Budżet i Oszczędzać czy Wydawać, które są dokładnym interaktywnym odpowiednikiem tego rodzaju karty pracy."
           ]
         }
       ],
       "faqs": [
         {
           "question": "Czy te karty pracy są darmowe do użytku w klasie?",
-          "answer": "Wytyczne i formaty kart pracy opisane na tej stronie są darmowe do dostosowania do użytku w klasie. Same pobieralne karty pracy do druku są planowanym uzupełnieniem tej strony, jeszcze niedostępnym w momencie pisania tego tekstu."
+          "answer": "Tak. Wskazówki i formaty kart pracy opisane na tej stronie są darmowe do dostosowania na potrzeby klasy, a Money Quest udostępnia też 20 darmowych kart pracy w formacie PDF do pobrania - a także jeden klucz odpowiedzi obejmujący je wszystkie - bezpośrednio wewnątrz pasujących lekcji. Otwórz jedną z tych lekcji, aby znaleźć link do karty pracy. Obecnie są dostępne tylko w języku angielskim."
         },
         {
           "question": "Dla jakiego wieku zaprojektowane są aktywności typu karta pracy Money Quest?",

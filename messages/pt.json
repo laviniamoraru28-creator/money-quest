@@ -101,7 +101,7 @@
     "tapSuspicious": "Toca em tudo o que te pareça suspeito.",
     "goodCatch": "Boa observação!",
     "missedWarningSign": "Isto era um sinal de alerta",
-    "actuallyFine": "Isto estava na verdade bem",
+    "actuallyFine": "Isto estava bem, na verdade",
     "checkWhatIFound": "Verificar o que encontrei",
     "checkMyChoice": "Verificar a minha escolha",
     "bestChoice": "Melhor escolha",
@@ -541,7 +541,7 @@
           "Porque cada país usa uma moeda diferente, com confiança própria",
           "Porque o dinheiro estrangeiro é falso",
           "Porque as lojas não gostam de turistas",
-          "Porque as moedas desgastam-se ao viajar"
+          "Porque as moedas se desgastam ao viajar"
         ],
         "correctAnswer": "Porque cada país usa uma moeda diferente, com confiança própria",
         "explanation": "O dinheiro de cada país é o seu próprio sistema de confiança partilhada - uma loja num país não concordou em aceitar a moeda de outro país, da mesma forma que não trocarias pontos de jogo de uma app pela moeda de outra app."
@@ -559,7 +559,7 @@
       "title": "Precisas ou queres?",
       "learningObjective": "Classificar objetos do dia a dia em necessidades e desejos.",
       "shortIntroduction": "Algumas coisas tens mesmo de ter. Outras só gostas muito, muito delas. Vamos aprender a distingui-las!",
-      "story": "Tu e o teu adulto passam por uma padaria. Vês pão para o jantar - a tua barriga precisa disso! Depois vês uma tablete de chocolate gigante. Não precisas dela, mas uau, QUERES-a. Ambos os sentimentos são reais, mas não são a mesma coisa.",
+      "story": "Tu e o teu adulto passam por uma padaria. Vês pão para o jantar - a tua barriga precisa disso! Depois vês uma tablete de chocolate gigante. Não precisas dela, mas uau, QUERE-LA. Ambos os sentimentos são reais, mas não são a mesma coisa.",
       "keyConcept": "Uma necessidade é algo que tens mesmo de ter para estares bem. Um desejo é algo bom de ter, mesmo que gostes muito dele.",
       "vocabulary": [
         {
@@ -841,7 +841,7 @@
       "title": "Dinheiro físico, cartões e moedas",
       "learningObjective": "Compreender que o dinheiro pode ser físico ou digital, e que diferentes países usam diferentes moedas com nomes próprios.",
       "shortIntroduction": "Moedas e notas são apenas uma forma de o dinheiro existir - e a moeda de cada país tem o seu próprio nome.",
-      "story": "O Sam está a ajudar a planear uma viagem em família ao estrangeiro. O progenitor do Sam explica que o dinheiro de casa não vai funcionar lá - vão precisar de uma moeda diferente, com um nome diferente e notas e moedas com um aspeto diferente, só para aquele país.",
+      "story": "O Sam está a ajudar a planear uma viagem em família ao estrangeiro. O adulto do Sam explica que o dinheiro de casa não vai funcionar lá - vão precisar de uma moeda diferente, com um nome diferente e notas e moedas com um aspeto diferente, só para aquele país.",
       "keyConcept": "O dinheiro pode ser físico (moedas e notas) ou digital (números numa conta), e cada país usa a sua própria moeda, com o seu próprio nome.",
       "vocabulary": [
         {
@@ -874,7 +874,7 @@
       },
       "feedback": {
         "success": "Exatamente - é isso que significa moeda. 💷💵",
-        "retry": "Pensa no que o progenitor do Sam explicou ser necessário para a viagem."
+        "retry": "Pensa no que o adulto do Sam explicou ser necessário para a viagem."
       },
       "rewardMessage": "Moedas ganhas por compreenderes o que é realmente uma moeda (divisa)!",
       "parentNote": "Se a tua família já viajou internacionalmente ou tem familiares noutro país, esta é uma ótima semana para mostrar ao teu filho exemplos reais de uma moeda diferente, e conversar sobre porque é que a mesma quantia de dinheiro pode parecer números muito diferentes consoante a moeda usada.",
@@ -1086,7 +1086,7 @@
       },
       "rewardMessage": "Moedas ganhas por pensares em esperar e ter paciência!",
       "parentNote": "Esta lição introduz a ideia por trás da gratificação adiada da forma mais suave possível - um exemplo real e vivido (deixar o teu filho escolher entre um mimo mais pequeno agora e um maior depois de esperar um dia ou dois) reforça isto muito melhor do que apenas uma conversa. Não há necessidade de enquadrar o \"não esperar\" como um fracasso - muitos adultos também acham a paciência difícil.",
-      "commonMisconception": "Nesta idade, \"mais tarde\" pode parecer abstrato e quase irreal comparado com algo disponível agora mesmo, fazendo esperar sentir-se muito mais difícil do que será mais tarde na vida."
+      "commonMisconception": "Nesta idade, \"mais tarde\" pode parecer abstrato e quase irreal comparado com algo disponível agora mesmo, o que faz esperar parecer muito mais difícil do que será mais tarde na vida."
     },
     "builder-long_term_thinking-l1": {
       "title": "Planear alguns passos à frente",
@@ -3953,7 +3953,7 @@
         "challenge": "Da próxima vez, experimenta dar-te um curto período de espera antes de uma compra maior."
       },
       "giver": {
-        "name": "O Dador",
+        "name": "O Generoso",
         "description": "Partilhar e ajudar os outros importa-te, mesmo quando se trata de dinheiro.",
         "challenge": "Experimenta reservar uma pequena quantia especificamente para dar."
       }
@@ -4093,7 +4093,7 @@
         {
           "heading": "Porque isto é genuinamente difícil para crianças (e adultos)",
           "paragraphs": [
-            "\"Preciso disto\" é uma das frases mais comuns no vocabulário de uma criança, e normalmente não é manipulação - uma criança pequena genuinamente ainda não distingue entre um desejo forte e uma necessidade real, porque a intensidade emocional sente-se idêntica por dentro.",
+            "\"Preciso disto\" é uma das frases mais comuns no vocabulário de uma criança, e normalmente não é manipulação - uma criança pequena genuinamente ainda não distingue entre um desejo forte e uma necessidade real, porque a intensidade emocional se sente idêntica por dentro.",
             "A distinção também é genuinamente vaga nas margens mesmo para adultos (um telemóvel é um desejo num contexto e quase uma necessidade para um adolescente que o usa para trabalhos escolares), por isso o objetivo com uma criança não é traçar uma linha rígida permanente - é construir o hábito de parar e fazer a pergunta, seja qual for."
           ]
         },
@@ -4174,8 +4174,8 @@
         {
           "heading": "O que torna uma ficha sobre dinheiro realmente útil",
           "paragraphs": [
-            "Uma ficha só é tão boa quanto o pensamento que pede. O modo de falha mais comum é uma ficha que pede a uma criança para relembrar uma definição (\"o que é um orçamento?\") em vez de aplicar uma (\"aqui tens 10 euros - divide-as entre estes quatro frascos e explica porquê\"). O segundo tipo produz aprendizagem genuína; o primeiro produz uma frase memorizada que se desvanece numa semana.",
-            "Para um contexto de sala de aula especificamente, uma ficha sem uma única resposta certa - onde dois alunos poderiam razoavelmente dividir as mesmas 10 euros de forma diferente - tende a gerar melhor discussão do que uma com um único total correto para verificar."
+            "Uma ficha só é tão boa quanto o pensamento que pede. O modo de falha mais comum é uma ficha que pede a uma criança para relembrar uma definição (\"o que é um orçamento?\") em vez de aplicar uma (\"aqui tens 10 euros - divide-os entre estes quatro frascos e explica porquê\"). O segundo tipo produz aprendizagem genuína; o primeiro produz uma frase memorizada que se desvanece numa semana.",
+            "Para um contexto de sala de aula especificamente, uma ficha sem uma única resposta certa - onde dois alunos poderiam razoavelmente dividir os mesmos 10 euros de forma diferente - tende a gerar melhor discussão do que uma com um único total correto para verificar."
           ]
         },
         {
@@ -4190,16 +4190,16 @@
           ]
         },
         {
-          "heading": "Uma nota sobre o que ainda não construímos",
+          "heading": "Fichas gratuitas para descarregar, dentro de cada lição correspondente",
           "paragraphs": [
-            "Honestamente: esta página atualmente descreve o tipo de fichas que funcionam bem e os princípios por trás delas, em vez de hospedar diretamente fichas PDF descarregáveis - isso é uma lacuna de conteúdo genuína, não escondida, e é o acréscimo seguinte mais natural para esta página. Entretanto, cada princípio acima é totalmente demonstrado dentro dos próprios jogos Construir um Orçamento e Poupar ou Gastar do Money Quest, que são o equivalente interativo exato deste tipo de ficha."
+            "Para além dos princípios acima, o Money Quest inclui agora 20 fichas em PDF gratuitas e prontas a imprimir, cada uma associada a uma lição específica nas três faixas etárias, além de um único guia de respostas que as cobre a todas. Abre a lição correspondente dentro do Money Quest e encontrarás ali uma hiperligação para a ficha à tua espera - nem todas as lições têm uma ainda, mas as que têm cobrem temas centrais como poupança, burlas, dinheiro digital e necessidades versus desejos. As fichas em si estão, para já, disponíveis apenas em inglês, seja qual for o idioma que estejas a usar no resto do Money Quest. Entretanto, cada princípio desta página também é totalmente demonstrado dentro dos próprios jogos Cria um Orçamento e Poupar ou Gastar do Money Quest, que são o equivalente interativo exato deste tipo de ficha."
           ]
         }
       ],
       "faqs": [
         {
           "question": "Estas fichas são gratuitas para uso em sala de aula?",
-          "answer": "As orientações e formatos de fichas descritos nesta página são livres para adaptar para uso em sala de aula. As fichas imprimíveis descarregáveis em si são um acréscimo planeado para esta página, ainda não disponível no momento desta redação."
+          "answer": "Sim. As orientações e os formatos de ficha descritos nesta página são livres para adaptar ao uso em sala de aula, e o Money Quest também disponibiliza 20 fichas em PDF gratuitas para descarregar - além de um único guia de respostas que as cobre a todas - diretamente dentro das lições correspondentes. Abre uma dessas lições para encontrares a hiperligação da ficha. Por agora, estão disponíveis apenas em inglês."
         },
         {
           "question": "Para que idade são concebidas as atividades tipo ficha do Money Quest?",

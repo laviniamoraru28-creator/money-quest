@@ -3735,7 +3735,7 @@
         {
           "weekLabel": "Week 4",
           "event": {
-            "title": "You received extra fictional money",
+            "title": "You received some extra coins",
             "description": "A relative sent you a little extra this week - nice surprise!"
           }
         },
@@ -4174,16 +4174,16 @@
           ]
         },
         {
-          "heading": "A note on what we haven't built yet",
+          "heading": "Free downloadable worksheets, inside each matching lesson",
           "paragraphs": [
-            "Honestly: this page currently describes the kind of worksheets that work well and the principles behind them, rather than hosting downloadable PDF worksheets directly - that's a genuine content gap, not a hidden one, and it's the most natural next addition to this page. In the meantime, every principle above is fully demonstrated inside Money Quest's own Build a Budget and Save or Spend games, which are the interactive equivalent of exactly this kind of worksheet."
+            "Beyond the principles above, Money Quest now includes 20 free, printable PDF worksheets, each matched to a specific lesson across the three age bands, plus a single answer key covering all of them. Open a matching lesson inside Money Quest and you'll find a worksheet link waiting there - not every lesson has one yet, but the ones that do cover core topics like saving, scams, digital money, and needs versus wants. The worksheets themselves are English-only for now, whatever language you're using elsewhere in Money Quest. In the meantime, every principle on this page is also fully demonstrated inside Money Quest's own Build a Budget and Save or Spend games, which are the interactive equivalent of exactly this kind of worksheet."
           ]
         }
       ],
       "faqs": [
         {
           "question": "Are these worksheets free to use in a classroom?",
-          "answer": "The guidance and worksheet formats described on this page are free to adapt for classroom use. Downloadable printable worksheets themselves are a planned addition to this page, not yet available as of this writing."
+          "answer": "Yes. The guidance and worksheet formats described on this page are free to adapt for classroom use, and Money Quest also provides 20 free, downloadable PDF worksheets - plus a single answer key covering all of them - directly inside matching lessons. Open one of those lessons to find the worksheet link. They're currently available in English only."
         },
         {
           "question": "What age are Money Quest's worksheet-style activities designed for?",

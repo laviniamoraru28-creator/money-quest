@@ -82,7 +82,7 @@
     "needHint": "Besoin d'un indice ?",
     "nextRound": "Manche suivante",
     "questComplete": "Quête terminée !",
-    "scoreLine": "Tu as eu {correct} bonnes réponses sur {total} du premier coup - bien joué, {percent}% !",
+    "scoreLine": "Tu as eu {correct} bonnes réponses sur {total} du premier coup - bien joué, {percent} % !",
     "addingUpRewards": "Calcul de tes récompenses…",
     "backToTheWorld": "Retour au Monde",
     "notReadyForAgeGroup": "Ce jeu n'est pas encore prêt pour ta tranche d'âge - reviens bientôt !",
@@ -140,7 +140,7 @@
     "weekComplete": "{week} terminée",
     "youChose": "Tu as choisi : {choice}",
     "insightGoalMet": "Tu as atteint ton objectif « {goalName} » - épargner un peu chaque semaine a fini par s'additionner !",
-    "insightGoalProgress": "Tu as fait de vrais progrès vers « {goalName} » - environ {percent}% du chemin parcouru. Quelques semaines d'épargne en plus te mèneraient jusqu'au bout.",
+    "insightGoalProgress": "Tu as fait de vrais progrès vers « {goalName} » - environ {percent} % du chemin parcouru. Quelques semaines d'épargne en plus te mèneraient jusqu'au bout.",
     "insightGoalNotStarted": "« {goalName} » attend encore - rien n'a été mis de côté pour cela cette fois. La prochaine fois, même une petite somme chaque semaine s'additionne plus vite qu'il n'y paraît.",
     "insightNeedsLowShare": "Les besoins n'ont représenté qu'une part assez faible de ton argent cette fois. Il vaut la peine de vérifier si tes besoins ont été vraiment couverts chaque semaine, ou simplement moins prioritaires.",
     "insightNeedsGoodHabit": "Tu as constamment donné la priorité à tes besoins - c'est une bonne habitude.",
@@ -465,7 +465,7 @@
         "retry": "Presque ! Réfléchis à ce que la commerçante voulait vraiment dans l'histoire."
       },
       "rewardMessage": "Tu as gagné tes toutes premières pièces Money Quest pour avoir appris à quoi sert l'argent !",
-      "parentNote": "Cette leçon introduit l'idée la plus fondamentale de l'éducation financière : que l'argent s'échange contre des biens et services, sans supposer qu'un enfant le comprenne déjà. À 6-8 ans, les enfants comprennent encore qu'une commerçante veut des pièces précises, pas juste « un geste gentil » - renforcer cela avec de vraies pièces pendant des courses est l'une des choses les plus efficaces à faire cette semaine.",
+      "parentNote": "Cette leçon introduit l'idée la plus fondamentale de l'éducation financière : que l'argent s'échange contre des biens et services, sans supposer qu'un enfant le comprenne déjà. À 6-8 ans, les enfants sont souvent encore en train de comprendre qu'une commerçante veut des pièces précises, pas juste « un geste gentil » - renforcer cela avec de vraies pièces pendant des courses est l'une des choses les plus efficaces à faire cette semaine.",
       "commonMisconception": "Les enfants de cet âge pensent souvent que n'importe quel petit objet rond ou brillant compte comme de l'argent."
     },
     "builder-money_basics-l1": {
@@ -515,7 +515,7 @@
       "title": "L'argent comme outil, pas comme but",
       "learningObjective": "Comprendre l'argent comme un système partagé qui ne fonctionne que parce que les gens acceptent de lui faire confiance, et reconnaître que différents pays utilisent différentes devises pour ce système.",
       "shortIntroduction": "L'argent ne « fonctionne » que parce que des millions d'inconnus acceptent de faire confiance à la même idée. C'est vraiment étrange quand on y pense.",
-      "story": "Priya aide à organiser une collecte de fonds scolaire et remarque quelque chose : les pièces dans sa poche ne valent rien en dehors de son pays. Une amie en visite de l'étranger lui tend un billet de chez elle, et aucune des deux ne peut l'utiliser ici. Priya réalise que l'argent n'est pas une chose fixe et universelle - c'est un système qui fonctionne parce qu'un groupe précis de gens est d'accord qu'il fonctionne.",
+      "story": "Priya aide à organiser une collecte de fonds scolaire et remarque quelque chose : les pièces dans sa poche ne valent rien en dehors de son pays. Une amie en visite de l'étranger lui tend un billet de chez elle, et aucune des deux ne peut l'utiliser ici. Priya se rend compte que l'argent n'est pas une chose fixe et universelle - c'est un système qui fonctionne parce qu'un groupe précis de gens est d'accord qu'il fonctionne.",
       "keyConcept": "L'argent est un système partagé de confiance, pas un objet universel fixe - différents pays utilisent différentes devises, et la valeur d'une devise vient du fait que les gens acceptent de l'utiliser et de lui faire confiance.",
       "vocabulary": [
         {
@@ -758,7 +758,7 @@
       "title": "Épargner ou dépenser : le vrai arbitrage",
       "learningObjective": "Évaluer des décisions d'épargne en pesant le plaisir à court terme contre des objectifs à plus long terme, et comprendre que l'argent épargné peut parfois croître avec le temps.",
       "shortIntroduction": "Une partie de l'argent épargné peut vraiment croître tout seul avec le temps. Voici la version honnête de comment - et pourquoi ce n'est pas magique.",
-      "story": "Théo a deux options pour de l'argent dont il n'a pas besoin tout de suite : le dépenser, ou le placer quelque part où il pourrait lentement croître avec le temps en gagnant un petit montant supplémentaire, parfois appelé intérêt. Il réalise que cela ne compte vraiment que s'il laisse l'argent tranquille un moment - le retirer rapidement ne fait presque aucune différence.",
+      "story": "Théo a deux options pour de l'argent dont il n'a pas besoin tout de suite : le dépenser, ou le placer quelque part où il pourrait lentement croître avec le temps en gagnant un petit montant supplémentaire, parfois appelé intérêt. Il se rend compte que cela ne compte vraiment que s'il laisse l'argent tranquille un moment - le retirer rapidement ne fait presque aucune différence.",
       "keyConcept": "L'argent épargné sur une période plus longue peut parfois croître grâce aux intérêts, mais l'arbitrage entre profiter de l'argent maintenant et en avoir plus plus tard est la vraie décision derrière chaque choix d'épargne.",
       "vocabulary": [
         {
@@ -1164,7 +1164,7 @@
       },
       "feedback": {
         "success": "Exactement - le caractère délibéré compte plus que n'importe quel choix « correct » unique. 🎯",
-        "retry": "Réfléchis à ce qu'Aisha a réalisé à propos du fait de ne pas décider du tout."
+        "retry": "Réfléchis à ce qu'Aisha a compris à propos du fait de ne pas décider du tout."
       },
       "rewardMessage": "Pièces gagnées pour avoir réfléchi sérieusement à un type de décision vraiment difficile et réel.",
       "parentNote": "Cette leçon évite délibérément de dire aux ados quel est le « bon » choix financier à long terme, car cela dépend entièrement de circonstances, d'objectifs et de valeurs individuels que cette appli n'a aucune base pour juger. Ce n'est pas un conseil financier, et ce n'est pas censé l'être - elle est censée construire l'habitude de prendre des décisions financières exprès plutôt que par défaut. Si ton ado veut parler d'une vraie décision à laquelle il est confronté, cette conversation est mieux menée directement avec toi, en utilisant les circonstances réelles de ta famille.",
@@ -1371,7 +1371,7 @@
       },
       "rewardMessage": "Pièces gagnées pour avoir compris comment fonctionne vraiment un paiement par carte !",
       "parentNote": "Cette leçon garde volontairement le détail technique à ce qui est réellement utile à cet âge : qu'un paiement est vérifié et confirmé, et qu'un code confidentiel le protège. C'est un bon moment pour convenir d'une règle familiale simple : les codes confidentiels et les mots de passe ne se partagent jamais, même avec des amis - pas parce que quelqu'un ne serait pas digne de confiance, mais parce que c'est une bonne habitude à prendre tôt.",
-      "commonMisconception": "Les enfants supposent parfois qu'un paiement fonctionne toujours dès que la carte touche la machine, sans réaliser qu'une vérification de l'argent disponible a lieu d'abord, et qu'il peut être refusé."
+      "commonMisconception": "Les enfants supposent parfois qu'un paiement fonctionne toujours dès que la carte touche la machine, sans se rendre compte qu'une vérification de l'argent disponible a lieu d'abord, et qu'il peut être refusé."
     },
     "strategist-digital_money-l1": {
       "title": "Rester en sécurité et attentif avec l'argent numérique",
@@ -1622,7 +1622,7 @@
       },
       "rewardMessage": "Pièces gagnées pour avoir compris comment fonctionne vraiment un Junior ISA !",
       "parentNote": "Cette leçon explique la structure générale d'un Junior ISA britannique (espèces contre actions, les étapes de 16 et 18 ans) à un niveau conceptuel - ce n'est pas un conseil financier sur quel type choisir, et les règles peuvent changer avec le temps, alors vérifiez toujours les informations officielles actuelles avant de prendre une vraie décision.",
-      "commonMisconception": "Les enfants supposent parfois qu'un Junior ISA en actions fonctionne exactement comme un en espèces, sans réaliser que sa valeur peut vraiment monter ou descendre parce que l'argent est investi.",
+      "commonMisconception": "Les enfants supposent parfois qu'un Junior ISA en actions fonctionne exactement comme un en espèces, sans se rendre compte que sa valeur peut vraiment monter ou descendre parce que l'argent est investi.",
       "countryVariesNote": "Les Junior ISA, y compris la distinction espèces/actions décrite ici, sont spécifiques au Royaume-Uni. D'autres pays ont des règles différentes pour les comptes d'épargne et d'investissement des enfants."
     },
     "strategist-junior_isa-l1": {
@@ -2810,8 +2810,8 @@
               "id": "s2",
               "mechanic": "spot",
               "prompt": "Un message te demande de payer rapidement pour quelque chose. Touche tout ce qui ressemble à un signe d'alerte.",
-              "hint": "Être demandé de payer d'une façon inhabituelle, vite, avant de pouvoir vérifier quoi que ce soit, est en soi un signe d'alerte fort.",
-              "explanation": "Être dit de payer immédiatement, d'une façon inhabituelle, avant d'avoir eu le temps de vérifier si le vendeur est même réel, est conçu pour t'empêcher de remarquer que quelque chose ne va pas - les vrais vendeurs n'ont pas besoin de presser un paiement comme ça.",
+              "hint": "Qu'on te demande de payer d'une façon inhabituelle, vite, avant de pouvoir vérifier quoi que ce soit, est en soi un signe d'alerte fort.",
+              "explanation": "Te dire de payer immédiatement, d'une façon inhabituelle, avant d'avoir eu le temps de vérifier si le vendeur est même réel, est conçu pour t'empêcher de remarquer que quelque chose ne va pas - les vrais vendeurs n'ont pas besoin de presser un paiement comme ça.",
               "scenario": "« Article réservé pour toi ! Paie l'acompte de 45 euros tout de suite par code de carte cadeau pour le sécuriser avant que quelqu'un d'autre ne le fasse. »",
               "items": [
                 {
@@ -3134,10 +3134,10 @@
             {
               "id": "give-or-keep",
               "mechanic": "mission",
-              "prompt": "Tu as 20 euros épargnées. La famille d'un ami traverse une période difficile, et ta classe collecte de l'argent pour aider. Que ferais-tu ?",
+              "prompt": "Tu as 20 euros épargnés. La famille d'un ami traverse une période difficile, et ta classe collecte de l'argent pour aider. Que ferais-tu ?",
               "hint": "Il n'y a pas de montant obligatoire ici - réfléchis à ce qui te semble juste pour ta propre situation.",
               "explanation": "Décider combien de ton propre argent donner, si tant est que tu donnes, est un choix vraiment personnel sans montant unique correct.",
-              "situation": "Tu as 20 euros épargnées. La famille d'un ami traverse une période difficile, et ta classe collecte de l'argent pour aider.",
+              "situation": "Tu as 20 euros épargnés. La famille d'un ami traverse une période difficile, et ta classe collecte de l'argent pour aider.",
               "choices": [
                 {
                   "key": "give-some",
@@ -3159,10 +3159,10 @@
             {
               "id": "sale-pressure",
               "mechanic": "mission",
-              "prompt": "Une boutique en ligne affiche « SOLDE SE TERMINE DANS 10 MINUTES ! » sur quelque chose que tu pensais acheter. Que ferais-tu ?",
+              "prompt": "Une boutique en ligne affiche « LES SOLDES SE TERMINENT DANS 10 MINUTES ! » sur quelque chose que tu pensais acheter. Que ferais-tu ?",
               "hint": "Un compte à rebours est conçu pour te faire décider vite - réfléchis si c'est vraiment dans ton intérêt.",
               "explanation": "L'urgence est l'une des façons les plus courantes dont la publicité pousse les gens à décider avant d'avoir vraiment réfléchi.",
-              "situation": "Une boutique en ligne affiche « SOLDE SE TERMINE DANS 10 MINUTES ! » sur quelque chose que tu pensais acheter.",
+              "situation": "Une boutique en ligne affiche « LES SOLDES SE TERMINENT DANS 10 MINUTES ! » sur quelque chose que tu pensais acheter.",
               "choices": [
                 {
                   "key": "buy-fast",
@@ -3172,7 +3172,7 @@
                 {
                   "key": "let-it-pass",
                   "label": "Laisser le minuteur se terminer et bien y réfléchir",
-                  "consequence": "Tu as manqué cette solde en particulier, mais tu as gardé le choix entièrement à toi - une offre similaire revient souvent."
+                  "consequence": "Tu as manqué cette offre en particulier, mais tu as gardé le choix entièrement à toi - une offre similaire revient souvent."
                 },
                 {
                   "key": "check-elsewhere",
@@ -3904,7 +3904,7 @@
         "prompt": "Un ami manque un peu de pièces pour quelque chose. Tu :",
         "options": [
           "Compatis, mais gardes tes propres pièces de côté",
-          "Réfléchis si tu pourrais aider sans bouleverser ton propre plan",
+          "Te demandes si tu pourrais aider sans bouleverser ton propre plan",
           "N'es pas sûr - tu dépenses généralement ce que tu as de toute façon",
           "Y réfléchis bien avant de décider",
           "Proposes d'aider si tu peux"
@@ -3916,7 +3916,7 @@
           "Commences à épargner petit à petit",
           "Fais un plan pour savoir combien de temps ça prendra d'épargner",
           "Le veux vraiment maintenant - attendre est difficile",
-          "Réfléchis si tu le veux vraiment, ou si tu l'aimes juste sur le moment",
+          "Te demandes si tu le veux vraiment, ou si tu l'aimes juste sur le moment",
           "Te demandes si l'argent pourrait être plus utile autrement"
         ]
       },
@@ -4023,7 +4023,7 @@
           "heading": "Ce qui tend à marcher, et ce qui tend à ne pas marcher",
           "paragraphs": [
             "Féliciter la décision d'épargner, plutôt que le montant épargné, tend à mieux tenir dans le temps - un enfant félicité pour « tu y as bien réfléchi » apprend une habitude transférable ; un enfant félicité seulement pour un grand chiffre peut commencer à sentir que l'épargne consiste à impressionner un parent, pas à atteindre l'objectif lui-même.",
-            "Ça vaut aussi le coup de résister à l'envie de compléter un manque juste avant qu'un objectif soit atteint. Arriver juste un peu en dessous, et devoir attendre une semaine de plus, est inconfortable mais c'est exactement l'expérience qui fait que l'achat final se sent mérité - et c'est une façon à faible enjeu de pratiquer la patience pendant que les conséquences sont encore petites."
+            "Ça vaut aussi le coup de résister à l'envie de combler un manque juste avant qu'un objectif soit atteint. Être à deux doigts du but, et devoir attendre encore une semaine, c'est inconfortable, mais c'est exactement ce qui fait que l'achat final paraît mérité - et c'est une façon à faible enjeu de pratiquer la patience pendant que les conséquences sont encore petites."
           ]
         },
         {
@@ -4046,7 +4046,7 @@
     },
     "budgeting-for-kids": {
       "title": "Le Budget pour les Enfants : Comment l'Enseigner Sans Tableur",
-      "metaDescription": "Un guide pratique pour enseigner aux enfants les bases du budget avec des catégories simples, de vrais compromis et des exemples adaptés à l'âge - sans tableur nécessaire.",
+      "metaDescription": "Un guide pratique pour enseigner aux enfants les bases du budget avec des catégories simples, de vrais compromis et des exemples adaptés à l'âge - sans besoin de tableur.",
       "sections": [
         {
           "heading": "Le budget pour enfants ne veut pas dire tableur",
@@ -4094,7 +4094,7 @@
           "heading": "Pourquoi c'est vraiment difficile pour les enfants (et les adultes)",
           "paragraphs": [
             "« J'ai besoin de ça » est l'une des phrases les plus courantes dans le vocabulaire d'un enfant, et ce n'est généralement pas de la manipulation - un jeune enfant ne distingue vraiment pas encore une forte envie d'un vrai besoin, parce que l'intensité émotionnelle se ressent identique de l'intérieur.",
-            "La distinction est aussi vraiment floue sur les bords même pour les adultes (un téléphone est une envie dans un contexte et presque un besoin pour un adolescent qui l'utilise pour l'école), donc l'objectif avec un enfant n'est pas de tracer une ligne dure permanente - c'est de construire l'habitude de faire une pause et de se poser la question du tout."
+            "La distinction est aussi vraiment floue sur les bords même pour les adultes (un téléphone est une envie dans un contexte et presque un besoin pour un adolescent qui l'utilise pour l'école), donc l'objectif avec un enfant n'est pas de tracer une ligne dure permanente, mais de construire l'habitude de s'arrêter pour se poser la question."
           ]
         },
         {
@@ -4190,16 +4190,16 @@
           ]
         },
         {
-          "heading": "Une note sur ce que nous n'avons pas encore construit",
+          "heading": "Des fiches téléchargeables gratuites, à l'intérieur de chaque leçon correspondante",
           "paragraphs": [
-            "Honnêtement : cette page décrit actuellement le type de fiches qui fonctionnent bien et les principes derrière elles, plutôt que d'héberger directement des fiches PDF téléchargeables - c'est un vrai manque de contenu, pas un manque caché, et c'est l'ajout suivant le plus naturel pour cette page. En attendant, chaque principe ci-dessus est entièrement démontré à l'intérieur des propres jeux Construire un Budget et Épargner ou Dépenser de Money Quest, qui sont l'équivalent interactif exact de ce type de fiche."
+            "Au-delà des principes ci-dessus, Money Quest propose désormais 20 fiches PDF gratuites et imprimables, chacune associée à une leçon précise parmi les trois tranches d'âge, plus un corrigé unique qui les couvre toutes. Ouvre la leçon correspondante dans Money Quest et tu y trouveras le lien vers la fiche - toutes les leçons n'en ont pas encore une, mais celles qui en ont couvrent des sujets clés comme l'épargne, les arnaques, l'argent numérique et les besoins face aux envies. Pour l'instant, les fiches elles-mêmes ne sont disponibles qu'en anglais, quelle que soit la langue que tu utilises par ailleurs dans Money Quest. En attendant, chaque principe de cette page est aussi entièrement illustré dans les propres jeux Construire un Budget et Épargner ou Dépenser de Money Quest, qui sont l'équivalent interactif exact de ce type de fiche."
           ]
         }
       ],
       "faqs": [
         {
           "question": "Ces fiches sont-elles gratuites pour un usage en classe ?",
-          "answer": "Les conseils et formats de fiches décrits sur cette page sont libres d'adaptation pour un usage en classe. Les fiches imprimables téléchargeables elles-mêmes sont un ajout prévu pour cette page, pas encore disponible au moment de cette rédaction."
+          "answer": "Oui. Les conseils et les formats de fiches décrits sur cette page sont libres d'adaptation pour un usage en classe, et Money Quest propose aussi 20 fiches PDF gratuites et téléchargeables - plus un corrigé unique qui les couvre toutes - directement à l'intérieur des leçons correspondantes. Ouvre l'une de ces leçons pour trouver le lien vers la fiche. Elles ne sont pour l'instant disponibles qu'en anglais."
         },
         {
           "question": "Pour quel âge les activités de type fiche de Money Quest sont-elles conçues ?",

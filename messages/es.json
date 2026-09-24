@@ -156,7 +156,7 @@
     "guardrailIntro": "Las inversiones pueden perder valor igual que pueden ganarlo, y las opciones con mayor potencial de ganancia suelen conllevar más riesgo. Esto es una simulación de aprendizaje, no asesoramiento de inversión - nada aquí promete lo que ocurriría en la realidad.",
     "cashLabel": "Efectivo virtual",
     "portfolioValueLabel": "Valor de la cartera",
-    "overallChangeLabel": "{amount} ({percent} %) desde que empezaste",
+    "overallChangeLabel": "{amount} ({percent}%) desde que empezaste",
     "companiesTitle": "Empresas ficticias",
     "companyListLabel": "Empresas ficticias",
     "holdingsTitle": "Tus posiciones",
@@ -1010,8 +1010,8 @@
       "title": "Las estafas apuntan a las emociones, no a la lógica",
       "learningObjective": "Analizar cómo las estafas están diseñadas para explotar emociones específicas, y desarrollar el hábito de detenerse antes de responder a la presión financiera.",
       "shortIntroduction": "Las mejores estafas no intentan ganarte con argumentos - intentan hacerte sentir algo lo bastante fuerte como para saltarte el pensar por completo.",
-      "story": "Marcus ve un mensaje que ofrece una forma \"garantizada\" de multiplicar el dinero rápidamente, de alguien que se hace pasar por el amigo de un amigo. Juega con la emoción y la avaricia. Más tarde, Marcus ve otro mensaje que amenaza con una falsa \"multa impagada\" a menos que pague de inmediato - este juega con el miedo en cambio. Diferentes emociones, el mismo truco subyacente: sáltate el pensar, activa el sentimiento, consigue el dinero.",
-      "keyConcept": "Las estafas están diseñadas para activar una emoción fuerte - emoción, miedo, urgencia o confianza - precisamente porque una emoción fuerte hace que la gente se salte el pensamiento cuidadoso.",
+      "story": "Marcus ve un mensaje que ofrece una forma \"garantizada\" de multiplicar el dinero rápidamente, de alguien que se hace pasar por el amigo de un amigo. Juega con el entusiasmo y la avaricia. Más tarde, Marcus ve otro mensaje que amenaza con una falsa \"multa impagada\" a menos que pague de inmediato - este juega con el miedo en cambio. Diferentes emociones, el mismo truco subyacente: sáltate el pensar, activa el sentimiento, consigue el dinero.",
+      "keyConcept": "Las estafas están diseñadas para activar una emoción fuerte - entusiasmo, miedo, urgencia o confianza - precisamente porque una emoción fuerte hace que la gente se salte el pensamiento cuidadoso.",
       "vocabulary": [
         {
           "term": "manipulación emocional",
@@ -2634,7 +2634,7 @@
               "prompt": "Aquí hay un anuncio de una tienda en línea. Toca cualquier cosa que parezca una señal de advertencia.",
               "hint": "Si un precio parece imposiblemente bajo para lo que obtienes, vale la pena mirarlo dos veces.",
               "explanation": "Una consola de videojuegos totalmente nueva por casi nada, combinada con presión para darte prisa, es una señal clásica de una tienda falsa - las tiendas reales normalmente no necesitan apresurarte hacia una oferta imposiblemente buena.",
-              "scenario": "\"¡Consolas de videojuegos totalmente nuevas - solo 5 euros cada una! ACTÚA YA, casi agotadas!\"",
+              "scenario": "\"¡Consolas de videojuegos totalmente nuevas - solo 5 euros cada una! ¡ACTÚA YA, casi agotadas!\"",
               "items": [
                 {
                   "id": "brand",
@@ -3134,10 +3134,10 @@
             {
               "id": "give-or-keep",
               "mechanic": "mission",
-              "prompt": "Tienes 20 euros ahorradas. La familia de un amigo está pasando por un momento difícil, y tu clase está recolectando dinero para ayudar. ¿Qué harías?",
+              "prompt": "Tienes 20 euros ahorrados. La familia de un amigo está pasando por un momento difícil, y tu clase está recolectando dinero para ayudar. ¿Qué harías?",
               "hint": "Aquí no hay una cantidad obligatoria - piensa en lo que te parece adecuado para tu propia situación.",
               "explanation": "Decidir cuánto de tu propio dinero dar, si acaso, es una elección genuinamente personal sin una única cantidad correcta.",
-              "situation": "Tienes 20 euros ahorradas. La familia de un amigo está pasando por un momento difícil, y tu clase está recolectando dinero para ayudar.",
+              "situation": "Tienes 20 euros ahorrados. La familia de un amigo está pasando por un momento difícil, y tu clase está recolectando dinero para ayudar.",
               "choices": [
                 {
                   "key": "give-some",
@@ -3921,7 +3921,7 @@
         ]
       },
       {
-        "prompt": "Al final de una buena semana con dinero, te sientes mejor cuando:",
+        "prompt": "Al final de una buena semana con dinero, te sientes genial cuando:",
         "options": [
           "Tus ahorros subieron",
           "Todo salió como lo planeaste",
@@ -4023,7 +4023,7 @@
           "heading": "Lo que suele funcionar, y lo que no",
           "paragraphs": [
             "Elogiar la decisión de ahorrar, más que la cantidad ahorrada, tiende a mantenerse mejor con el tiempo - un niño elogiado por \"lo pensaste bien\" está aprendiendo un hábito transferible; un niño elogiado solo por una cifra grande puede empezar a sentir que ahorrar es impresionar a un padre, no sobre la meta en sí.",
-            "También vale la pena resistir el impulso de completar un déficit justo antes de alcanzar una meta. Quedarse un poco corto, y tener que esperar una semana más, es incómodo pero es exactamente la experiencia que hace que la compra final se sienta merecida - y es una forma de bajo riesgo de practicar la paciencia mientras las consecuencias aún son pequeñas."
+            "También vale la pena resistir el impulso de cubrir la diferencia justo antes de alcanzar una meta. Quedarse un poco corto, y tener que esperar una semana más, es incómodo, pero es exactamente la experiencia que hace que la compra final parezca merecida - y es una forma de bajo riesgo de practicar la paciencia mientras las consecuencias aún son pequeñas."
           ]
         },
         {
@@ -4046,7 +4046,7 @@
     },
     "budgeting-for-kids": {
       "title": "Presupuesto para Niños: Cómo Enseñarlo Sin una Hoja de Cálculo",
-      "metaDescription": "Una guía práctica para enseñar a los niños los conceptos básicos del presupuesto usando categorías simples, compromisos reales y ejemplos apropiados para la edad - sin hojas de cálculo necesarias.",
+      "metaDescription": "Una guía práctica para enseñar a los niños los conceptos básicos del presupuesto usando categorías simples, compromisos reales y ejemplos apropiados para la edad - sin necesidad de hojas de cálculo.",
       "sections": [
         {
           "heading": "Presupuestar para niños no significa una hoja de cálculo",
@@ -4094,7 +4094,7 @@
           "heading": "Por qué esto es genuinamente difícil para los niños (y los adultos)",
           "paragraphs": [
             "\"Necesito esto\" es una de las frases más comunes en el vocabulario de un niño, y normalmente no es manipulación - un niño pequeño genuinamente aún no distingue entre un deseo fuerte y una necesidad real, porque la intensidad emocional se siente idéntica por dentro.",
-            "La distinción también es genuinamente difusa en los bordes incluso para los adultos (un teléfono es un deseo en un contexto y casi una necesidad para un adolescente que lo usa para las tareas escolares), así que el objetivo con un niño no es trazar una línea dura permanente - es construir el hábito de pausar y hacerse la pregunta en absoluto."
+            "La distinción también es genuinamente difusa en los bordes incluso para los adultos (un teléfono es un deseo en un contexto y casi una necesidad para un adolescente que lo usa para las tareas escolares), así que el objetivo con un niño no es trazar una línea dura permanente, sino construir el hábito de pararse a hacerse la pregunta."
           ]
         },
         {
@@ -4190,16 +4190,16 @@
           ]
         },
         {
-          "heading": "Una nota sobre lo que aún no hemos construido",
+          "heading": "Fichas descargables gratis, dentro de cada lección correspondiente",
           "paragraphs": [
-            "Honestamente: esta página actualmente describe el tipo de fichas que funcionan bien y los principios detrás de ellas, en lugar de alojar directamente fichas PDF descargables - eso es un vacío de contenido genuino, no oculto, y es la adición siguiente más natural para esta página. Mientras tanto, todos los principios anteriores están completamente demostrados dentro de los propios juegos Construir un Presupuesto y Ahorrar o Gastar de Money Quest, que son el equivalente interactivo exacto de este tipo de ficha."
+            "Además de los principios anteriores, Money Quest ya incluye 20 fichas PDF descargables e imprimibles, cada una vinculada a una lección concreta dentro de las tres franjas de edad, más una única guía de respuestas que las cubre todas. Abre la lección correspondiente en Money Quest y ahí encontrarás el enlace a la ficha - todavía no todas las lecciones tienen una, pero las que sí la tienen cubren temas clave como el ahorro, las estafas, el dinero digital y las necesidades frente a los deseos. Por ahora, las fichas solo están disponibles en inglés, sea cual sea el idioma que uses en el resto de Money Quest. Mientras tanto, todos los principios de esta página también están completamente demostrados dentro de los propios juegos Construir un Presupuesto y Ahorrar o Gastar de Money Quest, que son el equivalente interactivo exacto de este tipo de ficha."
           ]
         }
       ],
       "faqs": [
         {
           "question": "¿Son estas fichas gratuitas para usar en un aula?",
-          "answer": "Las guías y los formatos de fichas descritos en esta página son gratuitos para adaptar al uso en el aula. Las fichas imprimibles descargables en sí son una adición planeada para esta página, no disponible todavía en el momento de escribir esto."
+          "answer": "Sí. Las pautas y los formatos de ficha descritos en esta página son gratuitos para adaptar al uso en el aula, y Money Quest también ofrece 20 fichas PDF descargables y gratuitas - más una única guía de respuestas que las cubre todas - directamente dentro de las lecciones correspondientes. Abre una de esas lecciones para encontrar el enlace a la ficha. Por ahora solo están disponibles en inglés."
         },
         {
           "question": "¿Para qué edad están diseñadas las actividades tipo ficha de Money Quest?",

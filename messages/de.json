@@ -26,11 +26,11 @@
   },
   "landing": {
     "heroTitle": "Lerne über Geld, indem du spielst, erkundest und Entscheidungen triffst.",
-    "heroSubtitle": "Money Quest ist eine kostenlose Welt für finanzielle Bildung für Kinder von 6 bis 14 Jahren - Quests, eine fiktive Geldbörse und echte Fähigkeiten. Kein Konto nötig.",
+    "heroSubtitle": "Money Quest ist eine kostenlose Welt der finanziellen Bildung für Kinder von 6 bis 14 Jahren - Quests, eine fiktive Geldbörse und echte Fähigkeiten. Kein Konto nötig.",
     "heroImageAlt": "Ein lächelndes Kind hält ein Handy mit der Money-Quest-App hoch, daneben das Money-Quest-Logo und der Schriftzug Skills for Life.",
     "ctaGetStartedFree": "Starte deine Money Quest",
     "ctaSeeHowItWorks": "So funktioniert's ansehen",
-    "whyFree": "Money Quest ist für Familien kostenlos, finanziert durch datenschutzfreundliche Werbung, die nur auf Eltern-Seiten angezeigt wird - niemals innerhalb der Erfahrung deines Kindes. Niemals Käufe durch Kinder.",
+    "whyFree": "Money Quest ist für Familien kostenlos, finanziert durch datenschutzfreundliche Werbung, die nur auf Eltern-Seiten angezeigt wird - niemals innerhalb der Erfahrung deines Kindes. Dein Kind kann bei uns nie etwas kaufen.",
     "howItWorksTitle": "So funktioniert's",
     "step1Title": "1. Wähle ein Level",
     "step1Body": "Wähle ein Lernlevel - ohne Registrierung, ohne Konto, nur auf diesem Gerät gespeichert.",
@@ -43,7 +43,7 @@
     "trust2": "Niemals personalisierte Werbung für Kinder",
     "trust3": "Alles Geld in der Erfahrung des Kindes ist vollständig fiktiv",
     "trust4": "Keine Konten, keine Registrierung und niemals gesammelte persönliche Informationen",
-    "readFullParentInfoLink": "Lies unsere vollständige Seite mit Informationen für Eltern →",
+    "readFullParentInfoLink": "Lies unsere ausführlichen Informationen für Eltern →",
     "safetyTitle": "Sicherheit steht an erster Stelle",
     "safetyBody": "Wir fragen dein Kind niemals nach seinem echten Namen, seiner Adresse, Schule oder finanziellen Informationen. Jedes Spiel, jede Geschichte und jede Herausforderung wird anhand echter Rahmenwerke für finanzielle Bildung der OECD, der CFPB und des UK Money and Pensions Service überprüft.",
     "copyright": "© {year} Money Quest"
@@ -82,7 +82,7 @@
     "needHint": "Brauchst du einen Tipp?",
     "nextRound": "Nächste Runde",
     "questComplete": "Quest abgeschlossen!",
-    "scoreLine": "Du hattest {correct} von {total} beim ersten Versuch richtig - gut gedacht, {percent}%!",
+    "scoreLine": "Du hast {correct} von {total} beim ersten Versuch richtig - gut gemacht, {percent}%!",
     "addingUpRewards": "Belohnungen werden berechnet…",
     "backToTheWorld": "Zurück zur Welt",
     "notReadyForAgeGroup": "Dieses Spiel ist für deine Altersgruppe noch nicht bereit - schau bald wieder vorbei!",
@@ -102,7 +102,7 @@
     "goodCatch": "Gut erkannt!",
     "missedWarningSign": "Das war ein Warnzeichen",
     "actuallyFine": "Das war eigentlich in Ordnung",
-    "checkWhatIFound": "Prüfen, was ich gefunden habe",
+    "checkWhatIFound": "Meine Funde prüfen",
     "checkMyChoice": "Meine Wahl prüfen",
     "bestChoice": "Beste Wahl",
     "notBestValue": "Hier nicht das beste Angebot",
@@ -122,7 +122,7 @@
     "balanceNow": "Virtueller Kontostand jetzt: {amount}",
     "continueToNextWeek": "Weiter zur nächsten Woche",
     "seeMyFinalReport": "Meinen Abschlussbericht ansehen",
-    "reportTitle": "Dein Virtueller Finanzleben-Bericht",
+    "reportTitle": "Dein virtueller Finanzleben-Bericht",
     "reportSubtitle": "So ist dein {weeks}-Wochen-Plan verlaufen.",
     "startingBalance": "Virtuelles Startguthaben",
     "incomeReceived": "Erhaltenes Einkommen",
@@ -147,13 +147,13 @@
     "insightShortfallSingle": "Unerwartete Kosten kamen einmal auf, und dein „Für alle Fälle”-Puffer reichte nicht ganz aus, um sie zu decken - also musste es stattdessen aus deinem Guthaben kommen. Genau deshalb hilft es, etwas für Überraschungen zurückzulegen, auch wenn noch nichts dringend erscheint.",
     "insightShortfallMultiple": "Unerwartete Kosten kamen {count}-mal auf, und dein „Für alle Fälle”-Puffer reichte nicht ganz aus, um sie zu decken - also musste es stattdessen aus deinem Guthaben kommen. Genau deshalb hilft es, etwas für Überraschungen zurückzulegen, auch wenn noch nichts dringend erscheint.",
     "insightBufferHeldUp": "Dein „Für alle Fälle”-Puffer hat sich gegen alles, was auftauchte, gut gehalten - gute Planung.",
-    "insightGivingNoticed": "Du hast Platz zum Geben geschaffen, während du alles andere gemanagt hast - das ist bemerkenswert."
+    "insightGivingNoticed": "Du hast Platz zum Geben geschaffen, während du alles andere im Griff hattest - das ist bemerkenswert."
   },
   "investingLab": {
     "pageTitle": "Investment-Labor",
     "simulationBanner": "SIMULATION - NUR VIRTUELLES GELD",
     "simulationExplainer": "Alles hier verwendet erfundene Unternehmen und fiktives Geld zum Lernen. Es sind keine echten Unternehmen, keine echte Börse und kein echtes Geld beteiligt.",
-    "guardrailIntro": "Investitionen können an Wert verlieren genauso wie sie gewinnen können, und Entscheidungen mit höherem möglichen Ertrag bringen meist auch höheres Risiko mit sich. Dies ist eine Lernsimulation, keine Anlageberatung - nichts hier verspricht, was wirklich passieren würde.",
+    "guardrailIntro": "Investitionen können sowohl an Wert verlieren als auch gewinnen, und Entscheidungen mit höherem möglichem Ertrag bringen meist auch höheres Risiko mit sich. Dies ist eine Lernsimulation, keine Anlageberatung - nichts hier verspricht, was wirklich passieren würde.",
     "cashLabel": "Virtuelles Geld",
     "portfolioValueLabel": "Portfoliowert",
     "overallChangeLabel": "{amount} ({percent} %) seit deinem Start",
@@ -165,7 +165,7 @@
     "watchlistEmptyHint": "Noch nichts auf deiner Beobachtungsliste - tippe bei einem Unternehmen auf „Zur Beobachtung hinzufügen“, um es im Blick zu behalten, ohne es zu kaufen.",
     "transactionHistoryTitle": "Transaktionsverlauf",
     "timeMachineTitle": "Zeitmaschine",
-    "timeMachineIntro": "Sieh, wie sich eine fiktive Investition aus der Vergangenheit bis heute verändert hätte - eine Möglichkeit zu erkunden, wie unvorhersehbar der kurze Zeitraum sein kann und wie anders der lange Zeitraum aussehen kann.",
+    "timeMachineIntro": "Sieh, wie sich eine fiktive Investition aus der Vergangenheit bis heute verändert hätte - eine Möglichkeit zu erkunden, wie unvorhersehbar es kurzfristig sein kann und wie anders es sich langfristig entwickeln kann.",
     "resetConfirm": "Das löscht dein Investment-Labor-Portfolio, deine Bestände und deinen Verlauf auf diesem Gerät. Das kann nicht rückgängig gemacht werden. Fortfahren?",
     "resetButton": "Investment-Labor zurücksetzen",
     "removeFromWatchlist": "Von Beobachtungsliste entfernen",
@@ -337,7 +337,7 @@
     "progressTowardGoal": "Fortschritt zu {goalName}",
     "amountOfTarget": "{current} von {target}",
     "removeGoal": "Ziel entfernen",
-    "amountToAdd": "Hinzuzufügender Betrag",
+    "amountToAdd": "Betrag zum Hinzufügen",
     "amount": "Betrag",
     "addCoins": "Münzen hinzufügen",
     "lessonNotAvailable": "Diese Lektion ist nicht verfügbar.",
@@ -358,7 +358,7 @@
     "planYourSavingReached": "Das würde schon reichen!",
     "planYourSavingResult": "Bei diesem Tempo würde es etwa {weeks} Wochen dauern.",
     "whatIfYouSpendSome": "Was, wenn du etwas davon ausgibst?",
-    "amountToWithdraw": "Auszugebender Betrag",
+    "amountToWithdraw": "Betrag zum Ausgeben",
     "spendSome": "Etwas ausgeben",
     "moneyPersonalityLink": "Geld-Persönlichkeit",
     "levelActivityProgress": "Level {level} · Aktivität {position} von {total}",
@@ -370,7 +370,7 @@
     "q1Title": "Was macht diese Website?",
     "q1Body": "Money Quest vermittelt Kindern finanzielle Bildung durch Lektionen, Quizze und Spiele - Bedürfnisse gegenüber Wünschen, Sparen, Ausgeben, Budgetieren, Verdienen, Schutz vor Betrug und mehr. Alles Geld in der App ist fiktiv.",
     "q2Title": "Welche Informationen werden erfasst?",
-    "q2Body": "Keine, die dein Kind identifizieren. Das Einzige, wonach die Seite fragt, ist ein Lernlevel (Anfänger, Grundstufe oder Fortgeschritten), damit die Lektionen auf dem richtigen Leselevel geschrieben sind - und diese Wahl wird nirgendwohin gesendet; sie wird nur in diesem Browser gespeichert.",
+    "q2Body": "Keine, die dein Kind identifizieren. Das Einzige, wonach die Seite fragt, ist ein Lernlevel (Anfänger, Grundstufe oder Fortgeschritten), damit die Lektionen auf dem richtigen Leseniveau geschrieben sind - und diese Wahl wird nirgendwohin gesendet; sie wird nur in diesem Browser gespeichert.",
     "q3Title": "Welche Informationen werden NICHT erfasst?",
     "q3Body": "Ein Name, Alter, Geburtsdatum, Adresse, Schule, E-Mail, Telefonnummer oder Standort - von deinem Kind, niemals. Es gibt nirgendwo in der App ein Feld, in das ein Kind eines davon eingeben könnte.",
     "q4Title": "Muss man ein Konto erstellen?",
@@ -411,7 +411,7 @@
     "section1Title": "Kein Konto, keine persönlichen Informationen",
     "section1Body": "Es gibt nirgendwo auf dieser Website eine Registrierung, einen Login oder ein Passwort. Wir fragen dein Kind (oder dich) niemals nach einem echten Namen, einer Adresse, Telefonnummer, E-Mail, Schule oder einem Standort.",
     "section2Title": "Die einzige Wahl, an die wir uns erinnern",
-    "section2Body": "Ein Lernlevel (Anfänger, Grundstufe oder Fortgeschritten) und eine Währungspräferenz - nur im lokalen Speicher dieses Browsers gespeichert. Sie verlässt niemals dein Gerät.",
+    "section2Body": "Ein Lernlevel (Anfänger, Grundstufe oder Fortgeschritten) und eine Währungspräferenz - nur im lokalen Speicher dieses Browsers gespeichert. Beides verlässt niemals dein Gerät.",
     "section3Title": "Lernfortschritt",
     "section3Body": "Nur auf dem verwendeten Gerät gespeichert, niemals an uns gesendet. Verwende „Fortschritt zurücksetzen” in der App, oder lösche die Website-Daten in diesem Browser, um ihn vollständig zu entfernen.",
     "section4Title": "Was wir niemals tun",
@@ -631,7 +631,7 @@
       },
       "rewardMessage": "Münzen verdient, weil du einen wirklich kniffligen „es kommt darauf an”-Fall erkannt hast!",
       "parentNote": "Diese Lektion führt bewusst Nuancen statt einer starren Regel ein - mit 9-11 Jahren beginnt ein rein schwarz-weißes Bedürfnisse/Wünsche-Schema für Kinder unglaubwürdig zu wirken (zu Recht - das echte Leben ist wirklich komplizierter). Ein nützliches Anschlussgespräch ist, dein Kind zu bitten, für etwas, das es sich wünscht, BEIDE Seiten zu argumentieren, was echte Denkfähigkeiten aufbaut statt starrer Kategorisierung.",
-      "commonMisconception": "In diesem Alter schlagen Kinder manchmal in die andere Richtung um und behaupten, dass fast alles in der richtigen Situation ein Bedürfnis SEIN KÖNNTE, wobei sie Nuancen nutzen, um die Unterscheidung ganz zu vermeiden, statt sie durchdacht anzuwenden."
+      "commonMisconception": "In diesem Alter schlagen Kinder manchmal in die andere Richtung um und behaupten, dass fast alles in der richtigen Situation ein Bedürfnis sein KÖNNTE, wobei sie Nuancen nutzen, um die Unterscheidung ganz zu vermeiden, statt sie durchdacht anzuwenden."
     },
     "strategist-needs_wants-l1": {
       "title": "Bedürfnisse, Wünsche und sozialer Druck",
@@ -673,7 +673,7 @@
         "retry": "Schau noch einmal, welche Emotion der Satz beim Leser erzeugen möchte."
       },
       "rewardMessage": "Münzen verdient, weil du hinter einer Überredungstechnik den eigentlichen Wunsch erkannt hast.",
-      "parentNote": "Diese Lektion handelt bewusst vom Erkennen von Überredungstechniken, nicht davon, deinem Teenager ein schlechtes Gewissen zu machen, weil er Dinge will, die von Werbung oder Gleichaltrigen beeinflusst sind - dieser Einfluss ist normal und nahezu universell, auch bei Erwachsenen. Das Ziel ist, die Gewohnheit aufzubauen, ihn zu bemerken, was viel besser funktioniert als gemeinsame, neugierige Beobachtung („oh, das ist die mit der Angst, etwas zu verpassen”) als Vortrag über unnötige Ausgaben.",
+      "parentNote": "Diese Lektion handelt bewusst vom Erkennen von Überredungstechniken, nicht davon, deinem Teenager ein schlechtes Gewissen zu machen, weil er Dinge will, die von Werbung oder Gleichaltrigen beeinflusst sind - dieser Einfluss ist normal und nahezu universell, auch bei Erwachsenen. Das Ziel ist, die Gewohnheit aufzubauen, ihn zu bemerken - das funktioniert als gemeinsame, neugierige Beobachtung („oh, das ist die mit der Angst, etwas zu verpassen”) meist viel besser denn als Vortrag über unnötige Ausgaben.",
       "commonMisconception": "Teenager glauben manchmal, persönlich immun gegen den Einfluss von Werbung zu sein, was paradoxerweise den Einfluss schwerer bemerkbar macht, wenn er tatsächlich bei ihnen wirkt."
     },
     "explorer-saving-l1": {
@@ -751,7 +751,7 @@
         "retry": "Denk darüber nach, was Maya realistisch jede Woche tun könnte, um ihrem Ziel näherzukommen."
       },
       "rewardMessage": "Münzen verdient, weil du ein echtes Ziel gesetzt und dir überlegt hast, wie du es erreichst!",
-      "parentNote": "Das ist ein gutes Alter, um ein Kind SEIN EIGENES Sparziel setzen und verfolgen zu lassen, auch ein kleines, und es den echten Kompromiss erleben zu lassen, sich unterwegs gegen eine kleinere Leckerei zu entscheiden. Widerstehe dem Drang, den letzten Teil des Ziels für dein Kind aufzufüllen - die Erfahrung, es mit eigener Anstrengung zu schaffen, auch wenn es langsam geht, zählt meist mehr als der Endbetrag.",
+      "parentNote": "Das ist ein gutes Alter, um ein Kind sein EIGENES Sparziel setzen und verfolgen zu lassen, auch ein kleines, und es den echten Kompromiss erleben zu lassen, sich unterwegs gegen eine kleinere Leckerei zu entscheiden. Widerstehe dem Drang, den letzten Teil des Ziels für dein Kind aufzufüllen - die Erfahrung, es mit eigener Anstrengung zu schaffen, auch wenn es langsam geht, zählt meist mehr als der Endbetrag.",
       "commonMisconception": "Kinder in diesem Alter unterschätzen oft, wie schnell sich kleine, regelmäßige Ersparnisse summieren, und geben ein Ziel manchmal schon in der ersten Woche auf, weil es zu weit entfernt wirkt."
     },
     "strategist-saving-l1": {
@@ -1687,7 +1687,7 @@
               "mechanic": "numeric",
               "prompt": "Du zahlst 10 Münzen auf deine Fiktive Bank ein. Wie hoch ist dein neuer Kontostand?",
               "hint": "Einzahlen bedeutet, Münzen hinzuzufügen - dein Kontostand steigt um diesen Betrag.",
-              "explanation": "Beginnend bei 0 und 10 Münzen einzahlend, ergibt sich ein neuer Kontostand von 10 - eine Einzahlung erhöht immer deinen Kontostand.",
+              "explanation": "Du beginnst bei 0 und zahlst 10 Münzen ein - das ergibt einen neuen Kontostand von 10. Eine Einzahlung erhöht immer deinen Kontostand.",
               "givenContext": "Startguthaben: 0. Einzahlung: 10 Münzen.",
               "correctValue": 10,
               "isCurrency": true,
@@ -1994,7 +1994,7 @@
             {
               "id": "r1",
               "mechanic": "numeric",
-              "prompt": "Du sparst 10 Münzen. Die Fiktive Bank fügt 1 Bonusmünze hinzu. Wie viele Münzen hast du jetzt?",
+              "prompt": "Du sparst 10 Münzen. Die fiktive Bank fügt 1 Bonusmünze hinzu. Wie viele Münzen hast du jetzt?",
               "hint": "Ein Bonus bedeutet, dass zusätzliche Münzen obendrauf kommen.",
               "explanation": "10 gesparte Münzen, plus 1 hinzugefügte Bonusmünze, ergeben insgesamt 11 Münzen - dieser Bonus ist eine einfache Form von Zinsen.",
               "givenContext": "Gespart: 10 Münzen. Bonus hinzugefügt: 1 Münze.",
@@ -2255,7 +2255,7 @@
                 },
                 {
                   "id": "designer-shoes",
-                  "label": "👟 Designer-Turnschuhe, 5x der Preis",
+                  "label": "👟 Designer-Turnschuhe, zum 5-fachen Preis",
                   "correctBucketKey": "want"
                 },
                 {
@@ -2304,7 +2304,7 @@
                 },
                 {
                   "id": "branded-bag",
-                  "label": "🎒 Ein Marken-Schulranzen, 4x der Preis",
+                  "label": "🎒 Ein Marken-Schulranzen, zum 4-fachen Preis",
                   "correctBucketKey": "want"
                 }
               ]
@@ -2573,7 +2573,7 @@
                 },
                 {
                   "id": "all-coins",
-                  "label": "💸 All deine Münzen für das Erste ausgeben, was du siehst",
+                  "label": "💸 Alle deine Münzen für das Erste ausgeben, was du siehst",
                   "correctBucketKey": "spend"
                 },
                 {
@@ -2810,7 +2810,7 @@
               "id": "s2",
               "mechanic": "spot",
               "prompt": "Eine Nachricht bittet dich, schnell für etwas zu bezahlen. Tippe auf alles, was sich wie ein Warnzeichen anfühlt.",
-              "hint": "Gebeten zu werden, auf ungewöhnliche Weise, schnell, zu bezahlen, bevor du irgendetwas überprüfen kannst, ist an sich schon ein starkes Warnzeichen.",
+              "hint": "Wenn dich jemand auf ungewöhnliche Weise drängt, schnell zu bezahlen, bevor du irgendetwas überprüfen kannst, ist das schon für sich allein ein starkes Warnzeichen.",
               "explanation": "Dir zu sagen, sofort zu bezahlen, auf ungewöhnliche Weise, bevor du Zeit hattest zu prüfen, ob der Verkäufer überhaupt echt ist, soll dich davon abhalten zu bemerken, dass etwas nicht stimmt - echte Verkäufer müssen eine Zahlung nicht so drängen.",
               "scenario": "„Artikel für dich reserviert! Zahle die 45-Euro-Anzahlung sofort per Geschenkkartencode, um ihn zu sichern, bevor es jemand anderes tut.”",
               "items": [
@@ -2838,7 +2838,7 @@
     "smart-shopper": {
       "title": "Cleverer Käufer",
       "feedback": {
-        "correct": "Toll den Wert erkannt!",
+        "correct": "Gut erkannt, was sich lohnt!",
         "incorrect": "Lass uns über eine andere Option nachdenken."
       },
       "variants": [
@@ -3109,10 +3109,10 @@
             {
               "id": "peer-pressure-purchase",
               "mechanic": "mission",
-              "prompt": "Alle deine Freunde haben ein neues Gadget und du fühlst, dass du auch eins haben solltest, obwohl du nicht dafür gespart hast. Was würdest du tun?",
+              "prompt": "Alle deine Freunde haben ein neues Gadget, und du hast das Gefühl, dass du auch eins haben solltest, obwohl du nicht dafür gespart hast. Was würdest du tun?",
               "hint": "Ein Wunsch, der wegen dem entsteht, was andere haben, ist trotzdem ein echter Wunsch - die Frage ist, was du damit machst.",
               "explanation": "Zu bemerken, dass ein Wunsch daher kam, dass jemand anderes etwas hatte, ist nützliche Information, egal welche Wahl du als Nächstes triffst.",
-              "situation": "Alle deine Freunde haben ein neues Gadget und du fühlst, dass du auch eins haben solltest, obwohl du nicht dafür gespart hast.",
+              "situation": "Alle deine Freunde haben ein neues Gadget, und du hast das Gefühl, dass du auch eins haben solltest, obwohl du nicht dafür gespart hast.",
               "choices": [
                 {
                   "key": "buy-now",
@@ -3384,7 +3384,7 @@
       ]
     },
     "smart-shopping-detective": {
-      "title": "Detektiv für Kluges Einkaufen",
+      "title": "Detektiv für kluges Einkaufen",
       "feedback": {
         "correct": "Scharf mitgedacht!",
         "incorrect": "Mal sehen, was passiert."
@@ -3656,7 +3656,7 @@
   },
   "simulatorScenarios": {
     "explorer-standard": {
-      "title": "Ein Monat Wöchentlicher Münzen",
+      "title": "Ein Monat wöchentlicher Münzen",
       "savingsGoalName": "Ein neuer Drachen",
       "weeks": [
         {
@@ -3694,13 +3694,13 @@
             "title": "Dein Drachen-Ziel überprüfen",
             "description": "Mal sehen, wie nah du dran bist!",
             "celebrationMessage": "Du hast dein Drachen-Ziel erreicht - gut gespart!",
-            "notYetMessage": "Du bist noch nicht ganz an deinem Drachen-Ziel, aber du hast echte Fortschritte gemacht."
+            "notYetMessage": "Du hast dein Drachen-Ziel noch nicht ganz erreicht, aber du hast echte Fortschritte gemacht."
           }
         }
       ]
     },
     "explorer-challenge": {
-      "title": "Ein Größerer Monat Voller Entscheidungen",
+      "title": "Ein größerer Monat voller Entscheidungen",
       "savingsGoalName": "Ein neuer Fahrradhelm",
       "weeks": [
         {
@@ -3735,7 +3735,7 @@
         {
           "weekLabel": "Woche 4",
           "event": {
-            "title": "Du hast zusätzliches fiktives Geld erhalten",
+            "title": "Du hast ein paar zusätzliche Münzen bekommen",
             "description": "Ein Verwandter hat dir diese Woche etwas extra geschickt - schöne Überraschung!"
           }
         },
@@ -3751,7 +3751,7 @@
       ]
     },
     "builder-standard": {
-      "title": "Ein Monat Taschengeld Verwalten",
+      "title": "Ein Monat Taschengeld verwalten",
       "savingsGoalName": "Ein neues Spielkonsolen-Zubehör",
       "weeks": [
         {
@@ -3795,7 +3795,7 @@
       ]
     },
     "strategist-standard": {
-      "title": "Deine Ersten Teilzeit-Einnahmen",
+      "title": "Deine ersten Teilzeit-Einnahmen",
       "savingsGoalName": "Ersparnisse für ein Laptop-Upgrade",
       "weeks": [
         {
@@ -3886,7 +3886,7 @@
           "Sie irgendwo sicher für später aufbewahren",
           "Überlegen, sie auf ein paar Dinge aufzuteilen",
           "Etwas Lustiges zum Kaufen suchen",
-          "Erstmal eine Weile damit sitzen, bevor irgendetwas entschieden wird",
+          "Erstmal eine Weile abwarten, bevor irgendetwas entschieden wird",
           "An jemanden denken, mit dem ich sie teilen könnte"
         ]
       },
@@ -3903,7 +3903,7 @@
       {
         "prompt": "Einem Freund fehlen ein paar Münzen für etwas. Du:",
         "options": [
-          "Fühlst mit ihm, behältst aber deine eigenen Münzen",
+          "Es tut dir leid für ihn, aber du behältst deine eigenen Münzen",
           "Überlegst, ob du helfen könntest, ohne deinen eigenen Plan durcheinanderzubringen",
           "Bist dir nicht sicher - du gibst meist sowieso aus, was du hast",
           "Denkst gründlich darüber nach, bevor du entscheidest",
@@ -3998,7 +3998,7 @@
   },
   "articles": {
     "saving-money-for-kids": {
-      "title": "Geld Sparen für Kinder: Ein Praktischer Leitfaden für Eltern",
+      "title": "Geld sparen für Kinder: Ein praktischer Leitfaden für Eltern",
       "metaDescription": "Wie man Kindern beibringt, in jedem Alter Geld zu sparen - praktische, forschungsbasierte Strategien, die Eltern schon heute anwenden können, plus wie Money Quest Sparen zu einem Spiel macht.",
       "sections": [
         {
@@ -4022,14 +4022,14 @@
         {
           "heading": "Was tendenziell funktioniert, und was nicht",
           "paragraphs": [
-            "Die Entscheidung zu sparen zu loben, statt des gesparten Betrags, hält sich über die Zeit tendenziell besser - ein Kind, das für „du hast das gut durchdacht” gelobt wird, lernt eine übertragbare Gewohnheit; ein Kind, das nur für eine große Zahl gelobt wird, kann anfangen zu fühlen, dass Sparen darum geht, einen Elternteil zu beeindrucken, nicht um das Ziel selbst.",
+            "Die Entscheidung zu sparen zu loben, statt des gesparten Betrags, hält sich über die Zeit tendenziell besser - ein Kind, das für „du hast das gut durchdacht” gelobt wird, lernt eine übertragbare Gewohnheit; ein Kind, das nur für eine große Zahl gelobt wird, kann den Eindruck bekommen, dass es beim Sparen darum geht, einen Elternteil zu beeindrucken, und nicht um das Ziel selbst.",
             "Es lohnt sich auch, dem Drang zu widerstehen, ein Defizit direkt vor Erreichen eines Ziels aufzufüllen. Knapp zu kurz zu kommen und noch eine Woche warten zu müssen, ist unangenehm, aber genau die Erfahrung, die den letztendlichen Kauf verdient anfühlen lässt - und es ist eine risikoarme Art, Geduld zu üben, während die Konsequenzen noch klein sind."
           ]
         },
         {
           "heading": "Das in Money Quest üben",
           "paragraphs": [
-            "Die Aktivitäten Sparen oder Ausgeben und Ein Budget Erstellen von Money Quest lassen ein Kind genau diese Entscheidung üben - mit fiktiven Münzen, nicht echtem Geld - bevor der Einsatz real ist. Jeder Betrag ist Spielgeld in der eigenen Währung der Familie, und nichts, was ein Kind in der App tut, berührt jemals ein echtes Bankkonto."
+            "Die Aktivitäten Sparen oder Ausgeben und Erstelle ein Budget von Money Quest lassen ein Kind genau diese Entscheidung üben - mit fiktiven Münzen, nicht echtem Geld - bevor der Einsatz real ist. Jeder Betrag ist Spielgeld in der eigenen Währung der Familie, und nichts, was ein Kind in der App tut, berührt jemals ein echtes Bankkonto."
           ]
         }
       ],
@@ -4045,7 +4045,7 @@
       ]
     },
     "budgeting-for-kids": {
-      "title": "Budgetieren für Kinder: Wie Man Es Ohne Tabellenkalkulation Lehrt",
+      "title": "Budgetieren für Kinder: Wie man es ohne Tabellenkalkulation lehrt",
       "metaDescription": "Ein praktischer Leitfaden, um Kindern die Grundlagen des Budgetierens mit einfachen Kategorien, echten Kompromissen und altersgerechten Beispielen beizubringen - keine Tabellenkalkulation nötig.",
       "sections": [
         {
@@ -4071,7 +4071,7 @@
           "heading": "Mach den Kompromiss real, nicht hypothetisch",
           "paragraphs": [
             "Ein Arbeitsblatt mit auszufüllenden Kategorien ist ein guter Ausgangspunkt, aber die Lektion landet wirklich, wenn ein Kind zum ersten Mal einen tatsächlichen Betrag echten (oder Spiel-)Geldes hat und wirklich entscheiden muss, wie es aufgeteilt wird - weil sich ein hypothetischer Kompromiss überhaupt nicht wie ein Kompromiss anfühlt.",
-            "Das ist genau, was das Spiel Ein Budget Erstellen von Money Quest tut: Ein Kind verteilt eine feste Anzahl fiktiver Münzen auf Kategorien, wobei das Spiel nicht zulässt, dass die Summe übersteigt, was es tatsächlich hat - dieselbe Einschränkung, die ein echtes Budget auferlegt, in einem Kontext, in dem ein Fehler nichts kostet."
+            "Das ist genau, was das Spiel Erstelle ein Budget von Money Quest tut: Ein Kind verteilt eine feste Anzahl fiktiver Münzen auf Kategorien, wobei das Spiel nicht zulässt, dass die Summe übersteigt, was es tatsächlich hat - dieselbe Einschränkung, die ein echtes Budget auferlegt, in einem Kontext, in dem ein Fehler nichts kostet."
           ]
         }
       ],
@@ -4087,7 +4087,7 @@
       ]
     },
     "needs-vs-wants": {
-      "title": "Bedürfnisse vs. Wünsche: Kindern den Unterschied Beibringen",
+      "title": "Bedürfnisse vs. Wünsche: Kindern den Unterschied beibringen",
       "metaDescription": "Eine klare, altersgerechte Art, Kindern den Unterschied zwischen Bedürfnissen und Wünschen beizubringen, mit Beispielen, häufigen Stolpersteinen und einfachen Aktivitäten zum Ausprobieren.",
       "sections": [
         {
@@ -4128,7 +4128,7 @@
       ]
     },
     "money-games-for-kids": {
-      "title": "Geldspiele für Kinder, Die Tatsächlich Etwas Lehren",
+      "title": "Geldspiele für Kinder, die tatsächlich etwas lehren",
       "metaDescription": "Praktische und digitale Geldspiele für Kinder, organisiert nach Alter und Fähigkeit - von einfachen Sortierspielen für kleine Kinder bis zu Budgetsimulationen für Teenager.",
       "sections": [
         {
@@ -4168,7 +4168,7 @@
       ]
     },
     "money-worksheets": {
-      "title": "Kostenlose Geld-Arbeitsblätter für Kinder (Nach Alter und Thema)",
+      "title": "Kostenlose Geld-Arbeitsblätter für Kinder (nach Alter und Thema)",
       "metaDescription": "Druckbare, klassenraumfertige Geld-Arbeitsblätter für Kinder zu Bedürfnissen vs Wünschen, Sparen, Budgetieren und Währung - organisiert nach Altersgruppe, kostenlos nutzbar.",
       "sections": [
         {
@@ -4190,16 +4190,16 @@
           ]
         },
         {
-          "heading": "Eine Anmerkung dazu, was wir noch nicht gebaut haben",
+          "heading": "Kostenlose Arbeitsblätter zum Herunterladen - direkt in der passenden Lektion",
           "paragraphs": [
-            "Ehrlich gesagt: Diese Seite beschreibt derzeit die Art von Arbeitsblättern, die gut funktionieren, und die Prinzipien dahinter, statt direkt herunterladbare PDF-Arbeitsblätter zu hosten - das ist eine echte Inhaltslücke, keine versteckte, und es ist die naheliegendste nächste Ergänzung für diese Seite. In der Zwischenzeit wird jedes obige Prinzip vollständig in Money Quests eigenen Spielen Ein Budget Erstellen und Sparen oder Ausgeben demonstriert, die das genaue interaktive Äquivalent dieser Art von Arbeitsblatt sind."
+            "Über die oben genannten Grundsätze hinaus bietet Money Quest inzwischen 20 kostenlose, druckbare PDF-Arbeitsblätter - jedes einer bestimmten Lektion in den drei Altersgruppen zugeordnet - sowie einen einzigen Lösungsschlüssel, der alle abdeckt. Öffne die passende Lektion in Money Quest, und du findest dort einen Link zum Arbeitsblatt. Noch hat nicht jede Lektion eines, aber die vorhandenen decken zentrale Themen wie Sparen, Betrug, digitales Geld und Bedürfnisse gegenüber Wünschen ab. Die Arbeitsblätter selbst gibt es vorerst nur auf Englisch, egal welche Sprache du sonst in Money Quest nutzt. Bis dahin werden alle Prinzipien dieser Seite auch vollständig in Money Quests eigenen Spielen Erstelle ein Budget und Sparen oder Ausgeben gezeigt - dem interaktiven Gegenstück zu genau dieser Art von Arbeitsblatt."
           ]
         }
       ],
       "faqs": [
         {
           "question": "Sind diese Arbeitsblätter kostenlos für den Einsatz im Klassenzimmer?",
-          "answer": "Die auf dieser Seite beschriebenen Anleitungen und Arbeitsblattformate sind frei zur Anpassung für den Klassenzimmereinsatz. Die herunterladbaren druckbaren Arbeitsblätter selbst sind eine geplante Ergänzung für diese Seite, zum Zeitpunkt dieser Niederschrift noch nicht verfügbar."
+          "answer": "Ja. Die auf dieser Seite beschriebenen Anleitungen und Arbeitsblattformate darfst du frei für den Unterricht anpassen. Außerdem stellt Money Quest 20 kostenlose, herunterladbare PDF-Arbeitsblätter zur Verfügung - plus einen einzigen Lösungsschlüssel, der alle abdeckt - direkt in den passenden Lektionen. Öffne eine dieser Lektionen, um den Link zum Arbeitsblatt zu finden. Sie sind derzeit nur auf Englisch verfügbar."
         },
         {
           "question": "Für welches Alter sind Money Quests arbeitsblattartige Aktivitäten konzipiert?",
@@ -4208,7 +4208,7 @@
       ]
     },
     "currency-education": {
-      "title": "Währungsbildung für Kinder: Geld Über Kulturen Hinweg Lehren",
+      "title": "Währungsbildung für Kinder: Geld über Kulturen hinweg lehren",
       "metaDescription": "Wie man Kindern die Idee näherbringt, dass verschiedene Länder unterschiedliches Geld verwenden, warum Wechselkurse existieren, und einfache Wege, Währung konkret zu machen.",
       "sections": [
         {

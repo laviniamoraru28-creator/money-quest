@@ -30,7 +30,7 @@
     "heroImageAlt": "Un copil zâmbitor ținând un telefon pe care se vede aplicația Money Quest, lângă logo-ul Money Quest și textul Skills for Life.",
     "ctaGetStartedFree": "Începe-ți Aventura Money Quest",
     "ctaSeeHowItWorks": "Vezi cum funcționează",
-    "whyFree": "Money Quest este gratuit pentru familii, susținut de publicitate respectuoasă a intimității, afișată doar pe paginile pentru părinți - niciodată în experiența copilului tău. Fără achiziții pentru copii, niciodată.",
+    "whyFree": "Money Quest este gratuit pentru familii, susținut de publicitate care respectă confidențialitatea, afișată doar pe paginile pentru părinți - niciodată în experiența copilului tău. Fără achiziții pentru copii, niciodată.",
     "howItWorksTitle": "Cum funcționează",
     "step1Title": "1. Alege un nivel",
     "step1Body": "Alege un nivel de învățare - fără înregistrare, fără cont, salvat doar pe acest dispozitiv.",
@@ -209,7 +209,7 @@
     "timeMachineCompanyLabel": "Companie",
     "timeMachineAmountLabel": "Sumă imaginară investită",
     "timeMachineDaysAgoLabel": "Cu cât timp în urmă",
-    "timeMachineYearsAgo": "cu {years} ani în urmă",
+    "timeMachineYearsAgo": "cu {years, plural, one {# an} few {# ani} other {# de ani}} în urmă",
     "timeMachineResultIntro": "{shares, plural, one {# acțiune cumpărată} few {# acțiuni cumpărate} other {# de acțiuni cumpărate}} atunci cu {amount} ar valora acum:",
     "timeMachineTooSmallHint": "Suma imaginară nu a fost suficientă ca să cumperi nici măcar o acțiune întreagă atunci.",
     "timeMachineDisclaimer": "Aceasta folosește prețuri trecute fixe și inventate, doar pentru învățare. Performanța trecută nu garantează niciodată ce s-ar întâmpla în viitor - real sau fictiv.",
@@ -309,7 +309,7 @@
     "primaryRange": "9-11 ani",
     "olderLearner": "Avansat",
     "olderLearnerRange": "12-14 ani",
-    "yourWorldMap": "Harta Ta a Lumilor",
+    "yourWorldMap": "Harta Lumilor",
     "moreFeaturesTitle": "Mai Multe de Explorat",
     "changeLevel": "Schimbă nivelul",
     "yourCoins": "Monedele tale virtuale",
@@ -1054,7 +1054,7 @@
       "learningObjective": "Înțelegerea faptului că a aștepta puțin poate uneori duce la ceva mai bun.",
       "shortIntroduction": "Uneori cele mai bune lucruri vin la cei care pot aștepta doar puțin.",
       "story": "Ți se oferă un abțibild mic chiar acum, sau trei abțibilduri dacă aștepți până mâine. Este greu să aștepți! Dar decizi să fii răbdător - și a doua zi, ai trei abțibilduri în loc de unul singur.",
-      "keyConcept": "Așteptarea puțin poate uneori să-ți aducă mai mult decât graba de a avea ceva imediat.",
+      "keyConcept": "A aștepta puțin poate uneori să-ți aducă mai mult decât graba de a avea ceva imediat.",
       "vocabulary": [
         {
           "term": "a aștepta",
@@ -1092,7 +1092,7 @@
       "title": "Planificarea câțiva pași înainte",
       "learningObjective": "Exersarea gândirii câțiva pași înainte atunci când iei o decizie financiară.",
       "shortIntroduction": "O decizie financiară bună înseamnă adesea să-ți imaginezi ce se întâmplă în continuare - nu doar ce se întâmplă chiar acum.",
-      "story": "Finn are economisit suficient fie pentru o jucărie mică azi, fie, dacă mai așteaptă trei săptămâni, pentru un set mult mai mare pe care și-l dorește. Își imaginează ambele viitoruri: cumpărând ceva mic acum și simțindu-se mulțumit, sau așteptând și obținând setul mai mare pe care de fapt și-l dorea mai mult. Imaginându-și-l din timp face alegerea mult mai clară.",
+      "story": "Finn are economisit suficient fie pentru o jucărie mică azi, fie, dacă mai așteaptă trei săptămâni, pentru un set mult mai mare pe care și-l dorește. Își imaginează ambele scenarii posibile: cumpărând ceva mic acum și simțindu-se mulțumit, sau așteptând și obținând setul mai mare pe care de fapt și-l dorea mai mult. Imaginându-și-le dinainte, alegerea devine mult mai clară.",
       "keyConcept": "Gândirea din timp la rezultatul probabil al unei alegeri - nu doar la sentimentul imediat - duce la decizii mai bune.",
       "vocabulary": [
         {
@@ -2273,7 +2273,7 @@
             {
               "id": "builder-2",
               "mechanic": "sort",
-              "prompt": "Sortează-le - unele sunt nevoi, unele sunt dorințe, și nu este întotdeauna evident!",
+              "prompt": "Sortează-le - unele sunt nevoi, unele sunt dorințe și nu este întotdeauna evident!",
               "hint": "Un telefon ar putea fi o dorință pentru un copil mic, dar s-ar putea îndrepta spre o nevoie pe măsură ce responsabilitățile cresc (cum ar fi verificarea cu un părinte).",
               "explanation": "Contextul schimbă lucrurile - un telefon de bază pentru verificări de siguranță poate fi mai aproape de o nevoie, în timp ce cel mai recent model scump este tot o dorință.",
               "buckets": [
@@ -2604,7 +2604,7 @@
               "prompt": "Citește mesajul de mai jos. Atinge orice pare a fi un semn de avertizare.",
               "hint": "Escrocheriile te grăbesc adesea, cer secret, sau promit ceva uimitor gratuit.",
               "explanation": "A cere să acționezi „chiar acum” și să păstrezi secret față de un adult de încredere sunt ambele semne clasice de avertizare - un mesaj adevărat nu are niciodată nevoie să te grăbească sau să țină adulții departe de el.",
-              "scenario": "„Felicitări! Ai câștigat un premiu! Apasă aici chiar acum, și nu spune părinților tăi - revendică-l înainte să dispară!”",
+              "scenario": "„Felicitări! Ai câștigat un premiu! Apasă aici chiar acum și nu spune părinților tăi - revendică-l înainte să dispară!”",
               "items": [
                 {
                   "id": "prize",
@@ -2983,7 +2983,7 @@
                 {
                   "key": "wait-and-save",
                   "label": "Așteaptă și economisește puțin mai mult",
-                  "consequence": "Ai mai așteptat puțin, și curând ai avut suficient pentru jucăria pe care chiar ți-o doreai."
+                  "consequence": "Ai mai așteptat puțin și curând ai avut suficient pentru jucăria pe care chiar ți-o doreai."
                 },
                 {
                   "key": "ask",
@@ -3027,9 +3027,9 @@
               "id": "budget-the-week",
               "mechanic": "mission",
               "prompt": "Ai 15 lei pentru săptămâna aceasta pentru o gustare de excursie școlară, un cadou pentru ziua de naștere a unui prieten, iar ce rămâne este al tău. Ce ai face?",
-              "hint": "Gândește-te la ce lucruri se întâmplă sigur, și care sunt opționale.",
+              "hint": "Gândește-te la ce lucruri se întâmplă sigur și care sunt opționale.",
               "explanation": "Planificarea pentru mai multe lucruri deodată - unele necesare, altele dorite - este exact ce presupune un buget săptămânal real.",
-              "situation": "Ai 15 lei pentru săptămâna aceasta: o gustare pentru excursia școlii, un cadou pentru ziua de naștere a unui prieten, și orice rămâne este al tău.",
+              "situation": "Ai 15 lei pentru săptămâna aceasta: o gustare pentru excursia școlii, un cadou pentru ziua de naștere a unui prieten, iar orice rămâne este al tău.",
               "choices": [
                 {
                   "key": "cover-both-first",
@@ -3078,10 +3078,10 @@
             {
               "id": "surprise-repair-cost",
               "mechanic": "mission",
-              "prompt": "Bicicleta ta are o roată dezumflată și repararea costă 6 lei - bani pe care îi puseseși deoparte pentru un joc pe care ți-l doreai. Ce ai face?",
-              "hint": "O nevoie care apare brusc poate schimba un plan pe care îl făcuseși deja - este normal, nu un eșec.",
+              "prompt": "Bicicleta ta are o roată dezumflată și repararea costă 6 lei - bani pe care i-ai pus deoparte pentru un joc pe care ți-l doreai. Ce ai face?",
+              "hint": "O nevoie care apare brusc poate schimba un plan pe care l-ai făcut deja - este normal, nu un eșec.",
               "explanation": "Bugetele reale sunt uneori întrerupte de probleme reale - ajustarea planului este abilitatea, nu o greșeală.",
-              "situation": "Bicicleta ta are o roată dezumflată și repararea costă 6 lei - bani pe care îi puseseși deoparte pentru un joc pe care ți-l doreai.",
+              "situation": "Bicicleta ta are o roată dezumflată și repararea costă 6 lei - bani pe care i-ai pus deoparte pentru un joc pe care ți-l doreai.",
               "choices": [
                 {
                   "key": "fix-bike",
@@ -3235,14 +3235,14 @@
               "mechanic": "multiple-choice",
               "prompt": "Sam avea 20 de monede economisite pentru un joc nou. Sam a cheltuit toate cele 20 imediat pe o ofertă „pe timp limitat” - apoi a apărut săptămâna următoare o reducere și mai mare pentru exact același joc. Care este o lecție bună aici?",
               "hint": "Gândește-te la ce ar fi putut face Sam diferit înainte de a cheltui.",
-              "explanation": "Așteptarea puțin și compararea înainte de a cumpăra - mai ales când ceva pretinde că este „pe timp limitat” - ar fi putut să-i economisească bani lui Sam aici. Urgența nu înseamnă întotdeauna că este cea mai bună afacere.",
+              "explanation": "A aștepta puțin și a compara înainte de a cumpăra - mai ales când ceva pretinde că este „pe timp limitat” - ar fi putut să-i economisească bani lui Sam aici. Urgența nu înseamnă întotdeauna că este cea mai bună afacere.",
               "options": [
-                "Așteptarea puțin pentru a compara ar fi putut ajuta",
+                "A aștepta puțin pentru a compara ar fi putut ajuta",
                 "Cumpără întotdeauna primul lucru pe care îl vede",
                 "Ofertele pe timp limitat sunt întotdeauna cel mai bun preț",
                 "Nu are niciodată încredere în nicio reducere"
               ],
-              "correctOption": "Așteptarea puțin pentru a compara ar fi putut ajuta"
+              "correctOption": "A aștepta puțin pentru a compara ar fi putut ajuta"
             },
             {
               "id": "forgot-to-plan",
@@ -3276,10 +3276,10 @@
             {
               "id": "wanting-what-a-friend-has",
               "mechanic": "mission",
-              "prompt": "Prietenul tău tocmai a primit o jucărie nouă, și acum chiar îți dorești și tu una - deși nu te gândeai deloc la jucării înainte să o vezi. Cum te-ai putea simți, și ce ai face?",
+              "prompt": "Prietenul tău tocmai a primit o jucărie nouă și acum chiar îți dorești și tu una - deși nu te gândeai deloc la jucării înainte să o vezi. Cum te-ai putea simți și ce ai face?",
               "hint": "Nu există un singur răspuns corect aici - observă mai întâi sentimentul, apoi gândește-te ce faci cu el.",
               "explanation": "A-ți dori ceva pentru că ai văzut pe altcineva având-o este un sentiment foarte normal - a observa de unde a venit dorința este un prim pas util, indiferent ce decizi să faci în continuare.",
-              "situation": "Prietenul tău tocmai a primit o jucărie nouă, și acum chiar îți dorești și tu una - deși nu te gândeai deloc la jucării înainte să o vezi.",
+              "situation": "Prietenul tău tocmai a primit o jucărie nouă și acum chiar îți dorești și tu una - deși nu te gândeai deloc la jucării înainte să o vezi.",
               "choices": [
                 {
                   "key": "ask-now",
@@ -3293,7 +3293,7 @@
                 },
                 {
                   "key": "let-it-go",
-                  "label": "Simte-te puțin invidios și lasă-o baltă",
+                  "label": "Poți simți puțină invidie și să lași lucrurile așa",
                   "consequence": "Acesta este un sentiment complet real - a dori ce are altcineva este normal, chiar și atunci când alegi să nu acționezi în privința asta."
                 }
               ]
@@ -3301,20 +3301,20 @@
             {
               "id": "upset-cant-afford",
               "mechanic": "mission",
-              "prompt": "Vezi ceva ce chiar ți-ar plăcea să ai, dar nu ai suficiente monede pentru asta chiar acum. Cum te-ai putea simți, și ce ai face?",
+              "prompt": "Vezi ceva ce chiar ți-ar plăcea să ai, dar nu ai suficiente monede pentru asta chiar acum. Cum te-ai putea simți și ce ai face?",
               "hint": "A te simți dezamăgit aici are perfect sens - întrebarea este doar ce faci în continuare cu acel sentiment.",
               "explanation": "A te simți dezamăgit atunci când nu îți poți permite ceva este o reacție complet normală - ceea ce faci în continuare cu acel sentiment este unde se află alegerea reală.",
               "situation": "Vezi ceva ce chiar ți-ar plăcea să ai, dar nu ai suficiente monede pentru asta chiar acum.",
               "choices": [
                 {
                   "key": "save-toward-it",
-                  "label": "Simte-te dezamăgit și începe să economisești pentru el",
+                  "label": "Poți simți dezamăgire și să începi să economisești pentru el",
                   "consequence": "A te simți dezamăgit este normal aici - a transforma acel sentiment într-un plan de economisire este un mod bun de a merge înainte."
                 },
                 {
                   "key": "forget-it",
-                  "label": "Simte-te supărat și încearcă să uiți de el",
-                  "consequence": "Acesta este un mod de a gestiona situația - dorința ar putea reveni mai târziu, și este în regulă și așa."
+                  "label": "Poți simți supărare și să încerci să uiți de el",
+                  "consequence": "Acesta este un mod de a gestiona situația - dorința ar putea reveni mai târziu și este în regulă și așa."
                 },
                 {
                   "key": "ask-someone",
@@ -3332,10 +3332,10 @@
             {
               "id": "excited-by-an-advert",
               "mechanic": "mission",
-              "prompt": "Vezi o reclamă captivantă pentru un joc nou care arată uimitor, și brusc vrei să-l cumperi chiar acum. Cum te-ai putea simți, și ce ai face înainte de a decide?",
+              "prompt": "Vezi o reclamă captivantă pentru un joc nou care arată uimitor și brusc vrei să-l cumperi chiar acum. Cum te-ai putea simți și ce ai face înainte de a decide?",
               "hint": "Observă mai întâi entuziasmul în sine - acel sentiment este exact ceea ce reclama a fost concepută să creeze.",
               "explanation": "Toată treaba unei reclame este să creeze entuziasm rapid - a observa acel sentiment pentru ceea ce este, înainte de a acționa pe baza lui, este un obicei cu adevărat util.",
-              "situation": "Vezi o reclamă captivantă pentru un joc nou care arată uimitor, și brusc vrei să-l cumperi chiar acum.",
+              "situation": "Vezi o reclamă captivantă pentru un joc nou care arată uimitor și brusc vrei să-l cumperi chiar acum.",
               "choices": [
                 {
                   "key": "buy-now",
@@ -3364,17 +3364,17 @@
               "choices": [
                 {
                   "key": "feel-proud-enjoy",
-                  "label": "Simte-te mândru și bucură-te de el",
+                  "label": "Poți simți mândrie și să te bucuri de el",
                   "consequence": "Acesta este un sentiment cu adevărat bun de observat - ți-ai stabilit un obiectiv și l-ai atins prin propria ta planificare."
                 },
                 {
                   "key": "feel-proud-next-goal",
-                  "label": "Simte-te mândru, și începe să te gândești la ce economisești în continuare",
+                  "label": "Poți simți mândrie și să începi să te gândești la ce economisești în continuare",
                   "consequence": "A duce acel sentiment bun direct într-un obiectiv nou este un mod excelent de a menține obiceiul."
                 },
                 {
                   "key": "barely-notice",
-                  "label": "Abia observă, și treci direct la a-ți dori altceva",
+                  "label": "Abia observă și treci direct la a-ți dori altceva",
                   "consequence": "Merită să te oprești să observi o realizare ca aceasta, chiar și pentru scurt timp, înainte de a trece la următoarea dorință."
                 }
               ]
@@ -3404,7 +3404,7 @@
               "choices": [
                 {
                   "key": "buy-now",
-                  "label": "Cumpăr-o imediat din cauza reducerii",
+                  "label": "Cumpără-o imediat din cauza reducerii",
                   "consequence": "Ai obținut un preț bun la ceva - dar observă că aceasta este prima dată când te-ai gândit deloc să ți-o dorești, ceea ce este exact ce afișul a fost conceput să schimbe."
                 },
                 {
@@ -3475,7 +3475,7 @@
                 },
                 {
                   "key": "buy-one-only",
-                  "label": "Cumpără doar unul, și sari peste al doilea gratuit",
+                  "label": "Cumpără doar unul și sari peste al doilea gratuit",
                   "consequence": "Dacă magazinul permite, aceasta poate fi o opțiune cu adevărat utilă - deși multe oferte „cumperi unul, primești unul gratuit” necesită să le iei pe amândouă."
                 }
               ]
@@ -3580,7 +3580,7 @@
               "mechanic": "sort",
               "prompt": "Sortează fiecare mod de plată în Numerar sau Digital.",
               "hint": "Dacă nimic fizic nu trece din mână în mână, este digital - chiar dacă a pornit de la bani pe care cineva i-a câștigat în mod obișnuit.",
-              "explanation": "Banii digitali nu sunt „mai puțin reali” decât numerarul - o plată contactless, o achiziție în aplicație, și un transfer bancar sunt toate tot bani reali, doar că se mută electronic în loc de monede sau bancnote fizice.",
+              "explanation": "Banii digitali nu sunt „mai puțin reali” decât numerarul - o plată contactless, o achiziție în aplicație și un transfer bancar sunt toate tot bani reali, doar că se mută electronic în loc de monede sau bancnote fizice.",
               "buckets": [
                 {
                   "key": "cash",
@@ -3628,8 +3628,8 @@
               "id": "spot-the-safe-purchase",
               "mechanic": "spot",
               "prompt": "Citește mesajul de mai jos. Atinge orice pare a fi un semn de avertizare pentru a cumpăra ceva în siguranță.",
-              "hint": "O achiziție sigură implică de obicei un magazin sau o aplicație pe care le cunoști deja, și un adult de încredere dacă costă bani adevărați.",
-              "explanation": "Cumpărarea de pe un site web despre care nu ai mai auzit niciodată, și introducerea detaliilor de plată fără a verifica mai întâi cu un adult de încredere, sunt cele mai clare două semne de avertizare aici - o achiziție sigură implică de obicei un magazin cunoscut și ajutorul unui adult pentru orice costă bani adevărați.",
+              "hint": "O achiziție sigură implică de obicei un magazin sau o aplicație pe care le cunoști deja și un adult de încredere dacă costă bani adevărați.",
+              "explanation": "Cumpărarea de pe un site web despre care nu ai mai auzit niciodată și introducerea detaliilor de plată fără a verifica mai întâi cu un adult de încredere sunt cele mai clare două semne de avertizare aici - o achiziție sigură implică de obicei un magazin cunoscut și ajutorul unui adult pentru orice costă bani adevărați.",
               "scenario": "„Acest joc îți cere să introduci numărul cardului părintelui tău direct pe un site web pe care nu l-ai mai văzut niciodată, pentru a debloca un articol special.”",
               "items": [
                 {
@@ -3817,7 +3817,7 @@
             "description": "Te împinge să decizi rapid. O iei, sau te gândești mai întâi?",
             "choices": [
               {
-                "label": "Cumpăr-o acum înainte să expire cronometrul",
+                "label": "Cumpără-o acum înainte să expire cronometrul",
                 "consequence": "Ai luat-o - dar ofertele bazate pe urgență merită o verificare dublă data viitoare înainte de a decide rapid."
               },
               {
@@ -3849,7 +3849,7 @@
   "learnHub": {
     "title": "Educație Financiară pentru Copii: Un Ghid pentru Părinți și Profesori",
     "description": "Îndrumări practice, adaptate vârstei, despre cum să-i înveți pe copii despre bani - economisire, buget, nevoi vs. dorințe și multe altele - scrise pentru părinți, profesori și familii.",
-    "introPrefix": "Educația financiară a copiilor nu trebuie să aștepte până devin adolescenți, și nu are nevoie de un manual. Aceasta este o bibliotecă practică, adaptată vârstei, de îndrumări pentru părinți și profesori - acoperind economisirea, bugetul, nevoile vs. dorințele, valutele și activități practice - scrisă de echipa din spatele",
+    "introPrefix": "Educația financiară a copiilor nu trebuie să aștepte până devin adolescenți și nu are nevoie de un manual. Aceasta este o bibliotecă practică, adaptată vârstei, de îndrumări pentru părinți și profesori - acoperind economisirea, bugetul, nevoile vs. dorințele, valutele și activități practice - scrisă de echipa din spatele",
     "introSuffix": ", o platformă gratuită de educație financiară pentru copii de 6-14 ani.",
     "ctaTitle": "Vezi aceste idei în acțiune",
     "ctaBody": "Money Quest transformă fiecare subiect de mai sus într-un joc sau activitate gratuită, adaptată vârstei."
@@ -3873,7 +3873,7 @@
   },
   "moneyPersonality": {
     "title": "Personalitatea Financiară",
-    "subtitle": "O privire ușoară, doar de distracție, asupra modului în care tinzi să te gândești la bani. Nu există un răspuns corect, și niciun tip nu este mai bun decât altul.",
+    "subtitle": "O privire ușoară, doar de distracție, asupra modului în care tinzi să te gândești la bani. Nu există un răspuns corect și niciun tip nu este mai bun decât altul.",
     "startButton": "Începe",
     "retakeButton": "Reia testul",
     "backToWorldMap": "Înapoi la Harta Lumilor",
@@ -3944,7 +3944,7 @@
       },
       "shopper": {
         "name": "Cumpărătorul",
-        "description": "Știi ce-ți place, și nu-ți este teamă să mergi să obții asta - cheltuirea este distractivă pentru tine.",
+        "description": "Știi ce-ți place și nu-ți este teamă să mergi să obții asta - cheltuirea este distractivă pentru tine.",
         "challenge": "Încearcă să compari prețurile înainte de următoarea ta achiziție, doar ca să vezi ce găsești."
       },
       "thinker": {
@@ -3964,7 +3964,7 @@
     "market-town": "Data viitoare când mergi la cumpărături, compară trei prețuri înainte de a alege.",
     "golden-vault": "Alegeți împreună ceva ce îți dorești și faceți un plan de economisire pentru el.",
     "sky-exchange": "Întreabă un adult cum arată banii în altă țară.",
-    "guardian-gate": "Întreabă un adult dacă a observat vreodată un mesaj de tip escrocherie, și ce l-a trădat.",
+    "guardian-gate": "Întreabă un adult dacă a observat vreodată un mesaj de tip escrocherie și ce l-a trădat.",
     "horizon-peaks": "Întreabă un adult ce face atunci când trebuie să economisească pentru ceva mare.",
     "kindness-grove": "Întreabă un adult despre o dată când a dăruit sau a împărțit ceva cu cineva."
   },
@@ -4000,11 +4000,11 @@
           "list": [
             "6-8 ani: Păstrează-l fizic și vizibil. Un borcan transparent sau o diagramă simplă pe care o pot vedea umplându-se funcționează mai bine decât o aplicație bancară pe care nu o pot atinge. Alegeți împreună un singur obiectiv mic, realizabil, nu un vag „economisește niște bani”.",
             "9-11 ani: Introdu o alegere reală între a cheltui acum și a economisi pentru ceva mai mare. Aceasta este vârsta la care o simplă împărțire în trei - cheltuiește, economisește, dăruiește - începe să aibă sens, fără a fi nevoie să o explici ca pe un buget formal.",
-            "12-14 ani: Un obiectiv de economisire poate fi acum cu adevărat pe termen mediu (săptămâni sau luni), și merită să numești explicit compromisurile: „dacă economisești alocația din luna asta în loc să o cheltuiești, la ce ai renunța?” este o întrebare la care acest grup de vârstă poate chiar să reflecteze."
+            "12-14 ani: Un obiectiv de economisire poate fi acum cu adevărat pe termen mediu (săptămâni sau luni) și merită să numești explicit compromisurile: „dacă economisești alocația din luna asta în loc să o cheltuiești, la ce ai renunța?” este o întrebare la care acest grup de vârstă poate chiar să reflecteze."
           ]
         },
         {
-          "heading": "Ce tinde să funcționeze, și ce tinde să nu",
+          "heading": "Ce tinde să funcționeze și ce tinde să nu",
           "paragraphs": [
             "A lăuda decizia de a economisi, mai degrabă decât suma economisită, tinde să reziste mai bine în timp - un copil lăudat pentru „te-ai gândit bine la asta” învață un obicei transferabil; un copil lăudat doar pentru o sumă mare poate începe să simtă că economisirea înseamnă să-și impresioneze părintele, nu despre obiectivul în sine.",
             "Merită de asemenea să reziști impulsului de a completa o diferență chiar înainte ca un obiectiv să fie atins. A ajunge puțin sub țintă și a trebui să mai aștepți încă o săptămână este incomod, dar este exact experiența care face ca achiziția finală să se simtă meritată - și este un mod cu miză mică de a exersa răbdarea cât timp consecințele sunt încă mici."
@@ -4013,7 +4013,7 @@
         {
           "heading": "Exersarea acestui lucru în Money Quest",
           "paragraphs": [
-            "Activitățile Economisește sau Cheltuiește și Construiește un Buget din Money Quest îi permit unui copil să exerseze exact această decizie - cu monede fictive, nu bani reali - înainte ca miza să fie reală. Fiecare sumă este bani de joc în moneda proprie a familiei, și nimic din ce face un copil în aplicație nu atinge vreodată un cont bancar real."
+            "Activitățile Economisește sau Cheltuiește și Construiește un Buget din Money Quest îi permit unui copil să exerseze exact această decizie - cu monede fictive, nu bani reali - înainte ca miza să fie reală. Fiecare sumă este bani de joc în moneda proprie a familiei și nimic din ce face un copil în aplicație nu atinge vreodată un cont bancar real."
           ]
         }
       ],
@@ -4077,7 +4077,7 @@
         {
           "heading": "De ce acest lucru este cu adevărat greu pentru copii (și adulți)",
           "paragraphs": [
-            "„Am nevoie de asta” este una dintre cele mai frecvente expresii din vocabularul unui copil, și de obicei nu este manipulare - un copil mic chiar nu distinge încă între o dorință puternică și o nevoie reală, pentru că intensitatea emoțională se simte identică din interior.",
+            "„Am nevoie de asta” este una dintre cele mai frecvente expresii din vocabularul unui copil și de obicei nu este manipulare - un copil mic chiar nu distinge încă între o dorință puternică și o nevoie reală, pentru că intensitatea emoțională se simte identică din interior.",
             "Distincția este cu adevărat neclară la margini chiar și pentru adulți (un telefon este o dorință într-un context și aproape o nevoie pentru un adolescent care îl folosește pentru teme), așa că obiectivul cu un copil nu este să trasezi o singură linie fixă permanentă - este să construiești obiceiul de a te opri și a pune întrebarea deloc."
           ]
         },
@@ -4136,7 +4136,7 @@
         {
           "heading": "Jocuri digitale, făcute cu grijă",
           "paragraphs": [
-            "Propriul motor de joc al Money Quest este construit în jurul acestui principiu: șapte mecanici de bază ale jocului (sortare, comparare, alocare, potrivire și altele), fiecare reutilizată în zeci de jocuri specifice, astfel încât un copil exersează un tipar real de luare a deciziilor, nu doar memorează structura particulară a unui joc. Fiecare joc oferă feedback specific, fără rușinare, și fiecare sumă este bani de joc fictivi - niciodată o achiziție reală, niciodată date financiare reale."
+            "Propriul motor de joc al Money Quest este construit în jurul acestui principiu: șapte mecanici de bază ale jocului (sortare, comparare, alocare, potrivire și altele), fiecare reutilizată în zeci de jocuri specifice, astfel încât un copil exersează un tipar real de luare a deciziilor, nu doar memorează structura particulară a unui joc. Fiecare joc oferă feedback specific, fără rușinare, iar fiecare sumă este bani de joc fictivi - niciodată o achiziție reală, niciodată date financiare reale."
           ]
         }
       ],
@@ -4174,16 +4174,16 @@
           ]
         },
         {
-          "heading": "O notă despre ce nu am construit încă",
+          "heading": "Fișe de lucru gratuite, descărcabile, în interiorul fiecărei lecții potrivite",
           "paragraphs": [
-            "Sincer: această pagină descrie momentan tipul de fișe de lucru care funcționează bine și principiile din spatele lor, mai degrabă decât găzduind direct fișe de lucru PDF descărcabile - acesta este un gol de conținut real, nu unul ascuns, și este cea mai firească următoare adăugire la această pagină. Între timp, fiecare principiu de mai sus este demonstrat complet în interiorul jocurilor proprii Construiește un Buget și Economisește sau Cheltuiește ale Money Quest, care sunt echivalentul interactiv exact al acestui tip de fișă de lucru."
+            "Pe lângă principiile de mai sus, Money Quest include acum 20 de fișe de lucru PDF gratuite, printabile, fiecare potrivită cu o lecție specifică din cele trei benzi de vârstă, plus un singur ghid de răspunsuri care le acoperă pe toate. Deschide o lecție potrivită în Money Quest și vei găsi acolo un link către fișa de lucru - nu toate lecțiile au încă una, dar cele care au acoperă subiecte de bază precum economisirea, escrocheriile, banii digitali și nevoile versus dorințele. Fișele de lucru în sine sunt deocamdată disponibile doar în engleză, indiferent ce limbă folosești în restul Money Quest. Între timp, fiecare principiu de pe această pagină este demonstrat complet și în interiorul propriilor jocuri Construiește un Buget și Economisește sau Cheltuiește ale Money Quest, care sunt echivalentul interactiv exact al acestui tip de fișă de lucru."
           ]
         }
       ],
       "faqs": [
         {
           "question": "Sunt aceste fișe de lucru gratuite pentru utilizare la clasă?",
-          "answer": "Ghidul și formatele de fișe de lucru descrise pe această pagină sunt gratuite pentru adaptare la clasă. Fișele de lucru printabile descărcabile în sine sunt o adăugire planificată pentru această pagină, nedisponibilă încă la momentul scrierii."
+          "answer": "Da. Îndrumările și formatele de fișe de lucru descrise pe această pagină sunt gratuite pentru a fi adaptate la clasă, iar Money Quest oferă și 20 de fișe de lucru PDF gratuite, descărcabile - plus un singur ghid de răspunsuri care le acoperă pe toate - direct în interiorul lecțiilor potrivite. Deschide una dintre acele lecții ca să găsești linkul către fișa de lucru. Sunt disponibile momentan doar în limba engleză."
         },
         {
           "question": "Pentru ce vârstă sunt concepute activitățile de tip fișă de lucru ale Money Quest?",
@@ -4199,13 +4199,13 @@
           "heading": "De ce valuta este o lecție surprinzător de bună despre bani, timpurie",
           "paragraphs": [
             "Prima întâlnire reală a majorității copiilor cu ideea că „banii” nu sunt un singur lucru universal este călătoria - o vacanță în străinătate, sau o rudă în vizită din altă țară. Acel moment de surpriză reală („stai, banii ăștia nu funcționează aici?”) este de fapt un cârlig excelent pentru o lecție mai amplă, pentru că face o idee abstractă (banii sunt un acord social, nu un fapt fix) concretă prin experiență directă.",
-            "Este de asemenea o punte naturală către geografie și cultură, nu doar aritmetică - ce valută folosește o țară, și de ce, conectează educația despre bani cu subiecte pe care un copil le poate găsi deja mai abordabile."
+            "Este de asemenea o punte naturală către geografie și cultură, nu doar aritmetică - ce valută folosește o țară și de ce conectează educația despre bani cu subiecte pe care un copil le poate găsi deja mai abordabile."
           ]
         },
         {
           "heading": "Introducerea ratelor de schimb fără ca matematica să stea în cale",
           "paragraphs": [
-            "Pentru copiii mai mici, obiectivul nu este calcularea unei rate de schimb exacte - este înțelegerea faptului că ACEEAȘI sumă dintr-o valută poate valora o sumă diferită din alta, și că acest lucru se schimbă în timp. O comparație simplă, concretă („chiar acum, 1 liră îți aduce aproximativ 1,27 dolari - acum un an era un număr diferit”) face ideea tangibilă fără a necesita calcul real.",
+            "Pentru copiii mai mici, obiectivul nu este calcularea unei rate de schimb exacte - este înțelegerea faptului că ACEEAȘI sumă dintr-o valută poate valora o sumă diferită din alta și că acest lucru se schimbă în timp. O comparație simplă, concretă („chiar acum, 1 liră îți aduce aproximativ 1,27 dolari - acum un an era un număr diferit”) face ideea tangibilă fără a necesita calcul real.",
             "Pentru copiii mai mari, cu adevărat pregătiți pentru aritmetică, o comparație reală, în direct - convertind un preț specific între două valute - este mult mai captivantă decât un exemplu abstract rezolvat, pentru că răspunde la o întrebare („cât ar costa asta de fapt acolo?”) al cărei rost îl pot vedea."
           ]
         },

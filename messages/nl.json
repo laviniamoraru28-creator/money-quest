@@ -105,11 +105,11 @@
     "checkWhatIFound": "Controleer wat ik heb gevonden",
     "checkMyChoice": "Controleer mijn keuze",
     "bestChoice": "Beste keuze",
-    "notBestValue": "Hier niet de beste keuze",
+    "notBestValue": "Hier niet de beste waarde",
     "yourAnswerLabel": "Jouw antwoord",
     "yourAnswerLabelCurrency": "Jouw antwoord (in {code})",
     "checkMySorting": "Controleer mijn sortering",
-    "matchedBadge": "Gematcht",
+    "matchedBadge": "Gekoppeld",
     "notAMatchBadge": "Geen match"
   },
   "simulator": {
@@ -120,9 +120,9 @@
     "noSingleRightSplit": "Je hebt {amount} te plannen deze week. Er is geen enkele juiste verdeling - bepaal wat voor jou het belangrijkst is.",
     "confirmMyPlan": "Bevestig mijn plan voor deze week",
     "balanceNow": "Virtueel saldo nu: {amount}",
-    "continueToNextWeek": "Ga door naar volgende week",
+    "continueToNextWeek": "Ga door naar de volgende week",
     "seeMyFinalReport": "Bekijk mijn eindrapport",
-    "reportTitle": "Jouw Virtuele Financieel Levensrapport",
+    "reportTitle": "Jouw Virtuele Financiële Levensrapport",
     "reportSubtitle": "Zo is jouw {weeks}-weken-plan verlopen.",
     "startingBalance": "Virtueel startsaldo",
     "incomeReceived": "Ontvangen inkomen",
@@ -143,7 +143,7 @@
     "insightGoalProgress": "Je hebt echte vooruitgang geboekt richting \"{goalName}\" - ongeveer {percent}% van de weg. Nog een paar weken sparen zou je tot het einde brengen.",
     "insightGoalNotStarted": "\"{goalName}\" wacht nog steeds - deze keer is er niets voor opzijgezet. Volgende keer telt zelfs een klein bedrag elke week sneller op dan het lijkt.",
     "insightNeedsLowShare": "Behoeften namen deze keer een vrij klein deel van je geld in beslag. Het is de moeite waard om na te gaan of je behoeften elke week echt gedekt waren, of gewoon minder prioriteit kregen.",
-    "insightNeedsGoodHabit": "Je hebt consequent eerst geld naar je behoeften gebracht - dat is een solide gewoonte.",
+    "insightNeedsGoodHabit": "Je hebt je geld consequent eerst aan je behoeften besteed - dat is een solide gewoonte.",
     "insightShortfallSingle": "Er kwamen een keer onverwachte kosten op, en je \"Voor het geval dat\"-buffer was niet helemaal genoeg om het te dekken - dus het moest in plaats daarvan uit je saldo komen. Precies daarom helpt het om een beetje opzij te zetten voor verrassingen, zelfs als nog niets urgent lijkt.",
     "insightShortfallMultiple": "Er kwamen {count} keer onverwachte kosten op, en je \"Voor het geval dat\"-buffer was niet helemaal genoeg om ze te dekken - dus het moest in plaats daarvan uit je saldo komen. Precies daarom helpt het om een beetje opzij te zetten voor verrassingen, zelfs als nog niets urgent lijkt.",
     "insightBufferHeldUp": "Je \"Voor het geval dat\"-buffer hield goed stand tegen wat er ook gebeurde - goede planning.",
@@ -316,7 +316,7 @@
     "currency": "Valuta",
     "completeOfTotal": "{completed} van {total} voltooid",
     "mySavingsGoals": "Mijn Spaardoelen →",
-    "moneyLifeSimulator": "Financieel Levenssimulator →",
+    "moneyLifeSimulator": "Financiële Levenssimulator →",
     "resetConfirm": "Dit wist alle voortgang, munten en doelen op dit apparaat. Dit kan niet ongedaan worden gemaakt. Doorgaan?",
     "resetProgress": "Voortgang Resetten",
     "chooseLevelFirst": "Kies eerst je leerniveau.",
@@ -368,7 +368,7 @@
     "title": "Informatie voor Ouders",
     "intro": "Antwoorden in eenvoudige taal op de vragen waarvan we zouden willen dat ze beantwoord zijn voordat een kind een website als deze gebruikt.",
     "q1Title": "Wat doet deze website?",
-    "q1Body": "Money Quest leert kinderen financiële geletterdheid via lessen, quizzen en spellen - behoeften versus wensen, sparen, uitgeven, budgetteren, verdienen, veilig blijven voor oplichting en meer. Al het geld in de app is fictief.",
+    "q1Body": "Money Quest leert kinderen financiële geletterdheid via lessen, quizzen en spellen - behoeften versus wensen, sparen, uitgeven, budgetteren, verdienen, veilig blijven tegen oplichting en meer. Al het geld in de app is fictief.",
     "q2Title": "Welke informatie verzamelt het?",
     "q2Body": "Geen die je kind identificeert. Het enige wat de site vraagt is een leerniveau (Beginner, Basis of Gevorderd) zodat lessen op het juiste leesniveau worden geschreven - en die keuze wordt nergens naartoe gestuurd; deze wordt alleen in deze browser opgeslagen.",
     "q3Title": "Welke informatie verzamelt het NIET?",
@@ -381,7 +381,7 @@
     "q6Body": "Alleen op het apparaat dat je kind gebruikt, in de eigen lokale opslag van de browser - nooit op onze servers, nooit naar ons verzonden. Het wissen van de browsergegevens op dat apparaat, of het gebruik van de optie \"Voortgang Resetten\" in de app, verwijdert het volledig. Voortgang gemaakt op het ene apparaat verschijnt niet op een ander.",
     "q7Title": "Worden diensten van derden gebruikt?",
     "q7Body": "Geen enkele externe dienst ontvangt informatie over je kind. Zie ons Privacybeleid voor de volledige, actuele lijst van waar de site (indien van toepassing) van afhankelijk is.",
-    "q8Title": "Hoe kan ik jullie contacteren?",
+    "q8Title": "Hoe kan ik contact met jullie opnemen?",
     "q8BodyPrefix": "Via de",
     "contactPageLink": "Contactpagina",
     "q8BodySuffix": ".",
@@ -394,7 +394,7 @@
     "pq1Title": "Wat is financiële educatie, en waarom is het belangrijk?",
     "pq1Body": "Financiële educatie betekent leren hoe geld werkt: verdienen, uitgeven, sparen en keuzes maken met beperkte middelen. Kinderen die deze ideeën vroeg leren, worden vaak volwassenen die zich zekerder en minder angstig voelen over geld - niet omdat ze feiten hebben onthouden, maar omdat ze met weinig risico hebben geoefend met het nemen van beslissingen.",
     "pq2Title": "Wat leert mijn kind bij Money Quest?",
-    "pq2Body": "Zeven onderwerpen, elk zijn eigen \"Wereld\": de basis van wat geld is, behoeften onderscheiden van wensen, sparen voor een doel, valuta van andere landen, veilig oplichting herkennen, vooruit plannen en geven. Elke Wereld heeft een korte les, een of twee spellen, en eenvoudige praktijkscenario's - nooit een toets met een score die je kind volgt.",
+    "pq2Body": "Zeven onderwerpen, elk zijn eigen \"Wereld\": de basis van wat geld is, behoeften onderscheiden van wensen, sparen voor een doel, valuta van andere landen, oplichting veilig herkennen, vooruit plannen en geven. Elke Wereld heeft een korte les, een of twee spellen, en eenvoudige praktijkscenario's - nooit een toets met een score die je kind volgt.",
     "pq3Title": "Hoe werkt Money Quest eigenlijk?",
     "pq3Body": "Je kind kiest een Wereld, leest een korte, geïllustreerde les, probeert een snelle meerkeuzetoets, en speelt een bijbehorend spel. Onderweg verdient het virtuele munten en sterren - duidelijk aangeduid als virtueel, nooit echt geld. Er hoeft geen account aangemaakt te worden en er is nergens om in te loggen: voortgang wordt alleen opgeslagen in deze browser, op dit apparaat.",
     "pq4Title": "Voor welke leeftijd is dit bedoeld?",
@@ -508,7 +508,7 @@
         "retry": "Denk na over wat iemand eigenlijk een reden geeft om jou te betalen."
       },
       "rewardMessage": "Munten verdiend voor het begrijpen waar geld eigenlijk vandaan komt!",
-      "parentNote": "9-11 jaar is een goede leeftijd om te beginnen benoemen dat geld verdiend wordt, niet gegeven, en om digitale betalingen te ontmystificeren - kaarten en apps kunnen aanvoelen als \"gratis geld\" voor een kind dat nog nooit contant geld fysiek van eigenaar heeft zien wisselen. Als jouw gezin vooral digitaal betaalt, is dit een goede week om een aankoop hardop te becommentariëren (\"Ik betaal met mijn kaart, die het geld van mijn rekening haalt, precies zoals wanneer ik munten had overhandigd\").",
+      "parentNote": "9-11 jaar is een goede leeftijd om te beginnen benoemen dat geld verdiend wordt, niet gegeven, en om digitale betalingen te demystificeren - kaarten en apps kunnen aanvoelen als \"gratis geld\" voor een kind dat nog nooit contant geld fysiek van eigenaar heeft zien wisselen. Als jouw gezin vooral digitaal betaalt, is dit een goede week om een aankoop hardop te becommentariëren (\"Ik betaal met mijn kaart, die het geld van mijn rekening haalt, precies zoals wanneer ik munten had overhandigd\").",
       "commonMisconception": "Kinderen van deze leeftijd geloven soms dat digitale betalingen (kaartbetalingen, app-overschrijvingen) geen \"echt\" geld zijn zoals contant geld, of dat een kaart een eigen onbeperkte voorraad heeft."
     },
     "strategist-money_basics-l1": {
@@ -1149,17 +1149,17 @@
       ],
       "explanation": "Grote financiële beslissingen - hoeveel uit te geven versus te sparen over maanden of jaren, of je iets nu moet prioriteren boven een toekomstig doel - hebben zelden één objectief juist antwoord. Wat een goede langetermijnbeslissing meestal onderscheidt van een slechte, is niet de specifieke keuze, maar of die met opzet werd gemaakt, waarbij de afweging echt werd gewogen, in plaats van standaard te gebeuren omdat niemand pauzeerde om te beslissen.",
       "interactiveActivity": "Werk een realistisch scenario van meerdere maanden door, waarbij je een \"nu uitgeven\"-optie afweegt tegen een \"later sparen\"-optie, en verwoord de redenering voor beide kanten.",
-      "gameIdea": "De Financieel Levenssimulator: neem een reeks verbonden wekelijkse beslissingen en zie hoe ze zich optellen over een langere, gesimuleerde tijdshorizon.",
+      "gameIdea": "De Financiële Levenssimulator: neem een reeks verbonden wekelijkse beslissingen en zie hoe ze zich optellen over een langere, gesimuleerde tijdshorizon.",
       "challenge": "Denk aan één echte langetermijnbeslissing (zelfs een kleine) in je eigen leven op dit moment, en schrijf de afweging in één zin op.",
       "quiz": {
-        "question": "Wat onderscheidt volgens deze les meestal een goede langetermijn financiële beslissing van een slechte?",
+        "question": "Wat onderscheidt volgens deze les meestal een goede langetermijnfinanciële beslissing van een slechte?",
         "options": [
-          "Of die bewust werd gemaakt, met de afweging gewogen",
+          "Of die bewust werd gemaakt, waarbij de afweging werd gewogen",
           "Altijd kiezen om alles te sparen",
           "Altijd kiezen om alles uit te geven",
           "Nooit enige beslissing nemen"
         ],
-        "correctAnswer": "Of die bewust werd gemaakt, met de afweging gewogen",
+        "correctAnswer": "Of die bewust werd gemaakt, waarbij de afweging werd gewogen",
         "explanation": "Er is zelden één universeel juist antwoord voor een langetermijnafweging - maar een beslissing die met opzet werd gemaakt, waarbij de opties echt werden gewogen, houdt meestal beter stand dan een die standaard gebeurde."
       },
       "feedback": {
@@ -1167,7 +1167,7 @@
         "retry": "Denk na over wat Aisha besefte over helemaal niet beslissen."
       },
       "rewardMessage": "Munten verdiend voor het serieus nadenken over een oprecht moeilijk, echt soort beslissing.",
-      "parentNote": "Deze les vermijdt bewust om tieners te vertellen wat de \"juiste\" langetermijn financiële keuze is, omdat dat volledig afhangt van individuele omstandigheden, doelen en waarden die deze app geen basis heeft om te beoordelen. Het is geen financieel advies, en is dat ook niet bedoeld te zijn - het is bedoeld om de gewoonte op te bouwen om financiële beslissingen met opzet te nemen in plaats van standaard. Als je tiener wil praten over een echte beslissing waar hij of zij voor staat, is dat gesprek het beste rechtstreeks met jou te voeren, met de werkelijke omstandigheden van jouw gezin.",
+      "parentNote": "Deze les vermijdt bewust om tieners te vertellen wat de \"juiste\" langetermijnfinanciële keuze is, omdat dat volledig afhangt van individuele omstandigheden, doelen en waarden die deze app geen basis heeft om te beoordelen. Het is geen financieel advies, en is dat ook niet bedoeld te zijn - het is bedoeld om de gewoonte op te bouwen om financiële beslissingen met opzet te nemen in plaats van standaard. Als je tiener wil praten over een echte beslissing waar hij of zij voor staat, is dat gesprek het beste rechtstreeks met jou te voeren, met de werkelijke omstandigheden van jouw gezin.",
       "commonMisconception": "Tieners zoeken soms naar één \"juiste\" formule voor het balanceren van uitgeven en sparen, in plaats van het te herkennen als een echte, doorlopende persoonlijke afweging zonder universeel antwoord."
     },
     "explorer-giving-l1": {
@@ -1213,7 +1213,7 @@
       "title": "Bewust geven",
       "learningObjective": "Oefenen met het opzij zetten van een klein, bewust deel van geld om te geven, als onderdeel van een eenvoudig geldplan.",
       "shortIntroduction": "Geven hoeft geen bijzaak te zijn - je kunt ervoor plannen, net als sparen of uitgeven.",
-      "story": "Omar besluit zijn zakgeld elke week in drieën te verdelen: een deel om uit te geven, een deel om te sparen, en een klein bedrag opzij gezet alleen om te geven - misschien aan een vriend in nood, een inzamelingsactie van de klas, of een goed doel dat hem aan het hart gaat. Van tevoren beslissen over de verdeling betekent dat geven nooit als een ongemakkelijke, laatste-minuutbeslissing aanvoelt.",
+      "story": "Omar besluit zijn zakgeld elke week in drieën te verdelen: een deel om uit te geven, een deel om te sparen, en een klein bedrag opzij gezet alleen om te geven - misschien aan een vriend in nood, een inzamelingsactie van de klas, of een goed doel dat hem aan het hart gaat. Van tevoren beslissen over de verdeling betekent dat geven nooit als een ongemakkelijke, last-minute beslissing aanvoelt.",
       "keyConcept": "Geven kan bewust worden gepland, als één onderdeel van hoe je met geld omgaat, niet slechts een incidentele opwelling.",
       "vocabulary": [
         {
@@ -1230,7 +1230,7 @@
       "gameIdea": "Bouw een Budget: verdeel munten over categorieën, inclusief een geefcategorie.",
       "challenge": "Praat met een volwassene over een goed doel of persoon die je gezin heeft geholpen, of graag zou willen helpen.",
       "quiz": {
-        "question": "Wat deed Omar waardoor geven minder als een laatste-minuutbeslissing aanvoelde?",
+        "question": "Wat deed Omar waardoor geven minder als een last-minute beslissing aanvoelde?",
         "options": [
           "Hij plande van tevoren een geefbedrag",
           "Hij gaf alleen als erom gevraagd werd",
@@ -1350,7 +1350,7 @@
           "definition": "Het bericht of vinkje dat laat zien dat een betaling echt is gelukt"
         }
       ],
-      "explanation": "Achter het tegen een apparaat houden van een pasje controleert een betaalnetwerk snel of er genoeg geld op de rekening staat, en verplaatst dan precies dat bedrag naar de verkoper. Het groene vinkje of de kassabon zijn de betalingsbevestiging - het bewijs dat het echt is gebeurd, niet alleen dat een apparaat piepte. Een pincode bestaat zodat alleen de echte eigenaar (of iemand die vertrouwd wordt) het pasje kan gebruiken voor grotere betalingen.",
+      "explanation": "Achter het tegen een apparaat houden van een pasje controleert een betaalnetwerk snel of er genoeg geld op de rekening staat, en verplaatst dan precies dat bedrag naar de verkoper. Het groene vinkje of de kassabon is de betalingsbevestiging - het bewijs dat het echt is gebeurd, niet alleen dat een apparaat piepte. Een pincode bestaat zodat alleen de echte eigenaar (of iemand die vertrouwd wordt) het pasje kan gebruiken voor grotere betalingen.",
       "interactiveActivity": "Doorloop de stappen van een betaling met pasje in de juiste volgorde: tegen het apparaat houden, saldo controleren, bevestigen, bon.",
       "gameIdea": "Betaalstappen: zet de stappen van een betaling met pasje in de juiste volgorde.",
       "challenge": "De volgende keer dat een volwassene met pasje betaalt, vraag hem of haar om je de bevestiging te laten zien - het vinkje, de bon of het bericht dat laat zien dat het werkte.",
@@ -1558,7 +1558,7 @@
         }
       ],
       "explanation": "Een Junior ISA wordt geopend door een ouder of voogd, maar het geld erin behoort echt toe aan het kind voor wie het geopend werd - niet aan de volwassene die het beheert. Andere landen hebben andere systemen om kinderen te helpen sparen, dus een Junior ISA specifiek is iets van het Verenigd Koninkrijk.",
-      "interactiveActivity": "Praat met een volwassene over wie het geld van een Junior ISA echt toebehoort, en waarom een volwassene het toch beheert.",
+      "interactiveActivity": "Praat met een volwassene over aan wie het geld van een Junior ISA echt toebehoort, en waarom een volwassene het toch beheert.",
       "gameIdea": "Van wie is het geld?: koppel spaarscenario's aan wie het geld echt toebehoort.",
       "challenge": "Vraag een volwassene in je gezin of hij of zij weet wat een Junior ISA is.",
       "quiz": {
@@ -2027,7 +2027,7 @@
       "title": "Geldkeuzes",
       "feedback": {
         "correct": "Dat is een doordachte keuze!",
-        "incorrect": "Dit zou er gebeuren met die keuze."
+        "incorrect": "Dit is wat er zou gebeuren met die keuze."
       },
       "variants": [
         {
@@ -2362,7 +2362,7 @@
       "title": "Prijs-Detective",
       "feedback": {
         "correct": "Je hebt de zaak opgelost!",
-        "incorrect": "Dit zou er gebeuren met die keuze."
+        "incorrect": "Dit is wat er zou gebeuren met die keuze."
       },
       "variants": [
         {
@@ -2468,7 +2468,7 @@
       "title": "Sparen of Uitgeven?",
       "feedback": {
         "correct": "Goed nagedacht!",
-        "incorrect": "Dit zou er gebeuren met die keuze."
+        "incorrect": "Dit is wat er zou gebeuren met die keuze."
       },
       "variants": [
         {
@@ -2591,7 +2591,7 @@
       "title": "Oplichting-detective",
       "feedback": {
         "correct": "Geweldig speurwerk!",
-        "incorrect": "Dit zou er gebeuren met die keuze."
+        "incorrect": "Dit is wat er zou gebeuren met die keuze."
       },
       "variants": [
         {
@@ -3795,7 +3795,7 @@
       ]
     },
     "strategist-standard": {
-      "title": "Je Eerste Bijbaantje-Inkomsten",
+      "title": "Je Eerste Bijverdiensten",
       "savingsGoalName": "Sparen voor een laptop-upgrade",
       "weeks": [
         {
@@ -3869,11 +3869,11 @@
     "sky-exchange": "Valuta-ontdekker",
     "guardian-gate": "Geldbeschermer",
     "horizon-peaks": "Toekomstplanner",
-    "kindness-grove": "Held van het Geven"
+    "kindness-grove": "Geefheld"
   },
   "moneyPersonality": {
     "title": "Geldpersoonlijkheid",
-    "subtitle": "Een luchtige, puur-voor-de-lol-blik op hoe jij meestal over geld denkt. Er is geen juist antwoord, en geen enkel type is beter dan een ander.",
+    "subtitle": "Een luchtige blik, puur voor de lol, op hoe jij meestal over geld denkt. Er is geen juist antwoord, en geen enkel type is beter dan een ander.",
     "startButton": "Beginnen",
     "retakeButton": "Opnieuw doen",
     "backToWorldMap": "Terug naar de Wereldkaart",
@@ -3925,9 +3925,9 @@
         "options": [
           "Je spaargeld is gestegen",
           "Alles ging zoals je had gepland",
-          "Je iets kreeg dat je echt wilde",
-          "Je een doordachte keuze maakte, wat die ook was",
-          "Je iemand kon helpen"
+          "Je kreeg iets dat je echt wilde",
+          "Je maakte een doordachte keuze, wat die ook was",
+          "Je kon iemand helpen"
         ]
       }
     ],
@@ -4023,7 +4023,7 @@
           "heading": "Wat meestal werkt, en wat meestal niet",
           "paragraphs": [
             "De beslissing om te sparen prijzen, in plaats van het gespaarde bedrag, houdt het beter vol na verloop van tijd - een kind dat geprezen wordt voor \"je hebt daar goed over nagedacht\" leert een overdraagbare gewoonte; een kind dat alleen geprezen wordt voor een groot getal kan het gevoel krijgen dat sparen draait om een ouder onder de indruk maken, niet om het doel zelf.",
-            "Het is ook de moeite waard om de neiging te weerstaan om een tekort net voor het bereiken van een doel aan te vullen. Net iets tekortkomen, en nog een week moeten wachten, is oncomfortabel maar is precies de ervaring die de uiteindelijke aankoop verdiend laat voelen - en het is een laag-risico manier om geduld te oefenen terwijl de gevolgen nog klein zijn."
+            "Het is ook de moeite waard om de neiging te weerstaan om een tekort net voor het bereiken van een doel aan te vullen. Net iets tekortkomen, en nog een week moeten wachten, is oncomfortabel maar is precies de ervaring die de uiteindelijke aankoop verdiend laat voelen - en het is een risicoarme manier om geduld te oefenen terwijl de gevolgen nog klein zijn."
           ]
         },
         {
@@ -4119,7 +4119,7 @@
       "faqs": [
         {
           "question": "Is een smartphone een behoefte of een wens voor een tiener?",
-          "answer": "Het hangt echt af van de context, wat zelf een goed leermoment is - als het nodig is voor schoolwerk of een ouder moet hem kunnen bereiken, is er een echt behoefteachtig element; als het vooral voor entertainment is of om aan te sluiten bij wat vrienden hebben, is dat deel een wens. De meeste echte voorbeelden op deze leeftijd zijn een mix, geen schoon of-of."
+          "answer": "Het hangt echt af van de context, wat zelf een goed leermoment is - als het nodig is voor schoolwerk of een ouder moet hem kunnen bereiken, is er een element dat echt op een behoefte lijkt; als het vooral voor entertainment is of om aan te sluiten bij wat vrienden hebben, is dat deel een wens. De meeste echte voorbeelden op deze leeftijd zijn een mix, geen schoon of-of."
         },
         {
           "question": "Hoe reageer ik als mijn kind volhoudt dat iets een behoefte is?",
@@ -4145,7 +4145,7 @@
           ],
           "list": [
             "Behoefte-of-wens sorteren: noem items één voor één, het kind zegt behoefte of wens en waarom - werkt voor een groep of één-op-één, geen props nodig.",
-            "De stukprijs-uitdaging: laat twee verschillend grote verpakkingen van hetzelfde product zien (of foto's ervan) en vraag welke de betere waarde is - een echt nuttige real-world vaardigheid verborgen in een eenvoudig spel.",
+            "De stukprijs-uitdaging: laat twee verschillend grote verpakkingen van hetzelfde product zien (of foto's ervan) en vraag welke de betere waarde is - een echt nuttige praktijkvaardigheid verborgen in een eenvoudig spel.",
             "Afrondingsschatting: gegeven een korte boodschappenlijst met prijzen, schat het totaal voordat je het precies optelt - bouwt getalbesef op naast het geldconcept."
           ]
         },
@@ -4190,16 +4190,16 @@
           ]
         },
         {
-          "heading": "Een opmerking over wat we nog niet hebben gebouwd",
+          "heading": "Gratis downloadbare werkbladen, binnen elke bijpassende les",
           "paragraphs": [
-            "Eerlijk gezegd: deze pagina beschrijft momenteel het soort werkbladen dat goed werkt en de principes erachter, in plaats van rechtstreeks downloadbare PDF-werkbladen te hosten - dat is een echte inhoudsleemte, geen verborgen, en het is de meest voor de hand liggende volgende toevoeging aan deze pagina. In de tussentijd wordt elk principe hierboven volledig gedemonstreerd binnen Money Quests eigen spellen Budget Bouwen en Sparen of Uitgeven, die het exacte interactieve equivalent zijn van dit soort werkblad."
+            "Naast de bovenstaande principes bevat Money Quest nu 20 gratis, afdrukbare PDF-werkbladen, elk gekoppeld aan een specifieke les in de drie leeftijdsgroepen, plus één antwoordenblad dat ze allemaal dekt. Open een bijpassende les binnen Money Quest en je vindt daar een link naar het werkblad - nog niet elke les heeft er een, maar de lessen die er wel een hebben, behandelen kernonderwerpen zoals sparen, oplichting, digitaal geld en behoeften versus wensen. De werkbladen zelf zijn voorlopig alleen in het Engels, ongeacht welke taal je verder in Money Quest gebruikt. In de tussentijd wordt elk principe op deze pagina ook volledig gedemonstreerd binnen Money Quests eigen spellen Bouw een Budget en Sparen of Uitgeven, die precies het interactieve equivalent van dit soort werkblad zijn."
           ]
         }
       ],
       "faqs": [
         {
           "question": "Zijn deze werkbladen gratis te gebruiken in een klaslokaal?",
-          "answer": "De richtlijnen en werkbladformaten beschreven op deze pagina zijn vrij aan te passen voor gebruik in de klas. De downloadbare afdrukbare werkbladen zelf zijn een geplande toevoeging aan deze pagina, nog niet beschikbaar op het moment van schrijven."
+          "answer": "Ja. De richtlijnen en werkbladformaten op deze pagina zijn vrij aan te passen voor gebruik in de klas, en Money Quest biedt ook 20 gratis, downloadbare PDF-werkbladen - plus één antwoordenblad dat ze allemaal dekt - rechtstreeks binnen de bijpassende lessen. Open een van die lessen om de link naar het werkblad te vinden. Ze zijn op dit moment alleen in het Engels beschikbaar."
         },
         {
           "question": "Voor welke leeftijd zijn Money Quests werkblad-achtige activiteiten ontworpen?",

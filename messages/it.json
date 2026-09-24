@@ -30,7 +30,7 @@
     "heroImageAlt": "Un bambino sorridente che mostra un telefono con l'app Money Quest, accanto al logo Money Quest e alla scritta Skills for Life.",
     "ctaGetStartedFree": "Inizia la tua Money Quest",
     "ctaSeeHowItWorks": "Guarda come funziona",
-    "whyFree": "Money Quest è gratuito per le famiglie, sostenuto da pubblicità rispettosa della privacy mostrata solo sulle pagine per i genitori - mai all'interno dell'esperienza di tuo figlio. Mai acquisti per bambini.",
+    "whyFree": "Money Quest è gratuito per le famiglie, sostenuto da pubblicità rispettosa della privacy mostrata solo sulle pagine per i genitori - mai all'interno dell'esperienza di tuo figlio. Tuo figlio non potrà mai acquistare nulla.",
     "howItWorksTitle": "Come funziona",
     "step1Title": "1. Scegli un livello",
     "step1Body": "Scegli un livello di apprendimento - senza registrazione, senza account, salvato solo su questo dispositivo.",
@@ -82,7 +82,7 @@
     "needHint": "Hai bisogno di un suggerimento?",
     "nextRound": "Round successivo",
     "questComplete": "Missione completata!",
-    "scoreLine": "Hai risposto correttamente a {correct} su {total} al primo tentativo - ben pensato, {percent}%!",
+    "scoreLine": "Hai risposto correttamente a {correct} su {total} al primo tentativo - ottimo lavoro, {percent}%!",
     "addingUpRewards": "Calcolo delle ricompense…",
     "backToTheWorld": "Torna al Mondo",
     "notReadyForAgeGroup": "Questo gioco non è ancora pronto per la tua fascia d'età - torna presto!",
@@ -143,7 +143,7 @@
     "insightGoalProgress": "Hai fatto progressi reali verso \"{goalName}\" - circa il {percent}% del percorso. Qualche settimana in più di risparmio ti porterebbe fino in fondo.",
     "insightGoalNotStarted": "\"{goalName}\" sta ancora aspettando - questa volta non è stato messo da parte nulla per questo. La prossima volta, anche una piccola somma ogni settimana si somma più velocemente di quanto sembri.",
     "insightNeedsLowShare": "I bisogni hanno rappresentato una quota piuttosto piccola del tuo denaro questa volta. Vale la pena verificare se i tuoi bisogni sono stati davvero coperti ogni settimana, o semplicemente hanno avuto meno priorità.",
-    "insightNeedsGoodHabit": "Hai costantemente dato priorità ai tuoi bisogni per primi - questa è un'ottima abitudine.",
+    "insightNeedsGoodHabit": "Hai sempre messo i tuoi bisogni al primo posto - un'ottima abitudine.",
     "insightShortfallSingle": "Sono emersi costi imprevisti una volta, e la tua riserva \"Non si sa mai\" non è stata sufficiente a coprirlo - quindi ha dovuto provenire dal tuo saldo. Proprio per questo aiuta mettere da parte un po' per le sorprese, anche quando nulla sembra ancora urgente.",
     "insightShortfallMultiple": "Sono emersi costi imprevisti {count} volte, e la tua riserva \"Non si sa mai\" non è stata sufficiente a coprirli - quindi ha dovuto provenire dal tuo saldo. Proprio per questo aiuta mettere da parte un po' per le sorprese, anche quando nulla sembra ancora urgente.",
     "insightBufferHeldUp": "La tua riserva \"Non si sa mai\" ha retto bene a qualsiasi cosa sia successa - buona pianificazione.",
@@ -153,7 +153,7 @@
     "pageTitle": "Laboratorio di Investimento",
     "simulationBanner": "SIMULAZIONE - SOLO DENARO VIRTUALE",
     "simulationExplainer": "Tutto qui usa aziende inventate e denaro immaginario per imparare. Non sono coinvolte aziende reali, una vera borsa o denaro reale.",
-    "guardrailIntro": "Gli investimenti possono perdere valore così come possono guadagnarne, e le scelte con maggiore potenziale di guadagno di solito comportano anche più rischio. Questa è una simulazione di apprendimento, non una consulenza di investimento - niente qui promette cosa accadrebbe davvero.",
+    "guardrailIntro": "Gli investimenti possono sia perdere valore sia guadagnarne, e le scelte con un maggiore potenziale di guadagno di solito comportano anche un rischio più alto. Questa è una simulazione di apprendimento, non una consulenza di investimento - niente qui promette cosa accadrebbe davvero.",
     "cashLabel": "Denaro virtuale",
     "portfolioValueLabel": "Valore del portafoglio",
     "overallChangeLabel": "{amount} ({percent} %) da quando hai iniziato",
@@ -411,7 +411,7 @@
     "section1Title": "Nessun account, nessuna informazione personale",
     "section1Body": "Non c'è registrazione, accesso o password da nessuna parte su questo sito web. Non chiediamo mai a tuo figlio (o a te) un vero nome, indirizzo, numero di telefono, email, scuola o posizione.",
     "section2Title": "L'unica scelta che ricordiamo",
-    "section2Body": "Un livello di apprendimento (Principiante, Elementare o Avanzato) e una preferenza di valuta - salvati solo nella memoria locale di questo browser. Non lascia mai il tuo dispositivo.",
+    "section2Body": "Un livello di apprendimento (Principiante, Elementare o Avanzato) e una preferenza di valuta - salvati solo nella memoria locale di questo browser. Non lasciano mai il tuo dispositivo.",
     "section3Title": "Progresso di apprendimento",
     "section3Body": "Memorizzato solo sul dispositivo utilizzato, mai inviato a noi. Usa \"Reimposta Progressi\" nell'app, o cancella i dati del sito in questo browser, per rimuoverlo completamente.",
     "section4Title": "Cosa non facciamo mai",
@@ -421,7 +421,7 @@
     "neverDo4": "Nessun dato di localizzazione di alcun tipo",
     "readMorePrefix": "Leggi di più sulla nostra pagina",
     "parentInfoLink": "Informazioni per i Genitori",
-    "readMoreMiddle": ". Domande su questa politica?",
+    "readMoreMiddle": ". Domande su questa informativa?",
     "contactUsLink": "Contattaci"
   },
   "curriculum": {
@@ -1972,7 +1972,7 @@
                 {
                   "id": "wash-car",
                   "left": "🚗 Lavare tutta l'auto",
-                  "right": "Lavoro duro - guadagna di più"
+                  "right": "Lavoro duro - guadagna il massimo"
                 }
               ]
             }
@@ -2810,7 +2810,7 @@
               "id": "s2",
               "mechanic": "spot",
               "prompt": "Un messaggio ti chiede di pagare velocemente per qualcosa. Tocca qualsiasi cosa sembri un segnale d'allarme.",
-              "hint": "Ti venga chiesto di pagare in modo insolito, velocemente, prima che tu possa controllare qualcosa, è di per sé un forte segnale d'allarme.",
+              "hint": "Se ti viene chiesto di pagare in modo insolito, velocemente, prima che tu possa controllare qualcosa, è già di per sé un forte segnale d'allarme.",
               "explanation": "Dirti di pagare immediatamente, in modo insolito, prima che tu abbia il tempo di controllare se il venditore sia anche reale, è progettato per impedirti di notare che qualcosa non va - i veri venditori non hanno bisogno di affrettare un pagamento così.",
               "scenario": "\"Articolo riservato per te! Paga subito la caparra di 45 euro con un codice carta regalo per assicurartelo prima che lo faccia qualcun altro.\"",
               "items": [
@@ -2963,7 +2963,7 @@
                 {
                   "key": "save",
                   "label": "Risparmiare tutto",
-                  "consequence": "Hai tenuto al sicuro tutte le 10 euro. Niente da mostrare oggi, ma pronte per qualcosa di più grande più avanti."
+                  "consequence": "Hai tenuto al sicuro tutti i 10 euro. Niente da mostrare oggi, ma pronti per qualcosa di più grande più avanti."
                 }
               ]
             },
@@ -3034,7 +3034,7 @@
                 {
                   "key": "cover-both-first",
                   "label": "Pagare prima spuntino e regalo, tenere il resto",
-                  "consequence": "Hai coperto entrambe le cose di cui avevi bisogno, e ti sono rimaste 4 euro per te - un buon piano."
+                  "consequence": "Hai coperto entrambe le cose di cui avevi bisogno, e ti sono rimasti 4 euro per te - un buon piano."
                 },
                 {
                   "key": "nice-gift-skip-snack",
@@ -3071,7 +3071,7 @@
                 {
                   "key": "check-why",
                   "label": "Controllare prima cosa è davvero diverso",
-                  "consequence": "Hai scoperto che le borracce erano quasi identiche, quindi le 3 euro extra non compravano nulla che avresti davvero usato."
+                  "consequence": "Hai scoperto che le borracce erano quasi identiche, quindi i 3 euro extra non compravano nulla che avresti davvero usato."
                 }
               ]
             },
@@ -3693,8 +3693,8 @@
           "event": {
             "title": "Controllo del tuo obiettivo aquilone",
             "description": "Vediamo quanto sei vicino!",
-            "celebrationMessage": "Hai raggiunto il tuo obiettivo aquilone - ben risparmiato!",
-            "notYetMessage": "Non sei ancora del tutto al tuo obiettivo aquilone, ma hai fatto progressi reali."
+            "celebrationMessage": "Hai raggiunto il tuo obiettivo aquilone - ottimo risparmio!",
+            "notYetMessage": "Non hai ancora raggiunto del tutto il tuo obiettivo aquilone, ma hai fatto progressi reali."
           }
         }
       ]
@@ -3735,7 +3735,7 @@
         {
           "weekLabel": "Settimana 4",
           "event": {
-            "title": "Hai ricevuto denaro fittizio extra",
+            "title": "Hai ricevuto qualche moneta extra",
             "description": "Un parente ti ha mandato un po' di extra questa settimana - bella sorpresa!"
           }
         },
@@ -3886,7 +3886,7 @@
           "Metterle da qualche parte al sicuro per dopo",
           "Pensare di dividerle tra un paio di cose",
           "Andare a trovare qualcosa di divertente da comprare",
-          "Restare un po' con esse prima di decidere qualsiasi cosa",
+          "Aspettare un po' prima di decidere qualcosa",
           "Pensare a qualcuno con cui potrei condividerle"
         ]
       },
@@ -3981,7 +3981,7 @@
     "saveFailedNote": "Non siamo riusciti a salvare il tuo feedback su questo dispositivo in questo momento - il tuo browser potrebbe bloccare l'archiviazione."
   },
   "notFound": {
-    "title": "Uhm, non troviamo questa pagina",
+    "title": "Ehm, non troviamo questa pagina",
     "body": "Quella pagina non esiste, o potrebbe essersi spostata. Non c'è niente che non va con il tuo account - ti riportiamo in un posto familiare.",
     "homeLink": "Vai alla pagina principale"
   },
@@ -4022,14 +4022,14 @@
         {
           "heading": "Cosa tende a funzionare, e cosa no",
           "paragraphs": [
-            "Lodare la decisione di risparmiare, piuttosto che l'importo risparmiato, tende a reggere meglio nel tempo - un bambino lodato per \"ci hai riflettuto bene\" sta imparando un'abitudine trasferibile; un bambino lodato solo per una grande cifra può iniziare a sentire che risparmiare significa impressionare un genitore, non riguardo all'obiettivo stesso.",
+            "Lodare la decisione di risparmiare, piuttosto che l'importo risparmiato, tende a reggere meglio nel tempo - un bambino lodato per \"ci hai riflettuto bene\" sta imparando un'abitudine trasferibile; un bambino lodato solo per una grande cifra può iniziare a pensare che risparmiare significhi impressionare un genitore, non l'obiettivo in sé.",
             "Vale anche la pena resistere alla tentazione di completare un ammanco proprio prima che un obiettivo venga raggiunto. Arrivare appena sotto, e dover aspettare ancora una settimana, è scomodo ma è esattamente l'esperienza che fa sentire meritato l'acquisto finale - ed è un modo a basso rischio di praticare la pazienza mentre le conseguenze sono ancora piccole."
           ]
         },
         {
           "heading": "Praticare questo in Money Quest",
           "paragraphs": [
-            "Le attività Risparmia o Spendi e Costruisci un Budget di Money Quest permettono a un bambino di praticare esattamente questa decisione - con monete fittizie, non denaro reale - prima che la posta in gioco sia reale. Ogni importo è denaro di gioco nella valuta propria della famiglia, e nulla di ciò che un bambino fa nell'app tocca mai un vero conto bancario."
+            "Le attività Risparmiare o Spendere e Costruisci un Budget di Money Quest permettono a un bambino di praticare esattamente questa decisione - con monete fittizie, non denaro reale - prima che la posta in gioco sia reale. Ogni importo è denaro di gioco nella valuta propria della famiglia, e nulla di ciò che un bambino fa nell'app tocca mai un vero conto bancario."
           ]
         }
       ],
@@ -4174,8 +4174,8 @@
         {
           "heading": "Cosa rende una scheda sul denaro davvero utile",
           "paragraphs": [
-            "Una scheda vale quanto il pensiero che richiede. La modalità di fallimento più comune è una scheda che chiede a un bambino di ricordare una definizione (\"cos'è un budget?\") piuttosto che applicarne una (\"ecco 10 euro - dividile tra questi quattro barattoli e spiega perché\"). Il secondo tipo produce apprendimento genuino; il primo produce una frase memorizzata che svanisce entro una settimana.",
-            "Per un contesto di classe in particolare, una scheda senza un'unica risposta giusta - dove due studenti potrebbero ragionevolmente dividere le stesse 10 euro diversamente - tende a generare una discussione migliore rispetto a una con un unico totale corretto da verificare."
+            "Una scheda vale quanto il pensiero che richiede. La modalità di fallimento più comune è una scheda che chiede a un bambino di ricordare una definizione (\"cos'è un budget?\") piuttosto che applicarne una (\"ecco 10 euro - dividili tra questi quattro barattoli e spiega perché\"). Il secondo tipo produce apprendimento genuino; il primo produce una frase memorizzata che svanisce entro una settimana.",
+            "Per un contesto di classe in particolare, una scheda senza un'unica risposta giusta - dove due studenti potrebbero ragionevolmente dividere gli stessi 10 euro diversamente - tende a generare una discussione migliore rispetto a una con un unico totale corretto da verificare."
           ]
         },
         {
@@ -4190,16 +4190,16 @@
           ]
         },
         {
-          "heading": "Una nota su cosa non abbiamo ancora costruito",
+          "heading": "Schede scaricabili gratuite, all'interno di ogni lezione corrispondente",
           "paragraphs": [
-            "Onestamente: questa pagina attualmente descrive il tipo di schede che funzionano bene e i principi dietro di esse, piuttosto che ospitare direttamente schede PDF scaricabili - questo è un vero vuoto di contenuto, non nascosto, ed è l'aggiunta successiva più naturale per questa pagina. Nel frattempo, ogni principio sopra è pienamente dimostrato all'interno dei giochi propri di Money Quest Costruisci un Budget e Risparmia o Spendi, che sono l'equivalente interattivo esatto di questo tipo di scheda."
+            "Oltre ai principi sopra, Money Quest include ora 20 schede PDF gratuite e stampabili, ciascuna abbinata a una lezione specifica nelle tre fasce d'età, più una guida alle risposte unica che le copre tutte. Apri la lezione corrispondente dentro Money Quest e troverai lì un link alla scheda - non tutte le lezioni ne hanno ancora una, ma quelle che ce l'hanno coprono argomenti fondamentali come il risparmio, le truffe, il denaro digitale e bisogni contro desideri. Le schede stesse sono per ora disponibili solo in inglese, qualunque lingua tu stia usando nel resto di Money Quest. Nel frattempo, ogni principio di questa pagina è anche pienamente dimostrato nei giochi di Money Quest Costruisci un Budget e Risparmiare o Spendere, l'equivalente interattivo esatto di questo tipo di scheda."
           ]
         }
       ],
       "faqs": [
         {
           "question": "Queste schede sono gratuite per l'uso in classe?",
-          "answer": "Le linee guida e i formati di scheda descritti in questa pagina sono liberi da adattare per l'uso in classe. Le schede stampabili scaricabili stesse sono un'aggiunta pianificata per questa pagina, non ancora disponibile al momento della stesura."
+          "answer": "Sì. Le linee guida e i formati di scheda descritti in questa pagina sono liberi da adattare per l'uso in classe, e Money Quest offre anche 20 schede PDF gratuite e scaricabili - più una guida alle risposte unica che le copre tutte - direttamente all'interno delle lezioni corrispondenti. Apri una di quelle lezioni per trovare il link alla scheda. Al momento sono disponibili solo in inglese."
         },
         {
           "question": "Per quale età sono progettate le attività in stile scheda di Money Quest?",
