@@ -61,6 +61,19 @@ function isGameStructuralPath(key: string): boolean {
 }
 
 /**
+ * Entrepreneur Quest's decisionEvents/challenges choice objects each
+ * carry a "key" field (e.g. "explain-simply") that the app matches on
+ * to look up a decision's effect (see EQ_DECISION_EFFECTS in
+ * src/content/entrepreneur-quest/structures.ts) - an internal id, not
+ * user-facing prose, so it's correctly identical to English in every
+ * locale, the same principle as GAME_STRUCTURAL_KEYS above.
+ */
+function isEntrepreneurQuestStructuralPath(key: string): boolean {
+  if (!key.startsWith("entrepreneurQuest.decisionEvents.") && !key.startsWith("entrepreneurQuest.challenges.")) return false;
+  return key.split(".").pop() === "key";
+}
+
+/**
  * A domain name/URL used as in-content example text (e.g. a scam
  * example's fake link) is correctly identical in every language — a
  * URL isn't prose to translate. Matched narrowly (a bare
@@ -100,6 +113,7 @@ for (const locale of LOCALES) {
   for (const [key, value] of entries) {
     if (ALLOWED_IDENTICAL.has(key)) continue;
     if (isGameStructuralPath(key)) continue;
+    if (isEntrepreneurQuestStructuralPath(key)) continue;
     if (looksLikeDomain(value)) continue;
     const englishValue = englishEntries.get(key);
     if (englishValue !== undefined && englishValue === value && value.length >= MIN_LENGTH_TO_FLAG) {

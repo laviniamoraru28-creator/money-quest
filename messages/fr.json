@@ -361,7 +361,7 @@
     "amountToWithdraw": "Montant à dépenser",
     "spendSome": "Dépenser un peu",
     "moneyPersonalityLink": "Personnalité Financière",
-    "entrepreneurQuestLink": "Entrepreneur Quest →",
+    "entrepreneurQuestLink": "Quête de l'Entrepreneur →",
     "levelActivityProgress": "Niveau {level} · Activité {position} sur {total}",
     "investingLabLink": "Laboratoire d'Investissement →"
   },
@@ -405,7 +405,7 @@
     "pq5Body": "Ça fonctionne bien soit aux côtés de ton enfant pour les premières leçons, soit comme quelque chose qu'il explore de manière autonome une fois à l'aise avec l'outil. Après une leçon, une bonne façon de poursuivre est simplement de demander « qu'as-tu appris ? » - les leçons sont assez courtes pour qu'il se souvienne généralement de l'exemple concret, pas juste d'un sujet vague.",
     "pq6Title": "Comment puis-je parler d'argent avec mon enfant à la maison ?",
     "pq6Body": "Quelques pistes pour commencer : demande-lui ce qu'il ferait avec une somme fixe d'argent avant de lui dire ce que toi tu ferais. Pendant les courses ensemble, demande à voix haute « on en a besoin, ou on en a juste envie ? », pour que la distinction devienne une habitude plutôt qu'une règle. S'il veut quelque chose de cher, calculez ensemble combien de semaines d'épargne cela prendrait - un chiffre concret marque souvent plus les esprits qu'un « peut-être plus tard ». Rien de tout cela ne nécessite de partager tes propres finances avec lui - la conversation compte plus que les détails.",
-    "pq7Title": "Qu'est-ce qu'Entrepreneur Quest ?",
+    "pq7Title": "Qu'est-ce que la Quête de l'Entrepreneur ?",
     "pq7Body": "Une nouvelle section de Money Quest où ton enfant construit une petite entreprise virtuelle, étape par étape : trouver un problème, façonner une idée, fixer un prix, et prendre des décisions quand les choses ne se passent pas comme prévu. En chemin, il s'entraîne à l'éducation financière, à la résolution de problèmes, à la créativité, à la prise de décision, à la communication, à la planification, au travail d'équipe et aux notions de base de la gestion d'entreprise - entièrement avec de l'argent virtuel, enregistré uniquement sur cet appareil. C'est conçu pour développer ces compétences par le jeu, pas pour encourager un enfant à créer une vraie entreprise sans les conseils et l'implication d'un adulte.",
     "privacySectionTitle": "Confidentialité et Tes Données"
   },
@@ -3987,10 +3987,10 @@
     "saveFailedNote": "Nous n'avons pas pu enregistrer ton avis sur cet appareil pour le moment - ton navigateur bloque peut-être le stockage."
   },
   "entrepreneurQuest": {
-    "hubTitle": "Entrepreneur Quest",
+    "hubTitle": "Quête de l'Entrepreneur",
     "hubTagline": "Apprends à transformer une idée en entreprise.",
     "hubIntro": "Construis ta propre entreprise virtuelle, étape par étape. Tu prendras de vraies décisions, tu verras ce qui se passe, et tu apprendras en faisant - pas en lisant et en cliquant sur Suivant.",
-    "virtualMoneyExplainer": "Tout l'argent dans Entrepreneur Quest est virtuel, juste pour t'entraîner. Ce n'est pas de l'argent réel.",
+    "virtualMoneyExplainer": "Tout l'argent dans la Quête de l'Entrepreneur est virtuel, juste pour t'entraîner. Ce n'est pas de l'argent réel.",
     "myBusinessTitle": "Mon Entreprise",
     "myBusinessEmptyHint": "Tu n'as pas encore commencé d'entreprise. Construisons-en une !",
     "startBuildingButton": "Commencer à Construire Ton Entreprise",
@@ -4008,7 +4008,7 @@
     "realWorldMissionDoneLabel": "Marquer comme fait",
     "resetBusinessButton": "Commencer une Nouvelle Entreprise",
     "resetBusinessConfirm": "Cela va effacer ton entreprise actuelle et repartir de zéro. Veux-tu continuer ?",
-    "backToHub": "Retour à Entrepreneur Quest",
+    "backToHub": "Retour à la Quête de l'Entrepreneur",
     "continueButton": "Continuer",
     "saveAndContinueButton": "Enregistrer et Continuer",
     "stages": {

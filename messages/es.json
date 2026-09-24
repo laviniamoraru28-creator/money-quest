@@ -361,7 +361,7 @@
     "amountToWithdraw": "Cantidad a gastar",
     "spendSome": "Gastar algo",
     "moneyPersonalityLink": "Personalidad del Dinero",
-    "entrepreneurQuestLink": "Entrepreneur Quest →",
+    "entrepreneurQuestLink": "Misión Emprendedora →",
     "levelActivityProgress": "Nivel {level} · Actividad {position} de {total}",
     "investingLabLink": "Laboratorio de Inversiones →"
   },
@@ -405,7 +405,7 @@
     "pq5Body": "Funciona bien tanto junto a tu hijo durante las primeras lecciones, como algo que explora de forma independiente una vez que se sienta cómodo con ello. Después de una lección, un buen seguimiento es simplemente preguntar \"¿qué aprendiste?\" - las lecciones son lo bastante cortas como para que suela recordar el ejemplo concreto, no solo un tema vago.",
     "pq6Title": "¿Cómo puedo hablar con mi hijo sobre el dinero en casa?",
     "pq6Body": "Algunos puntos de partida: pregúntale qué haría con una cantidad fija de dinero antes de decirle qué harías tú. Al comprar juntos, pregunta en voz alta \"¿lo necesitamos, o lo queremos?\", para que la distinción se convierta en un hábito y no solo en una regla. Si quiere algo caro, calculad juntos cuántas semanas de ahorro llevaría - un número concreto suele calar mejor que un \"quizás más adelante\". Nada de esto requiere compartir tus propias finanzas con él - la conversación importa más que los detalles.",
-    "pq7Title": "¿Qué es Entrepreneur Quest?",
+    "pq7Title": "¿Qué es la Misión Emprendedora?",
     "pq7Body": "Una nueva sección de Money Quest donde tu hijo construye un pequeño negocio virtual, paso a paso: encontrar un problema, dar forma a una idea, fijar un precio, y tomar decisiones cuando las cosas no salen como estaba previsto. En el camino, practica educación financiera, resolución de problemas, creatividad, toma de decisiones, comunicación, planificación, trabajo en equipo y conceptos básicos de negocio - todo con dinero virtual, guardado solo en este dispositivo. Está diseñado para desarrollar estas habilidades a través del juego, no para animar a un niño a montar un negocio real sin la guía y la participación de un adulto.",
     "privacySectionTitle": "Privacidad y Tus Datos"
   },
@@ -3987,10 +3987,10 @@
     "saveFailedNote": "No pudimos guardar tu comentario en este dispositivo ahora mismo - tu navegador podría estar bloqueando el almacenamiento."
   },
   "entrepreneurQuest": {
-    "hubTitle": "Entrepreneur Quest",
+    "hubTitle": "Misión Emprendedora",
     "hubTagline": "Aprende a convertir una idea en un negocio.",
     "hubIntro": "Construye tu propio negocio virtual, paso a paso. Tomarás decisiones reales, verás qué pasa, y aprenderás haciendo - no solo leyendo y pulsando Siguiente.",
-    "virtualMoneyExplainer": "Todo el dinero de Entrepreneur Quest es virtual, solo para practicar. No es dinero real.",
+    "virtualMoneyExplainer": "Todo el dinero de la Misión Emprendedora es virtual, solo para practicar. No es dinero real.",
     "myBusinessTitle": "Mi Negocio",
     "myBusinessEmptyHint": "Todavía no has empezado un negocio. ¡Vamos a construir uno!",
     "startBuildingButton": "Empezar a Construir tu Negocio",
@@ -4008,7 +4008,7 @@
     "realWorldMissionDoneLabel": "Marcar como hecho",
     "resetBusinessButton": "Empezar un Negocio Nuevo",
     "resetBusinessConfirm": "Esto borrará tu negocio actual y empezarás de cero. ¿Estás seguro?",
-    "backToHub": "Volver a Entrepreneur Quest",
+    "backToHub": "Volver a la Misión Emprendedora",
     "continueButton": "Continuar",
     "saveAndContinueButton": "Guardar y Continuar",
     "stages": {
