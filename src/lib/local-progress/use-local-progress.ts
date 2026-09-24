@@ -8,6 +8,7 @@ import {
   contributeToGoal as contributeToGoalPure,
   withdrawFromGoal as withdrawFromGoalPure,
   removeGoal as removeGoalPure,
+  awardBadge as awardBadgePure,
   computeLevel,
   type LocalProgressState,
 } from "./state";
@@ -134,6 +135,13 @@ export function useLocalProgress() {
     setState(fresh);
   }, []);
 
+  const awardBadge = useCallback(
+    (badgeId: string) => {
+      persist(awardBadgePure(state, badgeId));
+    },
+    [state, persist]
+  );
+
   return {
     state,
     isLoaded,
@@ -146,5 +154,6 @@ export function useLocalProgress() {
     withdrawFromGoal,
     removeGoal,
     resetProgress,
+    awardBadge,
   };
 }

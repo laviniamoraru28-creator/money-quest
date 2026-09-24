@@ -141,6 +141,19 @@ export function removeGoal(state: LocalProgressState, goalId: string): LocalProg
 }
 
 /**
+ * Adds a badge id the first time it's earned; a repeat call (e.g. an
+ * Entrepreneur Quest milestone reached again after a progress reset and
+ * replay) is a harmless no-op rather than a duplicate entry. `earnedBadgeIds`
+ * existed in this state shape from the start but had no producer or
+ * consumer anywhere in the app until Entrepreneur Quest — this is the
+ * first real use of it, not a new system.
+ */
+export function awardBadge(state: LocalProgressState, badgeId: string): LocalProgressState {
+  if (state.earnedBadgeIds.includes(badgeId)) return state;
+  return { ...state, earnedBadgeIds: [...state.earnedBadgeIds, badgeId] };
+}
+
+/**
  * The reverse of contributeToGoal — moves money back from a goal into
  * the wallet. Exists specifically for the Savings Goal Adventure's
  * "what happens if I spend some of what I've saved?" experimentation

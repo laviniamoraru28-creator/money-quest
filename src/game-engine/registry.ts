@@ -20,7 +20,17 @@ export interface MechanicProps<TRound extends GameRound = GameRound> {
    * data, matching how currencyCode is already handled). */
   uiLocale: string;
   usesCurrency: boolean;
-  onAnswer: (isCorrect: boolean) => void;
+  /** The optional second argument exists only for MissionMechanic,
+   * which passes the chosen option's key — every other mechanic still
+   * calls onAnswer with just the boolean, which remains perfectly
+   * valid since the parameter is optional. Entrepreneur Quest is what
+   * needed this: it reuses MissionMechanic directly for its
+   * decision-based events and challenges, and needs to know WHICH
+   * choice a child picked (to persist it), not just that a choice was
+   * made. Adding it here, on the shared type, was simpler and more
+   * honest than duplicating MissionMechanic's rendering just to get at
+   * the same information a different way. */
+  onAnswer: (isCorrect: boolean, choiceKey?: string) => void;
   /** True once the round has been answered correctly at least once —
    * mechanics use this to lock further input rather than each
    * reimplementing that rule. */

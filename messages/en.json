@@ -362,7 +362,8 @@
     "spendSome": "Spend some",
     "moneyPersonalityLink": "Money Personality",
     "levelActivityProgress": "Level {level} · Activity {position} of {total}",
-    "investingLabLink": "Investing Lab →"
+    "investingLabLink": "Investing Lab →",
+    "entrepreneurQuestLink": "Entrepreneur Quest →"
   },
   "parentInfo": {
     "title": "Parent Information",
@@ -404,6 +405,8 @@
     "pq5Body": "It works well either alongside your child for the first few lessons, or as something they explore independently once they're comfortable with it. After a lesson, a good follow-up is simply asking \"what did you learn?\" - the lessons are short enough that they'll usually remember the specific example, not just a vague topic.",
     "pq6Title": "How can I talk to my child about money at home?",
     "pq6Body": "A few starting points: ask what they'd do with a fixed amount of money before telling them what you'd do. When shopping together, ask \"do we need this, or do we want it?\" out loud, so the distinction becomes a habit rather than a rule. If they want something expensive, work out together how many weeks of saving it would take - a concrete number tends to land better than \"maybe later\". None of this requires sharing your own finances with them - the conversation matters more than the specifics.",
+    "pq7Title": "What is Entrepreneur Quest?",
+    "pq7Body": "A new section of Money Quest where your child builds a small virtual business, step by step: finding a problem, shaping an idea, setting a price, and making decisions when things don't go as planned. Along the way they're practising financial literacy, problem solving, creativity, decision making, communication, planning, teamwork, and basic business concepts - entirely with virtual money, saved only on this device. It's designed to build these skills through play, not to encourage a child to start a real business without an adult's guidance and involvement.",
     "privacySectionTitle": "Privacy and Your Data"
   },
   "privacyPage": {
@@ -3982,6 +3985,503 @@
     "thankYouTitle": "Thank you!",
     "savedLocallyNote": "Your feedback is saved only on this device - Money Quest has no server to send it to yet.",
     "saveFailedNote": "We could not save your feedback on this device just now - your browser may be blocking storage."
+  },
+  "entrepreneurQuest": {
+    "hubTitle": "Entrepreneur Quest",
+    "hubTagline": "Learn how to turn an idea into a business.",
+    "hubIntro": "Build your own virtual business, step by step. You'll make real decisions, see what happens, and learn by doing - not by reading and clicking Next.",
+    "virtualMoneyExplainer": "All the money in Entrepreneur Quest is virtual, just for practicing. It is not real money.",
+    "myBusinessTitle": "My Business",
+    "myBusinessEmptyHint": "You haven't started a business yet. Let's build one!",
+    "startBuildingButton": "Start Building Your Business",
+    "continueBuildingButton": "Continue Building Your Business",
+    "stageProgress": "Stage {current} of {total}",
+    "buildLink": "Build Your Business",
+    "simulatorLink": "Business Simulator",
+    "challengesLink": "Business Challenges",
+    "pitchLink": "My Business Pitch",
+    "pitchLinkLockedHint": "Finish building your business first to unlock your pitch.",
+    "badgesEarnedTitle": "Your Badges",
+    "noBadgesYetHint": "Complete stages and challenges to earn your first badge.",
+    "realWorldMissionsTitle": "Real-World Missions (Optional)",
+    "realWorldMissionsHint": "These are just for noticing things in the real world - nothing to write down or send in.",
+    "realWorldMissionDoneLabel": "Mark as done",
+    "resetBusinessButton": "Start a New Business",
+    "resetBusinessConfirm": "This will clear your current business and start fresh. Are you sure?",
+    "backToHub": "Back to Entrepreneur Quest",
+    "continueButton": "Continue",
+    "saveAndContinueButton": "Save and Continue",
+    "stages": {
+      "find-a-problem": {
+        "title": "Find a Problem",
+        "learnText": "Every good business starts by solving a problem. A problem is something that annoys people, wastes their time, or is hard to do.",
+        "fieldLabel": "What problem could your business solve?",
+        "placeholder": "For example: My friends can never find a water bottle they like."
+      },
+      "create-an-idea": {
+        "title": "Create an Idea",
+        "learnText": "Now turn that problem into an idea. Your idea is your answer to the problem you found.",
+        "fieldLabel": "What is your idea?",
+        "placeholder": "For example: I could make colorful stickers for water bottles."
+      },
+      "name-your-business": {
+        "title": "Name Your Business",
+        "learnText": "A good business name is short, easy to remember, and gives a hint about what you do.",
+        "fieldLabel": "What will you call your business?",
+        "placeholder": "For example: Sticker Splash"
+      },
+      "create-your-logo": {
+        "title": "Create Your Logo",
+        "learnText": "A logo is a small picture that helps people recognize your business at a glance. Pick a shape, a color, and a symbol that feel like your business.",
+        "shapeLabel": "Pick a shape",
+        "colorLabel": "Pick a color",
+        "symbolLabel": "Pick a symbol",
+        "sloganLabel": "Write a short slogan (optional)",
+        "sloganPlaceholder": "For example: Colour your world"
+      },
+      "choose-your-product": {
+        "title": "Choose Your Product",
+        "learnText": "Your product is the actual thing (or service) you will sell. Pick the category it fits best, then describe it in your own words.",
+        "categoryLabel": "What kind of product or service is it?",
+        "descriptionLabel": "Describe your product or service",
+        "descriptionPlaceholder": "For example: A pack of 10 waterproof stickers."
+      },
+      "choose-your-customer": {
+        "title": "Choose Your Customer",
+        "learnText": "A customer is the person who would actually buy your product. Thinking about them helps you make something they will really want."
+      },
+      "understand-costs": {
+        "title": "Understand Costs",
+        "learnText": "Costs are how much money it takes to make one item. If it costs you £2 to make a bracelet, that is your cost per item.",
+        "fieldLabel": "How much does it cost you to make ONE item?",
+        "helpText": "This is the money you spend on materials for just one item, not your whole business."
+      },
+      "set-your-price": {
+        "title": "Set Your Price",
+        "learnText": "Your price is how much you charge a customer for one item. A common starting point is charging about double what something costs you to make - but it is your choice.",
+        "fieldLabel": "How much will you charge for one item?",
+        "helpText": "A low price can mean more people buy, but you keep less money per item. A high price means more money per item, but fewer people may buy."
+      },
+      "create-your-marketing": {
+        "title": "Create Your Marketing",
+        "learnText": "Marketing means telling people about your business so they know it exists, and understand what it does. Pick an approach, then see what happens."
+      },
+      "make-your-first-sale": {
+        "title": "Make Your First Sale",
+        "learnText": "Time to see what happens! You'll decide how to spend your starting money, then find out how your first sales go.",
+        "ctaButton": "Go to the Business Simulator"
+      },
+      "calculate-your-profit": {
+        "title": "Calculate Your Profit",
+        "learnText": "Profit is the money you keep after paying your costs. Profit = Sales minus Costs.",
+        "resultHint": "Here is your profit from the Business Simulator.",
+        "noRunYetHint": "Visit the Business Simulator first to see a real profit number here."
+      },
+      "handle-competition": {
+        "title": "Handle Competition",
+        "learnText": "A competitor is another business selling something similar to yours. Almost every business has competitors."
+      },
+      "handle-a-customer-problem": {
+        "title": "Handle a Customer Problem",
+        "learnText": "Real businesses run into problems with customers sometimes. What matters is how you respond."
+      },
+      "make-a-business-decision": {
+        "title": "Make a Business Decision",
+        "learnText": "Good business owners think through their choices instead of just guessing."
+      },
+      "grow-your-business": {
+        "title": "Grow Your Business",
+        "learnText": "Sometimes things don't go as planned. Growing a business often means trying again with something new."
+      },
+      "create-your-final-pitch": {
+        "title": "Create Your Final Business Pitch",
+        "learnText": "You've built a business! Answer these last two questions, then see your business pitch all put together.",
+        "whyChooseLabel": "Why might people choose your business?",
+        "whyChoosePlaceholder": "For example: My stickers are waterproof and come in bright colors nobody else has.",
+        "nextStepLabel": "What would your next step be?",
+        "nextStepPlaceholder": "For example: Ask five friends what other sticker designs they would like.",
+        "viewPitchButton": "View My Business Pitch"
+      }
+    },
+    "decisionEvents": {
+      "product-unclear": {
+        "situation": "Some customers like your product, but they don't understand what it actually does.",
+        "choices": [
+          {
+            "key": "explain-simply",
+            "label": "Write one simple sentence that explains what your product does",
+            "consequence": "More people understand your product now, and a few decide to buy. Clear words really do help!"
+          },
+          {
+            "key": "add-picture",
+            "label": "Show a picture of someone using it",
+            "consequence": "Seeing it in action helps people understand faster. A few more customers give it a try."
+          },
+          {
+            "key": "do-nothing",
+            "label": "Leave it as it is and hope people figure it out",
+            "consequence": "Some customers still feel confused, and a few decide not to buy. Explaining clearly usually helps more than staying quiet."
+          }
+        ]
+      },
+      "competitor-lower-price": {
+        "situation": "A competitor starts selling something similar to your product, but for less money.",
+        "choices": [
+          {
+            "key": "lower-price",
+            "label": "Lower your price to match them",
+            "consequence": "More people choose your product again, but you keep less money on each one you sell."
+          },
+          {
+            "key": "explain-value",
+            "label": "Keep your price, but explain why your product is worth it",
+            "consequence": "Some customers agree and stay with you. Others still choose the cheaper option."
+          },
+          {
+            "key": "ignore",
+            "label": "Keep everything exactly the same",
+            "consequence": "A few customers drift toward the cheaper option. Competitors are normal - it often helps to respond somehow."
+          }
+        ]
+      },
+      "materials-cost-increase": {
+        "situation": "The materials you need to make your product suddenly become more expensive.",
+        "choices": [
+          {
+            "key": "raise-price",
+            "label": "Raise your price a little to cover the extra cost",
+            "consequence": "Your profit per item stays healthy, though a few price-sensitive customers may buy less often."
+          },
+          {
+            "key": "absorb-cost",
+            "label": "Keep your price the same and earn less profit per item",
+            "consequence": "Customers notice nothing has changed, but you keep less money from each sale."
+          },
+          {
+            "key": "find-cheaper-materials",
+            "label": "Look for a cheaper way to make your product",
+            "consequence": "If you find one, this can solve the problem completely, though it might take some time to figure out."
+          }
+        ]
+      },
+      "too-expensive-feedback": {
+        "situation": "A customer tells you your product is too expensive.",
+        "choices": [
+          {
+            "key": "ask-why",
+            "label": "Ask them what price would feel fair to them",
+            "consequence": "You learn something useful about what customers expect, even if you don't change your price."
+          },
+          {
+            "key": "offer-smaller-version",
+            "label": "Offer a smaller, cheaper version of your product",
+            "consequence": "Some customers who couldn't afford the full version buy the smaller one instead."
+          },
+          {
+            "key": "stand-firm",
+            "label": "Explain that your price reflects your costs and effort",
+            "consequence": "Some customers understand and stay. Others still feel it's too much for them - and that's okay."
+          }
+        ]
+      },
+      "more-orders-than-expected": {
+        "situation": "Way more people want to buy from you than you expected!",
+        "choices": [
+          {
+            "key": "make-more",
+            "label": "Try to make more product to keep up",
+            "consequence": "You sell more, but making extra in a hurry costs more time and effort than usual."
+          },
+          {
+            "key": "raise-price-slightly",
+            "label": "Raise your price a little since demand is high",
+            "consequence": "You earn more per item, though a few customers decide to wait or look elsewhere."
+          },
+          {
+            "key": "waitlist",
+            "label": "Tell extra customers you'll have more ready soon",
+            "consequence": "Customers who are willing to wait usually still buy from you later."
+          }
+        ]
+      },
+      "teammate-wants-change": {
+        "situation": "Someone helping with your business wants to change the product in a way you're not sure about.",
+        "choices": [
+          {
+            "key": "hear-them-out",
+            "label": "Ask them to explain their idea fully before deciding",
+            "consequence": "You learn more about their thinking, which makes it much easier to decide together."
+          },
+          {
+            "key": "say-no",
+            "label": "Say no and keep the product exactly as it is",
+            "consequence": "The product stays the same, but your teammate may feel unheard next time they have an idea."
+          },
+          {
+            "key": "try-a-test-version",
+            "label": "Try their idea on just a few items first, as a test",
+            "consequence": "You get to see if the change actually works before changing everything."
+          }
+        ]
+      },
+      "fewer-sales-than-expected": {
+        "situation": "You made fewer sales this week than you hoped for.",
+        "choices": [
+          {
+            "key": "ask-customers",
+            "label": "Ask a few people why they didn't buy",
+            "consequence": "You get real feedback you can actually use to improve, even if it's hard to hear."
+          },
+          {
+            "key": "try-something-new",
+            "label": "Try a different price or a new way of explaining your product",
+            "consequence": "Trying something new sometimes works better, and sometimes it doesn't. Either way, you learn."
+          },
+          {
+            "key": "keep-going",
+            "label": "Keep doing exactly the same thing and see what happens next",
+            "consequence": "Some weeks are just slower than others. But if this keeps happening, it may be worth trying something different."
+          }
+        ]
+      }
+    },
+    "challenges": {
+      "five-pound-challenge": {
+        "title": "The {amount} Challenge",
+        "situation": "You have {amount} of virtual money. What could you create with it?",
+        "choices": [
+          {
+            "key": "cheap-materials",
+            "label": "Buy a few cheap materials and make several small items",
+            "consequence": "You can make more items to sell, though each one might be simple."
+          },
+          {
+            "key": "one-good-material",
+            "label": "Spend it all on one better-quality material",
+            "consequence": "You can make fewer items, but each one might feel more special and be worth more."
+          },
+          {
+            "key": "save-some",
+            "label": "Save part of it and spend the rest carefully",
+            "consequence": "You start smaller, but you still have some money left if you need it later."
+          }
+        ]
+      },
+      "pricing-challenge": {
+        "title": "The Pricing Challenge",
+        "situation": "Your product costs {amount} to make. What price will you choose?",
+        "choices": [
+          {
+            "key": "price-low",
+            "label": "Charge just a little more than it costs you",
+            "consequence": "More people can afford it, but you keep only a small amount from each sale."
+          },
+          {
+            "key": "price-double",
+            "label": "Charge about double what it costs you",
+            "consequence": "A common, balanced choice - most businesses start around here."
+          },
+          {
+            "key": "price-high",
+            "label": "Charge much more than it costs you",
+            "consequence": "You earn a lot from each sale, but fewer people may decide to buy."
+          }
+        ]
+      },
+      "customer-challenge": {
+        "title": "The Customer Challenge",
+        "situation": "Nobody seems interested in your product. What could you change?",
+        "choices": [
+          {
+            "key": "ask-people",
+            "label": "Ask a few people what they'd actually want instead",
+            "consequence": "You get real, useful ideas, even if some of them surprise you."
+          },
+          {
+            "key": "change-product",
+            "label": "Change the product to solve a bigger problem",
+            "consequence": "This can genuinely help, though it takes extra time and effort to redo."
+          },
+          {
+            "key": "same-different-customer",
+            "label": "Keep the product the same, but think about who else might want it",
+            "consequence": "Sometimes the right customer was just different than you first thought."
+          }
+        ]
+      },
+      "marketing-challenge": {
+        "title": "The Marketing Challenge",
+        "situation": "You have {amount} of virtual money for marketing. How will you use it?",
+        "choices": [
+          {
+            "key": "tell-friends",
+            "label": "Ask friends and family to help spread the word",
+            "consequence": "This costs nothing and can genuinely help - people trust recommendations from people they know."
+          },
+          {
+            "key": "make-a-poster",
+            "label": "Spend it making an eye-catching poster or sign",
+            "consequence": "A clear, attractive poster can catch the attention of people passing by."
+          },
+          {
+            "key": "spend-it-all",
+            "label": "Spend all of it trying to reach as many people as possible",
+            "consequence": "You reach more people, but you have nothing left over if something unexpected comes up."
+          }
+        ]
+      },
+      "bad-review-challenge": {
+        "title": "The Bad Review Challenge",
+        "situation": "A customer is unhappy with what they bought from you.",
+        "choices": [
+          {
+            "key": "apologize-and-fix",
+            "label": "Apologize and offer to fix or replace it",
+            "consequence": "Most unhappy customers feel much better when someone takes their problem seriously."
+          },
+          {
+            "key": "explain-politely",
+            "label": "Politely explain why the product works the way it does",
+            "consequence": "This sometimes helps, especially if the customer misunderstood something."
+          },
+          {
+            "key": "ignore-it",
+            "label": "Ignore it and move on to the next customer",
+            "consequence": "The unhappy customer may tell others about their experience. Responding usually helps more than staying silent."
+          }
+        ]
+      }
+    },
+    "challengesListTitle": "Business Challenges",
+    "challengesListIntro": "Short, standalone challenges you can try any time - each one teaches something different about running a business.",
+    "challengeCompletedBadge": "Completed",
+    "realWorldMissions": {
+      "find-a-problem-at-home": "Look around your home or school. Can you find a problem that people have?",
+      "notice-what-people-buy": "Find something people buy regularly. Why do you think they buy it?",
+      "improve-a-product-you-use": "Choose a product you use. What could make it better?",
+      "ask-someone-what-they-would-change": "Ask someone what they would change about a product they use."
+    },
+    "badges": {
+      "eq-problem-solver": {
+        "name": "Problem Solver",
+        "description": "Found a real problem to solve"
+      },
+      "eq-idea-finder": {
+        "name": "Idea Finder",
+        "description": "Turned a problem into an idea"
+      },
+      "eq-money-manager": {
+        "name": "Money Manager",
+        "description": "Worked out a business's profit"
+      },
+      "eq-marketing-explorer": {
+        "name": "Marketing Explorer",
+        "description": "Practiced telling people about a business"
+      },
+      "eq-young-founder": {
+        "name": "Young Founder",
+        "description": "Completed a full business pitch"
+      }
+    },
+    "simulator": {
+      "title": "Business Simulator",
+      "intro": "Time to see how your business does! Decide how to spend your starting money, then find out what happens.",
+      "startingMoneyLabel": "Your starting money",
+      "allocateInstructions": "Decide how to spend your {amount}.",
+      "categoryMaterials": "Materials",
+      "categoryPackaging": "Packaging",
+      "categoryAdvertising": "Advertising",
+      "categorySavedAside": "Money kept aside",
+      "seeResultButton": "See What Happens",
+      "resultTitle": "Here's What Happened",
+      "unitsMadeLabel": "You made {count} items",
+      "unitsSoldLabel": "You sold {count} of them",
+      "salesLabel": "Sales",
+      "costsLabel": "Costs",
+      "profitLabel": "Profit",
+      "remainingLabel": "Money you have now",
+      "formulaReminder": "Profit = Sales - Costs",
+      "explanationProfit": "You made a profit of {profit}! Sales minus Costs equals Profit.",
+      "explanationLoss": "This time, your costs were higher than your sales. That happens sometimes - you can try again with different choices.",
+      "tryAgainButton": "Try Different Choices"
+    },
+    "pitch": {
+      "title": "My First Business",
+      "myBusinessIsLabel": "My business is...",
+      "itHelpsLabel": "It helps...",
+      "myCustomersAreLabel": "My customers are...",
+      "myProductIsLabel": "My product or service is...",
+      "itCostsMeLabel": "It costs me...",
+      "iWouldChargeLabel": "I would charge...",
+      "iCouldMakeLabel": "I could make...",
+      "whyChooseLabel": "People might choose my business because...",
+      "nextStepLabel": "My next step would be...",
+      "perItemSuffix": "per item",
+      "notSetYet": "Not decided yet",
+      "editBusinessButton": "Edit My Business",
+      "notReadyTitle": "Your Pitch Isn't Ready Yet",
+      "notReadyHint": "Finish building your business first, and your pitch will appear here.",
+      "goToBuildButton": "Continue Building Your Business",
+      "reputationLabel": "My business reputation is...",
+      "reputationValue": "{stars} out of 5 stars"
+    },
+    "productCategories": {
+      "food": "Food",
+      "art": "Art",
+      "crafts": "Crafts",
+      "games": "Games",
+      "pets": "Pets",
+      "sports": "Sports",
+      "fashion": "Fashion",
+      "technology": "Technology",
+      "education": "Education",
+      "environment": "Environment",
+      "helping-people": "Helping People",
+      "other": "Something Else"
+    },
+    "customerCategories": {
+      "kids": "Kids",
+      "families": "Families",
+      "teens": "Teens",
+      "adults": "Adults",
+      "school-community": "My School Community",
+      "neighbors": "Neighbors",
+      "animal-lovers": "Animal Lovers",
+      "other": "Someone Else"
+    },
+    "marketingApproaches": {
+      "poster": "Make a Poster",
+      "social-style-advert": "Social Media-Style Advert",
+      "word-of-mouth": "Word of Mouth",
+      "school-community-idea": "School or Community Idea",
+      "special-offer": "Special Offer"
+    },
+    "logoShapes": {
+      "circle": "Circle",
+      "square": "Square",
+      "hexagon": "Hexagon",
+      "star": "Star"
+    },
+    "safety": {
+      "nameHint": "Use a fun made-up name for your business - not your real full name, address, phone number, or school name."
+    },
+    "dashboard": {
+      "title": "My Company",
+      "productLabel": "Product",
+      "customersLabel": "Customers",
+      "priceLabel": "Price",
+      "costLabel": "Cost",
+      "profitPerSaleLabel": "Profit per sale",
+      "salesLabel": "Sales",
+      "revenueLabel": "Revenue",
+      "costsLabel": "Costs",
+      "profitLabel": "Profit",
+      "reputationLabel": "Reputation",
+      "reputationValue": "{stars}/5",
+      "goalLabel": "Current goal",
+      "goalPlaceholder": "For example: Make 20 sales",
+      "saveGoalButton": "Save Goal"
+    }
   },
   "articles": {
     "saving-money-for-kids": {

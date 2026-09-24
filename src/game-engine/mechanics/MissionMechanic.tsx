@@ -26,7 +26,7 @@ export function MissionMechanic({ round, currencyCode, uiLocale, usesCurrency, o
   function choose(key: string) {
     if (chosenKey) return; // one choice per round, matching every other mechanic's "answer once" model
     setChosenKey(key);
-    onAnswer(true);
+    onAnswer(true, key);
   }
 
   return (

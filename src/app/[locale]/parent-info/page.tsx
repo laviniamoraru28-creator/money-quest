@@ -86,6 +86,10 @@ export default async function ParentInfoPage({ params: { locale } }: PageProps) 
             <h3 className="font-display text-lg font-bold">{t("parentInfo.pq6Title")}</h3>
             <p className="mt-2xs text-base text-ink/80">{t("parentInfo.pq6Body")}</p>
           </section>
+          <section>
+            <h3 className="font-display text-lg font-bold">{t("parentInfo.pq7Title")}</h3>
+            <p className="mt-2xs text-base text-ink/80">{t("parentInfo.pq7Body")}</p>
+          </section>
         </div>
 
         <h2 className="mt-lg font-display text-xl font-bold text-teal">{t("parentInfo.privacySectionTitle")}</h2>
