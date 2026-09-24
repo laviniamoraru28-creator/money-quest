@@ -362,7 +362,8 @@
     "spendSome": "Cheltuiește o parte",
     "moneyPersonalityLink": "Personalitatea Financiară",
     "levelActivityProgress": "Nivelul {level} · Activitatea {position} din {total}",
-    "investingLabLink": "Laboratorul de Investiții →"
+    "investingLabLink": "Laboratorul de Investiții →",
+    "entrepreneurQuestLink": "Misiunea Antreprenorului →"
   },
   "parentInfo": {
     "title": "Informații pentru Părinți",
@@ -404,7 +405,9 @@
     "pq5Body": "Funcționează bine fie alături de copilul tău pentru primele câteva lecții, fie ca ceva pe care îl explorează independent odată ce se simte confortabil cu el. După o lecție, o continuare bună este simpla întrebare „ce ai învățat?” - lecțiile sunt suficient de scurte încât își va aminti de obicei exemplul concret, nu doar un subiect vag.",
     "pq6Title": "Cum pot vorbi cu copilul meu despre bani acasă?",
     "pq6Body": "Câteva puncte de plecare: întreabă-l ce ar face cu o sumă fixă de bani înainte să-i spui ce ai face tu. Când faceți cumpărături împreună, întreabă cu voce tare „avem nevoie de asta, sau o dorim?”, astfel încât distincția să devină un obicei, nu doar o regulă. Dacă își dorește ceva scump, calculați împreună câte săptămâni de economisire ar dura - un număr concret tinde să aibă mai mult impact decât „poate mai târziu”. Niciuna dintre acestea nu necesită să-ți dezvălui propriile finanțe - conversația contează mai mult decât detaliile.",
-    "privacySectionTitle": "Confidențialitate și Datele Tale"
+    "privacySectionTitle": "Confidențialitate și Datele Tale",
+    "pq7Title": "Ce este Misiunea Antreprenorului?",
+    "pq7Body": "O secțiune nouă din Money Quest în care copilul tău construiește o mică afacere virtuală, pas cu pas: găsește o problemă, conturează o idee, stabilește un preț și ia decizii atunci când lucrurile nu merg conform planului. Pe parcurs exersează educația financiară, rezolvarea de probleme, creativitatea, luarea deciziilor, comunicarea, planificarea, munca în echipă și noțiuni de bază despre afaceri - totul cu bani virtuali, salvați doar pe acest dispozitiv. Este gândită să dezvolte aceste abilități prin joc, nu să încurajeze un copil să pornească o afacere reală fără îndrumarea și implicarea unui adult."
   },
   "privacyPage": {
     "title": "Confidențialitate",
@@ -3982,6 +3985,503 @@
     "thankYouTitle": "Mulțumim!",
     "savedLocallyNote": "Feedback-ul tău este salvat doar pe acest dispozitiv - Money Quest nu are încă un server unde să-l trimită.",
     "saveFailedNote": "Nu am putut salva feedback-ul pe acest dispozitiv chiar acum - browserul tău ar putea bloca stocarea."
+  },
+  "entrepreneurQuest": {
+    "hubTitle": "Misiunea Antreprenorului",
+    "hubTagline": "Învață cum să transformi o idee într-o afacere.",
+    "hubIntro": "Construiește-ți propria afacere virtuală, pas cu pas. Vei lua decizii adevărate, vei vedea ce se întâmplă și vei învăța făcând - nu doar citind și apăsând Continuă.",
+    "virtualMoneyExplainer": "Toți banii din Misiunea Antreprenorului sunt virtuali, doar pentru exersat. Nu sunt bani reali.",
+    "myBusinessTitle": "Afacerea Mea",
+    "myBusinessEmptyHint": "Încă nu ai pornit o afacere. Hai să construim una!",
+    "startBuildingButton": "Începe să-ți Construiești Afacerea",
+    "continueBuildingButton": "Continuă să-ți Construiești Afacerea",
+    "stageProgress": "Etapa {current} din {total}",
+    "buildLink": "Construiește-ți Afacerea",
+    "simulatorLink": "Simulatorul de Afaceri",
+    "challengesLink": "Provocări de Afaceri",
+    "pitchLink": "Prezentarea Afacerii Mele",
+    "pitchLinkLockedHint": "Termină mai întâi de construit afacerea ca să-ți deblochezi prezentarea.",
+    "badgesEarnedTitle": "Insignele Tale",
+    "noBadgesYetHint": "Finalizează etape și provocări ca să câștigi prima ta insignă.",
+    "realWorldMissionsTitle": "Misiuni din Viața Reală (Opțional)",
+    "realWorldMissionsHint": "Acestea sunt doar pentru a observa lucruri din viața reală - nu trebuie să notezi sau să trimiți nimic.",
+    "realWorldMissionDoneLabel": "Marchează ca finalizat",
+    "resetBusinessButton": "Începe o Afacere Nouă",
+    "resetBusinessConfirm": "Aceasta îți va șterge afacerea actuală și vei porni de la zero. Ești sigur?",
+    "backToHub": "Înapoi la Misiunea Antreprenorului",
+    "continueButton": "Continuă",
+    "saveAndContinueButton": "Salvează și Continuă",
+    "stages": {
+      "find-a-problem": {
+        "title": "Găsește o Problemă",
+        "learnText": "Orice afacere bună începe prin rezolvarea unei probleme. O problemă este ceva care îi deranjează pe oameni, le pierde timpul sau este greu de făcut.",
+        "fieldLabel": "Ce problemă ar putea rezolva afacerea ta?",
+        "placeholder": "De exemplu: Prietenii mei nu găsesc niciodată o sticlă de apă care să le placă."
+      },
+      "create-an-idea": {
+        "title": "Creează o Idee",
+        "learnText": "Acum transformă acea problemă într-o idee. Ideea ta este răspunsul tău la problema pe care ai găsit-o.",
+        "fieldLabel": "Care este ideea ta?",
+        "placeholder": "De exemplu: Aș putea face abțibilduri colorate pentru sticle de apă."
+      },
+      "name-your-business": {
+        "title": "Numește-ți Afacerea",
+        "learnText": "Un nume bun de afacere este scurt, ușor de reținut și dă un indiciu despre ce faci.",
+        "fieldLabel": "Cum îți vei numi afacerea?",
+        "placeholder": "De exemplu: Abțibilduri Splash"
+      },
+      "create-your-logo": {
+        "title": "Creează-ți Logo-ul",
+        "learnText": "Un logo este o imagine mică ce îi ajută pe oameni să-ți recunoască afacerea dintr-o privire. Alege o formă, o culoare și un simbol care se potrivesc afacerii tale.",
+        "shapeLabel": "Alege o formă",
+        "colorLabel": "Alege o culoare",
+        "symbolLabel": "Alege un simbol",
+        "sloganLabel": "Scrie un slogan scurt (opțional)",
+        "sloganPlaceholder": "De exemplu: Colorează-ți lumea"
+      },
+      "choose-your-product": {
+        "title": "Alege-ți Produsul",
+        "learnText": "Produsul tău este lucrul (sau serviciul) pe care îl vei vinde de fapt. Alege categoria care i se potrivește cel mai bine, apoi descrie-l cu cuvintele tale.",
+        "categoryLabel": "Ce fel de produs sau serviciu este?",
+        "descriptionLabel": "Descrie-ți produsul sau serviciul",
+        "descriptionPlaceholder": "De exemplu: Un pachet de 10 abțibilduri rezistente la apă."
+      },
+      "choose-your-customer": {
+        "title": "Alege-ți Clientul",
+        "learnText": "Un client este persoana care ar cumpăra cu adevărat produsul tău. Gândindu-te la el te ajută să creezi ceva ce chiar își va dori."
+      },
+      "understand-costs": {
+        "title": "Înțelege Costurile",
+        "learnText": "Costurile reprezintă câți bani este nevoie ca să faci un articol. Dacă te costă puțini bani să faci o brățară, acesta este costul tău pe articol.",
+        "fieldLabel": "Cât te costă să faci UN singur articol?",
+        "helpText": "Aceștia sunt banii pe care îi cheltuiești pe materiale pentru un singur articol, nu pentru toată afacerea ta."
+      },
+      "set-your-price": {
+        "title": "Stabilește-ți Prețul",
+        "learnText": "Prețul tău este suma pe care i-o ceri unui client pentru un articol. Un punct de plecare obișnuit este să ceri cam dublu față de cât te costă să-l faci - dar alegerea îți aparține.",
+        "fieldLabel": "Cât vei cere pentru un articol?",
+        "helpText": "Un preț mic poate însemna că mai mulți oameni cumpără, dar rămâi cu mai puțini bani pe articol. Un preț mare înseamnă mai mulți bani pe articol, dar poate cumpăra mai puțină lume."
+      },
+      "create-your-marketing": {
+        "title": "Creează-ți Marketingul",
+        "learnText": "Marketingul înseamnă să le spui oamenilor despre afacerea ta, ca să știe că există și să înțeleagă ce face. Alege o abordare, apoi vezi ce se întâmplă."
+      },
+      "make-your-first-sale": {
+        "title": "Fă-ți Prima Vânzare",
+        "learnText": "E timpul să vezi ce se întâmplă! Vei decide cum să-ți cheltui banii de pornire, apoi vei afla cum merg primele tale vânzări.",
+        "ctaButton": "Mergi la Simulatorul de Afaceri"
+      },
+      "calculate-your-profit": {
+        "title": "Calculează-ți Profitul",
+        "learnText": "Profitul este banii care îți rămân după ce plătești costurile. Profit = Vânzări minus Costuri.",
+        "resultHint": "Iată profitul tău din Simulatorul de Afaceri.",
+        "noRunYetHint": "Vizitează mai întâi Simulatorul de Afaceri ca să vezi aici un profit real."
+      },
+      "handle-competition": {
+        "title": "Gestionează Concurența",
+        "learnText": "Un concurent este o altă afacere care vinde ceva asemănător cu al tău. Aproape orice afacere are concurenți."
+      },
+      "handle-a-customer-problem": {
+        "title": "Rezolvă o Problemă cu un Client",
+        "learnText": "Afacerile adevărate au uneori probleme cu clienții. Ce contează este cum răspunzi."
+      },
+      "make-a-business-decision": {
+        "title": "Ia o Decizie de Afaceri",
+        "learnText": "Antreprenorii buni își gândesc bine alegerile în loc să ghicească."
+      },
+      "grow-your-business": {
+        "title": "Dezvoltă-ți Afacerea",
+        "learnText": "Uneori lucrurile nu merg cum ai plănuit. A dezvolta o afacere înseamnă adesea să încerci din nou cu ceva nou."
+      },
+      "create-your-final-pitch": {
+        "title": "Creează-ți Prezentarea Finală a Afacerii",
+        "learnText": "Ai construit o afacere! Răspunde la aceste ultime două întrebări, apoi vezi cum arată prezentarea afacerii tale, toată pusă cap la cap.",
+        "whyChooseLabel": "De ce ar putea oamenii să aleagă afacerea ta?",
+        "whyChoosePlaceholder": "De exemplu: Abțibildurile mele sunt rezistente la apă și vin în culori vii pe care nimeni altcineva nu le are.",
+        "nextStepLabel": "Care ar fi următorul tău pas?",
+        "nextStepPlaceholder": "De exemplu: Întreabă cinci prieteni ce alte modele de abțibilduri și-ar dori.",
+        "viewPitchButton": "Vezi Prezentarea Afacerii Mele"
+      }
+    },
+    "decisionEvents": {
+      "product-unclear": {
+        "situation": "Unor clienți le place produsul tău, dar nu înțeleg de fapt ce face.",
+        "choices": [
+          {
+            "key": "explain-simply",
+            "label": "Scrie o propoziție simplă care explică ce face produsul tău",
+            "consequence": "Acum mai mulți oameni înțeleg produsul tău, iar câțiva se hotărăsc să cumpere. Cuvintele clare chiar ajută!"
+          },
+          {
+            "key": "add-picture",
+            "label": "Arată o poză cu cineva care îl folosește",
+            "consequence": "Văzându-l în acțiune, oamenii înțeleg mai repede. Câțiva clienți în plus îl încearcă."
+          },
+          {
+            "key": "do-nothing",
+            "label": "Lasă-l așa cum e și speră că oamenii își vor da seama",
+            "consequence": "Unii clienți tot se simt confuzi și câțiva decid să nu cumpere. De obicei, o explicație clară ajută mai mult decât tăcerea."
+          }
+        ]
+      },
+      "competitor-lower-price": {
+        "situation": "Un concurent începe să vândă ceva asemănător cu produsul tău, dar la un preț mai mic.",
+        "choices": [
+          {
+            "key": "lower-price",
+            "label": "Scade-ți prețul ca să te aliniezi cu ei",
+            "consequence": "Din nou, mai mulți oameni aleg produsul tău, dar rămâi cu mai puțini bani la fiecare vânzare."
+          },
+          {
+            "key": "explain-value",
+            "label": "Păstrează-ți prețul, dar explică de ce merită produsul tău",
+            "consequence": "Unii clienți sunt de acord și rămân cu tine. Alții aleg totuși varianta mai ieftină."
+          },
+          {
+            "key": "ignore",
+            "label": "Păstrează totul exact la fel",
+            "consequence": "Câțiva clienți se îndreaptă spre opțiunea mai ieftină. Concurenții sunt normali - de obicei ajută să reacționezi cumva."
+          }
+        ]
+      },
+      "materials-cost-increase": {
+        "situation": "Materialele de care ai nevoie pentru produsul tău devin brusc mai scumpe.",
+        "choices": [
+          {
+            "key": "raise-price",
+            "label": "Crește-ți puțin prețul ca să acoperi costul suplimentar",
+            "consequence": "Profitul tău pe articol rămâne bun, deși câțiva clienți sensibili la preț ar putea cumpăra mai rar."
+          },
+          {
+            "key": "absorb-cost",
+            "label": "Păstrează-ți prețul la fel și câștigă mai puțin profit pe articol",
+            "consequence": "Clienții nu observă nicio schimbare, dar rămâi cu mai puțini bani din fiecare vânzare."
+          },
+          {
+            "key": "find-cheaper-materials",
+            "label": "Caută un mod mai ieftin de a-ți face produsul",
+            "consequence": "Dacă găsești unul, asta poate rezolva complet problema, deși ar putea dura ceva timp să-l găsești."
+          }
+        ]
+      },
+      "too-expensive-feedback": {
+        "situation": "Un client îți spune că produsul tău este prea scump.",
+        "choices": [
+          {
+            "key": "ask-why",
+            "label": "Întreabă-l ce preț i s-ar părea corect",
+            "consequence": "Afli ceva util despre ce așteaptă clienții, chiar dacă nu-ți schimbi prețul."
+          },
+          {
+            "key": "offer-smaller-version",
+            "label": "Oferă o variantă mai mică și mai ieftină a produsului tău",
+            "consequence": "Unii clienți care nu-și permiteau varianta completă cumpără în schimb varianta mai mică."
+          },
+          {
+            "key": "stand-firm",
+            "label": "Explică faptul că prețul tău reflectă costurile și efortul tău",
+            "consequence": "Unii clienți înțeleg și rămân. Alții tot simt că e prea mult pentru ei - și e în regulă."
+          }
+        ]
+      },
+      "more-orders-than-expected": {
+        "situation": "Mult mai mulți oameni vor să cumpere de la tine decât te așteptai!",
+        "choices": [
+          {
+            "key": "make-more",
+            "label": "Încearcă să produci mai mult ca să faci față",
+            "consequence": "Vinzi mai mult, dar să produci în grabă costă mai mult timp și efort decât de obicei."
+          },
+          {
+            "key": "raise-price-slightly",
+            "label": "Crește-ți puțin prețul, din moment ce cererea e mare",
+            "consequence": "Câștigi mai mult pe articol, deși câțiva clienți decid să aștepte sau să caute în altă parte."
+          },
+          {
+            "key": "waitlist",
+            "label": "Spune-le clienților în plus că vei avea mai multe în curând",
+            "consequence": "Clienții dispuși să aștepte de obicei tot cumpără de la tine mai târziu."
+          }
+        ]
+      },
+      "teammate-wants-change": {
+        "situation": "Cineva care te ajută cu afacerea vrea să schimbe produsul într-un fel de care nu ești sigur.",
+        "choices": [
+          {
+            "key": "hear-them-out",
+            "label": "Roagă-l să-și explice ideea complet înainte să decizi",
+            "consequence": "Afli mai multe despre cum gândește, ceea ce face mult mai ușor să decideți împreună."
+          },
+          {
+            "key": "say-no",
+            "label": "Spune nu și păstrează produsul exact așa cum e",
+            "consequence": "Produsul rămâne la fel, dar coechipierul tău s-ar putea simți neascultat data viitoare când are o idee."
+          },
+          {
+            "key": "try-a-test-version",
+            "label": "Încearcă-i ideea mai întâi doar pe câteva articole, ca test",
+            "consequence": "Poți vedea dacă schimbarea chiar funcționează înainte să schimbi totul."
+          }
+        ]
+      },
+      "fewer-sales-than-expected": {
+        "situation": "Ai făcut mai puține vânzări săptămâna aceasta decât sperai.",
+        "choices": [
+          {
+            "key": "ask-customers",
+            "label": "Întreabă câțiva oameni de ce nu au cumpărat",
+            "consequence": "Primești un feedback real pe care îl poți folosi ca să te îmbunătățești, chiar dacă e greu de auzit."
+          },
+          {
+            "key": "try-something-new",
+            "label": "Încearcă un preț diferit sau un nou mod de a-ți explica produsul",
+            "consequence": "Uneori a încerca ceva nou funcționează mai bine, alteori nu. Oricum ar fi, înveți ceva."
+          },
+          {
+            "key": "keep-going",
+            "label": "Continuă să faci exact același lucru și vezi ce urmează",
+            "consequence": "Unele săptămâni sunt pur și simplu mai lente decât altele. Dar dacă asta continuă, poate merită să încerci ceva diferit."
+          }
+        ]
+      }
+    },
+    "challenges": {
+      "five-pound-challenge": {
+        "title": "Provocarea de {amount}",
+        "situation": "Ai {amount} bani virtuali. Ce ai putea crea cu ei?",
+        "choices": [
+          {
+            "key": "cheap-materials",
+            "label": "Cumpără câteva materiale ieftine și fă mai multe articole mici",
+            "consequence": "Poți face mai multe articole de vândut, deși fiecare ar putea fi simplu."
+          },
+          {
+            "key": "one-good-material",
+            "label": "Cheltuiește totul pe un material de calitate mai bună",
+            "consequence": "Poți face mai puține articole, dar fiecare ar putea părea mai special și ar putea valora mai mult."
+          },
+          {
+            "key": "save-some",
+            "label": "Economisește o parte și cheltuiește restul cu grijă",
+            "consequence": "Începi mai mic, dar tot îți rămân niște bani dacă ai nevoie de ei mai târziu."
+          }
+        ]
+      },
+      "pricing-challenge": {
+        "title": "Provocarea Prețului",
+        "situation": "Produsul tău costă {amount} de făcut. Ce preț vei alege?",
+        "choices": [
+          {
+            "key": "price-low",
+            "label": "Cere puțin mai mult decât te costă",
+            "consequence": "Mai mulți oameni și-l pot permite, dar rămâi doar cu o sumă mică din fiecare vânzare."
+          },
+          {
+            "key": "price-double",
+            "label": "Cere cam dublu față de cât te costă",
+            "consequence": "O alegere obișnuită și echilibrată - majoritatea afacerilor pornesc cam de aici."
+          },
+          {
+            "key": "price-high",
+            "label": "Cere mult mai mult decât te costă",
+            "consequence": "Câștigi mult din fiecare vânzare, dar mai puțini oameni ar putea decide să cumpere."
+          }
+        ]
+      },
+      "customer-challenge": {
+        "title": "Provocarea Clientului",
+        "situation": "Nimeni nu pare interesat de produsul tău. Ce ai putea schimba?",
+        "choices": [
+          {
+            "key": "ask-people",
+            "label": "Întreabă câțiva oameni ce și-ar dori de fapt în schimb",
+            "consequence": "Primești idei reale și utile, chiar dacă unele te surprind."
+          },
+          {
+            "key": "change-product",
+            "label": "Schimbă produsul ca să rezolve o problemă mai mare",
+            "consequence": "Asta chiar poate ajuta, deși necesită timp și efort suplimentar ca să refaci totul."
+          },
+          {
+            "key": "same-different-customer",
+            "label": "Păstrează produsul la fel, dar gândește-te cine altcineva l-ar putea dori",
+            "consequence": "Uneori clientul potrivit e pur și simplu altul decât ai crezut inițial."
+          }
+        ]
+      },
+      "marketing-challenge": {
+        "title": "Provocarea de Marketing",
+        "situation": "Ai {amount} bani virtuali pentru marketing. Cum îi vei folosi?",
+        "choices": [
+          {
+            "key": "tell-friends",
+            "label": "Roagă prietenii și familia să te ajute să răspândească vestea",
+            "consequence": "Asta nu costă nimic și chiar poate ajuta - oamenii au încredere în recomandările din partea celor pe care îi cunosc."
+          },
+          {
+            "key": "make-a-poster",
+            "label": "Cheltuiește-i pe un afiș sau o pancartă care atrage privirea",
+            "consequence": "Un afiș clar și atrăgător poate atrage atenția oamenilor care trec pe acolo."
+          },
+          {
+            "key": "spend-it-all",
+            "label": "Cheltuiește totul încercând să ajungi la cât mai mulți oameni posibil",
+            "consequence": "Ajungi la mai mulți oameni, dar nu-ți mai rămâne nimic dacă apare ceva neașteptat."
+          }
+        ]
+      },
+      "bad-review-challenge": {
+        "title": "Provocarea Recenziei Proaste",
+        "situation": "Un client este nemulțumit de ce a cumpărat de la tine.",
+        "choices": [
+          {
+            "key": "apologize-and-fix",
+            "label": "Cere-ți scuze și oferă-te să-l repari sau să-l înlocuiești",
+            "consequence": "Majoritatea clienților nemulțumiți se simt mult mai bine când cineva le ia problema în serios."
+          },
+          {
+            "key": "explain-politely",
+            "label": "Explică politicos de ce produsul funcționează așa cum funcționează",
+            "consequence": "Uneori asta ajută, mai ales dacă clientul a înțeles greșit ceva."
+          },
+          {
+            "key": "ignore-it",
+            "label": "Ignoră asta și treci la următorul client",
+            "consequence": "Clientul nemulțumit ar putea povesti altora despre experiența lui. De obicei, a răspunde ajută mai mult decât tăcerea."
+          }
+        ]
+      }
+    },
+    "challengesListTitle": "Provocări de Afaceri",
+    "challengesListIntro": "Provocări scurte și independente pe care le poți încerca oricând - fiecare te învață altceva despre cum se conduce o afacere.",
+    "challengeCompletedBadge": "Finalizată",
+    "realWorldMissions": {
+      "find-a-problem-at-home": "Uită-te în jurul tău, acasă sau la școală. Poți găsi o problemă pe care o au oamenii?",
+      "notice-what-people-buy": "Găsește ceva ce oamenii cumpără des. De ce crezi că îl cumpără?",
+      "improve-a-product-you-use": "Alege un produs pe care îl folosești. Ce l-ar putea îmbunătăți?",
+      "ask-someone-what-they-would-change": "Întreabă pe cineva ce ar schimba la un produs pe care îl folosește."
+    },
+    "badges": {
+      "eq-problem-solver": {
+        "name": "Rezolvator de Probleme",
+        "description": "A găsit o problemă reală de rezolvat"
+      },
+      "eq-idea-finder": {
+        "name": "Descoperitor de Idei",
+        "description": "A transformat o problemă într-o idee"
+      },
+      "eq-money-manager": {
+        "name": "Administrator de Bani",
+        "description": "A calculat profitul unei afaceri"
+      },
+      "eq-marketing-explorer": {
+        "name": "Explorator de Marketing",
+        "description": "A exersat să le spună oamenilor despre o afacere"
+      },
+      "eq-young-founder": {
+        "name": "Tânăr Fondator",
+        "description": "A finalizat o prezentare completă de afacere"
+      }
+    },
+    "simulator": {
+      "title": "Simulatorul de Afaceri",
+      "intro": "E timpul să vezi cum merge afacerea ta! Decide cum să-ți cheltui banii de pornire, apoi află ce se întâmplă.",
+      "startingMoneyLabel": "Banii tăi de pornire",
+      "allocateInstructions": "Decide cum să-ți cheltui {amount}.",
+      "categoryMaterials": "Materiale",
+      "categoryPackaging": "Ambalaj",
+      "categoryAdvertising": "Publicitate",
+      "categorySavedAside": "Bani puși deoparte",
+      "seeResultButton": "Vezi Ce Se Întâmplă",
+      "resultTitle": "Iată Ce S-a Întâmplat",
+      "unitsMadeLabel": "Ai făcut {count} articole",
+      "unitsSoldLabel": "Ai vândut {count} dintre ele",
+      "salesLabel": "Vânzări",
+      "costsLabel": "Costuri",
+      "profitLabel": "Profit",
+      "remainingLabel": "Banii pe care îi ai acum",
+      "formulaReminder": "Profit = Vânzări - Costuri",
+      "explanationProfit": "Ai obținut un profit de {profit}! Vânzări minus Costuri egal Profit.",
+      "explanationLoss": "De data aceasta, costurile tale au fost mai mari decât vânzările. Se mai întâmplă uneori - poți încerca din nou cu alte alegeri.",
+      "tryAgainButton": "Încearcă Alte Alegeri"
+    },
+    "pitch": {
+      "title": "Prima Mea Afacere",
+      "myBusinessIsLabel": "Afacerea mea este...",
+      "itHelpsLabel": "Ajută...",
+      "myCustomersAreLabel": "Clienții mei sunt...",
+      "myProductIsLabel": "Produsul sau serviciul meu este...",
+      "itCostsMeLabel": "Mă costă...",
+      "iWouldChargeLabel": "Aș cere...",
+      "iCouldMakeLabel": "Aș putea face...",
+      "whyChooseLabel": "Oamenii ar putea alege afacerea mea pentru că...",
+      "nextStepLabel": "Următorul meu pas ar fi...",
+      "perItemSuffix": "pe articol",
+      "notSetYet": "Încă nedecis",
+      "editBusinessButton": "Editează-mi Afacerea",
+      "notReadyTitle": "Prezentarea Ta Nu Este Încă Gata",
+      "notReadyHint": "Termină mai întâi de construit afacerea și prezentarea ta va apărea aici.",
+      "goToBuildButton": "Continuă să-ți Construiești Afacerea",
+      "reputationLabel": "Reputația afacerii mele este...",
+      "reputationValue": "{stars} din 5 stele"
+    },
+    "productCategories": {
+      "food": "Mâncare",
+      "art": "Artă",
+      "crafts": "Meșteșuguri",
+      "games": "Jocuri",
+      "pets": "Animale de companie",
+      "sports": "Sport",
+      "fashion": "Modă",
+      "technology": "Tehnologie",
+      "education": "Educație",
+      "environment": "Mediu",
+      "helping-people": "Ajutorarea Oamenilor",
+      "other": "Altceva"
+    },
+    "customerCategories": {
+      "kids": "Copii",
+      "families": "Familii",
+      "teens": "Adolescenți",
+      "adults": "Adulți",
+      "school-community": "Comunitatea Școlii Mele",
+      "neighbors": "Vecini",
+      "animal-lovers": "Iubitori de Animale",
+      "other": "Altcineva"
+    },
+    "marketingApproaches": {
+      "poster": "Fă un Afiș",
+      "social-style-advert": "Reclamă în Stil Social Media",
+      "word-of-mouth": "Din Gură în Gură",
+      "school-community-idea": "Idee pentru Școală sau Comunitate",
+      "special-offer": "Ofertă Specială"
+    },
+    "logoShapes": {
+      "circle": "Cerc",
+      "square": "Pătrat",
+      "hexagon": "Hexagon",
+      "star": "Stea"
+    },
+    "safety": {
+      "nameHint": "Folosește un nume amuzant și inventat pentru afacerea ta - nu numele tău real complet, adresa, numărul de telefon sau numele școlii."
+    },
+    "dashboard": {
+      "title": "Compania Mea",
+      "productLabel": "Produs",
+      "customersLabel": "Clienți",
+      "priceLabel": "Preț",
+      "costLabel": "Cost",
+      "profitPerSaleLabel": "Profit pe vânzare",
+      "salesLabel": "Vânzări",
+      "revenueLabel": "Venituri",
+      "costsLabel": "Costuri",
+      "profitLabel": "Profit",
+      "reputationLabel": "Reputație",
+      "reputationValue": "{stars}/5",
+      "goalLabel": "Obiectiv actual",
+      "goalPlaceholder": "De exemplu: Fă 20 de vânzări",
+      "saveGoalButton": "Salvează Obiectivul"
+    }
   },
   "articles": {
     "saving-money-for-kids": {

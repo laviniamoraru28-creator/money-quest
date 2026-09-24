@@ -264,6 +264,503 @@
       "wildwood-slow-season": "Wildwood Nature Co. had een rustiger seizoen dan gebruikelijk voor bezoeken aan zijn natuurreservaten."
     }
   },
+  "entrepreneurQuest": {
+    "hubTitle": "Ondernemersquest",
+    "hubTagline": "Leer hoe je van een idee een bedrijf maakt.",
+    "hubIntro": "Bouw je eigen virtuele bedrijf, stap voor stap. Je neemt echte beslissingen, ziet wat er gebeurt, en leert door te doen - niet door te lezen en op Volgende te klikken.",
+    "virtualMoneyExplainer": "Al het geld in de Ondernemersquest is virtueel, alleen om te oefenen. Het is geen echt geld.",
+    "myBusinessTitle": "Mijn Bedrijf",
+    "myBusinessEmptyHint": "Je bent nog niet begonnen met een bedrijf. Laten we er een bouwen!",
+    "startBuildingButton": "Begin met het Bouwen van je Bedrijf",
+    "continueBuildingButton": "Ga verder met het Bouwen van je Bedrijf",
+    "stageProgress": "Fase {current} van {total}",
+    "buildLink": "Bouw je Bedrijf",
+    "simulatorLink": "Bedrijfssimulator",
+    "challengesLink": "Bedrijfsuitdagingen",
+    "pitchLink": "Mijn Bedrijfspitch",
+    "pitchLinkLockedHint": "Maak eerst je bedrijf af om je pitch te ontgrendelen.",
+    "badgesEarnedTitle": "Jouw Badges",
+    "noBadgesYetHint": "Voltooi fasen en uitdagingen om je eerste badge te verdienen.",
+    "realWorldMissionsTitle": "Opdrachten in de Echte Wereld (Optioneel)",
+    "realWorldMissionsHint": "Deze zijn alleen om dingen op te merken in de echte wereld - er is niets om op te schrijven of in te sturen.",
+    "realWorldMissionDoneLabel": "Markeer als gedaan",
+    "resetBusinessButton": "Begin een Nieuw Bedrijf",
+    "resetBusinessConfirm": "Dit wist je huidige bedrijf en je begint opnieuw. Weet je het zeker?",
+    "backToHub": "Terug naar de Ondernemersquest",
+    "continueButton": "Doorgaan",
+    "saveAndContinueButton": "Opslaan en Doorgaan",
+    "stages": {
+      "find-a-problem": {
+        "title": "Vind een Probleem",
+        "learnText": "Elk goed bedrijf begint met het oplossen van een probleem. Een probleem is iets dat mensen irriteert, hun tijd verspilt, of moeilijk is om te doen.",
+        "fieldLabel": "Welk probleem zou jouw bedrijf kunnen oplossen?",
+        "placeholder": "Bijvoorbeeld: Mijn vrienden kunnen nooit een waterfles vinden die ze leuk vinden."
+      },
+      "create-an-idea": {
+        "title": "Bedenk een Idee",
+        "learnText": "Verander dat probleem nu in een idee. Jouw idee is jouw antwoord op het probleem dat je vond.",
+        "fieldLabel": "Wat is jouw idee?",
+        "placeholder": "Bijvoorbeeld: Ik zou kleurrijke stickers voor waterflessen kunnen maken."
+      },
+      "name-your-business": {
+        "title": "Geef je Bedrijf een Naam",
+        "learnText": "Een goede bedrijfsnaam is kort, makkelijk te onthouden, en geeft een hint over wat je doet.",
+        "fieldLabel": "Hoe ga je jouw bedrijf noemen?",
+        "placeholder": "Bijvoorbeeld: Stickerspetter"
+      },
+      "create-your-logo": {
+        "title": "Maak je Logo",
+        "learnText": "Een logo is een klein plaatje dat mensen helpt jouw bedrijf in één oogopslag te herkennen. Kies een vorm, een kleur en een symbool die bij jouw bedrijf passen.",
+        "shapeLabel": "Kies een vorm",
+        "colorLabel": "Kies een kleur",
+        "symbolLabel": "Kies een symbool",
+        "sloganLabel": "Schrijf een korte slogan (optioneel)",
+        "sloganPlaceholder": "Bijvoorbeeld: Kleur jouw wereld"
+      },
+      "choose-your-product": {
+        "title": "Kies je Product",
+        "learnText": "Jouw product is het echte ding (of de dienst) dat je gaat verkopen. Kies de categorie die het beste past, en beschrijf het dan in je eigen woorden.",
+        "categoryLabel": "Wat voor product of dienst is het?",
+        "descriptionLabel": "Beschrijf je product of dienst",
+        "descriptionPlaceholder": "Bijvoorbeeld: Een pakje van 10 waterdichte stickers."
+      },
+      "choose-your-customer": {
+        "title": "Kies je Klant",
+        "learnText": "Een klant is de persoon die jouw product echt zou kopen. Aan hen denken helpt je iets te maken dat ze ook echt willen."
+      },
+      "understand-costs": {
+        "title": "Begrijp de Kosten",
+        "learnText": "Kosten zijn hoeveel geld het kost om één ding te maken. Als het je 2 kost om een armbandje te maken, is dat jouw kostprijs per stuk.",
+        "fieldLabel": "Hoeveel kost het jou om ÉÉN ding te maken?",
+        "helpText": "Dit is het geld dat je uitgeeft aan materiaal voor maar één stuk, niet voor je hele bedrijf."
+      },
+      "set-your-price": {
+        "title": "Bepaal je Prijs",
+        "learnText": "Jouw prijs is hoeveel je een klant vraagt voor één stuk. Een gangbaar startpunt is ongeveer het dubbele vragen van wat iets jou kost om te maken - maar het is jouw keuze.",
+        "fieldLabel": "Hoeveel ga je vragen voor één stuk?",
+        "helpText": "Een lage prijs kan betekenen dat meer mensen kopen, maar je houdt minder geld over per stuk. Een hoge prijs betekent meer geld per stuk, maar minder mensen kopen misschien."
+      },
+      "create-your-marketing": {
+        "title": "Maak je Marketing",
+        "learnText": "Marketing betekent mensen vertellen over jouw bedrijf, zodat ze weten dat het bestaat, en begrijpen wat het doet. Kies een aanpak, en kijk wat er gebeurt."
+      },
+      "make-your-first-sale": {
+        "title": "Maak je Eerste Verkoop",
+        "learnText": "Tijd om te zien wat er gebeurt! Je beslist hoe je je startgeld uitgeeft, en ontdekt dan hoe je eerste verkopen gaan.",
+        "ctaButton": "Ga naar de Bedrijfssimulator"
+      },
+      "calculate-your-profit": {
+        "title": "Bereken je Winst",
+        "learnText": "Winst is het geld dat je overhoudt nadat je je kosten hebt betaald. Winst = Verkoop min Kosten.",
+        "resultHint": "Hier is jouw winst uit de Bedrijfssimulator.",
+        "noRunYetHint": "Ga eerst naar de Bedrijfssimulator om hier een echt winstcijfer te zien."
+      },
+      "handle-competition": {
+        "title": "Ga om met Concurrentie",
+        "learnText": "Een concurrent is een ander bedrijf dat iets vergelijkbaars verkoopt als jij. Bijna elk bedrijf heeft concurrenten."
+      },
+      "handle-a-customer-problem": {
+        "title": "Los een Klantprobleem Op",
+        "learnText": "Echte bedrijven krijgen soms te maken met problemen met klanten. Wat telt, is hoe je reageert."
+      },
+      "make-a-business-decision": {
+        "title": "Neem een Bedrijfsbeslissing",
+        "learnText": "Goede ondernemers denken goed na over hun keuzes in plaats van gewoon te gokken."
+      },
+      "grow-your-business": {
+        "title": "Laat je Bedrijf Groeien",
+        "learnText": "Soms loopt iets niet zoals gepland. Een bedrijf laten groeien betekent vaak opnieuw proberen met iets nieuws."
+      },
+      "create-your-final-pitch": {
+        "title": "Maak je Laatste Bedrijfspitch",
+        "learnText": "Je hebt een bedrijf gebouwd! Beantwoord deze laatste twee vragen, en bekijk dan je bedrijfspitch helemaal samengesteld.",
+        "whyChooseLabel": "Waarom zouden mensen voor jouw bedrijf kunnen kiezen?",
+        "whyChoosePlaceholder": "Bijvoorbeeld: Mijn stickers zijn waterdicht en komen in felle kleuren die niemand anders heeft.",
+        "nextStepLabel": "Wat zou jouw volgende stap zijn?",
+        "nextStepPlaceholder": "Bijvoorbeeld: Vijf vrienden vragen welke andere stickerontwerpen ze leuk zouden vinden.",
+        "viewPitchButton": "Bekijk Mijn Bedrijfspitch"
+      }
+    },
+    "decisionEvents": {
+      "product-unclear": {
+        "situation": "Sommige klanten vinden jouw product leuk, maar ze begrijpen niet echt wat het doet.",
+        "choices": [
+          {
+            "key": "explain-simply",
+            "label": "Schrijf één simpele zin die uitlegt wat jouw product doet",
+            "consequence": "Meer mensen begrijpen jouw product nu, en een paar besluiten het te kopen. Duidelijke woorden helpen echt!"
+          },
+          {
+            "key": "add-picture",
+            "label": "Laat een foto zien van iemand die het gebruikt",
+            "consequence": "Het in actie zien helpt mensen sneller te begrijpen. Een paar extra klanten proberen het uit."
+          },
+          {
+            "key": "do-nothing",
+            "label": "Laat het zoals het is en hoop dat mensen het zelf snappen",
+            "consequence": "Sommige klanten blijven het verwarrend vinden, en een paar besluiten niet te kopen. Duidelijk uitleggen helpt meestal meer dan stil blijven."
+          }
+        ]
+      },
+      "competitor-lower-price": {
+        "situation": "Een concurrent begint iets vergelijkbaars met jouw product te verkopen, maar voor minder geld.",
+        "choices": [
+          {
+            "key": "lower-price",
+            "label": "Verlaag je prijs om die van hen te evenaren",
+            "consequence": "Meer mensen kiezen weer voor jouw product, maar je houdt minder geld over per verkocht stuk."
+          },
+          {
+            "key": "explain-value",
+            "label": "Houd je prijs zoals hij is, maar leg uit waarom jouw product het waard is",
+            "consequence": "Sommige klanten zijn het ermee eens en blijven bij jou. Anderen kiezen nog steeds de goedkopere optie."
+          },
+          {
+            "key": "ignore",
+            "label": "Houd alles precies hetzelfde",
+            "consequence": "Een paar klanten gaan naar de goedkopere optie toe. Concurrenten zijn normaal - ergens op reageren helpt vaak."
+          }
+        ]
+      },
+      "materials-cost-increase": {
+        "situation": "De materialen die je nodig hebt om je product te maken worden opeens duurder.",
+        "choices": [
+          {
+            "key": "raise-price",
+            "label": "Verhoog je prijs een beetje om de extra kosten te dekken",
+            "consequence": "Jouw winst per stuk blijft gezond, al kunnen een paar prijsgevoelige klanten minder vaak kopen."
+          },
+          {
+            "key": "absorb-cost",
+            "label": "Houd je prijs hetzelfde en verdien minder winst per stuk",
+            "consequence": "Klanten merken niets dat er iets veranderd is, maar jij houdt minder geld over aan elke verkoop."
+          },
+          {
+            "key": "find-cheaper-materials",
+            "label": "Zoek naar een goedkopere manier om je product te maken",
+            "consequence": "Als je er een vindt, kan dit het probleem helemaal oplossen, al kan het even duren om het uit te zoeken."
+          }
+        ]
+      },
+      "too-expensive-feedback": {
+        "situation": "Een klant vertelt je dat jouw product te duur is.",
+        "choices": [
+          {
+            "key": "ask-why",
+            "label": "Vraag hen welke prijs eerlijk zou aanvoelen",
+            "consequence": "Je leert iets nuttigs over wat klanten verwachten, zelfs als je je prijs niet verandert."
+          },
+          {
+            "key": "offer-smaller-version",
+            "label": "Bied een kleinere, goedkopere versie van je product aan",
+            "consequence": "Sommige klanten die de volledige versie niet konden betalen, kopen in plaats daarvan de kleinere."
+          },
+          {
+            "key": "stand-firm",
+            "label": "Leg uit dat je prijs jouw kosten en inspanning weerspiegelt",
+            "consequence": "Sommige klanten begrijpen het en blijven. Anderen vinden het nog steeds te veel voor hen - en dat is oké."
+          }
+        ]
+      },
+      "more-orders-than-expected": {
+        "situation": "Veel meer mensen willen bij jou kopen dan je verwachtte!",
+        "choices": [
+          {
+            "key": "make-more",
+            "label": "Probeer meer product te maken om het bij te houden",
+            "consequence": "Je verkoopt meer, maar extra maken in een haast kost meer tijd en moeite dan normaal."
+          },
+          {
+            "key": "raise-price-slightly",
+            "label": "Verhoog je prijs een beetje omdat de vraag hoog is",
+            "consequence": "Je verdient meer per stuk, al besluiten een paar klanten te wachten of ergens anders te kijken."
+          },
+          {
+            "key": "waitlist",
+            "label": "Vertel extra klanten dat je binnenkort meer klaar hebt",
+            "consequence": "Klanten die bereid zijn te wachten, kopen meestal later alsnog bij jou."
+          }
+        ]
+      },
+      "teammate-wants-change": {
+        "situation": "Iemand die helpt met je bedrijf wil het product veranderen op een manier waar je niet zeker van bent.",
+        "choices": [
+          {
+            "key": "hear-them-out",
+            "label": "Vraag hen hun idee helemaal uit te leggen voordat je beslist",
+            "consequence": "Je leert meer over hun denkwijze, wat het veel makkelijker maakt om samen te beslissen."
+          },
+          {
+            "key": "say-no",
+            "label": "Zeg nee en houd het product precies zoals het is",
+            "consequence": "Het product blijft hetzelfde, maar je teamgenoot voelt zich misschien niet gehoord de volgende keer dat hij of zij een idee heeft."
+          },
+          {
+            "key": "try-a-test-version",
+            "label": "Probeer hun idee eerst op maar een paar stuks, als test",
+            "consequence": "Je kunt zien of de verandering echt werkt voordat je alles verandert."
+          }
+        ]
+      },
+      "fewer-sales-than-expected": {
+        "situation": "Je had deze week minder verkopen dan je had gehoopt.",
+        "choices": [
+          {
+            "key": "ask-customers",
+            "label": "Vraag een paar mensen waarom ze niet kochten",
+            "consequence": "Je krijgt echte feedback die je echt kunt gebruiken om te verbeteren, zelfs als het lastig is om te horen."
+          },
+          {
+            "key": "try-something-new",
+            "label": "Probeer een andere prijs of een nieuwe manier om je product uit te leggen",
+            "consequence": "Iets nieuws proberen werkt soms beter, en soms niet. Hoe dan ook, je leert ervan."
+          },
+          {
+            "key": "keep-going",
+            "label": "Blijf precies hetzelfde doen en kijk wat er hierna gebeurt",
+            "consequence": "Sommige weken zijn gewoon rustiger dan andere. Maar als dit blijft gebeuren, kan het de moeite waard zijn om iets anders te proberen."
+          }
+        ]
+      }
+    },
+    "challenges": {
+      "five-pound-challenge": {
+        "title": "De {amount}-Uitdaging",
+        "situation": "Je hebt {amount} virtueel geld. Wat zou je daarmee kunnen maken?",
+        "choices": [
+          {
+            "key": "cheap-materials",
+            "label": "Koop een paar goedkope materialen en maak meerdere kleine dingen",
+            "consequence": "Je kunt meer dingen maken om te verkopen, al is elk stuk misschien simpel."
+          },
+          {
+            "key": "one-good-material",
+            "label": "Geef het allemaal uit aan één beter materiaal",
+            "consequence": "Je maakt minder dingen, maar elk stuk voelt misschien speciaal en waardevoller aan."
+          },
+          {
+            "key": "save-some",
+            "label": "Spaar een deel en geef de rest voorzichtig uit",
+            "consequence": "Je begint kleiner, maar je hebt nog wat geld over als je het later nodig hebt."
+          }
+        ]
+      },
+      "pricing-challenge": {
+        "title": "De Prijs-Uitdaging",
+        "situation": "Jouw product kost {amount} om te maken. Welke prijs kies je?",
+        "choices": [
+          {
+            "key": "price-low",
+            "label": "Vraag net iets meer dan het jou kost",
+            "consequence": "Meer mensen kunnen het betalen, maar je houdt maar een klein bedrag over per verkoop."
+          },
+          {
+            "key": "price-double",
+            "label": "Vraag ongeveer het dubbele van wat het jou kost",
+            "consequence": "Een gangbare, evenwichtige keuze - de meeste bedrijven beginnen hier ongeveer."
+          },
+          {
+            "key": "price-high",
+            "label": "Vraag veel meer dan het jou kost",
+            "consequence": "Je verdient veel per verkoop, maar minder mensen besluiten misschien te kopen."
+          }
+        ]
+      },
+      "customer-challenge": {
+        "title": "De Klant-Uitdaging",
+        "situation": "Niemand lijkt geïnteresseerd in jouw product. Wat zou je kunnen veranderen?",
+        "choices": [
+          {
+            "key": "ask-people",
+            "label": "Vraag een paar mensen wat ze eigenlijk zouden willen",
+            "consequence": "Je krijgt echte, nuttige ideeën, ook al verrassen sommige je."
+          },
+          {
+            "key": "change-product",
+            "label": "Verander het product om een groter probleem op te lossen",
+            "consequence": "Dit kan echt helpen, al kost het extra tijd en moeite om over te doen."
+          },
+          {
+            "key": "same-different-customer",
+            "label": "Houd het product hetzelfde, maar denk na over wie het anders nog zou willen",
+            "consequence": "Soms was de juiste klant gewoon anders dan je eerst dacht."
+          }
+        ]
+      },
+      "marketing-challenge": {
+        "title": "De Marketing-Uitdaging",
+        "situation": "Je hebt {amount} virtueel geld voor marketing. Hoe ga je het gebruiken?",
+        "choices": [
+          {
+            "key": "tell-friends",
+            "label": "Vraag vrienden en familie om mee te helpen het woord te verspreiden",
+            "consequence": "Dit kost niets en kan echt helpen - mensen vertrouwen aanbevelingen van mensen die ze kennen."
+          },
+          {
+            "key": "make-a-poster",
+            "label": "Geef het uit aan een opvallende poster of bord",
+            "consequence": "Een duidelijke, aantrekkelijke poster kan de aandacht trekken van mensen die voorbijlopen."
+          },
+          {
+            "key": "spend-it-all",
+            "label": "Geef alles uit om zoveel mogelijk mensen te bereiken",
+            "consequence": "Je bereikt meer mensen, maar je hebt niets meer over als er iets onverwachts gebeurt."
+          }
+        ]
+      },
+      "bad-review-challenge": {
+        "title": "De Slechte-Recensie-Uitdaging",
+        "situation": "Een klant is ontevreden over wat hij of zij bij jou kocht.",
+        "choices": [
+          {
+            "key": "apologize-and-fix",
+            "label": "Bied excuses aan en bied aan het te repareren of te vervangen",
+            "consequence": "De meeste ontevreden klanten voelen zich veel beter als iemand hun probleem serieus neemt."
+          },
+          {
+            "key": "explain-politely",
+            "label": "Leg beleefd uit waarom het product op die manier werkt",
+            "consequence": "Dit helpt soms, vooral als de klant iets verkeerd begreep."
+          },
+          {
+            "key": "ignore-it",
+            "label": "Negeer het en ga verder naar de volgende klant",
+            "consequence": "De ontevreden klant vertelt anderen misschien over hun ervaring. Reageren helpt meestal meer dan stil blijven."
+          }
+        ]
+      }
+    },
+    "challengesListTitle": "Bedrijfsuitdagingen",
+    "challengesListIntro": "Korte, op zichzelf staande uitdagingen die je op elk moment kunt proberen - elke leert iets anders over het runnen van een bedrijf.",
+    "challengeCompletedBadge": "Voltooid",
+    "realWorldMissions": {
+      "find-a-problem-at-home": "Kijk eens rond bij jou thuis of op school. Kun je een probleem vinden dat mensen hebben?",
+      "notice-what-people-buy": "Vind iets dat mensen regelmatig kopen. Waarom denk je dat ze het kopen?",
+      "improve-a-product-you-use": "Kies een product dat je gebruikt. Wat zou het beter kunnen maken?",
+      "ask-someone-what-they-would-change": "Vraag iemand wat hij of zij zou veranderen aan een product dat hij of zij gebruikt."
+    },
+    "badges": {
+      "eq-problem-solver": {
+        "name": "Probleemoplosser",
+        "description": "Vond een echt probleem om op te lossen"
+      },
+      "eq-idea-finder": {
+        "name": "Ideeënvinder",
+        "description": "Veranderde een probleem in een idee"
+      },
+      "eq-money-manager": {
+        "name": "Geldbeheerder",
+        "description": "Berekende de winst van een bedrijf"
+      },
+      "eq-marketing-explorer": {
+        "name": "Marketingontdekker",
+        "description": "Oefende met mensen vertellen over een bedrijf"
+      },
+      "eq-young-founder": {
+        "name": "Jonge Oprichter",
+        "description": "Voltooide een volledige bedrijfspitch"
+      }
+    },
+    "simulator": {
+      "title": "Bedrijfssimulator",
+      "intro": "Tijd om te zien hoe jouw bedrijf het doet! Beslis hoe je je startgeld uitgeeft, en ontdek dan wat er gebeurt.",
+      "startingMoneyLabel": "Jouw startgeld",
+      "allocateInstructions": "Beslis hoe je je {amount} uitgeeft.",
+      "categoryMaterials": "Materialen",
+      "categoryPackaging": "Verpakking",
+      "categoryAdvertising": "Reclame",
+      "categorySavedAside": "Geld apart gehouden",
+      "seeResultButton": "Bekijk Wat Er Gebeurt",
+      "resultTitle": "Dit Is Er Gebeurd",
+      "unitsMadeLabel": "Je maakte {count} stuks",
+      "unitsSoldLabel": "Je verkocht er {count} van",
+      "salesLabel": "Verkoop",
+      "costsLabel": "Kosten",
+      "profitLabel": "Winst",
+      "remainingLabel": "Geld dat je nu hebt",
+      "formulaReminder": "Winst = Verkoop - Kosten",
+      "explanationProfit": "Je maakte {profit} winst! Verkoop min Kosten is gelijk aan Winst.",
+      "explanationLoss": "Deze keer waren je kosten hoger dan je verkoop. Dat gebeurt soms - je kunt het opnieuw proberen met andere keuzes.",
+      "tryAgainButton": "Probeer Andere Keuzes"
+    },
+    "pitch": {
+      "title": "Mijn Eerste Bedrijf",
+      "myBusinessIsLabel": "Mijn bedrijf is...",
+      "itHelpsLabel": "Het helpt...",
+      "myCustomersAreLabel": "Mijn klanten zijn...",
+      "myProductIsLabel": "Mijn product of dienst is...",
+      "itCostsMeLabel": "Het kost mij...",
+      "iWouldChargeLabel": "Ik zou vragen...",
+      "iCouldMakeLabel": "Ik zou kunnen verdienen...",
+      "whyChooseLabel": "Mensen zouden voor mijn bedrijf kunnen kiezen omdat...",
+      "nextStepLabel": "Mijn volgende stap zou zijn...",
+      "perItemSuffix": "per stuk",
+      "notSetYet": "Nog niet beslist",
+      "editBusinessButton": "Bewerk Mijn Bedrijf",
+      "notReadyTitle": "Jouw Pitch Is Nog Niet Klaar",
+      "notReadyHint": "Maak eerst je bedrijf af, en je pitch verschijnt hier.",
+      "goToBuildButton": "Ga verder met het Bouwen van je Bedrijf",
+      "reputationLabel": "De reputatie van mijn bedrijf is...",
+      "reputationValue": "{stars} van de 5 sterren"
+    },
+    "productCategories": {
+      "food": "Eten",
+      "art": "Kunst",
+      "crafts": "Knutselwerk",
+      "games": "Spellen",
+      "pets": "Huisdieren",
+      "sports": "Sport",
+      "fashion": "Mode",
+      "technology": "Technologie",
+      "education": "Onderwijs",
+      "environment": "Milieu",
+      "helping-people": "Mensen Helpen",
+      "other": "Iets Anders"
+    },
+    "customerCategories": {
+      "kids": "Kinderen",
+      "families": "Gezinnen",
+      "teens": "Tieners",
+      "adults": "Volwassenen",
+      "school-community": "Mijn Schoolgemeenschap",
+      "neighbors": "Buren",
+      "animal-lovers": "Dierenliefhebbers",
+      "other": "Iemand Anders"
+    },
+    "marketingApproaches": {
+      "poster": "Maak een Poster",
+      "social-style-advert": "Advertentie in Sociale-Media-Stijl",
+      "word-of-mouth": "Mond-tot-Mondreclame",
+      "school-community-idea": "Idee voor School of Buurt",
+      "special-offer": "Speciale Aanbieding"
+    },
+    "logoShapes": {
+      "circle": "Cirkel",
+      "square": "Vierkant",
+      "hexagon": "Zeshoek",
+      "star": "Ster"
+    },
+    "safety": {
+      "nameHint": "Gebruik een leuke verzonnen naam voor jouw bedrijf - niet je echte volledige naam, adres, telefoonnummer of schoolnaam."
+    },
+    "dashboard": {
+      "title": "Mijn Onderneming",
+      "productLabel": "Product",
+      "customersLabel": "Klanten",
+      "priceLabel": "Prijs",
+      "costLabel": "Kosten",
+      "profitPerSaleLabel": "Winst per verkoop",
+      "salesLabel": "Verkoop",
+      "revenueLabel": "Omzet",
+      "costsLabel": "Kosten",
+      "profitLabel": "Winst",
+      "reputationLabel": "Reputatie",
+      "reputationValue": "{stars}/5",
+      "goalLabel": "Huidig doel",
+      "goalPlaceholder": "Bijvoorbeeld: Maak 20 verkopen",
+      "saveGoalButton": "Doel Opslaan"
+    }
+  },
   "categories": {
     "needs": "Behoeften",
     "wants": "Wensen",
@@ -362,7 +859,8 @@
     "spendSome": "Geef iets uit",
     "moneyPersonalityLink": "Geldpersoonlijkheid",
     "levelActivityProgress": "Level {level} · Activiteit {position} van {total}",
-    "investingLabLink": "Investeringslab →"
+    "investingLabLink": "Investeringslab →",
+    "entrepreneurQuestLink": "Ondernemersquest →"
   },
   "parentInfo": {
     "title": "Informatie voor Ouders",
@@ -404,7 +902,9 @@
     "pq5Body": "Het werkt goed samen met je kind voor de eerste paar lessen, of als iets wat het zelfstandig verkent zodra het ermee vertrouwd is. Na een les is een goede vervolgvraag simpelweg \"wat heb je geleerd?\" - de lessen zijn kort genoeg dat het meestal het concrete voorbeeld onthoudt, niet alleen een vaag onderwerp.",
     "pq6Title": "Hoe kan ik thuis met mijn kind over geld praten?",
     "pq6Body": "Een paar startpunten: vraag wat het met een vast bedrag zou doen voordat je vertelt wat jij zou doen. Vraag tijdens het samen winkelen hardop \"hebben we dit nodig, of willen we het gewoon?\", zodat het onderscheid een gewoonte wordt in plaats van alleen een regel. Als het iets duurs wil, reken samen uit hoeveel weken sparen dat zou kosten - een concreet getal landt vaak beter dan \"misschien later\". Niets hiervan vereist dat je je eigen financiën met je kind deelt - het gesprek telt meer dan de details.",
-    "privacySectionTitle": "Privacy en Jouw Gegevens"
+    "privacySectionTitle": "Privacy en Jouw Gegevens",
+    "pq7Title": "Wat is de Ondernemersquest?",
+    "pq7Body": "Een nieuw onderdeel van Money Quest waarin je kind stap voor stap een klein virtueel bedrijf bouwt: een probleem vinden, een idee vormgeven, een prijs bepalen, en beslissingen nemen als iets niet volgens plan gaat. Ondertussen oefent het financiële geletterdheid, probleemoplossing, creativiteit, besluitvorming, communicatie, planning, samenwerking en basisbegrippen van ondernemen - helemaal met virtueel geld, dat alleen op dit apparaat wordt bewaard. Het is bedoeld om deze vaardigheden spelenderwijs op te bouwen, niet om een kind aan te moedigen zonder begeleiding en betrokkenheid van een volwassene een echt bedrijf te beginnen."
   },
   "privacyPage": {
     "title": "Privacy",
