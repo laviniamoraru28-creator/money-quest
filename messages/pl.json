@@ -379,6 +379,14 @@
         "nextStepLabel": "Jaki byłby twój następny krok?",
         "nextStepPlaceholder": "Na przykład: Zapytać pięciu przyjaciół, jakie inne wzory naklejek by im się podobały.",
         "viewPitchButton": "Zobacz Moją Prezentację Biznesową"
+      },
+      "research-demand": {
+        "title": "Zbadaj Popyt",
+        "learnText": "Zanim zaczniesz cokolwiek budować, sprytni przedsiębiorcy sprawdzają, czy ludzie naprawdę to kupią. Spójrz na dane rynkowe poniżej."
+      },
+      "test-the-idea": {
+        "title": "Przetestuj Pomysł",
+        "learnText": "Kuszące jest, żeby od razu zabrać się za budowanie - ale przetestowanie najpierw małego pomysłu może uchronić cię przed kosztownym błędem."
       }
     },
     "decisionEvents": {
@@ -519,6 +527,41 @@
             "key": "keep-going",
             "label": "Rób dokładnie to samo i zobacz, co będzie dalej",
             "consequence": "Niektóre tygodnie są po prostu wolniejsze niż inne. Ale jeśli to się powtarza, może warto spróbować czegoś innego."
+          }
+        ]
+      },
+      "market-detective-reflection": {
+        "situation": "Patrząc na dane rynkowe dotyczące Świeżego Pstrąga, co o tym myślisz?",
+        "choices": [
+          {
+            "key": "looks-like-a-good-opportunity",
+            "label": "To wygląda na świetną okazję",
+            "consequence": "Wielu zainteresowanych klientów to dobry znak! Ale pamiętaj: wysoki popyt nie oznacza automatycznie wysokiego zysku - to nadal zależy od kosztów i tego, ilu konkurentów już sprzedaje."
+          },
+          {
+            "key": "needs-more-thought",
+            "label": "To wymaga jeszcze przemyślenia, zanim podejmiesz decyzję",
+            "consequence": "Dobry instynkt - tylko 75 z 300 zainteresowanych osób rzeczywiście ostatnio kupiło, a jest już 4 konkurentów. Dokładniejsze sprawdzenie przed zaangażowaniem się to mądre posunięcie."
+          },
+          {
+            "key": "not-sure-yet",
+            "label": "Jeszcze nie jestem pewien",
+            "consequence": "To dobry punkt wyjścia - prawdziwi przedsiębiorcy często potrzebują więcej informacji, zanim nabiorą pewności. Spójrz jeszcze raz na ceny konkurencji i wzorzec popytu."
+          }
+        ]
+      },
+      "test-before-invest": {
+        "situation": "Masz trochę pieniędzy na start. Jak chcesz zacząć?",
+        "choices": [
+          {
+            "key": "spend-it-all-now",
+            "label": "Wydać wszystko od razu na budowanie firmy",
+            "consequence": "Jesteś w pełni zaangażowany od pierwszego dnia - ale jeśli pomysł się nie sprawdzi, wydałeś już wszystko, żeby się o tym przekonać."
+          },
+          {
+            "key": "test-a-little-first",
+            "label": "Wydać najpierw trochę, żeby sprawdzić, czy klienci naprawdę kupią",
+            "consequence": "Dowiadujesz się wcześnie - i tanio - czy ludzie naprawdę tego chcą, zanim zaryzykujesz wszystko."
           }
         ]
       }
@@ -758,7 +801,625 @@
       "reputationValue": "{stars}/5",
       "goalLabel": "Aktualny cel",
       "goalPlaceholder": "Na przykład: Zrób 20 sprzedaży",
-      "saveGoalButton": "Zapisz Cel"
+      "saveGoalButton": "Zapisz Cel",
+      "cashLabel": "Gotówka",
+      "customersTotalLabel": "Klienci",
+      "repeatCustomersLabel": "Stali Klienci",
+      "stockLabel": "Zapas",
+      "demandLabel": "Popyt",
+      "showMoreButton": "Pokaż więcej szczegółów",
+      "showLessButton": "Pokaż mniej szczegółów"
+    },
+    "phases": {
+      "build": "Buduj",
+      "run": "Prowadź",
+      "rescueGrow": "Ratuj i Rozwijaj"
+    },
+    "levels": {
+      "low": "Niski",
+      "medium": "Średni",
+      "high": "Wysoki"
+    },
+    "demandLevels": {
+      "low": "Niski",
+      "medium": "Średni",
+      "high": "Wysoki",
+      "seasonal-high": "Wysoki (Sezonowo)",
+      "seasonal-low": "Niski (Sezonowo)"
+    },
+    "problemFlow": {
+      "investigateLabel": "Zbadaj",
+      "tapToReveal": "Dotknij, aby odsłonić",
+      "causeLabel": "Jaka jest prawdopodobna przyczyna?",
+      "responseLabel": "Co zrobisz?"
+    },
+    "problemsListIntro": "Prawdziwe firmy napotykają problemy. Zbadaj każdy z nich, korzystając z danych, a potem zdecyduj, jak zareagujesz.",
+    "marketDetective": {
+      "scenarioTitle": "Świeży Pstrąg: Rynek do Zbadania",
+      "interestedCustomersLabel": "Zainteresowani Klienci",
+      "recentBuyersLabel": "Niedawni Kupujący",
+      "competitorCountLabel": "Konkurenci",
+      "competitorPriceLabel": "Średnia Cena Konkurencji",
+      "productionCostLabel": "Szacowany Koszt Produkcji",
+      "weekendDemandLabel": "Popyt w Weekend",
+      "winterDemandLabel": "Popyt Zimą",
+      "demandLadderTitle": "Od Zainteresowania do Stałych Klientów",
+      "demandLadder": {
+        "likeTheIdea": "Osoby, którym podoba się pomysł",
+        "mightBuy": "Osoby, które mogą kupić",
+        "actuallyBuy": "Osoby, które naprawdę kupują",
+        "becomeRepeatCustomers": "Osoby, które stają się stałymi klientami"
+      }
+    },
+    "problems": {
+      "not-enough-customers": {
+        "title": "Za Mało Klientów",
+        "situation": "Twoja firma działa już od jakiegoś czasu, ale prawie nikt nie kupuje.",
+        "responsePrompt": "Co zrobisz?",
+        "clues": {
+          "footTraffic": "W zeszłym miesiącu mniej osób odwiedzało twoje stoisko lub sklep.",
+          "onlineViews": "Niewiele osób ogląda twoje posty czy ogłoszenia.",
+          "competitorActivity": "Podobna firma w pobliżu ma pełno klientów."
+        },
+        "causes": {
+          "wrong-customer-group": {
+            "label": "Może nie docierasz do właściwych klientów",
+            "feedback": "To możliwe - warto sprawdzić, komu tak naprawdę próbujesz sprzedawać."
+          },
+          "weak-marketing": {
+            "label": "Może za mało osób wie o twojej firmie",
+            "feedback": "To może być to - jeśli ludzie nie wiedzą, że istniejesz, nie mogą od ciebie kupić."
+          },
+          "price-too-high": {
+            "label": "Może twoja cena wydaje się ludziom za wysoka",
+            "feedback": "To też warto rozważyć - cena wpływa na to, ile osób decyduje się kupić."
+          }
+        },
+        "responses": {
+          "improve-marketing": {
+            "label": "Powiedz o swojej firmie większej liczbie osób",
+            "consequence": "Wydajesz trochę więcej na rozgłos, a kilku nowych klientów cię znajduje."
+          },
+          "research-customers": {
+            "label": "Zapytaj ludzi, czego naprawdę chcą",
+            "consequence": "Nie sprzedajesz od razu więcej, ale dowiadujesz się czegoś, co może pomóc później."
+          },
+          "lower-price-temporarily": {
+            "label": "Obniż cenę na krótki czas",
+            "consequence": "Więcej osób decyduje się wypróbować twój produkt, choć zarabiasz trochę mniej na każdej sztuce."
+          }
+        }
+      },
+      "costs-increased": {
+        "title": "Koszty Wzrosły",
+        "situation": "Materiały, których używasz do zrobienia produktu, nagle stały się droższe.",
+        "responsePrompt": "Co zrobisz?",
+        "clues": {
+          "supplierPriceNotice": "Twój dostawca wysłał wiadomość, że jego ceny wzrosły.",
+          "fuelPrices": "Koszt paliwa i dostaw też rósł.",
+          "wageChanges": "Nic się nie zmieniło w tym, ile płacisz za pomoc - ta część pozostaje taka sama."
+        },
+        "causes": {
+          "supplier-price-rise": {
+            "label": "Twój dostawca po prostu teraz więcej liczy",
+            "feedback": "To pasuje do tego, co mówiła wiadomość od dostawcy."
+          },
+          "inflation": {
+            "label": "Ceny wszędzie w tym momencie rosną",
+            "feedback": "To też część tego - czasami wiele kosztów rośnie razem."
+          },
+          "more-materials-needed": {
+            "label": "Używasz więcej materiałów niż wcześniej",
+            "feedback": "To możliwe, ale wskazówki bardziej wskazują na zmianę ceny samego dostawcy."
+          }
+        },
+        "responses": {
+          "absorb-the-cost": {
+            "label": "Zostaw cenę bez zmian i zarabiaj mniejszy zysk",
+            "consequence": "Klienci nie zauważają żadnej zmiany, ale ty zostajesz z mniejszą kwotą z każdej sprzedaży."
+          },
+          "raise-your-price": {
+            "label": "Podnieś trochę cenę, żeby to pokryć",
+            "consequence": "Twój zysk na sztuce pozostaje zdrowy, choć kilku klientów może kupować rzadziej."
+          },
+          "find-a-cheaper-supplier": {
+            "label": "Poszukaj tańszego dostawcy",
+            "consequence": "Jeśli go znajdziesz, może to całkowicie rozwiązać problem - choć może to zająć trochę czasu, a jakość może być inna."
+          }
+        }
+      },
+      "negative-review": {
+        "title": "Negatywna Opinia",
+        "situation": "Klient zostawił opinię mówiącą, że jest niezadowolony z tego, co kupił.",
+        "responsePrompt": "Co zrobisz?",
+        "clues": {
+          "reviewText": "W opinii jest napisane, że przedmiot dotarł lekko uszkodzony.",
+          "otherReviews": "Twoje pozostałe niedawne opinie były wszystkie pozytywne.",
+          "returnRequests": "To pierwszy raz, kiedy ktoś prosi o wymianę."
+        },
+        "causes": {
+          "product-fault": {
+            "label": "Coś poszło nie tak z tym jednym przedmiotem",
+            "feedback": "To pasuje - twoje pozostałe opinie są dobre, więc to wygląda na jednorazowy przypadek."
+          },
+          "unclear-instructions": {
+            "label": "Może instrukcje nie były wystarczająco jasne",
+            "feedback": "Możliwe, ale opinia dotyczy uszkodzenia, a nie zamieszania."
+          },
+          "slow-response": {
+            "label": "Może zbyt długo zwlekałeś z odpowiedzią",
+            "feedback": "Warto o tym pomyśleć, ale sama opinia mówi o tym, że produkt dotarł uszkodzony."
+          }
+        },
+        "responses": {
+          "apologise-and-fix": {
+            "label": "Przeprosić i zaoferować naprawę lub wymianę",
+            "consequence": "Klient czuje się wysłuchany, a większość ludzi czuje się dużo lepiej, kiedy ich problem jest traktowany poważnie."
+          },
+          "offer-replacement": {
+            "label": "Wysłać darmową wymianę",
+            "consequence": "Kosztuje cię to trochę, ale klient jest zadowolony i może znowu u ciebie kupić."
+          },
+          "ignore-and-move-on": {
+            "label": "Zostawić to i zająć się innymi klientami",
+            "consequence": "Niezadowolony klient może opowiedzieć innym o swoim doświadczeniu - reagowanie zwykle pomaga bardziej niż milczenie."
+          }
+        }
+      },
+      "sales-falling": {
+        "title": "Sprzedaż Spada",
+        "situation": "Twoja sprzedaż spada od kilku tygodni.",
+        "responsePrompt": "Co zrobisz?",
+        "clues": {
+          "salesChart": "Sprzedaż była stabilna, a zaczęła spadać jakieś trzy tygodnie temu.",
+          "competitorPrices": "Mniej więcej w tym samym czasie konkurent zaczął sprzedawać coś podobnego taniej.",
+          "customerFeedback": "Kilku klientów wspomniało, że twój produkt wydaje się 'taki sam jak zawsze'."
+        },
+        "causes": {
+          "price-too-high-now": {
+            "label": "Twoja cena wydaje się wysoka w porównaniu z konkurentem",
+            "feedback": "Czas pasuje do momentu, kiedy pojawił się konkurent - to wygląda prawdopodobnie."
+          },
+          "new-competitor": {
+            "label": "Nowy konkurent przejmuje część klientów",
+            "feedback": "To dobrze pasuje do czasu, kiedy to się zaczęło."
+          },
+          "product-losing-novelty": {
+            "label": "Klienci po prostu przyzwyczajają się do produktu",
+            "feedback": "To też możliwe - komentarz o tym, że jest 'taki sam jak zawsze', na to wskazuje."
+          }
+        },
+        "responses": {
+          "run-a-special-offer": {
+            "label": "Zrobić krótką specjalną promocję",
+            "consequence": "Kilku klientów, którzy się oddalili, wraca, żeby spróbować ponownie."
+          },
+          "refresh-the-product": {
+            "label": "Odświeżyć lub ulepszyć produkt",
+            "consequence": "Wprowadzenie zmiany trochę kosztuje, ale klienci zauważają coś nowego i kilku więcej wraca."
+          },
+          "ask-customers-directly": {
+            "label": "Zapytać klientów wprost, co myślą",
+            "consequence": "Nie sprzedajesz od razu więcej, ale dowiadujesz się czegoś użytecznego, na czym możesz działać."
+          }
+        }
+      },
+      "rising-costs-eating-profit": {
+        "title": "Dlaczego Nie Zarabiamy Pieniędzy?",
+        "situation": "Sprzedaż rośnie i przychód też rośnie - ale zysk wciąż spada.",
+        "responsePrompt": "Co zrobisz?",
+        "clues": {
+          "priceHistory": "Twoja cena nie zmieniła się od miesięcy.",
+          "productionCostHistory": "Wykonanie każdej sztuki z czasem po cichu stało się trochę droższe.",
+          "advertisingSpend": "Wydajesz więcej na reklamę, żeby utrzymać wzrost sprzedaży."
+        },
+        "causes": {
+          "advertising-spend-too-high": {
+            "label": "Reklama kosztuje więcej, niż przynosi",
+            "feedback": "To pasuje - wydawanie więcej, żeby utrzymać ten sam wzrost, zjada zysk."
+          },
+          "waste-in-production": {
+            "label": "Część materiałów może się marnować",
+            "feedback": "Warto to sprawdzić, choć wskazówki wskazują bardziej bezpośrednio na rosnące koszty reklamy i produkcji."
+          },
+          "discounts-too-generous": {
+            "label": "Może rabaty były zbyt hojne",
+            "feedback": "Możliwe - rabaty mogą po cichu zmniejszać zysk, nawet gdy sprzedaż wygląda dobrze."
+          }
+        },
+        "responses": {
+          "review-advertising-spend": {
+            "label": "Sprawdzić, czy reklama jest warta swojego kosztu",
+            "consequence": "Ograniczasz to, co nie działa, a koszty spadają bez utraty wielu sprzedaży."
+          },
+          "reduce-waste": {
+            "label": "Poszukać sposobów na zmniejszenie marnotrawstwa w produkcji",
+            "consequence": "Znalezienie źródła wymaga trochę wysiłku, ale każda sztuka kosztuje teraz trochę mniej do wykonania."
+          },
+          "adjust-discounts": {
+            "label": "Oferować mniejsze rabaty",
+            "consequence": "Zostaje ci więcej z każdej sprzedaży, choć kilku klientów szukających rabatów kupuje mniej."
+          }
+        }
+      },
+      "profit-but-no-cash": {
+        "title": "Zysk Bez Gotówki",
+        "situation": "Twoje liczby pokazują zysk - ale nie masz teraz wystarczająco dużo dostępnych pieniędzy, żeby zapłacić za to, czego potrzebujesz.",
+        "responsePrompt": "Co zrobisz?",
+        "clues": {
+          "unpaidInvoices": "Niektórzy klienci jeszcze ci nie zapłacili za niedawne zamówienia.",
+          "cashOnHand": "Pieniądze, które naprawdę masz dostępne, są dużo niższe niż twoja liczba zysku.",
+          "upcomingBills": "Masz rachunek od dostawcy, który trzeba wkrótce zapłacić."
+        },
+        "causes": {
+          "customers-pay-late": {
+            "label": "Klienci płacą ci później niż oczekiwano",
+            "feedback": "To pasuje do niezapłaconych faktur."
+          },
+          "spent-too-much-on-equipment": {
+            "label": "Ostatnio wydałeś dużo na sprzęt",
+            "feedback": "Możliwe, ale wskazówki wskazują bardziej na pieniądze, które są ci winni, a nie te, które wydałeś."
+          },
+          "stock-tied-up-money": {
+            "label": "Pieniądze są uwięzione w niesprzedanym zapasie",
+            "feedback": "To też realna możliwość - zapas to pieniądze, które jeszcze nie zamieniły się w gotówkę."
+          }
+        },
+        "responses": {
+          "ask-for-faster-payment": {
+            "label": "Poprosić klientów o szybszą zapłatę",
+            "consequence": "Niektórzy klienci płacą szybciej, kiedy się o to poprosi, co przynosi gotówkę, którą byli ci winni."
+          },
+          "use-savings": {
+            "label": "Wykorzystać odłożone pieniądze",
+            "consequence": "To pokrywa lukę na teraz, choć twoja rezerwa jest potem mniejsza."
+          },
+          "delay-a-purchase": {
+            "label": "Opóźnić zakup, który planowałeś",
+            "consequence": "To uwalnia trochę gotówki teraz, choć możesz stracić okazję, dla której to było."
+          }
+        }
+      },
+      "too-much-stock": {
+        "title": "Za Dużo Niesprzedanego Zapasu",
+        "situation": "Zrobiłeś więcej sztuk, niż udało ci się sprzedać, i zajmują one miejsce.",
+        "responsePrompt": "Co zrobisz?",
+        "clues": {
+          "stockRoomPhoto": "Twój magazyn jest pełniejszy niż kiedykolwiek.",
+          "unsoldItemsList": "Niektóre przedmioty leżą niesprzedane od tygodni.",
+          "seasonalTrend": "Popyt na ten rodzaj produktu jest zwykle niższy o tej porze roku."
+        },
+        "causes": {
+          "over-ordered": {
+            "label": "Zrobiłeś lub zamówiłeś więcej, niż było potrzeba",
+            "feedback": "To pasuje do tego, co pokazują liczby z magazynu."
+          },
+          "demand-was-seasonal": {
+            "label": "Popyt naturalnie spada o tej porze roku",
+            "feedback": "To też pasuje do sezonowego wzorca."
+          },
+          "product-less-popular-than-expected": {
+            "label": "Produkt nie był tak popularny, jak się spodziewano",
+            "feedback": "Możliwe - warto to zapamiętać na następny raz."
+          }
+        },
+        "responses": {
+          "run-a-clearance-sale": {
+            "label": "Sprzedać dodatkowy zapas po niższej cenie",
+            "consequence": "Zamieniasz niesprzedany zapas na gotówkę, mimo że zarabiasz mniej na każdej sztuce."
+          },
+          "donate-or-repurpose": {
+            "label": "Przekazać na cel dobroczynny lub wykorzystać inaczej dodatkowy zapas",
+            "consequence": "Nie odzyskujesz pieniędzy, ale zwalniasz miejsce, a twoja reputacja trochę rośnie."
+          },
+          "order-less-next-time": {
+            "label": "Po prostu zapamiętać, żeby zamówić mniej następnym razem",
+            "consequence": "Teraz nic się nie zmienia, ale nauczyłeś się czegoś na następne zamówienie."
+          }
+        }
+      }
+    },
+    "run": {
+      "hubTitle": "Prowadź Swoją Firmę",
+      "hubIntro": "Twoja firma już istnieje - ale dobre prowadzenie jej oznacza podejmowanie prawdziwych decyzji o cenach, dostawcach, gotówce i problemach po drodze.",
+      "lockedTitle": "Jeszcze Nie Gotowe",
+      "lockedHint": "Najpierw dokończ budowanie swojej firmy, a potem wróć tutaj, żeby zacząć nią kierować.",
+      "pricingExperimentLink": "Eksperyment Cenowy",
+      "supplierAndStockLink": "Dostawcy i Zapasy",
+      "cashFlowLink": "Przepływ Gotówki",
+      "problemsLink": "Problemy Biznesowe",
+      "problemsProgress": "{done} z {total} rozwiązanych",
+      "pricingExperiment": {
+        "intro": "Ten sam produkt można wycenić inaczej. Zobacz, co dzieje się ze sprzedażą, przychodem, kosztami i zyskiem przy trzech różnych cenach.",
+        "priceColumn": "Cena",
+        "unitsSoldColumn": "Sprzedane Sztuki",
+        "reflectionPrompt": "Patrząc na liczby, jaką cenę wybrałbyś dla takiej firmy?",
+        "reflectionChoices": {
+          "pick-low-price": {
+            "label": "Najniższą cenę",
+            "consequence": "Wiele osób kupuje, ale zarabiasz najmniej na każdej sztuce - sprawdź, czy całkowity zysk jest naprawdę najwyższy."
+          },
+          "pick-middle-price": {
+            "label": "Cenę środkową",
+            "consequence": "Równowaga między tym, ile osób kupuje, a tym, ile zarabiasz na każdej sztuce."
+          },
+          "pick-high-price": {
+            "label": "Najwyższą cenę",
+            "consequence": "Mniej osób kupuje, ale zarabiasz więcej na każdej sprzedaży - sprawdź, czy to daje w sumie więcej czy mniej zysku."
+          }
+        }
+      },
+      "supplierAndStock": {
+        "intro": "Wybór dostawcy to kompromis - rzadko istnieje jedna idealna odpowiedź. Porównaj swoje opcje, a potem zdecyduj.",
+        "supplierColumn": "Dostawca",
+        "priceLevelLabel": "Cena",
+        "deliverySpeedLabel": "Szybkość Dostawy",
+        "minimumOrderLabel": "Minimalne Zamówienie",
+        "qualityLabel": "Jakość",
+        "supplierPrompt": "Którego dostawcę wybierzesz?",
+        "suppliers": {
+          "supplier-a": {
+            "label": "Dostawca A",
+            "consequence": "Oszczędzasz na materiałach, ale dostawy trwają dłużej i musisz zamawiać dużo naraz."
+          },
+          "supplier-b": {
+            "label": "Dostawca B",
+            "consequence": "Dostajesz materiały szybko i możesz zamawiać małe ilości, ale płacisz za to więcej."
+          },
+          "supplier-c": {
+            "label": "Dostawca C",
+            "consequence": "Płacisz trochę więcej niż za najtańszą opcję, ale dostawa jest niezawodna, a jakość wysoka."
+          }
+        },
+        "stockPrompt": "Ile zapasu zamówisz?",
+        "stockChoices": {
+          "order-a-lot": {
+            "label": "Zamówić dużo, na wszelki wypadek",
+            "consequence": "Nie zabraknie ci towaru, ale jeśli nie wszystko się sprzeda, zmarnujesz pieniądze na niesprzedany zapas."
+          },
+          "order-just-enough": {
+            "label": "Zamówić dokładnie tyle, ile spodziewasz się sprzedać",
+            "consequence": "Zrównoważone podejście - choć jeśli popyt nagle wzrośnie, może ci zabraknąć towaru."
+          },
+          "order-a-little-and-restock": {
+            "label": "Zamówić trochę i dokupić później, jeśli będzie trzeba",
+            "consequence": "Unikasz marnotrawstwa, ale jeśli popyt gwałtownie wzrośnie, możesz stracić kilka sprzedaży, zanim dotrze uzupełnienie."
+          }
+        }
+      },
+      "cashFlow": {
+        "intro": "Nawet dochodowa firma może wpaść w kłopoty finansowe, jeśli gotówka nie napłynie wtedy, gdy jest potrzebna.",
+        "decisionPrompt": "Co zrobisz?",
+        "scenarioText": "Klient zamawia towar o wartości {orderAmount}, ale nie zapłaci przez {days} dni. Tymczasem musisz teraz zapłacić {upfrontCosts} za materiały, wynagrodzenia, prąd i transport.",
+        "profitVsCashExplainer": "Zysk to pieniądze, które zarobiłeś na papierze. Gotówka to pieniądze, które naprawdę możesz wydać dzisiaj - i nie zawsze są to te same pieniądze.",
+        "choices": {
+          "wait-for-payment": {
+            "label": "Poczekać na wpłatę",
+            "consequence": "Nie wydajesz nic dodatkowego, ale będziesz mieć bardzo mało dostępnej gotówki, dopóki płatność nie wpłynie."
+          },
+          "use-savings-to-cover-costs": {
+            "label": "Wykorzystać zaoszczędzone pieniądze, żeby pokryć koszty teraz",
+            "consequence": "Twoje rachunki są płacone na czas, choć twoje oszczędności są niższe, dopóki płatność nie wpłynie."
+          },
+          "ask-for-partial-payment-upfront": {
+            "label": "Poprosić klienta o zapłatę części z góry",
+            "consequence": "Dostajesz od razu trochę gotówki, co pomaga pokryć koszty, kiedy czekasz na resztę."
+          }
+        }
+      }
+    },
+    "aiLab": {
+      "hubTitle": "Laboratorium AI dla Biznesu",
+      "hubLink": "Laboratorium AI dla Biznesu",
+      "simulatedAiLabel": "Symulowany Asystent AI (to nie prawdziwa AI)",
+      "askAi": {
+        "title": "W Czym Może Pomóc AI?",
+        "intro": "Narzędzia AI mogą pomóc właścicielowi firmy w myśleniu - ale nie podejmują decyzji za ciebie. Dotknij pytania, żeby zobaczyć, jak mógłby odpowiedzieć asystent AI.",
+        "questions": {
+          "brainstorm-ideas": {
+            "question": "Czy możesz pomóc mi wymyślić pomysły na biznes?",
+            "answer": "Oto kilka kierunków, nad którymi warto się zastanowić: rozwiązanie problemu, który często zauważasz, ulepszenie czegoś, czego ludzie już używają, albo połączenie dwóch rzeczy, które lubisz. Które z nich najbardziej ci odpowiada?"
+          },
+          "customer-research-questions": {
+            "question": "Jakie pytania powinienem zadać moim klientom?",
+            "answer": "Spróbuj zapytać: Jaki problem ma to rozwiązać? Co sprawiłoby, że wybrałbyś to zamiast czegoś innego? Co jest tą jedną rzeczą, która sprawiłaby, że kupiłbyś znowu?"
+          },
+          "marketing-ideas": {
+            "question": "Jak mogę powiedzieć o mojej firmie większej liczbie osób?",
+            "answer": "Kilka pomysłów: poproś zadowolonych klientów, żeby powiedzieli znajomym, zrób prosty, jasny plakat, albo zaoferuj małą specjalną promocję dla nowych klientów."
+          },
+          "analyse-feedback": {
+            "question": "Jak mam zrozumieć opinie klientów?",
+            "answer": "Spróbuj pogrupować komentarze według tematów - cena, jakość, szybkość, uprzejmość - a potem zobacz, który temat pojawia się najczęściej. To zwykle ten, którym warto zająć się najpierw."
+          },
+          "compare-options": {
+            "question": "Jak porównać dwóch dostawców?",
+            "answer": "Zrób listę tego, co jest dla ciebie najważniejsze - cena, szybkość, jakość, niezawodność - a potem porównaj każdego dostawcę obok siebie według tej samej listy."
+          }
+        }
+      },
+      "promptQuality": {
+        "title": "Zadawanie Dobrych Pytań",
+        "intro": "Sposób, w jaki zadajesz pytanie asystentowi AI, zmienia, jak przydatna może być jego odpowiedź.",
+        "question": "Które z tych pytań jest najbardziej przydatne do zadania asystentowi AI?",
+        "options": {
+          "poor": "Pomóż mojej firmie.",
+          "better": "Sprzedaż w mojej piekarni spadła z 80 zamówień do 50 zamówień tygodniowo. Podaj możliwe powody, które powinienem zbadać.",
+          "best": "Oto moje liczby sprzedaży, ceny i opinie klientów. Jakie wzorce powinienem zbadać i co powinienem sprawdzić, zanim cokolwiek zdecyduję?"
+        }
+      },
+      "wrongAnswer": {
+        "title": "AI Może Się Mylić",
+        "intro": "Asystent AI może brzmieć pewnie i mimo to się mylić. Zawsze warto sprawdzić jego odpowiedź na podstawie swoich prawdziwych informacji.",
+        "aiSuggestion": "Na podstawie ogólnych trendów, twoja sprzedaż prawdopodobnie spada, ponieważ twoja cena jest za wysoka. Powinieneś ją obniżyć.",
+        "realData": "Ale twoje własne dane sprzedaży pokazują coś innego: twoja cena nie zmieniła się od miesięcy, a sprzedaż zaczęła spadać dopiero po tym, jak pojawił się nowy konkurent w pobliżu.",
+        "choices": {
+          "trust-the-ai": {
+            "label": "Zaufać sugestii AI i obniżyć cenę",
+            "consequence": "Możesz obniżyć cenę z niewłaściwego powodu - prawdziwą przyczyną wydaje się być nowy konkurent, a nie twoja cena."
+          },
+          "check-the-data-first": {
+            "label": "Najpierw sprawdzić swoje własne dane przed podjęciem decyzji",
+            "consequence": "Dobry instynkt - twoje dane wskazują inną przyczynę niż zasugerowała AI, więc sprawdzenie najpierw pomaga uniknąć złego rozwiązania."
+          },
+          "ask-ai-to-explain": {
+            "label": "Poprosić AI o wyjaśnienie, dlaczego tak sądzi",
+            "consequence": "Poproszenie o uzasadnienie może ujawnić, że AI tak naprawdę nie przyjrzała się uważnie twoim danym - to przydatny nawyk, zanim zaufasz jakiejkolwiek sugestii."
+          }
+        }
+      },
+      "privacy": {
+        "title": "AI a Prywatność",
+        "intro": "Nigdy nie udostępniaj prawdziwych danych osobowych - swojego imienia, adresu, numeru telefonu ani prywatnych danych klientów - żadnemu narzędziu AI.",
+        "quizQuestion": "Które z tych rzeczy jest bezpieczne, żeby powiedzieć asystentowi AI o swojej firmie?",
+        "quizOptions": {
+          "product-name": "Nazwa twojego produktu",
+          "real-address": "Adres twojego domu",
+          "customer-phone-number": "Numer telefonu klienta"
+        }
+      }
+    },
+    "rescueGrow": {
+      "hubTitle": "Ratuj i Rozwijaj",
+      "hubIntro": "Prawdziwe firmy przechodzą przez trudne chwile i podejmują ważne decyzje. Ćwicz diagnozowanie problemów, decydowanie, czy zmienić kierunek, i wybieranie, jak - albo czy w ogóle - się rozwijać.",
+      "hubLink": "Ratuj i Rozwijaj",
+      "lockedTitle": "Jeszcze Nie Gotowe",
+      "lockedHint": "Spróbuj najpierw rozwiązać przynajmniej jeden Problem Biznesowy w sekcji Prowadź Swoją Firmę, a potem wróć tutaj.",
+      "pivotLink": "Zmiana Kierunku",
+      "growLink": "Rosnąć czy Zostać Małym",
+      "ethicsLink": "Etyka w Biznesie",
+      "businessRescueLink": "Ratowanie Firmy",
+      "reviewLink": "Podsumowanie Firmy",
+      "pivot": {
+        "intro": "Czasami firma musi zmienić kierunek, żeby odnieść sukces. Nie ma tu jednej właściwej odpowiedzi - są tylko kompromisy.",
+        "situation": "{businessName} nie rośnie tak, jak się spodziewałeś. Co zrobisz?",
+        "choices": {
+          "keep-model": {
+            "label": "Na razie zostawić wszystko tak samo",
+            "consequence": "Nic się od razu nie zmienia - czasami to właściwa decyzja, a czasami firma potrzebuje więcej czasu, zanim zdecyduje się na zmianę."
+          },
+          "change-customer": {
+            "label": "Spróbować dotrzeć do innej grupy klientów",
+            "consequence": "Twoja firma skupia się teraz na nowej grupie klientów - to prawdziwy, świeży początek, który ma swoje niewiadome."
+          },
+          "change-product": {
+            "label": "Zmienić to, co tak naprawdę sprzedajesz",
+            "consequence": "Twoja firma oferuje teraz coś innego - prawdziwa zmiana kierunku, z nowymi rzeczami do nauczenia się o tym, co działa."
+          },
+          "stop-idea": {
+            "label": "Zdecydować się zakończyć ten pomysł",
+            "consequence": "Nie każdy pomysł musi trwać wiecznie - rozpoznanie, kiedy przestać, to też prawdziwa umiejętność biznesowa."
+          }
+        }
+      },
+      "grow": {
+        "intro": "Rozwijanie firmy zwiększa to, co mógłbyś zarobić - ale też to, co mógłbyś zaryzykować. Pozostanie małym to też naprawdę uzasadniony wybór.",
+        "situation": "Twoja firma radzi sobie dobrze. Chcesz ją rozwijać, czy zostawić taką, jaka jest?",
+        "choices": {
+          "stay-small": {
+            "label": "Zostawić firmę w tym samym rozmiarze",
+            "consequence": "Nic się nie zmienia - stabilny wybór o mniejszym ryzyku, który często jest równie sensowny co rozwój."
+          },
+          "hire-help": {
+            "label": "Znaleźć kogoś do pomocy",
+            "consequence": "Możesz robić i sprzedawać więcej, ale zapłata za pomoc kosztuje pieniądze z góry."
+          },
+          "buy-equipment": {
+            "label": "Kupić lepszy sprzęt",
+            "consequence": "Twoje produkty się poprawiają i możesz robić więcej, choć sam sprzęt kosztuje pieniądze teraz."
+          },
+          "expand-to-new-market": {
+            "label": "Spróbować sprzedawać większej grupie klientów",
+            "consequence": "Mógłbyś dotrzeć do dużo większej liczby osób, ale rozproszenie się może oznaczać mniej osobistej uwagi dla każdego klienta."
+          }
+        }
+      },
+      "ethics": {
+        "scenarios": {
+          "misleading-ad": {
+            "situation": "Mógłbyś opisać swój produkt w sposób, który brzmi lepiej, niż jest naprawdę.",
+            "choices": {
+              "honest-ad": {
+                "label": "Opisać go uczciwie, nawet jeśli brzmi mniej ekscytująco",
+                "consequence": "Klienci dostają dokładnie to, czego się spodziewają - zaufanie zbudowane w ten sposób zwykle trwa."
+              },
+              "slightly-exaggerate": {
+                "label": "Trochę przesadzić, żeby brzmiało lepiej",
+                "consequence": "Na początku kupuje trochę więcej osób, ale niektórzy mogą poczuć się zawiedzeni, kiedy nie do końca to pasuje."
+              },
+              "mislead-customers": {
+                "label": "Opisać go w sposób, o którym wiesz, że nie jest do końca prawdziwy",
+                "consequence": "Możesz od razu sprzedać więcej, ale klienci, którzy poczują się oszukani, często nie wracają - albo mówią o tym innym."
+              }
+            }
+          },
+          "hiding-a-problem": {
+            "situation": "Zauważyłeś mały problem ze swoim produktem po tym, jak już sprzedałeś kilka sztuk.",
+            "choices": {
+              "tell-customers": {
+                "label": "Poinformować klientów, którzy go kupili, o problemie",
+                "consequence": "Trudno się do tego przyznać, ale klienci zwykle bardziej cenią sobie szczerość, niż przejmują się samym problemem."
+              },
+              "fix-quietly": {
+                "label": "Po prostu po cichu to naprawić dla przyszłych klientów",
+                "consequence": "Przyszli klienci dostają lepszy produkt, choć ci, którzy już kupili, nigdy się o tym nie dowiedzą."
+              },
+              "hide-it": {
+                "label": "Nic nie mówić i mieć nadzieję, że nikt nie zauważy",
+                "consequence": "Jeśli zostanie to zauważone później, klienci mogą poczuć, że celowo to przed nimi ukryto - co może kosztować więcej zaufania niż sam pierwotny problem."
+              }
+            }
+          },
+          "cheap-questionable-supplier": {
+            "situation": "Dostępny jest dużo tańszy dostawca, ale słyszałeś, że źle traktuje swoich pracowników.",
+            "choices": {
+              "choose-ethical-supplier": {
+                "label": "Wybrać dostawcę, o którym wiesz, że uczciwie traktuje ludzi",
+                "consequence": "Płacisz trochę więcej, ale możesz czuć się dobrze z tym, jak powstaje twój produkt."
+              },
+              "choose-cheap-supplier": {
+                "label": "Mimo to wybrać tańszego dostawcę",
+                "consequence": "Oszczędzasz pieniądze, ale jeśli klienci kiedyś się o tym dowiedzą, może to poważnie zaszkodzić temu, jak postrzegają twoją firmę."
+              },
+              "ask-questions-first": {
+                "label": "Najpierw zadać więcej pytań przed podjęciem decyzji",
+                "consequence": "Dobry instynkt - dowiedzenie się więcej przed podjęciem decyzji pomaga dokonać wyboru, z którym czujesz się dobrze."
+              }
+            }
+          }
+        }
+      },
+      "businessRescue": {
+        "introStory": "Witaj w Hodowli Pstrągów. Ta mała firma rybna działa już od jakiegoś czasu, ale traci pieniądze i potrzebuje twojej pomocy. Oto jak wyglądają sprawy w tej chwili:",
+        "startButton": "Rozpocznij Ratowanie",
+        "outcomes": {
+          "improved": {
+            "title": "Firma Się Poprawiła!",
+            "text": "Twoje decyzje pomogły odwrócić sytuację - przychód wzrósł, koszty zostały opanowane, a klienci są bardziej zadowoleni niż wcześniej."
+          },
+          "stabilised": {
+            "title": "Firma Się Ustabilizowała",
+            "text": "Nie jest idealnie, ale firma jest w bardziej stabilnej sytuacji niż na początku - solidny krok we właściwym kierunku."
+          },
+          "needs-pivot": {
+            "title": "Ta Firma Może Potrzebować Większej Zmiany",
+            "text": "Twoje decyzje trochę pomogły, ale zaufanie spadło bardziej, niż miałeś nadzieję - czasami firma potrzebuje większej zmiany kierunku, a nie tylko drobnych poprawek."
+          },
+          "still-struggling": {
+            "title": "Wciąż w Trudnej Sytuacji",
+            "text": "Firma jeszcze nie odwróciła sytuacji - i to też jest realistyczny wynik. Prawdziwe firmy nie zawsze szybko się odbudowują, nawet przy dobrych decyzjach."
+          }
+        }
+      },
+      "review": {
+        "intro": "Poświęć chwilę, żeby spojrzeć wstecz na swoją firmę i pomyśleć o tym, czego się nauczyłeś.",
+        "whatWorkedLabel": "Co się sprawdziło?",
+        "whatWorkedPlaceholder": "Na przykład: Klientom spodobał się mój pomysł marketingowy.",
+        "whatDidntWorkLabel": "Co się nie sprawdziło?",
+        "whatDidntWorkPlaceholder": "Na przykład: Moja cena mogła być na początku za wysoka.",
+        "whatWouldChangeLabel": "Co zmieniłbyś następnym razem?",
+        "whatWouldChangePlaceholder": "Na przykład: Przetestowałbym swój pomysł, zanim wydałbym wszystkie pieniądze."
+      }
     }
   },
   "categories": {

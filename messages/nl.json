@@ -379,6 +379,14 @@
         "nextStepLabel": "Wat zou jouw volgende stap zijn?",
         "nextStepPlaceholder": "Bijvoorbeeld: Vijf vrienden vragen welke andere stickerontwerpen ze leuk zouden vinden.",
         "viewPitchButton": "Bekijk Mijn Bedrijfspitch"
+      },
+      "research-demand": {
+        "title": "Onderzoek de Vraag",
+        "learnText": "Voordat je iets gaat bouwen, onderzoeken slimme ondernemers eerst of mensen het echt zullen kopen. Kijk hieronder naar de marktgegevens."
+      },
+      "test-the-idea": {
+        "title": "Test het Idee",
+        "learnText": "Het is verleidelijk om meteen te beginnen met bouwen - maar een klein idee eerst testen kan je een dure fout besparen."
       }
     },
     "decisionEvents": {
@@ -519,6 +527,41 @@
             "key": "keep-going",
             "label": "Blijf precies hetzelfde doen en kijk wat er hierna gebeurt",
             "consequence": "Sommige weken zijn gewoon rustiger dan andere. Maar als dit blijft gebeuren, kan het de moeite waard zijn om iets anders te proberen."
+          }
+        ]
+      },
+      "market-detective-reflection": {
+        "situation": "Als je naar de marktgegevens voor Verse Forel kijkt, wat denk je dan?",
+        "choices": [
+          {
+            "key": "looks-like-a-good-opportunity",
+            "label": "Dit lijkt een geweldige kans",
+            "consequence": "Veel geïnteresseerde klanten is een goed teken! Maar onthoud: hoge vraag betekent niet automatisch hoge winst - het hangt nog steeds af van de kosten en hoeveel concurrenten al verkopen."
+          },
+          {
+            "key": "needs-more-thought",
+            "label": "Hier moet nog beter over nagedacht worden voordat je beslist",
+            "consequence": "Goed instinct - slechts 75 van de 300 geïnteresseerde mensen hebben onlangs echt gekocht, en er zijn al 4 concurrenten. Beter uitzoeken voordat je je vastlegt is slim."
+          },
+          {
+            "key": "not-sure-yet",
+            "label": "Ik weet het nog niet zeker",
+            "consequence": "Dat is een eerlijk startpunt - echte ondernemers hebben vaak meer informatie nodig voordat ze zeker zijn. Bekijk de prijzen van concurrenten en het vraagpatroon nog eens."
+          }
+        ]
+      },
+      "test-before-invest": {
+        "situation": "Je hebt wat startgeld. Hoe wil je beginnen?",
+        "choices": [
+          {
+            "key": "spend-it-all-now",
+            "label": "Meteen alles uitgeven om het bedrijf op te bouwen",
+            "consequence": "Je bent vanaf dag één volledig toegewijd - maar als het idee niet werkt, heb je al alles uitgegeven om daarachter te komen."
+          },
+          {
+            "key": "test-a-little-first",
+            "label": "Eerst een beetje uitgeven om te testen of klanten echt gaan kopen",
+            "consequence": "Je komt vroeg - en goedkoop - erachter of mensen dit echt willen, voordat je alles op het spel zet."
           }
         ]
       }
@@ -758,7 +801,625 @@
       "reputationValue": "{stars}/5",
       "goalLabel": "Huidig doel",
       "goalPlaceholder": "Bijvoorbeeld: Maak 20 verkopen",
-      "saveGoalButton": "Doel Opslaan"
+      "saveGoalButton": "Doel Opslaan",
+      "cashLabel": "Kasgeld",
+      "customersTotalLabel": "Klanten",
+      "repeatCustomersLabel": "Terugkerende Klanten",
+      "stockLabel": "Voorraad",
+      "demandLabel": "Vraag",
+      "showMoreButton": "Toon meer details",
+      "showLessButton": "Toon minder details"
+    },
+    "phases": {
+      "build": "Bouwen",
+      "run": "Runnen",
+      "rescueGrow": "Redden & Groeien"
+    },
+    "levels": {
+      "low": "Laag",
+      "medium": "Gemiddeld",
+      "high": "Hoog"
+    },
+    "demandLevels": {
+      "low": "Laag",
+      "medium": "Gemiddeld",
+      "high": "Hoog",
+      "seasonal-high": "Hoog (Seizoensgebonden)",
+      "seasonal-low": "Laag (Seizoensgebonden)"
+    },
+    "problemFlow": {
+      "investigateLabel": "Onderzoeken",
+      "tapToReveal": "Tik om te onthullen",
+      "causeLabel": "Wat is de waarschijnlijke oorzaak?",
+      "responseLabel": "Wat ga je doen?"
+    },
+    "problemsListIntro": "Echte bedrijven lopen tegen problemen aan. Onderzoek elk probleem met de gegevens, en beslis dan hoe je erop reageert.",
+    "marketDetective": {
+      "scenarioTitle": "Verse Forel: Een Markt om te Onderzoeken",
+      "interestedCustomersLabel": "Geïnteresseerde Klanten",
+      "recentBuyersLabel": "Recente Kopers",
+      "competitorCountLabel": "Concurrenten",
+      "competitorPriceLabel": "Gemiddelde Prijs van Concurrenten",
+      "productionCostLabel": "Geschatte Productiekosten",
+      "weekendDemandLabel": "Vraag in het Weekend",
+      "winterDemandLabel": "Vraag in de Winter",
+      "demandLadderTitle": "Van Interesse naar Terugkerende Klanten",
+      "demandLadder": {
+        "likeTheIdea": "Mensen die het idee leuk vinden",
+        "mightBuy": "Mensen die misschien kopen",
+        "actuallyBuy": "Mensen die echt kopen",
+        "becomeRepeatCustomers": "Mensen die terugkerende klanten worden"
+      }
+    },
+    "problems": {
+      "not-enough-customers": {
+        "title": "Niet Genoeg Klanten",
+        "situation": "Jouw bedrijf draait al een tijdje, maar bijna niemand koopt iets.",
+        "responsePrompt": "Wat ga je doen?",
+        "clues": {
+          "footTraffic": "Er zijn minder mensen langs je kraam of winkel gekomen dan afgelopen maand.",
+          "onlineViews": "Niet veel mensen bekijken je berichten of advertenties.",
+          "competitorActivity": "Een soortgelijk bedrijf in de buurt heeft het druk met klanten."
+        },
+        "causes": {
+          "wrong-customer-group": {
+            "label": "Misschien bereik je niet de juiste klanten",
+            "feedback": "Dat is mogelijk - het is de moeite waard om te checken aan wie je eigenlijk probeert te verkopen."
+          },
+          "weak-marketing": {
+            "label": "Misschien weten niet genoeg mensen van je bedrijf af",
+            "feedback": "Dat zou het kunnen zijn - als mensen niet weten dat je bestaat, kunnen ze niet bij je kopen."
+          },
+          "price-too-high": {
+            "label": "Misschien voelt jouw prijs te hoog voor mensen",
+            "feedback": "Dat is ook het overwegen waard - prijs beïnvloedt hoeveel mensen besluiten te kopen."
+          }
+        },
+        "responses": {
+          "improve-marketing": {
+            "label": "Meer mensen over je bedrijf vertellen",
+            "consequence": "Je geeft wat meer uit om bekendheid te krijgen, en een paar nieuwe klanten vinden je."
+          },
+          "research-customers": {
+            "label": "Mensen vragen wat ze echt willen",
+            "consequence": "Je verkoopt niet meteen meer, maar je leert iets dat later kan helpen."
+          },
+          "lower-price-temporarily": {
+            "label": "Verlaag je prijs voor korte tijd",
+            "consequence": "Meer mensen besluiten je product te proberen, al verdien je iets minder per stuk."
+          }
+        }
+      },
+      "costs-increased": {
+        "title": "Kosten Gestegen",
+        "situation": "De materialen die je gebruikt om je product te maken zijn opeens duurder geworden.",
+        "responsePrompt": "Wat ga je doen?",
+        "clues": {
+          "supplierPriceNotice": "Je leverancier stuurde een bericht dat hun prijzen zijn gestegen.",
+          "fuelPrices": "De kosten voor brandstof en bezorging zijn ook aan het stijgen.",
+          "wageChanges": "Er is niets veranderd aan hoeveel je betaalt voor hulp - dat deel blijft hetzelfde."
+        },
+        "causes": {
+          "supplier-price-rise": {
+            "label": "Je leverancier rekent nu gewoon meer",
+            "feedback": "Dat komt overeen met wat het bericht van de leverancier zei."
+          },
+          "inflation": {
+            "label": "Prijzen stijgen op dit moment overal",
+            "feedback": "Dat hoort er ook bij - veel kosten stijgen soms samen."
+          },
+          "more-materials-needed": {
+            "label": "Je gebruikt meer materialen dan voorheen",
+            "feedback": "Dat is mogelijk, maar de aanwijzingen wijzen meer naar de eigen prijsverandering van de leverancier."
+          }
+        },
+        "responses": {
+          "absorb-the-cost": {
+            "label": "Houd je prijs hetzelfde en verdien minder winst",
+            "consequence": "Klanten merken niets van een verandering, maar jij houdt minder geld over per verkoop."
+          },
+          "raise-your-price": {
+            "label": "Verhoog je prijs een beetje om het te dekken",
+            "consequence": "Je winst per stuk blijft gezond, al kopen sommige klanten misschien wat minder vaak."
+          },
+          "find-a-cheaper-supplier": {
+            "label": "Zoek naar een goedkopere leverancier",
+            "consequence": "Als je er een vindt, kan dit het probleem helemaal oplossen - al kan het tijd kosten en kan de kwaliteit anders zijn."
+          }
+        }
+      },
+      "negative-review": {
+        "title": "Een Negatieve Recensie",
+        "situation": "Een klant heeft een recensie achtergelaten dat hij ontevreden was over wat hij kocht.",
+        "responsePrompt": "Wat ga je doen?",
+        "clues": {
+          "reviewText": "De recensie zegt dat het artikel een beetje beschadigd aankwam.",
+          "otherReviews": "Je andere recente recensies waren allemaal positief.",
+          "returnRequests": "Dit is de eerste keer dat iemand om een vervanging vraagt."
+        },
+        "causes": {
+          "product-fault": {
+            "label": "Er ging iets mis met dit ene product",
+            "feedback": "Dat past - je andere recensies zijn prima, dus dit lijkt een eenmalig geval."
+          },
+          "unclear-instructions": {
+            "label": "Misschien waren de instructies niet duidelijk genoeg",
+            "feedback": "Mogelijk, maar de recensie gaat over schade, niet over verwarring."
+          },
+          "slow-response": {
+            "label": "Misschien deed je er te lang over om te reageren",
+            "feedback": "Het is de moeite waard om over na te denken, maar de recensie zelf gaat over het beschadigd aankomen van het product."
+          }
+        },
+        "responses": {
+          "apologise-and-fix": {
+            "label": "Excuses aanbieden en het aanbieden om te repareren of te vervangen",
+            "consequence": "De klant voelt zich gehoord, en de meeste mensen voelen zich veel beter als hun probleem serieus wordt genomen."
+          },
+          "offer-replacement": {
+            "label": "Een gratis vervanging sturen",
+            "consequence": "Het kost je iets, maar de klant is blij en koopt misschien weer bij je."
+          },
+          "ignore-and-move-on": {
+            "label": "Het laten rusten en verdergaan met andere klanten",
+            "consequence": "De ontevreden klant kan anderen over zijn ervaring vertellen - reageren helpt meestal meer dan stil blijven."
+          }
+        }
+      },
+      "sales-falling": {
+        "title": "Verkoop Loopt Terug",
+        "situation": "Je verkoop is de afgelopen weken aan het dalen.",
+        "responsePrompt": "Wat ga je doen?",
+        "clues": {
+          "salesChart": "De verkoop was stabiel, maar begon ongeveer drie weken geleden te dalen.",
+          "competitorPrices": "Rond dezelfde tijd begon een concurrent iets vergelijkbaars voor minder te verkopen.",
+          "customerFeedback": "Een paar klanten zeiden dat je product 'hetzelfde als altijd' aanvoelt."
+        },
+        "causes": {
+          "price-too-high-now": {
+            "label": "Je prijs voelt hoog in vergelijking met de concurrent",
+            "feedback": "De timing komt overeen met wanneer de concurrent verscheen - dit lijkt waarschijnlijk."
+          },
+          "new-competitor": {
+            "label": "Een nieuwe concurrent neemt wat klanten weg",
+            "feedback": "Dat past goed bij de timing."
+          },
+          "product-losing-novelty": {
+            "label": "Klanten raken gewoon gewend aan het product",
+            "feedback": "Dat is ook mogelijk - de opmerking over 'hetzelfde als altijd' wijst hierop."
+          }
+        },
+        "responses": {
+          "run-a-special-offer": {
+            "label": "Een korte speciale aanbieding doen",
+            "consequence": "Een paar klanten die waren weggedwaald, komen terug om het opnieuw te proberen."
+          },
+          "refresh-the-product": {
+            "label": "Het product vernieuwen of verbeteren",
+            "consequence": "Het kost wat om de verandering te maken, maar klanten merken iets nieuws op en een paar komen terug."
+          },
+          "ask-customers-directly": {
+            "label": "Klanten rechtstreeks vragen wat ze ervan vinden",
+            "consequence": "Je verkoopt niet meteen meer, maar je leert iets bruikbaars om op te reageren."
+          }
+        }
+      },
+      "rising-costs-eating-profit": {
+        "title": "Waarom Verdienen We Geen Geld?",
+        "situation": "De verkoop stijgt en de omzet stijgt ook - maar de winst blijft dalen.",
+        "responsePrompt": "Wat ga je doen?",
+        "clues": {
+          "priceHistory": "Je prijs is al maanden niet veranderd.",
+          "productionCostHistory": "Elk product maken is in de loop van de tijd stilletjes iets duurder geworden.",
+          "advertisingSpend": "Je hebt meer uitgegeven aan reclame om de verkoop te laten groeien."
+        },
+        "causes": {
+          "advertising-spend-too-high": {
+            "label": "Reclame kost meer dan het oplevert",
+            "feedback": "Dat past - meer uitgeven om dezelfde groei vast te houden vreet aan de winst."
+          },
+          "waste-in-production": {
+            "label": "Sommige materialen worden misschien verspild",
+            "feedback": "De moeite waard om te controleren, al wijzen de aanwijzingen meer direct naar stijgende reclame- en productiekosten."
+          },
+          "discounts-too-generous": {
+            "label": "Misschien zijn de kortingen te genereus geweest",
+            "feedback": "Mogelijk - kortingen kunnen de winst stilletjes verminderen, zelfs als de verkoop er goed uitziet."
+          }
+        },
+        "responses": {
+          "review-advertising-spend": {
+            "label": "Controleren of reclame zijn kosten waard is",
+            "consequence": "Je snoeit wat niet werkt, en de kosten dalen zonder veel verkoop te verliezen."
+          },
+          "reduce-waste": {
+            "label": "Manieren zoeken om verspilling in de productie te verminderen",
+            "consequence": "Het kost wat moeite om de bron te vinden, maar elk product kost nu iets minder om te maken."
+          },
+          "adjust-discounts": {
+            "label": "Kleinere kortingen aanbieden",
+            "consequence": "Je houdt meer over per verkoop, al kopen sommige kortingzoekende klanten minder."
+          }
+        }
+      },
+      "profit-but-no-cash": {
+        "title": "Winst Maar Geen Kasgeld",
+        "situation": "Je cijfers laten winst zien - maar je hebt nu niet genoeg geld beschikbaar om te betalen voor wat je nodig hebt.",
+        "responsePrompt": "Wat ga je doen?",
+        "clues": {
+          "unpaidInvoices": "Sommige klanten hebben je nog niet betaald voor recente bestellingen.",
+          "cashOnHand": "Het geld dat je echt beschikbaar hebt, is veel lager dan je winstcijfer.",
+          "upcomingBills": "Je hebt een leveranciersfactuur die heel binnenkort moet worden betaald."
+        },
+        "causes": {
+          "customers-pay-late": {
+            "label": "Klanten betalen je later dan verwacht",
+            "feedback": "Dat komt overeen met de onbetaalde facturen."
+          },
+          "spent-too-much-on-equipment": {
+            "label": "Je hebt onlangs veel uitgegeven aan apparatuur",
+            "feedback": "Mogelijk, maar de aanwijzingen wijzen meer naar geld dat je nog moet ontvangen, niet dat je hebt uitgegeven."
+          },
+          "stock-tied-up-money": {
+            "label": "Geld zit vast in onverkochte voorraad",
+            "feedback": "Dat is ook een echte mogelijkheid - voorraad is geld dat nog niet in kasgeld is omgezet."
+          }
+        },
+        "responses": {
+          "ask-for-faster-payment": {
+            "label": "Klanten vragen sneller te betalen",
+            "consequence": "Sommige klanten betalen sneller zodra ze erom gevraagd worden, wat geld binnenbrengt dat je nog kreeg."
+          },
+          "use-savings": {
+            "label": "Geld gebruiken dat je opzij had gezet",
+            "consequence": "Dit dekt het gat voor nu, al is je reserve daarna kleiner."
+          },
+          "delay-a-purchase": {
+            "label": "Een geplande aankoop uitstellen",
+            "consequence": "Dit maakt nu wat geld vrij, al mis je misschien de kans waarvoor het bedoeld was."
+          }
+        }
+      },
+      "too-much-stock": {
+        "title": "Te Veel Onverkochte Voorraad",
+        "situation": "Je hebt meer producten gemaakt dan je hebt kunnen verkopen, en ze nemen ruimte in.",
+        "responsePrompt": "Wat ga je doen?",
+        "clues": {
+          "stockRoomPhoto": "Je opslagruimte is voller dan ooit.",
+          "unsoldItemsList": "Sommige producten liggen al weken onverkocht.",
+          "seasonalTrend": "De vraag naar dit soort product is meestal lager in deze tijd van het jaar."
+        },
+        "causes": {
+          "over-ordered": {
+            "label": "Je hebt meer gemaakt of besteld dan nodig was",
+            "feedback": "Dat komt overeen met wat de opslagcijfers laten zien."
+          },
+          "demand-was-seasonal": {
+            "label": "De vraag daalt van nature in deze tijd van het jaar",
+            "feedback": "Dat komt ook overeen met het seizoenspatroon."
+          },
+          "product-less-popular-than-expected": {
+            "label": "Het product was niet zo populair als verwacht",
+            "feedback": "Mogelijk - het is de moeite waard om dit voor de volgende keer te onthouden."
+          }
+        },
+        "responses": {
+          "run-a-clearance-sale": {
+            "label": "De extra voorraad tegen een lagere prijs verkopen",
+            "consequence": "Je zet onverkochte voorraad om in geld, ook al verdien je minder per stuk."
+          },
+          "donate-or-repurpose": {
+            "label": "De extra voorraad doneren of hergebruiken",
+            "consequence": "Je krijgt geen geld terug, maar je maakt ruimte vrij en je reputatie krijgt een kleine boost."
+          },
+          "order-less-next-time": {
+            "label": "Gewoon onthouden om de volgende keer minder te bestellen",
+            "consequence": "Er verandert nu niets, maar je hebt iets geleerd voor je volgende bestelling."
+          }
+        }
+      }
+    },
+    "run": {
+      "hubTitle": "Run je Bedrijf",
+      "hubIntro": "Je bedrijf bestaat nu - maar het goed runnen betekent echte beslissingen nemen over prijzen, leveranciers, kasgeld en problemen onderweg.",
+      "lockedTitle": "Nog Niet Klaar",
+      "lockedHint": "Maak eerst je bedrijf af, en kom dan hier terug om het te gaan runnen.",
+      "pricingExperimentLink": "Prijsexperiment",
+      "supplierAndStockLink": "Leveranciers en Voorraad",
+      "cashFlowLink": "Kasstroom",
+      "problemsLink": "Bedrijfsproblemen",
+      "problemsProgress": "{done} van {total} opgelost",
+      "pricingExperiment": {
+        "intro": "Hetzelfde product kan verschillend geprijsd worden. Kijk wat er gebeurt met verkoop, omzet, kosten en winst bij drie verschillende prijzen.",
+        "priceColumn": "Prijs",
+        "unitsSoldColumn": "Verkochte Stuks",
+        "reflectionPrompt": "Welke prijs zou je kiezen voor een bedrijf als dit, gezien de cijfers?",
+        "reflectionChoices": {
+          "pick-low-price": {
+            "label": "De laagste prijs",
+            "consequence": "Veel mensen kopen, maar je verdient het minst per stuk - kijk of de totale winst echt het hoogst is."
+          },
+          "pick-middle-price": {
+            "label": "De middelste prijs",
+            "consequence": "Een balans tussen hoeveel mensen kopen en hoeveel je per stuk verdient."
+          },
+          "pick-high-price": {
+            "label": "De hoogste prijs",
+            "consequence": "Minder mensen kopen, maar je verdient meer per verkoop - check of dat in totaal meer of minder winst oplevert."
+          }
+        }
+      },
+      "supplierAndStock": {
+        "intro": "Een leverancier kiezen is een afweging - er is zelden één perfect antwoord. Vergelijk je opties en beslis dan.",
+        "supplierColumn": "Leverancier",
+        "priceLevelLabel": "Prijs",
+        "deliverySpeedLabel": "Levertijd",
+        "minimumOrderLabel": "Minimale Bestelling",
+        "qualityLabel": "Kwaliteit",
+        "supplierPrompt": "Welke leverancier ga je kiezen?",
+        "suppliers": {
+          "supplier-a": {
+            "label": "Leverancier A",
+            "consequence": "Je bespaart op materialen, maar leveringen duren langer en je moet in één keer veel bestellen."
+          },
+          "supplier-b": {
+            "label": "Leverancier B",
+            "consequence": "Je krijgt je materialen snel en kunt kleine hoeveelheden bestellen, maar je betaalt er meer voor."
+          },
+          "supplier-c": {
+            "label": "Leverancier C",
+            "consequence": "Je betaalt wat meer dan de goedkoopste optie, maar de levering is betrouwbaar en de kwaliteit is hoog."
+          }
+        },
+        "stockPrompt": "Hoeveel voorraad ga je bestellen?",
+        "stockChoices": {
+          "order-a-lot": {
+            "label": "Veel bestellen, voor de zekerheid",
+            "consequence": "Je komt niet zonder te zitten, maar als het niet allemaal verkoopt, heb je geld verspild aan onverkochte voorraad."
+          },
+          "order-just-enough": {
+            "label": "Precies genoeg bestellen voor wat je verwacht te verkopen",
+            "consequence": "Een gebalanceerde aanpak - al kun je uitverkocht raken als de vraag plotseling stijgt."
+          },
+          "order-a-little-and-restock": {
+            "label": "Een beetje bestellen en later bijbestellen indien nodig",
+            "consequence": "Je vermijdt verspilling, maar als de vraag snel stijgt, mis je misschien wat verkopen voordat de bijbestelling aankomt."
+          }
+        }
+      },
+      "cashFlow": {
+        "intro": "Zelfs een winstgevend bedrijf kan in geldproblemen komen als kasgeld niet aankomt wanneer het nodig is.",
+        "decisionPrompt": "Wat ga je doen?",
+        "scenarioText": "Een klant bestelt {orderAmount} van jouw product, maar betaalt pas over {days} dagen. Ondertussen moet je nu meteen {upfrontCosts} betalen voor materialen, lonen, elektriciteit en transport.",
+        "profitVsCashExplainer": "Winst is geld dat je op papier hebt verdiend. Kasgeld is geld dat je vandaag echt kunt uitgeven - en dat is niet altijd hetzelfde.",
+        "choices": {
+          "wait-for-payment": {
+            "label": "Wachten tot de betaling binnenkomt",
+            "consequence": "Je geeft niets extra uit, maar je hebt heel weinig kasgeld beschikbaar totdat de betaling binnenkomt."
+          },
+          "use-savings-to-cover-costs": {
+            "label": "Geld gebruiken dat je hebt gespaard om de kosten nu te dekken",
+            "consequence": "Je rekeningen worden op tijd betaald, al is je spaargeld lager totdat de betaling binnenkomt."
+          },
+          "ask-for-partial-payment-upfront": {
+            "label": "De klant vragen een deel vooraf te betalen",
+            "consequence": "Je krijgt meteen wat kasgeld, wat helpt om de kosten te dekken terwijl je op de rest wacht."
+          }
+        }
+      }
+    },
+    "aiLab": {
+      "hubTitle": "AI-Bedrijfslab",
+      "hubLink": "AI-Bedrijfslab",
+      "simulatedAiLabel": "Gesimuleerde AI-assistent (geen echte AI)",
+      "askAi": {
+        "title": "Waarmee Kan AI Helpen?",
+        "intro": "AI-tools kunnen een ondernemer helpen nadenken - maar ze nemen geen beslissingen voor je. Tik op een vraag om te zien hoe een AI-hulp zou kunnen reageren.",
+        "questions": {
+          "brainstorm-ideas": {
+            "question": "Kun je me helpen bedrijfsideeën te bedenken?",
+            "answer": "Hier zijn een paar richtingen om over na te denken: een probleem oplossen dat je vaak opmerkt, iets verbeteren dat mensen al gebruiken, of twee dingen combineren waar je van houdt. Welke hiervan lijkt het meest op jou?"
+          },
+          "customer-research-questions": {
+            "question": "Welke vragen moet ik mijn klanten stellen?",
+            "answer": "Probeer te vragen: Welk probleem hoop je dat dit oplost? Wat zou jou dit laten kiezen boven iets anders? Wat is het ene ding dat je opnieuw zou laten kopen?"
+          },
+          "marketing-ideas": {
+            "question": "Hoe kan ik meer mensen over mijn bedrijf vertellen?",
+            "answer": "Een paar ideeën: vraag tevreden klanten het aan een vriend te vertellen, maak een simpele, duidelijke poster, of bied een kleine speciale aanbieding aan nieuwe klanten."
+          },
+          "analyse-feedback": {
+            "question": "Hoe maak ik wijs uit feedback van klanten?",
+            "answer": "Probeer opmerkingen in thema's te groeperen - prijs, kwaliteit, snelheid, vriendelijkheid - en kijk dan welk thema het vaakst voorkomt. Dat is meestal degene die het waard is om als eerste aan te pakken."
+          },
+          "compare-options": {
+            "question": "Hoe vergelijk ik twee leveranciers?",
+            "answer": "Maak een lijst van wat voor jou het belangrijkst is - prijs, snelheid, kwaliteit, betrouwbaarheid - en vergelijk dan elke leverancier naast elkaar aan diezelfde lijst."
+          }
+        }
+      },
+      "promptQuality": {
+        "title": "Goede Vragen Stellen",
+        "intro": "De manier waarop je een AI-hulp een vraag stelt, verandert hoe nuttig het antwoord kan zijn.",
+        "question": "Welke van deze is de nuttigste vraag om aan een AI-hulp te stellen?",
+        "options": {
+          "poor": "Help mijn bedrijf.",
+          "better": "De verkoop van mijn bakkerij is gedaald van 80 bestellingen naar 50 bestellingen per week. Geef me mogelijke redenen om te onderzoeken.",
+          "best": "Hier zijn mijn verkoopcijfers, prijzen en feedback van klanten. Welke patronen moet ik onderzoeken, en wat moet ik controleren voordat ik iets beslis?"
+        }
+      },
+      "wrongAnswer": {
+        "title": "AI Kan Fout Zitten",
+        "intro": "Een AI-hulp kan zelfverzekerd klinken en toch fout zitten. Het is altijd de moeite waard om het antwoord te controleren met je eigen echte gegevens.",
+        "aiSuggestion": "Op basis van algemene trends dalen je verkopen waarschijnlijk omdat je prijs te hoog is. Je zou hem moeten verlagen.",
+        "realData": "Maar je eigen verkoopgegevens laten iets anders zien: je prijs is al maanden niet veranderd, en de verkoop begon pas te dalen nadat er een nieuwe concurrent in de buurt kwam.",
+        "choices": {
+          "trust-the-ai": {
+            "label": "De suggestie van de AI vertrouwen en de prijs verlagen",
+            "consequence": "Je zou je prijs om de verkeerde reden kunnen verlagen - de echte oorzaak lijkt de nieuwe concurrent te zijn, niet je prijs."
+          },
+          "check-the-data-first": {
+            "label": "Eerst je eigen gegevens controleren voordat je beslist",
+            "consequence": "Goed instinct - je gegevens wijzen naar een andere oorzaak dan de AI voorstelde, dus eerst controleren helpt je de verkeerde oplossing te vermijden."
+          },
+          "ask-ai-to-explain": {
+            "label": "De AI vragen uit te leggen waarom hij dat denkt",
+            "consequence": "Vragen om zijn redenering kan onthullen dat hij niet echt goed naar je gegevens heeft gekeken - een nuttige gewoonte voordat je een suggestie vertrouwt."
+          }
+        }
+      },
+      "privacy": {
+        "title": "AI en Privacy",
+        "intro": "Deel nooit echte persoonlijke informatie - je naam, adres, telefoonnummer, of privégegevens van klanten - met welke AI-tool dan ook.",
+        "quizQuestion": "Welke van deze dingen is veilig om aan een AI-hulp over je bedrijf te vertellen?",
+        "quizOptions": {
+          "product-name": "De naam van je product",
+          "real-address": "Je thuisadres",
+          "customer-phone-number": "Het telefoonnummer van een klant"
+        }
+      }
+    },
+    "rescueGrow": {
+      "hubTitle": "Redden & Groeien",
+      "hubIntro": "Echte bedrijven maken moeilijke momenten en grote beslissingen mee. Oefen met het diagnosticeren van problemen, beslissen of je van koers moet veranderen, en kiezen hoe - of of - je wilt groeien.",
+      "hubLink": "Redden & Groeien",
+      "lockedTitle": "Nog Niet Klaar",
+      "lockedHint": "Probeer eerst minstens één Bedrijfsprobleem in Run je Bedrijf, en kom dan hier terug.",
+      "pivotLink": "Koerswijziging",
+      "growLink": "Groeien of Klein Blijven",
+      "ethicsLink": "Bedrijfsethiek",
+      "businessRescueLink": "Bedrijfsredding",
+      "reviewLink": "Bedrijfsevaluatie",
+      "pivot": {
+        "intro": "Soms moet een bedrijf van koers veranderen om succesvol te zijn. Er is hier geen enkel juist antwoord - alleen afwegingen.",
+        "situation": "{businessName} groeit niet zoals je hoopte. Wat ga je doen?",
+        "choices": {
+          "keep-model": {
+            "label": "Alles voorlopig hetzelfde houden",
+            "consequence": "Er verandert nu niets - soms is dat de juiste keuze, en soms heeft een bedrijf meer tijd nodig voordat het besluit te veranderen."
+          },
+          "change-customer": {
+            "label": "Proberen een andere groep klanten te bereiken",
+            "consequence": "Jouw bedrijf richt zich nu op een nieuwe groep klanten - een echte, frisse start met zijn eigen onzekerheden."
+          },
+          "change-product": {
+            "label": "Veranderen wat je eigenlijk verkoopt",
+            "consequence": "Jouw bedrijf biedt nu iets anders aan - een echte koerswijziging, met nieuwe dingen om te leren over wat werkt."
+          },
+          "stop-idea": {
+            "label": "Besluiten om met dit idee te stoppen",
+            "consequence": "Niet elk idee hoeft voor altijd door te gaan - herkennen wanneer je moet stoppen is ook een echte bedrijfsvaardigheid."
+          }
+        }
+      },
+      "grow": {
+        "intro": "Een bedrijf laten groeien vergroot wat je zou kunnen verdienen - maar ook wat je zou kunnen riskeren. Klein blijven is ook een echt geldige keuze.",
+        "situation": "Jouw bedrijf doet het goed. Wil je het laten groeien, of houden zoals het is?",
+        "choices": {
+          "stay-small": {
+            "label": "Het bedrijf even groot houden",
+            "consequence": "Er verandert niets - een stabiele, minder risicovolle keuze die vaak net zo verstandig is als groeien."
+          },
+          "hire-help": {
+            "label": "Iemand vinden om je te helpen",
+            "consequence": "Je kunt meer maken en verkopen, maar betalen voor hulp kost geld vooraf."
+          },
+          "buy-equipment": {
+            "label": "Betere apparatuur kopen",
+            "consequence": "Je producten worden beter en je kunt meer maken, al kost de apparatuur zelf nu geld."
+          },
+          "expand-to-new-market": {
+            "label": "Proberen te verkopen aan een grotere groep klanten",
+            "consequence": "Je zou veel meer mensen kunnen bereiken, maar jezelf breder verspreiden kan minder persoonlijke aandacht per klant betekenen."
+          }
+        }
+      },
+      "ethics": {
+        "scenarios": {
+          "misleading-ad": {
+            "situation": "Je zou je product kunnen beschrijven op een manier die beter klinkt dan het echt is.",
+            "choices": {
+              "honest-ad": {
+                "label": "Het eerlijk beschrijven, ook al klinkt het minder spannend",
+                "consequence": "Klanten krijgen precies wat ze verwachten - vertrouwen dat zo wordt opgebouwd, houdt meestal stand."
+              },
+              "slightly-exaggerate": {
+                "label": "Een beetje overdrijven om het beter te laten klinken",
+                "consequence": "In het begin kopen wat meer mensen, maar sommigen kunnen teleurgesteld zijn als het niet helemaal klopt."
+              },
+              "mislead-customers": {
+                "label": "Het beschrijven op een manier waarvan je weet dat het niet helemaal waar is",
+                "consequence": "Je verkoopt misschien meteen meer, maar klanten die zich misleid voelen, komen vaak niet terug - of vertellen het aan anderen."
+              }
+            }
+          },
+          "hiding-a-problem": {
+            "situation": "Je hebt een klein probleem met je product opgemerkt nadat je er al meerdere hebt verkocht.",
+            "choices": {
+              "tell-customers": {
+                "label": "Klanten die het kochten vertellen over het probleem",
+                "consequence": "Het is ongemakkelijk om toe te geven, maar klanten waarderen eerlijkheid meestal meer dan dat ze zich storen aan het probleem zelf."
+              },
+              "fix-quietly": {
+                "label": "Het gewoon stilletjes oplossen voor toekomstige klanten",
+                "consequence": "Toekomstige klanten krijgen een beter product, al komen degenen die het al kochten er nooit achter."
+              },
+              "hide-it": {
+                "label": "Niets zeggen en hopen dat niemand het merkt",
+                "consequence": "Als het later wordt opgemerkt, kunnen klanten het gevoel hebben dat het opzettelijk voor hen verborgen werd - wat meer vertrouwen kan kosten dan het oorspronkelijke probleem."
+              }
+            }
+          },
+          "cheap-questionable-supplier": {
+            "situation": "Er is een veel goedkopere leverancier beschikbaar, maar je hebt gehoord dat ze hun werknemers slecht behandelen.",
+            "choices": {
+              "choose-ethical-supplier": {
+                "label": "Een leverancier kiezen waarvan je weet dat hij mensen eerlijk behandelt",
+                "consequence": "Je betaalt wat meer, maar je kunt je goed voelen over hoe je product wordt gemaakt."
+              },
+              "choose-cheap-supplier": {
+                "label": "Toch de goedkopere leverancier kiezen",
+                "consequence": "Je bespaart geld, maar als klanten het ooit ontdekken, kan het serieuze schade toebrengen aan hoe ze jouw bedrijf zien."
+              },
+              "ask-questions-first": {
+                "label": "Eerst meer vragen stellen voordat je beslist",
+                "consequence": "Goed instinct - meer te weten komen voordat je beslist helpt je een keuze te maken waar je je prettig bij voelt."
+              }
+            }
+          }
+        }
+      },
+      "businessRescue": {
+        "introStory": "Welkom bij de Forellenkwekerij. Dit kleine visbedrijf draait al een tijdje, maar verliest geld en heeft jouw hulp nodig. Zo staan de zaken er nu voor:",
+        "startButton": "Start de Redding",
+        "outcomes": {
+          "improved": {
+            "title": "Het Bedrijf is Verbeterd!",
+            "text": "Jouw keuzes hebben geholpen om het tij te keren - de omzet groeide, de kosten kwamen onder controle, en klanten zijn blijer dan voorheen."
+          },
+          "stabilised": {
+            "title": "Het Bedrijf is Gestabiliseerd",
+            "text": "Het is niet perfect, maar het bedrijf staat er stabieler voor dan toen je begon - een solide stap in de goede richting."
+          },
+          "needs-pivot": {
+            "title": "Dit Bedrijf Heeft Misschien een Grotere Verandering Nodig",
+            "text": "Jouw keuzes hebben een beetje geholpen, maar het vertrouwen daalde verder dan gehoopt - soms heeft een bedrijf een grotere koerswijziging nodig, niet alleen kleine aanpassingen."
+          },
+          "still-struggling": {
+            "title": "Nog Steeds Worstelend",
+            "text": "Het bedrijf heeft het tij nog niet gekeerd - en dat is ook een realistische uitkomst. Echte bedrijven herstellen niet altijd snel, zelfs met goede beslissingen."
+          }
+        }
+      },
+      "review": {
+        "intro": "Neem even de tijd om terug te kijken op je bedrijf en na te denken over wat je hebt geleerd.",
+        "whatWorkedLabel": "Wat ging er goed?",
+        "whatWorkedPlaceholder": "Bijvoorbeeld: Klanten vonden mijn marketingidee leuk.",
+        "whatDidntWorkLabel": "Wat ging er niet goed?",
+        "whatDidntWorkPlaceholder": "Bijvoorbeeld: Mijn prijs was misschien in het begin te hoog.",
+        "whatWouldChangeLabel": "Wat zou je de volgende keer anders doen?",
+        "whatWouldChangePlaceholder": "Bijvoorbeeld: Ik zou mijn idee testen voordat ik al mijn geld uitgeef."
+      }
     }
   },
   "categories": {
