@@ -366,6 +366,7 @@
   },
   "parentInfo": {
     "title": "Informations pour les Parents",
+    "metaDescription": "Réponses en langage simple pour les parents sur le fonctionnement de Money Quest, les données collectées (aucune) et la sécurité des enfants.",
     "intro": "Réponses en langage simple aux questions auxquelles nous aimerions voir répondre avant de laisser un enfant utiliser un site comme celui-ci.",
     "q1Title": "Que fait ce site ?",
     "q1Body": "Money Quest enseigne aux enfants l'éducation financière à travers des leçons, des quiz et des jeux - besoins contre envies, épargne, dépenses, budget, gains, protection contre les arnaques et plus encore. Tout l'argent dans l'application est fictif.",
@@ -407,6 +408,7 @@
   },
   "privacyPage": {
     "title": "Confidentialité",
+    "metaDescription": "Comment Money Quest gère la confidentialité : aucun compte, aucune collecte de données personnelles et aucun suivi - pensé dès le départ pour être sûr pour les enfants.",
     "subtitle": "Conçu pour minimiser la collecte de données personnelles - voir ci-dessous exactement ce que cela signifie.",
     "section1Title": "Aucun compte, aucune information personnelle",
     "section1Body": "Il n'y a aucune inscription, aucune connexion et aucun mot de passe nulle part sur ce site. Nous ne demandons jamais à ton enfant (ni à toi) un vrai nom, une adresse, un numéro de téléphone, un e-mail, une école ou une localisation.",
@@ -3970,6 +3972,7 @@
   },
   "feedback": {
     "title": "Qu'as-tu pensé de Money Quest ?",
+    "metaDescription": "Donne-nous ton avis sur ton expérience avec Money Quest - aide-nous à améliorer les leçons et les jeux.",
     "privacyNote": "Ceci est seulement pour les parents. Nous ne demandons ni ton nom, ni ton e-mail, ni le nom de ton enfant.",
     "ratingQuestion": "Qu'as-tu pensé de Money Quest ?",
     "ratingLabel": "Note en étoiles",
@@ -3988,13 +3991,12 @@
   "contact": {
     "backHome": "Retour à l'accueil",
     "title": "Contacte-nous",
+    "metaDescription": "Contacte l'équipe de Money Quest - questions des parents et des enseignants, problèmes de sécurité et assistance générale.",
     "intro": "Nous serions ravis d'avoir de tes nouvelles - que tu sois un parent avec une question, un enseignant curieux du plan pour la classe, ou que tu veuilles signaler un problème de sécurité.",
     "safetyTitle": "Problèmes de sécurité",
-    "safetyBodyPrefix": "Si quelque chose concernant la sécurité de ton enfant nécessite de l'attention, écris-nous directement à",
-    "safetyBodySuffix": "Nous visons à répondre aux problèmes de sécurité dans un délai d'un jour ouvré.",
+    "safetyBody": "Nous préparons une adresse de contact dédiée aux questions de sécurité, qui n'est pas encore publiée ici. Reviens bientôt.",
     "everythingElseTitle": "Tout le reste",
-    "everythingElseBodyPrefix": "Pour les questions générales, le soutien aux parents, la presse ou les demandes de partenariat, écris à",
-    "everythingElseBodySuffix": "Nous répondons généralement sous 1 à 2 jours ouvrés."
+    "everythingElseBody": "Nous préparons une adresse de contact générale pour les questions et les retours, qui n'est pas encore publiée ici. Reviens bientôt."
   },
   "articles": {
     "saving-money-for-kids": {

@@ -366,6 +366,7 @@
   },
   "parentInfo": {
     "title": "Informatie voor Ouders",
+    "metaDescription": "Antwoorden in eenvoudige taal voor ouders over hoe Money Quest werkt, welke gegevens het verzamelt (geen) en hoe het kinderen veilig houdt.",
     "intro": "Antwoorden in eenvoudige taal op de vragen waarvan we zouden willen dat ze beantwoord zijn voordat een kind een website als deze gebruikt.",
     "q1Title": "Wat doet deze website?",
     "q1Body": "Money Quest leert kinderen financiële geletterdheid via lessen, quizzen en spellen - behoeften versus wensen, sparen, uitgeven, budgetteren, verdienen, veilig blijven tegen oplichting en meer. Al het geld in de app is fictief.",
@@ -407,6 +408,7 @@
   },
   "privacyPage": {
     "title": "Privacy",
+    "metaDescription": "Hoe Money Quest omgaat met privacy: geen accounts, geen verzameling van persoonlijke gegevens en geen tracking - vanaf het begin ontworpen om veilig te zijn voor kinderen.",
     "subtitle": "Ontworpen om het verzamelen van persoonlijke gegevens te minimaliseren - zie hieronder precies wat dat betekent.",
     "section1Title": "Geen account, geen persoonlijke informatie",
     "section1Body": "Er is nergens op deze website registratie, inloggen of een wachtwoord. We vragen je kind (of jou) nooit om een echte naam, adres, telefoonnummer, e-mail, school of locatie.",
@@ -3970,6 +3972,7 @@
   },
   "feedback": {
     "title": "Wat vond je van Money Quest?",
+    "metaDescription": "Deel je feedback over je ervaring met Money Quest - help ons de lessen en spellen te verbeteren.",
     "privacyNote": "Dit is alleen voor ouders. We vragen niet naar je naam, e-mail of de naam van je kind.",
     "ratingQuestion": "Wat vond je van Money Quest?",
     "ratingLabel": "Sterrenbeoordeling",
@@ -3988,13 +3991,12 @@
   "contact": {
     "backHome": "Terug naar start",
     "title": "Neem contact op",
+    "metaDescription": "Neem contact op met het Money Quest-team - vragen van ouders en leerkrachten, veiligheidszorgen en algemene ondersteuning.",
     "intro": "We horen graag van je - of je nu een ouder met een vraag bent, een leerkracht die nieuwsgierig is naar het lesplan, of een veiligheidszorg wilt melden.",
     "safetyTitle": "Veiligheidszorgen",
-    "safetyBodyPrefix": "Als iets over de veiligheid van je kind aandacht nodig heeft, mail ons dan direct op",
-    "safetyBodySuffix": "We proberen binnen één werkdag te reageren op veiligheidszorgen.",
+    "safetyBody": "We zijn een apart contactadres voor veiligheidskwesties aan het voorbereiden - het staat hier nog niet. Kom binnenkort nog eens terug.",
     "everythingElseTitle": "Al het andere",
-    "everythingElseBodyPrefix": "Voor algemene vragen, ouderondersteuning, pers of samenwerkingsverzoeken, mail naar",
-    "everythingElseBodySuffix": "We reageren meestal binnen 1-2 werkdagen."
+    "everythingElseBody": "We zijn een algemeen contactadres voor vragen en feedback aan het voorbereiden - het staat hier nog niet. Kom binnenkort nog eens terug."
   },
   "articles": {
     "saving-money-for-kids": {

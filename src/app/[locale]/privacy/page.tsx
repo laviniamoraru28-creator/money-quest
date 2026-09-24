@@ -1,5 +1,37 @@
+import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import { buildBreadcrumbSchema } from "@/lib/seo/structured-data";
+import { safeJsonLd } from "@/lib/seo/safe-json-ld";
+import { getSiteUrl, DEFAULT_OG_IMAGE } from "@/lib/seo/site-url";
+import { LOCALES } from "@/i18n/config";
+
+interface PageProps {
+  params: { locale: string };
+}
+
+export async function generateMetadata({ params: { locale } }: PageProps): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: "privacyPage" });
+  const siteUrl = getSiteUrl();
+  const path = "/privacy";
+  return {
+    title: t("title"),
+    description: t("metaDescription"),
+    alternates: {
+      canonical: `${siteUrl}/${locale}${path}`,
+      languages: Object.fromEntries(LOCALES.map((l) => [l, `${siteUrl}/${l}${path}`])),
+    },
+    openGraph: {
+      title: t("title"),
+      description: t("metaDescription"),
+      url: `${siteUrl}/${locale}${path}`,
+      type: "website",
+      locale,
+      siteName: "Money Quest",
+      images: [DEFAULT_OG_IMAGE],
+    },
+  };
+}
 
 /**
  * Rewritten for the privacy-first redesign — the previous version of
@@ -9,11 +41,17 @@ import { Link } from "@/i18n/navigation";
  * Fully wired into the translation system (privacyPage.* namespace) —
  * found missing during a later audit and fixed then.
  */
-export default async function PrivacyPage() {
+export default async function PrivacyPage({ params: { locale } }: PageProps) {
   const t = await getTranslations();
+  const siteUrl = getSiteUrl();
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: "Home", url: `${siteUrl}/${locale}` },
+    { name: t("privacyPage.title"), url: `${siteUrl}/${locale}/privacy` },
+  ]);
 
   return (
     <div className="min-h-screen bg-fog px-sm py-2xl">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(breadcrumbSchema) }} />
       <div className="mx-auto max-w-2xl">
         <Link href="/" className="text-sm text-teal">
           {t("nav.backHome")}

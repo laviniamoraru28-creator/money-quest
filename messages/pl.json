@@ -366,6 +366,7 @@
   },
   "parentInfo": {
     "title": "Informacje dla Rodziców",
+    "metaDescription": "Odpowiedzi w prostym języku dla rodziców o tym, jak działa Money Quest, jakie dane zbiera (żadnych) i jak dba o bezpieczeństwo dzieci.",
     "intro": "Odpowiedzi w prostym języku na pytania, na które chcielibyśmy uzyskać odpowiedź, zanim pozwolimy dziecku korzystać z takiej strony internetowej.",
     "q1Title": "Co robi ta strona internetowa?",
     "q1Body": "Money Quest uczy dzieci edukacji finansowej poprzez lekcje, quizy i gry - potrzeby kontra zachcianki, oszczędzanie, wydawanie, budżetowanie, zarabianie, ochronę przed oszustwami i więcej. Wszystkie pieniądze w aplikacji są fikcyjne.",
@@ -407,6 +408,7 @@
   },
   "privacyPage": {
     "title": "Prywatność",
+    "metaDescription": "Jak Money Quest podchodzi do prywatności: żadnych kont, żadnego zbierania danych osobowych i żadnego śledzenia - zaprojektowane od podstaw tak, by było bezpieczne dla dzieci.",
     "subtitle": "Zaprojektowane tak, aby minimalizować zbieranie danych osobowych - zobacz poniżej, co dokładnie to oznacza.",
     "section1Title": "Brak konta, brak danych osobowych",
     "section1Body": "Nigdzie na tej stronie nie ma rejestracji, logowania ani hasła. Nigdy nie pytamy twojego dziecka (ani ciebie) o prawdziwe imię i nazwisko, adres, numer telefonu, e-mail, szkołę ani lokalizację.",
@@ -3970,6 +3972,7 @@
   },
   "feedback": {
     "title": "Jak podobał ci się Money Quest?",
+    "metaDescription": "Podziel się opinią o swoim doświadczeniu z Money Quest - pomóż nam ulepszyć lekcje i gry.",
     "privacyNote": "To jest tylko dla rodziców. Nie prosimy o twoje imię, e-mail ani imię twojego dziecka.",
     "ratingQuestion": "Jak podobał ci się Money Quest?",
     "ratingLabel": "Ocena w gwiazdkach",
@@ -3988,13 +3991,12 @@
   "contact": {
     "backHome": "Powrót do strony głównej",
     "title": "Skontaktuj się z nami",
+    "metaDescription": "Skontaktuj się z zespołem Money Quest - pytania od rodziców i nauczycieli, kwestie bezpieczeństwa i ogólne wsparcie.",
     "intro": "Chętnie się od ciebie usłyszymy - niezależnie od tego, czy jesteś rodzicem z pytaniem, nauczycielem ciekawym planu dla klasy, czy chcesz zgłosić obawę dotyczącą bezpieczeństwa.",
     "safetyTitle": "Obawy dotyczące bezpieczeństwa",
-    "safetyBodyPrefix": "Jeśli coś związanego z bezpieczeństwem twojego dziecka wymaga uwagi, napisz do nas bezpośrednio na",
-    "safetyBodySuffix": "Staramy się odpowiadać na sprawy bezpieczeństwa w ciągu jednego dnia roboczego.",
+    "safetyBody": "Przygotowujemy osobny adres kontaktowy do spraw bezpieczeństwa, który nie jest tu jeszcze opublikowany. Zajrzyj tu ponownie wkrótce.",
     "everythingElseTitle": "Wszystko inne",
-    "everythingElseBodyPrefix": "W przypadku ogólnych pytań, wsparcia dla rodziców, prasy lub zapytań o współpracę, napisz na",
-    "everythingElseBodySuffix": "Zwykle odpowiadamy w ciągu 1-2 dni roboczych."
+    "everythingElseBody": "Przygotowujemy ogólny adres kontaktowy do pytań i opinii, który nie jest tu jeszcze opublikowany. Zajrzyj tu ponownie wkrótce."
   },
   "articles": {
     "saving-money-for-kids": {

@@ -366,6 +366,7 @@
   },
   "parentInfo": {
     "title": "Parent Information",
+    "metaDescription": "Plain-language answers for parents about how Money Quest works, what data it collects (none), and how it keeps children safe.",
     "intro": "Plain-language answers to the questions we'd want answered before letting a child use a website like this one.",
     "q1Title": "What does this website do?",
     "q1Body": "Money Quest teaches children financial literacy through lessons, quizzes, and games - needs vs. wants, saving, spending, budgeting, earning, staying safe from scams, and more. All money in the app is fictional.",
@@ -407,6 +408,7 @@
   },
   "privacyPage": {
     "title": "Privacy",
+    "metaDescription": "How Money Quest handles privacy: no accounts, no personal data collection, and no tracking - designed from the ground up to be safe for children.",
     "subtitle": "Designed to minimise personal data collection - see below for exactly what that means.",
     "section1Title": "No account, no personal information",
     "section1Body": "There is no sign-up, no login, and no password anywhere on this website. We never ask your child (or you) for a real name, address, phone number, email, school, or location.",
@@ -3970,6 +3972,7 @@
   },
   "feedback": {
     "title": "How did you like Money Quest?",
+    "metaDescription": "Share feedback about your experience with Money Quest - help us improve the lessons and games.",
     "privacyNote": "This is just for parents. We do not ask for your name, email, or your child's name.",
     "ratingQuestion": "How did you like Money Quest?",
     "ratingLabel": "Star rating",
@@ -4236,12 +4239,11 @@
   "contact": {
     "backHome": "Back home",
     "title": "Contact us",
+    "metaDescription": "Get in touch with the Money Quest team - questions from parents and teachers, safety concerns, and general support.",
     "intro": "We'd love to hear from you - whether you're a parent with a question, a teacher curious about the classroom roadmap, or you want to report a safety concern.",
     "safetyTitle": "Safety concerns",
-    "safetyBodyPrefix": "If something about your child's safety needs attention, please email us directly at",
-    "safetyBodySuffix": "We aim to respond to safety concerns within one business day.",
+    "safetyBody": "We're setting up a dedicated safety contact address, and it isn't published here yet. Please check back soon.",
     "everythingElseTitle": "Everything else",
-    "everythingElseBodyPrefix": "For general questions, parent support, press, or partnership inquiries, email",
-    "everythingElseBodySuffix": "We typically reply within 1-2 business days."
+    "everythingElseBody": "We're setting up a general contact address for questions and feedback, and it isn't published here yet. Please check back soon."
   }
 }

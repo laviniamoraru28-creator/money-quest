@@ -4,7 +4,7 @@ import { Link } from "@/i18n/navigation";
 import { getAllArticles } from "@/lib/seo/get-article";
 import { buildBreadcrumbSchema, buildOrganizationSchema } from "@/lib/seo/structured-data";
 import { safeJsonLd } from "@/lib/seo/safe-json-ld";
-import { getSiteUrl } from "@/lib/seo/site-url";
+import { getSiteUrl, DEFAULT_OG_IMAGE } from "@/lib/seo/site-url";
 import { LOCALES } from "@/i18n/config";
 import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 
@@ -29,6 +29,7 @@ export async function generateMetadata({ params: { locale } }: PageProps): Promi
       type: "website",
       locale,
       siteName: "Money Quest",
+      images: [DEFAULT_OG_IMAGE],
     },
   };
 }

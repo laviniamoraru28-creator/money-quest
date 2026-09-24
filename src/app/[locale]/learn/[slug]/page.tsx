@@ -5,7 +5,7 @@ import { Link } from "@/i18n/navigation";
 import { getLocalizedArticle, getAllArticleSlugs } from "@/lib/seo/get-article";
 import { buildArticleSchema, buildBreadcrumbSchema, buildFaqSchema } from "@/lib/seo/structured-data";
 import { safeJsonLd } from "@/lib/seo/safe-json-ld";
-import { getSiteUrl } from "@/lib/seo/site-url";
+import { getSiteUrl, DEFAULT_OG_IMAGE } from "@/lib/seo/site-url";
 import { LOCALES } from "@/i18n/config";
 import { Breadcrumbs } from "@/components/marketing/Breadcrumbs";
 import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
@@ -51,6 +51,7 @@ export async function generateMetadata({ params: { locale, slug } }: PageProps):
       siteName: "Money Quest",
       publishedTime: article.publishedDate,
       modifiedTime: article.updatedDate,
+      images: [DEFAULT_OG_IMAGE],
     },
     twitter: {
       card: "summary_large_image",

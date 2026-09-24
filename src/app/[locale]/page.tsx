@@ -3,12 +3,27 @@ import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
+import { buildOrganizationSchema, buildWebSiteSchema } from "@/lib/seo/structured-data";
+import { safeJsonLd } from "@/lib/seo/safe-json-ld";
+import { getSiteUrl } from "@/lib/seo/site-url";
 
-export default async function LandingPage() {
+export default async function LandingPage({ params: { locale } }: { params: { locale: string } }) {
   const t = await getTranslations();
+  const siteUrl = getSiteUrl();
+  const orgSchema = buildOrganizationSchema(siteUrl);
+  const webSiteSchema = buildWebSiteSchema(siteUrl, locale);
 
   return (
     <div className="min-h-screen bg-fog">
+      {/* WebSite + Organization — the two schema types that genuinely
+          describe the site as a whole, so they belong on the homepage
+          rather than repeated on every page. Both built from real,
+          already-displayed facts (the site's own name and URL, plus the
+          same description used in seo.defaultDescription) — nothing
+          fabricated. */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(orgSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(webSiteSchema) }} />
+
       <header className="border-b border-ink/10 bg-white">
         <div className="mx-auto flex max-w-[1200px] items-center justify-between px-sm py-xs">
           <span className="font-display text-lg font-bold text-teal">{t("common.moneyQuest")}</span>

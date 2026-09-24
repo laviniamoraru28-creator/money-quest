@@ -366,6 +366,7 @@
   },
   "parentInfo": {
     "title": "Informazioni per i Genitori",
+    "metaDescription": "Risposte in linguaggio semplice per i genitori su come funziona Money Quest, quali dati raccoglie (nessuno) e come tiene al sicuro i bambini.",
     "intro": "Risposte in linguaggio semplice alle domande a cui vorremmo vedere risposto prima di lasciare che un bambino usi un sito web come questo.",
     "q1Title": "Cosa fa questo sito web?",
     "q1Body": "Money Quest insegna ai bambini l'educazione finanziaria attraverso lezioni, quiz e giochi - bisogni contro desideri, risparmio, spesa, budget, guadagno, protezione dalle truffe e altro. Tutto il denaro nell'app è fittizio.",
@@ -407,6 +408,7 @@
   },
   "privacyPage": {
     "title": "Privacy",
+    "metaDescription": "Come Money Quest gestisce la privacy: nessun account, nessuna raccolta di dati personali e nessun tracciamento - pensato fin dall'inizio per essere sicuro per i bambini.",
     "subtitle": "Progettato per minimizzare la raccolta di dati personali - guarda qui sotto esattamente cosa significa.",
     "section1Title": "Nessun account, nessuna informazione personale",
     "section1Body": "Non c'è registrazione, accesso o password da nessuna parte su questo sito web. Non chiediamo mai a tuo figlio (o a te) un vero nome, indirizzo, numero di telefono, email, scuola o posizione.",
@@ -3970,6 +3972,7 @@
   },
   "feedback": {
     "title": "Cosa ne pensi di Money Quest?",
+    "metaDescription": "Condividi la tua opinione sulla tua esperienza con Money Quest - aiutaci a migliorare le lezioni e i giochi.",
     "privacyNote": "Questo è solo per i genitori. Non chiediamo il tuo nome, la tua email o il nome di tuo figlio.",
     "ratingQuestion": "Cosa ne pensi di Money Quest?",
     "ratingLabel": "Valutazione a stelle",
@@ -3988,13 +3991,12 @@
   "contact": {
     "backHome": "Torna alla home",
     "title": "Contattaci",
+    "metaDescription": "Contatta il team di Money Quest - domande da genitori e insegnanti, problemi di sicurezza e assistenza generale.",
     "intro": "Ci piacerebbe sentirti - che tu sia un genitore con una domanda, un insegnante curioso del piano per la classe, o che tu voglia segnalare un problema di sicurezza.",
     "safetyTitle": "Problemi di sicurezza",
-    "safetyBodyPrefix": "Se qualcosa riguardo alla sicurezza di tuo figlio richiede attenzione, scrivici direttamente a",
-    "safetyBodySuffix": "Cerchiamo di rispondere ai problemi di sicurezza entro un giorno lavorativo.",
+    "safetyBody": "Stiamo preparando un indirizzo di contatto dedicato per le questioni di sicurezza, che non è ancora pubblicato qui. Torna presto a controllare.",
     "everythingElseTitle": "Tutto il resto",
-    "everythingElseBodyPrefix": "Per domande generali, supporto ai genitori, stampa o richieste di partnership, scrivi a",
-    "everythingElseBodySuffix": "Di solito rispondiamo entro 1-2 giorni lavorativi."
+    "everythingElseBody": "Stiamo preparando un indirizzo di contatto generale per domande e feedback, che non è ancora pubblicato qui. Torna presto a controllare."
   },
   "articles": {
     "saving-money-for-kids": {

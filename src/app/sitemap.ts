@@ -21,7 +21,11 @@ import { LOCALES } from "@/i18n/config";
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = getSiteUrl();
 
-  const staticPaths = ["", "/learn", "/privacy", "/contact"];
+  // /feedback is deliberately excluded: it's a rating-and-comment form
+  // with no unique indexable content (see feedback/layout.tsx's own
+  // noindex), not an oversight — listing a noindexed URL in the
+  // sitemap would just send Google a contradictory signal.
+  const staticPaths = ["", "/learn", "/privacy", "/contact", "/parent-info"];
   const articlePaths = ARTICLE_STRUCTURES.map((a) => `/learn/${a.slug}`);
   const allPaths = [...staticPaths, ...articlePaths];
 

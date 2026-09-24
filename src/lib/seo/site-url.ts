@@ -9,3 +9,17 @@
 export function getSiteUrl(): string {
   return process.env.NEXT_PUBLIC_SITE_URL ?? "https://moneyquest.example";
 }
+
+/**
+ * The one social-share image every page falls back to. A page-level
+ * `generateMetadata` that sets its own `openGraph` object must include
+ * this explicitly — Next.js does not deep-merge a nested `openGraph`
+ * across layout/page boundaries, so redefining `openGraph` at all
+ * (even just to set a page-specific title/description) silently drops
+ * the root layout's default `images` unless each page re-supplies it.
+ */
+export const DEFAULT_OG_IMAGE = {
+  url: "/images/money-quest/homepage-hero.webp",
+  width: 800,
+  height: 800,
+};

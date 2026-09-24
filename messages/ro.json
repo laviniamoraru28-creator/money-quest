@@ -366,6 +366,7 @@
   },
   "parentInfo": {
     "title": "Informații pentru Părinți",
+    "metaDescription": "Răspunsuri în limbaj simplu pentru părinți despre cum funcționează Money Quest, ce date colectează (niciunele) și cum ține copiii în siguranță.",
     "intro": "Răspunsuri în limbaj simplu la întrebările pe care am vrea să le vedem clarificate înainte de a lăsa un copil să folosească un site ca acesta.",
     "q1Title": "Ce face acest site?",
     "q1Body": "Money Quest îi învață pe copii educație financiară prin lecții, teste și jocuri - nevoi vs. dorințe, economisire, cheltuieli, bugetare, câștig, siguranță împotriva fraudelor și multe altele. Toți banii din aplicație sunt ficțiune.",
@@ -407,6 +408,7 @@
   },
   "privacyPage": {
     "title": "Confidențialitate",
+    "metaDescription": "Cum gestionează Money Quest confidențialitatea: fără conturi, fără colectare de date personale și fără urmărire - gândit de la zero pentru a fi sigur pentru copii.",
     "subtitle": "Proiectat pentru a minimiza colectarea datelor personale - vezi mai jos exact ce înseamnă asta.",
     "section1Title": "Fără cont, fără informații personale",
     "section1Body": "Nu există înregistrare, autentificare sau parolă nicăieri pe acest site. Nu cerem niciodată copilului tău (sau ție) un nume real, adresă, număr de telefon, email, școală sau locație.",
@@ -3970,6 +3972,7 @@
   },
   "feedback": {
     "title": "Cum ți s-a părut Money Quest?",
+    "metaDescription": "Spune-ne părerea ta despre experiența cu Money Quest - ajută-ne să îmbunătățim lecțiile și jocurile.",
     "privacyNote": "Aceasta este doar pentru părinți. Nu cerem numele tău, e-mailul sau numele copilului tău.",
     "ratingQuestion": "Cum ți s-a părut Money Quest?",
     "ratingLabel": "Evaluare cu stele",
@@ -4236,12 +4239,11 @@
   "contact": {
     "backHome": "Înapoi acasă",
     "title": "Contactează-ne",
+    "metaDescription": "Ia legătura cu echipa Money Quest - întrebări din partea părinților și profesorilor, probleme de siguranță și asistență generală.",
     "intro": "Ne-ar plăcea să auzim de la tine - fie că ești un părinte cu o întrebare, un profesor curios despre planul pentru clasă, sau vrei să raportezi o problemă de siguranță.",
     "safetyTitle": "Probleme de siguranță",
-    "safetyBodyPrefix": "Dacă ceva legat de siguranța copilului tău necesită atenție, te rugăm să ne scrii direct la",
-    "safetyBodySuffix": "Ne propunem să răspundem la problemele de siguranță în termen de o zi lucrătoare.",
+    "safetyBody": "Pregătim o adresă de contact dedicată pentru probleme de siguranță, dar nu este încă publicată aici. Revino curând.",
     "everythingElseTitle": "Orice altceva",
-    "everythingElseBodyPrefix": "Pentru întrebări generale, suport pentru părinți, presă sau solicitări de parteneriat, scrie la",
-    "everythingElseBodySuffix": "De obicei răspundem în 1-2 zile lucrătoare."
+    "everythingElseBody": "Pregătim o adresă de contact generală pentru întrebări și feedback, dar nu este încă publicată aici. Revino curând."
   }
 }

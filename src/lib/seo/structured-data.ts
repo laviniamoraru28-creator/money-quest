@@ -73,3 +73,18 @@ export function buildOrganizationSchema(siteUrl: string) {
     description: "A free financial literacy platform for children 6-14, built with families and teachers in mind.",
   };
 }
+
+/**
+ * One WebSite entity per locale's homepage URL, matching what's
+ * actually on the page — no SearchAction, since the site has no
+ * internal search feature to describe.
+ */
+export function buildWebSiteSchema(siteUrl: string, locale: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: SITE_NAME,
+    url: `${siteUrl}/${locale}`,
+    inLanguage: locale,
+  };
+}

@@ -366,6 +366,7 @@
   },
   "parentInfo": {
     "title": "Informationen für Eltern",
+    "metaDescription": "Antworten in einfacher Sprache für Eltern darüber, wie Money Quest funktioniert, welche Daten erfasst werden (keine) und wie Kinder geschützt werden.",
     "intro": "Antworten in einfacher Sprache auf die Fragen, die wir gerne beantwortet sähen, bevor ein Kind eine Website wie diese nutzt.",
     "q1Title": "Was macht diese Website?",
     "q1Body": "Money Quest vermittelt Kindern finanzielle Bildung durch Lektionen, Quizze und Spiele - Bedürfnisse gegenüber Wünschen, Sparen, Ausgeben, Budgetieren, Verdienen, Schutz vor Betrug und mehr. Alles Geld in der App ist fiktiv.",
@@ -407,6 +408,7 @@
   },
   "privacyPage": {
     "title": "Datenschutz",
+    "metaDescription": "So geht Money Quest mit Datenschutz um: keine Konten, keine Erfassung persönlicher Daten und kein Tracking - von Anfang an so konzipiert, dass es sicher für Kinder ist.",
     "subtitle": "So konzipiert, dass die Erfassung persönlicher Daten minimiert wird - siehe unten, was das genau bedeutet.",
     "section1Title": "Kein Konto, keine persönlichen Informationen",
     "section1Body": "Es gibt nirgendwo auf dieser Website eine Registrierung, einen Login oder ein Passwort. Wir fragen dein Kind (oder dich) niemals nach einem echten Namen, einer Adresse, Telefonnummer, E-Mail, Schule oder einem Standort.",
@@ -3970,6 +3972,7 @@
   },
   "feedback": {
     "title": "Wie hat dir Money Quest gefallen?",
+    "metaDescription": "Teile uns dein Feedback zu deiner Erfahrung mit Money Quest mit - hilf uns, die Lektionen und Spiele zu verbessern.",
     "privacyNote": "Das ist nur für Eltern. Wir fragen nicht nach deinem Namen, deiner E-Mail oder dem Namen deines Kindes.",
     "ratingQuestion": "Wie hat dir Money Quest gefallen?",
     "ratingLabel": "Sternebewertung",
@@ -3988,13 +3991,12 @@
   "contact": {
     "backHome": "Zurück zur Startseite",
     "title": "Kontaktiere uns",
+    "metaDescription": "Nimm Kontakt mit dem Money-Quest-Team auf - Fragen von Eltern und Lehrkräften, Sicherheitsanliegen und allgemeiner Support.",
     "intro": "Wir würden uns freuen, von dir zu hören - egal ob du ein Elternteil mit einer Frage bist, eine Lehrkraft, die neugierig auf den Plan für den Unterricht ist, oder ein Sicherheitsanliegen melden möchtest.",
     "safetyTitle": "Sicherheitsanliegen",
-    "safetyBodyPrefix": "Wenn etwas bezüglich der Sicherheit deines Kindes Aufmerksamkeit braucht, schreib uns bitte direkt an",
-    "safetyBodySuffix": "Wir bemühen uns, auf Sicherheitsanliegen innerhalb eines Werktages zu antworten.",
+    "safetyBody": "Wir richten gerade eine eigene Kontaktadresse für Sicherheitsanliegen ein - sie ist hier noch nicht veröffentlicht. Schau bald wieder vorbei.",
     "everythingElseTitle": "Alles andere",
-    "everythingElseBodyPrefix": "Für allgemeine Fragen, Elternunterstützung, Presse oder Partnerschaftsanfragen schreib an",
-    "everythingElseBodySuffix": "Wir antworten normalerweise innerhalb von 1-2 Werktagen."
+    "everythingElseBody": "Wir richten gerade eine allgemeine Kontaktadresse für Fragen und Feedback ein - sie ist hier noch nicht veröffentlicht. Schau bald wieder vorbei."
   },
   "articles": {
     "saving-money-for-kids": {

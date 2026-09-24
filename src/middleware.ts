@@ -24,6 +24,16 @@ export const config = {
     // static files (see public/worksheets/README.txt) and must be
     // reachable at their exact path, not redirected under a locale
     // prefix where no such file exists.
-    "/((?!api/|_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp|pdf)$).*)",
+    //
+    // `robots.txt` and `sitemap.xml` are excluded for the identical
+    // reason: src/app/robots.ts and src/app/sitemap.ts generate real
+    // files at those exact root-level paths (Next.js's file-convention
+    // routes, outside the [locale] segment), but without this
+    // exclusion this middleware caught them first and 307-redirected
+    // to /en/robots.txt and /en/sitemap.xml — locale-prefixed URLs
+    // that don't exist and 404. That silently broke robots.txt/sitemap
+    // discovery for every crawler hitting the standard, expected paths
+    // (confirmed live: both returned a redirect-to-404 before this fix).
+    "/((?!api/|_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|.*\\.(?:svg|png|jpg|jpeg|gif|webp|pdf)$).*)",
   ],
 };

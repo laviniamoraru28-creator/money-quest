@@ -5,6 +5,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { Space_Grotesk, Atkinson_Hyperlegible } from "next/font/google";
 import { LOCALES, getTextDirection, isSupportedLocale, type Locale } from "@/i18n/config";
+import { getSiteUrl, DEFAULT_OG_IMAGE } from "@/lib/seo/site-url";
 import "../globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -52,23 +53,52 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   if (!isSupportedLocale(locale)) notFound();
   const t = await getTranslations({ locale, namespace: "seo" });
+  const siteUrl = getSiteUrl();
 
   return {
+    // metadataBase is what lets every page below resolve a relative
+    // canonical/OG value (or one page's own absolute override) against
+    // the real production domain instead of Next.js's dev-only
+    // localhost default — without it, a page that forgets to build an
+    // absolute URL itself would silently emit a localhost link in
+    // production. Every page in this app builds absolute URLs
+    // explicitly anyway (see getSiteUrl() call sites), so this is a
+    // safety net, not the primary mechanism.
+    metadataBase: new URL(siteUrl),
     title: { default: t("defaultTitle"), template: `%s - Money Quest` },
     description: t("defaultDescription"),
     // hreflang alternates (brief requirement 14) — one entry per
     // supported locale, pointing at the same page in each language, so
     // search engines know these pages are translations of each other
-    // rather than duplicate content.
+    // rather than duplicate content. Absolute URLs: Google's own
+    // guidance says relative canonical/hreflang values aren't reliably
+    // honored, so every one of these is built from siteUrl rather than
+    // left as a path-only string.
     alternates: {
-      canonical: `/${locale}`,
-      languages: Object.fromEntries(LOCALES.map((l) => [l, `/${l}`])),
+      canonical: `${siteUrl}/${locale}`,
+      languages: Object.fromEntries(LOCALES.map((l) => [l, `${siteUrl}/${l}`])),
     },
     openGraph: {
       title: t("defaultTitle"),
       description: t("defaultDescription"),
+      url: `${siteUrl}/${locale}`,
+      type: "website",
+      siteName: "Money Quest",
       locale,
       alternateLocale: LOCALES.filter((l) => l !== locale),
+      // The site's one existing lightweight photo, reused as the
+      // default social-share image for every page that doesn't set its
+      // own — better than no preview image at all. Square (800x800)
+      // rather than the platforms' preferred 1.91:1, since adding a
+      // purpose-cropped asset is outside this SEO pass's scope; every
+      // major sharing surface (Facebook, X, LinkedIn, Discord, iMessage)
+      // still renders a square og:image correctly.
+      images: [DEFAULT_OG_IMAGE],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("defaultTitle"),
+      description: t("defaultDescription"),
     },
   };
 }

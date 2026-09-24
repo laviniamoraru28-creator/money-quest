@@ -366,6 +366,7 @@
   },
   "parentInfo": {
     "title": "Informação para Pais",
+    "metaDescription": "Respostas em linguagem simples para pais sobre como funciona o Money Quest, que dados recolhe (nenhum) e como mantém as crianças seguras.",
     "intro": "Respostas em linguagem simples às perguntas que gostaríamos de ver respondidas antes de deixar uma criança usar um site como este.",
     "q1Title": "O que faz este site?",
     "q1Body": "O Money Quest ensina às crianças educação financeira através de lições, questionários e jogos - necessidades vs. desejos, poupança, gastos, orçamento, ganhos, proteção contra burlas e muito mais. Todo o dinheiro na aplicação é fictício.",
@@ -407,6 +408,7 @@
   },
   "privacyPage": {
     "title": "Privacidade",
+    "metaDescription": "Como o Money Quest lida com a privacidade: sem contas, sem recolha de dados pessoais e sem rastreamento - concebido desde o início para ser seguro para crianças.",
     "subtitle": "Concebido para minimizar a recolha de dados pessoais - vê abaixo exatamente o que isso significa.",
     "section1Title": "Sem conta, sem informação pessoal",
     "section1Body": "Não existe registo, início de sessão nem palavra-passe em lado nenhum deste site. Nunca pedimos ao teu filho (nem a ti) um nome verdadeiro, morada, número de telefone, email, escola ou localização.",
@@ -3970,6 +3972,7 @@
   },
   "feedback": {
     "title": "O que achaste do Money Quest?",
+    "metaDescription": "Partilha a tua opinião sobre a tua experiência com o Money Quest - ajuda-nos a melhorar as lições e os jogos.",
     "privacyNote": "Isto é apenas para pais. Não pedimos o teu nome, e-mail ou o nome do teu filho.",
     "ratingQuestion": "O que achaste do Money Quest?",
     "ratingLabel": "Avaliação por estrelas",
@@ -3988,13 +3991,12 @@
   "contact": {
     "backHome": "Voltar ao início",
     "title": "Contacta-nos",
+    "metaDescription": "Contacta a equipa do Money Quest - perguntas de pais e professores, preocupações de segurança e apoio geral.",
     "intro": "Adorávamos ouvir de ti - quer sejas um pai ou mãe com uma pergunta, um professor curioso sobre o plano para a sala de aula, ou queiras reportar uma preocupação de segurança.",
     "safetyTitle": "Preocupações de segurança",
-    "safetyBodyPrefix": "Se algo relacionado com a segurança do teu filho precisar de atenção, escreve-nos diretamente para",
-    "safetyBodySuffix": "Tentamos responder a preocupações de segurança dentro de um dia útil.",
+    "safetyBody": "Estamos a preparar um endereço de contacto dedicado para questões de segurança, que ainda não está publicado aqui. Volta em breve.",
     "everythingElseTitle": "Tudo o resto",
-    "everythingElseBodyPrefix": "Para questões gerais, apoio a pais, imprensa ou pedidos de parceria, escreve para",
-    "everythingElseBodySuffix": "Normalmente respondemos dentro de 1-2 dias úteis."
+    "everythingElseBody": "Estamos a preparar um endereço de contacto geral para perguntas e feedback, que ainda não está publicado aqui. Volta em breve."
   },
   "articles": {
     "saving-money-for-kids": {
