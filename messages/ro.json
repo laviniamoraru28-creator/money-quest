@@ -363,7 +363,8 @@
     "moneyPersonalityLink": "Personalitatea Financiară",
     "levelActivityProgress": "Nivelul {level} · Activitatea {position} din {total}",
     "investingLabLink": "Laboratorul de Investiții →",
-    "entrepreneurQuestLink": "Misiunea Antreprenorului →"
+    "entrepreneurQuestLink": "Misiunea Antreprenorului →",
+    "leadershipQuestLink": "Misiunea de Lider →"
   },
   "parentInfo": {
     "title": "Informații pentru Părinți",
@@ -5141,6 +5142,951 @@
         "whatDidntWorkPlaceholder": "De exemplu: Prețul meu ar fi putut fi prea mare la început.",
         "whatWouldChangeLabel": "Ce ai schimba data viitoare?",
         "whatWouldChangePlaceholder": "De exemplu: Mi-aș testa ideea înainte să cheltuiesc toți banii."
+      }
+    }
+  },
+  "leadershipQuest": {
+    "hubTitle": "Misiunea de Lider",
+    "hubTagline": "Condu o echipă prin provocări reale — o alegere pe rând.",
+    "hubIntro": "Ești pe cale să devii liderul unei echipe mici. Ei au nevoie ca tu să asculți, să decizi și să-i ajuți să treacă peste orice apare în cale.",
+    "introStory": "Cunoaște-ți echipa, pornește în prima ta misiune și descoperă ce fel de lider devii — o alegere pe rând.",
+    "missionProgress": "Misiunea {current} din {total}",
+    "labLink": "Laboratorul de Leadership",
+    "labTitle": "Laboratorul de Leadership",
+    "labIntro": "Situații scurte în care poți exersa leadershipul, oricând ai chef.",
+    "profileLink": "Profilul Tău de Lider",
+    "profileLinkLockedHint": "Profilul Tău de Lider (termină mai întâi Provocarea Finală)",
+    "badgesEarnedTitle": "Insigne Câștigate",
+    "noBadgesYetHint": "Finalizează misiuni ca să începi să câștigi insigne.",
+    "entrepreneurQuestLinkTitle": "Ai construit o afacere. Acum ai o echipă.",
+    "entrepreneurQuestLinkText": "Abilitățile de leadership te pot ajuta atunci când afacerea ta crește și începi să lucrezi cu alți oameni.",
+    "resetConfirm": "Ești sigur că vrei să resetezi progresul din Misiunea de Lider? Această acțiune nu poate fi anulată.",
+    "resetButton": "Resetează Misiunea de Lider",
+    "continueButton": "Continuă",
+    "finishMissionButton": "Termină Misiunea",
+    "missionCompleteBadge": "Misiune finalizată",
+    "continueToNextMissionButton": "Continuă la Următoarea Misiune",
+    "backToTeamHub": "Înapoi la Echipa Ta",
+    "teamStatus": {
+      "title": "Starea Echipei",
+      "trust": "Încredere",
+      "morale": "Moral",
+      "progress": "Progres",
+      "energy": "Energie"
+    },
+    "characters": {
+      "nadia": {
+        "name": "Nadia",
+        "personality": "Plină de idei și mereu gândindu-se cu trei pași înainte.",
+        "strength": "Vine cu idei creative la care nimeni altcineva nu s-a gândit.",
+        "challenge": "Se entuziasmează atât de tare din cauza ideilor, încât uneori vorbește peste ceilalți.",
+        "interest": "Desenează benzi desenate și inventează mici dispozitive.",
+        "communicationStyle": "Rapidă, entuziastă și plină de \"ce-ar fi dacă am încerca...\""
+      },
+      "oren": {
+        "name": "Oren",
+        "personality": "Atent și precis — observă detalii pe care ceilalți le ratează.",
+        "strength": "Excelent la construit și reparat lucruri, cum trebuie.",
+        "challenge": "Are adesea idei grozave, dar nu vorbește într-un grup mare.",
+        "interest": "Demontează lucruri ca să vadă cum funcționează și rezolvă puzzle-uri.",
+        "communicationStyle": "Tăcut în grup, dar se deschide dacă îl întrebi direct."
+      },
+      "priya": {
+        "name": "Priya",
+        "personality": "Caldă, expresivă și foarte bună la a vorbi cu oricine.",
+        "strength": "Poate explica lucrurile clar și îi face pe oameni să se simtă confortabil.",
+        "challenge": "Se entuziasmează pentru următoarea idee înainte să o termine pe ultima.",
+        "interest": "Îi place să joace roluri, să spună povești și să cunoască oameni noi.",
+        "communicationStyle": "Vorbește mult, cu energie — uneori are nevoie de o amintire blândă să încheie."
+      },
+      "theo": {
+        "name": "Theo",
+        "personality": "Calm, organizat și ține mereu evidența planului.",
+        "strength": "Menține echipa în grafic și își amintește fiecare detaliu.",
+        "challenge": "Găsește schimbările bruște de plan stresante.",
+        "interest": "Face liste, programe și merge la plimbări lungi.",
+        "communicationStyle": "Calm și precis — preferă să fie anunțat înainte ca lucrurile să se schimbe."
+      }
+    },
+    "missions": {
+      "meet-your-team": {
+        "title": "Cunoaște-ți Echipa",
+        "alertText": "",
+        "dialogue": [
+          {
+            "character": "nadia",
+            "text": "Bună! Sunt FOARTE bucuroasă că ești aici — am deja vreo zece idei pentru primul nostru proiect!"
+          },
+          {
+            "character": "oren",
+            "text": "...Bună. Eu sunt Oren. Vreau mai ales să începem odată."
+          },
+          {
+            "character": "priya",
+            "text": "Bine ai venit! Sincer, cred că echipa asta va fi grozavă cu tine în frunte."
+          },
+          {
+            "character": "theo",
+            "text": "Bună ziua. Am făcut un mic program pentru azi, dacă e de folos."
+          }
+        ],
+        "tasks": {
+          "come-up-with-ideas": "Vino cu idei pentru proiectul nostru",
+          "fix-something-broken": "Repară ceva ce nu funcționează cum trebuie",
+          "talk-to-a-visitor": "Vorbește cu un vizitator și explică-i ce facem",
+          "keep-track-of-the-plan": "Ține evidența planului și a programului"
+        },
+        "outro": "Acum știi puțin despre fiecare coechipier — și cine e bun la ce.",
+        "events": {
+          "meet-your-team-reflection": {
+            "situation": "Prima ta zi în care conduci această echipă a început bine. Cum te simți în legătură cu asta?",
+            "choices": [
+              {
+                "key": "excited",
+                "label": "Entuziasmat — hai să începem!",
+                "consequence": "Energia ta se transmite puțin și echipei."
+              },
+              {
+                "key": "nervous-but-ready",
+                "label": "Puțin emoționat, dar pregătit.",
+                "consequence": "E sincer — și complet normal pentru un lider nou."
+              },
+              {
+                "key": "not-sure-yet",
+                "label": "Nu sunt sigur încă — o să-mi dau seama pe parcurs.",
+                "consequence": "E un mod cinstit de a începe. Vei învăța multe de la echipa ta."
+              }
+            ]
+          }
+        }
+      },
+      "first-challenge": {
+        "title": "Prima Provocare",
+        "alertText": "Echipa ta are primul ei proiect adevărat — și trebuie dus la capăt.",
+        "dialogue": [
+          {
+            "character": "theo",
+            "text": "Bine, avem un proiect. Cineva trebuie să facă fiecare parte."
+          },
+          {
+            "character": "nadia",
+            "text": "Am deja idei pentru poster!"
+          },
+          {
+            "character": "priya",
+            "text": "Aș putea vorbi cu oamenii care vin la standul nostru."
+          }
+        ],
+        "tasks": {
+          "design-the-poster": "Proiectează posterul",
+          "build-the-display": "Construiește standul de prezentare",
+          "explain-it-to-visitors": "Explică-l vizitatorilor",
+          "make-the-plan": "Fă planul și ține pe toată lumea în grafic"
+        },
+        "outro": "Pentru că ai potrivit fiecare sarcină cu persoana care se pricepe cu adevărat la ea, proiectul prinde contur fără probleme."
+      },
+      "everyone-has-an-idea": {
+        "title": "Fiecare Are o Idee",
+        "alertText": "🚨 Doi coechipieri nu se pot înțelege — și amândoi vor ca tu să decizi.",
+        "dialogue": [
+          {
+            "character": "nadia",
+            "text": "Ideea mea e mult mai interesantă — ar trebui să facem cum zic eu!"
+          },
+          {
+            "character": "oren",
+            "text": "...A mea ar fi de fapt mai ușor de dus la capăt, cum trebuie."
+          }
+        ],
+        "events": {
+          "everyone-has-an-idea-choice": {
+            "situation": "Nadia și Oren țin amândoi foarte mult la propria idee. Așteaptă să decizi tu.",
+            "choices": [
+              {
+                "key": "pick-one-idea",
+                "label": "Mergi cu ideea Nadiei — e cea mai interesantă.",
+                "consequence": "Nadia e încântată. Oren tace și nu mai spune mare lucru tot restul zilei."
+              },
+              {
+                "key": "combine-both-ideas",
+                "label": "Găsește un mod de a combina ambele idei.",
+                "consequence": "Durează un pic mai mult să rezolvi, dar amândoi se simt ascultați."
+              },
+              {
+                "key": "let-them-decide-together",
+                "label": "Roagă-i pe Nadia și Oren să discute între ei.",
+                "consequence": "Discută singuri — și vin cu un plan care le place cu adevărat amândurora."
+              },
+              {
+                "key": "go-with-your-own-idea",
+                "label": "Sugerează o idee complet diferită, a ta.",
+                "consequence": "Rezolvă neînțelegerea, dar niciunul din ei nu simte că ideea lui a contat."
+              }
+            ]
+          }
+        }
+      },
+      "missing-task": {
+        "title": "Sarcina Lipsă",
+        "alertText": "🚨 O sarcină tot nu e gata — și termenul limită se apropie.",
+        "dialogue": [
+          {
+            "character": "theo",
+            "text": "Ar trebui să fim gata până mâine. Partea lui Oren nu e terminată încă."
+          },
+          {
+            "character": "priya",
+            "text": "Poate că a apărut ceva? Nu sunt sigură."
+          }
+        ],
+        "investigateLabel": "Află ce se întâmplă înainte să decizi.",
+        "investigate": {
+          "ask-the-teammate": "Îl întrebi pe Oren direct. Spune că nu era sigur cum să înceapă și nu a vrut să recunoască.",
+          "check-the-shared-plan": "Verifici planul comun. Partea lui Oren nu i-a fost niciodată explicată clar.",
+          "ask-another-teammate": "Priya menționează că Oren părea confuz mai devreme în săptămână, dar nu a spus nimic."
+        },
+        "events": {
+          "missing-task-choice": {
+            "situation": "Acum știi un pic mai mult despre ce s-a întâmplat. Ce faci?",
+            "choices": [
+              {
+                "key": "ask-what-happened",
+                "label": "Vorbește cu Oren și ajută-l să-și dea seama de ce e nevoie.",
+                "consequence": "Oren termină sarcina cu ajutorul tău și se simte mai confortabil să întrebe data viitoare."
+              },
+              {
+                "key": "do-it-yourself-quietly",
+                "label": "Termină sarcina tu însuți, pe tăcute.",
+                "consequence": "Sarcina se termină repede, dar Oren nu află niciodată ce a ratat — și nici nu are ocazia să repare."
+              },
+              {
+                "key": "remind-them-firmly",
+                "label": "Amintește-i ferm lui Oren că termenul limită e mâine.",
+                "consequence": "Sarcina începe să avanseze, dar Oren tot nu e sigur ce a greșit prima dată."
+              },
+              {
+                "key": "wait-and-see",
+                "label": "Așteaptă și vezi dacă se termină de la sine.",
+                "consequence": "Termenul limită se apropie, și nimic nu se schimbă."
+              }
+            ]
+          }
+        }
+      },
+      "big-mistake": {
+        "title": "Greșeala Mare",
+        "alertText": "🚨 Ceva a mers prost — și e ceva serios.",
+        "dialogue": [
+          {
+            "character": "priya",
+            "text": "Eu... cred că am trimis clientului varianta greșită. Cea cu toate greșelile în ea."
+          },
+          {
+            "character": "oren",
+            "text": "Toată lumea se uită la tine."
+          }
+        ],
+        "events": {
+          "big-mistake-choice": {
+            "situation": "Priya a făcut o greșeală serioasă, și toată lumea se uită să vadă ce vei face.",
+            "choices": [
+              {
+                "key": "blame-publicly",
+                "label": "Arată greșeala în fața tuturor.",
+                "consequence": "Echipa o repară rapid — dar Priya pare stânjenită și pare emoționată să mai vorbească din nou."
+              },
+              {
+                "key": "fix-it-yourself",
+                "label": "Repar-o tu însuți, pe tăcute, și mergi mai departe.",
+                "consequence": "Se rezolvă repede, dar Priya nu are niciodată ocazia să înțeleagă ce a mers prost."
+              },
+              {
+                "key": "talk-privately",
+                "label": "Vorbește cu Priya între patru ochi și află ce s-a întâmplat.",
+                "consequence": "Durează un pic mai mult, dar Priya se simte sprijinită — și e mai atentă data viitoare."
+              },
+              {
+                "key": "ignore-it",
+                "label": "Decide că nu e mare lucru și ignoră situația.",
+                "consequence": "Greșeala rămâne necorectată, iar clientul observă."
+              }
+            ]
+          }
+        }
+      },
+      "angry-customer": {
+        "title": "Clientul Supărat",
+        "alertText": "🚨 Un client e supărat din cauza a ceva ce a făcut echipa ta.",
+        "dialogue": [
+          {
+            "character": "theo",
+            "text": "E un client la telefon. Nu pare deloc mulțumit."
+          }
+        ],
+        "events": {
+          "angry-customer-choice": {
+            "situation": "Clientul spune că munca echipei tale nu e ceea ce a cerut.",
+            "choices": [
+              {
+                "key": "listen-first",
+                "label": "Ascultă cu atenție ce a mers prost înainte să răspunzi.",
+                "consequence": "Clientul se simte ascultat, iar tu îți faci o idee mai clară despre ce s-a întâmplat de fapt."
+              },
+              {
+                "key": "apologise-and-fix-it",
+                "label": "Cere-ți scuze și oferă-te să repari imediat.",
+                "consequence": "Clientul se simte ușurat, iar problema se rezolvă repede."
+              },
+              {
+                "key": "explain-why-you-were-right",
+                "label": "Explică de ce alegerea echipei tale a fost de fapt cea corectă.",
+                "consequence": "Clientul nu se simte deloc mai bine și tot nu e sigur că ai înțeles problema."
+              },
+              {
+                "key": "let-a-teammate-handle-it",
+                "label": "Las-o pe Priya, care se pricepe la oameni, să preia apelul.",
+                "consequence": "Priya îl liniștește pe client, iar echipa vede că ai încredere în ei și în momentele grele."
+              }
+            ]
+          }
+        }
+      },
+      "better-idea": {
+        "title": "Ideea Mai Bună",
+        "alertText": "🚨 Cineva tocmai a sugerat o idee mai bună decât a ta.",
+        "dialogue": [
+          {
+            "character": "nadia",
+            "text": "De fapt... ce-ar fi să facem în cu totul alt fel? Cred că ar putea merge mai bine."
+          }
+        ],
+        "events": {
+          "better-idea-choice": {
+            "situation": "Ideea Nadiei e chiar mai bună decât cea pe care o plănuiseși inițial.",
+            "choices": [
+              {
+                "key": "use-their-idea",
+                "label": "Mergi cu ideea Nadiei în loc de a ta.",
+                "consequence": "Proiectul devine mai puternic, iar Nadia se simte cu adevărat apreciată."
+              },
+              {
+                "key": "combine-ideas",
+                "label": "Combină cele mai bune părți din ambele idei.",
+                "consequence": "E nevoie de puțin mai multă muncă, dar rezultatul e și mai bun."
+              },
+              {
+                "key": "stick-with-your-idea",
+                "label": "Rămâi la planul tău inițial.",
+                "consequence": "Proiectul merge înainte conform planului, dar Nadia se întreabă dacă ideile ei chiar sunt binevenite."
+              },
+              {
+                "key": "ask-the-team-to-vote",
+                "label": "Întreabă toată echipa care idee o preferă.",
+                "consequence": "Echipa se simte implicată în decizie, indiferent care idee câștigă."
+              }
+            ]
+          }
+        }
+      },
+      "team-conflict": {
+        "title": "Conflictul din Echipă",
+        "alertText": "🚨 Doi coechipieri se ceartă, iar asta încetinește pe toată lumea.",
+        "dialogue": [
+          {
+            "character": "priya",
+            "text": "Nu mă asculți niciodată!"
+          },
+          {
+            "character": "theo",
+            "text": "Nu e corect — cred doar că vedem lucrurile diferit."
+          }
+        ],
+        "spotScenario": "Citește ce își spun Priya și Theo. Care părți înrăutățesc lucrurile, nu le îmbunătățesc?",
+        "outro": "Ai observat ce înrăutățește lucrurile. Acum e timpul să intervii.",
+        "events": {
+          "team-conflict-choice": {
+            "situation": "Priya și Theo tot nu se înțeleg. Ce faci?",
+            "choices": [
+              {
+                "key": "hear-both-sides",
+                "label": "Roagă-i pe fiecare să-și explice punctul de vedere, pe rând.",
+                "consequence": "Amândoi se simt ascultați și încep să înțeleagă punctul de vedere al celuilalt."
+              },
+              {
+                "key": "pick-a-side",
+                "label": "Decide cine are dreptate și spune-i celuilalt să lase baltă.",
+                "consequence": "Cearta se oprește, dar cel care a \"pierdut\" se simte tratat nedrept."
+              },
+              {
+                "key": "find-common-ground",
+                "label": "Ajută-i să găsească un compromis cu care amândoi să fie de acord.",
+                "consequence": "E nevoie de puțină răbdare, dar ies din discuție în relații bune."
+              },
+              {
+                "key": "tell-them-to-stop-and-move-on",
+                "label": "Spune-le să nu se mai certe și să revină la treabă.",
+                "consequence": "Munca continuă, dar neînțelegerea reală nu se rezolvă niciodată."
+              }
+            ]
+          }
+        }
+      },
+      "motivation-problem": {
+        "title": "Problema de Motivație",
+        "alertText": "🚨 Echipa ta pierde energie, iar tu nu ești sigur de ce.",
+        "dialogue": [
+          {
+            "character": "oren",
+            "text": "Nu știu... pur și simplu nu am chef să fac asta azi."
+          }
+        ],
+        "spotScenario": "Gândește-te la ce s-a întâmplat de fapt cu echipa ta săptămâna asta. Ce se întâmplă cu adevărat?",
+        "outro": "Acum ai o idee mai clară despre ce se întâmplă cu adevărat.",
+        "events": {
+          "motivation-problem-choice": {
+            "situation": "Ți-ai dat seama ce afectează de fapt echipa. Ce faci în continuare?",
+            "choices": [
+              {
+                "key": "explain-the-goal-again",
+                "label": "Explică din nou obiectivul, clar, întregii echipe.",
+                "consequence": "Lucrurile devin clare pentru câțiva coechipieri care nu erau siguri către ce lucrau."
+              },
+              {
+                "key": "check-in-with-each-person",
+                "label": "Vorbește cu fiecare persoană, individual.",
+                "consequence": "Câțiva coechipieri se deschid și spun că s-au simțit ignorați în ultima vreme."
+              },
+              {
+                "key": "push-through-and-keep-going",
+                "label": "Continuă înainte cu orice preț — termenul limită nu așteaptă.",
+                "consequence": "Proiectul avansează, dar energia echipei rămâne scăzută."
+              },
+              {
+                "key": "take-a-short-break",
+                "label": "Dă-i echipei o pauză scurtă înainte să continuați.",
+                "consequence": "Toată lumea se simte puțin mai bine, deși problema de fond e tot acolo."
+              }
+            ]
+          }
+        }
+      },
+      "the-deadline": {
+        "title": "Termenul Limită",
+        "alertText": "🚨 Termenul limită tocmai s-a apropiat — și nu există nicio șansă să terminați totul.",
+        "dialogue": [
+          {
+            "character": "theo",
+            "text": "Termenul limită s-a mutat mai devreme. Nu mai putem face toate cele cinci lucruri de pe listă."
+          }
+        ],
+        "tasks": {
+          "finish-the-main-feature": "Termină funcția principală",
+          "fix-the-known-problem": "Repară problema pe care o știi deja",
+          "polish-the-design": "Lustruiește designul",
+          "write-the-instructions": "Scrie instrucțiunile",
+          "extra-nice-to-have": "Adaugă un plus care ar fi frumos să existe"
+        },
+        "outro": "Ai decis ce contează cel mai mult — acum echipa trebuie să audă asta de la tine.",
+        "events": {
+          "the-deadline-choice": {
+            "situation": "Ai stabilit noile priorități. Cum împărtășești planul cu echipa?",
+            "choices": [
+              {
+                "key": "explain-the-new-plan-to-everyone",
+                "label": "Explică noul plan și de ce l-ai ales.",
+                "consequence": "Echipa înțelege raționamentul, chiar și părțile care nu îi încântă."
+              },
+              {
+                "key": "just-tell-people-what-to-drop",
+                "label": "Spune-le pur și simplu, rapid, ce să renunțe.",
+                "consequence": "Planul avansează rapid, dar câțiva coechipieri se simt puțin luați prin surprindere."
+              },
+              {
+                "key": "ask-the-team-what-to-cut",
+                "label": "Întreabă echipa ce cred ei că ar trebui renunțat.",
+                "consequence": "Durează un pic mai mult, dar toată lumea se simte parte din decizie."
+              }
+            ]
+          }
+        }
+      },
+      "pressure-test": {
+        "title": "Testul Presiunii",
+        "alertText": "🚨 Totul se întâmplă în același timp.",
+        "dialogue": [
+          {
+            "character": "priya",
+            "text": "Clientul tocmai și-a schimbat cerințele. Și Oren nu e aici azi. Și — s-a stricat și chestia aia acum?"
+          }
+        ],
+        "buckets": {
+          "deal-with-first": "Rezolvă primul",
+          "deal-with-next": "Rezolvă imediat după",
+          "can-wait": "Poate aștepta"
+        },
+        "problems": {
+          "a-teammate-is-stuck-and-blocked": "Un coechipier e blocat și nu poate continua fără ajutor",
+          "the-customer-is-waiting-for-an-answer": "Clientul așteaptă un răspuns",
+          "one-teammate-seems-upset": "Un coechipier pare supărat din cauza a tot ce se întâmplă deodată",
+          "a-small-typo-in-the-document": "Există o mică greșeală de scriere într-un document",
+          "an-idea-for-a-later-improvement": "Cineva a sugerat o idee pentru mai târziu"
+        },
+        "outro": "Ai stabilit de ce ai nevoie să te ocupi acum — și ce poate aștepta.",
+        "events": {
+          "pressure-test-reflection": {
+            "situation": "Acum că totul e rezolvat, cum faci față presiunii?",
+            "choices": [
+              {
+                "key": "stay-calm-and-work-the-list",
+                "label": "Rămâi calm și parcurge lista, un lucru pe rând.",
+                "consequence": "Echipa observă că rămâi calm, iar asta îi ajută și pe ei să rămână calmi."
+              },
+              {
+                "key": "panic-a-little-but-push-through",
+                "label": "Te simți puțin panicat, dar continui oricum.",
+                "consequence": "Reușești să treci peste, chiar dacă nu a fost cel mai calm moment al tău."
+              },
+              {
+                "key": "ask-the-team-for-help",
+                "label": "Roagă echipa să te ajute să rezolvați împreună.",
+                "consequence": "Împărțirea sarcinii face presiunea mai ușoară pentru toată lumea, inclusiv pentru tine."
+              }
+            ]
+          }
+        }
+      },
+      "final-challenge": {
+        "title": "Provocarea Finală",
+        "alertText": "🚨 Asta e marea provocare — proiectul care aduce totul la un loc.",
+        "dialogue": [
+          {
+            "character": "nadia",
+            "text": "Asta e — ultimul proiect mare! Am atât de multe idei."
+          },
+          {
+            "character": "theo",
+            "text": "Hai să facem un plan și să folosim punctele forte ale fiecăruia."
+          },
+          {
+            "character": "priya",
+            "text": "Abia aștept să le arăt oamenilor ce am construit."
+          }
+        ],
+        "tasks": {
+          "come-up-with-the-idea": "Vino cu ideea cea mare",
+          "build-the-thing": "Construiește-o",
+          "present-it-to-people": "Prezintă-o oamenilor",
+          "keep-everyone-on-track": "Ține pe toată lumea pe drumul cel bun"
+        },
+        "outro": "Cu fiecare făcând ce știe mai bine, proiectul chiar prinde contur.",
+        "events": {
+          "final-challenge-choice-1": {
+            "situationByTag": {
+              "the-listener": "Ai petrecut toată această călătorie ascultând cu atenție înainte să decizi. Pe măsură ce proiectul final prinde contur, o parte tot mai are nevoie de o decizie. Întrebi mai întâi în jur, sau decizi singur?",
+              "the-problem-solver": "Ai fost mereu rapid să găsești o soluție când ceva nu merge bine. Acum apare o mică problemă în proiectul final. Te arunci s-o rezolvi, sau verifici mai întâi cu echipa?",
+              "the-team-builder": "Ai construit încredere adevărată în această echipă. Pe măsură ce proiectul final prinde contur, o parte tot mai are nevoie de o decizie. Ai încredere că echipa se descurcă, sau verifici tu însuți?",
+              "the-calm-thinker": "Ai rămas calm prin câteva momente cu adevărat stresante. Acum, cu linia de sosire aproape, o parte din proiect tot mai are nevoie de o decizie. Ce faci?",
+              "the-encourager": "Ți-ai făcut obiceiul din a-ți încuraja echipa. Pe măsură ce proiectul final prinde contur, o parte tot mai are nevoie de o decizie. Ce faci?",
+              "the-big-picture-thinker": "Te-ai uitat adesea la imaginea de ansamblu, în loc să rămâi blocat în detalii mici. Acum, pe măsură ce proiectul final prinde contur, o parte tot mai are nevoie de o decizie. Ce faci?",
+              "none": "Pe măsură ce proiectul final prinde contur, o parte tot mai are nevoie de o decizie. Ce faci?"
+            },
+            "choices": [
+              {
+                "key": "trust-the-team-to-handle-it",
+                "label": "Ai încredere că echipa se descurcă, fără să verifici.",
+                "consequence": "Se descurcă bine — și simt că li se acordă cu adevărat încredere."
+              },
+              {
+                "key": "double-check-everything-yourself",
+                "label": "Verifică tu însuți totul de două ori înainte să iasă.",
+                "consequence": "E făcut cu grijă, dar durează mai mult, iar echipa observă că le verifici munca."
+              },
+              {
+                "key": "ask-for-a-quick-check-in",
+                "label": "Cere o verificare rapidă înainte să fie gata.",
+                "consequence": "E un echilibru bun — temeinic, fără să preiei controlul."
+              }
+            ]
+          },
+          "final-challenge-choice-2": {
+            "situation": "Proiectul e finalizat. Echipa ta a reușit. Ce faci acum?",
+            "choices": [
+              {
+                "key": "celebrate-what-the-team-achieved",
+                "label": "Sărbătoriți împreună ce a realizat echipa.",
+                "consequence": "Echipa se simte mândră — și pregătită pentru orice urmează."
+              },
+              {
+                "key": "immediately-plan-the-next-project",
+                "label": "Începe să plănuiești imediat următorul proiect.",
+                "consequence": "Echipa e impresionată de ambiția ta, chiar dacă ar fi vrut mai întâi un moment de sărbătoare."
+              },
+              {
+                "key": "thank-each-person-individually",
+                "label": "Mulțumește fiecărei persoane, individual, pentru ce a adus la proiect.",
+                "consequence": "Fiecare coechipier se simte cu adevărat văzut pentru contribuția proprie."
+              }
+            ]
+          }
+        }
+      }
+    },
+    "spotItems": {
+      "teamConflict": {
+        "you-never-listen-to-me": "\"Nu mă asculți niciodată!\"",
+        "i-think-we-see-it-differently": "\"Cred că doar vedem lucrurile diferit.\"",
+        "youre-doing-this-on-purpose": "\"Faci asta intenționat, nu-i așa?\"",
+        "can-we-slow-down-for-a-second": "\"Putem încetini puțin?\"",
+        "fine-whatever-you-want": "\"Bine. Cum vrei tu.\""
+      },
+      "motivationProblem": {
+        "unclear-goal": "Nimeni nu e cu adevărat sigur cum arată obiectivul final.",
+        "too-much-work": "Se adună multe sarcini chiar acum.",
+        "boredom": "Munca s-a simțit la fel de ceva vreme.",
+        "feeling-ignored": "Ideile câtorva coechipieri nu au mai fost menționate de ceva vreme.",
+        "lack-of-progress": "Nu pare că proiectul a avansat prea mult în ultima vreme."
+      }
+    },
+    "uhOh": {
+      "uh-oh-printer": {
+        "title": "Imprimanta tocmai s-a stricat.",
+        "situation": "E aproape timpul pentru prezentarea ta, iar imprimanta nu vrea să tipărească nimic.",
+        "choices": [
+          {
+            "key": "borrow-one-from-another-team",
+            "label": "Întreabă altă echipă dacă poți s-o împrumuți pe a lor.",
+            "consequence": "Merge bine, cu câteva minute rezervă."
+          },
+          {
+            "key": "present-without-printed-materials",
+            "label": "Prezintă fără materiale tipărite.",
+            "consequence": "E puțin improvizat, dar merge bine."
+          },
+          {
+            "key": "delay-the-presentation",
+            "label": "Cere câteva minute în plus înainte de prezentare.",
+            "consequence": "Primești timpul suplimentar de care ai nevoie, și nimănui nu-i pasă să aștepte puțin."
+          }
+        ]
+      },
+      "uh-oh-teammate-absent": {
+        "title": "Unul dintre coechipierii tăi lipsește azi.",
+        "situation": "Oren nu e prezent azi, iar el avea o sarcină importantă pe listă.",
+        "choices": [
+          {
+            "key": "share-out-their-tasks",
+            "label": "Împarte sarcinile lui între restul echipei.",
+            "consequence": "Se termină, iar echipa se simte bine că a contribuit."
+          },
+          {
+            "key": "wait-until-they-are-back",
+            "label": "Așteaptă până se întoarce Oren ca să continuați acea parte.",
+            "consequence": "Acea parte a proiectului e pusă pe pauză deocamdată."
+          },
+          {
+            "key": "do-their-work-yourself",
+            "label": "Fă tu partea lui Oren, pe lângă a ta.",
+            "consequence": "Se termină, dar e mult de dus singur."
+          }
+        ]
+      },
+      "uh-oh-customer-changed-mind": {
+        "title": "Clientul s-a răzgândit.",
+        "situation": "Clientul tocmai a trimis un mesaj că acum vrea ceva puțin diferit.",
+        "choices": [
+          {
+            "key": "adjust-the-plan-together",
+            "label": "Adună echipa și ajustați planul împreună.",
+            "consequence": "E nevoie de puțină muncă suplimentară, dar echipa se adaptează bine împreună."
+          },
+          {
+            "key": "explain-why-you-cant-change-now",
+            "label": "Explică faptul că e prea târziu să schimbați direcția acum.",
+            "consequence": "Clientul acceptă, dar pare puțin dezamăgit."
+          },
+          {
+            "key": "panic-and-start-over-completely",
+            "label": "Simți că trebuie să o iei de la capăt, complet.",
+            "consequence": "Se dovedește că trebuia schimbată doar o mică parte."
+          }
+        ]
+      },
+      "uh-oh-misunderstood-instructions": {
+        "title": "Îți dai seama că a fost o confuzie.",
+        "situation": "Uitându-vă din nou la instrucțiuni, echipa ta a înțeles o parte diferit de cum era menit.",
+        "choices": [
+          {
+            "key": "explain-the-mix-up-and-fix-it-together",
+            "label": "Explică-i echipei confuzia și rezolvați-o împreună.",
+            "consequence": "Echipa apreciază că știe exact ce s-a întâmplat."
+          },
+          {
+            "key": "quietly-fix-it-yourself",
+            "label": "Rezolvă confuzia tu însuți, pe tăcute.",
+            "consequence": "Se rezolvă, dar echipa nu află niciodată ce s-a întâmplat — sau cum să evite asta data viitoare."
+          },
+          {
+            "key": "blame-the-instructions",
+            "label": "Decide că instrucțiunile în sine au fost pur și simplu neclare.",
+            "consequence": "E parțial adevărat, dar deocamdată nu rezolvă nimic de fapt."
+          }
+        ]
+      },
+      "uh-oh-idea-stops-working": {
+        "title": "Cea mai bună idee a echipei nu mai funcționează, brusc.",
+        "situation": "Abordarea care funcționa atât de bine toată săptămâna a lovit brusc un zid.",
+        "choices": [
+          {
+            "key": "try-a-different-approach-together",
+            "label": "Adună echipa ca să încercați o abordare diferită.",
+            "consequence": "E nevoie de câteva încercări, dar echipa găsește o nouă cale de urmat."
+          },
+          {
+            "key": "keep-trying-the-same-way",
+            "label": "Continuă să încerci aceeași abordare, sperând că va funcționa până la urmă.",
+            "consequence": "Nu pare să meargă mai bine."
+          },
+          {
+            "key": "ask-the-team-for-new-ideas",
+            "label": "Cere echipei idei noi.",
+            "consequence": "Cineva vine cu o perspectivă la care nimeni nu se gândise încă."
+          }
+        ]
+      }
+    },
+    "lab": {
+      "lab-rejected-idea": {
+        "title": "O Idee Respinsă",
+        "situation": "Prietenul tău e supărat pentru că nu i-ai ales ideea. Ce ai putea să-i spui?",
+        "choices": {
+          "say-sorry-and-explain-why": {
+            "label": "Cere-ți scuze și explică sincer de ce ai ales altceva.",
+            "consequence": "Înțelege motivele tale, chiar dacă tot e puțin dezamăgit."
+          },
+          "ask-them-to-explain-more": {
+            "label": "Roagă-l să-și explice din nou ideea — poate ai ratat ceva.",
+            "consequence": "S-ar putea să descoperi că funcționează mai bine decât ai crezut inițial."
+          },
+          "say-nothing-and-move-on": {
+            "label": "Nu spune nimic și treci mai departe.",
+            "consequence": "Momentul trece, dar s-ar putea ca el să se întrebe în continuare ce crezi despre ideile lui."
+          }
+        }
+      },
+      "lab-quiet-teammate": {
+        "title": "Un Coechipier Tăcut",
+        "situation": "Cineva din echipa ta e foarte tăcut. Ce ai putea face?",
+        "choices": {
+          "ask-them-directly-what-they-think": {
+            "label": "Întreabă-l direct ce crede.",
+            "consequence": "Împărtășește o idee pe care poate nu ar fi oferit-o din proprie inițiativă."
+          },
+          "give-them-a-small-task-to-build-confidence": {
+            "label": "Dă-i o sarcină mică, ca să-i clădești încrederea.",
+            "consequence": "Pare puțin mai confortabil să participe."
+          },
+          "let-them-stay-quiet": {
+            "label": "Lasă-l să rămână tăcut, dacă așa e el.",
+            "consequence": "E în regulă și așa — nu toată lumea trebuie să vorbească în același fel."
+          }
+        }
+      },
+      "lab-hide-or-tell": {
+        "title": "Ascunzi sau Spui?",
+        "situation": "Ai făcut o greșeală. O ascunzi sau o spui echipei?",
+        "choices": {
+          "tell-the-team-right-away": {
+            "label": "Spune-i echipei imediat.",
+            "consequence": "E puțin neplăcut, dar echipa poate ajuta să se repare mai repede."
+          },
+          "fix-it-quietly-first": {
+            "label": "Încearcă mai întâi s-o repari pe tăcute.",
+            "consequence": "S-ar putea să meargă — sau ar putea deveni mai greu de explicat mai târziu."
+          },
+          "hide-it-and-hope-no-one-notices": {
+            "label": "Ascunde-o și speră că nimeni nu observă.",
+            "consequence": "S-ar putea să iasă la iveală mai târziu, când va fi mai greu de rezolvat."
+          }
+        }
+      },
+      "lab-doesnt-agree": {
+        "title": "O Neînțelegere Publică",
+        "situation": "Un coechipier nu e de acord cu planul tău în fața tuturor. Ce faci?",
+        "choices": {
+          "ask-them-to-explain-their-thinking": {
+            "label": "Roagă-l să-și explice raționamentul.",
+            "consequence": "Afli ceva la care nu te-ai gândit."
+          },
+          "explain-why-your-plan-is-better": {
+            "label": "Explică de ce planul tău e cel mai bun.",
+            "consequence": "S-ar putea să ai dreptate, dar el s-ar putea simți ignorat."
+          },
+          "suggest-talking-about-it-after": {
+            "label": "Propune să discutați despre asta între patru ochi, mai târziu.",
+            "consequence": "Vă oferă amândurora timp să vă gândiți calm la asta."
+          }
+        }
+      },
+      "lab-credit-for-idea": {
+        "title": "A Cui a Fost Ideea?",
+        "situation": "Ideea cuiva a funcționat foarte bine, dar nimeni nu a menționat că a fost a lui. Ce faci?",
+        "choices": {
+          "point-out-whose-idea-it-was": {
+            "label": "Menționează că a fost ideea lui.",
+            "consequence": "Se simte cu adevărat recunoscut."
+          },
+          "say-nothing-its-not-a-big-deal": {
+            "label": "Nu spune nimic — nu e mare lucru.",
+            "consequence": "S-ar putea să nu conteze pentru el, sau ar putea conta mai mult decât crezi."
+          },
+          "ask-them-how-they-feel-about-it": {
+            "label": "Întreabă-l cum se simte în legătură cu asta.",
+            "consequence": "Afli direct, în loc să ghicești."
+          }
+        }
+      },
+      "lab-tired-teammate": {
+        "title": "Un Coechipier Obosit",
+        "situation": "Un coechipier pare obosit și spune că e bine. Ce faci?",
+        "choices": {
+          "check-in-again-later": {
+            "label": "Verifică din nou mai târziu, ca să fii sigur.",
+            "consequence": "Apreciază faptul că ai observat."
+          },
+          "take-something-off-their-plate": {
+            "label": "Ia-i pe tăcute ceva de pe lista de sarcini.",
+            "consequence": "Ajută, chiar dacă nu spune multe despre asta."
+          },
+          "take-their-word-for-it": {
+            "label": "Crede-l pe cuvânt și treci mai departe.",
+            "consequence": "S-ar putea să fie chiar bine — sau poate n-a vrut să spună."
+          }
+        }
+      },
+      "lab-new-member": {
+        "title": "Un Membru Nou în Echipă",
+        "situation": "O persoană nouă se alătură echipei tale pe la mijlocul proiectului. Ce faci?",
+        "choices": {
+          "introduce-them-to-everyone-and-explain-the-plan": {
+            "label": "Prezintă-o tuturor și explică-i planul de până acum.",
+            "consequence": "Se simte binevenită și pregătită să contribuie."
+          },
+          "let-them-figure-it-out": {
+            "label": "Las-o să-și dea seama pe parcurs.",
+            "consequence": "Se descurcă, deși îi ia mai mult timp să se acomodeze."
+          },
+          "ask-the-team-to-help-them-settle-in": {
+            "label": "Roagă echipa s-o ajute să se acomodeze.",
+            "consequence": "Toată echipa contribuie, și nu cade totul doar pe tine."
+          }
+        }
+      },
+      "lab-mixed-feedback": {
+        "title": "Un Feedback Greu de Dat",
+        "situation": "Trebuie să-i spui unui coechipier că munca lui are nevoie de câteva schimbări. Ce faci?",
+        "choices": {
+          "say-what-you-liked-and-what-to-change": {
+            "label": "Spune ce ți-a plăcut și ce trebuie schimbat.",
+            "consequence": "Știe exact ce a mers bine și ce trebuie reparat."
+          },
+          "just-say-its-not-good-enough": {
+            "label": "Spune pur și simplu că nu e suficient de bun.",
+            "consequence": "Știe că ceva nu e în regulă, dar nu ce ar trebui de fapt să facă."
+          },
+          "avoid-saying-anything-and-fix-it-yourself": {
+            "label": "Evită să spui ceva și repară tu însuți.",
+            "consequence": "Se repară, dar el nu află niciodată ce trebuia schimbat."
+          }
+        }
+      }
+    },
+    "badges": {
+      "lq-first-leader": {
+        "name": "Primul Lider",
+        "description": "Ți-ai început călătoria conducând o echipă."
+      },
+      "lq-team-builder": {
+        "name": "Constructor de Echipă",
+        "description": "Ai potrivit sarcinile cu punctele forte ale echipei tale."
+      },
+      "lq-good-listener": {
+        "name": "Bun Ascultător",
+        "description": "Ai ascultat cu atenție înainte să decizi."
+      },
+      "lq-problem-solver": {
+        "name": "Rezolvator de Probleme",
+        "description": "Ai rezolvat o problemă complicată."
+      },
+      "lq-calm-under-pressure": {
+        "name": "Calm sub Presiune",
+        "description": "Ți-ai păstrat calmul când totul se întâmpla deodată."
+      },
+      "lq-final-leader": {
+        "name": "Liderul Final",
+        "description": "Ți-ai condus echipa de-a lungul întregii călătorii."
+      }
+    },
+    "profile": {
+      "title": "Profilul Tău de Lider",
+      "lockedHint": "Termină Provocarea Finală ca să-ți vezi Profilul de Lider.",
+      "intro": "Acesta nu e un scor — e o privire asupra felului în care obișnuiești să conduci, pe baza alegerilor pe care le-ai făcut chiar tu.",
+      "noPatternYetHint": "Alegerile tale nu au înclinat puternic către un singur tipar — și e complet în regulă și așa.",
+      "noBetterOrWorseNote": "Niciunul dintre aceste tipare nu e mai bun decât altul. Un leadership bun poate arăta diferit pentru fiecare persoană.",
+      "archetypes": {
+        "the-listener": {
+          "title": "Ascultătorul",
+          "statements": [
+            "Adesea asculți cu atenție înainte să decizi.",
+            "Ai tendința să întrebi oamenii ce s-a întâmplat înainte să tragi concluzii pripite.",
+            "Faci loc punctului de vedere al celorlalți.",
+            "Observi când cineva nu a fost încă ascultat."
+          ]
+        },
+        "the-problem-solver": {
+          "title": "Rezolvatorul de Probleme",
+          "statements": [
+            "Adesea cauți o soluție practică atunci când ceva merge prost.",
+            "Ai tendința să sapi adânc într-o problemă, în loc s-o eviți.",
+            "Te concentrezi pe găsirea unei căi de urmat.",
+            "Rămâi curios în legătură cu ce cauzează cu adevărat o problemă."
+          ]
+        },
+        "the-team-builder": {
+          "title": "Constructorul de Echipă",
+          "statements": [
+            "Adesea ai încredere că echipa ta se descurcă singură.",
+            "Ai tendința să potrivești sarcinile cu punctele forte ale oamenilor.",
+            "Aduci oamenii împreună, în loc să decizi singur.",
+            "Observi când cineva merită mai multă încredere sau recunoaștere."
+          ]
+        },
+        "the-calm-thinker": {
+          "title": "Gânditorul Calm",
+          "statements": [
+            "Adesea rămâi calm atunci când lucrurile devin stresante.",
+            "Ai tendința să rezolvi problemele pe rând, una câte una.",
+            "Nu lași presiunea să-ți grăbească deciziile.",
+            "Calmul tău tinde să-i ajute și pe cei din jurul tău."
+          ]
+        },
+        "the-encourager": {
+          "title": "Încurajatorul",
+          "statements": [
+            "Adesea îi ridici pe cei din jurul tău.",
+            "Ai tendința să observi cum se simt oamenii.",
+            "Îți faci timp să recunoști ce au făcut bine ceilalți.",
+            "Îi faci pe oameni să se simtă în siguranță să greșească."
+          ]
+        },
+        "the-big-picture-thinker": {
+          "title": "Gânditorul de Ansamblu",
+          "statements": [
+            "Adesea te uiți la imaginea de ansamblu, în loc de detalii mici.",
+            "Ai tendința să te adaptezi rapid când planurile se schimbă.",
+            "Ești deschis la idei diferite de ale tale.",
+            "Te concentrezi pe direcția în care merge echipa, nu doar pe sarcina de azi."
+          ]
+        }
       }
     }
   },
