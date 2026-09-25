@@ -198,6 +198,13 @@ export default function PlayPage() {
             <span className="font-medium">{t("play.entrepreneurQuestLink")}</span>
           </Link>
           <Link
+            href="/leadership-quest"
+            className="flex items-center gap-xs rounded-lg border-2 border-ink/10 bg-white p-sm shadow-resting transition-shadow hover:shadow-floating hover:border-teal"
+          >
+            <span aria-hidden="true" className="text-2xl">🤝</span>
+            <span className="font-medium">{t("play.leadershipQuestLink")}</span>
+          </Link>
+          <Link
             href="/feedback"
             className="flex items-center gap-xs rounded-lg border-2 border-ink/10 bg-white p-sm shadow-resting transition-shadow hover:shadow-floating hover:border-teal"
           >

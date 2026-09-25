@@ -22,11 +22,11 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      // /*/entrepreneur-quest is excluded for the identical reason as
-      // /*/play: an interactive app section (business builder,
-      // simulator, challenges) with no static content of its own to
-      // index, not because it contains anything private.
-      disallow: ["/*/play", "/*/entrepreneur-quest", "/api/"],
+      // /*/entrepreneur-quest and /*/leadership-quest are excluded for
+      // the identical reason as /*/play: interactive app sections with
+      // no static content of their own to index, not because they
+      // contain anything private.
+      disallow: ["/*/play", "/*/entrepreneur-quest", "/*/leadership-quest", "/api/"],
     },
     sitemap: `${siteUrl}/sitemap.xml`,
   };
