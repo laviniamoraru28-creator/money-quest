@@ -362,6 +362,7 @@
     "spendSome": "Dépenser un peu",
     "moneyPersonalityLink": "Personnalité Financière",
     "entrepreneurQuestLink": "Quête de l'Entrepreneur →",
+    "leadershipQuestLink": "Quête du Leadership →",
     "levelActivityProgress": "Niveau {level} · Activité {position} sur {total}",
     "investingLabLink": "Laboratoire d'Investissement →"
   },
@@ -5141,6 +5142,560 @@
         "whatDidntWorkPlaceholder": "Par exemple : Mon prix était peut-être trop élevé au début.",
         "whatWouldChangeLabel": "Que changerais-tu la prochaine fois ?",
         "whatWouldChangePlaceholder": "Par exemple : Je testerais mon idée avant de dépenser tout mon argent."
+      }
+    }
+  },
+  "leadershipQuest": {
+    "hubTitle": "Quête du Leadership",
+    "hubTagline": "Dirige une équipe à travers de vrais défis — une décision à la fois.",
+    "hubIntro": "Tu es sur le point de devenir le leader d'une petite équipe. Ils auront besoin que tu écoutes, que tu décides, et que tu les aides face à tout ce qui arrive.",
+    "introStory": "Rencontre ton équipe, relève ta première mission, et découvre quel genre de leader tu deviens — une décision à la fois.",
+    "missionProgress": "Mission {current} sur {total}",
+    "labLink": "Labo du Leadership",
+    "labTitle": "Labo du Leadership",
+    "labIntro": "De courtes situations pour t'entraîner au leadership, quand tu veux.",
+    "profileLink": "Profil de Leader",
+    "profileLinkLockedHint": "Profil de Leader (termine d'abord le Défi Final)",
+    "badgesEarnedTitle": "Badges Gagnés",
+    "noBadgesYetHint": "Termine des missions pour commencer à gagner des badges.",
+    "entrepreneurQuestLinkTitle": "Tu as construit une entreprise. Maintenant, tu as une équipe.",
+    "entrepreneurQuestLinkText": "Les compétences en leadership peuvent t'aider quand ton entreprise grandit et que tu commences à travailler avec d'autres personnes.",
+    "resetConfirm": "Es-tu sûr de vouloir réinitialiser ta progression dans la Quête du Leadership ? C'est irréversible.",
+    "resetButton": "Réinitialiser la Quête du Leadership",
+    "continueButton": "Continuer",
+    "finishMissionButton": "Terminer la Mission",
+    "missionCompleteBadge": "Mission terminée",
+    "continueToNextMissionButton": "Continuer vers la Mission Suivante",
+    "backToTeamHub": "Retour au Centre de l'Équipe",
+    "teamStatus": {
+      "title": "État de l'Équipe",
+      "trust": "Confiance",
+      "morale": "Moral",
+      "progress": "Progression",
+      "energy": "Énergie"
+    },
+    "characters": {
+      "nadia": {
+        "name": "Nadia",
+        "personality": "Pleine d'idées et toujours en train de penser trois coups à l'avance.",
+        "strength": "Trouve des idées créatives auxquelles personne d'autre n'aurait pensé.",
+        "challenge": "S'enthousiasme tellement pour ses idées qu'elle coupe parfois la parole aux autres.",
+        "interest": "Dessiner des bandes dessinées et inventer de petits gadgets.",
+        "communicationStyle": "Rapide, enthousiaste, et toujours prête à dire \"et si on essayait...\""
+      },
+      "oren": {
+        "name": "Oren",
+        "personality": "Minutieux et précis — il remarque des détails que les autres ratent.",
+        "strength": "Excellent pour construire et réparer les choses correctement.",
+        "challenge": "A souvent de bonnes idées, mais ne les partage pas facilement en grand groupe.",
+        "interest": "Démonter des objets pour voir comment ils fonctionnent, et résoudre des casse-têtes.",
+        "communicationStyle": "Discret en groupe, mais s'ouvre si tu lui demandes directement."
+      },
+      "priya": {
+        "name": "Priya",
+        "personality": "Chaleureuse, expressive, et douée pour parler à n'importe qui.",
+        "strength": "Sait expliquer les choses clairement et met les gens à l'aise.",
+        "challenge": "S'emballe pour la prochaine idée avant même d'avoir terminé la précédente.",
+        "interest": "Jouer la comédie, raconter des histoires, et rencontrer de nouvelles personnes.",
+        "communicationStyle": "Parle beaucoup, avec énergie — a parfois besoin d'un petit rappel pour conclure."
+      },
+      "theo": {
+        "name": "Theo",
+        "personality": "Stable, organisé, et toujours au fait du plan.",
+        "strength": "Garde l'équipe dans les temps et se souvient de chaque détail.",
+        "challenge": "Les changements soudains de plan le stressent.",
+        "interest": "Faire des listes, des horaires, et de longues promenades.",
+        "communicationStyle": "Calme et précis — préfère être prévenu avant qu'un changement n'arrive."
+      }
+    },
+    "missions": {
+      "meet-your-team": {
+        "title": "Rencontre Ton Équipe",
+        "alertText": "",
+        "dialogue": [
+          { "character": "nadia", "text": "Salut ! Je suis TELLEMENT contente que tu sois là — j'ai déjà à peu près dix idées pour notre premier projet !" },
+          { "character": "oren", "text": "...Salut. Je m'appelle Oren. J'ai surtout envie de commencer." },
+          { "character": "priya", "text": "Bienvenue ! Honnêtement, je pense que cette équipe va être géniale avec toi comme leader." },
+          { "character": "theo", "text": "Bonjour. J'ai préparé un petit programme pour aujourd'hui, si ça peut aider." }
+        ],
+        "tasks": {
+          "come-up-with-ideas": "Trouver des idées pour notre projet",
+          "fix-something-broken": "Réparer quelque chose qui ne fonctionne pas bien",
+          "talk-to-a-visitor": "Parler à un visiteur et lui expliquer ce qu'on fait",
+          "keep-track-of-the-plan": "Suivre le plan et le planning"
+        },
+        "outro": "Maintenant tu connais un peu chaque coéquipier — et ce que chacun sait bien faire.",
+        "events": {
+          "meet-your-team-reflection": {
+            "situation": "Ton premier jour à la tête de cette équipe commence bien. Comment te sens-tu par rapport à ça ?",
+            "choices": [
+              { "key": "excited", "label": "Enthousiaste — allons-y !", "consequence": "Ton énergie déteint un peu sur l'équipe." },
+              { "key": "nervous-but-ready", "label": "Un peu nerveux, mais prêt.", "consequence": "C'est honnête — et totalement normal pour un nouveau leader." },
+              { "key": "not-sure-yet", "label": "Pas encore sûr — je vais voir au fur et à mesure.", "consequence": "C'est une façon tout à fait valable de commencer. Tu vas beaucoup apprendre de ton équipe." }
+            ]
+          }
+        }
+      },
+      "first-challenge": {
+        "title": "Le Premier Défi",
+        "alertText": "Ton équipe a son premier vrai projet — et il doit être terminé.",
+        "dialogue": [
+          { "character": "theo", "text": "Bon, on a un projet. Quelqu'un doit s'occuper de chaque partie." },
+          { "character": "nadia", "text": "J'ai déjà des idées pour l'affiche !" },
+          { "character": "priya", "text": "Je pourrais parler aux gens qui visitent notre stand." }
+        ],
+        "tasks": {
+          "design-the-poster": "Créer l'affiche",
+          "build-the-display": "Construire le stand",
+          "explain-it-to-visitors": "Expliquer le projet aux visiteurs",
+          "make-the-plan": "Faire le plan et garder tout le monde dans les temps"
+        },
+        "outro": "Comme tu as confié chaque tâche à la personne vraiment douée pour ça, le projet avance sans accroc."
+      },
+      "everyone-has-an-idea": {
+        "title": "Tout le Monde a une Idée",
+        "alertText": "🚨 Deux coéquipiers ne sont pas d'accord — et tous les deux veulent que tu décides.",
+        "dialogue": [
+          { "character": "nadia", "text": "Mon idée est bien plus excitante — on devrait la faire à ma façon !" },
+          { "character": "oren", "text": "...La mienne serait en fait plus facile à terminer proprement." }
+        ],
+        "events": {
+          "everyone-has-an-idea-choice": {
+            "situation": "Nadia et Oren tiennent tous les deux fermement à leur idée. Ils attendent que tu décides.",
+            "choices": [
+              { "key": "pick-one-idea", "label": "Choisir l'idée de Nadia — elle est plus excitante.", "consequence": "Nadia est ravie. Oren devient silencieux et ne dit presque rien pour le reste de la journée." },
+              { "key": "combine-both-ideas", "label": "Trouver un moyen de combiner les deux idées.", "consequence": "Ça prend un peu plus de temps à mettre au point, mais tous les deux se sentent écoutés." },
+              { "key": "let-them-decide-together", "label": "Demander à Nadia et Oren d'en discuter ensemble.", "consequence": "Ils en discutent eux-mêmes — et reviennent avec un plan qu'ils aiment vraiment tous les deux." },
+              { "key": "go-with-your-own-idea", "label": "Proposer une idée complètement différente, à toi.", "consequence": "Ça règle le désaccord, mais aucun des deux ne sent que son idée a compté." }
+            ]
+          }
+        }
+      },
+      "missing-task": {
+        "title": "La Tâche Manquante",
+        "alertText": "🚨 Une tâche n'est toujours pas terminée — et la date limite approche.",
+        "dialogue": [
+          { "character": "theo", "text": "On est censés être prêts pour demain. La partie d'Oren n'est pas encore terminée." },
+          { "character": "priya", "text": "Il s'est peut-être passé quelque chose ? Je ne suis pas sûre." }
+        ],
+        "investigateLabel": "Découvre ce qui se passe avant de décider.",
+        "investigate": {
+          "ask-the-teammate": "Tu demandes directement à Oren. Il dit qu'il ne savait pas trop comment commencer, et qu'il ne voulait pas l'admettre.",
+          "check-the-shared-plan": "Tu vérifies le plan partagé. La partie d'Oren ne lui avait jamais été bien expliquée.",
+          "ask-another-teammate": "Priya mentionne qu'Oren semblait confus plus tôt dans la semaine, mais elle n'a rien dit."
+        },
+        "events": {
+          "missing-task-choice": {
+            "situation": "Tu en sais maintenant un peu plus sur ce qui s'est passé. Que fais-tu ?",
+            "choices": [
+              { "key": "ask-what-happened", "label": "Parler à Oren, et l'aider à comprendre ce qu'il faut faire.", "consequence": "Oren termine la tâche avec ton aide, et se sent plus à l'aise pour demander de l'aide la prochaine fois." },
+              { "key": "do-it-yourself-quietly", "label": "Terminer la tâche toi-même, sans rien dire.", "consequence": "La tâche est terminée rapidement, mais Oren ne découvre jamais ce qu'il a raté — ni n'a l'occasion de le corriger." },
+              { "key": "remind-them-firmly", "label": "Rappeler fermement à Oren que la date limite est demain.", "consequence": "La tâche avance, mais Oren ne sait toujours pas ce qui a mal tourné la première fois." },
+              { "key": "wait-and-see", "label": "Attendre pour voir si ça se termine tout seul.", "consequence": "La date limite se rapproche, et rien ne change." }
+            ]
+          }
+        }
+      },
+      "big-mistake": {
+        "title": "La Grosse Erreur",
+        "alertText": "🚨 Quelque chose s'est mal passé — et c'est du sérieux.",
+        "dialogue": [
+          { "character": "priya", "text": "Je... je crois que j'ai envoyé la mauvaise version au client. Celle avec toutes les erreurs dedans." },
+          { "character": "oren", "text": "Tout le monde te regarde." }
+        ],
+        "events": {
+          "big-mistake-choice": {
+            "situation": "Priya a fait une vraie erreur, et tout le monde attend de voir ce que tu vas faire.",
+            "choices": [
+              { "key": "blame-publicly", "label": "Souligner l'erreur devant tout le monde.", "consequence": "L'équipe la corrige rapidement — mais Priya se sent gênée, et semble nerveuse à l'idée de reprendre la parole." },
+              { "key": "fix-it-yourself", "label": "La corriger toi-même discrètement et passer à autre chose.", "consequence": "C'est réglé rapidement, mais Priya ne comprend jamais ce qui s'est mal passé." },
+              { "key": "talk-privately", "label": "Parler à Priya en privé et comprendre ce qui s'est passé.", "consequence": "Ça prend un peu plus de temps, mais Priya se sent soutenue — et fait plus attention la fois suivante." },
+              { "key": "ignore-it", "label": "Décider que ce n'est pas grave et l'ignorer.", "consequence": "L'erreur reste non corrigée, et le client s'en rend compte." }
+            ]
+          }
+        }
+      },
+      "angry-customer": {
+        "title": "Le Client Fâché",
+        "alertText": "🚨 Un client n'est pas content de quelque chose que ton équipe a fait.",
+        "dialogue": [
+          { "character": "theo", "text": "Il y a un client au téléphone. Il n'a pas l'air content." }
+        ],
+        "events": {
+          "angry-customer-choice": {
+            "situation": "Le client dit que le travail de ton équipe n'était pas ce qu'il avait demandé.",
+            "choices": [
+              { "key": "listen-first", "label": "Écouter attentivement ce qui n'a pas été avant de répondre.", "consequence": "Le client se sent écouté, et tu comprends plus clairement ce qui s'est réellement passé." },
+              { "key": "apologise-and-fix-it", "label": "S'excuser et proposer de régler ça tout de suite.", "consequence": "Le client est soulagé, et le problème se règle rapidement." },
+              { "key": "explain-why-you-were-right", "label": "Expliquer pourquoi le choix de ton équipe était en fait le bon.", "consequence": "Le client ne se sent pas mieux, et n'est toujours pas sûr que tu aies compris le problème." },
+              { "key": "let-a-teammate-handle-it", "label": "Laisser Priya, qui est douée avec les gens, s'occuper de l'appel.", "consequence": "Priya calme le client, et l'équipe voit que tu leur fais confiance aussi pour les moments difficiles." }
+            ]
+          }
+        }
+      },
+      "better-idea": {
+        "title": "La Meilleure Idée",
+        "alertText": "🚨 Quelqu'un vient de proposer une idée meilleure que la tienne.",
+        "dialogue": [
+          { "character": "nadia", "text": "En fait... et si on faisait ça d'une façon complètement différente ? Je pense que ça pourrait mieux marcher." }
+        ],
+        "events": {
+          "better-idea-choice": {
+            "situation": "L'idée de Nadia est vraiment meilleure que celle que tu avais prévue au départ.",
+            "choices": [
+              { "key": "use-their-idea", "label": "Choisir l'idée de Nadia plutôt que la tienne.", "consequence": "Le projet devient plus solide, et Nadia se sent vraiment valorisée." },
+              { "key": "combine-ideas", "label": "Combiner le meilleur des deux idées.", "consequence": "Ça demande un peu plus de travail, mais le résultat est encore meilleur." },
+              { "key": "stick-with-your-idea", "label": "Garder ton plan original.", "consequence": "Le projet avance comme prévu, mais Nadia se demande si ses idées sont vraiment les bienvenues." },
+              { "key": "ask-the-team-to-vote", "label": "Demander à toute l'équipe quelle idée elle préfère.", "consequence": "L'équipe se sent impliquée dans la décision, quelle que soit l'idée retenue." }
+            ]
+          }
+        }
+      },
+      "team-conflict": {
+        "title": "Le Conflit dans l'Équipe",
+        "alertText": "🚨 Deux coéquipiers se disputent, et ça ralentit tout le monde.",
+        "dialogue": [
+          { "character": "priya", "text": "Tu ne m'écoutes jamais !" },
+          { "character": "theo", "text": "Ce n'est pas juste — je pense juste qu'on voit les choses différemment." }
+        ],
+        "spotScenario": "Lis ce que se disent Priya et Theo. Quelles parties aggravent la situation, au lieu de l'améliorer ?",
+        "outro": "Tu as repéré ce qui aggrave la situation. Il est temps d'intervenir.",
+        "events": {
+          "team-conflict-choice": {
+            "situation": "Priya et Theo ne sont toujours pas d'accord. Que fais-tu ?",
+            "choices": [
+              { "key": "hear-both-sides", "label": "Demander à chacun d'expliquer son point de vue, l'un après l'autre.", "consequence": "Ils se sentent tous les deux écoutés, et commencent à comprendre le point de vue de l'autre." },
+              { "key": "pick-a-side", "label": "Décider qui a raison et dire à l'autre de laisser tomber.", "consequence": "La dispute s'arrête, mais celui qui a \"perdu\" se sent traité injustement." },
+              { "key": "find-common-ground", "label": "Les aider à trouver un terrain d'entente qu'ils peuvent tous les deux accepter.", "consequence": "Ça demande un peu de patience, mais ils terminent la conversation en bons termes." },
+              { "key": "tell-them-to-stop-and-move-on", "label": "Leur dire d'arrêter de se disputer et de se remettre au travail.", "consequence": "Le travail continue, mais le vrai désaccord n'est jamais résolu." }
+            ]
+          }
+        }
+      },
+      "motivation-problem": {
+        "title": "Le Problème de Motivation",
+        "alertText": "🚨 Ton équipe perd de l'énergie, et tu ne sais pas vraiment pourquoi.",
+        "dialogue": [
+          { "character": "oren", "text": "Je ne sais pas... je n'ai juste pas envie de faire ça aujourd'hui." }
+        ],
+        "spotScenario": "Réfléchis à ce qui s'est vraiment passé avec ton équipe cette semaine. Qu'est-ce qui se cache vraiment derrière tout ça ?",
+        "outro": "Tu as maintenant une meilleure idée de ce qui se passe vraiment.",
+        "events": {
+          "motivation-problem-choice": {
+            "situation": "Tu as compris ce qui affecte vraiment l'équipe. Que fais-tu maintenant ?",
+            "choices": [
+              { "key": "explain-the-goal-again", "label": "Réexpliquer l'objectif, clairement, à toute l'équipe.", "consequence": "Ça éclaire les choses pour plusieurs coéquipiers qui ne savaient plus vers quoi ils travaillaient." },
+              { "key": "check-in-with-each-person", "label": "Prendre des nouvelles de chaque personne, individuellement.", "consequence": "Deux ou trois coéquipiers se confient sur le fait de se sentir un peu délaissés ces derniers temps." },
+              { "key": "push-through-and-keep-going", "label": "Continuer coûte que coûte — la date limite n'attendra pas.", "consequence": "Le projet avance, mais l'énergie de l'équipe reste basse." },
+              { "key": "take-a-short-break", "label": "Accorder à l'équipe une courte pause avant de continuer.", "consequence": "Tout le monde se sent un peu mieux, même si le vrai problème est toujours là." }
+            ]
+          }
+        }
+      },
+      "the-deadline": {
+        "title": "La Date Limite",
+        "alertText": "🚨 La date limite vient de se rapprocher — et il est impossible de tout terminer.",
+        "dialogue": [
+          { "character": "theo", "text": "La date limite a été avancée. On ne peut plus faire les cinq choses de la liste." }
+        ],
+        "tasks": {
+          "finish-the-main-feature": "Terminer la fonctionnalité principale",
+          "fix-the-known-problem": "Corriger le problème déjà connu",
+          "polish-the-design": "Peaufiner le design",
+          "write-the-instructions": "Écrire les instructions",
+          "extra-nice-to-have": "Ajouter un petit bonus"
+        },
+        "outro": "Tu as décidé ce qui compte le plus — maintenant l'équipe a besoin de l'entendre de ta bouche.",
+        "events": {
+          "the-deadline-choice": {
+            "situation": "Tu as établi les nouvelles priorités. Comment partages-tu le plan avec l'équipe ?",
+            "choices": [
+              { "key": "explain-the-new-plan-to-everyone", "label": "Expliquer le nouveau plan et pourquoi tu l'as choisi.", "consequence": "L'équipe comprend le raisonnement, même les parties qui ne l'enchantent pas." },
+              { "key": "just-tell-people-what-to-drop", "label": "Dire simplement aux gens ce qu'il faut laisser tomber, rapidement.", "consequence": "Le plan avance vite, mais deux ou trois coéquipiers se sentent un peu pris au dépourvu." },
+              { "key": "ask-the-team-what-to-cut", "label": "Demander à l'équipe ce qu'elle pense qu'il faudrait couper.", "consequence": "Ça prend un peu plus de temps, mais tout le monde se sent impliqué dans la décision." }
+            ]
+          }
+        }
+      },
+      "pressure-test": {
+        "title": "L'Épreuve de Pression",
+        "alertText": "🚨 Tout arrive en même temps.",
+        "dialogue": [
+          { "character": "priya", "text": "Le client vient de changer ce qu'il veut. En plus, Oren n'est pas là aujourd'hui. Et en plus — c'est aussi cassé maintenant ?" }
+        ],
+        "buckets": {
+          "deal-with-first": "À gérer en premier",
+          "deal-with-next": "À gérer ensuite",
+          "can-wait": "Peut attendre"
+        },
+        "problems": {
+          "a-teammate-is-stuck-and-blocked": "Un coéquipier est bloqué et ne peut pas continuer sans aide",
+          "the-customer-is-waiting-for-an-answer": "Le client attend une réponse",
+          "one-teammate-seems-upset": "Un coéquipier semble contrarié par tout ce qui arrive en même temps",
+          "a-small-typo-in-the-document": "Il y a une petite faute de frappe dans un document",
+          "an-idea-for-a-later-improvement": "Quelqu'un a proposé une idée pour plus tard"
+        },
+        "outro": "Tu as déterminé ce qui a besoin de ton attention maintenant — et ce qui peut attendre.",
+        "events": {
+          "pressure-test-reflection": {
+            "situation": "Maintenant que tout est réglé, comment gères-tu la pression ?",
+            "choices": [
+              { "key": "stay-calm-and-work-the-list", "label": "Rester calme et avancer dans la liste, une chose à la fois.", "consequence": "L'équipe remarque que tu restes solide, et ça les aide à rester solides aussi." },
+              { "key": "panic-a-little-but-push-through", "label": "Paniquer un peu, mais continuer quand même.", "consequence": "Tu t'en sors, même si ce n'était pas ton moment le plus calme." },
+              { "key": "ask-the-team-for-help", "label": "Demander à l'équipe de t'aider à gérer ça ensemble.", "consequence": "Partager la charge rend la pression plus facile à supporter pour tout le monde, toi y compris." }
+            ]
+          }
+        }
+      },
+      "final-challenge": {
+        "title": "Le Défi Final",
+        "alertText": "🚨 C'est le grand moment — le projet qui rassemble tout.",
+        "dialogue": [
+          { "character": "nadia", "text": "Ça y est — le dernier grand projet ! J'ai tellement d'idées." },
+          { "character": "theo", "text": "Faisons un plan et utilisons les forces de chacun." },
+          { "character": "priya", "text": "J'ai hâte de montrer aux gens ce qu'on a construit." }
+        ],
+        "tasks": {
+          "come-up-with-the-idea": "Trouver la grande idée",
+          "build-the-thing": "Le construire",
+          "present-it-to-people": "Le présenter aux gens",
+          "keep-everyone-on-track": "Garder tout le monde sur la bonne voie"
+        },
+        "outro": "Avec chacun qui fait ce qu'il sait faire de mieux, le projet prend vraiment forme.",
+        "events": {
+          "final-challenge-choice-1": {
+            "situationByTag": {
+              "the-listener": "Tout au long de ce parcours, tu as pris le temps d'écouter avant de décider. Alors que le projet final prend forme, une partie a encore besoin d'une décision. Tu demandes d'abord l'avis des autres, ou tu décides toi-même ?",
+              "the-problem-solver": "Tu as toujours été rapide pour trouver une solution quand quelque chose clochait. Là, un petit problème surgit dans le projet final. Tu te lances pour le résoudre, ou tu vérifies d'abord avec l'équipe ?",
+              "the-team-builder": "Tu as bâti une vraie confiance dans cette équipe. Alors que le projet final prend forme, une partie a encore besoin d'une décision. Tu fais confiance à l'équipe pour s'en occuper, ou tu vérifies toi-même ?",
+              "the-calm-thinker": "Tu es resté solide pendant des moments vraiment stressants. Maintenant, avec la ligne d'arrivée toute proche, une partie du projet a encore besoin d'une décision. Que fais-tu ?",
+              "the-encourager": "Tu as pris l'habitude de remonter le moral de l'équipe. Alors que le projet final prend forme, une partie a encore besoin d'une décision. Que fais-tu ?",
+              "the-big-picture-thinker": "Tu as souvent regardé la situation d'ensemble plutôt que de te perdre dans les petits détails. Maintenant, alors que le projet final prend forme, une partie a encore besoin d'une décision. Que fais-tu ?",
+              "none": "Alors que le projet final prend forme, une partie a encore besoin d'une décision. Que fais-tu ?"
+            },
+            "choices": [
+              { "key": "trust-the-team-to-handle-it", "label": "Faire confiance à l'équipe pour s'en occuper sans vérifier.", "consequence": "Ils s'en occupent bien — et se sentent vraiment dignes de confiance." },
+              { "key": "double-check-everything-yourself", "label": "Tout revérifier toi-même avant que ça parte.", "consequence": "C'est fait avec soin, mais ça prend plus de temps, et l'équipe remarque que tu vérifies son travail." },
+              { "key": "ask-for-a-quick-check-in", "label": "Demander un rapide point avant que ce soit terminé.", "consequence": "C'est un bon compromis — approfondi, sans prendre le dessus." }
+            ]
+          },
+          "final-challenge-choice-2": {
+            "situation": "Le projet est terminé. Ton équipe a réussi. Que fais-tu maintenant ?",
+            "choices": [
+              { "key": "celebrate-what-the-team-achieved", "label": "Fêter ensemble ce que l'équipe a accompli.", "consequence": "L'équipe se sent fière — et prête pour la suite." },
+              { "key": "immediately-plan-the-next-project", "label": "Commencer à planifier le prochain projet tout de suite.", "consequence": "L'équipe est impressionnée par ton élan, même si elle aurait aimé un moment pour célébrer d'abord." },
+              { "key": "thank-each-person-individually", "label": "Remercier chaque personne individuellement pour ce qu'elle a apporté au projet.", "consequence": "Chaque coéquipier se sent vraiment reconnu pour sa propre contribution." }
+            ]
+          }
+        }
+      }
+    },
+    "spotItems": {
+      "teamConflict": {
+        "you-never-listen-to-me": "\"Tu ne m'écoutes jamais !\"",
+        "i-think-we-see-it-differently": "\"Je pense qu'on voit juste les choses différemment.\"",
+        "youre-doing-this-on-purpose": "\"Tu fais exprès, c'est ça ?\"",
+        "can-we-slow-down-for-a-second": "\"On peut ralentir une seconde ?\"",
+        "fine-whatever-you-want": "\"D'accord. Comme tu veux.\""
+      },
+      "motivationProblem": {
+        "unclear-goal": "Personne ne sait vraiment à quoi ressemble l'objectif final.",
+        "too-much-work": "Il y a en ce moment beaucoup de tâches qui s'accumulent.",
+        "boredom": "Le travail semble le même depuis un moment.",
+        "feeling-ignored": "Les idées de deux ou trois coéquipiers n'ont pas été mentionnées depuis un moment.",
+        "lack-of-progress": "On n'a pas l'impression que le projet ait beaucoup avancé ces derniers temps."
+      }
+    },
+    "uhOh": {
+      "uh-oh-printer": {
+        "title": "L'imprimante vient de s'arrêter de fonctionner.",
+        "situation": "C'est presque l'heure de ta présentation, et l'imprimante refuse d'imprimer quoi que ce soit.",
+        "choices": [
+          { "key": "borrow-one-from-another-team", "label": "Demander à une autre équipe si tu peux emprunter la sienne.", "consequence": "Ça marche, avec quelques minutes d'avance." },
+          { "key": "present-without-printed-materials", "label": "Présenter sans aucun support imprimé.", "consequence": "C'est un peu improvisé, mais ça se passe bien." },
+          { "key": "delay-the-presentation", "label": "Demander quelques minutes de plus avant de présenter.", "consequence": "Tu obtiens le temps supplémentaire dont tu as besoin, et personne n'a de mal à attendre un peu." }
+        ]
+      },
+      "uh-oh-teammate-absent": {
+        "title": "Un de tes coéquipiers est absent aujourd'hui.",
+        "situation": "Oren n'est pas là aujourd'hui, et il avait une tâche importante sur sa liste.",
+        "choices": [
+          { "key": "share-out-their-tasks", "label": "Répartir ses tâches entre le reste de l'équipe.", "consequence": "C'est fait, et l'équipe se sent bien en donnant un coup de main." },
+          { "key": "wait-until-they-are-back", "label": "Attendre le retour d'Oren pour continuer cette partie.", "consequence": "Cette partie du projet est mise en pause pour le moment." },
+          { "key": "do-their-work-yourself", "label": "Faire la partie d'Oren en plus de la tienne.", "consequence": "C'est fait, mais c'est beaucoup à prendre en charge tout seul." }
+        ]
+      },
+      "uh-oh-customer-changed-mind": {
+        "title": "Le client a changé d'avis.",
+        "situation": "Le client vient d'envoyer un message pour dire qu'il veut quelque chose d'un peu différent maintenant.",
+        "choices": [
+          { "key": "adjust-the-plan-together", "label": "Réunir l'équipe et ajuster le plan.", "consequence": "Ça demande un peu de retravail, mais l'équipe s'adapte bien ensemble." },
+          { "key": "explain-why-you-cant-change-now", "label": "Expliquer qu'il est trop tard pour changer de cap maintenant.", "consequence": "Le client l'accepte, mais semble un peu déçu." },
+          { "key": "panic-and-start-over-completely", "label": "Avoir l'impression qu'il faut tout recommencer depuis le début.", "consequence": "Il s'avère que seule une petite partie devait vraiment changer." }
+        ]
+      },
+      "uh-oh-misunderstood-instructions": {
+        "title": "Tu réalises qu'il y a eu un malentendu.",
+        "situation": "En relisant les instructions, tu vois que ton équipe a compris une partie différemment de ce qui était prévu.",
+        "choices": [
+          { "key": "explain-the-mix-up-and-fix-it-together", "label": "Expliquer le malentendu à l'équipe et le corriger ensemble.", "consequence": "L'équipe apprécie de savoir exactement ce qui s'est passé." },
+          { "key": "quietly-fix-it-yourself", "label": "Corriger le malentendu toi-même, discrètement.", "consequence": "C'est corrigé, mais l'équipe ne découvre jamais ce qui s'est passé — ni comment l'éviter la prochaine fois." },
+          { "key": "blame-the-instructions", "label": "Décider que les instructions elles-mêmes n'étaient tout simplement pas claires.", "consequence": "C'est en partie vrai, mais ça ne règle encore rien." }
+        ]
+      },
+      "uh-oh-idea-stops-working": {
+        "title": "La meilleure idée de l'équipe ne fonctionne soudain plus.",
+        "situation": "L'approche qui marchait si bien toute la semaine vient soudain de buter sur un mur.",
+        "choices": [
+          { "key": "try-a-different-approach-together", "label": "Réunir l'équipe pour essayer une approche différente.", "consequence": "Ça demande un peu d'essais et d'erreurs, mais l'équipe trouve une nouvelle voie." },
+          { "key": "keep-trying-the-same-way", "label": "Continuer à essayer de la même façon, en espérant que ça finisse par marcher.", "consequence": "Ça ne semble pas mieux fonctionner." },
+          { "key": "ask-the-team-for-new-ideas", "label": "Demander à l'équipe des idées fraîches.", "consequence": "Quelqu'un trouve un angle auquel personne n'avait encore pensé." }
+        ]
+      }
+    },
+    "lab": {
+      "lab-rejected-idea": {
+        "title": "Une Idée Rejetée",
+        "situation": "Ton ami est contrarié parce que tu n'as pas choisi son idée. Que pourrais-tu lui dire ?",
+        "choices": {
+          "say-sorry-and-explain-why": { "label": "T'excuser, et expliquer honnêtement pourquoi tu as choisi autrement.", "consequence": "Il comprend tes raisons, même s'il reste un peu déçu." },
+          "ask-them-to-explain-more": { "label": "Lui demander de réexpliquer son idée — tu as peut-être raté quelque chose.", "consequence": "Tu pourrais découvrir qu'elle fonctionne mieux que tu ne le pensais au départ." },
+          "say-nothing-and-move-on": { "label": "Ne rien dire et passer à autre chose.", "consequence": "Le moment passe, mais il pourrait encore se demander ce que tu penses de ses idées." }
+        }
+      },
+      "lab-quiet-teammate": {
+        "title": "Un Coéquipier Silencieux",
+        "situation": "Quelqu'un dans ton équipe est très silencieux. Que pourrais-tu faire ?",
+        "choices": {
+          "ask-them-directly-what-they-think": { "label": "Lui demander directement ce qu'il en pense.", "consequence": "Il partage une idée qu'il n'aurait peut-être pas proposée de lui-même." },
+          "give-them-a-small-task-to-build-confidence": { "label": "Lui confier une petite tâche pour l'aider à prendre confiance.", "consequence": "Il semble un peu plus à l'aise pour participer." },
+          "let-them-stay-quiet": { "label": "Le laisser silencieux si c'est sa nature.", "consequence": "C'est très bien aussi — tout le monde n'a pas besoin de s'exprimer de la même façon." }
+        }
+      },
+      "lab-hide-or-tell": {
+        "title": "Cacher ou Dire la Vérité ?",
+        "situation": "Tu as fait une erreur. Tu la caches ou tu le dis à l'équipe ?",
+        "choices": {
+          "tell-the-team-right-away": { "label": "Le dire à l'équipe tout de suite.", "consequence": "C'est un peu inconfortable, mais l'équipe peut aider à corriger ça plus vite." },
+          "fix-it-quietly-first": { "label": "Essayer de le corriger discrètement d'abord.", "consequence": "Ça pourrait marcher — ou ça pourrait devenir plus difficile à expliquer plus tard." },
+          "hide-it-and-hope-no-one-notices": { "label": "Le cacher et espérer que personne ne remarque.", "consequence": "Ça pourrait ressortir plus tard, quand ce sera plus difficile à gérer." }
+        }
+      },
+      "lab-doesnt-agree": {
+        "title": "Un Désaccord en Public",
+        "situation": "Un coéquipier n'est pas d'accord avec ton plan devant tout le monde. Que fais-tu ?",
+        "choices": {
+          "ask-them-to-explain-their-thinking": { "label": "Lui demander d'expliquer son raisonnement.", "consequence": "Tu apprends quelque chose que tu n'avais pas envisagé." },
+          "explain-why-your-plan-is-better": { "label": "Expliquer pourquoi ton plan est le meilleur.", "consequence": "Tu as peut-être raison, mais il pourrait se sentir ignoré." },
+          "suggest-talking-about-it-after": { "label": "Proposer d'en discuter en privé après.", "consequence": "Ça vous donne à tous les deux le temps d'y réfléchir calmement." }
+        }
+      },
+      "lab-credit-for-idea": {
+        "title": "À Qui Était Cette Idée ?",
+        "situation": "L'idée de quelqu'un a très bien marché, mais personne n'a mentionné qu'elle venait de lui. Que fais-tu ?",
+        "choices": {
+          "point-out-whose-idea-it-was": { "label": "Souligner que c'était son idée.", "consequence": "Il se sent vraiment reconnu." },
+          "say-nothing-its-not-a-big-deal": { "label": "Ne rien dire — ce n'est pas grave.", "consequence": "Ça pourrait ne pas lui importer, ou ça pourrait lui importer plus que tu ne le penses." },
+          "ask-them-how-they-feel-about-it": { "label": "Lui demander ce qu'il en pense.", "consequence": "Tu le découvres directement, au lieu de deviner." }
+        }
+      },
+      "lab-tired-teammate": {
+        "title": "Un Coéquipier Fatigué",
+        "situation": "Un coéquipier a l'air fatigué et dit que ça va. Que fais-tu ?",
+        "choices": {
+          "check-in-again-later": { "label": "Prendre de ses nouvelles à nouveau plus tard, juste au cas où.", "consequence": "Il apprécie que tu aies remarqué." },
+          "take-something-off-their-plate": { "label": "Retirer discrètement quelque chose de sa liste de tâches.", "consequence": "Ça aide, même s'il n'en dit pas grand-chose." },
+          "take-their-word-for-it": { "label": "Le croire sur parole et passer à autre chose.", "consequence": "Il pourrait vraiment aller bien — ou ne pas avoir voulu en parler." }
+        }
+      },
+      "lab-new-member": {
+        "title": "Un Nouveau Membre",
+        "situation": "Une nouvelle personne rejoint ton équipe en plein milieu du projet. Que fais-tu ?",
+        "choices": {
+          "introduce-them-to-everyone-and-explain-the-plan": { "label": "La présenter à tout le monde et lui expliquer le plan jusqu'ici.", "consequence": "Elle se sent bien accueillie et prête à contribuer." },
+          "let-them-figure-it-out": { "label": "La laisser comprendre les choses au fur et à mesure.", "consequence": "Elle s'en sort, même si ça lui prend plus de temps pour s'installer." },
+          "ask-the-team-to-help-them-settle-in": { "label": "Demander à l'équipe de l'aider à s'installer.", "consequence": "Toute l'équipe met la main à la pâte, et ça ne repose pas que sur toi." }
+        }
+      },
+      "lab-mixed-feedback": {
+        "title": "Un Retour Difficile à Donner",
+        "situation": "Tu dois dire à un coéquipier que son travail a besoin de quelques changements. Que fais-tu ?",
+        "choices": {
+          "say-what-you-liked-and-what-to-change": { "label": "Dire ce que tu as aimé, et ce qui doit changer.", "consequence": "Il sait exactement ce qui a marché et ce qu'il faut corriger." },
+          "just-say-its-not-good-enough": { "label": "Dire simplement que ce n'est pas assez bon.", "consequence": "Il sait que quelque chose ne va pas, mais pas vraiment quoi faire." },
+          "avoid-saying-anything-and-fix-it-yourself": { "label": "Éviter de dire quoi que ce soit et corriger ça toi-même.", "consequence": "C'est corrigé, mais il n'apprend jamais ce qu'il fallait changer." }
+        }
+      }
+    },
+    "badges": {
+      "lq-first-leader": { "name": "Premier Leader", "description": "Tu as commencé ton parcours à la tête d'une équipe." },
+      "lq-team-builder": { "name": "Bâtisseur d'Équipe", "description": "Tu as confié les tâches selon les forces de ton équipe." },
+      "lq-good-listener": { "name": "Bon Auditeur", "description": "Tu as écouté attentivement avant de décider." },
+      "lq-problem-solver": { "name": "Résolveur de Problèmes", "description": "Tu as réglé un problème délicat." },
+      "lq-calm-under-pressure": { "name": "Calme Sous Pression", "description": "Tu as gardé la tête froide alors que tout arrivait en même temps." },
+      "lq-final-leader": { "name": "Leader Jusqu'au Bout", "description": "Tu as dirigé ton équipe tout au long du parcours." }
+    },
+    "profile": {
+      "title": "Ton Profil de Leader",
+      "lockedHint": "Termine le Défi Final pour voir ton Profil de Leader.",
+      "intro": "Ce n'est pas un score — c'est un aperçu de la façon dont tu as tendance à diriger, basé sur les décisions que tu as réellement prises.",
+      "noPatternYetHint": "Tes décisions ne se sont pas nettement orientées vers un seul profil — et ça, c'est tout à fait bien aussi.",
+      "noBetterOrWorseNote": "Aucun de ces profils n'est meilleur qu'un autre. Un bon leadership peut prendre des formes différentes selon les personnes.",
+      "archetypes": {
+        "the-listener": {
+          "title": "L'Auditeur",
+          "statements": [
+            "Tu écoutes souvent attentivement avant de décider.",
+            "Tu as tendance à demander aux gens ce qui s'est passé avant de tirer des conclusions.",
+            "Tu fais de la place au point de vue des autres.",
+            "Tu remarques quand quelqu'un n'a pas encore été écouté."
+          ]
+        },
+        "the-problem-solver": {
+          "title": "Le Résolveur de Problèmes",
+          "statements": [
+            "Tu cherches souvent une solution pratique quand quelque chose se passe mal.",
+            "Tu as tendance à te plonger dans un problème plutôt qu'à l'éviter.",
+            "Tu te concentres sur la recherche d'une solution.",
+            "Tu restes curieux quant à ce qui cause vraiment un problème."
+          ]
+        },
+        "the-team-builder": {
+          "title": "Le Bâtisseur d'Équipe",
+          "statements": [
+            "Tu fais souvent confiance à ton équipe pour gérer les choses elle-même.",
+            "Tu as tendance à confier les tâches selon les forces de chacun.",
+            "Tu rassembles les gens plutôt que de décider seul.",
+            "Tu remarques quand quelqu'un mérite plus de confiance ou de reconnaissance."
+          ]
+        },
+        "the-calm-thinker": {
+          "title": "Le Penseur Calme",
+          "statements": [
+            "Tu restes souvent solide quand les choses deviennent stressantes.",
+            "Tu as tendance à régler les problèmes un à la fois.",
+            "Tu ne laisses pas la pression précipiter tes décisions.",
+            "Ton calme a tendance à aider aussi les gens autour de toi."
+          ]
+        },
+        "the-encourager": {
+          "title": "Le Motivateur",
+          "statements": [
+            "Tu remontes souvent le moral des gens autour de toi.",
+            "Tu as tendance à remarquer comment les gens se sentent.",
+            "Tu prends le temps de reconnaître ce que les autres ont bien fait.",
+            "Tu fais en sorte que les gens se sentent en sécurité pour faire des erreurs."
+          ]
+        },
+        "the-big-picture-thinker": {
+          "title": "Le Penseur Vue d'Ensemble",
+          "statements": [
+            "Tu regardes souvent la vue d'ensemble plutôt que les petits détails.",
+            "Tu as tendance à t'adapter rapidement quand les plans changent.",
+            "Tu es ouvert à des idées différentes des tiennes.",
+            "Tu te concentres sur la direction que prend l'équipe, pas seulement sur la tâche du jour."
+          ]
+        }
       }
     }
   },
