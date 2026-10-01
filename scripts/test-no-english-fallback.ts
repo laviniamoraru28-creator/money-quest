@@ -74,6 +74,19 @@ function isEntrepreneurQuestStructuralPath(key: string): boolean {
 }
 
 /**
+ * Leadership Quest's mission events and uh-oh events each carry a
+ * "key" field per choice (e.g. "talk-privately") that the app matches
+ * on to look up that choice's effect (see LQ_EFFECTS in
+ * src/content/leadership-quest/structures.ts) — the exact same
+ * internal-id pattern as isEntrepreneurQuestStructuralPath above,
+ * correctly identical to English in every locale.
+ */
+function isLeadershipQuestStructuralPath(key: string): boolean {
+  if (!key.startsWith("leadershipQuest.missions.") && !key.startsWith("leadershipQuest.uhOh.")) return false;
+  return key.split(".").pop() === "key";
+}
+
+/**
  * A domain name/URL used as in-content example text (e.g. a scam
  * example's fake link) is correctly identical in every language — a
  * URL isn't prose to translate. Matched narrowly (a bare
@@ -114,6 +127,7 @@ for (const locale of LOCALES) {
     if (ALLOWED_IDENTICAL.has(key)) continue;
     if (isGameStructuralPath(key)) continue;
     if (isEntrepreneurQuestStructuralPath(key)) continue;
+    if (isLeadershipQuestStructuralPath(key)) continue;
     if (looksLikeDomain(value)) continue;
     const englishValue = englishEntries.get(key);
     if (englishValue !== undefined && englishValue === value && value.length >= MIN_LENGTH_TO_FLAG) {
