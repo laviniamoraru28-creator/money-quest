@@ -1,0 +1,52 @@
+; Money Quest — Godot prototype
+; This is a STANDALONE Godot 4.x project, separate from the Next.js website.
+; It is never imported into the website build and has no network code.
+
+config_version=5
+
+[application]
+
+config/name="Money Quest"
+config/description="Money Quest — the interactive adventure layer. A free financial-education game for children and teenagers. All money shown in this game is virtual and has no real-world value."
+run/main_scene="res://scenes/main_menu/MainMenu.tscn"
+config/features=PackedStringArray("4.2", "GL Compatibility")
+boot_splash/bg_color=Color(0.929, 0.953, 0.909, 1)
+config/icon="res://icon.svg"
+
+[autoload]
+
+; Order matters: Localization and Settings load first since other
+; autoloads read locale/reduced-motion state during their own _ready().
+Localization="*res://autoload/Localization.gd"
+Settings="*res://autoload/Settings.gd"
+GameState="*res://autoload/GameState.gd"
+SaveManager="*res://autoload/SaveManager.gd"
+ProgressManager="*res://autoload/ProgressManager.gd"
+AudioManager="*res://autoload/AudioManager.gd"
+
+[display]
+
+; Portrait-first, matching the website's mobile-first requirement — this
+; is a phone/tablet game first, a desktop game second.
+window/size/viewport_width=720
+window/size/viewport_height=1280
+window/size/window_width_override=360
+window/size/window_height_override=640
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep"
+window/handheld/orientation="portrait"
+
+[internationalization]
+
+; Godot's CSV translation import generates one .translation resource per
+; locale COLUMN from this single file (keys,en,ro,...) — it is not one
+; file per locale. Opening this project in the Godot editor will import
+; it automatically; see localization/translations.csv and the README for
+; the 7 additional locale columns that still need translating.
+locale/translations=PackedStringArray("res://localization/translations.csv")
+locale/fallback="en"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

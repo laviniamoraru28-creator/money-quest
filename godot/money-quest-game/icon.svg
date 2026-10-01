@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <!-- Placeholder icon only, using the website's existing teal/gold
+       palette (tailwind.config.ts) so the game is visually recognizable
+       as part of Money Quest from the first commit, pending real art
+       (see docs/godot-architecture-plan.md Phase 10). -->
+  <circle cx="64" cy="64" r="60" fill="#EDF3E8"/>
+  <circle cx="64" cy="64" r="44" fill="#0F7A6B"/>
+  <text x="64" y="78" font-size="48" text-anchor="middle" fill="#E8A33D" font-family="sans-serif" font-weight="bold">$</text>
+</svg>
