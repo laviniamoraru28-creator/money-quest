@@ -1422,6 +1422,951 @@
       }
     }
   },
+  "leadershipQuest": {
+    "hubTitle": "Leiderschapsquest",
+    "hubTagline": "Leid een team door echte uitdagingen - één keuze tegelijk.",
+    "hubIntro": "Je staat op het punt de leider van een klein team te worden. Ze hebben je nodig om te luisteren, beslissingen te nemen, en ze te helpen met alles wat op hun pad komt.",
+    "introStory": "Ontmoet je team, ga je eerste missie aan, en ontdek wat voor leider je wordt - één keuze tegelijk.",
+    "missionProgress": "Missie {current} van {total}",
+    "labLink": "Leiderschapslab",
+    "labTitle": "Leiderschapslab",
+    "labIntro": "Korte situaties om leiderschap te oefenen, wanneer je maar wilt.",
+    "profileLink": "Leiderschapsprofiel",
+    "profileLinkLockedHint": "Leiderschapsprofiel (maak eerst de Laatste Uitdaging af)",
+    "badgesEarnedTitle": "Verdiende Badges",
+    "noBadgesYetHint": "Voltooi missies om badges te gaan verdienen.",
+    "entrepreneurQuestLinkTitle": "Je hebt een bedrijf gebouwd. Nu heb je een team.",
+    "entrepreneurQuestLinkText": "Leiderschapsvaardigheden kunnen helpen wanneer je bedrijf groeit en je met andere mensen gaat samenwerken.",
+    "resetConfirm": "Weet je zeker dat je je voortgang in de Leiderschapsquest wilt resetten? Dit kan niet ongedaan worden gemaakt.",
+    "resetButton": "Leiderschapsquest Resetten",
+    "continueButton": "Doorgaan",
+    "finishMissionButton": "Missie Afronden",
+    "missionCompleteBadge": "Missie voltooid",
+    "continueToNextMissionButton": "Door naar de Volgende Missie",
+    "backToTeamHub": "Terug naar het Teamcentrum",
+    "teamStatus": {
+      "title": "Teamstatus",
+      "trust": "Vertrouwen",
+      "morale": "Moraal",
+      "progress": "Voortgang",
+      "energy": "Energie"
+    },
+    "characters": {
+      "nadia": {
+        "name": "Nadia",
+        "personality": "Boordevol ideeën en altijd drie stappen vooruit aan het denken.",
+        "strength": "Komt met creatieve ideeën waar niemand anders aan dacht.",
+        "challenge": "Raakt zo enthousiast over ideeën dat ze soms door mensen heen praat.",
+        "interest": "Strips tekenen en kleine gadgets bedenken.",
+        "communicationStyle": "Snel, enthousiast, en altijd met een \"wat als we eens...\""
+      },
+      "oren": {
+        "name": "Oren",
+        "personality": "Voorzichtig en precies - hij merkt details op die anderen missen.",
+        "strength": "Uitstekend in dingen goed bouwen en repareren.",
+        "challenge": "Heeft vaak goede ideeën, maar zegt weinig in een grote groep.",
+        "interest": "Dingen uit elkaar halen om te zien hoe ze werken, en puzzels oplossen.",
+        "communicationStyle": "Stil in groepen, maar gaat open als je hem er rechtstreeks naar vraagt."
+      },
+      "priya": {
+        "name": "Priya",
+        "personality": "Warm, expressief, en geweldig in het praten met iedereen.",
+        "strength": "Kan dingen duidelijk uitleggen en mensen op hun gemak stellen.",
+        "challenge": "Raakt enthousiast over het volgende idee voordat het vorige af is.",
+        "interest": "Optreden, verhalen vertellen, en nieuwe mensen ontmoeten.",
+        "communicationStyle": "Praat veel, met energie - heeft soms een vriendelijk duwtje nodig om af te ronden."
+      },
+      "theo": {
+        "name": "Theo",
+        "personality": "Stabiel, georganiseerd, en houdt altijd het plan in de gaten.",
+        "strength": "Houdt het team op schema en onthoudt elk detail.",
+        "challenge": "Vindt plotselinge veranderingen in het plan stressvol.",
+        "interest": "Lijstjes en schema's maken, en lange wandelingen maken.",
+        "communicationStyle": "Rustig en precies - geeft liever van tevoren een seintje voordat dingen veranderen."
+      }
+    },
+    "missions": {
+      "meet-your-team": {
+        "title": "Ontmoet Je Team",
+        "alertText": "",
+        "dialogue": [
+          {
+            "character": "nadia",
+            "text": "Hoi! Ik ben ZO blij dat je er bent - ik heb al zo'n tien ideeën voor ons eerste project!"
+          },
+          {
+            "character": "oren",
+            "text": "...Hoi. Ik ben Oren. Ik wil eigenlijk vooral gewoon beginnen."
+          },
+          {
+            "character": "priya",
+            "text": "Welkom! Eerlijk gezegd denk ik dat dit team geweldig wordt met jou als leider."
+          },
+          {
+            "character": "theo",
+            "text": "Hallo. Ik heb een klein schema gemaakt voor vandaag, als dat helpt."
+          }
+        ],
+        "tasks": {
+          "come-up-with-ideas": "Ideeën bedenken voor ons project",
+          "fix-something-broken": "Iets repareren dat niet goed werkt",
+          "talk-to-a-visitor": "Met een bezoeker praten en uitleggen wat we doen",
+          "keep-track-of-the-plan": "Het plan en het schema bijhouden"
+        },
+        "outro": "Nu weet je een beetje over elk teamlid - en wie ergens goed in is.",
+        "events": {
+          "meet-your-team-reflection": {
+            "situation": "Je eerste dag als leider van dit team begint goed. Hoe voel je je erbij?",
+            "choices": [
+              {
+                "key": "excited",
+                "label": "Enthousiast - laten we beginnen!",
+                "consequence": "Jouw energie werkt een beetje aanstekelijk op het team."
+              },
+              {
+                "key": "nervous-but-ready",
+                "label": "Een beetje nerveus, maar er klaar voor.",
+                "consequence": "Dat is eerlijk - en helemaal normaal voor een nieuwe leider."
+              },
+              {
+                "key": "not-sure-yet",
+                "label": "Nog niet zeker - ik zie het gaandeweg wel.",
+                "consequence": "Dat is een prima manier om te beginnen. Je gaat veel leren van je team."
+              }
+            ]
+          }
+        }
+      },
+      "first-challenge": {
+        "title": "De Eerste Uitdaging",
+        "alertText": "Je team heeft zijn eerste echte project - en het moet af.",
+        "dialogue": [
+          {
+            "character": "theo",
+            "text": "Oké, we hebben een project. Iedereen moet een deel doen."
+          },
+          {
+            "character": "nadia",
+            "text": "Ik heb al ideeën voor de poster!"
+          },
+          {
+            "character": "priya",
+            "text": "Ik zou met bezoekers van onze stand kunnen praten."
+          }
+        ],
+        "tasks": {
+          "design-the-poster": "De poster ontwerpen",
+          "build-the-display": "De stand bouwen",
+          "explain-it-to-visitors": "Het uitleggen aan bezoekers",
+          "make-the-plan": "Het plan maken en iedereen op schema houden"
+        },
+        "outro": "Omdat je elke taak koppelde aan wie er echt goed in is, komt het project soepel tot stand."
+      },
+      "everyone-has-an-idea": {
+        "title": "Iedereen Heeft een Idee",
+        "alertText": "🚨 Twee teamleden zijn het niet eens - en ze willen allebei dat jij beslist.",
+        "dialogue": [
+          {
+            "character": "nadia",
+            "text": "Mijn idee is veel spannender - we moeten het op mijn manier doen!"
+          },
+          {
+            "character": "oren",
+            "text": "...Het mijne zou eigenlijk makkelijker af te maken zijn."
+          }
+        ],
+        "events": {
+          "everyone-has-an-idea-choice": {
+            "situation": "Nadia en Oren voelen zich allebei sterk over hun eigen idee. Ze wachten tot jij beslist.",
+            "choices": [
+              {
+                "key": "pick-one-idea",
+                "label": "Ga voor het idee van Nadia - dat is het spannendste.",
+                "consequence": "Nadia is dolblij. Oren wordt stil en zegt de rest van de dag niet veel."
+              },
+              {
+                "key": "combine-both-ideas",
+                "label": "Zoek een manier om beide ideeën te combineren.",
+                "consequence": "Het duurt wat langer om uit te werken, maar ze voelen zich allebei gehoord."
+              },
+              {
+                "key": "let-them-decide-together",
+                "label": "Vraag Nadia en Oren om er samen over te praten.",
+                "consequence": "Ze praten het zelf uit - en komen terug met een plan dat ze allebei echt goed vinden."
+              },
+              {
+                "key": "go-with-your-own-idea",
+                "label": "Stel een compleet ander idee van jezelf voor.",
+                "consequence": "Het lost de ruzie op, maar geen van beiden voelt dat hun idee ertoe deed."
+              }
+            ]
+          }
+        }
+      },
+      "missing-task": {
+        "title": "De Ontbrekende Taak",
+        "alertText": "🚨 Eén taak is nog steeds niet af - en de deadline komt dichtbij.",
+        "dialogue": [
+          {
+            "character": "theo",
+            "text": "We zouden morgen klaar moeten zijn. Het deel van Oren is nog niet af."
+          },
+          {
+            "character": "priya",
+            "text": "Misschien is er iets gebeurd? Ik weet het niet zeker."
+          }
+        ],
+        "investigateLabel": "Zoek uit wat er aan de hand is voordat je beslist.",
+        "investigate": {
+          "ask-the-teammate": "Je vraagt het rechtstreeks aan Oren. Hij zegt dat hij niet zeker wist hoe hij moest beginnen, en dat niet wilde toegeven.",
+          "check-the-shared-plan": "Je bekijkt het gedeelde plan. Het deel van Oren is hem nooit duidelijk uitgelegd.",
+          "ask-another-teammate": "Priya vertelt dat Oren eerder deze week verward leek, maar ze zei er niets over."
+        },
+        "events": {
+          "missing-task-choice": {
+            "situation": "Nu weet je iets meer over wat er gebeurd is. Wat doe je?",
+            "choices": [
+              {
+                "key": "ask-what-happened",
+                "label": "Praat met Oren, en help hem uitzoeken wat er nodig is.",
+                "consequence": "Oren maakt de taak af met jouw hulp, en voelt zich de volgende keer eerder op zijn gemak om iets te vragen."
+              },
+              {
+                "key": "do-it-yourself-quietly",
+                "label": "Maak de taak stilletjes zelf af.",
+                "consequence": "De taak is snel klaar, maar Oren komt nooit te weten wat hij miste - of krijgt de kans om het te verbeteren."
+              },
+              {
+                "key": "remind-them-firmly",
+                "label": "Herinner Oren er streng aan dat de deadline morgen is.",
+                "consequence": "De taak komt in beweging, maar Oren weet nog steeds niet precies wat er de eerste keer misging."
+              },
+              {
+                "key": "wait-and-see",
+                "label": "Afwachten of het vanzelf af raakt.",
+                "consequence": "De deadline komt dichterbij, en er verandert niets."
+              }
+            ]
+          }
+        }
+      },
+      "big-mistake": {
+        "title": "De Grote Fout",
+        "alertText": "🚨 Er is iets misgegaan - en het is een grote.",
+        "dialogue": [
+          {
+            "character": "priya",
+            "text": "Ik... denk dat ik de verkeerde versie naar de klant heb gestuurd. Die met alle fouten erin."
+          },
+          {
+            "character": "oren",
+            "text": "Iedereen kijkt naar jou."
+          }
+        ],
+        "events": {
+          "big-mistake-choice": {
+            "situation": "Priya heeft echt een fout gemaakt, en iedereen kijkt om te zien wat jij gaat doen.",
+            "choices": [
+              {
+                "key": "blame-publicly",
+                "label": "Wijs de fout aan waar iedereen bij is.",
+                "consequence": "Het team lost het snel op - maar Priya voelt zich beschaamd, en lijkt zenuwachtig om weer iets te zeggen."
+              },
+              {
+                "key": "fix-it-yourself",
+                "label": "Los het stilletjes zelf op en ga verder.",
+                "consequence": "Het is snel geregeld, maar Priya krijgt nooit de kans om te begrijpen wat er misging."
+              },
+              {
+                "key": "talk-privately",
+                "label": "Praat privé met Priya en zoek uit wat er gebeurd is.",
+                "consequence": "Het duurt wat langer, maar Priya voelt zich gesteund - en is de volgende keer voorzichtiger."
+              },
+              {
+                "key": "ignore-it",
+                "label": "Besluit dat het niet zo erg is en negeer het.",
+                "consequence": "De fout blijft onopgelost, en de klant merkt het op."
+              }
+            ]
+          }
+        }
+      },
+      "angry-customer": {
+        "title": "De Boze Klant",
+        "alertText": "🚨 Een klant is overstuur over iets wat je team heeft gemaakt.",
+        "dialogue": [
+          {
+            "character": "theo",
+            "text": "Er is een klant aan de telefoon. Ze klinken niet blij."
+          }
+        ],
+        "events": {
+          "angry-customer-choice": {
+            "situation": "De klant zegt dat het werk van je team niet was wat ze hadden gevraagd.",
+            "choices": [
+              {
+                "key": "listen-first",
+                "label": "Luister eerst goed naar wat er misging voordat je reageert.",
+                "consequence": "De klant voelt zich gehoord, en jij krijgt een duidelijker beeld van wat er echt gebeurd is."
+              },
+              {
+                "key": "apologise-and-fix-it",
+                "label": "Bied je excuses aan en stel voor het meteen op te lossen.",
+                "consequence": "De klant is opgelucht, en het probleem is snel opgelost."
+              },
+              {
+                "key": "explain-why-you-were-right",
+                "label": "Leg uit waarom de keuze van je team eigenlijk de juiste was.",
+                "consequence": "De klant voelt zich er niet beter door, en weet nog steeds niet zeker of je het probleem begreep."
+              },
+              {
+                "key": "let-a-teammate-handle-it",
+                "label": "Laat Priya, die geweldig is met mensen, het gesprek doen.",
+                "consequence": "Priya kalmeert de klant, en het team ziet dat je hen ook bij lastige momenten vertrouwt."
+              }
+            ]
+          }
+        }
+      },
+      "better-idea": {
+        "title": "Het Betere Idee",
+        "alertText": "🚨 Iemand heeft net een idee voorgesteld dat beter is dan het jouwe.",
+        "dialogue": [
+          {
+            "character": "nadia",
+            "text": "Eigenlijk... wat als we het op een compleet andere manier doen? Ik denk dat het beter zou kunnen werken."
+          }
+        ],
+        "events": {
+          "better-idea-choice": {
+            "situation": "Het idee van Nadia is echt beter dan wat je oorspronkelijk had gepland.",
+            "choices": [
+              {
+                "key": "use-their-idea",
+                "label": "Ga voor het idee van Nadia in plaats van je eigen idee.",
+                "consequence": "Het project wordt sterker, en Nadia voelt zich echt gewaardeerd."
+              },
+              {
+                "key": "combine-ideas",
+                "label": "Combineer de beste delen van beide ideeën.",
+                "consequence": "Het kost wat meer werk, maar het resultaat is nog beter."
+              },
+              {
+                "key": "stick-with-your-idea",
+                "label": "Houd vast aan je oorspronkelijke plan.",
+                "consequence": "Het project gaat verder zoals gepland, maar Nadia vraagt zich af of haar ideeën echt welkom zijn."
+              },
+              {
+                "key": "ask-the-team-to-vote",
+                "label": "Vraag het hele team welk idee ze liever hebben.",
+                "consequence": "Het team voelt zich betrokken bij de beslissing, welk idee er ook wint."
+              }
+            ]
+          }
+        }
+      },
+      "team-conflict": {
+        "title": "Het Teamconflict",
+        "alertText": "🚨 Twee teamleden zijn aan het ruziën, en het houdt iedereen op.",
+        "dialogue": [
+          {
+            "character": "priya",
+            "text": "Je luistert nooit naar mij!"
+          },
+          {
+            "character": "theo",
+            "text": "Dat is niet eerlijk - ik denk gewoon dat we dit anders zien."
+          }
+        ],
+        "spotScenario": "Lees wat Priya en Theo tegen elkaar zeggen. Welke delen maken het erger, in plaats van beter?",
+        "outro": "Je hebt gezien wat de zaken erger maakt. Tijd om in te grijpen.",
+        "events": {
+          "team-conflict-choice": {
+            "situation": "Priya en Theo zijn het nog steeds niet met elkaar eens. Wat doe je?",
+            "choices": [
+              {
+                "key": "hear-both-sides",
+                "label": "Vraag ieder van hen om hun kant uit te leggen, één voor één.",
+                "consequence": "Ze voelen zich allebei gehoord, en beginnen elkaars standpunt te begrijpen."
+              },
+              {
+                "key": "pick-a-side",
+                "label": "Bepaal wie er gelijk heeft en zeg de ander dat die het moet laten rusten.",
+                "consequence": "De ruzie stopt, maar wie er \"verloor\" voelt zich oneerlijk behandeld."
+              },
+              {
+                "key": "find-common-ground",
+                "label": "Help ze een middenweg te vinden waar ze allebei mee kunnen leven.",
+                "consequence": "Het kost wat geduld, maar ze sluiten het gesprek goed af."
+              },
+              {
+                "key": "tell-them-to-stop-and-move-on",
+                "label": "Zeg dat ze moeten stoppen met ruziën en weer aan het werk moeten gaan.",
+                "consequence": "Het werk gaat verder, maar het eigenlijke meningsverschil wordt nooit opgelost."
+              }
+            ]
+          }
+        }
+      },
+      "motivation-problem": {
+        "title": "Het Motivatieprobleem",
+        "alertText": "🚨 Je team verliest energie, en je weet niet precies waarom.",
+        "dialogue": [
+          {
+            "character": "oren",
+            "text": "Ik weet het niet... ik heb er vandaag gewoon geen zin in."
+          }
+        ],
+        "spotScenario": "Denk na over wat er deze week echt met je team is gebeurd. Wat speelt er nu eigenlijk?",
+        "outro": "Nu heb je een beter beeld van wat er echt speelt.",
+        "events": {
+          "motivation-problem-choice": {
+            "situation": "Je hebt uitgevogeld wat het team echt beïnvloedt. Wat doe je nu?",
+            "choices": [
+              {
+                "key": "explain-the-goal-again",
+                "label": "Leg het doel nog een keer duidelijk uit aan het hele team.",
+                "consequence": "Voor een paar teamleden die niet zeker wisten waar ze naartoe werkten, valt het kwartje."
+              },
+              {
+                "key": "check-in-with-each-person",
+                "label": "Ga bij elke persoon apart even langs.",
+                "consequence": "Een paar teamleden vertellen dat ze zich de laatste tijd over het hoofd gezien voelden."
+              },
+              {
+                "key": "push-through-and-keep-going",
+                "label": "Doorzetten en doorgaan - de deadline wacht niet.",
+                "consequence": "Het project gaat vooruit, maar de energie van het team blijft laag."
+              },
+              {
+                "key": "take-a-short-break",
+                "label": "Geef het team een korte pauze voordat jullie verdergaan.",
+                "consequence": "Iedereen voelt zich wat beter, al is het onderliggende probleem er nog steeds."
+              }
+            ]
+          }
+        }
+      },
+      "the-deadline": {
+        "title": "De Deadline",
+        "alertText": "🚨 De deadline is net dichterbij gekomen - en jullie kunnen onmogelijk alles afmaken.",
+        "dialogue": [
+          {
+            "character": "theo",
+            "text": "De deadline is vervroegd. We kunnen niet meer alle vijf dingen op de lijst doen."
+          }
+        ],
+        "tasks": {
+          "finish-the-main-feature": "De belangrijkste functie afmaken",
+          "fix-the-known-problem": "Het probleem oplossen dat je al kende",
+          "polish-the-design": "Het ontwerp oppoetsen",
+          "write-the-instructions": "De instructies schrijven",
+          "extra-nice-to-have": "Een extra leuk element toevoegen"
+        },
+        "outro": "Je hebt bepaald wat het belangrijkst is - nu moet het team dat van jou horen.",
+        "events": {
+          "the-deadline-choice": {
+            "situation": "Je hebt de nieuwe prioriteiten uitgewerkt. Hoe deel je het plan met het team?",
+            "choices": [
+              {
+                "key": "explain-the-new-plan-to-everyone",
+                "label": "Leg het nieuwe plan uit en waarom je ervoor koos.",
+                "consequence": "Het team begrijpt de redenering, zelfs de delen waar ze niet blij mee zijn."
+              },
+              {
+                "key": "just-tell-people-what-to-drop",
+                "label": "Vertel mensen gewoon snel wat ze moeten laten vallen.",
+                "consequence": "Het plan gaat snel vooruit, maar een paar teamleden voelen zich overvallen."
+              },
+              {
+                "key": "ask-the-team-what-to-cut",
+                "label": "Vraag het team wat volgens hen geschrapt moet worden.",
+                "consequence": "Het duurt wat langer, maar iedereen voelt zich onderdeel van de beslissing."
+              }
+            ]
+          }
+        }
+      },
+      "pressure-test": {
+        "title": "De Druktest",
+        "alertText": "🚨 Alles gebeurt tegelijk.",
+        "dialogue": [
+          {
+            "character": "priya",
+            "text": "De klant is net van gedachten veranderd over wat ze willen. Oren is er ook niet vandaag. En is dat ding nu ook nog stuk?"
+          }
+        ],
+        "buckets": {
+          "deal-with-first": "Eerst aanpakken",
+          "deal-with-next": "Daarna aanpakken",
+          "can-wait": "Kan wachten"
+        },
+        "problems": {
+          "a-teammate-is-stuck-and-blocked": "Een teamlid zit vast en kan niet verder zonder hulp",
+          "the-customer-is-waiting-for-an-answer": "De klant wacht op een antwoord",
+          "one-teammate-seems-upset": "Eén teamlid lijkt overstuur van alles wat er tegelijk gebeurt",
+          "a-small-typo-in-the-document": "Er staat een kleine typfout in een document",
+          "an-idea-for-a-later-improvement": "Iemand kwam met een idee voor later"
+        },
+        "outro": "Je hebt uitgezocht wat nu je aandacht nodig heeft - en wat kan wachten.",
+        "events": {
+          "pressure-test-reflection": {
+            "situation": "Nu alles geregeld is, hoe ga je om met de druk?",
+            "choices": [
+              {
+                "key": "stay-calm-and-work-the-list",
+                "label": "Blijf kalm en werk de lijst af, stap voor stap.",
+                "consequence": "Het team merkt dat jij standvastig blijft, en dat helpt hen ook om standvastig te blijven."
+              },
+              {
+                "key": "panic-a-little-but-push-through",
+                "label": "Voel je een beetje in paniek, maar zet toch door.",
+                "consequence": "Je komt erdoorheen, ook al was het niet je meest kalme moment."
+              },
+              {
+                "key": "ask-the-team-for-help",
+                "label": "Vraag het team om je samen te helpen dit aan te pakken.",
+                "consequence": "Het delen van de last maakt de druk voor iedereen makkelijker, inclusief voor jou."
+              }
+            ]
+          }
+        }
+      },
+      "final-challenge": {
+        "title": "De Laatste Uitdaging",
+        "alertText": "🚨 Dit is de grote - het project dat alles samenbrengt.",
+        "dialogue": [
+          {
+            "character": "nadia",
+            "text": "Dit is het - het laatste grote project! Ik heb zoveel ideeën."
+          },
+          {
+            "character": "theo",
+            "text": "Laten we een plan maken en ieders sterke punten gebruiken."
+          },
+          {
+            "character": "priya",
+            "text": "Ik kan niet wachten om mensen te laten zien wat we hebben gebouwd."
+          }
+        ],
+        "tasks": {
+          "come-up-with-the-idea": "Het grote idee bedenken",
+          "build-the-thing": "Het bouwen",
+          "present-it-to-people": "Het aan mensen presenteren",
+          "keep-everyone-on-track": "Iedereen op koers houden"
+        },
+        "outro": "Doordat iedereen doet waar hij of zij goed in is, komt het project echt tot leven.",
+        "events": {
+          "final-challenge-choice-1": {
+            "situationByTag": {
+              "the-listener": "Je hebt deze hele reis lang zorgvuldig geluisterd voordat je besliste. Nu het laatste project tot stand komt, moet er nog één ding beslist worden. Vraag je het eerst rond, of beslis je het zelf?",
+              "the-problem-solver": "Je was altijd snel om een oplossing te vinden als er iets misging. Nu duikt er een klein probleem op in het laatste project. Duik je erin om het op te lossen, of overleg je eerst met het team?",
+              "the-team-builder": "Je hebt echt vertrouwen opgebouwd in dit team. Nu het laatste project tot stand komt, moet er nog één ding beslist worden. Vertrouw je erop dat het team het aankan, of check je het zelf?",
+              "the-calm-thinker": "Je bent standvastig gebleven tijdens een aantal echt stressvolle momenten. Nu de finish nadert, moet er nog één deel van het project beslist worden. Wat doe je?",
+              "the-encourager": "Je hebt er een gewoonte van gemaakt om het team op te beuren. Nu het laatste project tot stand komt, moet er nog één ding beslist worden. Wat doe je?",
+              "the-big-picture-thinker": "Je hebt vaak naar het grotere geheel gekeken in plaats van vast te lopen op kleine details. Nu het laatste project tot stand komt, moet er nog één ding beslist worden. Wat doe je?",
+              "none": "Nu het laatste project tot stand komt, moet er nog één ding beslist worden. Wat doe je?"
+            },
+            "choices": [
+              {
+                "key": "trust-the-team-to-handle-it",
+                "label": "Vertrouw erop dat het team het aankan, zonder te checken.",
+                "consequence": "Ze pakken het goed aan - en voelen zich echt vertrouwd."
+              },
+              {
+                "key": "double-check-everything-yourself",
+                "label": "Controleer alles zelf nog eens voordat het de deur uitgaat.",
+                "consequence": "Het gebeurt zorgvuldig, maar het duurt langer, en het team merkt dat je hun werk controleert."
+              },
+              {
+                "key": "ask-for-a-quick-check-in",
+                "label": "Vraag om een korte check voordat het af is.",
+                "consequence": "Het is een goede middenweg - grondig, zonder de touwtjes over te nemen."
+              }
+            ]
+          },
+          "final-challenge-choice-2": {
+            "situation": "Het project is af. Jullie team heeft het voor elkaar gekregen. Wat doe je nu?",
+            "choices": [
+              {
+                "key": "celebrate-what-the-team-achieved",
+                "label": "Vier samen wat het team heeft bereikt.",
+                "consequence": "Het team voelt zich trots - en klaar voor wat er ook komt."
+              },
+              {
+                "key": "immediately-plan-the-next-project",
+                "label": "Begin meteen met het plannen van het volgende project.",
+                "consequence": "Het team is onder de indruk van je gedrevenheid, ook al hadden ze graag eerst even gevierd."
+              },
+              {
+                "key": "thank-each-person-individually",
+                "label": "Bedank iedereen persoonlijk voor wat ze aan het project hebben bijgedragen.",
+                "consequence": "Elk teamlid voelt zich echt gezien voor zijn of haar eigen bijdrage."
+              }
+            ]
+          }
+        }
+      }
+    },
+    "spotItems": {
+      "teamConflict": {
+        "you-never-listen-to-me": "\"Je luistert nooit naar mij!\"",
+        "i-think-we-see-it-differently": "\"Ik denk dat we dit gewoon anders zien.\"",
+        "youre-doing-this-on-purpose": "\"Je doet dit expres, of niet soms?\"",
+        "can-we-slow-down-for-a-second": "\"Kunnen we even rustig aan doen?\"",
+        "fine-whatever-you-want": "\"Prima. Wat jij wilt.\""
+      },
+      "motivationProblem": {
+        "unclear-goal": "Niemand weet echt zeker hoe het einddoel eruitziet.",
+        "too-much-work": "Er stapelen zich nu veel taken op.",
+        "boredom": "Het werk voelt al een tijdje hetzelfde.",
+        "feeling-ignored": "De ideeën van een paar teamleden zijn al een tijdje niet genoemd.",
+        "lack-of-progress": "Het voelt alsof het project de laatste tijd niet veel vooruit is gegaan."
+      }
+    },
+    "uhOh": {
+      "uh-oh-printer": {
+        "title": "De printer doet het opeens niet meer.",
+        "situation": "Het is bijna tijd voor je presentatie, en de printer wil niets printen.",
+        "choices": [
+          {
+            "key": "borrow-one-from-another-team",
+            "label": "Vraag een ander team of je die van hen mag lenen.",
+            "consequence": "Het lukt, met een paar minuten over."
+          },
+          {
+            "key": "present-without-printed-materials",
+            "label": "Presenteer zonder gedrukt materiaal.",
+            "consequence": "Het is een beetje geïmproviseerd, maar het gaat prima."
+          },
+          {
+            "key": "delay-the-presentation",
+            "label": "Vraag om een paar extra minuten voordat je presenteert.",
+            "consequence": "Je krijgt de extra tijd die je nodig hebt, en niemand vindt het erg om even te wachten."
+          }
+        ]
+      },
+      "uh-oh-teammate-absent": {
+        "title": "Een van je teamleden is er vandaag niet.",
+        "situation": "Oren is er vandaag niet, en hij had een belangrijke taak op zijn lijst.",
+        "choices": [
+          {
+            "key": "share-out-their-tasks",
+            "label": "Verdeel zijn taken over de rest van het team.",
+            "consequence": "Het wordt gedaan, en het team voelt zich goed over het samen aanpakken."
+          },
+          {
+            "key": "wait-until-they-are-back",
+            "label": "Wacht tot Oren terug is om dat deel verder te doen.",
+            "consequence": "Dat deel van het project ligt voorlopig stil."
+          },
+          {
+            "key": "do-their-work-yourself",
+            "label": "Doe het deel van Oren zelf, naast je eigen deel.",
+            "consequence": "Het wordt gedaan, maar het is veel om er in je eentje bij te nemen."
+          }
+        ]
+      },
+      "uh-oh-customer-changed-mind": {
+        "title": "De klant is van gedachten veranderd.",
+        "situation": "De klant heeft net een bericht gestuurd dat ze nu iets anders willen.",
+        "choices": [
+          {
+            "key": "adjust-the-plan-together",
+            "label": "Verzamel het team en pas het plan aan.",
+            "consequence": "Het kost wat extra werk, maar het team past zich goed aan, samen."
+          },
+          {
+            "key": "explain-why-you-cant-change-now",
+            "label": "Leg uit dat het te laat is om nu nog van koers te veranderen.",
+            "consequence": "De klant accepteert het, maar lijkt een beetje teleurgesteld."
+          },
+          {
+            "key": "panic-and-start-over-completely",
+            "label": "Het gevoel hebben dat je helemaal opnieuw moet beginnen.",
+            "consequence": "Het blijkt dat er maar een klein deel echt hoefde te veranderen."
+          }
+        ]
+      },
+      "uh-oh-misunderstood-instructions": {
+        "title": "Je beseft dat er iets is misgegaan.",
+        "situation": "Terugkijkend op de instructies, blijkt je team één deel anders begrepen te hebben dan bedoeld was.",
+        "choices": [
+          {
+            "key": "explain-the-mix-up-and-fix-it-together",
+            "label": "Leg de vergissing uit aan het team en los het samen op.",
+            "consequence": "Het team stelt het op prijs om precies te weten wat er gebeurd is."
+          },
+          {
+            "key": "quietly-fix-it-yourself",
+            "label": "Los de vergissing stilletjes zelf op.",
+            "consequence": "Het wordt opgelost, maar het team komt nooit te weten wat er gebeurd is - of hoe ze het de volgende keer kunnen voorkomen."
+          },
+          {
+            "key": "blame-the-instructions",
+            "label": "Besluit dat de instructies zelf gewoon onduidelijk waren.",
+            "consequence": "Dat klopt gedeeltelijk, maar het lost nog niets echt op."
+          }
+        ]
+      },
+      "uh-oh-idea-stops-working": {
+        "title": "Het beste idee van het team werkt opeens niet meer.",
+        "situation": "De aanpak die de hele week zo goed werkte, loopt opeens vast.",
+        "choices": [
+          {
+            "key": "try-a-different-approach-together",
+            "label": "Verzamel het team om een andere aanpak te proberen.",
+            "consequence": "Het kost wat proberen en falen, maar het team vindt een nieuwe weg vooruit."
+          },
+          {
+            "key": "keep-trying-the-same-way",
+            "label": "Blijf dezelfde aanpak proberen, in de hoop dat het uiteindelijk lukt.",
+            "consequence": "Het lijkt niet beter te gaan werken."
+          },
+          {
+            "key": "ask-the-team-for-new-ideas",
+            "label": "Vraag het team om frisse ideeën.",
+            "consequence": "Iemand komt met een invalshoek waar nog niemand aan had gedacht."
+          }
+        ]
+      }
+    },
+    "lab": {
+      "lab-rejected-idea": {
+        "title": "Een Afgewezen Idee",
+        "situation": "Je vriend is overstuur omdat je niet voor zijn of haar idee hebt gekozen. Wat zou je kunnen zeggen?",
+        "choices": {
+          "say-sorry-and-explain-why": {
+            "label": "Zeg sorry, en leg eerlijk uit waarom je anders koos.",
+            "consequence": "Diegene begrijpt je redenen, ook al is hij of zij nog een beetje teleurgesteld."
+          },
+          "ask-them-to-explain-more": {
+            "label": "Vraag of ze hun idee nog eens willen uitleggen - misschien miste je iets.",
+            "consequence": "Je zou kunnen ontdekken dat het beter werkt dan je in eerste instantie dacht."
+          },
+          "say-nothing-and-move-on": {
+            "label": "Zeg niets en ga gewoon verder.",
+            "consequence": "Het moment gaat voorbij, maar diegene vraagt zich misschien nog steeds af wat je van zijn of haar ideeën vindt."
+          }
+        }
+      },
+      "lab-quiet-teammate": {
+        "title": "Een Stil Teamlid",
+        "situation": "Iemand in je team is erg stil. Wat zou je kunnen doen?",
+        "choices": {
+          "ask-them-directly-what-they-think": {
+            "label": "Vraag diegene rechtstreeks wat hij of zij denkt.",
+            "consequence": "Diegene deelt een idee dat hij of zij anders misschien niet uit zichzelf had aangeboden."
+          },
+          "give-them-a-small-task-to-build-confidence": {
+            "label": "Geef diegene een kleine taak om zijn of haar zelfvertrouwen op te bouwen.",
+            "consequence": "Diegene lijkt iets meer op zijn of haar gemak om mee te doen."
+          },
+          "let-them-stay-quiet": {
+            "label": "Laat diegene stil zijn, als dat nu eenmaal zo is.",
+            "consequence": "Dat is ook prima - niet iedereen hoeft zich op dezelfde manier te uiten."
+          }
+        }
+      },
+      "lab-hide-or-tell": {
+        "title": "Verzwijgen of Vertellen?",
+        "situation": "Je hebt een fout gemaakt. Verzwijg je het of vertel je het aan het team?",
+        "choices": {
+          "tell-the-team-right-away": {
+            "label": "Vertel het meteen aan het team.",
+            "consequence": "Het voelt een beetje ongemakkelijk, maar het team kan sneller helpen het op te lossen."
+          },
+          "fix-it-quietly-first": {
+            "label": "Probeer het eerst stilletjes zelf op te lossen.",
+            "consequence": "Het kan lukken - of het kan later moeilijker worden om uit te leggen."
+          },
+          "hide-it-and-hope-no-one-notices": {
+            "label": "Verzwijg het en hoop dat niemand het merkt.",
+            "consequence": "Het kan later alsnog naar boven komen, wanneer het lastiger is om ermee om te gaan."
+          }
+        }
+      },
+      "lab-doesnt-agree": {
+        "title": "Een Openbaar Meningsverschil",
+        "situation": "Een teamlid is het waar iedereen bij is oneens met je plan. Wat doe je?",
+        "choices": {
+          "ask-them-to-explain-their-thinking": {
+            "label": "Vraag diegene om zijn of haar redenering uit te leggen.",
+            "consequence": "Je leert iets waar je nog niet aan had gedacht."
+          },
+          "explain-why-your-plan-is-better": {
+            "label": "Leg uit waarom jouw plan het betere plan is.",
+            "consequence": "Je hebt misschien gelijk, maar diegene voelt zich misschien opzijgezet."
+          },
+          "suggest-talking-about-it-after": {
+            "label": "Stel voor om er achteraf privé over te praten.",
+            "consequence": "Het geeft jullie allebei de tijd om er rustig over na te denken."
+          }
+        }
+      },
+      "lab-credit-for-idea": {
+        "title": "Van Wie Was Het Idee?",
+        "situation": "Het idee van iemand werkte echt goed, maar niemand vermeldde dat het van diegene was. Wat doe je?",
+        "choices": {
+          "point-out-whose-idea-it-was": {
+            "label": "Wijs erop dat het diegenes idee was.",
+            "consequence": "Diegene voelt zich echt erkend."
+          },
+          "say-nothing-its-not-a-big-deal": {
+            "label": "Zeg niets - het is geen groot probleem.",
+            "consequence": "Het maakt diegene misschien niets uit, of het maakt juist meer uit dan je denkt."
+          },
+          "ask-them-how-they-feel-about-it": {
+            "label": "Vraag diegene hoe hij of zij zich erover voelt.",
+            "consequence": "Je komt het rechtstreeks te weten, in plaats van te gokken."
+          }
+        }
+      },
+      "lab-tired-teammate": {
+        "title": "Een Moe Teamlid",
+        "situation": "Een teamlid ziet er moe uit en zegt dat het wel gaat. Wat doe je?",
+        "choices": {
+          "check-in-again-later": {
+            "label": "Ga later nog eens langs, voor de zekerheid.",
+            "consequence": "Diegene stelt het op prijs dat je het opmerkte."
+          },
+          "take-something-off-their-plate": {
+            "label": "Haal stilletjes iets van diegenes to-dolijst.",
+            "consequence": "Het helpt, ook al zegt diegene er niet veel over."
+          },
+          "take-their-word-for-it": {
+            "label": "Neem het aan zoals diegene het zegt en ga verder.",
+            "consequence": "Het kan echt goed gaan met diegene - of diegene wilde het misschien niet zeggen."
+          }
+        }
+      },
+      "lab-new-member": {
+        "title": "Een Nieuw Teamlid",
+        "situation": "Halverwege het project komt er iemand nieuw bij je team. Wat doe je?",
+        "choices": {
+          "introduce-them-to-everyone-and-explain-the-plan": {
+            "label": "Stel diegene aan iedereen voor en leg het plan tot nu toe uit.",
+            "consequence": "Diegene voelt zich welkom en klaar om mee te doen."
+          },
+          "let-them-figure-it-out": {
+            "label": "Laat diegene het gaandeweg zelf uitzoeken.",
+            "consequence": "Het lukt diegene wel, al duurt het langer om zich thuis te voelen."
+          },
+          "ask-the-team-to-help-them-settle-in": {
+            "label": "Vraag het team om diegene te helpen wennen.",
+            "consequence": "Het hele team helpt mee, en het komt niet alleen op jou neer."
+          }
+        }
+      },
+      "lab-mixed-feedback": {
+        "title": "Feedback Die Lastig Is om te Geven",
+        "situation": "Je moet een teamlid vertellen dat zijn of haar werk aanpassingen nodig heeft. Wat doe je?",
+        "choices": {
+          "say-what-you-liked-and-what-to-change": {
+            "label": "Zeg wat je goed vond, en wat er moet veranderen.",
+            "consequence": "Diegene weet precies wat werkte en wat er verbeterd moet worden."
+          },
+          "just-say-its-not-good-enough": {
+            "label": "Zeg gewoon dat het niet goed genoeg is.",
+            "consequence": "Diegene weet dat er iets mis is, maar niet wat hij of zij eraan moet doen."
+          },
+          "avoid-saying-anything-and-fix-it-yourself": {
+            "label": "Zeg niets en los het gewoon zelf op.",
+            "consequence": "Het wordt opgelost, maar diegene leert nooit wat er moest veranderen."
+          }
+        }
+      }
+    },
+    "badges": {
+      "lq-first-leader": {
+        "name": "Eerste Leider",
+        "description": "Je begon je reis als leider van een team."
+      },
+      "lq-team-builder": {
+        "name": "Teambouwer",
+        "description": "Je koppelde taken aan de sterke punten van je team."
+      },
+      "lq-good-listener": {
+        "name": "Goede Luisteraar",
+        "description": "Je luisterde zorgvuldig voordat je besliste."
+      },
+      "lq-problem-solver": {
+        "name": "Probleemoplosser",
+        "description": "Je werkte je door een lastig probleem heen."
+      },
+      "lq-calm-under-pressure": {
+        "name": "Kalm Onder Druk",
+        "description": "Je bleef helder denken toen alles tegelijk gebeurde."
+      },
+      "lq-final-leader": {
+        "name": "Laatste Leider",
+        "description": "Je hebt je team door de hele reis geleid."
+      }
+    },
+    "profile": {
+      "title": "Jouw Leiderschapsprofiel",
+      "lockedHint": "Maak de Laatste Uitdaging af om je Leiderschapsprofiel te zien.",
+      "intro": "Dit is geen score - het is een blik op hoe jij meestal leidt, gebaseerd op de keuzes die je echt hebt gemaakt.",
+      "noPatternYetHint": "Jouw keuzes neigden niet sterk naar één patroon - en dat is ook helemaal prima.",
+      "noBetterOrWorseNote": "Geen van deze patronen is beter dan een ander. Goed leiderschap kan er voor verschillende mensen anders uitzien.",
+      "archetypes": {
+        "the-listener": {
+          "title": "De Luisteraar",
+          "statements": [
+            "Je luistert vaak zorgvuldig voordat je beslist.",
+            "Je vraagt mensen vaak wat er is gebeurd voordat je conclusies trekt.",
+            "Je maakt ruimte voor het standpunt van anderen.",
+            "Je merkt het op als iemand nog niet gehoord is."
+          ]
+        },
+        "the-problem-solver": {
+          "title": "De Probleemoplosser",
+          "statements": [
+            "Je zoekt vaak naar een praktische oplossing als er iets misgaat.",
+            "Je duikt liever in een probleem dan het te vermijden.",
+            "Je richt je op het vinden van een weg vooruit.",
+            "Je blijft nieuwsgierig naar wat een probleem echt veroorzaakt."
+          ]
+        },
+        "the-team-builder": {
+          "title": "De Teambouwer",
+          "statements": [
+            "Je vertrouwt er vaak op dat je team dingen zelf kan afhandelen.",
+            "Je koppelt taken vaak aan de sterke punten van mensen.",
+            "Je brengt mensen samen in plaats van alleen te beslissen.",
+            "Je merkt het op als iemand meer vertrouwen of erkenning verdient."
+          ]
+        },
+        "the-calm-thinker": {
+          "title": "De Kalme Denker",
+          "statements": [
+            "Je blijft vaak standvastig als het spannend wordt.",
+            "Je werkt problemen liever één voor één door.",
+            "Je laat je beslissingen niet opjagen door druk.",
+            "Jouw kalmte helpt vaak ook de mensen om je heen."
+          ]
+        },
+        "the-encourager": {
+          "title": "De Aanmoediger",
+          "statements": [
+            "Je beurt de mensen om je heen vaak op.",
+            "Je merkt vaak op hoe mensen zich voelen.",
+            "Je neemt de tijd om te erkennen wat anderen goed hebben gedaan.",
+            "Je zorgt ervoor dat mensen zich veilig voelen om fouten te maken."
+          ]
+        },
+        "the-big-picture-thinker": {
+          "title": "De Denker met Overzicht",
+          "statements": [
+            "Je kijkt vaak naar het grotere geheel in plaats van naar kleine details.",
+            "Je past je vaak snel aan als plannen veranderen.",
+            "Je staat open voor ideeën die anders zijn dan die van jezelf.",
+            "Je richt je op waar het team naartoe gaat, niet alleen op de taak van vandaag."
+          ]
+        }
+      }
+    }
+  },
   "categories": {
     "needs": "Behoeften",
     "wants": "Wensen",
@@ -1521,7 +2466,8 @@
     "moneyPersonalityLink": "Geldpersoonlijkheid",
     "levelActivityProgress": "Level {level} · Activiteit {position} van {total}",
     "investingLabLink": "Investeringslab →",
-    "entrepreneurQuestLink": "Ondernemersquest →"
+    "entrepreneurQuestLink": "Ondernemersquest →",
+    "leadershipQuestLink": "Leiderschapsquest →"
   },
   "parentInfo": {
     "title": "Informatie voor Ouders",
