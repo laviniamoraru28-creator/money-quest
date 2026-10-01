@@ -63,17 +63,40 @@ func start_quest(quest_id: String) -> void:
 	match quest.kind:
 		QuestData.QuestKind.LESSON:
 			await _run_lesson_quest(quest)
+		QuestData.QuestKind.CHALLENGE:
+			await _run_challenge_quest(quest)
 		_:
-			# EXPLORATION / CHALLENGE / SIMULATION quests are architecture-
-			# ready (QuestData already models them) but have no concrete
-			# runner built yet — see docs/money-quest-world-architecture.md
-			# Section 10's "not built this phase" list. Finish immediately
-			# rather than hang the game on an unimplemented quest kind.
+			# EXPLORATION / SIMULATION quests are architecture-ready
+			# (QuestData already models them) but have no concrete runner
+			# built yet. Finish immediately rather than hang the game on an
+			# unimplemented quest kind.
 			push_warning("QuestManager: quest kind %s has no runner yet (quest '%s')" % [quest.kind, quest_id])
 
 	ProgressManager.complete_quest(quest_id, quest.skill_ids)
 	_active = false
 	quest_finished.emit(quest_id)
+
+
+## For a standalone situation-and-consequence quest with no wrapped
+## LessonData (Entrepreneur Quest/Leadership Quest content ported from the
+## website's own "mission"-shaped decision events — see QuestData.gd's own
+## comment). Pays its own xp_reward/coin_reward directly, unlike a LESSON-
+## kind quest where the wrapped LessonData already paid its reward.
+func _run_challenge_quest(quest: QuestData) -> void:
+	if not quest.intro_text_key.is_empty():
+		await DialogueBox.show_text(quest.intro_text_key)
+
+	if quest.challenge_choice:
+		var chosen: ChoiceOption = await ChoicePanel.show_choice(quest.challenge_choice)
+		if chosen.consequence:
+			GameState.add_coins(max(chosen.consequence.coin_delta, 0))
+			GameState.add_xp(max(chosen.consequence.xp_delta, 0))
+			await DialogueBox.show_text(chosen.consequence.consequence_text_key)
+
+	GameState.add_xp(quest.xp_reward)
+	GameState.add_coins(quest.coin_reward)
+	if not quest.reward_message_key.is_empty():
+		await RewardPopup.show_reward(quest.reward_message_key, quest.xp_reward, quest.coin_reward)
 
 
 func _run_lesson_quest(quest: QuestData) -> void:

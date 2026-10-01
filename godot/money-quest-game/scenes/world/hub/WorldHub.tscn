@@ -91,7 +91,7 @@ text = ""
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -5)
 script = ExtResource("4")
 label_key = "hub.portal.entrepreneur_quest"
-coming_soon_message_key = "portal.coming_soon"
+target_zone_id = "idea-lab"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PortalEntrepreneurQuest"]
 shape = SubResource("CylinderShape3D_portal")

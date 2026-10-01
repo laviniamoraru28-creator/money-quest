@@ -29,6 +29,24 @@ enum QuestKind { LESSON, EXPLORATION, CHALLENGE, SIMULATION }
 ## in-world placement connect.
 @export var lesson_data_path: String = ""
 
+## Only set when kind == CHALLENGE — a standalone situation-and-consequence
+## decision with no wrapped LessonData (used for Entrepreneur Quest/
+## Leadership Quest content ported from the website's own "mission"-shaped
+## decision events, which are already exactly this shape — see
+## docs/money-quest-world-architecture.md Section 4). Shown after
+## `intro_text_key`, if set.
+@export var intro_text_key: String = ""
+@export var challenge_choice: DialogueChoice
+
+## Only set when kind == CHALLENGE — LESSON-kind quests get their reward
+## line from the wrapped LessonData instead (see `reward_message_key` on
+## LessonData).
+@export var reward_message_key: String = ""
+
+## For LESSON-kind quests, leave these at 0 — the wrapped LessonData pays
+## its own reward via ProgressManager.complete_lesson() and QuestManager
+## never double-pays. CHALLENGE-kind quests (no wrapped LessonData) use
+## these directly — see data/schemas/QUEST_DATA_FORMAT.md.
 @export var xp_reward: int = 0
 @export var coin_reward: int = 0
 ## Which Smart Skill(s) this quest develops (see ProgressManager.skill_points)

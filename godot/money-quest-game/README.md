@@ -38,23 +38,27 @@ rebuilt.
    session skips straight to the Hub.
 2. You arrive in the **World Hub** — a plaza with 7 portals. Walk up to one
    and interact with it:
-   - **Money Quest** (gold) is the one functional portal — it takes you to
-     the **Golden Vault** zone.
-   - The other 6 (Entrepreneur Quest, Leadership Quest, Library, Museum,
-     Mind Lab, Calm World) show a short "still being built" line — the
-     portal, zone registration, and locking logic all already work for
-     them; only their actual zone content doesn't exist yet.
+   - **Money Quest** (gold) takes you to the **Golden Vault** zone.
+   - **Entrepreneur Quest** (ember) takes you to the **Idea Lab** zone.
+   - The other 5 (Leadership Quest, Library, Museum, Mind Lab, Calm World)
+     show a short "still being built" line — the portal, zone
+     registration, and locking logic all already work for them; only
+     their actual zone content doesn't exist yet.
 3. In Golden Vault, walk up to Maya and interact with her to start her
    quest. The savings mini-game runs for 3 weeks: each week, choose to save
    the full allowance toward the sketchbook or spend a little on a treat.
-   Your choices genuinely determine whether the goal is reached.
-4. The lesson's real explanation (from the actual website curriculum
-   content) plays, then a quiz question (also real curriculum content,
-   retryable, never shaming), then the reward screen, which explicitly
-   labels earned coins as **virtual** (never implying real money).
-5. Walk to the portal near Maya to return to the Hub. Progress (completed
-   quests, unlocked zones, skill tags, avatar choices) is saved to
-   `user://progress.json` automatically.
+   Your choices genuinely determine whether the goal is reached. The real
+   explanation and quiz (from the actual website curriculum content) play
+   afterward, then the reward screen, which explicitly labels earned coins
+   as **virtual** (never implying real money).
+4. In Idea Lab, walk up to the Business Guide and interact with them to
+   start "Handle Competition" — a single decision ported directly from the
+   website's real Entrepreneur Quest content: a competitor undercuts your
+   price, and you choose how to respond. There's no single correct
+   answer — each option has its own natural-language consequence.
+5. Walk to the portal in each zone to return to the Hub. Progress
+   (completed quests, unlocked zones, skill tags, avatar choices) is saved
+   to `user://progress.json` automatically.
 
 ### Controls
 
@@ -79,12 +83,13 @@ up-to-date table. In short:
 | Built this phase | Not built yet (architecture-ready) |
 |---|---|
 | `WorldManager` + generalized `ZoneData` (`HUB`/`QUEST`/`LIBRARY`/`MUSEUM`/`MIND_LAB`/`CALM` kinds) | Entrepreneur Quest / Leadership Quest zones |
-| `QuestData` + `QuestManager` (wraps existing `LessonData`, no content duplicated) | Library / Museum / Mentor / Dictionary content |
+| `QuestData` + `QuestManager`, `LESSON` and `CHALLENGE` kinds (wraps existing `LessonData` or runs a standalone situation+choice+consequence, no content duplicated) | Library / Museum / Mentor / Dictionary content |
 | 3D `Player`/`NPC`/`Interaction`/`InteractionManager` + `CameraController` | Mind Lab |
-| World Hub, 7 portals (1 functional, 6 "coming soon") | Calm World gardens |
-| Golden Vault zone + Maya's quest (reuses the existing `LessonData`/`LessonManager`/mini-game/UI overlays unchanged) | Fuller avatar presets beyond color/preset/accessory |
-| `AvatarConfig` + minimal `AvatarCreation.tscn` | AI Quest Coach (explicitly not built — see the architecture doc's non-negotiables) |
-| Zone/quest/skill/avatar progression fields in `ProgressManager`, persisted by `SaveManager` | — |
+| World Hub, 7 portals (2 functional, 5 "coming soon") | Calm World gardens |
+| Golden Vault zone + Maya's quest (reuses the existing `LessonData`/`LessonManager`/mini-game/UI overlays unchanged) | Entrepreneur Quest's full BUILD → RUN → RESCUE & GROW track (only one representative quest is built) |
+| Idea Lab zone + "Handle Competition" quest (ports the website's real `competitor-lower-price` decision event) | Leadership Quest zones |
+| `AvatarConfig` + minimal `AvatarCreation.tscn` | Fuller avatar presets beyond color/preset/accessory |
+| Zone/quest/skill/avatar progression fields in `ProgressManager`, persisted by `SaveManager` | AI Quest Coach (explicitly not built — see the architecture doc's non-negotiables) |
 
 ## Content fidelity
 
@@ -92,9 +97,20 @@ Every piece of curriculum text in Maya's quest — the story, the vocabulary
 (`goal`, `trade-off`), the quiz question/options/explanation, the feedback
 lines, the reward message — is copied directly from the real
 `messages/en.json` (`curriculum.builder-saving-l1`) and `messages/ro.json`
-in the website repo, not invented for this project. The only new content
-is UI chrome (menu/Hub/portal/avatar-creation labels) and the mini-game's
-own week-prompt text, which was always original to this lesson's design.
+in the website repo, not invented for this project.
+
+Idea Lab's "Handle Competition" quest is likewise copied directly from the
+real `messages/en.json`/`messages/ro.json` (`entrepreneurQuest.decisionEvents
+.competitor-lower-price` and its `build.handle-competition` title/intro) —
+the situation, all 3 choices, and all 3 consequences are the website's own
+words, not invented for this project.
+
+The only new content anywhere in this project is UI chrome (menu/Hub/
+portal/avatar-creation/zone-guide labels), the savings mini-game's own
+week-prompt text (always original to that lesson's design), and the
+"Business Guide" NPC's name — a generic role, not a named person, since
+Entrepreneur Quest's real content has no fixed mentor character the way
+Money Quest's curriculum already has Maya.
 
 ## Project structure
 
@@ -120,6 +136,8 @@ rationale. Quick map:
 - `scenes/world/hub/WorldHub.tscn` — the Hub plaza.
 - `scenes/world/zones/golden_vault/GoldenVault.tscn` — this phase's one
   real Money Quest zone.
+- `scenes/world/zones/idea_lab/IdeaLab.tscn` — this phase's one real
+  Entrepreneur Quest zone.
 - `scenes/world/Main.tscn` — the persistent root: a `ZoneContainer`
   `WorldManager` swaps zone scenes into, plus the always-present `HUD`.
 - `scenes/player/` — `Player.tscn`, `CameraController.tscn`,
@@ -149,11 +167,12 @@ rationale. Quick map:
   meshes (capsules, boxes), matching the brief's own instruction not to
   invent visual direction decisions beyond what's needed to demonstrate
   the architecture.
-- Only 1 of 30 curriculum lessons is wired up as a Quest. See
-  `docs/money-quest-world-architecture.md` Section 12 for the development
-  order for the rest, the 17 games, and the 4 simulator scenarios.
-- Entrepreneur Quest, Leadership Quest, Library, Museum, Mind Lab, and
-  Calm World are all reachable from the Hub (their portals exist and
-  correctly report "coming soon") but have no zone content yet — by
-  design, per the brief's explicit "do not build all of this content at
-  once."
+- Only 1 of 30 curriculum lessons is wired up as a Quest, and only 1 of
+  Entrepreneur Quest's many real BUILD/RUN/RESCUE & GROW stages is ported.
+  See `docs/money-quest-world-architecture.md` Section 12 for the
+  development order for the rest, the 17 games, and the 4 simulator
+  scenarios.
+- Leadership Quest, Library, Museum, Mind Lab, and Calm World are all
+  reachable from the Hub (their portals exist and correctly report
+  "coming soon") but have no zone content yet — by design, per the
+  brief's explicit "do not build all of this content at once."
