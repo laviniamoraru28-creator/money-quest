@@ -29,8 +29,18 @@ const WEEK_COUNT: int = 3
 var _saved_toward_goal: int = 0
 
 
-func run(choice_panel: Node, dialogue_box: Node) -> void:
-	await dialogue_box.show_text("lesson.builder_saving_l1.minigame.intro")
+func _ready() -> void:
+	# Auto-starts the moment LessonManager instances this scene (see
+	# MiniGameBase's "stage_finished" contract) — nothing external needs
+	# to call run() explicitly, keeping LessonManager's stage-instancing
+	# code identical for every mini-game regardless of what it does.
+	run()
+
+
+## No parameters — talks to the global ChoicePanel/DialogueBox autoloads
+## directly, the same way LessonManager does (see its own comment on why).
+func run() -> void:
+	await DialogueBox.show_text("lesson.builder_saving_l1.minigame.intro")
 
 	for week in range(1, WEEK_COUNT + 1):
 		var choice := DialogueChoice.new()
@@ -50,18 +60,18 @@ func run(choice_panel: Node, dialogue_box: Node) -> void:
 
 		choice.options = [save_option, treat_option]
 
-		var chosen: ChoiceOption = await choice_panel.show_choice(choice)
+		var chosen: ChoiceOption = await ChoicePanel.show_choice(choice)
 		_saved_toward_goal += chosen.consequence.coin_delta
 		GameState.add_coins(chosen.consequence.coin_delta)
-		await dialogue_box.show_text(chosen.consequence.consequence_text_key)
+		await DialogueBox.show_text(chosen.consequence.consequence_text_key)
 
 	if _saved_toward_goal >= SKETCHBOOK_GOAL:
-		await dialogue_box.show_text("lesson.builder_saving_l1.minigame.outcome_success")
+		await DialogueBox.show_text("lesson.builder_saving_l1.minigame.outcome_success")
 		finish("reached_goal")
 	else:
 		# Never shaming — a short, curious "what could change next time"
 		# beat, matching the project's existing "safe place to practise,
 		# not a test" principle, then lets the lesson continue normally
 		# into its explanation/quiz rather than ending the lesson early.
-		await dialogue_box.show_text("lesson.builder_saving_l1.minigame.outcome_short")
+		await DialogueBox.show_text("lesson.builder_saving_l1.minigame.outcome_short")
 		finish("fell_short")

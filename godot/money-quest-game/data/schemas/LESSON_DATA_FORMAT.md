@@ -41,8 +41,11 @@ If `stage_scene_path` is set, that scene's **root node must emit a
 around, talking to an NPC, playing a mini-game) is done.
 `LessonManager._run_stage_scene()` awaits that signal and then continues
 into `choice_point` → `explanation_key` → quiz → reward. The stage scene
-may also accept `dialogue_box` / `choice_panel` properties, set
-automatically by `LessonManager` if present — see `BuilderSavingL1.gd`.
+talks to the global `DialogueBox`/`ChoicePanel` autoloads directly (see
+`scripts/minigames/SavingsAllocationMiniGame.gd`) — `LessonManager` never
+injects references into it, since Money Quest World's Hub-based zones made
+those overlays global autoloads (see `docs/money-quest-world-architecture.md`
+Section 2).
 
 ## Choosing where the "choice and consequence" moment lives
 

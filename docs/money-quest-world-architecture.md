@@ -1,118 +1,173 @@
-# Money Quest World — Revised Architecture
+# Money Quest World — Universe Architecture
 
-**Status:** architecture proposal, supersedes the Godot-specific sections of
-`docs/godot-architecture-plan.md` (that document's Section 1 audit of the
-website remains the source of truth and is unchanged — read it first if
-you haven't). This document covers the pivot from "a Godot game containing
-21 lessons" to "Money Quest World: a persistent, zone-based 3D world that
-existing lessons become experiences inside."
+**Status:** this document supersedes the earlier version of itself (the
+single-zone "Money Quest World" pivot) with the full universe vision: a
+World Hub connecting three Quest tracks (Money Quest, Entrepreneur Quest,
+Leadership Quest) plus four supporting destinations (Library, Museum, Mind
+Lab, Calm World). `docs/godot-architecture-plan.md`'s Section 1 audit of
+the website remains the unchanged source of truth for curriculum facts —
+re-verified again for this revision (Section 0 below).
 
-Nothing has been rebuilt yet. This is the proposal requested before
-continuing implementation.
-
----
-
-## 1. What exists today vs. what's proposed
-
-The previous prototype (`godot/money-quest-game/`, see its own README) is
-a **2D, single-lesson vertical slice**. It proved the content pipeline
-(real curriculum text → `LessonData` → UI) works end to end. It was never
-a "world" — there was no zone, no persistent space, no avatar. Below is
-the disposition of every piece of it.
-
-### Kept as-is (zero change)
-
-| File | Why |
-|---|---|
-| `scripts/core/LessonData.gd`, `DialogueLine.gd`, `ChoiceOption.gd`, `DialogueChoice.gd`, `ConsequenceEffect.gd`, `VocabTerm.gd` | Pure content data, no dimensionality |
-| `scripts/core/VirtualMoney.gd` | Pure logic |
-| `autoload/Localization.gd`, `localization/translations.csv` | Locale-agnostic |
-| `autoload/GameState.gd`, `ProgressManager.gd`, `SaveManager.gd` | Pure data/logic (schema grows additively, see Section 6) |
-| `scenes/core/DialogueBox.tscn/.gd`, `ChoicePanel.tscn/.gd`, `RewardPopup.tscn/.gd`, `HUD.tscn/.gd` | `CanvasLayer` screen-space UI — works identically over a 2D or 3D world |
-| `scripts/minigames/SavingsAllocationMiniGame.gd` | Pure `ChoicePanel` logic, no world presence |
-| `scripts/core/MiniGameBase.gd`'s `stage_finished` contract | A signal, dimension-agnostic |
-| `data/lessons/builder_saving_l1.tres` + its `translations.csv` rows | Real curriculum content, not code |
-| `autoload/AudioManager.gd` (core) | Hooks are sound; grows additively (Section 9) |
-
-### Refactored (same role, ported to 3D)
-
-| File | Change |
-|---|---|
-| `scripts/core/Player.gd` / `scenes/core/Player.tscn` | `CharacterBody2D` → `CharacterBody3D`; tap-to-move → full mobile/desktop/gamepad controller (Section 5) |
-| `scripts/core/NPC.gd` / `scenes/core/NPC.tscn` | `Area2D` → `Area3D` |
-| `scripts/core/Interaction.gd` / `InteractionManager.gd` | `Area2D`/body detection → `Area3D`; the `register()`/`unregister()`/`try_interact()` signal pattern is unchanged |
-| `scenes/world_map/WorldMap.tscn` | Was a button-list stub → becomes the first real 3D zone (a hub) |
-
-### Redesigned (new concept)
-
-- **Quest system** (`QuestData`) — did not exist; see Section 3.
-- **Zone/World system** (`ZoneData`, `WorldManager`) — did not exist; see Section 2.
-- **Avatar customization** — did not exist; see Section 5.
-- **`CameraController`** — explicitly deferred in the first pass; now required; see Section 5.
-- **`LessonManager`'s ownership model** — it used to own a whole scene (`LessonBase.tscn`); it becomes a sub-system a **quest** invokes inside a zone, not the only entry point into content; see Section 4.
-
-### Unchanged principles
-
-No network code, no database, no authentication, no real banking, no
-gambling mechanics, no AI Coach — Money Quest World remains a standalone
-Godot project with local save only. Every piece of curriculum content
-comes from the real `messages/*.json`, never invented. Nothing is built
-before its foundation is proven (Section 10's staged plan).
+Implementation of the foundation described here has begun in
+`godot/money-quest-game/` alongside this document — see Section 10 for
+exactly what's built vs. still a data-driven placeholder.
 
 ---
 
-## 2. World structure: Zones
+## 0. Audit re-verification (facts unchanged, re-confirmed)
 
-**Proposal: reuse the website's existing 7 worlds as the initial zone
-list**, rather than inventing new names. The website already has
-`src/content/worlds.ts` (Coin Cove, Market Town, Golden Vault, Sky
-Exchange, Guardian Gate, Horizon Peaks, Kindness Grove) with its own
-`world.*` color tokens in `tailwind.config.ts`. Using these:
+Nothing in the website changed between the previous architecture pass and
+this one (git history shows only `docs/` and `godot/` additions since).
+Re-confirmed directly from source for this revision:
 
-- Makes "Play this in Money Quest World" a real, coherent link later
-  (Section 18 of your brief) — same world, same name, same color identity,
-  on both the website and in Godot.
-- Avoids inventing a second, parallel naming scheme to maintain.
-- Each zone's existing topic (saving, needs_wants, scams, etc.) gives it
-  an obvious set of quests to eventually contain.
+- **Money Quest curriculum**: 30 lessons (10 topics × 3 age bands), 17
+  games, 4 Money Life Simulator scenarios, 7 worlds, 9 locales at 100%
+  translation coverage. Unchanged from `docs/godot-architecture-plan.md`.
+- **Entrepreneur Quest** (`src/content/entrepreneur-quest/structures.ts`):
+  **18 BUILD stages** (find-a-problem → research-demand →
+  test-the-idea → name-your-business → create-your-logo →
+  choose-your-product → choose-your-customer → understand-costs →
+  set-your-price → create-your-marketing → make-your-first-sale →
+  calculate-your-profit → handle-competition →
+  handle-a-customer-problem → make-a-business-decision →
+  grow-your-business → create-your-final-pitch, plus research-demand/
+  test-the-idea inserted as stages 3-4), a **Run Your Business** phase
+  (pricing-experiment, supplier-and-stock, cash-flow, business-problems,
+  AI Business Lab), a **Rescue & Grow** phase (business pivot, grow-or-
+  stay-small, business rescue, business review, ethics scenarios), 5
+  standalone Challenges, and the existing Simulator — all gated behind
+  completing BUILD, matching the website's own BUILD → RUN → RESCUE & GROW
+  structure. This is real, substantial, already-shipped content — it must
+  be *mapped into* Money Quest World, never rebuilt.
+- **Leadership Quest** (`src/content/leadership-quest/structures.ts`):
+  **12 missions** (meet-your-team → first-challenge →
+  everyone-has-an-idea → missing-task → big-mistake → angry-customer →
+  better-idea → team-conflict → motivation-problem → the-deadline →
+  pressure-test → final-challenge), 4 original characters, 8 Leadership
+  Lab scenarios, 5 "uh-oh" events, 6 badges, and a 6-archetype Leadership
+  Profile. Also real, shipped content to map in, not rebuild.
+- **The Godot prototype** (`godot/money-quest-game/`): one 2D vertical
+  slice (`builder-saving-l1`). See Section 10 for its disposition under
+  this revision.
 
-If you'd rather keep the brief's illustrative zone list (Money Quest Town,
-Shopping District, Bank/Savings area, etc.) as a *separate, additional*
-layer — e.g., Golden Vault's in-world "district" is themed around
-saving/banking — that also works; the data model below supports either
-without caring which naming scheme wins.
+---
+
+## 1. The central shift: from "a 3D lesson game" to "a universe with a Hub"
+
+The previous revision got Money Quest World to "a zone-based 3D world."
+This revision adds the piece that makes it a *universe*: a **World Hub**
+that is itself a real, walkable place, from which the child reaches
+**three Quest tracks** and **four supporting destinations** — not a menu,
+a place with doors.
+
+```
+                         ┌─────────────────────┐
+                         │      WORLD HUB        │
+                         │  (a real 3D place)    │
+                         └──────────┬────────────┘
+            ┌───────────┬───────────┼───────────┬───────────┬───────────┐
+            ▼           ▼           ▼            ▼           ▼           ▼
+      MONEY QUEST  ENTREPRENEUR  LEADERSHIP   LIBRARY     MUSEUM      MIND LAB
+      (financial    QUEST         QUEST     (books,     (stories,   (personal
+       literacy)    (business)   (Smart      mentors)    failures,   development,
+                                   Skills)                 ideas)      future)
+                                                                          │
+                                                                          ▼
+                                                                    CALM WORLD /
+                                                                  SENSORY GARDEN
+                                                                  (always reachable,
+                                                                   never gated)
+```
+
+Two genuinely different *kinds* of destination exist, and the data model
+below reflects that rather than forcing everything through one shape:
+
+- **Quest destinations** (Money Quest, Entrepreneur Quest, Leadership
+  Quest) — interactive, NPC- and choice-driven, built on the `QuestData`/
+  `QuestManager` system (Section 4).
+- **Browse destinations** (Library, Museum, and eventually Dictionary/
+  Mentors as sub-areas) — the child walks around and *discovers* entries
+  (a book, an exhibit, a mentor profile) rather than making
+  choice-and-consequence decisions. Built on a simpler `ExhibitData`/
+  `BookData`/`MentorData` family (Section 6).
+- **Calm destinations** (Calm World and its named gardens) — deliberately
+  minimal interaction, no objectives, no progression requirement, never
+  gated behind anything (Section 7).
+
+Mind Lab is architecturally a **future Quest-shaped destination** (it will
+want choices/consequences like Leadership Quest, e.g. "recognize this
+thought pattern") — its content is explicitly not built now, but it's
+already representable by the same `QuestData` system the moment it is.
+
+---
+
+## 2. World Hub
+
+The Hub is one more `ZoneData` entry (Section 3), not a special-cased
+scene type — it just happens to be the zone every save file starts in and
+the zone every destination returns to. Concretely, for the first
+implementation: a small plaza with **7 portals** (doors, gates, or
+signposts — a visual decision for later polish), one per destination.
+Walking up to a portal and interacting with it either:
+
+- **transitions** into that destination's first zone (Money Quest → Golden
+  Vault, built this phase — see Section 10), or
+- for anything not yet built, shows a short, honest **"coming soon"**
+  response from a signpost/NPC — never a dead, unresponsive door. This is
+  a real `Interaction` with real (translated) text, not a visual bug.
+
+This satisfies "do not make the hub feel like a menu with seven buttons"
+concretely: every destination is a place you walk to and a door you open,
+whether or not what's behind it is built yet.
+
+---
+
+## 3. Generalized Zone/Area data model
+
+A single `ZoneData` resource (not a family of subclasses — simpler, and
+the brief explicitly warns against over-building) describes **every**
+place in the world, Hub included, tagged with a `kind` the loader and UI
+use to decide behavior:
 
 ```gdscript
-# data model — scripts/world/ZoneData.gd
+# scripts/world/ZoneData.gd
 class_name ZoneData
 extends Resource
 
-@export var zone_id: String          # e.g. "golden-vault" — matches the website's worldId
+@export var zone_id: String                 # e.g. "world-hub", "golden-vault"
 @export var display_name_key: String
-@export var scene_path: String       # res:// path to this zone's 3D scene
-@export var theme_color: Color       # pulled from the website's world.* tokens for visual continuity
-@export var unlock_condition: String # e.g. "" (always unlocked) or a quest_id that must be completed first
-@export var npc_ids: Array[String]
-@export var quest_ids: Array[String]
+@export var scene_path: String
+
+enum ZoneKind { HUB, QUEST, LIBRARY, MUSEUM, MIND_LAB, CALM }
+@export var kind: ZoneKind = ZoneKind.QUEST
+
+@export var theme_color: Color              # from the website's world.* tokens where one exists
+@export var unlock_condition_quest_id: String = ""   # "" = always unlocked
+@export var npc_ids: Array[String] = []
+@export var quest_ids: Array[String] = []           # populated for QUEST zones
+@export var exhibit_ids: Array[String] = []         # populated for MUSEUM zones
+@export var book_ids: Array[String] = []            # populated for LIBRARY zones
 ```
 
-**Loading**: each zone is its own scene, loaded/unloaded by a new
-`WorldManager` autoload — never all zones resident at once (Section 21's
-performance requirement). A simple `change_zone(zone_id)` swaps the active
-zone scene under a persistent root (HUD, player data, and autoloads stay
-alive across the swap; only the zone's own `Node3D` tree is freed/loaded).
-This is Godot's standard "additive scene loading" pattern — no custom
-streaming engine needed for a project this size.
+**Reusing the website's 7 worlds**: Money Quest's own zones use the
+website's real world ids/names/colors directly (`coin-cove`,
+`market-town`, `golden-vault`, `sky-exchange`, `guardian-gate`,
+`horizon-peaks`, `kindness-grove`) — continuing the previous revision's
+recommendation, now scoped explicitly to the **Money Quest quest track's
+own internal zones**, distinct from the **top-level Hub destinations**
+(which are Money Quest / Entrepreneur Quest / Leadership Quest / Library /
+Museum / Mind Lab / Calm World — a different, higher level of the same
+`ZoneData` system). In other words: the Hub's "Money Quest" portal leads
+into a small zone graph of its own (Coin Cove, Golden Vault, etc.), the
+same way Entrepreneur Quest's portal will eventually lead into its own
+zone graph (Idea Lab, Business District, Market, …).
 
 ---
 
-## 3. Quest system
+## 4. Quest system (Money Quest / Entrepreneur Quest / Leadership Quest)
 
-`QuestData` is new, and is the thing a child actually "picks up" in the
-world. A quest MAY wrap a `LessonData` (for anything that maps to real
-curriculum content) or stand alone (a pure exploration/challenge quest
-with no lesson behind it, per your Section 7's "quests shouldn't all look
-identical").
+Unchanged from the previous revision's proposal, now implemented (Section
+10):
 
 ```gdscript
 # scripts/quests/QuestData.gd
@@ -122,232 +177,268 @@ extends Resource
 @export var quest_id: String
 @export var title_key: String
 @export var description_key: String
-@export var educational_objective_key: String   # "" if this is a pure exploration quest
+@export var educational_objective_key: String
 
+@export var track: String              # "money-quest" | "entrepreneur-quest" | "leadership-quest"
 @export var zone_id: String
-@export var location_id: String        # a named spot within the zone (see LocationData, Section 2 extension)
 @export var giver_npc_id: String
 
 enum QuestKind { LESSON, EXPLORATION, CHALLENGE, SIMULATION }
 @export var kind: QuestKind = QuestKind.LESSON
 
-## Only set when kind == LESSON — the existing LessonData this quest wraps.
-## This is the ONE place a lesson and its in-world placement connect;
-## LessonData itself never knows about zones, NPCs, or quests.
-@export var lesson_data_path: String = ""
-
+@export var lesson_data_path: String = ""   # set when kind == LESSON
 @export var xp_reward: int
 @export var coin_reward: int
-@export var skill_ids: Array[String] = []   # which Skill(s) this quest develops — see Section 6
+@export var skill_ids: Array[String] = []
 ```
 
-`QuestManager` (new, `scripts/quests/QuestManager.gd`) replaces
-`LessonManager`'s role as "the thing the game talks to when a quest
-starts." When `kind == LESSON`, `QuestManager` loads the referenced
-`LessonData` and runs it through the **exact same beat sequence**
-`LessonManager` already implements (intro → stage/mini-game → choice →
-explanation → quiz → reward) — that sequence doesn't change, only who owns
-it changes. For `EXPLORATION`/`CHALLENGE`/`SIMULATION` kinds, `QuestManager`
-runs a simpler flow (no quiz, for instance) appropriate to that kind.
+`QuestManager` (new autoload) is the single entry point: "start quest
+`X`." For `kind == LESSON` it loads the referenced `LessonData` and runs
+the exact same beat sequence `LessonManager` already implements
+(unchanged — see the previous revision's Section 3/4 rationale, still
+valid). For Entrepreneur Quest and Leadership Quest, their own already-
+shipped website content (Section 0) becomes the source for future
+`QuestData` entries exactly the same way — a BUILD stage like
+"name-your-business" or a Leadership mission like "big-mistake" is
+already shaped like a quest (situation → choice → consequence → reward),
+so porting them later means authoring `QuestData` + reusing `LessonData`'s
+sibling shapes, not inventing new systems.
 
-**This directly satisfies your Section 8 requirement**: the same
-`LessonData` that powers a quest in Money Quest World is the same resource
-that could describe the lesson on the website side — neither duplicates
-the other's content.
-
----
-
-## 4. Where a quest actually "happens"
-
-Two patterns, chosen per-quest (not forced to be identical everywhere):
-
-1. **In-place, in the open zone**: the child walks up to an NPC standing
-   in, say, Market Town, talks to them, and the dialogue/choice/consequence
-   plays out right there via the existing `CanvasLayer` UI overlays, with
-   no scene transition. Best for short, simple quests (most
-   `EXPLORATION`/`CHALLENGE` quests, and simple one-choice lessons).
-2. **Interior instance**: the child walks through a door (an `Interaction`
-   on a door object) into a dedicated interior scene — this is exactly
-   what `BuilderSavingL1.tscn` already is, just reframed: instead of being
-   the top-level scene the whole game boots into, it's instanced by
-   `WorldManager`/`QuestManager` as a sub-scene, with the parent zone
-   remembered so "exit" returns the child to exactly where they were.
-   Best for quests needing their own staged room (like Maya's
-   sketchbook scenario) or a mini-game that benefits from a focused space.
-
-Both patterns reuse the same `QuestManager` → `LessonManager` → UI
-pipeline underneath — the only difference is whether a new `Node3D` scene
-is instanced first.
+**Smart Skills tagging** (brief Section 17): `QuestData.skill_ids` already
+carries this — a quest "demonstrates" a skill by listing it, and
+`ProgressManager.skill_points` (Section 8) increments on completion. No
+separate skill-demonstration engine needed; it rides on quest completion,
+which is the correct level of honesty ("tracks learning progress without
+turning it into a simplistic intelligence score," per your own
+instruction) — it's a tally of what a child has *done*, not a graded test.
 
 ---
 
-## 5. Player avatar, camera, and controls
+## 5. Entrepreneur Quest World & Leadership Quest World (architecture only — not built this phase)
 
-**Avatar (new)**: a small `AvatarConfig` resource (body base, outfit
-color, accessory) saved in `SaveManager`'s data. Scope the FIRST
-implementation small and inclusive by construction, not by addition later:
+Neither is implemented yet. What's already true architecturally, with no
+further work needed to "support" them later:
 
-- No gendered default; a handful of neutral body/outfit presets to start.
-- Color choices only at first (cheap to build, inherently inclusive — no
-  "which one looks most like me" problem when the options are a palette,
-  not a narrow set of body types).
-- Architecture leaves room for more presets (varied builds, visible
-  accessibility representation like glasses, hearing aids, a mobility
-  aid, or a wheelchair-using avatar) as a clearly-labeled later addition —
-  not promised as part of the first slice, but the `AvatarConfig` shape
-  doesn't need to change to add them.
-
-**Camera (new)**: a `CameraController.gd` doing a simple third-person
-follow (smoothed position + fixed or light touch-drag rotation) — no
-complex cinematic system needed for the first zone.
-
-**Controls (refactor)**: `Player.gd` becomes dimension-aware with THREE
-input paths feeding the same movement vector, matching your Section 19
-requirement:
-- **Touch**: an on-screen virtual joystick (bottom-left, thumb-reachable
-  one-handed) + a tap-to-interact button, not tap-to-move-to-a-point (a 3D
-  world with a camera makes click-to-move ambiguous in a way the 2D
-  prototype's flat ground didn't have — a joystick is the standard,
-  predictable mobile 3D control).
-- **Desktop**: WASD/arrow keys + mouse-look (optional) or a fixed camera
-  needing no mouse-look at all for the first zone, to keep Stage 1-3
-  simple.
-- **Gamepad**: left stick for movement, one face button for interact —
-  Godot's InputMap already abstracts this cheaply if actions are bound to
-  all three device types from the start.
+- Both are just another Hub portal → another `ZoneData` with
+  `kind == QUEST` and their own small zone graph (Idea Lab/Business
+  District/Market for Entrepreneur Quest; Leadership Academy/Team
+  Challenge area/Decision Lab for Leadership Quest, per your Section 24).
+- Both will use the **same** `QuestData`/`QuestManager`/`LessonManager`
+  pipeline Money Quest's first quest proves out — their own already-real
+  website content (Section 0) is the source to port, stage by stage, once
+  this foundation is validated.
+- Leadership Quest's 4 existing characters (Nadia, Oren, Priya, Theo —
+  from the real `leadership-quest/structures.ts`) become actual `NPC`
+  instances the moment that zone is built — same `NPC.gd`, same
+  `Interaction` pattern, no new character system required.
 
 ---
 
-## 6. Progression: Skills and Achievements (additive)
+## 6. Library, Museum, Mentors, Dictionary — the "Browse" family
 
-`ProgressManager` already has `completed_lesson_ids`/`earned_badge_ids` —
-this grows, it doesn't change shape:
+These don't need choices-and-consequences; they need "walk up, discover an
+entry, read/hear a short piece of real content." One small shared pattern
+covers all of them:
 
 ```gdscript
-# addition to ProgressManager's saved data
+# scripts/library/EntryData.gd — base shape shared by books, exhibits, mentors
+class_name EntryData
+extends Resource
+
+@export var entry_id: String
+@export var title_key: String
+@export var summary_key: String
+@export var detail_key: String          # the fuller text, shown on "read more"
+@export var source_url: String = ""     # for Library: a REAL, verifiable link; "" until a real one is approved — never invented
+@export var icon_key: String = ""
+```
+
+- **`BookData`** (Library): adds `author_key`, `recommended_age_band`.
+  **No books/authors are invented for this architecture** — `source_url`
+  and `author_key` stay empty placeholders until real, verifiable titles
+  are approved and added as content, exactly as your brief requires.
+- **`ExhibitData`** (Museum): adds `exhibit_category` ("money-through-time"
+  | "business-stories" | "failure-museum" | …) and, for Failure Museum
+  entries specifically, four short fields mapping to your required
+  structure: `what_happened_key`, `what_went_wrong_key`,
+  `what_could_differ_key`, `what_we_learn_key` — factual, non-shaming, and
+  **no historical story is invented**; this shape exists now so real,
+  verified stories can be added later without a data-model change.
+- **`MentorData`** (Library sub-area): adds `known_for_key`,
+  `mistake_or_challenge_key`, `lesson_key`, `small_challenge_key` — maps
+  directly to your "Meet the Mentors" structure. **No mentor is invented
+  or quoted** — this is schema only, populated later with real, factual
+  bios.
+- **`DictionaryTermData`**: `term_key`, `definition_key`,
+  `related_lesson_ids: Array[String]` — explicitly sourced from the real
+  curriculum's own vocabulary (the 77 terms already in `messages/en.json`
+  are the correct starting set, not new definitions invented for Godot).
+
+A `BrowseZoneController.gd` (one reusable script) drives any Library/
+Museum zone: it reads the zone's `book_ids`/`exhibit_ids`, places a simple
+`Interaction` per entry, and on interact shows the entry via the **same**
+`DialogueBox`/`ChoicePanel`-style UI already built — no new UI system
+needed, just new content types flowing through the existing overlay
+components.
+
+**Nothing in Library/Museum/Mentors/Dictionary is populated with real
+content in this phase** — the schema exists; the first real book,
+exhibit, or mentor is a future, explicitly-approved content addition.
+
+---
+
+## 7. Mind Lab and Calm World / Sensory Garden
+
+- **Mind Lab**: architecturally a future `ZoneData` with `kind ==
+  MIND_LAB`, populated later with `QuestData` entries exactly like
+  Leadership Quest (a short scenario → a choice → a consequence → a
+  reflection) — no new system, explicitly not built now, per your
+  instruction.
+- **Calm World / Sensory Garden**: `kind == CALM`. Each named garden
+  (Aquarium, Light, Rain, Underwater, Forest, Music, Bubble, Grow-a-Garden)
+  is its own `ZoneData` entry with `unlock_condition_quest_id = ""`
+  (**never gated**) and a scene that deliberately has: no `Interaction`
+  requiring a correct answer, ambient audio gated by `Settings.sfx_enabled`/
+  `music_enabled` (so it can be fully silent), and all motion respecting
+  `Settings.reduced_motion`. **No medical or therapeutic framing in any
+  copy** — translation keys for this zone type should read as "a calm
+  place to visit," never as treatment. Not built this phase; the
+  `ZoneKind.CALM` tag and the always-unlocked rule are the only
+  architecture needed to add the first garden later without touching
+  anything else.
+
+---
+
+## 8. Progression (additive, unified)
+
+`ProgressManager` (existing, unchanged core) grows to:
+
+```gdscript
 var completed_quest_ids: Array[String] = []
-var unlocked_zone_ids: Array[String] = []
-var skill_points: Dictionary = {}   # skill_id -> int, incremented by completed quests' skill_ids
+var unlocked_zone_ids: Array[String] = ["world-hub"]
+var skill_points: Dictionary = {}        # skill_id -> int
+var discovered_entry_ids: Array[String] = []   # books/exhibits/mentors seen
+var avatar_config: Dictionary = {}       # see Section 9
 ```
 
-`SkillData`/`AchievementData` are small new Resources (id + display key +
-icon key) — a reusable, data-driven list, not hard-coded. This is new
-infrastructure, clearly flagged as new (per your Section 12's explicit
-instruction), not a pretend-existing feature.
+Same idempotent-award discipline the website's `awardBadge()`/
+`applyActivityCompletion()` already established, and the same one that
+`ProgressManager.complete_lesson()`/`award_badge()` already implement in
+the Godot prototype — this is growth of an existing, working pattern, not
+a new one.
 
 ---
 
-## 7. Inclusive design and accessibility (from the start, not bolted on)
+## 9. Avatar (new this phase, minimal and inclusive by construction)
 
-`Settings.gd` already holds `reduced_motion`/`theme_mode` — extend it now,
-before more systems are built on top of it, exactly as your brief asks:
+Scope deliberately small for the first slice, per your own "do not force a
+single identity" instruction read literally: a palette of options, not a
+narrow set of body presets.
 
 ```gdscript
-var music_volume: float = 0.8
-var sfx_volume: float = 0.8
-var music_enabled: bool = true
-var sfx_enabled: bool = true
-var visual_intensity: String = "standard"   # "standard" | "calm" — see below
+# scripts/player/AvatarConfig.gd
+class_name AvatarConfig
+extends Resource
+
+@export var body_preset_id: String = "preset-a"   # a small, neutral initial set
+@export var outfit_color: Color = Color(0.059, 0.478, 0.42)
+@export var accessory_id: String = ""              # "" = none; a short curated list, never required
 ```
 
-`AudioManager` reads these before every `play_music()`/`play_sfx()` call —
-one gate, applied everywhere, the same "respect it everywhere, don't bolt
-it on per-component" discipline `reduced_motion` already uses.
-
-**"Calm spaces"** (your Section 5 example): modeled as nothing more than a
-`ZoneData` entry whose scene has gentle lighting, minimal interaction, and
-ambient audio — no special engine feature needed, no therapeutic framing
-in any copy, just a zone like any other with deliberately quiet content. Not
-built in the first slice; the zone system supports it the moment it's
-wanted.
+A minimal `AvatarCreation.tscn` (reached from `MainMenu`) lets a child pick
+these three things before entering the Hub for the first time. The schema
+is intentionally small so more presets/accessories (including ones that
+visibly represent glasses, hearing aids, or mobility aids, as discussed
+previously) can be added later as pure content, not an architecture change.
 
 ---
 
-## 8. Revised folder structure
+## 10. What's implemented this phase vs. still a placeholder
+
+| System | Status |
+|---|---|
+| `WorldManager` (zone loading/unloading) | **Built** |
+| `ZoneData` (generalized, `ZoneKind` enum) | **Built** |
+| `Player`/`NPC`/`Interaction`/`InteractionManager` ported to 3D | **Built** |
+| `CameraController` (third-person follow) | **Built** |
+| `QuestData`/`QuestManager` | **Built** |
+| World Hub scene, 7 portals | **Built** — 1 functional (Money Quest), 6 "coming soon" |
+| Money Quest's Golden Vault zone + Maya's quest (`builder-saving-l1`) | **Built** — reuses the existing `LessonData`/`LessonManager`/`SavingsAllocationMiniGame`/UI overlays unchanged |
+| `AvatarConfig` + minimal creation screen | **Built** (color/preset only) |
+| Progression fields for zones/quests/skills | **Built** (additive) |
+| Entrepreneur Quest / Leadership Quest zones | Not built — architecture ready (Section 5) |
+| Library / Museum / Mentor / Dictionary content | Not built — schema ready, zero entries (Section 6) |
+| Mind Lab | Not built — tag reserved (Section 7) |
+| Calm World gardens | Not built — tag + always-unlocked rule reserved (Section 7) |
+| Fuller avatar presets (inclusive representation beyond color) | Not built — flagged as a deliberate future content addition, not an architecture gap |
+
+---
+
+## 11. Revised folder structure (as implemented)
 
 ```
 godot/money-quest-game/
   autoload/
     Localization.gd / Settings.gd / GameState.gd / SaveManager.gd
     ProgressManager.gd / AudioManager.gd
-    WorldManager.gd          # NEW — which zone is active, zone transitions
+    WorldManager.gd           # NEW
+    QuestManager.gd           # NEW
   data/
-    lessons/                 # kept — one .tres per real lesson
-    quests/                  # NEW — one QuestData .tres per quest
-    zones/                   # NEW — one ZoneData .tres per zone
-    characters/              # NEW — per-NPC personality/dialogue-set data
-    avatars/                 # NEW — avatar option sets
-    schemas/                 # kept — format docs, growing with QuestData/ZoneData
+    lessons/                  # kept
+    quests/                   # NEW — QuestData .tres
+    zones/                    # NEW — ZoneData .tres (world-hub, golden-vault, ...)
+    library/                  # NEW, empty — BookData/MentorData .tres go here later
+    museum/                   # NEW, empty — ExhibitData .tres go here later
+    dictionary/               # NEW, empty — DictionaryTermData .tres go here later
+    avatars/                  # NEW — avatar preset definitions
+    schemas/                  # kept, growing (QUEST_DATA_FORMAT.md added)
   localization/
-    translations.csv         # kept, grows with new keys
+    translations.csv          # kept, grows with hub/zone/quest keys
   scripts/
-    core/                    # kept: LessonData, DialogueLine, ChoiceOption,
-                              # DialogueChoice, ConsequenceEffect, VocabTerm,
-                              # VirtualMoney, Interaction, InteractionManager,
-                              # MiniGameBase
-    world/                   # NEW: ZoneData, WorldManager
-    player/                  # NEW home for Player.gd (now 3D), CameraController.gd, AvatarConfig.gd
-    characters/              # NEW home for NPC.gd (now 3D)
-    quests/                  # NEW: QuestData, QuestManager
-    lessons/                 # kept: LessonManager (now invoked by QuestManager)
-    minigames/               # kept: SavingsAllocationMiniGame
-    progression/             # NEW home for SkillData, AchievementData
+    core/                     # kept: LessonData, DialogueLine, ChoiceOption,
+                               # DialogueChoice, ConsequenceEffect, VocabTerm,
+                               # VirtualMoney, Interaction, InteractionManager,
+                               # MiniGameBase
+    world/                    # NEW: ZoneData, (WorldManager lives in autoload/)
+    player/                   # NEW home: Player.gd (3D), CameraController.gd, AvatarConfig.gd
+    characters/                # NEW home: NPC.gd (3D)
+    quests/                   # NEW: QuestData (QuestManager lives in autoload/)
+    lessons/                  # kept: LessonManager
+    library/                  # NEW: EntryData, BookData, ExhibitData, MentorData, DictionaryTermData (schema only)
+    minigames/                 # kept: SavingsAllocationMiniGame
   scenes/
     world/
-      zones/                 # NEW — one subfolder per zone (e.g. golden_vault/)
-    player/                  # Player.tscn (3D), avatar customization scene
-    characters/              # NPC.tscn (3D)
-    quests/                  # interior/quest scenes (e.g. builder_saving_l1/, unchanged content, new home)
-    ui/                      # DialogueBox, ChoicePanel, RewardPopup, HUD — kept, relocated
-    menus/                   # MainMenu.tscn + avatar creation
+      hub/                     # NEW — WorldHub.tscn + PortalInteraction
+      zones/
+        golden_vault/           # NEW — this phase's one real zone
+    player/                    # Player.tscn (3D), AvatarCreation.tscn
+    characters/                 # NPC.tscn (3D)
+    quests/
+      builder_saving_l1/        # kept, relocated — unchanged content
+    ui/                        # DialogueBox, ChoicePanel, RewardPopup, HUD — kept, relocated
+    menus/                     # MainMenu.tscn
 ```
 
-This is an evolution of the existing structure (nothing in `scripts/core/`
-or `scenes/ui/` changes behavior), not a parallel rewrite.
-
 ---
 
-## 9. Audio, localization, save — what's additive vs. new
+## 12. Staged build order (your Section 36, mapped to what's done)
 
-- **Audio**: `AudioManager`'s existing named-slot pattern (`sfx_library`
-  dictionary, silent no-op on a missing key) is kept exactly as designed —
-  it already anticipated "assets arrive later." Only `Settings`'
-  volume/mute fields are new.
-- **Localization**: no change in approach — `translations.csv` grows with
-  `zone.*`, `quest.*`, `npc.*` keys as content is added. Still EN+RO
-  populated, 7 columns reserved, same discipline.
-- **Save**: `SaveManager`'s `user://progress.json` shape grows additively
-  (avatar config, unlocked zones, completed quests, skill points) using
-  the exact same "merge over defaults" safety it already has — an older
-  save never breaks when a new field is added.
-
----
-
-## 10. Staged build plan (your Section 26, mapped to concrete deliverables)
-
-1. **Core foundation**: `WorldManager` + `ZoneData` + convert `Player`/
-   `NPC`/`Interaction` to 3D. No content yet — a bare zone with a
-   moveable capsule.
-2. **One small playable zone**: Golden Vault, minimal geometry (placeholder
-   primitives, matching the brief's "don't over-build visuals yet").
-3. **Player avatar**: `AvatarConfig` + a tiny customization menu (color
-   choices only, per Section 5 above).
-4. **NPC interaction**: Maya, reusing the existing `Interaction` pattern,
-   now in 3D.
-5. **Quest system**: `QuestData` + `QuestManager`, wired to trigger
-   `LessonManager` for `kind == LESSON`.
-6. **One complete educational experience**: `builder-saving-l1`, now
-   triggered as a real quest from Maya in Golden Vault (not a menu
-   button) — the existing `SavingsAllocationMiniGame` plugs in unchanged.
-7. **Progression + save**: wire `QuestManager` completion into
-   `ProgressManager`/`SaveManager` (already designed to take this).
-8. **Accessibility + localization foundations**: `Settings` audio/visual
-   fields (Section 7 above); confirm the zone/quest/NPC keys round-trip
-   through `translations.csv`.
-9. **Test the architecture**: play the one full zone end to end, on a
-   touch-simulated viewport and desktop input, before adding more content.
-10. **Only then expand**: more zones, more quests, more NPCs — each one
-    is now "add a `.tres` file," not "build a new system."
-
-Stage 1 has not been started — this document is the checkpoint you asked
-for before continuing.
+1. **Audit** — done (Section 0).
+2. **Architecture** — this document.
+3. **World Hub** — built this phase (Section 10).
+4. **Player/avatar** — built this phase (minimal: color/preset).
+5. **Basic exploration** — built this phase (3D movement in the Hub + Golden Vault).
+6. **NPC interaction** — built this phase (Maya; portal signposts).
+7. **Quest system** — built this phase (`QuestData`/`QuestManager`).
+8. **Unified progression/save** — built this phase (additive fields).
+9. **One complete Money Quest experience** — built this phase
+   (`builder-saving-l1`, unchanged from the prior prototype, now reached
+   through the Hub instead of a menu).
+10. **One Entrepreneur Quest experience** — not yet; next, once this
+    foundation is confirmed solid.
+11. **One Leadership Quest experience** — not yet; after 10.
+12. **Library/Museum/Mind Lab/Calm World foundations** — schema only this
+    phase (Sections 6-7); first real content is a later step.
+13. **Test accessibility, localization, performance** — ongoing; EN+RO
+    populated, reduced-motion respected throughout, no heavy assets added.
+14. **Expand gradually** — the explicit next-after-this-phase work.

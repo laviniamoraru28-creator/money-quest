@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsl1minigame01"]
+
+[ext_resource type="Script" path="res://scripts/minigames/SavingsAllocationMiniGame.gd" id="1"]
+
+[node name="BuilderSavingL1MiniGame" type="Node"]
+script = ExtResource("1")

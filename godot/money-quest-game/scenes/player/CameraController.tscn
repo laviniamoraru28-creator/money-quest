@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://camctrl0000001"]
+
+[ext_resource type="Script" path="res://scripts/player/CameraController.gd" id="1"]
+
+[node name="CameraController" type="Node3D"]
+script = ExtResource("1")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+current = false
+fov = 65.0

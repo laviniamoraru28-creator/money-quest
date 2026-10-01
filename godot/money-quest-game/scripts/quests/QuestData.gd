@@ -1,0 +1,36 @@
+class_name QuestData
+extends Resource
+## QuestData — the thing a child actually "picks up" in the world. Wraps
+## an optional LessonData reference so a lesson's educational content
+## never duplicates between "where it lives in the world" (this resource)
+## and "what it says" (LessonData) — see docs/money-quest-world-
+## architecture.md Section 4.
+
+enum QuestKind { LESSON, EXPLORATION, CHALLENGE, SIMULATION }
+
+@export var quest_id: String = ""
+@export var title_key: String = ""
+@export var description_key: String = ""
+@export var educational_objective_key: String = ""   # "" for a pure exploration quest
+
+## "money-quest" | "entrepreneur-quest" | "leadership-quest" — which Quest
+## track this belongs to. Not yet used for anything beyond organization/
+## future filtering, but set from day one so content never needs
+## retrofitting once Entrepreneur Quest and Leadership Quest zones exist.
+@export var track: String = "money-quest"
+
+@export var zone_id: String = ""
+@export var giver_npc_id: String = ""
+
+@export var kind: QuestKind = QuestKind.LESSON
+
+## Only set when kind == LESSON. LessonData itself knows nothing about
+## quests, zones, or NPCs — this is the ONE place a lesson and its
+## in-world placement connect.
+@export var lesson_data_path: String = ""
+
+@export var xp_reward: int = 0
+@export var coin_reward: int = 0
+## Which Smart Skill(s) this quest develops (see ProgressManager.skill_points)
+## — a quest "demonstrates" a skill by listing it; no separate grading engine.
+@export var skill_ids: Array[String] = []

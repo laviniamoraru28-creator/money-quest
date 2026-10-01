@@ -1,6 +1,14 @@
 class_name MiniGameBase
-extends Node2D
+extends Node
 ## MiniGameBase — the base every reusable mini-game extends.
+##
+## Plain Node, not Node2D/Node3D: a mini-game in Money Quest World has no
+## position of its own in the world — it runs as a logic coordinator
+## driving the global ChoicePanel/DialogueBox UI overlays while the child
+## stands wherever they already were when they triggered it (e.g. talking
+## to an NPC). A mini-game that genuinely needs a visual presence in the
+## 3D world (a physical object to manipulate) would extend Node3D instead
+## — not needed by the one mini-game built so far.
 ##
 ## Contract with LessonManager (see LessonManager._run_stage_scene): a
 ## mini-game MUST emit `stage_finished` exactly once, when the child's

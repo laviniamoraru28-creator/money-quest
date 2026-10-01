@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://npc00000001"]
+
+[ext_resource type="Script" path="res://scripts/characters/NPC.gd" id="1"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_range"]
+radius = 2.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_body"]
+; Money Quest's gold brand color (tailwind.config.ts) — kept identical to
+; the 2D prototype's Visual Polygon2D color.
+albedo_color = Color(0.941, 0.639, 0.353, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_body"]
+material = SubResource("StandardMaterial3D_body")
+radius = 0.4
+height = 1.6
+
+[node name="NPC" type="Area3D"]
+script = ExtResource("1")
+npc_id = ""
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_range")
+
+[node name="Visual" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+mesh = SubResource("CapsuleMesh_body")
+
+[node name="NameLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, 0)
+billboard = 1
+no_depth_test = true
+font_size = 48
+outline_size = 8
+text = ""
+
+[node name="PromptLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
+billboard = 1
+no_depth_test = true
+modulate = Color(0.906, 0.639, 0.239, 1)
+font_size = 36
+outline_size = 8
+text = ""

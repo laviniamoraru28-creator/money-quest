@@ -59,9 +59,10 @@ extends Resource
 @export var reward_message_key: String = ""
 
 @export_group("Presentation")
-## Which scene under scenes/lessons/<lesson_id>/ provides this lesson's
-## specific staging (room, NPC placement, mini-game instance). Loaded by
-## LessonManager at runtime via load(). Flagged explicitly here rather
-## than assumed, since the real curriculum content doesn't specify visual
-## staging (see docs/godot-architecture-plan.md Section 15's flagged gap).
+## Which scene under scenes/quests/<lesson_id>/ provides this lesson's
+## stage content (typically a mini-game — the player/NPC/zone staging
+## itself now lives in the persistent zone scene, not here; see
+## docs/money-quest-world-architecture.md). Loaded by LessonManager at
+## runtime via load(). Empty for a pure dialogue+choice lesson with no
+## hands-on stage.
 @export var stage_scene_path: String = ""

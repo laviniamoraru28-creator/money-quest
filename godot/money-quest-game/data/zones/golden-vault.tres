@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ZoneData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/ZoneData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+zone_id = "golden-vault"
+display_name_key = "zone.golden_vault.name"
+scene_path = "res://scenes/world/zones/golden_vault/GoldenVault.tscn"
+kind = 1
+theme_color = Color(0.941, 0.639, 0.353, 1)
+unlock_condition_quest_id = ""
+npc_ids = Array[String](["maya"])
+quest_ids = Array[String](["builder-saving-l1-quest"])
+exhibit_ids = Array[String]([])
+book_ids = Array[String]([])
+player_spawn_position = Vector3(0, 0, 3)

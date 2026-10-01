@@ -1,40 +1,69 @@
-; Money Quest — Godot prototype
+; Money Quest World — Godot prototype
 ; This is a STANDALONE Godot 4.x project, separate from the Next.js website.
 ; It is never imported into the website build and has no network code.
+;
+; See docs/money-quest-world-architecture.md (repo root) for the full
+; architecture this project implements: a World Hub connecting three Quest
+; tracks (Money Quest / Entrepreneur Quest / Leadership Quest) plus Library/
+; Museum/Mind Lab/Calm World as supporting destinations. Only the Hub and
+; one Money Quest zone (Golden Vault) are built so far.
 
 config_version=5
 
 [application]
 
-config/name="Money Quest"
-config/description="Money Quest — the interactive adventure layer. A free financial-education game for children and teenagers. All money shown in this game is virtual and has no real-world value."
-run/main_scene="res://scenes/main_menu/MainMenu.tscn"
+config/name="Money Quest World"
+config/description="Money Quest World — the interactive 3D universe of the Money Quest ecosystem. A free financial-education experience for children and teenagers. All money shown in this game is virtual and has no real-world value."
+run/main_scene="res://scenes/menus/MainMenu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 boot_splash/bg_color=Color(0.929, 0.953, 0.909, 1)
 config/icon="res://icon.svg"
 
 [autoload]
 
-; Order matters: Localization and Settings load first since other
-; autoloads read locale/reduced-motion state during their own _ready().
+; Order matters:
+; 1. Localization/Settings first — other autoloads read locale/reduced-
+;    motion state during their own _ready().
+; 2. GameState/ProgressManager before SaveManager — SaveManager pushes
+;    loaded values INTO them during its own _ready(), so they must exist
+;    first (they don't read anything at _ready time themselves).
+; 3. SaveManager before anything that reads saved state at startup.
+; 4. The UI overlay autoloads (DialogueBox/ChoicePanel/RewardPopup) are
+;    global because deeply-nested zone/NPC scripts (see
+;    scenes/world/zones/) need to show dialogue/choices without any
+;    manual reference-passing across the scene tree — the same reasoning
+;    autoloads exist for in Godot generally. They render nothing until a
+;    script calls them (each is `visible = false` by default), so their
+;    presence during the main menu is harmless. HUD is NOT an autoload —
+;    it's purely reactive display, only meaningful once inside the world,
+;    so it's a plain child node of Main.tscn instead.
+; 5. WorldManager/QuestManager last — they call into everything above.
 Localization="*res://autoload/Localization.gd"
 Settings="*res://autoload/Settings.gd"
 GameState="*res://autoload/GameState.gd"
-SaveManager="*res://autoload/SaveManager.gd"
 ProgressManager="*res://autoload/ProgressManager.gd"
+SaveManager="*res://autoload/SaveManager.gd"
 AudioManager="*res://autoload/AudioManager.gd"
+DialogueBox="*res://scenes/ui/DialogueBox.tscn"
+ChoicePanel="*res://scenes/ui/ChoicePanel.tscn"
+RewardPopup="*res://scenes/ui/RewardPopup.tscn"
+WorldManager="*res://autoload/WorldManager.gd"
+QuestManager="*res://autoload/QuestManager.gd"
 
 [display]
 
-; Portrait-first, matching the website's mobile-first requirement — this
-; is a phone/tablet game first, a desktop game second.
-window/size/viewport_width=720
-window/size/viewport_height=1280
-window/size/window_width_override=360
-window/size/window_height_override=640
+; Landscape by default: unlike the website (portrait-first, per the brief),
+; a third-person 3D world benefits from the wider horizontal field of view
+; landscape gives the follow camera — the near-universal choice for mobile
+; 3D exploration games. Touch controls (Section 19 of the brief) are still
+; designed mobile-first; only the orientation differs from the website.
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/window_width_override=960
+window/size/window_height_override=540
 window/stretch/mode="canvas_items"
 window/stretch/aspect="keep"
-window/handheld/orientation="portrait"
+window/handheld/orientation="sensorLandscape"
 
 [internationalization]
 
@@ -50,3 +79,54 @@ locale/fallback="en"
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+
+[input]
+
+; THREE input paths feed the same movement vector in Player.gd — keyboard
+; and gamepad share these four directional actions (Godot combines both
+; automatically via Input.get_vector), while touch/mouse use tap-to-move
+; and never need a bound action. "interact" likewise serves a keyboard
+; press, a gamepad face button, and a mobile on-screen "Talk" button (via
+; Player.request_interact()) with one shared entry point.
+move_left={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":65,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194319,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":0,"axis_value":-1.0,"script":null)
+]
+}
+move_right={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":68,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194321,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":0,"axis_value":1.0,"script":null)
+]
+}
+move_up={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":87,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194320,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":1,"axis_value":-1.0,"script":null)
+]
+}
+move_down={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":83,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194322,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":1,"axis_value":1.0,"script":null)
+]
+}
+interact={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
+]
+}
+
+[physics]
+
+; Both 2D and 3D physics are used nowhere critical yet — 3D for
+; Player/NPC/Interaction (Section on world systems), no 2D physics
+; remains in the project after the 2D-to-3D conversion.
+3d/default_gravity=9.8

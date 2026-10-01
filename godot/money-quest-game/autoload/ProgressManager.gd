@@ -9,9 +9,33 @@ extends Node
 
 signal lesson_completed(lesson_id: String)
 signal badge_awarded(badge_id: String)
+signal quest_completed(quest_id: String)
 
 var completed_lesson_ids: Array[String] = []
 var earned_badge_ids: Array[String] = []
+
+## Money Quest World additions (see docs/money-quest-world-architecture.md
+## Section 8) — additive to the fields above, never replacing them, so an
+## older save made before this phase still loads correctly (see
+## SaveManager's merge-over-defaults).
+var completed_quest_ids: Array[String] = []
+var unlocked_zone_ids: Array[String] = []
+
+## skill_id -> number of times a completed quest/mission tagged that skill.
+## A running tally for a future Leadership Profile-style summary — never
+## displayed as a single "intelligence score" (project brief Section 17).
+var skill_points: Dictionary = {}
+
+## Library/Museum/Dictionary entry ids the child has opened at least once —
+## empty until those destinations have real content (Section 6).
+var discovered_entry_ids: Array[String] = []
+
+var avatar_config: AvatarConfig = AvatarConfig.new()
+
+## True once the child has gone through AvatarCreation.tscn at least once —
+## lets MainMenu skip straight back into the world on return visits instead
+## of forcing avatar creation again every launch.
+var has_created_avatar: bool = false
 
 
 func is_lesson_completed(lesson_id: String) -> bool:
@@ -41,3 +65,25 @@ func award_badge(badge_id: String) -> void:
 		return
 	earned_badge_ids.append(badge_id)
 	badge_awarded.emit(badge_id)
+
+
+func is_quest_completed(quest_id: String) -> bool:
+	return completed_quest_ids.has(quest_id)
+
+
+## Called by QuestManager once a quest's full experience finishes. Only the
+## FIRST completion counts toward skill_points — replaying a quest for
+## practice never inflates the tally, the same idempotency every other
+## award function here guarantees.
+func complete_quest(quest_id: String, skill_ids: Array[String] = []) -> void:
+	if is_quest_completed(quest_id):
+		return
+	completed_quest_ids.append(quest_id)
+	for skill_id in skill_ids:
+		skill_points[skill_id] = skill_points.get(skill_id, 0) + 1
+	quest_completed.emit(quest_id)
+
+
+func discover_entry(entry_id: String) -> void:
+	if not discovered_entry_ids.has(entry_id):
+		discovered_entry_ids.append(entry_id)

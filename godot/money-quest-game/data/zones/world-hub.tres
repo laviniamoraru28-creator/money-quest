@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ZoneData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/ZoneData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+zone_id = "world-hub"
+display_name_key = "zone.world_hub.name"
+scene_path = "res://scenes/world/hub/WorldHub.tscn"
+kind = 0
+theme_color = Color(0.976, 0.953, 0.906, 1)
+unlock_condition_quest_id = ""
+npc_ids = Array[String]([])
+quest_ids = Array[String]([])
+exhibit_ids = Array[String]([])
+book_ids = Array[String]([])
+player_spawn_position = Vector3(0, 0, 4)

@@ -20,6 +20,14 @@ const DEFAULT_SAVE: Dictionary = {
 	"theme": "system",
 	"reduced_motion": false,
 	"locale": "en",
+	"completed_quest_ids": [],
+	"unlocked_zone_ids": [],
+	"skill_points": {},
+	"discovered_entry_ids": [],
+	"avatar_body_preset_id": "preset-a",
+	"avatar_outfit_color": "0F7A6B",
+	"avatar_accessory_id": "",
+	"has_created_avatar": false,
 }
 
 
@@ -30,6 +38,7 @@ func _ready() -> void:
 	# so a crash or sudden quit never loses more than the current moment.
 	ProgressManager.lesson_completed.connect(func(_id): save_progress())
 	ProgressManager.badge_awarded.connect(func(_id): save_progress())
+	ProgressManager.quest_completed.connect(func(_id): save_progress())
 	Settings.reduced_motion_changed.connect(func(_v): save_progress())
 	Settings.theme_changed.connect(func(_v): save_progress())
 	Localization.locale_changed.connect(func(_v): save_progress())
@@ -64,6 +73,26 @@ func load_progress() -> void:
 	var badges: Array = data.get("earned_badge_ids", [])
 	ProgressManager.earned_badge_ids.assign(badges)
 
+	var completed_quests: Array = data.get("completed_quest_ids", [])
+	ProgressManager.completed_quest_ids.assign(completed_quests)
+
+	var unlocked_zones: Array = data.get("unlocked_zone_ids", [])
+	ProgressManager.unlocked_zone_ids.assign(unlocked_zones)
+
+	ProgressManager.skill_points = data.get("skill_points", {}).duplicate()
+
+	var discovered: Array = data.get("discovered_entry_ids", [])
+	ProgressManager.discovered_entry_ids.assign(discovered)
+
+	ProgressManager.avatar_config.body_preset_id = data.get(
+		"avatar_body_preset_id", DEFAULT_SAVE["avatar_body_preset_id"]
+	)
+	ProgressManager.avatar_config.outfit_color = Color.html(
+		data.get("avatar_outfit_color", DEFAULT_SAVE["avatar_outfit_color"])
+	)
+	ProgressManager.avatar_config.accessory_id = data.get("avatar_accessory_id", "")
+	ProgressManager.has_created_avatar = data.get("has_created_avatar", false)
+
 	Settings.theme_mode = data.get("theme", "system")
 	Settings.reduced_motion = data.get("reduced_motion", false)
 
@@ -80,6 +109,14 @@ func save_progress() -> void:
 		"theme": Settings.theme_mode,
 		"reduced_motion": Settings.reduced_motion,
 		"locale": Localization.current_locale,
+		"completed_quest_ids": ProgressManager.completed_quest_ids,
+		"unlocked_zone_ids": ProgressManager.unlocked_zone_ids,
+		"skill_points": ProgressManager.skill_points,
+		"discovered_entry_ids": ProgressManager.discovered_entry_ids,
+		"avatar_body_preset_id": ProgressManager.avatar_config.body_preset_id,
+		"avatar_outfit_color": ProgressManager.avatar_config.outfit_color.to_html(false),
+		"avatar_accessory_id": ProgressManager.avatar_config.accessory_id,
+		"has_created_avatar": ProgressManager.has_created_avatar,
 	}
 
 	var file := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
