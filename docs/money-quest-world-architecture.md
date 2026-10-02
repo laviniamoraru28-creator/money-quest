@@ -557,6 +557,7 @@ node), never an architecture change.
 | World Hub scene, 7 portals | **Built** — 6 functional (Money Quest, Entrepreneur Quest, Leadership Quest, Calm World, Library, Mind Lab), 1 "coming soon" (Museum) |
 | Money Quest's Golden Vault zone + Maya's quest (`builder-saving-l1`) | **Built** — reuses the existing `LessonData`/`LessonManager`/`SavingsAllocationMiniGame`/UI overlays unchanged |
 | Golden Vault's Savings Guide + "What Does Saving Mean?" quest (`explorer-saving-l1`) | **Built** — Golden Vault's second quest-giving NPC: a second real lesson on the same topic needed only a new NPC node, not a new zone; `LessonData.choice_point` with no mini-game, same shape as Market Town/Guardian Gate |
+| Golden Vault's Theo + "Saving vs. Spending: The Real Trade-off" quest (`strategist-saving-l1`) | **Built** — Golden Vault's third quest-giving NPC; completes the "saving" topic's full 3-age-band trilogy (Maya, Savings Guide, Theo) in one zone; `LessonData.choice_point` with no mini-game |
 | Money Quest's Market Town zone + Baker's quest (`explorer-needs_wants-l1`) | **Built** — reached via a portal inside Golden Vault (Money Quest's first 2-zone graph); uses `LessonData.choice_point` with no mini-game |
 | Money Quest's Guardian Gate zone + Zara's quest (`builder-scams-l1`, "Spotting a Scam") | **Built** — reached via a portal inside Market Town (Golden Vault → Market Town → Guardian Gate, Money Quest's first 3-zone graph); ports the real website lesson verbatim (title/objective/vocabulary/explanation/quiz/feedback), with Zara, the real child from the lesson's own story, as the giver NPC; another `LessonData.choice_point` with no mini-game |
 | Entrepreneur Quest's Idea Lab zone + "Handle Competition" quest | **Built** — a `CHALLENGE`-kind quest porting the website's real `competitor-lower-price` decision event (`src/content/entrepreneur-quest/structures.ts`) verbatim; proves the same pipeline carries a second Quest track with zero new systems |
@@ -737,11 +738,14 @@ godot/money-quest-game/
     (Section 15), Guardian Gate + "Spotting a Scam" (`builder-scams-l1`),
     Money Quest's third zone, Workshop + "Handle a Customer Problem,"
     Entrepreneur Quest's third zone, Strategy Room + "The Better Idea,"
-    Leadership Quest's third zone, and the Savings Guide + "What Does
-    Saving Mean?" (`explorer-saving-l1`), Golden Vault's second
-    quest-giving NPC (Section 3). Still waiting on you: a real
-    book/exhibit/mentor for Library/Museum (Section 6). Still unstarted:
-    Leadership Quest's remaining `mission-choice`-kind missions and its
-    `spot`/`allocate`/`sort`-kind missions (need mechanics not built
-    yet), Money Quest's remaining 26 lessons, Entrepreneur Quest's
-    remaining real BUILD/RUN/RESCUE & GROW stages.
+    Leadership Quest's third zone, the Savings Guide + "What Does Saving
+    Mean?" (`explorer-saving-l1`), Golden Vault's second quest-giving
+    NPC, and Theo + "Saving vs. Spending: The Real Trade-off"
+    (`strategist-saving-l1`), Golden Vault's third quest-giving NPC,
+    completing the full "saving" topic trilogy in one zone (Section 3).
+    Still waiting on you: a real book/exhibit/mentor for Library/Museum
+    (Section 6). Still unstarted: Leadership Quest's remaining
+    `mission-choice`-kind missions and its `spot`/`allocate`/`sort`-kind
+    missions (need mechanics not built yet), Money Quest's remaining 25
+    lessons, Entrepreneur Quest's remaining real BUILD/RUN/RESCUE & GROW
+    stages.

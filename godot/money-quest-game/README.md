@@ -77,6 +77,10 @@ rebuilt.
    second resident NPC, the Savings Guide — talk to them to start "What
    Does Saving Mean?": you get one coin today, and you choose to spend it
    right away or save it in your jar, with the real curriculum's quiz and
+   explanation afterward. A third resident, Theo, completes the "saving"
+   topic's full trilogy with "Saving vs. Spending: The Real Trade-off":
+   you choose whether to spend his money today or let it slowly grow with
+   interest over time, again with the real curriculum's quiz and
    explanation afterward. A second portal inside Golden Vault leads to
    **Market Town**, Money Quest's second zone — walk
    up to the Baker to start "Need It or Want It?": a bakery has only
@@ -155,7 +159,8 @@ up-to-date table. In short:
 | Library zone (bookshelves + Librarian NPC, reachable from the Hub, honestly empty — see "Content fidelity" below) | Library books content |
 | Mind Lab zone + "Different Explanations" quest (an original scenario — no external fact needed, never diagnostic/medical) | — |
 | Golden Vault zone + Maya's quest (reuses the existing `LessonData`/`LessonManager`/mini-game/UI overlays unchanged) | Leadership Quest's remaining 9 missions (only 3 of 12 are built) |
-| Golden Vault's Savings Guide + "What Does Saving Mean?" quest (`explorer-saving-l1`, Golden Vault's second quest-giving NPC — no new zone needed, no mini-game needed) | Money Quest's remaining 26 lessons |
+| Golden Vault's Savings Guide + "What Does Saving Mean?" quest (`explorer-saving-l1`, Golden Vault's second quest-giving NPC — no new zone needed, no mini-game needed) | Money Quest's remaining 25 lessons |
+| Golden Vault's Theo + "Saving vs. Spending: The Real Trade-off" quest (`strategist-saving-l1`, Golden Vault's third quest-giving NPC — completes the "saving" topic's full 3-age-band trilogy in one zone, no mini-game needed) | — |
 | Market Town zone + Baker's quest (`explorer-needs_wants-l1`, reached via a portal inside Golden Vault — Money Quest's first 2-zone graph, no mini-game needed) | — |
 | Guardian Gate zone + Zara's quest (`builder-scams-l1`, "Spotting a Scam," reached via a portal inside Market Town — Money Quest's first 3-zone graph, no mini-game needed) | — |
 | Idea Lab zone + "Handle Competition" quest (ports the website's real `competitor-lower-price` decision event) | — |
@@ -187,6 +192,15 @@ quest already covers. The only original text is the intro framing and
 the choice/consequence wording turning "spend today vs. save for later"
 into a concrete one-coin decision, the same discipline as every other
 ported lesson.
+
+Theo's quest, the third in Golden Vault, completes the "saving" topic's
+full 3-age-band trilogy the same way: every curriculum field (story,
+vocabulary `interest`/`long-term`/`opportunity cost`, quiz, feedback,
+reward) is copied from the real `curriculum.strategist-saving-l1`. Theo
+is the real teenager named in that lesson's own story — a coincidental
+reuse of the same name already used for Team Challenge's NPC in
+Leadership Quest, since each is drawn verbatim from its own real,
+independent source text, not the same character appearing in two tracks.
 
 The Baker's quest in Market Town is the same: every curriculum field
 (story, vocabulary `need`/`want`, quiz, feedback, reward) is copied from
@@ -359,7 +373,7 @@ rationale. Quick map:
   `DictionaryTermData` (Library/Museum/Dictionary schema).
 - `scenes/world/hub/WorldHub.tscn` — the Hub plaza.
 - `scenes/world/zones/golden_vault/GoldenVault.tscn` — Money Quest's first
-  zone; now with 2 resident NPCs, Maya and the Savings Guide.
+  zone; now with 3 resident NPCs, Maya, the Savings Guide, and Theo.
 - `scenes/world/zones/market_town/MarketTown.tscn` — Money Quest's second
   zone, reached via a portal inside Golden Vault.
 - `scenes/world/zones/guardian_gate/GuardianGate.tscn` — Money Quest's
@@ -424,7 +438,7 @@ rationale. Quick map:
   Read-aloud/text-to-speech has no engine wired in at all — not even a
   silent placeholder bus — since one would require either an offline
   voice model or a paid API, both out of scope per the brief.
-- Only 4 of 30 curriculum lessons are wired up as Quests, only 3 of
+- Only 5 of 30 curriculum lessons are wired up as Quests, only 3 of
   Entrepreneur Quest's many real BUILD/RUN/RESCUE & GROW stages are
   ported, and only 3 of Leadership Quest's 12 real missions are ported.
   See `docs/money-quest-world-architecture.md` Section 12 for the

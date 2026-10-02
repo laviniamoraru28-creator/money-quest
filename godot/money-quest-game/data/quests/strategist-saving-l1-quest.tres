@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+quest_id = "strategist-saving-l1-quest"
+title_key = "curriculum.strategist-saving-l1.title"
+description_key = "curriculum.strategist-saving-l1.shortIntroduction"
+educational_objective_key = "curriculum.strategist-saving-l1.learningObjective"
+track = "money-quest"
+zone_id = "golden-vault"
+giver_npc_id = "theo"
+kind = 0
+lesson_data_path = "res://data/lessons/strategist_saving_l1.tres"
+xp_reward = 0
+coin_reward = 0
+skill_ids = Array[String](["long-term-thinking", "delayed-gratification"])
