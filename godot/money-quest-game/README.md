@@ -11,11 +11,12 @@ Godot game." It is the interactive 3D world of the whole Money Quest
 ecosystem: a Hub plaza connecting three Quest tracks (Money Quest /
 Entrepreneur Quest / Leadership Quest) plus four supporting destinations
 (Library, Museum, Mind Lab, Calm World). This phase builds that foundation
-and makes it real with playable slices of all three Quest tracks — the Hub
-itself, Money Quest's Golden Vault zone (Maya's "Saving for Something
-Bigger" quest), Entrepreneur Quest's Idea Lab zone ("Handle Competition"),
-and Leadership Quest's Leadership Academy zone ("The Big Mistake") — on
-architecture meant to support everything else in
+and makes it real with playable slices of all three Quest tracks and Calm
+World — the Hub itself, Money Quest's Golden Vault zone (Maya's "Saving
+for Something Bigger" quest), Entrepreneur Quest's Idea Lab zone ("Handle
+Competition"), Leadership Quest's Leadership Academy zone ("The Big
+Mistake"), and Calm World's first garden (Bubble Garden) — on architecture
+meant to support everything else in
 `docs/money-quest-world-architecture.md` Section 10's table without being
 rebuilt.
 
@@ -43,10 +44,12 @@ rebuilt.
    - **Money Quest** (gold) takes you to the **Golden Vault** zone.
    - **Entrepreneur Quest** (ember) takes you to the **Idea Lab** zone.
    - **Leadership Quest** (sky) takes you to the **Leadership Academy** zone.
-   - The other 4 (Library, Museum, Mind Lab, Calm World) show a short
-     "still being built" line — the portal, zone registration, and
-     locking logic all already work for them; only their actual zone
-     content doesn't exist yet.
+   - **Calm World** (soft green) takes you to the **Bubble Garden** — a
+     quiet space with nothing to tap, get right, or get wrong.
+   - The other 3 (Library, Museum, Mind Lab) show a short "still being
+     built" line — the portal, zone registration, and locking logic all
+     already work for them; only their actual zone content doesn't exist
+     yet.
 3. In Golden Vault, walk up to Maya and interact with her to start her
    quest. The savings mini-game runs for 3 weeks: each week, choose to save
    the full allowance toward the sketchbook or spend a little on a treat.
@@ -63,7 +66,11 @@ rebuilt.
    "The Big Mistake" — ported directly from the website's real Leadership
    Quest content: Priya made a mistake and the team is watching to see how
    you, as the leader, respond. Again, no single correct answer.
-6. Walk to the portal in each zone to return to the Hub. Progress
+6. In Bubble Garden, there's nothing to do but walk around and watch the
+   bubbles drift — no quest, no NPC, no choice. It's always reachable, with
+   no unlock condition, and never framed as anything other than a calm
+   place to visit.
+7. Walk to the portal in each zone to return to the Hub. Progress
    (completed quests, unlocked zones, skill tags, avatar choices) is saved
    to `user://progress.json` automatically.
 
@@ -92,11 +99,12 @@ up-to-date table. In short:
 | `WorldManager` + generalized `ZoneData` (`HUB`/`QUEST`/`LIBRARY`/`MUSEUM`/`MIND_LAB`/`CALM` kinds) | Library books / Museum exhibits / Mentors (zero real entries — nothing to invent yet) |
 | `QuestData` + `QuestManager`, `LESSON` and `CHALLENGE` kinds (wraps existing `LessonData`, or runs a standalone situation+choice+consequence with optional multi-line intro dialogue, no content duplicated) | `BrowseZoneController` + a walkable Library/Museum zone (no real content to drive one yet) |
 | 3D `Player`/`NPC`/`Interaction`/`InteractionManager` + `CameraController` | Mind Lab |
-| World Hub, 7 portals (3 functional, 4 "coming soon") | Calm World gardens |
-| Golden Vault zone + Maya's quest (reuses the existing `LessonData`/`LessonManager`/mini-game/UI overlays unchanged) | Entrepreneur Quest's full BUILD → RUN → RESCUE & GROW track (only one representative quest is built) |
-| Idea Lab zone + "Handle Competition" quest (ports the website's real `competitor-lower-price` decision event) | Leadership Quest's remaining 11 missions (only one representative quest is built) |
-| Leadership Academy zone + "The Big Mistake" quest (ports the website's real `big-mistake-choice` decision event, with Priya as a real-character NPC) | Fuller avatar presets beyond color/preset/accessory |
-| `EntryData`/`BookData`/`ExhibitData`/`MentorData`/`DictionaryTermData` schema, with 2 real Dictionary entries (`goal`, `trade-off`) reusing existing curriculum vocabulary | AI Quest Coach (explicitly not built — see the architecture doc's non-negotiables) |
+| World Hub, 7 portals (4 functional, 3 "coming soon") | Entrepreneur Quest's full BUILD → RUN → RESCUE & GROW track (only one representative quest is built) |
+| Golden Vault zone + Maya's quest (reuses the existing `LessonData`/`LessonManager`/mini-game/UI overlays unchanged) | Leadership Quest's remaining 11 missions (only one representative quest is built) |
+| Idea Lab zone + "Handle Competition" quest (ports the website's real `competitor-lower-price` decision event) | Fuller avatar presets beyond color/preset/accessory |
+| Leadership Academy zone + "The Big Mistake" quest (ports the website's real `big-mistake-choice` decision event, with Priya as a real-character NPC) | AI Quest Coach (explicitly not built — see the architecture doc's non-negotiables) |
+| `EntryData`/`BookData`/`ExhibitData`/`MentorData`/`DictionaryTermData` schema, with 2 real Dictionary entries (`goal`, `trade-off`) reusing existing curriculum vocabulary | Calm World's remaining 7 named gardens |
+| Calm World's first garden (Bubble Garden) — always unlocked, no choices, motion respects `reduced_motion` | — |
 | `AvatarConfig` + minimal `AvatarCreation.tscn` | — |
 | Zone/quest/skill/avatar progression fields in `ProgressManager`, persisted by `SaveManager` | — |
 
@@ -127,7 +135,9 @@ all — they point at `builder-saving-l1`'s own existing vocabulary
 translation keys verbatim (see `data/schemas/ENTRY_DATA_FORMAT.md`'s rule
 on this). Library and Museum have zero entries: no book, author,
 historical story, or mentor biography is invented for this project, so
-both stay empty until something real and verifiable is approved.
+both stay empty until something real and verifiable is approved. Bubble
+Garden needs no real-world fact to be honest — a bubble is just a bubble —
+which is why it could be built now while Library/Museum/Mind Lab couldn't.
 
 The only new content anywhere in this project is UI chrome (menu/Hub/
 portal/avatar-creation/zone-guide labels), the savings mini-game's own
@@ -165,6 +175,8 @@ rationale. Quick map:
   Entrepreneur Quest zone.
 - `scenes/world/zones/leadership_academy/LeadershipAcademy.tscn` — this
   phase's one real Leadership Quest zone.
+- `scenes/world/zones/calm_world/BubbleGarden.tscn` — Calm World's first
+  garden.
 - `scenes/world/Main.tscn` — the persistent root: a `ZoneContainer`
   `WorldManager` swaps zone scenes into, plus the always-present `HUD`.
 - `scenes/player/` — `Player.tscn`, `CameraController.tscn`,
@@ -199,10 +211,12 @@ rationale. Quick map:
   and only 1 of Leadership Quest's 12 real missions is ported. See
   `docs/money-quest-world-architecture.md` Section 12 for the development
   order for the rest, the 17 games, and the 4 simulator scenarios.
-- Library, Museum, Mind Lab, and Calm World are all reachable from the Hub
-  (their portals exist and correctly report "coming soon") but have no
-  zone content yet — by design, per the brief's explicit "do not build
-  all of this content at once." Library and Museum specifically have real,
-  built schema (`EntryData`/`BookData`/`ExhibitData`/`MentorData`) but zero
-  real entries, since no book, historical story, or mentor biography may
-  be invented — see `data/schemas/ENTRY_DATA_FORMAT.md`.
+- Library, Museum, and Mind Lab are all reachable from the Hub (their
+  portals exist and correctly report "coming soon") but have no zone
+  content yet — by design, per the brief's explicit "do not build all of
+  this content at once." Library and Museum specifically have real, built
+  schema (`EntryData`/`BookData`/`ExhibitData`/`MentorData`) but zero real
+  entries, since no book, historical story, or mentor biography may be
+  invented — see `data/schemas/ENTRY_DATA_FORMAT.md`. Calm World's portal
+  is now functional, but only 1 of its 8 named gardens (Bubble Garden) is
+  built — the other 7 are each a future content-only addition.

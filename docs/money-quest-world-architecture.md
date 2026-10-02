@@ -342,14 +342,23 @@ schema's first worked examples.
   (Aquarium, Light, Rain, Underwater, Forest, Music, Bubble, Grow-a-Garden)
   is its own `ZoneData` entry with `unlock_condition_quest_id = ""`
   (**never gated**) and a scene that deliberately has: no `Interaction`
-  requiring a correct answer, ambient audio gated by `Settings.sfx_enabled`/
-  `music_enabled` (so it can be fully silent), and all motion respecting
-  `Settings.reduced_motion`. **No medical or therapeutic framing in any
-  copy** — translation keys for this zone type should read as "a calm
-  place to visit," never as treatment. Not built this phase; the
-  `ZoneKind.CALM` tag and the always-unlocked rule are the only
-  architecture needed to add the first garden later without touching
-  anything else.
+  requiring a correct answer, no audio forced on (so it can be fully
+  silent — `AudioManager` ships zero audio assets anyway, so there is
+  nothing to gate yet), and all motion respecting `Settings.reduced_motion`.
+  **No medical or therapeutic framing in any copy** — translation keys for
+  this zone type read as "a calm place to visit," never as treatment.
+  **The first garden is now built**: `calm-world-bubble-garden`
+  (`scenes/world/zones/calm_world/BubbleGarden.tscn`) — six softly glowing,
+  semi-transparent bubbles drifting with a gentle sine-wave bob, nothing to
+  tap or get right or wrong, reachable now from the Hub's Calm World
+  portal with no unlock condition. The bob motion holds perfectly still
+  instead of animating when `reduced_motion` is on (same discipline as
+  every other animated piece of this project — see Section 13's audit).
+  Calm World is uniquely safe to build ahead of Library/Museum/Mind Lab:
+  unlike those, it needs no real-world fact, book, or biography to be
+  honest — a bubble is just a bubble. The remaining 7 named gardens are
+  the source for the next content addition, each a new `.tres` + `.tscn`
+  pair, never a core script change.
 
 ---
 
@@ -406,7 +415,7 @@ previously) can be added later as pure content, not an architecture change.
 | `Player`/`NPC`/`Interaction`/`InteractionManager` ported to 3D | **Built** |
 | `CameraController` (third-person follow) | **Built** |
 | `QuestData`/`QuestManager`, `LESSON` and `CHALLENGE` kinds | **Built** — `CHALLENGE` added this phase for standalone situation+choice+consequence content with no wrapped `LessonData` |
-| World Hub scene, 7 portals | **Built** — 3 functional (Money Quest, Entrepreneur Quest, Leadership Quest), 4 "coming soon" |
+| World Hub scene, 7 portals | **Built** — 4 functional (Money Quest, Entrepreneur Quest, Leadership Quest, Calm World), 3 "coming soon" |
 | Money Quest's Golden Vault zone + Maya's quest (`builder-saving-l1`) | **Built** — reuses the existing `LessonData`/`LessonManager`/`SavingsAllocationMiniGame`/UI overlays unchanged |
 | Entrepreneur Quest's Idea Lab zone + "Handle Competition" quest | **Built** — a `CHALLENGE`-kind quest porting the website's real `competitor-lower-price` decision event (`src/content/entrepreneur-quest/structures.ts`) verbatim; proves the same pipeline carries a second Quest track with zero new systems |
 | Leadership Quest's Leadership Academy zone + "The Big Mistake" quest | **Built** — a `CHALLENGE`-kind quest porting the website's real `big-mistake-choice` decision event verbatim, with Priya as a real-character NPC; this is what motivated `QuestData.intro_dialogue` (Section 4) |
@@ -417,7 +426,8 @@ previously) can be added later as pure content, not an architecture change.
 | Dictionary content | **Built** — 2 real terms (`goal`, `trade-off`), reusing `builder-saving-l1`'s own vocabulary keys verbatim |
 | Library books / Museum exhibits / Mentors content, `BrowseZoneController`, a walkable Library or Museum zone | Not built — zero real books/exhibits/mentors exist to populate or drive a zone with (Section 6) |
 | Mind Lab | Not built — tag reserved (Section 7) |
-| Calm World gardens | Not built — tag + always-unlocked rule reserved (Section 7) |
+| Calm World's first garden (`calm-world-bubble-garden`, Bubble Garden) | **Built** — always-unlocked, no choices, bob motion respects `reduced_motion` (Section 7) |
+| Calm World's remaining 7 named gardens | Not built — each is a future `.tres`+`.tscn` content addition, no architecture change needed |
 | Fuller avatar presets (inclusive representation beyond color) | Not built — flagged as a deliberate future content addition, not an architecture gap |
 
 ---
@@ -458,7 +468,11 @@ godot/money-quest-game/
     world/
       hub/                     # NEW — WorldHub.tscn + PortalInteraction
       zones/
-        golden_vault/           # NEW — this phase's one real zone
+        golden_vault/           # Money Quest's one real zone
+        idea_lab/               # Entrepreneur Quest's one real zone
+        leadership_academy/     # Leadership Quest's one real zone
+        calm_world/             # Calm World's first garden (BubbleGarden.tscn)
+      Main.tscn                 # persistent root: ZoneContainer + HUD
     player/                    # Player.tscn (3D), AvatarCreation.tscn
     characters/                 # NPC.tscn (3D)
     quests/
@@ -490,8 +504,8 @@ godot/money-quest-game/
     the `EntryData`/`BookData`/`ExhibitData`/`MentorData`/
     `DictionaryTermData` schema is built and Dictionary has 2 real entries
     (Section 6); Library/Museum have zero real entries by design (nothing
-    to invent yet); Mind Lab and Calm World remain tag-only, not built
-    (Section 7).
+    to invent yet); Calm World now has its first garden built (Bubble
+    Garden, Section 7); Mind Lab remains tag-only, not built.
 13. **Test accessibility, localization, performance** — a static audit
     this phase (no Godot editor available in this environment, so this is
     code/content inspection, not a live playtest):
@@ -526,4 +540,4 @@ godot/money-quest-game/
       assets), no read-aloud integration in the 3D UI overlays.
 14. **Expand gradually** — the explicit next-after-this-phase work: a real
     book/exhibit/mentor once approved, Entrepreneur/Leadership Quest's
-    remaining stages, Mind Lab, Calm World's first garden.
+    remaining stages, Mind Lab, Calm World's remaining 7 named gardens.

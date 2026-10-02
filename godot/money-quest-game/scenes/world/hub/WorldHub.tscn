@@ -201,7 +201,7 @@ text = ""
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -5)
 script = ExtResource("4")
 label_key = "hub.portal.calm_world"
-coming_soon_message_key = "portal.coming_soon"
+target_zone_id = "calm-world-bubble-garden"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PortalCalmWorld"]
 shape = SubResource("CylinderShape3D_portal")
