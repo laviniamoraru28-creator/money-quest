@@ -13,17 +13,25 @@ extends Node3D
 ## name" convention Market Town's Baker established rather than inventing
 ## a named child the source material doesn't have: the Shopkeeper gives
 ## "What Is Money?" (explorer-money_basics-l1).
+##
+## Amir — the real child named in the "Where Does Money Come From?"
+## story — is this zone's second resident, the same "a zone can grow
+## another resident" pattern used throughout Money Quest, giving
+## builder-money_basics-l1.
 
 const MONEY_BASICS_QUEST_ID: String = "explorer-money-basics-l1-quest"
+const MONEY_BASICS_BUILDER_QUEST_ID: String = "builder-money-basics-l1-quest"
 
 @onready var player: Node3D = $Player
 @onready var camera_controller: CameraController = $CameraController
 @onready var shopkeeper: NPC = $Shopkeeper
+@onready var amir: NPC = $Amir
 
 
 func _ready() -> void:
 	camera_controller.target = player
 	shopkeeper.talked_to.connect(_on_shopkeeper_talked_to)
+	amir.talked_to.connect(_on_amir_talked_to)
 
 
 func _on_shopkeeper_talked_to(_npc_id: String) -> void:
@@ -31,3 +39,10 @@ func _on_shopkeeper_talked_to(_npc_id: String) -> void:
 		DialogueBox.show_text("zone.coin_cove.shopkeeper.already_done")
 	else:
 		QuestManager.start_quest(MONEY_BASICS_QUEST_ID)
+
+
+func _on_amir_talked_to(_npc_id: String) -> void:
+	if QuestManager.is_quest_completed(MONEY_BASICS_BUILDER_QUEST_ID):
+		DialogueBox.show_text("zone.coin_cove.amir.already_done")
+	else:
+		QuestManager.start_quest(MONEY_BASICS_BUILDER_QUEST_ID)

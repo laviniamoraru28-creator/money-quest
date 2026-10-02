@@ -123,6 +123,12 @@ rebuilt.
    actually counts as money afterward. (The real lesson's story has no
    named child — it's written as "you" — so this NPC uses a generic
    role name, the same convention Market Town's Baker established.)
+   Coin Cove's second resident, Amir, gives "Where Does Money Come
+   From?": Amir just watched his cousin get paid for babysitting
+   straight into an app, and you decide whether he earns his own money
+   by doing a chore or by selling something he made, with the real
+   curriculum's quiz and explanation on how money is actually earned
+   afterward.
 4. In Idea Lab, walk up to the Business Guide and interact with them to
    start "Handle Competition" — a single decision ported directly from the
    website's real Entrepreneur Quest content: a competitor undercuts your
@@ -198,7 +204,8 @@ up-to-date table. In short:
 | Sky Exchange's Omar + "How a Card Payment Actually Works" quest (`builder-digital_money-l1`, Sky Exchange's second quest-giving NPC — no new zone needed, no mini-game needed) | — |
 | Sky Exchange's Mei + "Owning a Small Piece of a Company" quest (`builder-investing_basics-l1`, Sky Exchange's third quest-giving NPC — no new zone needed, no mini-game needed) | — |
 | Sky Exchange's Tomasz + "Locked Until 18: How a Junior ISA Works" quest (`builder-junior_isa-l1`, Sky Exchange's fourth and final quest-giving NPC, completing all 4 real topics the zone hosts) | — |
-| Coin Cove zone + Shopkeeper's quest (`explorer-money_basics-l1`, "What Is Money?," reached via a portal inside Sky Exchange — Money Quest's first 5-zone graph, no mini-game needed) | Money Quest's remaining 20 lessons |
+| Coin Cove zone + Shopkeeper's quest (`explorer-money_basics-l1`, "What Is Money?," reached via a portal inside Sky Exchange — Money Quest's first 5-zone graph, no mini-game needed) | — |
+| Coin Cove's Amir + "Where Does Money Come From?" quest (`builder-money_basics-l1`, Coin Cove's second quest-giving NPC — no new zone needed, no mini-game needed) | Money Quest's remaining 19 lessons |
 | Idea Lab zone + "Handle Competition" quest (ports the website's real `competitor-lower-price` decision event) | — |
 | Marketing Studio zone + "Create Your Marketing" quest (ports the real `product-unclear` decision event, reached via a portal inside Idea Lab) | Entrepreneur Quest's `reflect-text`-kind stages (need a free-text input UI not built yet) |
 | Workshop zone + "Handle a Customer Problem" quest (ports the real `too-expensive-feedback` decision event, reached via a portal inside Marketing Studio — Entrepreneur Quest's first 3-zone graph) | — |
@@ -314,6 +321,16 @@ applying the lesson's real "money is traded for a value both sides agree
 on" concept to a concrete decision (count out the exact coins vs. hand
 over a handful and let the Shopkeeper take what's needed) — both equally
 valid, with the quiz carrying the lesson's actual testable fact.
+
+Amir's quest in Coin Cove is the same: every curriculum field (title,
+learning objective, key concept, vocabulary `earn`/`digital money`/
+`balance`, explanation, quiz, feedback, reward message) is copied from
+the real `curriculum.builder-money_basics-l1`. Amir is the real child
+named in that lesson's own story, and the only original text is the
+intro framing and the choice/consequence wording applying the lesson's
+real "money is earned through work, in physical or digital form" concept
+to a concrete decision (do a chore vs. sell something he made) — both
+equally valid ways to earn money, neither graded as "wrong."
 
 Idea Lab's "Handle Competition" quest is likewise copied directly from the
 real `messages/en.json`/`messages/ro.json` (`entrepreneurQuest.decisionEvents
@@ -535,7 +552,7 @@ rationale. Quick map:
   Read-aloud/text-to-speech has no engine wired in at all — not even a
   silent placeholder bus — since one would require either an offline
   voice model or a paid API, both out of scope per the brief.
-- Only 10 of 30 curriculum lessons are wired up as Quests, only 3 of
+- Only 11 of 30 curriculum lessons are wired up as Quests, only 3 of
   Entrepreneur Quest's many real BUILD/RUN/RESCUE & GROW stages are
   ported, and only 3 of Leadership Quest's 12 real missions are ported.
   See `docs/money-quest-world-architecture.md` Section 12 for the
