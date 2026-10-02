@@ -354,7 +354,7 @@ text = ""
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 7)
 script = ExtResource("4")
 label_key = "hub.portal.library"
-coming_soon_message_key = "portal.coming_soon"
+target_zone_id = "library"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PortalLibrary"]
 shape = SubResource("CylinderShape3D_portal")

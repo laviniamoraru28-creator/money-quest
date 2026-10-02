@@ -382,14 +382,30 @@ are now built** (`scripts/library/`, see `data/schemas/
 ENTRY_DATA_FORMAT.md`) — this phase's actual foundation work. **Library
 and Museum still have zero real entries** (`data/library/`, `data/museum/`
 are empty) — no book, author, historical story, or mentor biography is
-invented; both stay empty until real, verifiable content is approved, and
-neither has a walkable zone yet for the same reason (see
+invented; both stay empty until real, verifiable content is approved (see
 `ENTRY_DATA_FORMAT.md`'s own rule on this). **Dictionary is the one
 exception**: a dictionary term isn't new content, it's the same
 term/definition a lesson's own `LessonData.vocabulary` already has, so
 `data/dictionary/goal.tres` and `data/dictionary/trade-off.tres` exist
 now, reusing `builder-saving-l1`'s real vocabulary keys verbatim as the
 schema's first worked examples.
+
+**The Library now has a real, walkable zone** (`data/zones/library.tres`,
+`scenes/world/zones/library/Library.tscn`), reachable from the Hub's
+Library portal — bookshelves (colorful primitive-geometry "books" against
+a case, no new mesh types) and a Librarian NPC. It is honestly empty: the
+Librarian says plainly that the shelves are still being prepared rather
+than pretending there's something to browse, and `book_ids` on the zone
+stays `[]`. Museum does not yet have a walkable zone — a room with
+literally nothing in it read as less honest than a portal that says
+"coming soon," whereas the Library's physical shelves-with-no-books-yet
+reads as "under construction," matching the brief's explicit "it is
+acceptable for a destination to remain visibly under construction while
+real content is being prepared." `BrowseZoneController` is still not
+built — now that a zone exists to host it, it's a smaller step than
+before, but still deferred until the first real `BookData` entry is
+approved, so the controller's `Area3D`/collision setup for a placed entry
+is built against something real rather than guessed at.
 
 ---
 
@@ -477,7 +493,7 @@ previously) can be added later as pure content, not an architecture change.
 | `Player`/`NPC`/`Interaction`/`InteractionManager` ported to 3D | **Built** |
 | `CameraController` (third-person follow) | **Built** |
 | `QuestData`/`QuestManager`, `LESSON` and `CHALLENGE` kinds | **Built** — `CHALLENGE` added this phase for standalone situation+choice+consequence content with no wrapped `LessonData` |
-| World Hub scene, 7 portals | **Built** — 4 functional (Money Quest, Entrepreneur Quest, Leadership Quest, Calm World), 3 "coming soon" |
+| World Hub scene, 7 portals | **Built** — 5 functional (Money Quest, Entrepreneur Quest, Leadership Quest, Calm World, Library), 2 "coming soon" (Museum, Mind Lab) |
 | Money Quest's Golden Vault zone + Maya's quest (`builder-saving-l1`) | **Built** — reuses the existing `LessonData`/`LessonManager`/`SavingsAllocationMiniGame`/UI overlays unchanged |
 | Money Quest's Market Town zone + Baker's quest (`explorer-needs_wants-l1`) | **Built** — reached via a portal inside Golden Vault (Money Quest's first 2-zone graph); uses `LessonData.choice_point` with no mini-game |
 | Entrepreneur Quest's Idea Lab zone + "Handle Competition" quest | **Built** — a `CHALLENGE`-kind quest porting the website's real `competitor-lower-price` decision event (`src/content/entrepreneur-quest/structures.ts`) verbatim; proves the same pipeline carries a second Quest track with zero new systems |
@@ -489,7 +505,8 @@ previously) can be added later as pure content, not an architecture change.
 | Entrepreneur Quest's full BUILD → RUN → RESCUE & GROW track / Leadership Quest's remaining 11 missions | Not built — only one representative slice per track exists so far |
 | `EntryData`/`BookData`/`ExhibitData`/`MentorData`/`DictionaryTermData` schema | **Built** (`scripts/library/`, see `data/schemas/ENTRY_DATA_FORMAT.md`) |
 | Dictionary content | **Built** — 2 real terms (`goal`, `trade-off`), reusing `builder-saving-l1`'s own vocabulary keys verbatim |
-| Library books / Museum exhibits / Mentors content, `BrowseZoneController`, a walkable Library or Museum zone | Not built — zero real books/exhibits/mentors exist to populate or drive a zone with (Section 6) |
+| Library zone (`data/zones/library.tres`, bookshelves, Librarian NPC, reachable from the Hub) | **Built** — honestly empty; the Librarian says the shelves are still being prepared rather than pretending there's content |
+| Library books, Museum exhibits/zone, Mentors content, `BrowseZoneController` | Not built — zero real books/exhibits/mentors exist to populate or drive a placement controller with (Section 6) |
 | Mind Lab | Not built — tag reserved (Section 7) |
 | Calm World's first garden (`calm-world-bubble-garden`, Bubble Garden) | **Built** — always-unlocked, no choices, bob motion respects `reduced_motion` (Section 7) |
 | Calm World's remaining 7 named gardens | Not built — each is a future `.tres`+`.tscn` content addition, no architecture change needed |
@@ -540,6 +557,7 @@ godot/money-quest-game/
         leadership_academy/     # Leadership Quest's first zone
         team_challenge/         # Leadership Quest's second zone (reached via Leadership Academy)
         calm_world/             # Calm World's first garden (BubbleGarden.tscn)
+        library/                # Library.tscn — honestly empty, no BookData yet
       Main.tscn                 # persistent root: ZoneContainer + HUD
     player/                    # Player.tscn (3D), AvatarCreation.tscn
     characters/                 # NPC.tscn (3D)

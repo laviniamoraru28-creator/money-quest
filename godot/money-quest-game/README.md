@@ -49,10 +49,12 @@ rebuilt.
    - **Leadership Quest** (sky) takes you to the **Leadership Academy** zone.
    - **Calm World** (soft green) takes you to the **Bubble Garden** — a
      quiet space with nothing to tap, get right, or get wrong.
-   - The other 3 (Library, Museum, Mind Lab) show a short "still being
-     built" line — the portal, zone registration, and locking logic all
-     already work for them; only their actual zone content doesn't exist
-     yet.
+   - **Library** (soft blue) takes you to a real Library zone — bookshelves
+     and a Librarian who plainly says the shelves are still being prepared
+     (see "Content fidelity" below for why there are no books yet).
+   - The other 2 (Museum, Mind Lab) show a short "still being built" line —
+     the portal, zone registration, and locking logic all already work for
+     them; only their actual zone content doesn't exist yet.
 3. In Golden Vault, walk up to Maya and interact with her to start her
    quest. The savings mini-game runs for 3 weeks: each week, choose to save
    the full allowance toward the sketchbook or spend a little on a treat.
@@ -113,9 +115,10 @@ up-to-date table. In short:
 | Built this phase | Not built yet (architecture-ready) |
 |---|---|
 | `WorldManager` + generalized `ZoneData` (`HUB`/`QUEST`/`LIBRARY`/`MUSEUM`/`MIND_LAB`/`CALM` kinds) | Library books / Museum exhibits / Mentors (zero real entries — nothing to invent yet) |
-| `QuestData` + `QuestManager`, `LESSON` and `CHALLENGE` kinds (wraps existing `LessonData`, or runs a standalone situation+choice+consequence with optional multi-line intro dialogue, no content duplicated) | `BrowseZoneController` + a walkable Library/Museum zone (no real content to drive one yet) |
+| `QuestData` + `QuestManager`, `LESSON` and `CHALLENGE` kinds (wraps existing `LessonData`, or runs a standalone situation+choice+consequence with optional multi-line intro dialogue, no content duplicated) | `BrowseZoneController` + a walkable Museum zone (no real content to drive one yet) |
 | 3D `Player`/`NPC`/`Interaction`/`InteractionManager` + `CameraController` | Mind Lab |
-| World Hub: fountain landmark, 7 paths, 7 gate-shaped portals (4 functional, 3 "coming soon"), decorative trees, Hub Guide NPC | Entrepreneur Quest's full BUILD → RUN → RESCUE & GROW track (only one representative quest is built) |
+| World Hub: fountain landmark, 7 paths, 7 gate-shaped portals (5 functional, 2 "coming soon"), decorative trees, Hub Guide NPC | Entrepreneur Quest's full BUILD → RUN → RESCUE & GROW track (only one representative quest is built) |
+| Library zone (bookshelves + Librarian NPC, reachable from the Hub, honestly empty — see "Content fidelity" below) | Library books, Museum zone/exhibits, Mentors content |
 | Golden Vault zone + Maya's quest (reuses the existing `LessonData`/`LessonManager`/mini-game/UI overlays unchanged) | Leadership Quest's remaining 10 missions (only 2 of 12 are built) |
 | Market Town zone + Baker's quest (`explorer-needs_wants-l1`, reached via a portal inside Golden Vault — Money Quest's first 2-zone graph, no mini-game needed) | Money Quest's remaining 28 lessons |
 | Idea Lab zone + "Handle Competition" quest (ports the website's real `competitor-lower-price` decision event) | Fuller avatar presets beyond color/preset/accessory |
@@ -179,6 +182,12 @@ both stay empty until something real and verifiable is approved. Bubble
 Garden needs no real-world fact to be honest — a bubble is just a bubble —
 which is why it could be built now while Library/Museum/Mind Lab couldn't.
 
+The Library's walkable zone is the same discipline applied to a physical
+space rather than a data entry: the room, shelves, and Librarian are real
+and built, but the Librarian's own line says plainly that there's nothing
+to browse yet rather than ever implying otherwise. No book or author
+appears anywhere in this project.
+
 The only new content anywhere in this project is UI chrome (menu/Hub/
 portal/avatar-creation/zone-guide labels), the savings mini-game's own
 week-prompt text (always original to that lesson's design), and the
@@ -223,6 +232,8 @@ rationale. Quick map:
   Quest's second zone, reached via a portal inside Leadership Academy.
 - `scenes/world/zones/calm_world/BubbleGarden.tscn` — Calm World's first
   garden.
+- `scenes/world/zones/library/Library.tscn` — the Library zone, honestly
+  empty of real books.
 - `scenes/world/Main.tscn` — the persistent root: a `ZoneContainer`
   `WorldManager` swaps zone scenes into, plus the always-present `HUD`.
 - `scenes/player/` — `Player.tscn`, `CameraController.tscn`,
@@ -258,12 +269,12 @@ rationale. Quick map:
   See `docs/money-quest-world-architecture.md` Section 12 for the
   development order for the rest, the 17 games, and the 4 simulator
   scenarios.
-- Library, Museum, and Mind Lab are all reachable from the Hub (their
-  portals exist and correctly report "coming soon") but have no zone
-  content yet — by design, per the brief's explicit "do not build all of
-  this content at once." Library and Museum specifically have real, built
-  schema (`EntryData`/`BookData`/`ExhibitData`/`MentorData`) but zero real
-  entries, since no book, historical story, or mentor biography may be
+- Museum and Mind Lab are reachable from the Hub (their portals exist and
+  correctly report "coming soon") but have no zone content yet — by
+  design, per the brief's explicit "do not build all of this content at
+  once." The Library's portal is now functional and its zone is real, but
+  it has zero real book entries for the same reason Museum has zero
+  exhibits: no book, historical story, or mentor biography may be
   invented — see `data/schemas/ENTRY_DATA_FORMAT.md`. Calm World's portal
   is now functional, but only 1 of its 8 named gardens (Bubble Garden) is
   built — the other 7 are each a future content-only addition.
