@@ -157,7 +157,17 @@ rebuilt.
    afterward, completing the full "long_term_thinking" topic trilogy in
    one zone. (The real lesson's story has no named child, so this NPC
    uses a generic role name, the same convention Market Town's Baker
-   established.)
+   established.) A second portal inside Horizon Peaks leads to
+   **Kindness Grove**, Money Quest's seventh and final zone — talk to
+   Omar to start "Giving on Purpose": Omar splits his allowance three
+   ways every week (spend, save, give), and you decide whether this
+   week's giving money goes to a friend who's a little short or to the
+   class fundraiser, with the real curriculum's quiz and explanation on
+   why planning for giving ahead of time helps afterward. This
+   completes all 7 of the real website's Money Quest zones. (Omar's
+   name coincidentally matches Sky Exchange's Omar — an unrelated real
+   character from a different lesson, harmless the same way the earlier
+   Theo/Priya coincidences were.)
 4. In Idea Lab, walk up to the Business Guide and interact with them to
    start "Handle Competition" — a single decision ported directly from the
    website's real Entrepreneur Quest content: a competitor undercuts your
@@ -238,7 +248,8 @@ up-to-date table. In short:
 | Coin Cove's Priya + "Money as a Tool, Not a Goal" quest (`strategist-money_basics-l1`, Coin Cove's third quest-giving NPC, completing the "money_basics" topic trilogy — no new zone needed, no mini-game needed) | — |
 | Horizon Peaks zone + Finn's quest (`builder-long_term_thinking-l1`, "Planning a Few Steps Ahead," reached via a portal inside Coin Cove — Money Quest's first 6-zone graph, no mini-game needed) | — |
 | Horizon Peaks' Aisha + "Big Decisions, Long Timelines" quest (`strategist-long_term_thinking-l1`, Horizon Peaks' second quest-giving NPC — no new zone needed, no mini-game needed) | — |
-| Horizon Peaks' Sticker Keeper + "Waiting Can Pay Off" quest (`explorer-long_term_thinking-l1`, Horizon Peaks' third quest-giving NPC, completing the "long_term_thinking" topic trilogy — no new zone needed, no mini-game needed) | Money Quest's remaining 15 lessons |
+| Horizon Peaks' Sticker Keeper + "Waiting Can Pay Off" quest (`explorer-long_term_thinking-l1`, Horizon Peaks' third quest-giving NPC, completing the "long_term_thinking" topic trilogy — no new zone needed, no mini-game needed) | — |
+| Kindness Grove zone + Omar's quest (`builder-giving-l1`, "Giving on Purpose," reached via a portal inside Horizon Peaks — Money Quest's 7th and final zone, no mini-game needed) | Money Quest's remaining 14 lessons |
 | Idea Lab zone + "Handle Competition" quest (ports the website's real `competitor-lower-price` decision event) | — |
 | Marketing Studio zone + "Create Your Marketing" quest (ports the real `product-unclear` decision event, reached via a portal inside Idea Lab) | Entrepreneur Quest's `reflect-text`-kind stages (need a free-text input UI not built yet) |
 | Workshop zone + "Handle a Customer Problem" quest (ports the real `too-expensive-feedback` decision event, reached via a portal inside Marketing Studio — Entrepreneur Quest's first 3-zone graph) | — |
@@ -417,6 +428,18 @@ vs. count down the hours while waiting) — both lead to the real story's
 own outcome (three stickers the next day), so the fixed quiz about what
 happened is never contradicted by the player's choice.
 
+Omar's quest in Kindness Grove is the same: every curriculum field
+(title, learning objective, key concept, vocabulary `set aside`/`cause`,
+explanation, quiz, feedback, reward message) is copied from the real
+`curriculum.builder-giving-l1`. Omar is the real child named in that
+lesson's own story — his name coincidentally matches Sky Exchange's
+Omar (an unrelated real character from a different real source text),
+harmless for the same reason the earlier Theo and Priya coincidences
+were. The only original text is the intro framing and the
+choice/consequence wording applying the lesson's real "plan for giving
+ahead of time" concept to a concrete decision (give to a friend vs. the
+class fundraiser) — both equally valid, neither graded as "wrong."
+
 Idea Lab's "Handle Competition" quest is likewise copied directly from the
 real `messages/en.json`/`messages/ro.json` (`entrepreneurQuest.decisionEvents
 .competitor-lower-price` and its `build.handle-competition` title/intro) —
@@ -579,6 +602,8 @@ rationale. Quick map:
   zone, reached via a portal inside Sky Exchange.
 - `scenes/world/zones/horizon_peaks/HorizonPeaks.tscn` — Money Quest's
   sixth zone, reached via a portal inside Coin Cove.
+- `scenes/world/zones/kindness_grove/KindnessGrove.tscn` — Money Quest's
+  seventh and final zone, reached via a portal inside Horizon Peaks.
 - `scenes/world/zones/idea_lab/IdeaLab.tscn` — Entrepreneur Quest's first
   zone.
 - `scenes/world/zones/marketing_studio/MarketingStudio.tscn` —
@@ -639,7 +664,7 @@ rationale. Quick map:
   Read-aloud/text-to-speech has no engine wired in at all — not even a
   silent placeholder bus — since one would require either an offline
   voice model or a paid API, both out of scope per the brief.
-- Only 15 of 30 curriculum lessons are wired up as Quests, only 3 of
+- Only 16 of 30 curriculum lessons are wired up as Quests, only 3 of
   Entrepreneur Quest's many real BUILD/RUN/RESCUE & GROW stages are
   ported, and only 3 of Leadership Quest's 12 real missions are ported.
   See `docs/money-quest-world-architecture.md` Section 12 for the
