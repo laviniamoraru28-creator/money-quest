@@ -492,8 +492,38 @@ godot/money-quest-game/
     (Section 6); Library/Museum have zero real entries by design (nothing
     to invent yet); Mind Lab and Calm World remain tag-only, not built
     (Section 7).
-13. **Test accessibility, localization, performance** — ongoing; EN+RO
-    populated, reduced-motion respected throughout, no heavy assets added.
+13. **Test accessibility, localization, performance** — a static audit
+    this phase (no Godot editor available in this environment, so this is
+    code/content inspection, not a live playtest):
+    - **Localization**: every translation key referenced anywhere in any
+      script, scene, or `.tres` file across the whole project resolves in
+      `translations.csv` (verified by extracting every call site and
+      format-string pattern and diffing against the CSV) — zero orphaned
+      keys, `en`/`ro` both complete.
+    - **Hardcoded text**: no user-facing string is passed to
+      `DialogueBox`/`ChoicePanel`/`RewardPopup`/`Localization.t()` as a
+      literal anywhere in the project — everything is a translation key.
+    - **Reduced motion — one real gap found and fixed**: `Settings.gd`'s
+      own rule ("any tween/animation anywhere in this project MUST check
+      `reduced_motion`") wasn't followed by two pieces of new 3D code:
+      `CameraController`'s follow-smoothing lerp and `Player`'s turn-to-
+      face rotation lerp. Both now snap instantly when `reduced_motion` is
+      on, matching the discipline `RewardPopup` (pre-existing) already
+      followed. `ChoicePanel`/`DialogueBox` have no animation to gate.
+    - **Virtual money discipline**: Entrepreneur/Leadership Quest's new
+      `CHALLENGE` quests pay `coin_delta`/`xp_delta` silently via
+      `GameState`, same as every existing lesson — no raw number is shown
+      mid-choice, only at the final `RewardPopup`.
+    - **Performance**: confirmed `Main.gd` frees the previous zone
+      instance before instancing the next (only one zone ever resident),
+      and found no per-frame allocation or unbounded work in
+      `Player`/`CameraController`/`NPC`'s `_process`/`_physics_process`.
+    - **Known, pre-existing gaps not introduced this phase** (unchanged
+      from earlier phases, flagged honestly rather than silently left):
+      no on-screen mobile "Talk" button yet (`Player.request_interact()`
+      is ready for one), no music/SFX volume or on/off toggles in
+      `Settings.gd` yet (moot while `AudioManager` ships zero audio
+      assets), no read-aloud integration in the 3D UI overlays.
 14. **Expand gradually** — the explicit next-after-this-phase work: a real
     book/exhibit/mentor once approved, Entrepreneur/Leadership Quest's
     remaining stages, Mind Lab, Calm World's first garden.

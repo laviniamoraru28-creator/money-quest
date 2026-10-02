@@ -114,7 +114,13 @@ func _move(direction: Vector3, delta: float) -> void:
 	velocity.z = direction.z * SPEED
 	if direction.length() > 0.01:
 		var target_angle: float = atan2(direction.x, direction.z)
-		rotation.y = lerp_angle(rotation.y, target_angle, ROTATION_SPEED * delta)
+		if Settings.reduced_motion:
+			# The turn-to-face easing is the non-essential animation here
+			# (see Settings.gd's project-wide reduced-motion rule) — snap
+			# to facing the move direction instead of smoothly rotating.
+			rotation.y = target_angle
+		else:
+			rotation.y = lerp_angle(rotation.y, target_angle, ROTATION_SPEED * delta)
 
 
 ## Called by an on-screen mobile "Talk" button as an alternative to the

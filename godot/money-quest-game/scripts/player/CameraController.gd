@@ -40,5 +40,12 @@ func _physics_process(delta: float) -> void:
 
 	var rotated_offset: Vector3 = follow_offset.rotated(Vector3.UP, _yaw)
 	var desired_position: Vector3 = target.global_position + rotated_offset
-	global_position = global_position.lerp(desired_position, 1.0 - exp(-follow_speed * delta))
+	if Settings.reduced_motion:
+		# The follow-smoothing itself is the non-essential animation here
+		# (per Settings.gd's own "any tween/animation anywhere in this
+		# project MUST check reduced_motion" rule) — snap straight to the
+		# target position instead of easing into it.
+		global_position = desired_position
+	else:
+		global_position = global_position.lerp(desired_position, 1.0 - exp(-follow_speed * delta))
 	look_at(target.global_position + Vector3.UP * 1.0, Vector3.UP)
