@@ -1,0 +1,78 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueLine.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="5"]
+
+[sub_resource type="Resource" id="DialogueLine_theo"]
+script = ExtResource("2")
+speaker_id = "theo"
+text_key = "quest.lq_angry_customer.dialogue.0"
+
+[sub_resource type="Resource" id="ConsequenceEffect_listen_first"]
+script = ExtResource("5")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "lq.decision.angry_customer.choice.listen_first.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_listen_first"]
+script = ExtResource("4")
+label_key = "lq.decision.angry_customer.choice.listen_first.label"
+consequence = SubResource("ConsequenceEffect_listen_first")
+
+[sub_resource type="Resource" id="ConsequenceEffect_apologise_and_fix_it"]
+script = ExtResource("5")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "lq.decision.angry_customer.choice.apologise_and_fix_it.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_apologise_and_fix_it"]
+script = ExtResource("4")
+label_key = "lq.decision.angry_customer.choice.apologise_and_fix_it.label"
+consequence = SubResource("ConsequenceEffect_apologise_and_fix_it")
+
+[sub_resource type="Resource" id="ConsequenceEffect_explain_why_you_were_right"]
+script = ExtResource("5")
+coin_delta = 2
+xp_delta = 5
+consequence_text_key = "lq.decision.angry_customer.choice.explain_why_you_were_right.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_explain_why_you_were_right"]
+script = ExtResource("4")
+label_key = "lq.decision.angry_customer.choice.explain_why_you_were_right.label"
+consequence = SubResource("ConsequenceEffect_explain_why_you_were_right")
+
+[sub_resource type="Resource" id="ConsequenceEffect_let_a_teammate_handle_it"]
+script = ExtResource("5")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "lq.decision.angry_customer.choice.let_a_teammate_handle_it.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_let_a_teammate_handle_it"]
+script = ExtResource("4")
+label_key = "lq.decision.angry_customer.choice.let_a_teammate_handle_it.label"
+consequence = SubResource("ConsequenceEffect_let_a_teammate_handle_it")
+
+[sub_resource type="Resource" id="DialogueChoice_angry_customer"]
+script = ExtResource("3")
+situation_text_key = "lq.decision.angry_customer.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_listen_first"), SubResource("ChoiceOption_apologise_and_fix_it"), SubResource("ChoiceOption_explain_why_you_were_right"), SubResource("ChoiceOption_let_a_teammate_handle_it")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "lq-angry-customer-quest"
+title_key = "quest.lq_angry_customer.title"
+description_key = "quest.lq_angry_customer.description"
+educational_objective_key = "quest.lq_angry_customer.objective"
+track = "leadership-quest"
+zone_id = "team-challenge"
+giver_npc_id = "theo"
+kind = 2
+intro_dialogue = Array[DialogueLine]([SubResource("DialogueLine_theo")])
+challenge_choice = SubResource("DialogueChoice_angry_customer")
+reward_message_key = "quest.lq_angry_customer.reward_message"
+xp_reward = 15
+coin_reward = 10
+skill_ids = Array[String](["active-listening", "communication", "empathy"])

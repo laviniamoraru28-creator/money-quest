@@ -309,10 +309,21 @@ quest proving the shared pipeline carries that track with no new systems.
   `intro_text_key`/`challenge_choice`, reusing the exact same
   `DialogueLine` resource `LessonData.intro_dialogue` already uses). Same
   `NPC.gd`, same `Interaction` pattern — no new character system required.
-  Leadership Quest's remaining 11 missions (Section 0) are the source to
-  port, stage by stage, as further zones (Team Challenge area, Decision
-  Lab, per your Section 24) once this slice is validated — not built this
-  phase, by design.
+  **Now a second zone proves the track's own graph grows the same way
+  Money Quest's and Entrepreneur Quest's did**: `team-challenge` is
+  reached via a portal inside Leadership Academy (not its own Hub portal),
+  where Theo — another of the 4 real characters — gives "The Angry
+  Customer," wrapping the website's real `angry-customer-choice` decision
+  event (4 choices, copied verbatim; one option lets Priya handle the
+  call, the same character from the first LQ zone, reinforcing that it's
+  one team, not two disconnected casts). Leadership Quest's remaining 10
+  missions (Section 0) are the source to port, stage by stage, as further
+  zones (Decision Lab, per your Section 24) once this slice is validated —
+  not built this phase, by design. (Its `match`/`spot`/`allocate`/`sort`-
+  kind missions — `meet-your-team`, `motivation-problem`, `the-deadline`,
+  `pressure-test` — will need their own mechanic, same reasoning as
+  Entrepreneur Quest's `reflect-text` gap above; `CHALLENGE` only covers
+  `mission-choice`-kind missions so far, which is most of what remains.)
 
 ---
 
@@ -472,6 +483,7 @@ previously) can be added later as pure content, not an architecture change.
 | Entrepreneur Quest's Idea Lab zone + "Handle Competition" quest | **Built** — a `CHALLENGE`-kind quest porting the website's real `competitor-lower-price` decision event (`src/content/entrepreneur-quest/structures.ts`) verbatim; proves the same pipeline carries a second Quest track with zero new systems |
 | Entrepreneur Quest's Marketing Studio zone + "Create Your Marketing" quest | **Built** — reached via a portal inside Idea Lab (Entrepreneur Quest's first 2-zone graph); another `CHALLENGE`-kind quest, porting the real `product-unclear` decision event verbatim |
 | Leadership Quest's Leadership Academy zone + "The Big Mistake" quest | **Built** — a `CHALLENGE`-kind quest porting the website's real `big-mistake-choice` decision event verbatim, with Priya as a real-character NPC; this is what motivated `QuestData.intro_dialogue` (Section 4) |
+| Leadership Quest's Team Challenge zone + "The Angry Customer" quest | **Built** — reached via a portal inside Leadership Academy (Leadership Quest's first 2-zone graph); another `CHALLENGE`-kind quest with Theo as a real-character NPC, porting the real `angry-customer-choice` decision event verbatim |
 | `AvatarConfig` + minimal creation screen | **Built** (color/preset only) |
 | Progression fields for zones/quests/skills | **Built** (additive) |
 | Entrepreneur Quest's full BUILD → RUN → RESCUE & GROW track / Leadership Quest's remaining 11 missions | Not built — only one representative slice per track exists so far |
@@ -525,7 +537,8 @@ godot/money-quest-game/
         market_town/            # Money Quest's second zone (reached via Golden Vault)
         idea_lab/               # Entrepreneur Quest's first zone
         marketing_studio/       # Entrepreneur Quest's second zone (reached via Idea Lab)
-        leadership_academy/     # Leadership Quest's one real zone
+        leadership_academy/     # Leadership Quest's first zone
+        team_challenge/         # Leadership Quest's second zone (reached via Leadership Academy)
         calm_world/             # Calm World's first garden (BubbleGarden.tscn)
       Main.tscn                 # persistent root: ZoneContainer + HUD
     player/                    # Player.tscn (3D), AvatarCreation.tscn

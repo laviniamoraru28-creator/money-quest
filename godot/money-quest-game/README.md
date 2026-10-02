@@ -76,7 +76,12 @@ rebuilt.
 5. In Leadership Academy, walk up to Priya and interact with her to start
    "The Big Mistake" — ported directly from the website's real Leadership
    Quest content: Priya made a mistake and the team is watching to see how
-   you, as the leader, respond. Again, no single correct answer.
+   you, as the leader, respond. Again, no single correct answer. A second
+   portal inside Leadership Academy leads to **Team Challenge**,
+   Leadership Quest's second zone — talk to Theo to start "The Angry
+   Customer": a customer is upset about your team's work, and you choose
+   how to respond (one option even lets Priya, from the first zone, handle
+   the call).
 6. In Bubble Garden, there's nothing to do but walk around and watch the
    bubbles drift — no quest, no NPC, no choice. It's always reachable, with
    no unlock condition, and never framed as anything other than a calm
@@ -111,11 +116,12 @@ up-to-date table. In short:
 | `QuestData` + `QuestManager`, `LESSON` and `CHALLENGE` kinds (wraps existing `LessonData`, or runs a standalone situation+choice+consequence with optional multi-line intro dialogue, no content duplicated) | `BrowseZoneController` + a walkable Library/Museum zone (no real content to drive one yet) |
 | 3D `Player`/`NPC`/`Interaction`/`InteractionManager` + `CameraController` | Mind Lab |
 | World Hub: fountain landmark, 7 paths, 7 gate-shaped portals (4 functional, 3 "coming soon"), decorative trees, Hub Guide NPC | Entrepreneur Quest's full BUILD → RUN → RESCUE & GROW track (only one representative quest is built) |
-| Golden Vault zone + Maya's quest (reuses the existing `LessonData`/`LessonManager`/mini-game/UI overlays unchanged) | Leadership Quest's remaining 11 missions (only one representative quest is built) |
+| Golden Vault zone + Maya's quest (reuses the existing `LessonData`/`LessonManager`/mini-game/UI overlays unchanged) | Leadership Quest's remaining 10 missions (only 2 of 12 are built) |
 | Market Town zone + Baker's quest (`explorer-needs_wants-l1`, reached via a portal inside Golden Vault — Money Quest's first 2-zone graph, no mini-game needed) | Money Quest's remaining 28 lessons |
 | Idea Lab zone + "Handle Competition" quest (ports the website's real `competitor-lower-price` decision event) | Fuller avatar presets beyond color/preset/accessory |
 | Marketing Studio zone + "Create Your Marketing" quest (ports the real `product-unclear` decision event, reached via a portal inside Idea Lab) | Entrepreneur Quest's `reflect-text`-kind stages (need a free-text input UI not built yet) |
 | Leadership Academy zone + "The Big Mistake" quest (ports the website's real `big-mistake-choice` decision event, with Priya as a real-character NPC) | AI Quest Coach (explicitly not built — see the architecture doc's non-negotiables) |
+| Team Challenge zone + "The Angry Customer" quest (ports the real `angry-customer-choice` decision event, reached via a portal inside Leadership Academy, with Theo as a real-character NPC) | Leadership Quest's `match`/`spot`/`allocate`/`sort`-kind missions (need mechanics not built yet) |
 | `EntryData`/`BookData`/`ExhibitData`/`MentorData`/`DictionaryTermData` schema, with 2 real Dictionary entries (`goal`, `trade-off`) reusing existing curriculum vocabulary | Calm World's remaining 7 named gardens |
 | Calm World's first garden (Bubble Garden) — always unlocked, no choices, motion respects `reduced_motion` | — |
 | `AvatarConfig` + minimal `AvatarCreation.tscn` | — |
@@ -156,6 +162,13 @@ intro dialogue and all 4 choices/consequences for the `big-mistake-choice`
 event) — Priya and Oren are two of Leadership Quest's 4 real, already-named
 characters (`src/content/leadership-quest/structures.ts`), not invented
 for this project.
+
+Team Challenge's "The Angry Customer" quest is the same: Theo's intro line
+and all 4 choices/consequences for `angry-customer-choice` are copied
+verbatim from `leadershipQuest.missions.angry-customer` — including one
+option that references Priya by name, exactly as the website's own
+content does, reinforcing that Leadership Academy and Team Challenge are
+one team's story, not two disconnected casts.
 
 The Dictionary's 2 entries (`goal`, `trade-off`) aren't new content at
 all — they point at `builder-saving-l1`'s own existing vocabulary
@@ -204,8 +217,10 @@ rationale. Quick map:
   zone.
 - `scenes/world/zones/marketing_studio/MarketingStudio.tscn` —
   Entrepreneur Quest's second zone, reached via a portal inside Idea Lab.
-- `scenes/world/zones/leadership_academy/LeadershipAcademy.tscn` — this
-  phase's one real Leadership Quest zone.
+- `scenes/world/zones/leadership_academy/LeadershipAcademy.tscn` —
+  Leadership Quest's first zone.
+- `scenes/world/zones/team_challenge/TeamChallenge.tscn` — Leadership
+  Quest's second zone, reached via a portal inside Leadership Academy.
 - `scenes/world/zones/calm_world/BubbleGarden.tscn` — Calm World's first
   garden.
 - `scenes/world/Main.tscn` — the persistent root: a `ZoneContainer`
@@ -237,11 +252,12 @@ rationale. Quick map:
   meshes (capsules, boxes), matching the brief's own instruction not to
   invent visual direction decisions beyond what's needed to demonstrate
   the architecture.
-- Only 2 of 30 curriculum lessons are wired up as Quests, only 1 of
-  Entrepreneur Quest's many real BUILD/RUN/RESCUE & GROW stages is ported,
-  and only 1 of Leadership Quest's 12 real missions is ported. See
-  `docs/money-quest-world-architecture.md` Section 12 for the development
-  order for the rest, the 17 games, and the 4 simulator scenarios.
+- Only 2 of 30 curriculum lessons are wired up as Quests, only 2 of
+  Entrepreneur Quest's many real BUILD/RUN/RESCUE & GROW stages are
+  ported, and only 2 of Leadership Quest's 12 real missions are ported.
+  See `docs/money-quest-world-architecture.md` Section 12 for the
+  development order for the rest, the 17 games, and the 4 simulator
+  scenarios.
 - Library, Museum, and Mind Lab are all reachable from the Hub (their
   portals exist and correctly report "coming soon") but have no zone
   content yet — by design, per the brief's explicit "do not build all of
