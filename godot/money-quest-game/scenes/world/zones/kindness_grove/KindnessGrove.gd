@@ -24,20 +24,29 @@ extends Node3D
 ## choice_point here is a downstream decision (who goes first) rather
 ## than whether to share at all — the same safeguard used for the
 ## Sticker Keeper's lesson in Horizon Peaks.
+##
+## Sofia — the real teen named in the "Giving Thoughtfully" story — is
+## this zone's third resident, completing the full 3-age-band "giving"
+## topic trilogy in one zone (the same way Golden Vault completed
+## "saving", Coin Cove completed "money_basics", and Horizon Peaks
+## completed "long_term_thinking"), giving strategist-giving-l1.
 
 const GIVING_QUEST_ID: String = "builder-giving-l1-quest"
 const GIVING_EXPLORER_QUEST_ID: String = "explorer-giving-l1-quest"
+const GIVING_STRATEGIST_QUEST_ID: String = "strategist-giving-l1-quest"
 
 @onready var player: Node3D = $Player
 @onready var camera_controller: CameraController = $CameraController
 @onready var omar: NPC = $Omar
 @onready var friend: NPC = $Friend
+@onready var sofia: NPC = $Sofia
 
 
 func _ready() -> void:
 	camera_controller.target = player
 	omar.talked_to.connect(_on_omar_talked_to)
 	friend.talked_to.connect(_on_friend_talked_to)
+	sofia.talked_to.connect(_on_sofia_talked_to)
 
 
 func _on_omar_talked_to(_npc_id: String) -> void:
@@ -52,3 +61,10 @@ func _on_friend_talked_to(_npc_id: String) -> void:
 		DialogueBox.show_text("zone.kindness_grove.friend.already_done")
 	else:
 		QuestManager.start_quest(GIVING_EXPLORER_QUEST_ID)
+
+
+func _on_sofia_talked_to(_npc_id: String) -> void:
+	if QuestManager.is_quest_completed(GIVING_STRATEGIST_QUEST_ID):
+		DialogueBox.show_text("zone.kindness_grove.sofia.already_done")
+	else:
+		QuestManager.start_quest(GIVING_STRATEGIST_QUEST_ID)
