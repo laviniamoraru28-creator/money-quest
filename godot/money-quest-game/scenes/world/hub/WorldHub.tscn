@@ -428,7 +428,7 @@ text = ""
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 2)
 script = ExtResource("4")
 label_key = "hub.portal.mind_lab"
-coming_soon_message_key = "portal.coming_soon"
+target_zone_id = "mind-lab"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PortalMindLab"]
 shape = SubResource("CylinderShape3D_portal")

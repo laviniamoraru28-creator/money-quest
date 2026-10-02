@@ -411,11 +411,27 @@ is built against something real rather than guessed at.
 
 ## 7. Mind Lab and Calm World / Sensory Garden
 
-- **Mind Lab**: architecturally a future `ZoneData` with `kind ==
-  MIND_LAB`, populated later with `QuestData` entries exactly like
-  Leadership Quest (a short scenario → a choice → a consequence → a
-  reflection) — no new system, explicitly not built now, per your
-  instruction.
+- **Mind Lab**: now has its first real zone (`data/zones/mind-lab.tres`,
+  `scenes/world/zones/mind_lab/MindLab.tscn`, `kind == MIND_LAB`), reachable
+  from the Hub's Mind Lab portal, which is now functional. A Mind Lab Guide
+  gives "Different Explanations" — a `QuestData` of `kind == CHALLENGE`,
+  exactly the shape already proven for Entrepreneur/Leadership Quest: a
+  short scenario (a friend doesn't wave back) → a reflective choice among
+  several equally-valid explanations → a consequence, no new system. Unlike
+  Library/Museum/Mentors, Mind Lab content needs no external fact to
+  verify — "there's often more than one explanation for someone's
+  behavior" is a standard, well-established social-emotional-learning
+  concept, not a claim requiring a source, so one original scenario could
+  be written now rather than waiting on approval. **Non-negotiables
+  enforced in the copy**: no diagnosis, no "wrong" option, no medical or
+  therapeutic framing anywhere — every choice gets a validating, equally
+  legitimate consequence, and the reward line names it as "a real thinking
+  skill," never a score or a correct/incorrect judgment. The zone's
+  decorative floating orbs respect `Settings.reduced_motion` (holding
+  still instead of bobbing), same discipline as Bubble Garden. Mind Lab's
+  remaining activity types (practicing calming strategies, impulsive vs.
+  considered decisions, identifying unhelpful thoughts) are each a future
+  `QuestData` addition on the same pipeline.
 - **Calm World / Sensory Garden**: `kind == CALM`. Each named garden
   (Aquarium, Light, Rain, Underwater, Forest, Music, Bubble, Grow-a-Garden)
   is its own `ZoneData` entry with `unlock_condition_quest_id = ""`
@@ -493,7 +509,7 @@ previously) can be added later as pure content, not an architecture change.
 | `Player`/`NPC`/`Interaction`/`InteractionManager` ported to 3D | **Built** |
 | `CameraController` (third-person follow) | **Built** |
 | `QuestData`/`QuestManager`, `LESSON` and `CHALLENGE` kinds | **Built** — `CHALLENGE` added this phase for standalone situation+choice+consequence content with no wrapped `LessonData` |
-| World Hub scene, 7 portals | **Built** — 5 functional (Money Quest, Entrepreneur Quest, Leadership Quest, Calm World, Library), 2 "coming soon" (Museum, Mind Lab) |
+| World Hub scene, 7 portals | **Built** — 6 functional (Money Quest, Entrepreneur Quest, Leadership Quest, Calm World, Library, Mind Lab), 1 "coming soon" (Museum) |
 | Money Quest's Golden Vault zone + Maya's quest (`builder-saving-l1`) | **Built** — reuses the existing `LessonData`/`LessonManager`/`SavingsAllocationMiniGame`/UI overlays unchanged |
 | Money Quest's Market Town zone + Baker's quest (`explorer-needs_wants-l1`) | **Built** — reached via a portal inside Golden Vault (Money Quest's first 2-zone graph); uses `LessonData.choice_point` with no mini-game |
 | Entrepreneur Quest's Idea Lab zone + "Handle Competition" quest | **Built** — a `CHALLENGE`-kind quest porting the website's real `competitor-lower-price` decision event (`src/content/entrepreneur-quest/structures.ts`) verbatim; proves the same pipeline carries a second Quest track with zero new systems |
@@ -507,7 +523,7 @@ previously) can be added later as pure content, not an architecture change.
 | Dictionary content | **Built** — 2 real terms (`goal`, `trade-off`), reusing `builder-saving-l1`'s own vocabulary keys verbatim |
 | Library zone (`data/zones/library.tres`, bookshelves, Librarian NPC, reachable from the Hub) | **Built** — honestly empty; the Librarian says the shelves are still being prepared rather than pretending there's content |
 | Library books, Museum exhibits/zone, Mentors content, `BrowseZoneController` | Not built — zero real books/exhibits/mentors exist to populate or drive a placement controller with (Section 6) |
-| Mind Lab | Not built — tag reserved (Section 7) |
+| Mind Lab zone + "Different Explanations" quest | **Built** — a `CHALLENGE`-kind quest with an original scenario (no external fact to verify), never diagnostic or medical in framing (Section 7) |
 | Calm World's first garden (`calm-world-bubble-garden`, Bubble Garden) | **Built** — always-unlocked, no choices, bob motion respects `reduced_motion` (Section 7) |
 | Calm World's remaining 7 named gardens | Not built — each is a future `.tres`+`.tscn` content addition, no architecture change needed |
 | Fuller avatar presets (inclusive representation beyond color) | Not built — flagged as a deliberate future content addition, not an architecture gap |
@@ -558,6 +574,7 @@ godot/money-quest-game/
         team_challenge/         # Leadership Quest's second zone (reached via Leadership Academy)
         calm_world/             # Calm World's first garden (BubbleGarden.tscn)
         library/                # Library.tscn — honestly empty, no BookData yet
+        mind_lab/               # Mind Lab's first zone + quest (MindLab.tscn)
       Main.tscn                 # persistent root: ZoneContainer + HUD
     player/                    # Player.tscn (3D), AvatarCreation.tscn
     characters/                 # NPC.tscn (3D)
@@ -586,12 +603,16 @@ godot/money-quest-game/
     "Handle Competition" quest, Section 5).
 11. **One Leadership Quest experience** — built (`leadership-academy`
     zone, "The Big Mistake" quest, Section 5).
-12. **Library/Museum/Mind Lab/Calm World foundations** — partially built:
+12. **Library/Museum/Mind Lab/Calm World foundations** — mostly built now:
     the `EntryData`/`BookData`/`ExhibitData`/`MentorData`/
     `DictionaryTermData` schema is built and Dictionary has 2 real entries
-    (Section 6); Library/Museum have zero real entries by design (nothing
-    to invent yet); Calm World now has its first garden built (Bubble
-    Garden, Section 7); Mind Lab remains tag-only, not built.
+    (Section 6); the Library has a real, walkable, honestly-empty zone;
+    Museum has zero real entries and no zone yet (nothing to invent yet —
+    the actual blocker now is your approval of real content, not
+    architecture); Calm World has its first garden built (Bubble Garden,
+    Section 7); Mind Lab now has its first zone and quest built too
+    (Section 7) — it didn't share Library/Museum's content-approval
+    blocker since its scenario needs no external fact.
 13. **Test accessibility, localization, performance** — a static audit
     this phase (no Godot editor available in this environment, so this is
     code/content inspection, not a live playtest):

@@ -1,0 +1,83 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueLine.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="5"]
+
+[sub_resource type="Resource" id="DialogueLine_intro1"]
+script = ExtResource("2")
+speaker_id = ""
+text_key = "mindlab.different_explanations.intro.line1"
+
+[sub_resource type="Resource" id="DialogueLine_intro2"]
+script = ExtResource("2")
+speaker_id = ""
+text_key = "mindlab.different_explanations.intro.line2"
+
+[sub_resource type="Resource" id="ConsequenceEffect_didnt_see"]
+script = ExtResource("5")
+coin_delta = 4
+xp_delta = 5
+consequence_text_key = "mindlab.different_explanations.choice.didnt_see.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_didnt_see"]
+script = ExtResource("4")
+label_key = "mindlab.different_explanations.choice.didnt_see.label"
+consequence = SubResource("ConsequenceEffect_didnt_see")
+
+[sub_resource type="Resource" id="ConsequenceEffect_upset"]
+script = ExtResource("5")
+coin_delta = 4
+xp_delta = 5
+consequence_text_key = "mindlab.different_explanations.choice.upset.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_upset"]
+script = ExtResource("4")
+label_key = "mindlab.different_explanations.choice.upset.label"
+consequence = SubResource("ConsequenceEffect_upset")
+
+[sub_resource type="Resource" id="ConsequenceEffect_distracted"]
+script = ExtResource("5")
+coin_delta = 4
+xp_delta = 5
+consequence_text_key = "mindlab.different_explanations.choice.distracted.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_distracted"]
+script = ExtResource("4")
+label_key = "mindlab.different_explanations.choice.distracted.label"
+consequence = SubResource("ConsequenceEffect_distracted")
+
+[sub_resource type="Resource" id="ConsequenceEffect_something_else"]
+script = ExtResource("5")
+coin_delta = 4
+xp_delta = 5
+consequence_text_key = "mindlab.different_explanations.choice.something_else.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_something_else"]
+script = ExtResource("4")
+label_key = "mindlab.different_explanations.choice.something_else.label"
+consequence = SubResource("ConsequenceEffect_something_else")
+
+[sub_resource type="Resource" id="DialogueChoice_different_explanations"]
+script = ExtResource("3")
+situation_text_key = "mindlab.different_explanations.choice.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_didnt_see"), SubResource("ChoiceOption_upset"), SubResource("ChoiceOption_distracted"), SubResource("ChoiceOption_something_else")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "mindlab-different-explanations-quest"
+title_key = "mindlab.different_explanations.title"
+description_key = "mindlab.different_explanations.description"
+educational_objective_key = "mindlab.different_explanations.objective"
+track = "mind-lab"
+zone_id = "mind-lab"
+giver_npc_id = "mind-lab-guide"
+kind = 2
+intro_dialogue = Array[DialogueLine]([SubResource("DialogueLine_intro1"), SubResource("DialogueLine_intro2")])
+challenge_choice = SubResource("DialogueChoice_different_explanations")
+reward_message_key = "mindlab.different_explanations.reward_message"
+xp_reward = 15
+coin_reward = 10
+skill_ids = Array[String](["critical-thinking", "empathy", "adaptability"])

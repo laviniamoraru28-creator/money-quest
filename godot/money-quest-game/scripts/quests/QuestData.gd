@@ -13,10 +13,10 @@ enum QuestKind { LESSON, EXPLORATION, CHALLENGE, SIMULATION }
 @export var description_key: String = ""
 @export var educational_objective_key: String = ""   # "" for a pure exploration quest
 
-## "money-quest" | "entrepreneur-quest" | "leadership-quest" — which Quest
-## track this belongs to. Not yet used for anything beyond organization/
-## future filtering, but set from day one so content never needs
-## retrofitting once Entrepreneur Quest and Leadership Quest zones exist.
+## "money-quest" | "entrepreneur-quest" | "leadership-quest" | "mind-lab" —
+## which Quest track this belongs to. Not yet used for anything beyond
+## organization/future filtering, but set from day one so content never
+## needs retrofitting once more destinations exist.
 @export var track: String = "money-quest"
 
 @export var zone_id: String = ""

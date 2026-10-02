@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ZoneData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/ZoneData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+zone_id = "mind-lab"
+display_name_key = "hub.portal.mind_lab"
+scene_path = "res://scenes/world/zones/mind_lab/MindLab.tscn"
+kind = 4
+theme_color = Color(0.059, 0.478, 0.42, 1)
+unlock_condition_quest_id = ""
+npc_ids = Array[String](["mind-lab-guide"])
+quest_ids = Array[String](["mindlab-different-explanations-quest"])
+exhibit_ids = Array[String]([])
+book_ids = Array[String]([])
+player_spawn_position = Vector3(0, 0, 3)
