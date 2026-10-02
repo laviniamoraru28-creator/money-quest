@@ -105,7 +105,10 @@ rebuilt.
    Leadership Quest's second zone — talk to Theo to start "The Angry
    Customer": a customer is upset about your team's work, and you choose
    how to respond (one option even lets Priya, from the first zone, handle
-   the call).
+   the call). A second portal inside Team Challenge leads to **Strategy
+   Room**, Leadership Quest's third zone — talk to Nadia to start "The
+   Better Idea": Nadia suggests a genuinely better way to do something
+   you'd already planned, and you choose how to respond.
 6. In Bubble Garden, there's nothing to do but walk around and watch the
    bubbles drift — no quest, no NPC, no choice. It's always reachable, with
    no unlock condition, and never framed as anything other than a calm
@@ -154,7 +157,8 @@ up-to-date table. In short:
 | Marketing Studio zone + "Create Your Marketing" quest (ports the real `product-unclear` decision event, reached via a portal inside Idea Lab) | Entrepreneur Quest's `reflect-text`-kind stages (need a free-text input UI not built yet) |
 | Workshop zone + "Handle a Customer Problem" quest (ports the real `too-expensive-feedback` decision event, reached via a portal inside Marketing Studio — Entrepreneur Quest's first 3-zone graph) | — |
 | Leadership Academy zone + "The Big Mistake" quest (ports the website's real `big-mistake-choice` decision event, with Priya as a real-character NPC) | AI Quest Coach (explicitly not built — see the architecture doc's non-negotiables) |
-| Team Challenge zone + "The Angry Customer" quest (ports the real `angry-customer-choice` decision event, reached via a portal inside Leadership Academy, with Theo as a real-character NPC) | Leadership Quest's `match`/`spot`/`allocate`/`sort`-kind missions (need mechanics not built yet) |
+| Team Challenge zone + "The Angry Customer" quest (ports the real `angry-customer-choice` decision event, reached via a portal inside Leadership Academy, with Theo as a real-character NPC) | Leadership Quest's `spot`/`allocate`/`sort`-kind missions (need mechanics not built yet) |
+| Strategy Room zone + "The Better Idea" quest (ports the real `better-idea-choice` decision event, reached via a portal inside Team Challenge — Leadership Quest's first 3-zone graph, with Nadia as a real-character NPC) | Leadership Quest's remaining `mission-choice`-kind missions |
 | `EntryData`/`BookData`/`ExhibitData`/`MentorData`/`DictionaryTermData` schema, with 2 real Dictionary entries (`goal`, `trade-off`) reusing existing curriculum vocabulary | — |
 | Calm World's all 8 named gardens (Bubble Garden, Aquarium Room, Light Room, Rain Room, Underwater Room, Forest Walk, Music Room, Grow-a-Garden) — always unlocked, no choices, all motion respects `reduced_motion` | — |
 | `AvatarConfig` + `AvatarCreation.tscn`, now fully wired to `Player.tscn` (see "Avatar wiring fix" below) — 4 body presets incl. a wheelchair-style look, 4 accessories (glasses, cap, hearing aid, cane), all purely visual | — |
@@ -220,6 +224,12 @@ verbatim from `leadershipQuest.missions.angry-customer` — including one
 option that references Priya by name, exactly as the website's own
 content does, reinforcing that Leadership Academy and Team Challenge are
 one team's story, not two disconnected casts.
+
+Strategy Room's "The Better Idea" quest is the same: Nadia's intro line
+and all 4 choices/consequences for `better-idea-choice` are copied
+verbatim from `leadershipQuest.missions.better-idea` — Nadia is the third
+of Leadership Quest's 4 real, already-named characters to appear in
+Godot, same cast as Priya and Theo, not a new invented character.
 
 The Dictionary's 2 entries (`goal`, `trade-off`) aren't new content at
 all — they point at `builder-saving-l1`'s own existing vocabulary
@@ -350,6 +360,8 @@ rationale. Quick map:
   Leadership Quest's first zone.
 - `scenes/world/zones/team_challenge/TeamChallenge.tscn` — Leadership
   Quest's second zone, reached via a portal inside Leadership Academy.
+- `scenes/world/zones/strategy_room/StrategyRoom.tscn` — Leadership
+  Quest's third zone, reached via a portal inside Team Challenge.
 - `scenes/world/zones/calm_world/` — Calm World's 8 gardens:
   `BubbleGarden.tscn` (reachable from the Hub) plus `AquariumRoom.tscn`,
   `LightRoom.tscn`, `RainRoom.tscn`, `UnderwaterRoom.tscn`,
@@ -400,7 +412,7 @@ rationale. Quick map:
   voice model or a paid API, both out of scope per the brief.
 - Only 3 of 30 curriculum lessons are wired up as Quests, only 3 of
   Entrepreneur Quest's many real BUILD/RUN/RESCUE & GROW stages are
-  ported, and only 2 of Leadership Quest's 12 real missions are ported.
+  ported, and only 3 of Leadership Quest's 12 real missions are ported.
   See `docs/money-quest-world-architecture.md` Section 12 for the
   development order for the rest, the 17 games, and the 4 simulator
   scenarios.

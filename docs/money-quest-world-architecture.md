@@ -551,6 +551,7 @@ node), never an architecture change.
 | Entrepreneur Quest's Workshop zone + "Handle a Customer Problem" quest | **Built** — reached via a portal inside Marketing Studio (Idea Lab → Marketing Studio → Workshop, Entrepreneur Quest's first 3-zone graph); another `CHALLENGE`-kind quest, porting the real `too-expensive-feedback` decision event verbatim |
 | Leadership Quest's Leadership Academy zone + "The Big Mistake" quest | **Built** — a `CHALLENGE`-kind quest porting the website's real `big-mistake-choice` decision event verbatim, with Priya as a real-character NPC; this is what motivated `QuestData.intro_dialogue` (Section 4) |
 | Leadership Quest's Team Challenge zone + "The Angry Customer" quest | **Built** — reached via a portal inside Leadership Academy (Leadership Quest's first 2-zone graph); another `CHALLENGE`-kind quest with Theo as a real-character NPC, porting the real `angry-customer-choice` decision event verbatim |
+| Leadership Quest's Strategy Room zone + "The Better Idea" quest | **Built** — reached via a portal inside Team Challenge (Leadership Academy → Team Challenge → Strategy Room, Leadership Quest's first 3-zone graph); another `CHALLENGE`-kind quest with Nadia (the 3rd of Leadership Quest's 4 real characters used so far) as the giver NPC, porting the real `better-idea-choice` decision event verbatim |
 | `AvatarConfig` + creation screen, fully wired to the 3D model | **Built** — 4 body presets (including a seated wheelchair-style look) and 4 accessories (glasses, cap, hearing aid, cane), all purely visual, listed together as equally normal choices |
 | Progression fields for zones/quests/skills | **Built** (additive) |
 | Entrepreneur Quest's full BUILD → RUN → RESCUE & GROW track / Leadership Quest's remaining 11 missions | Not built — only one representative slice per track exists so far |
@@ -613,6 +614,7 @@ godot/money-quest-game/
         workshop/               # Entrepreneur Quest's third zone (reached via Marketing Studio)
         leadership_academy/     # Leadership Quest's first zone
         team_challenge/         # Leadership Quest's second zone (reached via Leadership Academy)
+        strategy_room/          # Leadership Quest's third zone (reached via Team Challenge)
         calm_world/             # Calm World's 8 gardens (BubbleGarden.tscn +
                                  # AquariumRoom/LightRoom/RainRoom/
                                  # UnderwaterRoom/ForestWalk/MusicRoom/
@@ -720,9 +722,11 @@ godot/money-quest-game/
     body preset and glasses/cap/hearing-aid/cane accessories, all purely
     visual (Section 9), audio buses/Settings screen/mobile Talk button
     (Section 15), Guardian Gate + "Spotting a Scam" (`builder-scams-l1`),
-    Money Quest's third zone, and Workshop + "Handle a Customer Problem,"
-    Entrepreneur Quest's third zone (Section 10). Still waiting on you: a
-    real book/exhibit/mentor for Library/Museum (Section 6). Still
-    unstarted: Leadership Quest's remaining stages, Money Quest's
-    remaining 27 lessons, Entrepreneur Quest's remaining real
-    BUILD/RUN/RESCUE & GROW stages.
+    Money Quest's third zone, Workshop + "Handle a Customer Problem,"
+    Entrepreneur Quest's third zone, and Strategy Room + "The Better
+    Idea," Leadership Quest's third zone (Section 10). Still waiting on
+    you: a real book/exhibit/mentor for Library/Museum (Section 6). Still
+    unstarted: Leadership Quest's remaining `mission-choice`-kind
+    missions and its `spot`/`allocate`/`sort`-kind missions (need
+    mechanics not built yet), Money Quest's remaining 27 lessons,
+    Entrepreneur Quest's remaining real BUILD/RUN/RESCUE & GROW stages.

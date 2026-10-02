@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ZoneData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/ZoneData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+zone_id = "strategy-room"
+display_name_key = "zone.strategy_room.name"
+scene_path = "res://scenes/world/zones/strategy_room/StrategyRoom.tscn"
+kind = 1
+theme_color = Color(0.4, 0.58, 0.62, 1)
+unlock_condition_quest_id = ""
+npc_ids = Array[String](["nadia"])
+quest_ids = Array[String](["lq-better-idea-quest"])
+exhibit_ids = Array[String]([])
+book_ids = Array[String]([])
+player_spawn_position = Vector3(0, 0, 3)

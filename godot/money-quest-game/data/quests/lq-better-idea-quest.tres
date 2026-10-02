@@ -1,0 +1,78 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=16 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueLine.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="5"]
+
+[sub_resource type="Resource" id="DialogueLine_nadia"]
+script = ExtResource("2")
+speaker_id = "nadia"
+text_key = "quest.lq_better_idea.dialogue.0"
+
+[sub_resource type="Resource" id="ConsequenceEffect_use_their_idea"]
+script = ExtResource("5")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "lq.decision.better_idea.choice.use_their_idea.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_use_their_idea"]
+script = ExtResource("4")
+label_key = "lq.decision.better_idea.choice.use_their_idea.label"
+consequence = SubResource("ConsequenceEffect_use_their_idea")
+
+[sub_resource type="Resource" id="ConsequenceEffect_combine_ideas"]
+script = ExtResource("5")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "lq.decision.better_idea.choice.combine_ideas.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_combine_ideas"]
+script = ExtResource("4")
+label_key = "lq.decision.better_idea.choice.combine_ideas.label"
+consequence = SubResource("ConsequenceEffect_combine_ideas")
+
+[sub_resource type="Resource" id="ConsequenceEffect_stick_with_your_idea"]
+script = ExtResource("5")
+coin_delta = 3
+xp_delta = 5
+consequence_text_key = "lq.decision.better_idea.choice.stick_with_your_idea.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_stick_with_your_idea"]
+script = ExtResource("4")
+label_key = "lq.decision.better_idea.choice.stick_with_your_idea.label"
+consequence = SubResource("ConsequenceEffect_stick_with_your_idea")
+
+[sub_resource type="Resource" id="ConsequenceEffect_ask_the_team_to_vote"]
+script = ExtResource("5")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "lq.decision.better_idea.choice.ask_the_team_to_vote.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_ask_the_team_to_vote"]
+script = ExtResource("4")
+label_key = "lq.decision.better_idea.choice.ask_the_team_to_vote.label"
+consequence = SubResource("ConsequenceEffect_ask_the_team_to_vote")
+
+[sub_resource type="Resource" id="DialogueChoice_better_idea"]
+script = ExtResource("3")
+situation_text_key = "lq.decision.better_idea.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_use_their_idea"), SubResource("ChoiceOption_combine_ideas"), SubResource("ChoiceOption_stick_with_your_idea"), SubResource("ChoiceOption_ask_the_team_to_vote")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "lq-better-idea-quest"
+title_key = "quest.lq_better_idea.title"
+description_key = "quest.lq_better_idea.description"
+educational_objective_key = "quest.lq_better_idea.objective"
+track = "leadership-quest"
+zone_id = "strategy-room"
+giver_npc_id = "nadia"
+kind = 2
+intro_dialogue = Array[DialogueLine]([SubResource("DialogueLine_nadia")])
+challenge_choice = SubResource("DialogueChoice_better_idea")
+reward_message_key = "quest.lq_better_idea.reward_message"
+xp_reward = 15
+coin_reward = 10
+skill_ids = Array[String](["collaboration", "open-mindedness", "decision-making"])
