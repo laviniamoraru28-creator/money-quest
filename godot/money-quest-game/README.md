@@ -91,6 +91,11 @@ rebuilt.
    message demands you act immediately, and you choose whether to enter a
    password right away or pause and check with a trusted adult, with the
    real curriculum's quiz and explanation on spotting scam warning signs
+   afterward. A second portal inside Guardian Gate leads to **Sky
+   Exchange**, Money Quest's fourth zone — talk to Sam to start "Cash,
+   Cards, and Currencies": Sam's family is planning a trip abroad, and
+   you decide whether to bring money from home or exchange some for the
+   local currency first, with the real curriculum's quiz and explanation
    afterward.
 4. In Idea Lab, walk up to the Business Guide and interact with them to
    start "Handle Competition" — a single decision ported directly from the
@@ -159,10 +164,11 @@ up-to-date table. In short:
 | Library zone (bookshelves + Librarian NPC, reachable from the Hub, honestly empty — see "Content fidelity" below) | Library books content |
 | Mind Lab zone + "Different Explanations" quest (an original scenario — no external fact needed, never diagnostic/medical) | — |
 | Golden Vault zone + Maya's quest (reuses the existing `LessonData`/`LessonManager`/mini-game/UI overlays unchanged) | Leadership Quest's remaining 9 missions (only 3 of 12 are built) |
-| Golden Vault's Savings Guide + "What Does Saving Mean?" quest (`explorer-saving-l1`, Golden Vault's second quest-giving NPC — no new zone needed, no mini-game needed) | Money Quest's remaining 25 lessons |
+| Golden Vault's Savings Guide + "What Does Saving Mean?" quest (`explorer-saving-l1`, Golden Vault's second quest-giving NPC — no new zone needed, no mini-game needed) | — |
 | Golden Vault's Theo + "Saving vs. Spending: The Real Trade-off" quest (`strategist-saving-l1`, Golden Vault's third quest-giving NPC — completes the "saving" topic's full 3-age-band trilogy in one zone, no mini-game needed) | — |
 | Market Town zone + Baker's quest (`explorer-needs_wants-l1`, reached via a portal inside Golden Vault — Money Quest's first 2-zone graph, no mini-game needed) | — |
 | Guardian Gate zone + Zara's quest (`builder-scams-l1`, "Spotting a Scam," reached via a portal inside Market Town — Money Quest's first 3-zone graph, no mini-game needed) | — |
+| Sky Exchange zone + Sam's quest (`builder-currencies-l1`, "Cash, Cards, and Currencies," reached via a portal inside Guardian Gate — Money Quest's first 4-zone graph, no mini-game needed) | Money Quest's remaining 24 lessons |
 | Idea Lab zone + "Handle Competition" quest (ports the website's real `competitor-lower-price` decision event) | — |
 | Marketing Studio zone + "Create Your Marketing" quest (ports the real `product-unclear` decision event, reached via a portal inside Idea Lab) | Entrepreneur Quest's `reflect-text`-kind stages (need a free-text input UI not built yet) |
 | Workshop zone + "Handle a Customer Problem" quest (ports the real `too-expensive-feedback` decision event, reached via a portal inside Marketing Studio — Entrepreneur Quest's first 3-zone graph) | — |
@@ -221,6 +227,15 @@ wording applying the lesson's real urgency-is-a-red-flag concept to a
 concrete decision (enter a password right away vs. pause and check with a
 trusted adult) — the same "find the correct game mechanic for the
 concept" instruction as Market Town.
+
+Sam's quest in Sky Exchange is the same: every curriculum field (title,
+learning objective, key concept, vocabulary `currency`/`physical
+money`/`digital money`, explanation, quiz, feedback, reward message) is
+copied from the real `curriculum.builder-currencies-l1`. Sam is the real
+child named in that lesson's own story, and the only original text is
+the intro framing and the choice/consequence wording applying the
+lesson's real "money from home doesn't work abroad" concept to a
+concrete decision (bring the same money vs. exchange it first).
 
 Idea Lab's "Handle Competition" quest is likewise copied directly from the
 real `messages/en.json`/`messages/ro.json` (`entrepreneurQuest.decisionEvents
@@ -378,6 +393,8 @@ rationale. Quick map:
   zone, reached via a portal inside Golden Vault.
 - `scenes/world/zones/guardian_gate/GuardianGate.tscn` — Money Quest's
   third zone, reached via a portal inside Market Town.
+- `scenes/world/zones/sky_exchange/SkyExchange.tscn` — Money Quest's
+  fourth zone, reached via a portal inside Guardian Gate.
 - `scenes/world/zones/idea_lab/IdeaLab.tscn` — Entrepreneur Quest's first
   zone.
 - `scenes/world/zones/marketing_studio/MarketingStudio.tscn` —
@@ -438,7 +455,7 @@ rationale. Quick map:
   Read-aloud/text-to-speech has no engine wired in at all — not even a
   silent placeholder bus — since one would require either an offline
   voice model or a paid API, both out of scope per the brief.
-- Only 5 of 30 curriculum lessons are wired up as Quests, only 3 of
+- Only 6 of 30 curriculum lessons are wired up as Quests, only 3 of
   Entrepreneur Quest's many real BUILD/RUN/RESCUE & GROW stages are
   ported, and only 3 of Leadership Quest's 12 real missions are ported.
   See `docs/money-quest-world-architecture.md` Section 12 for the
