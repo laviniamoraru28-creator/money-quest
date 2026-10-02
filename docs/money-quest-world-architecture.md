@@ -450,9 +450,25 @@ is built against something real rather than guessed at.
   every other animated piece of this project — see Section 13's audit).
   Calm World is uniquely safe to build ahead of Library/Museum/Mind Lab:
   unlike those, it needs no real-world fact, book, or biography to be
-  honest — a bubble is just a bubble. The remaining 7 named gardens are
-  the source for the next content addition, each a new `.tres` + `.tscn`
-  pair, never a core script change.
+  honest — a bubble is just a bubble. **All 8 named gardens are now
+  built**: Aquarium Room (fish gliding in slow circles), Light Room
+  (warm lanterns breathing softly via emission + scale pulse), Rain Room
+  (soft raindrops falling and looping — frozen mid-air when
+  `reduced_motion` is on, which reads as its own calm "still rain"
+  scene), Underwater Room (tall kelp swaying), Forest Walk (tree
+  canopies swaying), Music Room (floating note shapes drifting and
+  turning — purely visual, since `AudioManager` ships no audio assets
+  and nothing here implies real sound), and Grow-a-Garden (flowers
+  breathing via bloom scale pulse), alongside Bubble Garden. Each is its
+  own `ZoneData` (`kind == CALM`, `unlock_condition_quest_id = ""`,
+  never gated) reachable via a portal placed inside Bubble Garden —
+  Calm World's 8 gardens share one Hub portal rather than claiming 7
+  more Hub slots, exactly the inner-zone-graph pattern already proven by
+  Idea Lab → Marketing Studio and the other Quest tracks' second zones.
+  Every garden motion respects `Settings.reduced_motion` with the same
+  early-return guard used everywhere else in this project. No new system
+  was introduced — each garden is a `.tres` + `.tscn` pair with a small
+  (<45-line) zone script, the same shape as Bubble Garden and Mind Lab.
 
 ---
 
@@ -524,8 +540,7 @@ previously) can be added later as pure content, not an architecture change.
 | Library zone (`data/zones/library.tres`, bookshelves, Librarian NPC, reachable from the Hub) | **Built** — honestly empty; the Librarian says the shelves are still being prepared rather than pretending there's content |
 | Library books, Museum exhibits/zone, Mentors content, `BrowseZoneController` | Not built — zero real books/exhibits/mentors exist to populate or drive a placement controller with (Section 6) |
 | Mind Lab zone + "Different Explanations" quest | **Built** — a `CHALLENGE`-kind quest with an original scenario (no external fact to verify), never diagnostic or medical in framing (Section 7) |
-| Calm World's first garden (`calm-world-bubble-garden`, Bubble Garden) | **Built** — always-unlocked, no choices, bob motion respects `reduced_motion` (Section 7) |
-| Calm World's remaining 7 named gardens | Not built — each is a future `.tres`+`.tscn` content addition, no architecture change needed |
+| Calm World's 8 named gardens (Bubble, Aquarium, Light, Rain, Underwater, Forest, Music, Grow-a-Garden) | **Built** — always-unlocked, no choices, all motion respects `reduced_motion`; the 7 gardens beyond Bubble Garden are each reached via a portal placed inside Bubble Garden (Section 7) |
 | Fuller avatar presets (inclusive representation beyond color) | Not built — flagged as a deliberate future content addition, not an architecture gap |
 
 ---
@@ -572,7 +587,11 @@ godot/money-quest-game/
         marketing_studio/       # Entrepreneur Quest's second zone (reached via Idea Lab)
         leadership_academy/     # Leadership Quest's first zone
         team_challenge/         # Leadership Quest's second zone (reached via Leadership Academy)
-        calm_world/             # Calm World's first garden (BubbleGarden.tscn)
+        calm_world/             # Calm World's 8 gardens (BubbleGarden.tscn +
+                                 # AquariumRoom/LightRoom/RainRoom/
+                                 # UnderwaterRoom/ForestWalk/MusicRoom/
+                                 # GrowAGarden.tscn, all reached via a portal
+                                 # inside Bubble Garden)
         library/                # Library.tscn — honestly empty, no BookData yet
         mind_lab/               # Mind Lab's first zone + quest (MindLab.tscn)
       Main.tscn                 # persistent root: ZoneContainer + HUD
@@ -609,10 +628,12 @@ godot/money-quest-game/
     (Section 6); the Library has a real, walkable, honestly-empty zone;
     Museum has zero real entries and no zone yet (nothing to invent yet —
     the actual blocker now is your approval of real content, not
-    architecture); Calm World has its first garden built (Bubble Garden,
-    Section 7); Mind Lab now has its first zone and quest built too
-    (Section 7) — it didn't share Library/Museum's content-approval
-    blocker since its scenario needs no external fact.
+    architecture); Calm World now has all 8 named gardens built (Bubble
+    Garden plus Aquarium Room, Light Room, Rain Room, Underwater Room,
+    Forest Walk, Music Room, and Grow-a-Garden, Section 7); Mind Lab now
+    has its first zone and quest built too (Section 7) — neither Calm
+    World nor Mind Lab shared Library/Museum's content-approval blocker,
+    since neither needs an external fact to verify.
 13. **Test accessibility, localization, performance** — a static audit
     this phase (no Godot editor available in this environment, so this is
     code/content inspection, not a live playtest):

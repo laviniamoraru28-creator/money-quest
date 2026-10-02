@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ZoneData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/ZoneData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+zone_id = "calm-world-underwater-room"
+display_name_key = "zone.underwater_room.name"
+scene_path = "res://scenes/world/zones/calm_world/UnderwaterRoom.tscn"
+kind = 5
+theme_color = Color(0.5, 0.72, 0.76, 1)
+unlock_condition_quest_id = ""
+npc_ids = Array[String]([])
+quest_ids = Array[String]([])
+exhibit_ids = Array[String]([])
+book_ids = Array[String]([])
+player_spawn_position = Vector3(0, 0, 3)

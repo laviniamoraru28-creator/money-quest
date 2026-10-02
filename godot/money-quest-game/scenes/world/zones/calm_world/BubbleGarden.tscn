@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bubblegarden01"]
+[gd_scene load_steps=12 format=3 uid="uid://bubblegarden01"]
 
 [ext_resource type="Script" path="res://scenes/world/zones/calm_world/BubbleGarden.gd" id="1"]
 [ext_resource type="PackedScene" path="res://scenes/player/Player.tscn" id="2"]
@@ -102,6 +102,153 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("BoxMesh_portal")
 
 [node name="Label" type="Label3D" parent="PortalToHub"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, 0)
+billboard = 1
+no_depth_test = true
+font_size = 48
+outline_size = 8
+text = ""
+
+[node name="PortalToAquariumRoom" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -8)
+script = ExtResource("4")
+label_key = "zone.aquarium_room.name"
+target_zone_id = "calm-world-aquarium-room"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PortalToAquariumRoom"]
+shape = SubResource("CylinderShape3D_portal")
+
+[node name="Visual" type="MeshInstance3D" parent="PortalToAquariumRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_portal")
+
+[node name="Label" type="Label3D" parent="PortalToAquariumRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, 0)
+billboard = 1
+no_depth_test = true
+font_size = 48
+outline_size = 8
+text = ""
+
+[node name="PortalToLightRoom" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -9)
+script = ExtResource("4")
+label_key = "zone.light_room.name"
+target_zone_id = "calm-world-light-room"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PortalToLightRoom"]
+shape = SubResource("CylinderShape3D_portal")
+
+[node name="Visual" type="MeshInstance3D" parent="PortalToLightRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_portal")
+
+[node name="Label" type="Label3D" parent="PortalToLightRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, 0)
+billboard = 1
+no_depth_test = true
+font_size = 48
+outline_size = 8
+text = ""
+
+[node name="PortalToRainRoom" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -10)
+script = ExtResource("4")
+label_key = "zone.rain_room.name"
+target_zone_id = "calm-world-rain-room"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PortalToRainRoom"]
+shape = SubResource("CylinderShape3D_portal")
+
+[node name="Visual" type="MeshInstance3D" parent="PortalToRainRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_portal")
+
+[node name="Label" type="Label3D" parent="PortalToRainRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, 0)
+billboard = 1
+no_depth_test = true
+font_size = 48
+outline_size = 8
+text = ""
+
+[node name="PortalToUnderwaterRoom" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10.5)
+script = ExtResource("4")
+label_key = "zone.underwater_room.name"
+target_zone_id = "calm-world-underwater-room"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PortalToUnderwaterRoom"]
+shape = SubResource("CylinderShape3D_portal")
+
+[node name="Visual" type="MeshInstance3D" parent="PortalToUnderwaterRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_portal")
+
+[node name="Label" type="Label3D" parent="PortalToUnderwaterRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, 0)
+billboard = 1
+no_depth_test = true
+font_size = 48
+outline_size = 8
+text = ""
+
+[node name="PortalToForestWalk" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -10)
+script = ExtResource("4")
+label_key = "zone.forest_walk.name"
+target_zone_id = "calm-world-forest-walk"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PortalToForestWalk"]
+shape = SubResource("CylinderShape3D_portal")
+
+[node name="Visual" type="MeshInstance3D" parent="PortalToForestWalk"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_portal")
+
+[node name="Label" type="Label3D" parent="PortalToForestWalk"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, 0)
+billboard = 1
+no_depth_test = true
+font_size = 48
+outline_size = 8
+text = ""
+
+[node name="PortalToMusicRoom" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -9)
+script = ExtResource("4")
+label_key = "zone.music_room.name"
+target_zone_id = "calm-world-music-room"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PortalToMusicRoom"]
+shape = SubResource("CylinderShape3D_portal")
+
+[node name="Visual" type="MeshInstance3D" parent="PortalToMusicRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_portal")
+
+[node name="Label" type="Label3D" parent="PortalToMusicRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, 0)
+billboard = 1
+no_depth_test = true
+font_size = 48
+outline_size = 8
+text = ""
+
+[node name="PortalToGrowAGarden" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -8)
+script = ExtResource("4")
+label_key = "zone.grow_a_garden.name"
+target_zone_id = "calm-world-grow-a-garden"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PortalToGrowAGarden"]
+shape = SubResource("CylinderShape3D_portal")
+
+[node name="Visual" type="MeshInstance3D" parent="PortalToGrowAGarden"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_portal")
+
+[node name="Label" type="Label3D" parent="PortalToGrowAGarden"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, 0)
 billboard = 1
 no_depth_test = true

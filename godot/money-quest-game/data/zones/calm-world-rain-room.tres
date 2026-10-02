@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ZoneData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/ZoneData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+zone_id = "calm-world-rain-room"
+display_name_key = "zone.rain_room.name"
+scene_path = "res://scenes/world/zones/calm_world/RainRoom.tscn"
+kind = 5
+theme_color = Color(0.72, 0.76, 0.84, 1)
+unlock_condition_quest_id = ""
+npc_ids = Array[String]([])
+quest_ids = Array[String]([])
+exhibit_ids = Array[String]([])
+book_ids = Array[String]([])
+player_spawn_position = Vector3(0, 0, 3)
