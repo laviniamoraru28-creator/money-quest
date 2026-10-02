@@ -135,7 +135,13 @@ rebuilt.
    real curriculum's quiz and explanation on why money only works
    within its own trusted system afterward — completing the full
    "money_basics" topic trilogy in one zone, the same way Golden Vault
-   completed "saving."
+   completed "saving." A second portal inside Coin Cove leads to
+   **Horizon Peaks**, Money Quest's sixth zone — talk to Finn to start
+   "Planning a Few Steps Ahead": Finn has saved enough for a small toy
+   today or a bigger set in three weeks, and you decide whether he
+   pictures the outcome by writing it down or by talking it through
+   with a grown-up, with the real curriculum's quiz and explanation on
+   why thinking ahead leads to better decisions afterward.
 4. In Idea Lab, walk up to the Business Guide and interact with them to
    start "Handle Competition" — a single decision ported directly from the
    website's real Entrepreneur Quest content: a competitor undercuts your
@@ -213,7 +219,8 @@ up-to-date table. In short:
 | Sky Exchange's Tomasz + "Locked Until 18: How a Junior ISA Works" quest (`builder-junior_isa-l1`, Sky Exchange's fourth and final quest-giving NPC, completing all 4 real topics the zone hosts) | — |
 | Coin Cove zone + Shopkeeper's quest (`explorer-money_basics-l1`, "What Is Money?," reached via a portal inside Sky Exchange — Money Quest's first 5-zone graph, no mini-game needed) | — |
 | Coin Cove's Amir + "Where Does Money Come From?" quest (`builder-money_basics-l1`, Coin Cove's second quest-giving NPC — no new zone needed, no mini-game needed) | — |
-| Coin Cove's Priya + "Money as a Tool, Not a Goal" quest (`strategist-money_basics-l1`, Coin Cove's third quest-giving NPC, completing the "money_basics" topic trilogy — no new zone needed, no mini-game needed) | Money Quest's remaining 18 lessons |
+| Coin Cove's Priya + "Money as a Tool, Not a Goal" quest (`strategist-money_basics-l1`, Coin Cove's third quest-giving NPC, completing the "money_basics" topic trilogy — no new zone needed, no mini-game needed) | — |
+| Horizon Peaks zone + Finn's quest (`builder-long_term_thinking-l1`, "Planning a Few Steps Ahead," reached via a portal inside Coin Cove — Money Quest's first 6-zone graph, no mini-game needed) | Money Quest's remaining 17 lessons |
 | Idea Lab zone + "Handle Competition" quest (ports the website's real `competitor-lower-price` decision event) | — |
 | Marketing Studio zone + "Create Your Marketing" quest (ports the real `product-unclear` decision event, reached via a portal inside Idea Lab) | Entrepreneur Quest's `reflect-text`-kind stages (need a free-text input UI not built yet) |
 | Workshop zone + "Handle a Customer Problem" quest (ports the real `too-expensive-feedback` decision event, reached via a portal inside Marketing Studio — Entrepreneur Quest's first 3-zone graph) | — |
@@ -353,6 +360,17 @@ text is the intro framing and the choice/consequence wording applying
 the lesson's real "money only works within its own trusted system"
 concept to a concrete decision (keep the foreign note as a souvenir vs.
 help find a currency exchange) — both equally valid.
+
+Finn's quest in Horizon Peaks is the same: every curriculum field (title,
+learning objective, key concept, vocabulary `plan ahead`/`outcome`,
+explanation, quiz, feedback, reward message) is copied from the real
+`curriculum.builder-long_term_thinking-l1`. Finn is the real child named
+in that lesson's own story, and the only original text is the intro
+framing and the choice/consequence wording applying the lesson's real
+"picture the outcome before deciding" concept to a concrete decision
+(write it down vs. ask a grown-up for help picturing both futures) —
+both equally valid ways to think ahead, with the quiz carrying the
+lesson's actual testable fact.
 
 Idea Lab's "Handle Competition" quest is likewise copied directly from the
 real `messages/en.json`/`messages/ro.json` (`entrepreneurQuest.decisionEvents
@@ -514,6 +532,8 @@ rationale. Quick map:
   fourth zone, reached via a portal inside Guardian Gate.
 - `scenes/world/zones/coin_cove/CoinCove.tscn` — Money Quest's fifth
   zone, reached via a portal inside Sky Exchange.
+- `scenes/world/zones/horizon_peaks/HorizonPeaks.tscn` — Money Quest's
+  sixth zone, reached via a portal inside Coin Cove.
 - `scenes/world/zones/idea_lab/IdeaLab.tscn` — Entrepreneur Quest's first
   zone.
 - `scenes/world/zones/marketing_studio/MarketingStudio.tscn` —
@@ -574,7 +594,7 @@ rationale. Quick map:
   Read-aloud/text-to-speech has no engine wired in at all — not even a
   silent placeholder bus — since one would require either an offline
   voice model or a paid API, both out of scope per the brief.
-- Only 12 of 30 curriculum lessons are wired up as Quests, only 3 of
+- Only 13 of 30 curriculum lessons are wired up as Quests, only 3 of
   Entrepreneur Quest's many real BUILD/RUN/RESCUE & GROW stages are
   ported, and only 3 of Leadership Quest's 12 real missions are ported.
   See `docs/money-quest-world-architecture.md` Section 12 for the
