@@ -91,8 +91,15 @@ rebuilt.
    project due tomorrow, and you decide whether she borrows one or
    buys a simple replacement, with the real curriculum's quiz and
    explanation on how something can be a need in one situation and a
-   want in another afterward. A second portal inside Market Town leads
-   to **Guardian Gate**, Money
+   want in another afterward. Market Town's third and final resident,
+   Jordan, gives "Needs, Wants, and Social Pressure": Jordan sees an ad
+   playing on fear of missing out even though their current thing works
+   fine, and you decide whether they pause to name the feeling the ad
+   is creating or ask a friend for a reality check, with the real
+   curriculum's quiz and explanation on how advertising and social
+   pressure are designed to make wants feel urgent afterward —
+   completing the "needs_wants" topic trilogy. A second portal inside
+   Market Town leads to **Guardian Gate**, Money
    Quest's third zone — talk to Zara to start "Spotting a Scam": a
    message demands you act immediately, and you choose whether to enter a
    password right away or pause and check with a trusted adult, with the
@@ -260,7 +267,8 @@ up-to-date table. In short:
 | Golden Vault's Savings Guide + "What Does Saving Mean?" quest (`explorer-saving-l1`, Golden Vault's second quest-giving NPC — no new zone needed, no mini-game needed) | — |
 | Golden Vault's Theo + "Saving vs. Spending: The Real Trade-off" quest (`strategist-saving-l1`, Golden Vault's third quest-giving NPC — completes the "saving" topic's full 3-age-band trilogy in one zone, no mini-game needed) | — |
 | Market Town zone + Baker's quest (`explorer-needs_wants-l1`, reached via a portal inside Golden Vault — Money Quest's first 2-zone graph, no mini-game needed) | — |
-| Market Town's Leah + "The Grey Area" quest (`builder-needs_wants-l1`, Market Town's second quest-giving NPC — no new zone needed, no mini-game needed) | Money Quest's remaining 11 lessons |
+| Market Town's Leah + "The Grey Area" quest (`builder-needs_wants-l1`, Market Town's second quest-giving NPC — no new zone needed, no mini-game needed) | — |
+| Market Town's Jordan + "Needs, Wants, and Social Pressure" quest (`strategist-needs_wants-l1`, Market Town's third quest-giving NPC, completing the "needs_wants" topic trilogy — no new zone needed, no mini-game needed) | Money Quest's remaining 10 lessons |
 | Guardian Gate zone + Zara's quest (`builder-scams-l1`, "Spotting a Scam," reached via a portal inside Market Town — Money Quest's first 3-zone graph, no mini-game needed) | — |
 | Sky Exchange zone + Sam's quest (`builder-currencies-l1`, "Cash, Cards, and Currencies," reached via a portal inside Guardian Gate — Money Quest's first 4-zone graph, no mini-game needed) | — |
 | Sky Exchange's Omar + "How a Card Payment Actually Works" quest (`builder-digital_money-l1`, Sky Exchange's second quest-giving NPC — no new zone needed, no mini-game needed) | — |
@@ -332,6 +340,18 @@ framing and the choice/consequence wording applying the lesson's real
 "it depends on the situation" concept to a concrete decision (borrow a
 calculator vs. buy a simple replacement) — both equally valid ways to
 meet a genuine need.
+
+Jordan's quest in Market Town is the same: every curriculum field
+(title, learning objective, key concept, vocabulary `advertising`/
+`social pressure`/`urgency`, explanation, quiz, feedback, reward
+message) is copied from the real `curriculum.strategist-needs_wants-l1`.
+Jordan is the real teen named in that lesson's own story (they/them in
+the real source text, preserved as-is), and the only original text is
+the intro framing and the choice/consequence wording applying the
+lesson's real "advertising makes wants feel urgent" concept to a
+concrete decision (name the feeling the ad creates vs. ask a friend for
+a reality check) — both equally valid ways to see past the persuasion
+technique, completing the "needs_wants" topic trilogy.
 
 Zara's quest in Guardian Gate is the same: every curriculum field (title,
 learning objective, key concept, vocabulary `scam`/`urgency`/`personal
@@ -725,7 +745,7 @@ rationale. Quick map:
   Read-aloud/text-to-speech has no engine wired in at all — not even a
   silent placeholder bus — since one would require either an offline
   voice model or a paid API, both out of scope per the brief.
-- Only 19 of 30 curriculum lessons are wired up as Quests, only 3 of
+- Only 20 of 30 curriculum lessons are wired up as Quests, only 3 of
   Entrepreneur Quest's many real BUILD/RUN/RESCUE & GROW stages are
   ported, and only 3 of Leadership Quest's 12 real missions are ported.
   See `docs/money-quest-world-architecture.md` Section 12 for the
