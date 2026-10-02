@@ -167,7 +167,15 @@ rebuilt.
    completes all 7 of the real website's Money Quest zones. (Omar's
    name coincidentally matches Sky Exchange's Omar — an unrelated real
    character from a different lesson, harmless the same way the earlier
-   Theo/Priya coincidences were.)
+   Theo/Priya coincidences were.) Kindness Grove's second resident,
+   Friend, gives "The Joy of Sharing": you have five coins and your
+   friend has none but wants to join a game that costs one, and you've
+   already shared a coin so you both can play — the only decision left
+   is who goes first — with the real curriculum's quiz and explanation
+   on how a small, shared coin made a real difference afterward. (This
+   lesson's own story has no named child, just "you" and "your friend,"
+   so this NPC uses that role as its generic name, same as Market
+   Town's Baker.)
 4. In Idea Lab, walk up to the Business Guide and interact with them to
    start "Handle Competition" — a single decision ported directly from the
    website's real Entrepreneur Quest content: a competitor undercuts your
@@ -249,7 +257,8 @@ up-to-date table. In short:
 | Horizon Peaks zone + Finn's quest (`builder-long_term_thinking-l1`, "Planning a Few Steps Ahead," reached via a portal inside Coin Cove — Money Quest's first 6-zone graph, no mini-game needed) | — |
 | Horizon Peaks' Aisha + "Big Decisions, Long Timelines" quest (`strategist-long_term_thinking-l1`, Horizon Peaks' second quest-giving NPC — no new zone needed, no mini-game needed) | — |
 | Horizon Peaks' Sticker Keeper + "Waiting Can Pay Off" quest (`explorer-long_term_thinking-l1`, Horizon Peaks' third quest-giving NPC, completing the "long_term_thinking" topic trilogy — no new zone needed, no mini-game needed) | — |
-| Kindness Grove zone + Omar's quest (`builder-giving-l1`, "Giving on Purpose," reached via a portal inside Horizon Peaks — Money Quest's 7th and final zone, no mini-game needed) | Money Quest's remaining 14 lessons |
+| Kindness Grove zone + Omar's quest (`builder-giving-l1`, "Giving on Purpose," reached via a portal inside Horizon Peaks — Money Quest's 7th and final zone, no mini-game needed) | — |
+| Kindness Grove's Friend + "The Joy of Sharing" quest (`explorer-giving-l1`, Kindness Grove's second quest-giving NPC — no new zone needed, no mini-game needed) | Money Quest's remaining 13 lessons |
 | Idea Lab zone + "Handle Competition" quest (ports the website's real `competitor-lower-price` decision event) | — |
 | Marketing Studio zone + "Create Your Marketing" quest (ports the real `product-unclear` decision event, reached via a portal inside Idea Lab) | Entrepreneur Quest's `reflect-text`-kind stages (need a free-text input UI not built yet) |
 | Workshop zone + "Handle a Customer Problem" quest (ports the real `too-expensive-feedback` decision event, reached via a portal inside Marketing Studio — Entrepreneur Quest's first 3-zone graph) | — |
@@ -439,6 +448,19 @@ were. The only original text is the intro framing and the
 choice/consequence wording applying the lesson's real "plan for giving
 ahead of time" concept to a concrete decision (give to a friend vs. the
 class fundraiser) — both equally valid, neither graded as "wrong."
+
+Friend's quest in Kindness Grove is the same: every curriculum field
+(title, learning objective, key concept, vocabulary `give`/`share`,
+explanation, quiz, feedback, reward message) is copied from the real
+`curriculum.explorer-giving-l1`. This lesson's own story has no named
+child (second person "you" sharing with "your friend"), so this NPC
+uses that role as its generic name, the same convention Market Town's
+Baker established. Because the real story's fixed outcome (sharing a
+coin so both can play) is exactly what the curriculum's own quiz tests,
+the choice_point here is deliberately a downstream decision (who goes
+first) rather than whether to share at all — the same safeguard used
+for the Sticker Keeper's lesson in Horizon Peaks, so the player's
+choice can never contradict the fixed quiz.
 
 Idea Lab's "Handle Competition" quest is likewise copied directly from the
 real `messages/en.json`/`messages/ro.json` (`entrepreneurQuest.decisionEvents
@@ -664,7 +686,7 @@ rationale. Quick map:
   Read-aloud/text-to-speech has no engine wired in at all — not even a
   silent placeholder bus — since one would require either an offline
   voice model or a paid API, both out of scope per the brief.
-- Only 16 of 30 curriculum lessons are wired up as Quests, only 3 of
+- Only 17 of 30 curriculum lessons are wired up as Quests, only 3 of
   Entrepreneur Quest's many real BUILD/RUN/RESCUE & GROW stages are
   ported, and only 3 of Leadership Quest's 12 real missions are ported.
   See `docs/money-quest-world-architecture.md` Section 12 for the

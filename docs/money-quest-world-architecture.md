@@ -571,6 +571,7 @@ node), never an architecture change.
 | Horizon Peaks' Aisha + "Big Decisions, Long Timelines" quest (`strategist-long_term_thinking-l1`) | **Built** — Horizon Peaks' second quest-giving NPC; Aisha is the real teen from the lesson's own story; unlike every prior choice_point, this lesson's own text explicitly says there's no single right answer (spend a paycheck now vs. save some for later), so the choice_point directly mirrors the real decision instead of a sidestep scenario — safe because the quiz tests deliberateness, not which option was picked; `LessonData.choice_point` with no mini-game |
 | Horizon Peaks' Sticker Keeper + "Waiting Can Pay Off" quest (`explorer-long_term_thinking-l1`) | **Built** — Horizon Peaks' third quest-giving NPC, completing the full 3-age-band "long_term_thinking" topic trilogy in one zone (the same way Golden Vault completed "saving" and Coin Cove completed "money_basics"); the real lesson's story has no named child, so the giver NPC uses the same "generic role name" convention Market Town's Baker established; `LessonData.choice_point` with no mini-game |
 | Money Quest's Kindness Grove zone + Omar's quest (`builder-giving-l1`, "Giving on Purpose") | **Built** — Money Quest's seventh and final zone, reached via a portal inside Horizon Peaks (Golden Vault → Market Town → Guardian Gate → Sky Exchange → Coin Cove → Horizon Peaks → Kindness Grove, completing all 7 of the real website's Money Quest zones); real website world id `kindness-grove`, real badge display name "Giving Hero"; Omar is the real child from the lesson's own story — his name coincidentally matches Sky Exchange's Omar (an unrelated real character from a different real source text), harmless for the same reason as the earlier Theo/Priya collisions (Section 3); another `LessonData.choice_point` with no mini-game |
+| Kindness Grove's Friend + "The Joy of Sharing" quest (`explorer-giving-l1`) | **Built** — Kindness Grove's second quest-giving NPC; the real lesson's story has no named child (second person "you" sharing with "your friend"), so the giver NPC uses that role as its generic name, the same convention Market Town's Baker established; since the real story's outcome (sharing a coin so both can play) is fixed and tested by the curriculum's own quiz, the choice_point is a downstream decision (who goes first) rather than whether to share — the same safeguard used for the Sticker Keeper's lesson in Horizon Peaks; `LessonData.choice_point` with no mini-game |
 | Entrepreneur Quest's Idea Lab zone + "Handle Competition" quest | **Built** — a `CHALLENGE`-kind quest porting the website's real `competitor-lower-price` decision event (`src/content/entrepreneur-quest/structures.ts`) verbatim; proves the same pipeline carries a second Quest track with zero new systems |
 | Entrepreneur Quest's Marketing Studio zone + "Create Your Marketing" quest | **Built** — reached via a portal inside Idea Lab (Entrepreneur Quest's first 2-zone graph); another `CHALLENGE`-kind quest, porting the real `product-unclear` decision event verbatim |
 | Entrepreneur Quest's Workshop zone + "Handle a Customer Problem" quest | **Built** — reached via a portal inside Marketing Studio (Idea Lab → Marketing Studio → Workshop, Entrepreneur Quest's first 3-zone graph); another `CHALLENGE`-kind quest, porting the real `too-expensive-feedback` decision event verbatim |
@@ -771,12 +772,14 @@ godot/money-quest-game/
     quest-giving NPC. Phase 25: the Sticker Keeper +
     "Waiting Can Pay Off" (`explorer-long_term_thinking-l1`), Horizon
     Peaks' third quest-giving NPC, completing the full
-    "long_term_thinking" topic trilogy in one zone. Phase 26 (this
-    update): Kindness Grove, Money Quest's seventh and final zone, with
-    Omar's "Giving on Purpose" (`builder-giving-l1`) — this completes
-    all 7 of the real website's Money Quest zones. Still waiting on
-    you: a real book/exhibit/mentor for Library/Museum (Section 6).
-    Still unstarted: Leadership Quest's remaining `mission-choice`-kind
-    missions and its `spot`/`allocate`/`sort`-kind missions (need
-    mechanics not built yet), Money Quest's remaining 14 lessons,
-    Entrepreneur Quest's remaining real BUILD/RUN/RESCUE & GROW stages.
+    "long_term_thinking" topic trilogy in one zone. Phase 26: Kindness
+    Grove, Money Quest's seventh and final zone, with Omar's "Giving on
+    Purpose" (`builder-giving-l1`) — this completes all 7 of the real
+    website's Money Quest zones. Phase 27 (this update): Friend +
+    "The Joy of Sharing" (`explorer-giving-l1`), Kindness Grove's second
+    quest-giving NPC. Still waiting on you: a real book/exhibit/mentor
+    for Library/Museum (Section 6). Still unstarted: Leadership Quest's
+    remaining `mission-choice`-kind missions and its
+    `spot`/`allocate`/`sort`-kind missions (need mechanics not built
+    yet), Money Quest's remaining 13 lessons, Entrepreneur Quest's
+    remaining real BUILD/RUN/RESCUE & GROW stages.
