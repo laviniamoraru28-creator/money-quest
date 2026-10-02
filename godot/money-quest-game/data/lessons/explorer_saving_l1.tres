@@ -1,0 +1,78 @@
+[gd_resource type="Resource" script_class="LessonData" load_steps=16 format=3]
+
+[ext_resource type="Script" path="res://scripts/core/LessonData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/VocabTerm.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/DialogueLine.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="5"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="6"]
+
+[sub_resource type="Resource" id="VocabTerm_save"]
+script = ExtResource("2")
+term_key = "curriculum.explorer-saving-l1.vocabulary.0.term"
+definition_key = "curriculum.explorer-saving-l1.vocabulary.0.definition"
+
+[sub_resource type="Resource" id="VocabTerm_later"]
+script = ExtResource("2")
+term_key = "curriculum.explorer-saving-l1.vocabulary.1.term"
+definition_key = "curriculum.explorer-saving-l1.vocabulary.1.definition"
+
+[sub_resource type="Resource" id="DialogueLine_intro1"]
+script = ExtResource("3")
+speaker_id = ""
+text_key = "lesson.explorer_saving_l1.intro.line1"
+
+[sub_resource type="Resource" id="DialogueLine_intro2"]
+script = ExtResource("3")
+speaker_id = "savings-guide"
+text_key = "lesson.explorer_saving_l1.intro.line2"
+
+[sub_resource type="Resource" id="ConsequenceEffect_spend_it"]
+script = ExtResource("6")
+coin_delta = 4
+xp_delta = 5
+consequence_text_key = "lesson.explorer_saving_l1.choice.consequence_spend_it"
+
+[sub_resource type="Resource" id="ChoiceOption_spend_it"]
+script = ExtResource("5")
+label_key = "lesson.explorer_saving_l1.choice.option_spend_it"
+consequence = SubResource("ConsequenceEffect_spend_it")
+
+[sub_resource type="Resource" id="ConsequenceEffect_save_it"]
+script = ExtResource("6")
+coin_delta = 4
+xp_delta = 5
+consequence_text_key = "lesson.explorer_saving_l1.choice.consequence_save_it"
+
+[sub_resource type="Resource" id="ChoiceOption_save_it"]
+script = ExtResource("5")
+label_key = "lesson.explorer_saving_l1.choice.option_save_it"
+consequence = SubResource("ConsequenceEffect_save_it")
+
+[sub_resource type="Resource" id="DialogueChoice_todays_coin"]
+script = ExtResource("4")
+situation_text_key = "lesson.explorer_saving_l1.choice.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_spend_it"), SubResource("ChoiceOption_save_it")])
+
+[resource]
+script = ExtResource("1")
+lesson_id = "explorer-saving-l1"
+age_band = "explorer"
+world_id = "golden-vault"
+topic_id = "saving"
+xp_reward = 10
+coin_reward = 8
+learning_objective_key = "curriculum.explorer-saving-l1.learningObjective"
+key_concept_key = "curriculum.explorer-saving-l1.keyConcept"
+vocabulary = Array[VocabTerm]([SubResource("VocabTerm_save"), SubResource("VocabTerm_later")])
+intro_dialogue = Array[DialogueLine]([SubResource("DialogueLine_intro1"), SubResource("DialogueLine_intro2")])
+choice_point = SubResource("DialogueChoice_todays_coin")
+explanation_key = "curriculum.explorer-saving-l1.explanation"
+quiz_question_key = "curriculum.explorer-saving-l1.quiz.question"
+quiz_option_keys = Array[String](["curriculum.explorer-saving-l1.quiz.options.0", "curriculum.explorer-saving-l1.quiz.options.1", "curriculum.explorer-saving-l1.quiz.options.2", "curriculum.explorer-saving-l1.quiz.options.3"])
+quiz_correct_index = 1
+quiz_explanation_key = "curriculum.explorer-saving-l1.quiz.explanation"
+quiz_success_feedback_key = "curriculum.explorer-saving-l1.feedback.success"
+quiz_retry_feedback_key = "curriculum.explorer-saving-l1.feedback.retry"
+reward_message_key = "curriculum.explorer-saving-l1.rewardMessage"
+stage_scene_path = ""

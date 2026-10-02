@@ -73,8 +73,12 @@ rebuilt.
    Your choices genuinely determine whether the goal is reached. The real
    explanation and quiz (from the actual website curriculum content) play
    afterward, then the reward screen, which explicitly labels earned coins
-   as **virtual** (never implying real money). A second portal inside
-   Golden Vault leads to **Market Town**, Money Quest's second zone — walk
+   as **virtual** (never implying real money). Golden Vault also has a
+   second resident NPC, the Savings Guide — talk to them to start "What
+   Does Saving Mean?": you get one coin today, and you choose to spend it
+   right away or save it in your jar, with the real curriculum's quiz and
+   explanation afterward. A second portal inside Golden Vault leads to
+   **Market Town**, Money Quest's second zone — walk
    up to the Baker to start "Need It or Want It?": a bakery has only
    enough allowance for bread or a chocolate bar today, and you choose
    which, with the real curriculum's quiz and explanation afterward. A
@@ -150,8 +154,9 @@ up-to-date table. In short:
 | World Hub: fountain landmark, 7 paths, 7 gate-shaped portals (6 functional, 1 "coming soon"), decorative trees, Hub Guide NPC | Entrepreneur Quest's full BUILD → RUN → RESCUE & GROW track (only one representative quest is built) |
 | Library zone (bookshelves + Librarian NPC, reachable from the Hub, honestly empty — see "Content fidelity" below) | Library books content |
 | Mind Lab zone + "Different Explanations" quest (an original scenario — no external fact needed, never diagnostic/medical) | — |
-| Golden Vault zone + Maya's quest (reuses the existing `LessonData`/`LessonManager`/mini-game/UI overlays unchanged) | Leadership Quest's remaining 10 missions (only 2 of 12 are built) |
-| Market Town zone + Baker's quest (`explorer-needs_wants-l1`, reached via a portal inside Golden Vault — Money Quest's first 2-zone graph, no mini-game needed) | Money Quest's remaining 27 lessons |
+| Golden Vault zone + Maya's quest (reuses the existing `LessonData`/`LessonManager`/mini-game/UI overlays unchanged) | Leadership Quest's remaining 9 missions (only 3 of 12 are built) |
+| Golden Vault's Savings Guide + "What Does Saving Mean?" quest (`explorer-saving-l1`, Golden Vault's second quest-giving NPC — no new zone needed, no mini-game needed) | Money Quest's remaining 26 lessons |
+| Market Town zone + Baker's quest (`explorer-needs_wants-l1`, reached via a portal inside Golden Vault — Money Quest's first 2-zone graph, no mini-game needed) | — |
 | Guardian Gate zone + Zara's quest (`builder-scams-l1`, "Spotting a Scam," reached via a portal inside Market Town — Money Quest's first 3-zone graph, no mini-game needed) | — |
 | Idea Lab zone + "Handle Competition" quest (ports the website's real `competitor-lower-price` decision event) | — |
 | Marketing Studio zone + "Create Your Marketing" quest (ports the real `product-unclear` decision event, reached via a portal inside Idea Lab) | Entrepreneur Quest's `reflect-text`-kind stages (need a free-text input UI not built yet) |
@@ -173,6 +178,15 @@ Every piece of curriculum text in Maya's quest — the story, the vocabulary
 lines, the reward message — is copied directly from the real
 `messages/en.json` (`curriculum.builder-saving-l1`) and `messages/ro.json`
 in the website repo, not invented for this project.
+
+The Savings Guide's quest, also in Golden Vault, is the same: every
+curriculum field (story, vocabulary `save`/`later`, quiz, feedback,
+reward) is copied from the real `curriculum.explorer-saving-l1` — the
+explorer-age-band version of the same "saving" topic Maya's builder-age-band
+quest already covers. The only original text is the intro framing and
+the choice/consequence wording turning "spend today vs. save for later"
+into a concrete one-coin decision, the same discipline as every other
+ported lesson.
 
 The Baker's quest in Market Town is the same: every curriculum field
 (story, vocabulary `need`/`want`, quiz, feedback, reward) is copied from
@@ -345,7 +359,7 @@ rationale. Quick map:
   `DictionaryTermData` (Library/Museum/Dictionary schema).
 - `scenes/world/hub/WorldHub.tscn` — the Hub plaza.
 - `scenes/world/zones/golden_vault/GoldenVault.tscn` — Money Quest's first
-  zone.
+  zone; now with 2 resident NPCs, Maya and the Savings Guide.
 - `scenes/world/zones/market_town/MarketTown.tscn` — Money Quest's second
   zone, reached via a portal inside Golden Vault.
 - `scenes/world/zones/guardian_gate/GuardianGate.tscn` — Money Quest's
@@ -410,7 +424,7 @@ rationale. Quick map:
   Read-aloud/text-to-speech has no engine wired in at all — not even a
   silent placeholder bus — since one would require either an offline
   voice model or a paid API, both out of scope per the brief.
-- Only 3 of 30 curriculum lessons are wired up as Quests, only 3 of
+- Only 4 of 30 curriculum lessons are wired up as Quests, only 3 of
   Entrepreneur Quest's many real BUILD/RUN/RESCUE & GROW stages are
   ported, and only 3 of Leadership Quest's 12 real missions are ported.
   See `docs/money-quest-world-architecture.md` Section 12 for the
