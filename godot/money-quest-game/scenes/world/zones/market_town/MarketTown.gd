@@ -8,16 +8,22 @@ extends Node3D
 ## (explorer-needs_wants-l1), the real website's simplest Money Quest
 ## lesson, ported via LessonData.choice_point with no new mini-game.
 
+## Leah — the real child named in the "The Grey Area" story — is this
+## zone's second resident, giving builder-needs_wants-l1.
+
 const NEEDS_WANTS_QUEST_ID: String = "explorer-needs-wants-l1-quest"
+const NEEDS_WANTS_BUILDER_QUEST_ID: String = "builder-needs-wants-l1-quest"
 
 @onready var player: Node3D = $Player
 @onready var camera_controller: CameraController = $CameraController
 @onready var baker: NPC = $Baker
+@onready var leah: NPC = $Leah
 
 
 func _ready() -> void:
 	camera_controller.target = player
 	baker.talked_to.connect(_on_baker_talked_to)
+	leah.talked_to.connect(_on_leah_talked_to)
 
 
 func _on_baker_talked_to(_npc_id: String) -> void:
@@ -25,3 +31,10 @@ func _on_baker_talked_to(_npc_id: String) -> void:
 		DialogueBox.show_text("zone.market_town.baker.already_done")
 	else:
 		QuestManager.start_quest(NEEDS_WANTS_QUEST_ID)
+
+
+func _on_leah_talked_to(_npc_id: String) -> void:
+	if QuestManager.is_quest_completed(NEEDS_WANTS_BUILDER_QUEST_ID):
+		DialogueBox.show_text("zone.market_town.leah.already_done")
+	else:
+		QuestManager.start_quest(NEEDS_WANTS_BUILDER_QUEST_ID)

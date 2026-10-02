@@ -85,8 +85,14 @@ rebuilt.
    **Market Town**, Money Quest's second zone — walk
    up to the Baker to start "Need It or Want It?": a bakery has only
    enough allowance for bread or a chocolate bar today, and you choose
-   which, with the real curriculum's quiz and explanation afterward. A
-   second portal inside Market Town leads to **Guardian Gate**, Money
+   which, with the real curriculum's quiz and explanation afterward.
+   Market Town's second resident, Leah, gives "The Grey Area": Leah's
+   calculator just broke and she needs a working one for a class
+   project due tomorrow, and you decide whether she borrows one or
+   buys a simple replacement, with the real curriculum's quiz and
+   explanation on how something can be a need in one situation and a
+   want in another afterward. A second portal inside Market Town leads
+   to **Guardian Gate**, Money
    Quest's third zone — talk to Zara to start "Spotting a Scam": a
    message demands you act immediately, and you choose whether to enter a
    password right away or pause and check with a trusted adult, with the
@@ -254,6 +260,7 @@ up-to-date table. In short:
 | Golden Vault's Savings Guide + "What Does Saving Mean?" quest (`explorer-saving-l1`, Golden Vault's second quest-giving NPC — no new zone needed, no mini-game needed) | — |
 | Golden Vault's Theo + "Saving vs. Spending: The Real Trade-off" quest (`strategist-saving-l1`, Golden Vault's third quest-giving NPC — completes the "saving" topic's full 3-age-band trilogy in one zone, no mini-game needed) | — |
 | Market Town zone + Baker's quest (`explorer-needs_wants-l1`, reached via a portal inside Golden Vault — Money Quest's first 2-zone graph, no mini-game needed) | — |
+| Market Town's Leah + "The Grey Area" quest (`builder-needs_wants-l1`, Market Town's second quest-giving NPC — no new zone needed, no mini-game needed) | Money Quest's remaining 11 lessons |
 | Guardian Gate zone + Zara's quest (`builder-scams-l1`, "Spotting a Scam," reached via a portal inside Market Town — Money Quest's first 3-zone graph, no mini-game needed) | — |
 | Sky Exchange zone + Sam's quest (`builder-currencies-l1`, "Cash, Cards, and Currencies," reached via a portal inside Guardian Gate — Money Quest's first 4-zone graph, no mini-game needed) | — |
 | Sky Exchange's Omar + "How a Card Payment Actually Works" quest (`builder-digital_money-l1`, Sky Exchange's second quest-giving NPC — no new zone needed, no mini-game needed) | — |
@@ -267,7 +274,7 @@ up-to-date table. In short:
 | Horizon Peaks' Sticker Keeper + "Waiting Can Pay Off" quest (`explorer-long_term_thinking-l1`, Horizon Peaks' third quest-giving NPC, completing the "long_term_thinking" topic trilogy — no new zone needed, no mini-game needed) | — |
 | Kindness Grove zone + Omar's quest (`builder-giving-l1`, "Giving on Purpose," reached via a portal inside Horizon Peaks — Money Quest's 7th and final zone, no mini-game needed) | — |
 | Kindness Grove's Friend + "The Joy of Sharing" quest (`explorer-giving-l1`, Kindness Grove's second quest-giving NPC — no new zone needed, no mini-game needed) | — |
-| Kindness Grove's Sofia + "Giving Thoughtfully" quest (`strategist-giving-l1`, Kindness Grove's third quest-giving NPC, completing the "giving" topic trilogy — no new zone needed, no mini-game needed) | Money Quest's remaining 12 lessons |
+| Kindness Grove's Sofia + "Giving Thoughtfully" quest (`strategist-giving-l1`, Kindness Grove's third quest-giving NPC, completing the "giving" topic trilogy — no new zone needed, no mini-game needed) | — |
 | Idea Lab zone + "Handle Competition" quest (ports the website's real `competitor-lower-price` decision event) | — |
 | Marketing Studio zone + "Create Your Marketing" quest (ports the real `product-unclear` decision event, reached via a portal inside Idea Lab) | Entrepreneur Quest's `reflect-text`-kind stages (need a free-text input UI not built yet) |
 | Workshop zone + "Handle a Customer Problem" quest (ports the real `too-expensive-feedback` decision event, reached via a portal inside Marketing Studio — Entrepreneur Quest's first 3-zone graph) | — |
@@ -315,6 +322,16 @@ chocolate bar right here...") and the choice/consequence wording applying
 that lesson's real need-vs-want distinction to a concrete decision —
 exactly the brief's own "find the correct game mechanic for the concept"
 instruction, not a rewrite of the lesson's meaning.
+
+Leah's quest in Market Town is the same: every curriculum field (title,
+learning objective, key concept, vocabulary `situation`/`essential`,
+explanation, quiz, feedback, reward message) is copied from the real
+`curriculum.builder-needs_wants-l1`. Leah is the real child named in
+that lesson's own story, and the only original text is the intro
+framing and the choice/consequence wording applying the lesson's real
+"it depends on the situation" concept to a concrete decision (borrow a
+calculator vs. buy a simple replacement) — both equally valid ways to
+meet a genuine need.
 
 Zara's quest in Guardian Gate is the same: every curriculum field (title,
 learning objective, key concept, vocabulary `scam`/`urgency`/`personal
@@ -708,7 +725,7 @@ rationale. Quick map:
   Read-aloud/text-to-speech has no engine wired in at all — not even a
   silent placeholder bus — since one would require either an offline
   voice model or a paid API, both out of scope per the brief.
-- Only 18 of 30 curriculum lessons are wired up as Quests, only 3 of
+- Only 19 of 30 curriculum lessons are wired up as Quests, only 3 of
   Entrepreneur Quest's many real BUILD/RUN/RESCUE & GROW stages are
   ported, and only 3 of Leadership Quest's 12 real missions are ported.
   See `docs/money-quest-world-architecture.md` Section 12 for the

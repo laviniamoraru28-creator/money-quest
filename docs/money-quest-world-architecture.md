@@ -559,6 +559,7 @@ node), never an architecture change.
 | Golden Vault's Savings Guide + "What Does Saving Mean?" quest (`explorer-saving-l1`) | **Built** — Golden Vault's second quest-giving NPC: a second real lesson on the same topic needed only a new NPC node, not a new zone; `LessonData.choice_point` with no mini-game, same shape as Market Town/Guardian Gate |
 | Golden Vault's Theo + "Saving vs. Spending: The Real Trade-off" quest (`strategist-saving-l1`) | **Built** — Golden Vault's third quest-giving NPC; completes the "saving" topic's full 3-age-band trilogy (Maya, Savings Guide, Theo) in one zone; `LessonData.choice_point` with no mini-game |
 | Money Quest's Market Town zone + Baker's quest (`explorer-needs_wants-l1`) | **Built** — reached via a portal inside Golden Vault (Money Quest's first 2-zone graph); uses `LessonData.choice_point` with no mini-game |
+| Market Town's Leah + "The Grey Area" quest (`builder-needs_wants-l1`) | **Built** — Market Town's second quest-giving NPC; Leah is the real child from the lesson's own story; `LessonData.choice_point` with no mini-game; only `strategist-needs_wants-l1` remains untouched of this topic's 3 age bands |
 | Money Quest's Guardian Gate zone + Zara's quest (`builder-scams-l1`, "Spotting a Scam") | **Built** — reached via a portal inside Market Town (Golden Vault → Market Town → Guardian Gate, Money Quest's first 3-zone graph); ports the real website lesson verbatim (title/objective/vocabulary/explanation/quiz/feedback), with Zara, the real child from the lesson's own story, as the giver NPC; another `LessonData.choice_point` with no mini-game |
 | Money Quest's Sky Exchange zone + Sam's quest (`builder-currencies-l1`, "Cash, Cards, and Currencies") | **Built** — reached via a portal inside Guardian Gate (Golden Vault → Market Town → Guardian Gate → Sky Exchange, Money Quest's first 4-zone graph); real website world id `sky-exchange`, real badge display name "Currency Explorer"; Sam is the real child from the lesson's own story; another `LessonData.choice_point` with no mini-game; `sky-exchange` hosts 4 real topics on the website (currencies, digital_money, investing_basics, junior_isa), so this zone is a natural future home for more quest-giving NPCs the same way Golden Vault grew to 3 |
 | Sky Exchange's Omar + "How a Card Payment Actually Works" quest (`builder-digital_money-l1`) | **Built** — Sky Exchange's second quest-giving NPC, the same "a zone can grow another resident" pattern Golden Vault proved; Omar is the real child from the lesson's own story; `LessonData.choice_point` with no mini-game; 2 of `sky-exchange`'s 4 real topics remain untouched (investing_basics, junior_isa) |
@@ -778,20 +779,19 @@ godot/money-quest-game/
     Purpose" (`builder-giving-l1`) — this completes all 7 of the real
     website's Money Quest zones. Phase 27: Friend + "The Joy of Sharing"
     (`explorer-giving-l1`), Kindness Grove's second quest-giving NPC.
-    Phase 28 (this update): Sofia + "Giving Thoughtfully"
-    (`strategist-giving-l1`), Kindness Grove's third quest-giving NPC,
-    completing the "giving" topic trilogy — the 4th and final
-    single-topic zone trilogy completed (after "saving", "money_basics",
-    "long_term_thinking"). Still waiting on you: a real
-    book/exhibit/mentor for Library/Museum (Section 6). Still
-    unstarted: Leadership Quest's remaining `mission-choice`-kind
-    missions and its `spot`/`allocate`/`sort`-kind missions (need
-    mechanics not built yet), Entrepreneur Quest's remaining real
-    BUILD/RUN/RESCUE & GROW stages, and Money Quest's remaining 12
-    lessons: the `explorer`/`strategist` age bands of all 4 Sky
-    Exchange topics (currencies, digital_money, investing_basics,
-    junior_isa — 8 lessons) plus the `explorer`/`strategist` age bands
-    of Market Town's `needs_wants` and Guardian Gate's `scams` (4
-    lessons). The 4 single-topic zones (Golden Vault, Coin Cove,
-    Horizon Peaks, Kindness Grove) are now fully complete at 3/3 age
-    bands each.
+    Phase 28: Sofia + "Giving Thoughtfully" (`strategist-giving-l1`),
+    Kindness Grove's third quest-giving NPC, completing the "giving"
+    topic trilogy — the 4th and final single-topic zone trilogy
+    completed (after "saving", "money_basics", "long_term_thinking").
+    Phase 29 (this update): Leah + "The Grey Area"
+    (`builder-needs_wants-l1`), Market Town's second quest-giving NPC.
+    Still waiting on you: a real book/exhibit/mentor for Library/Museum
+    (Section 6). Still unstarted: Leadership Quest's remaining
+    `mission-choice`-kind missions and its `spot`/`allocate`/`sort`-kind
+    missions (need mechanics not built yet), Entrepreneur Quest's
+    remaining real BUILD/RUN/RESCUE & GROW stages, and Money Quest's
+    remaining 11 lessons: the `explorer`/`strategist` age bands of all
+    4 Sky Exchange topics (currencies, digital_money, investing_basics,
+    junior_isa — 8 lessons), `strategist-needs_wants-l1` (Market Town),
+    and the `explorer`/`strategist` age bands of Guardian Gate's
+    `scams` (2 lessons).
