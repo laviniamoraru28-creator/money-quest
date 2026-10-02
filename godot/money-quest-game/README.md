@@ -148,7 +148,16 @@ rebuilt.
    something bigger years away — both genuinely valid, since this is
    the one lesson whose own text says there's no single right answer —
    with the real curriculum's quiz and explanation on why deciding on
-   purpose matters more than which option is picked afterward.
+   purpose matters more than which option is picked afterward. Horizon
+   Peaks' third and final resident, the Sticker Keeper, gives "Waiting
+   Can Pay Off": you're offered one sticker now or three tomorrow if
+   you wait, and you decide how to pass the time while waiting — stay
+   busy with something fun, or count down the hours — with the real
+   curriculum's quiz and explanation on how patience paid off
+   afterward, completing the full "long_term_thinking" topic trilogy in
+   one zone. (The real lesson's story has no named child, so this NPC
+   uses a generic role name, the same convention Market Town's Baker
+   established.)
 4. In Idea Lab, walk up to the Business Guide and interact with them to
    start "Handle Competition" — a single decision ported directly from the
    website's real Entrepreneur Quest content: a competitor undercuts your
@@ -228,7 +237,8 @@ up-to-date table. In short:
 | Coin Cove's Amir + "Where Does Money Come From?" quest (`builder-money_basics-l1`, Coin Cove's second quest-giving NPC — no new zone needed, no mini-game needed) | — |
 | Coin Cove's Priya + "Money as a Tool, Not a Goal" quest (`strategist-money_basics-l1`, Coin Cove's third quest-giving NPC, completing the "money_basics" topic trilogy — no new zone needed, no mini-game needed) | — |
 | Horizon Peaks zone + Finn's quest (`builder-long_term_thinking-l1`, "Planning a Few Steps Ahead," reached via a portal inside Coin Cove — Money Quest's first 6-zone graph, no mini-game needed) | — |
-| Horizon Peaks' Aisha + "Big Decisions, Long Timelines" quest (`strategist-long_term_thinking-l1`, Horizon Peaks' second quest-giving NPC — no new zone needed, no mini-game needed) | Money Quest's remaining 16 lessons |
+| Horizon Peaks' Aisha + "Big Decisions, Long Timelines" quest (`strategist-long_term_thinking-l1`, Horizon Peaks' second quest-giving NPC — no new zone needed, no mini-game needed) | — |
+| Horizon Peaks' Sticker Keeper + "Waiting Can Pay Off" quest (`explorer-long_term_thinking-l1`, Horizon Peaks' third quest-giving NPC, completing the "long_term_thinking" topic trilogy — no new zone needed, no mini-game needed) | Money Quest's remaining 15 lessons |
 | Idea Lab zone + "Handle Competition" quest (ports the website's real `competitor-lower-price` decision event) | — |
 | Marketing Studio zone + "Create Your Marketing" quest (ports the real `product-unclear` decision event, reached via a portal inside Idea Lab) | Entrepreneur Quest's `reflect-text`-kind stages (need a free-text input UI not built yet) |
 | Workshop zone + "Handle a Customer Problem" quest (ports the real `too-expensive-feedback` decision event, reached via a portal inside Marketing Studio — Entrepreneur Quest's first 3-zone graph) | — |
@@ -393,6 +403,19 @@ real decision rather than using a sidestep scenario — safe to do here
 specifically because the quiz tests the separate concept of
 deliberateness, not which option Aisha picked, so there's no risk of
 the choice contradicting the quiz's correct answer.
+
+The Sticker Keeper's quest in Horizon Peaks is the same: every
+curriculum field (title, learning objective, key concept, vocabulary
+`wait`/`patient`, explanation, quiz, feedback, reward message) is
+copied from the real `curriculum.explorer-long_term_thinking-l1`. This
+lesson's own story has no named child (it's written in second person,
+"you"), so this NPC uses the same generic-role-name convention Market
+Town's Baker established. The only original text is the intro framing
+and the choice/consequence wording applying the lesson's real "waiting
+a little can get you more" concept to a concrete decision (keep busy
+vs. count down the hours while waiting) — both lead to the real story's
+own outcome (three stickers the next day), so the fixed quiz about what
+happened is never contradicted by the player's choice.
 
 Idea Lab's "Handle Competition" quest is likewise copied directly from the
 real `messages/en.json`/`messages/ro.json` (`entrepreneurQuest.decisionEvents
@@ -616,7 +639,7 @@ rationale. Quick map:
   Read-aloud/text-to-speech has no engine wired in at all — not even a
   silent placeholder bus — since one would require either an offline
   voice model or a paid API, both out of scope per the brief.
-- Only 14 of 30 curriculum lessons are wired up as Quests, only 3 of
+- Only 15 of 30 curriculum lessons are wired up as Quests, only 3 of
   Entrepreneur Quest's many real BUILD/RUN/RESCUE & GROW stages are
   ported, and only 3 of Leadership Quest's 12 real missions are ported.
   See `docs/money-quest-world-architecture.md` Section 12 for the
