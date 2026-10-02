@@ -305,16 +305,29 @@ extends Resource
   curriculum's own vocabulary (the 77 terms already in `messages/en.json`
   are the correct starting set, not new definitions invented for Godot).
 
-A `BrowseZoneController.gd` (one reusable script) drives any Library/
-Museum zone: it reads the zone's `book_ids`/`exhibit_ids`, places a simple
-`Interaction` per entry, and on interact shows the entry via the **same**
-`DialogueBox`/`ChoicePanel`-style UI already built — no new UI system
-needed, just new content types flowing through the existing overlay
-components.
+A `BrowseZoneController.gd` (one reusable script) will eventually drive
+any Library/Museum zone: reading the zone's `book_ids`/`exhibit_ids`,
+placing a simple `Interaction` per entry, and showing the entry via the
+**same** `DialogueBox`/`ChoicePanel`-style UI already built — no new UI
+system needed, just new content types flowing through the existing
+overlay components. Not built yet, deliberately: with zero real entries to
+drive it, a placement controller would be untested scaffolding rather than
+proven architecture — it's the next piece once the first real book or
+exhibit is approved, not before.
 
-**Nothing in Library/Museum/Mentors/Dictionary is populated with real
-content in this phase** — the schema exists; the first real book,
-exhibit, or mentor is a future, explicitly-approved content addition.
+**`EntryData`/`BookData`/`ExhibitData`/`MentorData`/`DictionaryTermData`
+are now built** (`scripts/library/`, see `data/schemas/
+ENTRY_DATA_FORMAT.md`) — this phase's actual foundation work. **Library
+and Museum still have zero real entries** (`data/library/`, `data/museum/`
+are empty) — no book, author, historical story, or mentor biography is
+invented; both stay empty until real, verifiable content is approved, and
+neither has a walkable zone yet for the same reason (see
+`ENTRY_DATA_FORMAT.md`'s own rule on this). **Dictionary is the one
+exception**: a dictionary term isn't new content, it's the same
+term/definition a lesson's own `LessonData.vocabulary` already has, so
+`data/dictionary/goal.tres` and `data/dictionary/trade-off.tres` exist
+now, reusing `builder-saving-l1`'s real vocabulary keys verbatim as the
+schema's first worked examples.
 
 ---
 
@@ -400,7 +413,9 @@ previously) can be added later as pure content, not an architecture change.
 | `AvatarConfig` + minimal creation screen | **Built** (color/preset only) |
 | Progression fields for zones/quests/skills | **Built** (additive) |
 | Entrepreneur Quest's full BUILD → RUN → RESCUE & GROW track / Leadership Quest's remaining 11 missions | Not built — only one representative slice per track exists so far |
-| Library / Museum / Mentor / Dictionary content | Not built — schema ready, zero entries (Section 6) |
+| `EntryData`/`BookData`/`ExhibitData`/`MentorData`/`DictionaryTermData` schema | **Built** (`scripts/library/`, see `data/schemas/ENTRY_DATA_FORMAT.md`) |
+| Dictionary content | **Built** — 2 real terms (`goal`, `trade-off`), reusing `builder-saving-l1`'s own vocabulary keys verbatim |
+| Library books / Museum exhibits / Mentors content, `BrowseZoneController`, a walkable Library or Museum zone | Not built — zero real books/exhibits/mentors exist to populate or drive a zone with (Section 6) |
 | Mind Lab | Not built — tag reserved (Section 7) |
 | Calm World gardens | Not built — tag + always-unlocked rule reserved (Section 7) |
 | Fuller avatar presets (inclusive representation beyond color) | Not built — flagged as a deliberate future content addition, not an architecture gap |
@@ -420,9 +435,9 @@ godot/money-quest-game/
     lessons/                  # kept
     quests/                   # NEW — QuestData .tres
     zones/                    # NEW — ZoneData .tres (world-hub, golden-vault, ...)
-    library/                  # NEW, empty — BookData/MentorData .tres go here later
-    museum/                   # NEW, empty — ExhibitData .tres go here later
-    dictionary/               # NEW, empty — DictionaryTermData .tres go here later
+    library/                  # empty — BookData/MentorData .tres go here once approved
+    museum/                   # empty — ExhibitData .tres go here once approved
+    dictionary/               # NEW — 2 real DictionaryTermData .tres (goal, trade-off)
     avatars/                  # NEW — avatar preset definitions
     schemas/                  # kept, growing (QUEST_DATA_FORMAT.md added)
   localization/
@@ -437,7 +452,7 @@ godot/money-quest-game/
     characters/                # NEW home: NPC.gd (3D)
     quests/                   # NEW: QuestData (QuestManager lives in autoload/)
     lessons/                  # kept: LessonManager
-    library/                  # NEW: EntryData, BookData, ExhibitData, MentorData, DictionaryTermData (schema only)
+    library/                  # NEW: EntryData, BookData, ExhibitData, MentorData, DictionaryTermData
     minigames/                 # kept: SavingsAllocationMiniGame
   scenes/
     world/
@@ -464,14 +479,21 @@ godot/money-quest-game/
 6. **NPC interaction** — built this phase (Maya; portal signposts).
 7. **Quest system** — built this phase (`QuestData`/`QuestManager`).
 8. **Unified progression/save** — built this phase (additive fields).
-9. **One complete Money Quest experience** — built this phase
+9. **One complete Money Quest experience** — built
    (`builder-saving-l1`, unchanged from the prior prototype, now reached
    through the Hub instead of a menu).
-10. **One Entrepreneur Quest experience** — not yet; next, once this
-    foundation is confirmed solid.
-11. **One Leadership Quest experience** — not yet; after 10.
-12. **Library/Museum/Mind Lab/Calm World foundations** — schema only this
-    phase (Sections 6-7); first real content is a later step.
+10. **One Entrepreneur Quest experience** — built (`idea-lab` zone,
+    "Handle Competition" quest, Section 5).
+11. **One Leadership Quest experience** — built (`leadership-academy`
+    zone, "The Big Mistake" quest, Section 5).
+12. **Library/Museum/Mind Lab/Calm World foundations** — partially built:
+    the `EntryData`/`BookData`/`ExhibitData`/`MentorData`/
+    `DictionaryTermData` schema is built and Dictionary has 2 real entries
+    (Section 6); Library/Museum have zero real entries by design (nothing
+    to invent yet); Mind Lab and Calm World remain tag-only, not built
+    (Section 7).
 13. **Test accessibility, localization, performance** — ongoing; EN+RO
     populated, reduced-motion respected throughout, no heavy assets added.
-14. **Expand gradually** — the explicit next-after-this-phase work.
+14. **Expand gradually** — the explicit next-after-this-phase work: a real
+    book/exhibit/mentor once approved, Entrepreneur/Leadership Quest's
+    remaining stages, Mind Lab, Calm World's first garden.

@@ -89,13 +89,14 @@ up-to-date table. In short:
 
 | Built this phase | Not built yet (architecture-ready) |
 |---|---|
-| `WorldManager` + generalized `ZoneData` (`HUB`/`QUEST`/`LIBRARY`/`MUSEUM`/`MIND_LAB`/`CALM` kinds) | Library / Museum / Mentor / Dictionary content |
-| `QuestData` + `QuestManager`, `LESSON` and `CHALLENGE` kinds (wraps existing `LessonData`, or runs a standalone situation+choice+consequence with optional multi-line intro dialogue, no content duplicated) | Mind Lab |
-| 3D `Player`/`NPC`/`Interaction`/`InteractionManager` + `CameraController` | Calm World gardens |
-| World Hub, 7 portals (3 functional, 4 "coming soon") | Entrepreneur Quest's full BUILD → RUN → RESCUE & GROW track (only one representative quest is built) |
-| Golden Vault zone + Maya's quest (reuses the existing `LessonData`/`LessonManager`/mini-game/UI overlays unchanged) | Leadership Quest's remaining 11 missions (only one representative quest is built) |
-| Idea Lab zone + "Handle Competition" quest (ports the website's real `competitor-lower-price` decision event) | Fuller avatar presets beyond color/preset/accessory |
-| Leadership Academy zone + "The Big Mistake" quest (ports the website's real `big-mistake-choice` decision event, with Priya as a real-character NPC) | AI Quest Coach (explicitly not built — see the architecture doc's non-negotiables) |
+| `WorldManager` + generalized `ZoneData` (`HUB`/`QUEST`/`LIBRARY`/`MUSEUM`/`MIND_LAB`/`CALM` kinds) | Library books / Museum exhibits / Mentors (zero real entries — nothing to invent yet) |
+| `QuestData` + `QuestManager`, `LESSON` and `CHALLENGE` kinds (wraps existing `LessonData`, or runs a standalone situation+choice+consequence with optional multi-line intro dialogue, no content duplicated) | `BrowseZoneController` + a walkable Library/Museum zone (no real content to drive one yet) |
+| 3D `Player`/`NPC`/`Interaction`/`InteractionManager` + `CameraController` | Mind Lab |
+| World Hub, 7 portals (3 functional, 4 "coming soon") | Calm World gardens |
+| Golden Vault zone + Maya's quest (reuses the existing `LessonData`/`LessonManager`/mini-game/UI overlays unchanged) | Entrepreneur Quest's full BUILD → RUN → RESCUE & GROW track (only one representative quest is built) |
+| Idea Lab zone + "Handle Competition" quest (ports the website's real `competitor-lower-price` decision event) | Leadership Quest's remaining 11 missions (only one representative quest is built) |
+| Leadership Academy zone + "The Big Mistake" quest (ports the website's real `big-mistake-choice` decision event, with Priya as a real-character NPC) | Fuller avatar presets beyond color/preset/accessory |
+| `EntryData`/`BookData`/`ExhibitData`/`MentorData`/`DictionaryTermData` schema, with 2 real Dictionary entries (`goal`, `trade-off`) reusing existing curriculum vocabulary | AI Quest Coach (explicitly not built — see the architecture doc's non-negotiables) |
 | `AvatarConfig` + minimal `AvatarCreation.tscn` | — |
 | Zone/quest/skill/avatar progression fields in `ProgressManager`, persisted by `SaveManager` | — |
 
@@ -120,6 +121,13 @@ intro dialogue and all 4 choices/consequences for the `big-mistake-choice`
 event) — Priya and Oren are two of Leadership Quest's 4 real, already-named
 characters (`src/content/leadership-quest/structures.ts`), not invented
 for this project.
+
+The Dictionary's 2 entries (`goal`, `trade-off`) aren't new content at
+all — they point at `builder-saving-l1`'s own existing vocabulary
+translation keys verbatim (see `data/schemas/ENTRY_DATA_FORMAT.md`'s rule
+on this). Library and Museum have zero entries: no book, author,
+historical story, or mentor biography is invented for this project, so
+both stay empty until something real and verifiable is approved.
 
 The only new content anywhere in this project is UI chrome (menu/Hub/
 portal/avatar-creation/zone-guide labels), the savings mini-game's own
@@ -149,7 +157,7 @@ rationale. Quick map:
 - `scripts/minigames/` — concrete mini-games extending `MiniGameBase`
   (currently one: `SavingsAllocationMiniGame`).
 - `scripts/library/` — `EntryData`/`BookData`/`ExhibitData`/`MentorData`/
-  `DictionaryTermData` schema only, zero content yet (Library/Museum).
+  `DictionaryTermData` (Library/Museum/Dictionary schema).
 - `scenes/world/hub/WorldHub.tscn` — the Hub plaza.
 - `scenes/world/zones/golden_vault/GoldenVault.tscn` — this phase's one
   real Money Quest zone.
@@ -166,11 +174,11 @@ rationale. Quick map:
 - `scenes/ui/` — `DialogueBox`, `ChoicePanel`, `RewardPopup`, `HUD`.
 - `scenes/menus/MainMenu.tscn`.
 - `data/zones/`, `data/quests/`, `data/lessons/` — content `.tres` files.
-- `data/library/`, `data/museum/`, `data/dictionary/`, `data/avatars/` —
-  reserved, empty.
+- `data/dictionary/` — 2 real `DictionaryTermData` entries.
+- `data/library/`, `data/museum/`, `data/avatars/` — reserved, empty.
 - `data/schemas/` — `LESSON_DATA_FORMAT.md`, `QUEST_DATA_FORMAT.md`,
-  `ZONE_DATA_FORMAT.md`: how to add new content without touching core
-  scripts.
+  `ZONE_DATA_FORMAT.md`, `ENTRY_DATA_FORMAT.md`: how to add new content
+  without touching core scripts.
 - `localization/translations.csv` — all UI/dialogue/quiz text, 9 locale
   columns (`en`/`ro` populated; `es/fr/de/it/pt/nl/pl` columns exist but
   are empty — flagged, not silently faked).
@@ -194,4 +202,7 @@ rationale. Quick map:
 - Library, Museum, Mind Lab, and Calm World are all reachable from the Hub
   (their portals exist and correctly report "coming soon") but have no
   zone content yet — by design, per the brief's explicit "do not build
-  all of this content at once."
+  all of this content at once." Library and Museum specifically have real,
+  built schema (`EntryData`/`BookData`/`ExhibitData`/`MentorData`) but zero
+  real entries, since no book, historical story, or mentor biography may
+  be invented — see `data/schemas/ENTRY_DATA_FORMAT.md`.

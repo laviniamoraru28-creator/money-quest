@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DictionaryTermData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/library/DictionaryTermData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+term_key = "curriculum.builder-saving-l1.vocabulary.1.term"
+definition_key = "curriculum.builder-saving-l1.vocabulary.1.definition"
+related_lesson_ids = Array[String](["builder-saving-l1"])
