@@ -1,0 +1,83 @@
+[gd_resource type="Resource" script_class="LessonData" load_steps=17 format=3]
+
+[ext_resource type="Script" path="res://scripts/core/LessonData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/VocabTerm.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/DialogueLine.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="5"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="6"]
+
+[sub_resource type="Resource" id="VocabTerm_share"]
+script = ExtResource("2")
+term_key = "curriculum.builder-investing_basics-l1.vocabulary.0.term"
+definition_key = "curriculum.builder-investing_basics-l1.vocabulary.0.definition"
+
+[sub_resource type="Resource" id="VocabTerm_stock"]
+script = ExtResource("2")
+term_key = "curriculum.builder-investing_basics-l1.vocabulary.1.term"
+definition_key = "curriculum.builder-investing_basics-l1.vocabulary.1.definition"
+
+[sub_resource type="Resource" id="VocabTerm_company"]
+script = ExtResource("2")
+term_key = "curriculum.builder-investing_basics-l1.vocabulary.2.term"
+definition_key = "curriculum.builder-investing_basics-l1.vocabulary.2.definition"
+
+[sub_resource type="Resource" id="DialogueLine_intro1"]
+script = ExtResource("3")
+speaker_id = ""
+text_key = "lesson.builder_investing_basics_l1.intro.line1"
+
+[sub_resource type="Resource" id="DialogueLine_intro2"]
+script = ExtResource("3")
+speaker_id = "mei"
+text_key = "lesson.builder_investing_basics_l1.intro.line2"
+
+[sub_resource type="Resource" id="ConsequenceEffect_ask_uncle"]
+script = ExtResource("6")
+coin_delta = 4
+xp_delta = 5
+consequence_text_key = "lesson.builder_investing_basics_l1.choice.consequence_ask_uncle"
+
+[sub_resource type="Resource" id="ChoiceOption_ask_uncle"]
+script = ExtResource("5")
+label_key = "lesson.builder_investing_basics_l1.choice.option_ask_uncle"
+consequence = SubResource("ConsequenceEffect_ask_uncle")
+
+[sub_resource type="Resource" id="ConsequenceEffect_watch_quietly"]
+script = ExtResource("6")
+coin_delta = 4
+xp_delta = 5
+consequence_text_key = "lesson.builder_investing_basics_l1.choice.consequence_watch_quietly"
+
+[sub_resource type="Resource" id="ChoiceOption_watch_quietly"]
+script = ExtResource("5")
+label_key = "lesson.builder_investing_basics_l1.choice.option_watch_quietly"
+consequence = SubResource("ConsequenceEffect_watch_quietly")
+
+[sub_resource type="Resource" id="DialogueChoice_toy_shares"]
+script = ExtResource("4")
+situation_text_key = "lesson.builder_investing_basics_l1.choice.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_ask_uncle"), SubResource("ChoiceOption_watch_quietly")])
+
+[resource]
+script = ExtResource("1")
+lesson_id = "builder-investing_basics-l1"
+age_band = "builder"
+world_id = "sky-exchange"
+topic_id = "investing_basics"
+xp_reward = 15
+coin_reward = 10
+learning_objective_key = "curriculum.builder-investing_basics-l1.learningObjective"
+key_concept_key = "curriculum.builder-investing_basics-l1.keyConcept"
+vocabulary = Array[VocabTerm]([SubResource("VocabTerm_share"), SubResource("VocabTerm_stock"), SubResource("VocabTerm_company")])
+intro_dialogue = Array[DialogueLine]([SubResource("DialogueLine_intro1"), SubResource("DialogueLine_intro2")])
+choice_point = SubResource("DialogueChoice_toy_shares")
+explanation_key = "curriculum.builder-investing_basics-l1.explanation"
+quiz_question_key = "curriculum.builder-investing_basics-l1.quiz.question"
+quiz_option_keys = Array[String](["curriculum.builder-investing_basics-l1.quiz.options.0", "curriculum.builder-investing_basics-l1.quiz.options.1", "curriculum.builder-investing_basics-l1.quiz.options.2", "curriculum.builder-investing_basics-l1.quiz.options.3"])
+quiz_correct_index = 0
+quiz_explanation_key = "curriculum.builder-investing_basics-l1.quiz.explanation"
+quiz_success_feedback_key = "curriculum.builder-investing_basics-l1.feedback.success"
+quiz_retry_feedback_key = "curriculum.builder-investing_basics-l1.feedback.retry"
+reward_message_key = "curriculum.builder-investing_basics-l1.rewardMessage"
+stage_scene_path = ""

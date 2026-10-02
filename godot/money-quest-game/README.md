@@ -101,7 +101,13 @@ rebuilt.
    and you decide how to confirm the payment really went through —
    watch the screen for the green tick, or ask the cashier directly —
    with the real curriculum's quiz and explanation on payment
-   confirmation afterward.
+   confirmation afterward. Sky Exchange's third resident, Mei, gives
+   "Owning a Small Piece of a Company": Mei's uncle owns shares in the
+   toy company behind her favorite action figure, and when its newest
+   toy sells out everywhere, you decide whether Mei asks her uncle how
+   that affects his shares or works it out by watching the toy's
+   popularity herself, with the real curriculum's quiz and explanation
+   on what owning a share actually means afterward.
 4. In Idea Lab, walk up to the Business Guide and interact with them to
    start "Handle Competition" — a single decision ported directly from the
    website's real Entrepreneur Quest content: a competitor undercuts your
@@ -174,7 +180,8 @@ up-to-date table. In short:
 | Market Town zone + Baker's quest (`explorer-needs_wants-l1`, reached via a portal inside Golden Vault — Money Quest's first 2-zone graph, no mini-game needed) | — |
 | Guardian Gate zone + Zara's quest (`builder-scams-l1`, "Spotting a Scam," reached via a portal inside Market Town — Money Quest's first 3-zone graph, no mini-game needed) | — |
 | Sky Exchange zone + Sam's quest (`builder-currencies-l1`, "Cash, Cards, and Currencies," reached via a portal inside Guardian Gate — Money Quest's first 4-zone graph, no mini-game needed) | — |
-| Sky Exchange's Omar + "How a Card Payment Actually Works" quest (`builder-digital_money-l1`, Sky Exchange's second quest-giving NPC — no new zone needed, no mini-game needed) | Money Quest's remaining 23 lessons |
+| Sky Exchange's Omar + "How a Card Payment Actually Works" quest (`builder-digital_money-l1`, Sky Exchange's second quest-giving NPC — no new zone needed, no mini-game needed) | — |
+| Sky Exchange's Mei + "Owning a Small Piece of a Company" quest (`builder-investing_basics-l1`, Sky Exchange's third quest-giving NPC — no new zone needed, no mini-game needed) | Money Quest's remaining 22 lessons |
 | Idea Lab zone + "Handle Competition" quest (ports the website's real `competitor-lower-price` decision event) | — |
 | Marketing Studio zone + "Create Your Marketing" quest (ports the real `product-unclear` decision event, reached via a portal inside Idea Lab) | Entrepreneur Quest's `reflect-text`-kind stages (need a free-text input UI not built yet) |
 | Workshop zone + "Handle a Customer Problem" quest (ports the real `too-expensive-feedback` decision event, reached via a portal inside Marketing Studio — Entrepreneur Quest's first 3-zone graph) | — |
@@ -253,6 +260,17 @@ lesson's real "a payment confirmation is proof it genuinely happened"
 concept to a concrete decision (watch the screen for the tick vs. ask the
 cashier directly) — both equally valid ways to confirm a payment, with
 the quiz (not the choice) carrying the lesson's actual testable fact.
+
+Mei's quest in Sky Exchange is the same: every curriculum field (title,
+learning objective, key concept, vocabulary `share`/`stock`/`company`,
+explanation, quiz, feedback, reward message) is copied from the real
+`curriculum.builder-investing_basics-l1`. Mei is the real child named in
+that lesson's own story (her uncle owns the shares), and the only
+original text is the intro framing and the choice/consequence wording
+applying the lesson's real "share prices reflect how people think a
+company is doing" concept to a concrete decision (ask Uncle to explain
+vs. work it out herself by watching the toy's popularity) — both
+equally valid, neither graded as "wrong."
 
 Idea Lab's "Handle Competition" quest is likewise copied directly from the
 real `messages/en.json`/`messages/ro.json` (`entrepreneurQuest.decisionEvents
@@ -472,7 +490,7 @@ rationale. Quick map:
   Read-aloud/text-to-speech has no engine wired in at all — not even a
   silent placeholder bus — since one would require either an offline
   voice model or a paid API, both out of scope per the brief.
-- Only 7 of 30 curriculum lessons are wired up as Quests, only 3 of
+- Only 8 of 30 curriculum lessons are wired up as Quests, only 3 of
   Entrepreneur Quest's many real BUILD/RUN/RESCUE & GROW stages are
   ported, and only 3 of Leadership Quest's 12 real missions are ported.
   See `docs/money-quest-world-architecture.md` Section 12 for the
