@@ -77,7 +77,13 @@ rebuilt.
    Golden Vault leads to **Market Town**, Money Quest's second zone — walk
    up to the Baker to start "Need It or Want It?": a bakery has only
    enough allowance for bread or a chocolate bar today, and you choose
-   which, with the real curriculum's quiz and explanation afterward.
+   which, with the real curriculum's quiz and explanation afterward. A
+   second portal inside Market Town leads to **Guardian Gate**, Money
+   Quest's third zone — talk to Zara to start "Spotting a Scam": a
+   message demands you act immediately, and you choose whether to enter a
+   password right away or pause and check with a trusted adult, with the
+   real curriculum's quiz and explanation on spotting scam warning signs
+   afterward.
 4. In Idea Lab, walk up to the Business Guide and interact with them to
    start "Handle Competition" — a single decision ported directly from the
    website's real Entrepreneur Quest content: a competitor undercuts your
@@ -138,7 +144,8 @@ up-to-date table. In short:
 | Library zone (bookshelves + Librarian NPC, reachable from the Hub, honestly empty — see "Content fidelity" below) | Library books content |
 | Mind Lab zone + "Different Explanations" quest (an original scenario — no external fact needed, never diagnostic/medical) | — |
 | Golden Vault zone + Maya's quest (reuses the existing `LessonData`/`LessonManager`/mini-game/UI overlays unchanged) | Leadership Quest's remaining 10 missions (only 2 of 12 are built) |
-| Market Town zone + Baker's quest (`explorer-needs_wants-l1`, reached via a portal inside Golden Vault — Money Quest's first 2-zone graph, no mini-game needed) | Money Quest's remaining 28 lessons |
+| Market Town zone + Baker's quest (`explorer-needs_wants-l1`, reached via a portal inside Golden Vault — Money Quest's first 2-zone graph, no mini-game needed) | Money Quest's remaining 27 lessons |
+| Guardian Gate zone + Zara's quest (`builder-scams-l1`, "Spotting a Scam," reached via a portal inside Market Town — Money Quest's first 3-zone graph, no mini-game needed) | — |
 | Idea Lab zone + "Handle Competition" quest (ports the website's real `competitor-lower-price` decision event) | — |
 | Marketing Studio zone + "Create Your Marketing" quest (ports the real `product-unclear` decision event, reached via a portal inside Idea Lab) | Entrepreneur Quest's `reflect-text`-kind stages (need a free-text input UI not built yet) |
 | Leadership Academy zone + "The Big Mistake" quest (ports the website's real `big-mistake-choice` decision event, with Priya as a real-character NPC) | AI Quest Coach (explicitly not built — see the architecture doc's non-negotiables) |
@@ -166,6 +173,17 @@ chocolate bar right here...") and the choice/consequence wording applying
 that lesson's real need-vs-want distinction to a concrete decision —
 exactly the brief's own "find the correct game mechanic for the concept"
 instruction, not a rewrite of the lesson's meaning.
+
+Zara's quest in Guardian Gate is the same: every curriculum field (title,
+learning objective, key concept, vocabulary `scam`/`urgency`/`personal
+information`, explanation, quiz, feedback, reward message) is copied from
+the real `curriculum.builder-scams-l1`. Zara herself is the real child
+named in that lesson's own story (not invented for this project), and the
+only original text is the intro framing and the choice/consequence
+wording applying the lesson's real urgency-is-a-red-flag concept to a
+concrete decision (enter a password right away vs. pause and check with a
+trusted adult) — the same "find the correct game mechanic for the
+concept" instruction as Market Town.
 
 Idea Lab's "Handle Competition" quest is likewise copied directly from the
 real `messages/en.json`/`messages/ro.json` (`entrepreneurQuest.decisionEvents
@@ -310,6 +328,8 @@ rationale. Quick map:
   zone.
 - `scenes/world/zones/market_town/MarketTown.tscn` — Money Quest's second
   zone, reached via a portal inside Golden Vault.
+- `scenes/world/zones/guardian_gate/GuardianGate.tscn` — Money Quest's
+  third zone, reached via a portal inside Market Town.
 - `scenes/world/zones/idea_lab/IdeaLab.tscn` — Entrepreneur Quest's first
   zone.
 - `scenes/world/zones/marketing_studio/MarketingStudio.tscn` —
@@ -366,7 +386,7 @@ rationale. Quick map:
   Read-aloud/text-to-speech has no engine wired in at all — not even a
   silent placeholder bus — since one would require either an offline
   voice model or a paid API, both out of scope per the brief.
-- Only 2 of 30 curriculum lessons are wired up as Quests, only 2 of
+- Only 3 of 30 curriculum lessons are wired up as Quests, only 2 of
   Entrepreneur Quest's many real BUILD/RUN/RESCUE & GROW stages are
   ported, and only 2 of Leadership Quest's 12 real missions are ported.
   See `docs/money-quest-world-architecture.md` Section 12 for the

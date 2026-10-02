@@ -545,6 +545,7 @@ node), never an architecture change.
 | World Hub scene, 7 portals | **Built** — 6 functional (Money Quest, Entrepreneur Quest, Leadership Quest, Calm World, Library, Mind Lab), 1 "coming soon" (Museum) |
 | Money Quest's Golden Vault zone + Maya's quest (`builder-saving-l1`) | **Built** — reuses the existing `LessonData`/`LessonManager`/`SavingsAllocationMiniGame`/UI overlays unchanged |
 | Money Quest's Market Town zone + Baker's quest (`explorer-needs_wants-l1`) | **Built** — reached via a portal inside Golden Vault (Money Quest's first 2-zone graph); uses `LessonData.choice_point` with no mini-game |
+| Money Quest's Guardian Gate zone + Zara's quest (`builder-scams-l1`, "Spotting a Scam") | **Built** — reached via a portal inside Market Town (Golden Vault → Market Town → Guardian Gate, Money Quest's first 3-zone graph); ports the real website lesson verbatim (title/objective/vocabulary/explanation/quiz/feedback), with Zara, the real child from the lesson's own story, as the giver NPC; another `LessonData.choice_point` with no mini-game |
 | Entrepreneur Quest's Idea Lab zone + "Handle Competition" quest | **Built** — a `CHALLENGE`-kind quest porting the website's real `competitor-lower-price` decision event (`src/content/entrepreneur-quest/structures.ts`) verbatim; proves the same pipeline carries a second Quest track with zero new systems |
 | Entrepreneur Quest's Marketing Studio zone + "Create Your Marketing" quest | **Built** — reached via a portal inside Idea Lab (Entrepreneur Quest's first 2-zone graph); another `CHALLENGE`-kind quest, porting the real `product-unclear` decision event verbatim |
 | Leadership Quest's Leadership Academy zone + "The Big Mistake" quest | **Built** — a `CHALLENGE`-kind quest porting the website's real `big-mistake-choice` decision event verbatim, with Priya as a real-character NPC; this is what motivated `QuestData.intro_dialogue` (Section 4) |
@@ -605,6 +606,7 @@ godot/money-quest-game/
       zones/
         golden_vault/           # Money Quest's first zone
         market_town/            # Money Quest's second zone (reached via Golden Vault)
+        guardian_gate/          # Money Quest's third zone (reached via Market Town)
         idea_lab/               # Entrepreneur Quest's first zone
         marketing_studio/       # Entrepreneur Quest's second zone (reached via Idea Lab)
         leadership_academy/     # Leadership Quest's first zone
@@ -714,8 +716,9 @@ godot/money-quest-game/
     approval first: Mind Lab (Section 7), all 8 of Calm World's named
     gardens (Section 7), fuller avatar presets including a wheelchair
     body preset and glasses/cap/hearing-aid/cane accessories, all purely
-    visual (Section 9), and audio buses/Settings screen/mobile Talk
-    button (Section 15). Still waiting on you: a real book/exhibit/mentor
-    for Library/Museum (Section 6). Still unstarted: Entrepreneur/
-    Leadership Quest's remaining stages, Money Quest's remaining 28
-    lessons.
+    visual (Section 9), audio buses/Settings screen/mobile Talk button
+    (Section 15), and Guardian Gate + "Spotting a Scam"
+    (`builder-scams-l1`), Money Quest's third zone (Section 10). Still
+    waiting on you: a real book/exhibit/mentor for Library/Museum
+    (Section 6). Still unstarted: Entrepreneur/Leadership Quest's
+    remaining stages, Money Quest's remaining 27 lessons.
