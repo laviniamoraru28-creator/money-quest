@@ -104,6 +104,11 @@ rebuilt.
    message demands you act immediately, and you choose whether to enter a
    password right away or pause and check with a trusted adult, with the
    real curriculum's quiz and explanation on spotting scam warning signs
+   afterward. Guardian Gate's second resident, Grown-up, gives "Some
+   Promises Are Too Good": a pop-up claims you won a free prize you
+   never entered for, and you decide whether to close it right away or
+   show it to another grown-up too, with the real curriculum's quiz and
+   explanation on why free-prize pop-ups from strangers are a trick
    afterward. A second portal inside Guardian Gate leads to **Sky
    Exchange**, Money Quest's fourth zone — talk to Sam to start "Cash,
    Cards, and Currencies": Sam's family is planning a trip abroad, and
@@ -268,8 +273,9 @@ up-to-date table. In short:
 | Golden Vault's Theo + "Saving vs. Spending: The Real Trade-off" quest (`strategist-saving-l1`, Golden Vault's third quest-giving NPC — completes the "saving" topic's full 3-age-band trilogy in one zone, no mini-game needed) | — |
 | Market Town zone + Baker's quest (`explorer-needs_wants-l1`, reached via a portal inside Golden Vault — Money Quest's first 2-zone graph, no mini-game needed) | — |
 | Market Town's Leah + "The Grey Area" quest (`builder-needs_wants-l1`, Market Town's second quest-giving NPC — no new zone needed, no mini-game needed) | — |
-| Market Town's Jordan + "Needs, Wants, and Social Pressure" quest (`strategist-needs_wants-l1`, Market Town's third quest-giving NPC, completing the "needs_wants" topic trilogy — no new zone needed, no mini-game needed) | Money Quest's remaining 10 lessons |
+| Market Town's Jordan + "Needs, Wants, and Social Pressure" quest (`strategist-needs_wants-l1`, Market Town's third quest-giving NPC, completing the "needs_wants" topic trilogy — no new zone needed, no mini-game needed) | — |
 | Guardian Gate zone + Zara's quest (`builder-scams-l1`, "Spotting a Scam," reached via a portal inside Market Town — Money Quest's first 3-zone graph, no mini-game needed) | — |
+| Guardian Gate's Grown-up + "Some Promises Are Too Good" quest (`explorer-scams-l1`, Guardian Gate's second quest-giving NPC — no new zone needed, no mini-game needed) | Money Quest's remaining 9 lessons |
 | Sky Exchange zone + Sam's quest (`builder-currencies-l1`, "Cash, Cards, and Currencies," reached via a portal inside Guardian Gate — Money Quest's first 4-zone graph, no mini-game needed) | — |
 | Sky Exchange's Omar + "How a Card Payment Actually Works" quest (`builder-digital_money-l1`, Sky Exchange's second quest-giving NPC — no new zone needed, no mini-game needed) | — |
 | Sky Exchange's Mei + "Owning a Small Piece of a Company" quest (`builder-investing_basics-l1`, Sky Exchange's third quest-giving NPC — no new zone needed, no mini-game needed) | — |
@@ -363,6 +369,20 @@ wording applying the lesson's real urgency-is-a-red-flag concept to a
 concrete decision (enter a password right away vs. pause and check with a
 trusted adult) — the same "find the correct game mechanic for the
 concept" instruction as Market Town.
+
+Grown-up's quest in Guardian Gate is the same: every curriculum field
+(title, learning objective, key concept, vocabulary `trick`/`stranger`,
+explanation, quiz, feedback, reward message) is copied from the real
+`curriculum.explorer-scams-l1`. The real lesson's story has no named
+child (it's written in second person, "you," with the second character
+simply "a grown-up nearby"), so the giver NPC uses that role as its
+generic name, the same convention Market Town's Baker established. Since
+the real quiz already tests the lesson's core "tell a grown-up, don't
+click" fact directly, the only original text — the intro framing and the
+choice/consequence wording — applies that same fact to a downstream
+decision (close the pop-up right away vs. show it to another grown-up
+too) rather than whether to click at all, so the player's choice can
+never contradict the quiz's fixed correct answer.
 
 Sam's quest in Sky Exchange is the same: every curriculum field (title,
 learning objective, key concept, vocabulary `currency`/`physical
@@ -745,7 +765,7 @@ rationale. Quick map:
   Read-aloud/text-to-speech has no engine wired in at all — not even a
   silent placeholder bus — since one would require either an offline
   voice model or a paid API, both out of scope per the brief.
-- Only 20 of 30 curriculum lessons are wired up as Quests, only 3 of
+- Only 21 of 30 curriculum lessons are wired up as Quests, only 3 of
   Entrepreneur Quest's many real BUILD/RUN/RESCUE & GROW stages are
   ported, and only 3 of Leadership Quest's 12 real missions are ported.
   See `docs/money-quest-world-architecture.md` Section 12 for the

@@ -7,17 +7,29 @@ extends Node3D
 ## own "builder-scams-l1" story — gives "Spotting a Scam"
 ## (builder-scams-l1), ported via LessonData.choice_point with no new
 ## mini-game, same shape as Market Town's "Need It or Want It?".
+##
+## Grown-up — this zone's second resident — gives explorer-scams-l1
+## ("Some Promises Are Too Good"). The real lesson's story has no named
+## child (second person "you," with the second character simply called
+## "a grown-up nearby"), so this NPC uses that role as its generic name,
+## the same convention Market Town's Baker established. Because the
+## real quiz already tests the lesson's core "tell a grown-up, don't
+## click" fact directly, the choice_point here is a downstream decision
+## (how to follow up on the pop-up) rather than whether to click at all.
 
 const SCAMS_QUEST_ID: String = "builder-scams-l1-quest"
+const SCAMS_EXPLORER_QUEST_ID: String = "explorer-scams-l1-quest"
 
 @onready var player: Node3D = $Player
 @onready var camera_controller: CameraController = $CameraController
 @onready var zara: NPC = $Zara
+@onready var grown_up: NPC = $GrownUp
 
 
 func _ready() -> void:
 	camera_controller.target = player
 	zara.talked_to.connect(_on_zara_talked_to)
+	grown_up.talked_to.connect(_on_grown_up_talked_to)
 
 
 func _on_zara_talked_to(_npc_id: String) -> void:
@@ -25,3 +37,10 @@ func _on_zara_talked_to(_npc_id: String) -> void:
 		DialogueBox.show_text("zone.guardian_gate.zara.already_done")
 	else:
 		QuestManager.start_quest(SCAMS_QUEST_ID)
+
+
+func _on_grown_up_talked_to(_npc_id: String) -> void:
+	if QuestManager.is_quest_completed(SCAMS_EXPLORER_QUEST_ID):
+		DialogueBox.show_text("zone.guardian_gate.grown_up.already_done")
+	else:
+		QuestManager.start_quest(SCAMS_EXPLORER_QUEST_ID)
