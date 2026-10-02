@@ -568,6 +568,7 @@ node), never an architecture change.
 | Coin Cove's Amir + "Where Does Money Come From?" quest (`builder-money_basics-l1`) | **Built** — Coin Cove's second quest-giving NPC; Amir is the real child from the lesson's own story; `LessonData.choice_point` with no mini-game; only `strategist-money_basics-l1` remains untouched of Coin Cove's 1 real topic's 3 age bands |
 | Coin Cove's Priya + "Money as a Tool, Not a Goal" quest (`strategist-money_basics-l1`) | **Built** — Coin Cove's third quest-giving NPC, completing the full 3-age-band "money_basics" topic trilogy in one zone (the same way Golden Vault completed "saving"); Priya is the real child from the lesson's own story; her name coincidentally matches Leadership Academy's Priya (an unrelated real character from a different real source text) — harmless, since quest-completion state keys off `quest_id` not `npc_id` and the two zones are never loaded simultaneously, same reasoning as the earlier Theo collision (Section 3); `LessonData.choice_point` with no mini-game |
 | Money Quest's Horizon Peaks zone + Finn's quest (`builder-long_term_thinking-l1`, "Planning a Few Steps Ahead") | **Built** — reached via a portal inside Coin Cove (Golden Vault → Market Town → Guardian Gate → Sky Exchange → Coin Cove → Horizon Peaks, Money Quest's first 6-zone graph); real website world id `horizon-peaks`, real badge display name "Future Planner"; Finn is the real child from the lesson's own story; another `LessonData.choice_point` with no mini-game |
+| Horizon Peaks' Aisha + "Big Decisions, Long Timelines" quest (`strategist-long_term_thinking-l1`) | **Built** — Horizon Peaks' second quest-giving NPC; Aisha is the real teen from the lesson's own story; unlike every prior choice_point, this lesson's own text explicitly says there's no single right answer (spend a paycheck now vs. save some for later), so the choice_point directly mirrors the real decision instead of a sidestep scenario — safe because the quiz tests deliberateness, not which option was picked; `LessonData.choice_point` with no mini-game |
 | Entrepreneur Quest's Idea Lab zone + "Handle Competition" quest | **Built** — a `CHALLENGE`-kind quest porting the website's real `competitor-lower-price` decision event (`src/content/entrepreneur-quest/structures.ts`) verbatim; proves the same pipeline carries a second Quest track with zero new systems |
 | Entrepreneur Quest's Marketing Studio zone + "Create Your Marketing" quest | **Built** — reached via a portal inside Idea Lab (Entrepreneur Quest's first 2-zone graph); another `CHALLENGE`-kind quest, porting the real `product-unclear` decision event verbatim |
 | Entrepreneur Quest's Workshop zone + "Handle a Customer Problem" quest | **Built** — reached via a portal inside Marketing Studio (Idea Lab → Marketing Studio → Workshop, Entrepreneur Quest's first 3-zone graph); another `CHALLENGE`-kind quest, porting the real `too-expensive-feedback` decision event verbatim |
@@ -760,11 +761,13 @@ godot/money-quest-game/
     Coin Cove's second quest-giving NPC. Phase 22: Priya + "Money as a
     Tool, Not a Goal" (`strategist-money_basics-l1`), Coin Cove's third
     quest-giving NPC, completing the full "money_basics" topic trilogy
-    in one zone. Phase 23 (this update): Horizon Peaks, Money Quest's
-    sixth zone, with Finn's "Planning a Few Steps Ahead"
-    (`builder-long_term_thinking-l1`). Still waiting on you: a real
-    book/exhibit/mentor for Library/Museum (Section 6). Still
-    unstarted: Leadership Quest's remaining `mission-choice`-kind
-    missions and its `spot`/`allocate`/`sort`-kind missions (need
-    mechanics not built yet), Money Quest's remaining 17 lessons,
-    Entrepreneur Quest's remaining real BUILD/RUN/RESCUE & GROW stages.
+    in one zone. Phase 23: Horizon Peaks, Money Quest's sixth zone, with
+    Finn's "Planning a Few Steps Ahead" (`builder-long_term_thinking-l1`).
+    Phase 24 (this update): Aisha + "Big Decisions, Long Timelines"
+    (`strategist-long_term_thinking-l1`), Horizon Peaks' second
+    quest-giving NPC. Still waiting on you: a real book/exhibit/mentor
+    for Library/Museum (Section 6). Still unstarted: Leadership Quest's
+    remaining `mission-choice`-kind missions and its
+    `spot`/`allocate`/`sort`-kind missions (need mechanics not built
+    yet), Money Quest's remaining 16 lessons, Entrepreneur Quest's
+    remaining real BUILD/RUN/RESCUE & GROW stages.

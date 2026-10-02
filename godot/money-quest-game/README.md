@@ -141,7 +141,14 @@ rebuilt.
    today or a bigger set in three weeks, and you decide whether he
    pictures the outcome by writing it down or by talking it through
    with a grown-up, with the real curriculum's quiz and explanation on
-   why thinking ahead leads to better decisions afterward.
+   why thinking ahead leads to better decisions afterward. Horizon
+   Peaks' second resident, Aisha, gives "Big Decisions, Long
+   Timelines": she's just been paid from her part-time job, and you
+   decide whether she spends it all now or sets some aside for
+   something bigger years away — both genuinely valid, since this is
+   the one lesson whose own text says there's no single right answer —
+   with the real curriculum's quiz and explanation on why deciding on
+   purpose matters more than which option is picked afterward.
 4. In Idea Lab, walk up to the Business Guide and interact with them to
    start "Handle Competition" — a single decision ported directly from the
    website's real Entrepreneur Quest content: a competitor undercuts your
@@ -220,7 +227,8 @@ up-to-date table. In short:
 | Coin Cove zone + Shopkeeper's quest (`explorer-money_basics-l1`, "What Is Money?," reached via a portal inside Sky Exchange — Money Quest's first 5-zone graph, no mini-game needed) | — |
 | Coin Cove's Amir + "Where Does Money Come From?" quest (`builder-money_basics-l1`, Coin Cove's second quest-giving NPC — no new zone needed, no mini-game needed) | — |
 | Coin Cove's Priya + "Money as a Tool, Not a Goal" quest (`strategist-money_basics-l1`, Coin Cove's third quest-giving NPC, completing the "money_basics" topic trilogy — no new zone needed, no mini-game needed) | — |
-| Horizon Peaks zone + Finn's quest (`builder-long_term_thinking-l1`, "Planning a Few Steps Ahead," reached via a portal inside Coin Cove — Money Quest's first 6-zone graph, no mini-game needed) | Money Quest's remaining 17 lessons |
+| Horizon Peaks zone + Finn's quest (`builder-long_term_thinking-l1`, "Planning a Few Steps Ahead," reached via a portal inside Coin Cove — Money Quest's first 6-zone graph, no mini-game needed) | — |
+| Horizon Peaks' Aisha + "Big Decisions, Long Timelines" quest (`strategist-long_term_thinking-l1`, Horizon Peaks' second quest-giving NPC — no new zone needed, no mini-game needed) | Money Quest's remaining 16 lessons |
 | Idea Lab zone + "Handle Competition" quest (ports the website's real `competitor-lower-price` decision event) | — |
 | Marketing Studio zone + "Create Your Marketing" quest (ports the real `product-unclear` decision event, reached via a portal inside Idea Lab) | Entrepreneur Quest's `reflect-text`-kind stages (need a free-text input UI not built yet) |
 | Workshop zone + "Handle a Customer Problem" quest (ports the real `too-expensive-feedback` decision event, reached via a portal inside Marketing Studio — Entrepreneur Quest's first 3-zone graph) | — |
@@ -371,6 +379,20 @@ framing and the choice/consequence wording applying the lesson's real
 (write it down vs. ask a grown-up for help picturing both futures) —
 both equally valid ways to think ahead, with the quiz carrying the
 lesson's actual testable fact.
+
+Aisha's quest in Horizon Peaks is the same: every curriculum field
+(title, learning objective, key concept, vocabulary `long-term
+consequence`/`deliberate decision`/`by default`, explanation, quiz,
+feedback, reward message) is copied from the real
+`curriculum.strategist-long_term_thinking-l1`. Aisha is the real teen
+named in that lesson's own story. Unlike every other choice_point built
+so far, this lesson's own text explicitly says there's no single right
+answer to the real decision it poses (spend a paycheck now vs. save
+some for later), so for once the choice_point directly mirrors that
+real decision rather than using a sidestep scenario — safe to do here
+specifically because the quiz tests the separate concept of
+deliberateness, not which option Aisha picked, so there's no risk of
+the choice contradicting the quiz's correct answer.
 
 Idea Lab's "Handle Competition" quest is likewise copied directly from the
 real `messages/en.json`/`messages/ro.json` (`entrepreneurQuest.decisionEvents
@@ -594,7 +616,7 @@ rationale. Quick map:
   Read-aloud/text-to-speech has no engine wired in at all — not even a
   silent placeholder bus — since one would require either an offline
   voice model or a paid API, both out of scope per the brief.
-- Only 13 of 30 curriculum lessons are wired up as Quests, only 3 of
+- Only 14 of 30 curriculum lessons are wired up as Quests, only 3 of
   Entrepreneur Quest's many real BUILD/RUN/RESCUE & GROW stages are
   ported, and only 3 of Leadership Quest's 12 real missions are ported.
   See `docs/money-quest-world-architecture.md` Section 12 for the
