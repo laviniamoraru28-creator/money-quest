@@ -29,3 +29,8 @@ text = "Money Quest"
 layout_mode = 2
 custom_minimum_size = Vector2(240, 64)
 text = "Start"
+
+[node name="SettingsButton" type="Button" parent="CenterContainer/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(240, 56)
+text = "Settings"

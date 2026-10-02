@@ -19,6 +19,10 @@ const DEFAULT_SAVE: Dictionary = {
 	"earned_badge_ids": [],
 	"theme": "system",
 	"reduced_motion": false,
+	"music_volume": 0.8,
+	"sfx_volume": 0.8,
+	"voice_volume": 0.8,
+	"ambient_volume": 0.8,
 	"locale": "en",
 	"completed_quest_ids": [],
 	"unlocked_zone_ids": [],
@@ -41,6 +45,10 @@ func _ready() -> void:
 	ProgressManager.quest_completed.connect(func(_id): save_progress())
 	Settings.reduced_motion_changed.connect(func(_v): save_progress())
 	Settings.theme_changed.connect(func(_v): save_progress())
+	Settings.music_volume_changed.connect(func(_v): save_progress())
+	Settings.sfx_volume_changed.connect(func(_v): save_progress())
+	Settings.voice_volume_changed.connect(func(_v): save_progress())
+	Settings.ambient_volume_changed.connect(func(_v): save_progress())
 	Localization.locale_changed.connect(func(_v): save_progress())
 
 
@@ -95,6 +103,10 @@ func load_progress() -> void:
 
 	Settings.theme_mode = data.get("theme", "system")
 	Settings.reduced_motion = data.get("reduced_motion", false)
+	Settings.music_volume = data.get("music_volume", DEFAULT_SAVE["music_volume"])
+	Settings.sfx_volume = data.get("sfx_volume", DEFAULT_SAVE["sfx_volume"])
+	Settings.voice_volume = data.get("voice_volume", DEFAULT_SAVE["voice_volume"])
+	Settings.ambient_volume = data.get("ambient_volume", DEFAULT_SAVE["ambient_volume"])
 
 	Localization.set_locale(data.get("locale", Localization.DEFAULT_LOCALE))
 
@@ -108,6 +120,10 @@ func save_progress() -> void:
 		"earned_badge_ids": ProgressManager.earned_badge_ids,
 		"theme": Settings.theme_mode,
 		"reduced_motion": Settings.reduced_motion,
+		"music_volume": Settings.music_volume,
+		"sfx_volume": Settings.sfx_volume,
+		"voice_volume": Settings.voice_volume,
+		"ambient_volume": Settings.ambient_volume,
 		"locale": Localization.current_locale,
 		"completed_quest_ids": ProgressManager.completed_quest_ids,
 		"unlocked_zone_ids": ProgressManager.unlocked_zone_ids,

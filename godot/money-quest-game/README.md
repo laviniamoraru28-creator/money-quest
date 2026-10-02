@@ -114,8 +114,9 @@ Three input paths all drive the same movement — no platform is a second-
 class citizen:
 
 - **Touch / mouse**: tap or click a point on the ground to walk there, tap
-  an interactable to focus it, then use the bound `interact` action (or
-  call `Player.request_interact()` from a future on-screen "Talk" button).
+  an interactable to focus it, then use the bound `interact` action or the
+  on-screen "Talk" button (bottom-right of the HUD) — it only appears once
+  something is actually in range.
 - **Keyboard**: WASD / arrow keys to move, `E` or Space to interact.
 - **Gamepad**: left stick to move, face button 0 (e.g. Xbox A / PlayStation
   ✕) to interact.
@@ -146,6 +147,8 @@ up-to-date table. In short:
 | Calm World's all 8 named gardens (Bubble Garden, Aquarium Room, Light Room, Rain Room, Underwater Room, Forest Walk, Music Room, Grow-a-Garden) — always unlocked, no choices, all motion respects `reduced_motion` | — |
 | `AvatarConfig` + `AvatarCreation.tscn`, now fully wired to `Player.tscn` (see "Avatar wiring fix" below) — 4 body presets incl. a wheelchair-style look, 4 accessories (glasses, cap, hearing aid, cane), all purely visual | — |
 | Zone/quest/skill/avatar progression fields in `ProgressManager`, persisted by `SaveManager` | — |
+| 4 real `AudioServer` buses (Music/SFX/Voice/Ambient) + `SettingsMenu.tscn` (reduced-motion toggle + 4 volume sliders), reachable from `MainMenu` and the in-world HUD — see "Audio + Settings screen fix" below | Read-aloud/text-to-speech (`AudioManager.speak()` is a documented no-op — no TTS engine exists, so no toggle is shown for it) |
+| HUD "Talk" button, shown only when something is in interaction range | — |
 
 ## Content fidelity
 
@@ -248,15 +251,48 @@ is no separate "accessibility" menu. Every option is purely visual:
 range based on preset or accessory, so no customization choice carries a
 gameplay cost or benefit.
 
+## Audio + Settings screen fix
+
+Two more real gaps, found while scoping audio architecture and fixed the
+same way as the avatar wiring gap above:
+
+- `AudioManager.gd` set `music_player.bus = "Music"` and
+  `sfx_player.bus = "SFX"`, but no bus layout existed anywhere in the
+  project — those buses didn't exist, so both players were silently
+  falling back to `Master`, and there was no way to control music/SFX
+  volume independently even once real audio assets arrive.
+  `default_bus_layout.tres` now defines 4 real buses (Music, SFX, Voice,
+  Ambient), `Settings.gd` holds one volume field per bus (0.0–1.0 linear,
+  persisted by `SaveManager`), and `AudioManager.gd` applies each to the
+  real `AudioServer` bus (with a clean mute at 0, not `linear_to_db(0)`'s
+  `-inf`). Still inaudible today since zero audio assets exist — but the
+  volume control itself is real, not a placeholder.
+- There was no Settings UI anywhere in the project — `Settings.reduced_motion`
+  could only ever be set by editing or loading a save file, never toggled
+  by the child actually playing the game. `SettingsMenu.tscn` (a reusable
+  overlay, reachable from a new button on `MainMenu` and a new gear-style
+  button in the in-world `HUD`) now exposes a reduced-motion toggle plus
+  the 4 volume sliders above.
+
+Read-aloud was deliberately NOT added as a Settings toggle: there is no
+text-to-speech engine anywhere in this project (per the brief's "do not
+make AI voice generation a dependency"), so `AudioManager.speak()` stays
+a documented no-op. Offering a UI control for something with nothing real
+behind it would break this project's own honesty discipline — the same
+reason the Library's shelves say plainly that they're empty rather than
+pretending to have books.
+
 ## Project structure
 
 See `docs/money-quest-world-architecture.md` Section 11 for the full
 rationale. Quick map:
 
-- `autoload/` — global singletons: `Localization`, `Settings`, `GameState`,
-  `ProgressManager`, `SaveManager`, `AudioManager`, `WorldManager`,
-  `QuestManager`. `DialogueBox`/`ChoicePanel`/`RewardPopup` are also
-  autoloads (scene-based) — see `project.godot`'s own comment on why.
+- `autoload/` — global singletons: `Localization`, `Settings` (now with 4
+  volume fields), `GameState`, `ProgressManager`, `SaveManager`,
+  `AudioManager` (now applies real `AudioServer` bus volume),
+  `WorldManager`, `QuestManager`. `DialogueBox`/`ChoicePanel`/
+  `RewardPopup` are also autoloads (scene-based) — see `project.godot`'s
+  own comment on why.
 - `scripts/core/` — the reusable lesson data model (`LessonData`,
   `DialogueLine`, `DialogueChoice`, `ChoiceOption`, `ConsequenceEffect`,
   `VocabTerm`), `LessonManager`, `Interaction`, `InteractionManager`,
@@ -297,8 +333,13 @@ rationale. Quick map:
   `AvatarCreation.tscn`.
 - `scenes/characters/NPC.tscn`.
 - `scenes/quests/builder_saving_l1/` — Maya's quest's mini-game stage.
-- `scenes/ui/` — `DialogueBox`, `ChoicePanel`, `RewardPopup`, `HUD`.
-- `scenes/menus/MainMenu.tscn`.
+- `scenes/ui/` — `DialogueBox`, `ChoicePanel`, `RewardPopup`, `HUD` (now
+  with a Settings button and a mobile "Talk" button).
+- `scenes/menus/` — `MainMenu.tscn` (now with a Settings button),
+  `SettingsMenu.tscn` (reduced-motion toggle + 4 volume sliders,
+  reachable from both `MainMenu` and `HUD`).
+- `default_bus_layout.tres` — the 4 real audio buses (Music, SFX, Voice,
+  Ambient) referenced in `project.godot`'s `[audio]` section.
 - `data/zones/`, `data/quests/`, `data/lessons/` — content `.tres` files.
 - `data/dictionary/` — 2 real `DictionaryTermData` entries.
 - `data/library/`, `data/museum/`, `data/avatars/` — reserved, empty.
@@ -319,7 +360,12 @@ rationale. Quick map:
 - No art or audio assets are included — visuals are flat-color primitive
   meshes (capsules, boxes), matching the brief's own instruction not to
   invent visual direction decisions beyond what's needed to demonstrate
-  the architecture.
+  the architecture. The 4 audio buses and their volume sliders are real
+  and already wired to `AudioServer`, but silent until real `.ogg` files
+  are dropped into `assets/audio/` and referenced from `AudioManager.gd`.
+  Read-aloud/text-to-speech has no engine wired in at all — not even a
+  silent placeholder bus — since one would require either an offline
+  voice model or a paid API, both out of scope per the brief.
 - Only 2 of 30 curriculum lessons are wired up as Quests, only 2 of
   Entrepreneur Quest's many real BUILD/RUN/RESCUE & GROW stages are
   ported, and only 2 of Leadership Quest's 12 real missions are ported.

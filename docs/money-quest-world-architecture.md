@@ -558,6 +558,10 @@ node), never an architecture change.
 | Library books, Museum exhibits/zone, Mentors content, `BrowseZoneController` | Not built — zero real books/exhibits/mentors exist to populate or drive a placement controller with (Section 6) |
 | Mind Lab zone + "Different Explanations" quest | **Built** — a `CHALLENGE`-kind quest with an original scenario (no external fact to verify), never diagnostic or medical in framing (Section 7) |
 | Calm World's 8 named gardens (Bubble, Aquarium, Light, Rain, Underwater, Forest, Music, Grow-a-Garden) | **Built** — always-unlocked, no choices, all motion respects `reduced_motion`; the 7 gardens beyond Bubble Garden are each reached via a portal placed inside Bubble Garden (Section 7) |
+| 4 real `AudioServer` buses (Music/SFX/Voice/Ambient) + `Settings.gd` volume fields, applied by `AudioManager.gd` | **Built** — fixes a real gap: the buses referenced in code didn't previously exist as a bus layout, so volume was silently inert |
+| `SettingsMenu.tscn` (reduced-motion toggle + 4 volume sliders), reachable from `MainMenu` and the in-world `HUD` | **Built** — fixes a real gap: there was no Settings UI anywhere, so `reduced_motion` could only ever be set by editing/loading a save file |
+| HUD "Talk" button, wired to `Player.request_interact()`, shown only when something is in interaction range | **Built** — the on-screen mobile interaction path `InteractionManager`'s own doc comment always described, now actually present |
+| Read-aloud / text-to-speech | Not built — `AudioManager.speak()` is a documented no-op; no TTS engine exists, so no Settings toggle is shown for it (see the Library's same no-fake-controls discipline) |
 
 ---
 
@@ -566,8 +570,9 @@ node), never an architecture change.
 ```
 godot/money-quest-game/
   autoload/
-    Localization.gd / Settings.gd / GameState.gd / SaveManager.gd
-    ProgressManager.gd / AudioManager.gd
+    Localization.gd / Settings.gd (now 4 volume fields too) / GameState.gd /
+    SaveManager.gd / ProgressManager.gd /
+    AudioManager.gd           # now applies real AudioServer bus volume
     WorldManager.gd           # NEW
     QuestManager.gd           # NEW
   data/
@@ -616,8 +621,11 @@ godot/money-quest-game/
     characters/                 # NPC.tscn (3D)
     quests/
       builder_saving_l1/        # kept, relocated — unchanged content
-    ui/                        # DialogueBox, ChoicePanel, RewardPopup, HUD — kept, relocated
-    menus/                     # MainMenu.tscn
+    ui/                        # DialogueBox, ChoicePanel, RewardPopup,
+                               # HUD (now with Settings + Talk buttons) — kept, relocated
+    menus/                     # MainMenu.tscn (now with a Settings button),
+                               # SettingsMenu.tscn            # NEW
+  default_bus_layout.tres     # NEW — Music/SFX/Voice/Ambient buses
 ```
 
 ---
@@ -677,17 +685,37 @@ godot/money-quest-game/
       instance before instancing the next (only one zone ever resident),
       and found no per-frame allocation or unbounded work in
       `Player`/`CameraController`/`NPC`'s `_process`/`_physics_process`.
-    - **Known, pre-existing gaps not introduced this phase** (unchanged
-      from earlier phases, flagged honestly rather than silently left):
-      no on-screen mobile "Talk" button yet (`Player.request_interact()`
-      is ready for one), no music/SFX volume or on/off toggles in
-      `Settings.gd` yet (moot while `AudioManager` ships zero audio
-      assets), no read-aloud integration in the 3D UI overlays.
-14. **Expand gradually** — done for everything that didn't need your
+    - **Previously a known gap, now fixed (Section 15)**: the on-screen
+      mobile "Talk" button `Player.request_interact()` was always ready
+      for now exists in `HUD.tscn`, and `Settings.gd` now has 4
+      independent volume fields applied to 4 real `AudioServer` buses
+      (Music/SFX/Voice/Ambient) — both reachable the moment real audio
+      assets or a Talk-button use case exist, not bolted on after the
+      fact. Read-aloud remains a documented no-op (`AudioManager.speak()`)
+      — there is still no text-to-speech engine, and per this project's
+      own honesty discipline (the Library's empty shelves), no toggle is
+      shown in the UI for a feature with nothing real behind it yet.
+15. **Audio architecture + accessible Settings screen + mobile Talk
+    button** — a real gap was found while scoping this: `AudioManager`
+    referenced "Music"/"SFX" buses that didn't exist anywhere (no bus
+    layout file at all), so both `AudioStreamPlayer`s were silently
+    falling back to `Master`; and there was no Settings UI anywhere in
+    the project, meaning `Settings.reduced_motion` could only ever be set
+    by loading a save file, never toggled by the child playing the game.
+    Both are fixed now: `default_bus_layout.tres` defines 4 real buses,
+    `Settings.gd` exposes 4 volume fields wired all the way to
+    `AudioServer`, and a new reusable `SettingsMenu.tscn` overlay
+    (reduced-motion toggle + 4 volume sliders) is reachable from both
+    `MainMenu` and the in-world `HUD`. `HUD.tscn` also gained the "Talk"
+    button `InteractionManager`'s own doc comment always described but
+    that never actually existed, shown only when something is in range
+    to interact with.
+16. **Expand gradually** — done for everything that didn't need your
     approval first: Mind Lab (Section 7), all 8 of Calm World's named
-    gardens (Section 7), and fuller avatar presets including a wheelchair
+    gardens (Section 7), fuller avatar presets including a wheelchair
     body preset and glasses/cap/hearing-aid/cane accessories, all purely
-    visual (Section 9). Still waiting on you: a real book/exhibit/mentor
+    visual (Section 9), and audio buses/Settings screen/mobile Talk
+    button (Section 15). Still waiting on you: a real book/exhibit/mentor
     for Library/Museum (Section 6). Still unstarted: Entrepreneur/
     Leadership Quest's remaining stages, Money Quest's remaining 28
-    lessons, and audio/mobile polish.
+    lessons.

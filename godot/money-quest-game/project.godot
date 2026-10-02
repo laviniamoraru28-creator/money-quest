@@ -65,6 +65,16 @@ window/stretch/mode="canvas_items"
 window/stretch/aspect="keep"
 window/handheld/orientation="sensorLandscape"
 
+[audio]
+
+; 4 independent buses under Master — Music/SFX/Voice/Ambient — so a
+; child can turn music down without silencing sound effects, or mute
+; voice without losing ambient sound, and vice versa (see Settings.gd's
+; 4 volume fields and AudioManager.gd's bus-volume application). Audible
+; only once real audio assets are dropped in; AudioManager ships zero
+; today by design (see AudioManager.gd's own doc comment).
+buses/default_bus_layout="res://default_bus_layout.tres"
+
 [internationalization]
 
 ; Godot's CSV translation import generates one .translation resource per
