@@ -4,9 +4,17 @@ extends Control
 ## the Hub for the first time. Deliberately small (see AvatarConfig.gd) —
 ## no identity is forced, every choice here is cosmetic only and never
 ## gates any content.
+##
+## Presets and accessories are listed together, in one unlabeled row each,
+## deliberately not split into a separate "accessibility options" section —
+## a wheelchair look or a hearing aid is just one more look, the same as a
+## cap or a color, per the project brief's "do not force the player into a
+## single character identity" and its explicit instruction to offer
+## mobility aids / hearing devices / glasses as normal customization
+## options rather than a special category.
 
-const BODY_PRESETS: Array[String] = ["preset-a", "preset-b", "preset-c"]
-const ACCESSORIES: Array[String] = ["", "glasses", "cap"]
+const BODY_PRESETS: Array[String] = ["preset-a", "preset-b", "preset-c", "preset-d"]
+const ACCESSORIES: Array[String] = ["", "glasses", "cap", "hearing_aid", "cane"]
 
 @onready var title_label: Label = $CenterContainer/VBox/TitleLabel
 @onready var preset_label: Label = $CenterContainer/VBox/PresetLabel

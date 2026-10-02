@@ -509,10 +509,27 @@ extends Resource
 ```
 
 A minimal `AvatarCreation.tscn` (reached from `MainMenu`) lets a child pick
-these three things before entering the Hub for the first time. The schema
-is intentionally small so more presets/accessories (including ones that
-visibly represent glasses, hearing aids, or mobility aids, as discussed
-previously) can be added later as pure content, not an architecture change.
+these three things before entering the Hub for the first time. **Now
+wired all the way through**: a real gap was found and fixed this phase —
+`AvatarConfig` was being saved and loaded correctly, but `Player.tscn`'s
+visual was a single hardcoded-color capsule that never read it, so every
+choice in `AvatarCreation.tscn` was invisible in the actual game.
+`Player.gd._apply_avatar_config()` now applies `outfit_color` to the
+body's material, `body_preset_id` to the body's shape (including a
+seated, wheelchair-style silhouette, `preset-d`), and `accessory_id` to a
+visible attachment (`glasses`, `cap`, `hearing_aid`, or `cane`), every
+time a zone's `Player` node is instantiated. All of this is purely
+visual — collision shape, movement `SPEED`, and interaction range never
+change based on preset or accessory, so no customization choice carries a
+gameplay cost or advantage. Presets and accessories are listed together
+in `AvatarCreation.gd`'s two plain arrays, not split into a separate
+"accessibility" section — a wheelchair look or a hearing aid is offered
+exactly like a cap or a color, per your own "do not force the player into
+a single character identity" instruction and the explicit ask for
+mobility aids/hearing devices/glasses as normal customization options.
+The schema stays intentionally small so more presets/accessories can keep
+being added later as pure content (one list entry plus one `Player.tscn`
+node), never an architecture change.
 
 ---
 
@@ -532,7 +549,7 @@ previously) can be added later as pure content, not an architecture change.
 | Entrepreneur Quest's Marketing Studio zone + "Create Your Marketing" quest | **Built** — reached via a portal inside Idea Lab (Entrepreneur Quest's first 2-zone graph); another `CHALLENGE`-kind quest, porting the real `product-unclear` decision event verbatim |
 | Leadership Quest's Leadership Academy zone + "The Big Mistake" quest | **Built** — a `CHALLENGE`-kind quest porting the website's real `big-mistake-choice` decision event verbatim, with Priya as a real-character NPC; this is what motivated `QuestData.intro_dialogue` (Section 4) |
 | Leadership Quest's Team Challenge zone + "The Angry Customer" quest | **Built** — reached via a portal inside Leadership Academy (Leadership Quest's first 2-zone graph); another `CHALLENGE`-kind quest with Theo as a real-character NPC, porting the real `angry-customer-choice` decision event verbatim |
-| `AvatarConfig` + minimal creation screen | **Built** (color/preset only) |
+| `AvatarConfig` + creation screen, fully wired to the 3D model | **Built** — 4 body presets (including a seated wheelchair-style look) and 4 accessories (glasses, cap, hearing aid, cane), all purely visual, listed together as equally normal choices |
 | Progression fields for zones/quests/skills | **Built** (additive) |
 | Entrepreneur Quest's full BUILD → RUN → RESCUE & GROW track / Leadership Quest's remaining 11 missions | Not built — only one representative slice per track exists so far |
 | `EntryData`/`BookData`/`ExhibitData`/`MentorData`/`DictionaryTermData` schema | **Built** (`scripts/library/`, see `data/schemas/ENTRY_DATA_FORMAT.md`) |
@@ -541,7 +558,6 @@ previously) can be added later as pure content, not an architecture change.
 | Library books, Museum exhibits/zone, Mentors content, `BrowseZoneController` | Not built — zero real books/exhibits/mentors exist to populate or drive a placement controller with (Section 6) |
 | Mind Lab zone + "Different Explanations" quest | **Built** — a `CHALLENGE`-kind quest with an original scenario (no external fact to verify), never diagnostic or medical in framing (Section 7) |
 | Calm World's 8 named gardens (Bubble, Aquarium, Light, Rain, Underwater, Forest, Music, Grow-a-Garden) | **Built** — always-unlocked, no choices, all motion respects `reduced_motion`; the 7 gardens beyond Bubble Garden are each reached via a portal placed inside Bubble Garden (Section 7) |
-| Fuller avatar presets (inclusive representation beyond color) | Not built — flagged as a deliberate future content addition, not an architecture gap |
 
 ---
 
@@ -571,7 +587,8 @@ godot/money-quest-game/
                                # VirtualMoney, Interaction, InteractionManager,
                                # MiniGameBase
     world/                    # NEW: ZoneData, (WorldManager lives in autoload/)
-    player/                   # NEW home: Player.gd (3D), CameraController.gd, AvatarConfig.gd
+    player/                   # NEW home: Player.gd (3D, now applies AvatarConfig
+                               # to the model), CameraController.gd, AvatarConfig.gd
     characters/                # NEW home: NPC.gd (3D)
     quests/                   # NEW: QuestData (QuestManager lives in autoload/)
     lessons/                  # kept: LessonManager
@@ -666,6 +683,11 @@ godot/money-quest-game/
       is ready for one), no music/SFX volume or on/off toggles in
       `Settings.gd` yet (moot while `AudioManager` ships zero audio
       assets), no read-aloud integration in the 3D UI overlays.
-14. **Expand gradually** — the explicit next-after-this-phase work: a real
-    book/exhibit/mentor once approved, Entrepreneur/Leadership Quest's
-    remaining stages, Mind Lab, Calm World's remaining 7 named gardens.
+14. **Expand gradually** — done for everything that didn't need your
+    approval first: Mind Lab (Section 7), all 8 of Calm World's named
+    gardens (Section 7), and fuller avatar presets including a wheelchair
+    body preset and glasses/cap/hearing-aid/cane accessories, all purely
+    visual (Section 9). Still waiting on you: a real book/exhibit/mentor
+    for Library/Museum (Section 6). Still unstarted: Entrepreneur/
+    Leadership Quest's remaining stages, Money Quest's remaining 28
+    lessons, and audio/mobile polish.

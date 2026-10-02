@@ -36,9 +36,13 @@ rebuilt.
 ## Playing the vertical slice
 
 1. Tap/click "Start." On a first launch you'll go through
-   `AvatarCreation.tscn` (pick a look, a color, and an optional accessory —
-   all cosmetic, nothing is gated behind these choices); a returning
-   session skips straight to the Hub.
+   `AvatarCreation.tscn` (pick a look — including a seated, wheelchair-
+   style look — a color, and an optional accessory — glasses, a cap, a
+   hearing aid, or a cane, all listed together as equally normal choices;
+   all cosmetic, nothing is gated behind these choices, and none of them
+   change movement speed or collision); a returning session skips
+   straight to the Hub. These choices now actually show up on your 3D
+   explorer in every zone — see "Avatar wiring fix" below.
 2. You arrive in the **World Hub** — a plaza with a central fountain, 7
    ground paths radiating out to 7 gate-shaped portals, a few decorative
    trees, and a **Hub Guide** NPC near spawn who gives a two-line welcome
@@ -138,9 +142,9 @@ up-to-date table. In short:
 | Marketing Studio zone + "Create Your Marketing" quest (ports the real `product-unclear` decision event, reached via a portal inside Idea Lab) | Entrepreneur Quest's `reflect-text`-kind stages (need a free-text input UI not built yet) |
 | Leadership Academy zone + "The Big Mistake" quest (ports the website's real `big-mistake-choice` decision event, with Priya as a real-character NPC) | AI Quest Coach (explicitly not built — see the architecture doc's non-negotiables) |
 | Team Challenge zone + "The Angry Customer" quest (ports the real `angry-customer-choice` decision event, reached via a portal inside Leadership Academy, with Theo as a real-character NPC) | Leadership Quest's `match`/`spot`/`allocate`/`sort`-kind missions (need mechanics not built yet) |
-| `EntryData`/`BookData`/`ExhibitData`/`MentorData`/`DictionaryTermData` schema, with 2 real Dictionary entries (`goal`, `trade-off`) reusing existing curriculum vocabulary | Fuller avatar presets beyond color/preset/accessory |
+| `EntryData`/`BookData`/`ExhibitData`/`MentorData`/`DictionaryTermData` schema, with 2 real Dictionary entries (`goal`, `trade-off`) reusing existing curriculum vocabulary | — |
 | Calm World's all 8 named gardens (Bubble Garden, Aquarium Room, Light Room, Rain Room, Underwater Room, Forest Walk, Music Room, Grow-a-Garden) — always unlocked, no choices, all motion respects `reduced_motion` | — |
-| `AvatarConfig` + minimal `AvatarCreation.tscn` | — |
+| `AvatarConfig` + `AvatarCreation.tscn`, now fully wired to `Player.tscn` (see "Avatar wiring fix" below) — 4 body presets incl. a wheelchair-style look, 4 accessories (glasses, cap, hearing aid, cane), all purely visual | — |
 | Zone/quest/skill/avatar progression fields in `ProgressManager`, persisted by `SaveManager` | — |
 
 ## Content fidelity
@@ -219,6 +223,30 @@ week-prompt text (always original to that lesson's design), and the
 Entrepreneur Quest's real content has no fixed mentor character the way
 Money Quest's curriculum already has Maya and Leadership Quest already has
 its 4 named characters.
+
+## Avatar wiring fix
+
+A real gap, not a content choice, was found and fixed this phase:
+`AvatarConfig` (body preset, outfit color, accessory) was being saved and
+loaded correctly by `SaveManager`, but `Player.tscn`'s visual was a single
+hardcoded-color capsule that never read it — every choice made in
+`AvatarCreation.tscn` was invisible in the actual game. `Player.gd` now
+applies the saved config every time a zone's `Player` node is
+instantiated: `outfit_color` sets the body's material, `body_preset_id`
+sets its shape, `accessory_id` shows one attachment.
+
+At the same time, the preset and accessory lists grew to match the
+project brief's explicit instruction to offer mobility aids, hearing
+devices, and glasses as normal customization options, not a separate
+category: `body_preset_id` now includes `preset-d`, a seated,
+wheelchair-style silhouette, and `accessory_id` now includes
+`hearing_aid` and `cane` alongside the existing `glasses` and `cap`. All
+four presets and five accessory options (including "none") are listed
+together in one unlabeled dropdown each in `AvatarCreation.tscn` — there
+is no separate "accessibility" menu. Every option is purely visual:
+`Player.gd` never changes `SPEED`, the `CollisionShape3D`, or interaction
+range based on preset or accessory, so no customization choice carries a
+gameplay cost or benefit.
 
 ## Project structure
 
