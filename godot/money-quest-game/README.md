@@ -107,7 +107,14 @@ rebuilt.
    toy sells out everywhere, you decide whether Mei asks her uncle how
    that affects his shares or works it out by watching the toy's
    popularity herself, with the real curriculum's quiz and explanation
-   on what owning a share actually means afterward.
+   on what owning a share actually means afterward. Sky Exchange's
+   fourth and final resident, Tomasz, gives "Locked Until 18: How a
+   Junior ISA Works": now 13, Tomasz wants a new bike and remembers a
+   Junior ISA his dad opened for him, and you decide whether he asks his
+   dad to explain the cash-vs-stocks-and-shares difference or works it
+   out himself from the account statement, with the real curriculum's
+   quiz and explanation on when a Junior ISA normally unlocks
+   afterward — completing all 4 real topics Sky Exchange hosts.
 4. In Idea Lab, walk up to the Business Guide and interact with them to
    start "Handle Competition" — a single decision ported directly from the
    website's real Entrepreneur Quest content: a competitor undercuts your
@@ -181,7 +188,8 @@ up-to-date table. In short:
 | Guardian Gate zone + Zara's quest (`builder-scams-l1`, "Spotting a Scam," reached via a portal inside Market Town — Money Quest's first 3-zone graph, no mini-game needed) | — |
 | Sky Exchange zone + Sam's quest (`builder-currencies-l1`, "Cash, Cards, and Currencies," reached via a portal inside Guardian Gate — Money Quest's first 4-zone graph, no mini-game needed) | — |
 | Sky Exchange's Omar + "How a Card Payment Actually Works" quest (`builder-digital_money-l1`, Sky Exchange's second quest-giving NPC — no new zone needed, no mini-game needed) | — |
-| Sky Exchange's Mei + "Owning a Small Piece of a Company" quest (`builder-investing_basics-l1`, Sky Exchange's third quest-giving NPC — no new zone needed, no mini-game needed) | Money Quest's remaining 22 lessons |
+| Sky Exchange's Mei + "Owning a Small Piece of a Company" quest (`builder-investing_basics-l1`, Sky Exchange's third quest-giving NPC — no new zone needed, no mini-game needed) | — |
+| Sky Exchange's Tomasz + "Locked Until 18: How a Junior ISA Works" quest (`builder-junior_isa-l1`, Sky Exchange's fourth and final quest-giving NPC, completing all 4 real topics the zone hosts) | Money Quest's remaining 21 lessons |
 | Idea Lab zone + "Handle Competition" quest (ports the website's real `competitor-lower-price` decision event) | — |
 | Marketing Studio zone + "Create Your Marketing" quest (ports the real `product-unclear` decision event, reached via a portal inside Idea Lab) | Entrepreneur Quest's `reflect-text`-kind stages (need a free-text input UI not built yet) |
 | Workshop zone + "Handle a Customer Problem" quest (ports the real `too-expensive-feedback` decision event, reached via a portal inside Marketing Studio — Entrepreneur Quest's first 3-zone graph) | — |
@@ -271,6 +279,18 @@ applying the lesson's real "share prices reflect how people think a
 company is doing" concept to a concrete decision (ask Uncle to explain
 vs. work it out herself by watching the toy's popularity) — both
 equally valid, neither graded as "wrong."
+
+Tomasz's quest in Sky Exchange is the same: every curriculum field (title,
+learning objective, key concept, vocabulary `cash Junior ISA`/
+`stocks-and-shares Junior ISA`/`locked until 18`, explanation, quiz,
+feedback, reward message) is copied from the real
+`curriculum.builder-junior_isa-l1`. Tomasz is the real child named in that
+lesson's own story, and the only original text is the intro framing and
+the choice/consequence wording applying the lesson's real "cash vs.
+stocks-and-shares, locked until 18" facts to a concrete decision (ask Dad
+to explain vs. work it out himself from the account statement) — again
+both equally valid, with the quiz carrying the lesson's actual testable
+fact. This completes all 4 real website topics Sky Exchange hosts.
 
 Idea Lab's "Handle Competition" quest is likewise copied directly from the
 real `messages/en.json`/`messages/ro.json` (`entrepreneurQuest.decisionEvents
@@ -490,7 +510,7 @@ rationale. Quick map:
   Read-aloud/text-to-speech has no engine wired in at all — not even a
   silent placeholder bus — since one would require either an offline
   voice model or a paid API, both out of scope per the brief.
-- Only 8 of 30 curriculum lessons are wired up as Quests, only 3 of
+- Only 9 of 30 curriculum lessons are wired up as Quests, only 3 of
   Entrepreneur Quest's many real BUILD/RUN/RESCUE & GROW stages are
   ported, and only 3 of Leadership Quest's 12 real missions are ported.
   See `docs/money-quest-world-architecture.md` Section 12 for the

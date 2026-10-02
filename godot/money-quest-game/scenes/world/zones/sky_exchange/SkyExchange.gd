@@ -16,18 +16,24 @@ extends Node3D
 ##
 ## Mei — the real child named in the "Owning a Small Piece of a Company"
 ## story — is this zone's third resident, giving builder-investing_basics-l1.
-## The real website still hosts 1 more untouched sky-exchange topic
-## (junior_isa), so this zone remains a natural home for a further resident.
+##
+## Tomasz — the real child named in the "Locked Until 18" story — is this
+## zone's fourth resident, giving builder-junior_isa-l1. This completes all
+## 4 real website topics hosted in "sky-exchange" (currencies, digital_money,
+## investing_basics, junior_isa) — Sky Exchange is now "full" the same way
+## Golden Vault's 3-age-band "saving" trilogy completed that zone's topic.
 
 const CURRENCIES_QUEST_ID: String = "builder-currencies-l1-quest"
 const DIGITAL_MONEY_QUEST_ID: String = "builder-digital-money-l1-quest"
 const INVESTING_BASICS_QUEST_ID: String = "builder-investing-basics-l1-quest"
+const JUNIOR_ISA_QUEST_ID: String = "builder-junior-isa-l1-quest"
 
 @onready var player: Node3D = $Player
 @onready var camera_controller: CameraController = $CameraController
 @onready var sam: NPC = $Sam
 @onready var omar: NPC = $Omar
 @onready var mei: NPC = $Mei
+@onready var tomasz: NPC = $Tomasz
 
 
 func _ready() -> void:
@@ -35,6 +41,7 @@ func _ready() -> void:
 	sam.talked_to.connect(_on_sam_talked_to)
 	omar.talked_to.connect(_on_omar_talked_to)
 	mei.talked_to.connect(_on_mei_talked_to)
+	tomasz.talked_to.connect(_on_tomasz_talked_to)
 
 
 func _on_sam_talked_to(_npc_id: String) -> void:
@@ -56,3 +63,10 @@ func _on_mei_talked_to(_npc_id: String) -> void:
 		DialogueBox.show_text("zone.sky_exchange.mei.already_done")
 	else:
 		QuestManager.start_quest(INVESTING_BASICS_QUEST_ID)
+
+
+func _on_tomasz_talked_to(_npc_id: String) -> void:
+	if QuestManager.is_quest_completed(JUNIOR_ISA_QUEST_ID):
+		DialogueBox.show_text("zone.sky_exchange.tomasz.already_done")
+	else:
+		QuestManager.start_quest(JUNIOR_ISA_QUEST_ID)

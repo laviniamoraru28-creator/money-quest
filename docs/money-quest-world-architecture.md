@@ -563,6 +563,7 @@ node), never an architecture change.
 | Money Quest's Sky Exchange zone + Sam's quest (`builder-currencies-l1`, "Cash, Cards, and Currencies") | **Built** — reached via a portal inside Guardian Gate (Golden Vault → Market Town → Guardian Gate → Sky Exchange, Money Quest's first 4-zone graph); real website world id `sky-exchange`, real badge display name "Currency Explorer"; Sam is the real child from the lesson's own story; another `LessonData.choice_point` with no mini-game; `sky-exchange` hosts 4 real topics on the website (currencies, digital_money, investing_basics, junior_isa), so this zone is a natural future home for more quest-giving NPCs the same way Golden Vault grew to 3 |
 | Sky Exchange's Omar + "How a Card Payment Actually Works" quest (`builder-digital_money-l1`) | **Built** — Sky Exchange's second quest-giving NPC, the same "a zone can grow another resident" pattern Golden Vault proved; Omar is the real child from the lesson's own story; `LessonData.choice_point` with no mini-game; 2 of `sky-exchange`'s 4 real topics remain untouched (investing_basics, junior_isa) |
 | Sky Exchange's Mei + "Owning a Small Piece of a Company" quest (`builder-investing_basics-l1`) | **Built** — Sky Exchange's third quest-giving NPC; Mei is the real child from the lesson's own story (her uncle owns the shares); `LessonData.choice_point` with no mini-game; only `junior_isa` remains untouched of `sky-exchange`'s 4 real topics |
+| Sky Exchange's Tomasz + "Locked Until 18: How a Junior ISA Works" quest (`builder-junior_isa-l1`) | **Built** — Sky Exchange's fourth quest-giving NPC; Tomasz is the real child from the lesson's own story; `LessonData.choice_point` with no mini-game; this completes all 4 real website topics hosted in `sky-exchange` (currencies, digital_money, investing_basics, junior_isa) — Sky Exchange is now "full," the same way Golden Vault's 3-age-band "saving" trilogy completed that zone's topic |
 | Entrepreneur Quest's Idea Lab zone + "Handle Competition" quest | **Built** — a `CHALLENGE`-kind quest porting the website's real `competitor-lower-price` decision event (`src/content/entrepreneur-quest/structures.ts`) verbatim; proves the same pipeline carries a second Quest track with zero new systems |
 | Entrepreneur Quest's Marketing Studio zone + "Create Your Marketing" quest | **Built** — reached via a portal inside Idea Lab (Entrepreneur Quest's first 2-zone graph); another `CHALLENGE`-kind quest, porting the real `product-unclear` decision event verbatim |
 | Entrepreneur Quest's Workshop zone + "Handle a Customer Problem" quest | **Built** — reached via a portal inside Marketing Studio (Idea Lab → Marketing Studio → Workshop, Entrepreneur Quest's first 3-zone graph); another `CHALLENGE`-kind quest, porting the real `too-expensive-feedback` decision event verbatim |
@@ -750,11 +751,14 @@ godot/money-quest-game/
     Exchange + "Cash, Cards, and Currencies" (`builder-currencies-l1`),
     Money Quest's fourth zone, Omar + "How a Card Payment Actually
     Works" (`builder-digital_money-l1`), Sky Exchange's second
-    quest-giving NPC, and Mei + "Owning a Small Piece of a Company"
+    quest-giving NPC, Mei + "Owning a Small Piece of a Company"
     (`builder-investing_basics-l1`), Sky Exchange's third quest-giving
-    NPC (Section 3). Still waiting on you: a real book/exhibit/mentor
-    for Library/Museum (Section 6). Still unstarted: Leadership Quest's
-    remaining `mission-choice`-kind missions and its `spot`/`allocate`/
-    `sort`-kind missions (need mechanics not built yet), Money Quest's
-    remaining 22 lessons, Entrepreneur Quest's remaining real
-    BUILD/RUN/RESCUE & GROW stages.
+    NPC, and Tomasz + "Locked Until 18: How a Junior ISA Works"
+    (`builder-junior_isa-l1`), Sky Exchange's fourth quest-giving NPC —
+    completing all 4 real website topics the zone hosts (Section 3).
+    Still waiting on you: a real book/exhibit/mentor for Library/Museum
+    (Section 6). Still unstarted: Leadership Quest's remaining
+    `mission-choice`-kind missions and its `spot`/`allocate`/`sort`-kind
+    missions (need mechanics not built yet), Money Quest's remaining 21
+    lessons, Entrepreneur Quest's remaining real BUILD/RUN/RESCUE &
+    GROW stages.
