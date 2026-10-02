@@ -83,6 +83,8 @@ func start_quest(quest_id: String) -> void:
 ## comment). Pays its own xp_reward/coin_reward directly, unlike a LESSON-
 ## kind quest where the wrapped LessonData already paid its reward.
 func _run_challenge_quest(quest: QuestData) -> void:
+	for line in quest.intro_dialogue:
+		await DialogueBox.show_line(line)
 	if not quest.intro_text_key.is_empty():
 		await DialogueBox.show_text(quest.intro_text_key)
 

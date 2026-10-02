@@ -190,7 +190,12 @@ enum QuestKind { LESSON, EXPLORATION, CHALLENGE, SIMULATION }
 
 # Set when kind == CHALLENGE instead — a standalone situation+choice+
 # consequence quest with no wrapped LessonData (added this phase for
-# Entrepreneur Quest's first real quest, see Section 5):
+# Entrepreneur Quest's first real quest, see Section 5). intro_dialogue
+# (spoken lines between named characters) was added for Leadership
+# Quest's "Big Mistake" quest, which opens with Priya/Oren dialogue
+# before its decision — shown before intro_text_key, which stays for a
+# single narrator-style line (Entrepreneur Quest's case):
+@export var intro_dialogue: Array[DialogueLine] = []
 @export var intro_text_key: String = ""
 @export var challenge_choice: DialogueChoice
 @export var reward_message_key: String = ""
@@ -226,8 +231,8 @@ instruction) — it's a tally of what a child has *done*, not a graded test.
 
 ## 5. Entrepreneur Quest World & Leadership Quest World
 
-Entrepreneur Quest now has its first real slice built this phase; Leadership
-Quest is architecture-only, not built yet.
+Both now have a first real slice built, each a single `CHALLENGE`-kind
+quest proving the shared pipeline carries that track with no new systems.
 
 - **Entrepreneur Quest**: the Hub's portal leads into `idea-lab`, a
   `ZoneData` with `kind == QUEST`, where a "Business Guide" NPC gives the
@@ -235,27 +240,28 @@ Quest is architecture-only, not built yet.
   wrapping the website's real `competitor-lower-price` decision event
   (situation + 3 choices + consequences, copied verbatim from
   `messages/en.json`'s `entrepreneurQuest.decisionEvents`, not invented).
-  This single quest proves the `QuestData`/`QuestManager` pipeline Money
-  Quest's first quest built carries a second track with **zero new
-  systems** — `CHALLENGE` was the one addition needed (a standalone
-  situation+choice+consequence runner with no wrapped `LessonData`, see
-  Section 4), and it's now there for any future quest, Entrepreneur Quest
-  or Leadership Quest alike, that doesn't need a full lesson's
-  vocabulary/quiz/mini-game shape. The rest of Entrepreneur Quest's real
-  BUILD → RUN → RESCUE & GROW track (Section 0) is the source to port,
-  stage by stage, as further zones (Business District, Market, …) once
-  this slice is validated — not built this phase, by design.
-- **Leadership Quest**: not implemented yet. It will use the exact same
-  `QuestData`/`QuestManager`/`LessonManager` pipeline, reached via another
-  Hub portal → another `ZoneData` with `kind == QUEST` and its own small
-  zone graph (Leadership Academy/Team Challenge area/Decision Lab, per
-  your Section 24). Leadership Quest's 4 existing characters (Nadia, Oren,
-  Priya, Theo — from the real `leadership-quest/structures.ts`) become
-  actual `NPC` instances the moment that zone is built — same `NPC.gd`,
-  same `Interaction` pattern, no new character system required. Its own
-  "mission"-shaped decision events (e.g. `big-mistake`) are exactly the
-  same shape `CHALLENGE` now runs, proven by the Entrepreneur Quest slice
-  above.
+  The rest of Entrepreneur Quest's real BUILD → RUN → RESCUE & GROW track
+  (Section 0) is the source to port, stage by stage, as further zones
+  (Business District, Market, …) once this slice is validated — not built
+  this phase, by design.
+- **Leadership Quest**: the Hub's portal leads into `leadership-academy`,
+  another `ZoneData` with `kind == QUEST`, where Priya — one of the real
+  `leadership-quest/structures.ts` characters (Nadia, Oren, Priya, Theo) —
+  gives "The Big Mistake" quest: a `QuestData` of `kind == CHALLENGE`
+  wrapping the website's real `big-mistake-choice` decision event,
+  including its own two-line `priya`/`oren` intro dialogue (copied
+  verbatim from `messages/en.json`'s `leadershipQuest.missions
+  .big-mistake`). This exercised one real schema gap `CHALLENGE` didn't
+  have yet — a mission can open with spoken dialogue between named
+  characters before its decision, not just a single narrator line — so
+  `QuestData` gained `intro_dialogue: Array[DialogueLine]` (shown before
+  `intro_text_key`/`challenge_choice`, reusing the exact same
+  `DialogueLine` resource `LessonData.intro_dialogue` already uses). Same
+  `NPC.gd`, same `Interaction` pattern — no new character system required.
+  Leadership Quest's remaining 11 missions (Section 0) are the source to
+  port, stage by stage, as further zones (Team Challenge area, Decision
+  Lab, per your Section 24) once this slice is validated — not built this
+  phase, by design.
 
 ---
 
@@ -387,12 +393,13 @@ previously) can be added later as pure content, not an architecture change.
 | `Player`/`NPC`/`Interaction`/`InteractionManager` ported to 3D | **Built** |
 | `CameraController` (third-person follow) | **Built** |
 | `QuestData`/`QuestManager`, `LESSON` and `CHALLENGE` kinds | **Built** — `CHALLENGE` added this phase for standalone situation+choice+consequence content with no wrapped `LessonData` |
-| World Hub scene, 7 portals | **Built** — 2 functional (Money Quest, Entrepreneur Quest), 5 "coming soon" |
+| World Hub scene, 7 portals | **Built** — 3 functional (Money Quest, Entrepreneur Quest, Leadership Quest), 4 "coming soon" |
 | Money Quest's Golden Vault zone + Maya's quest (`builder-saving-l1`) | **Built** — reuses the existing `LessonData`/`LessonManager`/`SavingsAllocationMiniGame`/UI overlays unchanged |
 | Entrepreneur Quest's Idea Lab zone + "Handle Competition" quest | **Built** — a `CHALLENGE`-kind quest porting the website's real `competitor-lower-price` decision event (`src/content/entrepreneur-quest/structures.ts`) verbatim; proves the same pipeline carries a second Quest track with zero new systems |
+| Leadership Quest's Leadership Academy zone + "The Big Mistake" quest | **Built** — a `CHALLENGE`-kind quest porting the website's real `big-mistake-choice` decision event verbatim, with Priya as a real-character NPC; this is what motivated `QuestData.intro_dialogue` (Section 4) |
 | `AvatarConfig` + minimal creation screen | **Built** (color/preset only) |
 | Progression fields for zones/quests/skills | **Built** (additive) |
-| Entrepreneur Quest's full BUILD → RUN → RESCUE & GROW track / Leadership Quest zones | Not built — only Entrepreneur Quest's one representative slice above exists; Leadership Quest architecture ready (Section 5) |
+| Entrepreneur Quest's full BUILD → RUN → RESCUE & GROW track / Leadership Quest's remaining 11 missions | Not built — only one representative slice per track exists so far |
 | Library / Museum / Mentor / Dictionary content | Not built — schema ready, zero entries (Section 6) |
 | Mind Lab | Not built — tag reserved (Section 7) |
 | Calm World gardens | Not built — tag + always-unlocked rule reserved (Section 7) |

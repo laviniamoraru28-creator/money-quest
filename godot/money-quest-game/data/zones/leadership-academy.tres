@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ZoneData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/ZoneData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+zone_id = "leadership-academy"
+display_name_key = "zone.leadership_academy.name"
+scene_path = "res://scenes/world/zones/leadership_academy/LeadershipAcademy.tscn"
+kind = 1
+theme_color = Color(0.212, 0.490, 0.600, 1)
+unlock_condition_quest_id = ""
+npc_ids = Array[String](["priya"])
+quest_ids = Array[String](["lq-big-mistake-quest"])
+exhibit_ids = Array[String]([])
+book_ids = Array[String]([])
+player_spawn_position = Vector3(0, 0, 3)

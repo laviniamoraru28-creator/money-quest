@@ -33,8 +33,11 @@ enum QuestKind { LESSON, EXPLORATION, CHALLENGE, SIMULATION }
 ## decision with no wrapped LessonData (used for Entrepreneur Quest/
 ## Leadership Quest content ported from the website's own "mission"-shaped
 ## decision events, which are already exactly this shape — see
-## docs/money-quest-world-architecture.md Section 4). Shown after
-## `intro_text_key`, if set.
+## docs/money-quest-world-architecture.md Section 4). Shown, in order,
+## before `challenge_choice`: `intro_dialogue` (spoken lines, e.g. two
+## characters reacting to a situation) then `intro_text_key` (a single
+## narrator-style line, no speaker) — either or both may be empty.
+@export var intro_dialogue: Array[DialogueLine] = []
 @export var intro_text_key: String = ""
 @export var challenge_choice: DialogueChoice
 

@@ -11,9 +11,11 @@ Godot game." It is the interactive 3D world of the whole Money Quest
 ecosystem: a Hub plaza connecting three Quest tracks (Money Quest /
 Entrepreneur Quest / Leadership Quest) plus four supporting destinations
 (Library, Museum, Mind Lab, Calm World). This phase builds that foundation
-and makes it real with one playable slice — the Hub itself, plus one full
-Money Quest zone (Golden Vault) containing Maya's "Saving for Something
-Bigger" quest — on architecture meant to support everything else in
+and makes it real with playable slices of all three Quest tracks — the Hub
+itself, Money Quest's Golden Vault zone (Maya's "Saving for Something
+Bigger" quest), Entrepreneur Quest's Idea Lab zone ("Handle Competition"),
+and Leadership Quest's Leadership Academy zone ("The Big Mistake") — on
+architecture meant to support everything else in
 `docs/money-quest-world-architecture.md` Section 10's table without being
 rebuilt.
 
@@ -40,10 +42,11 @@ rebuilt.
    and interact with it:
    - **Money Quest** (gold) takes you to the **Golden Vault** zone.
    - **Entrepreneur Quest** (ember) takes you to the **Idea Lab** zone.
-   - The other 5 (Leadership Quest, Library, Museum, Mind Lab, Calm World)
-     show a short "still being built" line — the portal, zone
-     registration, and locking logic all already work for them; only
-     their actual zone content doesn't exist yet.
+   - **Leadership Quest** (sky) takes you to the **Leadership Academy** zone.
+   - The other 4 (Library, Museum, Mind Lab, Calm World) show a short
+     "still being built" line — the portal, zone registration, and
+     locking logic all already work for them; only their actual zone
+     content doesn't exist yet.
 3. In Golden Vault, walk up to Maya and interact with her to start her
    quest. The savings mini-game runs for 3 weeks: each week, choose to save
    the full allowance toward the sketchbook or spend a little on a treat.
@@ -56,7 +59,11 @@ rebuilt.
    website's real Entrepreneur Quest content: a competitor undercuts your
    price, and you choose how to respond. There's no single correct
    answer — each option has its own natural-language consequence.
-5. Walk to the portal in each zone to return to the Hub. Progress
+5. In Leadership Academy, walk up to Priya and interact with her to start
+   "The Big Mistake" — ported directly from the website's real Leadership
+   Quest content: Priya made a mistake and the team is watching to see how
+   you, as the leader, respond. Again, no single correct answer.
+6. Walk to the portal in each zone to return to the Hub. Progress
    (completed quests, unlocked zones, skill tags, avatar choices) is saved
    to `user://progress.json` automatically.
 
@@ -82,14 +89,15 @@ up-to-date table. In short:
 
 | Built this phase | Not built yet (architecture-ready) |
 |---|---|
-| `WorldManager` + generalized `ZoneData` (`HUB`/`QUEST`/`LIBRARY`/`MUSEUM`/`MIND_LAB`/`CALM` kinds) | Entrepreneur Quest / Leadership Quest zones |
-| `QuestData` + `QuestManager`, `LESSON` and `CHALLENGE` kinds (wraps existing `LessonData` or runs a standalone situation+choice+consequence, no content duplicated) | Library / Museum / Mentor / Dictionary content |
-| 3D `Player`/`NPC`/`Interaction`/`InteractionManager` + `CameraController` | Mind Lab |
-| World Hub, 7 portals (2 functional, 5 "coming soon") | Calm World gardens |
-| Golden Vault zone + Maya's quest (reuses the existing `LessonData`/`LessonManager`/mini-game/UI overlays unchanged) | Entrepreneur Quest's full BUILD → RUN → RESCUE & GROW track (only one representative quest is built) |
-| Idea Lab zone + "Handle Competition" quest (ports the website's real `competitor-lower-price` decision event) | Leadership Quest zones |
-| `AvatarConfig` + minimal `AvatarCreation.tscn` | Fuller avatar presets beyond color/preset/accessory |
-| Zone/quest/skill/avatar progression fields in `ProgressManager`, persisted by `SaveManager` | AI Quest Coach (explicitly not built — see the architecture doc's non-negotiables) |
+| `WorldManager` + generalized `ZoneData` (`HUB`/`QUEST`/`LIBRARY`/`MUSEUM`/`MIND_LAB`/`CALM` kinds) | Library / Museum / Mentor / Dictionary content |
+| `QuestData` + `QuestManager`, `LESSON` and `CHALLENGE` kinds (wraps existing `LessonData`, or runs a standalone situation+choice+consequence with optional multi-line intro dialogue, no content duplicated) | Mind Lab |
+| 3D `Player`/`NPC`/`Interaction`/`InteractionManager` + `CameraController` | Calm World gardens |
+| World Hub, 7 portals (3 functional, 4 "coming soon") | Entrepreneur Quest's full BUILD → RUN → RESCUE & GROW track (only one representative quest is built) |
+| Golden Vault zone + Maya's quest (reuses the existing `LessonData`/`LessonManager`/mini-game/UI overlays unchanged) | Leadership Quest's remaining 11 missions (only one representative quest is built) |
+| Idea Lab zone + "Handle Competition" quest (ports the website's real `competitor-lower-price` decision event) | Fuller avatar presets beyond color/preset/accessory |
+| Leadership Academy zone + "The Big Mistake" quest (ports the website's real `big-mistake-choice` decision event, with Priya as a real-character NPC) | AI Quest Coach (explicitly not built — see the architecture doc's non-negotiables) |
+| `AvatarConfig` + minimal `AvatarCreation.tscn` | — |
+| Zone/quest/skill/avatar progression fields in `ProgressManager`, persisted by `SaveManager` | — |
 
 ## Content fidelity
 
@@ -105,12 +113,21 @@ real `messages/en.json`/`messages/ro.json` (`entrepreneurQuest.decisionEvents
 the situation, all 3 choices, and all 3 consequences are the website's own
 words, not invented for this project.
 
+Leadership Academy's "The Big Mistake" quest is likewise copied directly
+from the real `messages/en.json`/`messages/ro.json`
+(`leadershipQuest.missions.big-mistake`, including its `priya`/`oren`
+intro dialogue and all 4 choices/consequences for the `big-mistake-choice`
+event) — Priya and Oren are two of Leadership Quest's 4 real, already-named
+characters (`src/content/leadership-quest/structures.ts`), not invented
+for this project.
+
 The only new content anywhere in this project is UI chrome (menu/Hub/
 portal/avatar-creation/zone-guide labels), the savings mini-game's own
 week-prompt text (always original to that lesson's design), and the
 "Business Guide" NPC's name — a generic role, not a named person, since
 Entrepreneur Quest's real content has no fixed mentor character the way
-Money Quest's curriculum already has Maya.
+Money Quest's curriculum already has Maya and Leadership Quest already has
+its 4 named characters.
 
 ## Project structure
 
@@ -138,6 +155,8 @@ rationale. Quick map:
   real Money Quest zone.
 - `scenes/world/zones/idea_lab/IdeaLab.tscn` — this phase's one real
   Entrepreneur Quest zone.
+- `scenes/world/zones/leadership_academy/LeadershipAcademy.tscn` — this
+  phase's one real Leadership Quest zone.
 - `scenes/world/Main.tscn` — the persistent root: a `ZoneContainer`
   `WorldManager` swaps zone scenes into, plus the always-present `HUD`.
 - `scenes/player/` — `Player.tscn`, `CameraController.tscn`,
@@ -167,12 +186,12 @@ rationale. Quick map:
   meshes (capsules, boxes), matching the brief's own instruction not to
   invent visual direction decisions beyond what's needed to demonstrate
   the architecture.
-- Only 1 of 30 curriculum lessons is wired up as a Quest, and only 1 of
-  Entrepreneur Quest's many real BUILD/RUN/RESCUE & GROW stages is ported.
-  See `docs/money-quest-world-architecture.md` Section 12 for the
-  development order for the rest, the 17 games, and the 4 simulator
-  scenarios.
-- Leadership Quest, Library, Museum, Mind Lab, and Calm World are all
-  reachable from the Hub (their portals exist and correctly report
-  "coming soon") but have no zone content yet — by design, per the
-  brief's explicit "do not build all of this content at once."
+- Only 1 of 30 curriculum lessons is wired up as a Quest, only 1 of
+  Entrepreneur Quest's many real BUILD/RUN/RESCUE & GROW stages is ported,
+  and only 1 of Leadership Quest's 12 real missions is ported. See
+  `docs/money-quest-world-architecture.md` Section 12 for the development
+  order for the rest, the 17 games, and the 4 simulator scenarios.
+- Library, Museum, Mind Lab, and Calm World are all reachable from the Hub
+  (their portals exist and correctly report "coming soon") but have no
+  zone content yet — by design, per the brief's explicit "do not build
+  all of this content at once."

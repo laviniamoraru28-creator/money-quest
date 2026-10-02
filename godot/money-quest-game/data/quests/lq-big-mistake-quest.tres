@@ -1,0 +1,83 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueLine.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="5"]
+
+[sub_resource type="Resource" id="DialogueLine_priya"]
+script = ExtResource("2")
+speaker_id = "priya"
+text_key = "quest.lq_big_mistake.dialogue.0"
+
+[sub_resource type="Resource" id="DialogueLine_oren"]
+script = ExtResource("2")
+speaker_id = "oren"
+text_key = "quest.lq_big_mistake.dialogue.1"
+
+[sub_resource type="Resource" id="ConsequenceEffect_blame_publicly"]
+script = ExtResource("5")
+coin_delta = 2
+xp_delta = 5
+consequence_text_key = "lq.decision.big_mistake.choice.blame_publicly.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_blame_publicly"]
+script = ExtResource("4")
+label_key = "lq.decision.big_mistake.choice.blame_publicly.label"
+consequence = SubResource("ConsequenceEffect_blame_publicly")
+
+[sub_resource type="Resource" id="ConsequenceEffect_fix_it_yourself"]
+script = ExtResource("5")
+coin_delta = 3
+xp_delta = 5
+consequence_text_key = "lq.decision.big_mistake.choice.fix_it_yourself.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_fix_it_yourself"]
+script = ExtResource("4")
+label_key = "lq.decision.big_mistake.choice.fix_it_yourself.label"
+consequence = SubResource("ConsequenceEffect_fix_it_yourself")
+
+[sub_resource type="Resource" id="ConsequenceEffect_talk_privately"]
+script = ExtResource("5")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "lq.decision.big_mistake.choice.talk_privately.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_talk_privately"]
+script = ExtResource("4")
+label_key = "lq.decision.big_mistake.choice.talk_privately.label"
+consequence = SubResource("ConsequenceEffect_talk_privately")
+
+[sub_resource type="Resource" id="ConsequenceEffect_ignore_it"]
+script = ExtResource("5")
+coin_delta = 1
+xp_delta = 5
+consequence_text_key = "lq.decision.big_mistake.choice.ignore_it.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_ignore_it"]
+script = ExtResource("4")
+label_key = "lq.decision.big_mistake.choice.ignore_it.label"
+consequence = SubResource("ConsequenceEffect_ignore_it")
+
+[sub_resource type="Resource" id="DialogueChoice_big_mistake"]
+script = ExtResource("3")
+situation_text_key = "lq.decision.big_mistake.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_blame_publicly"), SubResource("ChoiceOption_fix_it_yourself"), SubResource("ChoiceOption_talk_privately"), SubResource("ChoiceOption_ignore_it")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "lq-big-mistake-quest"
+title_key = "quest.lq_big_mistake.title"
+description_key = "quest.lq_big_mistake.description"
+educational_objective_key = "quest.lq_big_mistake.objective"
+track = "leadership-quest"
+zone_id = "leadership-academy"
+giver_npc_id = "priya"
+kind = 2
+intro_dialogue = Array[DialogueLine]([SubResource("DialogueLine_priya"), SubResource("DialogueLine_oren")])
+challenge_choice = SubResource("DialogueChoice_big_mistake")
+reward_message_key = "quest.lq_big_mistake.reward_message"
+xp_reward = 15
+coin_reward = 10
+skill_ids = Array[String](["empathy", "communication", "responsibility"])
