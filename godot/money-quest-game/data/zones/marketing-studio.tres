@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ZoneData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/ZoneData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+zone_id = "marketing-studio"
+display_name_key = "zone.marketing_studio.name"
+scene_path = "res://scenes/world/zones/marketing_studio/MarketingStudio.tscn"
+kind = 1
+theme_color = Color(0.941, 0.471, 0.353, 1)
+unlock_condition_quest_id = ""
+npc_ids = Array[String](["marketing-guide"])
+quest_ids = Array[String](["eq-create-your-marketing-quest"])
+exhibit_ids = Array[String]([])
+book_ids = Array[String]([])
+player_spawn_position = Vector3(0, 0, 3)

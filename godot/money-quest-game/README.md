@@ -68,7 +68,11 @@ rebuilt.
    start "Handle Competition" — a single decision ported directly from the
    website's real Entrepreneur Quest content: a competitor undercuts your
    price, and you choose how to respond. There's no single correct
-   answer — each option has its own natural-language consequence.
+   answer — each option has its own natural-language consequence. A second
+   portal inside Idea Lab leads to **Marketing Studio**, Entrepreneur
+   Quest's second zone — talk to the Marketing Guide to start "Create Your
+   Marketing": some customers like your product but don't understand what
+   it does, and you choose how to explain it.
 5. In Leadership Academy, walk up to Priya and interact with her to start
    "The Big Mistake" — ported directly from the website's real Leadership
    Quest content: Priya made a mistake and the team is watching to see how
@@ -110,6 +114,7 @@ up-to-date table. In short:
 | Golden Vault zone + Maya's quest (reuses the existing `LessonData`/`LessonManager`/mini-game/UI overlays unchanged) | Leadership Quest's remaining 11 missions (only one representative quest is built) |
 | Market Town zone + Baker's quest (`explorer-needs_wants-l1`, reached via a portal inside Golden Vault — Money Quest's first 2-zone graph, no mini-game needed) | Money Quest's remaining 28 lessons |
 | Idea Lab zone + "Handle Competition" quest (ports the website's real `competitor-lower-price` decision event) | Fuller avatar presets beyond color/preset/accessory |
+| Marketing Studio zone + "Create Your Marketing" quest (ports the real `product-unclear` decision event, reached via a portal inside Idea Lab) | Entrepreneur Quest's `reflect-text`-kind stages (need a free-text input UI not built yet) |
 | Leadership Academy zone + "The Big Mistake" quest (ports the website's real `big-mistake-choice` decision event, with Priya as a real-character NPC) | AI Quest Coach (explicitly not built — see the architecture doc's non-negotiables) |
 | `EntryData`/`BookData`/`ExhibitData`/`MentorData`/`DictionaryTermData` schema, with 2 real Dictionary entries (`goal`, `trade-off`) reusing existing curriculum vocabulary | Calm World's remaining 7 named gardens |
 | Calm World's first garden (Bubble Garden) — always unlocked, no choices, motion respects `reduced_motion` | — |
@@ -138,6 +143,11 @@ real `messages/en.json`/`messages/ro.json` (`entrepreneurQuest.decisionEvents
 .competitor-lower-price` and its `build.handle-competition` title/intro) —
 the situation, all 3 choices, and all 3 consequences are the website's own
 words, not invented for this project.
+
+Marketing Studio's "Create Your Marketing" quest is the same: the
+situation, all 3 choices, and all 3 consequences are copied verbatim from
+`entrepreneurQuest.decisionEvents.product-unclear` and
+`build.create-your-marketing`'s title/learnText.
 
 Leadership Academy's "The Big Mistake" quest is likewise copied directly
 from the real `messages/en.json`/`messages/ro.json`
@@ -190,8 +200,10 @@ rationale. Quick map:
   zone.
 - `scenes/world/zones/market_town/MarketTown.tscn` — Money Quest's second
   zone, reached via a portal inside Golden Vault.
-- `scenes/world/zones/idea_lab/IdeaLab.tscn` — this phase's one real
-  Entrepreneur Quest zone.
+- `scenes/world/zones/idea_lab/IdeaLab.tscn` — Entrepreneur Quest's first
+  zone.
+- `scenes/world/zones/marketing_studio/MarketingStudio.tscn` —
+  Entrepreneur Quest's second zone, reached via a portal inside Idea Lab.
 - `scenes/world/zones/leadership_academy/LeadershipAcademy.tscn` — this
   phase's one real Leadership Quest zone.
 - `scenes/world/zones/calm_world/BubbleGarden.tscn` — Calm World's first

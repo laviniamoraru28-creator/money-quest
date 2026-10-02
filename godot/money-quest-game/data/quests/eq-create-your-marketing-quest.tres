@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="4"]
+
+[sub_resource type="Resource" id="ConsequenceEffect_explain_simply"]
+script = ExtResource("4")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "eq.decision.product_unclear.choice.explain_simply.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_explain_simply"]
+script = ExtResource("3")
+label_key = "eq.decision.product_unclear.choice.explain_simply.label"
+consequence = SubResource("ConsequenceEffect_explain_simply")
+
+[sub_resource type="Resource" id="ConsequenceEffect_add_picture"]
+script = ExtResource("4")
+coin_delta = 4
+xp_delta = 5
+consequence_text_key = "eq.decision.product_unclear.choice.add_picture.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_add_picture"]
+script = ExtResource("3")
+label_key = "eq.decision.product_unclear.choice.add_picture.label"
+consequence = SubResource("ConsequenceEffect_add_picture")
+
+[sub_resource type="Resource" id="ConsequenceEffect_do_nothing"]
+script = ExtResource("4")
+coin_delta = 1
+xp_delta = 5
+consequence_text_key = "eq.decision.product_unclear.choice.do_nothing.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_do_nothing"]
+script = ExtResource("3")
+label_key = "eq.decision.product_unclear.choice.do_nothing.label"
+consequence = SubResource("ConsequenceEffect_do_nothing")
+
+[sub_resource type="Resource" id="DialogueChoice_product_unclear"]
+script = ExtResource("2")
+situation_text_key = "eq.decision.product_unclear.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_explain_simply"), SubResource("ChoiceOption_add_picture"), SubResource("ChoiceOption_do_nothing")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "eq-create-your-marketing-quest"
+title_key = "quest.eq_create_your_marketing.title"
+description_key = "quest.eq_create_your_marketing.description"
+educational_objective_key = "quest.eq_create_your_marketing.intro"
+track = "entrepreneur-quest"
+zone_id = "marketing-studio"
+giver_npc_id = "marketing-guide"
+kind = 2
+intro_text_key = "quest.eq_create_your_marketing.intro"
+challenge_choice = SubResource("DialogueChoice_product_unclear")
+reward_message_key = "quest.eq_create_your_marketing.reward_message"
+xp_reward = 15
+coin_reward = 10
+skill_ids = Array[String](["communication", "creativity"])

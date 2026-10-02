@@ -283,10 +283,18 @@ quest proving the shared pipeline carries that track with no new systems.
   wrapping the website's real `competitor-lower-price` decision event
   (situation + 3 choices + consequences, copied verbatim from
   `messages/en.json`'s `entrepreneurQuest.decisionEvents`, not invented).
-  The rest of Entrepreneur Quest's real BUILD → RUN → RESCUE & GROW track
+  **Now a second zone proves the track's own graph grows the same way
+  Money Quest's did**: `marketing-studio` is reached via a portal inside
+  Idea Lab (not its own Hub portal), where a Marketing Guide NPC gives
+  "Create Your Marketing" — another `CHALLENGE`-kind quest, wrapping the
+  website's real `product-unclear` decision event, copied verbatim. The
+  rest of Entrepreneur Quest's real BUILD → RUN → RESCUE & GROW track
   (Section 0) is the source to port, stage by stage, as further zones
   (Business District, Market, …) once this slice is validated — not built
-  this phase, by design.
+  this phase, by design. (Its `reflect-text`-kind stages — "find-a-
+  problem," "name-your-business" — will need a free-text input UI that
+  doesn't exist yet; `CHALLENGE` only covers its `mission`-kind stages so
+  far.)
 - **Leadership Quest**: the Hub's portal leads into `leadership-academy`,
   another `ZoneData` with `kind == QUEST`, where Priya — one of the real
   `leadership-quest/structures.ts` characters (Nadia, Oren, Priya, Theo) —
@@ -462,6 +470,7 @@ previously) can be added later as pure content, not an architecture change.
 | Money Quest's Golden Vault zone + Maya's quest (`builder-saving-l1`) | **Built** — reuses the existing `LessonData`/`LessonManager`/`SavingsAllocationMiniGame`/UI overlays unchanged |
 | Money Quest's Market Town zone + Baker's quest (`explorer-needs_wants-l1`) | **Built** — reached via a portal inside Golden Vault (Money Quest's first 2-zone graph); uses `LessonData.choice_point` with no mini-game |
 | Entrepreneur Quest's Idea Lab zone + "Handle Competition" quest | **Built** — a `CHALLENGE`-kind quest porting the website's real `competitor-lower-price` decision event (`src/content/entrepreneur-quest/structures.ts`) verbatim; proves the same pipeline carries a second Quest track with zero new systems |
+| Entrepreneur Quest's Marketing Studio zone + "Create Your Marketing" quest | **Built** — reached via a portal inside Idea Lab (Entrepreneur Quest's first 2-zone graph); another `CHALLENGE`-kind quest, porting the real `product-unclear` decision event verbatim |
 | Leadership Quest's Leadership Academy zone + "The Big Mistake" quest | **Built** — a `CHALLENGE`-kind quest porting the website's real `big-mistake-choice` decision event verbatim, with Priya as a real-character NPC; this is what motivated `QuestData.intro_dialogue` (Section 4) |
 | `AvatarConfig` + minimal creation screen | **Built** (color/preset only) |
 | Progression fields for zones/quests/skills | **Built** (additive) |
@@ -514,7 +523,8 @@ godot/money-quest-game/
       zones/
         golden_vault/           # Money Quest's first zone
         market_town/            # Money Quest's second zone (reached via Golden Vault)
-        idea_lab/               # Entrepreneur Quest's one real zone
+        idea_lab/               # Entrepreneur Quest's first zone
+        marketing_studio/       # Entrepreneur Quest's second zone (reached via Idea Lab)
         leadership_academy/     # Leadership Quest's one real zone
         calm_world/             # Calm World's first garden (BubbleGarden.tscn)
       Main.tscn                 # persistent root: ZoneContainer + HUD
