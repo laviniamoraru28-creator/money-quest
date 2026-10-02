@@ -59,7 +59,11 @@ rebuilt.
    Your choices genuinely determine whether the goal is reached. The real
    explanation and quiz (from the actual website curriculum content) play
    afterward, then the reward screen, which explicitly labels earned coins
-   as **virtual** (never implying real money).
+   as **virtual** (never implying real money). A second portal inside
+   Golden Vault leads to **Market Town**, Money Quest's second zone — walk
+   up to the Baker to start "Need It or Want It?": a bakery has only
+   enough allowance for bread or a chocolate bar today, and you choose
+   which, with the real curriculum's quiz and explanation afterward.
 4. In Idea Lab, walk up to the Business Guide and interact with them to
    start "Handle Competition" — a single decision ported directly from the
    website's real Entrepreneur Quest content: a competitor undercuts your
@@ -104,6 +108,7 @@ up-to-date table. In short:
 | 3D `Player`/`NPC`/`Interaction`/`InteractionManager` + `CameraController` | Mind Lab |
 | World Hub: fountain landmark, 7 paths, 7 gate-shaped portals (4 functional, 3 "coming soon"), decorative trees, Hub Guide NPC | Entrepreneur Quest's full BUILD → RUN → RESCUE & GROW track (only one representative quest is built) |
 | Golden Vault zone + Maya's quest (reuses the existing `LessonData`/`LessonManager`/mini-game/UI overlays unchanged) | Leadership Quest's remaining 11 missions (only one representative quest is built) |
+| Market Town zone + Baker's quest (`explorer-needs_wants-l1`, reached via a portal inside Golden Vault — Money Quest's first 2-zone graph, no mini-game needed) | Money Quest's remaining 28 lessons |
 | Idea Lab zone + "Handle Competition" quest (ports the website's real `competitor-lower-price` decision event) | Fuller avatar presets beyond color/preset/accessory |
 | Leadership Academy zone + "The Big Mistake" quest (ports the website's real `big-mistake-choice` decision event, with Priya as a real-character NPC) | AI Quest Coach (explicitly not built — see the architecture doc's non-negotiables) |
 | `EntryData`/`BookData`/`ExhibitData`/`MentorData`/`DictionaryTermData` schema, with 2 real Dictionary entries (`goal`, `trade-off`) reusing existing curriculum vocabulary | Calm World's remaining 7 named gardens |
@@ -118,6 +123,15 @@ Every piece of curriculum text in Maya's quest — the story, the vocabulary
 lines, the reward message — is copied directly from the real
 `messages/en.json` (`curriculum.builder-saving-l1`) and `messages/ro.json`
 in the website repo, not invented for this project.
+
+The Baker's quest in Market Town is the same: every curriculum field
+(story, vocabulary `need`/`want`, quiz, feedback, reward) is copied from
+the real `curriculum.explorer-needs_wants-l1`. The only original text is
+the Baker's own one-line transition ("I've got fresh bread and a giant
+chocolate bar right here...") and the choice/consequence wording applying
+that lesson's real need-vs-want distinction to a concrete decision —
+exactly the brief's own "find the correct game mechanic for the concept"
+instruction, not a rewrite of the lesson's meaning.
 
 Idea Lab's "Handle Competition" quest is likewise copied directly from the
 real `messages/en.json`/`messages/ro.json` (`entrepreneurQuest.decisionEvents
@@ -172,8 +186,10 @@ rationale. Quick map:
 - `scripts/library/` — `EntryData`/`BookData`/`ExhibitData`/`MentorData`/
   `DictionaryTermData` (Library/Museum/Dictionary schema).
 - `scenes/world/hub/WorldHub.tscn` — the Hub plaza.
-- `scenes/world/zones/golden_vault/GoldenVault.tscn` — this phase's one
-  real Money Quest zone.
+- `scenes/world/zones/golden_vault/GoldenVault.tscn` — Money Quest's first
+  zone.
+- `scenes/world/zones/market_town/MarketTown.tscn` — Money Quest's second
+  zone, reached via a portal inside Golden Vault.
 - `scenes/world/zones/idea_lab/IdeaLab.tscn` — this phase's one real
   Entrepreneur Quest zone.
 - `scenes/world/zones/leadership_academy/LeadershipAcademy.tscn` — this
@@ -209,7 +225,7 @@ rationale. Quick map:
   meshes (capsules, boxes), matching the brief's own instruction not to
   invent visual direction decisions beyond what's needed to demonstrate
   the architecture.
-- Only 1 of 30 curriculum lessons is wired up as a Quest, only 1 of
+- Only 2 of 30 curriculum lessons are wired up as Quests, only 1 of
   Entrepreneur Quest's many real BUILD/RUN/RESCUE & GROW stages is ported,
   and only 1 of Leadership Quest's 12 real missions is ported. See
   `docs/money-quest-world-architecture.md` Section 12 for the development
