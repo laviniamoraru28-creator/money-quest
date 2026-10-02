@@ -120,6 +120,36 @@ This satisfies "do not make the hub feel like a menu with seven buttons"
 concretely: every destination is a place you walk to and a door you open,
 whether or not what's behind it is built yet.
 
+**Visual/structural pass (new)**: the Hub is no longer 7 bare colored
+boxes in a field. It now has:
+
+- A **Hub Guide NPC** near spawn (the first character a child ever meets)
+  who gives two short welcome lines explaining the plaza in plain language
+  — same `NPC.gd`/`Interaction` pattern every other NPC in the project
+  already uses, satisfying the brief's "the child should understand where
+  each destination leads without needing to read large amounts of text."
+- Each portal is a small **gate landmark** (two pillars, a lintel, a
+  colored topper sphere matching that destination's theme color) instead
+  of a single floating box — still primitive geometry (no art pipeline),
+  but now reads as "a place with a door," not "a marker."
+- Seven **ground paths** radiate from the plaza center out to each gate,
+  so the layout communicates "these are 7 separate places you walk to"
+  without a single word of UI.
+- A **central fountain** landmark (stone base, column, water-colored top)
+  gives the plaza a middle to orient around, the way a real town square
+  would.
+- Four **decorative trees** at the plaza's outer corners, purely for life/
+  warmth — no collision, no interaction, kept deliberately sparse per the
+  brief's "do not fill the world with random placeholder art."
+
+All of this is still flat-color primitive meshes — no textures, no
+imported models, no new asset pipeline — matching the brief's explicit
+"use procedural or primitive geometry for early development" and "do not
+lock the project into an overly complicated art pipeline before testing
+performance." Total added node count is modest (a few dozen static mesh
+instances, zero new physics bodies beyond one fountain collider) and
+should have no measurable performance impact.
+
 ---
 
 ## 3. Generalized Zone/Area data model

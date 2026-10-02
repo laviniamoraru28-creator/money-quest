@@ -39,8 +39,11 @@ rebuilt.
    `AvatarCreation.tscn` (pick a look, a color, and an optional accessory —
    all cosmetic, nothing is gated behind these choices); a returning
    session skips straight to the Hub.
-2. You arrive in the **World Hub** — a plaza with 7 portals. Walk up to one
-   and interact with it:
+2. You arrive in the **World Hub** — a plaza with a central fountain, 7
+   ground paths radiating out to 7 gate-shaped portals, a few decorative
+   trees, and a **Hub Guide** NPC near spawn who gives a two-line welcome
+   the first time (or any time) you talk to them. Walk up to a portal and
+   interact with it:
    - **Money Quest** (gold) takes you to the **Golden Vault** zone.
    - **Entrepreneur Quest** (ember) takes you to the **Idea Lab** zone.
    - **Leadership Quest** (sky) takes you to the **Leadership Academy** zone.
@@ -99,7 +102,7 @@ up-to-date table. In short:
 | `WorldManager` + generalized `ZoneData` (`HUB`/`QUEST`/`LIBRARY`/`MUSEUM`/`MIND_LAB`/`CALM` kinds) | Library books / Museum exhibits / Mentors (zero real entries — nothing to invent yet) |
 | `QuestData` + `QuestManager`, `LESSON` and `CHALLENGE` kinds (wraps existing `LessonData`, or runs a standalone situation+choice+consequence with optional multi-line intro dialogue, no content duplicated) | `BrowseZoneController` + a walkable Library/Museum zone (no real content to drive one yet) |
 | 3D `Player`/`NPC`/`Interaction`/`InteractionManager` + `CameraController` | Mind Lab |
-| World Hub, 7 portals (4 functional, 3 "coming soon") | Entrepreneur Quest's full BUILD → RUN → RESCUE & GROW track (only one representative quest is built) |
+| World Hub: fountain landmark, 7 paths, 7 gate-shaped portals (4 functional, 3 "coming soon"), decorative trees, Hub Guide NPC | Entrepreneur Quest's full BUILD → RUN → RESCUE & GROW track (only one representative quest is built) |
 | Golden Vault zone + Maya's quest (reuses the existing `LessonData`/`LessonManager`/mini-game/UI overlays unchanged) | Leadership Quest's remaining 11 missions (only one representative quest is built) |
 | Idea Lab zone + "Handle Competition" quest (ports the website's real `competitor-lower-price` decision event) | Fuller avatar presets beyond color/preset/accessory |
 | Leadership Academy zone + "The Big Mistake" quest (ports the website's real `big-mistake-choice` decision event, with Priya as a real-character NPC) | AI Quest Coach (explicitly not built — see the architecture doc's non-negotiables) |
