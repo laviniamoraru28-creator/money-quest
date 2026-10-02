@@ -564,6 +564,7 @@ node), never an architecture change.
 | Sky Exchange's Omar + "How a Card Payment Actually Works" quest (`builder-digital_money-l1`) | **Built** — Sky Exchange's second quest-giving NPC, the same "a zone can grow another resident" pattern Golden Vault proved; Omar is the real child from the lesson's own story; `LessonData.choice_point` with no mini-game; 2 of `sky-exchange`'s 4 real topics remain untouched (investing_basics, junior_isa) |
 | Sky Exchange's Mei + "Owning a Small Piece of a Company" quest (`builder-investing_basics-l1`) | **Built** — Sky Exchange's third quest-giving NPC; Mei is the real child from the lesson's own story (her uncle owns the shares); `LessonData.choice_point` with no mini-game; only `junior_isa` remains untouched of `sky-exchange`'s 4 real topics |
 | Sky Exchange's Tomasz + "Locked Until 18: How a Junior ISA Works" quest (`builder-junior_isa-l1`) | **Built** — Sky Exchange's fourth quest-giving NPC; Tomasz is the real child from the lesson's own story; `LessonData.choice_point` with no mini-game; this completes all 4 real website topics hosted in `sky-exchange` (currencies, digital_money, investing_basics, junior_isa) — Sky Exchange is now "full," the same way Golden Vault's 3-age-band "saving" trilogy completed that zone's topic |
+| Money Quest's Coin Cove zone + Shopkeeper's quest (`explorer-money_basics-l1`, "What Is Money?") | **Built** — reached via a portal inside Sky Exchange (Golden Vault → Market Town → Guardian Gate → Sky Exchange → Coin Cove, Money Quest's first 5-zone graph); real website world id `coin-cove` (actually orderIndex 1 on the website, "where every quest begins" — a presentation detail, not a curriculum dependency, since this game's chain was built in a different order); the real lesson's story has no named child (it's written in second person), so the giver NPC uses the same "generic role name" convention Market Town's Baker established rather than inventing a named child; another `LessonData.choice_point` with no mini-game |
 | Entrepreneur Quest's Idea Lab zone + "Handle Competition" quest | **Built** — a `CHALLENGE`-kind quest porting the website's real `competitor-lower-price` decision event (`src/content/entrepreneur-quest/structures.ts`) verbatim; proves the same pipeline carries a second Quest track with zero new systems |
 | Entrepreneur Quest's Marketing Studio zone + "Create Your Marketing" quest | **Built** — reached via a portal inside Idea Lab (Entrepreneur Quest's first 2-zone graph); another `CHALLENGE`-kind quest, porting the real `product-unclear` decision event verbatim |
 | Entrepreneur Quest's Workshop zone + "Handle a Customer Problem" quest | **Built** — reached via a portal inside Marketing Studio (Idea Lab → Marketing Studio → Workshop, Entrepreneur Quest's first 3-zone graph); another `CHALLENGE`-kind quest, porting the real `too-expensive-feedback` decision event verbatim |
@@ -628,6 +629,7 @@ godot/money-quest-game/
         market_town/            # Money Quest's second zone (reached via Golden Vault)
         guardian_gate/          # Money Quest's third zone (reached via Market Town)
         sky_exchange/           # Money Quest's fourth zone (reached via Guardian Gate)
+        coin_cove/              # Money Quest's fifth zone (reached via Sky Exchange)
         idea_lab/               # Entrepreneur Quest's first zone
         marketing_studio/       # Entrepreneur Quest's second zone (reached via Idea Lab)
         workshop/               # Entrepreneur Quest's third zone (reached via Marketing Studio)
@@ -736,29 +738,23 @@ godot/money-quest-game/
     that never actually existed, shown only when something is in range
     to interact with.
 16. **Expand gradually** — done for everything that didn't need your
-    approval first: Mind Lab (Section 7), all 8 of Calm World's named
-    gardens (Section 7), fuller avatar presets including a wheelchair
-    body preset and glasses/cap/hearing-aid/cane accessories, all purely
-    visual (Section 9), audio buses/Settings screen/mobile Talk button
-    (Section 15), Guardian Gate + "Spotting a Scam" (`builder-scams-l1`),
-    Money Quest's third zone, Workshop + "Handle a Customer Problem,"
-    Entrepreneur Quest's third zone, Strategy Room + "The Better Idea,"
-    Leadership Quest's third zone, the Savings Guide + "What Does Saving
-    Mean?" (`explorer-saving-l1`), Golden Vault's second quest-giving
-    NPC, and Theo + "Saving vs. Spending: The Real Trade-off"
-    (`strategist-saving-l1`), Golden Vault's third quest-giving NPC,
-    completing the full "saving" topic trilogy in one zone, Sky
-    Exchange + "Cash, Cards, and Currencies" (`builder-currencies-l1`),
-    Money Quest's fourth zone, Omar + "How a Card Payment Actually
-    Works" (`builder-digital_money-l1`), Sky Exchange's second
-    quest-giving NPC, Mei + "Owning a Small Piece of a Company"
-    (`builder-investing_basics-l1`), Sky Exchange's third quest-giving
-    NPC, and Tomasz + "Locked Until 18: How a Junior ISA Works"
-    (`builder-junior_isa-l1`), Sky Exchange's fourth quest-giving NPC —
-    completing all 4 real website topics the zone hosts (Section 3).
-    Still waiting on you: a real book/exhibit/mentor for Library/Museum
-    (Section 6). Still unstarted: Leadership Quest's remaining
-    `mission-choice`-kind missions and its `spot`/`allocate`/`sort`-kind
-    missions (need mechanics not built yet), Money Quest's remaining 21
-    lessons, Entrepreneur Quest's remaining real BUILD/RUN/RESCUE &
-    GROW stages.
+    approval first. Summary through Phase 19: Mind Lab, all 8 of Calm
+    World's named gardens, fuller avatar presets (Section 9), audio
+    buses/Settings screen/mobile Talk button (Section 15), Guardian
+    Gate, Workshop, and Strategy Room (each track's third zone), Golden
+    Vault's second and third quest-giving NPCs (completing the "saving"
+    topic trilogy), and Sky Exchange (Money Quest's fourth zone) grown
+    to all 4 quest-giving NPCs it can hold, completing all 4 real
+    website topics the zone hosts (currencies, digital_money,
+    investing_basics, junior_isa) — see table above for exact lesson
+    ids and the "Built" column (Section 3). Phase 20 (this update):
+    Coin Cove, Money Quest's fifth zone, with the Shopkeeper's "What Is
+    Money?" (`explorer-money_basics-l1`) — the real lesson's story has
+    no named child, so the NPC uses a generic role name (the same
+    convention Market Town's Baker established) rather than inventing
+    one. Still waiting on you: a real book/exhibit/mentor for
+    Library/Museum (Section 6). Still unstarted: Leadership Quest's
+    remaining `mission-choice`-kind missions and its
+    `spot`/`allocate`/`sort`-kind missions (need mechanics not built
+    yet), Money Quest's remaining 20 lessons, Entrepreneur Quest's
+    remaining real BUILD/RUN/RESCUE & GROW stages.

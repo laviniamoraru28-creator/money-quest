@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ZoneData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/ZoneData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+zone_id = "coin-cove"
+display_name_key = "zone.coin_cove.name"
+scene_path = "res://scenes/world/zones/coin_cove/CoinCove.tscn"
+kind = 1
+theme_color = Color(0.91, 0.69, 0.33, 1)
+unlock_condition_quest_id = ""
+npc_ids = Array[String](["shopkeeper"])
+quest_ids = Array[String](["explorer-money-basics-l1-quest"])
+exhibit_ids = Array[String]([])
+book_ids = Array[String]([])
+player_spawn_position = Vector3(0, 0, 3)

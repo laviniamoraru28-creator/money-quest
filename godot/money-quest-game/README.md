@@ -114,7 +114,15 @@ rebuilt.
    dad to explain the cash-vs-stocks-and-shares difference or works it
    out himself from the account statement, with the real curriculum's
    quiz and explanation on when a Junior ISA normally unlocks
-   afterward — completing all 4 real topics Sky Exchange hosts.
+   afterward — completing all 4 real topics Sky Exchange hosts. A
+   second portal inside Sky Exchange leads to **Coin Cove**, Money
+   Quest's fifth zone — talk to the Shopkeeper to start "What Is
+   Money?": you're buying an apple and decide whether to count out
+   exactly two coins or hand over a whole handful and let her take what
+   she needs, with the real curriculum's quiz and explanation on what
+   actually counts as money afterward. (The real lesson's story has no
+   named child — it's written as "you" — so this NPC uses a generic
+   role name, the same convention Market Town's Baker established.)
 4. In Idea Lab, walk up to the Business Guide and interact with them to
    start "Handle Competition" — a single decision ported directly from the
    website's real Entrepreneur Quest content: a competitor undercuts your
@@ -189,7 +197,8 @@ up-to-date table. In short:
 | Sky Exchange zone + Sam's quest (`builder-currencies-l1`, "Cash, Cards, and Currencies," reached via a portal inside Guardian Gate — Money Quest's first 4-zone graph, no mini-game needed) | — |
 | Sky Exchange's Omar + "How a Card Payment Actually Works" quest (`builder-digital_money-l1`, Sky Exchange's second quest-giving NPC — no new zone needed, no mini-game needed) | — |
 | Sky Exchange's Mei + "Owning a Small Piece of a Company" quest (`builder-investing_basics-l1`, Sky Exchange's third quest-giving NPC — no new zone needed, no mini-game needed) | — |
-| Sky Exchange's Tomasz + "Locked Until 18: How a Junior ISA Works" quest (`builder-junior_isa-l1`, Sky Exchange's fourth and final quest-giving NPC, completing all 4 real topics the zone hosts) | Money Quest's remaining 21 lessons |
+| Sky Exchange's Tomasz + "Locked Until 18: How a Junior ISA Works" quest (`builder-junior_isa-l1`, Sky Exchange's fourth and final quest-giving NPC, completing all 4 real topics the zone hosts) | — |
+| Coin Cove zone + Shopkeeper's quest (`explorer-money_basics-l1`, "What Is Money?," reached via a portal inside Sky Exchange — Money Quest's first 5-zone graph, no mini-game needed) | Money Quest's remaining 20 lessons |
 | Idea Lab zone + "Handle Competition" quest (ports the website's real `competitor-lower-price` decision event) | — |
 | Marketing Studio zone + "Create Your Marketing" quest (ports the real `product-unclear` decision event, reached via a portal inside Idea Lab) | Entrepreneur Quest's `reflect-text`-kind stages (need a free-text input UI not built yet) |
 | Workshop zone + "Handle a Customer Problem" quest (ports the real `too-expensive-feedback` decision event, reached via a portal inside Marketing Studio — Entrepreneur Quest's first 3-zone graph) | — |
@@ -291,6 +300,20 @@ stocks-and-shares, locked until 18" facts to a concrete decision (ask Dad
 to explain vs. work it out himself from the account statement) — again
 both equally valid, with the quiz carrying the lesson's actual testable
 fact. This completes all 4 real website topics Sky Exchange hosts.
+
+The Shopkeeper's quest in Coin Cove is the same: every curriculum field
+(title, learning objective, key concept, vocabulary `money`/`trade`/
+`value`, explanation, quiz, feedback, reward message) is copied from the
+real `curriculum.explorer-money_basics-l1`. This lesson's own story has
+no named child (it's written in second person, "you"), so unlike every
+other NPC so far the giver here is not a real named character — it uses
+the same generic-role-name convention Market Town's Baker established
+rather than inventing a name the source material doesn't have. The only
+original text is the intro framing and the choice/consequence wording
+applying the lesson's real "money is traded for a value both sides agree
+on" concept to a concrete decision (count out the exact coins vs. hand
+over a handful and let the Shopkeeper take what's needed) — both equally
+valid, with the quiz carrying the lesson's actual testable fact.
 
 Idea Lab's "Handle Competition" quest is likewise copied directly from the
 real `messages/en.json`/`messages/ro.json` (`entrepreneurQuest.decisionEvents
@@ -450,6 +473,8 @@ rationale. Quick map:
   third zone, reached via a portal inside Market Town.
 - `scenes/world/zones/sky_exchange/SkyExchange.tscn` — Money Quest's
   fourth zone, reached via a portal inside Guardian Gate.
+- `scenes/world/zones/coin_cove/CoinCove.tscn` — Money Quest's fifth
+  zone, reached via a portal inside Sky Exchange.
 - `scenes/world/zones/idea_lab/IdeaLab.tscn` — Entrepreneur Quest's first
   zone.
 - `scenes/world/zones/marketing_studio/MarketingStudio.tscn` —
@@ -510,7 +535,7 @@ rationale. Quick map:
   Read-aloud/text-to-speech has no engine wired in at all — not even a
   silent placeholder bus — since one would require either an offline
   voice model or a paid API, both out of scope per the brief.
-- Only 9 of 30 curriculum lessons are wired up as Quests, only 3 of
+- Only 10 of 30 curriculum lessons are wired up as Quests, only 3 of
   Entrepreneur Quest's many real BUILD/RUN/RESCUE & GROW stages are
   ported, and only 3 of Leadership Quest's 12 real missions are ported.
   See `docs/money-quest-world-architecture.md` Section 12 for the
