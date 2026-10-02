@@ -92,7 +92,11 @@ rebuilt.
    portal inside Idea Lab leads to **Marketing Studio**, Entrepreneur
    Quest's second zone — talk to the Marketing Guide to start "Create Your
    Marketing": some customers like your product but don't understand what
-   it does, and you choose how to explain it.
+   it does, and you choose how to explain it. A second portal inside
+   Marketing Studio leads to **Workshop**, Entrepreneur Quest's third
+   zone — talk to the Workshop Guide to start "Handle a Customer
+   Problem": a customer tells you your product is too expensive, and you
+   choose how to respond.
 5. In Leadership Academy, walk up to Priya and interact with her to start
    "The Big Mistake" — ported directly from the website's real Leadership
    Quest content: Priya made a mistake and the team is watching to see how
@@ -148,6 +152,7 @@ up-to-date table. In short:
 | Guardian Gate zone + Zara's quest (`builder-scams-l1`, "Spotting a Scam," reached via a portal inside Market Town — Money Quest's first 3-zone graph, no mini-game needed) | — |
 | Idea Lab zone + "Handle Competition" quest (ports the website's real `competitor-lower-price` decision event) | — |
 | Marketing Studio zone + "Create Your Marketing" quest (ports the real `product-unclear` decision event, reached via a portal inside Idea Lab) | Entrepreneur Quest's `reflect-text`-kind stages (need a free-text input UI not built yet) |
+| Workshop zone + "Handle a Customer Problem" quest (ports the real `too-expensive-feedback` decision event, reached via a portal inside Marketing Studio — Entrepreneur Quest's first 3-zone graph) | — |
 | Leadership Academy zone + "The Big Mistake" quest (ports the website's real `big-mistake-choice` decision event, with Priya as a real-character NPC) | AI Quest Coach (explicitly not built — see the architecture doc's non-negotiables) |
 | Team Challenge zone + "The Angry Customer" quest (ports the real `angry-customer-choice` decision event, reached via a portal inside Leadership Academy, with Theo as a real-character NPC) | Leadership Quest's `match`/`spot`/`allocate`/`sort`-kind missions (need mechanics not built yet) |
 | `EntryData`/`BookData`/`ExhibitData`/`MentorData`/`DictionaryTermData` schema, with 2 real Dictionary entries (`goal`, `trade-off`) reusing existing curriculum vocabulary | — |
@@ -195,6 +200,11 @@ Marketing Studio's "Create Your Marketing" quest is the same: the
 situation, all 3 choices, and all 3 consequences are copied verbatim from
 `entrepreneurQuest.decisionEvents.product-unclear` and
 `build.create-your-marketing`'s title/learnText.
+
+Workshop's "Handle a Customer Problem" quest is the same: the situation,
+all 3 choices, and all 3 consequences are copied verbatim from
+`entrepreneurQuest.decisionEvents.too-expensive-feedback` and
+`build.handle-a-customer-problem`'s title/learnText.
 
 Leadership Academy's "The Big Mistake" quest is likewise copied directly
 from the real `messages/en.json`/`messages/ro.json`
@@ -334,6 +344,8 @@ rationale. Quick map:
   zone.
 - `scenes/world/zones/marketing_studio/MarketingStudio.tscn` —
   Entrepreneur Quest's second zone, reached via a portal inside Idea Lab.
+- `scenes/world/zones/workshop/Workshop.tscn` — Entrepreneur Quest's
+  third zone, reached via a portal inside Marketing Studio.
 - `scenes/world/zones/leadership_academy/LeadershipAcademy.tscn` —
   Leadership Quest's first zone.
 - `scenes/world/zones/team_challenge/TeamChallenge.tscn` — Leadership
@@ -386,7 +398,7 @@ rationale. Quick map:
   Read-aloud/text-to-speech has no engine wired in at all — not even a
   silent placeholder bus — since one would require either an offline
   voice model or a paid API, both out of scope per the brief.
-- Only 3 of 30 curriculum lessons are wired up as Quests, only 2 of
+- Only 3 of 30 curriculum lessons are wired up as Quests, only 3 of
   Entrepreneur Quest's many real BUILD/RUN/RESCUE & GROW stages are
   ported, and only 2 of Leadership Quest's 12 real missions are ported.
   See `docs/money-quest-world-architecture.md` Section 12 for the

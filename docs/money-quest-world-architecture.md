@@ -548,6 +548,7 @@ node), never an architecture change.
 | Money Quest's Guardian Gate zone + Zara's quest (`builder-scams-l1`, "Spotting a Scam") | **Built** — reached via a portal inside Market Town (Golden Vault → Market Town → Guardian Gate, Money Quest's first 3-zone graph); ports the real website lesson verbatim (title/objective/vocabulary/explanation/quiz/feedback), with Zara, the real child from the lesson's own story, as the giver NPC; another `LessonData.choice_point` with no mini-game |
 | Entrepreneur Quest's Idea Lab zone + "Handle Competition" quest | **Built** — a `CHALLENGE`-kind quest porting the website's real `competitor-lower-price` decision event (`src/content/entrepreneur-quest/structures.ts`) verbatim; proves the same pipeline carries a second Quest track with zero new systems |
 | Entrepreneur Quest's Marketing Studio zone + "Create Your Marketing" quest | **Built** — reached via a portal inside Idea Lab (Entrepreneur Quest's first 2-zone graph); another `CHALLENGE`-kind quest, porting the real `product-unclear` decision event verbatim |
+| Entrepreneur Quest's Workshop zone + "Handle a Customer Problem" quest | **Built** — reached via a portal inside Marketing Studio (Idea Lab → Marketing Studio → Workshop, Entrepreneur Quest's first 3-zone graph); another `CHALLENGE`-kind quest, porting the real `too-expensive-feedback` decision event verbatim |
 | Leadership Quest's Leadership Academy zone + "The Big Mistake" quest | **Built** — a `CHALLENGE`-kind quest porting the website's real `big-mistake-choice` decision event verbatim, with Priya as a real-character NPC; this is what motivated `QuestData.intro_dialogue` (Section 4) |
 | Leadership Quest's Team Challenge zone + "The Angry Customer" quest | **Built** — reached via a portal inside Leadership Academy (Leadership Quest's first 2-zone graph); another `CHALLENGE`-kind quest with Theo as a real-character NPC, porting the real `angry-customer-choice` decision event verbatim |
 | `AvatarConfig` + creation screen, fully wired to the 3D model | **Built** — 4 body presets (including a seated wheelchair-style look) and 4 accessories (glasses, cap, hearing aid, cane), all purely visual, listed together as equally normal choices |
@@ -609,6 +610,7 @@ godot/money-quest-game/
         guardian_gate/          # Money Quest's third zone (reached via Market Town)
         idea_lab/               # Entrepreneur Quest's first zone
         marketing_studio/       # Entrepreneur Quest's second zone (reached via Idea Lab)
+        workshop/               # Entrepreneur Quest's third zone (reached via Marketing Studio)
         leadership_academy/     # Leadership Quest's first zone
         team_challenge/         # Leadership Quest's second zone (reached via Leadership Academy)
         calm_world/             # Calm World's 8 gardens (BubbleGarden.tscn +
@@ -717,8 +719,10 @@ godot/money-quest-game/
     gardens (Section 7), fuller avatar presets including a wheelchair
     body preset and glasses/cap/hearing-aid/cane accessories, all purely
     visual (Section 9), audio buses/Settings screen/mobile Talk button
-    (Section 15), and Guardian Gate + "Spotting a Scam"
-    (`builder-scams-l1`), Money Quest's third zone (Section 10). Still
-    waiting on you: a real book/exhibit/mentor for Library/Museum
-    (Section 6). Still unstarted: Entrepreneur/Leadership Quest's
-    remaining stages, Money Quest's remaining 27 lessons.
+    (Section 15), Guardian Gate + "Spotting a Scam" (`builder-scams-l1`),
+    Money Quest's third zone, and Workshop + "Handle a Customer Problem,"
+    Entrepreneur Quest's third zone (Section 10). Still waiting on you: a
+    real book/exhibit/mentor for Library/Museum (Section 6). Still
+    unstarted: Leadership Quest's remaining stages, Money Quest's
+    remaining 27 lessons, Entrepreneur Quest's remaining real
+    BUILD/RUN/RESCUE & GROW stages.

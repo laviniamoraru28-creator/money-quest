@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="4"]
+
+[sub_resource type="Resource" id="ConsequenceEffect_ask_why"]
+script = ExtResource("4")
+coin_delta = 3
+xp_delta = 5
+consequence_text_key = "eq.decision.too_expensive_feedback.choice.ask_why.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_ask_why"]
+script = ExtResource("3")
+label_key = "eq.decision.too_expensive_feedback.choice.ask_why.label"
+consequence = SubResource("ConsequenceEffect_ask_why")
+
+[sub_resource type="Resource" id="ConsequenceEffect_offer_smaller_version"]
+script = ExtResource("4")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "eq.decision.too_expensive_feedback.choice.offer_smaller_version.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_offer_smaller_version"]
+script = ExtResource("3")
+label_key = "eq.decision.too_expensive_feedback.choice.offer_smaller_version.label"
+consequence = SubResource("ConsequenceEffect_offer_smaller_version")
+
+[sub_resource type="Resource" id="ConsequenceEffect_stand_firm"]
+script = ExtResource("4")
+coin_delta = 2
+xp_delta = 5
+consequence_text_key = "eq.decision.too_expensive_feedback.choice.stand_firm.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_stand_firm"]
+script = ExtResource("3")
+label_key = "eq.decision.too_expensive_feedback.choice.stand_firm.label"
+consequence = SubResource("ConsequenceEffect_stand_firm")
+
+[sub_resource type="Resource" id="DialogueChoice_too_expensive_feedback"]
+script = ExtResource("2")
+situation_text_key = "eq.decision.too_expensive_feedback.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_ask_why"), SubResource("ChoiceOption_offer_smaller_version"), SubResource("ChoiceOption_stand_firm")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "eq-handle-a-customer-problem-quest"
+title_key = "quest.eq_handle_a_customer_problem.title"
+description_key = "quest.eq_handle_a_customer_problem.description"
+educational_objective_key = "quest.eq_handle_a_customer_problem.intro"
+track = "entrepreneur-quest"
+zone_id = "workshop"
+giver_npc_id = "workshop-guide"
+kind = 2
+intro_text_key = "quest.eq_handle_a_customer_problem.intro"
+challenge_choice = SubResource("DialogueChoice_too_expensive_feedback")
+reward_message_key = "quest.eq_handle_a_customer_problem.reward_message"
+xp_reward = 15
+coin_reward = 10
+skill_ids = Array[String](["problem-solving", "customer-empathy", "decision-making"])
