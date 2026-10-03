@@ -574,6 +574,7 @@ node), never an architecture change.
 | Sky Exchange's Priya + "Staying Safe and Aware With Digital Money" quest (`strategist-digital_money-l1`) | **Built** — Sky Exchange's eighth quest-giving NPC, completing the "digital_money" topic's full 3-age-band trilogy in one zone (the 8th single-topic zone/topic to reach all 3 age bands); Priya is the real teen from the lesson's own story; her name coincidentally matches Coin Cove's Priya (an unrelated real character from a different real source text) — harmless, same reasoning as the earlier Theo/Omar collisions (Section 3); the quiz tests a conceptual fact (digital payments lack a felt physical action), so the choice_point mirrors the lesson's own recommended habits directly; Sky Exchange's remaining 2 topics (investing_basics, junior_isa) stay builder-only |
 | Sky Exchange's Leo + "Saving vs Growing Your Money" quest (`explorer-investing_basics-l1`) | **Built** — Sky Exchange's ninth quest-giving NPC, the first lesson to grow "investing_basics" beyond its builder age band; Leo is the real child from the lesson's own story; the quiz asks for a specific classification, so the choice_point is a downstream decision (ask for another example vs. decide saving is still right for him) rather than re-testing the same classification; only `strategist-investing_basics-l1` remains untouched of this topic's 3 age bands |
 | Sky Exchange's Jamal + "Risk, Diversification, and Time" quest (`strategist-investing_basics-l1`) | **Built** — Sky Exchange's tenth quest-giving NPC, completing the "investing_basics" topic's full 3-age-band trilogy in one zone (the 9th single-topic zone/topic to reach all 3 age bands); Jamal is the real teen from the lesson's own story; unlike Leo's lesson, this quiz tests a separate conceptual fact (investing vs. gambling) rather than which allocation Jamal picks, so the choice_point mirrors the lesson's own real decision directly (put it all in one company vs. spread it across several), with neither option graded; only `junior_isa` remains untouched among Sky Exchange's 4 topics |
+| Sky Exchange's Freya + "A Special Savings Account Just for Kids (UK)" quest (`explorer-junior_isa-l1`) | **Built** — Sky Exchange's eleventh quest-giving NPC, the first lesson to grow "junior_isa" beyond its builder age band — this topic was, until now, the only Money Quest topic untouched at every age band; Freya is the real child from the lesson's own story; the quiz asks a specific ownership question, so the choice_point is a downstream decision (ask Grandma why vs. ask Mum when she can use it) rather than re-testing the same ownership fact; only `strategist-junior_isa-l1` remains untouched in all of Money Quest |
 | Money Quest's Coin Cove zone + Shopkeeper's quest (`explorer-money_basics-l1`, "What Is Money?") | **Built** — reached via a portal inside Sky Exchange (Golden Vault → Market Town → Guardian Gate → Sky Exchange → Coin Cove, Money Quest's first 5-zone graph); real website world id `coin-cove` (actually orderIndex 1 on the website, "where every quest begins" — a presentation detail, not a curriculum dependency, since this game's chain was built in a different order); the real lesson's story has no named child (it's written in second person), so the giver NPC uses the same "generic role name" convention Market Town's Baker established rather than inventing a named child; another `LessonData.choice_point` with no mini-game |
 | Coin Cove's Amir + "Where Does Money Come From?" quest (`builder-money_basics-l1`) | **Built** — Coin Cove's second quest-giving NPC; Amir is the real child from the lesson's own story; `LessonData.choice_point` with no mini-game; only `strategist-money_basics-l1` remains untouched of Coin Cove's 1 real topic's 3 age bands |
 | Coin Cove's Priya + "Money as a Tool, Not a Goal" quest (`strategist-money_basics-l1`) | **Built** — Coin Cove's third quest-giving NPC, completing the full 3-age-band "money_basics" topic trilogy in one zone (the same way Golden Vault completed "saving"); Priya is the real child from the lesson's own story; her name coincidentally matches Leadership Academy's Priya (an unrelated real character from a different real source text) — harmless, since quest-completion state keys off `quest_id` not `npc_id` and the two zones are never loaded simultaneously, same reasoning as the earlier Theo collision (Section 3); `LessonData.choice_point` with no mini-game |
@@ -844,19 +845,26 @@ godot/money-quest-game/
     child from the lesson's own story; the quiz asks for a specific
     classification, so the choice_point sidesteps it with a downstream
     decision instead (same pattern as Mum's digital_money lesson).
-    Phase 38 (this update): Jamal + "Risk, Diversification, and Time"
+    Phase 38: Jamal + "Risk, Diversification, and Time"
     (`strategist-investing_basics-l1`), Sky Exchange's tenth quest-giving
     NPC, completing the "investing_basics" topic trilogy — the 9th
     single-topic zone/topic to reach all 3 age bands; unlike Leo's
     lesson, this quiz tests a separate conceptual fact (investing vs.
     gambling), so for once the choice_point mirrors the lesson's own
     real decision (one company vs. several) directly, with neither
-    option graded.
+    option graded. Phase 39 (this update): Freya +
+    "A Special Savings Account Just for Kids (UK)"
+    (`explorer-junior_isa-l1`), Sky Exchange's eleventh quest-giving
+    NPC — the first lesson to grow "junior_isa" beyond its builder age
+    band, which until now was the only Money Quest topic untouched at
+    every age band; the quiz asks a specific ownership question, so the
+    choice_point sidesteps it with a downstream decision instead.
     Still waiting on you: a real book/exhibit/mentor for Library/Museum
     (Section 6). Still unstarted: Leadership Quest's remaining
     `mission-choice`-kind missions and its `spot`/`allocate`/`sort`-kind
-    missions (need mechanics not built yet), Entrepreneur Quest's
-    remaining real BUILD/RUN/RESCUE & GROW stages, and Money Quest's
-    remaining 2 lessons: the full `explorer`/`strategist` age bands of
-    `junior_isa` — Sky Exchange's last untouched topic, and the only
-    topic in all of Money Quest not yet started at any age band.
+    missions (need mechanics not built yet), and Entrepreneur Quest's
+    remaining real BUILD/RUN/RESCUE & GROW stages. Money Quest now has
+    exactly 1 lesson left in the entire real curriculum:
+    `strategist-junior_isa-l1` — once that's ported, all 30 real Money
+    Quest lessons across all 10 topics and 3 age bands will be in the
+    game.

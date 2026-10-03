@@ -175,14 +175,22 @@ rebuilt.
    jar is still the right choice for now, with the real curriculum's
    quiz and explanation on how investing's value can rise or fall with
    no guarantee afterward — the first lesson to grow "investing_basics"
-   beyond its builder age band. Sky Exchange's tenth and final resident
-   for now, Jamal, gives "Risk, Diversification, and Time": Jamal is
+   beyond its builder age band. Sky Exchange's tenth resident, Jamal,
+   gives "Risk, Diversification, and Time": Jamal is
    deciding, purely as a thought experiment in the Investing Lab,
    whether to put pretend money into one exciting company or spread it
    across several, and you decide which he tries, with the real
    curriculum's quiz and explanation on what makes investing different
    from gambling afterward — completing the "investing_basics" topic
-   trilogy. A
+   trilogy. Sky Exchange's eleventh and final resident for now, Freya,
+   gives "A Special Savings Account Just for Kids (UK)": Freya's grandma
+   put money into a Junior ISA for her and she wasn't sure whose money
+   it really was, and you decide whether she asks Grandma why or asks
+   Mum when she'll be able to use it herself, with the real curriculum's
+   quiz and explanation on who a Junior ISA's money actually belongs to
+   afterward — the first lesson to grow "junior_isa" beyond its builder
+   age band, the last Money Quest topic untouched at every age band
+   until now. A
    second portal inside Sky Exchange leads to **Coin Cove**, Money
    Quest's fifth zone — talk to the Shopkeeper to start "What Is
    Money?": you're buying an apple and decide whether to count out
@@ -336,7 +344,8 @@ up-to-date table. In short:
 | Sky Exchange's Mum + "Money You Can't Hold" quest (`explorer-digital_money-l1`, Sky Exchange's seventh quest-giving NPC, the first lesson to grow "digital_money" beyond builder — no new zone needed, no mini-game needed) | — |
 | Sky Exchange's Priya + "Staying Safe and Aware With Digital Money" quest (`strategist-digital_money-l1`, Sky Exchange's eighth quest-giving NPC, completing the "digital_money" topic trilogy — no new zone needed, no mini-game needed) | — |
 | Sky Exchange's Leo + "Saving vs Growing Your Money" quest (`explorer-investing_basics-l1`, Sky Exchange's ninth quest-giving NPC, the first lesson to grow "investing_basics" beyond builder — no new zone needed, no mini-game needed) | — |
-| Sky Exchange's Jamal + "Risk, Diversification, and Time" quest (`strategist-investing_basics-l1`, Sky Exchange's tenth quest-giving NPC, completing the "investing_basics" topic trilogy — no new zone needed, no mini-game needed) | Money Quest's remaining 2 lessons |
+| Sky Exchange's Jamal + "Risk, Diversification, and Time" quest (`strategist-investing_basics-l1`, Sky Exchange's tenth quest-giving NPC, completing the "investing_basics" topic trilogy — no new zone needed, no mini-game needed) | — |
+| Sky Exchange's Freya + "A Special Savings Account Just for Kids (UK)" quest (`explorer-junior_isa-l1`, Sky Exchange's eleventh quest-giving NPC, the first lesson to grow "junior_isa" beyond builder — no new zone needed, no mini-game needed) | Money Quest's last remaining lesson |
 | Coin Cove zone + Shopkeeper's quest (`explorer-money_basics-l1`, "What Is Money?," reached via a portal inside Sky Exchange — Money Quest's first 5-zone graph, no mini-game needed) | — |
 | Coin Cove's Amir + "Where Does Money Come From?" quest (`builder-money_basics-l1`, Coin Cove's second quest-giving NPC — no new zone needed, no mini-game needed) | — |
 | Coin Cove's Priya + "Money as a Tool, Not a Goal" quest (`strategist-money_basics-l1`, Coin Cove's third quest-giving NPC, completing the "money_basics" topic trilogy — no new zone needed, no mini-game needed) | — |
@@ -590,6 +599,18 @@ Jamal picks, so the only original text - the intro framing and the
 choice/consequence wording - is free to mirror the lesson's own real
 decision directly (put it all in one company vs. spread it across
 several), with neither option graded.
+
+Freya's quest in Sky Exchange is the same: every curriculum field
+(title, learning objective, key concept, vocabulary `Junior
+ISA`/`UK`, explanation, quiz, feedback, reward message) is copied from
+the real `curriculum.explorer-junior_isa-l1`. Freya is the real child
+named in that lesson's own story. The quiz asks a specific ownership
+question (whose money is it), so the only original text - the intro
+framing and the choice/consequence wording - is a downstream decision
+(ask Grandma why vs. ask Mum when she can use it) rather than
+re-testing the same ownership fact. This is the first lesson to grow
+"junior_isa" beyond its builder age band - the last Money Quest topic
+to remain untouched at every age band until now.
 
 The Shopkeeper's quest in Coin Cove is the same: every curriculum field
 (title, learning objective, key concept, vocabulary `money`/`trade`/
@@ -929,7 +950,7 @@ rationale. Quick map:
   Read-aloud/text-to-speech has no engine wired in at all — not even a
   silent placeholder bus — since one would require either an offline
   voice model or a paid API, both out of scope per the brief.
-- Only 28 of 30 curriculum lessons are wired up as Quests, only 3 of
+- Only 29 of 30 curriculum lessons are wired up as Quests, only 3 of
   Entrepreneur Quest's many real BUILD/RUN/RESCUE & GROW stages are
   ported, and only 3 of Leadership Quest's 12 real missions are ported.
   See `docs/money-quest-world-architecture.md` Section 12 for the

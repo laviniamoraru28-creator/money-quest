@@ -1,0 +1,78 @@
+[gd_resource type="Resource" script_class="LessonData" load_steps=16 format=3]
+
+[ext_resource type="Script" path="res://scripts/core/LessonData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/VocabTerm.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/DialogueLine.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="5"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="6"]
+
+[sub_resource type="Resource" id="VocabTerm_junior_isa"]
+script = ExtResource("2")
+term_key = "curriculum.explorer-junior_isa-l1.vocabulary.0.term"
+definition_key = "curriculum.explorer-junior_isa-l1.vocabulary.0.definition"
+
+[sub_resource type="Resource" id="VocabTerm_uk"]
+script = ExtResource("2")
+term_key = "curriculum.explorer-junior_isa-l1.vocabulary.1.term"
+definition_key = "curriculum.explorer-junior_isa-l1.vocabulary.1.definition"
+
+[sub_resource type="Resource" id="DialogueLine_intro1"]
+script = ExtResource("3")
+speaker_id = ""
+text_key = "lesson.explorer_junior_isa_l1.intro.line1"
+
+[sub_resource type="Resource" id="DialogueLine_intro2"]
+script = ExtResource("3")
+speaker_id = "freya"
+text_key = "lesson.explorer_junior_isa_l1.intro.line2"
+
+[sub_resource type="Resource" id="ConsequenceEffect_ask_grandma_why"]
+script = ExtResource("6")
+coin_delta = 4
+xp_delta = 5
+consequence_text_key = "lesson.explorer_junior_isa_l1.choice.consequence_ask_grandma_why"
+
+[sub_resource type="Resource" id="ChoiceOption_ask_grandma_why"]
+script = ExtResource("5")
+label_key = "lesson.explorer_junior_isa_l1.choice.option_ask_grandma_why"
+consequence = SubResource("ConsequenceEffect_ask_grandma_why")
+
+[sub_resource type="Resource" id="ConsequenceEffect_ask_when_she_can_use_it"]
+script = ExtResource("6")
+coin_delta = 4
+xp_delta = 5
+consequence_text_key = "lesson.explorer_junior_isa_l1.choice.consequence_ask_when_she_can_use_it"
+
+[sub_resource type="Resource" id="ChoiceOption_ask_when_she_can_use_it"]
+script = ExtResource("5")
+label_key = "lesson.explorer_junior_isa_l1.choice.option_ask_when_she_can_use_it"
+consequence = SubResource("ConsequenceEffect_ask_when_she_can_use_it")
+
+[sub_resource type="Resource" id="DialogueChoice_whose_money_is_it"]
+script = ExtResource("4")
+situation_text_key = "lesson.explorer_junior_isa_l1.choice.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_ask_grandma_why"), SubResource("ChoiceOption_ask_when_she_can_use_it")])
+
+[resource]
+script = ExtResource("1")
+lesson_id = "explorer-junior_isa-l1"
+age_band = "explorer"
+world_id = "sky-exchange"
+topic_id = "junior_isa"
+xp_reward = 15
+coin_reward = 10
+learning_objective_key = "curriculum.explorer-junior_isa-l1.learningObjective"
+key_concept_key = "curriculum.explorer-junior_isa-l1.keyConcept"
+vocabulary = Array[VocabTerm]([SubResource("VocabTerm_junior_isa"), SubResource("VocabTerm_uk")])
+intro_dialogue = Array[DialogueLine]([SubResource("DialogueLine_intro1"), SubResource("DialogueLine_intro2")])
+choice_point = SubResource("DialogueChoice_whose_money_is_it")
+explanation_key = "curriculum.explorer-junior_isa-l1.explanation"
+quiz_question_key = "curriculum.explorer-junior_isa-l1.quiz.question"
+quiz_option_keys = Array[String](["curriculum.explorer-junior_isa-l1.quiz.options.0", "curriculum.explorer-junior_isa-l1.quiz.options.1", "curriculum.explorer-junior_isa-l1.quiz.options.2", "curriculum.explorer-junior_isa-l1.quiz.options.3"])
+quiz_correct_index = 0
+quiz_explanation_key = "curriculum.explorer-junior_isa-l1.quiz.explanation"
+quiz_success_feedback_key = "curriculum.explorer-junior_isa-l1.feedback.success"
+quiz_retry_feedback_key = "curriculum.explorer-junior_isa-l1.feedback.retry"
+reward_message_key = "curriculum.explorer-junior_isa-l1.rewardMessage"
+stage_scene_path = ""

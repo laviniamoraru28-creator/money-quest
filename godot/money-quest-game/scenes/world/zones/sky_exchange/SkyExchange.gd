@@ -89,6 +89,15 @@ extends Node3D
 ## lesson's own real decision directly (put it all in one company vs.
 ## spread it across several) — neither option is graded, so this carries
 ## no risk of contradicting the quiz.
+##
+## Freya — this zone's eleventh resident — gives explorer-junior_isa-l1
+## ("A Special Savings Account Just for Kids (UK)"), the first lesson to
+## grow the "junior_isa" topic beyond its builder age band — this topic
+## was, until now, the only Money Quest topic untouched at every age
+## band. Freya is the real child named in that lesson's own story. The
+## quiz asks a specific ownership question (whose money is it), so the
+## choice_point is a downstream decision (ask Grandma why vs. ask Mum
+## when she can use it) rather than re-testing the same ownership fact.
 
 const CURRENCIES_QUEST_ID: String = "builder-currencies-l1-quest"
 const DIGITAL_MONEY_QUEST_ID: String = "builder-digital-money-l1-quest"
@@ -100,6 +109,7 @@ const DIGITAL_MONEY_EXPLORER_QUEST_ID: String = "explorer-digital-money-l1-quest
 const DIGITAL_MONEY_STRATEGIST_QUEST_ID: String = "strategist-digital-money-l1-quest"
 const INVESTING_BASICS_EXPLORER_QUEST_ID: String = "explorer-investing-basics-l1-quest"
 const INVESTING_BASICS_STRATEGIST_QUEST_ID: String = "strategist-investing-basics-l1-quest"
+const JUNIOR_ISA_EXPLORER_QUEST_ID: String = "explorer-junior-isa-l1-quest"
 
 @onready var player: Node3D = $Player
 @onready var camera_controller: CameraController = $CameraController
@@ -113,6 +123,7 @@ const INVESTING_BASICS_STRATEGIST_QUEST_ID: String = "strategist-investing-basic
 @onready var priya: NPC = $Priya
 @onready var leo: NPC = $Leo
 @onready var jamal: NPC = $Jamal
+@onready var freya: NPC = $Freya
 
 
 func _ready() -> void:
@@ -127,6 +138,7 @@ func _ready() -> void:
 	priya.talked_to.connect(_on_priya_talked_to)
 	leo.talked_to.connect(_on_leo_talked_to)
 	jamal.talked_to.connect(_on_jamal_talked_to)
+	freya.talked_to.connect(_on_freya_talked_to)
 
 
 func _on_sam_talked_to(_npc_id: String) -> void:
@@ -197,3 +209,10 @@ func _on_jamal_talked_to(_npc_id: String) -> void:
 		DialogueBox.show_text("zone.sky_exchange.jamal.already_done")
 	else:
 		QuestManager.start_quest(INVESTING_BASICS_STRATEGIST_QUEST_ID)
+
+
+func _on_freya_talked_to(_npc_id: String) -> void:
+	if QuestManager.is_quest_completed(JUNIOR_ISA_EXPLORER_QUEST_ID):
+		DialogueBox.show_text("zone.sky_exchange.freya.already_done")
+	else:
+		QuestManager.start_quest(JUNIOR_ISA_EXPLORER_QUEST_ID)
