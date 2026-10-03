@@ -54,6 +54,19 @@ extends Node3D
 ## money), so the choice_point is a downstream decision (what to do after
 ## noticing the tap) rather than re-asking the same classification, keeping
 ## it safely clear of contradicting the fixed answer.
+##
+## Priya — this zone's eighth resident — gives strategist-digital_money-l1
+## ("Staying Safe and Aware With Digital Money"), completing the
+## "digital_money" topic's full 3-age-band trilogy in one zone (the 8th
+## single-topic zone/topic to reach all 3 age bands). Priya is the real
+## teen named in that lesson's own story; her name coincidentally matches
+## Coin Cove's Priya (an unrelated real character from a different real
+## source text) — harmless, since quest-completion state keys off
+## `quest_id` not `npc_id` and the two zones are never loaded
+## simultaneously, same reasoning as the earlier Theo/Omar collisions
+## (Section 3). The quiz tests a conceptual fact (digital payments lack a
+## felt physical action), so the choice_point again mirrors the lesson's
+## own recommended habits directly, with no risk of contradicting it.
 
 const CURRENCIES_QUEST_ID: String = "builder-currencies-l1-quest"
 const DIGITAL_MONEY_QUEST_ID: String = "builder-digital-money-l1-quest"
@@ -62,6 +75,7 @@ const JUNIOR_ISA_QUEST_ID: String = "builder-junior-isa-l1-quest"
 const CURRENCIES_EXPLORER_QUEST_ID: String = "explorer-currencies-l1-quest"
 const CURRENCIES_STRATEGIST_QUEST_ID: String = "strategist-currencies-l1-quest"
 const DIGITAL_MONEY_EXPLORER_QUEST_ID: String = "explorer-digital-money-l1-quest"
+const DIGITAL_MONEY_STRATEGIST_QUEST_ID: String = "strategist-digital-money-l1-quest"
 
 @onready var player: Node3D = $Player
 @onready var camera_controller: CameraController = $CameraController
@@ -72,6 +86,7 @@ const DIGITAL_MONEY_EXPLORER_QUEST_ID: String = "explorer-digital-money-l1-quest
 @onready var visiting_friend: NPC = $VisitingFriend
 @onready var elena: NPC = $Elena
 @onready var mum: NPC = $Mum
+@onready var priya: NPC = $Priya
 
 
 func _ready() -> void:
@@ -83,6 +98,7 @@ func _ready() -> void:
 	visiting_friend.talked_to.connect(_on_visiting_friend_talked_to)
 	elena.talked_to.connect(_on_elena_talked_to)
 	mum.talked_to.connect(_on_mum_talked_to)
+	priya.talked_to.connect(_on_priya_talked_to)
 
 
 func _on_sam_talked_to(_npc_id: String) -> void:
@@ -132,3 +148,10 @@ func _on_mum_talked_to(_npc_id: String) -> void:
 		DialogueBox.show_text("zone.sky_exchange.mum.already_done")
 	else:
 		QuestManager.start_quest(DIGITAL_MONEY_EXPLORER_QUEST_ID)
+
+
+func _on_priya_talked_to(_npc_id: String) -> void:
+	if QuestManager.is_quest_completed(DIGITAL_MONEY_STRATEGIST_QUEST_ID):
+		DialogueBox.show_text("zone.sky_exchange.priya.already_done")
+	else:
+		QuestManager.start_quest(DIGITAL_MONEY_STRATEGIST_QUEST_ID)
