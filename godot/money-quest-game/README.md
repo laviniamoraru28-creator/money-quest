@@ -147,7 +147,14 @@ rebuilt.
    countries' money looks different too, with the real curriculum's
    quiz and explanation on why every country makes its own money
    afterward — the first lesson to grow one of Sky Exchange's topics
-   beyond its builder age band. A
+   beyond its builder age band. Sky Exchange's sixth and final resident
+   for now, Elena, gives "Understanding Exchange Rates": Elena is
+   comparing an online price in a different currency and can't compare
+   the numbers directly, and you decide whether she looks up today's
+   rate to convert the price or compares the rate a few providers are
+   offering, with the real curriculum's quiz and explanation on why
+   exchange rates keep changing afterward — completing the "currencies"
+   topic trilogy. A
    second portal inside Sky Exchange leads to **Coin Cove**, Money
    Quest's fifth zone — talk to the Shopkeeper to start "What Is
    Money?": you're buying an apple and decide whether to count out
@@ -296,7 +303,8 @@ up-to-date table. In short:
 | Sky Exchange's Omar + "How a Card Payment Actually Works" quest (`builder-digital_money-l1`, Sky Exchange's second quest-giving NPC — no new zone needed, no mini-game needed) | — |
 | Sky Exchange's Mei + "Owning a Small Piece of a Company" quest (`builder-investing_basics-l1`, Sky Exchange's third quest-giving NPC — no new zone needed, no mini-game needed) | — |
 | Sky Exchange's Tomasz + "Locked Until 18: How a Junior ISA Works" quest (`builder-junior_isa-l1`, Sky Exchange's fourth quest-giving NPC, completing all 4 real topics the zone hosts at the builder age band) | — |
-| Sky Exchange's Visiting Friend + "Money Looks Different Everywhere" quest (`explorer-currencies-l1`, Sky Exchange's fifth quest-giving NPC, the first lesson to grow one of its 4 topics beyond builder — no new zone needed, no mini-game needed) | Money Quest's remaining 7 lessons |
+| Sky Exchange's Visiting Friend + "Money Looks Different Everywhere" quest (`explorer-currencies-l1`, Sky Exchange's fifth quest-giving NPC, the first lesson to grow one of its 4 topics beyond builder — no new zone needed, no mini-game needed) | — |
+| Sky Exchange's Elena + "Understanding Exchange Rates" quest (`strategist-currencies-l1`, Sky Exchange's sixth quest-giving NPC, completing the "currencies" topic trilogy — no new zone needed, no mini-game needed) | Money Quest's remaining 6 lessons |
 | Coin Cove zone + Shopkeeper's quest (`explorer-money_basics-l1`, "What Is Money?," reached via a portal inside Sky Exchange — Money Quest's first 5-zone graph, no mini-game needed) | — |
 | Coin Cove's Amir + "Where Does Money Come From?" quest (`builder-money_basics-l1`, Coin Cove's second quest-giving NPC — no new zone needed, no mini-game needed) | — |
 | Coin Cove's Priya + "Money as a Tool, Not a Goal" quest (`strategist-money_basics-l1`, Coin Cove's third quest-giving NPC, completing the "money_basics" topic trilogy — no new zone needed, no mini-game needed) | — |
@@ -477,6 +485,20 @@ coins side by side vs. ask whether other countries' money looks
 different too) - both equally valid ways to explore the same fact. This
 is the first lesson to grow one of Sky Exchange's 4 topics beyond its
 builder age band.
+
+Elena's quest in Sky Exchange is the same: every curriculum field
+(title, learning objective, key concept, vocabulary `exchange
+rate`/`conversion`/`fluctuate`, explanation, quiz, feedback, reward
+message) is copied from the real `curriculum.strategist-currencies-l1`.
+Elena is the real teen named in that lesson's own story, and this
+completes the "currencies" topic's full 3-age-band trilogy (Sam,
+Visiting Friend, Elena) in one zone. Like Marcus's scams lesson, this
+one's quiz tests a conceptual fact (exchange rates change over time)
+rather than a specific action, so the only original text - the intro
+framing and the choice/consequence wording - is free to mirror the
+lesson's own recommended habit directly (look up today's rate vs.
+compare rates across a few providers) without any risk of contradicting
+the quiz.
 
 The Shopkeeper's quest in Coin Cove is the same: every curriculum field
 (title, learning objective, key concept, vocabulary `money`/`trade`/
@@ -816,7 +838,7 @@ rationale. Quick map:
   Read-aloud/text-to-speech has no engine wired in at all — not even a
   silent placeholder bus — since one would require either an offline
   voice model or a paid API, both out of scope per the brief.
-- Only 23 of 30 curriculum lessons are wired up as Quests, only 3 of
+- Only 24 of 30 curriculum lessons are wired up as Quests, only 3 of
   Entrepreneur Quest's many real BUILD/RUN/RESCUE & GROW stages are
   ported, and only 3 of Leadership Quest's 12 real missions are ported.
   See `docs/money-quest-world-architecture.md` Section 12 for the

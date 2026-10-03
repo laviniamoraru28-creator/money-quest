@@ -31,12 +31,25 @@ extends Node3D
 ## plain "Friend" to avoid reusing the exact npc_id Kindness Grove's unrelated
 ## "Friend" NPC already uses (a harmless real-content coincidence either way,
 ## per Section 3, but each zone has so far picked its own distinct name).
+##
+## Elena — the real teen named in the "Understanding Exchange Rates" story —
+## is this zone's sixth resident, giving strategist-currencies-l1. This
+## completes the "currencies" topic's full 3-age-band trilogy in one zone
+## (the same way Golden Vault completed "saving", Coin Cove completed
+## "money_basics", Horizon Peaks completed "long_term_thinking", Kindness
+## Grove completed "giving", and Guardian Gate completed "scams"). Like
+## Marcus's scams lesson, this quiz tests a conceptual fact (exchange rates
+## change over time) rather than a specific action, so the choice_point is
+## free to mirror the lesson's own recommended habit directly (check
+## today's rate vs. compare rates across providers) with no risk of
+## contradicting it.
 
 const CURRENCIES_QUEST_ID: String = "builder-currencies-l1-quest"
 const DIGITAL_MONEY_QUEST_ID: String = "builder-digital-money-l1-quest"
 const INVESTING_BASICS_QUEST_ID: String = "builder-investing-basics-l1-quest"
 const JUNIOR_ISA_QUEST_ID: String = "builder-junior-isa-l1-quest"
 const CURRENCIES_EXPLORER_QUEST_ID: String = "explorer-currencies-l1-quest"
+const CURRENCIES_STRATEGIST_QUEST_ID: String = "strategist-currencies-l1-quest"
 
 @onready var player: Node3D = $Player
 @onready var camera_controller: CameraController = $CameraController
@@ -45,6 +58,7 @@ const CURRENCIES_EXPLORER_QUEST_ID: String = "explorer-currencies-l1-quest"
 @onready var mei: NPC = $Mei
 @onready var tomasz: NPC = $Tomasz
 @onready var visiting_friend: NPC = $VisitingFriend
+@onready var elena: NPC = $Elena
 
 
 func _ready() -> void:
@@ -54,6 +68,7 @@ func _ready() -> void:
 	mei.talked_to.connect(_on_mei_talked_to)
 	tomasz.talked_to.connect(_on_tomasz_talked_to)
 	visiting_friend.talked_to.connect(_on_visiting_friend_talked_to)
+	elena.talked_to.connect(_on_elena_talked_to)
 
 
 func _on_sam_talked_to(_npc_id: String) -> void:
@@ -89,3 +104,10 @@ func _on_visiting_friend_talked_to(_npc_id: String) -> void:
 		DialogueBox.show_text("zone.sky_exchange.visiting_friend.already_done")
 	else:
 		QuestManager.start_quest(CURRENCIES_EXPLORER_QUEST_ID)
+
+
+func _on_elena_talked_to(_npc_id: String) -> void:
+	if QuestManager.is_quest_completed(CURRENCIES_STRATEGIST_QUEST_ID):
+		DialogueBox.show_text("zone.sky_exchange.elena.already_done")
+	else:
+		QuestManager.start_quest(CURRENCIES_STRATEGIST_QUEST_ID)
