@@ -588,12 +588,13 @@ node), never an architecture change.
 | Entrepreneur Quest's Idea Lab zone + "Handle Competition" quest | **Built** — a `CHALLENGE`-kind quest porting the website's real `competitor-lower-price` decision event (`src/content/entrepreneur-quest/structures.ts`) verbatim; proves the same pipeline carries a second Quest track with zero new systems |
 | Entrepreneur Quest's Marketing Studio zone + "Create Your Marketing" quest | **Built** — reached via a portal inside Idea Lab (Entrepreneur Quest's first 2-zone graph); another `CHALLENGE`-kind quest, porting the real `product-unclear` decision event verbatim |
 | Entrepreneur Quest's Workshop zone + "Handle a Customer Problem" quest | **Built** — reached via a portal inside Marketing Studio (Idea Lab → Marketing Studio → Workshop, Entrepreneur Quest's first 3-zone graph); another `CHALLENGE`-kind quest, porting the real `too-expensive-feedback` decision event verbatim |
+| Workshop's Supplier + "Rising Material Costs" quest | **Built** — Workshop's second quest-giving NPC, the first "a zone can grow another CHALLENGE-kind resident" case in Entrepreneur Quest, same pattern Money Quest proved throughout; ports the real `materials-cost-increase` decision event verbatim — the sibling event under the same real "handle-a-customer-problem" BUILD stage as the Workshop Guide's quest; the real decision has no secondary character at all (pure second-person framing), so "Supplier" is an invented mentor-role name tied to the scenario, the same convention every Entrepreneur Quest giver NPC so far has used (the website's BUILD-stage decisions never name anyone); 4 of 25 real decision events now ported |
 | Leadership Quest's Leadership Academy zone + "The Big Mistake" quest | **Built** — a `CHALLENGE`-kind quest porting the website's real `big-mistake-choice` decision event verbatim, with Priya as a real-character NPC; this is what motivated `QuestData.intro_dialogue` (Section 4) |
 | Leadership Quest's Team Challenge zone + "The Angry Customer" quest | **Built** — reached via a portal inside Leadership Academy (Leadership Quest's first 2-zone graph); another `CHALLENGE`-kind quest with Theo as a real-character NPC, porting the real `angry-customer-choice` decision event verbatim |
 | Leadership Quest's Strategy Room zone + "The Better Idea" quest | **Built** — reached via a portal inside Team Challenge (Leadership Academy → Team Challenge → Strategy Room, Leadership Quest's first 3-zone graph); another `CHALLENGE`-kind quest with Nadia (the 3rd of Leadership Quest's 4 real characters used so far) as the giver NPC, porting the real `better-idea-choice` decision event verbatim |
 | `AvatarConfig` + creation screen, fully wired to the 3D model | **Built** — 4 body presets (including a seated wheelchair-style look) and 4 accessories (glasses, cap, hearing aid, cane), all purely visual, listed together as equally normal choices |
 | Progression fields for zones/quests/skills | **Built** (additive) |
-| Entrepreneur Quest's full BUILD → RUN → RESCUE & GROW track / Leadership Quest's remaining 11 missions | Not built — only one representative slice per track exists so far |
+| Entrepreneur Quest's remaining real content (21 of 25 decision events, all 18 BUILD stages' own mechanics, 5 Challenges, the RUN/Rescue & Grow hubs, the AI Business Lab) / Leadership Quest's remaining 9 missions | Not built — Money Quest's completion (all 30 lessons) makes these two tracks the primary remaining expansion targets |
 | `EntryData`/`BookData`/`ExhibitData`/`MentorData`/`DictionaryTermData` schema | **Built** (`scripts/library/`, see `data/schemas/ENTRY_DATA_FORMAT.md`) |
 | Dictionary content | **Built** — 2 real terms (`goal`, `trade-off`), reusing `builder-saving-l1`'s own vocabulary keys verbatim |
 | Library zone (`data/zones/library.tres`, bookshelves, Librarian NPC, reachable from the Hub) | **Built** — honestly empty; the Librarian says the shelves are still being prepared rather than pretending there's content |
@@ -787,11 +788,33 @@ godot/money-quest-game/
     unrelated real character in a different zone/track) and are
     documented in Section 3 rather than silently avoided. Full
     phase-by-phase detail for Phases 20-39 lives in git history and
-    prior session reports, not duplicated here.
+    prior session reports, not duplicated here. Phase 41 (this update):
+    with Money Quest complete, attention shifts to Entrepreneur Quest —
+    Workshop's Supplier + "Rising Material Costs" quest, porting the
+    real `materials-cost-increase` decision event (the sibling event to
+    the Workshop Guide's `too-expensive-feedback`, both under the real
+    "handle-a-customer-problem" BUILD stage) — the first "zone grows
+    another resident" case in Entrepreneur Quest, proving the same
+    pattern that carried Money Quest to completion applies here too.
+    4 of 25 real decision events are now ported (Idea Lab's Handle
+    Competition, Marketing Studio's Create Your Marketing, Workshop's
+    two). 21 real decision events remain across the v1 set
+    (`market-detective-reflection`, `test-before-invest`,
+    `more-orders-than-expected`, `teammate-wants-change`,
+    `fewer-sales-than-expected`), the v2 RUN set (4), the v2 Business
+    Problems library (7), the v2 AI Lab (`ai-wrong-answer`), and the v2
+    Rescue & Grow set (4) — plus all 18 BUILD stages' own non-decision
+    mechanics (logo builder, category pickers, numeric entry, etc.) and
+    the 5 standalone Challenges, none of which have any Godot
+    implementation yet; only the simple "situation + N choices +
+    consequence" CHALLENGE shape exists so far.
     Still waiting on you: a real book/exhibit/mentor for Library/Museum
-    (Section 6). Still unstarted: Leadership Quest's remaining
-    `mission-choice`-kind missions and its `spot`/`allocate`/`sort`-kind
-    missions (need mechanics not built yet), and Entrepreneur Quest's
-    remaining real BUILD/RUN/RESCUE & GROW stages — these two tracks
-    are now the primary remaining expansion targets, since Money Quest
-    itself has no more real lessons left to port.
+    (Section 6). Still unstarted: Leadership Quest's remaining 9
+    missions — of those, only `everyone-has-an-idea` fits the existing
+    CHALLENGE shape directly; the other 8 (2 `match`, 2 `spot`, 1
+    `allocate`, 1 `sort`, 1 multi-step combining match+2 choices, plus
+    `missing-task`'s clue-investigation step) need mechanics
+    (`QuestData.gd`'s `EXPLORATION`/`SIMULATION` kinds are declared but
+    have no runner — `QuestManager.gd` just warns and finishes
+    immediately) that don't exist in Godot yet and would need designing
+    before those missions can be ported.

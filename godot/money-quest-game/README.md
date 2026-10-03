@@ -281,7 +281,12 @@ rebuilt.
    Marketing Studio leads to **Workshop**, Entrepreneur Quest's third
    zone — talk to the Workshop Guide to start "Handle a Customer
    Problem": a customer tells you your product is too expensive, and you
-   choose how to respond.
+   choose how to respond. Workshop's second resident, the Supplier,
+   gives "Rising Material Costs": the materials you need suddenly become
+   more expensive, and you choose whether to raise your price, absorb
+   the cost, or look for cheaper materials — the sibling real decision
+   event to the Workshop Guide's quest, both from the real website's
+   "handle-a-customer-problem" stage.
 5. In Leadership Academy, walk up to Priya and interact with her to start
    "The Big Mistake" — ported directly from the website's real Leadership
    Quest content: Priya made a mistake and the team is watching to see how
@@ -368,6 +373,7 @@ up-to-date table. In short:
 | Idea Lab zone + "Handle Competition" quest (ports the website's real `competitor-lower-price` decision event) | — |
 | Marketing Studio zone + "Create Your Marketing" quest (ports the real `product-unclear` decision event, reached via a portal inside Idea Lab) | Entrepreneur Quest's `reflect-text`-kind stages (need a free-text input UI not built yet) |
 | Workshop zone + "Handle a Customer Problem" quest (ports the real `too-expensive-feedback` decision event, reached via a portal inside Marketing Studio — Entrepreneur Quest's first 3-zone graph) | — |
+| Workshop's Supplier + "Rising Material Costs" quest (ports the real `materials-cost-increase` decision event, Workshop's second quest-giving NPC — no new zone needed, no mini-game needed) | Entrepreneur Quest's remaining 21 real decision events and all 18 BUILD stages' own non-decision mechanics |
 | Leadership Academy zone + "The Big Mistake" quest (ports the website's real `big-mistake-choice` decision event, with Priya as a real-character NPC) | AI Quest Coach (explicitly not built — see the architecture doc's non-negotiables) |
 | Team Challenge zone + "The Angry Customer" quest (ports the real `angry-customer-choice` decision event, reached via a portal inside Leadership Academy, with Theo as a real-character NPC) | Leadership Quest's `spot`/`allocate`/`sort`-kind missions (need mechanics not built yet) |
 | Strategy Room zone + "The Better Idea" quest (ports the real `better-idea-choice` decision event, reached via a portal inside Team Challenge — Leadership Quest's first 3-zone graph, with Nadia as a real-character NPC) | Leadership Quest's remaining `mission-choice`-kind missions |
@@ -776,6 +782,18 @@ all 3 choices, and all 3 consequences are copied verbatim from
 `entrepreneurQuest.decisionEvents.too-expensive-feedback` and
 `build.handle-a-customer-problem`'s title/learnText.
 
+Workshop's Supplier gives "Rising Material Costs," ported the same way:
+the situation, all 3 choices, and all 3 consequences are copied verbatim
+from `entrepreneurQuest.decisionEvents.materials-cost-increase` - the
+sibling decision event to `too-expensive-feedback` under the same real
+`build.handle-a-customer-problem` stage. Since the real decision event
+has no secondary character at all (it's framed in second person, as
+the player's own business), "Supplier" is an invented mentor-role name
+tied to the scenario's subject, the same convention every Entrepreneur
+Quest giver NPC has used so far (none of the website's BUILD-stage
+decisions name anyone) - only the quest's title, description, and intro
+framing are original.
+
 Leadership Academy's "The Big Mistake" quest is likewise copied directly
 from the real `messages/en.json`/`messages/ro.json`
 (`leadershipQuest.missions.big-mistake`, including its `priya`/`oren`
@@ -985,11 +1003,13 @@ rationale. Quick map:
   silent placeholder bus — since one would require either an offline
   voice model or a paid API, both out of scope per the brief.
 - All 30 of Money Quest's real website curriculum lessons are now wired
-  up as Quests. Only 3 of Entrepreneur Quest's many real BUILD/RUN/
-  RESCUE & GROW stages are ported, and only 3 of Leadership Quest's 12
-  real missions are ported. See `docs/money-quest-world-architecture.md`
-  Section 12 for the development order for the rest, the 17 games, and
-  the 4 simulator scenarios.
+  up as Quests. Only 4 of Entrepreneur Quest's 25 real decision events
+  are ported (and none of its 18 BUILD stages' own non-decision
+  mechanics, 5 standalone Challenges, or RUN/Rescue & Grow/AI Lab
+  content), and only 3 of Leadership Quest's 12 real missions are
+  ported. See `docs/money-quest-world-architecture.md` Section 12 for
+  the development order for the rest, the 17 games, and the 4 simulator
+  scenarios.
 - Museum is the only Hub portal still reachable-but-"coming soon" — the
   portal, zone registration, and locking logic all already work for it;
   only its actual zone content doesn't exist yet, by design, per the

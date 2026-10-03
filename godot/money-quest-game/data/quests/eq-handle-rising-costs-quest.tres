@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="4"]
+
+[sub_resource type="Resource" id="ConsequenceEffect_raise_price"]
+script = ExtResource("4")
+coin_delta = 4
+xp_delta = 5
+consequence_text_key = "eq.decision.materials_cost_increase.choice.raise_price.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_raise_price"]
+script = ExtResource("3")
+label_key = "eq.decision.materials_cost_increase.choice.raise_price.label"
+consequence = SubResource("ConsequenceEffect_raise_price")
+
+[sub_resource type="Resource" id="ConsequenceEffect_absorb_cost"]
+script = ExtResource("4")
+coin_delta = 2
+xp_delta = 5
+consequence_text_key = "eq.decision.materials_cost_increase.choice.absorb_cost.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_absorb_cost"]
+script = ExtResource("3")
+label_key = "eq.decision.materials_cost_increase.choice.absorb_cost.label"
+consequence = SubResource("ConsequenceEffect_absorb_cost")
+
+[sub_resource type="Resource" id="ConsequenceEffect_find_cheaper_materials"]
+script = ExtResource("4")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "eq.decision.materials_cost_increase.choice.find_cheaper_materials.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_find_cheaper_materials"]
+script = ExtResource("3")
+label_key = "eq.decision.materials_cost_increase.choice.find_cheaper_materials.label"
+consequence = SubResource("ConsequenceEffect_find_cheaper_materials")
+
+[sub_resource type="Resource" id="DialogueChoice_materials_cost_increase"]
+script = ExtResource("2")
+situation_text_key = "eq.decision.materials_cost_increase.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_raise_price"), SubResource("ChoiceOption_absorb_cost"), SubResource("ChoiceOption_find_cheaper_materials")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "eq-handle-rising-costs-quest"
+title_key = "quest.eq_handle_rising_costs.title"
+description_key = "quest.eq_handle_rising_costs.description"
+educational_objective_key = "quest.eq_handle_rising_costs.intro"
+track = "entrepreneur-quest"
+zone_id = "workshop"
+giver_npc_id = "supplier"
+kind = 2
+intro_text_key = "quest.eq_handle_rising_costs.intro"
+challenge_choice = SubResource("DialogueChoice_materials_cost_increase")
+reward_message_key = "quest.eq_handle_rising_costs.reward_message"
+xp_reward = 15
+coin_reward = 10
+skill_ids = Array[String](["problem-solving", "decision-making", "adaptability"])
