@@ -575,6 +575,7 @@ node), never an architecture change.
 | Sky Exchange's Leo + "Saving vs Growing Your Money" quest (`explorer-investing_basics-l1`) | **Built** — Sky Exchange's ninth quest-giving NPC, the first lesson to grow "investing_basics" beyond its builder age band; Leo is the real child from the lesson's own story; the quiz asks for a specific classification, so the choice_point is a downstream decision (ask for another example vs. decide saving is still right for him) rather than re-testing the same classification; only `strategist-investing_basics-l1` remains untouched of this topic's 3 age bands |
 | Sky Exchange's Jamal + "Risk, Diversification, and Time" quest (`strategist-investing_basics-l1`) | **Built** — Sky Exchange's tenth quest-giving NPC, completing the "investing_basics" topic's full 3-age-band trilogy in one zone (the 9th single-topic zone/topic to reach all 3 age bands); Jamal is the real teen from the lesson's own story; unlike Leo's lesson, this quiz tests a separate conceptual fact (investing vs. gambling) rather than which allocation Jamal picks, so the choice_point mirrors the lesson's own real decision directly (put it all in one company vs. spread it across several), with neither option graded; only `junior_isa` remains untouched among Sky Exchange's 4 topics |
 | Sky Exchange's Freya + "A Special Savings Account Just for Kids (UK)" quest (`explorer-junior_isa-l1`) | **Built** — Sky Exchange's eleventh quest-giving NPC, the first lesson to grow "junior_isa" beyond its builder age band — this topic was, until now, the only Money Quest topic untouched at every age band; Freya is the real child from the lesson's own story; the quiz asks a specific ownership question, so the choice_point is a downstream decision (ask Grandma why vs. ask Mum when she can use it) rather than re-testing the same ownership fact; only `strategist-junior_isa-l1` remains untouched in all of Money Quest |
+| Sky Exchange's Aaliyah + "Junior ISAs: Ownership, Timing, and Changing Rules" quest (`strategist-junior_isa-l1`) | **Built** — Sky Exchange's twelfth and final quest-giving NPC, completing the "junior_isa" topic's full 3-age-band trilogy in one zone (the 10th and final single-topic zone/topic to reach all 3 age bands) — **this completes all 30 of Money Quest's real website curriculum lessons across all 10 topics and 3 age bands**; Aaliyah is the real teen from the lesson's own story; the quiz tests a conceptual fact (the £9,000 figure is current, not permanent), so the choice_point mirrors the lesson's own recommended habit directly (check an official source vs. ask parents what changed before) with no risk of contradicting it |
 | Money Quest's Coin Cove zone + Shopkeeper's quest (`explorer-money_basics-l1`, "What Is Money?") | **Built** — reached via a portal inside Sky Exchange (Golden Vault → Market Town → Guardian Gate → Sky Exchange → Coin Cove, Money Quest's first 5-zone graph); real website world id `coin-cove` (actually orderIndex 1 on the website, "where every quest begins" — a presentation detail, not a curriculum dependency, since this game's chain was built in a different order); the real lesson's story has no named child (it's written in second person), so the giver NPC uses the same "generic role name" convention Market Town's Baker established rather than inventing a named child; another `LessonData.choice_point` with no mini-game |
 | Coin Cove's Amir + "Where Does Money Come From?" quest (`builder-money_basics-l1`) | **Built** — Coin Cove's second quest-giving NPC; Amir is the real child from the lesson's own story; `LessonData.choice_point` with no mini-game; only `strategist-money_basics-l1` remains untouched of Coin Cove's 1 real topic's 3 age bands |
 | Coin Cove's Priya + "Money as a Tool, Not a Goal" quest (`strategist-money_basics-l1`) | **Built** — Coin Cove's third quest-giving NPC, completing the full 3-age-band "money_basics" topic trilogy in one zone (the same way Golden Vault completed "saving"); Priya is the real child from the lesson's own story; her name coincidentally matches Leadership Academy's Priya (an unrelated real character from a different real source text) — harmless, since quest-completion state keys off `quest_id` not `npc_id` and the two zones are never loaded simultaneously, same reasoning as the earlier Theo collision (Section 3); `LessonData.choice_point` with no mini-game |
@@ -759,112 +760,38 @@ godot/money-quest-game/
     that never actually existed, shown only when something is in range
     to interact with.
 16. **Expand gradually** — done for everything that didn't need your
-    approval first. Summary through Phase 19: Mind Lab, all 8 of Calm
-    World's named gardens, fuller avatar presets (Section 9), audio
-    buses/Settings screen/mobile Talk button (Section 15), Guardian
-    Gate, Workshop, and Strategy Room (each track's third zone), Golden
-    Vault's second and third quest-giving NPCs (completing the "saving"
-    topic trilogy), and Sky Exchange (Money Quest's fourth zone) grown
-    to all 4 quest-giving NPCs it can hold, completing all 4 real
-    website topics the zone hosts (currencies, digital_money,
-    investing_basics, junior_isa) — see table above for exact lesson
-    ids and the "Built" column (Section 3). Phase 20: Coin Cove, Money
-    Quest's fifth zone, with the Shopkeeper's "What Is Money?"
-    (`explorer-money_basics-l1`) — the real lesson's story has no named
-    child, so the NPC uses a generic role name (the same convention
-    Market Town's Baker established) rather than inventing one. Phase
-    21: Amir + "Where Does Money Come From?" (`builder-money_basics-l1`),
-    Coin Cove's second quest-giving NPC. Phase 22: Priya + "Money as a
-    Tool, Not a Goal" (`strategist-money_basics-l1`), Coin Cove's third
-    quest-giving NPC, completing the full "money_basics" topic trilogy
-    in one zone. Phase 23: Horizon Peaks, Money Quest's sixth zone, with
-    Finn's "Planning a Few Steps Ahead" (`builder-long_term_thinking-l1`).
-    Phase 24: Aisha + "Big Decisions, Long Timelines"
-    (`strategist-long_term_thinking-l1`), Horizon Peaks' second
-    quest-giving NPC. Phase 25: the Sticker Keeper +
-    "Waiting Can Pay Off" (`explorer-long_term_thinking-l1`), Horizon
-    Peaks' third quest-giving NPC, completing the full
-    "long_term_thinking" topic trilogy in one zone. Phase 26: Kindness
-    Grove, Money Quest's seventh and final zone, with Omar's "Giving on
-    Purpose" (`builder-giving-l1`) — this completes all 7 of the real
-    website's Money Quest zones. Phase 27: Friend + "The Joy of Sharing"
-    (`explorer-giving-l1`), Kindness Grove's second quest-giving NPC.
-    Phase 28: Sofia + "Giving Thoughtfully" (`strategist-giving-l1`),
-    Kindness Grove's third quest-giving NPC, completing the "giving"
-    topic trilogy (the 4th single-topic zone trilogy completed, after
-    "saving", "money_basics", "long_term_thinking"). Phase 29: Leah +
-    "The Grey Area" (`builder-needs_wants-l1`), Market Town's second
-    quest-giving NPC. Phase 30: Jordan + "Needs, Wants,
-    and Social Pressure" (`strategist-needs_wants-l1`), Market Town's
-    third quest-giving NPC, completing the "needs_wants" topic trilogy
-    — the 5th single-topic zone to reach all 3 age bands. Phase 31:
-    Grown-up + "Some Promises Are Too Good" (`explorer-scams-l1`),
-    Guardian Gate's second quest-giving NPC; the real lesson has no
-    named child, so the generic-role-name convention applies again, and
-    the choice_point is a downstream decision (how to follow up on the
-    pop-up) so it can't contradict the quiz's fixed "tell a grown-up,
-    don't click" answer. Phase 32 (this update): Marcus + "Scams Target
-    Emotions, Not Logic" (`strategist-scams-l1`), Guardian Gate's third
-    quest-giving NPC, completing the "scams" topic trilogy — the 6th
-    single-topic zone to reach all 3 age bands; this lesson's quiz tests
-    a conceptual mechanism rather than a specific action, so for once the
-    choice_point mirrors the lesson's real pause-and-verify habit
-    directly, with no sidestep needed. Phase 33: Visiting
-    Friend + "Money Looks Different Everywhere" (`explorer-currencies-l1`),
-    Sky Exchange's fifth quest-giving NPC — the first lesson to grow one
-    of Sky Exchange's 4 topics beyond its builder-only age band; the
-    real lesson has no named child, so the generic-role-name convention
-    applies again, named "Visiting Friend" rather than plain "Friend" to
-    avoid reusing Kindness Grove's existing `friend` npc_id (each zone
-    has so far picked its own distinct generic name, even though reusing
-    one would be harmless — Section 3). Phase 34: Elena +
-    "Understanding Exchange Rates" (`strategist-currencies-l1`), Sky
-    Exchange's sixth quest-giving NPC, completing the "currencies" topic
-    trilogy — the 7th single-topic zone/topic to reach all 3 age bands;
-    like Marcus's scams lesson, this quiz tests a conceptual fact rather
-    than a specific action, so the choice_point again mirrors the real
-    recommended habit directly. Phase 35: Mum +
-    "Money You Can't Hold" (`explorer-digital_money-l1`), Sky Exchange's
-    seventh quest-giving NPC — the first lesson to grow "digital_money"
-    beyond its builder age band; the real lesson has no named child, so
-    the generic-role-name convention applies again, named "Mum" to match
-    the real story's own wording; the quiz tests a specific
-    identification task, so the choice_point sidesteps it with a
-    downstream decision instead. Phase 36: Priya +
-    "Staying Safe and Aware With Digital Money"
-    (`strategist-digital_money-l1`), Sky Exchange's eighth quest-giving
-    NPC, completing the "digital_money" topic trilogy — the 8th
-    single-topic zone/topic to reach all 3 age bands; Priya's name
-    coincidentally matches Coin Cove's unrelated Priya, harmless per the
-    established Theo/Omar collision doctrine (Section 3); the quiz again
-    tests a conceptual fact, so the choice_point mirrors the real habit
-    directly. Phase 37: Leo +
-    "Saving vs Growing Your Money" (`explorer-investing_basics-l1`), Sky
-    Exchange's ninth quest-giving NPC — the first lesson to grow
-    "investing_basics" beyond its builder age band; Leo is the real
-    child from the lesson's own story; the quiz asks for a specific
-    classification, so the choice_point sidesteps it with a downstream
-    decision instead (same pattern as Mum's digital_money lesson).
-    Phase 38: Jamal + "Risk, Diversification, and Time"
-    (`strategist-investing_basics-l1`), Sky Exchange's tenth quest-giving
-    NPC, completing the "investing_basics" topic trilogy — the 9th
-    single-topic zone/topic to reach all 3 age bands; unlike Leo's
-    lesson, this quiz tests a separate conceptual fact (investing vs.
-    gambling), so for once the choice_point mirrors the lesson's own
-    real decision (one company vs. several) directly, with neither
-    option graded. Phase 39 (this update): Freya +
-    "A Special Savings Account Just for Kids (UK)"
-    (`explorer-junior_isa-l1`), Sky Exchange's eleventh quest-giving
-    NPC — the first lesson to grow "junior_isa" beyond its builder age
-    band, which until now was the only Money Quest topic untouched at
-    every age band; the quiz asks a specific ownership question, so the
-    choice_point sidesteps it with a downstream decision instead.
+    approval first. Through Phase 19: Mind Lab, all 8 of Calm World's
+    named gardens, fuller avatar presets (Section 9), audio
+    buses/Settings screen/mobile Talk button (Section 15), and
+    Guardian Gate/Workshop/Strategy Room (each track's third zone)
+    built. Phases 20-39 then systematically completed **Money Quest in
+    full**: all 7 real website zones built (Golden Vault, Market Town,
+    Guardian Gate, Sky Exchange, Coin Cove, Horizon Peaks, Kindness
+    Grove), and every one of the 10 real topics grown to its full
+    3-age-band trilogy across those zones (saving, money_basics,
+    long_term_thinking, giving, needs_wants, scams, currencies,
+    digital_money, investing_basics, junior_isa) — **all 30 of Money
+    Quest's real website curriculum lessons are now in the game**,
+    each ported with the real title/objective/vocabulary/
+    explanation/quiz/feedback/reward verbatim, each giver NPC either
+    the real named child from that lesson's own story or (when the
+    source has no named child) a consistent generic role name, and
+    each `choice_point` designed per lesson to never risk contradicting
+    its own fixed quiz answer (a downstream/sidestep decision when the
+    quiz tests a specific action or classification; a direct mirror of
+    the lesson's real decision when the quiz instead tests a separate
+    conceptual fact). Sky Exchange, hosting 4 real topics at once, grew
+    to 12 quest-giving NPCs — the largest single zone in the game — to
+    carry this to completion. Two small, harmless real-name collisions
+    occurred along the way (Theo, Priya, Omar each shared with an
+    unrelated real character in a different zone/track) and are
+    documented in Section 3 rather than silently avoided. Full
+    phase-by-phase detail for Phases 20-39 lives in git history and
+    prior session reports, not duplicated here.
     Still waiting on you: a real book/exhibit/mentor for Library/Museum
     (Section 6). Still unstarted: Leadership Quest's remaining
     `mission-choice`-kind missions and its `spot`/`allocate`/`sort`-kind
     missions (need mechanics not built yet), and Entrepreneur Quest's
-    remaining real BUILD/RUN/RESCUE & GROW stages. Money Quest now has
-    exactly 1 lesson left in the entire real curriculum:
-    `strategist-junior_isa-l1` — once that's ported, all 30 real Money
-    Quest lessons across all 10 topics and 3 age bands will be in the
-    game.
+    remaining real BUILD/RUN/RESCUE & GROW stages — these two tracks
+    are now the primary remaining expansion targets, since Money Quest
+    itself has no more real lessons left to port.
