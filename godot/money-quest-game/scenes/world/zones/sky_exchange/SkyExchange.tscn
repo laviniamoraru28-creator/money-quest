@@ -77,6 +77,10 @@ npc_id = "mum"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
 npc_id = "priya"
 
+[node name="Leo" parent="." instance=ExtResource("4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -4)
+npc_id = "leo"
+
 [node name="PortalToHub" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
 script = ExtResource("5")

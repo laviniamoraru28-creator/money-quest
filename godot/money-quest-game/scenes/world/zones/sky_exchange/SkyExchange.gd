@@ -67,6 +67,16 @@ extends Node3D
 ## (Section 3). The quiz tests a conceptual fact (digital payments lack a
 ## felt physical action), so the choice_point again mirrors the lesson's
 ## own recommended habits directly, with no risk of contradicting it.
+##
+## Leo — this zone's ninth resident — gives explorer-investing_basics-l1
+## ("Saving vs Growing Your Money"), the first lesson to grow the
+## "investing_basics" topic beyond its builder age band. Leo is the real
+## child named in that lesson's own story; his sister (unnamed in the
+## source) explains investing without a mini-game, same `choice_point`
+## shape as every other lesson. The quiz asks for a specific
+## classification (what's different about investing), so the choice_point
+## is a downstream decision (ask for another example vs. decide saving is
+## still right for him) rather than re-testing the same classification.
 
 const CURRENCIES_QUEST_ID: String = "builder-currencies-l1-quest"
 const DIGITAL_MONEY_QUEST_ID: String = "builder-digital-money-l1-quest"
@@ -76,6 +86,7 @@ const CURRENCIES_EXPLORER_QUEST_ID: String = "explorer-currencies-l1-quest"
 const CURRENCIES_STRATEGIST_QUEST_ID: String = "strategist-currencies-l1-quest"
 const DIGITAL_MONEY_EXPLORER_QUEST_ID: String = "explorer-digital-money-l1-quest"
 const DIGITAL_MONEY_STRATEGIST_QUEST_ID: String = "strategist-digital-money-l1-quest"
+const INVESTING_BASICS_EXPLORER_QUEST_ID: String = "explorer-investing-basics-l1-quest"
 
 @onready var player: Node3D = $Player
 @onready var camera_controller: CameraController = $CameraController
@@ -87,6 +98,7 @@ const DIGITAL_MONEY_STRATEGIST_QUEST_ID: String = "strategist-digital-money-l1-q
 @onready var elena: NPC = $Elena
 @onready var mum: NPC = $Mum
 @onready var priya: NPC = $Priya
+@onready var leo: NPC = $Leo
 
 
 func _ready() -> void:
@@ -99,6 +111,7 @@ func _ready() -> void:
 	elena.talked_to.connect(_on_elena_talked_to)
 	mum.talked_to.connect(_on_mum_talked_to)
 	priya.talked_to.connect(_on_priya_talked_to)
+	leo.talked_to.connect(_on_leo_talked_to)
 
 
 func _on_sam_talked_to(_npc_id: String) -> void:
@@ -155,3 +168,10 @@ func _on_priya_talked_to(_npc_id: String) -> void:
 		DialogueBox.show_text("zone.sky_exchange.priya.already_done")
 	else:
 		QuestManager.start_quest(DIGITAL_MONEY_STRATEGIST_QUEST_ID)
+
+
+func _on_leo_talked_to(_npc_id: String) -> void:
+	if QuestManager.is_quest_completed(INVESTING_BASICS_EXPLORER_QUEST_ID):
+		DialogueBox.show_text("zone.sky_exchange.leo.already_done")
+	else:
+		QuestManager.start_quest(INVESTING_BASICS_EXPLORER_QUEST_ID)
