@@ -567,7 +567,8 @@ node), never an architecture change.
 | Money Quest's Sky Exchange zone + Sam's quest (`builder-currencies-l1`, "Cash, Cards, and Currencies") | **Built** — reached via a portal inside Guardian Gate (Golden Vault → Market Town → Guardian Gate → Sky Exchange, Money Quest's first 4-zone graph); real website world id `sky-exchange`, real badge display name "Currency Explorer"; Sam is the real child from the lesson's own story; another `LessonData.choice_point` with no mini-game; `sky-exchange` hosts 4 real topics on the website (currencies, digital_money, investing_basics, junior_isa), so this zone is a natural future home for more quest-giving NPCs the same way Golden Vault grew to 3 |
 | Sky Exchange's Omar + "How a Card Payment Actually Works" quest (`builder-digital_money-l1`) | **Built** — Sky Exchange's second quest-giving NPC, the same "a zone can grow another resident" pattern Golden Vault proved; Omar is the real child from the lesson's own story; `LessonData.choice_point` with no mini-game; 2 of `sky-exchange`'s 4 real topics remain untouched (investing_basics, junior_isa) |
 | Sky Exchange's Mei + "Owning a Small Piece of a Company" quest (`builder-investing_basics-l1`) | **Built** — Sky Exchange's third quest-giving NPC; Mei is the real child from the lesson's own story (her uncle owns the shares); `LessonData.choice_point` with no mini-game; only `junior_isa` remains untouched of `sky-exchange`'s 4 real topics |
-| Sky Exchange's Tomasz + "Locked Until 18: How a Junior ISA Works" quest (`builder-junior_isa-l1`) | **Built** — Sky Exchange's fourth quest-giving NPC; Tomasz is the real child from the lesson's own story; `LessonData.choice_point` with no mini-game; this completes all 4 real website topics hosted in `sky-exchange` (currencies, digital_money, investing_basics, junior_isa) — Sky Exchange is now "full," the same way Golden Vault's 3-age-band "saving" trilogy completed that zone's topic |
+| Sky Exchange's Tomasz + "Locked Until 18: How a Junior ISA Works" quest (`builder-junior_isa-l1`) | **Built** — Sky Exchange's fourth quest-giving NPC; Tomasz is the real child from the lesson's own story; `LessonData.choice_point` with no mini-game; this completes all 4 real website topics hosted in `sky-exchange` (currencies, digital_money, investing_basics, junior_isa) at the builder age band — unlike every other zone's "full," each of these 4 topics still has its explorer/strategist age bands untouched |
+| Sky Exchange's Visiting Friend + "Money Looks Different Everywhere" quest (`explorer-currencies-l1`) | **Built** — Sky Exchange's fifth quest-giving NPC, the first lesson to grow one of Sky Exchange's 4 topics beyond its builder age band; the real lesson's story has no named child, so the giver NPC uses that role as its generic name (as "Visiting Friend" rather than plain "Friend," to avoid reusing Kindness Grove's existing `friend` npc_id even though it would be harmless); only `strategist-currencies-l1` remains untouched of the "currencies" topic's 3 age bands |
 | Money Quest's Coin Cove zone + Shopkeeper's quest (`explorer-money_basics-l1`, "What Is Money?") | **Built** — reached via a portal inside Sky Exchange (Golden Vault → Market Town → Guardian Gate → Sky Exchange → Coin Cove, Money Quest's first 5-zone graph); real website world id `coin-cove` (actually orderIndex 1 on the website, "where every quest begins" — a presentation detail, not a curriculum dependency, since this game's chain was built in a different order); the real lesson's story has no named child (it's written in second person), so the giver NPC uses the same "generic role name" convention Market Town's Baker established rather than inventing a named child; another `LessonData.choice_point` with no mini-game |
 | Coin Cove's Amir + "Where Does Money Come From?" quest (`builder-money_basics-l1`) | **Built** — Coin Cove's second quest-giving NPC; Amir is the real child from the lesson's own story; `LessonData.choice_point` with no mini-game; only `strategist-money_basics-l1` remains untouched of Coin Cove's 1 real topic's 3 age bands |
 | Coin Cove's Priya + "Money as a Tool, Not a Goal" quest (`strategist-money_basics-l1`) | **Built** — Coin Cove's third quest-giving NPC, completing the full 3-age-band "money_basics" topic trilogy in one zone (the same way Golden Vault completed "saving"); Priya is the real child from the lesson's own story; her name coincidentally matches Leadership Academy's Priya (an unrelated real character from a different real source text) — harmless, since quest-completion state keys off `quest_id` not `npc_id` and the two zones are never loaded simultaneously, same reasoning as the earlier Theo collision (Section 3); `LessonData.choice_point` with no mini-game |
@@ -802,13 +803,21 @@ godot/money-quest-game/
     single-topic zone to reach all 3 age bands; this lesson's quiz tests
     a conceptual mechanism rather than a specific action, so for once the
     choice_point mirrors the lesson's real pause-and-verify habit
-    directly, with no sidestep needed.
+    directly, with no sidestep needed. Phase 33 (this update): Visiting
+    Friend + "Money Looks Different Everywhere" (`explorer-currencies-l1`),
+    Sky Exchange's fifth quest-giving NPC — the first lesson to grow one
+    of Sky Exchange's 4 topics beyond its builder-only age band; the
+    real lesson has no named child, so the generic-role-name convention
+    applies again, named "Visiting Friend" rather than plain "Friend" to
+    avoid reusing Kindness Grove's existing `friend` npc_id (each zone
+    has so far picked its own distinct generic name, even though reusing
+    one would be harmless — Section 3).
     Still waiting on you: a real book/exhibit/mentor for Library/Museum
     (Section 6). Still unstarted: Leadership Quest's remaining
     `mission-choice`-kind missions and its `spot`/`allocate`/`sort`-kind
     missions (need mechanics not built yet), Entrepreneur Quest's
     remaining real BUILD/RUN/RESCUE & GROW stages, and Money Quest's
-    remaining 8 lessons: the `explorer`/`strategist` age bands of all
-    4 Sky Exchange topics (currencies, digital_money, investing_basics,
-    junior_isa) — Sky Exchange is now the only Money Quest zone with
-    unfinished age bands.
+    remaining 7 lessons: `strategist-currencies-l1`, and the full
+    `explorer`/`strategist` age bands of Sky Exchange's other 3 topics
+    (digital_money, investing_basics, junior_isa) — Sky Exchange is now
+    the only Money Quest zone with unfinished age bands.

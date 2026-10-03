@@ -139,7 +139,15 @@ rebuilt.
    dad to explain the cash-vs-stocks-and-shares difference or works it
    out himself from the account statement, with the real curriculum's
    quiz and explanation on when a Junior ISA normally unlocks
-   afterward — completing all 4 real topics Sky Exchange hosts. A
+   afterward — completing all 4 real topics Sky Exchange hosts at the
+   builder age band. Sky Exchange's fifth resident, Visiting Friend,
+   gives "Money Looks Different Everywhere": a visiting friend shows you
+   a shiny foreign coin that looks nothing like your own, and you decide
+   whether to compare the two coins side by side or ask whether other
+   countries' money looks different too, with the real curriculum's
+   quiz and explanation on why every country makes its own money
+   afterward — the first lesson to grow one of Sky Exchange's topics
+   beyond its builder age band. A
    second portal inside Sky Exchange leads to **Coin Cove**, Money
    Quest's fifth zone — talk to the Shopkeeper to start "What Is
    Money?": you're buying an apple and decide whether to count out
@@ -283,11 +291,12 @@ up-to-date table. In short:
 | Market Town's Jordan + "Needs, Wants, and Social Pressure" quest (`strategist-needs_wants-l1`, Market Town's third quest-giving NPC, completing the "needs_wants" topic trilogy — no new zone needed, no mini-game needed) | — |
 | Guardian Gate zone + Zara's quest (`builder-scams-l1`, "Spotting a Scam," reached via a portal inside Market Town — Money Quest's first 3-zone graph, no mini-game needed) | — |
 | Guardian Gate's Grown-up + "Some Promises Are Too Good" quest (`explorer-scams-l1`, Guardian Gate's second quest-giving NPC — no new zone needed, no mini-game needed) | — |
-| Guardian Gate's Marcus + "Scams Target Emotions, Not Logic" quest (`strategist-scams-l1`, Guardian Gate's third quest-giving NPC, completing the "scams" topic trilogy — no new zone needed, no mini-game needed) | Money Quest's remaining 8 lessons |
+| Guardian Gate's Marcus + "Scams Target Emotions, Not Logic" quest (`strategist-scams-l1`, Guardian Gate's third quest-giving NPC, completing the "scams" topic trilogy — no new zone needed, no mini-game needed) | — |
 | Sky Exchange zone + Sam's quest (`builder-currencies-l1`, "Cash, Cards, and Currencies," reached via a portal inside Guardian Gate — Money Quest's first 4-zone graph, no mini-game needed) | — |
 | Sky Exchange's Omar + "How a Card Payment Actually Works" quest (`builder-digital_money-l1`, Sky Exchange's second quest-giving NPC — no new zone needed, no mini-game needed) | — |
 | Sky Exchange's Mei + "Owning a Small Piece of a Company" quest (`builder-investing_basics-l1`, Sky Exchange's third quest-giving NPC — no new zone needed, no mini-game needed) | — |
-| Sky Exchange's Tomasz + "Locked Until 18: How a Junior ISA Works" quest (`builder-junior_isa-l1`, Sky Exchange's fourth and final quest-giving NPC, completing all 4 real topics the zone hosts) | — |
+| Sky Exchange's Tomasz + "Locked Until 18: How a Junior ISA Works" quest (`builder-junior_isa-l1`, Sky Exchange's fourth quest-giving NPC, completing all 4 real topics the zone hosts at the builder age band) | — |
+| Sky Exchange's Visiting Friend + "Money Looks Different Everywhere" quest (`explorer-currencies-l1`, Sky Exchange's fifth quest-giving NPC, the first lesson to grow one of its 4 topics beyond builder — no new zone needed, no mini-game needed) | Money Quest's remaining 7 lessons |
 | Coin Cove zone + Shopkeeper's quest (`explorer-money_basics-l1`, "What Is Money?," reached via a portal inside Sky Exchange — Money Quest's first 5-zone graph, no mini-game needed) | — |
 | Coin Cove's Amir + "Where Does Money Come From?" quest (`builder-money_basics-l1`, Coin Cove's second quest-giving NPC — no new zone needed, no mini-game needed) | — |
 | Coin Cove's Priya + "Money as a Tool, Not a Goal" quest (`strategist-money_basics-l1`, Coin Cove's third quest-giving NPC, completing the "money_basics" topic trilogy — no new zone needed, no mini-game needed) | — |
@@ -448,7 +457,26 @@ the choice/consequence wording applying the lesson's real "cash vs.
 stocks-and-shares, locked until 18" facts to a concrete decision (ask Dad
 to explain vs. work it out himself from the account statement) — again
 both equally valid, with the quiz carrying the lesson's actual testable
-fact. This completes all 4 real website topics Sky Exchange hosts.
+fact. This completes all 4 real website topics Sky Exchange hosts at
+the builder age band.
+
+Visiting Friend's quest in Sky Exchange is the same: every curriculum
+field (title, learning objective, key concept, vocabulary
+`country`/`different`, explanation, quiz, feedback, reward message) is
+copied from the real `curriculum.explorer-currencies-l1`. The real
+lesson's story has no named child (it's written in second person,
+"you," with the second character simply "a friend"), so the giver NPC
+uses that role as its generic name - named "Visiting Friend" rather
+than plain "Friend" to avoid reusing Kindness Grove's existing `friend`
+npc_id, even though that reuse would be harmless (quest completion keys
+off `quest_id`, not `npc_id`, and the two zones are never loaded
+simultaneously). The only original text is the intro framing and the
+choice/consequence wording applying the lesson's real "every country
+makes its own money" concept to a concrete decision (compare the two
+coins side by side vs. ask whether other countries' money looks
+different too) - both equally valid ways to explore the same fact. This
+is the first lesson to grow one of Sky Exchange's 4 topics beyond its
+builder age band.
 
 The Shopkeeper's quest in Coin Cove is the same: every curriculum field
 (title, learning objective, key concept, vocabulary `money`/`trade`/
@@ -788,7 +816,7 @@ rationale. Quick map:
   Read-aloud/text-to-speech has no engine wired in at all — not even a
   silent placeholder bus — since one would require either an offline
   voice model or a paid API, both out of scope per the brief.
-- Only 22 of 30 curriculum lessons are wired up as Quests, only 3 of
+- Only 23 of 30 curriculum lessons are wired up as Quests, only 3 of
   Entrepreneur Quest's many real BUILD/RUN/RESCUE & GROW stages are
   ported, and only 3 of Leadership Quest's 12 real missions are ported.
   See `docs/money-quest-world-architecture.md` Section 12 for the

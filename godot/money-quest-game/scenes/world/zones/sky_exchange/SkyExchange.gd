@@ -18,15 +18,25 @@ extends Node3D
 ## story — is this zone's third resident, giving builder-investing_basics-l1.
 ##
 ## Tomasz — the real child named in the "Locked Until 18" story — is this
-## zone's fourth resident, giving builder-junior_isa-l1. This completes all
+## zone's fourth resident, giving builder-junior_isa-l1. This completed all
 ## 4 real website topics hosted in "sky-exchange" (currencies, digital_money,
-## investing_basics, junior_isa) — Sky Exchange is now "full" the same way
-## Golden Vault's 3-age-band "saving" trilogy completed that zone's topic.
+## investing_basics, junior_isa) at the builder age band only.
+##
+## Visiting Friend — this zone's fifth resident — gives explorer-currencies-l1
+## ("Money Looks Different Everywhere"), the first of Sky Exchange's 4 topics
+## to grow beyond its builder age band. The real lesson's story has no named
+## child (second person "you," with the secondary character simply "a
+## friend"), so this NPC uses that role as its generic name, the same
+## convention Market Town's Baker established; "Visiting Friend" rather than
+## plain "Friend" to avoid reusing the exact npc_id Kindness Grove's unrelated
+## "Friend" NPC already uses (a harmless real-content coincidence either way,
+## per Section 3, but each zone has so far picked its own distinct name).
 
 const CURRENCIES_QUEST_ID: String = "builder-currencies-l1-quest"
 const DIGITAL_MONEY_QUEST_ID: String = "builder-digital-money-l1-quest"
 const INVESTING_BASICS_QUEST_ID: String = "builder-investing-basics-l1-quest"
 const JUNIOR_ISA_QUEST_ID: String = "builder-junior-isa-l1-quest"
+const CURRENCIES_EXPLORER_QUEST_ID: String = "explorer-currencies-l1-quest"
 
 @onready var player: Node3D = $Player
 @onready var camera_controller: CameraController = $CameraController
@@ -34,6 +44,7 @@ const JUNIOR_ISA_QUEST_ID: String = "builder-junior-isa-l1-quest"
 @onready var omar: NPC = $Omar
 @onready var mei: NPC = $Mei
 @onready var tomasz: NPC = $Tomasz
+@onready var visiting_friend: NPC = $VisitingFriend
 
 
 func _ready() -> void:
@@ -42,6 +53,7 @@ func _ready() -> void:
 	omar.talked_to.connect(_on_omar_talked_to)
 	mei.talked_to.connect(_on_mei_talked_to)
 	tomasz.talked_to.connect(_on_tomasz_talked_to)
+	visiting_friend.talked_to.connect(_on_visiting_friend_talked_to)
 
 
 func _on_sam_talked_to(_npc_id: String) -> void:
@@ -70,3 +82,10 @@ func _on_tomasz_talked_to(_npc_id: String) -> void:
 		DialogueBox.show_text("zone.sky_exchange.tomasz.already_done")
 	else:
 		QuestManager.start_quest(JUNIOR_ISA_QUEST_ID)
+
+
+func _on_visiting_friend_talked_to(_npc_id: String) -> void:
+	if QuestManager.is_quest_completed(CURRENCIES_EXPLORER_QUEST_ID):
+		DialogueBox.show_text("zone.sky_exchange.visiting_friend.already_done")
+	else:
+		QuestManager.start_quest(CURRENCIES_EXPLORER_QUEST_ID)
