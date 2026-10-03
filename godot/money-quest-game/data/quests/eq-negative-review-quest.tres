@@ -1,0 +1,122 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=24 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueLine.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="5"]
+
+[sub_resource type="Resource" id="DialogueLine_situation"]
+script = ExtResource("2")
+speaker_id = "support-rep"
+text_key = "quest.eq_negative_review.dialogue.0"
+
+[sub_resource type="Resource" id="DialogueLine_clue_review_text"]
+script = ExtResource("2")
+speaker_id = "support-rep"
+text_key = "quest.eq_negative_review.dialogue.1"
+
+[sub_resource type="Resource" id="DialogueLine_clue_other_reviews"]
+script = ExtResource("2")
+speaker_id = "support-rep"
+text_key = "quest.eq_negative_review.dialogue.2"
+
+[sub_resource type="Resource" id="DialogueLine_clue_return_requests"]
+script = ExtResource("2")
+speaker_id = "support-rep"
+text_key = "quest.eq_negative_review.dialogue.3"
+
+[sub_resource type="Resource" id="ConsequenceEffect_product_fault"]
+script = ExtResource("5")
+coin_delta = 0
+xp_delta = 0
+consequence_text_key = "eq.problem.negative_review.cause.product_fault.feedback"
+
+[sub_resource type="Resource" id="ChoiceOption_product_fault"]
+script = ExtResource("4")
+label_key = "eq.problem.negative_review.cause.product_fault.label"
+consequence = SubResource("ConsequenceEffect_product_fault")
+
+[sub_resource type="Resource" id="ConsequenceEffect_unclear_instructions"]
+script = ExtResource("5")
+coin_delta = 0
+xp_delta = 0
+consequence_text_key = "eq.problem.negative_review.cause.unclear_instructions.feedback"
+
+[sub_resource type="Resource" id="ChoiceOption_unclear_instructions"]
+script = ExtResource("4")
+label_key = "eq.problem.negative_review.cause.unclear_instructions.label"
+consequence = SubResource("ConsequenceEffect_unclear_instructions")
+
+[sub_resource type="Resource" id="ConsequenceEffect_slow_response"]
+script = ExtResource("5")
+coin_delta = 0
+xp_delta = 0
+consequence_text_key = "eq.problem.negative_review.cause.slow_response.feedback"
+
+[sub_resource type="Resource" id="ChoiceOption_slow_response"]
+script = ExtResource("4")
+label_key = "eq.problem.negative_review.cause.slow_response.label"
+consequence = SubResource("ConsequenceEffect_slow_response")
+
+[sub_resource type="Resource" id="DialogueChoice_cause"]
+script = ExtResource("3")
+situation_text_key = "eq.problem_flow.cause_label"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_product_fault"), SubResource("ChoiceOption_unclear_instructions"), SubResource("ChoiceOption_slow_response")])
+
+[sub_resource type="Resource" id="ConsequenceEffect_apologise_and_fix"]
+script = ExtResource("5")
+coin_delta = 4
+xp_delta = 5
+consequence_text_key = "eq.problem.negative_review.response.apologise_and_fix.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_apologise_and_fix"]
+script = ExtResource("4")
+label_key = "eq.problem.negative_review.response.apologise_and_fix.label"
+consequence = SubResource("ConsequenceEffect_apologise_and_fix")
+
+[sub_resource type="Resource" id="ConsequenceEffect_offer_replacement"]
+script = ExtResource("5")
+coin_delta = 3
+xp_delta = 5
+consequence_text_key = "eq.problem.negative_review.response.offer_replacement.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_offer_replacement"]
+script = ExtResource("4")
+label_key = "eq.problem.negative_review.response.offer_replacement.label"
+consequence = SubResource("ConsequenceEffect_offer_replacement")
+
+[sub_resource type="Resource" id="ConsequenceEffect_ignore_and_move_on"]
+script = ExtResource("5")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "eq.problem.negative_review.response.ignore_and_move_on.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_ignore_and_move_on"]
+script = ExtResource("4")
+label_key = "eq.problem.negative_review.response.ignore_and_move_on.label"
+consequence = SubResource("ConsequenceEffect_ignore_and_move_on")
+
+[sub_resource type="Resource" id="DialogueChoice_response"]
+script = ExtResource("3")
+situation_text_key = "eq.problem.negative_review.situation_prompt"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_apologise_and_fix"), SubResource("ChoiceOption_offer_replacement"), SubResource("ChoiceOption_ignore_and_move_on")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "eq-negative-review-quest"
+title_key = "quest.eq_negative_review.title"
+description_key = "quest.eq_negative_review.description"
+educational_objective_key = "eq.problem_flow.intro"
+track = "entrepreneur-quest"
+zone_id = "main-street"
+giver_npc_id = "support-rep"
+kind = 2
+intro_dialogue = Array[DialogueLine]([SubResource("DialogueLine_situation"), SubResource("DialogueLine_clue_review_text"), SubResource("DialogueLine_clue_other_reviews"), SubResource("DialogueLine_clue_return_requests")])
+intro_text_key = "eq.problem_flow.intro"
+diagnosis_choice = SubResource("DialogueChoice_cause")
+challenge_choice = SubResource("DialogueChoice_response")
+reward_message_key = "quest.eq_negative_review.reward_message"
+xp_reward = 15
+coin_reward = 10
+skill_ids = Array[String](["problem-solving", "empathy", "communication"])

@@ -24,20 +24,28 @@ extends Node3D
 ## same investigate/diagnose/respond shape). Another invented
 ## mentor-role name, tied to the scenario (reviewing rising costs)
 ## rather than a real person.
+##
+## The Support Rep — this zone's third resident — gives "A Negative
+## Review" (ports the real `negative-review` Business Problem, the
+## same investigate/diagnose/respond shape). Another invented
+## mentor-role name, tied to the scenario (handling customer feedback).
 
 const NOT_ENOUGH_CUSTOMERS_QUEST_ID: String = "eq-not-enough-customers-quest"
 const COSTS_INCREASED_QUEST_ID: String = "eq-costs-increased-quest"
+const NEGATIVE_REVIEW_QUEST_ID: String = "eq-negative-review-quest"
 
 @onready var player: Node3D = $Player
 @onready var camera_controller: CameraController = $CameraController
 @onready var shop_manager: NPC = $ShopManager
 @onready var accountant: NPC = $Accountant
+@onready var support_rep: NPC = $SupportRep
 
 
 func _ready() -> void:
 	camera_controller.target = player
 	shop_manager.talked_to.connect(_on_shop_manager_talked_to)
 	accountant.talked_to.connect(_on_accountant_talked_to)
+	support_rep.talked_to.connect(_on_support_rep_talked_to)
 
 
 func _on_shop_manager_talked_to(_npc_id: String) -> void:
@@ -52,3 +60,10 @@ func _on_accountant_talked_to(_npc_id: String) -> void:
 		DialogueBox.show_text("zone.main_street.accountant.already_done")
 	else:
 		QuestManager.start_quest(COSTS_INCREASED_QUEST_ID)
+
+
+func _on_support_rep_talked_to(_npc_id: String) -> void:
+	if QuestManager.is_quest_completed(NEGATIVE_REVIEW_QUEST_ID):
+		DialogueBox.show_text("zone.main_street.support_rep.already_done")
+	else:
+		QuestManager.start_quest(NEGATIVE_REVIEW_QUEST_ID)
