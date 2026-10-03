@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="4"]
+
+[sub_resource type="Resource" id="ConsequenceEffect_make_more"]
+script = ExtResource("4")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "eq.decision.more_orders_than_expected.choice.make_more.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_make_more"]
+script = ExtResource("3")
+label_key = "eq.decision.more_orders_than_expected.choice.make_more.label"
+consequence = SubResource("ConsequenceEffect_make_more")
+
+[sub_resource type="Resource" id="ConsequenceEffect_raise_price_slightly"]
+script = ExtResource("4")
+coin_delta = 4
+xp_delta = 5
+consequence_text_key = "eq.decision.more_orders_than_expected.choice.raise_price_slightly.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_raise_price_slightly"]
+script = ExtResource("3")
+label_key = "eq.decision.more_orders_than_expected.choice.raise_price_slightly.label"
+consequence = SubResource("ConsequenceEffect_raise_price_slightly")
+
+[sub_resource type="Resource" id="ConsequenceEffect_waitlist"]
+script = ExtResource("4")
+coin_delta = 3
+xp_delta = 5
+consequence_text_key = "eq.decision.more_orders_than_expected.choice.waitlist.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_waitlist"]
+script = ExtResource("3")
+label_key = "eq.decision.more_orders_than_expected.choice.waitlist.label"
+consequence = SubResource("ConsequenceEffect_waitlist")
+
+[sub_resource type="Resource" id="DialogueChoice_more_orders_than_expected"]
+script = ExtResource("2")
+situation_text_key = "eq.decision.more_orders_than_expected.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_make_more"), SubResource("ChoiceOption_raise_price_slightly"), SubResource("ChoiceOption_waitlist")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "eq-make-a-business-decision-quest"
+title_key = "quest.eq_make_a_business_decision.title"
+description_key = "quest.eq_make_a_business_decision.description"
+educational_objective_key = "quest.eq_make_a_business_decision.intro"
+track = "entrepreneur-quest"
+zone_id = "office"
+giver_npc_id = "office-guide"
+kind = 2
+intro_text_key = "quest.eq_make_a_business_decision.intro"
+challenge_choice = SubResource("DialogueChoice_more_orders_than_expected")
+reward_message_key = "quest.eq_make_a_business_decision.reward_message"
+xp_reward = 15
+coin_reward = 10
+skill_ids = Array[String](["decision-making", "problem-solving", "planning"])
