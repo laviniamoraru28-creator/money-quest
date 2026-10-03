@@ -1,0 +1,83 @@
+[gd_resource type="Resource" script_class="LessonData" load_steps=17 format=3]
+
+[ext_resource type="Script" path="res://scripts/core/LessonData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/VocabTerm.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/DialogueLine.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="5"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="6"]
+
+[sub_resource type="Resource" id="VocabTerm_emotional_manipulation"]
+script = ExtResource("2")
+term_key = "curriculum.strategist-scams-l1.vocabulary.0.term"
+definition_key = "curriculum.strategist-scams-l1.vocabulary.0.definition"
+
+[sub_resource type="Resource" id="VocabTerm_too_good_to_be_true"]
+script = ExtResource("2")
+term_key = "curriculum.strategist-scams-l1.vocabulary.1.term"
+definition_key = "curriculum.strategist-scams-l1.vocabulary.1.definition"
+
+[sub_resource type="Resource" id="VocabTerm_verification"]
+script = ExtResource("2")
+term_key = "curriculum.strategist-scams-l1.vocabulary.2.term"
+definition_key = "curriculum.strategist-scams-l1.vocabulary.2.definition"
+
+[sub_resource type="Resource" id="DialogueLine_intro1"]
+script = ExtResource("3")
+speaker_id = ""
+text_key = "lesson.strategist_scams_l1.intro.line1"
+
+[sub_resource type="Resource" id="DialogueLine_intro2"]
+script = ExtResource("3")
+speaker_id = "marcus"
+text_key = "lesson.strategist_scams_l1.intro.line2"
+
+[sub_resource type="Resource" id="ConsequenceEffect_contact_directly"]
+script = ExtResource("6")
+coin_delta = 4
+xp_delta = 5
+consequence_text_key = "lesson.strategist_scams_l1.choice.consequence_contact_directly"
+
+[sub_resource type="Resource" id="ChoiceOption_contact_directly"]
+script = ExtResource("5")
+label_key = "lesson.strategist_scams_l1.choice.option_contact_directly"
+consequence = SubResource("ConsequenceEffect_contact_directly")
+
+[sub_resource type="Resource" id="ConsequenceEffect_search_independently"]
+script = ExtResource("6")
+coin_delta = 4
+xp_delta = 5
+consequence_text_key = "lesson.strategist_scams_l1.choice.consequence_search_independently"
+
+[sub_resource type="Resource" id="ChoiceOption_search_independently"]
+script = ExtResource("5")
+label_key = "lesson.strategist_scams_l1.choice.option_search_independently"
+consequence = SubResource("ConsequenceEffect_search_independently")
+
+[sub_resource type="Resource" id="DialogueChoice_verify_the_message"]
+script = ExtResource("4")
+situation_text_key = "lesson.strategist_scams_l1.choice.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_contact_directly"), SubResource("ChoiceOption_search_independently")])
+
+[resource]
+script = ExtResource("1")
+lesson_id = "strategist-scams-l1"
+age_band = "strategist"
+world_id = "guardian-gate"
+topic_id = "scams"
+xp_reward = 15
+coin_reward = 10
+learning_objective_key = "curriculum.strategist-scams-l1.learningObjective"
+key_concept_key = "curriculum.strategist-scams-l1.keyConcept"
+vocabulary = Array[VocabTerm]([SubResource("VocabTerm_emotional_manipulation"), SubResource("VocabTerm_too_good_to_be_true"), SubResource("VocabTerm_verification")])
+intro_dialogue = Array[DialogueLine]([SubResource("DialogueLine_intro1"), SubResource("DialogueLine_intro2")])
+choice_point = SubResource("DialogueChoice_verify_the_message")
+explanation_key = "curriculum.strategist-scams-l1.explanation"
+quiz_question_key = "curriculum.strategist-scams-l1.quiz.question"
+quiz_option_keys = Array[String](["curriculum.strategist-scams-l1.quiz.options.0", "curriculum.strategist-scams-l1.quiz.options.1", "curriculum.strategist-scams-l1.quiz.options.2", "curriculum.strategist-scams-l1.quiz.options.3"])
+quiz_correct_index = 0
+quiz_explanation_key = "curriculum.strategist-scams-l1.quiz.explanation"
+quiz_success_feedback_key = "curriculum.strategist-scams-l1.feedback.success"
+quiz_retry_feedback_key = "curriculum.strategist-scams-l1.feedback.retry"
+reward_message_key = "curriculum.strategist-scams-l1.rewardMessage"
+stage_scene_path = ""

@@ -563,6 +563,7 @@ node), never an architecture change.
 | Market Town's Jordan + "Needs, Wants, and Social Pressure" quest (`strategist-needs_wants-l1`) | **Built** — Market Town's third quest-giving NPC, completing the full 3-age-band "needs_wants" topic trilogy in one zone (the 5th single-topic zone completed, after "saving", "money_basics", "long_term_thinking", "giving"); Jordan is the real teen from the lesson's own story (they/them, preserved as in the real source text); `LessonData.choice_point` with no mini-game |
 | Money Quest's Guardian Gate zone + Zara's quest (`builder-scams-l1`, "Spotting a Scam") | **Built** — reached via a portal inside Market Town (Golden Vault → Market Town → Guardian Gate, Money Quest's first 3-zone graph); ports the real website lesson verbatim (title/objective/vocabulary/explanation/quiz/feedback), with Zara, the real child from the lesson's own story, as the giver NPC; another `LessonData.choice_point` with no mini-game |
 | Guardian Gate's Grown-up + "Some Promises Are Too Good" quest (`explorer-scams-l1`) | **Built** — Guardian Gate's second quest-giving NPC; the real lesson's story has no named child (second person "you," with the second character simply "a grown-up nearby"), so the giver NPC uses that role as its generic name, the same convention Market Town's Baker established; because the real quiz already tests the lesson's core "tell a grown-up, don't click" fact directly, the choice_point is a downstream decision (how to follow up on the pop-up) rather than whether to click at all, the same safeguard used for the Sticker Keeper's and Friend's lessons; only `strategist-scams-l1` remains untouched of the "scams" topic's 3 age bands |
+| Guardian Gate's Marcus + "Scams Target Emotions, Not Logic" quest (`strategist-scams-l1`) | **Built** — Guardian Gate's third quest-giving NPC, completing the full 3-age-band "scams" topic trilogy in one zone (the same way Golden Vault completed "saving", Coin Cove completed "money_basics", Horizon Peaks completed "long_term_thinking", and Kindness Grove completed "giving" — the 6th single-topic zone to reach all 3 age bands); Marcus is the real teen from the lesson's own story; unlike the other two "scams" lessons, this quiz tests a conceptual mechanism (scams trigger a strong feeling to bypass careful thinking) rather than a specific action, so the choice_point is free to mirror the lesson's own pause-and-verify habit directly (two different, equally valid ways to verify a suspicious message) with no risk of contradicting the quiz |
 | Money Quest's Sky Exchange zone + Sam's quest (`builder-currencies-l1`, "Cash, Cards, and Currencies") | **Built** — reached via a portal inside Guardian Gate (Golden Vault → Market Town → Guardian Gate → Sky Exchange, Money Quest's first 4-zone graph); real website world id `sky-exchange`, real badge display name "Currency Explorer"; Sam is the real child from the lesson's own story; another `LessonData.choice_point` with no mini-game; `sky-exchange` hosts 4 real topics on the website (currencies, digital_money, investing_basics, junior_isa), so this zone is a natural future home for more quest-giving NPCs the same way Golden Vault grew to 3 |
 | Sky Exchange's Omar + "How a Card Payment Actually Works" quest (`builder-digital_money-l1`) | **Built** — Sky Exchange's second quest-giving NPC, the same "a zone can grow another resident" pattern Golden Vault proved; Omar is the real child from the lesson's own story; `LessonData.choice_point` with no mini-game; 2 of `sky-exchange`'s 4 real topics remain untouched (investing_basics, junior_isa) |
 | Sky Exchange's Mei + "Owning a Small Piece of a Company" quest (`builder-investing_basics-l1`) | **Built** — Sky Exchange's third quest-giving NPC; Mei is the real child from the lesson's own story (her uncle owns the shares); `LessonData.choice_point` with no mini-game; only `junior_isa` remains untouched of `sky-exchange`'s 4 real topics |
@@ -789,20 +790,25 @@ godot/money-quest-game/
     quest-giving NPC. Phase 30: Jordan + "Needs, Wants,
     and Social Pressure" (`strategist-needs_wants-l1`), Market Town's
     third quest-giving NPC, completing the "needs_wants" topic trilogy
-    — the 5th single-topic zone to reach all 3 age bands. Phase 31
-    (this update): Grown-up + "Some Promises Are Too Good"
-    (`explorer-scams-l1`), Guardian Gate's second quest-giving NPC; the
-    real lesson has no named child, so the generic-role-name convention
-    applies again, and the choice_point is a downstream decision (how
-    to follow up on the pop-up) so it can't contradict the quiz's fixed
-    "tell a grown-up, don't click" answer.
+    — the 5th single-topic zone to reach all 3 age bands. Phase 31:
+    Grown-up + "Some Promises Are Too Good" (`explorer-scams-l1`),
+    Guardian Gate's second quest-giving NPC; the real lesson has no
+    named child, so the generic-role-name convention applies again, and
+    the choice_point is a downstream decision (how to follow up on the
+    pop-up) so it can't contradict the quiz's fixed "tell a grown-up,
+    don't click" answer. Phase 32 (this update): Marcus + "Scams Target
+    Emotions, Not Logic" (`strategist-scams-l1`), Guardian Gate's third
+    quest-giving NPC, completing the "scams" topic trilogy — the 6th
+    single-topic zone to reach all 3 age bands; this lesson's quiz tests
+    a conceptual mechanism rather than a specific action, so for once the
+    choice_point mirrors the lesson's real pause-and-verify habit
+    directly, with no sidestep needed.
     Still waiting on you: a real book/exhibit/mentor for Library/Museum
     (Section 6). Still unstarted: Leadership Quest's remaining
     `mission-choice`-kind missions and its `spot`/`allocate`/`sort`-kind
     missions (need mechanics not built yet), Entrepreneur Quest's
     remaining real BUILD/RUN/RESCUE & GROW stages, and Money Quest's
-    remaining 9 lessons: the `explorer`/`strategist` age bands of all
+    remaining 8 lessons: the `explorer`/`strategist` age bands of all
     4 Sky Exchange topics (currencies, digital_money, investing_basics,
-    junior_isa — 8 lessons) and Guardian Gate's `strategist-scams-l1`
-    (1 lesson) — Sky Exchange and Guardian Gate are still the only
-    Money Quest zones with unfinished age bands.
+    junior_isa) — Sky Exchange is now the only Money Quest zone with
+    unfinished age bands.

@@ -109,7 +109,14 @@ rebuilt.
    never entered for, and you decide whether to close it right away or
    show it to another grown-up too, with the real curriculum's quiz and
    explanation on why free-prize pop-ups from strangers are a trick
-   afterward. A second portal inside Guardian Gate leads to **Sky
+   afterward. Guardian Gate's third resident, Marcus, gives "Scams
+   Target Emotions, Not Logic": a message promising guaranteed fast
+   money feels exciting, and you decide whether to verify it by
+   contacting the real friend directly or by checking independently
+   whether "guaranteed returns" are ever genuinely real, with the real
+   curriculum's quiz and explanation on how scams trigger a strong
+   feeling to bypass careful thinking afterward — completing the
+   "scams" topic trilogy. A second portal inside Guardian Gate leads to **Sky
    Exchange**, Money Quest's fourth zone — talk to Sam to start "Cash,
    Cards, and Currencies": Sam's family is planning a trip abroad, and
    you decide whether to bring money from home or exchange some for the
@@ -275,7 +282,8 @@ up-to-date table. In short:
 | Market Town's Leah + "The Grey Area" quest (`builder-needs_wants-l1`, Market Town's second quest-giving NPC — no new zone needed, no mini-game needed) | — |
 | Market Town's Jordan + "Needs, Wants, and Social Pressure" quest (`strategist-needs_wants-l1`, Market Town's third quest-giving NPC, completing the "needs_wants" topic trilogy — no new zone needed, no mini-game needed) | — |
 | Guardian Gate zone + Zara's quest (`builder-scams-l1`, "Spotting a Scam," reached via a portal inside Market Town — Money Quest's first 3-zone graph, no mini-game needed) | — |
-| Guardian Gate's Grown-up + "Some Promises Are Too Good" quest (`explorer-scams-l1`, Guardian Gate's second quest-giving NPC — no new zone needed, no mini-game needed) | Money Quest's remaining 9 lessons |
+| Guardian Gate's Grown-up + "Some Promises Are Too Good" quest (`explorer-scams-l1`, Guardian Gate's second quest-giving NPC — no new zone needed, no mini-game needed) | — |
+| Guardian Gate's Marcus + "Scams Target Emotions, Not Logic" quest (`strategist-scams-l1`, Guardian Gate's third quest-giving NPC, completing the "scams" topic trilogy — no new zone needed, no mini-game needed) | Money Quest's remaining 8 lessons |
 | Sky Exchange zone + Sam's quest (`builder-currencies-l1`, "Cash, Cards, and Currencies," reached via a portal inside Guardian Gate — Money Quest's first 4-zone graph, no mini-game needed) | — |
 | Sky Exchange's Omar + "How a Card Payment Actually Works" quest (`builder-digital_money-l1`, Sky Exchange's second quest-giving NPC — no new zone needed, no mini-game needed) | — |
 | Sky Exchange's Mei + "Owning a Small Piece of a Company" quest (`builder-investing_basics-l1`, Sky Exchange's third quest-giving NPC — no new zone needed, no mini-game needed) | — |
@@ -383,6 +391,21 @@ choice/consequence wording — applies that same fact to a downstream
 decision (close the pop-up right away vs. show it to another grown-up
 too) rather than whether to click at all, so the player's choice can
 never contradict the quiz's fixed correct answer.
+
+Marcus's quest in Guardian Gate is the same: every curriculum field
+(title, learning objective, key concept, vocabulary `emotional
+manipulation`/`too good to be true`/`verification`, explanation, quiz,
+feedback, reward message) is copied from the real
+`curriculum.strategist-scams-l1`. Marcus is the real teen named in that
+lesson's own story, and this completes the "scams" topic's full
+3-age-band trilogy (Zara, Grown-up, Marcus) in one zone. Unlike the
+other two "scams" lessons, this one's quiz tests a conceptual mechanism
+(scams trigger a strong feeling to bypass careful thinking) rather than
+a specific action, so the only original text — the intro framing and
+the choice/consequence wording — is free to mirror the lesson's own
+recommended pause-and-verify habit directly (contact the real friend
+directly vs. check independently whether "guaranteed returns" are ever
+real) without any risk of contradicting the quiz.
 
 Sam's quest in Sky Exchange is the same: every curriculum field (title,
 learning objective, key concept, vocabulary `currency`/`physical
@@ -765,7 +788,7 @@ rationale. Quick map:
   Read-aloud/text-to-speech has no engine wired in at all — not even a
   silent placeholder bus — since one would require either an offline
   voice model or a paid API, both out of scope per the brief.
-- Only 21 of 30 curriculum lessons are wired up as Quests, only 3 of
+- Only 22 of 30 curriculum lessons are wired up as Quests, only 3 of
   Entrepreneur Quest's many real BUILD/RUN/RESCUE & GROW stages are
   ported, and only 3 of Leadership Quest's 12 real missions are ported.
   See `docs/money-quest-world-architecture.md` Section 12 for the
