@@ -315,7 +315,11 @@ rebuilt.
    business, so you investigate a few clues, pick the likely cause
    (just a reflection — no reward either way), then choose how to
    respond: get the word out, ask customers what they want, or lower
-   your price for a while.
+   your price for a while. Main Street's second resident, the
+   Accountant, gives "Costs Increased": your materials have suddenly
+   become more expensive, and you investigate why before choosing
+   whether to absorb the cost, raise your price, or look for a cheaper
+   supplier.
 5. In Leadership Academy, walk up to Priya and interact with her to start
    "The Big Mistake" — ported directly from the website's real Leadership
    Quest content: Priya made a mistake and the team is watching to see how
@@ -407,7 +411,8 @@ up-to-date table. In short:
 | Office's Teammate + "A Teammate's Idea" quest (ports the real `teammate-wants-change` decision event, Office's second quest-giving NPC — no new zone needed, no mini-game needed) | — |
 | Growth Lab zone + "Grow Your Business" quest (ports the real `fewer-sales-than-expected` decision event, reached via a portal inside Office — Entrepreneur Quest's first 5-zone graph) | — |
 | Research Lab zone + "Research Demand"/"Test the Idea" quests (ports the real `market-detective-reflection`/`test-before-invest` decision events, reached via a portal inside Growth Lab — Entrepreneur Quest's first 6-zone graph; completes all 9 of Entrepreneur Quest's v1 decision events) | — |
-| Main Street zone + "Not Enough Customers" quest (ports the real `not-enough-customers` Business Problem, reached via a portal inside Research Lab — Entrepreneur Quest's first 7-zone graph; introduced `QuestData.diagnosis_choice` for the investigate-cause-respond shape) | Entrepreneur Quest's remaining 15 real decision events (6 more Business Problems, the RUN set, the AI Lab, the Rescue & Grow set) and all 18 BUILD stages' own non-decision mechanics |
+| Main Street zone + "Not Enough Customers" quest (ports the real `not-enough-customers` Business Problem, reached via a portal inside Research Lab — Entrepreneur Quest's first 7-zone graph; introduced `QuestData.diagnosis_choice` for the investigate-cause-respond shape) | — |
+| Main Street's Accountant + "Costs Increased" quest (ports the real `costs-increased` Business Problem, Main Street's second quest-giving NPC — no new zone needed, reuses `diagnosis_choice`) | Entrepreneur Quest's remaining 14 real decision events (5 more Business Problems, the RUN set, the AI Lab, the Rescue & Grow set) and all 18 BUILD stages' own non-decision mechanics |
 | Leadership Academy zone + "The Big Mistake" quest (ports the website's real `big-mistake-choice` decision event, with Priya as a real-character NPC) | AI Quest Coach (explicitly not built — see the architecture doc's non-negotiables) |
 | Team Challenge zone + "The Angry Customer" quest (ports the real `angry-customer-choice` decision event, reached via a portal inside Leadership Academy, with Theo as a real-character NPC) | Leadership Quest's `spot`/`allocate`/`sort`-kind missions (need mechanics not built yet) |
 | Strategy Room zone + "The Better Idea" quest (ports the real `better-idea-choice` decision event, reached via a portal inside Team Challenge — Leadership Quest's first 3-zone graph, with Nadia as a real-character NPC) | Leadership Quest's remaining `mission-choice`-kind missions |
@@ -893,6 +898,15 @@ site's own words, copied verbatim: "What's the likely cause?" and
 data, then decide how to respond." - both now reused by this quest and
 ready for every future Business Problem quest to reuse too.
 
+Main Street's Accountant gives "Costs Increased," ported the same way:
+the situation, all 3 clues, all 3 causes' labels and feedback, and all
+3 responses' labels and consequences are copied verbatim from the real
+`costs-increased` Business Problem. This is Main Street's second
+quest-giving NPC - the same "zone grows another resident" pattern every
+other Entrepreneur Quest zone has used - and it reuses `diagnosis_choice`
+exactly as the Shop Manager's quest does, no new fields or systems
+needed a second time.
+
 Leadership Academy's "The Big Mistake" quest is likewise copied directly
 from the real `messages/en.json`/`messages/ro.json`
 (`leadershipQuest.missions.big-mistake`, including its `priya`/`oren`
@@ -1111,7 +1125,7 @@ rationale. Quick map:
   voice model or a paid API, both out of scope per the brief.
 - All 30 of Money Quest's real website curriculum lessons are now wired
   up as Quests. All 9 of Entrepreneur Quest's v1 decision events plus
-  1 of its v2 Business Problems are ported (10 of 25 real decision
+  2 of its v2 Business Problems are ported (11 of 25 real decision
   events overall; none of its 18 BUILD stages' own non-decision
   mechanics, 5 standalone Challenges, or RUN/Rescue & Grow/AI Lab
   content), and only 3 of Leadership Quest's 12 real missions are

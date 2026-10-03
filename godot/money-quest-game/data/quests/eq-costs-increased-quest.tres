@@ -1,0 +1,122 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=24 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueLine.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="5"]
+
+[sub_resource type="Resource" id="DialogueLine_situation"]
+script = ExtResource("2")
+speaker_id = "accountant"
+text_key = "quest.eq_costs_increased.dialogue.0"
+
+[sub_resource type="Resource" id="DialogueLine_clue_supplier_price_notice"]
+script = ExtResource("2")
+speaker_id = "accountant"
+text_key = "quest.eq_costs_increased.dialogue.1"
+
+[sub_resource type="Resource" id="DialogueLine_clue_fuel_prices"]
+script = ExtResource("2")
+speaker_id = "accountant"
+text_key = "quest.eq_costs_increased.dialogue.2"
+
+[sub_resource type="Resource" id="DialogueLine_clue_wage_changes"]
+script = ExtResource("2")
+speaker_id = "accountant"
+text_key = "quest.eq_costs_increased.dialogue.3"
+
+[sub_resource type="Resource" id="ConsequenceEffect_supplier_price_rise"]
+script = ExtResource("5")
+coin_delta = 0
+xp_delta = 0
+consequence_text_key = "eq.problem.costs_increased.cause.supplier_price_rise.feedback"
+
+[sub_resource type="Resource" id="ChoiceOption_supplier_price_rise"]
+script = ExtResource("4")
+label_key = "eq.problem.costs_increased.cause.supplier_price_rise.label"
+consequence = SubResource("ConsequenceEffect_supplier_price_rise")
+
+[sub_resource type="Resource" id="ConsequenceEffect_inflation"]
+script = ExtResource("5")
+coin_delta = 0
+xp_delta = 0
+consequence_text_key = "eq.problem.costs_increased.cause.inflation.feedback"
+
+[sub_resource type="Resource" id="ChoiceOption_inflation"]
+script = ExtResource("4")
+label_key = "eq.problem.costs_increased.cause.inflation.label"
+consequence = SubResource("ConsequenceEffect_inflation")
+
+[sub_resource type="Resource" id="ConsequenceEffect_more_materials_needed"]
+script = ExtResource("5")
+coin_delta = 0
+xp_delta = 0
+consequence_text_key = "eq.problem.costs_increased.cause.more_materials_needed.feedback"
+
+[sub_resource type="Resource" id="ChoiceOption_more_materials_needed"]
+script = ExtResource("4")
+label_key = "eq.problem.costs_increased.cause.more_materials_needed.label"
+consequence = SubResource("ConsequenceEffect_more_materials_needed")
+
+[sub_resource type="Resource" id="DialogueChoice_cause"]
+script = ExtResource("3")
+situation_text_key = "eq.problem_flow.cause_label"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_supplier_price_rise"), SubResource("ChoiceOption_inflation"), SubResource("ChoiceOption_more_materials_needed")])
+
+[sub_resource type="Resource" id="ConsequenceEffect_absorb_the_cost"]
+script = ExtResource("5")
+coin_delta = 2
+xp_delta = 5
+consequence_text_key = "eq.problem.costs_increased.response.absorb_the_cost.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_absorb_the_cost"]
+script = ExtResource("4")
+label_key = "eq.problem.costs_increased.response.absorb_the_cost.label"
+consequence = SubResource("ConsequenceEffect_absorb_the_cost")
+
+[sub_resource type="Resource" id="ConsequenceEffect_raise_your_price"]
+script = ExtResource("5")
+coin_delta = 4
+xp_delta = 5
+consequence_text_key = "eq.problem.costs_increased.response.raise_your_price.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_raise_your_price"]
+script = ExtResource("4")
+label_key = "eq.problem.costs_increased.response.raise_your_price.label"
+consequence = SubResource("ConsequenceEffect_raise_your_price")
+
+[sub_resource type="Resource" id="ConsequenceEffect_find_a_cheaper_supplier"]
+script = ExtResource("5")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "eq.problem.costs_increased.response.find_a_cheaper_supplier.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_find_a_cheaper_supplier"]
+script = ExtResource("4")
+label_key = "eq.problem.costs_increased.response.find_a_cheaper_supplier.label"
+consequence = SubResource("ConsequenceEffect_find_a_cheaper_supplier")
+
+[sub_resource type="Resource" id="DialogueChoice_response"]
+script = ExtResource("3")
+situation_text_key = "eq.problem.costs_increased.situation_prompt"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_absorb_the_cost"), SubResource("ChoiceOption_raise_your_price"), SubResource("ChoiceOption_find_a_cheaper_supplier")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "eq-costs-increased-quest"
+title_key = "quest.eq_costs_increased.title"
+description_key = "quest.eq_costs_increased.description"
+educational_objective_key = "eq.problem_flow.intro"
+track = "entrepreneur-quest"
+zone_id = "main-street"
+giver_npc_id = "accountant"
+kind = 2
+intro_dialogue = Array[DialogueLine]([SubResource("DialogueLine_situation"), SubResource("DialogueLine_clue_supplier_price_notice"), SubResource("DialogueLine_clue_fuel_prices"), SubResource("DialogueLine_clue_wage_changes")])
+intro_text_key = "eq.problem_flow.intro"
+diagnosis_choice = SubResource("DialogueChoice_cause")
+challenge_choice = SubResource("DialogueChoice_response")
+reward_message_key = "quest.eq_costs_increased.reward_message"
+xp_reward = 15
+coin_reward = 10
+skill_ids = Array[String](["problem-solving", "critical-thinking", "decision-making"])

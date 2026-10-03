@@ -18,17 +18,26 @@ extends Node3D
 ## choice` (see its own doc comment) — the first quest to use it. Like
 ## every Entrepreneur Quest giver NPC so far, "Shop Manager" is an
 ## invented mentor-role name; the real content never names anyone.
+##
+## The Accountant — this zone's second resident — gives "Costs
+## Increased" (ports the real `costs-increased` Business Problem, the
+## same investigate/diagnose/respond shape). Another invented
+## mentor-role name, tied to the scenario (reviewing rising costs)
+## rather than a real person.
 
 const NOT_ENOUGH_CUSTOMERS_QUEST_ID: String = "eq-not-enough-customers-quest"
+const COSTS_INCREASED_QUEST_ID: String = "eq-costs-increased-quest"
 
 @onready var player: Node3D = $Player
 @onready var camera_controller: CameraController = $CameraController
 @onready var shop_manager: NPC = $ShopManager
+@onready var accountant: NPC = $Accountant
 
 
 func _ready() -> void:
 	camera_controller.target = player
 	shop_manager.talked_to.connect(_on_shop_manager_talked_to)
+	accountant.talked_to.connect(_on_accountant_talked_to)
 
 
 func _on_shop_manager_talked_to(_npc_id: String) -> void:
@@ -36,3 +45,10 @@ func _on_shop_manager_talked_to(_npc_id: String) -> void:
 		DialogueBox.show_text("zone.main_street.shop_manager.already_done")
 	else:
 		QuestManager.start_quest(NOT_ENOUGH_CUSTOMERS_QUEST_ID)
+
+
+func _on_accountant_talked_to(_npc_id: String) -> void:
+	if QuestManager.is_quest_completed(COSTS_INCREASED_QUEST_ID):
+		DialogueBox.show_text("zone.main_street.accountant.already_done")
+	else:
+		QuestManager.start_quest(COSTS_INCREASED_QUEST_ID)
