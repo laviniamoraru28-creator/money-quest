@@ -77,6 +77,18 @@ extends Node3D
 ## classification (what's different about investing), so the choice_point
 ## is a downstream decision (ask for another example vs. decide saving is
 ## still right for him) rather than re-testing the same classification.
+##
+## Jamal — this zone's tenth resident — gives strategist-investing_basics-l1
+## ("Risk, Diversification, and Time"), completing the "investing_basics"
+## topic's full 3-age-band trilogy in one zone (the 9th single-topic
+## zone/topic to reach all 3 age bands). Jamal is the real teen named in
+## that lesson's own story; his cousin (unnamed in the source) explains
+## diversification. Unlike Leo's lesson, the real quiz here tests a
+## separate conceptual fact (investing vs. gambling), not which
+## allocation Jamal picks, so the choice_point is free to mirror the
+## lesson's own real decision directly (put it all in one company vs.
+## spread it across several) — neither option is graded, so this carries
+## no risk of contradicting the quiz.
 
 const CURRENCIES_QUEST_ID: String = "builder-currencies-l1-quest"
 const DIGITAL_MONEY_QUEST_ID: String = "builder-digital-money-l1-quest"
@@ -87,6 +99,7 @@ const CURRENCIES_STRATEGIST_QUEST_ID: String = "strategist-currencies-l1-quest"
 const DIGITAL_MONEY_EXPLORER_QUEST_ID: String = "explorer-digital-money-l1-quest"
 const DIGITAL_MONEY_STRATEGIST_QUEST_ID: String = "strategist-digital-money-l1-quest"
 const INVESTING_BASICS_EXPLORER_QUEST_ID: String = "explorer-investing-basics-l1-quest"
+const INVESTING_BASICS_STRATEGIST_QUEST_ID: String = "strategist-investing-basics-l1-quest"
 
 @onready var player: Node3D = $Player
 @onready var camera_controller: CameraController = $CameraController
@@ -99,6 +112,7 @@ const INVESTING_BASICS_EXPLORER_QUEST_ID: String = "explorer-investing-basics-l1
 @onready var mum: NPC = $Mum
 @onready var priya: NPC = $Priya
 @onready var leo: NPC = $Leo
+@onready var jamal: NPC = $Jamal
 
 
 func _ready() -> void:
@@ -112,6 +126,7 @@ func _ready() -> void:
 	mum.talked_to.connect(_on_mum_talked_to)
 	priya.talked_to.connect(_on_priya_talked_to)
 	leo.talked_to.connect(_on_leo_talked_to)
+	jamal.talked_to.connect(_on_jamal_talked_to)
 
 
 func _on_sam_talked_to(_npc_id: String) -> void:
@@ -175,3 +190,10 @@ func _on_leo_talked_to(_npc_id: String) -> void:
 		DialogueBox.show_text("zone.sky_exchange.leo.already_done")
 	else:
 		QuestManager.start_quest(INVESTING_BASICS_EXPLORER_QUEST_ID)
+
+
+func _on_jamal_talked_to(_npc_id: String) -> void:
+	if QuestManager.is_quest_completed(INVESTING_BASICS_STRATEGIST_QUEST_ID):
+		DialogueBox.show_text("zone.sky_exchange.jamal.already_done")
+	else:
+		QuestManager.start_quest(INVESTING_BASICS_STRATEGIST_QUEST_ID)
