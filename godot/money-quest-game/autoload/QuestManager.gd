@@ -88,6 +88,11 @@ func _run_challenge_quest(quest: QuestData) -> void:
 	if not quest.intro_text_key.is_empty():
 		await DialogueBox.show_text(quest.intro_text_key)
 
+	if quest.diagnosis_choice:
+		var cause: ChoiceOption = await ChoicePanel.show_choice(quest.diagnosis_choice)
+		if cause.consequence:
+			await DialogueBox.show_text(cause.consequence.consequence_text_key)
+
 	if quest.challenge_choice:
 		var chosen: ChoiceOption = await ChoicePanel.show_choice(quest.challenge_choice)
 		if chosen.consequence:

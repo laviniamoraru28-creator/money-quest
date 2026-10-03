@@ -1,6 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://researchlab001"]
+[gd_scene load_steps=11 format=3 uid="uid://mainstreet0001"]
 
-[ext_resource type="Script" path="res://scenes/world/zones/research_lab/ResearchLab.gd" id="1"]
+[ext_resource type="Script" path="res://scenes/world/zones/main_street/MainStreet.gd" id="1"]
 [ext_resource type="PackedScene" path="res://scenes/player/Player.tscn" id="2"]
 [ext_resource type="PackedScene" path="res://scenes/player/CameraController.tscn" id="3"]
 [ext_resource type="PackedScene" path="res://scenes/characters/NPC.tscn" id="4"]
@@ -13,7 +13,7 @@ size = Vector3(24, 1, 24)
 size = Vector3(24, 1, 24)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ground"]
-albedo_color = Color(0.85, 0.8, 0.9, 1)
+albedo_color = Color(0.92, 0.8, 0.65, 1)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_portal"]
 radius = 2.0
@@ -22,7 +22,7 @@ height = 2.0
 [sub_resource type="BoxMesh" id="BoxMesh_portal"]
 size = Vector3(1, 2, 1)
 
-[node name="ResearchLab" type="Node3D"]
+[node name="MainStreet" type="Node3D"]
 script = ExtResource("1")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -45,13 +45,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 
 [node name="CameraController" parent="." instance=ExtResource("3")]
 
-[node name="ResearchGuide" parent="." instance=ExtResource("4")]
+[node name="ShopManager" parent="." instance=ExtResource("4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
-npc_id = "research-guide"
-
-[node name="TestGuide" parent="." instance=ExtResource("4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
-npc_id = "test-guide"
+npc_id = "shop-manager"
 
 [node name="PortalToHub" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
@@ -67,27 +63,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("BoxMesh_portal")
 
 [node name="Label" type="Label3D" parent="PortalToHub"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, 0)
-billboard = 1
-no_depth_test = true
-font_size = 48
-outline_size = 8
-text = ""
-
-[node name="PortalToMainStreet" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -4)
-script = ExtResource("5")
-label_key = "zone.main_street.name"
-target_zone_id = "main-street"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PortalToMainStreet"]
-shape = SubResource("CylinderShape3D_portal")
-
-[node name="Visual" type="MeshInstance3D" parent="PortalToMainStreet"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("BoxMesh_portal")
-
-[node name="Label" type="Label3D" parent="PortalToMainStreet"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, 0)
 billboard = 1
 no_depth_test = true

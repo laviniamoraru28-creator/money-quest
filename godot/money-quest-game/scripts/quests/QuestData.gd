@@ -39,6 +39,19 @@ enum QuestKind { LESSON, EXPLORATION, CHALLENGE, SIMULATION }
 ## narrator-style line, no speaker) — either or both may be empty.
 @export var intro_dialogue: Array[DialogueLine] = []
 @export var intro_text_key: String = ""
+
+## Only set for a "business problem"-shaped CHALLENGE quest (the real
+## website's investigate-clues -> identify-a-cause -> choose-a-response
+## flow, e.g. Entrepreneur Quest's v2 Business Problems). Shown, if set,
+## after `intro_text_key` and before `challenge_choice`: a reflective,
+## non-scored choice whose options should each carry a
+## `ConsequenceEffect` with `coin_delta = 0` and `xp_delta = 0` (no
+## reward for picking a cause — only `challenge_choice`'s response pays
+## the quest's reward), and whose `consequence_text_key` is the real
+## cause's own feedback text. Left null for every ordinary CHALLENGE
+## quest (the vast majority) — no existing quest needs to change.
+@export var diagnosis_choice: DialogueChoice
+
 @export var challenge_choice: DialogueChoice
 
 ## Only set when kind == CHALLENGE — LESSON-kind quests get their reward
