@@ -43,6 +43,17 @@ extends Node3D
 ## free to mirror the lesson's own recommended habit directly (check
 ## today's rate vs. compare rates across providers) with no risk of
 ## contradicting it.
+##
+## Mum — this zone's seventh resident — gives explorer-digital_money-l1
+## ("Money You Can't Hold"), the first lesson to grow the "digital_money"
+## topic beyond its builder age band. The real lesson's story has no named
+## child (second person "you," with the secondary character simply "Mum"
+## tapping her card), so this NPC uses that role as its generic name, the
+## same convention established for Grown-up, Visiting Friend, and others.
+## The quiz tests a specific identification task (which of these is digital
+## money), so the choice_point is a downstream decision (what to do after
+## noticing the tap) rather than re-asking the same classification, keeping
+## it safely clear of contradicting the fixed answer.
 
 const CURRENCIES_QUEST_ID: String = "builder-currencies-l1-quest"
 const DIGITAL_MONEY_QUEST_ID: String = "builder-digital-money-l1-quest"
@@ -50,6 +61,7 @@ const INVESTING_BASICS_QUEST_ID: String = "builder-investing-basics-l1-quest"
 const JUNIOR_ISA_QUEST_ID: String = "builder-junior-isa-l1-quest"
 const CURRENCIES_EXPLORER_QUEST_ID: String = "explorer-currencies-l1-quest"
 const CURRENCIES_STRATEGIST_QUEST_ID: String = "strategist-currencies-l1-quest"
+const DIGITAL_MONEY_EXPLORER_QUEST_ID: String = "explorer-digital-money-l1-quest"
 
 @onready var player: Node3D = $Player
 @onready var camera_controller: CameraController = $CameraController
@@ -59,6 +71,7 @@ const CURRENCIES_STRATEGIST_QUEST_ID: String = "strategist-currencies-l1-quest"
 @onready var tomasz: NPC = $Tomasz
 @onready var visiting_friend: NPC = $VisitingFriend
 @onready var elena: NPC = $Elena
+@onready var mum: NPC = $Mum
 
 
 func _ready() -> void:
@@ -69,6 +82,7 @@ func _ready() -> void:
 	tomasz.talked_to.connect(_on_tomasz_talked_to)
 	visiting_friend.talked_to.connect(_on_visiting_friend_talked_to)
 	elena.talked_to.connect(_on_elena_talked_to)
+	mum.talked_to.connect(_on_mum_talked_to)
 
 
 func _on_sam_talked_to(_npc_id: String) -> void:
@@ -111,3 +125,10 @@ func _on_elena_talked_to(_npc_id: String) -> void:
 		DialogueBox.show_text("zone.sky_exchange.elena.already_done")
 	else:
 		QuestManager.start_quest(CURRENCIES_STRATEGIST_QUEST_ID)
+
+
+func _on_mum_talked_to(_npc_id: String) -> void:
+	if QuestManager.is_quest_completed(DIGITAL_MONEY_EXPLORER_QUEST_ID):
+		DialogueBox.show_text("zone.sky_exchange.mum.already_done")
+	else:
+		QuestManager.start_quest(DIGITAL_MONEY_EXPLORER_QUEST_ID)

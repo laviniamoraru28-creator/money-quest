@@ -147,14 +147,20 @@ rebuilt.
    countries' money looks different too, with the real curriculum's
    quiz and explanation on why every country makes its own money
    afterward — the first lesson to grow one of Sky Exchange's topics
-   beyond its builder age band. Sky Exchange's sixth and final resident
-   for now, Elena, gives "Understanding Exchange Rates": Elena is
+   beyond its builder age band. Sky Exchange's sixth resident, Elena,
+   gives "Understanding Exchange Rates": Elena is
    comparing an online price in a different currency and can't compare
    the numbers directly, and you decide whether she looks up today's
    rate to convert the price or compares the rate a few providers are
    offering, with the real curriculum's quiz and explanation on why
    exchange rates keep changing afterward — completing the "currencies"
-   topic trilogy. A
+   topic trilogy. Sky Exchange's seventh resident, Mum, gives "Money You
+   Can't Hold": Mum taps a card at the shop instead of handing over
+   coins, and you decide whether to ask her where the money actually
+   went or watch closely the next time someone taps a card, with the
+   real curriculum's quiz and explanation on what makes a card tap
+   digital money afterward — the first lesson to grow "digital_money"
+   beyond its builder age band. A
    second portal inside Sky Exchange leads to **Coin Cove**, Money
    Quest's fifth zone — talk to the Shopkeeper to start "What Is
    Money?": you're buying an apple and decide whether to count out
@@ -304,7 +310,8 @@ up-to-date table. In short:
 | Sky Exchange's Mei + "Owning a Small Piece of a Company" quest (`builder-investing_basics-l1`, Sky Exchange's third quest-giving NPC — no new zone needed, no mini-game needed) | — |
 | Sky Exchange's Tomasz + "Locked Until 18: How a Junior ISA Works" quest (`builder-junior_isa-l1`, Sky Exchange's fourth quest-giving NPC, completing all 4 real topics the zone hosts at the builder age band) | — |
 | Sky Exchange's Visiting Friend + "Money Looks Different Everywhere" quest (`explorer-currencies-l1`, Sky Exchange's fifth quest-giving NPC, the first lesson to grow one of its 4 topics beyond builder — no new zone needed, no mini-game needed) | — |
-| Sky Exchange's Elena + "Understanding Exchange Rates" quest (`strategist-currencies-l1`, Sky Exchange's sixth quest-giving NPC, completing the "currencies" topic trilogy — no new zone needed, no mini-game needed) | Money Quest's remaining 6 lessons |
+| Sky Exchange's Elena + "Understanding Exchange Rates" quest (`strategist-currencies-l1`, Sky Exchange's sixth quest-giving NPC, completing the "currencies" topic trilogy — no new zone needed, no mini-game needed) | — |
+| Sky Exchange's Mum + "Money You Can't Hold" quest (`explorer-digital_money-l1`, Sky Exchange's seventh quest-giving NPC, the first lesson to grow "digital_money" beyond builder — no new zone needed, no mini-game needed) | Money Quest's remaining 5 lessons |
 | Coin Cove zone + Shopkeeper's quest (`explorer-money_basics-l1`, "What Is Money?," reached via a portal inside Sky Exchange — Money Quest's first 5-zone graph, no mini-game needed) | — |
 | Coin Cove's Amir + "Where Does Money Come From?" quest (`builder-money_basics-l1`, Coin Cove's second quest-giving NPC — no new zone needed, no mini-game needed) | — |
 | Coin Cove's Priya + "Money as a Tool, Not a Goal" quest (`strategist-money_basics-l1`, Coin Cove's third quest-giving NPC, completing the "money_basics" topic trilogy — no new zone needed, no mini-game needed) | — |
@@ -499,6 +506,21 @@ framing and the choice/consequence wording - is free to mirror the
 lesson's own recommended habit directly (look up today's rate vs.
 compare rates across a few providers) without any risk of contradicting
 the quiz.
+
+Mum's quest in Sky Exchange is the same: every curriculum field (title,
+learning objective, key concept, vocabulary `digital money`/`card`,
+explanation, quiz, feedback, reward message) is copied from the real
+`curriculum.explorer-digital_money-l1`. The real lesson's story has no
+named child (it's written in second person, "you," with the secondary
+character simply "Mum" tapping her card), so the giver NPC uses that
+role as its generic name, matching the real story's own wording. The
+quiz tests a specific identification task (which of these is digital
+money), so the only original text - the intro framing and the
+choice/consequence wording - is a downstream decision (ask where the
+money went vs. watch closely next time) rather than re-asking the same
+classification, keeping it safely clear of contradicting the fixed
+answer. This is the first lesson to grow "digital_money" beyond its
+builder age band.
 
 The Shopkeeper's quest in Coin Cove is the same: every curriculum field
 (title, learning objective, key concept, vocabulary `money`/`trade`/
@@ -838,7 +860,7 @@ rationale. Quick map:
   Read-aloud/text-to-speech has no engine wired in at all — not even a
   silent placeholder bus — since one would require either an offline
   voice model or a paid API, both out of scope per the brief.
-- Only 24 of 30 curriculum lessons are wired up as Quests, only 3 of
+- Only 25 of 30 curriculum lessons are wired up as Quests, only 3 of
   Entrepreneur Quest's many real BUILD/RUN/RESCUE & GROW stages are
   ported, and only 3 of Leadership Quest's 12 real missions are ported.
   See `docs/money-quest-world-architecture.md` Section 12 for the
