@@ -1,0 +1,62 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=11 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueLine.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/MatchPairData.gd" id="3"]
+
+[sub_resource type="Resource" id="DialogueLine_theo"]
+script = ExtResource("2")
+speaker_id = "theo"
+text_key = "quest.lq_first_challenge.dialogue.0"
+
+[sub_resource type="Resource" id="DialogueLine_nadia"]
+script = ExtResource("2")
+speaker_id = "nadia"
+text_key = "quest.lq_first_challenge.dialogue.1"
+
+[sub_resource type="Resource" id="DialogueLine_priya"]
+script = ExtResource("2")
+speaker_id = "priya"
+text_key = "quest.lq_first_challenge.dialogue.2"
+
+[sub_resource type="Resource" id="MatchPairData_design_the_poster"]
+script = ExtResource("3")
+pair_id = "design-the-poster"
+left_text_key = "quest.lq_first_challenge.task.design_the_poster"
+right_character_id = "nadia"
+
+[sub_resource type="Resource" id="MatchPairData_build_the_display"]
+script = ExtResource("3")
+pair_id = "build-the-display"
+left_text_key = "quest.lq_first_challenge.task.build_the_display"
+right_character_id = "oren"
+
+[sub_resource type="Resource" id="MatchPairData_explain_it_to_visitors"]
+script = ExtResource("3")
+pair_id = "explain-it-to-visitors"
+left_text_key = "quest.lq_first_challenge.task.explain_it_to_visitors"
+right_character_id = "priya"
+
+[sub_resource type="Resource" id="MatchPairData_make_the_plan"]
+script = ExtResource("3")
+pair_id = "make-the-plan"
+left_text_key = "quest.lq_first_challenge.task.make_the_plan"
+right_character_id = "theo"
+
+[resource]
+script = ExtResource("1")
+quest_id = "lq-first-challenge-quest"
+title_key = "quest.lq_first_challenge.title"
+description_key = "quest.lq_first_challenge.description"
+educational_objective_key = "quest.lq_first_challenge.objective"
+track = "leadership-quest"
+zone_id = "leadership-academy"
+giver_npc_id = "priya"
+kind = 4
+intro_dialogue = Array[DialogueLine]([SubResource("DialogueLine_theo"), SubResource("DialogueLine_nadia"), SubResource("DialogueLine_priya")])
+match_pairs = Array[MatchPairData]([SubResource("MatchPairData_design_the_poster"), SubResource("MatchPairData_build_the_display"), SubResource("MatchPairData_explain_it_to_visitors"), SubResource("MatchPairData_make_the_plan")])
+match_outro_text_key = "quest.lq_first_challenge.outro"
+reward_message_key = "quest.lq_first_challenge.reward_message"
+xp_reward = 15
+coin_reward = 10
+skill_ids = Array[String](["delegation", "teamwork", "organization"])

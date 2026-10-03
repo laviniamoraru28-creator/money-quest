@@ -1,0 +1,107 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=20 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueLine.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/AllocateCategoryData.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="5"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="6"]
+
+[sub_resource type="Resource" id="DialogueLine_theo"]
+script = ExtResource("2")
+speaker_id = "theo"
+text_key = "quest.lq_the_deadline.dialogue.0"
+
+[sub_resource type="Resource" id="AllocateCategoryData_finish_the_main_feature"]
+script = ExtResource("3")
+category_key = "finish-the-main-feature"
+label_key = "quest.lq_the_deadline.task.finish_the_main_feature"
+target_amount = 400
+tolerance_amount = 100
+
+[sub_resource type="Resource" id="AllocateCategoryData_fix_the_known_problem"]
+script = ExtResource("3")
+category_key = "fix-the-known-problem"
+label_key = "quest.lq_the_deadline.task.fix_the_known_problem"
+target_amount = 300
+tolerance_amount = 100
+
+[sub_resource type="Resource" id="AllocateCategoryData_polish_the_design"]
+script = ExtResource("3")
+category_key = "polish-the-design"
+label_key = "quest.lq_the_deadline.task.polish_the_design"
+target_amount = 100
+tolerance_amount = 100
+
+[sub_resource type="Resource" id="AllocateCategoryData_write_the_instructions"]
+script = ExtResource("3")
+category_key = "write-the-instructions"
+label_key = "quest.lq_the_deadline.task.write_the_instructions"
+target_amount = 100
+tolerance_amount = 100
+
+[sub_resource type="Resource" id="AllocateCategoryData_extra_nice_to_have"]
+script = ExtResource("3")
+category_key = "extra-nice-to-have"
+label_key = "quest.lq_the_deadline.task.extra_nice_to_have"
+target_amount = 100
+tolerance_amount = 100
+
+[sub_resource type="Resource" id="ConsequenceEffect_explain_the_new_plan_to_everyone"]
+script = ExtResource("6")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "lq.decision.the_deadline.choice.explain_the_new_plan_to_everyone.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_explain_the_new_plan_to_everyone"]
+script = ExtResource("5")
+label_key = "lq.decision.the_deadline.choice.explain_the_new_plan_to_everyone.label"
+consequence = SubResource("ConsequenceEffect_explain_the_new_plan_to_everyone")
+
+[sub_resource type="Resource" id="ConsequenceEffect_just_tell_people_what_to_drop"]
+script = ExtResource("6")
+coin_delta = 3
+xp_delta = 5
+consequence_text_key = "lq.decision.the_deadline.choice.just_tell_people_what_to_drop.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_just_tell_people_what_to_drop"]
+script = ExtResource("5")
+label_key = "lq.decision.the_deadline.choice.just_tell_people_what_to_drop.label"
+consequence = SubResource("ConsequenceEffect_just_tell_people_what_to_drop")
+
+[sub_resource type="Resource" id="ConsequenceEffect_ask_the_team_what_to_cut"]
+script = ExtResource("6")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "lq.decision.the_deadline.choice.ask_the_team_what_to_cut.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_ask_the_team_what_to_cut"]
+script = ExtResource("5")
+label_key = "lq.decision.the_deadline.choice.ask_the_team_what_to_cut.label"
+consequence = SubResource("ConsequenceEffect_ask_the_team_what_to_cut")
+
+[sub_resource type="Resource" id="DialogueChoice_the_deadline"]
+script = ExtResource("4")
+situation_text_key = "lq.decision.the_deadline.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_explain_the_new_plan_to_everyone"), SubResource("ChoiceOption_just_tell_people_what_to_drop"), SubResource("ChoiceOption_ask_the_team_what_to_cut")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "lq-the-deadline-quest"
+title_key = "quest.lq_the_deadline.title"
+description_key = "quest.lq_the_deadline.description"
+educational_objective_key = "quest.lq_the_deadline.objective"
+track = "leadership-quest"
+zone_id = "team-challenge"
+giver_npc_id = "theo"
+kind = 6
+intro_dialogue = Array[DialogueLine]([SubResource("DialogueLine_theo")])
+allocate_total_amount = 1000
+allocate_unit_label_key = "quest.lq_the_deadline.unit_label"
+allocate_categories = Array[AllocateCategoryData]([SubResource("AllocateCategoryData_finish_the_main_feature"), SubResource("AllocateCategoryData_fix_the_known_problem"), SubResource("AllocateCategoryData_polish_the_design"), SubResource("AllocateCategoryData_write_the_instructions"), SubResource("AllocateCategoryData_extra_nice_to_have")])
+allocate_outro_text_key = "quest.lq_the_deadline.outro"
+challenge_choice = SubResource("DialogueChoice_the_deadline")
+reward_message_key = "quest.lq_the_deadline.reward_message"
+xp_reward = 15
+coin_reward = 10
+skill_ids = Array[String](["prioritization", "time-management", "decision-making"])

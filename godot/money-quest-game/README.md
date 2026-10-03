@@ -330,9 +330,15 @@ rebuilt.
    Unsold Stock" — each the same investigate-a-cause-then-choose-a-
    response shape as the zone's first three quests.
 5. In Leadership Academy, walk up to Priya and interact with her to start
-   "The Big Mistake" — ported directly from the website's real Leadership
-   Quest content: Priya made a mistake and the team is watching to see how
-   you, as the leader, respond. Again, no single correct answer. A second
+   "Meet Your Team" — a tap-tap matching mini-game: match each of 4 tasks
+   to the teammate who's actually good at it (Nadia/Oren/Priya/Theo),
+   then a short, no-wrong-answer reflection on how you're feeling about
+   leading this team. Talk to Priya again to start her second quest,
+   "The First Challenge" — another matching round, this time for the
+   team's first real project. Talk to her a third time for "The Big
+   Mistake" — ported directly from the website's real Leadership Quest
+   content: Priya made a mistake and the team is watching to see how you,
+   as the leader, respond. Again, no single correct answer. A second
    portal inside Leadership Academy leads to **Team Challenge**,
    Leadership Quest's second zone — talk to Theo to start "The Angry
    Customer": a customer is upset about your team's work, and you choose
@@ -348,7 +354,25 @@ rebuilt.
    finishing "The Angry Customer" to start his second quest, "The
    Missing Task": a teammate's part of the project isn't finished, and
    after hearing a few perspectives on what happened, you decide how to
-   help.
+   help. Talk to Theo a third time for "The Team Conflict" — a
+   spot-the-problem mini-game: read a short exchange between Priya and
+   Theo and flag the statements that are making things worse, then
+   decide how to step in. Talk to Theo a fourth time for "The Deadline"
+   — a budget-splitting mini-game: the deadline moved up, so you split
+   the team's remaining 1000 minutes across 5 tasks using a +/- stepper,
+   then decide how to share the new plan with the team. Back in
+   Leadership Academy, talk to Priya a fourth time for "The Pressure
+   Test" — a tap-select-then-tap-bucket sorting mini-game: sort 5
+   problems happening at once into "Deal with first" / "Deal with next" /
+   "Can wait," then reflect on how you handled the pressure. Back in
+   Huddle Room, talk to Oren a second time for "The Motivation Problem" —
+   another spot-the-problem round, this time spotting what's really
+   draining the team's energy before deciding what to do about it. Back
+   in Strategy Room, talk to Nadia a second time for "The Final
+   Challenge" — Leadership Quest's capstone mission, combining a final
+   matching round with two separate decision points as the team finishes
+   its last big project together. This completes all 12 of Leadership
+   Quest's real missions.
 6. In Bubble Garden, there's nothing to do but walk around and watch the
    bubbles drift — no quest, no NPC, no choice. It's always reachable, with
    no unlock condition, and never framed as anything other than a calm
@@ -390,7 +414,7 @@ up-to-date table. In short:
 | World Hub: fountain landmark, 7 paths, 7 gate-shaped portals (6 functional, 1 "coming soon"), decorative trees, Hub Guide NPC | Entrepreneur Quest's full BUILD → RUN → RESCUE & GROW track (only one representative quest is built) |
 | Library zone (bookshelves + Librarian NPC, reachable from the Hub, honestly empty — see "Content fidelity" below) | Library books content |
 | Mind Lab zone + "Different Explanations" quest (an original scenario — no external fact needed, never diagnostic/medical) | — |
-| Golden Vault zone + Maya's quest (reuses the existing `LessonData`/`LessonManager`/mini-game/UI overlays unchanged) | Leadership Quest's remaining 9 missions (only 3 of 12 are built) |
+| Golden Vault zone + Maya's quest (reuses the existing `LessonData`/`LessonManager`/mini-game/UI overlays unchanged) | — |
 | Golden Vault's Savings Guide + "What Does Saving Mean?" quest (`explorer-saving-l1`, Golden Vault's second quest-giving NPC — no new zone needed, no mini-game needed) | — |
 | Golden Vault's Theo + "Saving vs. Spending: The Real Trade-off" quest (`strategist-saving-l1`, Golden Vault's third quest-giving NPC — completes the "saving" topic's full 3-age-band trilogy in one zone, no mini-game needed) | — |
 | Market Town zone + Baker's quest (`explorer-needs_wants-l1`, reached via a portal inside Golden Vault — Money Quest's first 2-zone graph, no mini-game needed) | — |
@@ -433,10 +457,15 @@ up-to-date table. In short:
 | Main Street's Support Rep + "A Negative Review" quest (ports the real `negative-review` Business Problem, Main Street's third quest-giving NPC — no new zone needed, reuses `diagnosis_choice`) | — |
 | Main Street's Sales Tracker / Profit Analyst / Cash Flow Advisor / Warehouse Keeper + their 4 quests (ports the real `sales-falling`/`rising-costs-eating-profit`/`profit-but-no-cash`/`too-much-stock` Business Problems, Main Street's fourth through seventh quest-giving NPCs — completes all 7 of the v2 Business Problems library) | Entrepreneur Quest's remaining 9 real decision events (the RUN set, the AI Lab, the Rescue & Grow set) and all 18 BUILD stages' own non-decision mechanics |
 | Leadership Academy zone + "The Big Mistake" quest (ports the website's real `big-mistake-choice` decision event, with Priya as a real-character NPC) | AI Quest Coach (explicitly not built — see the architecture doc's non-negotiables) |
-| Team Challenge zone + "The Angry Customer" quest (ports the real `angry-customer-choice` decision event, reached via a portal inside Leadership Academy, with Theo as a real-character NPC) | Leadership Quest's `spot`/`allocate`/`sort`-kind missions (need mechanics not built yet) |
+| Team Challenge zone + "The Angry Customer" quest (ports the real `angry-customer-choice` decision event, reached via a portal inside Leadership Academy, with Theo as a real-character NPC) | — |
 | Strategy Room zone + "The Better Idea" quest (ports the real `better-idea-choice` decision event, reached via a portal inside Team Challenge — Leadership Quest's first 3-zone graph, with Nadia as a real-character NPC) | — |
 | Huddle Room zone + "Everyone Has an Idea" quest (ports the real `everyone-has-an-idea-choice` decision event, reached via a portal inside Strategy Room — Leadership Quest's first 4-zone graph, with Oren as the giver NPC — the 4th and last of the real 4-character cast) | — |
-| Team Challenge's Theo + "The Missing Task" quest (Theo's second quest, ports the real `missing-task-choice` decision event — no new zone or NPC needed; completes every `mission-choice`-shaped Leadership Quest mission) | Leadership Quest's remaining 7 missions (all need match/spot/allocate/sort/multi-step mechanics not yet built) |
+| Team Challenge's Theo + "The Missing Task" quest (Theo's second quest, ports the real `missing-task-choice` decision event — no new zone or NPC needed; completes every `mission-choice`-shaped Leadership Quest mission) | — |
+| `MATCH`/`SPOT`/`ALLOCATE`/`SORT`/`MULTI_STEP` quest kinds + `MatchPanel`/`SpotPanel`/`AllocatePanel`/`SortPanel` autoloads, each porting the real website's own mini-game component (`src/game-engine/mechanics/{Match,Spot,Allocate,Sort}Mechanic.tsx`) faithfully — tap-tap matching, toggle-select-then-submit, a fixed-step +/- stepper, and tap-select-then-tap-bucket sorting, all retry-until-correct, never drag | — |
+| Priya's "Meet Your Team"/"First Challenge" quests (`MATCH`-kind) and "The Pressure Test" (`SORT`-kind) — her 1st, 2nd, and 4th quests in Leadership Academy | — |
+| Theo's "The Team Conflict" (`SPOT`-kind) and "The Deadline" (`ALLOCATE`-kind) quests — his 3rd and 4th quests in Team Challenge | — |
+| Nadia's "The Final Challenge" (`MULTI_STEP`-kind: a matching round + 2 decision points) — her 2nd and final quest in Strategy Room | — |
+| Oren's "The Motivation Problem" (`SPOT`-kind) — his 2nd quest in Huddle Room; **completes all 12 of Leadership Quest's real missions** | Leadership Quest's Leadership Lab, Leadership Profile, and "uh-oh" unexpected events (website-only features with no Godot equivalent yet) |
 | `EntryData`/`BookData`/`ExhibitData`/`MentorData`/`DictionaryTermData` schema, with 2 real Dictionary entries (`goal`, `trade-off`) reusing existing curriculum vocabulary | — |
 | Calm World's all 8 named gardens (Bubble Garden, Aquarium Room, Light Room, Rain Room, Underwater Room, Forest Walk, Music Room, Grow-a-Garden) — always unlocked, no choices, all motion respects `reduced_motion` | — |
 | `AvatarConfig` + `AvatarCreation.tscn`, now fully wired to `Player.tscn` (see "Avatar wiring fix" below) — 4 body presets incl. a wheelchair-style look, 4 accessories (glasses, cap, hearing aid, cane), all purely visual | — |
@@ -988,6 +1017,38 @@ than inventing a new character - `TeamChallenge.gd` offers Theo's next
 incomplete quest in a fixed order. This completes every
 `mission-choice`-shaped Leadership Quest mission (5 of 12 total).
 
+Leadership Quest's remaining 7 missions needed mechanics Godot didn't
+have yet — matching, spot-the-problem, budget-splitting, and sorting —
+so each was built by reading the real website's own mechanic component
+first (`src/game-engine/mechanics/{Match,Spot,Allocate,Sort}Mechanic.tsx`)
+and porting its exact interaction model, not inventing a new one.
+"Meet Your Team" and "The First Challenge" (Priya's 1st and 2nd quests)
+copy their dialogue, task labels, and task-to-character pairings
+verbatim from `leadershipQuest.missions.meet-your-team`/`first-challenge`
+and `LQ_MISSIONS[0].matchPairs`/`LQ_MISSIONS[1].matchPairs` in
+`structures.ts`. "The Team Conflict" and "The Motivation Problem" (Theo's
+3rd and Oren's 2nd quests) copy their scenario text and every spot item's
+wording and `isSuspicious` flag verbatim from
+`leadershipQuest.spotItems.teamConflict`/`motivationProblem` and
+`LQ_TEAM_CONFLICT_SPOT_ITEM_IDS`/`LQ_MOTIVATION_SPOT_ITEM_IDS`. "The
+Deadline" (Theo's 4th quest) copies its 5 task labels and every
+target/tolerance verbatim from `LQ_DEADLINE_CATEGORIES` (targets and
+tolerances are multiples of 100 to match `AllocatePanel`'s fixed-100
+stepper, exactly as the real `AllocateMechanic`'s own `STEP_MINOR_UNITS`
+requires). "The Pressure Test" (Priya's 4th quest) copies its 3 bucket
+labels and every item's wording and correct bucket verbatim from
+`LQ_PRESSURE_TEST_BUCKET_KEYS`/`LQ_PRESSURE_TEST_ITEMS`. "The Final
+Challenge" (Nadia's 2nd and final quest) copies its dialogue, match
+pairs, and both decision points' choices/consequences verbatim from
+`leadershipQuest.missions.final-challenge` — its first decision point
+uses the real site's own `"none"`-tag fallback situation text rather
+than one of the 6 personalized variants, since those depend on the
+website's own Leadership Profile archetype tracking
+(`computeLeadershipProfile`/`reflectionHistory`), which has no Godot
+equivalent at all; using the honest fallback is a documented
+simplification, never fabricated content. **This completes all 12 of
+Leadership Quest's real missions.**
+
 The Dictionary's 2 entries (`goal`, `trade-off`) aren't new content at
 all — they point at `builder-saving-l1`'s own existing vocabulary
 translation keys verbatim (see `data/schemas/ENTRY_DATA_FORMAT.md`'s rule
@@ -1188,12 +1249,14 @@ rationale. Quick map:
   all 7 of its v2 Business Problems are ported (16 of 25 real decision
   events overall; none of its 18 BUILD stages' own non-decision
   mechanics, 5 standalone Challenges, or RUN/Rescue & Grow/AI Lab
-  content), and 5 of Leadership Quest's 12 real missions are ported -
-  every `mission-choice`-shaped mission; the remaining 7 need match/
-  spot/allocate/sort/multi-step mechanics not yet built. See
-  `docs/money-quest-world-architecture.md` Section 12 for
-  the development order for the rest, the 17 games, and the 4 simulator
-  scenarios.
+  content). **All 12 of Leadership Quest's real missions are now
+  ported**, using 5 new quest kinds (`MATCH`/`SPOT`/`ALLOCATE`/`SORT`/
+  `MULTI_STEP`) and 4 new autoloaded mini-game panels that port the real
+  website's own mechanic components faithfully — see
+  `docs/money-quest-world-architecture.md` Section 10's status table and
+  Section 12's narrative for the full account. See Section 12 also for
+  the development order for the rest of Entrepreneur Quest, the 17
+  games, and the 4 simulator scenarios.
 - Museum is the only Hub portal still reachable-but-"coming soon" — the
   portal, zone registration, and locking logic all already work for it;
   only its actual zone content doesn't exist yet, by design, per the

@@ -65,6 +65,16 @@ func start_quest(quest_id: String) -> void:
 			await _run_lesson_quest(quest)
 		QuestData.QuestKind.CHALLENGE:
 			await _run_challenge_quest(quest)
+		QuestData.QuestKind.MATCH:
+			await _run_match_quest(quest)
+		QuestData.QuestKind.SPOT:
+			await _run_spot_quest(quest)
+		QuestData.QuestKind.ALLOCATE:
+			await _run_allocate_quest(quest)
+		QuestData.QuestKind.SORT:
+			await _run_sort_quest(quest)
+		QuestData.QuestKind.MULTI_STEP:
+			await _run_multi_step_quest(quest)
 		_:
 			# EXPLORATION / SIMULATION quests are architecture-ready
 			# (QuestData already models them) but have no concrete runner
@@ -77,33 +87,111 @@ func start_quest(quest_id: String) -> void:
 	quest_finished.emit(quest_id)
 
 
+## Shared by every runner below: the intro beats every quest kind opens
+## with (spoken lines, then an optional single narrator-style line) —
+## either or both may be empty.
+func _show_intro(quest: QuestData) -> void:
+	for line in quest.intro_dialogue:
+		await DialogueBox.show_line(line)
+	if not quest.intro_text_key.is_empty():
+		await DialogueBox.show_text(quest.intro_text_key)
+
+
+## Shared by every runner below: shows one open-ended DialogueChoice (if
+## set — a null choice is a silent no-op) and applies/narrates its picked
+## option's consequence. Used for `diagnosis_choice`, `challenge_choice`,
+## and `second_challenge_choice` alike.
+func _run_one_choice(choice: DialogueChoice) -> void:
+	if not choice:
+		return
+	var chosen: ChoiceOption = await ChoicePanel.show_choice(choice)
+	if chosen.consequence:
+		GameState.add_coins(max(chosen.consequence.coin_delta, 0))
+		GameState.add_xp(max(chosen.consequence.xp_delta, 0))
+		await DialogueBox.show_text(chosen.consequence.consequence_text_key)
+
+
+## Shared by every runner below: pays the quest's flat xp_reward/
+## coin_reward and shows its reward message, if any.
+func _pay_flat_reward(quest: QuestData) -> void:
+	GameState.add_xp(quest.xp_reward)
+	GameState.add_coins(quest.coin_reward)
+	if not quest.reward_message_key.is_empty():
+		await RewardPopup.show_reward(quest.reward_message_key, quest.xp_reward, quest.coin_reward)
+
+
 ## For a standalone situation-and-consequence quest with no wrapped
 ## LessonData (Entrepreneur Quest/Leadership Quest content ported from the
 ## website's own "mission"-shaped decision events — see QuestData.gd's own
 ## comment). Pays its own xp_reward/coin_reward directly, unlike a LESSON-
 ## kind quest where the wrapped LessonData already paid its reward.
 func _run_challenge_quest(quest: QuestData) -> void:
-	for line in quest.intro_dialogue:
-		await DialogueBox.show_line(line)
-	if not quest.intro_text_key.is_empty():
-		await DialogueBox.show_text(quest.intro_text_key)
+	await _show_intro(quest)
 
 	if quest.diagnosis_choice:
 		var cause: ChoiceOption = await ChoicePanel.show_choice(quest.diagnosis_choice)
 		if cause.consequence:
 			await DialogueBox.show_text(cause.consequence.consequence_text_key)
 
-	if quest.challenge_choice:
-		var chosen: ChoiceOption = await ChoicePanel.show_choice(quest.challenge_choice)
-		if chosen.consequence:
-			GameState.add_coins(max(chosen.consequence.coin_delta, 0))
-			GameState.add_xp(max(chosen.consequence.xp_delta, 0))
-			await DialogueBox.show_text(chosen.consequence.consequence_text_key)
+	await _run_one_choice(quest.challenge_choice)
+	await _pay_flat_reward(quest)
 
-	GameState.add_xp(quest.xp_reward)
-	GameState.add_coins(quest.coin_reward)
-	if not quest.reward_message_key.is_empty():
-		await RewardPopup.show_reward(quest.reward_message_key, quest.xp_reward, quest.coin_reward)
+
+## For a MATCH-kind quest's matching mini-game (e.g. Leadership Quest's
+## "Meet Your Team"), optionally followed by a decision point.
+func _run_match_quest(quest: QuestData) -> void:
+	await _show_intro(quest)
+	await MatchPanel.show_match(quest.match_pairs)
+	if not quest.match_outro_text_key.is_empty():
+		await DialogueBox.show_text(quest.match_outro_text_key)
+	await _run_one_choice(quest.challenge_choice)
+	await _pay_flat_reward(quest)
+
+
+## For a SPOT-kind quest's "spot the problem" mini-game (e.g. Leadership
+## Quest's "The Team Conflict"), optionally followed by a decision point.
+func _run_spot_quest(quest: QuestData) -> void:
+	await _show_intro(quest)
+	await SpotPanel.show_spot(quest.spot_scenario_text_key, quest.spot_items)
+	if not quest.spot_outro_text_key.is_empty():
+		await DialogueBox.show_text(quest.spot_outro_text_key)
+	await _run_one_choice(quest.challenge_choice)
+	await _pay_flat_reward(quest)
+
+
+## For an ALLOCATE-kind quest's budget-splitting mini-game (e.g. Leadership
+## Quest's "The Deadline"), optionally followed by a decision point.
+func _run_allocate_quest(quest: QuestData) -> void:
+	await _show_intro(quest)
+	await AllocatePanel.show_allocate(quest.allocate_total_amount, quest.allocate_unit_label_key, quest.allocate_categories)
+	if not quest.allocate_outro_text_key.is_empty():
+		await DialogueBox.show_text(quest.allocate_outro_text_key)
+	await _run_one_choice(quest.challenge_choice)
+	await _pay_flat_reward(quest)
+
+
+## For a SORT-kind quest's tap-select-then-tap-bucket sorting mini-game
+## (e.g. Leadership Quest's "The Pressure Test"), optionally followed by a
+## decision point.
+func _run_sort_quest(quest: QuestData) -> void:
+	await _show_intro(quest)
+	await SortPanel.show_sort(quest.sort_buckets, quest.sort_items)
+	if not quest.sort_outro_text_key.is_empty():
+		await DialogueBox.show_text(quest.sort_outro_text_key)
+	await _run_one_choice(quest.challenge_choice)
+	await _pay_flat_reward(quest)
+
+
+## For a MULTI_STEP-kind quest combining a matching mini-game with two
+## separate decision points (e.g. Leadership Quest's "Final Challenge").
+func _run_multi_step_quest(quest: QuestData) -> void:
+	await _show_intro(quest)
+	await MatchPanel.show_match(quest.match_pairs)
+	if not quest.match_outro_text_key.is_empty():
+		await DialogueBox.show_text(quest.match_outro_text_key)
+	await _run_one_choice(quest.challenge_choice)
+	await _run_one_choice(quest.second_challenge_choice)
+	await _pay_flat_reward(quest)
 
 
 func _run_lesson_quest(quest: QuestData) -> void:

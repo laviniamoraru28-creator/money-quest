@@ -1,0 +1,112 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=22 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueLine.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/SpotItemData.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="5"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="6"]
+
+[sub_resource type="Resource" id="DialogueLine_oren"]
+script = ExtResource("2")
+speaker_id = "oren"
+text_key = "quest.lq_motivation_problem.dialogue.0"
+
+[sub_resource type="Resource" id="SpotItemData_unclear_goal"]
+script = ExtResource("3")
+item_id = "unclear-goal"
+text_key = "quest.lq_motivation_problem.spot_item.unclear_goal"
+is_suspicious = true
+
+[sub_resource type="Resource" id="SpotItemData_too_much_work"]
+script = ExtResource("3")
+item_id = "too-much-work"
+text_key = "quest.lq_motivation_problem.spot_item.too_much_work"
+is_suspicious = false
+
+[sub_resource type="Resource" id="SpotItemData_boredom"]
+script = ExtResource("3")
+item_id = "boredom"
+text_key = "quest.lq_motivation_problem.spot_item.boredom"
+is_suspicious = false
+
+[sub_resource type="Resource" id="SpotItemData_feeling_ignored"]
+script = ExtResource("3")
+item_id = "feeling-ignored"
+text_key = "quest.lq_motivation_problem.spot_item.feeling_ignored"
+is_suspicious = true
+
+[sub_resource type="Resource" id="SpotItemData_lack_of_progress"]
+script = ExtResource("3")
+item_id = "lack-of-progress"
+text_key = "quest.lq_motivation_problem.spot_item.lack_of_progress"
+is_suspicious = false
+
+[sub_resource type="Resource" id="ConsequenceEffect_explain_the_goal_again"]
+script = ExtResource("6")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "lq.decision.motivation_problem.choice.explain_the_goal_again.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_explain_the_goal_again"]
+script = ExtResource("5")
+label_key = "lq.decision.motivation_problem.choice.explain_the_goal_again.label"
+consequence = SubResource("ConsequenceEffect_explain_the_goal_again")
+
+[sub_resource type="Resource" id="ConsequenceEffect_check_in_with_each_person"]
+script = ExtResource("6")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "lq.decision.motivation_problem.choice.check_in_with_each_person.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_check_in_with_each_person"]
+script = ExtResource("5")
+label_key = "lq.decision.motivation_problem.choice.check_in_with_each_person.label"
+consequence = SubResource("ConsequenceEffect_check_in_with_each_person")
+
+[sub_resource type="Resource" id="ConsequenceEffect_push_through_and_keep_going"]
+script = ExtResource("6")
+coin_delta = 3
+xp_delta = 5
+consequence_text_key = "lq.decision.motivation_problem.choice.push_through_and_keep_going.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_push_through_and_keep_going"]
+script = ExtResource("5")
+label_key = "lq.decision.motivation_problem.choice.push_through_and_keep_going.label"
+consequence = SubResource("ConsequenceEffect_push_through_and_keep_going")
+
+[sub_resource type="Resource" id="ConsequenceEffect_take_a_short_break"]
+script = ExtResource("6")
+coin_delta = 2
+xp_delta = 5
+consequence_text_key = "lq.decision.motivation_problem.choice.take_a_short_break.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_take_a_short_break"]
+script = ExtResource("5")
+label_key = "lq.decision.motivation_problem.choice.take_a_short_break.label"
+consequence = SubResource("ConsequenceEffect_take_a_short_break")
+
+[sub_resource type="Resource" id="DialogueChoice_motivation_problem"]
+script = ExtResource("4")
+situation_text_key = "lq.decision.motivation_problem.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_explain_the_goal_again"), SubResource("ChoiceOption_check_in_with_each_person"), SubResource("ChoiceOption_push_through_and_keep_going"), SubResource("ChoiceOption_take_a_short_break")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "lq-motivation-problem-quest"
+title_key = "quest.lq_motivation_problem.title"
+description_key = "quest.lq_motivation_problem.description"
+educational_objective_key = "quest.lq_motivation_problem.objective"
+track = "leadership-quest"
+zone_id = "huddle-room"
+giver_npc_id = "oren"
+kind = 5
+intro_dialogue = Array[DialogueLine]([SubResource("DialogueLine_oren")])
+spot_scenario_text_key = "quest.lq_motivation_problem.spot_scenario"
+spot_items = Array[SpotItemData]([SubResource("SpotItemData_unclear_goal"), SubResource("SpotItemData_too_much_work"), SubResource("SpotItemData_boredom"), SubResource("SpotItemData_feeling_ignored"), SubResource("SpotItemData_lack_of_progress")])
+spot_outro_text_key = "quest.lq_motivation_problem.outro"
+challenge_choice = SubResource("DialogueChoice_motivation_problem")
+reward_message_key = "quest.lq_motivation_problem.reward_message"
+xp_reward = 15
+coin_reward = 10
+skill_ids = Array[String](["empathy", "problem-solving", "motivation"])

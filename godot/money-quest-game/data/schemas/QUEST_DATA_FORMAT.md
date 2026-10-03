@@ -16,15 +16,45 @@ require changing `QuestManager.gd` — only content.
 | `track` | String | `"money-quest"` \| `"entrepreneur-quest"` \| `"leadership-quest"` — which top-level Quest track this belongs to |
 | `zone_id` | String | Which `ZoneData.zone_id` the quest is given/played in |
 | `giver_npc_id` | String | Which NPC starts this quest when talked to |
-| `kind` | `QuestKind` enum | `LESSON` \| `EXPLORATION` \| `CHALLENGE` \| `SIMULATION`. `LESSON` and `CHALLENGE` have runners built — see `QuestManager._run_lesson_quest` / `_run_challenge_quest`. `EXPLORATION`/`SIMULATION` have none yet |
+| `kind` | `QuestKind` enum | `LESSON` \| `EXPLORATION` \| `CHALLENGE` \| `SIMULATION` \| `MATCH` \| `SPOT` \| `ALLOCATE` \| `SORT` \| `MULTI_STEP`. Every kind except `EXPLORATION`/`SIMULATION` has a runner built — see `QuestManager._run_lesson_quest` / `_run_challenge_quest` / `_run_match_quest` / `_run_spot_quest` / `_run_allocate_quest` / `_run_sort_quest` / `_run_multi_step_quest` |
 | `lesson_data_path` | String | `res://` path to a `LessonData` resource (see `LESSON_DATA_FORMAT.md`). Only set when `kind == LESSON` |
 | `intro_dialogue` | `Array[DialogueLine]` | Spoken lines between named characters, shown before `intro_text_key`/`challenge_choice` — the exact same shape `LessonData.intro_dialogue` uses. Only meaningful when `kind == CHALLENGE`; see `data/quests/lq-big-mistake-quest.tres` for a worked example (Priya/Oren reacting to the mistake before the player decides) |
 | `intro_text_key` | String | A single narrator-style line, shown after `intro_dialogue` and before `diagnosis_choice`/`challenge_choice`, if set. Only meaningful when `kind == CHALLENGE` |
 | `diagnosis_choice` | `DialogueChoice` (nullable) | Only set for a "business problem"-shaped quest (the real website's investigate-clues -> identify-a-cause -> choose-a-response flow). Shown, if set, after `intro_text_key` and before `challenge_choice`: a reflective, non-scored choice — its options' `ConsequenceEffect`s should have `coin_delta = 0`/`xp_delta = 0` (the runner pays no reward for this step; only `challenge_choice` does) and `consequence_text_key` set to the real cause's own feedback text. Left unset for every ordinary CHALLENGE quest; see `data/quests/eq-not-enough-customers-quest.tres` for a worked example |
-| `challenge_choice` | `DialogueChoice` (nullable) | A single situation + 2-4 `ChoiceOption`s, each with a `ConsequenceEffect` — the exact same shape `LessonData.choice_point` uses. Only set when `kind == CHALLENGE`; see `data/quests/eq-handle-competition-quest.tres` for a worked example porting a real Entrepreneur Quest decision event |
-| `reward_message_key` | String | The reward line shown after a `CHALLENGE`-kind quest. Only set when `kind == CHALLENGE` — a `LESSON`-kind quest's reward line is `LessonData.reward_message_key` instead |
-| `xp_reward` / `coin_reward` | int | For a `LESSON`-kind quest, leave these at `0` — the wrapped `LessonData` already pays its own reward via `ProgressManager.complete_lesson()`, and `QuestManager` never double-pays. A `CHALLENGE`-kind quest (no wrapped `LessonData`) uses these directly |
+| `challenge_choice` | `DialogueChoice` (nullable) | A single situation + 2-4 `ChoiceOption`s, each with a `ConsequenceEffect` — the exact same shape `LessonData.choice_point` uses. For `CHALLENGE` this is the whole quest's decision; for `MATCH`/`SPOT`/`ALLOCATE`/`SORT`/`MULTI_STEP` it's an optional follow-up decision shown after the mini-game resolves. See `data/quests/eq-handle-competition-quest.tres` for a worked CHALLENGE example |
+| `second_challenge_choice` | `DialogueChoice` (nullable) | Only set when `kind == MULTI_STEP` — a second decision point shown after `challenge_choice` resolves, before the flat reward is paid (e.g. Leadership Quest's "Final Challenge," which follows its matching mini-game with two separate decisions) |
+| `match_pairs` | `Array[MatchPairData]` | Only set when `kind == MATCH` or `MULTI_STEP` — the tap-tap matching mini-game's left/right pairs (e.g. a task matched to the teammate who's good at it). `MatchPanel` shuffles the right column and never uses drag. See `MatchPairData.gd` |
+| `match_outro_text_key` | String | Shown once all pairs are matched, before `challenge_choice`. May be left empty |
+| `spot_scenario_text_key` / `spot_items` | String / `Array[SpotItemData]` | Only set when `kind == SPOT` — the "spot the problem" mini-game's scenario text and selectable items (each with an `is_suspicious` flag). `SpotPanel` checks the selected set exactly and allows unlimited retry on a wrong submission. See `SpotItemData.gd` |
+| `spot_outro_text_key` | String | Shown once the correct set is submitted, before `challenge_choice`. May be left empty |
+| `allocate_total_amount` / `allocate_unit_label_key` / `allocate_categories` | int / String / `Array[AllocateCategoryData]` | Only set when `kind == ALLOCATE` — the budget-splitting mini-game's fixed total, unit label (e.g. "minutes"), and per-category target±tolerance. Plain integers, never currency. See `AllocateCategoryData.gd` |
+| `allocate_outro_text_key` | String | Shown once the plan is confirmed, before `challenge_choice`. May be left empty |
+| `sort_buckets` / `sort_items` | `Array[SortBucketData]` / `Array[SortItemData]` | Only set when `kind == SORT` — the tap-select-then-tap-bucket sorting mini-game's destination buckets and placeable items (each with a `correct_bucket_key`). See `SortBucketData.gd` / `SortItemData.gd` |
+| `sort_outro_text_key` | String | Shown once every item is correctly sorted, before `challenge_choice`. May be left empty |
+| `reward_message_key` | String | The reward line shown at the end of a non-`LESSON` quest. Only set for `CHALLENGE`/`MATCH`/`SPOT`/`ALLOCATE`/`SORT`/`MULTI_STEP` — a `LESSON`-kind quest's reward line is `LessonData.reward_message_key` instead |
+| `xp_reward` / `coin_reward` | int | For a `LESSON`-kind quest, leave these at `0` — the wrapped `LessonData` already pays its own reward via `ProgressManager.complete_lesson()`, and `QuestManager` never double-pays. Every other kind (no wrapped `LessonData`) uses these directly, paid once as a flat reward after any mini-game/choice resolves |
 | `skill_ids` | `Array[String]` | Which Smart Skills this quest exercises (see `docs/money-quest-world-architecture.md` Section 17) — tallied into `ProgressManager.skill_points`, never shown as a score |
+
+## Mini-game quest kinds (MATCH / SPOT / ALLOCATE / SORT / MULTI_STEP)
+
+These five kinds port the real website's own reusable mini-game
+mechanics (`src/game-engine/mechanics/{Match,Spot,Allocate,Sort}Mechanic.tsx`)
+into Godot, as autoloaded `CanvasLayer` panels (`MatchPanel`/`SpotPanel`/
+`AllocatePanel`/`SortPanel`) mirroring `ChoicePanel`'s own conventions. All
+five flow the same way: `intro_dialogue`/`intro_text_key` → the mini-game
+itself → an optional outro line → an optional `challenge_choice` (and, for
+`MULTI_STEP` only, a `second_challenge_choice`) → the flat
+`xp_reward`/`coin_reward`. The mini-game's own completion pays no reward
+on its own — only a `challenge_choice`'s per-pick `ConsequenceEffect`
+deltas and the quest's flat reward ever add coins/xp. Every mini-game
+panel is retry-until-correct (no hard-fail state), matching the real
+website's own "always eventually succeeds" design. See
+`data/quests/lq-meet-your-team-quest.tres` (MATCH),
+`data/quests/lq-team-conflict-quest.tres` (SPOT),
+`data/quests/lq-the-deadline-quest.tres` (ALLOCATE),
+`data/quests/lq-pressure-test-quest.tres` (SORT), and
+`data/quests/lq-final-challenge-quest.tres` (MULTI_STEP) for worked
+examples.
 
 ## Rule: a quest wraps a lesson, it doesn't duplicate one
 

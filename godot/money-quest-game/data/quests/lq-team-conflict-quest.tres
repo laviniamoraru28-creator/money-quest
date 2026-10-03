@@ -1,0 +1,117 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=23 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueLine.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/SpotItemData.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="5"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="6"]
+
+[sub_resource type="Resource" id="DialogueLine_priya"]
+script = ExtResource("2")
+speaker_id = "priya"
+text_key = "quest.lq_team_conflict.dialogue.0"
+
+[sub_resource type="Resource" id="DialogueLine_theo"]
+script = ExtResource("2")
+speaker_id = "theo"
+text_key = "quest.lq_team_conflict.dialogue.1"
+
+[sub_resource type="Resource" id="SpotItemData_you_never_listen_to_me"]
+script = ExtResource("3")
+item_id = "you-never-listen-to-me"
+text_key = "quest.lq_team_conflict.spot_item.you_never_listen_to_me"
+is_suspicious = true
+
+[sub_resource type="Resource" id="SpotItemData_i_think_we_see_it_differently"]
+script = ExtResource("3")
+item_id = "i-think-we-see-it-differently"
+text_key = "quest.lq_team_conflict.spot_item.i_think_we_see_it_differently"
+is_suspicious = false
+
+[sub_resource type="Resource" id="SpotItemData_youre_doing_this_on_purpose"]
+script = ExtResource("3")
+item_id = "youre-doing-this-on-purpose"
+text_key = "quest.lq_team_conflict.spot_item.youre_doing_this_on_purpose"
+is_suspicious = true
+
+[sub_resource type="Resource" id="SpotItemData_can_we_slow_down_for_a_second"]
+script = ExtResource("3")
+item_id = "can-we-slow-down-for-a-second"
+text_key = "quest.lq_team_conflict.spot_item.can_we_slow_down_for_a_second"
+is_suspicious = false
+
+[sub_resource type="Resource" id="SpotItemData_fine_whatever_you_want"]
+script = ExtResource("3")
+item_id = "fine-whatever-you-want"
+text_key = "quest.lq_team_conflict.spot_item.fine_whatever_you_want"
+is_suspicious = false
+
+[sub_resource type="Resource" id="ConsequenceEffect_hear_both_sides"]
+script = ExtResource("6")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "lq.decision.team_conflict.choice.hear_both_sides.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_hear_both_sides"]
+script = ExtResource("5")
+label_key = "lq.decision.team_conflict.choice.hear_both_sides.label"
+consequence = SubResource("ConsequenceEffect_hear_both_sides")
+
+[sub_resource type="Resource" id="ConsequenceEffect_pick_a_side"]
+script = ExtResource("6")
+coin_delta = 2
+xp_delta = 5
+consequence_text_key = "lq.decision.team_conflict.choice.pick_a_side.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_pick_a_side"]
+script = ExtResource("5")
+label_key = "lq.decision.team_conflict.choice.pick_a_side.label"
+consequence = SubResource("ConsequenceEffect_pick_a_side")
+
+[sub_resource type="Resource" id="ConsequenceEffect_find_common_ground"]
+script = ExtResource("6")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "lq.decision.team_conflict.choice.find_common_ground.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_find_common_ground"]
+script = ExtResource("5")
+label_key = "lq.decision.team_conflict.choice.find_common_ground.label"
+consequence = SubResource("ConsequenceEffect_find_common_ground")
+
+[sub_resource type="Resource" id="ConsequenceEffect_tell_them_to_stop_and_move_on"]
+script = ExtResource("6")
+coin_delta = 3
+xp_delta = 5
+consequence_text_key = "lq.decision.team_conflict.choice.tell_them_to_stop_and_move_on.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_tell_them_to_stop_and_move_on"]
+script = ExtResource("5")
+label_key = "lq.decision.team_conflict.choice.tell_them_to_stop_and_move_on.label"
+consequence = SubResource("ConsequenceEffect_tell_them_to_stop_and_move_on")
+
+[sub_resource type="Resource" id="DialogueChoice_team_conflict"]
+script = ExtResource("4")
+situation_text_key = "lq.decision.team_conflict.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_hear_both_sides"), SubResource("ChoiceOption_pick_a_side"), SubResource("ChoiceOption_find_common_ground"), SubResource("ChoiceOption_tell_them_to_stop_and_move_on")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "lq-team-conflict-quest"
+title_key = "quest.lq_team_conflict.title"
+description_key = "quest.lq_team_conflict.description"
+educational_objective_key = "quest.lq_team_conflict.objective"
+track = "leadership-quest"
+zone_id = "team-challenge"
+giver_npc_id = "theo"
+kind = 5
+intro_dialogue = Array[DialogueLine]([SubResource("DialogueLine_priya"), SubResource("DialogueLine_theo")])
+spot_scenario_text_key = "quest.lq_team_conflict.spot_scenario"
+spot_items = Array[SpotItemData]([SubResource("SpotItemData_you_never_listen_to_me"), SubResource("SpotItemData_i_think_we_see_it_differently"), SubResource("SpotItemData_youre_doing_this_on_purpose"), SubResource("SpotItemData_can_we_slow_down_for_a_second"), SubResource("SpotItemData_fine_whatever_you_want")])
+spot_outro_text_key = "quest.lq_team_conflict.outro"
+challenge_choice = SubResource("DialogueChoice_team_conflict")
+reward_message_key = "quest.lq_team_conflict.reward_message"
+xp_reward = 15
+coin_reward = 10
+skill_ids = Array[String](["conflict-resolution", "active-listening", "fairness"])

@@ -1,0 +1,117 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=24 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueLine.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/SortBucketData.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/SortItemData.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="5"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="6"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="7"]
+
+[sub_resource type="Resource" id="DialogueLine_priya"]
+script = ExtResource("2")
+speaker_id = "priya"
+text_key = "quest.lq_pressure_test.dialogue.0"
+
+[sub_resource type="Resource" id="SortBucketData_deal_with_first"]
+script = ExtResource("3")
+bucket_key = "deal-with-first"
+label_key = "quest.lq_pressure_test.bucket.deal_with_first"
+
+[sub_resource type="Resource" id="SortBucketData_deal_with_next"]
+script = ExtResource("3")
+bucket_key = "deal-with-next"
+label_key = "quest.lq_pressure_test.bucket.deal_with_next"
+
+[sub_resource type="Resource" id="SortBucketData_can_wait"]
+script = ExtResource("3")
+bucket_key = "can-wait"
+label_key = "quest.lq_pressure_test.bucket.can_wait"
+
+[sub_resource type="Resource" id="SortItemData_a_teammate_is_stuck_and_blocked"]
+script = ExtResource("4")
+item_id = "a-teammate-is-stuck-and-blocked"
+text_key = "quest.lq_pressure_test.item.a_teammate_is_stuck_and_blocked"
+correct_bucket_key = "deal-with-first"
+
+[sub_resource type="Resource" id="SortItemData_the_customer_is_waiting_for_an_answer"]
+script = ExtResource("4")
+item_id = "the-customer-is-waiting-for-an-answer"
+text_key = "quest.lq_pressure_test.item.the_customer_is_waiting_for_an_answer"
+correct_bucket_key = "deal-with-first"
+
+[sub_resource type="Resource" id="SortItemData_one_teammate_seems_upset"]
+script = ExtResource("4")
+item_id = "one-teammate-seems-upset"
+text_key = "quest.lq_pressure_test.item.one_teammate_seems_upset"
+correct_bucket_key = "deal-with-next"
+
+[sub_resource type="Resource" id="SortItemData_a_small_typo_in_the_document"]
+script = ExtResource("4")
+item_id = "a-small-typo-in-the-document"
+text_key = "quest.lq_pressure_test.item.a_small_typo_in_the_document"
+correct_bucket_key = "can-wait"
+
+[sub_resource type="Resource" id="SortItemData_an_idea_for_a_later_improvement"]
+script = ExtResource("4")
+item_id = "an-idea-for-a-later-improvement"
+text_key = "quest.lq_pressure_test.item.an_idea_for_a_later_improvement"
+correct_bucket_key = "can-wait"
+
+[sub_resource type="Resource" id="ConsequenceEffect_stay_calm_and_work_the_list"]
+script = ExtResource("7")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "lq.decision.pressure_test.choice.stay_calm_and_work_the_list.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_stay_calm_and_work_the_list"]
+script = ExtResource("6")
+label_key = "lq.decision.pressure_test.choice.stay_calm_and_work_the_list.label"
+consequence = SubResource("ConsequenceEffect_stay_calm_and_work_the_list")
+
+[sub_resource type="Resource" id="ConsequenceEffect_panic_a_little_but_push_through"]
+script = ExtResource("7")
+coin_delta = 3
+xp_delta = 5
+consequence_text_key = "lq.decision.pressure_test.choice.panic_a_little_but_push_through.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_panic_a_little_but_push_through"]
+script = ExtResource("6")
+label_key = "lq.decision.pressure_test.choice.panic_a_little_but_push_through.label"
+consequence = SubResource("ConsequenceEffect_panic_a_little_but_push_through")
+
+[sub_resource type="Resource" id="ConsequenceEffect_ask_the_team_for_help"]
+script = ExtResource("7")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "lq.decision.pressure_test.choice.ask_the_team_for_help.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_ask_the_team_for_help"]
+script = ExtResource("6")
+label_key = "lq.decision.pressure_test.choice.ask_the_team_for_help.label"
+consequence = SubResource("ConsequenceEffect_ask_the_team_for_help")
+
+[sub_resource type="Resource" id="DialogueChoice_pressure_test"]
+script = ExtResource("5")
+situation_text_key = "lq.decision.pressure_test.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_stay_calm_and_work_the_list"), SubResource("ChoiceOption_panic_a_little_but_push_through"), SubResource("ChoiceOption_ask_the_team_for_help")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "lq-pressure-test-quest"
+title_key = "quest.lq_pressure_test.title"
+description_key = "quest.lq_pressure_test.description"
+educational_objective_key = "quest.lq_pressure_test.objective"
+track = "leadership-quest"
+zone_id = "leadership-academy"
+giver_npc_id = "priya"
+kind = 7
+intro_dialogue = Array[DialogueLine]([SubResource("DialogueLine_priya")])
+sort_buckets = Array[SortBucketData]([SubResource("SortBucketData_deal_with_first"), SubResource("SortBucketData_deal_with_next"), SubResource("SortBucketData_can_wait")])
+sort_items = Array[SortItemData]([SubResource("SortItemData_a_teammate_is_stuck_and_blocked"), SubResource("SortItemData_the_customer_is_waiting_for_an_answer"), SubResource("SortItemData_one_teammate_seems_upset"), SubResource("SortItemData_a_small_typo_in_the_document"), SubResource("SortItemData_an_idea_for_a_later_improvement")])
+sort_outro_text_key = "quest.lq_pressure_test.outro"
+challenge_choice = SubResource("DialogueChoice_pressure_test")
+reward_message_key = "quest.lq_pressure_test.reward_message"
+xp_reward = 15
+coin_reward = 10
+skill_ids = Array[String](["prioritization", "calm-under-pressure", "problem-solving"])

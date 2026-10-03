@@ -612,10 +612,12 @@ node), never an architecture change.
 | Leadership Quest's Team Challenge zone + "The Angry Customer" quest | **Built** — reached via a portal inside Leadership Academy (Leadership Quest's first 2-zone graph); another `CHALLENGE`-kind quest with Theo as a real-character NPC, porting the real `angry-customer-choice` decision event verbatim |
 | Leadership Quest's Strategy Room zone + "The Better Idea" quest | **Built** — reached via a portal inside Team Challenge (Leadership Academy → Team Challenge → Strategy Room, Leadership Quest's first 3-zone graph); another `CHALLENGE`-kind quest with Nadia (the 3rd of Leadership Quest's 4 real characters used so far) as the giver NPC, porting the real `better-idea-choice` decision event verbatim |
 | Leadership Quest's Huddle Room zone + "Everyone Has an Idea" quest | **Built** — reached via a portal inside Strategy Room (Leadership Academy → Team Challenge → Strategy Room → Huddle Room, Leadership Quest's first 4-zone graph); Oren is the giver NPC — the 4th and last of Leadership Quest's 4 real characters (Nadia, Oren, Priya, Theo), completing the real cast; ports the real `everyone-has-an-idea-choice` decision event verbatim, including its own `nadia`/`oren` intro dialogue |
-| Team Challenge's Theo + "The Missing Task" quest (Theo's second quest) | **Built** — ports the real `missing-task-choice` decision event verbatim, including its own `theo`/`priya` intro dialogue plus 3 narrator-style "investigate" lines (the real site's tap-to-reveal clues, shown here as sequential `intro_dialogue` lines, the same adaptation Entrepreneur Quest's Business Problems already used for their own clues); since Leadership Quest has only 4 real characters total and all 4 already have their own zone, this is the first "one NPC gives a second quest" case — `TeamChallenge.gd` now offers Theo's next incomplete quest in a fixed order rather than inventing a new NPC for a mission with no new character. **This completes all portable Leadership Quest content** (5 of 12 real missions now ported: Big Mistake, Angry Customer, Better Idea, Everyone Has an Idea, The Missing Task) — the remaining 7 of 12 real missions (`meet-your-team`/`first-challenge`: 2 `match`; `team-conflict`/`motivation-problem`: 2 `spot`; `the-deadline`: 1 `allocate`; `pressure-test`: 1 `sort`; `final-challenge`: 1 multi-step combining match + 2 choices) need mechanics `QuestData`/`QuestManager` don't have yet |
+| Team Challenge's Theo + "The Missing Task" quest (Theo's second quest) | **Built** — ports the real `missing-task-choice` decision event verbatim, including its own `theo`/`priya` intro dialogue plus 3 narrator-style "investigate" lines (the real site's tap-to-reveal clues, shown here as sequential `intro_dialogue` lines, the same adaptation Entrepreneur Quest's Business Problems already used for their own clues); since Leadership Quest has only 4 real characters total and all 4 already have their own zone, this is the first "one NPC gives a second quest" case — `TeamChallenge.gd` now offers Theo's next incomplete quest in a fixed order rather than inventing a new NPC for a mission with no new character. (5 of 12 real missions ported at this point: Big Mistake, Angry Customer, Better Idea, Everyone Has an Idea, The Missing Task) |
+| `MATCH`/`SPOT`/`ALLOCATE`/`SORT`/`MULTI_STEP` quest kinds + `MatchPanel`/`SpotPanel`/`AllocatePanel`/`SortPanel` autoloads | **Built** — 4 new `QuestData.QuestKind` values plus a 5th combinator (`MULTI_STEP`), 5 new core Resource classes (`MatchPairData`, `SpotItemData`, `AllocateCategoryData`, `SortBucketData`, `SortItemData`), and 4 new autoloaded `CanvasLayer` UI panels mirroring `ChoicePanel`'s own conventions (centered `PanelContainer`, runtime-generated buttons, `await`-based modal flow), porting the real website's own reusable mini-game mechanics (`src/game-engine/mechanics/{Match,Spot,Allocate,Sort}Mechanic.tsx`) faithfully: `MatchPanel` is tap-tap matching with a shuffled right column and wrong-match flash+retry (never drag); `SpotPanel` is toggle-select-then-submit with an exact-set check and unlimited retry; `AllocatePanel` is a fixed-step +/- stepper with a remaining-amount readout, retry-until-correct; `SortPanel` is tap-select-then-tap-bucket, also never drag, also retry-until-correct — matching the real site's "always eventually succeeds" design in every case. `QuestManager` was refactored into shared helpers (`_show_intro`, `_run_one_choice`, `_pay_flat_reward`) reused by the existing `_run_challenge_quest` (behavior-preserving) and 5 new runners. See `data/schemas/QUEST_DATA_FORMAT.md`'s new "Mini-game quest kinds" section |
+| Leadership Quest's remaining 7 real missions (`meet-your-team`, `first-challenge`, `team-conflict`, `motivation-problem`, `the-deadline`, `pressure-test`, `final-challenge`) | **Built** — ported verbatim using the new mechanics above, with NO new zones: each of Leadership Quest's 4 characters simply grew a longer fixed quest queue (the same "NPC offers next incomplete quest in order" pattern Theo's 2-quest queue already proved). Priya (Leadership Academy) now gives 4: Meet Your Team (`MATCH`) → First Challenge (`MATCH`, no follow-up choice) → Big Mistake → Pressure Test (`SORT`). Theo (Team Challenge) now gives 4: Angry Customer → The Missing Task → The Team Conflict (`SPOT`) → The Deadline (`ALLOCATE`). Nadia (Strategy Room) now gives 2: Better Idea → The Final Challenge (`MULTI_STEP`: a matching mini-game followed by two separate decision points). Oren (Huddle Room) now gives 2: Everyone Has an Idea → The Motivation Problem (`SPOT`). The Final Challenge's first decision point uses the real site's own `"none"`-tag fallback situation text verbatim, since Godot has no equivalent of the website's Leadership Profile archetype tracking that personalizes it there for a returning player — an honest simplification, not fabricated content. **This completes all 12 of Leadership Quest's real missions** |
 | `AvatarConfig` + creation screen, fully wired to the 3D model | **Built** — 4 body presets (including a seated wheelchair-style look) and 4 accessories (glasses, cap, hearing aid, cane), all purely visual, listed together as equally normal choices |
 | Progression fields for zones/quests/skills | **Built** (additive) |
-| Entrepreneur Quest's remaining real content (9 of 25 decision events — the v2 RUN set, AI Lab, and Rescue & Grow set; all 18 BUILD stages' own mechanics, 5 Challenges, the RUN/Rescue & Grow hubs) / Leadership Quest's remaining 7 missions (all need match/spot/allocate/sort/multi-step mechanics not yet built) | Not built — Money Quest's completion (all 30 lessons) makes these two tracks the primary remaining expansion targets |
+| Entrepreneur Quest's remaining real content (9 of 25 decision events — the v2 RUN set, AI Lab, and Rescue & Grow set; all 18 BUILD stages' own mechanics, 5 Challenges, the RUN/Rescue & Grow hubs) | Not built — Leadership Quest's completion (all 12 real missions) and Money Quest's completion (all 30 lessons) make this the primary remaining expansion target |
 | `EntryData`/`BookData`/`ExhibitData`/`MentorData`/`DictionaryTermData` schema | **Built** (`scripts/library/`, see `data/schemas/ENTRY_DATA_FORMAT.md`) |
 | Dictionary content | **Built** — 2 real terms (`goal`, `trade-off`), reusing `builder-saving-l1`'s own vocabulary keys verbatim |
 | Library zone (`data/zones/library.tres`, bookshelves, Librarian NPC, reachable from the Hub) | **Built** — honestly empty; the Librarian says the shelves are still being prepared rather than pretending there's content |
@@ -926,5 +928,40 @@ godot/money-quest-game/
     declared but have no runner — `QuestManager.gd` just warns and
     finishes immediately) that don't exist in Godot yet and would need
     designing before those missions can be ported.
+    Phase 51 (this update) designed and built exactly those missing
+    mechanics, then used them to port all 7 remaining missions in one
+    pass. Four new `QuestKind` values (`MATCH`, `SPOT`, `ALLOCATE`,
+    `SORT`) plus a 5th combinator (`MULTI_STEP`, for the one mission —
+    Final Challenge — that needs a mini-game followed by two separate
+    decisions) were added alongside 5 new core Resource classes
+    (`MatchPairData`, `SpotItemData`, `AllocateCategoryData`,
+    `SortBucketData`, `SortItemData`) and 4 new autoloaded `CanvasLayer`
+    panels (`MatchPanel`, `SpotPanel`, `AllocatePanel`, `SortPanel`),
+    each built by reading the real website's own mechanic component
+    (`src/game-engine/mechanics/{Match,Spot,Allocate,Sort}Mechanic.tsx`)
+    first and porting its exact interaction model rather than inventing
+    a new one: tap-tap matching with a shuffled right column (never
+    drag), toggle-select-then-submit with an exact-set check, a
+    fixed-step +/- stepper with a remaining-amount readout, and
+    tap-select-then-tap-bucket sorting (also never drag) — every one
+    retry-until-correct, matching the real site's own "always
+    eventually succeeds" design. `QuestManager._run_challenge_quest` was
+    refactored (behavior-preserving) into 3 shared helpers (`_show_intro`,
+    `_run_one_choice`, `_pay_flat_reward`) that the 5 new runners reuse,
+    so no quest kind duplicates another's intro/reward-paying logic.
+    With the mechanics built, all 7 remaining missions were ported
+    verbatim with **no new zones**: each of Leadership Quest's 4
+    characters simply grew a longer fixed quest queue, the same pattern
+    Theo's 2-quest queue in Phase 50 already proved. Priya now gives 4
+    quests (Meet Your Team → First Challenge → Big Mistake → Pressure
+    Test), Theo now gives 4 (Angry Customer → The Missing Task → The
+    Team Conflict → The Deadline), Nadia now gives 2 (Better Idea → The
+    Final Challenge), and Oren now gives 2 (Everyone Has an Idea → The
+    Motivation Problem). The Final Challenge's first decision point uses
+    the real site's own `"none"`-tag fallback situation text verbatim,
+    since Godot has no equivalent of the website's Leadership Profile
+    archetype tracking that would otherwise personalize it — a
+    documented, honest simplification rather than fabricated content.
+    **All 12 of Leadership Quest's real missions are now ported.**
     Still waiting on you: a real book/exhibit/mentor for Library/Museum
     (Section 6).

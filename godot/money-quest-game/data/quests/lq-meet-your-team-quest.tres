@@ -1,0 +1,109 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=22 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueLine.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/MatchPairData.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="5"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="6"]
+
+[sub_resource type="Resource" id="DialogueLine_nadia"]
+script = ExtResource("2")
+speaker_id = "nadia"
+text_key = "quest.lq_meet_your_team.dialogue.0"
+
+[sub_resource type="Resource" id="DialogueLine_oren"]
+script = ExtResource("2")
+speaker_id = "oren"
+text_key = "quest.lq_meet_your_team.dialogue.1"
+
+[sub_resource type="Resource" id="DialogueLine_priya"]
+script = ExtResource("2")
+speaker_id = "priya"
+text_key = "quest.lq_meet_your_team.dialogue.2"
+
+[sub_resource type="Resource" id="DialogueLine_theo"]
+script = ExtResource("2")
+speaker_id = "theo"
+text_key = "quest.lq_meet_your_team.dialogue.3"
+
+[sub_resource type="Resource" id="MatchPairData_come_up_with_ideas"]
+script = ExtResource("3")
+pair_id = "come-up-with-ideas"
+left_text_key = "quest.lq_meet_your_team.task.come_up_with_ideas"
+right_character_id = "nadia"
+
+[sub_resource type="Resource" id="MatchPairData_fix_something_broken"]
+script = ExtResource("3")
+pair_id = "fix-something-broken"
+left_text_key = "quest.lq_meet_your_team.task.fix_something_broken"
+right_character_id = "oren"
+
+[sub_resource type="Resource" id="MatchPairData_talk_to_a_visitor"]
+script = ExtResource("3")
+pair_id = "talk-to-a-visitor"
+left_text_key = "quest.lq_meet_your_team.task.talk_to_a_visitor"
+right_character_id = "priya"
+
+[sub_resource type="Resource" id="MatchPairData_keep_track_of_the_plan"]
+script = ExtResource("3")
+pair_id = "keep-track-of-the-plan"
+left_text_key = "quest.lq_meet_your_team.task.keep_track_of_the_plan"
+right_character_id = "theo"
+
+[sub_resource type="Resource" id="ConsequenceEffect_excited"]
+script = ExtResource("6")
+coin_delta = 3
+xp_delta = 5
+consequence_text_key = "lq.decision.meet_your_team.choice.excited.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_excited"]
+script = ExtResource("5")
+label_key = "lq.decision.meet_your_team.choice.excited.label"
+consequence = SubResource("ConsequenceEffect_excited")
+
+[sub_resource type="Resource" id="ConsequenceEffect_nervous_but_ready"]
+script = ExtResource("6")
+coin_delta = 3
+xp_delta = 5
+consequence_text_key = "lq.decision.meet_your_team.choice.nervous_but_ready.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_nervous_but_ready"]
+script = ExtResource("5")
+label_key = "lq.decision.meet_your_team.choice.nervous_but_ready.label"
+consequence = SubResource("ConsequenceEffect_nervous_but_ready")
+
+[sub_resource type="Resource" id="ConsequenceEffect_not_sure_yet"]
+script = ExtResource("6")
+coin_delta = 3
+xp_delta = 5
+consequence_text_key = "lq.decision.meet_your_team.choice.not_sure_yet.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_not_sure_yet"]
+script = ExtResource("5")
+label_key = "lq.decision.meet_your_team.choice.not_sure_yet.label"
+consequence = SubResource("ConsequenceEffect_not_sure_yet")
+
+[sub_resource type="Resource" id="DialogueChoice_meet_your_team"]
+script = ExtResource("4")
+situation_text_key = "lq.decision.meet_your_team.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_excited"), SubResource("ChoiceOption_nervous_but_ready"), SubResource("ChoiceOption_not_sure_yet")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "lq-meet-your-team-quest"
+title_key = "quest.lq_meet_your_team.title"
+description_key = "quest.lq_meet_your_team.description"
+educational_objective_key = "quest.lq_meet_your_team.objective"
+track = "leadership-quest"
+zone_id = "leadership-academy"
+giver_npc_id = "priya"
+kind = 4
+intro_dialogue = Array[DialogueLine]([SubResource("DialogueLine_nadia"), SubResource("DialogueLine_oren"), SubResource("DialogueLine_priya"), SubResource("DialogueLine_theo")])
+match_pairs = Array[MatchPairData]([SubResource("MatchPairData_come_up_with_ideas"), SubResource("MatchPairData_fix_something_broken"), SubResource("MatchPairData_talk_to_a_visitor"), SubResource("MatchPairData_keep_track_of_the_plan")])
+match_outro_text_key = "quest.lq_meet_your_team.outro"
+challenge_choice = SubResource("DialogueChoice_meet_your_team")
+reward_message_key = "quest.lq_meet_your_team.reward_message"
+xp_reward = 15
+coin_reward = 10
+skill_ids = Array[String](["self-awareness", "teamwork", "communication"])

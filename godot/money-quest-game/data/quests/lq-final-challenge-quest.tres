@@ -1,0 +1,143 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=28 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueLine.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/MatchPairData.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="5"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="6"]
+
+[sub_resource type="Resource" id="DialogueLine_nadia"]
+script = ExtResource("2")
+speaker_id = "nadia"
+text_key = "quest.lq_final_challenge.dialogue.0"
+
+[sub_resource type="Resource" id="DialogueLine_theo"]
+script = ExtResource("2")
+speaker_id = "theo"
+text_key = "quest.lq_final_challenge.dialogue.1"
+
+[sub_resource type="Resource" id="DialogueLine_priya"]
+script = ExtResource("2")
+speaker_id = "priya"
+text_key = "quest.lq_final_challenge.dialogue.2"
+
+[sub_resource type="Resource" id="MatchPairData_come_up_with_the_idea"]
+script = ExtResource("3")
+pair_id = "come-up-with-the-idea"
+left_text_key = "quest.lq_final_challenge.task.come_up_with_the_idea"
+right_character_id = "nadia"
+
+[sub_resource type="Resource" id="MatchPairData_build_the_thing"]
+script = ExtResource("3")
+pair_id = "build-the-thing"
+left_text_key = "quest.lq_final_challenge.task.build_the_thing"
+right_character_id = "oren"
+
+[sub_resource type="Resource" id="MatchPairData_present_it_to_people"]
+script = ExtResource("3")
+pair_id = "present-it-to-people"
+left_text_key = "quest.lq_final_challenge.task.present_it_to_people"
+right_character_id = "priya"
+
+[sub_resource type="Resource" id="MatchPairData_keep_everyone_on_track"]
+script = ExtResource("3")
+pair_id = "keep-everyone-on-track"
+left_text_key = "quest.lq_final_challenge.task.keep_everyone_on_track"
+right_character_id = "theo"
+
+[sub_resource type="Resource" id="ConsequenceEffect_trust_the_team_to_handle_it"]
+script = ExtResource("6")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "lq.decision.final_challenge_1.choice.trust_the_team_to_handle_it.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_trust_the_team_to_handle_it"]
+script = ExtResource("5")
+label_key = "lq.decision.final_challenge_1.choice.trust_the_team_to_handle_it.label"
+consequence = SubResource("ConsequenceEffect_trust_the_team_to_handle_it")
+
+[sub_resource type="Resource" id="ConsequenceEffect_double_check_everything_yourself"]
+script = ExtResource("6")
+coin_delta = 3
+xp_delta = 5
+consequence_text_key = "lq.decision.final_challenge_1.choice.double_check_everything_yourself.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_double_check_everything_yourself"]
+script = ExtResource("5")
+label_key = "lq.decision.final_challenge_1.choice.double_check_everything_yourself.label"
+consequence = SubResource("ConsequenceEffect_double_check_everything_yourself")
+
+[sub_resource type="Resource" id="ConsequenceEffect_ask_for_a_quick_check_in"]
+script = ExtResource("6")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "lq.decision.final_challenge_1.choice.ask_for_a_quick_check_in.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_ask_for_a_quick_check_in"]
+script = ExtResource("5")
+label_key = "lq.decision.final_challenge_1.choice.ask_for_a_quick_check_in.label"
+consequence = SubResource("ConsequenceEffect_ask_for_a_quick_check_in")
+
+[sub_resource type="Resource" id="DialogueChoice_final_challenge_1"]
+script = ExtResource("4")
+situation_text_key = "lq.decision.final_challenge_1.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_trust_the_team_to_handle_it"), SubResource("ChoiceOption_double_check_everything_yourself"), SubResource("ChoiceOption_ask_for_a_quick_check_in")])
+
+[sub_resource type="Resource" id="ConsequenceEffect_celebrate_what_the_team_achieved"]
+script = ExtResource("6")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "lq.decision.final_challenge_2.choice.celebrate_what_the_team_achieved.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_celebrate_what_the_team_achieved"]
+script = ExtResource("5")
+label_key = "lq.decision.final_challenge_2.choice.celebrate_what_the_team_achieved.label"
+consequence = SubResource("ConsequenceEffect_celebrate_what_the_team_achieved")
+
+[sub_resource type="Resource" id="ConsequenceEffect_immediately_plan_the_next_project"]
+script = ExtResource("6")
+coin_delta = 3
+xp_delta = 5
+consequence_text_key = "lq.decision.final_challenge_2.choice.immediately_plan_the_next_project.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_immediately_plan_the_next_project"]
+script = ExtResource("5")
+label_key = "lq.decision.final_challenge_2.choice.immediately_plan_the_next_project.label"
+consequence = SubResource("ConsequenceEffect_immediately_plan_the_next_project")
+
+[sub_resource type="Resource" id="ConsequenceEffect_thank_each_person_individually"]
+script = ExtResource("6")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "lq.decision.final_challenge_2.choice.thank_each_person_individually.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_thank_each_person_individually"]
+script = ExtResource("5")
+label_key = "lq.decision.final_challenge_2.choice.thank_each_person_individually.label"
+consequence = SubResource("ConsequenceEffect_thank_each_person_individually")
+
+[sub_resource type="Resource" id="DialogueChoice_final_challenge_2"]
+script = ExtResource("4")
+situation_text_key = "lq.decision.final_challenge_2.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_celebrate_what_the_team_achieved"), SubResource("ChoiceOption_immediately_plan_the_next_project"), SubResource("ChoiceOption_thank_each_person_individually")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "lq-final-challenge-quest"
+title_key = "quest.lq_final_challenge.title"
+description_key = "quest.lq_final_challenge.description"
+educational_objective_key = "quest.lq_final_challenge.objective"
+track = "leadership-quest"
+zone_id = "strategy-room"
+giver_npc_id = "nadia"
+kind = 8
+intro_dialogue = Array[DialogueLine]([SubResource("DialogueLine_nadia"), SubResource("DialogueLine_theo"), SubResource("DialogueLine_priya")])
+match_pairs = Array[MatchPairData]([SubResource("MatchPairData_come_up_with_the_idea"), SubResource("MatchPairData_build_the_thing"), SubResource("MatchPairData_present_it_to_people"), SubResource("MatchPairData_keep_everyone_on_track")])
+match_outro_text_key = "quest.lq_final_challenge.outro"
+challenge_choice = SubResource("DialogueChoice_final_challenge_1")
+second_challenge_choice = SubResource("DialogueChoice_final_challenge_2")
+reward_message_key = "quest.lq_final_challenge.reward_message"
+xp_reward = 25
+coin_reward = 20
+skill_ids = Array[String](["leadership", "teamwork", "delegation", "gratitude"])

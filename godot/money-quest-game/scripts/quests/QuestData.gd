@@ -6,7 +6,7 @@ extends Resource
 ## and "what it says" (LessonData) — see docs/money-quest-world-
 ## architecture.md Section 4.
 
-enum QuestKind { LESSON, EXPLORATION, CHALLENGE, SIMULATION }
+enum QuestKind { LESSON, EXPLORATION, CHALLENGE, SIMULATION, MATCH, SPOT, ALLOCATE, SORT, MULTI_STEP }
 
 @export var quest_id: String = ""
 @export var title_key: String = ""
@@ -53,6 +53,45 @@ enum QuestKind { LESSON, EXPLORATION, CHALLENGE, SIMULATION }
 @export var diagnosis_choice: DialogueChoice
 
 @export var challenge_choice: DialogueChoice
+
+## Only set when kind == MULTI_STEP — a second DialogueChoice shown after
+## `challenge_choice` resolves, before the flat reward is paid (e.g.
+## Leadership Quest's "Final Challenge," which follows its matching
+## mini-game with two separate decision points rather than one).
+@export var second_challenge_choice: DialogueChoice
+
+## Only set when kind == MATCH — the matching mini-game's pairs (e.g.
+## Leadership Quest's "Meet Your Team," matching a task to the teammate
+## who's good at it). Shown after `intro_dialogue`/`intro_text_key` and
+## before `challenge_choice`. See MatchPairData.gd.
+@export var match_pairs: Array[MatchPairData] = []
+## Shown once all pairs are matched, before `challenge_choice`. May be empty.
+@export var match_outro_text_key: String = ""
+
+## Only set when kind == SPOT — the "spot the problem" mini-game (e.g.
+## Leadership Quest's "The Team Conflict"). Shown after `intro_dialogue`/
+## `intro_text_key` and before `challenge_choice`. See SpotItemData.gd.
+@export var spot_scenario_text_key: String = ""
+@export var spot_items: Array[SpotItemData] = []
+## Shown once the correct set is submitted, before `challenge_choice`. May be empty.
+@export var spot_outro_text_key: String = ""
+
+## Only set when kind == ALLOCATE — the budget-splitting mini-game (e.g.
+## Leadership Quest's "The Deadline," splitting time across tasks). Plain
+## integers, no currency formatting. See AllocateCategoryData.gd.
+@export var allocate_total_amount: int = 0
+@export var allocate_unit_label_key: String = ""
+@export var allocate_categories: Array[AllocateCategoryData] = []
+## Shown once the plan is confirmed, before `challenge_choice`. May be empty.
+@export var allocate_outro_text_key: String = ""
+
+## Only set when kind == SORT — the tap-select-then-tap-bucket sorting
+## mini-game (e.g. Leadership Quest's "The Pressure Test"). See
+## SortBucketData.gd / SortItemData.gd.
+@export var sort_buckets: Array[SortBucketData] = []
+@export var sort_items: Array[SortItemData] = []
+## Shown once every item is correctly sorted, before `challenge_choice`. May be empty.
+@export var sort_outro_text_key: String = ""
 
 ## Only set when kind == CHALLENGE — LESSON-kind quests get their reward
 ## line from the wrapped LessonData instead (see `reward_message_key` on

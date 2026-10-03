@@ -13,16 +13,22 @@ extends Node3D
 ## intro dialogue plus 3 narrator-style "investigate" lines — the real
 ## site's tap-to-reveal clues, shown here as sequential `intro_dialogue`
 ## lines, same adaptation Entrepreneur Quest's Business Problems already
-## used for their own clues). Leadership Quest only has 4 real characters
-## total (Nadia, Oren, Priya, Theo), so once every character has their
-## own zone, a later mission featuring an already-placed character
-## offers its quest from that same NPC instead of inventing a new one —
-## talking to Theo offers whichever of his 2 quests isn't finished yet,
-## in a fixed order, falling back to a single "already done" line only
-## once both are complete.
+## used for their own clues), a THIRD quest, "The Team Conflict"
+## (SPOT-kind, ported from the real website's spot-the-problem mini-game
+## — see SpotPanel.gd), and a FOURTH quest, "The Deadline" (ALLOCATE-kind,
+## ported from the real website's budget-splitting mini-game — see
+## AllocatePanel.gd). Leadership Quest only has 4 real characters total
+## (Nadia, Oren, Priya, Theo), so once every character has their own
+## zone, a later mission featuring an already-placed character offers its
+## quest from that same NPC instead of inventing a new one — talking to
+## Theo offers whichever of his 4 quests isn't finished yet, in a fixed
+## order, falling back to a single "already done" line only once all 4
+## are complete.
 
 const ANGRY_CUSTOMER_QUEST_ID: String = "lq-angry-customer-quest"
 const MISSING_TASK_QUEST_ID: String = "lq-missing-task-quest"
+const TEAM_CONFLICT_QUEST_ID: String = "lq-team-conflict-quest"
+const THE_DEADLINE_QUEST_ID: String = "lq-the-deadline-quest"
 
 @onready var player: Node3D = $Player
 @onready var camera_controller: CameraController = $CameraController
@@ -39,5 +45,9 @@ func _on_theo_talked_to(_npc_id: String) -> void:
 		QuestManager.start_quest(ANGRY_CUSTOMER_QUEST_ID)
 	elif not QuestManager.is_quest_completed(MISSING_TASK_QUEST_ID):
 		QuestManager.start_quest(MISSING_TASK_QUEST_ID)
+	elif not QuestManager.is_quest_completed(TEAM_CONFLICT_QUEST_ID):
+		QuestManager.start_quest(TEAM_CONFLICT_QUEST_ID)
+	elif not QuestManager.is_quest_completed(THE_DEADLINE_QUEST_ID):
+		QuestManager.start_quest(THE_DEADLINE_QUEST_ID)
 	else:
 		DialogueBox.show_text("zone.team_challenge.theo.already_done")

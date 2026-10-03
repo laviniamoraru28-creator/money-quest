@@ -28,15 +28,16 @@ config/icon="res://icon.svg"
 ;    loaded values INTO them during its own _ready(), so they must exist
 ;    first (they don't read anything at _ready time themselves).
 ; 3. SaveManager before anything that reads saved state at startup.
-; 4. The UI overlay autoloads (DialogueBox/ChoicePanel/RewardPopup) are
-;    global because deeply-nested zone/NPC scripts (see
-;    scenes/world/zones/) need to show dialogue/choices without any
-;    manual reference-passing across the scene tree — the same reasoning
-;    autoloads exist for in Godot generally. They render nothing until a
-;    script calls them (each is `visible = false` by default), so their
-;    presence during the main menu is harmless. HUD is NOT an autoload —
-;    it's purely reactive display, only meaningful once inside the world,
-;    so it's a plain child node of Main.tscn instead.
+; 4. The UI overlay autoloads (DialogueBox/ChoicePanel/RewardPopup/
+;    MatchPanel/SpotPanel/AllocatePanel/SortPanel) are global because
+;    deeply-nested zone/NPC scripts (see scenes/world/zones/) need to
+;    show dialogue/choices/mini-games without any manual reference-
+;    passing across the scene tree — the same reasoning autoloads exist
+;    for in Godot generally. They render nothing until a script calls
+;    them (each is `visible = false` by default), so their presence
+;    during the main menu is harmless. HUD is NOT an autoload — it's
+;    purely reactive display, only meaningful once inside the world, so
+;    it's a plain child node of Main.tscn instead.
 ; 5. WorldManager/QuestManager last — they call into everything above.
 Localization="*res://autoload/Localization.gd"
 Settings="*res://autoload/Settings.gd"
@@ -47,6 +48,10 @@ AudioManager="*res://autoload/AudioManager.gd"
 DialogueBox="*res://scenes/ui/DialogueBox.tscn"
 ChoicePanel="*res://scenes/ui/ChoicePanel.tscn"
 RewardPopup="*res://scenes/ui/RewardPopup.tscn"
+MatchPanel="*res://scenes/ui/MatchPanel.tscn"
+SpotPanel="*res://scenes/ui/SpotPanel.tscn"
+AllocatePanel="*res://scenes/ui/AllocatePanel.tscn"
+SortPanel="*res://scenes/ui/SortPanel.tscn"
 WorldManager="*res://autoload/WorldManager.gd"
 QuestManager="*res://autoload/QuestManager.gd"
 

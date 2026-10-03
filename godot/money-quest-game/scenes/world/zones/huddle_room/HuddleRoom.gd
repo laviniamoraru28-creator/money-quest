@@ -10,8 +10,14 @@ extends Node3D
 ## "The Angry Customer"/"The Better Idea" already proved — no new
 ## systems. Oren is the fourth and last of Leadership Quest's 4 real
 ## characters (Nadia, Oren, Priya, Theo), completing the real cast.
+##
+## Oren also gives a SECOND quest, "The Motivation Problem" (SPOT-kind,
+## ported from the real website's spot-the-problem mini-game — see
+## SpotPanel.gd). Talking to Oren offers whichever of his 2 quests isn't
+## finished yet, in a fixed order.
 
 const EVERYONE_HAS_AN_IDEA_QUEST_ID: String = "lq-everyone-has-an-idea-quest"
+const MOTIVATION_PROBLEM_QUEST_ID: String = "lq-motivation-problem-quest"
 
 @onready var player: Node3D = $Player
 @onready var camera_controller: CameraController = $CameraController
@@ -24,7 +30,9 @@ func _ready() -> void:
 
 
 func _on_oren_talked_to(_npc_id: String) -> void:
-	if QuestManager.is_quest_completed(EVERYONE_HAS_AN_IDEA_QUEST_ID):
-		DialogueBox.show_text("zone.huddle_room.oren.already_done")
-	else:
+	if not QuestManager.is_quest_completed(EVERYONE_HAS_AN_IDEA_QUEST_ID):
 		QuestManager.start_quest(EVERYONE_HAS_AN_IDEA_QUEST_ID)
+	elif not QuestManager.is_quest_completed(MOTIVATION_PROBLEM_QUEST_ID):
+		QuestManager.start_quest(MOTIVATION_PROBLEM_QUEST_ID)
+	else:
+		DialogueBox.show_text("zone.huddle_room.oren.already_done")
