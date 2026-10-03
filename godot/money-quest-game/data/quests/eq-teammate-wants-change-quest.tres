@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="4"]
+
+[sub_resource type="Resource" id="ConsequenceEffect_hear_them_out"]
+script = ExtResource("4")
+coin_delta = 4
+xp_delta = 5
+consequence_text_key = "eq.decision.teammate_wants_change.choice.hear_them_out.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_hear_them_out"]
+script = ExtResource("3")
+label_key = "eq.decision.teammate_wants_change.choice.hear_them_out.label"
+consequence = SubResource("ConsequenceEffect_hear_them_out")
+
+[sub_resource type="Resource" id="ConsequenceEffect_say_no"]
+script = ExtResource("4")
+coin_delta = 2
+xp_delta = 5
+consequence_text_key = "eq.decision.teammate_wants_change.choice.say_no.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_say_no"]
+script = ExtResource("3")
+label_key = "eq.decision.teammate_wants_change.choice.say_no.label"
+consequence = SubResource("ConsequenceEffect_say_no")
+
+[sub_resource type="Resource" id="ConsequenceEffect_try_a_test_version"]
+script = ExtResource("4")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "eq.decision.teammate_wants_change.choice.try_a_test_version.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_try_a_test_version"]
+script = ExtResource("3")
+label_key = "eq.decision.teammate_wants_change.choice.try_a_test_version.label"
+consequence = SubResource("ConsequenceEffect_try_a_test_version")
+
+[sub_resource type="Resource" id="DialogueChoice_teammate_wants_change"]
+script = ExtResource("2")
+situation_text_key = "eq.decision.teammate_wants_change.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_hear_them_out"), SubResource("ChoiceOption_say_no"), SubResource("ChoiceOption_try_a_test_version")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "eq-teammate-wants-change-quest"
+title_key = "quest.eq_teammate_wants_change.title"
+description_key = "quest.eq_teammate_wants_change.description"
+educational_objective_key = "quest.eq_teammate_wants_change.intro"
+track = "entrepreneur-quest"
+zone_id = "office"
+giver_npc_id = "teammate"
+kind = 2
+intro_text_key = "quest.eq_teammate_wants_change.intro"
+challenge_choice = SubResource("DialogueChoice_teammate_wants_change")
+reward_message_key = "quest.eq_teammate_wants_change.reward_message"
+xp_reward = 15
+coin_reward = 10
+skill_ids = Array[String](["collaboration", "decision-making", "open-mindedness"])

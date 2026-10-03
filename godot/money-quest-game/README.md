@@ -291,7 +291,12 @@ rebuilt.
    Office Guide to start "Make a Business Decision": way more customers
    want to buy from you than you expected, and you choose whether to
    make more product, raise your price slightly, or ask extra customers
-   to wait.
+   to wait. Office's second resident, Teammate, gives "A Teammate's
+   Idea": someone helping with your business wants to change the
+   product, and you choose whether to hear them out, say no, or try
+   their idea as a small test first — the sibling real decision event
+   to the Office Guide's quest, both from the real website's
+   "make-a-business-decision" stage.
 5. In Leadership Academy, walk up to Priya and interact with her to start
    "The Big Mistake" — ported directly from the website's real Leadership
    Quest content: Priya made a mistake and the team is watching to see how
@@ -379,7 +384,8 @@ up-to-date table. In short:
 | Marketing Studio zone + "Create Your Marketing" quest (ports the real `product-unclear` decision event, reached via a portal inside Idea Lab) | Entrepreneur Quest's `reflect-text`-kind stages (need a free-text input UI not built yet) |
 | Workshop zone + "Handle a Customer Problem" quest (ports the real `too-expensive-feedback` decision event, reached via a portal inside Marketing Studio — Entrepreneur Quest's first 3-zone graph) | — |
 | Workshop's Supplier + "Rising Material Costs" quest (ports the real `materials-cost-increase` decision event, Workshop's second quest-giving NPC — no new zone needed, no mini-game needed) | — |
-| Office zone + "Make a Business Decision" quest (ports the real `more-orders-than-expected` decision event, reached via a portal inside Workshop — Entrepreneur Quest's first 4-zone graph) | Entrepreneur Quest's remaining 20 real decision events and all 18 BUILD stages' own non-decision mechanics |
+| Office zone + "Make a Business Decision" quest (ports the real `more-orders-than-expected` decision event, reached via a portal inside Workshop — Entrepreneur Quest's first 4-zone graph) | — |
+| Office's Teammate + "A Teammate's Idea" quest (ports the real `teammate-wants-change` decision event, Office's second quest-giving NPC — no new zone needed, no mini-game needed) | Entrepreneur Quest's remaining 19 real decision events and all 18 BUILD stages' own non-decision mechanics |
 | Leadership Academy zone + "The Big Mistake" quest (ports the website's real `big-mistake-choice` decision event, with Priya as a real-character NPC) | AI Quest Coach (explicitly not built — see the architecture doc's non-negotiables) |
 | Team Challenge zone + "The Angry Customer" quest (ports the real `angry-customer-choice` decision event, reached via a portal inside Leadership Academy, with Theo as a real-character NPC) | Leadership Quest's `spot`/`allocate`/`sort`-kind missions (need mechanics not built yet) |
 | Strategy Room zone + "The Better Idea" quest (ports the real `better-idea-choice` decision event, reached via a portal inside Team Challenge — Leadership Quest's first 3-zone graph, with Nadia as a real-character NPC) | Leadership Quest's remaining `mission-choice`-kind missions |
@@ -809,9 +815,17 @@ title/learnText verbatim ("Make a Business Decision" / "Good business
 owners think through their choices instead of just guessing.") - the
 same convention Idea Lab's and Marketing Studio's first-quest intros
 used - only the quest's description and reward message are original.
-The real `teammate-wants-change` decision event, the sibling under the
-same stage, is reserved for a planned second NPC growing the Office
-zone further.
+Office's Teammate gives "A Teammate's Idea," ported the same way: the
+situation, all 3 choices, and all 3 consequences are copied verbatim
+from `entrepreneurQuest.decisionEvents.teammate-wants-change` - the
+sibling decision event to `more-orders-than-expected` under the same
+real `build.make-a-business-decision` stage. Since the Office Guide's
+quest already used that stage's real title/learnText, "Teammate"'s
+quest uses original title/description/intro/reward-message framing
+instead - the same convention Workshop's Supplier established. Like
+every Entrepreneur Quest giver NPC so far, "Teammate" is an invented
+mentor-role name, matching the real decision text's own wording
+("someone helping with your business," "your teammate").
 
 Leadership Academy's "The Big Mistake" quest is likewise copied directly
 from the real `messages/en.json`/`messages/ro.json`
@@ -1024,7 +1038,7 @@ rationale. Quick map:
   silent placeholder bus — since one would require either an offline
   voice model or a paid API, both out of scope per the brief.
 - All 30 of Money Quest's real website curriculum lessons are now wired
-  up as Quests. Only 5 of Entrepreneur Quest's 25 real decision events
+  up as Quests. Only 6 of Entrepreneur Quest's 25 real decision events
   are ported (and none of its 18 BUILD stages' own non-decision
   mechanics, 5 standalone Challenges, or RUN/Rescue & Grow/AI Lab
   content), and only 3 of Leadership Quest's 12 real missions are
