@@ -1,0 +1,122 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=24 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueLine.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="5"]
+
+[sub_resource type="Resource" id="DialogueLine_situation"]
+script = ExtResource("2")
+speaker_id = "sales-tracker"
+text_key = "quest.eq_sales_falling.dialogue.0"
+
+[sub_resource type="Resource" id="DialogueLine_clue_sales_chart"]
+script = ExtResource("2")
+speaker_id = "sales-tracker"
+text_key = "quest.eq_sales_falling.dialogue.1"
+
+[sub_resource type="Resource" id="DialogueLine_clue_competitor_prices"]
+script = ExtResource("2")
+speaker_id = "sales-tracker"
+text_key = "quest.eq_sales_falling.dialogue.2"
+
+[sub_resource type="Resource" id="DialogueLine_clue_customer_feedback"]
+script = ExtResource("2")
+speaker_id = "sales-tracker"
+text_key = "quest.eq_sales_falling.dialogue.3"
+
+[sub_resource type="Resource" id="ConsequenceEffect_price_too_high_now"]
+script = ExtResource("5")
+coin_delta = 0
+xp_delta = 0
+consequence_text_key = "eq.problem.sales_falling.cause.price_too_high_now.feedback"
+
+[sub_resource type="Resource" id="ChoiceOption_price_too_high_now"]
+script = ExtResource("4")
+label_key = "eq.problem.sales_falling.cause.price_too_high_now.label"
+consequence = SubResource("ConsequenceEffect_price_too_high_now")
+
+[sub_resource type="Resource" id="ConsequenceEffect_new_competitor"]
+script = ExtResource("5")
+coin_delta = 0
+xp_delta = 0
+consequence_text_key = "eq.problem.sales_falling.cause.new_competitor.feedback"
+
+[sub_resource type="Resource" id="ChoiceOption_new_competitor"]
+script = ExtResource("4")
+label_key = "eq.problem.sales_falling.cause.new_competitor.label"
+consequence = SubResource("ConsequenceEffect_new_competitor")
+
+[sub_resource type="Resource" id="ConsequenceEffect_product_losing_novelty"]
+script = ExtResource("5")
+coin_delta = 0
+xp_delta = 0
+consequence_text_key = "eq.problem.sales_falling.cause.product_losing_novelty.feedback"
+
+[sub_resource type="Resource" id="ChoiceOption_product_losing_novelty"]
+script = ExtResource("4")
+label_key = "eq.problem.sales_falling.cause.product_losing_novelty.label"
+consequence = SubResource("ConsequenceEffect_product_losing_novelty")
+
+[sub_resource type="Resource" id="DialogueChoice_cause"]
+script = ExtResource("3")
+situation_text_key = "eq.problem_flow.cause_label"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_price_too_high_now"), SubResource("ChoiceOption_new_competitor"), SubResource("ChoiceOption_product_losing_novelty")])
+
+[sub_resource type="Resource" id="ConsequenceEffect_run_a_special_offer"]
+script = ExtResource("5")
+coin_delta = 4
+xp_delta = 5
+consequence_text_key = "eq.problem.sales_falling.response.run_a_special_offer.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_run_a_special_offer"]
+script = ExtResource("4")
+label_key = "eq.problem.sales_falling.response.run_a_special_offer.label"
+consequence = SubResource("ConsequenceEffect_run_a_special_offer")
+
+[sub_resource type="Resource" id="ConsequenceEffect_refresh_the_product"]
+script = ExtResource("5")
+coin_delta = 3
+xp_delta = 5
+consequence_text_key = "eq.problem.sales_falling.response.refresh_the_product.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_refresh_the_product"]
+script = ExtResource("4")
+label_key = "eq.problem.sales_falling.response.refresh_the_product.label"
+consequence = SubResource("ConsequenceEffect_refresh_the_product")
+
+[sub_resource type="Resource" id="ConsequenceEffect_ask_customers_directly"]
+script = ExtResource("5")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "eq.problem.sales_falling.response.ask_customers_directly.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_ask_customers_directly"]
+script = ExtResource("4")
+label_key = "eq.problem.sales_falling.response.ask_customers_directly.label"
+consequence = SubResource("ConsequenceEffect_ask_customers_directly")
+
+[sub_resource type="Resource" id="DialogueChoice_response"]
+script = ExtResource("3")
+situation_text_key = "eq.problem.sales_falling.situation_prompt"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_run_a_special_offer"), SubResource("ChoiceOption_refresh_the_product"), SubResource("ChoiceOption_ask_customers_directly")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "eq-sales-falling-quest"
+title_key = "quest.eq_sales_falling.title"
+description_key = "quest.eq_sales_falling.description"
+educational_objective_key = "eq.problem_flow.intro"
+track = "entrepreneur-quest"
+zone_id = "main-street"
+giver_npc_id = "sales-tracker"
+kind = 2
+intro_dialogue = Array[DialogueLine]([SubResource("DialogueLine_situation"), SubResource("DialogueLine_clue_sales_chart"), SubResource("DialogueLine_clue_competitor_prices"), SubResource("DialogueLine_clue_customer_feedback")])
+intro_text_key = "eq.problem_flow.intro"
+diagnosis_choice = SubResource("DialogueChoice_cause")
+challenge_choice = SubResource("DialogueChoice_response")
+reward_message_key = "quest.eq_sales_falling.reward_message"
+xp_reward = 15
+coin_reward = 10
+skill_ids = Array[String](["problem-solving", "critical-thinking", "research"])

@@ -1,0 +1,122 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=24 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueLine.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="5"]
+
+[sub_resource type="Resource" id="DialogueLine_situation"]
+script = ExtResource("2")
+speaker_id = "profit-analyst"
+text_key = "quest.eq_rising_costs_eating_profit.dialogue.0"
+
+[sub_resource type="Resource" id="DialogueLine_clue_price_history"]
+script = ExtResource("2")
+speaker_id = "profit-analyst"
+text_key = "quest.eq_rising_costs_eating_profit.dialogue.1"
+
+[sub_resource type="Resource" id="DialogueLine_clue_production_cost_history"]
+script = ExtResource("2")
+speaker_id = "profit-analyst"
+text_key = "quest.eq_rising_costs_eating_profit.dialogue.2"
+
+[sub_resource type="Resource" id="DialogueLine_clue_advertising_spend"]
+script = ExtResource("2")
+speaker_id = "profit-analyst"
+text_key = "quest.eq_rising_costs_eating_profit.dialogue.3"
+
+[sub_resource type="Resource" id="ConsequenceEffect_advertising_spend_too_high"]
+script = ExtResource("5")
+coin_delta = 0
+xp_delta = 0
+consequence_text_key = "eq.problem.rising_costs_eating_profit.cause.advertising_spend_too_high.feedback"
+
+[sub_resource type="Resource" id="ChoiceOption_advertising_spend_too_high"]
+script = ExtResource("4")
+label_key = "eq.problem.rising_costs_eating_profit.cause.advertising_spend_too_high.label"
+consequence = SubResource("ConsequenceEffect_advertising_spend_too_high")
+
+[sub_resource type="Resource" id="ConsequenceEffect_waste_in_production"]
+script = ExtResource("5")
+coin_delta = 0
+xp_delta = 0
+consequence_text_key = "eq.problem.rising_costs_eating_profit.cause.waste_in_production.feedback"
+
+[sub_resource type="Resource" id="ChoiceOption_waste_in_production"]
+script = ExtResource("4")
+label_key = "eq.problem.rising_costs_eating_profit.cause.waste_in_production.label"
+consequence = SubResource("ConsequenceEffect_waste_in_production")
+
+[sub_resource type="Resource" id="ConsequenceEffect_discounts_too_generous"]
+script = ExtResource("5")
+coin_delta = 0
+xp_delta = 0
+consequence_text_key = "eq.problem.rising_costs_eating_profit.cause.discounts_too_generous.feedback"
+
+[sub_resource type="Resource" id="ChoiceOption_discounts_too_generous"]
+script = ExtResource("4")
+label_key = "eq.problem.rising_costs_eating_profit.cause.discounts_too_generous.label"
+consequence = SubResource("ConsequenceEffect_discounts_too_generous")
+
+[sub_resource type="Resource" id="DialogueChoice_cause"]
+script = ExtResource("3")
+situation_text_key = "eq.problem_flow.cause_label"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_advertising_spend_too_high"), SubResource("ChoiceOption_waste_in_production"), SubResource("ChoiceOption_discounts_too_generous")])
+
+[sub_resource type="Resource" id="ConsequenceEffect_review_advertising_spend"]
+script = ExtResource("5")
+coin_delta = 4
+xp_delta = 5
+consequence_text_key = "eq.problem.rising_costs_eating_profit.response.review_advertising_spend.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_review_advertising_spend"]
+script = ExtResource("4")
+label_key = "eq.problem.rising_costs_eating_profit.response.review_advertising_spend.label"
+consequence = SubResource("ConsequenceEffect_review_advertising_spend")
+
+[sub_resource type="Resource" id="ConsequenceEffect_reduce_waste"]
+script = ExtResource("5")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "eq.problem.rising_costs_eating_profit.response.reduce_waste.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_reduce_waste"]
+script = ExtResource("4")
+label_key = "eq.problem.rising_costs_eating_profit.response.reduce_waste.label"
+consequence = SubResource("ConsequenceEffect_reduce_waste")
+
+[sub_resource type="Resource" id="ConsequenceEffect_adjust_discounts"]
+script = ExtResource("5")
+coin_delta = 3
+xp_delta = 5
+consequence_text_key = "eq.problem.rising_costs_eating_profit.response.adjust_discounts.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_adjust_discounts"]
+script = ExtResource("4")
+label_key = "eq.problem.rising_costs_eating_profit.response.adjust_discounts.label"
+consequence = SubResource("ConsequenceEffect_adjust_discounts")
+
+[sub_resource type="Resource" id="DialogueChoice_response"]
+script = ExtResource("3")
+situation_text_key = "eq.problem.rising_costs_eating_profit.situation_prompt"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_review_advertising_spend"), SubResource("ChoiceOption_reduce_waste"), SubResource("ChoiceOption_adjust_discounts")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "eq-rising-costs-eating-profit-quest"
+title_key = "quest.eq_rising_costs_eating_profit.title"
+description_key = "quest.eq_rising_costs_eating_profit.description"
+educational_objective_key = "eq.problem_flow.intro"
+track = "entrepreneur-quest"
+zone_id = "main-street"
+giver_npc_id = "profit-analyst"
+kind = 2
+intro_dialogue = Array[DialogueLine]([SubResource("DialogueLine_situation"), SubResource("DialogueLine_clue_price_history"), SubResource("DialogueLine_clue_production_cost_history"), SubResource("DialogueLine_clue_advertising_spend")])
+intro_text_key = "eq.problem_flow.intro"
+diagnosis_choice = SubResource("DialogueChoice_cause")
+challenge_choice = SubResource("DialogueChoice_response")
+reward_message_key = "quest.eq_rising_costs_eating_profit.reward_message"
+xp_reward = 15
+coin_reward = 10
+skill_ids = Array[String](["problem-solving", "critical-thinking", "financial-literacy"])

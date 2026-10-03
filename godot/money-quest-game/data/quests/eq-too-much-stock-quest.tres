@@ -1,0 +1,122 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=24 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueLine.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="5"]
+
+[sub_resource type="Resource" id="DialogueLine_situation"]
+script = ExtResource("2")
+speaker_id = "warehouse-keeper"
+text_key = "quest.eq_too_much_stock.dialogue.0"
+
+[sub_resource type="Resource" id="DialogueLine_clue_stock_room_photo"]
+script = ExtResource("2")
+speaker_id = "warehouse-keeper"
+text_key = "quest.eq_too_much_stock.dialogue.1"
+
+[sub_resource type="Resource" id="DialogueLine_clue_unsold_items_list"]
+script = ExtResource("2")
+speaker_id = "warehouse-keeper"
+text_key = "quest.eq_too_much_stock.dialogue.2"
+
+[sub_resource type="Resource" id="DialogueLine_clue_seasonal_trend"]
+script = ExtResource("2")
+speaker_id = "warehouse-keeper"
+text_key = "quest.eq_too_much_stock.dialogue.3"
+
+[sub_resource type="Resource" id="ConsequenceEffect_over_ordered"]
+script = ExtResource("5")
+coin_delta = 0
+xp_delta = 0
+consequence_text_key = "eq.problem.too_much_stock.cause.over_ordered.feedback"
+
+[sub_resource type="Resource" id="ChoiceOption_over_ordered"]
+script = ExtResource("4")
+label_key = "eq.problem.too_much_stock.cause.over_ordered.label"
+consequence = SubResource("ConsequenceEffect_over_ordered")
+
+[sub_resource type="Resource" id="ConsequenceEffect_demand_was_seasonal"]
+script = ExtResource("5")
+coin_delta = 0
+xp_delta = 0
+consequence_text_key = "eq.problem.too_much_stock.cause.demand_was_seasonal.feedback"
+
+[sub_resource type="Resource" id="ChoiceOption_demand_was_seasonal"]
+script = ExtResource("4")
+label_key = "eq.problem.too_much_stock.cause.demand_was_seasonal.label"
+consequence = SubResource("ConsequenceEffect_demand_was_seasonal")
+
+[sub_resource type="Resource" id="ConsequenceEffect_product_less_popular_than_expected"]
+script = ExtResource("5")
+coin_delta = 0
+xp_delta = 0
+consequence_text_key = "eq.problem.too_much_stock.cause.product_less_popular_than_expected.feedback"
+
+[sub_resource type="Resource" id="ChoiceOption_product_less_popular_than_expected"]
+script = ExtResource("4")
+label_key = "eq.problem.too_much_stock.cause.product_less_popular_than_expected.label"
+consequence = SubResource("ConsequenceEffect_product_less_popular_than_expected")
+
+[sub_resource type="Resource" id="DialogueChoice_cause"]
+script = ExtResource("3")
+situation_text_key = "eq.problem_flow.cause_label"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_over_ordered"), SubResource("ChoiceOption_demand_was_seasonal"), SubResource("ChoiceOption_product_less_popular_than_expected")])
+
+[sub_resource type="Resource" id="ConsequenceEffect_run_a_clearance_sale"]
+script = ExtResource("5")
+coin_delta = 4
+xp_delta = 5
+consequence_text_key = "eq.problem.too_much_stock.response.run_a_clearance_sale.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_run_a_clearance_sale"]
+script = ExtResource("4")
+label_key = "eq.problem.too_much_stock.response.run_a_clearance_sale.label"
+consequence = SubResource("ConsequenceEffect_run_a_clearance_sale")
+
+[sub_resource type="Resource" id="ConsequenceEffect_donate_or_repurpose"]
+script = ExtResource("5")
+coin_delta = 3
+xp_delta = 5
+consequence_text_key = "eq.problem.too_much_stock.response.donate_or_repurpose.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_donate_or_repurpose"]
+script = ExtResource("4")
+label_key = "eq.problem.too_much_stock.response.donate_or_repurpose.label"
+consequence = SubResource("ConsequenceEffect_donate_or_repurpose")
+
+[sub_resource type="Resource" id="ConsequenceEffect_order_less_next_time"]
+script = ExtResource("5")
+coin_delta = 2
+xp_delta = 5
+consequence_text_key = "eq.problem.too_much_stock.response.order_less_next_time.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_order_less_next_time"]
+script = ExtResource("4")
+label_key = "eq.problem.too_much_stock.response.order_less_next_time.label"
+consequence = SubResource("ConsequenceEffect_order_less_next_time")
+
+[sub_resource type="Resource" id="DialogueChoice_response"]
+script = ExtResource("3")
+situation_text_key = "eq.problem.too_much_stock.situation_prompt"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_run_a_clearance_sale"), SubResource("ChoiceOption_donate_or_repurpose"), SubResource("ChoiceOption_order_less_next_time")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "eq-too-much-stock-quest"
+title_key = "quest.eq_too_much_stock.title"
+description_key = "quest.eq_too_much_stock.description"
+educational_objective_key = "eq.problem_flow.intro"
+track = "entrepreneur-quest"
+zone_id = "main-street"
+giver_npc_id = "warehouse-keeper"
+kind = 2
+intro_dialogue = Array[DialogueLine]([SubResource("DialogueLine_situation"), SubResource("DialogueLine_clue_stock_room_photo"), SubResource("DialogueLine_clue_unsold_items_list"), SubResource("DialogueLine_clue_seasonal_trend")])
+intro_text_key = "eq.problem_flow.intro"
+diagnosis_choice = SubResource("DialogueChoice_cause")
+challenge_choice = SubResource("DialogueChoice_response")
+reward_message_key = "quest.eq_too_much_stock.reward_message"
+xp_reward = 15
+coin_reward = 10
+skill_ids = Array[String](["problem-solving", "planning", "financial-literacy"])

@@ -1,0 +1,122 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=24 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueLine.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="5"]
+
+[sub_resource type="Resource" id="DialogueLine_situation"]
+script = ExtResource("2")
+speaker_id = "cash-flow-advisor"
+text_key = "quest.eq_profit_but_no_cash.dialogue.0"
+
+[sub_resource type="Resource" id="DialogueLine_clue_unpaid_invoices"]
+script = ExtResource("2")
+speaker_id = "cash-flow-advisor"
+text_key = "quest.eq_profit_but_no_cash.dialogue.1"
+
+[sub_resource type="Resource" id="DialogueLine_clue_cash_on_hand"]
+script = ExtResource("2")
+speaker_id = "cash-flow-advisor"
+text_key = "quest.eq_profit_but_no_cash.dialogue.2"
+
+[sub_resource type="Resource" id="DialogueLine_clue_upcoming_bills"]
+script = ExtResource("2")
+speaker_id = "cash-flow-advisor"
+text_key = "quest.eq_profit_but_no_cash.dialogue.3"
+
+[sub_resource type="Resource" id="ConsequenceEffect_customers_pay_late"]
+script = ExtResource("5")
+coin_delta = 0
+xp_delta = 0
+consequence_text_key = "eq.problem.profit_but_no_cash.cause.customers_pay_late.feedback"
+
+[sub_resource type="Resource" id="ChoiceOption_customers_pay_late"]
+script = ExtResource("4")
+label_key = "eq.problem.profit_but_no_cash.cause.customers_pay_late.label"
+consequence = SubResource("ConsequenceEffect_customers_pay_late")
+
+[sub_resource type="Resource" id="ConsequenceEffect_spent_too_much_on_equipment"]
+script = ExtResource("5")
+coin_delta = 0
+xp_delta = 0
+consequence_text_key = "eq.problem.profit_but_no_cash.cause.spent_too_much_on_equipment.feedback"
+
+[sub_resource type="Resource" id="ChoiceOption_spent_too_much_on_equipment"]
+script = ExtResource("4")
+label_key = "eq.problem.profit_but_no_cash.cause.spent_too_much_on_equipment.label"
+consequence = SubResource("ConsequenceEffect_spent_too_much_on_equipment")
+
+[sub_resource type="Resource" id="ConsequenceEffect_stock_tied_up_money"]
+script = ExtResource("5")
+coin_delta = 0
+xp_delta = 0
+consequence_text_key = "eq.problem.profit_but_no_cash.cause.stock_tied_up_money.feedback"
+
+[sub_resource type="Resource" id="ChoiceOption_stock_tied_up_money"]
+script = ExtResource("4")
+label_key = "eq.problem.profit_but_no_cash.cause.stock_tied_up_money.label"
+consequence = SubResource("ConsequenceEffect_stock_tied_up_money")
+
+[sub_resource type="Resource" id="DialogueChoice_cause"]
+script = ExtResource("3")
+situation_text_key = "eq.problem_flow.cause_label"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_customers_pay_late"), SubResource("ChoiceOption_spent_too_much_on_equipment"), SubResource("ChoiceOption_stock_tied_up_money")])
+
+[sub_resource type="Resource" id="ConsequenceEffect_ask_for_faster_payment"]
+script = ExtResource("5")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "eq.problem.profit_but_no_cash.response.ask_for_faster_payment.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_ask_for_faster_payment"]
+script = ExtResource("4")
+label_key = "eq.problem.profit_but_no_cash.response.ask_for_faster_payment.label"
+consequence = SubResource("ConsequenceEffect_ask_for_faster_payment")
+
+[sub_resource type="Resource" id="ConsequenceEffect_use_savings"]
+script = ExtResource("5")
+coin_delta = 3
+xp_delta = 5
+consequence_text_key = "eq.problem.profit_but_no_cash.response.use_savings.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_use_savings"]
+script = ExtResource("4")
+label_key = "eq.problem.profit_but_no_cash.response.use_savings.label"
+consequence = SubResource("ConsequenceEffect_use_savings")
+
+[sub_resource type="Resource" id="ConsequenceEffect_delay_a_purchase"]
+script = ExtResource("5")
+coin_delta = 4
+xp_delta = 5
+consequence_text_key = "eq.problem.profit_but_no_cash.response.delay_a_purchase.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_delay_a_purchase"]
+script = ExtResource("4")
+label_key = "eq.problem.profit_but_no_cash.response.delay_a_purchase.label"
+consequence = SubResource("ConsequenceEffect_delay_a_purchase")
+
+[sub_resource type="Resource" id="DialogueChoice_response"]
+script = ExtResource("3")
+situation_text_key = "eq.problem.profit_but_no_cash.situation_prompt"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_ask_for_faster_payment"), SubResource("ChoiceOption_use_savings"), SubResource("ChoiceOption_delay_a_purchase")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "eq-profit-but-no-cash-quest"
+title_key = "quest.eq_profit_but_no_cash.title"
+description_key = "quest.eq_profit_but_no_cash.description"
+educational_objective_key = "eq.problem_flow.intro"
+track = "entrepreneur-quest"
+zone_id = "main-street"
+giver_npc_id = "cash-flow-advisor"
+kind = 2
+intro_dialogue = Array[DialogueLine]([SubResource("DialogueLine_situation"), SubResource("DialogueLine_clue_unpaid_invoices"), SubResource("DialogueLine_clue_cash_on_hand"), SubResource("DialogueLine_clue_upcoming_bills")])
+intro_text_key = "eq.problem_flow.intro"
+diagnosis_choice = SubResource("DialogueChoice_cause")
+challenge_choice = SubResource("DialogueChoice_response")
+reward_message_key = "quest.eq_profit_but_no_cash.reward_message"
+xp_reward = 15
+coin_reward = 10
+skill_ids = Array[String](["financial-literacy", "problem-solving", "planning"])

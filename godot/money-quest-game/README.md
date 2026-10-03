@@ -322,7 +322,13 @@ rebuilt.
    supplier. Main Street's third resident, the Support Rep, gives "A
    Negative Review": a customer left an unhappy review, and you
    investigate why before choosing whether to apologise and fix it,
-   send a free replacement, or leave it and move on.
+   send a free replacement, or leave it and move on. Main Street's
+   remaining four residents complete the real v2 Business Problems
+   library: the Sales Tracker gives "Sales Are Falling," the Profit
+   Analyst gives "Why Aren't We Making Money?", the Cash Flow Advisor
+   gives "Profit But No Cash," and the Warehouse Keeper gives "Too Much
+   Unsold Stock" — each the same investigate-a-cause-then-choose-a-
+   response shape as the zone's first three quests.
 5. In Leadership Academy, walk up to Priya and interact with her to start
    "The Big Mistake" — ported directly from the website's real Leadership
    Quest content: Priya made a mistake and the team is watching to see how
@@ -416,7 +422,8 @@ up-to-date table. In short:
 | Research Lab zone + "Research Demand"/"Test the Idea" quests (ports the real `market-detective-reflection`/`test-before-invest` decision events, reached via a portal inside Growth Lab — Entrepreneur Quest's first 6-zone graph; completes all 9 of Entrepreneur Quest's v1 decision events) | — |
 | Main Street zone + "Not Enough Customers" quest (ports the real `not-enough-customers` Business Problem, reached via a portal inside Research Lab — Entrepreneur Quest's first 7-zone graph; introduced `QuestData.diagnosis_choice` for the investigate-cause-respond shape) | — |
 | Main Street's Accountant + "Costs Increased" quest (ports the real `costs-increased` Business Problem, Main Street's second quest-giving NPC — no new zone needed, reuses `diagnosis_choice`) | — |
-| Main Street's Support Rep + "A Negative Review" quest (ports the real `negative-review` Business Problem, Main Street's third quest-giving NPC — no new zone needed, reuses `diagnosis_choice`) | Entrepreneur Quest's remaining 13 real decision events (4 more Business Problems, the RUN set, the AI Lab, the Rescue & Grow set) and all 18 BUILD stages' own non-decision mechanics |
+| Main Street's Support Rep + "A Negative Review" quest (ports the real `negative-review` Business Problem, Main Street's third quest-giving NPC — no new zone needed, reuses `diagnosis_choice`) | — |
+| Main Street's Sales Tracker / Profit Analyst / Cash Flow Advisor / Warehouse Keeper + their 4 quests (ports the real `sales-falling`/`rising-costs-eating-profit`/`profit-but-no-cash`/`too-much-stock` Business Problems, Main Street's fourth through seventh quest-giving NPCs — completes all 7 of the v2 Business Problems library) | Entrepreneur Quest's remaining 9 real decision events (the RUN set, the AI Lab, the Rescue & Grow set) and all 18 BUILD stages' own non-decision mechanics |
 | Leadership Academy zone + "The Big Mistake" quest (ports the website's real `big-mistake-choice` decision event, with Priya as a real-character NPC) | AI Quest Coach (explicitly not built — see the architecture doc's non-negotiables) |
 | Team Challenge zone + "The Angry Customer" quest (ports the real `angry-customer-choice` decision event, reached via a portal inside Leadership Academy, with Theo as a real-character NPC) | Leadership Quest's `spot`/`allocate`/`sort`-kind missions (need mechanics not built yet) |
 | Strategy Room zone + "The Better Idea" quest (ports the real `better-idea-choice` decision event, reached via a portal inside Team Challenge — Leadership Quest's first 3-zone graph, with Nadia as a real-character NPC) | Leadership Quest's remaining `mission-choice`-kind missions |
@@ -917,6 +924,19 @@ and all 3 responses' labels and consequences are copied verbatim from
 the real `negative-review` Business Problem. Main Street's third
 quest-giving NPC, again reusing `diagnosis_choice` exactly as-is.
 
+Main Street's remaining four residents - Sales Tracker, Profit
+Analyst, Cash Flow Advisor, and Warehouse Keeper - complete the real
+v2 Business Problems library: "Sales Are Falling" (`sales-falling`),
+"Why Aren't We Making Money?" (`rising-costs-eating-profit`), "Profit
+But No Cash" (`profit-but-no-cash`), and "Too Much Unsold Stock"
+(`too-much-stock`). Each is ported exactly the same way - situation,
+3 clues, 3 causes' labels/feedback, and 3 responses' labels/
+consequences all copied verbatim from the real website - and each
+reuses `diagnosis_choice`/`challenge_choice` as-is, with zero changes
+to `QuestData` or `QuestManager`. This completes all 7 of Entrepreneur
+Quest's v2 Business Problems; Main Street is now Entrepreneur Quest's
+largest zone, with 7 quest-giving NPCs.
+
 Leadership Academy's "The Big Mistake" quest is likewise copied directly
 from the real `messages/en.json`/`messages/ro.json`
 (`leadershipQuest.missions.big-mistake`, including its `priya`/`oren`
@@ -1134,8 +1154,8 @@ rationale. Quick map:
   silent placeholder bus — since one would require either an offline
   voice model or a paid API, both out of scope per the brief.
 - All 30 of Money Quest's real website curriculum lessons are now wired
-  up as Quests. All 9 of Entrepreneur Quest's v1 decision events plus
-  3 of its v2 Business Problems are ported (12 of 25 real decision
+  up as Quests. All 9 of Entrepreneur Quest's v1 decision events and
+  all 7 of its v2 Business Problems are ported (16 of 25 real decision
   events overall; none of its 18 BUILD stages' own non-decision
   mechanics, 5 standalone Challenges, or RUN/Rescue & Grow/AI Lab
   content), and only 3 of Leadership Quest's 12 real missions are
