@@ -1,0 +1,83 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=17 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueLine.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="5"]
+
+[sub_resource type="Resource" id="DialogueLine_nadia"]
+script = ExtResource("2")
+speaker_id = "nadia"
+text_key = "quest.lq_everyone_has_an_idea.dialogue.0"
+
+[sub_resource type="Resource" id="DialogueLine_oren"]
+script = ExtResource("2")
+speaker_id = "oren"
+text_key = "quest.lq_everyone_has_an_idea.dialogue.1"
+
+[sub_resource type="Resource" id="ConsequenceEffect_pick_one_idea"]
+script = ExtResource("5")
+coin_delta = 3
+xp_delta = 5
+consequence_text_key = "lq.decision.everyone_has_an_idea.choice.pick_one_idea.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_pick_one_idea"]
+script = ExtResource("4")
+label_key = "lq.decision.everyone_has_an_idea.choice.pick_one_idea.label"
+consequence = SubResource("ConsequenceEffect_pick_one_idea")
+
+[sub_resource type="Resource" id="ConsequenceEffect_combine_both_ideas"]
+script = ExtResource("5")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "lq.decision.everyone_has_an_idea.choice.combine_both_ideas.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_combine_both_ideas"]
+script = ExtResource("4")
+label_key = "lq.decision.everyone_has_an_idea.choice.combine_both_ideas.label"
+consequence = SubResource("ConsequenceEffect_combine_both_ideas")
+
+[sub_resource type="Resource" id="ConsequenceEffect_let_them_decide_together"]
+script = ExtResource("5")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "lq.decision.everyone_has_an_idea.choice.let_them_decide_together.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_let_them_decide_together"]
+script = ExtResource("4")
+label_key = "lq.decision.everyone_has_an_idea.choice.let_them_decide_together.label"
+consequence = SubResource("ConsequenceEffect_let_them_decide_together")
+
+[sub_resource type="Resource" id="ConsequenceEffect_go_with_your_own_idea"]
+script = ExtResource("5")
+coin_delta = 3
+xp_delta = 5
+consequence_text_key = "lq.decision.everyone_has_an_idea.choice.go_with_your_own_idea.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_go_with_your_own_idea"]
+script = ExtResource("4")
+label_key = "lq.decision.everyone_has_an_idea.choice.go_with_your_own_idea.label"
+consequence = SubResource("ConsequenceEffect_go_with_your_own_idea")
+
+[sub_resource type="Resource" id="DialogueChoice_everyone_has_an_idea"]
+script = ExtResource("3")
+situation_text_key = "lq.decision.everyone_has_an_idea.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_pick_one_idea"), SubResource("ChoiceOption_combine_both_ideas"), SubResource("ChoiceOption_let_them_decide_together"), SubResource("ChoiceOption_go_with_your_own_idea")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "lq-everyone-has-an-idea-quest"
+title_key = "quest.lq_everyone_has_an_idea.title"
+description_key = "quest.lq_everyone_has_an_idea.description"
+educational_objective_key = "quest.lq_everyone_has_an_idea.objective"
+track = "leadership-quest"
+zone_id = "huddle-room"
+giver_npc_id = "oren"
+kind = 2
+intro_dialogue = Array[DialogueLine]([SubResource("DialogueLine_nadia"), SubResource("DialogueLine_oren")])
+challenge_choice = SubResource("DialogueChoice_everyone_has_an_idea")
+reward_message_key = "quest.lq_everyone_has_an_idea.reward_message"
+xp_reward = 15
+coin_reward = 10
+skill_ids = Array[String](["collaboration", "decision-making", "fairness"])

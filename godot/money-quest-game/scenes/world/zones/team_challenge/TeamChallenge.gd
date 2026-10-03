@@ -7,8 +7,22 @@ extends Node3D
 ## "The Angry Customer" (ports the website's real `angry-customer-choice`
 ## decision event), a CHALLENGE-kind quest reusing the exact pipeline
 ## "The Big Mistake" already proved — no new systems.
+##
+## Theo also gives a SECOND quest, "The Missing Task" (ports the real
+## `missing-task-choice` decision event, with its own `theo`/`priya`
+## intro dialogue plus 3 narrator-style "investigate" lines — the real
+## site's tap-to-reveal clues, shown here as sequential `intro_dialogue`
+## lines, same adaptation Entrepreneur Quest's Business Problems already
+## used for their own clues). Leadership Quest only has 4 real characters
+## total (Nadia, Oren, Priya, Theo), so once every character has their
+## own zone, a later mission featuring an already-placed character
+## offers its quest from that same NPC instead of inventing a new one —
+## talking to Theo offers whichever of his 2 quests isn't finished yet,
+## in a fixed order, falling back to a single "already done" line only
+## once both are complete.
 
 const ANGRY_CUSTOMER_QUEST_ID: String = "lq-angry-customer-quest"
+const MISSING_TASK_QUEST_ID: String = "lq-missing-task-quest"
 
 @onready var player: Node3D = $Player
 @onready var camera_controller: CameraController = $CameraController
@@ -21,7 +35,9 @@ func _ready() -> void:
 
 
 func _on_theo_talked_to(_npc_id: String) -> void:
-	if QuestManager.is_quest_completed(ANGRY_CUSTOMER_QUEST_ID):
-		DialogueBox.show_text("zone.team_challenge.theo.already_done")
-	else:
+	if not QuestManager.is_quest_completed(ANGRY_CUSTOMER_QUEST_ID):
 		QuestManager.start_quest(ANGRY_CUSTOMER_QUEST_ID)
+	elif not QuestManager.is_quest_completed(MISSING_TASK_QUEST_ID):
+		QuestManager.start_quest(MISSING_TASK_QUEST_ID)
+	else:
+		DialogueBox.show_text("zone.team_challenge.theo.already_done")

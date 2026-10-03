@@ -4,14 +4,14 @@
 
 [resource]
 script = ExtResource("1")
-zone_id = "team-challenge"
-display_name_key = "zone.team_challenge.name"
-scene_path = "res://scenes/world/zones/team_challenge/TeamChallenge.tscn"
+zone_id = "huddle-room"
+display_name_key = "zone.huddle_room.name"
+scene_path = "res://scenes/world/zones/huddle_room/HuddleRoom.tscn"
 kind = 1
-theme_color = Color(0.498, 0.702, 0.8, 1)
+theme_color = Color(0.55, 0.45, 0.7, 1)
 unlock_condition_quest_id = ""
-npc_ids = Array[String](["theo"])
-quest_ids = Array[String](["lq-angry-customer-quest", "lq-missing-task-quest"])
+npc_ids = Array[String](["oren"])
+quest_ids = Array[String](["lq-everyone-has-an-idea-quest"])
 exhibit_ids = Array[String]([])
 book_ids = Array[String]([])
 player_spawn_position = Vector3(0, 0, 3)

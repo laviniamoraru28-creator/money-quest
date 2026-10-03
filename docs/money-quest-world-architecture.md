@@ -611,9 +611,11 @@ node), never an architecture change.
 | Leadership Quest's Leadership Academy zone + "The Big Mistake" quest | **Built** — a `CHALLENGE`-kind quest porting the website's real `big-mistake-choice` decision event verbatim, with Priya as a real-character NPC; this is what motivated `QuestData.intro_dialogue` (Section 4) |
 | Leadership Quest's Team Challenge zone + "The Angry Customer" quest | **Built** — reached via a portal inside Leadership Academy (Leadership Quest's first 2-zone graph); another `CHALLENGE`-kind quest with Theo as a real-character NPC, porting the real `angry-customer-choice` decision event verbatim |
 | Leadership Quest's Strategy Room zone + "The Better Idea" quest | **Built** — reached via a portal inside Team Challenge (Leadership Academy → Team Challenge → Strategy Room, Leadership Quest's first 3-zone graph); another `CHALLENGE`-kind quest with Nadia (the 3rd of Leadership Quest's 4 real characters used so far) as the giver NPC, porting the real `better-idea-choice` decision event verbatim |
+| Leadership Quest's Huddle Room zone + "Everyone Has an Idea" quest | **Built** — reached via a portal inside Strategy Room (Leadership Academy → Team Challenge → Strategy Room → Huddle Room, Leadership Quest's first 4-zone graph); Oren is the giver NPC — the 4th and last of Leadership Quest's 4 real characters (Nadia, Oren, Priya, Theo), completing the real cast; ports the real `everyone-has-an-idea-choice` decision event verbatim, including its own `nadia`/`oren` intro dialogue |
+| Team Challenge's Theo + "The Missing Task" quest (Theo's second quest) | **Built** — ports the real `missing-task-choice` decision event verbatim, including its own `theo`/`priya` intro dialogue plus 3 narrator-style "investigate" lines (the real site's tap-to-reveal clues, shown here as sequential `intro_dialogue` lines, the same adaptation Entrepreneur Quest's Business Problems already used for their own clues); since Leadership Quest has only 4 real characters total and all 4 already have their own zone, this is the first "one NPC gives a second quest" case — `TeamChallenge.gd` now offers Theo's next incomplete quest in a fixed order rather than inventing a new NPC for a mission with no new character. **This completes all portable Leadership Quest content** (5 of 12 real missions now ported: Big Mistake, Angry Customer, Better Idea, Everyone Has an Idea, The Missing Task) — the remaining 7 of 12 real missions (`meet-your-team`/`first-challenge`: 2 `match`; `team-conflict`/`motivation-problem`: 2 `spot`; `the-deadline`: 1 `allocate`; `pressure-test`: 1 `sort`; `final-challenge`: 1 multi-step combining match + 2 choices) need mechanics `QuestData`/`QuestManager` don't have yet |
 | `AvatarConfig` + creation screen, fully wired to the 3D model | **Built** — 4 body presets (including a seated wheelchair-style look) and 4 accessories (glasses, cap, hearing aid, cane), all purely visual, listed together as equally normal choices |
 | Progression fields for zones/quests/skills | **Built** (additive) |
-| Entrepreneur Quest's remaining real content (9 of 25 decision events — the v2 RUN set, AI Lab, and Rescue & Grow set; all 18 BUILD stages' own mechanics, 5 Challenges, the RUN/Rescue & Grow hubs) / Leadership Quest's remaining 9 missions | Not built — Money Quest's completion (all 30 lessons) makes these two tracks the primary remaining expansion targets |
+| Entrepreneur Quest's remaining real content (9 of 25 decision events — the v2 RUN set, AI Lab, and Rescue & Grow set; all 18 BUILD stages' own mechanics, 5 Challenges, the RUN/Rescue & Grow hubs) / Leadership Quest's remaining 7 missions (all need match/spot/allocate/sort/multi-step mechanics not yet built) | Not built — Money Quest's completion (all 30 lessons) makes these two tracks the primary remaining expansion targets |
 | `EntryData`/`BookData`/`ExhibitData`/`MentorData`/`DictionaryTermData` schema | **Built** (`scripts/library/`, see `data/schemas/ENTRY_DATA_FORMAT.md`) |
 | Dictionary content | **Built** — 2 real terms (`goal`, `trade-off`), reusing `builder-saving-l1`'s own vocabulary keys verbatim |
 | Library zone (`data/zones/library.tres`, bookshelves, Librarian NPC, reachable from the Hub) | **Built** — honestly empty; the Librarian says the shelves are still being prepared rather than pretending there's content |
@@ -899,13 +901,30 @@ godot/money-quest-game/
     mechanics (logo builder, category pickers, numeric entry, etc.) and
     the 5 standalone Challenges, none of which have any Godot
     implementation yet.
+    Phase 50 (this update) ported both of Leadership Quest's remaining
+    mission-choice-shaped missions. A brand-new fourth zone, Huddle
+    Room (reached via a portal inside Strategy Room), introduces Oren —
+    the 4th and last of Leadership Quest's 4 real characters, completing
+    the real cast — giving "Everyone Has an Idea" (ports
+    `everyone-has-an-idea-choice` verbatim). "The Missing Task" (ports
+    `missing-task-choice` verbatim, including 3 narrator-style
+    `intro_dialogue` lines standing in for the real site's tap-to-reveal
+    investigate clues — the same adaptation Entrepreneur Quest's
+    Business Problems already used) is given by Theo as a SECOND quest
+    in Team Challenge, since Leadership Quest's 4-character cast was
+    already fully placed across zones by this point; `TeamChallenge.gd`
+    now offers Theo's next incomplete quest in a fixed order instead of
+    inventing a new character for a mission that doesn't introduce one.
+    5 of Leadership Quest's 12 real missions are now ported (Big
+    Mistake, Angry Customer, Better Idea, Everyone Has an Idea, The
+    Missing Task) — **every mission-choice-shaped mission is now
+    ported.** The remaining 7 (`meet-your-team`/`first-challenge`: 2
+    `match`; `team-conflict`/`motivation-problem`: 2 `spot`;
+    `the-deadline`: 1 `allocate`; `pressure-test`: 1 `sort`;
+    `final-challenge`: 1 multi-step combining match + 2 choices) need
+    mechanics (`QuestData.gd`'s `EXPLORATION`/`SIMULATION` kinds are
+    declared but have no runner — `QuestManager.gd` just warns and
+    finishes immediately) that don't exist in Godot yet and would need
+    designing before those missions can be ported.
     Still waiting on you: a real book/exhibit/mentor for Library/Museum
-    (Section 6). Still unstarted: Leadership Quest's remaining 9
-    missions — of those, only `everyone-has-an-idea` fits the existing
-    CHALLENGE shape directly; the other 8 (2 `match`, 2 `spot`, 1
-    `allocate`, 1 `sort`, 1 multi-step combining match+2 choices, plus
-    `missing-task`'s clue-investigation step) need mechanics
-    (`QuestData.gd`'s `EXPLORATION`/`SIMULATION` kinds are declared but
-    have no runner — `QuestManager.gd` just warns and finishes
-    immediately) that don't exist in Godot yet and would need designing
-    before those missions can be ported.
+    (Section 6).

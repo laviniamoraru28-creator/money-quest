@@ -340,7 +340,15 @@ rebuilt.
    the call). A second portal inside Team Challenge leads to **Strategy
    Room**, Leadership Quest's third zone — talk to Nadia to start "The
    Better Idea": Nadia suggests a genuinely better way to do something
-   you'd already planned, and you choose how to respond.
+   you'd already planned, and you choose how to respond. A second
+   portal inside Strategy Room leads to **Huddle Room**, Leadership
+   Quest's fourth zone — talk to Oren to start "Everyone Has an Idea":
+   Nadia and Oren can't agree on whose idea to use, and you decide how
+   to settle it. Back in Team Challenge, talk to Theo again after
+   finishing "The Angry Customer" to start his second quest, "The
+   Missing Task": a teammate's part of the project isn't finished, and
+   after hearing a few perspectives on what happened, you decide how to
+   help.
 6. In Bubble Garden, there's nothing to do but walk around and watch the
    bubbles drift — no quest, no NPC, no choice. It's always reachable, with
    no unlock condition, and never framed as anything other than a calm
@@ -426,7 +434,9 @@ up-to-date table. In short:
 | Main Street's Sales Tracker / Profit Analyst / Cash Flow Advisor / Warehouse Keeper + their 4 quests (ports the real `sales-falling`/`rising-costs-eating-profit`/`profit-but-no-cash`/`too-much-stock` Business Problems, Main Street's fourth through seventh quest-giving NPCs — completes all 7 of the v2 Business Problems library) | Entrepreneur Quest's remaining 9 real decision events (the RUN set, the AI Lab, the Rescue & Grow set) and all 18 BUILD stages' own non-decision mechanics |
 | Leadership Academy zone + "The Big Mistake" quest (ports the website's real `big-mistake-choice` decision event, with Priya as a real-character NPC) | AI Quest Coach (explicitly not built — see the architecture doc's non-negotiables) |
 | Team Challenge zone + "The Angry Customer" quest (ports the real `angry-customer-choice` decision event, reached via a portal inside Leadership Academy, with Theo as a real-character NPC) | Leadership Quest's `spot`/`allocate`/`sort`-kind missions (need mechanics not built yet) |
-| Strategy Room zone + "The Better Idea" quest (ports the real `better-idea-choice` decision event, reached via a portal inside Team Challenge — Leadership Quest's first 3-zone graph, with Nadia as a real-character NPC) | Leadership Quest's remaining `mission-choice`-kind missions |
+| Strategy Room zone + "The Better Idea" quest (ports the real `better-idea-choice` decision event, reached via a portal inside Team Challenge — Leadership Quest's first 3-zone graph, with Nadia as a real-character NPC) | — |
+| Huddle Room zone + "Everyone Has an Idea" quest (ports the real `everyone-has-an-idea-choice` decision event, reached via a portal inside Strategy Room — Leadership Quest's first 4-zone graph, with Oren as the giver NPC — the 4th and last of the real 4-character cast) | — |
+| Team Challenge's Theo + "The Missing Task" quest (Theo's second quest, ports the real `missing-task-choice` decision event — no new zone or NPC needed; completes every `mission-choice`-shaped Leadership Quest mission) | Leadership Quest's remaining 7 missions (all need match/spot/allocate/sort/multi-step mechanics not yet built) |
 | `EntryData`/`BookData`/`ExhibitData`/`MentorData`/`DictionaryTermData` schema, with 2 real Dictionary entries (`goal`, `trade-off`) reusing existing curriculum vocabulary | — |
 | Calm World's all 8 named gardens (Bubble Garden, Aquarium Room, Light Room, Rain Room, Underwater Room, Forest Walk, Music Room, Grow-a-Garden) — always unlocked, no choices, all motion respects `reduced_motion` | — |
 | `AvatarConfig` + `AvatarCreation.tscn`, now fully wired to `Player.tscn` (see "Avatar wiring fix" below) — 4 body presets incl. a wheelchair-style look, 4 accessories (glasses, cap, hearing aid, cane), all purely visual | — |
@@ -958,6 +968,26 @@ verbatim from `leadershipQuest.missions.better-idea` — Nadia is the third
 of Leadership Quest's 4 real, already-named characters to appear in
 Godot, same cast as Priya and Theo, not a new invented character.
 
+Huddle Room's "Everyone Has an Idea" quest is the same: both Nadia's and
+Oren's intro lines and all 4 choices/consequences for
+`everyone-has-an-idea-choice` are copied verbatim from
+`leadershipQuest.missions.everyone-has-an-idea` - Oren is the 4th and
+last of Leadership Quest's 4 real characters, completing the cast every
+other LQ quest has drawn from.
+
+Team Challenge's "The Missing Task" quest - Theo's second quest - is
+the same: both Theo's and Priya's intro lines, the 3 "investigate"
+clue texts (shown as narrator-style `intro_dialogue` lines, since the
+real site's tap-to-reveal clues have no UI equivalent in Godot - the
+same adaptation Entrepreneur Quest's Business Problems already used),
+and all 4 choices/consequences for `missing-task-choice` are copied
+verbatim from `leadershipQuest.missions.missing-task`. Since all 4 of
+Leadership Quest's real characters already have their own zone by this
+point, this is the first "one NPC gives a second quest" case rather
+than inventing a new character - `TeamChallenge.gd` offers Theo's next
+incomplete quest in a fixed order. This completes every
+`mission-choice`-shaped Leadership Quest mission (5 of 12 total).
+
 The Dictionary's 2 entries (`goal`, `trade-off`) aren't new content at
 all — they point at `builder-saving-l1`'s own existing vocabulary
 translation keys verbatim (see `data/schemas/ENTRY_DATA_FORMAT.md`'s rule
@@ -1158,8 +1188,10 @@ rationale. Quick map:
   all 7 of its v2 Business Problems are ported (16 of 25 real decision
   events overall; none of its 18 BUILD stages' own non-decision
   mechanics, 5 standalone Challenges, or RUN/Rescue & Grow/AI Lab
-  content), and only 3 of Leadership Quest's 12 real missions are
-  ported. See `docs/money-quest-world-architecture.md` Section 12 for
+  content), and 5 of Leadership Quest's 12 real missions are ported -
+  every `mission-choice`-shaped mission; the remaining 7 need match/
+  spot/allocate/sort/multi-step mechanics not yet built. See
+  `docs/money-quest-world-architecture.md` Section 12 for
   the development order for the rest, the 17 games, and the 4 simulator
   scenarios.
 - Museum is the only Hub portal still reachable-but-"coming soon" — the

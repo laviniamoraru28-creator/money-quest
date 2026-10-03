@@ -1,0 +1,98 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=20 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueLine.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="5"]
+
+[sub_resource type="Resource" id="DialogueLine_theo"]
+script = ExtResource("2")
+speaker_id = "theo"
+text_key = "quest.lq_missing_task.dialogue.0"
+
+[sub_resource type="Resource" id="DialogueLine_priya"]
+script = ExtResource("2")
+speaker_id = "priya"
+text_key = "quest.lq_missing_task.dialogue.1"
+
+[sub_resource type="Resource" id="DialogueLine_investigate_ask_the_teammate"]
+script = ExtResource("2")
+speaker_id = ""
+text_key = "quest.lq_missing_task.dialogue.2"
+
+[sub_resource type="Resource" id="DialogueLine_investigate_check_the_shared_plan"]
+script = ExtResource("2")
+speaker_id = ""
+text_key = "quest.lq_missing_task.dialogue.3"
+
+[sub_resource type="Resource" id="DialogueLine_investigate_ask_another_teammate"]
+script = ExtResource("2")
+speaker_id = ""
+text_key = "quest.lq_missing_task.dialogue.4"
+
+[sub_resource type="Resource" id="ConsequenceEffect_ask_what_happened"]
+script = ExtResource("5")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "lq.decision.missing_task.choice.ask_what_happened.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_ask_what_happened"]
+script = ExtResource("4")
+label_key = "lq.decision.missing_task.choice.ask_what_happened.label"
+consequence = SubResource("ConsequenceEffect_ask_what_happened")
+
+[sub_resource type="Resource" id="ConsequenceEffect_do_it_yourself_quietly"]
+script = ExtResource("5")
+coin_delta = 3
+xp_delta = 5
+consequence_text_key = "lq.decision.missing_task.choice.do_it_yourself_quietly.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_do_it_yourself_quietly"]
+script = ExtResource("4")
+label_key = "lq.decision.missing_task.choice.do_it_yourself_quietly.label"
+consequence = SubResource("ConsequenceEffect_do_it_yourself_quietly")
+
+[sub_resource type="Resource" id="ConsequenceEffect_remind_them_firmly"]
+script = ExtResource("5")
+coin_delta = 3
+xp_delta = 5
+consequence_text_key = "lq.decision.missing_task.choice.remind_them_firmly.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_remind_them_firmly"]
+script = ExtResource("4")
+label_key = "lq.decision.missing_task.choice.remind_them_firmly.label"
+consequence = SubResource("ConsequenceEffect_remind_them_firmly")
+
+[sub_resource type="Resource" id="ConsequenceEffect_wait_and_see"]
+script = ExtResource("5")
+coin_delta = 1
+xp_delta = 5
+consequence_text_key = "lq.decision.missing_task.choice.wait_and_see.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_wait_and_see"]
+script = ExtResource("4")
+label_key = "lq.decision.missing_task.choice.wait_and_see.label"
+consequence = SubResource("ConsequenceEffect_wait_and_see")
+
+[sub_resource type="Resource" id="DialogueChoice_missing_task"]
+script = ExtResource("3")
+situation_text_key = "lq.decision.missing_task.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_ask_what_happened"), SubResource("ChoiceOption_do_it_yourself_quietly"), SubResource("ChoiceOption_remind_them_firmly"), SubResource("ChoiceOption_wait_and_see")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "lq-missing-task-quest"
+title_key = "quest.lq_missing_task.title"
+description_key = "quest.lq_missing_task.description"
+educational_objective_key = "quest.lq_missing_task.objective"
+track = "leadership-quest"
+zone_id = "team-challenge"
+giver_npc_id = "theo"
+kind = 2
+intro_dialogue = Array[DialogueLine]([SubResource("DialogueLine_theo"), SubResource("DialogueLine_priya"), SubResource("DialogueLine_investigate_ask_the_teammate"), SubResource("DialogueLine_investigate_check_the_shared_plan"), SubResource("DialogueLine_investigate_ask_another_teammate")])
+challenge_choice = SubResource("DialogueChoice_missing_task")
+reward_message_key = "quest.lq_missing_task.reward_message"
+xp_reward = 15
+coin_reward = 10
+skill_ids = Array[String](["empathy", "problem-solving", "communication"])
