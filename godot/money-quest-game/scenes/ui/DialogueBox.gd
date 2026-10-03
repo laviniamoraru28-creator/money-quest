@@ -23,21 +23,26 @@ func _ready() -> void:
 
 var _current_speaker_id: String = ""
 var _current_text_key: String = ""
+var _current_text_params: Dictionary = {}
 
 
 ## Shows one DialogueLine and waits for the child to tap Continue.
 func show_line(line: DialogueLine) -> void:
 	_current_speaker_id = line.speaker_id
 	_current_text_key = line.text_key
+	_current_text_params = {}
 	_refresh_current_text()
 	await _wait_for_continue()
 
 
 ## Shows a single translated text block with no named speaker — used for
-## the lesson's consequence/explanation/feedback beats.
-func show_text(text_key: String) -> void:
+## the lesson's consequence/explanation/feedback beats. `params` fills
+## any `{placeholder}` tokens the key's own translation contains (see
+## Localization.t) — e.g. a dynamically computed amount.
+func show_text(text_key: String, params: Dictionary = {}) -> void:
 	_current_speaker_id = ""
 	_current_text_key = text_key
+	_current_text_params = params
 	_refresh_current_text()
 	await _wait_for_continue()
 
@@ -48,7 +53,7 @@ func _refresh_current_text() -> void:
 	speaker_label.visible = not _current_speaker_id.is_empty()
 	if speaker_label.visible:
 		speaker_label.text = Localization.t("npc.%s.name" % _current_speaker_id)
-	text_label.text = Localization.t(_current_text_key)
+	text_label.text = Localization.t(_current_text_key, _current_text_params)
 	continue_button.text = Localization.t("common.continue_button")
 
 

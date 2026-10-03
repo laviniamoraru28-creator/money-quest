@@ -356,6 +356,24 @@ rebuilt.
    "The Questionable Supplier" — each with no single "correct" choice,
    just real trade-offs between short-term gain and long-term trust.
    This completes all 26 of Entrepreneur Quest's real decision events.
+   Back in Idea Lab, talk to the Startup Mentor to start the real
+   website's own Build-Your-Business stepper — all 18 real BUILD stages
+   in order, always resumable: say what problem you noticed and what
+   your idea is, name your business and pick a logo (shape, color, and
+   symbol, with a live preview), choose your product and customer
+   categories, set how much it costs to make and what you'll charge,
+   pick a marketing approach, then try the Business Simulator — split a
+   starting amount across materials/packaging/advertising/savings and
+   see exactly what you'd make, using the real website's own profit
+   formula. 7 of the 18 stages (researching demand, testing your idea,
+   marketing, handling competition, handling a customer problem,
+   making a business decision, growing your business) reuse the exact
+   same real decisions you may have already completed via their own
+   zone NPCs above, so talking to the Startup Mentor never repeats a
+   quest you've finished. Once every stage is done, you see your
+   finished business as a read-only final pitch — name, logo, slogan,
+   and every answer you gave, laid out exactly like the real website's
+   own pitch page.
 5. In Leadership Academy, walk up to Priya and interact with her to start
    "Meet Your Team" — a tap-tap matching mini-game: match each of 4 tasks
    to the teammate who's actually good at it (Nadia/Oren/Priya/Theo),
@@ -482,10 +500,11 @@ up-to-date table. In short:
 | Main Street zone + "Not Enough Customers" quest (ports the real `not-enough-customers` Business Problem, reached via a portal inside Research Lab — Entrepreneur Quest's first 7-zone graph; introduced `QuestData.diagnosis_choice` for the investigate-cause-respond shape) | — |
 | Main Street's Accountant + "Costs Increased" quest (ports the real `costs-increased` Business Problem, Main Street's second quest-giving NPC — no new zone needed, reuses `diagnosis_choice`) | — |
 | Main Street's Support Rep + "A Negative Review" quest (ports the real `negative-review` Business Problem, Main Street's third quest-giving NPC — no new zone needed, reuses `diagnosis_choice`) | — |
-| Main Street's Sales Tracker / Profit Analyst / Cash Flow Advisor / Warehouse Keeper + their 4 quests (ports the real `sales-falling`/`rising-costs-eating-profit`/`profit-but-no-cash`/`too-much-stock` Business Problems, Main Street's fourth through seventh quest-giving NPCs — completes all 7 of the v2 Business Problems library) | All 18 BUILD stages' own non-decision mechanics (logo builder, category pickers, numeric entry), the 5 standalone Challenges, the RUN/Rescue & Grow hub pages, and the separate Business Rescue scenario |
+| Main Street's Sales Tracker / Profit Analyst / Cash Flow Advisor / Warehouse Keeper + their 4 quests (ports the real `sales-falling`/`rising-costs-eating-profit`/`profit-but-no-cash`/`too-much-stock` Business Problems, Main Street's fourth through seventh quest-giving NPCs — completes all 7 of the v2 Business Problems library) | — |
 | Supply Yard zone (4 NPCs: Pricing Tester, Supplier Scout, Stock Keeper, Bookkeeper — ports `pricing-experiment-reflection`/`choose-a-supplier`/`stock-management-scenario`/`cash-flow-decision` verbatim, reached via a second portal inside Main Street) | AI Quest Coach (explicitly not built — see the architecture doc's non-negotiables) |
 | AI Workshop zone (1 NPC: Tech Advisor — ports `ai-wrong-answer` verbatim, keeping the real site's own "Simulated AI Assistant (not real AI)" framing, reached via a portal inside Supply Yard) | — |
 | Turning Point zone (5 NPCs: Business Advisor, Growth Coach, Ad Reviewer, Quality Inspector, Sourcing Advisor — ports `business-pivot`/`grow-or-stay-small`/`misleading-ad`/`hiding-a-problem`/`cheap-questionable-supplier` verbatim, reached via a portal inside AI Workshop); **completes all 26 of Entrepreneur Quest's real decision events** | — |
+| `BusinessProfileData`/`BusinessLogoData` + `BusinessBuilder` autoload + 6 new UI panels (`TextInputPanel`, `LogoBuilderPanel`, `CategoryPickerPanel`, `NumericInputPanel`, `SimulatorPanel`, `PitchDisplayPanel`) — ports all 18 real BUILD stages, launched/resumed via Idea Lab's new Startup Mentor NPC; the Business Simulator uses the real site's exact `runSimulator()` formula verbatim; **completes Entrepreneur Quest's full real BUILD → RUN → RESCUE & GROW track end to end** | The 5 standalone Business Challenges, the RUN/Rescue & Grow hub pages, and the separate Business Rescue scenario |
 | Team Challenge zone + "The Angry Customer" quest (ports the real `angry-customer-choice` decision event, reached via a portal inside Leadership Academy, with Theo as a real-character NPC) | — |
 | Strategy Room zone + "The Better Idea" quest (ports the real `better-idea-choice` decision event, reached via a portal inside Team Challenge — Leadership Quest's first 3-zone graph, with Nadia as a real-character NPC) | — |
 | Huddle Room zone + "Everyone Has an Idea" quest (ports the real `everyone-has-an-idea-choice` decision event, reached via a portal inside Strategy Room — Leadership Quest's first 4-zone graph, with Oren as the giver NPC — the 4th and last of the real 4-character cast) | — |
@@ -1326,17 +1345,33 @@ rationale. Quick map:
   up as Quests. **All 26 of Entrepreneur Quest's real decision events
   are now ported** (its v1 set, its v2 Business Problems, the v2 RUN
   set, the AI Business Lab's one decision event, and the Rescue & Grow
-  set) — none of its 18 BUILD stages' own non-decision mechanics, 5
-  standalone Challenges, RUN/Rescue & Grow hub pages, or the separate
-  Business Rescue scenario, each a UI shape this architecture doesn't
-  fit rather than a content gap. **All 12 of Leadership Quest's real
-  missions are now ported**, using 5 new quest kinds
-  (`MATCH`/`SPOT`/`ALLOCATE`/`SORT`/`MULTI_STEP`) and 4 new autoloaded
-  mini-game panels that port the real website's own mechanic components
-  faithfully — see `docs/money-quest-world-architecture.md` Section
-  10's status table and Section 12's narrative for the full account.
+  set), **and all 18 of its real BUILD stages are now ported too** —
+  the real website's Build-Your-Business stepper, via a new
+  `BusinessProfileData`/`BusinessBuilder` persistent-state system and 6
+  new UI panels (text input, logo builder, category picker, numeric
+  stepper, Business Simulator, final pitch display) — launched/resumed
+  through Idea Lab's new Startup Mentor NPC. This completes
+  Entrepreneur Quest's full real BUILD → RUN → RESCUE & GROW track end
+  to end; only the 5 standalone Business Challenges, the RUN/Rescue &
+  Grow hub pages, and the separate Business Rescue scenario remain
+  unbuilt, each a UI shape this architecture doesn't fit (a standalone
+  quiz list, a dashboard page with no new decision content of its own,
+  a second company's own local-stats model) rather than a content gap.
+  **All 12 of Leadership Quest's real missions are now ported**, using
+  5 new quest kinds (`MATCH`/`SPOT`/`ALLOCATE`/`SORT`/`MULTI_STEP`) and
+  4 new autoloaded mini-game panels that port the real website's own
+  mechanic components faithfully — see
+  `docs/money-quest-world-architecture.md` Section 10's status table
+  and Section 12's narrative for the full account. The Business
+  Simulator's result math is an exact, verbatim port of the real
+  website's own `runSimulator()` formula
+  (`src/lib/entrepreneur-quest/state.ts`); the final pitch display
+  deliberately omits the real site's running `reputationOutOf5` line,
+  since Godot's CHALLENGE quests pay a flat reward rather than
+  accumulating that stat the way the website's `BusinessProfile`
+  does — an honest gap, not a fabricated number.
   See Section 12 also for the development order for the remaining
-  BUILD/Challenge/hub content, the 17 games, and the 4 simulator
+  Challenge/hub content, the 17 games, and the 4 simulator
   scenarios.
 - Museum is the only Hub portal still reachable-but-"coming soon" — the
   portal, zone registration, and locking logic all already work for it;

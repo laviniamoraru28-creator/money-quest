@@ -1,0 +1,83 @@
+[gd_scene load_steps=3 format=3 uid="uid://logobuilderpanel001"]
+
+[ext_resource type="Script" path="res://scenes/ui/LogoBuilderPanel.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/business/LogoPreviewDraw.gd" id="2"]
+
+[node name="LogoBuilderPanel" type="CanvasLayer"]
+script = ExtResource("1")
+layer = 11
+
+[node name="Panel" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -340.0
+offset_top = -340.0
+offset_right = 340.0
+offset_bottom = 340.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="PreviewRow" type="CenterContainer" parent="Panel/VBox"]
+layout_mode = 2
+
+[node name="Preview" type="Control" parent="Panel/VBox/PreviewRow" node_paths=PackedStringArray()]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+script = ExtResource("2")
+
+[node name="SymbolLabel" type="Label" parent="Panel/VBox/PreviewRow/Preview"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 1
+vertical_alignment = 1
+text = ""
+
+[node name="ShapeLabel" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = ""
+
+[node name="ShapeBox" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="ColorLabel" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = ""
+
+[node name="ColorBox" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="SymbolLabel" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = ""
+
+[node name="SymbolBox" type="HBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="SloganLabel" type="Label" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = ""
+
+[node name="SloganEdit" type="LineEdit" parent="Panel/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 48)
+
+[node name="ContinueButton" type="Button" parent="Panel/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 56)
+text = ""

@@ -620,7 +620,8 @@ node), never an architecture change.
 | Entrepreneur Quest's Supply Yard zone (4 NPCs) | **Built** — reached via a second portal inside Main Street, Entrepreneur Quest's eighth zone; hosts the real website's remaining v2 "Run Your Business" activities that aren't Business Problems. The Pricing Tester's "The Pricing Experiment" ports `pricing-experiment-reflection` verbatim — the real site shows 3 pre-authored price/units-sold rows in a table; Godot has no table UI, so the real rows are spoken as `intro_dialogue` lines instead, the same adaptation Research Lab's Fresh Trout data already used. The Supplier Scout's "Choose a Supplier" ports `choose-a-supplier` verbatim, narrating each of the 3 suppliers' real structural price/delivery/minimum-order/quality levels (`EQ_SUPPLIER_OPTIONS`) as dialogue instead of a table. The Stock Keeper's "Managing Your Stock" ports `stock-management-scenario` verbatim — kept as its own quest/NPC rather than folded into the supplier choice, matching the "one NPC per decision" shape every other Entrepreneur Quest zone uses. The Bookkeeper's "Cash Flow" ports `cash-flow-decision` verbatim, including the real restaurant-order scenario's own numbers (2000/30 days/600), spoken as plain numbers since this project's virtual economy has no real-currency formatting to apply to them |
 | Entrepreneur Quest's AI Workshop zone (1 NPC) | **Built** — reached via a portal inside Supply Yard, Entrepreneur Quest's ninth zone; the Tech Advisor's "AI Can Be Wrong" ports the real `ai-wrong-answer` decision event verbatim, keeping the real site's own "Simulated AI Assistant (not real AI)" framing intact — 100% pre-written dialogue, never an actual AI integration. The real site's other AI Lab facets (a pure-lookup Q&A list, a prompt-quality quiz, a privacy quiz) are non-decision mechanics, left unbuilt for the same reason every BUILD stage's own non-decision mechanics remain unbuilt |
 | Entrepreneur Quest's Turning Point zone (5 NPCs) | **Built** — reached via a portal inside AI Workshop, Entrepreneur Quest's tenth zone; hosts the real website's standalone "Rescue & Grow" decision events (not the separate Business Rescue scenario, which reuses 3 existing Business Problems against its own fixed company and local-stats model — left unbuilt). The Business Advisor's "Business Pivot" ports `business-pivot` verbatim, with its real `{businessName}`-templated situation spoken generically as "your business" since Godot's CHALLENGE quests have no persisted company identity to fill that placeholder — an honest simplification. The Growth Coach's "Grow or Stay Small" ports `grow-or-stay-small` verbatim. The Ad Reviewer, Quality Inspector, and Sourcing Advisor each port one of the real website's 3 Business Ethics scenarios verbatim — "The Misleading Ad" (`misleading-ad`), "Hiding a Problem" (`hiding-a-problem`), and "The Questionable Supplier" (`cheap-questionable-supplier`) — kept as 3 separate NPCs/quests rather than one multi-part quest. **This completes all 26 of Entrepreneur Quest's real decision events** |
-| Entrepreneur Quest's remaining real content (all 18 BUILD stages' own non-decision mechanics — logo builder, category pickers, numeric entry, etc. — the 5 standalone Business Challenges, the RUN/Rescue & Grow hub pages, and the separate Business Rescue scenario) | Not built — these are UI shapes the mission/zone/NPC architecture doesn't fit (a stepper, a comparison table, a lookup list, a quiz, a second company's own local-stats model), not more decision events; Money Quest's completion (all 30 lessons) and Leadership Quest's completion (all 12 real missions) leave this as the honest remaining gap in Entrepreneur Quest specifically |
+| `BusinessProfileData`/`BusinessLogoData` + `BusinessBuilder` autoload + 6 new UI panels (`TextInputPanel`, `LogoBuilderPanel`, `CategoryPickerPanel`, `NumericInputPanel`, `SimulatorPanel`, `PitchDisplayPanel`) | **Built** — Entrepreneur Quest's real BUILD stepper (`src/app/[locale]/entrepreneur-quest/build/page.tsx`), all 18 real stages in order, ported as a new persistent-state feature rather than another CHALLENGE quest (see `BusinessBuilder.gd`'s own doc comment for why). The Idea Lab's new Startup Mentor NPC launches/resumes it. 7 stages whose real content is already a ported CHALLENGE quest (`research-demand`, `test-the-idea`, `create-your-marketing`, `handle-competition`, `handle-a-customer-problem` ×2, `make-a-business-decision` ×2, `grow-your-business`) delegate to `QuestManager.start_quest()` rather than duplicating content; the other 11 get one of the 6 new panels. `TextInputPanel` ports the `reflect-text` stages (find a problem, create an idea, name your business, the final pitch's 2 questions) as a generic single/multi-line field with an optional safety hint. `LogoBuilderPanel` ports the logo stage as shape/color/symbol pickers over a procedurally-drawn preview (`LogoPreviewDraw`, a custom-`_draw()` Control — never an image file), using the real site's own 4 design-token hex colors. `CategoryPickerPanel` is a generic category grid reused for product/customer/marketing category selection. `NumericInputPanel` ports the costs/price stages as a +/- stepper, the same no-typed-number convention `AllocatePanel` established. `SimulatorPanel` ports the Business Simulator's exact `runSimulator()` formula (units made/sold, sales, costs, profit, remaining money) verbatim from `src/lib/entrepreneur-quest/state.ts`. `PitchDisplayPanel` shows the final read-only summary, deliberately omitting the real site's running `reputationOutOf5` line since Godot's flat-reward quests never accumulated that stat — an honest gap, not invented. All money values are plain major-unit integers, matching this project's established no-currency-formatting convention for its virtual economy. **This completes Entrepreneur Quest's full real BUILD → RUN → RESCUE & GROW track end to end** |
+| Entrepreneur Quest's remaining real content (the 5 standalone Business Challenges, the RUN/Rescue & Grow hub pages, and the separate Business Rescue scenario) | Not built — these are UI shapes the mission/zone/NPC architecture doesn't fit (a standalone quiz list, hub/dashboard pages with no new decision content of their own, a second company's own local-stats model), not new decision events or BUILD-stage mechanics; with the BUILD stepper now built, this is the final honest remaining gap in Entrepreneur Quest |
 | `EntryData`/`BookData`/`ExhibitData`/`MentorData`/`DictionaryTermData` schema | **Built** (`scripts/library/`, see `data/schemas/ENTRY_DATA_FORMAT.md`) |
 | Dictionary content | **Built** — 2 real terms (`goal`, `trade-off`), reusing `builder-saving-l1`'s own vocabulary keys verbatim |
 | Library zone (`data/zones/library.tres`, bookshelves, Librarian NPC, reachable from the Hub) | **Built** — honestly empty; the Librarian says the shelves are still being prepared rather than pretending there's content |
@@ -1001,5 +1002,58 @@ godot/money-quest-game/
     Business Rescue scenario (which reuses 3 Business Problems against
     its own fixed company and local-stats model) — each a UI shape the
     mission/zone/NPC architecture doesn't fit, not a content gap.
+    Phase 53 (this update) built exactly the first of those UI shapes:
+    the real website's own BUILD stepper
+    (`src/app/[locale]/entrepreneur-quest/build/page.tsx`), all 18 real
+    stages in order, as the first Entrepreneur Quest feature with its
+    own persistent, multi-step state rather than one self-contained
+    CHALLENGE quest. A new `BusinessProfileData` Resource (held by a new
+    `BusinessBuilder` autoload, persisted through `SaveManager` in the
+    same one `user://progress.json` file as everything else) tracks the
+    one business a child builds across every session; the Idea Lab's
+    new Startup Mentor NPC launches or resumes it at the next
+    incomplete stage. 7 of the 18 stages (`research-demand`,
+    `test-the-idea`, `create-your-marketing`, `handle-competition`,
+    `handle-a-customer-problem` ×2, `make-a-business-decision` ×2,
+    `grow-your-business`) are exactly the real decision events already
+    ported as CHALLENGE quests elsewhere in Entrepreneur Quest, so
+    `BusinessBuilder._run_stage()` just calls `QuestManager.start_quest()`
+    for those rather than duplicating content, skipping a stage
+    entirely if its quest was already completed via its own zone NPC.
+    The other 11 needed a UI shape the quest system never had, so 6 new
+    autoloaded `CanvasLayer` panels were built, each ported from the
+    real website's own stage component: `TextInputPanel` (find a
+    problem, create an idea, name your business, the final pitch's 2
+    questions — a single/multi-line field with an optional safety
+    hint, reused generically since every one of these `reflect-text`
+    stages is the same shape); `LogoBuilderPanel` (shape/color/symbol
+    pickers over a live preview drawn by a new `LogoPreviewDraw` custom-
+    `_draw()` Control — circle/square/hexagon/star, filled with this
+    project's own real design-token hex colors, never an image file);
+    `CategoryPickerPanel` (a generic category grid, reused for product,
+    customer, and marketing-approach selection); `NumericInputPanel`
+    (understand costs, set your price — a +/- stepper, the same
+    no-typed-number convention `AllocatePanel` already established
+    rather than requiring an on-screen keyboard for a number);
+    `SimulatorPanel` (the Business Simulator — allocate a fixed starting
+    amount across materials/packaging/advertising/saved-aside, then see
+    the result of the real site's own exact `runSimulator()` formula,
+    ported verbatim from `src/lib/entrepreneur-quest/state.ts`); and
+    `PitchDisplayPanel` (the final read-only summary, reusing
+    `LogoPreviewDraw`, shown once every stage is done). All business-
+    economy numbers (starting money, cost per unit, price, profit) are
+    plain major-unit integers, the same no-currency-formatting
+    convention this project's virtual economy has used since Phase 52's
+    Pricing Experiment/Cash Flow quests. `PitchDisplayPanel` deliberately
+    omits the real site's running `reputationOutOf5` line — Godot's
+    CHALLENGE quests pay a flat xp/coin reward rather than accumulating
+    that running stat across every decision the way the website's
+    `BusinessProfile` does, so showing a fabricated number there would
+    be inventing content rather than porting it, an honest gap rather
+    than a silent one. **This completes Entrepreneur Quest's full real
+    BUILD → RUN → RESCUE & GROW track end to end** — the only remaining
+    Entrepreneur Quest content is the 5 standalone Business Challenges,
+    the RUN/Rescue & Grow hub pages, and the separate Business Rescue
+    scenario, none of which add new decision content of their own.
     Still waiting on you: a real book/exhibit/mentor for Library/Museum
     (Section 6).

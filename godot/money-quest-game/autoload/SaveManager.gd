@@ -32,6 +32,7 @@ const DEFAULT_SAVE: Dictionary = {
 	"avatar_outfit_color": "0F7A6B",
 	"avatar_accessory_id": "",
 	"has_created_avatar": false,
+	"business_profile": {},
 }
 
 
@@ -43,6 +44,7 @@ func _ready() -> void:
 	ProgressManager.lesson_completed.connect(func(_id): save_progress())
 	ProgressManager.badge_awarded.connect(func(_id): save_progress())
 	ProgressManager.quest_completed.connect(func(_id): save_progress())
+	BusinessBuilder.profile_changed.connect(func(): save_progress())
 	Settings.reduced_motion_changed.connect(func(_v): save_progress())
 	Settings.theme_changed.connect(func(_v): save_progress())
 	Settings.music_volume_changed.connect(func(_v): save_progress())
@@ -101,6 +103,8 @@ func load_progress() -> void:
 	ProgressManager.avatar_config.accessory_id = data.get("avatar_accessory_id", "")
 	ProgressManager.has_created_avatar = data.get("has_created_avatar", false)
 
+	_load_business_profile(data.get("business_profile", {}))
+
 	Settings.theme_mode = data.get("theme", "system")
 	Settings.reduced_motion = data.get("reduced_motion", false)
 	Settings.music_volume = data.get("music_volume", DEFAULT_SAVE["music_volume"])
@@ -133,6 +137,7 @@ func save_progress() -> void:
 		"avatar_outfit_color": ProgressManager.avatar_config.outfit_color.to_html(false),
 		"avatar_accessory_id": ProgressManager.avatar_config.accessory_id,
 		"has_created_avatar": ProgressManager.has_created_avatar,
+		"business_profile": _serialize_business_profile(),
 	}
 
 	var file := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
@@ -149,3 +154,65 @@ func reset_progress() -> void:
 	if FileAccess.file_exists(SAVE_PATH):
 		DirAccess.remove_absolute(SAVE_PATH)
 	load_progress()
+
+
+func _load_business_profile(data: Dictionary) -> void:
+	var profile: BusinessProfileData = BusinessBuilder.profile
+	profile.problem = data.get("problem", "")
+	profile.idea_description = data.get("idea_description", "")
+	profile.business_name = data.get("business_name", "")
+	profile.slogan = data.get("slogan", "")
+	profile.product_category = data.get("product_category", "")
+	profile.product_description = data.get("product_description", "")
+	profile.customer_category = data.get("customer_category", "")
+	profile.cost_per_unit = data.get("cost_per_unit", 2)
+	profile.price = data.get("price", 5)
+	profile.marketing_approach = data.get("marketing_approach", "")
+	profile.why_choose_us = data.get("why_choose_us", "")
+	profile.next_step = data.get("next_step", "")
+	profile.completed_stage_ids.assign(data.get("completed_stage_ids", []))
+	profile.pitch_completed = data.get("pitch_completed", false)
+	profile.has_simulator_run = data.get("has_simulator_run", false)
+	profile.last_units_made = data.get("last_units_made", 0)
+	profile.last_units_sold = data.get("last_units_sold", 0)
+	profile.last_sales = data.get("last_sales", 0)
+	profile.last_costs = data.get("last_costs", 0)
+	profile.last_profit = data.get("last_profit", 0)
+	profile.last_remaining_money = data.get("last_remaining_money", 0)
+
+	var logo_data: Dictionary = data.get("logo", {})
+	profile.logo.shape = logo_data.get("shape", "circle")
+	profile.logo.color_key = logo_data.get("color_key", "teal")
+	profile.logo.symbol = logo_data.get("symbol", "🚀")
+
+
+func _serialize_business_profile() -> Dictionary:
+	var profile: BusinessProfileData = BusinessBuilder.profile
+	return {
+		"problem": profile.problem,
+		"idea_description": profile.idea_description,
+		"business_name": profile.business_name,
+		"slogan": profile.slogan,
+		"logo": {
+			"shape": profile.logo.shape,
+			"color_key": profile.logo.color_key,
+			"symbol": profile.logo.symbol,
+		},
+		"product_category": profile.product_category,
+		"product_description": profile.product_description,
+		"customer_category": profile.customer_category,
+		"cost_per_unit": profile.cost_per_unit,
+		"price": profile.price,
+		"marketing_approach": profile.marketing_approach,
+		"why_choose_us": profile.why_choose_us,
+		"next_step": profile.next_step,
+		"completed_stage_ids": profile.completed_stage_ids,
+		"pitch_completed": profile.pitch_completed,
+		"has_simulator_run": profile.has_simulator_run,
+		"last_units_made": profile.last_units_made,
+		"last_units_sold": profile.last_units_sold,
+		"last_sales": profile.last_sales,
+		"last_costs": profile.last_costs,
+		"last_profit": profile.last_profit,
+		"last_remaining_money": profile.last_remaining_money,
+	}

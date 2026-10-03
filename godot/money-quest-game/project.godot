@@ -24,25 +24,31 @@ config/icon="res://icon.svg"
 ; Order matters:
 ; 1. Localization/Settings first — other autoloads read locale/reduced-
 ;    motion state during their own _ready().
-; 2. GameState/ProgressManager before SaveManager — SaveManager pushes
-;    loaded values INTO them during its own _ready(), so they must exist
-;    first (they don't read anything at _ready time themselves).
+; 2. GameState/ProgressManager/BusinessBuilder before SaveManager —
+;    SaveManager pushes loaded values INTO them during its own
+;    _ready(), so they must exist first (they don't read anything at
+;    _ready time themselves). BusinessBuilder holds the one persistent
+;    BusinessProfileData the Entrepreneur Quest BUILD stepper builds —
+;    see its own doc comment.
 ; 3. SaveManager before anything that reads saved state at startup.
 ; 4. The UI overlay autoloads (DialogueBox/ChoicePanel/RewardPopup/
-;    MatchPanel/SpotPanel/AllocatePanel/SortPanel) are global because
-;    deeply-nested zone/NPC scripts (see scenes/world/zones/) need to
-;    show dialogue/choices/mini-games without any manual reference-
-;    passing across the scene tree — the same reasoning autoloads exist
-;    for in Godot generally. They render nothing until a script calls
-;    them (each is `visible = false` by default), so their presence
-;    during the main menu is harmless. HUD is NOT an autoload — it's
-;    purely reactive display, only meaningful once inside the world, so
-;    it's a plain child node of Main.tscn instead.
+;    MatchPanel/SpotPanel/AllocatePanel/SortPanel/TextInputPanel/
+;    LogoBuilderPanel/CategoryPickerPanel/NumericInputPanel/
+;    SimulatorPanel/PitchDisplayPanel) are global because deeply-nested
+;    zone/NPC scripts (see scenes/world/zones/) need to show dialogue/
+;    choices/mini-games/build-stage UI without any manual
+;    reference-passing across the scene tree — the same reasoning
+;    autoloads exist for in Godot generally. They render nothing until
+;    a script calls them (each is `visible = false` by default), so
+;    their presence during the main menu is harmless. HUD is NOT an
+;    autoload — it's purely reactive display, only meaningful once
+;    inside the world, so it's a plain child node of Main.tscn instead.
 ; 5. WorldManager/QuestManager last — they call into everything above.
 Localization="*res://autoload/Localization.gd"
 Settings="*res://autoload/Settings.gd"
 GameState="*res://autoload/GameState.gd"
 ProgressManager="*res://autoload/ProgressManager.gd"
+BusinessBuilder="*res://autoload/BusinessBuilder.gd"
 SaveManager="*res://autoload/SaveManager.gd"
 AudioManager="*res://autoload/AudioManager.gd"
 DialogueBox="*res://scenes/ui/DialogueBox.tscn"
@@ -52,6 +58,12 @@ MatchPanel="*res://scenes/ui/MatchPanel.tscn"
 SpotPanel="*res://scenes/ui/SpotPanel.tscn"
 AllocatePanel="*res://scenes/ui/AllocatePanel.tscn"
 SortPanel="*res://scenes/ui/SortPanel.tscn"
+TextInputPanel="*res://scenes/ui/TextInputPanel.tscn"
+LogoBuilderPanel="*res://scenes/ui/LogoBuilderPanel.tscn"
+CategoryPickerPanel="*res://scenes/ui/CategoryPickerPanel.tscn"
+NumericInputPanel="*res://scenes/ui/NumericInputPanel.tscn"
+SimulatorPanel="*res://scenes/ui/SimulatorPanel.tscn"
+PitchDisplayPanel="*res://scenes/ui/PitchDisplayPanel.tscn"
 WorldManager="*res://autoload/WorldManager.gd"
 QuestManager="*res://autoload/QuestManager.gd"
 

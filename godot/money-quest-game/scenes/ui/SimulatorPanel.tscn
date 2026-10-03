@@ -1,0 +1,81 @@
+[gd_scene load_steps=2 format=3 uid="uid://simulatorpanel001"]
+
+[ext_resource type="Script" path="res://scenes/ui/SimulatorPanel.gd" id="1"]
+
+[node name="SimulatorPanel" type="CanvasLayer"]
+script = ExtResource("1")
+layer = 11
+
+[node name="Panel" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -340.0
+offset_top = -320.0
+offset_right = 340.0
+offset_bottom = 320.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="AllocationView" type="VBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="CategoriesBox" type="VBoxContainer" parent="Panel/VBox/AllocationView"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="RemainingLabel" type="Label" parent="Panel/VBox/AllocationView"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+autowrap_mode = 3
+text = ""
+
+[node name="SeeResultButton" type="Button" parent="Panel/VBox/AllocationView"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 56)
+text = ""
+
+[node name="ResultView" type="VBoxContainer" parent="Panel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+visible = false
+
+[node name="ResultTitleLabel" type="Label" parent="Panel/VBox/ResultView"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = ""
+
+[node name="ResultLinesLabel" type="Label" parent="Panel/VBox/ResultView"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+autowrap_mode = 3
+text = ""
+
+[node name="ExplanationLabel" type="Label" parent="Panel/VBox/ResultView"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+autowrap_mode = 3
+text = ""
+
+[node name="ButtonsRow" type="HBoxContainer" parent="Panel/VBox/ResultView"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TryAgainButton" type="Button" parent="Panel/VBox/ResultView/ButtonsRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 56)
+text = ""
+
+[node name="ContinueButton" type="Button" parent="Panel/VBox/ResultView/ButtonsRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 56)
+text = ""
