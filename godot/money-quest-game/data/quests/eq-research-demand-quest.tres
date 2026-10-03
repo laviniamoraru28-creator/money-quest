@@ -1,0 +1,82 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=17 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueLine.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="5"]
+
+[sub_resource type="Resource" id="DialogueLine_intro"]
+script = ExtResource("2")
+speaker_id = "research-guide"
+text_key = "quest.eq_research_demand.dialogue.0"
+
+[sub_resource type="Resource" id="DialogueLine_interested"]
+script = ExtResource("2")
+speaker_id = "research-guide"
+text_key = "quest.eq_research_demand.dialogue.1"
+
+[sub_resource type="Resource" id="DialogueLine_bought"]
+script = ExtResource("2")
+speaker_id = "research-guide"
+text_key = "quest.eq_research_demand.dialogue.2"
+
+[sub_resource type="Resource" id="DialogueLine_competitors"]
+script = ExtResource("2")
+speaker_id = "research-guide"
+text_key = "quest.eq_research_demand.dialogue.3"
+
+[sub_resource type="Resource" id="ConsequenceEffect_looks_like_a_good_opportunity"]
+script = ExtResource("5")
+coin_delta = 3
+xp_delta = 5
+consequence_text_key = "eq.decision.market_detective_reflection.choice.looks_like_a_good_opportunity.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_looks_like_a_good_opportunity"]
+script = ExtResource("4")
+label_key = "eq.decision.market_detective_reflection.choice.looks_like_a_good_opportunity.label"
+consequence = SubResource("ConsequenceEffect_looks_like_a_good_opportunity")
+
+[sub_resource type="Resource" id="ConsequenceEffect_needs_more_thought"]
+script = ExtResource("5")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "eq.decision.market_detective_reflection.choice.needs_more_thought.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_needs_more_thought"]
+script = ExtResource("4")
+label_key = "eq.decision.market_detective_reflection.choice.needs_more_thought.label"
+consequence = SubResource("ConsequenceEffect_needs_more_thought")
+
+[sub_resource type="Resource" id="ConsequenceEffect_not_sure_yet"]
+script = ExtResource("5")
+coin_delta = 4
+xp_delta = 5
+consequence_text_key = "eq.decision.market_detective_reflection.choice.not_sure_yet.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_not_sure_yet"]
+script = ExtResource("4")
+label_key = "eq.decision.market_detective_reflection.choice.not_sure_yet.label"
+consequence = SubResource("ConsequenceEffect_not_sure_yet")
+
+[sub_resource type="Resource" id="DialogueChoice_market_detective_reflection"]
+script = ExtResource("3")
+situation_text_key = "eq.decision.market_detective_reflection.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_looks_like_a_good_opportunity"), SubResource("ChoiceOption_needs_more_thought"), SubResource("ChoiceOption_not_sure_yet")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "eq-research-demand-quest"
+title_key = "quest.eq_research_demand.title"
+description_key = "quest.eq_research_demand.description"
+educational_objective_key = "quest.eq_research_demand.intro"
+track = "entrepreneur-quest"
+zone_id = "research-lab"
+giver_npc_id = "research-guide"
+kind = 2
+intro_dialogue = Array[DialogueLine]([SubResource("DialogueLine_intro"), SubResource("DialogueLine_interested"), SubResource("DialogueLine_bought"), SubResource("DialogueLine_competitors")])
+challenge_choice = SubResource("DialogueChoice_market_detective_reflection")
+reward_message_key = "quest.eq_research_demand.reward_message"
+xp_reward = 15
+coin_reward = 10
+skill_ids = Array[String](["research", "critical-thinking", "decision-making"])

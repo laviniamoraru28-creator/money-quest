@@ -591,13 +591,14 @@ node), never an architecture change.
 | Workshop's Supplier + "Rising Material Costs" quest | **Built** — Workshop's second quest-giving NPC, the first "a zone can grow another CHALLENGE-kind resident" case in Entrepreneur Quest, same pattern Money Quest proved throughout; ports the real `materials-cost-increase` decision event verbatim — the sibling event under the same real "handle-a-customer-problem" BUILD stage as the Workshop Guide's quest; the real decision has no secondary character at all (pure second-person framing), so "Supplier" is an invented mentor-role name tied to the scenario, the same convention every Entrepreneur Quest giver NPC so far has used (the website's BUILD-stage decisions never name anyone); 4 of 25 real decision events now ported |
 | Entrepreneur Quest's Office zone + "Make a Business Decision" quest | **Built** — reached via a portal inside Workshop (Idea Lab → Marketing Studio → Workshop → Office, Entrepreneur Quest's first 4-zone graph); a brand-new zone rather than growing an existing one, since the real "make-a-business-decision" BUILD stage had no Godot zone/NPC yet; `title_key`/`intro_text_key` reuse that real BUILD stage's own `title`/`learnText` verbatim ("Make a Business Decision" / "Good business owners think through their choices instead of just guessing."), the established convention for the first quest built under a given stage; ports the real `more-orders-than-expected` decision event verbatim via the Office Guide, another invented mentor-role name (the decision has no secondary character at all) |
 | Office's Teammate + "A Teammate's Idea" quest | **Built** — Office's second quest-giving NPC, another "zone grows another resident" case; ports the real `teammate-wants-change` decision event verbatim — the sibling event under the same real "make-a-business-decision" BUILD stage as the Office Guide's quest; since that stage's real title/learnText was already used by the Office Guide's quest, this quest's title/intro are original framing instead, the same convention Workshop's Supplier established; "Teammate" is an invented mentor-role name matching the real decision text's own wording ("someone helping with your business," "your teammate") |
-| Entrepreneur Quest's Growth Lab zone + "Grow Your Business" quest | **Built** — reached via a portal inside Office (Idea Lab → Marketing Studio → Workshop → Office → Growth Lab, Entrepreneur Quest's first 5-zone graph); a brand-new zone, since the real "grow-your-business" BUILD stage (the only stage besides "make-a-business-decision" with no Godot zone/NPC yet) had none; `title_key`/`intro_text_key` reuse that real stage's own `title`/`learnText` verbatim ("Grow Your Business" / "Sometimes things don't go as planned. Growing a business often means trying again with something new."), the established convention for the first (and, per the real site, only) quest under this stage; ports the real `fewer-sales-than-expected` decision event verbatim via the Growth Guide, another invented mentor-role name; 7 of 25 real decision events now ported — all of the v1 "mission"-kind stages' decision events are now ported, leaving only the v1 `market-detective-reflection`/`test-before-invest` pair (which depend on presenting market-data numbers, not yet designed for Godot) and the entire v2 set remaining |
+| Entrepreneur Quest's Growth Lab zone + "Grow Your Business" quest | **Built** — reached via a portal inside Office (Idea Lab → Marketing Studio → Workshop → Office → Growth Lab, Entrepreneur Quest's first 5-zone graph); a brand-new zone, since the real "grow-your-business" BUILD stage (the only stage besides "make-a-business-decision" with no Godot zone/NPC yet) had none; `title_key`/`intro_text_key` reuse that real stage's own `title`/`learnText` verbatim ("Grow Your Business" / "Sometimes things don't go as planned. Growing a business often means trying again with something new."), the established convention for the first (and, per the real site, only) quest under this stage; ports the real `fewer-sales-than-expected` decision event verbatim via the Growth Guide, another invented mentor-role name |
+| Entrepreneur Quest's Research Lab zone + "Research Demand"/"Test the Idea" quests | **Built** — reached via a portal inside Growth Lab (Idea Lab → Marketing Studio → Workshop → Office → Growth Lab → Research Lab, Entrepreneur Quest's first 6-zone graph); a brand-new zone built with 2 residents from the start, the same shape Office used, since the real "research-demand" and "test-the-idea" BUILD stages (the website's two earliest decisions, order 3 and 4) had no Godot zone/NPC yet; the Research Guide's "Research Demand" quest ports the real `market-detective-reflection` decision event verbatim, but the real website version shows a market-data TABLE (the fixed "Fresh Trout" scenario: 300 interested customers, 75 recent buyers, 4 competitors) before the reflection question — Godot has no such table UI, so the Research Guide instead speaks the same real numbers as `intro_dialogue` lines, in the real data's own order and values, before the identical real situation/choices/consequences; this is a presentation-shape adaptation only, not invented content, and resolves the "not yet designed" gap the previous phase flagged. The Test Guide's "Test the Idea" quest ports the real `test-before-invest` decision event verbatim (a simple 2-choice decision with no table dependency); both quests' titles/intros reuse their real stages' own title/learnText verbatim, being each stage's only quest. **All 9 of Entrepreneur Quest's v1 decision events are now ported** (9 of 25 real decision events overall) — only the entire v2 set (RUN, Business Problems, AI Lab, Rescue & Grow — 16 decision events) remains |
 | Leadership Quest's Leadership Academy zone + "The Big Mistake" quest | **Built** — a `CHALLENGE`-kind quest porting the website's real `big-mistake-choice` decision event verbatim, with Priya as a real-character NPC; this is what motivated `QuestData.intro_dialogue` (Section 4) |
 | Leadership Quest's Team Challenge zone + "The Angry Customer" quest | **Built** — reached via a portal inside Leadership Academy (Leadership Quest's first 2-zone graph); another `CHALLENGE`-kind quest with Theo as a real-character NPC, porting the real `angry-customer-choice` decision event verbatim |
 | Leadership Quest's Strategy Room zone + "The Better Idea" quest | **Built** — reached via a portal inside Team Challenge (Leadership Academy → Team Challenge → Strategy Room, Leadership Quest's first 3-zone graph); another `CHALLENGE`-kind quest with Nadia (the 3rd of Leadership Quest's 4 real characters used so far) as the giver NPC, porting the real `better-idea-choice` decision event verbatim |
 | `AvatarConfig` + creation screen, fully wired to the 3D model | **Built** — 4 body presets (including a seated wheelchair-style look) and 4 accessories (glasses, cap, hearing aid, cane), all purely visual, listed together as equally normal choices |
 | Progression fields for zones/quests/skills | **Built** (additive) |
-| Entrepreneur Quest's remaining real content (18 of 25 decision events, all 18 BUILD stages' own mechanics, 5 Challenges, the RUN/Rescue & Grow hubs, the AI Business Lab) / Leadership Quest's remaining 9 missions | Not built — Money Quest's completion (all 30 lessons) makes these two tracks the primary remaining expansion targets |
+| Entrepreneur Quest's remaining real content (16 of 25 decision events — the entire v2 set, all 18 BUILD stages' own mechanics, 5 Challenges, the RUN/Rescue & Grow hubs, the AI Business Lab) / Leadership Quest's remaining 9 missions | Not built — Money Quest's completion (all 30 lessons) makes these two tracks the primary remaining expansion targets |
 | `EntryData`/`BookData`/`ExhibitData`/`MentorData`/`DictionaryTermData` schema | **Built** (`scripts/library/`, see `data/schemas/ENTRY_DATA_FORMAT.md`) |
 | Dictionary content | **Built** — 2 real terms (`goal`, `trade-off`), reusing `builder-saving-l1`'s own vocabulary keys verbatim |
 | Library zone (`data/zones/library.tres`, bookshelves, Librarian NPC, reachable from the Hub) | **Built** — honestly empty; the Librarian says the shelves are still being prepared rather than pretending there's content |
@@ -821,20 +822,34 @@ godot/money-quest-game/
     zone yet; the Growth Guide's "Grow Your Business" quest reuses that
     stage's real title/learnText verbatim (its first and, per the real
     site, only quest) and ports the real `fewer-sales-than-expected`
-    decision event verbatim. 7 of 25 real decision events are now
-    ported (Idea Lab's Handle Competition, Marketing Studio's Create
-    Your Marketing, Workshop's two, Office's two, Growth Lab's one) —
-    every v1 "mission"-kind stage's decision event is now ported. 18
-    real decision events remain: the v1 `market-detective-reflection`/
-    `test-before-invest` pair (these depend on presenting market-data
-    numbers alongside the choice, a presentation shape not yet designed
-    for Godot's dialogue/choice UI), the v2 RUN set (4), the v2 Business
-    Problems library (7), the v2 AI Lab (`ai-wrong-answer`), and the v2
-    Rescue & Grow set (4) — plus all 18 BUILD stages' own non-decision
-    mechanics (logo builder, category pickers, numeric entry, etc.) and
-    the 5 standalone Challenges, none of which have any Godot
-    implementation yet; only the simple "situation + N choices +
-    consequence" CHALLENGE shape exists so far.
+    decision event verbatim. Phase 45 (this update) built a sixth zone,
+    Research Lab (reached via a portal inside Growth Lab), with 2
+    residents from the start — the same shape Office used — covering
+    the real website's two EARLIEST BUILD decisions, "Research Demand"
+    and "Test the Idea" (order 3 and 4), which had no Godot zone/NPC
+    yet. The Research Guide's "Research Demand" quest ports the real
+    `market-detective-reflection` decision event verbatim; the real
+    website version shows a market-data TABLE (the fixed "Fresh Trout"
+    scenario: 300 interested customers, 75 recent buyers, 4
+    competitors) before the reflection question, which Godot has no UI
+    for, so the Research Guide instead speaks those same real numbers
+    as `intro_dialogue` lines, in the real data's own order and values
+    — a presentation-shape adaptation only, resolving the gap flagged
+    in Phase 44. The Test Guide's "Test the Idea" quest ports the real
+    `test-before-invest` decision event verbatim (a simple 2-choice
+    decision, no table dependency). Both quests' titles/intros reuse
+    their real stages' own title/learnText verbatim, each being that
+    stage's only quest. **All 9 of Entrepreneur Quest's v1 decision
+    events are now ported** (9 of 25 real decision events overall).
+    16 real decision events remain, all v2: the RUN set (4), the
+    Business Problems library (7), the AI Lab (`ai-wrong-answer`), and
+    the Rescue & Grow set (4) — plus all 18 BUILD stages' own
+    non-decision mechanics (logo builder, category pickers, numeric
+    entry, etc.) and the 5 standalone Challenges, none of which have
+    any Godot implementation yet; only the simple "situation + N
+    choices + consequence" CHALLENGE shape (plus, as of this phase,
+    `intro_dialogue` for presenting fixed reference numbers) exists so
+    far.
     Still waiting on you: a real book/exhibit/mentor for Library/Museum
     (Section 6). Still unstarted: Leadership Quest's remaining 9
     missions — of those, only `everyone-has-an-idea` fits the existing

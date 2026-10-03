@@ -300,7 +300,15 @@ rebuilt.
    leads to **Growth Lab**, Entrepreneur Quest's fifth zone — talk to
    the Growth Guide to start "Grow Your Business": you made fewer
    sales than you hoped for this week, and you choose whether to ask
-   customers why, try something new, or keep doing the same thing.
+   customers why, try something new, or keep doing the same thing. A
+   third portal inside Growth Lab leads to **Research Lab**,
+   Entrepreneur Quest's sixth zone — talk to the Research Guide to
+   start "Research Demand": they'll walk you through a real example
+   business, Fresh Trout (300 interested customers, only 75 recent
+   buyers, 4 competitors already selling), and you decide what that
+   data tells you. Research Lab's second resident, the Test Guide,
+   gives "Test the Idea": you have some starting money, and you choose
+   whether to spend it all building right away or test a little first.
 5. In Leadership Academy, walk up to Priya and interact with her to start
    "The Big Mistake" — ported directly from the website's real Leadership
    Quest content: Priya made a mistake and the team is watching to see how
@@ -390,7 +398,8 @@ up-to-date table. In short:
 | Workshop's Supplier + "Rising Material Costs" quest (ports the real `materials-cost-increase` decision event, Workshop's second quest-giving NPC — no new zone needed, no mini-game needed) | — |
 | Office zone + "Make a Business Decision" quest (ports the real `more-orders-than-expected` decision event, reached via a portal inside Workshop — Entrepreneur Quest's first 4-zone graph) | — |
 | Office's Teammate + "A Teammate's Idea" quest (ports the real `teammate-wants-change` decision event, Office's second quest-giving NPC — no new zone needed, no mini-game needed) | — |
-| Growth Lab zone + "Grow Your Business" quest (ports the real `fewer-sales-than-expected` decision event, reached via a portal inside Office — Entrepreneur Quest's first 5-zone graph) | Entrepreneur Quest's remaining 18 real decision events and all 18 BUILD stages' own non-decision mechanics |
+| Growth Lab zone + "Grow Your Business" quest (ports the real `fewer-sales-than-expected` decision event, reached via a portal inside Office — Entrepreneur Quest's first 5-zone graph) | — |
+| Research Lab zone + "Research Demand"/"Test the Idea" quests (ports the real `market-detective-reflection`/`test-before-invest` decision events, reached via a portal inside Growth Lab — Entrepreneur Quest's first 6-zone graph; completes all 9 of Entrepreneur Quest's v1 decision events) | Entrepreneur Quest's remaining 16 real decision events (the entire v2 set) and all 18 BUILD stages' own non-decision mechanics |
 | Leadership Academy zone + "The Big Mistake" quest (ports the website's real `big-mistake-choice` decision event, with Priya as a real-character NPC) | AI Quest Coach (explicitly not built — see the architecture doc's non-negotiables) |
 | Team Challenge zone + "The Angry Customer" quest (ports the real `angry-customer-choice` decision event, reached via a portal inside Leadership Academy, with Theo as a real-character NPC) | Leadership Quest's `spot`/`allocate`/`sort`-kind missions (need mechanics not built yet) |
 | Strategy Room zone + "The Better Idea" quest (ports the real `better-idea-choice` decision event, reached via a portal inside Team Challenge — Leadership Quest's first 3-zone graph, with Nadia as a real-character NPC) | Leadership Quest's remaining `mission-choice`-kind missions |
@@ -842,6 +851,23 @@ verbatim ("Grow Your Business" / "Sometimes things don't go as
 planned. Growing a business often means trying again with something
 new.") - only the description and reward message are original.
 
+Research Lab's "Research Demand" quest ports the real
+`market-detective-reflection` decision event - the situation, all 3
+choices, and all 3 consequences are copied verbatim. The real website
+version shows a market-data table (the fixed "Fresh Trout" scenario:
+300 interested customers, 75 recent buyers, 4 competitors) above the
+reflection question; Godot has no table UI, so the Research Guide
+instead speaks those same real numbers as spoken dialogue lines, in
+the same order and with the same values, right before the identical
+real question and choices. This is a presentation-shape adaptation
+only - every number and every word of the decision itself is the
+website's real content, nothing invented. Research Lab's second
+resident, the Test Guide, gives "Test the Idea," porting the real
+`test-before-invest` decision event verbatim (a simple 2-choice
+decision with no table dependency). Both quests are the only quest
+under their real stage, so both reuse that stage's own title/learnText
+verbatim for their title and intro.
+
 Leadership Academy's "The Big Mistake" quest is likewise copied directly
 from the real `messages/en.json`/`messages/ro.json`
 (`leadershipQuest.missions.big-mistake`, including its `priya`/`oren`
@@ -1000,6 +1026,8 @@ rationale. Quick map:
   zone, reached via a portal inside Workshop.
 - `scenes/world/zones/growth_lab/GrowthLab.tscn` — Entrepreneur Quest's
   fifth zone, reached via a portal inside Office.
+- `scenes/world/zones/research_lab/ResearchLab.tscn` — Entrepreneur
+  Quest's sixth zone, reached via a portal inside Growth Lab.
 - `scenes/world/zones/leadership_academy/LeadershipAcademy.tscn` —
   Leadership Quest's first zone.
 - `scenes/world/zones/team_challenge/TeamChallenge.tscn` — Leadership
@@ -1055,8 +1083,9 @@ rationale. Quick map:
   silent placeholder bus — since one would require either an offline
   voice model or a paid API, both out of scope per the brief.
 - All 30 of Money Quest's real website curriculum lessons are now wired
-  up as Quests. Only 7 of Entrepreneur Quest's 25 real decision events
-  are ported (and none of its 18 BUILD stages' own non-decision
+  up as Quests. All 9 of Entrepreneur Quest's v1 decision events are
+  ported (9 of 25 real decision events overall; none of its 18 BUILD
+  stages' own non-decision
   mechanics, 5 standalone Challenges, or RUN/Rescue & Grow/AI Lab
   content), and only 3 of Leadership Quest's 12 real missions are
   ported. See `docs/money-quest-world-architecture.md` Section 12 for
