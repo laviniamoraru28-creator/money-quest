@@ -1,0 +1,78 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=16 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueLine.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="5"]
+
+[sub_resource type="Resource" id="DialogueLine_supplier_a"]
+script = ExtResource("2")
+speaker_id = "supplier-scout"
+text_key = "quest.eq_choose_a_supplier.dialogue.0"
+
+[sub_resource type="Resource" id="DialogueLine_supplier_b"]
+script = ExtResource("2")
+speaker_id = "supplier-scout"
+text_key = "quest.eq_choose_a_supplier.dialogue.1"
+
+[sub_resource type="Resource" id="DialogueLine_supplier_c"]
+script = ExtResource("2")
+speaker_id = "supplier-scout"
+text_key = "quest.eq_choose_a_supplier.dialogue.2"
+
+[sub_resource type="Resource" id="ConsequenceEffect_supplier_a"]
+script = ExtResource("5")
+coin_delta = 2
+xp_delta = 5
+consequence_text_key = "eq.decision.choose_a_supplier.choice.supplier_a.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_supplier_a"]
+script = ExtResource("4")
+label_key = "eq.decision.choose_a_supplier.choice.supplier_a.label"
+consequence = SubResource("ConsequenceEffect_supplier_a")
+
+[sub_resource type="Resource" id="ConsequenceEffect_supplier_b"]
+script = ExtResource("5")
+coin_delta = 4
+xp_delta = 5
+consequence_text_key = "eq.decision.choose_a_supplier.choice.supplier_b.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_supplier_b"]
+script = ExtResource("4")
+label_key = "eq.decision.choose_a_supplier.choice.supplier_b.label"
+consequence = SubResource("ConsequenceEffect_supplier_b")
+
+[sub_resource type="Resource" id="ConsequenceEffect_supplier_c"]
+script = ExtResource("5")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "eq.decision.choose_a_supplier.choice.supplier_c.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_supplier_c"]
+script = ExtResource("4")
+label_key = "eq.decision.choose_a_supplier.choice.supplier_c.label"
+consequence = SubResource("ConsequenceEffect_supplier_c")
+
+[sub_resource type="Resource" id="DialogueChoice_choose_a_supplier"]
+script = ExtResource("3")
+situation_text_key = "eq.decision.choose_a_supplier.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_supplier_a"), SubResource("ChoiceOption_supplier_b"), SubResource("ChoiceOption_supplier_c")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "eq-choose-a-supplier-quest"
+title_key = "quest.eq_choose_a_supplier.title"
+description_key = "quest.eq_choose_a_supplier.description"
+educational_objective_key = "quest.eq_choose_a_supplier.intro"
+track = "entrepreneur-quest"
+zone_id = "supply-yard"
+giver_npc_id = "supplier-scout"
+kind = 2
+intro_dialogue = Array[DialogueLine]([SubResource("DialogueLine_supplier_a"), SubResource("DialogueLine_supplier_b"), SubResource("DialogueLine_supplier_c")])
+intro_text_key = "quest.eq_choose_a_supplier.intro"
+challenge_choice = SubResource("DialogueChoice_choose_a_supplier")
+reward_message_key = "quest.eq_choose_a_supplier.reward_message"
+xp_reward = 15
+coin_reward = 10
+skill_ids = Array[String](["critical-thinking", "negotiation", "decision-making"])

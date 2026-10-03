@@ -1,0 +1,72 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=14 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="4"]
+
+[sub_resource type="Resource" id="ConsequenceEffect_keep_model"]
+script = ExtResource("4")
+coin_delta = 4
+xp_delta = 5
+consequence_text_key = "eq.decision.business_pivot.choice.keep_model.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_keep_model"]
+script = ExtResource("3")
+label_key = "eq.decision.business_pivot.choice.keep_model.label"
+consequence = SubResource("ConsequenceEffect_keep_model")
+
+[sub_resource type="Resource" id="ConsequenceEffect_change_customer"]
+script = ExtResource("4")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "eq.decision.business_pivot.choice.change_customer.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_change_customer"]
+script = ExtResource("3")
+label_key = "eq.decision.business_pivot.choice.change_customer.label"
+consequence = SubResource("ConsequenceEffect_change_customer")
+
+[sub_resource type="Resource" id="ConsequenceEffect_change_product"]
+script = ExtResource("4")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "eq.decision.business_pivot.choice.change_product.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_change_product"]
+script = ExtResource("3")
+label_key = "eq.decision.business_pivot.choice.change_product.label"
+consequence = SubResource("ConsequenceEffect_change_product")
+
+[sub_resource type="Resource" id="ConsequenceEffect_stop_idea"]
+script = ExtResource("4")
+coin_delta = 4
+xp_delta = 5
+consequence_text_key = "eq.decision.business_pivot.choice.stop_idea.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_stop_idea"]
+script = ExtResource("3")
+label_key = "eq.decision.business_pivot.choice.stop_idea.label"
+consequence = SubResource("ConsequenceEffect_stop_idea")
+
+[sub_resource type="Resource" id="DialogueChoice_business_pivot"]
+script = ExtResource("2")
+situation_text_key = "eq.decision.business_pivot.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_keep_model"), SubResource("ChoiceOption_change_customer"), SubResource("ChoiceOption_change_product"), SubResource("ChoiceOption_stop_idea")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "eq-business-pivot-quest"
+title_key = "quest.eq_business_pivot.title"
+description_key = "quest.eq_business_pivot.description"
+educational_objective_key = "quest.eq_business_pivot.intro"
+track = "entrepreneur-quest"
+zone_id = "turning-point"
+giver_npc_id = "business-advisor"
+kind = 2
+intro_text_key = "quest.eq_business_pivot.intro"
+challenge_choice = SubResource("DialogueChoice_business_pivot")
+reward_message_key = "quest.eq_business_pivot.reward_message"
+xp_reward = 15
+coin_reward = 10
+skill_ids = Array[String](["strategic-thinking", "resilience", "decision-making"])

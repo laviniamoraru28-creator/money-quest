@@ -1,0 +1,73 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=15 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueLine.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="5"]
+
+[sub_resource type="Resource" id="DialogueLine_ai_suggestion"]
+script = ExtResource("2")
+speaker_id = "tech-advisor"
+text_key = "quest.eq_ai_wrong_answer.dialogue.0"
+
+[sub_resource type="Resource" id="DialogueLine_real_data"]
+script = ExtResource("2")
+speaker_id = "tech-advisor"
+text_key = "quest.eq_ai_wrong_answer.dialogue.1"
+
+[sub_resource type="Resource" id="ConsequenceEffect_trust_the_ai"]
+script = ExtResource("5")
+coin_delta = 3
+xp_delta = 5
+consequence_text_key = "eq.decision.ai_wrong_answer.choice.trust_the_ai.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_trust_the_ai"]
+script = ExtResource("4")
+label_key = "eq.decision.ai_wrong_answer.choice.trust_the_ai.label"
+consequence = SubResource("ConsequenceEffect_trust_the_ai")
+
+[sub_resource type="Resource" id="ConsequenceEffect_check_the_data_first"]
+script = ExtResource("5")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "eq.decision.ai_wrong_answer.choice.check_the_data_first.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_check_the_data_first"]
+script = ExtResource("4")
+label_key = "eq.decision.ai_wrong_answer.choice.check_the_data_first.label"
+consequence = SubResource("ConsequenceEffect_check_the_data_first")
+
+[sub_resource type="Resource" id="ConsequenceEffect_ask_ai_to_explain"]
+script = ExtResource("5")
+coin_delta = 4
+xp_delta = 5
+consequence_text_key = "eq.decision.ai_wrong_answer.choice.ask_ai_to_explain.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_ask_ai_to_explain"]
+script = ExtResource("4")
+label_key = "eq.decision.ai_wrong_answer.choice.ask_ai_to_explain.label"
+consequence = SubResource("ConsequenceEffect_ask_ai_to_explain")
+
+[sub_resource type="Resource" id="DialogueChoice_ai_wrong_answer"]
+script = ExtResource("3")
+situation_text_key = "eq.decision.ai_wrong_answer.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_trust_the_ai"), SubResource("ChoiceOption_check_the_data_first"), SubResource("ChoiceOption_ask_ai_to_explain")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "eq-ai-wrong-answer-quest"
+title_key = "quest.eq_ai_wrong_answer.title"
+description_key = "quest.eq_ai_wrong_answer.description"
+educational_objective_key = "quest.eq_ai_wrong_answer.intro"
+track = "entrepreneur-quest"
+zone_id = "ai-workshop"
+giver_npc_id = "tech-advisor"
+kind = 2
+intro_dialogue = Array[DialogueLine]([SubResource("DialogueLine_ai_suggestion"), SubResource("DialogueLine_real_data")])
+intro_text_key = "quest.eq_ai_wrong_answer.intro"
+challenge_choice = SubResource("DialogueChoice_ai_wrong_answer")
+reward_message_key = "quest.eq_ai_wrong_answer.reward_message"
+xp_reward = 15
+coin_reward = 10
+skill_ids = Array[String](["critical-thinking", "digital-literacy", "research"])

@@ -38,6 +38,11 @@ extends Node3D
 ## - Profit Analyst: "Why Aren't We Making Money?" (`rising-costs-eating-profit`)
 ## - Cash Flow Advisor: "Profit But No Cash" (`profit-but-no-cash`)
 ## - Warehouse Keeper: "Too Much Unsold Stock" (`too-much-stock`)
+##
+## A second portal (PortalToSupplyYard) leads to Supply Yard, Entrepreneur
+## Quest's eighth zone, hosting the real website's remaining v2 "Run Your
+## Business" activities that aren't Business Problems (pricing, suppliers,
+## stock, cash flow).
 
 const NOT_ENOUGH_CUSTOMERS_QUEST_ID: String = "eq-not-enough-customers-quest"
 const COSTS_INCREASED_QUEST_ID: String = "eq-costs-increased-quest"

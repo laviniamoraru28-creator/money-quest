@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="4"]
+
+[sub_resource type="Resource" id="ConsequenceEffect_choose_ethical_supplier"]
+script = ExtResource("4")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "eq.decision.cheap_questionable_supplier.choice.choose_ethical_supplier.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_choose_ethical_supplier"]
+script = ExtResource("3")
+label_key = "eq.decision.cheap_questionable_supplier.choice.choose_ethical_supplier.label"
+consequence = SubResource("ConsequenceEffect_choose_ethical_supplier")
+
+[sub_resource type="Resource" id="ConsequenceEffect_choose_cheap_supplier"]
+script = ExtResource("4")
+coin_delta = 2
+xp_delta = 5
+consequence_text_key = "eq.decision.cheap_questionable_supplier.choice.choose_cheap_supplier.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_choose_cheap_supplier"]
+script = ExtResource("3")
+label_key = "eq.decision.cheap_questionable_supplier.choice.choose_cheap_supplier.label"
+consequence = SubResource("ConsequenceEffect_choose_cheap_supplier")
+
+[sub_resource type="Resource" id="ConsequenceEffect_ask_questions_first"]
+script = ExtResource("4")
+coin_delta = 4
+xp_delta = 5
+consequence_text_key = "eq.decision.cheap_questionable_supplier.choice.ask_questions_first.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_ask_questions_first"]
+script = ExtResource("3")
+label_key = "eq.decision.cheap_questionable_supplier.choice.ask_questions_first.label"
+consequence = SubResource("ConsequenceEffect_ask_questions_first")
+
+[sub_resource type="Resource" id="DialogueChoice_cheap_questionable_supplier"]
+script = ExtResource("2")
+situation_text_key = "eq.decision.cheap_questionable_supplier.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_choose_ethical_supplier"), SubResource("ChoiceOption_choose_cheap_supplier"), SubResource("ChoiceOption_ask_questions_first")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "eq-cheap-questionable-supplier-quest"
+title_key = "quest.eq_cheap_questionable_supplier.title"
+description_key = "quest.eq_cheap_questionable_supplier.description"
+educational_objective_key = "quest.eq_cheap_questionable_supplier.objective"
+track = "entrepreneur-quest"
+zone_id = "turning-point"
+giver_npc_id = "sourcing-advisor"
+kind = 2
+challenge_choice = SubResource("DialogueChoice_cheap_questionable_supplier")
+reward_message_key = "quest.eq_cheap_questionable_supplier.reward_message"
+xp_reward = 15
+coin_reward = 10
+skill_ids = Array[String](["ethics", "critical-thinking", "responsibility"])

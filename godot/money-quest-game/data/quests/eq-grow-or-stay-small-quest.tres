@@ -1,0 +1,72 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=14 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="4"]
+
+[sub_resource type="Resource" id="ConsequenceEffect_stay_small"]
+script = ExtResource("4")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "eq.decision.grow_or_stay_small.choice.stay_small.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_stay_small"]
+script = ExtResource("3")
+label_key = "eq.decision.grow_or_stay_small.choice.stay_small.label"
+consequence = SubResource("ConsequenceEffect_stay_small")
+
+[sub_resource type="Resource" id="ConsequenceEffect_hire_help"]
+script = ExtResource("4")
+coin_delta = 3
+xp_delta = 5
+consequence_text_key = "eq.decision.grow_or_stay_small.choice.hire_help.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_hire_help"]
+script = ExtResource("3")
+label_key = "eq.decision.grow_or_stay_small.choice.hire_help.label"
+consequence = SubResource("ConsequenceEffect_hire_help")
+
+[sub_resource type="Resource" id="ConsequenceEffect_buy_equipment"]
+script = ExtResource("4")
+coin_delta = 4
+xp_delta = 5
+consequence_text_key = "eq.decision.grow_or_stay_small.choice.buy_equipment.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_buy_equipment"]
+script = ExtResource("3")
+label_key = "eq.decision.grow_or_stay_small.choice.buy_equipment.label"
+consequence = SubResource("ConsequenceEffect_buy_equipment")
+
+[sub_resource type="Resource" id="ConsequenceEffect_expand_to_new_market"]
+script = ExtResource("4")
+coin_delta = 3
+xp_delta = 5
+consequence_text_key = "eq.decision.grow_or_stay_small.choice.expand_to_new_market.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_expand_to_new_market"]
+script = ExtResource("3")
+label_key = "eq.decision.grow_or_stay_small.choice.expand_to_new_market.label"
+consequence = SubResource("ConsequenceEffect_expand_to_new_market")
+
+[sub_resource type="Resource" id="DialogueChoice_grow_or_stay_small"]
+script = ExtResource("2")
+situation_text_key = "eq.decision.grow_or_stay_small.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_stay_small"), SubResource("ChoiceOption_hire_help"), SubResource("ChoiceOption_buy_equipment"), SubResource("ChoiceOption_expand_to_new_market")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "eq-grow-or-stay-small-quest"
+title_key = "quest.eq_grow_or_stay_small.title"
+description_key = "quest.eq_grow_or_stay_small.description"
+educational_objective_key = "quest.eq_grow_or_stay_small.intro"
+track = "entrepreneur-quest"
+zone_id = "turning-point"
+giver_npc_id = "growth-coach"
+kind = 2
+intro_text_key = "quest.eq_grow_or_stay_small.intro"
+challenge_choice = SubResource("DialogueChoice_grow_or_stay_small")
+reward_message_key = "quest.eq_grow_or_stay_small.reward_message"
+xp_reward = 15
+coin_reward = 10
+skill_ids = Array[String](["strategic-thinking", "risk-management", "decision-making"])

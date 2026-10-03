@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="4"]
+
+[sub_resource type="Resource" id="ConsequenceEffect_order_a_lot"]
+script = ExtResource("4")
+coin_delta = 3
+xp_delta = 5
+consequence_text_key = "eq.decision.stock_management_scenario.choice.order_a_lot.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_order_a_lot"]
+script = ExtResource("3")
+label_key = "eq.decision.stock_management_scenario.choice.order_a_lot.label"
+consequence = SubResource("ConsequenceEffect_order_a_lot")
+
+[sub_resource type="Resource" id="ConsequenceEffect_order_just_enough"]
+script = ExtResource("4")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "eq.decision.stock_management_scenario.choice.order_just_enough.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_order_just_enough"]
+script = ExtResource("3")
+label_key = "eq.decision.stock_management_scenario.choice.order_just_enough.label"
+consequence = SubResource("ConsequenceEffect_order_just_enough")
+
+[sub_resource type="Resource" id="ConsequenceEffect_order_a_little_and_restock"]
+script = ExtResource("4")
+coin_delta = 3
+xp_delta = 5
+consequence_text_key = "eq.decision.stock_management_scenario.choice.order_a_little_and_restock.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_order_a_little_and_restock"]
+script = ExtResource("3")
+label_key = "eq.decision.stock_management_scenario.choice.order_a_little_and_restock.label"
+consequence = SubResource("ConsequenceEffect_order_a_little_and_restock")
+
+[sub_resource type="Resource" id="DialogueChoice_stock_management_scenario"]
+script = ExtResource("2")
+situation_text_key = "eq.decision.stock_management_scenario.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_order_a_lot"), SubResource("ChoiceOption_order_just_enough"), SubResource("ChoiceOption_order_a_little_and_restock")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "eq-stock-management-quest"
+title_key = "quest.eq_stock_management.title"
+description_key = "quest.eq_stock_management.description"
+educational_objective_key = "quest.eq_stock_management.intro"
+track = "entrepreneur-quest"
+zone_id = "supply-yard"
+giver_npc_id = "stock-keeper"
+kind = 2
+intro_text_key = "quest.eq_stock_management.intro"
+challenge_choice = SubResource("DialogueChoice_stock_management_scenario")
+reward_message_key = "quest.eq_stock_management.reward_message"
+xp_reward = 15
+coin_reward = 10
+skill_ids = Array[String](["planning", "risk-management", "numeracy"])

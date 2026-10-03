@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ZoneData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/ZoneData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+zone_id = "ai-workshop"
+display_name_key = "zone.ai_workshop.name"
+scene_path = "res://scenes/world/zones/ai_workshop/AiWorkshop.tscn"
+kind = 1
+theme_color = Color(0.45, 0.55, 0.75, 1)
+unlock_condition_quest_id = ""
+npc_ids = Array[String](["tech-advisor"])
+quest_ids = Array[String](["eq-ai-wrong-answer-quest"])
+exhibit_ids = Array[String]([])
+book_ids = Array[String]([])
+player_spawn_position = Vector3(0, 0, 3)

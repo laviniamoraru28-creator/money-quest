@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="4"]
+
+[sub_resource type="Resource" id="ConsequenceEffect_tell_customers"]
+script = ExtResource("4")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "eq.decision.hiding_a_problem.choice.tell_customers.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_tell_customers"]
+script = ExtResource("3")
+label_key = "eq.decision.hiding_a_problem.choice.tell_customers.label"
+consequence = SubResource("ConsequenceEffect_tell_customers")
+
+[sub_resource type="Resource" id="ConsequenceEffect_fix_quietly"]
+script = ExtResource("4")
+coin_delta = 4
+xp_delta = 5
+consequence_text_key = "eq.decision.hiding_a_problem.choice.fix_quietly.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_fix_quietly"]
+script = ExtResource("3")
+label_key = "eq.decision.hiding_a_problem.choice.fix_quietly.label"
+consequence = SubResource("ConsequenceEffect_fix_quietly")
+
+[sub_resource type="Resource" id="ConsequenceEffect_hide_it"]
+script = ExtResource("4")
+coin_delta = 2
+xp_delta = 5
+consequence_text_key = "eq.decision.hiding_a_problem.choice.hide_it.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_hide_it"]
+script = ExtResource("3")
+label_key = "eq.decision.hiding_a_problem.choice.hide_it.label"
+consequence = SubResource("ConsequenceEffect_hide_it")
+
+[sub_resource type="Resource" id="DialogueChoice_hiding_a_problem"]
+script = ExtResource("2")
+situation_text_key = "eq.decision.hiding_a_problem.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_tell_customers"), SubResource("ChoiceOption_fix_quietly"), SubResource("ChoiceOption_hide_it")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "eq-hiding-a-problem-quest"
+title_key = "quest.eq_hiding_a_problem.title"
+description_key = "quest.eq_hiding_a_problem.description"
+educational_objective_key = "quest.eq_hiding_a_problem.objective"
+track = "entrepreneur-quest"
+zone_id = "turning-point"
+giver_npc_id = "quality-inspector"
+kind = 2
+challenge_choice = SubResource("DialogueChoice_hiding_a_problem")
+reward_message_key = "quest.eq_hiding_a_problem.reward_message"
+xp_reward = 15
+coin_reward = 10
+skill_ids = Array[String](["ethics", "honesty", "responsibility"])

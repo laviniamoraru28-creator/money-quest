@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="4"]
+
+[sub_resource type="Resource" id="ConsequenceEffect_honest_ad"]
+script = ExtResource("4")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "eq.decision.misleading_ad.choice.honest_ad.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_honest_ad"]
+script = ExtResource("3")
+label_key = "eq.decision.misleading_ad.choice.honest_ad.label"
+consequence = SubResource("ConsequenceEffect_honest_ad")
+
+[sub_resource type="Resource" id="ConsequenceEffect_slightly_exaggerate"]
+script = ExtResource("4")
+coin_delta = 3
+xp_delta = 5
+consequence_text_key = "eq.decision.misleading_ad.choice.slightly_exaggerate.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_slightly_exaggerate"]
+script = ExtResource("3")
+label_key = "eq.decision.misleading_ad.choice.slightly_exaggerate.label"
+consequence = SubResource("ConsequenceEffect_slightly_exaggerate")
+
+[sub_resource type="Resource" id="ConsequenceEffect_mislead_customers"]
+script = ExtResource("4")
+coin_delta = 2
+xp_delta = 5
+consequence_text_key = "eq.decision.misleading_ad.choice.mislead_customers.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_mislead_customers"]
+script = ExtResource("3")
+label_key = "eq.decision.misleading_ad.choice.mislead_customers.label"
+consequence = SubResource("ConsequenceEffect_mislead_customers")
+
+[sub_resource type="Resource" id="DialogueChoice_misleading_ad"]
+script = ExtResource("2")
+situation_text_key = "eq.decision.misleading_ad.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_honest_ad"), SubResource("ChoiceOption_slightly_exaggerate"), SubResource("ChoiceOption_mislead_customers")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "eq-misleading-ad-quest"
+title_key = "quest.eq_misleading_ad.title"
+description_key = "quest.eq_misleading_ad.description"
+educational_objective_key = "quest.eq_misleading_ad.objective"
+track = "entrepreneur-quest"
+zone_id = "turning-point"
+giver_npc_id = "ad-reviewer"
+kind = 2
+challenge_choice = SubResource("DialogueChoice_misleading_ad")
+reward_message_key = "quest.eq_misleading_ad.reward_message"
+xp_reward = 15
+coin_reward = 10
+skill_ids = Array[String](["ethics", "honesty", "marketing"])

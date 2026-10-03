@@ -1,0 +1,73 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=15 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueLine.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="5"]
+
+[sub_resource type="Resource" id="DialogueLine_scenario"]
+script = ExtResource("2")
+speaker_id = "bookkeeper"
+text_key = "quest.eq_cash_flow.dialogue.0"
+
+[sub_resource type="Resource" id="DialogueLine_explainer"]
+script = ExtResource("2")
+speaker_id = "bookkeeper"
+text_key = "quest.eq_cash_flow.dialogue.1"
+
+[sub_resource type="Resource" id="ConsequenceEffect_wait_for_payment"]
+script = ExtResource("5")
+coin_delta = 4
+xp_delta = 5
+consequence_text_key = "eq.decision.cash_flow_decision.choice.wait_for_payment.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_wait_for_payment"]
+script = ExtResource("4")
+label_key = "eq.decision.cash_flow_decision.choice.wait_for_payment.label"
+consequence = SubResource("ConsequenceEffect_wait_for_payment")
+
+[sub_resource type="Resource" id="ConsequenceEffect_use_savings_to_cover_costs"]
+script = ExtResource("5")
+coin_delta = 4
+xp_delta = 5
+consequence_text_key = "eq.decision.cash_flow_decision.choice.use_savings_to_cover_costs.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_use_savings_to_cover_costs"]
+script = ExtResource("4")
+label_key = "eq.decision.cash_flow_decision.choice.use_savings_to_cover_costs.label"
+consequence = SubResource("ConsequenceEffect_use_savings_to_cover_costs")
+
+[sub_resource type="Resource" id="ConsequenceEffect_ask_for_partial_payment_upfront"]
+script = ExtResource("5")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "eq.decision.cash_flow_decision.choice.ask_for_partial_payment_upfront.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_ask_for_partial_payment_upfront"]
+script = ExtResource("4")
+label_key = "eq.decision.cash_flow_decision.choice.ask_for_partial_payment_upfront.label"
+consequence = SubResource("ConsequenceEffect_ask_for_partial_payment_upfront")
+
+[sub_resource type="Resource" id="DialogueChoice_cash_flow_decision"]
+script = ExtResource("3")
+situation_text_key = "eq.decision.cash_flow_decision.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_wait_for_payment"), SubResource("ChoiceOption_use_savings_to_cover_costs"), SubResource("ChoiceOption_ask_for_partial_payment_upfront")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "eq-cash-flow-quest"
+title_key = "quest.eq_cash_flow.title"
+description_key = "quest.eq_cash_flow.description"
+educational_objective_key = "quest.eq_cash_flow.intro"
+track = "entrepreneur-quest"
+zone_id = "supply-yard"
+giver_npc_id = "bookkeeper"
+kind = 2
+intro_dialogue = Array[DialogueLine]([SubResource("DialogueLine_scenario"), SubResource("DialogueLine_explainer")])
+intro_text_key = "quest.eq_cash_flow.intro"
+challenge_choice = SubResource("DialogueChoice_cash_flow_decision")
+reward_message_key = "quest.eq_cash_flow.reward_message"
+xp_reward = 15
+coin_reward = 10
+skill_ids = Array[String](["financial-literacy", "planning", "critical-thinking"])

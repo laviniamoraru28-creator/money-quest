@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ZoneData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/ZoneData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+zone_id = "turning-point"
+display_name_key = "zone.turning_point.name"
+scene_path = "res://scenes/world/zones/turning_point/TurningPoint.tscn"
+kind = 1
+theme_color = Color(0.72, 0.45, 0.4, 1)
+unlock_condition_quest_id = ""
+npc_ids = Array[String](["business-advisor", "growth-coach", "ad-reviewer", "quality-inspector", "sourcing-advisor"])
+quest_ids = Array[String](["eq-business-pivot-quest", "eq-grow-or-stay-small-quest", "eq-misleading-ad-quest", "eq-hiding-a-problem-quest", "eq-cheap-questionable-supplier-quest"])
+exhibit_ids = Array[String]([])
+book_ids = Array[String]([])
+player_spawn_position = Vector3(0, 0, 3)

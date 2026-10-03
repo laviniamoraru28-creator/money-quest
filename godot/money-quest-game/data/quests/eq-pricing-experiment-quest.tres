@@ -1,0 +1,78 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=16 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueLine.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="5"]
+
+[sub_resource type="Resource" id="DialogueLine_row_low"]
+script = ExtResource("2")
+speaker_id = "pricing-tester"
+text_key = "quest.eq_pricing_experiment.dialogue.0"
+
+[sub_resource type="Resource" id="DialogueLine_row_mid"]
+script = ExtResource("2")
+speaker_id = "pricing-tester"
+text_key = "quest.eq_pricing_experiment.dialogue.1"
+
+[sub_resource type="Resource" id="DialogueLine_row_high"]
+script = ExtResource("2")
+speaker_id = "pricing-tester"
+text_key = "quest.eq_pricing_experiment.dialogue.2"
+
+[sub_resource type="Resource" id="ConsequenceEffect_pick_low_price"]
+script = ExtResource("5")
+coin_delta = 3
+xp_delta = 5
+consequence_text_key = "eq.decision.pricing_experiment_reflection.choice.pick_low_price.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_pick_low_price"]
+script = ExtResource("4")
+label_key = "eq.decision.pricing_experiment_reflection.choice.pick_low_price.label"
+consequence = SubResource("ConsequenceEffect_pick_low_price")
+
+[sub_resource type="Resource" id="ConsequenceEffect_pick_middle_price"]
+script = ExtResource("5")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "eq.decision.pricing_experiment_reflection.choice.pick_middle_price.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_pick_middle_price"]
+script = ExtResource("4")
+label_key = "eq.decision.pricing_experiment_reflection.choice.pick_middle_price.label"
+consequence = SubResource("ConsequenceEffect_pick_middle_price")
+
+[sub_resource type="Resource" id="ConsequenceEffect_pick_high_price"]
+script = ExtResource("5")
+coin_delta = 4
+xp_delta = 5
+consequence_text_key = "eq.decision.pricing_experiment_reflection.choice.pick_high_price.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_pick_high_price"]
+script = ExtResource("4")
+label_key = "eq.decision.pricing_experiment_reflection.choice.pick_high_price.label"
+consequence = SubResource("ConsequenceEffect_pick_high_price")
+
+[sub_resource type="Resource" id="DialogueChoice_pricing_experiment_reflection"]
+script = ExtResource("3")
+situation_text_key = "eq.decision.pricing_experiment_reflection.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_pick_low_price"), SubResource("ChoiceOption_pick_middle_price"), SubResource("ChoiceOption_pick_high_price")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "eq-pricing-experiment-quest"
+title_key = "quest.eq_pricing_experiment.title"
+description_key = "quest.eq_pricing_experiment.description"
+educational_objective_key = "quest.eq_pricing_experiment.intro"
+track = "entrepreneur-quest"
+zone_id = "supply-yard"
+giver_npc_id = "pricing-tester"
+kind = 2
+intro_dialogue = Array[DialogueLine]([SubResource("DialogueLine_row_low"), SubResource("DialogueLine_row_mid"), SubResource("DialogueLine_row_high")])
+intro_text_key = "quest.eq_pricing_experiment.intro"
+challenge_choice = SubResource("DialogueChoice_pricing_experiment_reflection")
+reward_message_key = "quest.eq_pricing_experiment.reward_message"
+xp_reward = 15
+coin_reward = 10
+skill_ids = Array[String](["numeracy", "critical-thinking", "pricing"])

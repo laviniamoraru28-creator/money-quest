@@ -617,7 +617,10 @@ node), never an architecture change.
 | Leadership Quest's remaining 7 real missions (`meet-your-team`, `first-challenge`, `team-conflict`, `motivation-problem`, `the-deadline`, `pressure-test`, `final-challenge`) | **Built** — ported verbatim using the new mechanics above, with NO new zones: each of Leadership Quest's 4 characters simply grew a longer fixed quest queue (the same "NPC offers next incomplete quest in order" pattern Theo's 2-quest queue already proved). Priya (Leadership Academy) now gives 4: Meet Your Team (`MATCH`) → First Challenge (`MATCH`, no follow-up choice) → Big Mistake → Pressure Test (`SORT`). Theo (Team Challenge) now gives 4: Angry Customer → The Missing Task → The Team Conflict (`SPOT`) → The Deadline (`ALLOCATE`). Nadia (Strategy Room) now gives 2: Better Idea → The Final Challenge (`MULTI_STEP`: a matching mini-game followed by two separate decision points). Oren (Huddle Room) now gives 2: Everyone Has an Idea → The Motivation Problem (`SPOT`). The Final Challenge's first decision point uses the real site's own `"none"`-tag fallback situation text verbatim, since Godot has no equivalent of the website's Leadership Profile archetype tracking that personalizes it there for a returning player — an honest simplification, not fabricated content. **This completes all 12 of Leadership Quest's real missions** |
 | `AvatarConfig` + creation screen, fully wired to the 3D model | **Built** — 4 body presets (including a seated wheelchair-style look) and 4 accessories (glasses, cap, hearing aid, cane), all purely visual, listed together as equally normal choices |
 | Progression fields for zones/quests/skills | **Built** (additive) |
-| Entrepreneur Quest's remaining real content (9 of 25 decision events — the v2 RUN set, AI Lab, and Rescue & Grow set; all 18 BUILD stages' own mechanics, 5 Challenges, the RUN/Rescue & Grow hubs) | Not built — Leadership Quest's completion (all 12 real missions) and Money Quest's completion (all 30 lessons) make this the primary remaining expansion target |
+| Entrepreneur Quest's Supply Yard zone (4 NPCs) | **Built** — reached via a second portal inside Main Street, Entrepreneur Quest's eighth zone; hosts the real website's remaining v2 "Run Your Business" activities that aren't Business Problems. The Pricing Tester's "The Pricing Experiment" ports `pricing-experiment-reflection` verbatim — the real site shows 3 pre-authored price/units-sold rows in a table; Godot has no table UI, so the real rows are spoken as `intro_dialogue` lines instead, the same adaptation Research Lab's Fresh Trout data already used. The Supplier Scout's "Choose a Supplier" ports `choose-a-supplier` verbatim, narrating each of the 3 suppliers' real structural price/delivery/minimum-order/quality levels (`EQ_SUPPLIER_OPTIONS`) as dialogue instead of a table. The Stock Keeper's "Managing Your Stock" ports `stock-management-scenario` verbatim — kept as its own quest/NPC rather than folded into the supplier choice, matching the "one NPC per decision" shape every other Entrepreneur Quest zone uses. The Bookkeeper's "Cash Flow" ports `cash-flow-decision` verbatim, including the real restaurant-order scenario's own numbers (2000/30 days/600), spoken as plain numbers since this project's virtual economy has no real-currency formatting to apply to them |
+| Entrepreneur Quest's AI Workshop zone (1 NPC) | **Built** — reached via a portal inside Supply Yard, Entrepreneur Quest's ninth zone; the Tech Advisor's "AI Can Be Wrong" ports the real `ai-wrong-answer` decision event verbatim, keeping the real site's own "Simulated AI Assistant (not real AI)" framing intact — 100% pre-written dialogue, never an actual AI integration. The real site's other AI Lab facets (a pure-lookup Q&A list, a prompt-quality quiz, a privacy quiz) are non-decision mechanics, left unbuilt for the same reason every BUILD stage's own non-decision mechanics remain unbuilt |
+| Entrepreneur Quest's Turning Point zone (5 NPCs) | **Built** — reached via a portal inside AI Workshop, Entrepreneur Quest's tenth zone; hosts the real website's standalone "Rescue & Grow" decision events (not the separate Business Rescue scenario, which reuses 3 existing Business Problems against its own fixed company and local-stats model — left unbuilt). The Business Advisor's "Business Pivot" ports `business-pivot` verbatim, with its real `{businessName}`-templated situation spoken generically as "your business" since Godot's CHALLENGE quests have no persisted company identity to fill that placeholder — an honest simplification. The Growth Coach's "Grow or Stay Small" ports `grow-or-stay-small` verbatim. The Ad Reviewer, Quality Inspector, and Sourcing Advisor each port one of the real website's 3 Business Ethics scenarios verbatim — "The Misleading Ad" (`misleading-ad`), "Hiding a Problem" (`hiding-a-problem`), and "The Questionable Supplier" (`cheap-questionable-supplier`) — kept as 3 separate NPCs/quests rather than one multi-part quest. **This completes all 26 of Entrepreneur Quest's real decision events** |
+| Entrepreneur Quest's remaining real content (all 18 BUILD stages' own non-decision mechanics — logo builder, category pickers, numeric entry, etc. — the 5 standalone Business Challenges, the RUN/Rescue & Grow hub pages, and the separate Business Rescue scenario) | Not built — these are UI shapes the mission/zone/NPC architecture doesn't fit (a stepper, a comparison table, a lookup list, a quiz, a second company's own local-stats model), not more decision events; Money Quest's completion (all 30 lessons) and Leadership Quest's completion (all 12 real missions) leave this as the honest remaining gap in Entrepreneur Quest specifically |
 | `EntryData`/`BookData`/`ExhibitData`/`MentorData`/`DictionaryTermData` schema | **Built** (`scripts/library/`, see `data/schemas/ENTRY_DATA_FORMAT.md`) |
 | Dictionary content | **Built** — 2 real terms (`goal`, `trade-off`), reusing `builder-saving-l1`'s own vocabulary keys verbatim |
 | Library zone (`data/zones/library.tres`, bookshelves, Librarian NPC, reachable from the Hub) | **Built** — honestly empty; the Librarian says the shelves are still being prepared rather than pretending there's content |
@@ -963,5 +966,40 @@ godot/money-quest-game/
     archetype tracking that would otherwise personalize it — a
     documented, honest simplification rather than fabricated content.
     **All 12 of Leadership Quest's real missions are now ported.**
+    Phase 52 (this update) returned to Entrepreneur Quest and ported
+    all 10 of its remaining real decision events — the v2 RUN set (4),
+    the AI Business Lab's one decision event, and the Rescue & Grow set
+    (5) — via 3 new zones, with no new quest kinds needed: every one of
+    these decisions is a single CHALLENGE, simpler than the Business
+    Problems' investigate/diagnose/respond shape. Supply Yard (reached
+    via a second portal inside Main Street) hosts the Pricing Tester
+    ("The Pricing Experiment," `pricing-experiment-reflection`), the
+    Supplier Scout ("Choose a Supplier," `choose-a-supplier`), the Stock
+    Keeper ("Managing Your Stock," `stock-management-scenario`), and the
+    Bookkeeper ("Cash Flow," `cash-flow-decision`) — the real website's
+    price/units-sold table and supplier comparison table are both spoken
+    as `intro_dialogue` lines using their real values, the same
+    adaptation Research Lab's Fresh Trout data already proved, since
+    Godot still has no table UI. AI Workshop (reached via a portal
+    inside Supply Yard) hosts the Tech Advisor's "AI Can Be Wrong"
+    (`ai-wrong-answer`), keeping the real site's own "Simulated AI
+    Assistant (not real AI)" framing intact. Turning Point (reached via
+    a portal inside AI Workshop) hosts the Business Advisor's "Business
+    Pivot" (`business-pivot` — its real `{businessName}` placeholder
+    spoken generically as "your business," since Godot's CHALLENGE
+    quests have no persisted company identity), the Growth Coach's "Grow
+    or Stay Small" (`grow-or-stay-small`), and 3 more NPCs each porting
+    one of the real Business Ethics scenarios verbatim: the Ad
+    Reviewer's "The Misleading Ad" (`misleading-ad`), the Quality
+    Inspector's "Hiding a Problem" (`hiding-a-problem`), and the Sourcing
+    Advisor's "The Questionable Supplier" (`cheap-questionable-supplier`).
+    **All 26 of Entrepreneur Quest's real decision events are now
+    ported.** What remains in Entrepreneur Quest is no longer decision
+    events at all: the 18 BUILD stages' own non-decision mechanics (logo
+    builder, category pickers, numeric entry), the 5 standalone
+    Challenges, the RUN/Rescue & Grow hub pages, and the separate
+    Business Rescue scenario (which reuses 3 Business Problems against
+    its own fixed company and local-stats model) — each a UI shape the
+    mission/zone/NPC architecture doesn't fit, not a content gap.
     Still waiting on you: a real book/exhibit/mentor for Library/Museum
     (Section 6).
