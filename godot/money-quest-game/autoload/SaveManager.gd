@@ -33,6 +33,13 @@ const DEFAULT_SAVE: Dictionary = {
 	"avatar_accessory_id": "",
 	"has_created_avatar": false,
 	"business_profile": {},
+	"calm_garden_background_id": "meadow",
+	"calm_garden_water_id": "pond",
+	"calm_garden_plants_id": "flowers",
+	"calm_garden_light_id": "none",
+	"calm_garden_bubbles_id": "none",
+	"calm_garden_stones_id": "none",
+	"calm_garden_creature_id": "none",
 }
 
 
@@ -105,6 +112,28 @@ func load_progress() -> void:
 
 	_load_business_profile(data.get("business_profile", {}))
 
+	ProgressManager.calm_garden_config.background_id = data.get(
+		"calm_garden_background_id", DEFAULT_SAVE["calm_garden_background_id"]
+	)
+	ProgressManager.calm_garden_config.water_id = data.get(
+		"calm_garden_water_id", DEFAULT_SAVE["calm_garden_water_id"]
+	)
+	ProgressManager.calm_garden_config.plants_id = data.get(
+		"calm_garden_plants_id", DEFAULT_SAVE["calm_garden_plants_id"]
+	)
+	ProgressManager.calm_garden_config.light_id = data.get(
+		"calm_garden_light_id", DEFAULT_SAVE["calm_garden_light_id"]
+	)
+	ProgressManager.calm_garden_config.bubbles_id = data.get(
+		"calm_garden_bubbles_id", DEFAULT_SAVE["calm_garden_bubbles_id"]
+	)
+	ProgressManager.calm_garden_config.stones_id = data.get(
+		"calm_garden_stones_id", DEFAULT_SAVE["calm_garden_stones_id"]
+	)
+	ProgressManager.calm_garden_config.creature_id = data.get(
+		"calm_garden_creature_id", DEFAULT_SAVE["calm_garden_creature_id"]
+	)
+
 	Settings.theme_mode = data.get("theme", "system")
 	Settings.reduced_motion = data.get("reduced_motion", false)
 	Settings.music_volume = data.get("music_volume", DEFAULT_SAVE["music_volume"])
@@ -138,6 +167,13 @@ func save_progress() -> void:
 		"avatar_accessory_id": ProgressManager.avatar_config.accessory_id,
 		"has_created_avatar": ProgressManager.has_created_avatar,
 		"business_profile": _serialize_business_profile(),
+		"calm_garden_background_id": ProgressManager.calm_garden_config.background_id,
+		"calm_garden_water_id": ProgressManager.calm_garden_config.water_id,
+		"calm_garden_plants_id": ProgressManager.calm_garden_config.plants_id,
+		"calm_garden_light_id": ProgressManager.calm_garden_config.light_id,
+		"calm_garden_bubbles_id": ProgressManager.calm_garden_config.bubbles_id,
+		"calm_garden_stones_id": ProgressManager.calm_garden_config.stones_id,
+		"calm_garden_creature_id": ProgressManager.calm_garden_config.creature_id,
 	}
 
 	var file := FileAccess.open(SAVE_PATH, FileAccess.WRITE)

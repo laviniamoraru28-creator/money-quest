@@ -32,6 +32,10 @@ var discovered_entry_ids: Array[String] = []
 
 var avatar_config: AvatarConfig = AvatarConfig.new()
 
+## A child's personal "Create Your Own Calm Garden" choices (Calm World's
+## 8th space) — purely decorative, see CalmGardenConfig.gd's own comment.
+var calm_garden_config: CalmGardenConfig = CalmGardenConfig.new()
+
 ## True once the child has gone through AvatarCreation.tscn at least once —
 ## lets MainMenu skip straight back into the world on return visits instead
 ## of forcing avatar creation again every launch.

@@ -52,11 +52,14 @@ rebuilt.
    - **Entrepreneur Quest** (ember) takes you to the **Idea Lab** zone.
    - **Leadership Quest** (sky) takes you to the **Leadership Academy** zone.
    - **Calm World** (soft green) takes you to the **Bubble Garden** — a
-     quiet space with nothing to tap, get right, or get wrong. Seven more
-     portals inside Bubble Garden lead to Calm World's other named
-     gardens: Aquarium Room, Light Room, Rain Room, Underwater Room,
-     Forest Walk, Music Room, and Grow-a-Garden — all 8 gardens are
-     always unlocked.
+     quiet space with nothing you have to do, now also home to a Calm
+     Guide NPC who offers a "choose what feels right for you" framing
+     (never required) and six bubbles you can optionally pop. Eight more
+     portals inside Bubble Garden lead to Calm World's other spaces:
+     Aquarium Room, Light Room, Rain Room, Underwater Room, Forest Walk,
+     Music Room, Grow-a-Garden, and Create Your Own Calm Garden — all 9
+     spaces are always unlocked, with no quest or progress required to
+     enter any of them.
    - **Library** (soft blue) takes you to a real Library zone with 4
      themed bookshelf sections holding 8 real, sourced children's books
      you can walk up to and open — see step 7 below for the full
@@ -422,14 +425,27 @@ rebuilt.
    matching round with two separate decision points as the team finishes
    its last big project together. This completes all 12 of Leadership
    Quest's real missions.
-6. In Bubble Garden, there's nothing to do but walk around and watch the
-   bubbles drift — no quest, no NPC, no choice. It's always reachable, with
-   no unlock condition, and never framed as anything other than a calm
-   place to visit. The same is true of all 7 other gardens reachable from
-   inside it: fish circling in Aquarium Room, breathing lanterns in Light
-   Room, falling raindrops in Rain Room, swaying kelp in Underwater Room,
+6. In Bubble Garden, walk around and watch the bubbles drift, or talk to
+   the Calm Guide, who says different spaces work for different people
+   and points you toward a few others — entirely optional, never a
+   quest, never required before entering any other space. You can also
+   walk up to and interact with any of the 6 bubbles to pop it (it
+   quietly respawns a few seconds later); popping is never required and
+   watching is just as valid. With `reduced_motion` on, half the bubbles
+   hide and the rest hold still instead of bobbing. The same calm,
+   nothing-to-get-right spirit continues in the 8 other spaces reachable
+   from inside Bubble Garden: fish circling in Aquarium Room (2 of the 5
+   fish offer one optional, ungraded fact if you walk up and interact —
+   the other 3 are purely atmospheric), breathing lanterns in Light Room,
+   falling raindrops in Rain Room, swaying kelp in Underwater Room,
    swaying tree canopies in Forest Walk, drifting note shapes in Music
-   Room, and breathing flowers in Grow-a-Garden.
+   Room, breathing flowers in Grow-a-Garden, and **Create Your Own Calm
+   Garden** — walk up to the Garden Palette prop and interact with it to
+   pick a background, water, plants, light, bubbles, stones, and a small
+   creature, one category at a time, from independent option lists with
+   no "correct" combination. Your choices are saved to
+   `user://progress.json` (the same save file every other zone uses) and
+   reapplied exactly as you left them on your next visit.
 7. In Library, walk up to any book on the Money Basics, Saving &
    Budgeting, Business & Entrepreneurship, or Money Around the World
    shelves and interact with it to open its card: title, author, an age
@@ -598,7 +614,7 @@ up-to-date table. In short:
 | Library zone rebuilt with 4 themed bookshelf sections (Money Basics, Saving & Budgeting, Business & Entrepreneurship, Money Around the World) + 8 real, sourced books (`BookInteraction`/`BookCardPanel`) + a reading nook + Discovery Table + 3 real "find a book about ___" discovery quests from the Librarian | Leadership & Smart Skills and Mind Lab bookshelf sections (honestly signed as "coming soon") |
 | Mentor Hall zone (reached via a portal inside Library) + 5 real, sourced mentors — Katherine Johnson, Ada Lovelace, George Washington Carver, Sara Blakely, Daymond John (`MentorInteraction`/`MentorCardPanel`) + 4 "Try This" mini-quests reusing the existing `CHALLENGE`/`SORT` quest kinds verbatim | A `source_url` for Sara Blakely and Daymond John specifically (their facts are well-documented, but no one official page could be verified without outbound network access in this project's environment) |
 | `MuseumManager` autoload + `ExhibitInteraction`/`ExhibitCardPanel` (mirrors `LibraryManager`/`BookInteraction`/`BookCardPanel`, plus a Failure Museum display mode and `cross_link_zone_id`/`followup_quest_id` on `ExhibitData`) + the Museum's full 10 rooms (Before Money, First Coins, Strange Money, Money Through Time, Banknote Lab, Gold Vault, Money Around the World, Business & Invention, Museum of Mistakes, Future Money Lab) + 16 real, sourced exhibits + 5 quests reusing the existing `CHALLENGE`/`SORT`/`SPOT` quest kinds verbatim | — |
-| Calm World's all 8 named gardens (Bubble Garden, Aquarium Room, Light Room, Rain Room, Underwater Room, Forest Walk, Music Room, Grow-a-Garden) — always unlocked, no choices, all motion respects `reduced_motion` | — |
+| Calm World's all 9 spaces (Bubble Garden, Aquarium Room, Light Room, Rain Room, Underwater Room, Forest Walk, Music Room, Grow-a-Garden, Create Your Own Calm Garden) — always unlocked, no quest gate, all motion respects `reduced_motion`; Bubble Garden now has an explicit "choose what feels right" Calm Guide NPC and optional bubble-popping, Aquarium Room has 2 optional fish facts, and Create Your Own Calm Garden lets a child pick 7 independent decorative categories, saved via the existing `SaveManager` | — |
 | `AvatarConfig` + `AvatarCreation.tscn`, now fully wired to `Player.tscn` (see "Avatar wiring fix" below) — 4 body presets incl. a wheelchair-style look, 4 accessories (glasses, cap, hearing aid, cane), all purely visual | — |
 | Zone/quest/skill/avatar progression fields in `ProgressManager`, persisted by `SaveManager` | — |
 | 4 real `AudioServer` buses (Music/SFX/Voice/Ambient) + `SettingsMenu.tscn` (reduced-motion toggle + 4 volume sliders), reachable from `MainMenu` and the in-world HUD — see "Audio + Settings screen fix" below | Read-aloud/text-to-speech (`AudioManager.speak()` is a documented no-op — no TTS engine exists, so no toggle is shown for it) |
@@ -1333,7 +1349,12 @@ rationale. Quick map:
   `DialogueLine`, `DialogueChoice`, `ChoiceOption`, `ConsequenceEffect`,
   `VocabTerm`), `LessonManager`, `Interaction`, `InteractionManager`,
   `MiniGameBase`, `VirtualMoney`.
-- `scripts/world/` — `ZoneData`, `PortalInteraction`.
+- `scripts/world/` — `ZoneData`, `PortalInteraction`, plus Calm World's
+  three small optional-interaction scripts: `PoppableBubble` (instant
+  pop/respawn toggle, no tween), `FactInteraction` (a reusable "walk up
+  and read one short fact" prop), and `GardenPaletteInteraction` (the
+  Create Your Own Calm Garden picker prop) and `CalmGardenConfig` (the
+  7-field `Resource` holding one child's garden choices).
 - `scripts/quests/` — `QuestData`.
 - `scripts/player/` — `Player` (3D), `CameraController`, `AvatarConfig`.
 - `scripts/characters/` — `NPC` (3D).
@@ -1376,11 +1397,13 @@ rationale. Quick map:
   Quest's second zone, reached via a portal inside Leadership Academy.
 - `scenes/world/zones/strategy_room/StrategyRoom.tscn` — Leadership
   Quest's third zone, reached via a portal inside Team Challenge.
-- `scenes/world/zones/calm_world/` — Calm World's 8 gardens:
-  `BubbleGarden.tscn` (reachable from the Hub) plus `AquariumRoom.tscn`,
-  `LightRoom.tscn`, `RainRoom.tscn`, `UnderwaterRoom.tscn`,
-  `ForestWalk.tscn`, `MusicRoom.tscn`, and `GrowAGarden.tscn` (each
-  reached via a portal placed inside Bubble Garden).
+- `scenes/world/zones/calm_world/` — Calm World's 9 spaces:
+  `BubbleGarden.tscn` (reachable from the Hub, now with a Calm Guide NPC
+  and 6 poppable bubbles) plus `AquariumRoom.tscn` (2 of 5 fish carry an
+  optional fact), `LightRoom.tscn`, `RainRoom.tscn`,
+  `UnderwaterRoom.tscn`, `ForestWalk.tscn`, `MusicRoom.tscn`,
+  `GrowAGarden.tscn`, and `CreateYourOwnGarden.tscn` (each reached via a
+  portal placed inside Bubble Garden).
 - `scenes/world/zones/library/Library.tscn` — the Library zone, now with
   4 real bookshelf sections and 8 real, sourced books.
 - `scenes/world/zones/mentor_hall/MentorHall.tscn` — Mentor Hall, reached
@@ -1540,3 +1563,31 @@ rationale. Quick map:
   work, not by a professional translator or native-speaker reviewer, and
   should be treated as a strong first draft needing native-speaker
   review before being trusted as final.
+- **Calm World now has a hub framing, two optional interactions, and a
+  9th space.** None of the 8 existing gardens needed to change — each
+  already satisfied the accessibility/sensory-choice brief by
+  construction. Bubble Garden gained a Calm Guide NPC (an explicit
+  "choose what feels right for you" framing, never a therapist, talking
+  to it is entirely optional) and 6 poppable bubbles (`PoppableBubble.gd`,
+  an instant toggle with no animation, so there's nothing for
+  `reduced_motion` to reduce beyond also hiding half the bubbles, which
+  it does). Aquarium Room gained 2 optional, ungraded fish facts
+  (`FactInteraction.gd`, a small reusable "walk up and read a fact" prop)
+  on 2 of its 5 fish; the other 3 remain pure atmosphere. **Create Your
+  Own Calm Garden** is a genuinely new, 9th Calm World space: a child
+  picks background/water/plants/light/bubbles/stones/creature from 7
+  independent option lists via the existing `CategoryPickerPanel`
+  autoload (no new UI system), with no "correct" combination; the choice
+  is held in a new, minimal `CalmGardenConfig` resource and persisted as
+  7 additive keys in the existing `user://progress.json` (no new save
+  file, no database, no account, no backend). This environment's
+  `AudioManager` still ships zero actual `.ogg` audio files (the same
+  pre-existing gap flagged in every validation run since Phase 10), so
+  no audio ON/LOW/OFF toggle was built for any Calm World space — the
+  brief explicitly allows building without audio rather than faking a
+  control with nothing behind it; the existing global Music/SFX/Voice/
+  Ambient sliders in `SettingsMenu.tscn` already stand ready for any
+  audio added later. All 33 new translation keys from this phase are
+  filled in all 9 supported languages, the same deliberate exception (and
+  the same "model-translated, not yet native-reviewed" caveat) already
+  noted above for Mind Lab.

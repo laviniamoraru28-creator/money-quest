@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://aquariumroom1"]
+[gd_scene load_steps=14 format=3 uid="uid://aquariumroom1"]
 
 [ext_resource type="Script" path="res://scenes/world/zones/calm_world/AquariumRoom.gd" id="1"]
 [ext_resource type="PackedScene" path="res://scenes/player/Player.tscn" id="2"]
 [ext_resource type="PackedScene" path="res://scenes/player/CameraController.tscn" id="3"]
 [ext_resource type="Script" path="res://scripts/world/PortalInteraction.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/world/FactInteraction.gd" id="5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ground"]
 size = Vector3(24, 1, 24)
@@ -23,6 +24,9 @@ albedo_color = Color(0.95, 0.62, 0.32, 0.92)
 transparency = 1
 rim_enabled = true
 rim = 0.4
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fish_collision"]
+radius = 0.55
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_portal"]
 radius = 2.0
@@ -57,20 +61,52 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 
 [node name="Fish" type="Node3D" parent="."]
 
-[node name="Fish1" type="MeshInstance3D" parent="Fish"]
+[node name="Fish1" type="Area3D" parent="Fish"]
 transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -2, 1.0, -3)
+script = ExtResource("5")
+prompt_text_key = "zone.aquarium_room.fish.look_prompt"
+fact_text_key = "zone.aquarium_room.fish.fact1"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fish/Fish1"]
+shape = SubResource("SphereShape3D_fish_collision")
+
+[node name="Mesh" type="MeshInstance3D" parent="Fish/Fish1"]
 mesh = SubResource("CapsuleMesh_fish")
 surface_material_override/0 = SubResource("StandardMaterial3D_fish")
+
+[node name="PromptLabel" type="Label3D" parent="Fish/Fish1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+billboard = 1
+no_depth_test = true
+font_size = 22
+outline_size = 6
+text = ""
 
 [node name="Fish2" type="MeshInstance3D" parent="Fish"]
 transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 1, 1.6, -4)
 mesh = SubResource("CapsuleMesh_fish")
 surface_material_override/0 = SubResource("StandardMaterial3D_fish")
 
-[node name="Fish3" type="MeshInstance3D" parent="Fish"]
+[node name="Fish3" type="Area3D" parent="Fish"]
 transform = Transform3D(0.8, 0, 0, 0, 0, -0.8, 0, 0.8, 0, -1, 0.7, -2)
+script = ExtResource("5")
+prompt_text_key = "zone.aquarium_room.fish.look_prompt"
+fact_text_key = "zone.aquarium_room.fish.fact2"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fish/Fish3"]
+shape = SubResource("SphereShape3D_fish_collision")
+
+[node name="Mesh" type="MeshInstance3D" parent="Fish/Fish3"]
 mesh = SubResource("CapsuleMesh_fish")
 surface_material_override/0 = SubResource("StandardMaterial3D_fish")
+
+[node name="PromptLabel" type="Label3D" parent="Fish/Fish3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+billboard = 1
+no_depth_test = true
+font_size = 22
+outline_size = 6
+text = ""
 
 [node name="Fish4" type="MeshInstance3D" parent="Fish"]
 transform = Transform3D(1.1, 0, 0, 0, 0, -1.1, 0, 1.1, 0, 2.5, 2.1, -5)

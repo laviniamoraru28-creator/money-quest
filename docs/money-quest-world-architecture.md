@@ -739,6 +739,96 @@ new *content* flowing through already-accessible mechanics.
   early-return guard used everywhere else in this project. No new system
   was introduced — each garden is a `.tres` + `.tscn` pair with a small
   (<45-line) zone script, the same shape as Bubble Garden and Mind Lab.
+  **Calm World now has a 9th space, Create Your Own Calm Garden, plus an
+  explicit "choose what feels right" hub framing and two small optional
+  interactions — see Section 7c.**
+
+### 7c. Calm World's hub framing, optional interactions, and 9th space
+
+This phase (project brief: "Calm World / Sensory Garden") deliberately
+did **not** rebuild any of the 8 existing gardens — every one of them
+already satisfied the brief's accessibility/sensory-choice requirements
+by construction (no audio, no flashing, scale/position-only motion at
+0.08-0.12 amplitude, full `reduced_motion` compliance, zero camera
+drift). Instead, it added three genuinely additive pieces:
+
+1. **Explicit hub framing.** Bubble Garden already served as the de
+   facto hub (it fans out to every other garden), so rather than build
+   a separate, duplicate "hub" zone, this phase added a Calm Guide NPC
+   directly to Bubble Garden with the brief's own "choose what feels
+   right for you" framing verbatim — "Some people like water. Some like
+   quiet. Some like movement. Some like music. Some like watching
+   things happen. You can choose what feels comfortable," followed by a
+   short, concrete pointer to a few other spaces. The guide is never a
+   therapist: no "tell me what's wrong," no "you need to calm down," no
+   claim that anything here fixes a feeling — talking to the guide is
+   entirely optional and never required to use any other space.
+2. **Two small optional interactions**, both using the existing
+   `Interaction` base class with no new mechanic category:
+   - `PoppableBubble.gd` — each of Bubble Garden's 6 bubbles can now be
+     popped on interact (an instant visibility toggle, not a tween, so
+     there is no motion to reduce — it simply isn't an animation) and
+     quietly respawns a few seconds later. Popping is never required;
+     watching remains just as valid an experience as before. Reduced
+     motion also now hides every other bubble (the brief's explicit
+     "reduce quantity" request, on top of the pre-existing "reduce
+     movement"), restored instantly when turned back off.
+   - `FactInteraction.gd` — a small, reusable "walk up and read one
+     short fact" prop. Aquarium Room now has 2 of its 5 fish (out of
+     atmosphere-only) carrying one short, general, uncontroversial
+     biology fact each (fish breathe with gills, not lungs; many fish
+     sense vibrations in water) — never a quiz, never scored, and the
+     other 3 fish remain pure atmosphere, per the brief's own "some fish
+     should simply exist for atmosphere" instruction.
+3. **Create Your Own Calm Garden** (`calm-world-create-your-own-garden`,
+   `scenes/world/zones/calm_world/CreateYourOwnGarden.tscn`) — Calm
+   World's 9th space and the one genuinely new destination this phase
+   adds. A child interacts with one "Garden Palette" prop
+   (`GardenPaletteInteraction.gd`, a plain `Interaction`, not an NPC) to
+   pick, one at a time, from 7 independent categories — background,
+   water, plants, light, bubbles, stones, and a small creature — reusing
+   the existing `CategoryPickerPanel` autoload (already built for
+   Entrepreneur Quest's BUILD stepper) for the picking flow itself, so
+   no new UI system was introduced. Every option is purely decorative;
+   there is no "correct" combination, mirroring the brief's own two
+   example combos ("water + fish + soft lights" vs. "forest + silence +
+   stones") exactly. A new, minimal `CalmGardenConfig` Resource (7
+   string fields) is held on `ProgressManager.calm_garden_config` and
+   persisted the same way `AvatarConfig` already is — new fields in
+   `SaveManager`'s existing `user://progress.json` dictionary, never a
+   second save file, database, or account. The garden re-applies the
+   saved configuration on every visit, so a child's choices are exactly
+   as they left them. Reachable via a new portal inside Bubble Garden,
+   with its own portal straight back to the Hub, the same convention
+   every other Calm World space uses.
+
+**Audio**: this environment's `AudioManager` still ships zero actual
+audio asset files (confirmed again this phase — the same 5 missing
+`res://assets/audio/sfx/*.ogg` references flagged in every prior
+phase's validation remain the project's one honest, pre-existing,
+unrelated gap). Per the brief's own explicit instruction ("if suitable
+audio is unavailable, build the environment without it rather than
+guessing or using unverified copyrighted music"), no new audio file was
+added and no per-room audio ON/LOW/OFF toggle was built for audio that
+doesn't exist — inventing a working-looking toggle with nothing behind
+it would be a dishonest control, not an accessibility feature. Music
+Room and the new garden's decorative content remain exactly what Music
+Room already was: purely visual. The existing global Music/SFX/Voice/
+Ambient volume sliders in `SettingsMenu.tscn` already stand ready to
+control any audio added to those buses in the future, so no second,
+competing settings system was built either — this satisfies the
+brief's own "do not create a second accessibility/settings system"
+instruction. "Movement: NORMAL/REDUCED" is likewise not a new control —
+it already is exactly `Settings.reduced_motion`, applied uniformly
+across all 9 Calm World spaces.
+
+**Sources**: the only new factual claims added this phase are the 2
+Aquarium fish facts, both standard, uncontroversial, grade-school-level
+biology (gills vs. lungs; lateral-line-style water-vibration sensing in
+fish) — the same "well-established concept, not a claim requiring a
+citation" reasoning Mind Lab's "Different Explanations" scenario and
+the Museum's general-science Mind Lab facts already used, not a
+specific, contestable claim needing a `source_url`.
 
 ---
 

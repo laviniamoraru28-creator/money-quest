@@ -1,15 +1,17 @@
-[gd_scene load_steps=12 format=3 uid="uid://bubblegarden01"]
+[gd_scene load_steps=15 format=3 uid="uid://bubblegarden01"]
 
 [ext_resource type="Script" path="res://scenes/world/zones/calm_world/BubbleGarden.gd" id="1"]
 [ext_resource type="PackedScene" path="res://scenes/player/Player.tscn" id="2"]
 [ext_resource type="PackedScene" path="res://scenes/player/CameraController.tscn" id="3"]
 [ext_resource type="Script" path="res://scripts/world/PortalInteraction.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/world/PoppableBubble.gd" id="5"]
+[ext_resource type="PackedScene" path="res://scenes/characters/NPC.tscn" id="6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ground"]
-size = Vector3(24, 1, 24)
+size = Vector3(30, 1, 24)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ground"]
-size = Vector3(24, 1, 24)
+size = Vector3(30, 1, 24)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ground"]
 albedo_color = Color(0.78, 0.89, 0.92, 1)
@@ -24,6 +26,9 @@ transparency = 1
 shading_mode = 0
 rim_enabled = true
 rim = 0.6
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bubble_collision"]
+radius = 0.6
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_portal"]
 radius = 2.0
@@ -56,37 +61,131 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 
 [node name="CameraController" parent="." instance=ExtResource("3")]
 
+[node name="CalmGuide" parent="." instance=ExtResource("6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+npc_id = "calm-world-guide"
+
 [node name="Bubbles" type="Node3D" parent="."]
 
-[node name="Bubble1" type="MeshInstance3D" parent="Bubbles"]
+[node name="Bubble1" type="Area3D" parent="Bubbles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.2, -2)
+script = ExtResource("5")
+prompt_text_key = "zone.calm_world_hub.bubble.pop_prompt"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bubbles/Bubble1"]
+shape = SubResource("SphereShape3D_bubble_collision")
+
+[node name="Mesh" type="MeshInstance3D" parent="Bubbles/Bubble1"]
 mesh = SubResource("SphereMesh_bubble")
 surface_material_override/0 = SubResource("StandardMaterial3D_bubble")
 
-[node name="Bubble2" type="MeshInstance3D" parent="Bubbles"]
+[node name="PromptLabel" type="Label3D" parent="Bubbles/Bubble1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+billboard = 1
+no_depth_test = true
+font_size = 24
+outline_size = 6
+text = ""
+
+[node name="Bubble2" type="Area3D" parent="Bubbles"]
 transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -1, 2.0, -4)
+script = ExtResource("5")
+prompt_text_key = "zone.calm_world_hub.bubble.pop_prompt"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bubbles/Bubble2"]
+shape = SubResource("SphereShape3D_bubble_collision")
+
+[node name="Mesh" type="MeshInstance3D" parent="Bubbles/Bubble2"]
 mesh = SubResource("SphereMesh_bubble")
 surface_material_override/0 = SubResource("StandardMaterial3D_bubble")
 
-[node name="Bubble3" type="MeshInstance3D" parent="Bubbles"]
+[node name="PromptLabel" type="Label3D" parent="Bubbles/Bubble2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+billboard = 1
+no_depth_test = true
+font_size = 24
+outline_size = 6
+text = ""
+
+[node name="Bubble3" type="Area3D" parent="Bubbles"]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 1.5, 1.5, -3)
+script = ExtResource("5")
+prompt_text_key = "zone.calm_world_hub.bubble.pop_prompt"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bubbles/Bubble3"]
+shape = SubResource("SphereShape3D_bubble_collision")
+
+[node name="Mesh" type="MeshInstance3D" parent="Bubbles/Bubble3"]
 mesh = SubResource("SphereMesh_bubble")
 surface_material_override/0 = SubResource("StandardMaterial3D_bubble")
 
-[node name="Bubble4" type="MeshInstance3D" parent="Bubbles"]
+[node name="PromptLabel" type="Label3D" parent="Bubbles/Bubble3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+billboard = 1
+no_depth_test = true
+font_size = 24
+outline_size = 6
+text = ""
+
+[node name="Bubble4" type="Area3D" parent="Bubbles"]
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 3, 1.8, -1)
+script = ExtResource("5")
+prompt_text_key = "zone.calm_world_hub.bubble.pop_prompt"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bubbles/Bubble4"]
+shape = SubResource("SphereShape3D_bubble_collision")
+
+[node name="Mesh" type="MeshInstance3D" parent="Bubbles/Bubble4"]
 mesh = SubResource("SphereMesh_bubble")
 surface_material_override/0 = SubResource("StandardMaterial3D_bubble")
 
-[node name="Bubble5" type="MeshInstance3D" parent="Bubbles"]
+[node name="PromptLabel" type="Label3D" parent="Bubbles/Bubble4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+billboard = 1
+no_depth_test = true
+font_size = 24
+outline_size = 6
+text = ""
+
+[node name="Bubble5" type="Area3D" parent="Bubbles"]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -2, 0.9, 1)
+script = ExtResource("5")
+prompt_text_key = "zone.calm_world_hub.bubble.pop_prompt"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bubbles/Bubble5"]
+shape = SubResource("SphereShape3D_bubble_collision")
+
+[node name="Mesh" type="MeshInstance3D" parent="Bubbles/Bubble5"]
 mesh = SubResource("SphereMesh_bubble")
 surface_material_override/0 = SubResource("StandardMaterial3D_bubble")
 
-[node name="Bubble6" type="MeshInstance3D" parent="Bubbles"]
+[node name="PromptLabel" type="Label3D" parent="Bubbles/Bubble5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+billboard = 1
+no_depth_test = true
+font_size = 24
+outline_size = 6
+text = ""
+
+[node name="Bubble6" type="Area3D" parent="Bubbles"]
 transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 2.4, -5)
+script = ExtResource("5")
+prompt_text_key = "zone.calm_world_hub.bubble.pop_prompt"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bubbles/Bubble6"]
+shape = SubResource("SphereShape3D_bubble_collision")
+
+[node name="Mesh" type="MeshInstance3D" parent="Bubbles/Bubble6"]
 mesh = SubResource("SphereMesh_bubble")
 surface_material_override/0 = SubResource("StandardMaterial3D_bubble")
+
+[node name="PromptLabel" type="Label3D" parent="Bubbles/Bubble6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+billboard = 1
+no_depth_test = true
+font_size = 24
+outline_size = 6
+text = ""
 
 [node name="PortalToHub" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
@@ -249,6 +348,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("BoxMesh_portal")
 
 [node name="Label" type="Label3D" parent="PortalToGrowAGarden"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, 0)
+billboard = 1
+no_depth_test = true
+font_size = 48
+outline_size = 8
+text = ""
+
+[node name="PortalToCreateYourOwnGarden" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -5)
+script = ExtResource("4")
+label_key = "zone.create_your_own_garden.name"
+target_zone_id = "calm-world-create-your-own-garden"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PortalToCreateYourOwnGarden"]
+shape = SubResource("CylinderShape3D_portal")
+
+[node name="Visual" type="MeshInstance3D" parent="PortalToCreateYourOwnGarden"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_portal")
+
+[node name="Label" type="Label3D" parent="PortalToCreateYourOwnGarden"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, 0)
 billboard = 1
 no_depth_test = true
