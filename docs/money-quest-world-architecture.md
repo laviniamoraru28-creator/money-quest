@@ -390,15 +390,14 @@ extends Resource
   curriculum's own vocabulary (the 77 terms already in `messages/en.json`
   are the correct starting set, not new definitions invented for Godot).
 
-A `BrowseZoneController.gd` (one reusable script) will eventually drive
-any Library/Museum zone: reading the zone's `book_ids`/`exhibit_ids`,
-placing a simple `Interaction` per entry, and showing the entry via the
-**same** `DialogueBox`/`ChoicePanel`-style UI already built — no new UI
-system needed, just new content types flowing through the existing
-overlay components. Not built yet, deliberately: with zero real entries to
-drive it, a placement controller would be untested scaffolding rather than
-proven architecture — it's the next piece once the first real book or
-exhibit is approved, not before.
+A `BrowseZoneController.gd` (one reusable script) was planned to eventually
+drive any Library/Museum zone, reading the zone's `book_ids`/`exhibit_ids`
+and placing a simple `Interaction` per entry. In the end it was never
+built: once real content existed, a direct `BookInteraction`/
+`MentorInteraction`/`ExhibitInteraction` pair (each a thin `Interaction`
+subclass plus its own card-panel UI, all three sharing the same
+`EntryData`-derived shape and `DialogueBox`/`ChoicePanel`-style modal
+pattern) turned out simpler than a generic placer would have been.
 
 **`EntryData`/`BookData`/`ExhibitData`/`MentorData`/`DictionaryTermData`
 are built** (`scripts/library/`, see `data/schemas/ENTRY_DATA_FORMAT.md`).
@@ -408,17 +407,16 @@ content, it's the same term/definition a lesson's own
 `data/dictionary/trade-off.tres` reuse `builder-saving-l1`'s real
 vocabulary keys verbatim.
 
-**The Library and Mentor Hall are now populated with real, sourced
-content** (`data/library/`: 8 real books; `data/mentors/`: 5 real
-mentors — see each `.tres` file's own `source_url`/`source_name`/
-`source_type`/`verification_date`). `data/museum/` stays empty — Museum's
-themed rooms remain future work, and an empty folder is still the
-correct, honest state until a real exhibit is approved (see
-`ENTRY_DATA_FORMAT.md`'s own rule). A new `LibraryManager` autoload loads
-every `BookData`/`MentorData` into a registry (the same data-driven
-pattern `QuestManager`/`WorldManager` already use), so adding book or
-mentor N is still just dropping a new `.tres` file in, never a script
-edit.
+**The Library, Mentor Hall, and Museum are now all populated with real,
+sourced content** (`data/library/`: 8 real books; `data/mentors/`: 5 real
+mentors; `data/museum/`: 16 real exhibits across 10 themed rooms — see
+each `.tres` file's own `source_name`/`source_type`/`source_url`/
+`verification_date`). A `LibraryManager` autoload loads every
+`BookData`/`MentorData` into a registry, and a sibling `MuseumManager`
+autoload (an exact mirror) loads every `ExhibitData`, both the same
+data-driven pattern `QuestManager`/`WorldManager` already use — so adding
+book, mentor, or exhibit N is still just dropping a new `.tres` file in,
+never a script edit. See Section 6b for the Museum's own build.
 
 **The Library is now a real, walkable zone with themed sections**
 (`data/zones/library.tres`, `scenes/world/zones/library/Library.tscn`):
@@ -475,6 +473,99 @@ pending `EXPLORATION` quest whose `target_entry_id` matches. `BrowseZoneControll
 in practice, a small `BookInteraction`/`MentorInteraction` pair proved
 simpler and more direct than a generic placer, once real content existed
 to build against.
+
+### 6b. The Museum — 10 real rooms
+
+The Museum (Section 6's fourth "Browse" destination, previously an
+honestly-empty "coming soon" portal in the World Hub) is now a full,
+walkable 10-room destination, built in 4 phases on top of Section 6's
+existing `ExhibitData`/`EntryData` schema with only two small additive
+fields (`cross_link_zone_id`, `followup_quest_id`, mirroring the fields
+`BookData`/`MentorData` already had) — no new systems. A new
+`MuseumManager` autoload (an exact mirror of `LibraryManager`) loads every
+`ExhibitData` from `data/museum/*.tres` into a registry by `entry_id`. A
+new `ExhibitInteraction` (an exact mirror of `BookInteraction`) shows a new
+`ExhibitCardPanel` and reuses the existing `discover_entry()`/
+`notify_entry_discovered()` pipeline. `ExhibitCardPanel` has two display
+modes: an ordinary exhibit shows title/category/summary, with a
+detail-toggle, a Learn More button (opens `source_url` via
+`OS.shell_open()` when a real one exists), an optional Continue the Story
+button (launches `followup_quest_id`), and an optional Explore button
+(travels to `cross_link_zone_id` via `WorldManager.travel_to()`, the same
+cross-linking convention the Library's books already use); a Failure
+Museum exhibit instead shows its four-part What Happened / What Went
+Wrong / What Could Have Been Different / What We Learn structure, with no
+summary shown up front.
+
+The 10 rooms, each its own `ZoneData` (`kind == MUSEUM`) chained by a
+simple portal corridor (Before Money → First Coins → Strange Money →
+Money Through Time → Banknote Lab → Gold Vault → Money Around the World →
+Business & Invention → Museum of Mistakes → Future Money Lab, each room
+also carrying a portal straight back to the World Hub):
+
+1. **Before Money** — a Trader NPC and a barter exhibit (`before-money`,
+   source: British Museum); a `CHALLENGE` quest lets the child try solving
+   a barter problem.
+2. **First Coins** — exploration-only: the `first-coins` exhibit (source:
+   American Numismatic Association).
+3. **Strange Money** — two exploration-only exhibits, Rai stones and
+   cowrie shells (sources: British Museum, American Numismatic
+   Association).
+4. **Money Through Time** — a Timekeeper NPC gives a `SORT`-kind quest
+   (put barter/coins/paper-money/cheques/cards/contactless-payments in
+   rough chronological order) followed by an open reflection choice with
+   no wrong answer.
+5. **Banknote Lab** — an Inspector NPC gives a `SPOT`-kind "Banknote
+   Detective" quest (spot which features are genuine security features vs.
+   decoys — `SpotItemData.is_suspicious` reused semantically to mean
+   "is this a real security feature," an honest reuse of the existing
+   mechanic rather than a new one) alongside the `banknote-design` exhibit
+   (source: Bank of England Museum).
+6. **Gold Vault** — the `gold-bar` exhibit (source: Royal Mint), with a
+   cross-link to Money Quest's existing Golden Vault zone, honoring the
+   brief's "connections to Money Quest" requirement directly rather than
+   inventing a new mechanic for it.
+7. **Money Around the World** — five currency exhibits in a row (pound
+   sterling, yen, euro, rupee, M-Pesa), exploration-only; M-Pesa's facts
+   are widely documented but have no single official source page, so its
+   `source_url`/`verification_date` are honestly left empty rather than
+   guessed, with `source_name` describing it plainly as "widely documented
+   in mobile-money and financial-inclusion research."
+8. **Business & Invention** — the `post-it-note` exhibit (3M's own
+   well-documented "accidental idea" story) next to an 8-sign "problem →
+   idea → product → customer → price → sale → feedback → improvement"
+   walkway connecting the room directly to Entrepreneur Quest's own
+   build chain, with a cross-link to Idea Lab.
+9. **Museum of Mistakes** — two Failure Museum exhibits, New Coke and the
+   Kodak digital camera, each using only real, widely documented facts and
+   the required What Happened / What Went Wrong / What Could Have Been
+   Different / What We Learn structure. Each links to a `CHALLENGE`
+   follow-up quest (`museum-new-coke-quest`, `museum-kodak-quest`) with 3
+   choices; critically, **every choice's consequence states the same real
+   historical outcome** (Coca-Cola Classic's return within about 3 months;
+   Kodak's 2012 bankruptcy filing) rather than letting the child's pick
+   change history, satisfying the brief's "the real historical outcome
+   should then be shown" requirement regardless of which option is
+   chosen. Both exhibits cross-link to Leadership Academy.
+10. **Future Money Lab** — the last room (Hub portal only, no portal
+    onward). A Future Guide NPC asks three plain reflective questions
+    (no choice, no reward) about how money might keep changing. Two
+    exploration-only exhibits, digital payments and digital identity,
+    cross-link to Sky Exchange; the digital-identity exhibit explicitly
+    states cryptocurrency is mentioned only as something that exists, with
+    the game recommending neither buying, investing in, nor using it —
+    keeping the brief's "no financial advice, no investment/crypto
+    promotion" rule intact even where the topic is unavoidable.
+
+Sourcing follows Section 6's existing discipline exactly: every fact that
+matches a source in your supplied list (British Museum, American
+Numismatic Association, Royal Mint, Bank of England Museum) uses that
+real URL; every fact without one (M-Pesa, the Post-it Note, New Coke,
+Kodak, general digital-payments/identity facts) is marked with an honest
+`source_name` describing it as widely documented, and `source_url`/
+`verification_date` are left empty rather than invented — this
+environment's outbound network access remains blocked, confirmed again
+this phase against several of the same domains tested in Section 6.
 
 ---
 
@@ -611,7 +702,7 @@ node), never an architecture change.
 | `Player`/`NPC`/`Interaction`/`InteractionManager` ported to 3D | **Built** |
 | `CameraController` (third-person follow) | **Built** |
 | `QuestData`/`QuestManager`, `LESSON` and `CHALLENGE` kinds | **Built** — `CHALLENGE` added this phase for standalone situation+choice+consequence content with no wrapped `LessonData` |
-| World Hub scene, 7 portals | **Built** — 6 functional (Money Quest, Entrepreneur Quest, Leadership Quest, Calm World, Library, Mind Lab), 1 "coming soon" (Museum) |
+| World Hub scene, 7 portals | **Built** — all 7 functional (Money Quest, Entrepreneur Quest, Leadership Quest, Calm World, Library, Mind Lab, Museum) |
 | Money Quest's Golden Vault zone + Maya's quest (`builder-saving-l1`) | **Built** — reuses the existing `LessonData`/`LessonManager`/`SavingsAllocationMiniGame`/UI overlays unchanged |
 | Golden Vault's Savings Guide + "What Does Saving Mean?" quest (`explorer-saving-l1`) | **Built** — Golden Vault's second quest-giving NPC: a second real lesson on the same topic needed only a new NPC node, not a new zone; `LessonData.choice_point` with no mini-game, same shape as Market Town/Guardian Gate |
 | Golden Vault's Theo + "Saving vs. Spending: The Real Trade-off" quest (`strategist-saving-l1`) | **Built** — Golden Vault's third quest-giving NPC; completes the "saving" topic's full 3-age-band trilogy (Maya, Savings Guide, Theo) in one zone; `LessonData.choice_point` with no mini-game |
@@ -673,7 +764,8 @@ node), never an architecture change.
 | Library zone with 4 themed bookshelf sections + 8 real, sourced books (`BookInteraction`/`BookCardPanel`) + Discovery Table (real "find a book about ___" `EXPLORATION` quests) | **Built** — see Section 6 |
 | Mentor Hall zone + 5 real, sourced mentors (`MentorInteraction`/`MentorCardPanel`) + 4 "Try This" mini-quests, reached via a portal inside Library | **Built** — see Section 6. Sara Blakely's and Daymond John's `source_url` are still empty (facts well-documented, but no specific official page could be verified without outbound network access) |
 | `QuestData.QuestKind.EXPLORATION` runner (`QuestManager._start_exploration_quest`/`notify_entry_discovered`) + `LibraryManager` autoload (BookData/MentorData registry) | **Built** — see Section 6 |
-| Museum exhibits/zone, `BrowseZoneController` | Not built — zero real exhibits exist yet to populate a Museum zone with (Section 6); `BrowseZoneController` itself was superseded by `BookInteraction`/`MentorInteraction`, built directly once real content existed |
+`MuseumManager` autoload + `ExhibitInteraction`/`ExhibitCardPanel` | **Built** — mirrors `LibraryManager`/`BookInteraction`/`BookCardPanel` exactly, plus a Failure Museum display mode and `cross_link_zone_id`/`followup_quest_id` fields on `ExhibitData` (Section 6b) |
+| The Museum's 10 rooms (Before Money, First Coins, Strange Money, Money Through Time, Banknote Lab, Gold Vault, Money Around the World, Business & Invention, Museum of Mistakes, Future Money Lab) + 16 real, sourced exhibits + 5 quests (`museum-before-money-quest`, `museum-money-through-time-quest`, `museum-banknote-lab-quest`, `museum-new-coke-quest`, `museum-kodak-quest`) | **Built** — see Section 6b. `BrowseZoneController` itself was superseded by `BookInteraction`/`MentorInteraction`/`ExhibitInteraction`, built directly once real content existed |
 | Mind Lab zone + "Different Explanations" quest | **Built** — a `CHALLENGE`-kind quest with an original scenario (no external fact to verify), never diagnostic or medical in framing (Section 7) |
 | Calm World's 8 named gardens (Bubble, Aquarium, Light, Rain, Underwater, Forest, Music, Grow-a-Garden) | **Built** — always-unlocked, no choices, all motion respects `reduced_motion`; the 7 gardens beyond Bubble Garden are each reached via a portal placed inside Bubble Garden (Section 7) |
 | 4 real `AudioServer` buses (Music/SFX/Voice/Ambient) + `Settings.gd` volume fields, applied by `AudioManager.gd` | **Built** — fixes a real gap: the buses referenced in code didn't previously exist as a bus layout, so volume was silently inert |
@@ -697,8 +789,8 @@ godot/money-quest-game/
     lessons/                  # kept
     quests/                   # NEW — QuestData .tres
     zones/                    # NEW — ZoneData .tres (world-hub, golden-vault, ...)
-    library/                  # empty — BookData/MentorData .tres go here once approved
-    museum/                   # empty — ExhibitData .tres go here once approved
+    library/                  # 8 real BookData .tres + 5 real MentorData .tres
+    museum/                   # 16 real ExhibitData .tres across 10 rooms
     dictionary/               # NEW — 2 real DictionaryTermData .tres (goal, trade-off)
     avatars/                  # NEW — avatar preset definitions
     schemas/                  # kept, growing (QUEST_DATA_FORMAT.md added)
@@ -1156,3 +1248,55 @@ godot/money-quest-game/
     Still waiting on you: a real Museum exhibit (Section 6), and an
     official source URL for the Sara Blakely and Daymond John mentor
     entries.
+
+    Phases 56-59 (this update) built the Museum as a full 10-room
+    destination, closing the one real gap the previous update flagged.
+    Phase 56 built the architecture: a `MuseumManager` autoload (an exact
+    mirror of `LibraryManager`), a new `ExhibitInteraction`
+    (mirroring `BookInteraction`), a new `ExhibitCardPanel` with two
+    display modes (an ordinary exhibit's title/summary/detail-toggle, or
+    a Failure Museum exhibit's four-part What Happened/What Went
+    Wrong/What Could Have Been Different/What We Learn structure), and
+    two small additive `ExhibitData` fields (`cross_link_zone_id`,
+    `followup_quest_id`) mirroring fields `BookData`/`MentorData`
+    already had — no new systems. Phase 57 built the first 4 rooms
+    (Before Money, First Coins, Strange Money, Money Through Time),
+    reusing the existing `CHALLENGE` and new `SORT` quest kinds for a
+    barter scenario and a chronological-order mini-game. Phase 58 built
+    rooms 5-7 (Banknote Lab, Gold Vault, Money Around the World),
+    introducing the Banknote Lab's "spot the real security feature"
+    game by reusing `SpotItemData.is_suspicious` to mean "is this
+    genuine," an honest reuse of the existing mechanic's shape rather
+    than a new one, and cross-linking the Gold Vault's gold-bar exhibit
+    to Money Quest's existing Golden Vault zone. Phase 59 built the
+    final 3 rooms (Business & Invention, Museum of Mistakes, Future
+    Money Lab): Business & Invention's `post-it-note` exhibit sits next
+    to an 8-sign problem-to-improvement walkway cross-linked to Idea
+    Lab; the Museum of Mistakes uses the Failure Museum structure for 2
+    real, widely documented cases (New Coke, the Kodak digital camera),
+    each with a `CHALLENGE` follow-up quest whose 3 choices all state
+    the identical real historical outcome, satisfying the brief's
+    requirement that the real outcome is shown regardless of which
+    option a child picks, rather than letting a choice rewrite history;
+    Future Money Lab closes the chain with 3 plain reflective dialogue
+    questions (no choice, no reward) and 2 exploration exhibits, one of
+    which explicitly states the game recommends neither buying,
+    investing in, nor using cryptocurrency, keeping the brief's "no
+    financial advice" rule intact. See Section 6b for the full room-by-
+    room account. `data/museum/` now holds 16 real `ExhibitData` entries
+    across all 10 rooms; every fact either carries one of your supplied
+    real sources (British Museum, American Numismatic Association,
+    Royal Mint, Bank of England Museum) or is honestly marked as
+    widely documented with an empty `source_url` where this
+    environment's still-blocked outbound network access prevented
+    independently verifying one specific official page (M-Pesa, the
+    Post-it Note, New Coke, Kodak, and the two digital-money/identity
+    exhibits) — no fact, date, quote, or source was invented.
+
+    **With the Museum built, every one of the World Hub's 7 portals now
+    leads to real, populated content** — Money Quest, Entrepreneur
+    Quest, Leadership Quest, the Library (with Mentor Hall), the
+    Museum, Mind Lab, and Calm World. Still waiting on you: an official
+    source URL for the Sara Blakely and Daymond John mentor entries
+    (Section 6) — the only remaining honestly-empty source in the
+    entire Library/Museum/Mentor Hall content set.

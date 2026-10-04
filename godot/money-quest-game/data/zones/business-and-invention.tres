@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ZoneData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/ZoneData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+zone_id = "business-and-invention"
+display_name_key = "zone.business_and_invention.name"
+scene_path = "res://scenes/world/zones/business_and_invention/BusinessAndInvention.tscn"
+kind = 3
+theme_color = Color(0.97, 0.82, 0.25, 1)
+unlock_condition_quest_id = ""
+npc_ids = Array[String]([])
+quest_ids = Array[String]([])
+exhibit_ids = Array[String](["post-it-note"])
+book_ids = Array[String]([])
+mentor_ids = Array[String]([])
+player_spawn_position = Vector3(0, 0, 3)

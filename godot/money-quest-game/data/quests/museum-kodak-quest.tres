@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="4"]
+
+[sub_resource type="Resource" id="ConsequenceEffect_invest_in_new_tech"]
+script = ExtResource("4")
+coin_delta = 10
+xp_delta = 10
+consequence_text_key = "museum.kodak.choice.invest_in_new_tech.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_invest_in_new_tech"]
+script = ExtResource("3")
+label_key = "museum.kodak.choice.invest_in_new_tech.label"
+consequence = SubResource("ConsequenceEffect_invest_in_new_tech")
+
+[sub_resource type="Resource" id="ConsequenceEffect_protect_existing_business"]
+script = ExtResource("4")
+coin_delta = 6
+xp_delta = 10
+consequence_text_key = "museum.kodak.choice.protect_existing_business.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_protect_existing_business"]
+script = ExtResource("3")
+label_key = "museum.kodak.choice.protect_existing_business.label"
+consequence = SubResource("ConsequenceEffect_protect_existing_business")
+
+[sub_resource type="Resource" id="ConsequenceEffect_wait_and_see"]
+script = ExtResource("4")
+coin_delta = 6
+xp_delta = 10
+consequence_text_key = "museum.kodak.choice.wait_and_see.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_wait_and_see"]
+script = ExtResource("3")
+label_key = "museum.kodak.choice.wait_and_see.label"
+consequence = SubResource("ConsequenceEffect_wait_and_see")
+
+[sub_resource type="Resource" id="DialogueChoice_kodak"]
+script = ExtResource("2")
+situation_text_key = "museum.kodak.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_invest_in_new_tech"), SubResource("ChoiceOption_protect_existing_business"), SubResource("ChoiceOption_wait_and_see")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "museum-kodak-quest"
+title_key = "museum.kodak.title"
+description_key = "museum.kodak.title"
+educational_objective_key = ""
+track = "museum"
+zone_id = "museum-of-mistakes"
+giver_npc_id = ""
+kind = 2
+intro_text_key = "museum.kodak.intro"
+challenge_choice = SubResource("DialogueChoice_kodak")
+reward_message_key = "museum.kodak.reward_message"
+xp_reward = 10
+coin_reward = 5
+skill_ids = Array[String](["adaptability", "decision-making"])

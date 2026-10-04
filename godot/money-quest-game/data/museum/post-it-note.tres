@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ExhibitData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/library/ExhibitData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+entry_id = "post-it-note"
+title_key = "museum.exhibit.post-it-note.title"
+summary_key = "museum.exhibit.post-it-note.summary"
+detail_key = "museum.exhibit.post-it-note.detail"
+source_url = ""
+icon_key = ""
+source_name = "Widely documented company history (3M)"
+source_type = "reputable_organization"
+verification_date = ""
+exhibit_category = "great-ideas"
+cross_link_zone_id = "idea-lab"
+followup_quest_id = ""

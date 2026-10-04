@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ExhibitData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/library/ExhibitData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+entry_id = "digital-identity"
+title_key = "museum.exhibit.digital-identity.title"
+summary_key = "museum.exhibit.digital-identity.summary"
+detail_key = "museum.exhibit.digital-identity.detail"
+source_url = ""
+icon_key = ""
+source_name = "General digital-privacy education"
+source_type = "reputable_organization"
+verification_date = ""
+exhibit_category = "innovation"
+cross_link_zone_id = "sky-exchange"
+followup_quest_id = ""

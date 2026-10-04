@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ExhibitData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/library/ExhibitData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+entry_id = "new-coke"
+title_key = "museum.exhibit.new-coke.title"
+summary_key = ""
+detail_key = ""
+source_url = ""
+icon_key = ""
+source_name = "Widely documented contemporary news coverage and business-history case studies"
+source_type = "reputable_organization"
+verification_date = ""
+exhibit_category = "failure-museum"
+what_happened_key = "museum.exhibit.new-coke.what_happened"
+what_went_wrong_key = "museum.exhibit.new-coke.what_went_wrong"
+what_could_differ_key = "museum.exhibit.new-coke.what_could_differ"
+what_we_learn_key = "museum.exhibit.new-coke.what_we_learn"
+cross_link_zone_id = "leadership-academy"
+followup_quest_id = "museum-new-coke-quest"

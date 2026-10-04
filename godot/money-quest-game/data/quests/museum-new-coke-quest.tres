@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="4"]
+
+[sub_resource type="Resource" id="ConsequenceEffect_bring_back_original"]
+script = ExtResource("4")
+coin_delta = 10
+xp_delta = 10
+consequence_text_key = "museum.new_coke.choice.bring_back_original.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_bring_back_original"]
+script = ExtResource("3")
+label_key = "museum.new_coke.choice.bring_back_original.label"
+consequence = SubResource("ConsequenceEffect_bring_back_original")
+
+[sub_resource type="Resource" id="ConsequenceEffect_keep_new_only"]
+script = ExtResource("4")
+coin_delta = 6
+xp_delta = 10
+consequence_text_key = "museum.new_coke.choice.keep_new_only.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_keep_new_only"]
+script = ExtResource("3")
+label_key = "museum.new_coke.choice.keep_new_only.label"
+consequence = SubResource("ConsequenceEffect_keep_new_only")
+
+[sub_resource type="Resource" id="ConsequenceEffect_ask_more_customers"]
+script = ExtResource("4")
+coin_delta = 8
+xp_delta = 10
+consequence_text_key = "museum.new_coke.choice.ask_more_customers.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_ask_more_customers"]
+script = ExtResource("3")
+label_key = "museum.new_coke.choice.ask_more_customers.label"
+consequence = SubResource("ConsequenceEffect_ask_more_customers")
+
+[sub_resource type="Resource" id="DialogueChoice_new_coke"]
+script = ExtResource("2")
+situation_text_key = "museum.new_coke.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_bring_back_original"), SubResource("ChoiceOption_keep_new_only"), SubResource("ChoiceOption_ask_more_customers")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "museum-new-coke-quest"
+title_key = "museum.new_coke.title"
+description_key = "museum.new_coke.title"
+educational_objective_key = ""
+track = "museum"
+zone_id = "museum-of-mistakes"
+giver_npc_id = ""
+kind = 2
+intro_text_key = "museum.new_coke.intro"
+challenge_choice = SubResource("DialogueChoice_new_coke")
+reward_message_key = "museum.new_coke.reward_message"
+xp_reward = 10
+coin_reward = 5
+skill_ids = Array[String](["decision-making", "resilience"])

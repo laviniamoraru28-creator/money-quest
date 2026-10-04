@@ -65,9 +65,11 @@ rebuilt.
      Mind Lab Guide to try "Different Explanations": a friend doesn't wave
      back, and you practice considering a few different reasons why,
      instead of assuming the worst. No "correct" answer.
-   - **Museum** is the only one left showing a short "still being built"
-     line — the portal, zone registration, and locking logic all already
-     work for it; only its actual zone content doesn't exist yet.
+   - **Museum** (warm gold) takes you to a real 10-room Museum, chained
+     by portals: Before Money → First Coins → Strange Money → Money
+     Through Time → Banknote Lab → Gold Vault → Money Around the World
+     → Business & Invention → Museum of Mistakes → Future Money Lab —
+     see step 8 below for the full walkthrough.
 3. In Golden Vault, walk up to Maya and interact with her to start her
    quest. The savings mini-game runs for 3 weeks: each week, choose to save
    the full allowance toward the sketchbook or spend a little on a treat.
@@ -447,9 +449,36 @@ rebuilt.
    work carefully, putting instructions in order, experimenting with a
    different solution, improving a product from feedback), never framed
    as the real person talking to you directly.
-8. Walk to the portal in each zone to return to the Hub. Progress
+8. In the Museum, walk through all 10 rooms in order. Before Money has a
+   Trader NPC who offers a barter challenge, plus the `before-money`
+   exhibit (source: British Museum). First Coins and Strange Money are
+   exploration-only — walk up to the coin, Rai stone, and cowrie shell
+   exhibits and open their cards. In Money Through Time, the Timekeeper
+   gives a put-these-in-order mini-game (barter → coins → paper money
+   → cheques → cards → contactless payments) followed by an open
+   reflection question with no wrong answer. In Banknote Lab, the
+   Inspector gives a "Banknote Detective" mini-game — spot which
+   features are genuine security features and which are decoys — next
+   to the real `banknote-design` exhibit (source: Bank of England
+   Museum). Gold Vault's `gold-bar` exhibit (source: Royal Mint) has an
+   Explore button that takes you straight to Money Quest's own Golden
+   Vault zone. Money Around the World has 5 real currency exhibits in a
+   row (pound sterling, yen, euro, rupee, M-Pesa) to walk past and open.
+   Business & Invention's `post-it-note` exhibit sits beside an 8-sign
+   walkway (problem → idea → product → customer → price → sale →
+   feedback → improvement) and an Explore button to Idea Lab. The
+   Museum of Mistakes has 2 Failure Museum exhibits (New Coke, the
+   Kodak digital camera) — open one to see its What Happened/What Went
+   Wrong/What Could Have Been Different/What We Learn structure, then
+   tap "Continue the Story" for a 3-choice follow-up quest; every choice
+   leads to the same real historical outcome being shown, since a
+   museum card can't rewrite history. Future Money Lab is the last room
+   — talk to the Future Guide for 3 plain reflective questions (no
+   choice, no reward), then open the digital-payments and
+   digital-identity exhibits, both exploration-only.
+9. Walk to the portal in each zone to return to the Hub. Progress
    (completed quests, unlocked zones, skill tags, avatar choices,
-   discovered Library/Mentor Hall entries) is saved to
+   discovered Library/Mentor Hall/Museum entries) is saved to
    `user://progress.json` automatically.
 
 ### Controls
@@ -475,10 +504,10 @@ up-to-date table. In short:
 
 | Built this phase | Not built yet (architecture-ready) |
 |---|---|
-| `WorldManager` + generalized `ZoneData` (`HUB`/`QUEST`/`LIBRARY`/`MUSEUM`/`MIND_LAB`/`CALM` kinds) | Library books / Museum exhibits / Mentors (zero real entries — nothing to invent yet) |
-| `QuestData` + `QuestManager`, `LESSON` and `CHALLENGE` kinds (wraps existing `LessonData`, or runs a standalone situation+choice+consequence with optional multi-line intro dialogue, no content duplicated) | `BrowseZoneController` + a walkable Museum zone (no real content to drive one yet) |
-| 3D `Player`/`NPC`/`Interaction`/`InteractionManager` + `CameraController` | Museum exhibits/zone, Mentors content |
-| World Hub: fountain landmark, 7 paths, 7 gate-shaped portals (6 functional, 1 "coming soon"), decorative trees, Hub Guide NPC | Entrepreneur Quest's full BUILD → RUN → RESCUE & GROW track (only one representative quest is built) |
+| `WorldManager` + generalized `ZoneData` (`HUB`/`QUEST`/`LIBRARY`/`MUSEUM`/`MIND_LAB`/`CALM` kinds) | — |
+| `QuestData` + `QuestManager`, `LESSON` and `CHALLENGE` kinds (wraps existing `LessonData`, or runs a standalone situation+choice+consequence with optional multi-line intro dialogue, no content duplicated) | — |
+| 3D `Player`/`NPC`/`Interaction`/`InteractionManager` + `CameraController` | — |
+| World Hub: fountain landmark, 7 paths, 7 gate-shaped portals (all 7 functional), decorative trees, Hub Guide NPC | Entrepreneur Quest's full BUILD → RUN → RESCUE & GROW track (only one representative quest is built) |
 | Library zone (bookshelves + Librarian NPC, reachable from the Hub, honestly empty — see "Content fidelity" below) | Library books content |
 | Mind Lab zone + "Different Explanations" quest (an original scenario — no external fact needed, never diagnostic/medical) | — |
 | Golden Vault zone + Maya's quest (reuses the existing `LessonData`/`LessonManager`/mini-game/UI overlays unchanged) | — |
@@ -540,6 +569,7 @@ up-to-date table. In short:
 | `LibraryManager` autoload (BookData/MentorData registry) + `QuestData.QuestKind.EXPLORATION` runner (`QuestManager._start_exploration_quest`/`notify_entry_discovered` — a non-blocking "go discover something" prompt, unlike every other quest kind) | — |
 | Library zone rebuilt with 4 themed bookshelf sections (Money Basics, Saving & Budgeting, Business & Entrepreneurship, Money Around the World) + 8 real, sourced books (`BookInteraction`/`BookCardPanel`) + a reading nook + Discovery Table + 3 real "find a book about ___" discovery quests from the Librarian | Leadership & Smart Skills and Mind Lab bookshelf sections (honestly signed as "coming soon") |
 | Mentor Hall zone (reached via a portal inside Library) + 5 real, sourced mentors — Katherine Johnson, Ada Lovelace, George Washington Carver, Sara Blakely, Daymond John (`MentorInteraction`/`MentorCardPanel`) + 4 "Try This" mini-quests reusing the existing `CHALLENGE`/`SORT` quest kinds verbatim | A `source_url` for Sara Blakely and Daymond John specifically (their facts are well-documented, but no one official page could be verified without outbound network access in this project's environment) |
+| `MuseumManager` autoload + `ExhibitInteraction`/`ExhibitCardPanel` (mirrors `LibraryManager`/`BookInteraction`/`BookCardPanel`, plus a Failure Museum display mode and `cross_link_zone_id`/`followup_quest_id` on `ExhibitData`) + the Museum's full 10 rooms (Before Money, First Coins, Strange Money, Money Through Time, Banknote Lab, Gold Vault, Money Around the World, Business & Invention, Museum of Mistakes, Future Money Lab) + 16 real, sourced exhibits + 5 quests reusing the existing `CHALLENGE`/`SORT`/`SPOT` quest kinds verbatim | — |
 | Calm World's all 8 named gardens (Bubble Garden, Aquarium Room, Light Room, Rain Room, Underwater Room, Forest Walk, Music Room, Grow-a-Garden) — always unlocked, no choices, all motion respects `reduced_motion` | — |
 | `AvatarConfig` + `AvatarCreation.tscn`, now fully wired to `Player.tscn` (see "Avatar wiring fix" below) — 4 body presets incl. a wheelchair-style look, 4 accessories (glasses, cap, hearing aid, cane), all purely visual | — |
 | Zone/quest/skill/avatar progression fields in `ProgressManager`, persisted by `SaveManager` | — |
@@ -1346,7 +1376,9 @@ rationale. Quick map:
 - `data/dictionary/` — 2 real `DictionaryTermData` entries.
 - `data/library/` — 8 real, sourced `BookData` entries.
 - `data/mentors/` — 5 real, sourced `MentorData` entries.
-- `data/museum/`, `data/avatars/` — reserved, empty.
+- `data/museum/` — 16 real, sourced `ExhibitData` entries across the
+  Museum's 10 rooms.
+- `data/avatars/` — reserved, empty.
 - `data/schemas/` — `LESSON_DATA_FORMAT.md`, `QUEST_DATA_FORMAT.md`,
   `ZONE_DATA_FORMAT.md`, `ENTRY_DATA_FORMAT.md`: how to add new content
   without touching core scripts.
@@ -1426,11 +1458,23 @@ rationale. Quick map:
   Leadership & Smart Skills and Mind Lab bookshelf sections are still
   empty, honestly signed as "coming soon" rather than filled with
   placeholder books.
-- Museum is the only Hub portal still reachable-but-"coming soon" — the
-  portal, zone registration, and locking logic all already work for it;
-  only its actual zone content doesn't exist yet, by design, per the
-  brief's explicit "do not build all of this content at once." No
-  exhibit, historical story, or statistic may be invented to fill it —
-  see `data/schemas/ENTRY_DATA_FORMAT.md`. Mind Lab and all 8 of Calm
-  World's named gardens are fully built, since neither needed a
-  real-world fact to verify before it could be written honestly.
+- **The Museum is now a real, populated 10-room destination.** 16 real,
+  sourced exhibits (`data/museum/`) are placed across Before Money, First
+  Coins, Strange Money, Money Through Time, Banknote Lab, Gold Vault,
+  Money Around the World, Business & Invention, Museum of Mistakes, and
+  Future Money Lab, each opened via a new `ExhibitCardPanel` mirroring
+  `BookCardPanel`'s own conventions, plus a dedicated four-part display
+  mode for the Museum of Mistakes' 2 Failure Museum exhibits (New Coke,
+  the Kodak digital camera). Every fact either carries one of the real
+  sources you supplied (British Museum, American Numismatic Association,
+  Royal Mint, Bank of England Museum) or, where none covers the fact
+  (M-Pesa, the Post-it Note, New Coke, Kodak, the digital-payments/
+  identity exhibits), is honestly marked widely documented with an empty
+  `source_url` rather than a guessed one — this environment's outbound
+  network access is still blocked (confirmed again this phase against
+  several of the same domains tested for the Mentor Hall above). No
+  exhibit, historical story, quote, or statistic was invented — see
+  `data/schemas/ENTRY_DATA_FORMAT.md`. Mind Lab and all 8 of Calm World's
+  named gardens are also fully built, since neither needed a real-world
+  fact to verify before it could be written honestly. **Every one of the
+  World Hub's 7 portals now leads to real, populated content.**
