@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="MindLabEntryData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/library/MindLabEntryData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+entry_id = "mindlab-strategy-movement-break"
+title_key = "mindlab.entry.strategy_movement_break.title"
+summary_key = "mindlab.entry.strategy_movement_break.summary"
+detail_key = "mindlab.entry.strategy_movement_break.detail"
+source_url = ""
+icon_key = ""
+source_name = "General movement-break and attention-restoration concepts, widely documented in introductory psychology resources"
+source_type = "reputable_organization"
+verification_date = ""
+entry_category = "calm-strategy"
+cross_link_zone_id = "calm-world-bubble-garden"

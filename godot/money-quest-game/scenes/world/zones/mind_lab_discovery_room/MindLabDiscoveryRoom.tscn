@@ -1,0 +1,157 @@
+[gd_scene load_steps=13 format=3 uid="uid://mindlabdiscovery001"]
+
+[ext_resource type="Script" path="res://scenes/world/zones/mind_lab_discovery_room/MindLabDiscoveryRoom.gd" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/player/Player.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://scenes/player/CameraController.tscn" id="3"]
+[ext_resource type="Script" path="res://scripts/world/PortalInteraction.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/library/MindLabEntryInteraction.gd" id="5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ground"]
+size = Vector3(28, 1, 24)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ground"]
+size = Vector3(28, 1, 24)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ground"]
+albedo_color = Color(0.5, 0.42, 0.68, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_portal"]
+radius = 2.0
+height = 2.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_portal"]
+size = Vector3(1, 2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_station"]
+size = Vector3(1.1, 1.3, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_station_collision"]
+size = Vector3(1.4, 1.6, 1.0)
+
+[node name="MindLabDiscoveryRoom" type="Node3D"]
+script = ExtResource("1")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.8, -0.45, 0.35, 0, 0.6, 0.77, -0.6, -0.62, 0.48, 0, 8, 0)
+shadow_enabled = true
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_ground")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("BoxMesh_ground")
+surface_material_override/0 = SubResource("StandardMaterial3D_ground")
+
+[node name="EntryAttention" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.65, -6)
+script = ExtResource("5")
+entry_id = "mindlab-fact-attention"
+entry_color = Color(0.55, 0.6, 0.85, 1)
+prompt_text_key = "interaction.read_prompt"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EntryAttention"]
+shape = SubResource("BoxShape3D_station_collision")
+
+[node name="Mesh" type="MeshInstance3D" parent="EntryAttention"]
+mesh = SubResource("BoxMesh_station")
+
+[node name="PromptLabel" type="Label3D" parent="EntryAttention"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95, 0)
+billboard = 1
+no_depth_test = true
+font_size = 26
+outline_size = 6
+text = ""
+
+[node name="EntryWorkingMemory" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.65, -6)
+script = ExtResource("5")
+entry_id = "mindlab-fact-working-memory"
+entry_color = Color(0.65, 0.55, 0.8, 1)
+prompt_text_key = "interaction.read_prompt"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EntryWorkingMemory"]
+shape = SubResource("BoxShape3D_station_collision")
+
+[node name="Mesh" type="MeshInstance3D" parent="EntryWorkingMemory"]
+mesh = SubResource("BoxMesh_station")
+
+[node name="PromptLabel" type="Label3D" parent="EntryWorkingMemory"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95, 0)
+billboard = 1
+no_depth_test = true
+font_size = 26
+outline_size = 6
+text = ""
+
+[node name="EntryCognitiveFlexibility" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.65, -6)
+script = ExtResource("5")
+entry_id = "mindlab-fact-cognitive-flexibility"
+entry_color = Color(0.5, 0.75, 0.68, 1)
+prompt_text_key = "interaction.read_prompt"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EntryCognitiveFlexibility"]
+shape = SubResource("BoxShape3D_station_collision")
+
+[node name="Mesh" type="MeshInstance3D" parent="EntryCognitiveFlexibility"]
+mesh = SubResource("BoxMesh_station")
+
+[node name="PromptLabel" type="Label3D" parent="EntryCognitiveFlexibility"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95, 0)
+billboard = 1
+no_depth_test = true
+font_size = 26
+outline_size = 6
+text = ""
+
+[node name="EntryConfirmationBias" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.65, -6)
+script = ExtResource("5")
+entry_id = "mindlab-fact-confirmation-bias"
+entry_color = Color(0.85, 0.65, 0.55, 1)
+prompt_text_key = "interaction.read_prompt"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EntryConfirmationBias"]
+shape = SubResource("BoxShape3D_station_collision")
+
+[node name="Mesh" type="MeshInstance3D" parent="EntryConfirmationBias"]
+mesh = SubResource("BoxMesh_station")
+
+[node name="PromptLabel" type="Label3D" parent="EntryConfirmationBias"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95, 0)
+billboard = 1
+no_depth_test = true
+font_size = 26
+outline_size = 6
+text = ""
+
+[node name="Player" parent="." instance=ExtResource("2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="CameraController" parent="." instance=ExtResource("3")]
+
+[node name="PortalToHub" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+script = ExtResource("4")
+label_key = "zone.world_hub.name"
+target_zone_id = "world-hub"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PortalToHub"]
+shape = SubResource("CylinderShape3D_portal")
+
+[node name="Visual" type="MeshInstance3D" parent="PortalToHub"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_portal")
+
+[node name="Label" type="Label3D" parent="PortalToHub"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, 0)
+billboard = 1
+no_depth_test = true
+font_size = 48
+outline_size = 8
+text = ""

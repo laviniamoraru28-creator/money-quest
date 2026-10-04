@@ -1,0 +1,83 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=17 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueLine.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="5"]
+
+[sub_resource type="Resource" id="DialogueLine_intro1"]
+script = ExtResource("2")
+speaker_id = "decision-scientist"
+text_key = "mindlab.two_invitations.intro.line1"
+
+[sub_resource type="Resource" id="DialogueLine_intro2"]
+script = ExtResource("2")
+speaker_id = "decision-scientist"
+text_key = "mindlab.two_invitations.intro.line2"
+
+[sub_resource type="Resource" id="ConsequenceEffect_help_sibling_first"]
+script = ExtResource("5")
+coin_delta = 10
+xp_delta = 10
+consequence_text_key = "mindlab.two_invitations.choice.help_sibling_first.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_help_sibling_first"]
+script = ExtResource("4")
+label_key = "mindlab.two_invitations.choice.help_sibling_first.label"
+consequence = SubResource("ConsequenceEffect_help_sibling_first")
+
+[sub_resource type="Resource" id="ConsequenceEffect_ask_to_reschedule_practice"]
+script = ExtResource("5")
+coin_delta = 10
+xp_delta = 10
+consequence_text_key = "mindlab.two_invitations.choice.ask_to_reschedule_practice.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_ask_to_reschedule_practice"]
+script = ExtResource("4")
+label_key = "mindlab.two_invitations.choice.ask_to_reschedule_practice.label"
+consequence = SubResource("ConsequenceEffect_ask_to_reschedule_practice")
+
+[sub_resource type="Resource" id="ConsequenceEffect_go_to_game_night"]
+script = ExtResource("5")
+coin_delta = 10
+xp_delta = 10
+consequence_text_key = "mindlab.two_invitations.choice.go_to_game_night.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_go_to_game_night"]
+script = ExtResource("4")
+label_key = "mindlab.two_invitations.choice.go_to_game_night.label"
+consequence = SubResource("ConsequenceEffect_go_to_game_night")
+
+[sub_resource type="Resource" id="ConsequenceEffect_skip_game_night"]
+script = ExtResource("5")
+coin_delta = 10
+xp_delta = 10
+consequence_text_key = "mindlab.two_invitations.choice.skip_game_night.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_skip_game_night"]
+script = ExtResource("4")
+label_key = "mindlab.two_invitations.choice.skip_game_night.label"
+consequence = SubResource("ConsequenceEffect_skip_game_night")
+
+[sub_resource type="Resource" id="DialogueChoice_two_invitations"]
+script = ExtResource("3")
+situation_text_key = "mindlab.two_invitations.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_help_sibling_first"), SubResource("ChoiceOption_ask_to_reschedule_practice"), SubResource("ChoiceOption_go_to_game_night"), SubResource("ChoiceOption_skip_game_night")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "mindlab-two-invitations-quest"
+title_key = "mindlab.two_invitations.title"
+description_key = "mindlab.two_invitations.description"
+educational_objective_key = "mindlab.two_invitations.objective"
+track = "mind-lab"
+zone_id = "decision-lab"
+giver_npc_id = "decision-scientist"
+kind = 2
+intro_dialogue = Array[DialogueLine]([SubResource("DialogueLine_intro1"), SubResource("DialogueLine_intro2")])
+challenge_choice = SubResource("DialogueChoice_two_invitations")
+reward_message_key = "mindlab.two_invitations.reward_message"
+xp_reward = 15
+coin_reward = 10
+skill_ids = Array[String](["decision-making", "empathy"])

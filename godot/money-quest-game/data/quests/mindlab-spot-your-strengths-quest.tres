@@ -1,0 +1,123 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=24 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueLine.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/SpotItemData.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="5"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="6"]
+
+[sub_resource type="Resource" id="DialogueLine_intro1"]
+script = ExtResource("2")
+speaker_id = "strength-spotter"
+text_key = "mindlab.spot_your_strengths.intro.line1"
+
+[sub_resource type="Resource" id="DialogueLine_intro2"]
+script = ExtResource("2")
+speaker_id = "strength-spotter"
+text_key = "mindlab.spot_your_strengths.intro.line2"
+
+[sub_resource type="Resource" id="SpotItemData_explained_rules_clearly"]
+script = ExtResource("3")
+item_id = "explained-rules-clearly"
+text_key = "mindlab.spot_your_strengths.item.explained_rules_clearly"
+is_suspicious = true
+
+[sub_resource type="Resource" id="SpotItemData_practiced_despite_hard"]
+script = ExtResource("3")
+item_id = "practiced-despite-hard"
+text_key = "mindlab.spot_your_strengths.item.practiced_despite_hard"
+is_suspicious = true
+
+[sub_resource type="Resource" id="SpotItemData_noticed_friend_sad"]
+script = ExtResource("3")
+item_id = "noticed-friend-sad"
+text_key = "mindlab.spot_your_strengths.item.noticed_friend_sad"
+is_suspicious = true
+
+[sub_resource type="Resource" id="SpotItemData_forgot_water_bottle"]
+script = ExtResource("3")
+item_id = "forgot-water-bottle"
+text_key = "mindlab.spot_your_strengths.item.forgot_water_bottle"
+is_suspicious = false
+
+[sub_resource type="Resource" id="SpotItemData_spilled_juice"]
+script = ExtResource("3")
+item_id = "spilled-juice"
+text_key = "mindlab.spot_your_strengths.item.spilled_juice"
+is_suspicious = false
+
+[sub_resource type="Resource" id="SpotItemData_lost_track_of_time"]
+script = ExtResource("3")
+item_id = "lost-track-of-time"
+text_key = "mindlab.spot_your_strengths.item.lost_track_of_time"
+is_suspicious = false
+
+[sub_resource type="Resource" id="ConsequenceEffect_quiet_space"]
+script = ExtResource("6")
+coin_delta = 10
+xp_delta = 10
+consequence_text_key = "mindlab.spot_your_strengths.choice.quiet_space.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_quiet_space"]
+script = ExtResource("5")
+label_key = "mindlab.spot_your_strengths.choice.quiet_space.label"
+consequence = SubResource("ConsequenceEffect_quiet_space")
+
+[sub_resource type="Resource" id="ConsequenceEffect_hands_on"]
+script = ExtResource("6")
+coin_delta = 10
+xp_delta = 10
+consequence_text_key = "mindlab.spot_your_strengths.choice.hands_on.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_hands_on"]
+script = ExtResource("5")
+label_key = "mindlab.spot_your_strengths.choice.hands_on.label"
+consequence = SubResource("ConsequenceEffect_hands_on")
+
+[sub_resource type="Resource" id="ConsequenceEffect_talking_it_through"]
+script = ExtResource("6")
+coin_delta = 10
+xp_delta = 10
+consequence_text_key = "mindlab.spot_your_strengths.choice.talking_it_through.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_talking_it_through"]
+script = ExtResource("5")
+label_key = "mindlab.spot_your_strengths.choice.talking_it_through.label"
+consequence = SubResource("ConsequenceEffect_talking_it_through")
+
+[sub_resource type="Resource" id="ConsequenceEffect_drawing_it_out"]
+script = ExtResource("6")
+coin_delta = 10
+xp_delta = 10
+consequence_text_key = "mindlab.spot_your_strengths.choice.drawing_it_out.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_drawing_it_out"]
+script = ExtResource("5")
+label_key = "mindlab.spot_your_strengths.choice.drawing_it_out.label"
+consequence = SubResource("ConsequenceEffect_drawing_it_out")
+
+[sub_resource type="Resource" id="DialogueChoice_spot_your_strengths"]
+script = ExtResource("4")
+situation_text_key = "mindlab.spot_your_strengths.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_quiet_space"), SubResource("ChoiceOption_hands_on"), SubResource("ChoiceOption_talking_it_through"), SubResource("ChoiceOption_drawing_it_out")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "mindlab-spot-your-strengths-quest"
+title_key = "mindlab.spot_your_strengths.title"
+description_key = "mindlab.spot_your_strengths.description"
+educational_objective_key = "mindlab.spot_your_strengths.objective"
+track = "mind-lab"
+zone_id = "self-awareness-lab"
+giver_npc_id = "strength-spotter"
+kind = 5
+intro_dialogue = Array[DialogueLine]([SubResource("DialogueLine_intro1"), SubResource("DialogueLine_intro2")])
+spot_scenario_text_key = "mindlab.spot_your_strengths.scenario"
+spot_items = Array[SpotItemData]([SubResource("SpotItemData_explained_rules_clearly"), SubResource("SpotItemData_practiced_despite_hard"), SubResource("SpotItemData_noticed_friend_sad"), SubResource("SpotItemData_forgot_water_bottle"), SubResource("SpotItemData_spilled_juice"), SubResource("SpotItemData_lost_track_of_time")])
+spot_outro_text_key = "mindlab.spot_your_strengths.outro"
+challenge_choice = SubResource("DialogueChoice_spot_your_strengths")
+reward_message_key = "mindlab.spot_your_strengths.reward_message"
+xp_reward = 15
+coin_reward = 10
+skill_ids = Array[String](["self-awareness"])

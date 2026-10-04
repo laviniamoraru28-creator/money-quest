@@ -1,0 +1,83 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=17 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueLine.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="5"]
+
+[sub_resource type="Resource" id="DialogueLine_intro1"]
+script = ExtResource("2")
+speaker_id = "resilience-coach"
+text_key = "mindlab.tower_fell_down.intro.line1"
+
+[sub_resource type="Resource" id="DialogueLine_intro2"]
+script = ExtResource("2")
+speaker_id = "resilience-coach"
+text_key = "mindlab.tower_fell_down.intro.line2"
+
+[sub_resource type="Resource" id="ConsequenceEffect_try_again_different_way"]
+script = ExtResource("5")
+coin_delta = 10
+xp_delta = 10
+consequence_text_key = "mindlab.tower_fell_down.choice.try_again_different_way.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_try_again_different_way"]
+script = ExtResource("4")
+label_key = "mindlab.tower_fell_down.choice.try_again_different_way.label"
+consequence = SubResource("ConsequenceEffect_try_again_different_way")
+
+[sub_resource type="Resource" id="ConsequenceEffect_ask_for_tips"]
+script = ExtResource("5")
+coin_delta = 10
+xp_delta = 10
+consequence_text_key = "mindlab.tower_fell_down.choice.ask_for_tips.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_ask_for_tips"]
+script = ExtResource("4")
+label_key = "mindlab.tower_fell_down.choice.ask_for_tips.label"
+consequence = SubResource("ConsequenceEffect_ask_for_tips")
+
+[sub_resource type="Resource" id="ConsequenceEffect_take_a_break_first"]
+script = ExtResource("5")
+coin_delta = 10
+xp_delta = 10
+consequence_text_key = "mindlab.tower_fell_down.choice.take_a_break_first.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_take_a_break_first"]
+script = ExtResource("4")
+label_key = "mindlab.tower_fell_down.choice.take_a_break_first.label"
+consequence = SubResource("ConsequenceEffect_take_a_break_first")
+
+[sub_resource type="Resource" id="ConsequenceEffect_try_something_else_instead"]
+script = ExtResource("5")
+coin_delta = 10
+xp_delta = 10
+consequence_text_key = "mindlab.tower_fell_down.choice.try_something_else_instead.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_try_something_else_instead"]
+script = ExtResource("4")
+label_key = "mindlab.tower_fell_down.choice.try_something_else_instead.label"
+consequence = SubResource("ConsequenceEffect_try_something_else_instead")
+
+[sub_resource type="Resource" id="DialogueChoice_tower_fell_down"]
+script = ExtResource("3")
+situation_text_key = "mindlab.tower_fell_down.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_try_again_different_way"), SubResource("ChoiceOption_ask_for_tips"), SubResource("ChoiceOption_take_a_break_first"), SubResource("ChoiceOption_try_something_else_instead")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "mindlab-tower-fell-down-quest"
+title_key = "mindlab.tower_fell_down.title"
+description_key = "mindlab.tower_fell_down.description"
+educational_objective_key = "mindlab.tower_fell_down.objective"
+track = "mind-lab"
+zone_id = "resilience-lab"
+giver_npc_id = "resilience-coach"
+kind = 2
+intro_dialogue = Array[DialogueLine]([SubResource("DialogueLine_intro1"), SubResource("DialogueLine_intro2")])
+challenge_choice = SubResource("DialogueChoice_tower_fell_down")
+reward_message_key = "mindlab.tower_fell_down.reward_message"
+xp_reward = 15
+coin_reward = 10
+skill_ids = Array[String](["resilience", "problem-solving"])

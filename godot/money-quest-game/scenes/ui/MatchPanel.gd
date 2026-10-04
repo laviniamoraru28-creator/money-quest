@@ -53,7 +53,9 @@ func show_match(pairs: Array[MatchPairData]) -> void:
 	_right_buttons.clear()
 	for slot in _right_order.size():
 		var pair_index: int = _right_order[slot]
-		var button := _make_item_button(Localization.t("npc.%s.name" % _pairs[pair_index].right_character_id))
+		var pair: MatchPairData = _pairs[pair_index]
+		var right_label: String = Localization.t(pair.right_text_key) if not pair.right_text_key.is_empty() else Localization.t("npc.%s.name" % pair.right_character_id)
+		var button := _make_item_button(right_label)
 		button.pressed.connect(func(): _on_right_pressed(slot))
 		right_box.add_child(button)
 		_right_buttons.append(button)

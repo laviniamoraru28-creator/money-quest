@@ -1,0 +1,83 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=17 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueLine.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="5"]
+
+[sub_resource type="Resource" id="DialogueLine_intro1"]
+script = ExtResource("2")
+speaker_id = "problem-solver"
+text_key = "mindlab.stuck_zipper.intro.line1"
+
+[sub_resource type="Resource" id="DialogueLine_intro2"]
+script = ExtResource("2")
+speaker_id = "problem-solver"
+text_key = "mindlab.stuck_zipper.intro.line2"
+
+[sub_resource type="Resource" id="ConsequenceEffect_wiggle_it_gently"]
+script = ExtResource("5")
+coin_delta = 10
+xp_delta = 10
+consequence_text_key = "mindlab.stuck_zipper.choice.wiggle_it_gently.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_wiggle_it_gently"]
+script = ExtResource("4")
+label_key = "mindlab.stuck_zipper.choice.wiggle_it_gently.label"
+consequence = SubResource("ConsequenceEffect_wiggle_it_gently")
+
+[sub_resource type="Resource" id="ConsequenceEffect_check_whats_caught"]
+script = ExtResource("5")
+coin_delta = 10
+xp_delta = 10
+consequence_text_key = "mindlab.stuck_zipper.choice.check_whats_caught.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_check_whats_caught"]
+script = ExtResource("4")
+label_key = "mindlab.stuck_zipper.choice.check_whats_caught.label"
+consequence = SubResource("ConsequenceEffect_check_whats_caught")
+
+[sub_resource type="Resource" id="ConsequenceEffect_ask_for_help"]
+script = ExtResource("5")
+coin_delta = 10
+xp_delta = 10
+consequence_text_key = "mindlab.stuck_zipper.choice.ask_for_help.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_ask_for_help"]
+script = ExtResource("4")
+label_key = "mindlab.stuck_zipper.choice.ask_for_help.label"
+consequence = SubResource("ConsequenceEffect_ask_for_help")
+
+[sub_resource type="Resource" id="ConsequenceEffect_try_a_different_bag"]
+script = ExtResource("5")
+coin_delta = 10
+xp_delta = 10
+consequence_text_key = "mindlab.stuck_zipper.choice.try_a_different_bag.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_try_a_different_bag"]
+script = ExtResource("4")
+label_key = "mindlab.stuck_zipper.choice.try_a_different_bag.label"
+consequence = SubResource("ConsequenceEffect_try_a_different_bag")
+
+[sub_resource type="Resource" id="DialogueChoice_stuck_zipper"]
+script = ExtResource("3")
+situation_text_key = "mindlab.stuck_zipper.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_wiggle_it_gently"), SubResource("ChoiceOption_check_whats_caught"), SubResource("ChoiceOption_ask_for_help"), SubResource("ChoiceOption_try_a_different_bag")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "mindlab-stuck-zipper-quest"
+title_key = "mindlab.stuck_zipper.title"
+description_key = "mindlab.stuck_zipper.description"
+educational_objective_key = "mindlab.stuck_zipper.objective"
+track = "mind-lab"
+zone_id = "problem-solving-lab"
+giver_npc_id = "problem-solver"
+kind = 2
+intro_dialogue = Array[DialogueLine]([SubResource("DialogueLine_intro1"), SubResource("DialogueLine_intro2")])
+challenge_choice = SubResource("DialogueChoice_stuck_zipper")
+reward_message_key = "mindlab.stuck_zipper.reward_message"
+xp_reward = 15
+coin_reward = 10
+skill_ids = Array[String](["problem-solving", "resilience"])

@@ -1,0 +1,116 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=23 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueLine.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/MatchPairData.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="5"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="6"]
+
+[sub_resource type="Resource" id="DialogueLine_intro1"]
+script = ExtResource("2")
+speaker_id = "emotion-explorer"
+text_key = "mindlab.name_that_feeling.intro.line1"
+
+[sub_resource type="Resource" id="DialogueLine_intro2"]
+script = ExtResource("2")
+speaker_id = "emotion-explorer"
+text_key = "mindlab.name_that_feeling.intro.line2"
+
+[sub_resource type="Resource" id="MatchPairData_won_the_game"]
+script = ExtResource("3")
+pair_id = "won-the-game"
+left_text_key = "mindlab.name_that_feeling.task.won_the_game"
+right_text_key = "mindlab.name_that_feeling.emotion.excited"
+
+[sub_resource type="Resource" id="MatchPairData_lost_favorite_toy"]
+script = ExtResource("3")
+pair_id = "lost-favorite-toy"
+left_text_key = "mindlab.name_that_feeling.task.lost_favorite_toy"
+right_text_key = "mindlab.name_that_feeling.emotion.sad"
+
+[sub_resource type="Resource" id="MatchPairData_turn_taken"]
+script = ExtResource("3")
+pair_id = "turn-taken"
+left_text_key = "mindlab.name_that_feeling.task.turn_taken"
+right_text_key = "mindlab.name_that_feeling.emotion.frustrated"
+
+[sub_resource type="Resource" id="MatchPairData_unknown_what_happens"]
+script = ExtResource("3")
+pair_id = "unknown-what-happens"
+left_text_key = "mindlab.name_that_feeling.task.unknown_what_happens"
+right_text_key = "mindlab.name_that_feeling.emotion.nervous"
+
+[sub_resource type="Resource" id="MatchPairData_friend_shared_snack"]
+script = ExtResource("3")
+pair_id = "friend-shared-snack"
+left_text_key = "mindlab.name_that_feeling.task.friend_shared_snack"
+right_text_key = "mindlab.name_that_feeling.emotion.grateful"
+
+[sub_resource type="Resource" id="ConsequenceEffect_ask_whats_wrong"]
+script = ExtResource("6")
+coin_delta = 4
+xp_delta = 5
+consequence_text_key = "mindlab.name_that_feeling.choice.ask_whats_wrong.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_ask_whats_wrong"]
+script = ExtResource("5")
+label_key = "mindlab.name_that_feeling.choice.ask_whats_wrong.label"
+consequence = SubResource("ConsequenceEffect_ask_whats_wrong")
+
+[sub_resource type="Resource" id="ConsequenceEffect_sit_with_them"]
+script = ExtResource("6")
+coin_delta = 4
+xp_delta = 5
+consequence_text_key = "mindlab.name_that_feeling.choice.sit_with_them.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_sit_with_them"]
+script = ExtResource("5")
+label_key = "mindlab.name_that_feeling.choice.sit_with_them.label"
+consequence = SubResource("ConsequenceEffect_sit_with_them")
+
+[sub_resource type="Resource" id="ConsequenceEffect_give_them_space"]
+script = ExtResource("6")
+coin_delta = 4
+xp_delta = 5
+consequence_text_key = "mindlab.name_that_feeling.choice.give_them_space.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_give_them_space"]
+script = ExtResource("5")
+label_key = "mindlab.name_that_feeling.choice.give_them_space.label"
+consequence = SubResource("ConsequenceEffect_give_them_space")
+
+[sub_resource type="Resource" id="ConsequenceEffect_tell_a_joke"]
+script = ExtResource("6")
+coin_delta = 4
+xp_delta = 5
+consequence_text_key = "mindlab.name_that_feeling.choice.tell_a_joke.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_tell_a_joke"]
+script = ExtResource("5")
+label_key = "mindlab.name_that_feeling.choice.tell_a_joke.label"
+consequence = SubResource("ConsequenceEffect_tell_a_joke")
+
+[sub_resource type="Resource" id="DialogueChoice_name_that_feeling"]
+script = ExtResource("4")
+situation_text_key = "mindlab.name_that_feeling.choice.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_ask_whats_wrong"), SubResource("ChoiceOption_sit_with_them"), SubResource("ChoiceOption_give_them_space"), SubResource("ChoiceOption_tell_a_joke")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "mindlab-name-that-feeling-quest"
+title_key = "mindlab.name_that_feeling.title"
+description_key = "mindlab.name_that_feeling.description"
+educational_objective_key = "mindlab.name_that_feeling.objective"
+track = "mind-lab"
+zone_id = "emotion-lab"
+giver_npc_id = "emotion-explorer"
+kind = 4
+intro_dialogue = Array[DialogueLine]([SubResource("DialogueLine_intro1"), SubResource("DialogueLine_intro2")])
+match_pairs = Array[MatchPairData]([SubResource("MatchPairData_won_the_game"), SubResource("MatchPairData_lost_favorite_toy"), SubResource("MatchPairData_turn_taken"), SubResource("MatchPairData_unknown_what_happens"), SubResource("MatchPairData_friend_shared_snack")])
+match_outro_text_key = "mindlab.name_that_feeling.outro"
+challenge_choice = SubResource("DialogueChoice_name_that_feeling")
+reward_message_key = "mindlab.name_that_feeling.reward_message"
+xp_reward = 15
+coin_reward = 10
+skill_ids = Array[String](["emotional-awareness", "empathy"])

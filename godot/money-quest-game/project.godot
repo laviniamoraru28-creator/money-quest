@@ -35,20 +35,23 @@ config/icon="res://icon.svg"
 ;    MatchPanel/SpotPanel/AllocatePanel/SortPanel/TextInputPanel/
 ;    LogoBuilderPanel/CategoryPickerPanel/NumericInputPanel/
 ;    SimulatorPanel/PitchDisplayPanel/BookCardPanel/MentorCardPanel/
-;    ExhibitCardPanel) are global because deeply-nested zone/NPC scripts
-;    (see scenes/world/zones/) need to show dialogue/choices/mini-games/
-;    build-stage/Library-card/Museum-card UI without any manual
-;    reference-passing across the scene tree — the same reasoning
-;    autoloads exist for in Godot generally. They render nothing until
-;    a script calls them (each is `visible = false` by default), so
-;    their presence during the main menu is harmless. HUD is NOT an
-;    autoload — it's purely reactive display, only meaningful once
-;    inside the world, so it's a plain child node of Main.tscn instead.
-; 5. WorldManager/QuestManager/LibraryManager/MuseumManager last — they
-;    call into everything above (LibraryManager/MuseumManager hold the
-;    real BookData/MentorData/ExhibitData registries BookCardPanel/
-;    MentorCardPanel/ExhibitCardPanel/BookInteraction/MentorInteraction/
-;    ExhibitInteraction read from — see their own doc comments).
+;    ExhibitCardPanel/MindLabEntryCardPanel) are global because deeply-
+;    nested zone/NPC scripts (see scenes/world/zones/) need to show
+;    dialogue/choices/mini-games/build-stage/Library-card/Museum-card/
+;    Mind-Lab-card UI without any manual reference-passing across the
+;    scene tree — the same reasoning autoloads exist for in Godot
+;    generally. They render nothing until a script calls them (each is
+;    `visible = false` by default), so their presence during the main
+;    menu is harmless. HUD is NOT an autoload — it's purely reactive
+;    display, only meaningful once inside the world, so it's a plain
+;    child node of Main.tscn instead.
+; 5. WorldManager/QuestManager/LibraryManager/MuseumManager/MindLabManager
+;    last — they call into everything above (LibraryManager/
+;    MuseumManager/MindLabManager hold the real BookData/MentorData/
+;    ExhibitData/MindLabEntryData registries BookCardPanel/
+;    MentorCardPanel/ExhibitCardPanel/MindLabEntryCardPanel/
+;    BookInteraction/MentorInteraction/ExhibitInteraction/
+;    MindLabEntryInteraction read from — see their own doc comments).
 Localization="*res://autoload/Localization.gd"
 Settings="*res://autoload/Settings.gd"
 GameState="*res://autoload/GameState.gd"
@@ -72,10 +75,12 @@ PitchDisplayPanel="*res://scenes/ui/PitchDisplayPanel.tscn"
 BookCardPanel="*res://scenes/ui/BookCardPanel.tscn"
 MentorCardPanel="*res://scenes/ui/MentorCardPanel.tscn"
 ExhibitCardPanel="*res://scenes/ui/ExhibitCardPanel.tscn"
+MindLabEntryCardPanel="*res://scenes/ui/MindLabEntryCardPanel.tscn"
 WorldManager="*res://autoload/WorldManager.gd"
 QuestManager="*res://autoload/QuestManager.gd"
 LibraryManager="*res://autoload/LibraryManager.gd"
 MuseumManager="*res://autoload/MuseumManager.gd"
+MindLabManager="*res://autoload/MindLabManager.gd"
 
 [display]
 

@@ -1,0 +1,134 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=27 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueLine.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/SortBucketData.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/SortItemData.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="5"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="6"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="7"]
+
+[sub_resource type="Resource" id="DialogueLine_intro1"]
+script = ExtResource("2")
+speaker_id = "thought-detective"
+text_key = "mindlab.fact_or_guess.intro.line1"
+
+[sub_resource type="Resource" id="DialogueLine_intro2"]
+script = ExtResource("2")
+speaker_id = "thought-detective"
+text_key = "mindlab.fact_or_guess.intro.line2"
+
+[sub_resource type="Resource" id="SortBucketData_fact"]
+script = ExtResource("3")
+bucket_key = "fact"
+label_key = "mindlab.fact_or_guess.bucket.fact"
+
+[sub_resource type="Resource" id="SortBucketData_guess"]
+script = ExtResource("3")
+bucket_key = "guess"
+label_key = "mindlab.fact_or_guess.bucket.guess"
+
+[sub_resource type="Resource" id="SortItemData_walked_past"]
+script = ExtResource("4")
+item_id = "walked-past"
+text_key = "mindlab.fact_or_guess.item.walked_past"
+correct_bucket_key = "fact"
+
+[sub_resource type="Resource" id="SortItemData_playground_noisy"]
+script = ExtResource("4")
+item_id = "playground-noisy"
+text_key = "mindlab.fact_or_guess.item.playground_noisy"
+correct_bucket_key = "fact"
+
+[sub_resource type="Resource" id="SortItemData_looking_at_phone"]
+script = ExtResource("4")
+item_id = "looking-at-phone"
+text_key = "mindlab.fact_or_guess.item.looking_at_phone"
+correct_bucket_key = "fact"
+
+[sub_resource type="Resource" id="SortItemData_angry_with_me"]
+script = ExtResource("4")
+item_id = "angry-with-me"
+text_key = "mindlab.fact_or_guess.item.angry_with_me"
+correct_bucket_key = "guess"
+
+[sub_resource type="Resource" id="SortItemData_doesnt_want_to_be_friends"]
+script = ExtResource("4")
+item_id = "doesnt-want-to-be-friends"
+text_key = "mindlab.fact_or_guess.item.doesnt_want_to_be_friends"
+correct_bucket_key = "guess"
+
+[sub_resource type="Resource" id="SortItemData_didnt_notice"]
+script = ExtResource("4")
+item_id = "didnt-notice"
+text_key = "mindlab.fact_or_guess.item.didnt_notice"
+correct_bucket_key = "guess"
+
+[sub_resource type="Resource" id="ConsequenceEffect_check_the_evidence"]
+script = ExtResource("7")
+coin_delta = 4
+xp_delta = 5
+consequence_text_key = "mindlab.fact_or_guess.choice.check_the_evidence.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_check_the_evidence"]
+script = ExtResource("6")
+label_key = "mindlab.fact_or_guess.choice.check_the_evidence.label"
+consequence = SubResource("ConsequenceEffect_check_the_evidence")
+
+[sub_resource type="Resource" id="ConsequenceEffect_ask_someone"]
+script = ExtResource("7")
+coin_delta = 4
+xp_delta = 5
+consequence_text_key = "mindlab.fact_or_guess.choice.ask_someone.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_ask_someone"]
+script = ExtResource("6")
+label_key = "mindlab.fact_or_guess.choice.ask_someone.label"
+consequence = SubResource("ConsequenceEffect_ask_someone")
+
+[sub_resource type="Resource" id="ConsequenceEffect_swap_always_for_sometimes"]
+script = ExtResource("7")
+coin_delta = 4
+xp_delta = 5
+consequence_text_key = "mindlab.fact_or_guess.choice.swap_always_for_sometimes.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_swap_always_for_sometimes"]
+script = ExtResource("6")
+label_key = "mindlab.fact_or_guess.choice.swap_always_for_sometimes.label"
+consequence = SubResource("ConsequenceEffect_swap_always_for_sometimes")
+
+[sub_resource type="Resource" id="ConsequenceEffect_wait_and_see"]
+script = ExtResource("7")
+coin_delta = 4
+xp_delta = 5
+consequence_text_key = "mindlab.fact_or_guess.choice.wait_and_see.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_wait_and_see"]
+script = ExtResource("6")
+label_key = "mindlab.fact_or_guess.choice.wait_and_see.label"
+consequence = SubResource("ConsequenceEffect_wait_and_see")
+
+[sub_resource type="Resource" id="DialogueChoice_fact_or_guess"]
+script = ExtResource("5")
+situation_text_key = "mindlab.fact_or_guess.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_check_the_evidence"), SubResource("ChoiceOption_ask_someone"), SubResource("ChoiceOption_swap_always_for_sometimes"), SubResource("ChoiceOption_wait_and_see")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "mindlab-fact-or-guess-quest"
+title_key = "mindlab.fact_or_guess.title"
+description_key = "mindlab.fact_or_guess.description"
+educational_objective_key = "mindlab.fact_or_guess.objective"
+track = "mind-lab"
+zone_id = "thought-lab"
+giver_npc_id = "thought-detective"
+kind = 7
+intro_dialogue = Array[DialogueLine]([SubResource("DialogueLine_intro1"), SubResource("DialogueLine_intro2")])
+sort_buckets = Array[SortBucketData]([SubResource("SortBucketData_fact"), SubResource("SortBucketData_guess")])
+sort_items = Array[SortItemData]([SubResource("SortItemData_walked_past"), SubResource("SortItemData_playground_noisy"), SubResource("SortItemData_looking_at_phone"), SubResource("SortItemData_angry_with_me"), SubResource("SortItemData_doesnt_want_to_be_friends"), SubResource("SortItemData_didnt_notice")])
+sort_outro_text_key = "mindlab.fact_or_guess.outro"
+challenge_choice = SubResource("DialogueChoice_fact_or_guess")
+reward_message_key = "mindlab.fact_or_guess.reward_message"
+xp_reward = 15
+coin_reward = 10
+skill_ids = Array[String](["critical-thinking", "flexible-thinking"])

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ZoneData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/ZoneData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+zone_id = "self-awareness-lab"
+display_name_key = "zone.self_awareness_lab.name"
+scene_path = "res://scenes/world/zones/self_awareness_lab/SelfAwarenessLab.tscn"
+kind = 4
+theme_color = Color(0.9, 0.8, 0.35, 1)
+unlock_condition_quest_id = ""
+npc_ids = Array[String](["strength-spotter"])
+quest_ids = Array[String](["mindlab-spot-your-strengths-quest"])
+exhibit_ids = Array[String]([])
+book_ids = Array[String]([])
+mentor_ids = Array[String]([])
+mindlab_entry_ids = Array[String]([])
+player_spawn_position = Vector3(0, 0, 3)

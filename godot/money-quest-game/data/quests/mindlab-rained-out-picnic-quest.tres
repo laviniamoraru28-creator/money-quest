@@ -1,0 +1,83 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=17 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueLine.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="5"]
+
+[sub_resource type="Resource" id="DialogueLine_intro1"]
+script = ExtResource("2")
+speaker_id = "adaptability-guide"
+text_key = "mindlab.rained_out_picnic.intro.line1"
+
+[sub_resource type="Resource" id="DialogueLine_intro2"]
+script = ExtResource("2")
+speaker_id = "adaptability-guide"
+text_key = "mindlab.rained_out_picnic.intro.line2"
+
+[sub_resource type="Resource" id="ConsequenceEffect_indoor_picnic"]
+script = ExtResource("5")
+coin_delta = 10
+xp_delta = 10
+consequence_text_key = "mindlab.rained_out_picnic.choice.indoor_picnic.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_indoor_picnic"]
+script = ExtResource("4")
+label_key = "mindlab.rained_out_picnic.choice.indoor_picnic.label"
+consequence = SubResource("ConsequenceEffect_indoor_picnic")
+
+[sub_resource type="Resource" id="ConsequenceEffect_reschedule_for_later"]
+script = ExtResource("5")
+coin_delta = 10
+xp_delta = 10
+consequence_text_key = "mindlab.rained_out_picnic.choice.reschedule_for_later.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_reschedule_for_later"]
+script = ExtResource("4")
+label_key = "mindlab.rained_out_picnic.choice.reschedule_for_later.label"
+consequence = SubResource("ConsequenceEffect_reschedule_for_later")
+
+[sub_resource type="Resource" id="ConsequenceEffect_do_something_else_entirely"]
+script = ExtResource("5")
+coin_delta = 10
+xp_delta = 10
+consequence_text_key = "mindlab.rained_out_picnic.choice.do_something_else_entirely.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_do_something_else_entirely"]
+script = ExtResource("4")
+label_key = "mindlab.rained_out_picnic.choice.do_something_else_entirely.label"
+consequence = SubResource("ConsequenceEffect_do_something_else_entirely")
+
+[sub_resource type="Resource" id="ConsequenceEffect_wait_a_bit_and_see"]
+script = ExtResource("5")
+coin_delta = 10
+xp_delta = 10
+consequence_text_key = "mindlab.rained_out_picnic.choice.wait_a_bit_and_see.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_wait_a_bit_and_see"]
+script = ExtResource("4")
+label_key = "mindlab.rained_out_picnic.choice.wait_a_bit_and_see.label"
+consequence = SubResource("ConsequenceEffect_wait_a_bit_and_see")
+
+[sub_resource type="Resource" id="DialogueChoice_rained_out_picnic"]
+script = ExtResource("3")
+situation_text_key = "mindlab.rained_out_picnic.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_indoor_picnic"), SubResource("ChoiceOption_reschedule_for_later"), SubResource("ChoiceOption_do_something_else_entirely"), SubResource("ChoiceOption_wait_a_bit_and_see")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "mindlab-rained-out-picnic-quest"
+title_key = "mindlab.rained_out_picnic.title"
+description_key = "mindlab.rained_out_picnic.description"
+educational_objective_key = "mindlab.rained_out_picnic.objective"
+track = "mind-lab"
+zone_id = "adaptability-lab"
+giver_npc_id = "adaptability-guide"
+kind = 2
+intro_dialogue = Array[DialogueLine]([SubResource("DialogueLine_intro1"), SubResource("DialogueLine_intro2")])
+challenge_choice = SubResource("DialogueChoice_rained_out_picnic")
+reward_message_key = "mindlab.rained_out_picnic.reward_message"
+xp_reward = 15
+coin_reward = 10
+skill_ids = Array[String](["adaptability", "flexible-thinking"])

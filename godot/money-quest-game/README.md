@@ -61,10 +61,11 @@ rebuilt.
      themed bookshelf sections holding 8 real, sourced children's books
      you can walk up to and open — see step 7 below for the full
      walkthrough, including Mentor Hall.
-   - **Mind Lab** (teal) takes you to a real Mind Lab zone — talk to the
-     Mind Lab Guide to try "Different Explanations": a friend doesn't wave
-     back, and you practice considering a few different reasons why,
-     instead of assuming the worst. No "correct" answer.
+   - **Mind Lab** (teal) takes you to a real 10-room Mind Lab, chained by
+     portals: Mind Lab Entrance → Emotion Lab → Thought Lab → Calm &
+     Reset Lab → Problem-Solving Lab → Decision Lab → Resilience Lab →
+     Self-Awareness Lab → Adaptability Lab → Mind Lab Discovery Room —
+     see step 9 below for the full walkthrough.
    - **Museum** (warm gold) takes you to a real 10-room Museum, chained
      by portals: Before Money → First Coins → Strange Money → Money
      Through Time → Banknote Lab → Gold Vault → Money Around the World
@@ -476,9 +477,35 @@ rebuilt.
    — talk to the Future Guide for 3 plain reflective questions (no
    choice, no reward), then open the digital-payments and
    digital-identity exhibits, both exploration-only.
-9. Walk to the portal in each zone to return to the Hub. Progress
+9. In Mind Lab, walk through all 10 rooms in order. Mind Lab Entrance
+   has the original Mind Lab Guide and "Different Explanations" quest,
+   unchanged. In Emotion Lab, the Emotion Explorer gives "Name That
+   Feeling" — match 5 everyday situations to the feeling that often
+   goes with them, then choose a constructive response to a quiet,
+   upset friend (no single right answer). In Thought Lab, the Thought
+   Detective gives "Fact or Guess?" — sort 6 clues into Fact or Guess
+   buckets, then practice reframing an "I always get this wrong"
+   thought. Calm & Reset Lab has 3 freestanding stations you can try,
+   skip, or return to any time (slow breathing, noticing five things,
+   a movement break — never forced); the Calm Guide also offers one
+   small optional "go find the noticing station" prompt, and explicitly
+   says Calm World's gardens are always available too. In
+   Problem-Solving Lab, the Problem Solver gives "The Stuck Zipper" — 4
+   reasonable approaches, no single correct one. In Decision Lab, the
+   Decision Scientist gives "The Two Invitations," a genuine two-good-
+   options dilemma. In Resilience Lab, the Resilience Coach gives "The
+   Tower Fell Down," where changing direction is written as just as
+   valid as trying again. In Self-Awareness Lab, the Strength Spotter
+   gives "Spot Your Strengths" — spot the moments that show a personal
+   strength, then pick what helps you learn best. In Adaptability Lab,
+   the Adaptability Guide gives "The Rained-Out Picnic" — 4 flexible
+   responses to a disrupted plan. Mind Lab Discovery Room is the last
+   room (no portal onward) — 4 freestanding "mind fact" exhibits
+   (attention, working memory, cognitive flexibility, confirmation
+   bias), exploration-only.
+10. Walk to the portal in each zone to return to the Hub. Progress
    (completed quests, unlocked zones, skill tags, avatar choices,
-   discovered Library/Mentor Hall/Museum entries) is saved to
+   discovered Library/Mentor Hall/Museum/Mind Lab entries) is saved to
    `user://progress.json` automatically.
 
 ### Controls
@@ -509,7 +536,8 @@ up-to-date table. In short:
 | 3D `Player`/`NPC`/`Interaction`/`InteractionManager` + `CameraController` | — |
 | World Hub: fountain landmark, 7 paths, 7 gate-shaped portals (all 7 functional), decorative trees, Hub Guide NPC | Entrepreneur Quest's full BUILD → RUN → RESCUE & GROW track (only one representative quest is built) |
 | Library zone (bookshelves + Librarian NPC, reachable from the Hub, honestly empty — see "Content fidelity" below) | Library books content |
-| Mind Lab zone + "Different Explanations" quest (an original scenario — no external fact needed, never diagnostic/medical) | — |
+| Mind Lab Entrance zone + "Different Explanations" quest (an original scenario — no external fact needed, never diagnostic/medical) | — |
+| `MindLabEntryData`/`MindLabEntryInteraction`/`MindLabEntryCardPanel` + `MindLabManager` autoload (mirrors the Library/Museum "Browse" family) + `MatchPairData.right_text_key` (a MATCH pair's right side can now be a plain word, not just a character) + `ZoneData.mindlab_entry_ids` + Mind Lab's full 10 rooms (Emotion Lab, Thought Lab, Calm & Reset Lab, Problem-Solving Lab, Decision Lab, Resilience Lab, Self-Awareness Lab, Adaptability Lab, Mind Lab Discovery Room) + 8 new NPCs + 8 quests reusing `CHALLENGE`/`MATCH`/`SORT`/`SPOT`/`EXPLORATION` verbatim + 7 real `MindLabEntryData` entries, all fully translated into all 9 supported languages | Native-speaker review of the new Mind Lab translations in the 7 non-English, non-Romanian locales |
 | Golden Vault zone + Maya's quest (reuses the existing `LessonData`/`LessonManager`/mini-game/UI overlays unchanged) | — |
 | Golden Vault's Savings Guide + "What Does Saving Mean?" quest (`explorer-saving-l1`, Golden Vault's second quest-giving NPC — no new zone needed, no mini-game needed) | — |
 | Golden Vault's Theo + "Saving vs. Spending: The Real Trade-off" quest (`strategist-saving-l1`, Golden Vault's third quest-giving NPC — completes the "saving" topic's full 3-age-band trilogy in one zone, no mini-game needed) | — |
@@ -1357,8 +1385,11 @@ rationale. Quick map:
   4 real bookshelf sections and 8 real, sourced books.
 - `scenes/world/zones/mentor_hall/MentorHall.tscn` — Mentor Hall, reached
   via a portal inside Library, with 5 real, sourced mentor portraits.
-- `scenes/world/zones/mind_lab/MindLab.tscn` — Mind Lab's first zone and
-  quest.
+- `scenes/world/zones/mind_lab/MindLab.tscn` — Mind Lab Entrance (the
+  original zone and quest, unchanged), chained via portal to 9 more
+  rooms: `emotion_lab/`, `thought_lab/`, `calm_reset_lab/`,
+  `problem_solving_lab/`, `decision_lab/`, `resilience_lab/`,
+  `self_awareness_lab/`, `adaptability_lab/`, `mind_lab_discovery_room/`.
 - `scenes/world/Main.tscn` — the persistent root: a `ZoneContainer`
   `WorldManager` swaps zone scenes into, plus the always-present `HUD`.
 - `scenes/player/` — `Player.tscn`, `CameraController.tscn`,
@@ -1378,6 +1409,9 @@ rationale. Quick map:
 - `data/mentors/` — 5 real, sourced `MentorData` entries.
 - `data/museum/` — 16 real, sourced `ExhibitData` entries across the
   Museum's 10 rooms.
+- `data/mindlab/` — 7 real `MindLabEntryData` entries (3 calming
+  strategies, 4 "mind facts") across Mind Lab's Calm & Reset Lab and
+  Discovery Room.
 - `data/avatars/` — reserved, empty.
 - `data/schemas/` — `LESSON_DATA_FORMAT.md`, `QUEST_DATA_FORMAT.md`,
   `ZONE_DATA_FORMAT.md`, `ENTRY_DATA_FORMAT.md`: how to add new content
@@ -1474,7 +1508,35 @@ rationale. Quick map:
   network access is still blocked (confirmed again this phase against
   several of the same domains tested for the Mentor Hall above). No
   exhibit, historical story, quote, or statistic was invented — see
-  `data/schemas/ENTRY_DATA_FORMAT.md`. Mind Lab and all 8 of Calm World's
-  named gardens are also fully built, since neither needed a real-world
-  fact to verify before it could be written honestly. **Every one of the
-  World Hub's 7 portals now leads to real, populated content.**
+  `data/schemas/ENTRY_DATA_FORMAT.md`. All 8 of Calm World's named
+  gardens are also fully built, since they needed no real-world fact to
+  verify before being written honestly. **Every one of the World Hub's
+  7 portals now leads to real, populated content.**
+- **Mind Lab is now a full 10-room destination.** Mind Lab Entrance (the
+  original zone) is unchanged; 9 new rooms cover emotional intelligence,
+  self-awareness, thoughts/thinking patterns, calm and reset skills,
+  problem solving, decision making, resilience, and adaptability (see
+  the walkthrough above). Every quest-bearing room reuses an existing
+  `QuestData.QuestKind` verbatim (`CHALLENGE`/`MATCH`/`SORT`/`SPOT`/
+  `EXPLORATION`) — no new quest kind was introduced. A new
+  `MindLabEntryData`/`MindLabEntryInteraction`/`MindLabEntryCardPanel`/
+  `MindLabManager` quartet mirrors the Library/Museum "Browse" family
+  exactly, used only for freestanding, exploration-only content (3
+  calming strategies, 4 "mind facts," `data/mindlab/`) that is never
+  wrapped in a quest — nothing in Calm & Reset Lab or the Discovery Room
+  can ever feel forced or graded. Every psychological/cognitive-science
+  fact used (attention, working memory, cognitive flexibility,
+  confirmation bias, grounding/breathing concepts) is a standard,
+  well-established concept, never an invented study or statistic; none
+  matched this project's existing sourcing list, so each is honestly
+  marked "widely documented, flagged for verification" with an empty
+  `source_url`/`verification_date` rather than a guessed one — this
+  environment's outbound network access remains blocked. **All new Mind
+  Lab content is fully translated into all 9 supported languages**
+  (en/ro/es/fr/de/it/pt/nl/pl) — a deliberate exception to this Godot
+  project's usual "en/ro populated, other 7 columns left empty"
+  convention, made because this phase's brief explicitly required it.
+  These translations were produced directly by the model doing this
+  work, not by a professional translator or native-speaker reviewer, and
+  should be treated as a strong first draft needing native-speaker
+  review before being trusted as final.

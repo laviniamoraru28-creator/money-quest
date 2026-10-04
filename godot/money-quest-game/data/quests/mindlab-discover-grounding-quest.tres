@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+quest_id = "mindlab-discover-grounding-quest"
+title_key = "mindlab.discover_grounding.title"
+description_key = "mindlab.discover_grounding.description"
+educational_objective_key = ""
+track = "mind-lab"
+zone_id = "calm-reset-lab"
+giver_npc_id = "calm-guide"
+kind = 1
+intro_text_key = "mindlab.discover_grounding.intro"
+target_entry_id = "mindlab-strategy-grounding"
+reward_message_key = "mindlab.discover_grounding.reward_message"
+xp_reward = 10
+coin_reward = 5
+skill_ids = Array[String](["self-awareness"])

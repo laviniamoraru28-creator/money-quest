@@ -7,13 +7,17 @@ See `scripts/library/EntryData.gd`, `BookData.gd`, `ExhibitData.gd`,
 `MentorData.gd`, `DictionaryTermData.gd` for the authoritative field lists,
 and `data/dictionary/goal.tres` for a complete worked example.
 
-**Status: Library and Mentor Hall are now populated.** `data/library/`
-holds 8 real, sourced books and `data/mentors/` holds 5 real, sourced
-mentors (see each file's own `source_url`/`source_name`/`source_type`/
-`verification_date`). `data/museum/` is still empty — Museum's themed
-rooms are a future phase — see the rules below for why an empty folder
-stays the correct, honest state until then, and `data/dictionary/` for
-the one content type that was always safe to populate.
+**Status: Library, Mentor Hall, Museum, and Mind Lab's exploration-only
+content are all now populated.** `data/library/` holds 8 real, sourced
+books, `data/mentors/` holds 5 real, sourced mentors, `data/museum/`
+holds 16 real, sourced exhibits across the Museum's 10 rooms, and
+`data/mindlab/` holds 7 `MindLabEntryData` entries (3 calming strategies,
+4 "mind facts") across Mind Lab's Calm & Reset Lab and Discovery Room
+(see each file's own `source_url`/`source_name`/`source_type`/
+`verification_date`). See the rules below for why an empty folder is the
+correct, honest state until real content is approved, and
+`data/dictionary/` for the one content type that was always safe to
+populate.
 
 ## `EntryData` (base — never used directly)
 
@@ -60,6 +64,23 @@ thing a child sees (project brief Section 22).
 | `cross_link_zone_id` | String | A Hub zone id for "Explore this" — `""` when no existing zone is a strong enough fit (left empty rather than forced) |
 | `try_quest_id` | String | A `QuestData` id for the "Try a challenge inspired by this skill" mini-quest, launched by `MentorCardPanel` via `QuestManager.start_quest()`. `""` when none exists yet |
 
+## `MindLabEntryData` (Mind Lab's Calm & Reset Lab / Discovery Room) — adds
+
+| Field | Type | Notes |
+|---|---|---|
+| `entry_category` | String | `"calm-strategy"` \| `"mind-fact"` |
+| `cross_link_zone_id` | String | A Hub zone id for an optional "Want to explore a calm space?"-style button — `""` when no cross-link applies |
+
+Unlike every other `EntryData` subclass, a `MindLabEntryInteraction`
+never calls `QuestManager.notify_entry_discovered()` — no Mind Lab entry
+is ever the target of an `EXPLORATION` quest's `target_entry_id` built
+around *this specific entry being found*, since nothing here is meant to
+be a "go find this one thing" prompt (see `MindLabEntryInteraction.gd`'s
+own comment). The one `EXPLORATION` quest Mind Lab does use (Calm &
+Reset Lab's "Notice Something Around You") is a gentle, fully optional
+invitation layered on top of entries that are already freely walkable
+and interactable without it.
+
 ## `DictionaryTermData` (not an `EntryData` subclass — simpler shape)
 
 | Field | Type | Notes |
@@ -82,10 +103,11 @@ official source page was supplied or could be verified at the time they
 were added (this project's environment had no outbound network access
 to look one up) — finding and adding a real `source_url` for each is
 still open work, tracked here rather than filled with a guessed link.
-`data/museum/` stays empty — an empty folder is the correct, honest
-state, not a gap to quietly fill with placeholder content. This is why
-no Museum zone is built yet either: a walkable zone with nothing real to
-discover in it would be worse than no zone at all.
+`data/museum/` and `data/mindlab/` are now populated the same way — only
+once real, verifiable facts existed to put in them. An empty folder
+remains the correct, honest state for any future content type before
+that point: a walkable zone with nothing real to discover in it would be
+worse than no zone at all.
 
 ## Rule: Dictionary content is different — reuse, don't invent
 

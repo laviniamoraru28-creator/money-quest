@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="MindLabEntryData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/library/MindLabEntryData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+entry_id = "mindlab-strategy-breathing"
+title_key = "mindlab.entry.strategy_breathing.title"
+summary_key = "mindlab.entry.strategy_breathing.summary"
+detail_key = "mindlab.entry.strategy_breathing.detail"
+source_url = ""
+icon_key = ""
+source_name = "General stress-response and breathing science, widely documented in introductory psychology and physiology resources"
+source_type = "reputable_organization"
+verification_date = ""
+entry_category = "calm-strategy"
+cross_link_zone_id = ""

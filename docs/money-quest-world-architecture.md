@@ -571,27 +571,137 @@ this phase against several of the same domains tested in Section 6.
 
 ## 7. Mind Lab and Calm World / Sensory Garden
 
-- **Mind Lab**: now has its first real zone (`data/zones/mind-lab.tres`,
+- **Mind Lab**: started with one real zone (`data/zones/mind-lab.tres`,
   `scenes/world/zones/mind_lab/MindLab.tscn`, `kind == MIND_LAB`), reachable
-  from the Hub's Mind Lab portal, which is now functional. A Mind Lab Guide
-  gives "Different Explanations" — a `QuestData` of `kind == CHALLENGE`,
-  exactly the shape already proven for Entrepreneur/Leadership Quest: a
-  short scenario (a friend doesn't wave back) → a reflective choice among
-  several equally-valid explanations → a consequence, no new system. Unlike
+  from the Hub's Mind Lab portal. That original zone (now "Mind Lab
+  Entrance") is unchanged: a Mind Lab Guide gives "Different
+  Explanations" — a `QuestData` of `kind == CHALLENGE`, exactly the shape
+  already proven for Entrepreneur/Leadership Quest: a short scenario (a
+  friend doesn't wave back) → a reflective choice among several
+  equally-valid explanations → a consequence, no new system. Unlike
   Library/Museum/Mentors, Mind Lab content needs no external fact to
-  verify — "there's often more than one explanation for someone's
-  behavior" is a standard, well-established social-emotional-learning
-  concept, not a claim requiring a source, so one original scenario could
-  be written now rather than waiting on approval. **Non-negotiables
-  enforced in the copy**: no diagnosis, no "wrong" option, no medical or
-  therapeutic framing anywhere — every choice gets a validating, equally
-  legitimate consequence, and the reward line names it as "a real thinking
-  skill," never a score or a correct/incorrect judgment. The zone's
-  decorative floating orbs respect `Settings.reduced_motion` (holding
-  still instead of bobbing), same discipline as Bubble Garden. Mind Lab's
-  remaining activity types (practicing calming strategies, impulsive vs.
-  considered decisions, identifying unhelpful thoughts) are each a future
-  `QuestData` addition on the same pipeline.
+  verify for most of its activities — "there's often more than one
+  explanation for someone's behavior" is a standard, well-established
+  social-emotional-learning concept, not a claim requiring a source.
+  **Non-negotiables enforced in the copy throughout Mind Lab**: no
+  diagnosis, no "wrong" option, no medical or therapeutic framing
+  anywhere — every choice gets a validating, equally legitimate
+  consequence, and reward lines name real thinking/feeling skills, never
+  a score or a correct/incorrect judgment. The entrance zone's decorative
+  floating orbs respect `Settings.reduced_motion` (holding still instead
+  of bobbing), same discipline as Bubble Garden. **Mind Lab now has 9
+  more rooms beyond the entrance, covering emotional intelligence,
+  self-awareness, thoughts/thinking patterns, calm and reset skills,
+  problem solving, decision making, resilience, and adaptability — see
+  Section 7b.**
+### 7b. Mind Lab's 10 rooms
+
+Mind Lab is a full 10-room destination, built on top of the existing
+Quest architecture with only two small additive extensions (both
+additive, zero existing content changed): `MatchPairData.right_text_key`
+(an alternative to `right_character_id` for a MATCH pair whose right
+side is a plain word, not a character — e.g. matching a situation to an
+emotion) and `ZoneData.mindlab_entry_ids` (mirroring `exhibit_ids`/
+`book_ids` for zones hosting the new `MindLabEntryData` entries). A new
+`MindLabEntryData` (extends `EntryData`) + `MindLabEntryInteraction` +
+`MindLabEntryCardPanel` + `MindLabManager` autoload are an exact mirror
+of the Library/Museum "Browse" family (Section 6), used only for
+freestanding, exploration-only content (calming strategies, "mind
+facts") that is never wrapped in a quest — nothing here is ever forced
+or graded, per the brief's explicit instruction. Every quest-bearing
+room instead reuses an existing `QuestData.QuestKind` verbatim —
+`CHALLENGE`, `MATCH`, `SORT`, `SPOT`, and `EXPLORATION` — with zero new
+mechanics beyond the one additive field above.
+
+The 10 rooms, chained by portals exactly like the Museum (each room
+carries a portal back to the Hub, plus a portal to the next room in the
+chain except the last):
+
+1. **Mind Lab Entrance** (`mind-lab`, pre-existing, unchanged) — the Mind
+   Lab Guide's "Different Explanations" quest (perspective-taking).
+2. **Emotion Lab** — emotional intelligence (recognizing/naming
+   emotions, noticing feelings can change, choosing a constructive
+   response). The Emotion Explorer gives "Name That Feeling," a `MATCH`
+   quest pairing 5 everyday situations to plain emotion words (using the
+   new `right_text_key` field) followed by an empathy choice with 4
+   equally constructive responses to a quiet, upset friend.
+3. **Thought Lab** — thoughts and thinking patterns (a thought isn't
+   always a fact; distinguishing facts from guesses; loosening
+   "always/never" thinking). The Thought Detective gives "Fact or
+   Guess?," a `SORT` quest sorting 6 clues from a short scenario into
+   Fact/Guess buckets, followed by a choice reframing an "always"
+   thought — explicitly never framed as clinical cognitive behavioural
+   therapy, per the brief.
+4. **Calm & Reset Lab** — calm and reset skills. Three freestanding
+   `MindLabEntryData` stations (slow breathing, noticing five things,
+   a movement break) a child can try, skip, or return to any time — no
+   quest wraps them, so nothing here can ever feel forced. The Calm
+   Guide's dialogue explicitly says Calm World's gardens are always
+   available too (never gated behind Mind Lab), and additionally offers
+   one small, optional `EXPLORATION`-kind "go find the noticing station"
+   discovery prompt — the same pattern the Library's Discovery Table
+   uses, satisfying the brief's own "use EXPLORATION where appropriate"
+   instruction without turning the room into a checklist.
+5. **Problem-Solving Lab** — problem solving (identify the problem and
+   goal, try an option, learn from the result). The Problem Solver gives
+   "The Stuck Zipper," a `CHALLENGE` quest with 4 reasonable approaches
+   and no single correct one.
+6. **Decision Lab** — decision making (short-term vs. long-term effects,
+   considering other people). The Decision Scientist gives "The Two
+   Invitations," a `CHALLENGE` quest with a genuine two-good-options
+   dilemma (a friend's game night vs. a sibling's recital practice).
+7. **Resilience Lab** — resilience (a mistake is information; trying
+   again, asking for help, taking a break, or changing direction are all
+   legitimate responses — never simplistic "never give up" messaging,
+   per the brief's explicit warning). The Resilience Coach gives "The
+   Tower Fell Down," a `CHALLENGE` quest whose "change direction instead"
+   option is written as equally valid as "try again."
+8. **Self-Awareness Lab** — self-awareness (recognizing strengths,
+   noticing how people learn differently). The Strength Spotter gives
+   "Spot Your Strengths," a `SPOT` quest (reusing `is_suspicious` to mean
+   "is this a strength moment," the same honest reuse-by-framing the
+   Museum's Banknote Lab established) followed by a "what helps you
+   learn best?" choice with 4 equally valid learning styles.
+9. **Adaptability Lab** — adaptability (plans change, flexible thinking).
+   The Adaptability Guide gives "The Rained-Out Picnic," a `CHALLENGE`
+   quest with 4 flexible responses to a disrupted plan.
+10. **Mind Lab Discovery Room** — the last room (Hub portal only). Four
+    freestanding `MindLabEntryData` "mind facts" in plain child-friendly
+    language (attention as a spotlight, working memory as a mental
+    scratchpad, cognitive flexibility, confirmation bias), two of which
+    cross-link back to Problem-Solving Lab and Thought Lab respectively,
+    reinforcing the room's own lessons. Exploration-only, like the
+    Museum's exhibit-only rooms — no quiz, no NPC required.
+
+**Sourcing**: every Mind Lab fact is an established, general
+psychological/cognitive-science concept (attention, working memory,
+cognitive flexibility, confirmation bias, stress-response/grounding
+techniques) — never an invented study, researcher, or statistic. None of
+these facts matched a source already supplied to this project, and this
+environment's outbound network access remains blocked, so every
+`source_name` honestly reads as "general cognitive psychology, widely
+documented in introductory psychology resources" with `source_url`/
+`verification_date` left empty rather than guessed — flagged here for
+later verification against a specific real source, the same honest
+pattern the Museum's M-Pesa and Post-it Note entries already established.
+
+**Accessibility/localization**: every new string goes through
+`Localization.t()`, with full nine-language translations (en/ro/es/fr/
+de/it/pt/nl/pl) for all new Mind Lab content specifically — a deliberate
+exception to this project's own established "en/ro only, other columns
+left empty" Godot convention, per this phase's explicit brief. These
+translations were produced directly by the model authoring this phase
+rather than by a professional translation pass or native-speaker review,
+and should be treated as a solid first draft requiring native-speaker
+review before being treated as final, exactly like every other
+machine-produced translation in this project's history. All motion
+(none was added in the new rooms beyond the pre-existing entrance orbs)
+and every mini-game mechanic (`MatchPanel`/`SortPanel`/`SpotPanel`) already
+respects `Settings.reduced_motion` and uses tap-only, never-drag, never-
+timed, retry-until-correct interaction — no new accessibility code was
+needed because nothing new introduced a new interaction *pattern*, only
+new *content* flowing through already-accessible mechanics.
+
 - **Calm World / Sensory Garden**: `kind == CALM`. Each named garden
   (Aquarium, Light, Rain, Underwater, Forest, Music, Bubble, Grow-a-Garden)
   is its own `ZoneData` entry with `unlock_condition_quest_id = ""`
@@ -766,7 +876,9 @@ node), never an architecture change.
 | `QuestData.QuestKind.EXPLORATION` runner (`QuestManager._start_exploration_quest`/`notify_entry_discovered`) + `LibraryManager` autoload (BookData/MentorData registry) | **Built** — see Section 6 |
 `MuseumManager` autoload + `ExhibitInteraction`/`ExhibitCardPanel` | **Built** — mirrors `LibraryManager`/`BookInteraction`/`BookCardPanel` exactly, plus a Failure Museum display mode and `cross_link_zone_id`/`followup_quest_id` fields on `ExhibitData` (Section 6b) |
 | The Museum's 10 rooms (Before Money, First Coins, Strange Money, Money Through Time, Banknote Lab, Gold Vault, Money Around the World, Business & Invention, Museum of Mistakes, Future Money Lab) + 16 real, sourced exhibits + 5 quests (`museum-before-money-quest`, `museum-money-through-time-quest`, `museum-banknote-lab-quest`, `museum-new-coke-quest`, `museum-kodak-quest`) | **Built** — see Section 6b. `BrowseZoneController` itself was superseded by `BookInteraction`/`MentorInteraction`/`ExhibitInteraction`, built directly once real content existed |
-| Mind Lab zone + "Different Explanations" quest | **Built** — a `CHALLENGE`-kind quest with an original scenario (no external fact to verify), never diagnostic or medical in framing (Section 7) |
+| Mind Lab Entrance zone + "Different Explanations" quest | **Built** — a `CHALLENGE`-kind quest with an original scenario (no external fact to verify), never diagnostic or medical in framing (Section 7) |
+| `MindLabEntryData`/`MindLabEntryInteraction`/`MindLabEntryCardPanel` + `MindLabManager` autoload + `MatchPairData.right_text_key` + `ZoneData.mindlab_entry_ids` | **Built** — mirrors the Library/Museum "Browse" family exactly, plus one additive MATCH-pair field for a non-character right side (Section 7b) |
+| Mind Lab's 9 further rooms (Emotion Lab, Thought Lab, Calm & Reset Lab, Problem-Solving Lab, Decision Lab, Resilience Lab, Self-Awareness Lab, Adaptability Lab, Mind Lab Discovery Room) + 8 new NPCs + 8 quests (`CHALLENGE`/`MATCH`/`SORT`/`SPOT`/`EXPLORATION`, zero new quest kinds) + 7 `MindLabEntryData` entries | **Built** — see Section 7b. All new content fully translated into all 9 supported languages (en/ro/es/fr/de/it/pt/nl/pl), a deliberate exception to this Godot project's usual en/ro-only convention |
 | Calm World's 8 named gardens (Bubble, Aquarium, Light, Rain, Underwater, Forest, Music, Grow-a-Garden) | **Built** — always-unlocked, no choices, all motion respects `reduced_motion`; the 7 gardens beyond Bubble Garden are each reached via a portal placed inside Bubble Garden (Section 7) |
 | 4 real `AudioServer` buses (Music/SFX/Voice/Ambient) + `Settings.gd` volume fields, applied by `AudioManager.gd` | **Built** — fixes a real gap: the buses referenced in code didn't previously exist as a bus layout, so volume was silently inert |
 | `SettingsMenu.tscn` (reduced-motion toggle + 4 volume sliders), reachable from `MainMenu` and the in-world `HUD` | **Built** — fixes a real gap: there was no Settings UI anywhere, so `reduced_motion` could only ever be set by editing/loading a save file |
@@ -831,8 +943,11 @@ godot/money-quest-game/
                                  # UnderwaterRoom/ForestWalk/MusicRoom/
                                  # GrowAGarden.tscn, all reached via a portal
                                  # inside Bubble Garden)
-        library/                # Library.tscn — honestly empty, no BookData yet
-        mind_lab/               # Mind Lab's first zone + quest (MindLab.tscn)
+        library/                # Library.tscn + Mentor Hall, populated with real content
+        mind_lab/, emotion_lab/, thought_lab/, calm_reset_lab/,
+        problem_solving_lab/, decision_lab/, resilience_lab/,
+        self_awareness_lab/, adaptability_lab/,
+        mind_lab_discovery_room/  # Mind Lab's full 10-room chain
       Main.tscn                 # persistent root: ZoneContainer + HUD
     player/                    # Player.tscn (3D), AvatarCreation.tscn
     characters/                 # NPC.tscn (3D)
@@ -1300,3 +1415,48 @@ godot/money-quest-game/
     source URL for the Sara Blakely and Daymond John mentor entries
     (Section 6) — the only remaining honestly-empty source in the
     entire Library/Museum/Mentor Hall content set.
+
+    Phase 60-63 (this update) expanded Mind Lab from its one original
+    zone into a full 10-room destination (Section 7b), covering every
+    skill area the brief asked for: emotional intelligence,
+    self-awareness, thoughts/thinking patterns, calm and reset skills,
+    problem solving, decision making, resilience, and adaptability. Two
+    small additive extensions made this possible with zero new quest
+    architecture: `MatchPairData.right_text_key` (so a MATCH pair's right
+    side can be a plain word instead of a character) and
+    `ZoneData.mindlab_entry_ids` (mirroring `exhibit_ids`/`book_ids`).
+    A new `MindLabEntryData`/`MindLabEntryInteraction`/
+    `MindLabEntryCardPanel`/`MindLabManager` quartet mirrors the Library/
+    Museum "Browse" family exactly, used only for freestanding,
+    exploration-only content (3 calming strategies, 4 "mind facts") that
+    is never wrapped in a quest — satisfying the brief's explicit "do not
+    force the child to perform breathing exercises" and "some discoveries
+    should exist because exploration itself is rewarding" instructions
+    directly, by construction rather than by careful wording. Every
+    quest-bearing room reuses an existing `QuestData.QuestKind` verbatim
+    (`CHALLENGE` ×5, `MATCH` ×1, `SORT` ×1, `SPOT` ×1, `EXPLORATION` ×1) —
+    no new quest kind, mirroring the Museum's own discipline. Content was
+    deliberately scoped to one well-designed activity per new room rather
+    than exhaustively covering every sub-topic the brief listed, the same
+    proportionate-scope judgment every prior phase in this project has
+    made. Every psychological/cognitive-science fact used (attention,
+    working memory, cognitive flexibility, confirmation bias,
+    grounding/breathing concepts) is a standard, well-established
+    concept, never an invented study or statistic; none matched this
+    project's existing sourcing list, so each is honestly marked "widely
+    documented, flagged for verification" with empty `source_url`/
+    `verification_date`, the same discipline the Museum's M-Pesa and
+    Post-it Note entries established. **All new Mind Lab content is
+    fully translated into all 9 supported languages** (en/ro/es/fr/de/
+    it/pt/nl/pl) — a deliberate, explicit exception to this Godot
+    project's usual "en/ro populated, other 7 columns left empty"
+    convention, made because this phase's brief required it outright.
+    These 7-language translations were produced directly by the model
+    doing this work, not by a professional translator or a native-
+    speaker reviewer, and should be treated as a strong first draft
+    needing native-speaker review before being trusted as final — the
+    same honesty this project has applied to every other machine-
+    produced translation pass. Still waiting on you: native-speaker
+    review of the new Mind Lab translations in all 7 non-English, non-
+    Romanian locales, and (unrelated to this phase) the same Sara
+    Blakely/Daymond John source URL gap noted above.

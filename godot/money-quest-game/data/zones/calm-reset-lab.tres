@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ZoneData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/ZoneData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+zone_id = "calm-reset-lab"
+display_name_key = "zone.calm_reset_lab.name"
+scene_path = "res://scenes/world/zones/calm_reset_lab/CalmResetLab.tscn"
+kind = 4
+theme_color = Color(0.5, 0.8, 0.75, 1)
+unlock_condition_quest_id = ""
+npc_ids = Array[String](["calm-guide"])
+quest_ids = Array[String](["mindlab-discover-grounding-quest"])
+exhibit_ids = Array[String]([])
+book_ids = Array[String]([])
+mentor_ids = Array[String]([])
+mindlab_entry_ids = Array[String](["mindlab-strategy-breathing", "mindlab-strategy-grounding", "mindlab-strategy-movement-break"])
+player_spawn_position = Vector3(0, 0, 3)
