@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ExhibitData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/library/ExhibitData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+entry_id = "currency-pound-sterling"
+title_key = "museum.exhibit.currency-pound-sterling.title"
+summary_key = "museum.exhibit.currency-pound-sterling.summary"
+detail_key = "museum.exhibit.currency-pound-sterling.detail"
+source_url = "https://www.royalmint.com/aboutus/education/"
+icon_key = ""
+source_name = "The Royal Mint"
+source_type = "government"
+verification_date = "2026-10-04"
+exhibit_category = "money-through-time"
+cross_link_zone_id = "sky-exchange"
+followup_quest_id = ""

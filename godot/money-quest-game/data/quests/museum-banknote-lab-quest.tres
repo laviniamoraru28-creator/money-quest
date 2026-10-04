@@ -1,0 +1,59 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=9 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/SpotItemData.gd" id="2"]
+
+[sub_resource type="Resource" id="SpotItemData_watermark"]
+script = ExtResource("2")
+item_id = "watermark"
+text_key = "museum.banknote_lab.item.watermark"
+is_suspicious = true
+
+[sub_resource type="Resource" id="SpotItemData_security_thread"]
+script = ExtResource("2")
+item_id = "security-thread"
+text_key = "museum.banknote_lab.item.security_thread"
+is_suspicious = true
+
+[sub_resource type="Resource" id="SpotItemData_see_through_window"]
+script = ExtResource("2")
+item_id = "see-through-window"
+text_key = "museum.banknote_lab.item.see_through_window"
+is_suspicious = true
+
+[sub_resource type="Resource" id="SpotItemData_raised_print"]
+script = ExtResource("2")
+item_id = "raised-print"
+text_key = "museum.banknote_lab.item.raised_print"
+is_suspicious = true
+
+[sub_resource type="Resource" id="SpotItemData_favorite_color"]
+script = ExtResource("2")
+item_id = "favorite-color"
+text_key = "museum.banknote_lab.item.favorite_color"
+is_suspicious = false
+
+[sub_resource type="Resource" id="SpotItemData_secret_joke"]
+script = ExtResource("2")
+item_id = "secret-joke"
+text_key = "museum.banknote_lab.item.secret_joke"
+is_suspicious = false
+
+[resource]
+script = ExtResource("1")
+quest_id = "museum-banknote-lab-quest"
+title_key = "museum.banknote_lab.title"
+description_key = "museum.banknote_lab.description"
+educational_objective_key = ""
+track = "museum"
+zone_id = "banknote-lab"
+giver_npc_id = "inspector"
+kind = 5
+intro_text_key = "museum.banknote_lab.intro"
+spot_scenario_text_key = "museum.banknote_lab.scenario"
+spot_items = Array[SpotItemData]([SubResource("SpotItemData_watermark"), SubResource("SpotItemData_security_thread"), SubResource("SpotItemData_see_through_window"), SubResource("SpotItemData_raised_print"), SubResource("SpotItemData_favorite_color"), SubResource("SpotItemData_secret_joke")])
+spot_outro_text_key = "museum.banknote_lab.outro"
+reward_message_key = "museum.banknote_lab.reward_message"
+xp_reward = 15
+coin_reward = 10
+skill_ids = Array[String](["attention-to-detail", "curiosity"])

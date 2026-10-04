@@ -1,0 +1,125 @@
+[gd_scene load_steps=14 format=3 uid="uid://goldvault0001"]
+
+[ext_resource type="Script" path="res://scenes/world/zones/gold_vault/GoldVault.gd" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/player/Player.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://scenes/player/CameraController.tscn" id="3"]
+[ext_resource type="Script" path="res://scripts/world/PortalInteraction.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/library/ExhibitInteraction.gd" id="5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ground"]
+size = Vector3(24, 1, 24)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ground"]
+size = Vector3(24, 1, 24)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ground"]
+albedo_color = Color(0.35, 0.3, 0.12, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_portal"]
+radius = 2.0
+height = 2.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_portal"]
+size = Vector3(1, 2, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_vault_door"]
+top_radius = 2.2
+bottom_radius = 2.2
+height = 0.3
+
+[sub_resource type="BoxMesh" id="BoxMesh_gold_bar"]
+size = Vector3(1.0, 0.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gold_bar_collision"]
+size = Vector3(1.4, 1.0, 1.0)
+
+[node name="GoldVault" type="Node3D"]
+script = ExtResource("1")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.8, -0.45, 0.35, 0, 0.6, 0.77, -0.6, -0.62, 0.48, 0, 8, 0)
+shadow_enabled = true
+light_energy = 0.85
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_ground")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("BoxMesh_ground")
+surface_material_override/0 = SubResource("StandardMaterial3D_ground")
+
+[node name="VaultDoor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 1.5, -6)
+mesh = SubResource("CylinderMesh_vault_door")
+
+[node name="ExhibitGoldBar" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, -3)
+script = ExtResource("5")
+entry_id = "gold-bar"
+exhibit_color = Color(0.91, 0.75, 0.2, 1)
+prompt_text_key = "interaction.read_prompt"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ExhibitGoldBar"]
+shape = SubResource("BoxShape3D_gold_bar_collision")
+
+[node name="Mesh" type="MeshInstance3D" parent="ExhibitGoldBar"]
+mesh = SubResource("BoxMesh_gold_bar")
+
+[node name="PromptLabel" type="Label3D" parent="ExhibitGoldBar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+billboard = 1
+no_depth_test = true
+font_size = 28
+outline_size = 6
+text = ""
+
+[node name="Player" parent="." instance=ExtResource("2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="CameraController" parent="." instance=ExtResource("3")]
+
+[node name="PortalToHub" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+script = ExtResource("4")
+label_key = "zone.world_hub.name"
+target_zone_id = "world-hub"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PortalToHub"]
+shape = SubResource("CylinderShape3D_portal")
+
+[node name="Visual" type="MeshInstance3D" parent="PortalToHub"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_portal")
+
+[node name="Label" type="Label3D" parent="PortalToHub"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, 0)
+billboard = 1
+no_depth_test = true
+font_size = 48
+outline_size = 8
+text = ""
+
+[node name="PortalToMoneyAroundTheWorld" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+script = ExtResource("4")
+label_key = "zone.money_around_the_world.name"
+target_zone_id = "money-around-the-world"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PortalToMoneyAroundTheWorld"]
+shape = SubResource("CylinderShape3D_portal")
+
+[node name="Visual" type="MeshInstance3D" parent="PortalToMoneyAroundTheWorld"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_portal")
+
+[node name="Label" type="Label3D" parent="PortalToMoneyAroundTheWorld"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, 0)
+billboard = 1
+no_depth_test = true
+font_size = 48
+outline_size = 8
+text = ""

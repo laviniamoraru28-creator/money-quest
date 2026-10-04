@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ZoneData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/ZoneData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+zone_id = "banknote-lab"
+display_name_key = "zone.banknote_lab.name"
+scene_path = "res://scenes/world/zones/banknote_lab/BanknoteLab.tscn"
+kind = 3
+theme_color = Color(0.35, 0.55, 0.42, 1)
+unlock_condition_quest_id = ""
+npc_ids = Array[String](["inspector"])
+quest_ids = Array[String](["museum-banknote-lab-quest"])
+exhibit_ids = Array[String](["banknote-design"])
+book_ids = Array[String]([])
+mentor_ids = Array[String]([])
+player_spawn_position = Vector3(0, 0, 3)

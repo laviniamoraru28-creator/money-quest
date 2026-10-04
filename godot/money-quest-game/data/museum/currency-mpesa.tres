@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ExhibitData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/library/ExhibitData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+entry_id = "currency-mpesa"
+title_key = "museum.exhibit.currency-mpesa.title"
+summary_key = "museum.exhibit.currency-mpesa.summary"
+detail_key = "museum.exhibit.currency-mpesa.detail"
+source_url = ""
+icon_key = ""
+source_name = "Widely documented in mobile-money and financial-inclusion research"
+source_type = "reputable_organization"
+verification_date = ""
+exhibit_category = "money-through-time"
+cross_link_zone_id = "sky-exchange"
+followup_quest_id = ""
