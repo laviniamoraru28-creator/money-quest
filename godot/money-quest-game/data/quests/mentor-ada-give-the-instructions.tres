@@ -1,0 +1,63 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=11 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/SortBucketData.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/SortItemData.gd" id="3"]
+
+[sub_resource type="Resource" id="SortBucketData_first"]
+script = ExtResource("2")
+bucket_key = "first"
+label_key = "mentor.ada.give_the_instructions.bucket.first"
+
+[sub_resource type="Resource" id="SortBucketData_then"]
+script = ExtResource("2")
+bucket_key = "then"
+label_key = "mentor.ada.give_the_instructions.bucket.then"
+
+[sub_resource type="Resource" id="SortBucketData_last"]
+script = ExtResource("2")
+bucket_key = "last"
+label_key = "mentor.ada.give_the_instructions.bucket.last"
+
+[sub_resource type="Resource" id="SortItemData_get_two_slices_of_bread"]
+script = ExtResource("3")
+item_id = "get-two-slices-of-bread"
+text_key = "mentor.ada.give_the_instructions.item.get_two_slices_of_bread"
+correct_bucket_key = "first"
+
+[sub_resource type="Resource" id="SortItemData_spread_peanut_butter_on_one_slice"]
+script = ExtResource("3")
+item_id = "spread-peanut-butter-on-one-slice"
+text_key = "mentor.ada.give_the_instructions.item.spread_peanut_butter_on_one_slice"
+correct_bucket_key = "then"
+
+[sub_resource type="Resource" id="SortItemData_spread_jam_on_the_other_slice"]
+script = ExtResource("3")
+item_id = "spread-jam-on-the-other-slice"
+text_key = "mentor.ada.give_the_instructions.item.spread_jam_on_the_other_slice"
+correct_bucket_key = "then"
+
+[sub_resource type="Resource" id="SortItemData_put_the_two_slices_together"]
+script = ExtResource("3")
+item_id = "put-the-two-slices-together"
+text_key = "mentor.ada.give_the_instructions.item.put_the_two_slices_together"
+correct_bucket_key = "last"
+
+[resource]
+script = ExtResource("1")
+quest_id = "mentor-ada-give-the-instructions"
+title_key = "mentor.ada.give_the_instructions.title"
+description_key = "mentor.ada.give_the_instructions.title"
+educational_objective_key = ""
+track = "library"
+zone_id = "mentor-hall"
+giver_npc_id = ""
+kind = 7
+intro_text_key = "mentor.ada.give_the_instructions.intro"
+sort_buckets = Array[SortBucketData]([SubResource("SortBucketData_first"), SubResource("SortBucketData_then"), SubResource("SortBucketData_last")])
+sort_items = Array[SortItemData]([SubResource("SortItemData_get_two_slices_of_bread"), SubResource("SortItemData_spread_peanut_butter_on_one_slice"), SubResource("SortItemData_spread_jam_on_the_other_slice"), SubResource("SortItemData_put_the_two_slices_together")])
+sort_outro_text_key = "mentor.ada.give_the_instructions.outro"
+reward_message_key = "mentor.ada.give_the_instructions.reward_message"
+xp_reward = 10
+coin_reward = 5
+skill_ids = Array[String](["creativity", "logical-thinking"])

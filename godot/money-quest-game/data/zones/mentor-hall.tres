@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ZoneData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/ZoneData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+zone_id = "mentor-hall"
+display_name_key = "zone.mentor_hall.name"
+scene_path = "res://scenes/world/zones/mentor_hall/MentorHall.tscn"
+kind = 2
+theme_color = Color(0.909, 0.639, 0.239, 1)
+unlock_condition_quest_id = ""
+npc_ids = Array[String]([])
+quest_ids = Array[String](["mentor-katherine-check-the-numbers", "mentor-ada-give-the-instructions", "mentor-carver-try-another-experiment", "mentor-blakely-improve-the-product"])
+exhibit_ids = Array[String]([])
+book_ids = Array[String]([])
+mentor_ids = Array[String](["katherine-johnson", "ada-lovelace", "george-washington-carver", "sara-blakely", "daymond-john"])
+player_spawn_position = Vector3(0, 0, 3)

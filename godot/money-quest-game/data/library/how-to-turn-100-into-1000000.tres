@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="BookData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/library/BookData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+entry_id = "how-to-turn-100-into-1000000"
+title_key = "library.book.how-to-turn-100-into-1000000.title"
+summary_key = "library.book.how-to-turn-100-into-1000000.summary"
+detail_key = "library.book.how-to-turn-100-into-1000000.detail"
+source_url = "https://www.hachettebookgroup.com/titles/james-mckenna/how-to-turn-100-into-1000000/9781523523436/"
+icon_key = ""
+source_name = "Hachette Book Group"
+source_type = "official_publisher"
+verification_date = "2026-10-04"
+author_key = "library.book.how-to-turn-100-into-1000000.author"
+recommended_age_band = "strategist"
+discover_point_keys = Array[String](["library.book.how-to-turn-100-into-1000000.discover.0", "library.book.how-to-turn-100-into-1000000.discover.1", "library.book.how-to-turn-100-into-1000000.discover.2"])
+cross_link_zone_id = "idea-lab"

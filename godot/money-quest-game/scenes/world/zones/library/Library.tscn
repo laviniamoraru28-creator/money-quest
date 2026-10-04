@@ -1,10 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://library0001"]
+[gd_scene load_steps=18 format=3 uid="uid://library0001"]
 
 [ext_resource type="Script" path="res://scenes/world/zones/library/Library.gd" id="1"]
 [ext_resource type="PackedScene" path="res://scenes/player/Player.tscn" id="2"]
 [ext_resource type="PackedScene" path="res://scenes/player/CameraController.tscn" id="3"]
 [ext_resource type="PackedScene" path="res://scenes/characters/NPC.tscn" id="4"]
 [ext_resource type="Script" path="res://scripts/world/PortalInteraction.gd" id="5"]
+[ext_resource type="Script" path="res://scripts/library/BookInteraction.gd" id="6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ground"]
 size = Vector3(24, 1, 24)
@@ -31,22 +32,13 @@ albedo_color = Color(0.6, 0.45, 0.33, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_book"]
 size = Vector3(0.3, 0.9, 0.25)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_book_teal"]
-albedo_color = Color(0.059, 0.478, 0.42, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_book_collision"]
+size = Vector3(0.6, 1.0, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_book_gold"]
-albedo_color = Color(0.909, 0.639, 0.239, 1)
+[sub_resource type="BoxMesh" id="BoxMesh_bench"]
+size = Vector3(1.6, 0.5, 0.6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_book_ember"]
-albedo_color = Color(0.819, 0.243, 0.098, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_book_sky"]
-albedo_color = Color(0.212, 0.49, 0.6, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_book_coral"]
-albedo_color = Color(0.941, 0.471, 0.353, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_book_soft_blue"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bench"]
 albedo_color = Color(0.498, 0.702, 0.8, 1)
 
 [node name="Library" type="Node3D"]
@@ -69,81 +61,271 @@ surface_material_override/0 = SubResource("StandardMaterial3D_ground")
 
 [node name="Bookshelves" type="Node3D" parent="."]
 
-[node name="ShelfUnit1" type="Node3D" parent="Bookshelves"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -8)
+[node name="MoneyBasicsSection" type="Node3D" parent="Bookshelves"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -9)
 
-[node name="Case" type="MeshInstance3D" parent="Bookshelves/ShelfUnit1"]
+[node name="Case" type="MeshInstance3D" parent="Bookshelves/MoneyBasicsSection"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
 mesh = SubResource("BoxMesh_shelf_case")
 surface_material_override/0 = SubResource("StandardMaterial3D_shelf_case")
 
-[node name="Book1" type="MeshInstance3D" parent="Bookshelves/ShelfUnit1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25, 1.1, 0.2)
+[node name="SectionLabel" type="Label3D" parent="Bookshelves/MoneyBasicsSection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, 0)
+billboard = 1
+no_depth_test = true
+font_size = 36
+outline_size = 8
+text = ""
+
+[node name="Book_AKidsBookAboutMoney" type="Area3D" parent="Bookshelves/MoneyBasicsSection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.1, 0.3)
+script = ExtResource("6")
+entry_id = "a-kids-book-about-money"
+book_color = Color(0.059, 0.478, 0.42, 1)
+prompt_text_key = "interaction.read_prompt"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bookshelves/MoneyBasicsSection/Book_AKidsBookAboutMoney"]
+shape = SubResource("BoxShape3D_book_collision")
+
+[node name="Mesh" type="MeshInstance3D" parent="Bookshelves/MoneyBasicsSection/Book_AKidsBookAboutMoney"]
 mesh = SubResource("BoxMesh_book")
-surface_material_override/0 = SubResource("StandardMaterial3D_book_teal")
 
-[node name="Book2" type="MeshInstance3D" parent="Bookshelves/ShelfUnit1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 1.1, 0.2)
+[node name="PromptLabel" type="Label3D" parent="Bookshelves/MoneyBasicsSection/Book_AKidsBookAboutMoney"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+billboard = 1
+no_depth_test = true
+font_size = 28
+outline_size = 6
+text = ""
+
+[node name="Book_MoneyForBeginners" type="Area3D" parent="Bookshelves/MoneyBasicsSection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0.3)
+script = ExtResource("6")
+entry_id = "money-for-beginners"
+book_color = Color(0.212, 0.49, 0.6, 1)
+prompt_text_key = "interaction.read_prompt"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bookshelves/MoneyBasicsSection/Book_MoneyForBeginners"]
+shape = SubResource("BoxShape3D_book_collision")
+
+[node name="Mesh" type="MeshInstance3D" parent="Bookshelves/MoneyBasicsSection/Book_MoneyForBeginners"]
 mesh = SubResource("BoxMesh_book")
-surface_material_override/0 = SubResource("StandardMaterial3D_book_gold")
 
-[node name="Book3" type="MeshInstance3D" parent="Bookshelves/ShelfUnit1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 1.1, 0.2)
+[node name="PromptLabel" type="Label3D" parent="Bookshelves/MoneyBasicsSection/Book_MoneyForBeginners"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+billboard = 1
+no_depth_test = true
+font_size = 28
+outline_size = 6
+text = ""
+
+[node name="Book_HowItWorksMoney" type="Area3D" parent="Bookshelves/MoneyBasicsSection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.1, 0.3)
+script = ExtResource("6")
+entry_id = "how-it-works-money"
+book_color = Color(0.498, 0.702, 0.8, 1)
+prompt_text_key = "interaction.read_prompt"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bookshelves/MoneyBasicsSection/Book_HowItWorksMoney"]
+shape = SubResource("BoxShape3D_book_collision")
+
+[node name="Mesh" type="MeshInstance3D" parent="Bookshelves/MoneyBasicsSection/Book_HowItWorksMoney"]
 mesh = SubResource("BoxMesh_book")
-surface_material_override/0 = SubResource("StandardMaterial3D_book_ember")
 
-[node name="Book4" type="MeshInstance3D" parent="Bookshelves/ShelfUnit1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 1.1, 0.2)
-mesh = SubResource("BoxMesh_book")
-surface_material_override/0 = SubResource("StandardMaterial3D_book_sky")
+[node name="PromptLabel" type="Label3D" parent="Bookshelves/MoneyBasicsSection/Book_HowItWorksMoney"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+billboard = 1
+no_depth_test = true
+font_size = 28
+outline_size = 6
+text = ""
 
-[node name="Book5" type="MeshInstance3D" parent="Bookshelves/ShelfUnit1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 1.1, 0.2)
-mesh = SubResource("BoxMesh_book")
-surface_material_override/0 = SubResource("StandardMaterial3D_book_coral")
+[node name="SavingBudgetingSection" type="Node3D" parent="Bookshelves"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -9)
 
-[node name="Book6" type="MeshInstance3D" parent="Bookshelves/ShelfUnit1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 1.1, 0.2)
-mesh = SubResource("BoxMesh_book")
-surface_material_override/0 = SubResource("StandardMaterial3D_book_soft_blue")
-
-[node name="ShelfUnit2" type="Node3D" parent="Bookshelves"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -8)
-
-[node name="Case" type="MeshInstance3D" parent="Bookshelves/ShelfUnit2"]
+[node name="Case" type="MeshInstance3D" parent="Bookshelves/SavingBudgetingSection"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
 mesh = SubResource("BoxMesh_shelf_case")
 surface_material_override/0 = SubResource("StandardMaterial3D_shelf_case")
 
-[node name="Book1" type="MeshInstance3D" parent="Bookshelves/ShelfUnit2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25, 1.1, 0.2)
-mesh = SubResource("BoxMesh_book")
-surface_material_override/0 = SubResource("StandardMaterial3D_book_coral")
+[node name="SectionLabel" type="Label3D" parent="Bookshelves/SavingBudgetingSection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, 0)
+billboard = 1
+no_depth_test = true
+font_size = 36
+outline_size = 8
+text = ""
 
-[node name="Book2" type="MeshInstance3D" parent="Bookshelves/ShelfUnit2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 1.1, 0.2)
-mesh = SubResource("BoxMesh_book")
-surface_material_override/0 = SubResource("StandardMaterial3D_book_sky")
+[node name="Book_EverythingKidsMoneyBook" type="Area3D" parent="Bookshelves/SavingBudgetingSection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 1.1, 0.3)
+script = ExtResource("6")
+entry_id = "everything-kids-money-book"
+book_color = Color(0.909, 0.639, 0.239, 1)
+prompt_text_key = "interaction.read_prompt"
 
-[node name="Book3" type="MeshInstance3D" parent="Bookshelves/ShelfUnit2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 1.1, 0.2)
-mesh = SubResource("BoxMesh_book")
-surface_material_override/0 = SubResource("StandardMaterial3D_book_teal")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bookshelves/SavingBudgetingSection/Book_EverythingKidsMoneyBook"]
+shape = SubResource("BoxShape3D_book_collision")
 
-[node name="Book4" type="MeshInstance3D" parent="Bookshelves/ShelfUnit2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 1.1, 0.2)
+[node name="Mesh" type="MeshInstance3D" parent="Bookshelves/SavingBudgetingSection/Book_EverythingKidsMoneyBook"]
 mesh = SubResource("BoxMesh_book")
-surface_material_override/0 = SubResource("StandardMaterial3D_book_soft_blue")
 
-[node name="Book5" type="MeshInstance3D" parent="Bookshelves/ShelfUnit2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 1.1, 0.2)
-mesh = SubResource("BoxMesh_book")
-surface_material_override/0 = SubResource("StandardMaterial3D_book_gold")
+[node name="PromptLabel" type="Label3D" parent="Bookshelves/SavingBudgetingSection/Book_EverythingKidsMoneyBook"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+billboard = 1
+no_depth_test = true
+font_size = 28
+outline_size = 6
+text = ""
 
-[node name="Book6" type="MeshInstance3D" parent="Bookshelves/ShelfUnit2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 1.1, 0.2)
+[node name="Book_ASmartGirlsGuideMoney" type="Area3D" parent="Bookshelves/SavingBudgetingSection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 1.1, 0.3)
+script = ExtResource("6")
+entry_id = "a-smart-girls-guide-money"
+book_color = Color(0.941, 0.471, 0.353, 1)
+prompt_text_key = "interaction.read_prompt"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bookshelves/SavingBudgetingSection/Book_ASmartGirlsGuideMoney"]
+shape = SubResource("BoxShape3D_book_collision")
+
+[node name="Mesh" type="MeshInstance3D" parent="Bookshelves/SavingBudgetingSection/Book_ASmartGirlsGuideMoney"]
 mesh = SubResource("BoxMesh_book")
-surface_material_override/0 = SubResource("StandardMaterial3D_book_ember")
+
+[node name="PromptLabel" type="Label3D" parent="Bookshelves/SavingBudgetingSection/Book_ASmartGirlsGuideMoney"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+billboard = 1
+no_depth_test = true
+font_size = 28
+outline_size = 6
+text = ""
+
+[node name="BusinessSection" type="Node3D" parent="Bookshelves"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -5)
+
+[node name="Case" type="MeshInstance3D" parent="Bookshelves/BusinessSection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
+mesh = SubResource("BoxMesh_shelf_case")
+surface_material_override/0 = SubResource("StandardMaterial3D_shelf_case")
+
+[node name="SectionLabel" type="Label3D" parent="Bookshelves/BusinessSection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, 0)
+billboard = 1
+no_depth_test = true
+font_size = 36
+outline_size = 8
+text = ""
+
+[node name="Book_HowToTurn100Into1000000" type="Area3D" parent="Bookshelves/BusinessSection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 1.1, 0.3)
+script = ExtResource("6")
+entry_id = "how-to-turn-100-into-1000000"
+book_color = Color(0.819, 0.243, 0.098, 1)
+prompt_text_key = "interaction.read_prompt"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bookshelves/BusinessSection/Book_HowToTurn100Into1000000"]
+shape = SubResource("BoxShape3D_book_collision")
+
+[node name="Mesh" type="MeshInstance3D" parent="Bookshelves/BusinessSection/Book_HowToTurn100Into1000000"]
+mesh = SubResource("BoxMesh_book")
+
+[node name="PromptLabel" type="Label3D" parent="Bookshelves/BusinessSection/Book_HowToTurn100Into1000000"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+billboard = 1
+no_depth_test = true
+font_size = 28
+outline_size = 6
+text = ""
+
+[node name="Book_LittleDaymondLearnsToEarn" type="Area3D" parent="Bookshelves/BusinessSection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 1.1, 0.3)
+script = ExtResource("6")
+entry_id = "little-daymond-learns-to-earn"
+book_color = Color(0.059, 0.478, 0.42, 1)
+prompt_text_key = "interaction.read_prompt"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bookshelves/BusinessSection/Book_LittleDaymondLearnsToEarn"]
+shape = SubResource("BoxShape3D_book_collision")
+
+[node name="Mesh" type="MeshInstance3D" parent="Bookshelves/BusinessSection/Book_LittleDaymondLearnsToEarn"]
+mesh = SubResource("BoxMesh_book")
+
+[node name="PromptLabel" type="Label3D" parent="Bookshelves/BusinessSection/Book_LittleDaymondLearnsToEarn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+billboard = 1
+no_depth_test = true
+font_size = 28
+outline_size = 6
+text = ""
+
+[node name="WorldSection" type="Node3D" parent="Bookshelves"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -5)
+
+[node name="Case" type="MeshInstance3D" parent="Bookshelves/WorldSection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
+mesh = SubResource("BoxMesh_shelf_case")
+surface_material_override/0 = SubResource("StandardMaterial3D_shelf_case")
+
+[node name="SectionLabel" type="Label3D" parent="Bookshelves/WorldSection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, 0)
+billboard = 1
+no_depth_test = true
+font_size = 36
+outline_size = 8
+text = ""
+
+[node name="Book_NationalGeographicKidsEverythingMoney" type="Area3D" parent="Bookshelves/WorldSection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0.3)
+script = ExtResource("6")
+entry_id = "national-geographic-kids-everything-money"
+book_color = Color(0.909, 0.639, 0.239, 1)
+prompt_text_key = "interaction.read_prompt"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bookshelves/WorldSection/Book_NationalGeographicKidsEverythingMoney"]
+shape = SubResource("BoxShape3D_book_collision")
+
+[node name="Mesh" type="MeshInstance3D" parent="Bookshelves/WorldSection/Book_NationalGeographicKidsEverythingMoney"]
+mesh = SubResource("BoxMesh_book")
+
+[node name="PromptLabel" type="Label3D" parent="Bookshelves/WorldSection/Book_NationalGeographicKidsEverythingMoney"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+billboard = 1
+no_depth_test = true
+font_size = 28
+outline_size = 6
+text = ""
+
+[node name="ComingSoonSign" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0, -11)
+billboard = 1
+no_depth_test = true
+font_size = 28
+outline_size = 6
+text = ""
+
+[node name="ReadingNook" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="Bench1" type="MeshInstance3D" parent="ReadingNook"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 0.25, 0)
+mesh = SubResource("BoxMesh_bench")
+surface_material_override/0 = SubResource("StandardMaterial3D_bench")
+
+[node name="Bench2" type="MeshInstance3D" parent="ReadingNook"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 0.25, 0)
+mesh = SubResource("BoxMesh_bench")
+surface_material_override/0 = SubResource("StandardMaterial3D_bench")
+
+[node name="DiscoveryTable" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4, 0.25, -3)
+mesh = SubResource("BoxMesh_bench")
+surface_material_override/0 = SubResource("StandardMaterial3D_shelf_case")
+
+[node name="DiscoveryTableLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4, 1.0, -3)
+billboard = 1
+no_depth_test = true
+font_size = 24
+outline_size = 6
+text = ""
 
 [node name="Player" parent="." instance=ExtResource("2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
@@ -168,6 +350,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("BoxMesh_portal")
 
 [node name="Label" type="Label3D" parent="PortalToHub"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, 0)
+billboard = 1
+no_depth_test = true
+font_size = 48
+outline_size = 8
+text = ""
+
+[node name="PortalToMentorHall" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 8)
+script = ExtResource("5")
+label_key = "zone.mentor_hall.name"
+target_zone_id = "mentor-hall"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PortalToMentorHall"]
+shape = SubResource("CylinderShape3D_portal")
+
+[node name="Visual" type="MeshInstance3D" parent="PortalToMentorHall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_portal")
+
+[node name="Label" type="Label3D" parent="PortalToMentorHall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, 0)
 billboard = 1
 no_depth_test = true

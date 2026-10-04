@@ -13,6 +13,11 @@ const QUESTS_DIR: String = "res://data/quests/"
 var _quest_registry: Dictionary = {}   # quest_id -> QuestData
 var _active: bool = false
 
+## EXPLORATION-kind quest ids currently offered and not yet completed —
+## see _start_exploration_quest()'s own comment for why these are tracked
+## separately from `_active`.
+var _pending_exploration_quest_ids: Array[String] = []
+
 
 func _ready() -> void:
 	_load_all_quests()
@@ -49,12 +54,19 @@ func is_quest_completed(quest_id: String) -> bool:
 ## a second call while one is active is ignored rather than silently
 ## overlapping two dialogue flows.
 func start_quest(quest_id: String) -> void:
-	if _active:
-		push_warning("QuestManager: a quest is already running, ignoring start_quest('%s')" % quest_id)
-		return
 	var quest: QuestData = get_quest(quest_id)
 	if quest == null:
 		push_error("QuestManager: unknown quest_id '%s'" % quest_id)
+		return
+
+	# EXPLORATION is the one quest kind that never holds `_active` — see
+	# _start_exploration_quest()'s own comment.
+	if quest.kind == QuestData.QuestKind.EXPLORATION:
+		_start_exploration_quest(quest)
+		return
+
+	if _active:
+		push_warning("QuestManager: a quest is already running, ignoring start_quest('%s')" % quest_id)
 		return
 
 	_active = true
@@ -76,10 +88,11 @@ func start_quest(quest_id: String) -> void:
 		QuestData.QuestKind.MULTI_STEP:
 			await _run_multi_step_quest(quest)
 		_:
-			# EXPLORATION / SIMULATION quests are architecture-ready
-			# (QuestData already models them) but have no concrete runner
-			# built yet. Finish immediately rather than hang the game on an
-			# unimplemented quest kind.
+			# SIMULATION is architecture-ready (QuestData already models
+			# it) but has no concrete runner built yet. Finish immediately
+			# rather than hang the game on an unimplemented quest kind.
+			# (EXPLORATION is handled above, before this match, since it
+			# never sets `_active` — see _start_exploration_quest().)
 			push_warning("QuestManager: quest kind %s has no runner yet (quest '%s')" % [quest.kind, quest_id])
 
 	ProgressManager.complete_quest(quest_id, quest.skill_ids)
@@ -208,3 +221,57 @@ func _run_lesson_quest(quest: QuestData) -> void:
 	# signal instead, the real end of the lesson.
 	await lesson_manager.lesson_finished
 	lesson_manager.queue_free()
+
+
+## For an EXPLORATION-kind quest (a Library discovery prompt — "find a
+## book about saving," etc. — see docs/money-quest-world-architecture.md
+## Section 6). Deliberately does NOT set `_active`: a child who gets this
+## prompt from the Librarian should be free to keep browsing, talk to
+## other NPCs, or even leave the zone and come back, without the rest of
+## the game staying "busy" in the meantime — unlike every choice-driven
+## quest kind above, there's no modal flow to hold open here, just a
+## standing invitation that resolves whenever notify_entry_discovered()
+## reports a match (see BookInteraction.gd/MentorInteraction.gd, the only
+## callers). Shows just the prompt text and returns immediately — talking
+## to the same giver again while it's still pending just repeats the
+## prompt as a gentle reminder, rather than staying silent.
+func _start_exploration_quest(quest: QuestData) -> void:
+	if is_quest_completed(quest.quest_id):
+		return
+	if _pending_exploration_quest_ids.has(quest.quest_id):
+		await _show_intro(quest)
+		return
+	_pending_exploration_quest_ids.append(quest.quest_id)
+	quest_started.emit(quest.quest_id)
+	await _show_intro(quest)
+
+
+## Called by BookInteraction/MentorInteraction whenever a child opens any
+## Library entry's card, discovered or not — checks every still-pending
+## EXPLORATION quest for a match and completes it if so. A no-op (beyond
+## nothing matching) when no exploration quest is waiting for this id.
+func notify_entry_discovered(entry_id: String) -> void:
+	for quest_id in _pending_exploration_quest_ids.duplicate():
+		var quest: QuestData = get_quest(quest_id)
+		if quest and quest.target_entry_id == entry_id:
+			_pending_exploration_quest_ids.erase(quest_id)
+			await _complete_exploration_quest(quest)
+
+
+func _complete_exploration_quest(quest: QuestData) -> void:
+	var has_reward: bool = not quest.reward_message_key.is_empty() or quest.xp_reward > 0 or quest.coin_reward > 0
+	# Only hold `_active` for the brief moment of showing the reward popup
+	# itself, and only when nothing else is already running — a discovery
+	# prompt resolving mid-way through an unrelated dialogue/choice flow
+	# should never interrupt it. Progress is never lost either way: the
+	# quest still completes below, just without the popup animation that
+	# one time.
+	if has_reward and not _active:
+		_active = true
+		await _pay_flat_reward(quest)
+		_active = false
+	else:
+		GameState.add_xp(quest.xp_reward)
+		GameState.add_coins(quest.coin_reward)
+	ProgressManager.complete_quest(quest.quest_id, quest.skill_ids)
+	quest_finished.emit(quest.quest_id)

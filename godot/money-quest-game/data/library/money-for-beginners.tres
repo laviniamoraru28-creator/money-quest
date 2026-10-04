@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="BookData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/library/BookData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+entry_id = "money-for-beginners"
+title_key = "library.book.money-for-beginners.title"
+summary_key = "library.book.money-for-beginners.summary"
+detail_key = "library.book.money-for-beginners.detail"
+source_url = "https://usborne.com/us/money-for-beginners-9781805070139"
+icon_key = ""
+source_name = "Usborne Publishing"
+source_type = "official_publisher"
+verification_date = "2026-10-04"
+author_key = ""
+recommended_age_band = "explorer"
+discover_point_keys = Array[String](["library.book.money-for-beginners.discover.0", "library.book.money-for-beginners.discover.1", "library.book.money-for-beginners.discover.2"])
+cross_link_zone_id = "coin-cove"

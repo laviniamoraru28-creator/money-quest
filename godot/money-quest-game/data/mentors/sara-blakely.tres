@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="MentorData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/library/MentorData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+entry_id = "sara-blakely"
+title_key = "library.mentor.sara-blakely.title"
+summary_key = "library.mentor.sara-blakely.who"
+detail_key = "library.mentor.sara-blakely.detail"
+source_url = ""
+icon_key = ""
+source_name = "Publicly documented company history (Spanx)"
+source_type = "reputable_organization"
+verification_date = ""
+known_for_key = "library.mentor.sara-blakely.known_for"
+mistake_or_challenge_key = "library.mentor.sara-blakely.challenge"
+lesson_key = "library.mentor.sara-blakely.lesson"
+small_challenge_key = "library.mentor.sara-blakely.small_challenge"
+skill_ids = Array[String](["entrepreneurship", "resilience"])
+cross_link_zone_id = "idea-lab"
+try_quest_id = "mentor-blakely-improve-the-product"

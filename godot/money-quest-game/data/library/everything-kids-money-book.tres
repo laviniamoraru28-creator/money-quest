@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="BookData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/library/BookData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+entry_id = "everything-kids-money-book"
+title_key = "library.book.everything-kids-money-book.title"
+summary_key = "library.book.everything-kids-money-book.summary"
+detail_key = "library.book.everything-kids-money-book.detail"
+source_url = "https://www.simonandschuster.com/books/The-Everything-Kids-Money-Book/Brette-Sember/Everything-Kids-Series/9781598697841"
+icon_key = ""
+source_name = "Simon & Schuster"
+source_type = "official_publisher"
+verification_date = "2026-10-04"
+author_key = "library.book.everything-kids-money-book.author"
+recommended_age_band = "builder"
+discover_point_keys = Array[String](["library.book.everything-kids-money-book.discover.0", "library.book.everything-kids-money-book.discover.1", "library.book.everything-kids-money-book.discover.2"])
+cross_link_zone_id = "golden-vault"

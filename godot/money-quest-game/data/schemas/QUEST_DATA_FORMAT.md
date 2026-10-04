@@ -13,10 +13,11 @@ require changing `QuestManager.gd` — only content.
 |---|---|---|
 | `quest_id` | String | Stable, lowercase-hyphenated |
 | `title_key` / `description_key` / `educational_objective_key` | String | Translation keys, never literal text |
-| `track` | String | `"money-quest"` \| `"entrepreneur-quest"` \| `"leadership-quest"` — which top-level Quest track this belongs to |
+| `track` | String | `"money-quest"` \| `"entrepreneur-quest"` \| `"leadership-quest"` \| `"library"` — which top-level Quest track (or the Library/Mentor Hall) this belongs to |
 | `zone_id` | String | Which `ZoneData.zone_id` the quest is given/played in |
-| `giver_npc_id` | String | Which NPC starts this quest when talked to |
-| `kind` | `QuestKind` enum | `LESSON` \| `EXPLORATION` \| `CHALLENGE` \| `SIMULATION` \| `MATCH` \| `SPOT` \| `ALLOCATE` \| `SORT` \| `MULTI_STEP`. Every kind except `EXPLORATION`/`SIMULATION` has a runner built — see `QuestManager._run_lesson_quest` / `_run_challenge_quest` / `_run_match_quest` / `_run_spot_quest` / `_run_allocate_quest` / `_run_sort_quest` / `_run_multi_step_quest` |
+| `giver_npc_id` | String | Which NPC starts this quest when talked to. `""` for a Mentor Hall "Try This" quest, which is launched from `MentorCardPanel` directly rather than a zone NPC |
+| `kind` | `QuestKind` enum | `LESSON` \| `EXPLORATION` \| `CHALLENGE` \| `SIMULATION` \| `MATCH` \| `SPOT` \| `ALLOCATE` \| `SORT` \| `MULTI_STEP`. Every kind except `SIMULATION` has a runner built — see `QuestManager._run_lesson_quest` / `_start_exploration_quest` / `_run_challenge_quest` / `_run_match_quest` / `_run_spot_quest` / `_run_allocate_quest` / `_run_sort_quest` / `_run_multi_step_quest` |
+| `target_entry_id` | String | Only set when `kind == EXPLORATION` — the `BookData`/`MentorData`/`ExhibitData` `entry_id` the child must open to complete this quest (a Library/Museum "go discover something specific" prompt). See the dedicated section below |
 | `lesson_data_path` | String | `res://` path to a `LessonData` resource (see `LESSON_DATA_FORMAT.md`). Only set when `kind == LESSON` |
 | `intro_dialogue` | `Array[DialogueLine]` | Spoken lines between named characters, shown before `intro_text_key`/`challenge_choice` — the exact same shape `LessonData.intro_dialogue` uses. Only meaningful when `kind == CHALLENGE`; see `data/quests/lq-big-mistake-quest.tres` for a worked example (Priya/Oren reacting to the mistake before the player decides) |
 | `intro_text_key` | String | A single narrator-style line, shown after `intro_dialogue` and before `diagnosis_choice`/`challenge_choice`, if set. Only meaningful when `kind == CHALLENGE` |
@@ -55,6 +56,26 @@ website's own "always eventually succeeds" design. See
 `data/quests/lq-pressure-test-quest.tres` (SORT), and
 `data/quests/lq-final-challenge-quest.tres` (MULTI_STEP) for worked
 examples.
+
+## `EXPLORATION` kind: Library/Museum discovery prompts
+
+Unlike every other kind, `EXPLORATION` is a standing invitation, not a
+modal flow — a child offered "find a book about saving" should stay free
+to keep browsing, talk to other NPCs, or leave the zone entirely without
+the rest of the game staying "busy" in the meantime. So `start_quest()`
+routes `EXPLORATION` quests to `QuestManager._start_exploration_quest()`
+instead of the normal `_active`-guarded path: it shows `intro_text_key`
+(the prompt) and returns immediately, tracking the quest id in
+`_pending_exploration_quest_ids`. Whichever `BookInteraction`/
+`MentorInteraction` the child opens next calls
+`QuestManager.notify_entry_discovered(entry_id)`, which checks every
+still-pending `EXPLORATION` quest for a `target_entry_id` match and, if
+found, pays `xp_reward`/`coin_reward` and completes it — same as any
+other kind's reward, just resolved from the world instead of a dialogue
+choice. Talking to the same giver again while a prompt is still pending
+just repeats `intro_text_key` as a reminder, rather than starting a
+second copy or going silent. See `data/quests/lib-discover-saving-book.tres`
+for a worked example.
 
 ## Rule: a quest wraps a lesson, it doesn't duplicate one
 

@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="4"]
+
+[sub_resource type="Resource" id="ConsequenceEffect_ask_what_went_wrong_first"]
+script = ExtResource("4")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "mentor.carver.try_another_experiment.choice.ask_what_went_wrong_first.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_ask_what_went_wrong_first"]
+script = ExtResource("3")
+label_key = "mentor.carver.try_another_experiment.choice.ask_what_went_wrong_first.label"
+consequence = SubResource("ConsequenceEffect_ask_what_went_wrong_first")
+
+[sub_resource type="Resource" id="ConsequenceEffect_try_a_different_approach"]
+script = ExtResource("4")
+coin_delta = 4
+xp_delta = 5
+consequence_text_key = "mentor.carver.try_another_experiment.choice.try_a_different_approach.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_try_a_different_approach"]
+script = ExtResource("3")
+label_key = "mentor.carver.try_another_experiment.choice.try_a_different_approach.label"
+consequence = SubResource("ConsequenceEffect_try_a_different_approach")
+
+[sub_resource type="Resource" id="ConsequenceEffect_give_up_on_the_idea"]
+script = ExtResource("4")
+coin_delta = 2
+xp_delta = 5
+consequence_text_key = "mentor.carver.try_another_experiment.choice.give_up_on_the_idea.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_give_up_on_the_idea"]
+script = ExtResource("3")
+label_key = "mentor.carver.try_another_experiment.choice.give_up_on_the_idea.label"
+consequence = SubResource("ConsequenceEffect_give_up_on_the_idea")
+
+[sub_resource type="Resource" id="DialogueChoice_try_another_experiment"]
+script = ExtResource("2")
+situation_text_key = "mentor.carver.try_another_experiment.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_ask_what_went_wrong_first"), SubResource("ChoiceOption_try_a_different_approach"), SubResource("ChoiceOption_give_up_on_the_idea")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "mentor-carver-try-another-experiment"
+title_key = "mentor.carver.try_another_experiment.title"
+description_key = "mentor.carver.try_another_experiment.title"
+educational_objective_key = ""
+track = "library"
+zone_id = "mentor-hall"
+giver_npc_id = ""
+kind = 2
+intro_text_key = "mentor.carver.try_another_experiment.intro"
+challenge_choice = SubResource("DialogueChoice_try_another_experiment")
+reward_message_key = "mentor.carver.try_another_experiment.reward_message"
+xp_reward = 10
+coin_reward = 5
+skill_ids = Array[String](["experimentation", "creativity"])

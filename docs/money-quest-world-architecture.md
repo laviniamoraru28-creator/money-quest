@@ -401,34 +401,80 @@ proven architecture — it's the next piece once the first real book or
 exhibit is approved, not before.
 
 **`EntryData`/`BookData`/`ExhibitData`/`MentorData`/`DictionaryTermData`
-are now built** (`scripts/library/`, see `data/schemas/
-ENTRY_DATA_FORMAT.md`) — this phase's actual foundation work. **Library
-and Museum still have zero real entries** (`data/library/`, `data/museum/`
-are empty) — no book, author, historical story, or mentor biography is
-invented; both stay empty until real, verifiable content is approved (see
-`ENTRY_DATA_FORMAT.md`'s own rule on this). **Dictionary is the one
-exception**: a dictionary term isn't new content, it's the same
-term/definition a lesson's own `LessonData.vocabulary` already has, so
-`data/dictionary/goal.tres` and `data/dictionary/trade-off.tres` exist
-now, reusing `builder-saving-l1`'s real vocabulary keys verbatim as the
-schema's first worked examples.
+are built** (`scripts/library/`, see `data/schemas/ENTRY_DATA_FORMAT.md`).
+**Dictionary was always the exception**: a dictionary term isn't new
+content, it's the same term/definition a lesson's own
+`LessonData.vocabulary` already has, so `data/dictionary/goal.tres` and
+`data/dictionary/trade-off.tres` reuse `builder-saving-l1`'s real
+vocabulary keys verbatim.
 
-**The Library now has a real, walkable zone** (`data/zones/library.tres`,
-`scenes/world/zones/library/Library.tscn`), reachable from the Hub's
-Library portal — bookshelves (colorful primitive-geometry "books" against
-a case, no new mesh types) and a Librarian NPC. It is honestly empty: the
-Librarian says plainly that the shelves are still being prepared rather
-than pretending there's something to browse, and `book_ids` on the zone
-stays `[]`. Museum does not yet have a walkable zone — a room with
-literally nothing in it read as less honest than a portal that says
-"coming soon," whereas the Library's physical shelves-with-no-books-yet
-reads as "under construction," matching the brief's explicit "it is
-acceptable for a destination to remain visibly under construction while
-real content is being prepared." `BrowseZoneController` is still not
-built — now that a zone exists to host it, it's a smaller step than
-before, but still deferred until the first real `BookData` entry is
-approved, so the controller's `Area3D`/collision setup for a placed entry
-is built against something real rather than guessed at.
+**The Library and Mentor Hall are now populated with real, sourced
+content** (`data/library/`: 8 real books; `data/mentors/`: 5 real
+mentors — see each `.tres` file's own `source_url`/`source_name`/
+`source_type`/`verification_date`). `data/museum/` stays empty — Museum's
+themed rooms remain future work, and an empty folder is still the
+correct, honest state until a real exhibit is approved (see
+`ENTRY_DATA_FORMAT.md`'s own rule). A new `LibraryManager` autoload loads
+every `BookData`/`MentorData` into a registry (the same data-driven
+pattern `QuestManager`/`WorldManager` already use), so adding book or
+mentor N is still just dropping a new `.tres` file in, never a script
+edit.
+
+**The Library is now a real, walkable zone with themed sections**
+(`data/zones/library.tres`, `scenes/world/zones/library/Library.tscn`):
+4 bookshelf sections (Money Basics, Saving & Budgeting, Business &
+Entrepreneurship, Money Around the World) each hosting real
+`BookInteraction` props (a new `Interaction` subclass, the Library's
+equivalent of `NPC.gd` — a book doesn't talk, so it extends `Interaction`
+directly rather than composing one), a reading nook, a Discovery Table,
+a "more sections coming soon" sign (honestly naming the still-unbuilt
+Leadership & Smart Skills and Mind Lab sections), and a second portal to
+the new Mentor Hall zone. Walking up to a book and interacting shows
+`BookCardPanel` (title, author, age range, 3-5 short "what you'll
+discover" bullets, a Read More button that opens the real official
+source via `OS.shell_open()`, an optional "Explore this topic in ___"
+cross-link reusing `WorldManager.travel_to()` directly, and a source
+toggle) — never copied book text, only short original framing lines.
+The Librarian now offers real "can you find a book about ___?" discovery
+prompts instead of the old "still preparing" line, one at a time in a
+fixed order (the same "offer the next incomplete" pattern every other
+zone-giver NPC uses) — see the new `EXPLORATION` quest kind below.
+
+**Mentor Hall** (`data/zones/mentor-hall.tres`,
+`scenes/world/zones/mentor_hall/MentorHall.tscn`), reached via a portal
+inside Library, hosts 5 real, verifiable mentors as framed portraits
+(`MentorInteraction`, mirroring `BookInteraction`): Katherine Johnson,
+Ada Lovelace, George Washington Carver, Sara Blakely, and Daymond John.
+Each opens `MentorCardPanel` — a WHO/WHAT-THEY-DID/CHALLENGE/SKILL
+profile in original, factual paraphrase (never an invented quote), plus
+an optional "Try a Challenge" button launching a small mini-quest
+explicitly framed as "inspired by this skill" rather than the real
+person addressing the child. 4 of the 5 mentors have one (Katherine
+Johnson → a `CHALLENGE` about checking your work; Ada Lovelace → a
+`SORT` about sequencing instructions; George Washington Carver → a
+`CHALLENGE` about trying another experiment; Sara Blakely → a
+`CHALLENGE` about improving a product from feedback); Daymond John has
+none yet (his book and Entrepreneur Quest cross-link cover him instead,
+a proportionate scope choice rather than forcing a fifth mini-quest).
+Two mentors (Sara Blakely, Daymond John) still have an empty
+`source_url` — their facts are well-documented and widely repeated, but
+this project's environment had no outbound network access to find and
+verify one specific official page for either, so none was guessed;
+finding and adding a real source for each remains open work.
+
+A new `QuestData.QuestKind.EXPLORATION` (previously declared but
+unimplemented) now has a real runner, built specifically for these
+discovery prompts: unlike every choice-driven kind, it's a standing
+invitation rather than a modal flow — `QuestManager._start_exploration_quest()`
+shows the prompt and returns immediately without setting `_active`, so a
+child can keep exploring freely while it's pending. Opening any
+`BookInteraction`/`MentorInteraction` calls
+`QuestManager.notify_entry_discovered(entry_id)`, which completes any
+pending `EXPLORATION` quest whose `target_entry_id` matches. `BrowseZoneController`
+(the originally-planned generic placement controller) was never built —
+in practice, a small `BookInteraction`/`MentorInteraction` pair proved
+simpler and more direct than a generic placer, once real content existed
+to build against.
 
 ---
 
@@ -624,8 +670,10 @@ node), never an architecture change.
 | Entrepreneur Quest's remaining real content (the 5 standalone Business Challenges, the RUN/Rescue & Grow hub pages, and the separate Business Rescue scenario) | Not built — these are UI shapes the mission/zone/NPC architecture doesn't fit (a standalone quiz list, hub/dashboard pages with no new decision content of their own, a second company's own local-stats model), not new decision events or BUILD-stage mechanics; with the BUILD stepper now built, this is the final honest remaining gap in Entrepreneur Quest |
 | `EntryData`/`BookData`/`ExhibitData`/`MentorData`/`DictionaryTermData` schema | **Built** (`scripts/library/`, see `data/schemas/ENTRY_DATA_FORMAT.md`) |
 | Dictionary content | **Built** — 2 real terms (`goal`, `trade-off`), reusing `builder-saving-l1`'s own vocabulary keys verbatim |
-| Library zone (`data/zones/library.tres`, bookshelves, Librarian NPC, reachable from the Hub) | **Built** — honestly empty; the Librarian says the shelves are still being prepared rather than pretending there's content |
-| Library books, Museum exhibits/zone, Mentors content, `BrowseZoneController` | Not built — zero real books/exhibits/mentors exist to populate or drive a placement controller with (Section 6) |
+| Library zone with 4 themed bookshelf sections + 8 real, sourced books (`BookInteraction`/`BookCardPanel`) + Discovery Table (real "find a book about ___" `EXPLORATION` quests) | **Built** — see Section 6 |
+| Mentor Hall zone + 5 real, sourced mentors (`MentorInteraction`/`MentorCardPanel`) + 4 "Try This" mini-quests, reached via a portal inside Library | **Built** — see Section 6. Sara Blakely's and Daymond John's `source_url` are still empty (facts well-documented, but no specific official page could be verified without outbound network access) |
+| `QuestData.QuestKind.EXPLORATION` runner (`QuestManager._start_exploration_quest`/`notify_entry_discovered`) + `LibraryManager` autoload (BookData/MentorData registry) | **Built** — see Section 6 |
+| Museum exhibits/zone, `BrowseZoneController` | Not built — zero real exhibits exist yet to populate a Museum zone with (Section 6); `BrowseZoneController` itself was superseded by `BookInteraction`/`MentorInteraction`, built directly once real content existed |
 | Mind Lab zone + "Different Explanations" quest | **Built** — a `CHALLENGE`-kind quest with an original scenario (no external fact to verify), never diagnostic or medical in framing (Section 7) |
 | Calm World's 8 named gardens (Bubble, Aquarium, Light, Rain, Underwater, Forest, Music, Grow-a-Garden) | **Built** — always-unlocked, no choices, all motion respects `reduced_motion`; the 7 gardens beyond Bubble Garden are each reached via a portal placed inside Bubble Garden (Section 7) |
 | 4 real `AudioServer` buses (Music/SFX/Voice/Ambient) + `Settings.gd` volume fields, applied by `AudioManager.gd` | **Built** — fixes a real gap: the buses referenced in code didn't previously exist as a bus layout, so volume was silently inert |
@@ -1057,3 +1105,54 @@ godot/money-quest-game/
     scenario, none of which add new decision content of their own.
     Still waiting on you: a real book/exhibit/mentor for Library/Museum
     (Section 6).
+    Phase 54-55 (this update) turned the Library from an honestly-empty
+    walkable zone into a real one, using exactly the real books and
+    mentors supplied with their own official sources, and built a new
+    Mentor Hall. Phase 54 extended `EntryData` with a sourcing block
+    (`source_name`/`source_type`/`verification_date`, shown behind an
+    optional toggle, never upfront) and `BookData` with
+    `discover_point_keys`/`cross_link_zone_id`; added a new
+    `QuestData.QuestKind.EXPLORATION` runner designed specifically for
+    "go discover something in the world" prompts — unlike every other
+    kind, it never holds `QuestManager._active`, since a child offered
+    "find a book about saving" should stay free to keep exploring, not
+    have the rest of the game treat one dialogue prompt as a blocking
+    modal flow; a new `LibraryManager` autoload loads every real
+    `BookData`/`MentorData` into a registry, the same data-driven
+    pattern `QuestManager`/`WorldManager` already use. 8 real books
+    (from "A Kids Book About Money" to "Little Daymond Learns to Earn")
+    were added to `data/library/`, each with its real author/publisher/
+    official source URL and 3-5 short, original "what you'll discover"
+    bullets — never copied book text. The Library zone was rebuilt with
+    4 themed bookshelf sections hosting a new `BookInteraction`
+    (`Interaction` subclass, `BookCardPanel` for its card UI with a Read
+    More button that opens the real source via `OS.shell_open()`), a
+    reading nook, a Discovery Table, and an honest "more sections coming
+    soon" sign naming the still-unbuilt Leadership & Smart Skills and
+    Mind Lab sections. The Librarian now offers 3 real discovery prompts
+    ("find a book about saving," etc.) instead of its old "still
+    preparing" line.
+    Phase 55 extended `MentorData` with `skill_ids`/`cross_link_zone_id`/
+    `try_quest_id`, built a new Mentor Hall zone (reached via a portal
+    inside Library) with a new `MentorInteraction`/`MentorCardPanel`
+    pair mirroring Phase 54's book UI, and added 5 real, verifiable
+    mentors to `data/mentors/`: Katherine Johnson, Ada Lovelace, George
+    Washington Carver, Sara Blakely, and Daymond John. Every biography is
+    an original child-friendly paraphrase, never an invented quote, and
+    every "Try This" mini-quest (4 of the 5 mentors have one, reusing
+    the existing `CHALLENGE`/`SORT` quest kinds verbatim — no new
+    mechanic) is framed as "try a challenge inspired by this skill,"
+    never as the real person addressing the child directly. Two mentors
+    (Sara Blakely, Daymond John) still have `source_url = ""`: this
+    project's sandboxed environment had no outbound network access to
+    independently verify one specific official source page for either
+    (confirmed by testing several official domains, all blocked by the
+    environment's egress proxy), so none was guessed — an honestly
+    incomplete source, not an invented one. `BrowseZoneController`, the
+    generic placement controller planned back in Section 6, was never
+    built in the end; once real content existed, a direct
+    `BookInteraction`/`MentorInteraction` pair turned out simpler than a
+    generic placer would have been.
+    Still waiting on you: a real Museum exhibit (Section 6), and an
+    official source URL for the Sara Blakely and Daymond John mentor
+    entries.

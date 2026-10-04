@@ -23,6 +23,7 @@ enum ZoneKind { HUB, QUEST, LIBRARY, MUSEUM, MIND_LAB, CALM }
 @export var quest_ids: Array[String] = []          # populated for QUEST zones
 @export var exhibit_ids: Array[String] = []        # populated for MUSEUM zones
 @export var book_ids: Array[String] = []           # populated for LIBRARY zones
+@export var mentor_ids: Array[String] = []         # populated for LIBRARY zones hosting a Mentor Hall
 
 ## Where the player avatar appears when entering this zone (local to the
 ## zone's own scene). Read by WorldManager after instancing the zone.

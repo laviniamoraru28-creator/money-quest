@@ -57,9 +57,10 @@ rebuilt.
      gardens: Aquarium Room, Light Room, Rain Room, Underwater Room,
      Forest Walk, Music Room, and Grow-a-Garden — all 8 gardens are
      always unlocked.
-   - **Library** (soft blue) takes you to a real Library zone — bookshelves
-     and a Librarian who plainly says the shelves are still being prepared
-     (see "Content fidelity" below for why there are no books yet).
+   - **Library** (soft blue) takes you to a real Library zone with 4
+     themed bookshelf sections holding 8 real, sourced children's books
+     you can walk up to and open — see step 7 below for the full
+     walkthrough, including Mentor Hall.
    - **Mind Lab** (teal) takes you to a real Mind Lab zone — talk to the
      Mind Lab Guide to try "Different Explanations": a friend doesn't wave
      back, and you practice considering a few different reasons why,
@@ -426,9 +427,30 @@ rebuilt.
    Room, falling raindrops in Rain Room, swaying kelp in Underwater Room,
    swaying tree canopies in Forest Walk, drifting note shapes in Music
    Room, and breathing flowers in Grow-a-Garden.
-7. Walk to the portal in each zone to return to the Hub. Progress
-   (completed quests, unlocked zones, skill tags, avatar choices) is saved
-   to `user://progress.json` automatically.
+7. In Library, walk up to any book on the Money Basics, Saving &
+   Budgeting, Business & Entrepreneurship, or Money Around the World
+   shelves and interact with it to open its card: title, author, an age
+   range, 3-5 short "what you'll discover" bullets, a Read More button
+   (opens the real official publisher page in your system browser), and
+   — for most books — an "Explore this topic in ___" button that takes
+   you straight to the matching Money Quest/Entrepreneur Quest zone. Tap
+   "About this book" to see where the facts came from. Talk to the
+   Librarian for a real discovery challenge ("can you find a book about
+   saving?") — find the matching book and it completes on its own,
+   whether you're still talking to anyone or not. A second portal inside
+   Library leads to **Mentor Hall** — walk up to any of its 5 framed
+   portraits (Katherine Johnson, Ada Lovelace, George Washington Carver,
+   Sara Blakely, Daymond John) to see a short, factual who-they-are/
+   what-they-did/challenge-they-faced/skill-we-can-learn profile, never
+   an invented quote. Most mentors offer a "Try a Challenge" button — a
+   short mini-quest explicitly inspired by their skill (checking your
+   work carefully, putting instructions in order, experimenting with a
+   different solution, improving a product from feedback), never framed
+   as the real person talking to you directly.
+8. Walk to the portal in each zone to return to the Hub. Progress
+   (completed quests, unlocked zones, skill tags, avatar choices,
+   discovered Library/Mentor Hall entries) is saved to
+   `user://progress.json` automatically.
 
 ### Controls
 
@@ -514,7 +536,10 @@ up-to-date table. In short:
 | Theo's "The Team Conflict" (`SPOT`-kind) and "The Deadline" (`ALLOCATE`-kind) quests — his 3rd and 4th quests in Team Challenge | — |
 | Nadia's "The Final Challenge" (`MULTI_STEP`-kind: a matching round + 2 decision points) — her 2nd and final quest in Strategy Room | — |
 | Oren's "The Motivation Problem" (`SPOT`-kind) — his 2nd quest in Huddle Room; **completes all 12 of Leadership Quest's real missions** | Leadership Quest's Leadership Lab, Leadership Profile, and "uh-oh" unexpected events (website-only features with no Godot equivalent yet) |
-| `EntryData`/`BookData`/`ExhibitData`/`MentorData`/`DictionaryTermData` schema, with 2 real Dictionary entries (`goal`, `trade-off`) reusing existing curriculum vocabulary | — |
+| `EntryData`/`BookData`/`ExhibitData`/`MentorData`/`DictionaryTermData` schema (now with sourcing fields — `source_name`/`source_type`/`verification_date`), with 2 real Dictionary entries (`goal`, `trade-off`) reusing existing curriculum vocabulary | — |
+| `LibraryManager` autoload (BookData/MentorData registry) + `QuestData.QuestKind.EXPLORATION` runner (`QuestManager._start_exploration_quest`/`notify_entry_discovered` — a non-blocking "go discover something" prompt, unlike every other quest kind) | — |
+| Library zone rebuilt with 4 themed bookshelf sections (Money Basics, Saving & Budgeting, Business & Entrepreneurship, Money Around the World) + 8 real, sourced books (`BookInteraction`/`BookCardPanel`) + a reading nook + Discovery Table + 3 real "find a book about ___" discovery quests from the Librarian | Leadership & Smart Skills and Mind Lab bookshelf sections (honestly signed as "coming soon") |
+| Mentor Hall zone (reached via a portal inside Library) + 5 real, sourced mentors — Katherine Johnson, Ada Lovelace, George Washington Carver, Sara Blakely, Daymond John (`MentorInteraction`/`MentorCardPanel`) + 4 "Try This" mini-quests reusing the existing `CHALLENGE`/`SORT` quest kinds verbatim | A `source_url` for Sara Blakely and Daymond John specifically (their facts are well-documented, but no one official page could be verified without outbound network access in this project's environment) |
 | Calm World's all 8 named gardens (Bubble Garden, Aquarium Room, Light Room, Rain Room, Underwater Room, Forest Walk, Music Room, Grow-a-Garden) — always unlocked, no choices, all motion respects `reduced_motion` | — |
 | `AvatarConfig` + `AvatarCreation.tscn`, now fully wired to `Player.tscn` (see "Avatar wiring fix" below) — 4 body presets incl. a wheelchair-style look, 4 accessories (glasses, cap, hearing aid, cane), all purely visual | — |
 | Zone/quest/skill/avatar progression fields in `ProgressManager`, persisted by `SaveManager` | — |
@@ -1298,8 +1323,10 @@ rationale. Quick map:
   `LightRoom.tscn`, `RainRoom.tscn`, `UnderwaterRoom.tscn`,
   `ForestWalk.tscn`, `MusicRoom.tscn`, and `GrowAGarden.tscn` (each
   reached via a portal placed inside Bubble Garden).
-- `scenes/world/zones/library/Library.tscn` — the Library zone, honestly
-  empty of real books.
+- `scenes/world/zones/library/Library.tscn` — the Library zone, now with
+  4 real bookshelf sections and 8 real, sourced books.
+- `scenes/world/zones/mentor_hall/MentorHall.tscn` — Mentor Hall, reached
+  via a portal inside Library, with 5 real, sourced mentor portraits.
 - `scenes/world/zones/mind_lab/MindLab.tscn` — Mind Lab's first zone and
   quest.
 - `scenes/world/Main.tscn` — the persistent root: a `ZoneContainer`
@@ -1317,7 +1344,9 @@ rationale. Quick map:
   Ambient) referenced in `project.godot`'s `[audio]` section.
 - `data/zones/`, `data/quests/`, `data/lessons/` — content `.tres` files.
 - `data/dictionary/` — 2 real `DictionaryTermData` entries.
-- `data/library/`, `data/museum/`, `data/avatars/` — reserved, empty.
+- `data/library/` — 8 real, sourced `BookData` entries.
+- `data/mentors/` — 5 real, sourced `MentorData` entries.
+- `data/museum/`, `data/avatars/` — reserved, empty.
 - `data/schemas/` — `LESSON_DATA_FORMAT.md`, `QUEST_DATA_FORMAT.md`,
   `ZONE_DATA_FORMAT.md`, `ENTRY_DATA_FORMAT.md`: how to add new content
   without touching core scripts.
@@ -1373,13 +1402,35 @@ rationale. Quick map:
   See Section 12 also for the development order for the remaining
   Challenge/hub content, the 17 games, and the 4 simulator
   scenarios.
+- **The Library and Mentor Hall are now populated with real content.**
+  8 real, sourced books (`data/library/`) are placed across 4 themed
+  bookshelf sections, each opened via a new `BookCardPanel` (title,
+  author, age range, short "what you'll discover" bullets, a Read More
+  button opening the real official source, and an optional cross-link to
+  a matching Money Quest/Entrepreneur Quest zone). A new Mentor Hall zone
+  (reached via a portal inside Library) hosts 5 real, verifiable mentors
+  (`data/mentors/`) — Katherine Johnson, Ada Lovelace, George Washington
+  Carver, Sara Blakely, Daymond John — each with an original, factual
+  bio (never an invented quote) and, for 4 of the 5, a small "Try a
+  Challenge" mini-quest reusing the existing `CHALLENGE`/`SORT` quest
+  kinds, explicitly framed as "inspired by," never as the real person
+  addressing the child. **Two mentor entries still need a source URL**:
+  Sara Blakely's and Daymond John's facts are well-documented and widely
+  repeated, but this project's sandboxed environment has no outbound
+  network access (confirmed by testing nasa.gov, computerhistory.org,
+  nps.gov, dk.com, and en.wikipedia.org — all blocked by the environment's
+  egress proxy), so no single official page could be independently
+  verified for either; rather than guess a plausible-looking URL,
+  `source_url` was left `""` for just those two — see
+  `data/schemas/ENTRY_DATA_FORMAT.md`'s own note on this gap. The
+  Leadership & Smart Skills and Mind Lab bookshelf sections are still
+  empty, honestly signed as "coming soon" rather than filled with
+  placeholder books.
 - Museum is the only Hub portal still reachable-but-"coming soon" — the
   portal, zone registration, and locking logic all already work for it;
   only its actual zone content doesn't exist yet, by design, per the
-  brief's explicit "do not build all of this content at once." The
-  Library's portal is functional and its zone is real, but it has zero
-  real book entries for the same reason Museum has zero exhibits: no
-  book, historical story, or mentor biography may be invented — see
-  `data/schemas/ENTRY_DATA_FORMAT.md`. Mind Lab and all 8 of Calm World's
-  named gardens are fully built, since neither needed a real-world fact
-  to verify before it could be written honestly.
+  brief's explicit "do not build all of this content at once." No
+  exhibit, historical story, or statistic may be invented to fill it —
+  see `data/schemas/ENTRY_DATA_FORMAT.md`. Mind Lab and all 8 of Calm
+  World's named gardens are fully built, since neither needed a
+  real-world fact to verify before it could be written honestly.

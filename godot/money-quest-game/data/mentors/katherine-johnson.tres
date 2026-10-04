@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="MentorData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/library/MentorData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+entry_id = "katherine-johnson"
+title_key = "library.mentor.katherine-johnson.title"
+summary_key = "library.mentor.katherine-johnson.who"
+detail_key = "library.mentor.katherine-johnson.detail"
+source_url = "https://www.nasa.gov/centers-and-facilities/langley/katherine-johnson-biography/"
+icon_key = ""
+source_name = "NASA"
+source_type = "government"
+verification_date = "2026-10-04"
+known_for_key = "library.mentor.katherine-johnson.known_for"
+mistake_or_challenge_key = "library.mentor.katherine-johnson.challenge"
+lesson_key = "library.mentor.katherine-johnson.lesson"
+small_challenge_key = "library.mentor.katherine-johnson.small_challenge"
+skill_ids = Array[String](["problem-solving", "persistence"])
+cross_link_zone_id = "leadership-academy"
+try_quest_id = "mentor-katherine-check-the-numbers"

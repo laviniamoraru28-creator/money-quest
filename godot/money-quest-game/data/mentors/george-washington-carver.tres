@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="MentorData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/library/MentorData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+entry_id = "george-washington-carver"
+title_key = "library.mentor.george-washington-carver.title"
+summary_key = "library.mentor.george-washington-carver.who"
+detail_key = "library.mentor.george-washington-carver.detail"
+source_url = "https://www.nps.gov/people/george-washington-carver.htm"
+icon_key = ""
+source_name = "U.S. National Park Service"
+source_type = "government"
+verification_date = "2026-10-04"
+known_for_key = "library.mentor.george-washington-carver.known_for"
+mistake_or_challenge_key = "library.mentor.george-washington-carver.challenge"
+lesson_key = "library.mentor.george-washington-carver.lesson"
+small_challenge_key = "library.mentor.george-washington-carver.small_challenge"
+skill_ids = Array[String](["experimentation", "creativity"])
+cross_link_zone_id = "idea-lab"
+try_quest_id = "mentor-carver-try-another-experiment"

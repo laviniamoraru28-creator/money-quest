@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="4"]
+
+[sub_resource type="Resource" id="ConsequenceEffect_ask_more_about_what_they_need"]
+script = ExtResource("4")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "mentor.blakely.improve_the_product.choice.ask_more_about_what_they_need.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_ask_more_about_what_they_need"]
+script = ExtResource("3")
+label_key = "mentor.blakely.improve_the_product.choice.ask_more_about_what_they_need.label"
+consequence = SubResource("ConsequenceEffect_ask_more_about_what_they_need")
+
+[sub_resource type="Resource" id="ConsequenceEffect_make_a_smaller_version"]
+script = ExtResource("4")
+coin_delta = 4
+xp_delta = 5
+consequence_text_key = "mentor.blakely.improve_the_product.choice.make_a_smaller_version.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_make_a_smaller_version"]
+script = ExtResource("3")
+label_key = "mentor.blakely.improve_the_product.choice.make_a_smaller_version.label"
+consequence = SubResource("ConsequenceEffect_make_a_smaller_version")
+
+[sub_resource type="Resource" id="ConsequenceEffect_tell_them_its_fine_as_is"]
+script = ExtResource("4")
+coin_delta = 2
+xp_delta = 5
+consequence_text_key = "mentor.blakely.improve_the_product.choice.tell_them_its_fine_as_is.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_tell_them_its_fine_as_is"]
+script = ExtResource("3")
+label_key = "mentor.blakely.improve_the_product.choice.tell_them_its_fine_as_is.label"
+consequence = SubResource("ConsequenceEffect_tell_them_its_fine_as_is")
+
+[sub_resource type="Resource" id="DialogueChoice_improve_the_product"]
+script = ExtResource("2")
+situation_text_key = "mentor.blakely.improve_the_product.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_ask_more_about_what_they_need"), SubResource("ChoiceOption_make_a_smaller_version"), SubResource("ChoiceOption_tell_them_its_fine_as_is")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "mentor-blakely-improve-the-product"
+title_key = "mentor.blakely.improve_the_product.title"
+description_key = "mentor.blakely.improve_the_product.title"
+educational_objective_key = ""
+track = "library"
+zone_id = "mentor-hall"
+giver_npc_id = ""
+kind = 2
+intro_text_key = "mentor.blakely.improve_the_product.intro"
+challenge_choice = SubResource("DialogueChoice_improve_the_product")
+reward_message_key = "mentor.blakely.improve_the_product.reward_message"
+xp_reward = 10
+coin_reward = 5
+skill_ids = Array[String](["entrepreneurship", "resilience"])

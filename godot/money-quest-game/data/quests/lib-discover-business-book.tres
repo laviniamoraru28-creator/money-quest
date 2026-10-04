@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+quest_id = "lib-discover-business-book"
+title_key = "quest.lib_discover_business_book.title"
+description_key = "quest.lib_discover_business_book.description"
+educational_objective_key = ""
+track = "library"
+zone_id = "library"
+giver_npc_id = "librarian"
+kind = 1
+intro_text_key = "quest.lib_discover_business_book.intro"
+target_entry_id = "little-daymond-learns-to-earn"
+reward_message_key = "quest.lib_discover_business_book.reward_message"
+xp_reward = 10
+coin_reward = 5
+skill_ids = Array[String](["curiosity"])

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="BookData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/library/BookData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+entry_id = "national-geographic-kids-everything-money"
+title_key = "library.book.national-geographic-kids-everything-money.title"
+summary_key = "library.book.national-geographic-kids-everything-money.summary"
+detail_key = "library.book.national-geographic-kids-everything-money.detail"
+source_url = "https://www.penguinrandomhouse.com/books/217656/national-geographic-kids-everything-money-by-kathy-furgang-and-national-geographic-kids/"
+icon_key = ""
+source_name = "National Geographic Kids / Penguin Random House"
+source_type = "official_publisher"
+verification_date = "2026-10-04"
+author_key = "library.book.national-geographic-kids-everything-money.author"
+recommended_age_band = "explorer"
+discover_point_keys = Array[String](["library.book.national-geographic-kids-everything-money.discover.0", "library.book.national-geographic-kids-everything-money.discover.1", "library.book.national-geographic-kids-everything-money.discover.2"])
+cross_link_zone_id = "sky-exchange"

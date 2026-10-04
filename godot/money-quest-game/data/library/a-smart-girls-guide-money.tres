@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="BookData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/library/BookData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+entry_id = "a-smart-girls-guide-money"
+title_key = "library.book.a-smart-girls-guide-money.title"
+summary_key = "library.book.a-smart-girls-guide-money.summary"
+detail_key = "library.book.a-smart-girls-guide-money.detail"
+source_url = "https://www.simonandschuster.com/books/A-Smart-Girls-Guide-Money/Nancy-Holyoke/American-Girl-Wellbeing/9781609584078"
+icon_key = ""
+source_name = "American Girl / Simon & Schuster"
+source_type = "official_publisher"
+verification_date = "2026-10-04"
+author_key = "library.book.a-smart-girls-guide-money.author"
+recommended_age_band = "builder"
+discover_point_keys = Array[String](["library.book.a-smart-girls-guide-money.discover.0", "library.book.a-smart-girls-guide-money.discover.1", "library.book.a-smart-girls-guide-money.discover.2"])
+cross_link_zone_id = "golden-vault"

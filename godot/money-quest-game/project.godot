@@ -34,16 +34,20 @@ config/icon="res://icon.svg"
 ; 4. The UI overlay autoloads (DialogueBox/ChoicePanel/RewardPopup/
 ;    MatchPanel/SpotPanel/AllocatePanel/SortPanel/TextInputPanel/
 ;    LogoBuilderPanel/CategoryPickerPanel/NumericInputPanel/
-;    SimulatorPanel/PitchDisplayPanel) are global because deeply-nested
-;    zone/NPC scripts (see scenes/world/zones/) need to show dialogue/
-;    choices/mini-games/build-stage UI without any manual
-;    reference-passing across the scene tree — the same reasoning
-;    autoloads exist for in Godot generally. They render nothing until
-;    a script calls them (each is `visible = false` by default), so
-;    their presence during the main menu is harmless. HUD is NOT an
-;    autoload — it's purely reactive display, only meaningful once
-;    inside the world, so it's a plain child node of Main.tscn instead.
-; 5. WorldManager/QuestManager last — they call into everything above.
+;    SimulatorPanel/PitchDisplayPanel/BookCardPanel/MentorCardPanel) are
+;    global because deeply-nested zone/NPC scripts (see
+;    scenes/world/zones/) need to show dialogue/choices/mini-games/
+;    build-stage/Library-card UI without any manual reference-passing
+;    across the scene tree — the same reasoning autoloads exist for in
+;    Godot generally. They render nothing until a script calls them
+;    (each is `visible = false` by default), so their presence during
+;    the main menu is harmless. HUD is NOT an autoload — it's purely
+;    reactive display, only meaningful once inside the world, so it's a
+;    plain child node of Main.tscn instead.
+; 5. WorldManager/QuestManager/LibraryManager last — they call into
+;    everything above (LibraryManager holds the real BookData/MentorData
+;    registry BookCardPanel/MentorCardPanel/BookInteraction/
+;    MentorInteraction read from — see its own doc comment).
 Localization="*res://autoload/Localization.gd"
 Settings="*res://autoload/Settings.gd"
 GameState="*res://autoload/GameState.gd"
@@ -64,8 +68,11 @@ CategoryPickerPanel="*res://scenes/ui/CategoryPickerPanel.tscn"
 NumericInputPanel="*res://scenes/ui/NumericInputPanel.tscn"
 SimulatorPanel="*res://scenes/ui/SimulatorPanel.tscn"
 PitchDisplayPanel="*res://scenes/ui/PitchDisplayPanel.tscn"
+BookCardPanel="*res://scenes/ui/BookCardPanel.tscn"
+MentorCardPanel="*res://scenes/ui/MentorCardPanel.tscn"
 WorldManager="*res://autoload/WorldManager.gd"
 QuestManager="*res://autoload/QuestManager.gd"
+LibraryManager="*res://autoload/LibraryManager.gd"
 
 [display]
 

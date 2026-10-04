@@ -24,6 +24,14 @@ enum QuestKind { LESSON, EXPLORATION, CHALLENGE, SIMULATION, MATCH, SPOT, ALLOCA
 
 @export var kind: QuestKind = QuestKind.LESSON
 
+## Only set when kind == EXPLORATION — a "go discover something specific
+## in the world" prompt (e.g. Library discovery challenges: "find a book
+## about saving"), the entry_id of the BookData/ExhibitData/MentorData
+## the child must interact with to complete it. Unlike every other quest
+## kind, EXPLORATION never holds QuestManager busy waiting — see
+## QuestManager._start_exploration_quest()'s own comment for why.
+@export var target_entry_id: String = ""
+
 ## Only set when kind == LESSON. LessonData itself knows nothing about
 ## quests, zones, or NPCs — this is the ONE place a lesson and its
 ## in-world placement connect.

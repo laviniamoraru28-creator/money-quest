@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="4"]
+
+[sub_resource type="Resource" id="ConsequenceEffect_recount_together"]
+script = ExtResource("4")
+coin_delta = 5
+xp_delta = 5
+consequence_text_key = "mentor.katherine.check_the_numbers.choice.recount_together.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_recount_together"]
+script = ExtResource("3")
+label_key = "mentor.katherine.check_the_numbers.choice.recount_together.label"
+consequence = SubResource("ConsequenceEffect_recount_together")
+
+[sub_resource type="Resource" id="ConsequenceEffect_trust_the_first_count"]
+script = ExtResource("4")
+coin_delta = 2
+xp_delta = 5
+consequence_text_key = "mentor.katherine.check_the_numbers.choice.trust_the_first_count.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_trust_the_first_count"]
+script = ExtResource("3")
+label_key = "mentor.katherine.check_the_numbers.choice.trust_the_first_count.label"
+consequence = SubResource("ConsequenceEffect_trust_the_first_count")
+
+[sub_resource type="Resource" id="ConsequenceEffect_ask_someone_else_to_check"]
+script = ExtResource("4")
+coin_delta = 4
+xp_delta = 5
+consequence_text_key = "mentor.katherine.check_the_numbers.choice.ask_someone_else_to_check.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_ask_someone_else_to_check"]
+script = ExtResource("3")
+label_key = "mentor.katherine.check_the_numbers.choice.ask_someone_else_to_check.label"
+consequence = SubResource("ConsequenceEffect_ask_someone_else_to_check")
+
+[sub_resource type="Resource" id="DialogueChoice_check_the_numbers"]
+script = ExtResource("2")
+situation_text_key = "mentor.katherine.check_the_numbers.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_recount_together"), SubResource("ChoiceOption_trust_the_first_count"), SubResource("ChoiceOption_ask_someone_else_to_check")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "mentor-katherine-check-the-numbers"
+title_key = "mentor.katherine.check_the_numbers.title"
+description_key = "mentor.katherine.check_the_numbers.title"
+educational_objective_key = ""
+track = "library"
+zone_id = "mentor-hall"
+giver_npc_id = ""
+kind = 2
+intro_text_key = "mentor.katherine.check_the_numbers.intro"
+challenge_choice = SubResource("DialogueChoice_check_the_numbers")
+reward_message_key = "mentor.katherine.check_the_numbers.reward_message"
+xp_reward = 10
+coin_reward = 5
+skill_ids = Array[String](["problem-solving", "persistence"])
