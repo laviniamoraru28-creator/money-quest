@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="4"]
+
+[sub_resource type="Resource" id="ConsequenceEffect_offer_something_else"]
+script = ExtResource("4")
+coin_delta = 8
+xp_delta = 10
+consequence_text_key = "museum.before_money.choice.offer_something_else.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_offer_something_else"]
+script = ExtResource("3")
+label_key = "museum.before_money.choice.offer_something_else.label"
+consequence = SubResource("ConsequenceEffect_offer_something_else")
+
+[sub_resource type="Resource" id="ConsequenceEffect_find_someone_else"]
+script = ExtResource("4")
+coin_delta = 6
+xp_delta = 10
+consequence_text_key = "museum.before_money.choice.find_someone_else.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_find_someone_else"]
+script = ExtResource("3")
+label_key = "museum.before_money.choice.find_someone_else.label"
+consequence = SubResource("ConsequenceEffect_find_someone_else")
+
+[sub_resource type="Resource" id="ConsequenceEffect_suggest_common_token"]
+script = ExtResource("4")
+coin_delta = 10
+xp_delta = 10
+consequence_text_key = "museum.before_money.choice.suggest_common_token.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_suggest_common_token"]
+script = ExtResource("3")
+label_key = "museum.before_money.choice.suggest_common_token.label"
+consequence = SubResource("ConsequenceEffect_suggest_common_token")
+
+[sub_resource type="Resource" id="DialogueChoice_before_money"]
+script = ExtResource("2")
+situation_text_key = "museum.before_money.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_offer_something_else"), SubResource("ChoiceOption_find_someone_else"), SubResource("ChoiceOption_suggest_common_token")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "museum-before-money-quest"
+title_key = "museum.before_money.title"
+description_key = "museum.before_money.description"
+educational_objective_key = ""
+track = "museum"
+zone_id = "museum"
+giver_npc_id = "trader"
+kind = 2
+intro_text_key = "museum.before_money.intro"
+challenge_choice = SubResource("DialogueChoice_before_money")
+reward_message_key = "museum.before_money.reward_message"
+xp_reward = 15
+coin_reward = 10
+skill_ids = Array[String](["problem-solving", "curiosity"])

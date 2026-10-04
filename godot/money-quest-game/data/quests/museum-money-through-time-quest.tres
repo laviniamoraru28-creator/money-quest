@@ -1,0 +1,117 @@
+[gd_resource type="Resource" script_class="QuestData" load_steps=23 format=3]
+
+[ext_resource type="Script" path="res://scripts/quests/QuestData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/core/SortBucketData.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/core/SortItemData.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/core/DialogueChoice.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/core/ChoiceOption.gd" id="5"]
+[ext_resource type="Script" path="res://scripts/core/ConsequenceEffect.gd" id="6"]
+
+[sub_resource type="Resource" id="SortBucketData_long_ago"]
+script = ExtResource("2")
+bucket_key = "long-ago"
+label_key = "museum.money_through_time.bucket.long_ago"
+
+[sub_resource type="Resource" id="SortBucketData_not_as_long_ago"]
+script = ExtResource("2")
+bucket_key = "not-as-long-ago"
+label_key = "museum.money_through_time.bucket.not_as_long_ago"
+
+[sub_resource type="Resource" id="SortBucketData_more_recently"]
+script = ExtResource("2")
+bucket_key = "more-recently"
+label_key = "museum.money_through_time.bucket.more_recently"
+
+[sub_resource type="Resource" id="SortItemData_barter"]
+script = ExtResource("3")
+item_id = "barter"
+text_key = "museum.money_through_time.item.barter"
+correct_bucket_key = "long-ago"
+
+[sub_resource type="Resource" id="SortItemData_coins"]
+script = ExtResource("3")
+item_id = "coins"
+text_key = "museum.money_through_time.item.coins"
+correct_bucket_key = "long-ago"
+
+[sub_resource type="Resource" id="SortItemData_paper_money"]
+script = ExtResource("3")
+item_id = "paper-money"
+text_key = "museum.money_through_time.item.paper_money"
+correct_bucket_key = "not-as-long-ago"
+
+[sub_resource type="Resource" id="SortItemData_cheques"]
+script = ExtResource("3")
+item_id = "cheques"
+text_key = "museum.money_through_time.item.cheques"
+correct_bucket_key = "not-as-long-ago"
+
+[sub_resource type="Resource" id="SortItemData_cards"]
+script = ExtResource("3")
+item_id = "cards"
+text_key = "museum.money_through_time.item.cards"
+correct_bucket_key = "more-recently"
+
+[sub_resource type="Resource" id="SortItemData_contactless_payments"]
+script = ExtResource("3")
+item_id = "contactless-payments"
+text_key = "museum.money_through_time.item.contactless_payments"
+correct_bucket_key = "more-recently"
+
+[sub_resource type="Resource" id="ConsequenceEffect_heavy_and_risky"]
+script = ExtResource("6")
+coin_delta = 8
+xp_delta = 10
+consequence_text_key = "museum.money_through_time.choice.heavy_and_risky.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_heavy_and_risky"]
+script = ExtResource("5")
+label_key = "museum.money_through_time.choice.heavy_and_risky.label"
+consequence = SubResource("ConsequenceEffect_heavy_and_risky")
+
+[sub_resource type="Resource" id="ConsequenceEffect_trust_in_banks"]
+script = ExtResource("6")
+coin_delta = 8
+xp_delta = 10
+consequence_text_key = "museum.money_through_time.choice.trust_in_banks.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_trust_in_banks"]
+script = ExtResource("5")
+label_key = "museum.money_through_time.choice.trust_in_banks.label"
+consequence = SubResource("ConsequenceEffect_trust_in_banks")
+
+[sub_resource type="Resource" id="ConsequenceEffect_trade_grew"]
+script = ExtResource("6")
+coin_delta = 8
+xp_delta = 10
+consequence_text_key = "museum.money_through_time.choice.trade_grew.consequence"
+
+[sub_resource type="Resource" id="ChoiceOption_trade_grew"]
+script = ExtResource("5")
+label_key = "museum.money_through_time.choice.trade_grew.label"
+consequence = SubResource("ConsequenceEffect_trade_grew")
+
+[sub_resource type="Resource" id="DialogueChoice_money_through_time"]
+script = ExtResource("4")
+situation_text_key = "museum.money_through_time.situation"
+options = Array[ChoiceOption]([SubResource("ChoiceOption_heavy_and_risky"), SubResource("ChoiceOption_trust_in_banks"), SubResource("ChoiceOption_trade_grew")])
+
+[resource]
+script = ExtResource("1")
+quest_id = "museum-money-through-time-quest"
+title_key = "museum.money_through_time.title"
+description_key = "museum.money_through_time.description"
+educational_objective_key = ""
+track = "museum"
+zone_id = "money-through-time"
+giver_npc_id = "timekeeper"
+kind = 7
+intro_text_key = "museum.money_through_time.intro"
+sort_buckets = Array[SortBucketData]([SubResource("SortBucketData_long_ago"), SubResource("SortBucketData_not_as_long_ago"), SubResource("SortBucketData_more_recently")])
+sort_items = Array[SortItemData]([SubResource("SortItemData_barter"), SubResource("SortItemData_coins"), SubResource("SortItemData_paper_money"), SubResource("SortItemData_cheques"), SubResource("SortItemData_cards"), SubResource("SortItemData_contactless_payments")])
+sort_outro_text_key = "museum.money_through_time.outro"
+challenge_choice = SubResource("DialogueChoice_money_through_time")
+reward_message_key = "museum.money_through_time.reward_message"
+xp_reward = 10
+coin_reward = 5
+skill_ids = Array[String](["historical-thinking", "curiosity"])

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ZoneData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/ZoneData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+zone_id = "money-through-time"
+display_name_key = "zone.money_through_time.name"
+scene_path = "res://scenes/world/zones/money_through_time/MoneyThroughTime.tscn"
+kind = 3
+theme_color = Color(0.74, 0.58, 0.39, 1)
+unlock_condition_quest_id = ""
+npc_ids = Array[String](["timekeeper"])
+quest_ids = Array[String](["museum-money-through-time-quest"])
+exhibit_ids = Array[String]([])
+book_ids = Array[String]([])
+mentor_ids = Array[String]([])
+player_spawn_position = Vector3(0, 0, 3)

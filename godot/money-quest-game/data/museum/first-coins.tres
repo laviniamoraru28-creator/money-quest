@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ExhibitData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/library/ExhibitData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+entry_id = "first-coins"
+title_key = "museum.exhibit.first-coins.title"
+summary_key = "museum.exhibit.first-coins.summary"
+detail_key = "museum.exhibit.first-coins.detail"
+source_url = "https://www.money.org/money-museum/history-of-money/"
+icon_key = ""
+source_name = "American Numismatic Association"
+source_type = "museum"
+verification_date = "2026-10-04"
+exhibit_category = "money-through-time"
+cross_link_zone_id = "coin-cove"
+followup_quest_id = ""
