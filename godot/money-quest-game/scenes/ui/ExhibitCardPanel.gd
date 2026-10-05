@@ -10,6 +10,12 @@ extends CanvasLayer
 ## button launches `followup_quest_id` after closing, same pattern
 ## MentorCardPanel uses for "Try This."
 
+## Any of this panel's finishing buttons -> the waiting show function
+## resumes. (A signal, not a local flag: a GDScript 4 lambda only changes
+## its own copy of a captured local, so the old flag never reached the
+## waiting loop and the panel never closed.)
+signal _closed
+
 @onready var panel: PanelContainer = $Panel
 @onready var title_label: Label = $Panel/VBox/TitleLabel
 @onready var category_label: Label = $Panel/VBox/CategoryLabel
@@ -94,24 +100,22 @@ func show_exhibit(exhibit: ExhibitData) -> void:
 
 	close_button.text = Localization.t("common.close_button")
 
-	var confirmed := false
 	var on_continue_story := func():
 		visible = false
 		await QuestManager.start_quest(exhibit.followup_quest_id)
-		confirmed = true
+		_closed.emit()
 	var on_explore := func():
 		visible = false
 		WorldManager.travel_to(exhibit.cross_link_zone_id)
-		confirmed = true
+		_closed.emit()
 	if continue_story_button.visible:
 		continue_story_button.pressed.connect(on_continue_story, CONNECT_ONE_SHOT)
 	if explore_button.visible:
 		explore_button.pressed.connect(on_explore, CONNECT_ONE_SHOT)
-	close_button.pressed.connect(func(): confirmed = true, CONNECT_ONE_SHOT)
+	close_button.pressed.connect(func(): _closed.emit(), CONNECT_ONE_SHOT)
 
 	visible = true
-	while not confirmed:
-		await get_tree().process_frame
+	await _closed
 	visible = false
 
 	if continue_story_button.visible and continue_story_button.pressed.is_connected(on_continue_story):

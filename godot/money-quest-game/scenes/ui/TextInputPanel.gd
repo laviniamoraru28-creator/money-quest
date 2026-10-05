@@ -10,6 +10,12 @@ extends CanvasLayer
 ## since every one of these is the exact same shape: a label, a text
 ## field (single- or multi-line), and a continue button.
 
+## Any of this panel's finishing buttons -> the waiting show function
+## resumes. (A signal, not a local flag: a GDScript 4 lambda only changes
+## its own copy of a captured local, so the old flag never reached the
+## waiting loop and the panel never closed.)
+signal _closed
+
 @onready var panel: PanelContainer = $Panel
 @onready var prompt_label: Label = $Panel/VBox/PromptLabel
 @onready var hint_label: Label = $Panel/VBox/HintLabel
@@ -52,12 +58,10 @@ func show_text_input(prompt_key: String, placeholder_key: String, initial_value:
 
 	_refresh_continue_enabled()
 
-	var confirmed := false
-	continue_button.pressed.connect(func(): confirmed = true, CONNECT_ONE_SHOT)
+	continue_button.pressed.connect(func(): _closed.emit(), CONNECT_ONE_SHOT)
 
 	visible = true
-	while not confirmed:
-		await get_tree().process_frame
+	await _closed
 	visible = false
 
 	return multi_line_edit.text if multiline else single_line_edit.text

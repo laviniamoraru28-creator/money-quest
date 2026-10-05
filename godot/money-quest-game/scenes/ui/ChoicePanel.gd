@@ -18,6 +18,13 @@ extends CanvasLayer
 
 const MIN_BUTTON_HEIGHT: float = 64.0  # comfortable one-handed touch target
 
+## Option button pressed -> the waiting show_choice()/show_quiz() resumes
+## with the answer. (A signal, not a local flag: a GDScript 4 lambda only
+## changes its own copy of a captured local, so a flag set inside the
+## button callback never reached the waiting loop and the panel stayed open.)
+signal _option_picked(option: ChoiceOption)
+signal _quiz_answered(correct: bool)
+
 
 func _ready() -> void:
 	visible = false
@@ -27,22 +34,18 @@ func show_choice(choice: DialogueChoice) -> ChoiceOption:
 	prompt_label.text = Localization.t(choice.situation_text_key)
 	_clear_options()
 
-	var result: ChoiceOption = null
-	var picked := false
-
 	for option in choice.options:
 		var button := _make_option_button(Localization.t(option.label_key))
 		button.pressed.connect(func():
-			if picked:
-				return
-			picked = true
-			result = option
+			# Only the first answer counts: the panel hides as soon as it
+			# arrives, so any further press is ignored.
+			if visible:
+				_option_picked.emit(option)
 		)
 		options_box.add_child(button)
 
 	visible = true
-	while not picked:
-		await get_tree().process_frame
+	var result: ChoiceOption = await _option_picked
 	visible = false
 	return result
 
@@ -51,21 +54,17 @@ func show_quiz(question_key: String, option_keys: Array[String], correct_index: 
 	prompt_label.text = Localization.t(question_key)
 	_clear_options()
 
-	var result: Variant = null
-
 	for i in option_keys.size():
 		var button := _make_option_button(Localization.t(option_keys[i]))
 		var this_index := i
 		button.pressed.connect(func():
-			if result != null:
-				return
-			result = (this_index == correct_index)
+			if visible:
+				_quiz_answered.emit(this_index == correct_index)
 		)
 		options_box.add_child(button)
 
 	visible = true
-	while result == null:
-		await get_tree().process_frame
+	var result: bool = await _quiz_answered
 	visible = false
 	return result
 

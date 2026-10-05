@@ -7,6 +7,12 @@ extends CanvasLayer
 ## `reputationOutOf5` line — see BusinessProfileData's own comment on
 ## why this project never tracks that running stat.
 
+## Any of this panel's finishing buttons -> the waiting show function
+## resumes. (A signal, not a local flag: a GDScript 4 lambda only changes
+## its own copy of a captured local, so the old flag never reached the
+## waiting loop and the panel never closed.)
+signal _closed
+
 @onready var panel: PanelContainer = $Panel
 @onready var preview: LogoPreviewDraw = $Panel/VBox/PreviewRow/Preview
 @onready var preview_symbol_label: Label = $Panel/VBox/PreviewRow/Preview/SymbolLabel
@@ -54,12 +60,10 @@ func show_pitch(profile: BusinessProfileData) -> void:
 	]
 	lines_label.text = "\n\n".join(lines)
 
-	var confirmed := false
-	done_button.pressed.connect(func(): confirmed = true, CONNECT_ONE_SHOT)
+	done_button.pressed.connect(func(): _closed.emit(), CONNECT_ONE_SHOT)
 
 	visible = true
-	while not confirmed:
-		await get_tree().process_frame
+	await _closed
 	visible = false
 
 

@@ -12,6 +12,12 @@ const MIN_BUTTON_HEIGHT: float = 56.0
 const SELECTED_COLOR: Color = Color(0.7, 0.85, 1.0)
 const DEFAULT_COLOR: Color = Color(1, 1, 1)
 
+## Any of this panel's finishing buttons -> the waiting show function
+## resumes. (A signal, not a local flag: a GDScript 4 lambda only changes
+## its own copy of a captured local, so the old flag never reached the
+## waiting loop and the panel never closed.)
+signal _closed
+
 @onready var panel: PanelContainer = $Panel
 @onready var instructions_label: Label = $Panel/VBox/InstructionsLabel
 @onready var categories_box: VBoxContainer = $Panel/VBox/CategoriesBox
@@ -62,12 +68,10 @@ func show_category_picker(instructions_key: String, category_ids: Array, label_k
 	_refresh_category_highlight()
 	_refresh_continue_enabled()
 
-	var confirmed := false
-	continue_button.pressed.connect(func(): confirmed = true, CONNECT_ONE_SHOT)
+	continue_button.pressed.connect(func(): _closed.emit(), CONNECT_ONE_SHOT)
 
 	visible = true
-	while not confirmed:
-		await get_tree().process_frame
+	await _closed
 	visible = false
 
 	if show_description:

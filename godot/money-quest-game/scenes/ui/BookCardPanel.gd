@@ -7,6 +7,12 @@ extends CanvasLayer
 ## Sections 5 and 22 — source metadata stays hidden by default, never
 ## shown as the first thing a child sees).
 
+## Any of this panel's finishing buttons -> the waiting show function
+## resumes. (A signal, not a local flag: a GDScript 4 lambda only changes
+## its own copy of a captured local, so the old flag never reached the
+## waiting loop and the panel never closed.)
+signal _closed
+
 @onready var panel: PanelContainer = $Panel
 @onready var title_label: Label = $Panel/VBox/TitleLabel
 @onready var author_label: Label = $Panel/VBox/AuthorLabel
@@ -70,18 +76,16 @@ func show_book(book: BookData) -> void:
 	var current_book: BookData = book
 	read_more_button.set_meta("book", current_book)
 
-	var confirmed := false
 	var on_explore := func():
 		visible = false
 		WorldManager.travel_to(book.cross_link_zone_id)
-		confirmed = true
+		_closed.emit()
 	if explore_button.visible:
 		explore_button.pressed.connect(on_explore, CONNECT_ONE_SHOT)
-	close_button.pressed.connect(func(): confirmed = true, CONNECT_ONE_SHOT)
+	close_button.pressed.connect(func(): _closed.emit(), CONNECT_ONE_SHOT)
 
 	visible = true
-	while not confirmed:
-		await get_tree().process_frame
+	await _closed
 	visible = false
 
 	if explore_button.visible and explore_button.pressed.is_connected(on_explore):

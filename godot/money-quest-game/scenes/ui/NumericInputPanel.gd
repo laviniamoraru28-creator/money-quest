@@ -13,6 +13,12 @@ extends CanvasLayer
 const STEP_AMOUNT: int = 1
 const MIN_VALUE: int = 1
 
+## Any of this panel's finishing buttons -> the waiting show function
+## resumes. (A signal, not a local flag: a GDScript 4 lambda only changes
+## its own copy of a captured local, so the old flag never reached the
+## waiting loop and the panel never closed.)
+signal _closed
+
 @onready var panel: PanelContainer = $Panel
 @onready var label: Label = $Panel/VBox/FieldLabel
 @onready var help_label: Label = $Panel/VBox/HelpLabel
@@ -40,12 +46,10 @@ func show_numeric_input(label_key: String, help_key: String, initial_value: int)
 	_value = max(MIN_VALUE, initial_value)
 	_refresh_value_label()
 
-	var confirmed := false
-	continue_button.pressed.connect(func(): confirmed = true, CONNECT_ONE_SHOT)
+	continue_button.pressed.connect(func(): _closed.emit(), CONNECT_ONE_SHOT)
 
 	visible = true
-	while not confirmed:
-		await get_tree().process_frame
+	await _closed
 	visible = false
 
 	return _value

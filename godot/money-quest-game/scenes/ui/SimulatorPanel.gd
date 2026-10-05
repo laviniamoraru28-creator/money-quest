@@ -18,6 +18,12 @@ extends CanvasLayer
 const STEP_AMOUNT: int = 1
 const CATEGORY_KEYS: Array[String] = ["materials", "packaging", "advertising", "saved_aside"]
 
+## Any of this panel's finishing buttons -> the waiting show function
+## resumes. (A signal, not a local flag: a GDScript 4 lambda only changes
+## its own copy of a captured local, so the old flag never reached the
+## waiting loop and the panel never closed.)
+signal _closed
+
 @onready var panel: PanelContainer = $Panel
 @onready var allocation_view: VBoxContainer = $Panel/VBox/AllocationView
 @onready var categories_box: VBoxContainer = $Panel/VBox/AllocationView/CategoriesBox
@@ -62,11 +68,9 @@ func show_simulator(cost_per_unit: int, price: int, starting_money: int, total_p
 	allocation_view.visible = true
 	result_view.visible = false
 
-	var finished := false
-	continue_button.pressed.connect(func(): finished = true, CONNECT_ONE_SHOT)
+	continue_button.pressed.connect(func(): _closed.emit(), CONNECT_ONE_SHOT)
 
-	while not finished:
-		await get_tree().process_frame
+	await _closed
 	visible = false
 
 	return _last_run
@@ -179,7 +183,7 @@ func _show_result_view(run: Dictionary) -> void:
 	result_view.visible = true
 
 	result_title_label.text = Localization.t("eq_build.simulator.result_title")
-	result_lines_label.text = "%s\n%s\n\n%s: %d\n%s: %d\n%s: %d\n%s: %d" % [
+	result_lines_label.text = "%s\n%s\n\n%s: %d\n%s: %d\n%s: %d" % [
 		Localization.t("eq_build.simulator.units_made_label", {"count": run["units_made"]}),
 		Localization.t("eq_build.simulator.units_sold_label", {"count": run["units_sold"]}),
 		Localization.t("eq_build.simulator.sales_label"), run["sales"],

@@ -23,6 +23,12 @@ const MIN_BUTTON_HEIGHT: float = 56.0
 const SELECTED_COLOR: Color = Color(0.7, 0.85, 1.0)
 const DEFAULT_COLOR: Color = Color(1, 1, 1)
 
+## Any of this panel's finishing buttons -> the waiting show function
+## resumes. (A signal, not a local flag: a GDScript 4 lambda only changes
+## its own copy of a captured local, so the old flag never reached the
+## waiting loop and the panel never closed.)
+signal _closed
+
 @onready var panel: PanelContainer = $Panel
 @onready var preview: LogoPreviewDraw = $Panel/VBox/PreviewRow/Preview
 @onready var preview_symbol_label: Label = $Panel/VBox/PreviewRow/Preview/SymbolLabel
@@ -62,12 +68,10 @@ func show_logo_builder(logo: BusinessLogoData, initial_slogan: String) -> String
 	_build_symbol_buttons()
 	_refresh_preview()
 
-	var confirmed := false
-	continue_button.pressed.connect(func(): confirmed = true, CONNECT_ONE_SHOT)
+	continue_button.pressed.connect(func(): _closed.emit(), CONNECT_ONE_SHOT)
 
 	visible = true
-	while not confirmed:
-		await get_tree().process_frame
+	await _closed
 	visible = false
 
 	return slogan_edit.text

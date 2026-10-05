@@ -5,6 +5,12 @@ extends CanvasLayer
 ## brief Sections 8-9). Deliberately never phrases the challenge as the
 ## real person addressing the child — see MentorData.gd's own comment.
 
+## Any of this panel's finishing buttons -> the waiting show function
+## resumes. (A signal, not a local flag: a GDScript 4 lambda only changes
+## its own copy of a captured local, so the old flag never reached the
+## waiting loop and the panel never closed.)
+signal _closed
+
 @onready var panel: PanelContainer = $Panel
 @onready var name_label: Label = $Panel/VBox/NameLabel
 @onready var who_label: Label = $Panel/VBox/WhoLabel
@@ -48,24 +54,22 @@ func show_mentor(mentor: MentorData) -> void:
 
 	close_button.text = Localization.t("common.close_button")
 
-	var confirmed := false
 	var on_try := func():
 		visible = false
 		await QuestManager.start_quest(mentor.try_quest_id)
-		confirmed = true
+		_closed.emit()
 	var on_explore := func():
 		visible = false
 		WorldManager.travel_to(mentor.cross_link_zone_id)
-		confirmed = true
+		_closed.emit()
 	if try_button.visible:
 		try_button.pressed.connect(on_try, CONNECT_ONE_SHOT)
 	if explore_button.visible:
 		explore_button.pressed.connect(on_explore, CONNECT_ONE_SHOT)
-	close_button.pressed.connect(func(): confirmed = true, CONNECT_ONE_SHOT)
+	close_button.pressed.connect(func(): _closed.emit(), CONNECT_ONE_SHOT)
 
 	visible = true
-	while not confirmed:
-		await get_tree().process_frame
+	await _closed
 	visible = false
 
 	if try_button.visible and try_button.pressed.is_connected(on_try):
