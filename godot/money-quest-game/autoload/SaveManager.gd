@@ -31,6 +31,10 @@ const DEFAULT_SAVE: Dictionary = {
 	"avatar_body_preset_id": "preset-a",
 	"avatar_outfit_color": "0F7A6B",
 	"avatar_accessory_id": "",
+	"avatar_skin_tone_id": "tone-4",
+	"avatar_hair_style_id": "short",
+	"avatar_hair_color_id": "dark-brown",
+	"avatar_accessory_ids": [],
 	"has_created_avatar": false,
 	"business_profile": {},
 	"calm_garden_background_id": "meadow",
@@ -108,6 +112,18 @@ func load_progress() -> void:
 		data.get("avatar_outfit_color", DEFAULT_SAVE["avatar_outfit_color"])
 	)
 	ProgressManager.avatar_config.accessory_id = data.get("avatar_accessory_id", "")
+	ProgressManager.avatar_config.skin_tone_id = data.get(
+		"avatar_skin_tone_id", DEFAULT_SAVE["avatar_skin_tone_id"]
+	)
+	ProgressManager.avatar_config.hair_style_id = data.get(
+		"avatar_hair_style_id", DEFAULT_SAVE["avatar_hair_style_id"]
+	)
+	ProgressManager.avatar_config.hair_color_id = data.get(
+		"avatar_hair_color_id", DEFAULT_SAVE["avatar_hair_color_id"]
+	)
+	# Saves from before multiple accessories existed only have the single
+	# avatar_accessory_id — AvatarConfig.get_accessory_ids() merges it in.
+	ProgressManager.avatar_config.accessory_ids.assign(data.get("avatar_accessory_ids", []))
 	ProgressManager.has_created_avatar = data.get("has_created_avatar", false)
 
 	_load_business_profile(data.get("business_profile", {}))
@@ -165,6 +181,10 @@ func save_progress() -> void:
 		"avatar_body_preset_id": ProgressManager.avatar_config.body_preset_id,
 		"avatar_outfit_color": ProgressManager.avatar_config.outfit_color.to_html(false),
 		"avatar_accessory_id": ProgressManager.avatar_config.accessory_id,
+		"avatar_skin_tone_id": ProgressManager.avatar_config.skin_tone_id,
+		"avatar_hair_style_id": ProgressManager.avatar_config.hair_style_id,
+		"avatar_hair_color_id": ProgressManager.avatar_config.hair_color_id,
+		"avatar_accessory_ids": ProgressManager.avatar_config.get_accessory_ids(),
 		"has_created_avatar": ProgressManager.has_created_avatar,
 		"business_profile": _serialize_business_profile(),
 		"calm_garden_background_id": ProgressManager.calm_garden_config.background_id,

@@ -153,7 +153,10 @@ avatar_creation.accessory_label,Add an accessory (optional),Adaugă un accesoriu
 avatar_creation.accessory.none,None,Niciunul,,,,,,,
 avatar_creation.accessory.glasses,Glasses,Ochelari,,,,,,,
 avatar_creation.accessory.cap,Cap,Șapcă,,,,,,,
-avatar_creation.preset.preset-d,Look D,Aspect D,,,,,,,
+avatar_creation.preset.preset-d,Wheelchair,Scaun cu rotile,Silla de ruedas,Fauteuil roulant,Rollstuhl,Sedia a rotelle,Cadeira de rodas,Rolstoel,Wózek inwalidzki
+avatar_creation.skin_label,Skin tone,Culoarea pielii,Tono de piel,Couleur de peau,Hautfarbe,Tonalità della pelle,Tom de pele,Huidskleur,Kolor skóry
+avatar_creation.hair_style_label,Hairstyle,Coafură,Peinado,Coiffure,Frisur,Acconciatura,Penteado,Kapsel,Fryzura
+avatar_creation.hair_color_label,Hair color,Culoarea părului,Color de pelo,Couleur des cheveux,Haarfarbe,Colore dei capelli,Cor do cabelo,Haarkleur,Kolor włosów
 avatar_creation.accessory.hearing_aid,Hearing aid,Aparat auditiv,,,,,,,
 avatar_creation.accessory.cane,Cane,Baston,,,,,,,
 zone.idea_lab.name,Idea Lab,Laboratorul de Idei,,,,,,,

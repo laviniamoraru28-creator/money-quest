@@ -1,6 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://avatarcreate001"]
+[gd_scene load_steps=5 format=3 uid="uid://avatarcreate001"]
 
 [ext_resource type="Script" path="res://scenes/player/AvatarCreation.gd" id="1"]
+
+[sub_resource type="Environment" id="Environment_preview"]
+background_mode = 1
+background_color = Color(0.929, 0.953, 0.909, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.95, 0.96, 0.93, 1)
+ambient_light_energy = 0.55
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_floor"]
+top_radius = 0.9
+bottom_radius = 0.95
+height = 0.08
+radial_segments = 32
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_floor"]
+albedo_color = Color(0.549, 0.769, 0.42, 1)
+roughness = 1.0
 
 [node name="AvatarCreation" type="Control"]
 layout_mode = 3
@@ -9,48 +26,124 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource("1")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+color = Color(0.984, 0.973, 0.937, 1)
 
-[node name="VBox" type="VBoxContainer" parent="CenterContainer"]
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 20
+
+[node name="HBox" type="HBoxContainer" parent="Margin"]
 layout_mode = 2
-theme_override_constants/separation = 16
+theme_override_constants/separation = 28
 
-[node name="TitleLabel" type="Label" parent="CenterContainer/VBox"]
+[node name="Preview" type="SubViewportContainer" parent="Margin/HBox"]
+custom_minimum_size = Vector2(380, 460)
+layout_mode = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="Margin/HBox/Preview"]
+own_world_3d = true
+handle_input_locally = false
+msaa_3d = 2
+size = Vector2i(380, 680)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="Margin/HBox/Preview/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.88, 4.4)
+fov = 30.0
+
+[node name="Sun" type="DirectionalLight3D" parent="Margin/HBox/Preview/SubViewport"]
+transform = Transform3D(0.866, -0.25, 0.433, 0, 0.866, 0.5, -0.5, -0.433, 0.75, 0, 3, 0)
+light_color = Color(1, 0.96, 0.88, 1)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Margin/HBox/Preview/SubViewport"]
+environment = SubResource("Environment_preview")
+
+[node name="Floor" type="MeshInstance3D" parent="Margin/HBox/Preview/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.04, 0)
+mesh = SubResource("CylinderMesh_floor")
+surface_material_override/0 = SubResource("StandardMaterial3D_floor")
+
+[node name="CharacterAnchor" type="Node3D" parent="Margin/HBox/Preview/SubViewport"]
+
+[node name="Scroll" type="ScrollContainer" parent="Margin/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_scroll_mode = 0
+
+[node name="VBox" type="VBoxContainer" parent="Margin/HBox/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="TitleLabel" type="Label" parent="Margin/HBox/Scroll/VBox"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-horizontal_alignment = 1
 text = ""
 
-[node name="PresetLabel" type="Label" parent="CenterContainer/VBox"]
+[node name="PresetLabel" type="Label" parent="Margin/HBox/Scroll/VBox"]
 layout_mode = 2
 text = ""
 
-[node name="PresetOption" type="OptionButton" parent="CenterContainer/VBox"]
-layout_mode = 2
+[node name="PresetOption" type="OptionButton" parent="Margin/HBox/Scroll/VBox"]
 custom_minimum_size = Vector2(280, 48)
+layout_mode = 2
+size_flags_horizontal = 0
 
-[node name="ColorLabel" type="Label" parent="CenterContainer/VBox"]
+[node name="SkinLabel" type="Label" parent="Margin/HBox/Scroll/VBox"]
 layout_mode = 2
 text = ""
 
-[node name="ColorPickerButton" type="ColorPickerButton" parent="CenterContainer/VBox"]
+[node name="SkinRow" type="HFlowContainer" parent="Margin/HBox/Scroll/VBox"]
 layout_mode = 2
-custom_minimum_size = Vector2(280, 48)
+
+[node name="HairStyleLabel" type="Label" parent="Margin/HBox/Scroll/VBox"]
+layout_mode = 2
+text = ""
+
+[node name="HairStyleRow" type="HFlowContainer" parent="Margin/HBox/Scroll/VBox"]
+layout_mode = 2
+
+[node name="HairColorLabel" type="Label" parent="Margin/HBox/Scroll/VBox"]
+layout_mode = 2
+text = ""
+
+[node name="HairColorRow" type="HFlowContainer" parent="Margin/HBox/Scroll/VBox"]
+layout_mode = 2
+
+[node name="ColorLabel" type="Label" parent="Margin/HBox/Scroll/VBox"]
+layout_mode = 2
+text = ""
+
+[node name="OutfitRow" type="HFlowContainer" parent="Margin/HBox/Scroll/VBox"]
+layout_mode = 2
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="Margin/HBox/Scroll/VBox/OutfitRow"]
+custom_minimum_size = Vector2(64, 48)
+layout_mode = 2
 edit_alpha = false
 
-[node name="AccessoryLabel" type="Label" parent="CenterContainer/VBox"]
+[node name="AccessoryLabel" type="Label" parent="Margin/HBox/Scroll/VBox"]
 layout_mode = 2
 text = ""
 
-[node name="AccessoryOption" type="OptionButton" parent="CenterContainer/VBox"]
+[node name="AccessoryRow" type="HFlowContainer" parent="Margin/HBox/Scroll/VBox"]
 layout_mode = 2
-custom_minimum_size = Vector2(280, 48)
 
-[node name="ContinueButton" type="Button" parent="CenterContainer/VBox"]
-layout_mode = 2
+[node name="ContinueButton" type="Button" parent="Margin/HBox/Scroll/VBox"]
 custom_minimum_size = Vector2(280, 64)
+layout_mode = 2
+size_flags_horizontal = 0
 text = ""

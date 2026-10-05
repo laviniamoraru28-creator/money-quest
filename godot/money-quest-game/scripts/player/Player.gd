@@ -27,20 +27,12 @@ const ARRIVE_DISTANCE: float = 0.3
 const GRAVITY: float = 9.8
 const ROTATION_SPEED: float = 10.0
 
-## Which accessory ids have a matching node under $Accessories — kept in
-## one place so a new accessory is one list entry plus one scene node,
-## never a new branch of game logic.
-const ACCESSORY_NODE_NAMES: Dictionary = {
-	"glasses": "Glasses",
-	"cap": "Cap",
-	"hearing_aid": "HearingAid",
-	"cane": "Cane",
-}
-
 @onready var interaction_manager: InteractionManager = $InteractionManager
-@onready var visual: MeshInstance3D = $Visual
-@onready var wheelchair_base: Node3D = $WheelchairBase
-@onready var accessories: Node3D = $Accessories
+
+## The stylised character body built from the child's AvatarConfig (see
+## CharacterBuilder) — a child node named "VisualRoot". It only reads this
+## body's velocity to animate; it never moves anything itself.
+var visual: CharacterRig = null
 
 var _target_position: Vector3 = Vector3.ZERO
 var _has_target: bool = false
@@ -52,45 +44,16 @@ func _ready() -> void:
 	_apply_avatar_config()
 
 
-## Renders the child's AvatarCreation.tscn choices onto this 3D body —
+## Renders the child's AvatarCreation.tscn choices as this 3D body —
 ## every choice there is purely cosmetic (see AvatarConfig.gd), so nothing
 ## here changes SPEED, the collision shape, or any gameplay behavior,
-## including the wheelchair body preset.
+## including the wheelchair look (preset-d), which is just another look and
+## never tied to a different movement speed or interaction range.
 func _apply_avatar_config() -> void:
-	var config: AvatarConfig = ProgressManager.avatar_config
-	var material: StandardMaterial3D = StandardMaterial3D.new()
-	material.albedo_color = config.outfit_color
-	visual.set_surface_override_material(0, material)
-	_apply_body_preset(config.body_preset_id)
-	_apply_accessory(config.accessory_id)
-
-
-func _apply_body_preset(preset_id: String) -> void:
-	wheelchair_base.visible = preset_id == "preset-d"
-	match preset_id:
-		"preset-b":
-			visual.scale = Vector3(1.15, 0.85, 1.15)
-			visual.position.y = 0.8
-		"preset-c":
-			visual.scale = Vector3(0.9, 1.1, 0.9)
-			visual.position.y = 0.8
-		"preset-d":
-			# A seated silhouette, same abstract capsule-and-primitives
-			# style as every other preset — just another look, never tied
-			# to a different movement speed or interaction range.
-			visual.scale = Vector3(1.0, 0.6, 1.0)
-			visual.position.y = 0.55
-		_:
-			visual.scale = Vector3.ONE
-			visual.position.y = 0.8
-
-
-func _apply_accessory(accessory_id: String) -> void:
-	for child in accessories.get_children():
-		child.visible = false
-	var node_name: String = ACCESSORY_NODE_NAMES.get(accessory_id, "")
-	if not node_name.is_empty():
-		accessories.get_node(node_name).visible = true
+	if visual:
+		visual.queue_free()
+	visual = CharacterBuilder.build(CharacterLook.from_avatar_config(ProgressManager.avatar_config), true)
+	add_child(visual)
 
 
 func _unhandled_input(event: InputEvent) -> void:

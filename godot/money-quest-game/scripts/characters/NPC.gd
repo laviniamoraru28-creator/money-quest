@@ -21,9 +21,18 @@ signal talked_to(npc_id: String)
 @onready var _name_label: Label3D = $NameLabel if has_node("NameLabel") else null
 @onready var _prompt_label: Label3D = $PromptLabel if has_node("PromptLabel") else null
 
+## The character body, built from this NPC's id (see CharacterLook.for_npc):
+## the same npc_id always gets the same appearance, in every zone and on
+## every launch. Purely visual — the interaction range is CollisionShape3D.
+var visual: CharacterRig = null
+
 
 func _ready() -> void:
 	super._ready()
+	visual = CharacterBuilder.build(CharacterLook.for_npc(npc_id), false)
+	visual.idle_phase = float(absi(npc_id.hash()) % 1000) * 0.0063
+	visual.can_wave = npc_id == "hub-guide"
+	add_child(visual)
 	if _name_label:
 		_name_label.text = get_display_name()
 	if _prompt_label:
