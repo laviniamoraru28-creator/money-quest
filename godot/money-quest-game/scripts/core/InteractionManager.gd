@@ -26,8 +26,34 @@ func unregister(interaction: Interaction) -> void:
 	nearest_interaction_changed.emit(get_nearest())
 
 
+## Metres of "head start" each priority point is worth when choosing what
+## to offer: 10 points ≈ 1.5 m. Relevance and closeness both count, so the
+## thing a child is standing right next to wins over something more
+## important a few steps away — while a doorway (priority 70) still wins
+## whenever the child is inside its reach.
+const PRIORITY_METRES: float = 0.15
+
+
+## The most relevant interactable in reach (priority blended with
+## distance, see PRIORITY_METRES). Only the handful currently in range is
+## ever considered — nothing is polled world-wide.
 func get_nearest() -> Interaction:
-	return _in_range[0] if _in_range.size() > 0 else null
+	var player := get_parent() as Node3D
+	var best: Interaction = null
+	var best_score: float = -INF
+	for i in _in_range:
+		if not is_instance_valid(i):
+			continue
+		var dist: float = player.global_position.distance_to(i.global_position) if player else 0.0
+		var score: float = float(i.interaction_priority) * PRIORITY_METRES - dist
+		if score > best_score:
+			best_score = score
+			best = i
+	return best
+
+
+func has_any() -> bool:
+	return not _in_range.is_empty()
 
 
 ## Call this from an "interact" input action OR directly from a mobile

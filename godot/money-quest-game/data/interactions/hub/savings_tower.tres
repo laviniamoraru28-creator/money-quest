@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="InteractionData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/interaction/InteractionData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+interaction_id = "savings_tower"
+kind = "activity"
+anchor = "Landmarks/MoneyQuestLandmark"
+position = Vector3(5.2, 0, -1.4)
+radius = 2.2
+prompt_height = 2.6
+title_key = "hub.savings_tower.title"
+text_key = "hub.savings_tower.text"
+prompt_key = "interaction.try_prompt"
+accent = "gold"
+question_key = "hub.savings_tower.question"
+choice_keys = Array[String](["hub.savings_tower.choice_save", "hub.savings_tower.choice_spend"])
+result_keys = Array[String](["hub.savings_tower.result_save", "hub.savings_tower.result_spend"])
+action = "open_zone"
+target_id = "golden-vault"
+action_label_key = "interaction.explore_more"
+remember = true
+reaction = "money"

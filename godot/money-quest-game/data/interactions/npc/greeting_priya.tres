@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="InteractionData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/interaction/InteractionData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+interaction_id = "greeting_priya"
+kind = "gateway"
+anchor = ""
+position = Vector3(0, 0, 0)
+radius = 2
+title_key = ""
+text_key = "npc_greeting.priya"
+text2_key = ""
+prompt_key = "interaction.look_prompt"
+accent = "sky"
+question_key = ""
+choice_keys = Array[String]([])
+result_keys = Array[String]([])
+action = "open_zone"
+target_id = "leadership-academy"
+action_label_key = "interaction.explore_more"
+remember = true
+reaction = ""

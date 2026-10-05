@@ -30,6 +30,15 @@ var skill_points: Dictionary = {}
 ## empty until those destinations have real content (Section 6).
 var discovered_entry_ids: Array[String] = []
 
+## Optional things the child has found while exploring the 3D world (a
+## district reached for the first time, a fountain looked at, a little
+## secret spotted) — ids like "landmark:PortalLibrary" or "hub:fountain".
+## Memory only: it decides things like "show the first-visit hint once",
+## never rewards, coins, unlocks or a completion percentage.
+var world_discovery_ids: Array[String] = []
+
+signal world_discovered(discovery_id: String)
+
 var avatar_config: AvatarConfig = AvatarConfig.new()
 
 ## A child's personal "Create Your Own Calm Garden" choices (Calm World's
@@ -86,6 +95,19 @@ func complete_quest(quest_id: String, skill_ids: Array[String] = []) -> void:
 	for skill_id in skill_ids:
 		skill_points[skill_id] = skill_points.get(skill_id, 0) + 1
 	quest_completed.emit(quest_id)
+
+
+## Returns true the first time an id is discovered.
+func discover_world(discovery_id: String) -> bool:
+	if discovery_id.is_empty() or world_discovery_ids.has(discovery_id):
+		return false
+	world_discovery_ids.append(discovery_id)
+	world_discovered.emit(discovery_id)
+	return true
+
+
+func has_discovered_world(discovery_id: String) -> bool:
+	return world_discovery_ids.has(discovery_id)
 
 
 func discover_entry(entry_id: String) -> void:

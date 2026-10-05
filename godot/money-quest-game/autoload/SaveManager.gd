@@ -28,6 +28,7 @@ const DEFAULT_SAVE: Dictionary = {
 	"unlocked_zone_ids": [],
 	"skill_points": {},
 	"discovered_entry_ids": [],
+	"world_discovery_ids": [],
 	"avatar_body_preset_id": "preset-a",
 	"avatar_outfit_color": "0F7A6B",
 	"avatar_accessory_id": "",
@@ -55,6 +56,7 @@ func _ready() -> void:
 	ProgressManager.lesson_completed.connect(func(_id): save_progress())
 	ProgressManager.badge_awarded.connect(func(_id): save_progress())
 	ProgressManager.quest_completed.connect(func(_id): save_progress())
+	ProgressManager.world_discovered.connect(func(_id): save_progress())
 	BusinessBuilder.profile_changed.connect(func(): save_progress())
 	Settings.reduced_motion_changed.connect(func(_v): save_progress())
 	Settings.theme_changed.connect(func(_v): save_progress())
@@ -104,6 +106,7 @@ func load_progress() -> void:
 
 	var discovered: Array = data.get("discovered_entry_ids", [])
 	ProgressManager.discovered_entry_ids.assign(discovered)
+	ProgressManager.world_discovery_ids.assign(data.get("world_discovery_ids", []))
 
 	ProgressManager.avatar_config.body_preset_id = data.get(
 		"avatar_body_preset_id", DEFAULT_SAVE["avatar_body_preset_id"]
@@ -178,6 +181,7 @@ func save_progress() -> void:
 		"unlocked_zone_ids": ProgressManager.unlocked_zone_ids,
 		"skill_points": ProgressManager.skill_points,
 		"discovered_entry_ids": ProgressManager.discovered_entry_ids,
+		"world_discovery_ids": ProgressManager.world_discovery_ids,
 		"avatar_body_preset_id": ProgressManager.avatar_config.body_preset_id,
 		"avatar_outfit_color": ProgressManager.avatar_config.outfit_color.to_html(false),
 		"avatar_accessory_id": ProgressManager.avatar_config.accessory_id,

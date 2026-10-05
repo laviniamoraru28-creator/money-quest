@@ -17,6 +17,14 @@ extends Area3D
 ## every supported locale, never hard-coded English.
 @export var prompt_text_key: String = "interaction.talk_prompt"
 
+## When several interactables are in reach at once, the most relevant one
+## is offered — priority blended with distance, see
+## InteractionManager.get_nearest(). Portals 70, NPCs 50, world objects
+## 30–60 by kind (InteractionData.priority()).
+@export var interaction_priority: int = 10
+## Height above this node where the on-screen prompt is anchored.
+@export var prompt_height: float = 2.2
+
 var player_in_range: bool = false
 
 

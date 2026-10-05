@@ -13,6 +13,12 @@ extends Interaction
 ## Leadership Quest characters already use.
 @export var npc_id: String = ""
 
+## Optional short greeting shown in the shared InteractionCard when the
+## child talks to this NPC (title = the NPC's translated name). Used by the
+## Hub's district greeters; zone NPCs leave it empty and keep their own
+## talked_to-driven dialogue and quests exactly as before.
+@export var greeting: InteractionData
+
 signal talked_to(npc_id: String)
 
 ## Label3D, not a Control/Label — in the 3D world a name/prompt floats
@@ -29,12 +35,18 @@ var visual: CharacterRig = null
 
 func _ready() -> void:
 	super._ready()
+	if interaction_priority == 10:
+		interaction_priority = 50
+	prompt_height = 2.6
 	visual = CharacterBuilder.build(CharacterLook.for_npc(npc_id), false)
 	visual.idle_phase = float(absi(npc_id.hash()) % 1000) * 0.0063
 	visual.can_wave = npc_id == "hub-guide"
 	add_child(visual)
 	if _name_label:
 		_name_label.text = get_display_name()
+		# Names show when you're near enough to meet someone; distant name
+		# tags would only clutter the view (and cost draw calls).
+		_name_label.visibility_range_end = 16.0
 	if _prompt_label:
 		_prompt_label.visible = false
 		_prompt_label.text = Localization.t(prompt_text_key)
@@ -51,3 +63,7 @@ func get_display_name() -> String:
 
 func interact() -> void:
 	talked_to.emit(npc_id)
+	if greeting:
+		var card: InteractionCard = InteractionCard.find(self)
+		if card:
+			card.toggle(greeting, self, get_display_name())

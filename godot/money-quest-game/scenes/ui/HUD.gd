@@ -24,8 +24,21 @@ const SETTINGS_MENU_SCENE: PackedScene = preload("res://scenes/menus/SettingsMen
 
 var _current_interaction_manager: InteractionManager = null
 
+## World interaction UI (Phase 5) — one shared set for every zone:
+## a small prompt "pill" over whatever is in reach (tap/click it, press
+## E / Space, or the gamepad's A button), the InteractionCard, and a short
+## non-blocking toast for the first visit to a district.
+var _card: InteractionCard
+var _pill: Button
+var _toast: PanelContainer
+var _toast_title: Label
+var _toast_text: Label
+var _toast_serial: int = 0
+
 
 func _ready() -> void:
+	add_to_group("mq_hud")
+	_build_interaction_ui()
 	GameState.coins_changed.connect(_on_coins_changed)
 	GameState.xp_changed.connect(_on_xp_changed)
 	Localization.locale_changed.connect(func(_l): _refresh())
@@ -63,10 +76,132 @@ func _on_zone_loaded(_zone_data: ZoneData) -> void:
 	_current_interaction_manager = player.interaction_manager
 	_current_interaction_manager.nearest_interaction_changed.connect(_on_nearest_interaction_changed)
 	talk_button.visible = _current_interaction_manager.get_nearest() != null
+	_card.close()
+	set_process(_current_interaction_manager.has_any())
 
 
 func _on_nearest_interaction_changed(interaction: Interaction) -> void:
 	talk_button.visible = interaction != null
+	set_process(interaction != null)
+	if interaction == null:
+		_pill.visible = false
+
+
+## Keeps the prompt pill over the most relevant thing in reach. Runs only
+## while something is in reach (set_process above).
+func _process(_delta: float) -> void:
+	var im := _current_interaction_manager
+	if im == null or not is_instance_valid(im):
+		_pill.visible = false
+		set_process(false)
+		return
+	var target: Interaction = im.get_nearest()
+	if target == null:
+		_pill.visible = false
+		return
+	var prompt: String = Localization.t(target.prompt_text_key)
+	talk_button.text = prompt
+	# Objects that already carry their own floating prompt (zone NPCs, books,
+	# exhibits) keep it — never two prompts for one thing.
+	var cam: Camera3D = get_viewport().get_camera_3d()
+	var anchor: Vector3 = target.global_position + Vector3.UP * target.prompt_height
+	if _card.is_open_for(target) or target.has_node("PromptLabel") or cam == null or cam.is_position_behind(anchor):
+		_pill.visible = false
+		return
+	_pill.text = "%s   %s" % [prompt, _key_hint()]
+	_pill.reset_size()
+	var p: Vector2 = cam.unproject_position(anchor) - Vector2(_pill.size.x * 0.5, _pill.size.y)
+	var vp: Vector2 = get_viewport().get_visible_rect().size
+	_pill.position = Vector2(clampf(p.x, 8.0, vp.x - _pill.size.x - 8.0), clampf(p.y, 64.0, vp.y - _pill.size.y - 8.0))
+	_pill.visible = true
+
+
+func _key_hint() -> String:
+	return "[A]" if Input.get_connected_joypads().size() > 0 else "[E]"
+
+
+## A short, non-blocking "you found a new place" note (first visit only —
+## see HubInteractions). It never stops the player and fades by itself;
+## with Reduced Motion it simply appears and disappears.
+func show_discovery(title: String, text: String) -> void:
+	_toast_title.text = title
+	_toast_text.text = text
+	_toast.visible = true
+	_toast_serial += 1
+	var serial: int = _toast_serial
+	if not Settings.reduced_motion:
+		_toast.modulate.a = 0.0
+		create_tween().tween_property(_toast, "modulate:a", 1.0, 0.4)
+	else:
+		_toast.modulate.a = 1.0
+	await get_tree().create_timer(4.5).timeout
+	if serial != _toast_serial:
+		return
+	if not Settings.reduced_motion:
+		var tw := create_tween()
+		tw.tween_property(_toast, "modulate:a", 0.0, 0.6)
+		await tw.finished
+	if serial == _toast_serial:
+		_toast.visible = false
+
+
+func _build_interaction_ui() -> void:
+	_card = InteractionCard.new()
+	_card.name = "InteractionCard"
+	add_child(_card)
+
+	_pill = Button.new()
+	_pill.name = "InteractionPrompt"
+	_pill.visible = false
+	_pill.custom_minimum_size = Vector2(0, 44)
+	_pill.focus_mode = Control.FOCUS_NONE
+	_pill.add_theme_font_size_override("font_size", 18)
+	for state in ["normal", "hover", "pressed"]:
+		var sb := StyleBoxFlat.new()
+		sb.bg_color = Color("FBF8EF") if state != "pressed" else Color("EDE6D3")
+		sb.set_corner_radius_all(22)
+		sb.border_color = Color("0F7A6B")
+		sb.set_border_width_all(3 if state == "normal" else 4)
+		sb.content_margin_left = 16
+		sb.content_margin_right = 16
+		_pill.add_theme_stylebox_override(state, sb)
+	for c in ["font_color", "font_hover_color", "font_pressed_color"]:
+		_pill.add_theme_color_override(c, Color("1C2624"))
+	_pill.pressed.connect(_on_talk_pressed)
+	add_child(_pill)
+
+	_toast = PanelContainer.new()
+	_toast.name = "DiscoveryToast"
+	_toast.visible = false
+	_toast.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_toast.anchor_left = 0.5
+	_toast.anchor_right = 0.5
+	_toast.grow_horizontal = Control.GROW_DIRECTION_BOTH
+	_toast.offset_top = 64.0
+	var tsb := StyleBoxFlat.new()
+	tsb.bg_color = Color("FBF8EF")
+	tsb.set_corner_radius_all(16)
+	tsb.border_color = Color("E8A33D")
+	tsb.border_width_bottom = 4
+	tsb.content_margin_left = 22
+	tsb.content_margin_right = 22
+	tsb.content_margin_top = 10
+	tsb.content_margin_bottom = 10
+	_toast.add_theme_stylebox_override("panel", tsb)
+	var tbox := VBoxContainer.new()
+	_toast.add_child(tbox)
+	_toast_title = Label.new()
+	_toast_title.add_theme_font_size_override("font_size", 22)
+	_toast_title.add_theme_color_override("font_color", Color("1C2624"))
+	_toast_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	tbox.add_child(_toast_title)
+	_toast_text = Label.new()
+	_toast_text.add_theme_font_size_override("font_size", 18)
+	_toast_text.add_theme_color_override("font_color", Color("1C2624"))
+	_toast_text.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	tbox.add_child(_toast_text)
+	add_child(_toast)
+	set_process(false)
 
 
 func _on_talk_pressed() -> void:

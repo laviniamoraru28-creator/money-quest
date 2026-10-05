@@ -15,6 +15,12 @@
 [ext_resource type="PackedScene" path="res://scenes/world/landmarks/MindLabLandmark.tscn" id="13"]
 [ext_resource type="PackedScene" path="res://scenes/world/landmarks/CalmWorldLandmark.tscn" id="14"]
 [ext_resource type="Script" path="res://scripts/world/animation/AmbientDirector.gd" id="15"]
+[ext_resource type="Script" path="res://scripts/world/interaction/HubInteractions.gd" id="16"]
+[ext_resource type="Resource" path="res://data/interactions/npc/greeting_librarian.tres" id="17"]
+[ext_resource type="Resource" path="res://data/interactions/npc/greeting_shopkeeper.tres" id="18"]
+[ext_resource type="Resource" path="res://data/interactions/npc/greeting_priya.tres" id="19"]
+[ext_resource type="Resource" path="res://data/interactions/npc/greeting_timekeeper.tres" id="20"]
+[ext_resource type="Resource" path="res://data/interactions/npc/greeting_calm_world_guide.tres" id="21"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_portal"]
 radius = 2.5
@@ -41,6 +47,9 @@ script = ExtResource("7")
 
 [node name="AmbientDirector" type="Node" parent="."]
 script = ExtResource("15")
+
+[node name="HubInteractions" type="Node" parent="."]
+script = ExtResource("16")
 
 [node name="Landmarks" type="Node3D" parent="."]
 
@@ -217,3 +226,27 @@ font_size = 48
 outline_size = 12
 text = ""
 
+[node name="Librarian" parent="Landmarks/LibraryLandmark" instance=ExtResource("5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9, 0, 2.6)
+npc_id = "librarian"
+greeting = ExtResource("17")
+
+[node name="Shopkeeper" parent="Landmarks/EntrepreneurLandmark" instance=ExtResource("5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4, 0, 0.6)
+npc_id = "shopkeeper"
+greeting = ExtResource("18")
+
+[node name="Priya" parent="Landmarks/LeadershipLandmark" instance=ExtResource("5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0, 2.2)
+npc_id = "priya"
+greeting = ExtResource("19")
+
+[node name="Timekeeper" parent="Landmarks/MuseumLandmark" instance=ExtResource("5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0, 0, 2.4)
+npc_id = "timekeeper"
+greeting = ExtResource("20")
+
+[node name="CalmWorldGuide" parent="Landmarks/CalmWorldLandmark" instance=ExtResource("5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7, 0, 6.4)
+npc_id = "calm-world-guide"
+greeting = ExtResource("21")

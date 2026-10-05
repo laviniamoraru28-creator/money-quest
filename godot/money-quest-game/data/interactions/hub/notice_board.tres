@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="InteractionData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/interaction/InteractionData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+interaction_id = "notice_board"
+kind = "activity"
+anchor = "Landmarks/LeadershipLandmark"
+position = Vector3(3.6, 0, -0.1)
+radius = 1.8
+title_key = "hub.notice_board.title"
+text_key = "hub.notice_board.text"
+text2_key = ""
+prompt_key = "interaction.try_prompt"
+accent = "sky"
+question_key = "hub.notice_board.question"
+choice_keys = Array[String](["hub.notice_board.choice_listen", "hub.notice_board.choice_quick"])
+result_keys = Array[String](["hub.notice_board.result_listen", "hub.notice_board.result_quick"])
+action = "none"
+target_id = ""
+action_label_key = "interaction.explore_more"
+remember = true
+reaction = "leadership"
