@@ -102,7 +102,7 @@ interact={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://localization/translations.csv")
+locale/translations=PackedStringArray("res://localization/translations.en.translation", "res://localization/translations.ro.translation", "res://localization/translations.es.translation", "res://localization/translations.fr.translation", "res://localization/translations.de.translation", "res://localization/translations.it.translation", "res://localization/translations.pt.translation", "res://localization/translations.nl.translation", "res://localization/translations.pl.translation")
 
 [rendering]
 
