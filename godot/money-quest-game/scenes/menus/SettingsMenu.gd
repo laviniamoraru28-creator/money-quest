@@ -45,3 +45,32 @@ func _ready() -> void:
 	voice_slider.value_changed.connect(Settings.set_voice_volume)
 	ambient_slider.value_changed.connect(Settings.set_ambient_volume)
 	back_button.pressed.connect(queue_free)
+	# Keyboard/gamepad users start on the first setting (see UIFocus), and
+	# get focus back where they were (the HUD or main-menu Settings button)
+	# when Settings closes — unless they used the mouse/touch, whose
+	# behaviour stays exactly as before.
+	_return_focus = get_viewport().gui_get_focus_owner()
+	UIFocus.focus(reduced_motion_check)
+
+
+var _return_focus: Control = null
+var _pointer_last: bool = false
+
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton or event is InputEventScreenTouch:
+		_pointer_last = true
+	elif event is InputEventKey or event is InputEventJoypadButton:
+		_pointer_last = false
+
+
+## Back (gamepad B or Escape) closes Settings, like the Back button.
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		get_viewport().set_input_as_handled()
+		queue_free()
+
+
+func _exit_tree() -> void:
+	if not _pointer_last and is_instance_valid(_return_focus) and _return_focus.is_inside_tree():
+		_return_focus.grab_focus.call_deferred()

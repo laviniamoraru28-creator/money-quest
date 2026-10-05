@@ -61,6 +61,7 @@ func show_text_input(prompt_key: String, placeholder_key: String, initial_value:
 	continue_button.pressed.connect(func(): _closed.emit(), CONNECT_ONE_SHOT)
 
 	visible = true
+	UIFocus.focus(multi_line_edit if multiline else single_line_edit)
 	await _closed
 	visible = false
 

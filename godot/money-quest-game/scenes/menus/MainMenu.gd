@@ -18,6 +18,8 @@ func _ready() -> void:
 	settings_button.text = Localization.t("common.settings_button")
 	start_button.pressed.connect(_on_start_pressed)
 	settings_button.pressed.connect(_on_settings_pressed)
+	# Keyboard/gamepad players start on Start (see UIFocus).
+	UIFocus.focus(start_button)
 
 
 func _on_start_pressed() -> void:

@@ -57,6 +57,11 @@ func _apply_avatar_config() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	# Space and the gamepad's A button are both "interact" and "ui_accept".
+	# While a UI button has focus, that press belongs to the button (Godot
+	# doesn't mark it handled), so it must not also reach the world here.
+	if event.is_action("ui_accept") and get_viewport().gui_get_focus_owner() != null:
+		return
 	if event.is_action_pressed("interact"):
 		interaction_manager.try_interact()
 		return

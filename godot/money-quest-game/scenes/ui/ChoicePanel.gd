@@ -45,6 +45,7 @@ func show_choice(choice: DialogueChoice) -> ChoiceOption:
 		options_box.add_child(button)
 
 	visible = true
+	UIFocus.focus(options_box)
 	var result: ChoiceOption = await _option_picked
 	visible = false
 	return result
@@ -64,6 +65,7 @@ func show_quiz(question_key: String, option_keys: Array[String], correct_index: 
 		options_box.add_child(button)
 
 	visible = true
+	UIFocus.focus(options_box)
 	var result: bool = await _quiz_answered
 	visible = false
 	return result

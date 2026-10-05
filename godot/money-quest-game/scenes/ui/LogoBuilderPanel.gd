@@ -71,6 +71,7 @@ func show_logo_builder(logo: BusinessLogoData, initial_slogan: String) -> String
 	continue_button.pressed.connect(func(): _closed.emit(), CONNECT_ONE_SHOT)
 
 	visible = true
+	UIFocus.focus(shape_box)
 	await _closed
 	visible = false
 

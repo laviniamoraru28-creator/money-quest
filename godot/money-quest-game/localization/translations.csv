@@ -1678,7 +1678,7 @@ eq_build.pitch.next_step_label,My next step would be...,Următorul meu pas ar fi
 eq_build.pitch.per_item_suffix,per item,pe articol,,,,,,,
 eq_build.pitch.not_set_yet,Not decided yet,Încă nedecis,,,,,,,
 eq_build.pitch.done_button,Done,Terminat,,,,,,,
-common.close_button,Close,Închide,,,,,,,
+common.close_button,Close,Închide,,,,,,,Zamknij
 interaction.read_prompt,Read,Citește,,,,,,,
 interaction.view_prompt,View,Vezi,,,,,,,
 library.age_band.explorer,For younger explorers,Pentru micii exploratori,,,,,,,

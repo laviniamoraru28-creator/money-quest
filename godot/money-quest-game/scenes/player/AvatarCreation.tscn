@@ -79,6 +79,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_floor")
 [node name="CharacterAnchor" type="Node3D" parent="Margin/HBox/Preview/SubViewport"]
 
 [node name="Scroll" type="ScrollContainer" parent="Margin/HBox"]
+follow_focus = true
 layout_mode = 2
 size_flags_horizontal = 3
 horizontal_scroll_mode = 0

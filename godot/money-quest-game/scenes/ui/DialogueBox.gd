@@ -59,6 +59,7 @@ func _refresh_current_text() -> void:
 
 func _wait_for_continue() -> void:
 	visible = true
+	UIFocus.focus(continue_button)
 	_waiting = true
 	# Touch target follows the website's own min-touch-target discipline
 	# (see docs/godot-architecture-plan.md Section 4) — kept comfortably

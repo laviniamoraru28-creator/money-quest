@@ -63,6 +63,7 @@ func show_pitch(profile: BusinessProfileData) -> void:
 	done_button.pressed.connect(func(): _closed.emit(), CONNECT_ONE_SHOT)
 
 	visible = true
+	UIFocus.focus(done_button)
 	await _closed
 	visible = false
 

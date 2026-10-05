@@ -1,0 +1,52 @@
+[gd_resource type="Theme" load_steps=3 format=3]
+
+; Money Quest World's project theme. It ONLY defines how keyboard/gamepad
+; focus looks — every other style still comes from Godot's default theme or
+; the scene's own overrides, so nothing else in the UI changes.
+;
+; Focus: a thick Money Quest gold ring drawn just outside the control plus
+; a light gold tint, readable over the bright 3D world, on the translucent
+; panels and on dark buttons alike. Static (no animation), so it is
+; Reduced-Motion-safe. Sliders have no "focus" style in Godot 4.7 — they
+; show focus (and hover) through grabber_area_highlight, which gets the
+; same gold.
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_focus"]
+bg_color = Color(1, 0.784, 0.239, 0.18)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 0.784, 0.239, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slider_focus"]
+bg_color = Color(1, 0.784, 0.239, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.11, 0.149, 0.141, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+expand_margin_top = 4.0
+expand_margin_bottom = 4.0
+
+[resource]
+Button/styles/focus = SubResource("StyleBoxFlat_focus")
+CheckBox/styles/focus = SubResource("StyleBoxFlat_focus")
+CheckButton/styles/focus = SubResource("StyleBoxFlat_focus")
+ColorPickerButton/styles/focus = SubResource("StyleBoxFlat_focus")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_slider_focus")
+LineEdit/styles/focus = SubResource("StyleBoxFlat_focus")
+OptionButton/styles/focus = SubResource("StyleBoxFlat_focus")
+TextEdit/styles/focus = SubResource("StyleBoxFlat_focus")

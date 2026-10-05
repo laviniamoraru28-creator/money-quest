@@ -69,6 +69,7 @@ func show_mentor(mentor: MentorData) -> void:
 	close_button.pressed.connect(func(): _closed.emit(), CONNECT_ONE_SHOT)
 
 	visible = true
+	UIFocus.focus(close_button)
 	await _closed
 	visible = false
 

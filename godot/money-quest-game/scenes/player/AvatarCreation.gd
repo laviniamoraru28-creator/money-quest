@@ -83,6 +83,9 @@ func _ready() -> void:
 
 	continue_button.pressed.connect(_on_continue_pressed)
 	_refresh_preview()
+	# Keyboard/gamepad players start on the first choice (see UIFocus);
+	# the scroll list follows focus so every row stays reachable.
+	UIFocus.focus(preset_option)
 
 
 func _process(delta: float) -> void:

@@ -68,6 +68,7 @@ func show_sort(buckets: Array[SortBucketData], items: Array[SortItemData]) -> vo
 	_refresh_item_labels()
 
 	visible = true
+	UIFocus.focus(items_box)
 	while not _solved:
 		await get_tree().process_frame
 	visible = false

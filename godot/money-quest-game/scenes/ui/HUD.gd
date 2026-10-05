@@ -210,5 +210,19 @@ func _on_talk_pressed() -> void:
 		player.request_interact()
 
 
+## Gamepad route into the HUD: with nothing focused (exploring the world),
+## D-pad up puts focus on the Settings button, A opens it and B leaves the
+## HUD again. Keyboard arrows and the left stick still only move the player,
+## and nothing here runs per frame.
+func _unhandled_input(event: InputEvent) -> void:
+	var focus: Control = get_viewport().gui_get_focus_owner()
+	if focus == null and event is InputEventJoypadButton and event.pressed and event.button_index == JOY_BUTTON_DPAD_UP:
+		settings_button.grab_focus()
+		get_viewport().set_input_as_handled()
+	elif focus == settings_button and event.is_action_pressed("ui_cancel"):
+		settings_button.release_focus()
+		get_viewport().set_input_as_handled()
+
+
 func _on_settings_pressed() -> void:
 	get_tree().current_scene.add_child(SETTINGS_MENU_SCENE.instantiate())

@@ -49,6 +49,7 @@ func show_numeric_input(label_key: String, help_key: String, initial_value: int)
 	continue_button.pressed.connect(func(): _closed.emit(), CONNECT_ONE_SHOT)
 
 	visible = true
+	UIFocus.focus(plus_button)
 	await _closed
 	visible = false
 

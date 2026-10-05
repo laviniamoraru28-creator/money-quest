@@ -72,6 +72,7 @@ func show_allocate(total_amount: int, unit_label_key: String, categories: Array[
 	_refresh_labels()
 
 	visible = true
+	UIFocus.focus(categories_box)
 	while not _solved:
 		await get_tree().process_frame
 	visible = false

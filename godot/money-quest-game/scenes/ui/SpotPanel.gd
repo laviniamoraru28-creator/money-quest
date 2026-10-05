@@ -48,6 +48,7 @@ func show_spot(scenario_text_key: String, items: Array[SpotItemData]) -> void:
 	_refresh_submit_enabled()
 
 	visible = true
+	UIFocus.focus(items_box)
 	while not _solved:
 		await get_tree().process_frame
 	visible = false

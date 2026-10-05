@@ -71,6 +71,7 @@ func show_category_picker(instructions_key: String, category_ids: Array, label_k
 	continue_button.pressed.connect(func(): _closed.emit(), CONNECT_ONE_SHOT)
 
 	visible = true
+	UIFocus.focus(categories_box)
 	await _closed
 	visible = false
 

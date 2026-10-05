@@ -66,6 +66,7 @@ func show_simulator(cost_per_unit: int, price: int, starting_money: int, total_p
 
 	visible = true
 	allocation_view.visible = true
+	UIFocus.focus(categories_box)
 	result_view.visible = false
 
 	continue_button.pressed.connect(func(): _closed.emit(), CONNECT_ONE_SHOT)
@@ -181,6 +182,7 @@ func _run_simulation() -> Dictionary:
 func _show_result_view(run: Dictionary) -> void:
 	allocation_view.visible = false
 	result_view.visible = true
+	UIFocus.focus(continue_button)
 
 	result_title_label.text = Localization.t("eq_build.simulator.result_title")
 	result_lines_label.text = "%s\n%s\n\n%s: %d\n%s: %d\n%s: %d" % [
@@ -205,4 +207,5 @@ func _show_result_view(run: Dictionary) -> void:
 
 func _on_try_again_pressed() -> void:
 	allocation_view.visible = true
+	UIFocus.focus(categories_box)
 	result_view.visible = false

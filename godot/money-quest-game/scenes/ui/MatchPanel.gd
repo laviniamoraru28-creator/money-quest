@@ -61,6 +61,7 @@ func show_match(pairs: Array[MatchPairData]) -> void:
 		_right_buttons.append(button)
 
 	visible = true
+	UIFocus.focus(left_box)
 	while _matched_count < _pairs.size():
 		await get_tree().process_frame
 	visible = false

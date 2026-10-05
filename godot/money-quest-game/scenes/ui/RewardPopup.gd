@@ -32,6 +32,7 @@ func show_reward(message_key: String, xp: int, coins: int) -> void:
 	continue_button.text = Localization.t("common.nice_button")
 
 	visible = true
+	UIFocus.focus(continue_button)
 	panel.scale = Vector2(0.85, 0.85) if not Settings.reduced_motion else Vector2.ONE
 	var tween := create_tween()
 	tween.tween_property(panel, "scale", Vector2.ONE, Settings.animation_duration(0.25)) \
