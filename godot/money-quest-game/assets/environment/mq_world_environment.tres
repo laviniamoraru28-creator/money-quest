@@ -1,0 +1,39 @@
+[gd_resource type="Environment" load_steps=3 format=3]
+
+; Money Quest World's shared atmosphere, used by Main.tscn's WorldEnvironment
+; for every zone that doesn't provide its own EnvironmentOverride: a soft
+; stylised daytime sky, warm sky-tinted ambient light (so shaded sides stay
+; readable, never dark), linear tone mapping (keeps the palette's colours
+; true instead of washing them out) and a light depth fog
+; that fades distant hills and mountains into the horizon colour. Only
+; features the GL Compatibility renderer supports — no SSAO, SSR, SDFGI,
+; glow or volumetric fog.
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mq"]
+sky_top_color = Color(0.33, 0.6, 0.82, 1)
+sky_horizon_color = Color(0.8, 0.89, 0.9, 1)
+sky_curve = 0.11
+ground_bottom_color = Color(0.42, 0.56, 0.45, 1)
+ground_horizon_color = Color(0.8, 0.89, 0.9, 1)
+ground_curve = 0.05
+sun_angle_max = 18.0
+sun_curve = 0.12
+
+[sub_resource type="Sky" id="Sky_mq"]
+sky_material = SubResource("ProceduralSkyMaterial_mq")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_mq")
+ambient_light_source = 3
+ambient_light_color = Color(0.93, 0.95, 0.9, 1)
+ambient_light_sky_contribution = 0.5
+ambient_light_energy = 0.5
+reflected_light_source = 2
+tonemap_mode = 0
+tonemap_exposure = 1.0
+fog_enabled = true
+fog_light_color = Color(0.8, 0.88, 0.9, 1)
+fog_light_energy = 1.0
+fog_density = 0.0028
+fog_sky_affect = 0.15

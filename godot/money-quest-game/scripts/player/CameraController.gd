@@ -16,6 +16,21 @@ extends Node3D
 @export var follow_offset: Vector3 = Vector3(0, 5, 7)
 @export var follow_speed: float = 6.0
 @export var mouse_look_sensitivity: float = 0.005
+## Optional: physics layers that block the camera's view of the player.
+## When set, the camera moves in front of anything on these layers instead
+## of ending up inside it (the World Hub uses this for its landmark
+## buildings, which sit on layer 2). 0 — the default — keeps the original
+## plain follow behaviour, so zones that don't opt in are unchanged.
+@export_flags_3d_physics var occlusion_mask: int = 0
+
+## Optional: when true, the camera starts exactly at follow_offset (behind
+## and above the player, looking the way the scene was authored). The
+## default `false` keeps the original start-up yaw derived in _ready(),
+## which turns the offset roughly 145° — every existing zone was built and
+## tested with that, so it stays unchanged unless a scene opts in.
+@export var use_authored_offset: bool = false
+
+const OCCLUSION_MARGIN: float = 0.4
 
 @onready var _camera: Camera3D = $Camera3D
 
@@ -24,7 +39,10 @@ var _yaw: float = 0.0
 
 func _ready() -> void:
 	_camera.current = true
-	_yaw = follow_offset.signed_angle_to(Vector3.FORWARD, Vector3.UP) if follow_offset.length() > 0.0 else 0.0
+	if use_authored_offset:
+		_yaw = 0.0
+	else:
+		_yaw = follow_offset.signed_angle_to(Vector3.FORWARD, Vector3.UP) if follow_offset.length() > 0.0 else 0.0
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -40,12 +58,27 @@ func _physics_process(delta: float) -> void:
 
 	var rotated_offset: Vector3 = follow_offset.rotated(Vector3.UP, _yaw)
 	var desired_position: Vector3 = target.global_position + rotated_offset
-	if Settings.reduced_motion:
+	var pulled_in: bool = false
+	if occlusion_mask != 0:
+		var unblocked: Vector3 = _unoccluded_position(target.global_position + Vector3.UP * 1.2, desired_position)
+		pulled_in = not unblocked.is_equal_approx(desired_position)
+		desired_position = unblocked
+	if Settings.reduced_motion or pulled_in:
 		# The follow-smoothing itself is the non-essential animation here
 		# (per Settings.gd's own "any tween/animation anywhere in this
 		# project MUST check reduced_motion" rule) — snap straight to the
-		# target position instead of easing into it.
+		# target position instead of easing into it. Pulling in front of an
+		# occluding building also snaps: easing would let the camera pass
+		# through the wall first.
 		global_position = desired_position
 	else:
 		global_position = global_position.lerp(desired_position, 1.0 - exp(-follow_speed * delta))
 	look_at(target.global_position + Vector3.UP * 1.0, Vector3.UP)
+
+
+func _unoccluded_position(from: Vector3, to: Vector3) -> Vector3:
+	var query := PhysicsRayQueryParameters3D.create(from, to, occlusion_mask)
+	var hit: Dictionary = get_world_3d().direct_space_state.intersect_ray(query)
+	if hit.is_empty():
+		return to
+	return hit.position + (from - to).normalized() * OCCLUSION_MARGIN
