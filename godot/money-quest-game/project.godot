@@ -1,57 +1,28 @@
-; Money Quest World — Godot prototype
-; This is a STANDALONE Godot 4.x project, separate from the Next.js website.
-; It is never imported into the website build and has no network code.
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
 ;
-; See docs/money-quest-world-architecture.md (repo root) for the full
-; architecture this project implements: a World Hub connecting three Quest
-; tracks (Money Quest / Entrepreneur Quest / Leadership Quest) plus Library/
-; Museum/Mind Lab/Calm World as supporting destinations. Only the Hub and
-; one Money Quest zone (Golden Vault) are built so far.
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
 
 config_version=5
+
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
 config/name="Money Quest World"
 config/description="Money Quest World — the interactive 3D universe of the Money Quest ecosystem. A free financial-education experience for children and teenagers. All money shown in this game is virtual and has no real-world value."
 run/main_scene="res://scenes/menus/MainMenu.tscn"
-config/features=PackedStringArray("4.2", "GL Compatibility")
+config/features=PackedStringArray("4.7", "GL Compatibility")
 boot_splash/bg_color=Color(0.929, 0.953, 0.909, 1)
 config/icon="res://icon.svg"
 
 [autoload]
 
-; Order matters:
-; 1. Localization/Settings first — other autoloads read locale/reduced-
-;    motion state during their own _ready().
-; 2. GameState/ProgressManager/BusinessBuilder before SaveManager —
-;    SaveManager pushes loaded values INTO them during its own
-;    _ready(), so they must exist first (they don't read anything at
-;    _ready time themselves). BusinessBuilder holds the one persistent
-;    BusinessProfileData the Entrepreneur Quest BUILD stepper builds —
-;    see its own doc comment.
-; 3. SaveManager before anything that reads saved state at startup.
-; 4. The UI overlay autoloads (DialogueBox/ChoicePanel/RewardPopup/
-;    MatchPanel/SpotPanel/AllocatePanel/SortPanel/TextInputPanel/
-;    LogoBuilderPanel/CategoryPickerPanel/NumericInputPanel/
-;    SimulatorPanel/PitchDisplayPanel/BookCardPanel/MentorCardPanel/
-;    ExhibitCardPanel/MindLabEntryCardPanel) are global because deeply-
-;    nested zone/NPC scripts (see scenes/world/zones/) need to show
-;    dialogue/choices/mini-games/build-stage/Library-card/Museum-card/
-;    Mind-Lab-card UI without any manual reference-passing across the
-;    scene tree — the same reasoning autoloads exist for in Godot
-;    generally. They render nothing until a script calls them (each is
-;    `visible = false` by default), so their presence during the main
-;    menu is harmless. HUD is NOT an autoload — it's purely reactive
-;    display, only meaningful once inside the world, so it's a plain
-;    child node of Main.tscn instead.
-; 5. WorldManager/QuestManager/LibraryManager/MuseumManager/MindLabManager
-;    last — they call into everything above (LibraryManager/
-;    MuseumManager/MindLabManager hold the real BookData/MentorData/
-;    ExhibitData/MindLabEntryData registries BookCardPanel/
-;    MentorCardPanel/ExhibitCardPanel/MindLabEntryCardPanel/
-;    BookInteraction/MentorInteraction/ExhibitInteraction/
-;    MindLabEntryInteraction read from — see their own doc comments).
 Localization="*res://autoload/Localization.gd"
 Settings="*res://autoload/Settings.gd"
 GameState="*res://autoload/GameState.gd"
@@ -84,52 +55,15 @@ MindLabManager="*res://autoload/MindLabManager.gd"
 
 [display]
 
-; Landscape by default: unlike the website (portrait-first, per the brief),
-; a third-person 3D world benefits from the wider horizontal field of view
-; landscape gives the follow camera — the near-universal choice for mobile
-; 3D exploration games. Touch controls (Section 19 of the brief) are still
-; designed mobile-first; only the orientation differs from the website.
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/size/window_width_override=960
 window/size/window_height_override=540
 window/stretch/mode="canvas_items"
-window/stretch/aspect="keep"
 window/handheld/orientation="sensorLandscape"
-
-[audio]
-
-; 4 independent buses under Master — Music/SFX/Voice/Ambient — so a
-; child can turn music down without silencing sound effects, or mute
-; voice without losing ambient sound, and vice versa (see Settings.gd's
-; 4 volume fields and AudioManager.gd's bus-volume application). Audible
-; only once real audio assets are dropped in; AudioManager ships zero
-; today by design (see AudioManager.gd's own doc comment).
-buses/default_bus_layout="res://default_bus_layout.tres"
-
-[internationalization]
-
-; Godot's CSV translation import generates one .translation resource per
-; locale COLUMN from this single file (keys,en,ro,...) — it is not one
-; file per locale. Opening this project in the Godot editor will import
-; it automatically; see localization/translations.csv and the README for
-; the 7 additional locale columns that still need translating.
-locale/translations=PackedStringArray("res://localization/translations.csv")
-locale/fallback="en"
-
-[rendering]
-
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
 
 [input]
 
-; THREE input paths feed the same movement vector in Player.gd — keyboard
-; and gamepad share these four directional actions (Godot combines both
-; automatically via Input.get_vector), while touch/mouse use tap-to-move
-; and never need a bound action. "interact" likewise serves a keyboard
-; press, a gamepad face button, and a mobile on-screen "Talk" button (via
-; Player.request_interact()) with one shared entry point.
 move_left={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":65,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
@@ -166,9 +100,11 @@ interact={
 ]
 }
 
-[physics]
+[internationalization]
 
-; Both 2D and 3D physics are used nowhere critical yet — 3D for
-; Player/NPC/Interaction (Section on world systems), no 2D physics
-; remains in the project after the 2D-to-3D conversion.
-3d/default_gravity=9.8
+locale/translations=PackedStringArray("res://localization/translations.csv")
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

@@ -1,6 +1,6 @@
 # Money Quest World — Godot foundation
 
-A **standalone Godot 4.2+ project**. It is never imported into the Next.js
+A **standalone Godot 4.7+ project**. It is never imported into the Next.js
 website build and has no network code, no database, no authentication —
 see `docs/money-quest-world-architecture.md` (at the repo root) for the
 full audit, architecture rationale, and 14-stage build order this project
@@ -22,10 +22,10 @@ rebuilt.
 
 ## How to open and run
 
-1. Install Godot **4.2 or later** (this project was written against 4.2's
-   feature set; it was not opened/run in the editor as part of producing
-   this work, so treat the first open as a verification step, not an
-   assumption of correctness).
+1. Install Godot **4.7 or later**. This project was originally written
+   against Godot 4.2's feature set and has since been migrated to Godot
+   4.7: the 4.7.2 editor re-saved `project.godot` and generated the
+   `.gd.uid`/`.import` files, which are committed.
 2. Open Godot, "Import," and select
    `godot/money-quest-game/project.godot`.
 3. On first open, Godot will import `localization/translations.csv` as a
@@ -1343,8 +1343,8 @@ rationale. Quick map:
   volume fields), `GameState`, `ProgressManager`, `SaveManager`,
   `AudioManager` (now applies real `AudioServer` bus volume),
   `WorldManager`, `QuestManager`. `DialogueBox`/`ChoicePanel`/
-  `RewardPopup` are also autoloads (scene-based) — see `project.godot`'s
-  own comment on why.
+  `RewardPopup` are also autoloads (scene-based) — see "Project settings
+  notes" below for why.
 - `scripts/core/` — the reusable lesson data model (`LessonData`,
   `DialogueLine`, `DialogueChoice`, `ChoiceOption`, `ConsequenceEffect`,
   `VocabTerm`), `LessonManager`, `Interaction`, `InteractionManager`,
@@ -1425,7 +1425,7 @@ rationale. Quick map:
   `SettingsMenu.tscn` (reduced-motion toggle + 4 volume sliders,
   reachable from both `MainMenu` and `HUD`).
 - `default_bus_layout.tres` — the 4 real audio buses (Music, SFX, Voice,
-  Ambient) referenced in `project.godot`'s `[audio]` section.
+  Ambient). Godot loads it automatically from this default path.
 - `data/zones/`, `data/quests/`, `data/lessons/` — content `.tres` files.
 - `data/dictionary/` — 2 real `DictionaryTermData` entries.
 - `data/library/` — 8 real, sourced `BookData` entries.
@@ -1442,6 +1442,91 @@ rationale. Quick map:
 - `localization/translations.csv` — all UI/dialogue/quiz text, 9 locale
   columns (`en`/`ro` populated; `es/fr/de/it/pt/nl/pl` columns exist but
   are empty — flagged, not silently faked).
+
+## Project settings notes
+
+The Godot editor strips comments from `project.godot` whenever it saves
+the file, so the rationale behind its settings lives here instead.
+
+### Autoload order
+
+Order matters:
+
+1. `Localization`/`Settings` first — other autoloads read locale/reduced-
+   motion state during their own `_ready()`.
+2. `GameState`/`ProgressManager`/`BusinessBuilder` before `SaveManager` —
+   `SaveManager` pushes loaded values INTO them during its own `_ready()`,
+   so they must exist first (they don't read anything at `_ready` time
+   themselves). `BusinessBuilder` holds the one persistent
+   `BusinessProfileData` the Entrepreneur Quest BUILD stepper builds — see
+   its own doc comment.
+3. `SaveManager` before anything that reads saved state at startup.
+4. The UI overlay autoloads (`DialogueBox`/`ChoicePanel`/`RewardPopup`/
+   `MatchPanel`/`SpotPanel`/`AllocatePanel`/`SortPanel`/`TextInputPanel`/
+   `LogoBuilderPanel`/`CategoryPickerPanel`/`NumericInputPanel`/
+   `SimulatorPanel`/`PitchDisplayPanel`/`BookCardPanel`/`MentorCardPanel`/
+   `ExhibitCardPanel`/`MindLabEntryCardPanel`) are global because
+   deeply-nested zone/NPC scripts (see `scenes/world/zones/`) need to show
+   dialogue/choices/mini-games/build-stage/Library-card/Museum-card/
+   Mind-Lab-card UI without any manual reference-passing across the scene
+   tree — the same reasoning autoloads exist for in Godot generally. They
+   render nothing until a script calls them (each is `visible = false` by
+   default), so their presence during the main menu is harmless. `HUD` is
+   NOT an autoload — it's purely reactive display, only meaningful once
+   inside the world, so it's a plain child node of `Main.tscn` instead.
+5. `WorldManager`/`QuestManager`/`LibraryManager`/`MuseumManager`/
+   `MindLabManager` last — they call into everything above
+   (`LibraryManager`/`MuseumManager`/`MindLabManager` hold the real
+   `BookData`/`MentorData`/`ExhibitData`/`MindLabEntryData` registries
+   `BookCardPanel`/`MentorCardPanel`/`ExhibitCardPanel`/
+   `MindLabEntryCardPanel`/`BookInteraction`/`MentorInteraction`/
+   `ExhibitInteraction`/`MindLabEntryInteraction` read from — see their
+   own doc comments).
+
+### Display
+
+Landscape by default: unlike the website (portrait-first, per the brief),
+a third-person 3D world benefits from the wider horizontal field of view
+landscape gives the follow camera — the near-universal choice for mobile
+3D exploration games. Touch controls (Section 19 of the brief) are still
+designed mobile-first; only the orientation differs from the website.
+
+### Audio
+
+4 independent buses under Master — Music/SFX/Voice/Ambient — so a child
+can turn music down without silencing sound effects, or mute voice without
+losing ambient sound, and vice versa (see `Settings.gd`'s 4 volume fields
+and `AudioManager.gd`'s bus-volume application). Audible only once real
+audio assets are dropped in; `AudioManager` ships zero today by design
+(see `AudioManager.gd`'s own doc comment).
+
+### Localization
+
+Godot's CSV translation import generates one `.translation` resource per
+locale COLUMN from the single `localization/translations.csv` file
+(`keys,en,ro,...`) — it is not one file per locale. Opening the project in
+the Godot editor imports it automatically.
+
+### Input
+
+THREE input paths feed the same movement vector in `Player.gd` — keyboard
+and gamepad share the four directional actions (Godot combines both
+automatically via `Input.get_vector`), while touch/mouse use tap-to-move
+and never need a bound action. `interact` likewise serves a keyboard
+press, a gamepad face button, and a mobile on-screen "Talk" button (via
+`Player.request_interact()`) with one shared entry point.
+
+### Physics
+
+2D physics is not used — none remains in the project after the 2D-to-3D
+conversion. 3D physics is used for Player/NPC/Interaction, but nowhere
+critical yet.
+
+### Version control
+
+`.godot/` (the editor cache) and the generated `*.translation` files are
+git-ignored (see `.gitignore`); Godot regenerates both on import. The
+`.gd.uid` and `.import` files Godot generates are committed.
 
 ## Known limitations (stated plainly)
 
