@@ -19,6 +19,8 @@ extends Node3D
 ## player bumps into it), 2 = "camera blocker", which CameraController's
 ## optional occlusion check uses to keep the camera out of buildings.
 const COLLISION_LAYERS: int = 1 | 2
+## Centre height of the name sign over the entrance arch.
+const SIGN_HEIGHT: float = 3.95
 
 @export var accent: String = "gold"
 
@@ -34,6 +36,25 @@ func _ready() -> void:
 	m.commit_to(self, "Building")
 	add_child(body)
 	_add_veil()
+	if not Engine.is_editor_hint():
+		_add_destination_sign()
+
+
+## The place's name over its entrance (DestinationSign), for the portal
+## this landmark stands on — it replaces that portal's floating label.
+func _add_destination_sign() -> void:
+	var hub: Node = get_parent().get_parent() if get_parent() else null
+	if hub == null:
+		return
+	for n in hub.get_children():
+		if n is PortalInteraction and n.global_position.distance_to(global_position) < 0.5 and Destinations.has(n.target_zone_id):
+			var sign: DestinationSign = DestinationSign.make(n.target_zone_id, 5.0)
+			sign.position = Vector3(0, SIGN_HEIGHT, 0.45)
+			add_child(sign)
+			var label := n.get_node_or_null("Label") as Label3D
+			if label:
+				label.visible = false
+			return
 
 
 ## Override: add parts to `m` (local coordinates, entrance at the origin)

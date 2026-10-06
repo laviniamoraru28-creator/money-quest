@@ -28,3 +28,11 @@ static func first_button(root: Node) -> Control:
 		if inner:
 			return inner
 	return null
+
+
+## The control that has keyboard/gamepad focus right now, if it is actually
+## on screen — or null. (A hidden control can keep focus; it must never
+## block walking, the camera or the help key.)
+static func visible_focus(viewport: Viewport) -> Control:
+	var f: Control = viewport.gui_get_focus_owner()
+	return f if f != null and f.is_visible_in_tree() else null

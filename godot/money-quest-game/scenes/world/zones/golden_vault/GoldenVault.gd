@@ -47,6 +47,11 @@ func _on_maya_talked_to(_npc_id: String) -> void:
 
 
 func _on_savings_guide_talked_to(_npc_id: String) -> void:
+	# The first-visit journey (GoldenVaultFlow) handles the Guide until the
+	# first savings activity is done; then his lesson starts as before.
+	var flow: Node = get_node_or_null("GoldenVaultFlow")
+	if flow and flow.handle_guide_talk():
+		return
 	if QuestManager.is_quest_completed(SAVINGS_GUIDE_QUEST_ID):
 		DialogueBox.show_text("zone.golden_vault.savings_guide.already_done")
 	else:

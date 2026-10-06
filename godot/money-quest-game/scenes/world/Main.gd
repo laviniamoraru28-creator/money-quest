@@ -37,6 +37,8 @@ func _on_zone_change_requested(zone_data: ZoneData) -> void:
 	var player: Node3D = _current_zone_instance.find_child("Player", true, false)
 	if player:
 		player.global_position = zone_data.player_spawn_position
+		if player.get("safety"):
+			player.safety.set_spawn(zone_data.player_spawn_position)
 
 	WorldManager.notify_zone_loaded(zone_data)
 

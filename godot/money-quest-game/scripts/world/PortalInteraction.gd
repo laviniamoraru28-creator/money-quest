@@ -40,6 +40,7 @@ func interact() -> void:
 			# nothing — the child should never think the game is broken.
 			DialogueBox.show_text("interaction.locked")
 			return
+		AudioManager.play_sfx("portal")
 		WorldManager.travel_to(target_zone_id)
 	else:
 		DialogueBox.show_text(coming_soon_message_key)

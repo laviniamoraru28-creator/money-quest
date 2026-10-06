@@ -1,8 +1,9 @@
 [gd_resource type="Theme" load_steps=3 format=3]
 
-; Money Quest World's project theme. It ONLY defines how keyboard/gamepad
-; focus looks — every other style still comes from Godot's default theme or
-; the scene's own overrides, so nothing else in the UI changes.
+; Money Quest World's project theme: a readable default text size (20, before
+; the player's own UI size setting scales the whole interface) and how
+; keyboard/gamepad focus looks. Every other style still comes from Godot's
+; default theme or the scene's own overrides.
 ;
 ; Focus: a thick Money Quest gold ring drawn just outside the control plus
 ; a light gold tint, readable over the bright 3D world, on the translucent
@@ -42,6 +43,7 @@ expand_margin_top = 4.0
 expand_margin_bottom = 4.0
 
 [resource]
+default_font_size = 20
 Button/styles/focus = SubResource("StyleBoxFlat_focus")
 CheckBox/styles/focus = SubResource("StyleBoxFlat_focus")
 CheckButton/styles/focus = SubResource("StyleBoxFlat_focus")

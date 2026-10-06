@@ -171,6 +171,17 @@ static func group_material(group: String) -> Material:
 		m.roughness = 1.0
 		m.metallic_specular = 0.2
 		result = m
+	elif group == "character":
+		# People: the same matte vertex-colour look, but they do not RECEIVE
+		# shadows (they still cast them) — rounded faces seen up close would
+		# otherwise show striped self-shadowing. A common stylised-game choice.
+		var ch := StandardMaterial3D.new()
+		ch.vertex_color_use_as_albedo = true
+		ch.vertex_color_is_srgb = true
+		ch.roughness = 1.0
+		ch.metallic_specular = 0.25
+		ch.disable_receive_shadows = true
+		result = ch
 	elif group == "cloth":
 		var c := ShaderMaterial.new()
 		c.shader = CLOTH_SHADER

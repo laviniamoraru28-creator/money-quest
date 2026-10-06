@@ -32,6 +32,10 @@ func unregister(interaction: Interaction) -> void:
 ## important a few steps away — while a doorway (priority 70) still wins
 ## whenever the child is inside its reach.
 const PRIORITY_METRES: float = 0.15
+## The current mission's target (ObjectiveManager) gets this much extra
+## head start: when a child walks toward the person the mission names,
+## passing someone else on the way, the prompt offers the mission first.
+const OBJECTIVE_BONUS_METRES: float = 3.0
 
 
 ## The most relevant interactable in reach (priority blended with
@@ -46,6 +50,8 @@ func get_nearest() -> Interaction:
 			continue
 		var dist: float = player.global_position.distance_to(i.global_position) if player else 0.0
 		var score: float = float(i.interaction_priority) * PRIORITY_METRES - dist
+		if i == ObjectiveManager.target():
+			score += OBJECTIVE_BONUS_METRES
 		if score > best_score:
 			best_score = score
 			best = i

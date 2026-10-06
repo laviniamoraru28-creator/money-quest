@@ -415,6 +415,13 @@ func _onward_arch(p: Node3D, pos: Vector3) -> void:
 		K.add_cyl_collider(_props_body, 0.42, 1.0, xform * K.xf(Vector3(sx, 0.5, 0)))
 	var mi: MeshInstance3D = arch.commit_to(self, "Arch_" + String(p.name), true)
 	mi.transform = xform
+	# The place's name over the arch (DestinationSign), facing the room.
+	var target: String = String(p.get("target_zone_id"))
+	if Destinations.has(target) and not Engine.is_editor_hint():
+		var sign: DestinationSign = DestinationSign.make(target, 4.6)
+		sign.transform = xform * K.xf(Vector3(0, 3.55, 0.25))
+		add_child(sign)
+		p.set_meta("has_sign", true)
 	_veil("Veil_" + String(p.name), K.cyl(2.15, 2.15, 0.02, 40), accent, xform * K.xf(Vector3(0, 0, -0.12), Vector3(90, 0, 0)))
 
 
@@ -473,6 +480,9 @@ func _hide_placeholders() -> void:
 			v.visible = false
 		var label := p.get_node_or_null("Label") as Label3D
 		if label:
+			if p.has_meta("has_sign"):
+				label.visible = false   # the sign over the arch names it
+				continue
 			# Above the arch, or just above the low gateway's lanterns.
 			label.position.y = 2.7 if p == rp else 3.4
 			label.pixel_size = 0.008
@@ -497,6 +507,10 @@ func _tune_light() -> void:
 	sun.light_energy = sun_energy
 	sun.shadow_enabled = true
 	sun.shadow_blur = 1.5
+	# Enough bias that rounded faces and bodies seen up close never show
+	# striped self-shadowing ("acne").
+	sun.shadow_bias = 0.12
+	sun.shadow_normal_bias = 2.6
 	sun.directional_shadow_mode = DirectionalLight3D.SHADOW_PARALLEL_2_SPLITS
 	sun.directional_shadow_max_distance = maxf(room_size.x, room_size.y) * 1.6
 

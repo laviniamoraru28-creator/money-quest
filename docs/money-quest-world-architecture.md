@@ -1550,3 +1550,178 @@ godot/money-quest-game/
     review of the new Mind Lab translations in all 7 non-English, non-
     Romanian locales, and (unrelated to this phase) the same Sara
     Blakely/Daymond John source URL gap noted above.
+
+---
+
+## 13. Physical and digital money: design note (proposal, not implemented)
+
+**Goal.** Across the whole world, children should meet money in different
+*forms*: coins, banknotes, a digital balance, card payments and transfers.
+They should come to see that **10 virtual coins in cash and 10 in a
+digital balance are the same value in a different form**. The game never
+presents digital money as "fake" or "less real". It is a different way of
+holding or moving the same money. Children learn this by doing things
+(moving coins, tapping a card, watching a balance change), not by reading.
+
+Hard rules (the same as for the rest of the project):
+
+- All money stays **virtual**. There are no real transactions, no real
+  currency codes and no network calls.
+- **No real banks, payment companies, card schemes or apps.** Use only
+  fictional Money Quest systems (see 13.2). Promote no financial
+  product.
+- Every new piece must respect Reduced Motion, be readable without sound,
+  support keyboard, mouse, gamepad and touch, and fit mobile screens.
+
+### 13.1 Audit: what currently assumes money is physical coins
+
+| Where | Assumption |
+|---|---|
+| `scripts/core/VirtualMoney.gd` | Holds one integer `balance`, documented as "just coins". `formatted()` always says "N virtual coins" (`money.virtual_coins`). |
+| `autoload/GameState.gd` | The whole API is named after coins: `add_coins()` and `coins_changed`. |
+| `scenes/ui/HUD.gd` | Shows one "N virtual coins" total, with no notion of where the money is held. |
+| `LessonData.coin_reward`, `QuestData.coin_reward`, `ConsequenceEffect.coin_delta`, `RewardPopup`, the AudioManager `coin_reward` sound | Every reward is paid as coins into one pot. |
+| `autoload/SaveManager.gd` | Saves a single `virtual_coins` integer. |
+| `LessonManager.gd:73`, `QuestManager.gd:122` | A negative `coin_delta` is clamped to 0, and nothing ever calls `VirtualMoney.spend()`. **The wallet can only grow, so spending is not modelled at all yet.** |
+| Golden Vault (`GoldenVaultFlow`, `Collectible`, `SavingsJar.drop_coins`) | Saving is shown as physical gold coins dropped into a jar. This is a good physical anchor and should stay. |
+| Entrepreneur Quest (`BusinessBuilder`, `SimulatorPanel`) | `STARTING_MONEY`, sales, costs and profit are plain numbers. There is no notion of customers paying by cash or by card. |
+| Decor (`DecorKit` coin towers, the vault, coin props) | The world's visual language of money is entirely coins. This fits the theme, but there is nothing yet that pictures a digital balance. |
+
+Digital money already exists, but **only as text and dialogue, with no
+mechanics**:
+
+- **Sky Exchange ("Currency Explorer"):** `*-currencies-l1` ("money can
+  be physical or digital") and `*-digital-money-l1` (Omar's card tap and
+  the payment confirmation).
+- **Guardian Gate:** `*-scams-l1` (online scams).
+- **Museum:** the Future Money Lab exhibits `digital-payments` and
+  `digital-identity`, and the Money Through Time items "cards" and
+  "contactless payments".
+
+### 13.2 Proposed model, compatible with the existing virtual money
+
+**Keep one total and add *forms* beside it.** `GameState.wallet.balance`
+stays the child's total virtual money, so every existing reward, save and
+HUD total keeps working unchanged. What is new is *where* that value sits:
+
+```
+VirtualMoney (later extended; same class)
+  balance: int               # TOTAL value: unchanged meaning and save key
+  digital: int = 0           # the part held in the fictional digital balance
+  cash() -> int              # balance - digital  (coins + banknotes)
+  add(amount, form = CASH)   # existing callers pay cash, exactly as today
+  spend(amount, form) -> bool
+  move(amount, from, to) -> bool   # deposit / withdraw: the TOTAL never changes
+```
+
+- **The invariant is the lesson.** `cash() + digital == balance` always
+  holds. A deposit moves value from cash to digital while the total on
+  screen stays the same, so the game *shows* that one value has changed
+  form.
+- **Backwards compatible.** Old saves have no `digital` key, so
+  `digital = 0` and everything is cash, exactly like today's coin-only
+  world. `ConsequenceEffect` would gain an optional `money_form` that
+  defaults to `CASH`, so no existing `.tres` file changes.
+- **Banknotes are a way of showing cash, not a separate balance.**
+  `MoneyVisual`, a static helper like `DecorKit`, splits a cash amount
+  into notes and coins for display. A 10-note and ten 1-coins are
+  visibly the same value.
+- **Transactions (later, and small).** A `MoneyEvent` record would hold
+  four things:
+  - `kind`: earn, spend, deposit, withdraw, card_payment, transfer_in,
+    transfer_out or sale;
+  - `amount`;
+  - `form`;
+  - a fictional counterpart name key and a sequence number.
+
+  The last ~20 events would live in
+  `ProgressManager.activity_state["money-events"]`, which is already
+  saved. They would be used only for a child-friendly "what happened to
+  my money" screen. There would be no ledger engine, no interest maths
+  beyond what the Golden Vault already shows, and no real-world banking
+  timestamps.
+- **Business money stays separate from the child's wallet.** Entrepreneur
+  Quest keeps its own simulator numbers. Each sale would gain a `form`
+  (cash or card), so the till can show "Cash drawer" and "Digital sales"
+  side by side, both adding to the same business income.
+- **Units stay currency-agnostic.** The game deliberately has no currency
+  code, and every amount reads "virtual coins". An example like "£10" in
+  a brief becomes "10 virtual coins" on screen, which keeps all 9
+  languages working.
+- **Spending has to be modelled first** (see the clamp in 13.1).
+  Otherwise "pay by card" has nothing to show.
+
+**Fictional systems.** Check these names so none resembles a real brand:
+
+| Name | What it is |
+|---|---|
+| *Quest Card* | a payment card |
+| *Pocket Screen* | a small screen the player carries that shows their digital balance |
+| *Vault Account* | the Golden Vault's digital balance |
+| *Shop Till* | the Entrepreneur Quest till, with a cash drawer and a card reader |
+
+**Shared building blocks.** Every zone uses the same visual language:
+
+- **`BalanceScreen`:** a 2D widget with big numbers. It shows Cash and
+  Digital side by side with the same coin icon and the total underneath.
+  It scales with UIScale and is sized for touch.
+- **`TransferAnimation`:** for a deposit, coins fly into a slot and the
+  number ticks up. For a card payment, a tap brings a beep, a green tick
+  and a number that goes down. With Reduced Motion the change is instant,
+  and the sound and text stay.
+- **SoundSynth cues:** a card beep, a transfer "whoosh" and a till ring.
+- **Existing panels:** SortPanel ("cash or digital?"), MatchPanel ("same
+  value, different form"), ChoicePanel scenarios and ActivityStation. No
+  new mini-game framework is needed.
+- **One total in the HUD.** The cash/digital split appears only after the
+  child has met the concept (an activity flag), so new players are never
+  confused.
+
+### 13.3 Where digital money could first appear naturally
+
+1. **Golden Vault (the smallest first step).** After the coin-jar
+   activity, add an optional "Vault Account" counter. The child deposits
+   the jar's coins and watches the same number appear as a digital
+   balance. The existing jar gameplay is unchanged.
+2. **Market Town (spending).** The child pays at a stall with coins or
+   with the Quest Card. Both cost the same, and the Pocket Screen goes
+   down by the same amount. This is where spending gets modelled.
+3. **Sky Exchange.** The existing card-payment lesson becomes something
+   the child does: tap, wait for the tick, check the balance.
+4. **Entrepreneur Quest ("Make your first sale").** Customers pay by cash
+   or by card, and "Cash drawer +8" and "Digital sales +8" both count as
+   income. Expenses, transfers to a supplier and cash flow come later.
+5. **Museum (Money Through Time / Future Money Lab).** A walk-through
+   timeline goes from shells, coins and notes to cards and phones, using
+   the existing exhibits.
+6. **Library.** Story cards such as "Where does money go when you tap a
+   card?".
+7. **Leadership Academy and later areas.** Decisions in a modern
+   workplace, the digital economy and responsible technology use. The
+   Guardian Gate's scam lessons already lead into these.
+
+### 13.4 Risks and compatibility
+
+- **Misconception.** Visuals must never make digital money look weaker
+  or less real: no faded or ghostly numbers. Both forms use the same
+  coin icon and show the same value.
+- **"Infinite card".** A card payment must visibly reduce the balance and
+  be refused when the balance is too low (`spend()` returns false). The
+  game must never suggest a card is free money. Credit and borrowing are
+  a separate topic for later.
+- **The wallet can't go down today.** Turning on real spending changes
+  the behaviour of every `coin_delta < 0` in existing content. Audit
+  those cases and switch spending on deliberately, never as a side
+  effect.
+- **Save format.** The new `digital` field defaults to 0, so no migration
+  is needed. Older builds would ignore it and lose the cash/digital
+  split (the total survives), so treat saves as forward-only.
+- **Real-world naming.** Avoid real brands, card-scheme logos and
+  trademarked payment symbols. Existing content names real product types
+  (for example "Junior ISA"). These are generic categories, but review
+  them so none reads as a product recommendation.
+- **Localisation and mobile.** Add every new label to all 9 locales. The
+  BalanceScreen must fit at Extra Large text and on portrait phones,
+  following the same rules as the DestinationPrompt.
+- **Scope.** None of this is built yet. Start with the Golden Vault
+  deposit step and Market Town spending, then extend.

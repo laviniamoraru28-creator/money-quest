@@ -26,18 +26,32 @@ var _item_buttons: Array[Button] = []
 var _placements: Array = []   # bucket_key or "" per item, parallel to _items
 var _selected_item_index: int = -1
 var _solved: bool = false
+var _feedback: Label
+var _qid: String = ""
 
 
 func _ready() -> void:
 	visible = false
 	submit_button.pressed.connect(_on_submit_pressed)
+	# Words as well as colours after a check, and Listen (L / gamepad X).
+	_feedback = Narration.feedback_label()
+	_feedback.add_theme_color_override("font_color", Color("FFE7A0"))
+	$Panel/VBox.add_child(_feedback)
+	$Panel/VBox.add_child(Narration.listen_button())
 
 
 func show_sort(buckets: Array[SortBucketData], items: Array[SortItemData]) -> void:
 	instructions_label.text = Localization.t("common.sort_instructions")
 	submit_button.text = Localization.t("common.sort_submit_button")
 	_buckets = buckets
-	_items = items
+	# Items in a fresh random order (AnswerOrder): each item keeps its own
+	# correct bucket, so checking is unchanged.
+	_qid = AnswerOrder.question_id("sort", items.map(func(it): return it.text_key))
+	var shown: Array[SortItemData] = []
+	for i in AnswerOrder.order_for(_qid, items.size()):
+		shown.append(items[i])
+	_items = shown
+	_feedback.visible = false
 	_placements.clear()
 	for i in _items.size():
 		_placements.append("")
@@ -53,6 +67,7 @@ func show_sort(buckets: Array[SortBucketData], items: Array[SortItemData]) -> vo
 		button.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		var this_index := i
 		button.pressed.connect(func(): _on_item_pressed(this_index))
+		Narration.read_on_focus(button, Localization.t(_items[i].text_key))
 		items_box.add_child(button)
 		_item_buttons.append(button)
 
@@ -63,15 +78,31 @@ func show_sort(buckets: Array[SortBucketData], items: Array[SortItemData]) -> vo
 		button.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		var this_bucket_key: String = bucket.bucket_key
 		button.pressed.connect(func(): _on_bucket_pressed(this_bucket_key))
+		Narration.read_on_focus(button, button.text)
 		buckets_box.add_child(button)
 
 	_refresh_item_labels()
 
 	visible = true
 	UIFocus.focus(items_box)
+	AudioManager.present(listen_text())
 	while not _solved:
 		await get_tree().process_frame
+	AnswerOrder.answered(_qid)
 	visible = false
+
+
+## What the Listen control reads: the instructions, every item (in the
+## order shown), the buckets, and the last check's result.
+func listen_text() -> String:
+	if not visible:
+		return ""
+	var items: Array = []
+	for it in _items:
+		items.append(Localization.t(it.text_key))
+	var s: String = Narration.question_text(instructions_label.text, items)
+	s += " " + ", ".join(_buckets.map(func(b): return Localization.t(b.label_key))) + "."
+	return s + (" " + _feedback.text if _feedback.visible else "")
 
 
 func _on_item_pressed(index: int) -> void:
@@ -119,6 +150,7 @@ func _on_submit_pressed() -> void:
 			_item_buttons[i].modulate = WRONG_COLOR
 			_placements[i] = ""
 
+	Narration.show_feedback(_feedback, all_correct)
 	if all_correct:
 		_solved = true
 	else:

@@ -89,7 +89,7 @@ npc_id = "hub-guide"
 [node name="PortalMoneyQuest" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -17)
 script = ExtResource("4")
-label_key = "zone.golden_vault.name"
+label_key = "place.golden_vault.name"
 target_zone_id = "golden-vault"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PortalMoneyQuest"]

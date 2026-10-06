@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://goldenvault01"]
+[gd_scene load_steps=14 format=3 uid="uid://goldenvault01"]
 
 [ext_resource type="Script" path="res://scenes/world/zones/golden_vault/GoldenVault.gd" id="1"]
 [ext_resource type="PackedScene" path="res://scenes/player/Player.tscn" id="2"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scripts/world/zones/GoldenVaultDressing.gd" id="6"]
 [ext_resource type="Script" path="res://scripts/world/EnvironmentOverride.gd" id="7"]
 [ext_resource type="Environment" path="res://assets/environment/mq_interior_environment.tres" id="8"]
+[ext_resource type="Script" path="res://scenes/world/zones/golden_vault/GoldenVaultFlow.gd" id="9"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ground"]
 size = Vector3(24, 1, 24)
@@ -110,3 +111,6 @@ script = ExtResource("6")
 [node name="EnvironmentOverride" type="Node" parent="."]
 script = ExtResource("7")
 environment = ExtResource("8")
+
+[node name="GoldenVaultFlow" type="Node3D" parent="."]
+script = ExtResource("9")

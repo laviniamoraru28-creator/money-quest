@@ -45,6 +45,9 @@ const DEFAULT_SAVE: Dictionary = {
 	"calm_garden_bubbles_id": "none",
 	"calm_garden_stones_id": "none",
 	"calm_garden_creature_id": "none",
+	# Vertical slice (all additive: an older save simply gets these defaults)
+	"completed_activity_ids": [],
+	"activity_state": {},
 }
 
 
@@ -65,6 +68,8 @@ func _ready() -> void:
 	Settings.voice_volume_changed.connect(func(_v): save_progress())
 	Settings.ambient_volume_changed.connect(func(_v): save_progress())
 	Localization.locale_changed.connect(func(_v): save_progress())
+	Settings.changed.connect(func(_k, _v): save_progress())
+	ProgressManager.activity_changed.connect(func(_id): save_progress())
 
 
 func load_progress() -> void:
@@ -159,6 +164,19 @@ func load_progress() -> void:
 	Settings.sfx_volume = data.get("sfx_volume", DEFAULT_SAVE["sfx_volume"])
 	Settings.voice_volume = data.get("voice_volume", DEFAULT_SAVE["voice_volume"])
 	Settings.ambient_volume = data.get("ambient_volume", DEFAULT_SAVE["ambient_volume"])
+	# Newer comfort settings: each falls back to its own default, never to a
+	# value of the wrong type (a hand-edited or corrupt save stays playable).
+	for key in Settings.DEFAULTS.keys():
+		var fallback: Variant = Settings.DEFAULTS[key]
+		var v: Variant = data.get(key, fallback)
+		if typeof(fallback) == TYPE_FLOAT and (typeof(v) == TYPE_INT or typeof(v) == TYPE_FLOAT):
+			v = float(v)
+		Settings.set(key, v if typeof(v) == typeof(fallback) else fallback)
+	if not Settings.UI_SCALES.has(Settings.ui_scale):
+		Settings.ui_scale = Settings.DEFAULTS["ui_scale"]
+	ProgressManager.completed_activity_ids.assign(data.get("completed_activity_ids", []))
+	var state: Variant = data.get("activity_state", {})
+	ProgressManager.activity_state = (state as Dictionary).duplicate(true) if state is Dictionary else {}
 
 	Localization.set_locale(data.get("locale", Localization.DEFAULT_LOCALE))
 
@@ -198,7 +216,11 @@ func save_progress() -> void:
 		"calm_garden_bubbles_id": ProgressManager.calm_garden_config.bubbles_id,
 		"calm_garden_stones_id": ProgressManager.calm_garden_config.stones_id,
 		"calm_garden_creature_id": ProgressManager.calm_garden_config.creature_id,
+		"completed_activity_ids": ProgressManager.completed_activity_ids,
+		"activity_state": ProgressManager.activity_state,
 	}
+	for key in Settings.DEFAULTS.keys():
+		data[key] = Settings.get(key)
 
 	var file := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	if file == null:

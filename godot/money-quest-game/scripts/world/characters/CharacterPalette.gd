@@ -88,7 +88,7 @@ static func mat(c: Color, glow: float = 0.0) -> StandardMaterial3D:
 	else:
 		# Baked as a vertex colour by MeshMerger: a whole character's plain
 		# parts render as one surface instead of one per colour.
-		DecorKit.tag_vertex_color(m, "static", c)
+		DecorKit.tag_vertex_color(m, "character", c)
 	_materials[key] = m
 	return m
 

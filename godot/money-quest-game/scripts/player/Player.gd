@@ -26,6 +26,7 @@ const SPEED: float = 4.5
 const ARRIVE_DISTANCE: float = 0.3
 const GRAVITY: float = 9.8
 const ROTATION_SPEED: float = 10.0
+const STEP_LENGTH: float = 0.62
 
 @onready var interaction_manager: InteractionManager = $InteractionManager
 
@@ -36,11 +37,19 @@ var visual: CharacterRig = null
 
 var _target_position: Vector3 = Vector3.ZERO
 var _has_target: bool = false
+var _step_distance: float = 0.0
+var _step_left: bool = false
+## The universal safety net (see PlayerSafety): brings the player back to
+## safe ground after a fall or if they leave the playable area.
+var safety: PlayerSafety
 
 
 func _ready() -> void:
 	add_to_group("player")
 	_target_position = global_position
+	safety = PlayerSafety.new()
+	safety.name = "Safety"
+	add_child(safety)
 	_apply_avatar_config()
 
 
@@ -95,6 +104,10 @@ func _set_target_from_screen_point(screen_point: Vector2) -> void:
 
 func _physics_process(delta: float) -> void:
 	var move_input: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	# While a menu or dialogue has keyboard/gamepad focus, the arrows and the
+	# stick move between its buttons — they must not also walk the player.
+	if _ui_has_focus():
+		move_input = Vector2.ZERO
 
 	if move_input != Vector2.ZERO:
 		# A keyboard/gamepad nudge always overrides a pending tap-to-move
@@ -120,6 +133,31 @@ func _physics_process(delta: float) -> void:
 		velocity.y = 0.0
 
 	move_and_slide()
+	_footsteps(delta)
+
+
+## Soft footsteps while walking on the ground (alternating, slightly
+## varied); a wheelchair rolls quietly instead. Nothing important is ever
+## carried by this sound.
+func _footsteps(delta: float) -> void:
+	var speed: float = Vector2(velocity.x, velocity.z).length()
+	if not is_on_floor() or speed < 0.5:
+		_step_distance = 0.0
+		return
+	_step_distance += speed * delta
+	if _step_distance >= STEP_LENGTH:
+		_step_distance = 0.0
+		if visual and visual.seated:
+			return
+		_step_left = not _step_left
+		AudioManager.play_sfx("step_a" if _step_left else "step_b", randf_range(0.92, 1.08), -10.0)
+
+
+## True while a visible on-screen control (a menu, a dialogue button) has
+## keyboard/gamepad focus. A hidden control that still holds focus never
+## blocks walking.
+func _ui_has_focus() -> bool:
+	return UIFocus.visible_focus(get_viewport()) != null
 
 
 func _camera_relative_direction(move_input: Vector2) -> Vector3:

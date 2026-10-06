@@ -29,6 +29,7 @@ var _busy: bool = false   # true while a wrong-match flash is showing
 
 func _ready() -> void:
 	visible = false
+	$Panel/VBox.add_child(Narration.listen_button())
 
 
 ## Runs the full matching mini-game and waits until every pair is matched.
@@ -62,9 +63,21 @@ func show_match(pairs: Array[MatchPairData]) -> void:
 
 	visible = true
 	UIFocus.focus(left_box)
+	AudioManager.present(listen_text())
 	while _matched_count < _pairs.size():
 		await get_tree().process_frame
 	visible = false
+
+
+## What the Listen control reads: the instructions and both columns (in
+## the order shown).
+func listen_text() -> String:
+	if not visible:
+		return ""
+	var items: Array = []
+	for b in _left_buttons + _right_buttons:
+		items.append(b.text)
+	return Narration.question_text(instructions_label.text, items)
 
 
 func _on_left_pressed(index: int) -> void:
@@ -104,6 +117,7 @@ func _make_item_button(label_text: String) -> Button:
 	button.text = label_text
 	button.custom_minimum_size = Vector2(0, MIN_BUTTON_HEIGHT)
 	button.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	Narration.read_on_focus(button, label_text)
 	return button
 
 

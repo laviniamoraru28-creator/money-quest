@@ -18,6 +18,12 @@ extends RefCounted
 ## the body toward), character's right hand on -X.
 
 const HEAD_R: float = 0.25
+## The head (with its hair and accessories) is built at HEAD_R and scaled by
+## this: a slightly smaller head on a taller body reads as a person rather
+## than a doll, while staying soft and friendly.
+const HEAD_SCALE: float = 0.88
+const EYE_X: float = 0.088
+const EYE_Y: float = 0.012
 const INK := Color("1C2624")
 const WHITE := Color("FFFFFF")
 
@@ -50,7 +56,7 @@ static func build(look: CharacterLook, animated: bool) -> CharacterRig:
 			for side in [-1.0, 1.0]:
 				_leg(bm, look, d, _hip_xf(d, side), look.seated)
 			var hm := MeshMerger.new()
-			_head_group(hm, look, Transform3D(Basis.IDENTITY, Vector3(0, d.head_y - _neck_y(d), 0)))
+			_head_group(hm, look, _head_local(d))
 			var am := MeshMerger.new()
 			_arm(am, look, d, Transform3D.IDENTITY, -1.0)
 			_npc_mesh_cache[key] = [bm.commit(), hm.commit(), am.commit()]
@@ -65,6 +71,7 @@ static func build(look: CharacterLook, animated: bool) -> CharacterRig:
 		head.position = Vector3(0, _neck_y(d), 0)
 		body.add_child(head)
 		rig.head = head
+		_add_face_parts(rig, look, head, _head_local(d))
 		var arm := MeshInstance3D.new()
 		arm.name = "ArmR"
 		arm.mesh = meshes[2]
@@ -77,6 +84,7 @@ static func build(look: CharacterLook, animated: bool) -> CharacterRig:
 	var torso := MeshMerger.new()
 	_torso_and_head(torso, look, d, Transform3D.IDENTITY)
 	torso.commit_to(body, "Torso")
+	_add_face_parts(rig, look, body, Transform3D(Basis.from_scale(Vector3.ONE * HEAD_SCALE), Vector3(0, d.head_y, 0)))
 	for side in [-1.0, 1.0]:
 		var arm_pivot := Node3D.new()
 		arm_pivot.name = "ArmR" if side < 0.0 else "ArmL"
@@ -129,11 +137,11 @@ static func _dims(look: CharacterLook) -> Dims:
 	var d := Dims.new()
 	d.h = look.height
 	d.w = look.width
-	d.hip_y = 0.62 * d.h
-	d.thigh = 0.30 * d.h
-	d.shin = 0.27 * d.h
-	d.shoulder_y = d.hip_y + 0.44 * d.h
-	d.head_y = d.shoulder_y + 0.33
+	d.hip_y = 0.70 * d.h
+	d.thigh = 0.34 * d.h
+	d.shin = 0.31 * d.h
+	d.shoulder_y = d.hip_y + 0.48 * d.h
+	d.head_y = d.shoulder_y + 0.30
 	d.torso_r = 0.2 * d.w
 	return d
 
@@ -167,7 +175,44 @@ static func _capsule(radius: float, height: float) -> CapsuleMesh:
 
 static func _torso_and_head(m: MeshMerger, look: CharacterLook, d: Dims, base: Transform3D) -> void:
 	_torso(m, look, d, base)
-	_head_group(m, look, base * Transform3D(Basis.IDENTITY, Vector3(0, d.head_y, 0)))
+	_head_group(m, look, base * Transform3D(Basis.from_scale(Vector3.ONE * HEAD_SCALE), Vector3(0, d.head_y, 0)))
+
+
+## The head group's transform relative to an NPC's head pivot.
+static func _head_local(d: Dims) -> Transform3D:
+	return Transform3D(Basis.from_scale(Vector3.ONE * HEAD_SCALE), Vector3(0, d.head_y - _neck_y(d), 0))
+
+
+## Closed eyelids (shown for a blink) and an open mouth (shown while
+## talking): two tiny separate meshes, hidden at rest, so CharacterRig can
+## blink and talk by toggling them — no per-frame mesh work.
+static func _add_face_parts(rig: CharacterRig, look: CharacterLook, parent: Node3D, hx: Transform3D) -> void:
+	var key: String = "face|" + look.skin.to_html(false)
+	if not _npc_mesh_cache.has(key):
+		var lm := MeshMerger.new()
+		for side in [-1.0, 1.0]:
+			_p(lm, Transform3D.IDENTITY, DecorKit.sphere(0.05, 12, 6), look.skin.darkened(0.04), Vector3(side * EYE_X, EYE_Y, 0.2), Vector3.ZERO, Vector3(1.0, 1.16, 0.62))
+			_p(lm, Transform3D.IDENTITY, DecorKit.box(Vector3(0.07, 0.008, 0.01)), look.skin.darkened(0.35), Vector3(side * EYE_X, EYE_Y - 0.004, 0.232))
+		var mm := MeshMerger.new()
+		_p(mm, Transform3D.IDENTITY, DecorKit.sphere(0.03, 10, 5), Color("6E2A2A"), Vector3.ZERO, Vector3.ZERO, Vector3(1.35, 1.0, 0.4))
+		_npc_mesh_cache[key] = [lm.commit(), mm.commit()]
+	var meshes: Array = _npc_mesh_cache[key]
+	var lids := MeshInstance3D.new()
+	lids.name = "Eyelids"
+	lids.mesh = meshes[0]
+	lids.transform = hx
+	lids.visible = false
+	lids.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	parent.add_child(lids)
+	rig.eyelids = lids
+	var mouth := MeshInstance3D.new()
+	mouth.name = "Mouth"
+	mouth.mesh = meshes[1]
+	mouth.transform = hx * Transform3D(Basis.IDENTITY, Vector3(0, -0.068, 0.226))
+	mouth.visible = false
+	mouth.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	parent.add_child(mouth)
+	rig.mouth = mouth
 
 
 ## Where an NPC's head pivots (top of the neck).
@@ -220,11 +265,15 @@ static func _head(m: MeshMerger, look: CharacterLook, hb: Transform3D) -> void:
 	_p(m, hb, DecorKit.sphere(r, 20, 10), look.skin, Vector3.ZERO, Vector3.ZERO, Vector3(1.0, 0.97, 0.95))
 	for side in [-1.0, 1.0]:
 		_p(m, hb, DecorKit.sphere(0.055, 8, 4), look.skin, Vector3(side * 0.243, -0.01, 0), Vector3.ZERO, Vector3(0.55, 1.0, 0.8))
-		# Eyes: dark ovals with a small highlight — friendly, never realistic
-		_p(m, hb, DecorKit.sphere(0.036, 10, 5), INK, Vector3(side * 0.085, 0.015, 0.212), Vector3.ZERO, Vector3(0.85, 1.15, 0.6))
-		_p(m, hb, DecorKit.sphere(0.012, 6, 3), WHITE, Vector3(side * 0.085 + 0.012, 0.035, 0.232), Vector3.ZERO, Vector3.ONE, 0.4)
+		# Eyes: white, a coloured iris, a dark pupil and a bright highlight —
+		# expressive and alive, still clearly stylised.
+		var ex: float = side * EYE_X
+		_p(m, hb, DecorKit.sphere(0.046, 12, 6), WHITE, Vector3(ex, EYE_Y, 0.198), Vector3.ZERO, Vector3(0.95, 1.12, 0.55))
+		_p(m, hb, DecorKit.sphere(0.03, 10, 5), look.eyes, Vector3(ex, EYE_Y - 0.004, 0.221), Vector3.ZERO, Vector3(1.0, 1.06, 0.5))
+		_p(m, hb, DecorKit.sphere(0.016, 8, 4), INK, Vector3(ex, EYE_Y - 0.004, 0.232), Vector3.ZERO, Vector3(1.0, 1.0, 0.5))
+		_p(m, hb, DecorKit.sphere(0.008, 6, 3), WHITE, Vector3(ex + 0.011, EYE_Y + 0.013, 0.239), Vector3.ZERO, Vector3.ONE, 0.4)
 		# Brows
-		_p(m, hb, DecorKit.box(Vector3(0.07, 0.017, 0.02)), look.hair.darkened(0.15), Vector3(side * 0.088, 0.085, 0.212), Vector3(0, 0, side * -8.0))
+		_p(m, hb, DecorKit.box(Vector3(0.072, 0.018, 0.02)), look.hair.darkened(0.15), Vector3(ex, 0.094, 0.208), Vector3(0, 0, side * -8.0))
 		# Soft cheeks
 		_p(m, hb, DecorKit.sphere(0.04, 8, 4), look.skin.lerp(Color("F07A5A"), 0.3), Vector3(side * 0.135, -0.045, 0.185), Vector3.ZERO, Vector3(1.0, 0.6, 0.3))
 	# Nose and smile
@@ -301,6 +350,8 @@ static func _arm(m: MeshMerger, look: CharacterLook, d: Dims, base: Transform3D,
 	_p(m, base, _capsule(0.06, 0.24 * d.h), look.skin, Vector3(0, -0.31 * d.h, 0))
 	var hand_y: float = -0.44 * d.h
 	_p(m, base, DecorKit.sphere(0.072, 10, 5), look.skin, Vector3(0, hand_y, 0.01), Vector3.ZERO, Vector3(0.9, 1.0, 1.0))
+	# A thumb on the inner side: reads as a hand, not a ball.
+	_p(m, base, DecorKit.sphere(0.03, 8, 4), look.skin, Vector3(-side * 0.045, hand_y + 0.025, 0.04), Vector3.ZERO, Vector3(0.8, 1.2, 0.8))
 	if side < 0.0 and look.has("cane") and not look.seated:
 		# A white mobility cane with a red band, held in the right hand.
 		var cane_len: float = d.shoulder_y - 0.02 + hand_y

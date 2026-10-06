@@ -31,6 +31,7 @@ extends Node3D
 @export var use_authored_offset: bool = false
 
 const OCCLUSION_MARGIN: float = 0.4
+const TURN_SPEED: float = 1.8   # radians per second at full stick / key
 
 @onready var _camera: Camera3D = $Camera3D
 
@@ -39,6 +40,8 @@ var _yaw: float = 0.0
 
 func _ready() -> void:
 	_camera.current = true
+	_camera.fov = Settings.camera_fov
+	Settings.changed.connect(_on_setting_changed)
 	if use_authored_offset:
 		_yaw = 0.0
 	else:
@@ -49,12 +52,18 @@ func _unhandled_input(event: InputEvent) -> void:
 	# Desktop-only nicety — touch and gamepad players never trigger this,
 	# and the camera still follows correctly without it (see _physics_process).
 	if event is InputEventMouseMotion and Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
-		_yaw -= event.relative.x * mouse_look_sensitivity
+		_yaw -= event.relative.x * mouse_look_sensitivity * Settings.camera_sensitivity
 
 
 func _physics_process(delta: float) -> void:
 	if not target:
 		return
+	# Keyboard (Z / X) and the right stick turn the camera too, at a calm
+	# pace scaled by the camera-speed setting. Only ever on the player's
+	# own input — the camera never turns by itself.
+	var turn: float = Input.get_axis("camera_left", "camera_right")
+	if turn != 0.0 and UIFocus.visible_focus(get_viewport()) == null:
+		_yaw -= turn * TURN_SPEED * Settings.camera_sensitivity * delta
 
 	var rotated_offset: Vector3 = follow_offset.rotated(Vector3.UP, _yaw)
 	var desired_position: Vector3 = target.global_position + rotated_offset
@@ -63,7 +72,7 @@ func _physics_process(delta: float) -> void:
 		var unblocked: Vector3 = _unoccluded_position(target.global_position + Vector3.UP * 1.2, desired_position)
 		pulled_in = not unblocked.is_equal_approx(desired_position)
 		desired_position = unblocked
-	if Settings.reduced_motion or pulled_in:
+	if Settings.reduced_motion or pulled_in or not Settings.camera_smoothing:
 		# The follow-smoothing itself is the non-essential animation here
 		# (per Settings.gd's own "any tween/animation anywhere in this
 		# project MUST check reduced_motion" rule) — snap straight to the
@@ -82,3 +91,8 @@ func _unoccluded_position(from: Vector3, to: Vector3) -> Vector3:
 	if hit.is_empty():
 		return to
 	return hit.position + (from - to).normalized() * OCCLUSION_MARGIN
+
+
+func _on_setting_changed(key: String, value: Variant) -> void:
+	if key == "camera_fov" and is_instance_valid(_camera):
+		_camera.fov = float(value)

@@ -21,18 +21,32 @@ const DEFAULT_COLOR: Color = Color(1, 1, 1)
 var _items: Array[SpotItemData] = []
 var _item_buttons: Array[Button] = []
 var _solved: bool = false
+var _feedback: Label
+var _qid: String = ""
 
 
 func _ready() -> void:
 	visible = false
 	submit_button.pressed.connect(_on_submit_pressed)
+	# Words as well as colours after a check, and Listen (L / gamepad X).
+	_feedback = Narration.feedback_label()
+	_feedback.add_theme_color_override("font_color", Color("FFE7A0"))
+	$Panel/VBox.add_child(_feedback)
+	$Panel/VBox.add_child(Narration.listen_button())
 
 
 func show_spot(scenario_text_key: String, items: Array[SpotItemData]) -> void:
 	scenario_label.text = Localization.t(scenario_text_key)
 	submit_button.text = Localization.t("common.spot_submit_button")
-	_items = items
+	# Items in a fresh random order (AnswerOrder): each button stays paired
+	# with its own item, so the check below is unchanged.
+	_qid = AnswerOrder.question_id(scenario_text_key, items.map(func(it): return it.text_key))
+	var shown: Array[SpotItemData] = []
+	for i in AnswerOrder.order_for(_qid, items.size()):
+		shown.append(items[i])
+	_items = shown
 	_solved = false
+	_feedback.visible = false
 	_clear_items()
 
 	_item_buttons.clear()
@@ -43,15 +57,28 @@ func show_spot(scenario_text_key: String, items: Array[SpotItemData]) -> void:
 		button.custom_minimum_size = Vector2(0, MIN_BUTTON_HEIGHT)
 		button.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		button.toggled.connect(func(_pressed): _refresh_submit_enabled())
+		Narration.read_on_focus(button, button.text)
 		items_box.add_child(button)
 		_item_buttons.append(button)
 	_refresh_submit_enabled()
 
 	visible = true
 	UIFocus.focus(items_box)
+	AudioManager.present(listen_text())
 	while not _solved:
 		await get_tree().process_frame
+	AnswerOrder.answered(_qid)
 	visible = false
+
+
+## What the Listen control reads: the situation, every item (in the order
+## shown) and the last check's result.
+func listen_text() -> String:
+	if not visible:
+		return ""
+	var texts: Array = _item_buttons.map(func(b): return b.text)
+	var s: String = Narration.question_text(scenario_label.text, texts)
+	return s + (" " + _feedback.text if _feedback.visible else "")
 
 
 func _refresh_submit_enabled() -> void:
@@ -75,6 +102,7 @@ func _on_submit_pressed() -> void:
 			all_correct = false
 			button.modulate = WRONG_COLOR if is_selected else MISSED_COLOR
 
+	Narration.show_feedback(_feedback, all_correct)
 	if all_correct:
 		_solved = true
 

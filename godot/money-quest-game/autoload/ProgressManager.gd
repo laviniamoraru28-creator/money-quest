@@ -113,3 +113,38 @@ func has_discovered_world(discovery_id: String) -> bool:
 func discover_entry(entry_id: String) -> void:
 	if not discovered_entry_ids.has(entry_id):
 		discovered_entry_ids.append(entry_id)
+
+
+# --- Activities (vertical slice) ---------------------------------------------
+# A small, reusable record of hands-on activities (an in-world mini-game, a
+# tutorial step, coins found in a zone): which are complete, plus a little
+# free-form state per activity (e.g. which coins were already picked up), so
+# leaving the zone, falling, or closing the game never loses progress.
+
+signal activity_changed(activity_id: String)
+
+var completed_activity_ids: Array[String] = []
+var activity_state: Dictionary = {}
+
+
+func is_activity_completed(activity_id: String) -> bool:
+	return completed_activity_ids.has(activity_id)
+
+
+func complete_activity(activity_id: String) -> void:
+	if activity_id.is_empty() or is_activity_completed(activity_id):
+		return
+	completed_activity_ids.append(activity_id)
+	activity_changed.emit(activity_id)
+
+
+func get_activity_state(activity_id: String, key: String, fallback: Variant = null) -> Variant:
+	var s: Variant = activity_state.get(activity_id, {})
+	return (s as Dictionary).get(key, fallback) if s is Dictionary else fallback
+
+
+func set_activity_state(activity_id: String, key: String, value: Variant) -> void:
+	if not (activity_state.get(activity_id) is Dictionary):
+		activity_state[activity_id] = {}
+	activity_state[activity_id][key] = value
+	activity_changed.emit(activity_id)

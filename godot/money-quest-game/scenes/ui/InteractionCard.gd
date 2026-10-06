@@ -30,6 +30,8 @@ var _body: Label
 var _question: Label
 var _choices: HFlowContainer
 var _result: Label
+var _listen: Button
+var _qid: String = ""
 var _action_button: Button
 var _close_button: Button
 
@@ -49,6 +51,25 @@ func _ready() -> void:
 	Localization.locale_changed.connect(func(_l: String) -> void:
 		if visible and _data:
 			_fill(_source.get_display_name() if _source is NPC else ""))
+
+
+## What the Listen control reads: the card, its question and answers (in
+## the order shown) and, once chosen, the explanation.
+func listen_text() -> String:
+	if not visible or _data == null:
+		return ""
+	var parts: PackedStringArray = [_title.text]
+	if _body.visible:
+		parts.append(_body.text)
+	if _question.visible:
+		var answers: Array = []
+		for b in _choices.get_children():
+			if not b.is_queued_for_deletion():
+				answers.append((b as Button).text)
+		parts.append(Narration.question_text(_question.text, answers))
+	if _result.visible:
+		parts.append(_result.text)
+	return " ".join(parts)
 
 
 func is_open() -> bool:
@@ -79,6 +100,7 @@ func open(data: InteractionData, source: Node, title_override: String = "") -> v
 		create_tween().tween_property(_panel, "modulate:a", 1.0, 0.18)
 	else:
 		_panel.modulate.a = 1.0
+	AudioManager.present.call_deferred(listen_text())
 	_first_focus().grab_focus.call_deferred()
 	if data.remember:
 		ProgressManager.discover_world("hub:" + data.interaction_id)
@@ -125,9 +147,14 @@ func _fill(title_override: String) -> void:
 	_choices.visible = _question.visible
 	if _question.visible:
 		_question.text = Localization.t(d.question_key)
-		for i in d.choice_keys.size():
+		# A fresh random order each time (AnswerOrder); each button keeps its
+		# own answer index, so its explanation always matches it.
+		_qid = AnswerOrder.question_id(d.question_key, d.choice_keys)
+		for i in AnswerOrder.order_for(_qid, d.choice_keys.size()):
 			var b := _button(Localization.t(d.choice_keys[i]), false)
+			b.set_meta("answer_index", i)
 			b.pressed.connect(_on_choice.bind(i))
+			Narration.read_on_focus(b, b.text)
 			_choices.add_child(b)
 	_action_button.visible = d.action != "none" and d.action != "rest"
 	_action_button.text = Localization.t(d.action_label_key)
@@ -160,7 +187,10 @@ func _on_choice(i: int) -> void:
 		_result.text = Localization.t(_data.result_keys[i])
 		_result.visible = true
 	for b in _choices.get_children():
-		(b as Button).disabled = b.get_index() != i
+		(b as Button).disabled = int(b.get_meta("answer_index", -1)) != i
+	AnswerOrder.answered(_qid)
+	if _result.visible:
+		AudioManager.narrate(_result.text)
 	_first_focus().grab_focus()
 	_place.call_deferred()
 
@@ -257,6 +287,9 @@ func _build() -> void:
 	_close_button = _button("", false)
 	_close_button.pressed.connect(close)
 	row.add_child(_close_button)
+	_listen = Narration.listen_button()
+	_listen.custom_minimum_size = Vector2(150, 56)
+	row.add_child(_listen)
 
 
 func _label(size: int) -> Label:

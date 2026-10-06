@@ -27,6 +27,8 @@ var cap_color: Color = Color("D13E19")
 ## Visual-only role details: "apron", "badge", "tie", "cardigan".
 var extras: Array[String] = []
 var accent: Color = Color("E8A33D")
+## Iris colour (NPCs: varied and deterministic from their id).
+var eyes: Color = Color("5A3B22")
 
 
 func has(item: String) -> bool:
@@ -36,10 +38,10 @@ func has(item: String) -> bool:
 ## A stable string describing this look — used to share one baked mesh
 ## between identical characters.
 func key() -> String:
-	return "%s|%s|%s|%s|%s|%s|%.2f|%.2f|%s|%s|%s|%s|%s" % [
+	return "%s|%s|%s|%s|%s|%s|%.2f|%.2f|%s|%s|%s|%s|%s|%s" % [
 		skin.to_html(false), hair_style, hair.to_html(false), top.to_html(false),
 		bottom.to_html(false), shoes.to_html(false), height, width, seated,
-		",".join(accessories), cap_color.to_html(false), ",".join(extras), accent.to_html(false),
+		",".join(accessories), cap_color.to_html(false), ",".join(extras), accent.to_html(false), eyes.to_html(false),
 	]
 
 
@@ -89,6 +91,7 @@ static func for_npc(npc_id: String) -> CharacterLook:
 	if rng.randf() < 0.08:
 		look.accessories.append("cap")
 	look.seated = rng.randf() < 0.07
+	look.eyes = EYE_COLORS[absi((npc_id + "|eyes").hash()) % EYE_COLORS.size()]   # own hash: other choices unchanged
 
 	var id := npc_id.to_lower()
 	if _has_any(id, ["librar", "bookkeeper", "research", "accountant"]):
@@ -117,6 +120,10 @@ static func for_npc(npc_id: String) -> CharacterLook:
 	elif _has_any(id, ["friend", "teammate"]):
 		look.height = 0.98
 	return look
+
+
+## Natural iris colours: browns most often, then hazel, green, blue, grey.
+const EYE_COLORS: Array = [Color("5A3B22"), Color("3E2A1C"), Color("6B4A2B"), Color("7A6A3A"), Color("4F7A4A"), Color("3D6E9E"), Color("6E7B85")]
 
 
 static func _has_any(text: String, words: Array) -> bool:

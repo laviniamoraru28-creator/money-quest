@@ -93,3 +93,75 @@ func set_ambient_volume(value: float) -> void:
 ## sites should use this instead of a hard-coded tween duration.
 func animation_duration(full_duration_seconds: float) -> float:
 	return 0.01 if reduced_motion else full_duration_seconds
+
+
+# --- Comfort, readability and guidance (vertical slice) ----------------------
+# Each value below is saved (SaveManager) and announced through the one
+# generic `changed` signal, so a new option never needs a new signal.
+
+signal changed(key: String, value: Variant)
+
+## Text and interface size. Applied to the whole 2D interface at once
+## (UIScale) — the 3D world is unaffected. "large" is the default: the
+## interface was laid out for a 1280×720 canvas, which on a small window
+## made text too small for a child to read comfortably.
+const UI_SCALES: Dictionary = {"small": 1.0, "medium": 1.15, "large": 1.3, "xlarge": 1.5}
+## Defaults (keep in step with the var initialisers below).
+const DEFAULTS: Dictionary = {
+	"ui_scale": "large",
+	"master_volume": 1.0,
+	"sound_muted": false,
+	"subtitles": true,
+	"narration": false,
+	"hints": true,
+	"camera_sensitivity": 1.0,
+	"camera_smoothing": true,
+	"camera_fov": 65.0,
+}
+
+var ui_scale: String = "large"
+var master_volume: float = 1.0
+## One switch that silences everything without losing the volume levels.
+var sound_muted: bool = false
+## Spoken lines (narration) always have text on screen while this is on —
+## and nothing important is ever audio-only either way.
+var subtitles: bool = true
+## Read objectives and dialogue aloud with the device's own voice (when
+## the platform has one). Off by default; the game never depends on it.
+var narration: bool = false
+## Offer gentle help ("Need a little help?") when the player seems stuck.
+var hints: bool = true
+var camera_sensitivity: float = 1.0
+## Smooth camera follow (off = the camera snaps, like Reduced Motion).
+var camera_smoothing: bool = true
+var camera_fov: float = 65.0
+
+
+## Sets one of the options in DEFAULTS by name (clamped/validated) and
+## announces it. Returns false for an unknown key or an invalid value.
+func set_value(key: String, value: Variant) -> bool:
+	if not DEFAULTS.has(key):
+		push_warning("Settings: unknown setting '%s'" % key)
+		return false
+	match key:
+		"ui_scale":
+			if not UI_SCALES.has(value):
+				return false
+		"master_volume":
+			value = clampf(float(value), 0.0, 1.0)
+		"camera_sensitivity":
+			value = clampf(float(value), 0.25, 3.0)
+		"camera_fov":
+			value = clampf(float(value), 55.0, 85.0)
+		_:
+			if typeof(DEFAULTS[key]) == TYPE_BOOL:
+				value = bool(value)
+	if get(key) == value:
+		return true
+	set(key, value)
+	changed.emit(key, value)
+	return true
+
+
+func ui_scale_factor() -> float:
+	return float(UI_SCALES.get(ui_scale, 1.3))

@@ -24,11 +24,16 @@ var _category_labels: Array[Label] = []
 var _total_amount: int = 0
 var _unit_label_key: String = ""
 var _solved: bool = false
+var _feedback: Label
 
 
 func _ready() -> void:
 	visible = false
 	submit_button.pressed.connect(_on_submit_pressed)
+	_feedback = Narration.feedback_label()
+	_feedback.add_theme_color_override("font_color", Color("FFE7A0"))
+	$Panel/VBox.add_child(_feedback)
+	$Panel/VBox.add_child(Narration.listen_button())
 
 
 func show_allocate(total_amount: int, unit_label_key: String, categories: Array[AllocateCategoryData]) -> void:
@@ -37,6 +42,7 @@ func show_allocate(total_amount: int, unit_label_key: String, categories: Array[
 	_categories = categories
 	_total_amount = total_amount
 	_unit_label_key = unit_label_key
+	_feedback.visible = false
 	_allocated.clear()
 	for i in _categories.size():
 		_allocated.append(0)
@@ -73,6 +79,7 @@ func show_allocate(total_amount: int, unit_label_key: String, categories: Array[
 
 	visible = true
 	UIFocus.focus(categories_box)
+	AudioManager.present(listen_text())
 	while not _solved:
 		await get_tree().process_frame
 	visible = false
@@ -124,8 +131,19 @@ func _on_submit_pressed() -> void:
 		if not within_tolerance:
 			all_correct = false
 
+	Narration.show_feedback(_feedback, all_correct)
 	if all_correct:
 		_solved = true
+
+
+## What the Listen control reads: the instructions, each task with its
+## current amount, what is left, and the last check's result.
+func listen_text() -> String:
+	if not visible:
+		return ""
+	var lines: Array = _category_labels.map(func(l): return l.text)
+	var s: String = Narration.question_text(instructions_label.text, lines) + " " + remaining_label.text
+	return s + (" " + _feedback.text if _feedback.visible else "")
 
 
 func _clear_categories() -> void:
