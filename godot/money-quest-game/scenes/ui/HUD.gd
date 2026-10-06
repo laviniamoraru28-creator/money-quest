@@ -67,7 +67,7 @@ func _on_zone_loaded(_zone_data: ZoneData) -> void:
 	if _current_interaction_manager and _current_interaction_manager.nearest_interaction_changed.is_connected(_on_nearest_interaction_changed):
 		_current_interaction_manager.nearest_interaction_changed.disconnect(_on_nearest_interaction_changed)
 
-	var player: Node = get_tree().get_first_node_in_group("player")
+	var player: Node = _live_player()
 	if player == null:
 		_current_interaction_manager = null
 		talk_button.visible = false
@@ -205,9 +205,22 @@ func _build_interaction_ui() -> void:
 
 
 func _on_talk_pressed() -> void:
-	var player: Node = get_tree().get_first_node_in_group("player")
+	var player: Node = _live_player()
 	if player:
 		player.request_interact()
+
+
+## The current zone's player. When a new zone reports loaded, the previous
+## zone (queued for deletion until the end of the frame) is still in the
+## tree and its player comes first in the group — never connect to that one.
+func _live_player() -> Node:
+	for p in get_tree().get_nodes_in_group("player"):
+		var n: Node = p
+		while n != null and not n.is_queued_for_deletion():
+			n = n.get_parent()
+		if n == null:
+			return p
+	return null
 
 
 ## Gamepad route into the HUD: with nothing focused (exploring the world),
