@@ -14,6 +14,7 @@ import { LessonIllustration } from "@/components/lesson/LessonIllustration";
 import { getWorldById } from "@/content/worlds";
 import { useAccessibilityPrefs } from "@/lib/accessibility/use-accessibility-preferences";
 import { useSound } from "@/lib/audio/use-sound";
+import { useAnswerOrder } from "@/lib/answer-order";
 import type { ActivityDetail } from "@/lib/domain/activity";
 
 interface LessonPlayerProps {
@@ -63,6 +64,10 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
   const { quiz, feedbackMessage } = activity.content;
   const world = getWorldById(activity.worldId);
   const worldThemeColor = world?.themeColor ?? "#0F7A6B";
+  // Display order only — handleCheckAnswer below always compares the
+  // selected option's own text against quiz.correct_answer, never a
+  // position, so shuffling this never changes what counts as correct.
+  const shuffledOptions = useAnswerOrder(quiz.options);
 
   async function handleCheckAnswer() {
     if (!selectedOption) return;
@@ -198,7 +203,7 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
         <fieldset className="mt-sm" disabled={phase === "correct" || activity.isCompleted}>
           <legend className="sr-only">{t("lesson.answerOptions")}</legend>
           <div className="grid gap-2xs">
-            {quiz.options.map((option) => {
+            {shuffledOptions.map((option) => {
               const isSelected = selectedOption === option;
               const showAsCorrect = phase === "incorrect" && option === quiz.correct_answer;
               const showAsIncorrect = phase === "incorrect" && isSelected && option !== quiz.correct_answer;
