@@ -179,7 +179,10 @@ func _collect() -> void:
 		if seen.has(m):
 			continue
 		seen[m] = true
-		_pulses.append([m, m.emission_energy_multiplier, spec[2], spec[3], float(i) * 1.37])
+		# Resting level = the glow the material was made with (spec[1]), never
+		# its current value: the previous scene's director may still be alive
+		# (queue_free) and mid-pulse when this one collects.
+		_pulses.append([m, float(spec[1]), spec[2], spec[3], float(i) * 1.37])
 	_apply_state()
 
 
