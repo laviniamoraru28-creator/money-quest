@@ -115,6 +115,26 @@ static func chest(m: MeshMerger, x: Transform3D) -> void:
 	m.part(K.box(Vector3(0.18, 0.2, 0.06)), K.mat("gold"), Vector3(0, 0.5, 0.34))
 
 
+## A small round tree in a pot with a trim-coloured rim — indoor greenery.
+static func potted_plant(m: MeshMerger, x: Transform3D, pot_color: String = "coral", rim_color: String = "gold") -> void:
+	m.origin = x
+	m.part(K.cyl(0.42, 0.32, 0.6, 12), K.mat(pot_color), Vector3(0, 0.3, 0))
+	m.part(K.torus(0.36, 0.46, 16, 4), K.mat(rim_color), Vector3(0, 0.6, 0), Vector3.ZERO, Vector3(1, 0.5, 1))
+	tree(m, x * K.xf(Vector3(0, 0.45, 0)), "round", 0.55)
+
+
+## A hanging banner on a rod, for a wall: `x` is on the wall face at floor
+## level, local +Z pointing into the room. The cloth ripples (cloth group);
+## the coin emblem is static and stands just clear of the ripple.
+static func wall_banner(m: MeshMerger, x: Transform3D, cloth_color: String = "teal", emblem_color: String = "gold") -> void:
+	m.origin = x
+	m.part(K.cyl(0.05, 0.05, 1.3, 6), K.mat("wood_dark"), Vector3(0, 4.6, 0.05), Vector3(0, 0, 90))
+	m.part(K.box(Vector3(0.9, 2.2, 0.05)), K.cloth(cloth_color), Vector3(0, 3.45, 0.08))
+	m.part(K.prism(Vector3(0.9, 0.4, 0.05)), K.cloth(cloth_color), Vector3(0, 2.15, 0.08), Vector3(0, 0, 180))
+	m.part(K.cyl(0.24, 0.24, 0.04, 16), K.mat(emblem_color), Vector3(0, 3.7, 0.2), Vector3(90, 0, 0))
+	m.part(K.cyl(0.15, 0.15, 0.05, 16), K.mat("gold_deep"), Vector3(0, 3.7, 0.21), Vector3(90, 0, 0))
+
+
 static func crate(m: MeshMerger, x: Transform3D, fruit: String = "coral") -> void:
 	m.origin = x
 	m.part(K.box(Vector3(0.7, 0.4, 0.5)), K.mat("wood"), Vector3(0, 0.2, 0))
