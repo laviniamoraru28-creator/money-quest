@@ -51,6 +51,9 @@ func _ready() -> void:
 	safety.name = "Safety"
 	add_child(safety)
 	_apply_avatar_config()
+	ChoicePanel.answer_checked.connect(_on_answer_checked)
+	ObjectiveManager.objective_completed.connect(_on_objective_completed)
+	interaction_manager.nearest_interaction_changed.connect(_on_nearest_changed)
 
 
 ## Renders the child's AvatarCreation.tscn choices as this 3D body —
@@ -63,6 +66,11 @@ func _apply_avatar_config() -> void:
 		visual.queue_free()
 	visual = CharacterBuilder.build(CharacterLook.from_avatar_config(ProgressManager.avatar_config), true)
 	add_child(visual)
+	# The player's own character idles only after standing still a while,
+	# looks toward whatever is in reach, and reacts to what happens.
+	visual.behaviour = CharacterBehaviour.preset("player")
+	visual.idle_delay = 6.0
+	visual.idle_phase = 0.41
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -72,7 +80,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action("ui_accept") and get_viewport().gui_get_focus_owner() != null:
 		return
 	if event.is_action_pressed("interact"):
-		interaction_manager.try_interact()
+		request_interact()
 		return
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		_set_target_from_screen_point(event.position)
@@ -188,4 +196,70 @@ func _move(direction: Vector3, delta: float) -> void:
 ## keyboard/gamepad interact action — see InteractionManager.try_interact()'s
 ## own comment for why both input paths are first-class, not a fallback.
 func request_interact() -> void:
+	if visual and interaction_manager.get_nearest() != null:
+		visual.play_reaction("interact")
 	interaction_manager.try_interact()
+
+
+# --- reactions (purely visual; the meaning is always also shown as text) ---
+
+## Look toward the thing in reach (an NPC's face, an object's middle).
+func _on_nearest_changed(target: Interaction) -> void:
+	if visual == null:
+		return
+	visual.look_target = target
+	if target:
+		visual.look_height = 1.45 if target is NPC else clampf(target.prompt_height * 0.45, 0.4, 2.0)
+
+
+func _on_answer_checked(correct: bool) -> void:
+	if visual and is_inside_tree():
+		visual.play_reaction("happy" if correct else "confused")
+
+
+## A small celebration when a mission step is done (the objective card
+## says so in words as well).
+func _on_objective_completed(_id: String) -> void:
+	if visual and is_inside_tree():
+		visual.play_reaction("celebrate")
+		_confetti()
+
+
+## A small, short burst of paper confetti around the character (none with
+## Reduced Motion). One-shot particles, freed when done.
+func _confetti() -> void:
+	if Settings.reduced_motion:
+		return
+	var p := CPUParticles3D.new()
+	p.name = "Confetti"
+	p.one_shot = true
+	p.amount = 36
+	p.lifetime = 1.6
+	p.explosiveness = 0.9
+	p.emission_shape = CPUParticles3D.EMISSION_SHAPE_SPHERE
+	p.emission_sphere_radius = 0.3
+	p.direction = Vector3.UP
+	p.spread = 55.0
+	p.initial_velocity_min = 2.5
+	p.initial_velocity_max = 4.0
+	p.gravity = Vector3(0, -6.0, 0)
+	p.angular_velocity_min = -360.0
+	p.angular_velocity_max = 360.0
+	var q := QuadMesh.new()
+	q.size = Vector2(0.07, 0.11)
+	var mat := StandardMaterial3D.new()
+	mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	mat.vertex_color_use_as_albedo = true
+	mat.billboard_mode = BaseMaterial3D.BILLBOARD_PARTICLES
+	mat.cull_mode = BaseMaterial3D.CULL_DISABLED
+	q.material = mat
+	p.mesh = q
+	var g := Gradient.new()
+	g.offsets = PackedFloat32Array([0.0, 0.25, 0.5, 0.75, 1.0])
+	g.colors = PackedColorArray([Color("E8A33D"), Color("0F7A6B"), Color("F07A5A"), Color("367D99"), Color("A99BD9")])
+	p.color_initial_ramp = g
+	p.position = Vector3(0, 1.8, 0)
+	p.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	add_child(p)
+	p.emitting = true
+	p.finished.connect(p.queue_free)

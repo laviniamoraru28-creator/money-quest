@@ -120,3 +120,14 @@ readable without sound, and cheap to run.
 4. Vault wheel spin and room celebration on completion — existing
    `AmbientDirector` reactions.
 5. Bump-reactive props (wobbling coin towers) in dressed zones.
+
+## Implemented in the character & world phase
+
+- **NPC answer reactions:** the NPC who asked nods happily at a right answer and scratches their head thoughtfully at a retry (`NPC._on_answer_checked`). The player's own character reacts too.
+- **Coin plinks that rise in pitch** when coins are found one after another (`Collectible`).
+- **The tiny vault:** a secret curiosity hidden in a corner of the Golden Vault.
+- **Things that respond:** curiosity props (a savings jar, scales, a basket) bounce, tip or wobble when looked at (`CuriosityProp`).
+- **Small celebrations:** a happy little jump and a short confetti burst when a mission step is done. Reduced Motion gets the text and chime only.
+- **The world noticing you:** stay near someone for a while and they give a two-handed hello. NPCs glance at birds, leaves and glints nearby (`ZoneLife`).
+
+Still open from the list above: per-NPC talk chirps, hidden golden coins in other zones, world celebrations when a zone is finished, a trophy shelf and a pet companion.

@@ -47,6 +47,7 @@ var _toast: PanelContainer
 var _toast_title: Label
 var _toast_text: Label
 var _toast_serial: int = 0
+var _last_xp: int = -1
 
 ## Guidance UI (vertical slice): the mission card, the "Where am I?"
 ## banner, the help offer, subtitles and the soft screen fade used when the
@@ -84,11 +85,35 @@ func _on_coins_changed(new_balance: int) -> void:
 	coins_label.text = Localization.t("money.virtual_coins", {"amount": new_balance})
 
 
-func _on_xp_changed(_new_total: int) -> void:
+func _on_xp_changed(new_total: int) -> void:
 	level_label.text = Localization.t("hud.level_label", {"level": GameState.compute_level()})
+	if _last_xp >= 0 and new_total > _last_xp:
+		_show_xp_chip(new_total - _last_xp)
+	_last_xp = new_total
+
+
+## "+30 XP" beside the level for a moment: words, not only a sound. It
+## floats up a little and fades, or simply appears and goes with Reduced
+## Motion.
+func _show_xp_chip(amount: int) -> void:
+	var chip := UIStyle.label(Localization.t("hud.xp_gain", {"xp": amount}), 22, Color("FFE7A0"))
+	chip.name = "XpChip"
+	chip.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	chip.add_theme_color_override("font_outline_color", UIStyle.INK)
+	chip.add_theme_constant_override("outline_size", 8)
+	add_child(chip)
+	chip.global_position = level_label.global_position + Vector2(level_label.size.x + 12.0, 0)
+	var tw := create_tween()
+	if Settings.reduced_motion:
+		tw.tween_interval(2.4)
+	else:
+		tw.tween_property(chip, "position:y", chip.position.y - 14.0, 2.2).set_trans(Tween.TRANS_SINE)
+		tw.parallel().tween_property(chip, "modulate:a", 0.0, 0.6).set_delay(1.8)
+	tw.tween_callback(chip.queue_free)
 
 
 func _on_zone_loaded(_zone_data: ZoneData) -> void:
+	_last_xp = GameState.xp_total
 	zone_banner.show_zone(_zone_data)
 	hint_toast.dismiss()
 	# Arriving somewhere new: nothing from the last place stays on screen,

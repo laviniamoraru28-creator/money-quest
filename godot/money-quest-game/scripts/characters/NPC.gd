@@ -18,6 +18,12 @@ extends Interaction
 ##   when they have something to say (set by the zone), and a gold "!"
 ##   bubble — gently bobbing — only when they are the current mission.
 ## - The talk prompt is the HUD's large "Talk  E / A / Click" pill.
+## - Idles in character (CharacterBehaviour): a librarian reads, a
+##   shopkeeper checks the counter, a child bounces on their toes — chosen
+##   from the id, or set with behaviour_profile. Greets in that way too.
+## - Reacts to the child's answers: after this NPC has been talking, a
+##   right answer gets a happy little bounce, a "let's look again" gets a
+##   thoughtful head-scratch (the words are always on screen as well).
 
 ## A structural id, e.g. "maya" — resolves to a display name via
 ## Localization ("npc.maya.name") so the same NPC script works for any
@@ -31,6 +37,11 @@ extends Interaction
 ## Hub's district greeters; zone NPCs leave it empty and keep their own
 ## talked_to-driven dialogue and quests exactly as before.
 @export var greeting: InteractionData
+
+## How this character idles and greets (a CharacterBehaviour preset id:
+## "mentor", "shopkeeper", "child", "librarian", "guide", "gardener"...).
+## Empty = chosen from npc_id.
+@export var behaviour_profile: String = ""
 
 signal talked_to(npc_id: String)
 
@@ -62,16 +73,21 @@ var _greeted: bool = false
 var _time: float = 0.0
 var _neighbour: Node3D = null
 var _neighbour_checked: bool = false
+var _last_spoke: float = -100.0
+var _linger: float = 0.0
+var _lingered: bool = false
 
 
 func _ready() -> void:
 	super._ready()
+	add_to_group("mq_npc")
 	if interaction_priority == 10:
 		interaction_priority = 50
 	prompt_height = 2.6
 	visual = CharacterBuilder.build(CharacterLook.for_npc(npc_id), false)
 	visual.idle_phase = float(absi(npc_id.hash()) % 1000) * 0.0063
 	visual.can_wave = npc_id == "hub-guide"
+	visual.behaviour = CharacterBehaviour.preset(behaviour_profile if not behaviour_profile.is_empty() else CharacterBehaviour.preset_id_for_npc(npc_id))
 	add_child(visual)
 	if _name_label:
 		_name_label.text = get_display_name()
@@ -85,6 +101,7 @@ func _ready() -> void:
 	_build_bubble()
 	DialogueBox.line_shown.connect(_on_line_shown)
 	DialogueBox.closed.connect(_on_dialogue_closed)
+	ChoicePanel.answer_checked.connect(_on_answer_checked)
 
 
 func _process(delta: float) -> void:
@@ -100,9 +117,20 @@ func _process(delta: float) -> void:
 	visual.look_target = _player if d < NOTICE_RANGE else _neighbour_glance()
 	if d < NOTICE_RANGE and not _greeted:
 		_greeted = true
-		visual.wave_once()
+		visual.greet()
 		if not call_out_key.is_empty():
 			AudioManager.say(Localization.t(call_out_key), get_display_name())
+	# A small easter egg: stay near someone for a while without talking and
+	# they notice — a happy two-handed hello and a friendly line (shown as
+	# a subtitle). Once per visit; never during a conversation.
+	if not _lingered and d < 3.2 and _player is CharacterBody3D and Vector2(_player.velocity.x, _player.velocity.z).length() < 0.1 and not DialogueBox.visible and not ChoicePanel.visible:
+		_linger += delta
+		if _linger > 9.0:
+			_lingered = true
+			visual.play_reaction("both_wave")
+			AudioManager.say(Localization.t("npc.linger_hello"), get_display_name())
+	else:
+		_linger = 0.0
 	if d < FACE_RANGE and d > 0.2:
 		var target_yaw: float = atan2(to_player.x, to_player.z)
 		if Settings.reduced_motion:
@@ -142,9 +170,12 @@ func is_current_objective() -> bool:
 	return ObjectiveManager.target() == self
 
 
+## The player of THIS zone (an NPC may be nested inside a landmark, so the
+## player is not always a sibling; the old zone still in the tree during a
+## zone change never counts).
 func _find_player() -> Node3D:
 	for p in get_tree().get_nodes_in_group("player"):
-		if not p.is_queued_for_deletion() and p.get_parent() == get_parent():
+		if not p.is_queued_for_deletion() and p.get_parent() and p.get_parent().is_ancestor_of(self):
 			return p
 	return null
 
@@ -154,6 +185,8 @@ func _find_player() -> Node3D:
 func _on_line_shown(speaker_id: String) -> void:
 	if visual:
 		visual.talking = speaker_id == npc_id
+	if speaker_id == npc_id:
+		_last_spoke = _time
 
 
 func _on_dialogue_closed() -> void:
@@ -213,3 +246,12 @@ func _update_bubble() -> void:
 		_bubble.rotation.y = atan2(to_cam.x, to_cam.z) - global_rotation.y
 	var bob: float = 0.0 if Settings.reduced_motion or not quest else sin(_time * 2.4) * 0.06
 	_bubble.position.y = 2.75 + bob
+
+
+## The NPC who has just been talking reacts to the child's answer.
+func _on_answer_checked(correct: bool) -> void:
+	if visual == null or _time - _last_spoke > 60.0:
+		return
+	if _player == null or _player.global_position.distance_to(global_position) > NOTICE_RANGE:
+		return
+	visual.play_reaction("happy" if correct else "confused")

@@ -14,6 +14,8 @@ var skin: Color = CharacterPalette.skin(CharacterPalette.DEFAULT_SKIN_TONE)
 var hair_style: String = CharacterPalette.DEFAULT_HAIR_STYLE
 var hair: Color = CharacterPalette.hair(CharacterPalette.DEFAULT_HAIR_COLOR)
 var top: Color = Color("0F7A6B")
+## Clothing shape: one of CharacterPalette.OUTFIT_STYLES.
+var outfit_style: String = CharacterPalette.DEFAULT_OUTFIT_STYLE
 var bottom: Color = Color("34495E")
 var shoes: Color = Color("F2EEE6")
 ## Proportions: 1.0 is the standard child build. Height stretches legs and
@@ -21,10 +23,12 @@ var shoes: Color = Color("F2EEE6")
 var height: float = 1.0
 var width: float = 1.0
 var seated: bool = false
-## Any of: "glasses", "cap", "hearing_aid", "cane".
+## Any of: "glasses", "cap", "hearing_aid", "cane", and the cosmetics
+## "scarf", "backpack", "headband", "star_pin".
 var accessories: Array[String] = []
 var cap_color: Color = Color("D13E19")
-## Visual-only role details: "apron", "badge", "tie", "cardigan".
+## Visual-only role details: "apron", "badge", "tie", "cardigan", "book"
+## (a book held in the left hand).
 var extras: Array[String] = []
 var accent: Color = Color("E8A33D")
 ## Iris colour (NPCs: varied and deterministic from their id).
@@ -38,8 +42,8 @@ func has(item: String) -> bool:
 ## A stable string describing this look — used to share one baked mesh
 ## between identical characters.
 func key() -> String:
-	return "%s|%s|%s|%s|%s|%s|%.2f|%.2f|%s|%s|%s|%s|%s|%s" % [
-		skin.to_html(false), hair_style, hair.to_html(false), top.to_html(false),
+	return "%s|%s|%s|%s|%s|%s|%s|%.2f|%.2f|%s|%s|%s|%s|%s|%s" % [
+		skin.to_html(false), hair_style, outfit_style, hair.to_html(false), top.to_html(false),
 		bottom.to_html(false), shoes.to_html(false), height, width, seated,
 		",".join(accessories), cap_color.to_html(false), ",".join(extras), accent.to_html(false), eyes.to_html(false),
 	]
@@ -52,6 +56,11 @@ static func from_avatar_config(config: AvatarConfig) -> CharacterLook:
 	look.hair = CharacterPalette.hair(config.hair_color_id)
 	look.top = config.outfit_color
 	look.bottom = CharacterPalette.bottom_for(config.outfit_color)
+	look.outfit_style = config.outfit_style_id if CharacterPalette.OUTFIT_STYLES.has(config.outfit_style_id) else CharacterPalette.DEFAULT_OUTFIT_STYLE
+	look.shoes = CharacterPalette.shoe(config.shoe_color_id)
+	look.eyes = CharacterPalette.eye(config.eye_color_id)
+	look.accent = CharacterPalette.accent_for(config.outfit_color)
+	look.cap_color = look.accent if config.outfit_color.is_equal_approx(Color("D13E19")) else Color("D13E19")
 	look.seated = config.is_seated()
 	for id in config.get_accessory_ids():
 		look.accessories.append(id)
@@ -92,6 +101,12 @@ static func for_npc(npc_id: String) -> CharacterLook:
 		look.accessories.append("cap")
 	look.seated = rng.randf() < 0.07
 	look.eyes = EYE_COLORS[absi((npc_id + "|eyes").hash()) % EYE_COLORS.size()]   # own hash: other choices unchanged
+	# Clothing shape and shoes: their own hashes too, so every earlier choice
+	# (skin, hair, colours) stays exactly as it was.
+	var styles2: Array[String] = CharacterPalette.OUTFIT_STYLES
+	look.outfit_style = styles2[absi((npc_id + "|outfit").hash()) % styles2.size()]
+	var shoe_ids: Array = CharacterPalette.SHOE_COLORS.keys()
+	look.shoes = CharacterPalette.SHOE_COLORS[shoe_ids[absi((npc_id + "|shoes").hash()) % shoe_ids.size()]]
 
 	var id := npc_id.to_lower()
 	if _has_any(id, ["librar", "bookkeeper", "research", "accountant"]):
@@ -99,12 +114,17 @@ static func for_npc(npc_id: String) -> CharacterLook:
 			look.accessories.append("glasses")
 		look.extras.append("cardigan")
 		look.top = Color("A0553E")
+		look.extras.append("book")
+		look.outfit_style = "tee"
 	elif _has_any(id, ["mentor", "coach", "advisor", "analyst", "inspector", "scientist", "detective"]):
 		look.extras.append("tie")
+		look.outfit_style = "jacket"
 		look.top = [Color("2F4B7C"), Color("367D99"), Color("3A3F44")][rng.randi() % 3]
 		look.accent = [Color("E8A33D"), Color("D13E19"), Color("0F7A6B")][rng.randi() % 3]
 	elif _has_any(id, ["shop", "baker", "trader", "supplier", "stock", "warehouse", "sticker", "pricing", "sales", "market"]):
 		look.extras.append("apron")
+		if look.outfit_style == "dress" or look.outfit_style == "overalls":
+			look.outfit_style = "tee"
 		look.accent = [Color("F2C14E"), Color("9CCB8E"), Color("F07A5A"), Color("7DB6CF")][rng.randi() % 4]
 	elif _has_any(id, ["calm"]):
 		look.top = [Color("9CCB8E"), Color("7DB6CF"), Color("C9BFE6")][rng.randi() % 3]

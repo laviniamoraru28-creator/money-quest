@@ -80,9 +80,10 @@ func _ready() -> void:
 		_draft.hair_color_id = id)
 	_build_outfit_row()
 	_build_accessory_row()
+	_build_more_rows()
 
 	continue_button.pressed.connect(_on_continue_pressed)
-	_refresh_preview()
+	_refresh_preview(false)
 	# Keyboard/gamepad players start on the first choice (see UIFocus);
 	# the scroll list follows focus so every row stays reachable.
 	UIFocus.focus(preset_option)
@@ -95,10 +96,79 @@ func _process(delta: float) -> void:
 		character_anchor.rotate_y(TURNTABLE_SPEED * delta)
 
 
-func _refresh_preview() -> void:
+func _refresh_preview(react: bool = true) -> void:
 	for child in character_anchor.get_children():
 		child.queue_free()
-	character_anchor.add_child(CharacterBuilder.build(CharacterLook.from_avatar_config(_draft), true))
+	var rig: CharacterRig = CharacterBuilder.build(CharacterLook.from_avatar_config(_draft), true)
+	character_anchor.add_child(rig)
+	# The new look is "theirs": a small happy reaction to each change (none
+	# with Reduced Motion — the preview simply updates).
+	if react:
+		rig.play_reaction("happy")
+
+
+# --- clothes style, eyes, shoes and extras (character upgrade) --------------
+
+## Adds the newer choices beside the existing rows, in the same visual
+## style: text buttons for clothes, colour swatches for eyes and shoes,
+## toggles for the extras. Every option is cosmetic and free.
+func _build_more_rows() -> void:
+	var vbox: VBoxContainer = $Margin/HBox/Scroll/VBox
+	# Clothes style — after the outfit colour row.
+	var style_row := _new_row(vbox, outfit_row, "avatar_creation.style_label", "StyleRow")
+	var style_group := ButtonGroup.new()
+	for style in CharacterPalette.OUTFIT_STYLES:
+		var b := Button.new()
+		b.name = "Style_" + style
+		b.text = Localization.t("avatar_creation.style.%s" % style)
+		b.toggle_mode = true
+		b.button_group = style_group
+		b.custom_minimum_size = Vector2(0, 48)
+		b.button_pressed = style == _draft.outfit_style_id
+		_apply_outline_style(b, Color("F3ECDD"))
+		b.pressed.connect(func() -> void:
+			_draft.outfit_style_id = style
+			_refresh_preview())
+		style_row.add_child(b)
+	# Eye colour — after the hair colour row.
+	var eye_row := _new_row(vbox, hair_color_row, "avatar_creation.eyes_label", "EyeRow")
+	_build_color_row(eye_row, CharacterPalette.EYE_COLORS, _draft.eye_color_id, func(id: String) -> void:
+		_draft.eye_color_id = id)
+	# Shoes — after the clothes style row.
+	var shoe_row := _new_row(vbox, style_row, "avatar_creation.shoes_label", "ShoeRow")
+	_build_color_row(shoe_row, CharacterPalette.SHOE_COLORS, _draft.shoe_color_id, func(id: String) -> void:
+		_draft.shoe_color_id = id)
+	# Extras — after the accessories.
+	var extra_row := _new_row(vbox, accessory_row, "avatar_creation.cosmetics_label", "CosmeticRow")
+	for id in CharacterPalette.COSMETICS:
+		var b := Button.new()
+		b.name = "Cosmetic_" + id
+		b.text = Localization.t("avatar_creation.accessory.%s" % id)
+		b.toggle_mode = true
+		b.custom_minimum_size = Vector2(0, 48)
+		b.button_pressed = _draft.has_accessory(id)
+		_apply_outline_style(b, Color("F3ECDD"))
+		b.toggled.connect(func(on: bool) -> void:
+			_draft.set_accessory(id, on)
+			_refresh_preview())
+		extra_row.add_child(b)
+
+
+## A label + flow row placed right after `after` in the form.
+func _new_row(vbox: VBoxContainer, after: Control, label_key: String, row_name: String) -> HFlowContainer:
+	var label := Label.new()
+	label.text = Localization.t(label_key)
+	label.add_theme_color_override("font_color", INK)
+	label.add_theme_font_size_override("font_size", skin_label.get_theme_font_size("font_size"))
+	var row := HFlowContainer.new()
+	row.name = row_name
+	row.add_theme_constant_override("h_separation", 8)
+	row.add_theme_constant_override("v_separation", 8)
+	vbox.add_child(label)
+	vbox.add_child(row)
+	vbox.move_child(label, after.get_index() + 1)
+	vbox.move_child(row, label.get_index() + 1)
+	return row
 
 
 # --- rows -------------------------------------------------------------------
@@ -232,6 +302,9 @@ func _on_continue_pressed() -> void:
 	config.hair_color_id = _draft.hair_color_id
 	config.accessory_ids = _draft.accessory_ids.duplicate()
 	config.accessory_id = _draft.accessory_id
+	config.outfit_style_id = _draft.outfit_style_id
+	config.shoe_color_id = _draft.shoe_color_id
+	config.eye_color_id = _draft.eye_color_id
 	ProgressManager.has_created_avatar = true
 	SaveManager.save_progress()
 	get_tree().change_scene_to_file("res://scenes/world/Main.tscn")

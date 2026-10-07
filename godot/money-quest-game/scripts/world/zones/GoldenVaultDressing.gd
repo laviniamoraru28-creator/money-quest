@@ -6,6 +6,12 @@ extends ZoneDressing
 ## (savings symbols, never prizes), a "growing savings" row of rising coin
 ## stacks, banners, lanterns, potted plants and benches. Only decoration —
 ## the zone's NPCs, quests and portals are untouched.
+##
+## Purposeful details make saving visible: a row of savings jars filling
+## up, a coin-counting table with an abacus, a growth chart; dust motes
+## drift in the warm light and a coin glints now and then (ZoneLife
+## "vault"). Two optional curiosities: a savings jar by the way in and, for
+## explorers, the smallest vault in the world hidden in a corner.
 
 const VAULT_WHEEL_SPEED: float = 0.05   # radians per second — barely moving
 
@@ -13,6 +19,7 @@ const VAULT_WHEEL_SPEED: float = 0.05   # radians per second — barely moving
 func _init() -> void:
 	# The vault's theme on top of ZoneDressing's standard room: a rich gold
 	# aisle leading to the vault door (the Money Quest district's gold).
+	district_style = "golden_vault"
 	path_color = "gold"
 
 
@@ -99,6 +106,63 @@ func _build_props(m: MeshMerger, body: StaticBody3D) -> void:
 	m.part(K.cyl(1.3, 1.3, 0.02, 32), K.mat("gold"), Vector3(0, 0.1, back_z + 2.6))
 	m.part(K.cyl(0.95, 0.95, 0.024, 32), K.mat("gold_deep"), Vector3(0, 0.102, back_z + 2.6))
 	m.part(K.torus(0.55, 0.7, 28, 4), K.mat("gold"), Vector3(0, 0.104, back_z + 2.6), Vector3.ZERO, Vector3(1, 0.05, 1))
+
+	_purposeful_details(m, body, h, back_z)
+
+
+## The vault at work: savings jars filling up on a long shelf, a table where
+## coins are being counted, a growth chart — saving made visible.
+func _purposeful_details(m: MeshMerger, body: StaticBody3D, h: Vector2, back_z: float) -> void:
+	# A row of savings jars on a low plinth along the left wall, fuller and
+	# fuller toward the vault door.
+	var row := Vector3(-h.x + 1.4, 0, -5.2)
+	if is_free(row, 0.6) and _clear_of_flow(row, 1.6):
+		m.origin = Transform3D.IDENTITY
+		m.part(K.box(Vector3(0.9, 0.5, 3.2)), K.mat("stone"), row + Vector3(0, 0.25, 0))
+		m.part(K.box(Vector3(1.0, 0.08, 3.3)), K.mat(trim_color), row + Vector3(0, 0.52, 0))
+		for i in 4:
+			var jp: Vector3 = row + Vector3(0, 0.56, 1.2 - i * 0.8)
+			DecorProps.savings_jar(m, K.xf(jp, Vector3(0, 90, 0)), 0.2 + i * 0.25, ["teal", "coral", "sky", "gold_deep"][i])
+			spot("sparkle", jp + Vector3(0, 0.9, 0))
+		K.add_box_collider(body, Vector3(0.9, 1.4, 3.2), K.xf(row + Vector3(0, 0.7, 0)))
+	# The coin-counting table near the back, with a stool.
+	var table := Vector3(-5.0, 0, back_z + 3.4)
+	if is_free(table, 0.9) and _clear_of_flow(table, 1.6):
+		DecorProps.coin_counting_table(m, K.xf(table, Vector3(0, 15, 0)))
+		m.origin = Transform3D.IDENTITY
+		m.part(K.cyl(0.25, 0.22, 0.5, 10), K.mat("wood_dark"), table + Vector3(0.2, 0.25, 0.85))
+		K.add_box_collider(body, Vector3(1.6, 0.9, 0.9), K.xf(table + Vector3(0, 0.45, 0), Vector3(0, 15, 0)))
+		spot("sparkle", table + Vector3(-0.3, 1.2, -0.15))
+	# A growth chart on the left wall (beside the bench).
+	var board := Vector3(-h.x + 0.75, 0, 7.4)
+	if is_free(board, 0.4):
+		DecorProps.growth_board(m, K.xf(board, Vector3(0, 90, 0)))
+	# Glints on the coin towers' gold tops and the floor medallion.
+	for side in [-1.0, 1.0]:
+		spot("sparkle", Vector3(side * (h.x - 2.2), 4.4, back_z + 1.9))
+	spot("sparkle", Vector3(0, 0.35, back_z + 2.6))
+	if life:
+		life.glow_reaction = "money"
+
+	# Curiosities (optional): a savings jar near the way in, and — for
+	# explorers — the smallest vault in the world, tucked into a corner.
+	if not Engine.is_editor_hint():
+		var jar := Vector3(-4.6, 0, 5.6)
+		if is_free(jar, 0.5) and _clear_of_flow(jar, 1.5):
+			CuriosityProp.make(self, "vault_jar", "savings_jar", jar, 20.0, "curio.vault_jar.title", "curio.vault_jar.text", "bounce")
+		var tiny := Vector3(h.x - 1.4, 0, 7.6)
+		if is_free(tiny, 0.5) and _clear_of_flow(tiny, 1.5):
+			CuriosityProp.make(self, "tiny_vault", "tiny_vault", tiny, -90.0, "curio.tiny_vault.title", "curio.tiny_vault.text", "wobble", 1.5, "secret")
+
+
+## The vault's own activity pieces (GoldenVaultFlow: three hidden coins and
+## the savings jar) are created after the dressing, so keep clear of their
+## known places explicitly.
+func _clear_of_flow(pos: Vector3, radius: float) -> bool:
+	for p in [Vector3(-8.4, 0, 2.6), Vector3(8.4, 0, 1.4), Vector3(-7.6, 0, -8.4), Vector3(6.9, 0, -0.6)]:
+		if Vector2(pos.x, pos.z).distance_to(Vector2(p.x, p.z)) < radius + 0.8:
+			return false
+	return true
 
 
 func _coin_tower(m: MeshMerger, body: StaticBody3D, p: Vector3, coins: int) -> void:

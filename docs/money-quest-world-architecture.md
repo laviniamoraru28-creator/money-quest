@@ -1725,3 +1725,177 @@ VirtualMoney (later extended; same class)
   following the same rules as the DestinationPrompt.
 - **Scope.** None of this is built yet. Start with the Golden Vault
   deposit step and Market Town spending, then extend.
+
+---
+
+## 14. Characters, avatar and a living world (character & world phase)
+
+This phase upgrades the reusable systems behind every character and every
+dressed place. It does not rebuild zones one by one. Each piece is:
+
+    reusable script  →  reusable configuration  →  district-specific data
+
+### 14.1 One character system for everyone
+
+`CharacterBuilder` builds every character from a `CharacterLook`: the
+player's avatar, every NPC and the avatar-screen preview. Improve a hand or
+a shoe once and the change reaches all of them.
+
+| Part | What it has now |
+|---|---|
+| Head | A rounded head with a soft chin and ears with an inner fold. Big friendly eyes: white, iris, pupil, two highlights and an upper lash line. Arched two-part brows, a small nose, a curved smile and soft cheeks. |
+| Body | A neck, rounded shoulders, a chest wider than the waist, and child proportions. |
+| Hands and feet | A palm, curled fingers and a thumb. Shoes have a sole, a toe cap and laces. |
+| Clothing | Five shapes (`OUTFIT_STYLES`): tee, hoodie, jacket, dress, overalls. Sleeves, cuffs, collars and hems follow the shape. |
+| Hair | Twelve styles with real volume, so silhouettes differ from afar. The new ones are bun, braids, spiky and puffs. |
+| Extras | Accessories (glasses, cap, hearing aid, cane, wheelchair). Cosmetics (scarf, backpack, headband, star pin). Role details (apron, tie, cardigan, badge, a librarian's book). |
+
+NPCs are four cached meshes per look (body, head and each arm), so they
+can turn their head and use both hands while staying cheap. The player's
+character has pivots for the head, arms, hips and knees.
+
+### 14.2 Behaviour profiles (`CharacterBehaviour`) and reactions (`CharacterRig`)
+
+A profile is data: energy, how often the character glances around, a
+weighted list of idle actions, the gap between actions, the greeting and
+the talking style. The presets are:
+
+| Preset | Idle actions |
+|---|---|
+| default | nod, gesture, look to the side |
+| mentor | hand gesture, hands behind back, nod |
+| shopkeeper | check the counter, look around, gesture |
+| child | bounce on toes, look around, stretch |
+| librarian | read their book, adjust glasses |
+| guide | point at exhibits, look around |
+| gardener | tend plants |
+| player | look around, stretch (only after standing still for 6 s) |
+
+NPC ids choose a preset by role keyword, and `NPC.behaviour_profile` can
+override it. Idle actions follow these rules:
+
+- one at a time, several seconds apart;
+- none while the player is close (the NPC looks at them instead);
+- never everyone at once.
+
+Reactions are `play_reaction(kind)`: happy, celebrate, confused, nod,
+interact and both_wave. The player's character uses them in these cases:
+
+- it looks toward whatever is in reach;
+- a right answer gets "happy" and a "try again" gets a thoughtful
+  head-scratch;
+- a finished mission step gets "celebrate" and a small confetti burst;
+- pressing interact gets a reach.
+
+The NPC who just spoke reacts to the child's answer
+(`ChoicePanel.answer_checked`, emitted by every quiz and activity panel).
+Characters farther than 30 m from the camera skip their update. With
+Reduced Motion everything holds a still pose, and the meaning of every
+reaction is always also shown as text.
+
+### 14.3 Avatar identity
+
+The avatar screen now also offers:
+
+- clothes shape (word buttons);
+- eye colour and shoe colour (swatches);
+- "Extras (just for fun)": scarf, backpack, headband, star pin.
+
+The preview gives a small happy reaction to each change. Everything is
+cosmetic and free: no purchases, unlocks, loot or currency.
+
+`AvatarConfig` gained `outfit_style_id`, `shoe_color_id` and
+`eye_color_id`, saved under new keys. Cosmetics live in the existing
+`accessory_ids`. Older saves load with exactly the look they had: tee,
+cream shoes and brown eyes.
+
+### 14.4 District identity (`DistrictStyle`) and purposeful details
+
+`DistrictStyle` holds the visual language of nine districts as data:
+palette, light, open air, life profile, motifs and a kit of purposeful
+props. Setting `ZoneDressing.district_style` applies the whole style.
+Rooms without a dressing subclass get the district kit placed along their
+walls. Placement uses `is_free`, so props stay clear of interactables,
+portals, paths, the spawn point and authored furniture, with at most eight
+items per room.
+
+New `DecorProps` builders:
+
+- **Saving:** savings jar, coin-counting table, growth board.
+- **Market:** market stall, basket, crate stack, scales, picture board, planter tree.
+- **Kits:** reading chair, book cart, lectern book, display case, workbench.
+
+Open-air districts (`open_air`) are town squares rather than halls. They
+get colourful house fronts with doors, shutters, flower boxes and striped
+awnings (same collision as walls), a picket fence at the front and
+bunting overhead.
+
+Dressed this phase:
+
+| Place | How |
+|---|---|
+| Golden Vault | Own subclass, plus savings jars, a counting table and a growth chart |
+| Market Town | New subclass: a sunny market square |
+| Library, Museum, Idea Lab | Style and kit only (scene: one node, plus the interior environment and camera opt-ins) |
+
+All other zones are unchanged.
+
+### 14.5 Environmental life (`ZoneLife`)
+
+One node per place, driven by the existing `AmbientDirector`. It has a
+light drift of motes (one `CPUParticles3D`) and occasional small events at
+spots that the dressing registers:
+
+- a coin glint;
+- a bird landing on a lamp or roof, hopping and flying off;
+- a leaf drifting down;
+- a butterfly resting on a flower;
+- a district glow.
+
+Events follow controlled randomness: a seed per place, one event at a
+time, many seconds apart. Nearby NPCs glance at each event. The profiles
+are hub, vault, town, workshop, gallery, library, calm_lab and calm (the
+quietest, kept for Calm World). With Reduced Motion everything is hidden
+and nothing happens.
+
+### 14.6 Curiosities (`CuriosityProp`) and the "something here" glint
+
+`WorldInteractable` (all of the Hub's data-driven interactions) now shows
+a small glint above a remembered spot that has not been discovered yet:
+
+- it appears within 7 m, and never from across the map;
+- it gives way to the prompt pill once in reach;
+- it is gone for good once the spot is found.
+
+`CuriosityProp` is a `WorldInteractable` that owns its own prop. On
+interaction the prop wobbles, bounces, spins or tips, a soft sound plays
+and the shared card opens with Listen. Current curiosities:
+
+- **Vault:** a savings jar, and the tiny vault (a secret in a corner).
+- **Market:** the scales and a shopping basket.
+
+All are optional and never part of a mission.
+
+### 14.7 Feedback moments
+
+- **Mission step done:** the mission card shows "Done! Nice work." with a
+  drawn tick, a success chime and narration. The card gives a small pop,
+  or just the tick with Reduced Motion.
+- **XP:** a "+N XP" chip appears beside the level. It floats and fades, or
+  simply appears and goes with Reduced Motion.
+- **Coin pickups:** coins found one after another climb a little tune.
+- **Hanging around:** stand near someone for a while and they notice you,
+  with a two-handed hello and a friendly subtitle line, once per visit.
+
+### 14.8 Not done yet (next steps)
+
+- **Calm World** needs its own sensory pass; the "calm" life profile and
+  district style are ready for it.
+- **Other dressed zones:** mentor_hall, mind_lab and leadership have styles
+  but no kit builders yet (portraits, thought displays, round tables). Each
+  zone should be dressed only after its own layout is checked.
+- **Hub:** the Hub keeps its landmark buildings and gets life events and
+  glints, but no new district props of its own.
+- **Characters** are still built from primitives. A future art pass could
+  replace the meshes behind `CharacterBuilder` without touching
+  `CharacterLook`, `CharacterRig` or the behaviour profiles.

@@ -36,6 +36,9 @@ const DEFAULT_SAVE: Dictionary = {
 	"avatar_hair_style_id": "short",
 	"avatar_hair_color_id": "dark-brown",
 	"avatar_accessory_ids": [],
+	"avatar_outfit_style_id": "tee",
+	"avatar_shoe_color_id": "cream",
+	"avatar_eye_color_id": "brown",
 	"has_created_avatar": false,
 	"business_profile": {},
 	"calm_garden_background_id": "meadow",
@@ -132,6 +135,10 @@ func load_progress() -> void:
 	# Saves from before multiple accessories existed only have the single
 	# avatar_accessory_id — AvatarConfig.get_accessory_ids() merges it in.
 	ProgressManager.avatar_config.accessory_ids.assign(data.get("avatar_accessory_ids", []))
+	# Added with the character upgrade: older saves get the look they had.
+	ProgressManager.avatar_config.outfit_style_id = data.get("avatar_outfit_style_id", DEFAULT_SAVE["avatar_outfit_style_id"])
+	ProgressManager.avatar_config.shoe_color_id = data.get("avatar_shoe_color_id", DEFAULT_SAVE["avatar_shoe_color_id"])
+	ProgressManager.avatar_config.eye_color_id = data.get("avatar_eye_color_id", DEFAULT_SAVE["avatar_eye_color_id"])
 	ProgressManager.has_created_avatar = data.get("has_created_avatar", false)
 
 	_load_business_profile(data.get("business_profile", {}))
@@ -207,6 +214,9 @@ func save_progress() -> void:
 		"avatar_hair_style_id": ProgressManager.avatar_config.hair_style_id,
 		"avatar_hair_color_id": ProgressManager.avatar_config.hair_color_id,
 		"avatar_accessory_ids": ProgressManager.avatar_config.get_accessory_ids(),
+		"avatar_outfit_style_id": ProgressManager.avatar_config.outfit_style_id,
+		"avatar_shoe_color_id": ProgressManager.avatar_config.shoe_color_id,
+		"avatar_eye_color_id": ProgressManager.avatar_config.eye_color_id,
 		"has_created_avatar": ProgressManager.has_created_avatar,
 		"business_profile": _serialize_business_profile(),
 		"calm_garden_background_id": ProgressManager.calm_garden_config.background_id,

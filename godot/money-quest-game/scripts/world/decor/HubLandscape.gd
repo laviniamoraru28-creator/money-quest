@@ -28,6 +28,7 @@ const K = preload("res://scripts/world/decor/DecorKit.gd")
 var _portals: Array[Node3D] = []
 var _tree_spots: Array[Vector3] = []
 var _flower_beds: Array[Vector3] = []
+var _lamp_spots: Array[Vector3] = []
 var _rng := RandomNumberGenerator.new()
 var _colliders: StaticBody3D
 
@@ -293,6 +294,7 @@ func _build_props() -> void:
 			if _is_reserved(lp, -0.9) and lr > promenade_outer:
 				continue
 			DecorProps.lamp(m, K.xf(lp))
+			_lamp_spots.append(lp)
 			K.add_cyl_collider(_colliders, 0.25, 3.0, K.xf(lp + Vector3(0, 1.5, 0)))
 	# A few rock clusters for texture
 	for i in 18:
@@ -356,6 +358,31 @@ func _build_ambient_life() -> void:
 	birds.anchors = [Vector3(0, 21, -12), Vector3(-4, 24, -8), Vector3(5, 23, -15)] as Array[Vector3]
 	birds.radius = 22.0
 	add_child(birds)
+
+	# Occasional small events, one at a time (ZoneLife "hub"): a bird lands
+	# on a lantern and hops before flying off, a leaf drifts down from a
+	# tree, a butterfly rests on a flower bed, the Savings Tower glints.
+	# Nearby NPCs glance at them.
+	if Engine.is_editor_hint():
+		return
+	var life := ZoneLife.new()
+	life.name = "ZoneLife"
+	life.profile = "hub"
+	life.seed_value = layout_seed
+	life.area_center = Vector3(0, 2.4, 0)
+	life.area_extents = Vector3(14, 1.6, 14)
+	add_child(life)
+	for p in _lamp_spots:
+		life.add_spot("perch", to_global(p + Vector3(0, 3.72, 0)))
+	for i in _tree_spots.size():
+		if i % 3 == 0:
+			life.add_spot("tree", to_global(_tree_spots[i] + Vector3(0, 3.0, 0)))
+	for p in _flower_beds:
+		life.add_spot("flower", to_global(p + Vector3(0, 0.6, 0)))
+	var root: Node = get_parent()
+	var tower: Node3D = root.get_node_or_null("Landmarks/MoneyQuestLandmark") if root else null
+	if tower:
+		life.add_spot("sparkle", tower.global_transform * Vector3(5.6, 10.0, -3.4))
 
 
 func _build_clouds() -> void:

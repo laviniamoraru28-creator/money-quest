@@ -72,3 +72,4 @@ static func show_feedback(label: Label, all_correct: bool) -> void:
 	label.visible = true
 	AudioManager.play_sfx("success" if all_correct else "retry", 1.0, -6.0)
 	AudioManager.narrate(label.text)
+	ChoicePanel.answer_checked.emit(all_correct)

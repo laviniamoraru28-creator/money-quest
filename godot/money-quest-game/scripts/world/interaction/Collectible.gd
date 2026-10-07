@@ -9,6 +9,9 @@ extends Area3D
 
 signal collected(collectible_id: String)
 
+static var _streak: int = 0
+static var _last_collect: float = -1000.0
+
 ## Which activity this belongs to, and this item's own id within it.
 @export var activity_id: String = ""
 @export var collectible_id: String = ""
@@ -75,7 +78,12 @@ func _on_body_entered(body: Node3D) -> void:
 	if not got.has(collectible_id):
 		got.append(collectible_id)
 	ProgressManager.set_activity_state(activity_id, "collected", got)
-	AudioManager.play_sfx("coin")
+	# Coins found one after another climb a little tune (a whole tone each,
+	# for a few notes), so collecting three plays a tiny melody.
+	var now: float = Time.get_ticks_msec() / 1000.0
+	_streak = mini(_streak + 1, 4) if now - _last_collect < 90.0 else 0
+	_last_collect = now
+	AudioManager.play_sfx("coin", pow(2.0, _streak * 2.0 / 12.0))
 	set_deferred("monitoring", false)
 	collected.emit(collectible_id)
 	if Settings.reduced_motion:

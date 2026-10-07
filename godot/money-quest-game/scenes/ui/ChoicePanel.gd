@@ -34,6 +34,11 @@ const MIN_BUTTON_HEIGHT: float = 64.0  # comfortable one-handed touch target
 ## button callback never reached the waiting loop and the panel stayed open.)
 signal _option_picked(option: ChoiceOption)
 signal _quiz_answered(correct: bool)
+## Any checked answer in a quiz or activity panel (quizzes here; spot,
+## sort and allocate through Narration.show_feedback): characters react to
+## it (the NPC who asked, the player's own character). Purely visual — the
+## result is always shown in words by the panel itself.
+signal answer_checked(correct: bool)
 
 var _listen: Button
 var _listen_text: String = ""
@@ -101,6 +106,7 @@ func show_quiz(question_key: String, option_keys: Array[String], correct_index: 
 		texts.append(button.text)
 		button.pressed.connect(func():
 			if visible:
+				answer_checked.emit(data_index == correct_index)
 				_quiz_answered.emit(data_index == correct_index)
 		)
 		options_box.add_child(button)

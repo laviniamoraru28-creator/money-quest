@@ -30,9 +30,18 @@ extends Resource
 @export var skin_tone_id: String = CharacterPalette.DEFAULT_SKIN_TONE
 @export var hair_style_id: String = CharacterPalette.DEFAULT_HAIR_STYLE
 @export var hair_color_id: String = CharacterPalette.DEFAULT_HAIR_COLOR
-## Any combination of "glasses", "cap", "hearing_aid", "cane" — all
-## optional and independent of each other.
+## Any combination of "glasses", "cap", "hearing_aid", "cane" and the
+## cosmetics "scarf", "backpack", "headband", "star_pin" — all optional
+## and independent of each other.
 @export var accessory_ids: Array[String] = []
+
+## Added with the character upgrade — safe defaults for older saves (an old
+## save simply looks exactly as it did: a tee, cream trainers, brown eyes).
+## Cosmetics (scarf, backpack, headband, star pin) live in accessory_ids
+## alongside the everyday accessories, so no new save field is needed.
+@export var outfit_style_id: String = CharacterPalette.DEFAULT_OUTFIT_STYLE
+@export var shoe_color_id: String = CharacterPalette.DEFAULT_SHOE_COLOR
+@export var eye_color_id: String = CharacterPalette.DEFAULT_EYE_COLOR
 
 
 ## Every accessory to show, merging the legacy single field.

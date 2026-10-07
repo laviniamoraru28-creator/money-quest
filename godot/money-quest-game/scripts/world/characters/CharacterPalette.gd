@@ -39,7 +39,7 @@ const HAIR_COLORS: Dictionary = {
 
 ## Every style is available to everyone. "none" is a real choice too
 ## (some children have no hair), not a missing option.
-const HAIR_STYLES: Array[String] = ["short", "buzz", "curly", "coily", "bob", "long", "ponytail", "none"]
+const HAIR_STYLES: Array[String] = ["short", "buzz", "curly", "coily", "bob", "long", "ponytail", "bun", "braids", "spiky", "puffs", "none"]
 
 ## Outfit swatches offered on the avatar screen — Money Quest brand colours
 ## plus a few friendly extras. AvatarConfig stores the actual Color, so any
@@ -56,6 +56,39 @@ const BOTTOM_COLORS: Array[Color] = [
 	Color("34495E"), Color("2F4B7C"), Color("5B4B3A"), Color("3A3F44"), Color("6B7F8E"), Color("7A5B45"),
 ]
 
+## Clothing shapes (every one available to everyone). "tee" is what every
+## character wore before styles existed, so older saves look the same.
+const OUTFIT_STYLES: Array[String] = ["tee", "hoodie", "jacket", "dress", "overalls"]
+
+## Shoe colours, by stable id.
+const SHOE_COLORS: Dictionary = {
+	"cream": Color("F2EEE6"),
+	"red": Color("D13E19"),
+	"blue": Color("367D99"),
+	"yellow": Color("E8A33D"),
+	"green": Color("4F9B5C"),
+	"purple": Color("7A68B8"),
+	"black": Color("3A3F44"),
+}
+
+## Natural eye colours, by stable id.
+const EYE_COLORS: Dictionary = {
+	"brown": Color("5A3B22"),
+	"dark-brown": Color("3E2A1C"),
+	"hazel": Color("7A6A3A"),
+	"green": Color("4F7A4A"),
+	"blue": Color("3D6E9E"),
+	"grey": Color("6E7B85"),
+}
+
+## Cosmetic extras the player can wear (purely visual, earned by nothing,
+## sold for nothing). Separate from the everyday accessories (glasses, cap,
+## hearing aid, cane) only so the avatar screen can group them.
+const COSMETICS: Array[String] = ["scarf", "backpack", "headband", "star_pin"]
+
+const DEFAULT_OUTFIT_STYLE: String = "tee"
+const DEFAULT_SHOE_COLOR: String = "cream"
+const DEFAULT_EYE_COLOR: String = "brown"
 const DEFAULT_SKIN_TONE: String = "tone-4"
 const DEFAULT_HAIR_STYLE: String = "short"
 const DEFAULT_HAIR_COLOR: String = "dark-brown"
@@ -69,6 +102,21 @@ static func skin(id: String) -> Color:
 
 static func hair(id: String) -> Color:
 	return HAIR_COLORS.get(id, HAIR_COLORS[DEFAULT_HAIR_COLOR])
+
+
+static func shoe(id: String) -> Color:
+	return SHOE_COLORS.get(id, SHOE_COLORS[DEFAULT_SHOE_COLOR])
+
+
+static func eye(id: String) -> Color:
+	return EYE_COLORS.get(id, EYE_COLORS[DEFAULT_EYE_COLOR])
+
+
+## A friendly contrasting colour for small details (scarf, headband, hair
+## tie): gold beside cool tops, teal beside warm ones.
+static func accent_for(top: Color) -> Color:
+	var warm: bool = top.h < 0.15 or top.h > 0.9
+	return Color("0F7A6B") if warm and top.s > 0.25 else Color("E8A33D")
 
 
 ## A cached matte material for any colour, so a hundred characters sharing

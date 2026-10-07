@@ -1,5 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://idealab0001"]
+[gd_scene load_steps=14 format=3 uid="uid://idealab0001"]
 
+[ext_resource type="Script" path="res://scripts/world/zones/ZoneDressing.gd" id="zd_dress"]
+[ext_resource type="Script" path="res://scripts/world/EnvironmentOverride.gd" id="zd_env"]
+[ext_resource type="Environment" path="res://assets/environment/mq_interior_environment.tres" id="zd_envres"]
 [ext_resource type="Script" path="res://scenes/world/zones/idea_lab/IdeaLab.gd" id="1"]
 [ext_resource type="PackedScene" path="res://scenes/player/Player.tscn" id="2"]
 [ext_resource type="PackedScene" path="res://scenes/player/CameraController.tscn" id="3"]
@@ -44,6 +47,8 @@ surface_material_override/0 = SubResource("StandardMaterial3D_ground")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 
 [node name="CameraController" parent="." instance=ExtResource("3")]
+occlusion_mask = 2
+use_authored_offset = true
 
 [node name="BusinessGuide" parent="." instance=ExtResource("4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
@@ -94,3 +99,11 @@ no_depth_test = true
 font_size = 48
 outline_size = 8
 text = ""
+
+[node name="ZoneDressing" type="Node3D" parent="."]
+script = ExtResource("zd_dress")
+district_style = "idea_lab"
+
+[node name="EnvironmentOverride" type="Node" parent="."]
+script = ExtResource("zd_env")
+environment = ExtResource("zd_envres")

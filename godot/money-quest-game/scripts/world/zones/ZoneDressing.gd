@@ -27,6 +27,14 @@ extends Node3D
 ##
 ## Theming: the exported palette and shape values are the zone's theme. A
 ## subclass sets its theme defaults in _init() (scene values still win).
+## A district style (DistrictStyle — palette, light, open air, life) can
+## set all of them at once: `district_style = "market_town"`.
+##
+## Open-air districts (open_air) get a town square instead of a hall:
+## colourful shopfront façades with awnings, doors, windows and flower
+## boxes in place of the walls (same collision), and bunting overhead.
+## Every dressed place gets a ZoneLife (life_profile): drifting motes and
+## occasional small events at spots the dressing registers (spot()).
 ##
 ## Never touched: the zone root's script, NPCs, portals, interactables,
 ## the player and the camera (beyond the camera opt-ins set in the scene).
@@ -49,6 +57,18 @@ const KERB_WIDTH: float = 0.22
 const GATEWAY_RADIUS: float = 2.35   # outer edge of the return gateway ring
 const CAMERA_BLOCK_HEIGHT: float = 12.0
 
+@export_group("District")
+## A DistrictStyle id; when set it supplies the palette, light, open air
+## and life profile below.
+@export var district_style: String = ""
+## A town square (façades, open sky) instead of a hall.
+@export var open_air: bool = false
+## ZoneLife profile ("" = none). See ZoneLife.PROFILES.
+@export var life_profile: String = "vault"
+## Purposeful details placed along the walls (DistrictStyle kits), for a
+## room with no dressing subclass of its own. Builder ids, optionally with
+## a variant: "display_case:coin".
+@export var kit: Array = []
 @export_group("Palette (DecorKit colour names)")
 @export var floor_color: String = "stone_dark"
 @export var floor_accent: String = "path_stone"
@@ -89,12 +109,17 @@ var _segments: Array = []
 var _authored: Array[Rect2] = []   # floor footprints of the zone's own furniture
 var _body: StaticBody3D         # walls: world collision + camera blockers
 var _props_body: StaticBody3D   # props, arch feet, bollards: world collision only
+## The place's environmental life (built before the props, so a
+## subclass can register event spots with spot()).
+var life: ZoneLife
 
 
 func _ready() -> void:
 	_root = get_parent() as Node3D
 	if _root == null:
 		return
+	if not district_style.is_empty():
+		DistrictStyle.apply(self, district_style)
 	_read_zone()
 	_segments = _compute_path_segments()
 	_body = StaticBody3D.new()
@@ -107,6 +132,14 @@ func _ready() -> void:
 	_props_body.collision_layer = 1
 	_props_body.collision_mask = 0
 	add_child(_props_body)
+	if not Engine.is_editor_hint() and not life_profile.is_empty():
+		life = ZoneLife.new()
+		life.name = "ZoneLife"
+		life.profile = life_profile
+		life.seed_value = absi(String(_root.name).hash())
+		life.area_center = Vector3(0, 2.2, 0)
+		life.area_extents = Vector3(half().x - 1.5, 1.8, half().y - 1.5)
+		add_child(life)
 
 	# Flat floor layer (tiles, paths, rugs): receives shadows but never casts
 	# any, so it stays out of the shadow passes entirely.
@@ -116,7 +149,10 @@ func _ready() -> void:
 	_build_npc_rugs(ground)
 	ground.commit_to(self, "Floor", false)
 	var m := MeshMerger.new()
-	_build_walls(m)
+	if open_air:
+		_build_facades(m)
+	else:
+		_build_walls(m)
 	_build_props(m, _props_body)
 	m.origin = Transform3D.IDENTITY
 	m.commit_to(self, "Room", true)
@@ -132,9 +168,89 @@ func _ready() -> void:
 ## zone root; the floor is at y = 0). Use is_free() to keep clear of
 ## interactables, portals, the spawn point, the paths and the walls, and
 ## add colliders to `body` for anything solid (world collision only: props
-## never push the camera around — only the walls do).
-func _build_props(_m: MeshMerger, _body_ref: StaticBody3D) -> void:
-	pass
+## never push the camera around — only the walls do). By default, the
+## district's kit is placed (see _build_kit).
+func _build_props(m: MeshMerger, body_ref: StaticBody3D) -> void:
+	_build_kit(m, body_ref)
+
+
+## The district's purposeful details, placed by the same rules for every
+## room: candidate spots 1.7 m in from the back and side walls, every 3.2 m,
+## facing into the room; each kit item takes the next free spot (clear of
+## interactables, portals, paths, the spawn point and authored furniture).
+## At most eight, so a room never fills up.
+func _build_kit(m: MeshMerger, body: StaticBody3D) -> void:
+	if kit.is_empty():
+		return
+	var h: Vector2 = half()
+	var spots_list: Array = []
+	var x: float = -h.x + 2.6
+	while x < h.x - 2.4:
+		spots_list.append([Vector3(x, 0, -h.y + 1.7), 0.0])
+		x += 3.2
+	var z: float = -h.y + 4.4
+	while z < h.y - 3.0:
+		spots_list.append([Vector3(-h.x + 1.7, 0, z), 90.0])
+		spots_list.append([Vector3(h.x - 1.7, 0, z), -90.0])
+		z += 3.2
+	var placed: int = 0
+	var i: int = 0
+	for s in spots_list:
+		if placed >= 8:
+			break
+		var pos: Vector3 = s[0]
+		if not is_free(pos, 0.9):
+			continue
+		var item: String = String(kit[i % kit.size()])
+		i += 1
+		if _kit_item(m, body, item, pos, s[1]):
+			placed += 1
+
+
+## One kit item at `pos` facing yaw (degrees). Returns false if unknown.
+func _kit_item(m: MeshMerger, body: StaticBody3D, item: String, pos: Vector3, yaw: float) -> bool:
+	var parts: PackedStringArray = item.split(":")
+	var id: String = parts[0]
+	var variant: String = parts[1] if parts.size() > 1 else ""
+	var x: Transform3D = K.xf(pos, Vector3(0, yaw, 0))
+	var size := Vector3(1.4, 1.2, 1.0)
+	match id:
+		"reading_chair":
+			DecorProps.reading_chair(m, x, accent)
+		"book_cart":
+			DecorProps.book_cart(m, x)
+			size = Vector3(1.1, 1.0, 0.6)
+		"lectern_book":
+			DecorProps.lectern_book(m, x)
+			size = Vector3(0.7, 1.2, 0.6)
+			spot("sparkle", pos + Vector3(0, 1.4, 0))
+		"display_case":
+			DecorProps.display_case(m, x, variant if variant != "" else "coin", trim_color)
+			size = Vector3(1.0, 1.7, 1.0)
+			spot("sparkle", pos + Vector3(0, 1.3, 0))
+		"workbench":
+			DecorProps.workbench(m, x, accent)
+			size = Vector3(1.8, 1.2, 0.8)
+			spot("sparkle", x * Vector3(0.62, 1.3, -0.1))
+		"picture_board":
+			DecorProps.picture_board(m, x, "wood_dark", [accent, "gold", "teal", "sky"])
+			size = Vector3(1.6, 2.2, 0.3)
+		"crate_stack":
+			DecorProps.crate_stack(m, x, ["gold", "leaf_light"])
+		"potted_plant":
+			DecorProps.potted_plant(m, x, accent, trim_color)
+			size = Vector3(0.9, 1.5, 0.9)
+		"bench":
+			DecorProps.bench(m, x)
+			size = Vector3(1.8, 0.9, 0.55)
+		"lamp":
+			DecorProps.lamp(m, x)
+			size = Vector3(0.5, 3.0, 0.5)
+			spot("perch", pos + Vector3(0, 3.72, 0))
+		_:
+			return false
+	K.add_box_collider(body, size, K.xf(pos + Vector3(0, size.y * 0.5, 0), Vector3(0, yaw, 0)))
+	return true
 
 
 # --- reading the zone ---------------------------------------------------------
@@ -339,6 +455,133 @@ func _build_walls(m: MeshMerger) -> void:
 	for side in [-1.0, 1.0]:
 		m.part(K.box(Vector3(0.6, 1.3, 0.6)), K.mat(pilaster_color), Vector3(side * (h.x - 0.3), 0.65, front_z))
 		m.part(K.sphere(0.32, 12, 6), K.mat(trim_color), Vector3(side * (h.x - 0.3), 1.5, front_z))
+
+
+## Registers an event spot for this place's ZoneLife (local position).
+func spot(kind: String, local_pos: Vector3) -> void:
+	if life:
+		life.add_spot(kind, to_global(local_pos))
+
+
+# --- open-air squares ------------------------------------------------------------
+
+## Colours of the houses around a town square (soft, warm, varied).
+const FACADE_COLORS: Array[String] = ["coral", "sky_light", "window_warm", "cream", "teal_light", "blossom", "parchment", "verdigris"]
+const ROOF_COLORS: Array[String] = ["book_red", "teal_dark", "path_terracotta", "sky", "wood_dark"]
+const AWNING_COLORS: Array[String] = ["ember", "teal", "gold", "sky", "coral", "leaf"]
+
+
+## A town square's edges: rows of narrow, colourful house fronts (doors,
+## windows with shutters, flower boxes, striped awnings, pitched roofs)
+## instead of hall walls — same collision as walls (they still stop the
+## camera), a low fence at the front, and bunting strung overhead.
+func _build_facades(m: MeshMerger) -> void:
+	var h: Vector2 = half()
+	var rng := RandomNumberGenerator.new()
+	rng.seed = absi(String(_root.name).hash()) + 7
+	var t: float = 0.6
+	_facade_row(m, Vector3(0, 0, -h.y + t * 0.5), room_size.x, 0.0, rng)
+	for side in [-1.0, 1.0]:
+		_facade_row(m, Vector3(side * (h.x - t * 0.5), 0, 0), room_size.y, -90.0 * side, rng)
+	# Front: a low picket fence with flower boxes (the camera looks over it).
+	m.origin = Transform3D.IDENTITY
+	var front_z: float = h.y - 0.25
+	m.part(K.box(Vector3(room_size.x, 0.14, 0.12)), K.mat("wood"), Vector3(0, 0.55, front_z))
+	m.part(K.box(Vector3(room_size.x, 0.12, 0.12)), K.mat("wood"), Vector3(0, 0.25, front_z))
+	var pickets: int = int(room_size.x / 0.45)
+	for i in pickets:
+		var x: float = -h.x + 0.22 + i * (room_size.x - 0.44) / float(maxi(pickets - 1, 1))
+		m.part(K.box(Vector3(0.14, 0.85, 0.06)), K.mat("cream"), Vector3(x, 0.43, front_z + 0.07))
+	for side in [-1.0, 1.0]:
+		m.part(K.box(Vector3(1.6, 0.4, 0.5)), K.mat("wood_dark"), Vector3(side * (h.x - 1.2), 0.2, front_z - 0.4))
+		for j in 4:
+			m.part(K.sphere(0.16, 8, 4), K.sway(["coral", "gold", "blossom", "lilac"][j], "flower"), Vector3(side * (h.x - 1.75 + j * 0.36), 0.48, front_z - 0.4))
+	_bunting()
+
+
+## One side of the square: house fronts of varying width and height.
+func _facade_row(m: MeshMerger, center: Vector3, length: float, yaw: float, rng: RandomNumberGenerator) -> void:
+	var base := Transform3D(Basis(Vector3.UP, deg_to_rad(yaw)), center)
+	var x: float = -length * 0.5
+	var i: int = 0
+	while x < length * 0.5 - 0.5:
+		var w: float = minf(rng.randf_range(3.2, 4.4), length * 0.5 - x)
+		var hgt: float = rng.randf_range(4.6, 6.4)
+		_house(m, base, Vector3(x + w * 0.5, 0, 0), w, hgt, i, rng)
+		x += w
+		i += 1
+	m.origin = Transform3D.IDENTITY
+	var block_h: float = CAMERA_BLOCK_HEIGHT
+	K.add_box_collider(_body, Vector3(length, block_h, 0.6), base * K.xf(Vector3(0, block_h * 0.5, 0)))
+
+
+## One house front, its inside face (local +Z) toward the square.
+func _house(m: MeshMerger, base: Transform3D, c: Vector3, w: float, hgt: float, i: int, rng: RandomNumberGenerator) -> void:
+	m.origin = base
+	var wall: String = FACADE_COLORS[(i * 3 + rng.randi() % 3) % FACADE_COLORS.size()]
+	var roof: String = ROOF_COLORS[rng.randi() % ROOF_COLORS.size()]
+	var z: float = 0.32
+	m.part(K.box(Vector3(w - 0.06, hgt, 0.6)), K.mat(wall), c + Vector3(0, hgt * 0.5, 0))
+	m.part(K.box(Vector3(w, 0.35, 0.72)), K.mat("stone_dark"), c + Vector3(0, 0.175, 0))
+	m.part(K.box(Vector3(w + 0.04, 0.16, 0.76)), K.mat("cream"), c + Vector3(0, hgt - 0.08, 0))
+	# Pitched roof (a prism along the house front) and a chimney on some.
+	m.part(K.prism(Vector3(w + 0.1, 1.4, 0.9)), K.mat(roof), c + Vector3(0, hgt + 0.7, -0.1))
+	if rng.randf() < 0.4:
+		m.part(K.box(Vector3(0.4, 0.9, 0.4)), K.mat("stone"), c + Vector3(w * 0.25, hgt + 1.0, -0.2))
+	# Door with a frame and a step
+	var door_x: float = c.x + (w * 0.22 if i % 2 == 0 else -w * 0.22)
+	m.part(K.box(Vector3(1.0, 1.9, 0.08)), K.mat("wood_dark"), Vector3(door_x, 0.95 + 0.35, z))
+	m.part(K.box(Vector3(1.2, 0.12, 0.1)), K.mat("cream"), Vector3(door_x, 2.36, z + 0.02))
+	m.part(K.sphere(0.05, 6, 3), K.mat("gold"), Vector3(door_x + 0.35, 1.3, z + 0.06))
+	m.part(K.box(Vector3(1.3, 0.12, 0.5)), K.mat("stone"), Vector3(door_x, 0.06, z + 0.2))
+	# Shop window beside the door, with a striped awning above it
+	var win_x: float = c.x - (w * 0.2 if i % 2 == 0 else -w * 0.2)
+	m.part(K.box(Vector3(1.3, 1.1, 0.06)), K.mat("window_warm", 0.25), Vector3(win_x, 1.35, z))
+	m.part(K.box(Vector3(1.45, 0.1, 0.12)), K.mat("cream"), Vector3(win_x, 0.78, z + 0.03))
+	var awn: String = AWNING_COLORS[(i + rng.randi() % 2) % AWNING_COLORS.size()]
+	for s in 5:
+		var sx: float = win_x - 0.75 + 0.3 * (s + 0.5)
+		m.part(K.box(Vector3(0.3, 0.05, 0.9)), K.cloth(awn if s % 2 == 0 else "cream"), Vector3(sx, 2.3, z + 0.42), Vector3(-18, 0, 0))
+	# Upper windows with shutters and a flower box
+	var rows: int = 2 if hgt > 5.6 else 1
+	for r in rows:
+		var wy: float = 3.35 + r * 1.35
+		for wx in [c.x - w * 0.24, c.x + w * 0.24]:
+			m.part(K.box(Vector3(0.7, 0.85, 0.06)), K.mat("window_warm", 0.2), Vector3(wx, wy, z))
+			m.part(K.box(Vector3(0.82, 0.08, 0.1)), K.mat("cream"), Vector3(wx, wy - 0.46, z + 0.02))
+			for sd in [-1.0, 1.0]:
+				m.part(K.box(Vector3(0.24, 0.85, 0.05)), K.mat(roof), Vector3(wx + sd * 0.5, wy, z + 0.02))
+		if r == 0:
+			m.part(K.box(Vector3(w * 0.7, 0.2, 0.25)), K.mat("wood"), Vector3(c.x, 2.85, z + 0.12))
+			for f in 5:
+				m.part(K.sphere(0.12, 6, 3), K.sway(["coral", "gold", "blossom", "leaf_light", "lilac"][(f + i) % 5], "flower"), Vector3(c.x - w * 0.3 + f * w * 0.15, 3.0, z + 0.14))
+	m.origin = Transform3D.IDENTITY
+	# A bird may land on the roof ridge.
+	spot("perch", base * (c + Vector3(rng.randf_range(-w * 0.3, w * 0.3), hgt + 1.4, -0.1)))
+
+
+## Strings of little triangle flags across the square (cloth: they ripple
+## gently, and lie still with Reduced Motion).
+func _bunting() -> void:
+	var h: Vector2 = half()
+	var bm := MeshMerger.new()
+	var colours: Array = ["ember", "gold", "teal", "sky", "coral", "leaf"]
+	var lines: Array = [
+		[Vector3(-h.x + 0.6, 5.2, -h.y * 0.35), Vector3(h.x - 0.6, 5.2, -h.y * 0.15)],
+		[Vector3(-h.x + 0.6, 5.0, h.y * 0.05), Vector3(h.x - 0.6, 5.0, -h.y * 0.25)],
+	]
+	for line in lines:
+		var a: Vector3 = line[0]
+		var b: Vector3 = line[1]
+		var n: int = int(a.distance_to(b) / 0.7)
+		var dir: Vector3 = (b - a).normalized()
+		var yaw: float = rad_to_deg(atan2(dir.x, dir.z)) + 90.0
+		for k in n:
+			var u: float = (k + 0.5) / float(n)
+			var p: Vector3 = a.lerp(b, u) - Vector3(0, sin(u * PI) * 0.8, 0)
+			bm.part(K.prism(Vector3(0.38, 0.42, 0.02)), K.cloth(colours[k % colours.size()]), p - Vector3(0, 0.22, 0), Vector3(180, yaw, 0))
+			bm.part(K.box(Vector3(0.72, 0.02, 0.02)), K.mat("ink"), p, Vector3(0, yaw, 0))
+	bm.commit_to(self, "Bunting", false)
 
 
 ## One wall: `center` on the floor, `size` = (length, height, thickness),

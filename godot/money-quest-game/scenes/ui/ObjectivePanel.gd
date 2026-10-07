@@ -6,6 +6,9 @@ extends PanelContainer
 ## a gamepad — shown on the card). Hidden when there is no objective.
 ## A new mission briefly lights the card's edge and plays a soft chime;
 ## with Reduced Motion it simply appears.
+## A finished step shows a "Done!" line with a tick (a shape, not only a
+## colour) and a soft success chime, read aloud when narration is on; the
+## card gives a small happy pop — or, with Reduced Motion, just the tick.
 
 signal help_requested
 
@@ -16,6 +19,9 @@ var _help: Button
 var _shown_id: String = ""
 var _hold_serial: int = 0
 var _held: bool = false
+var _done: HBoxContainer
+var _done_label: Label
+var _done_serial: int = 0
 
 
 func _ready() -> void:
@@ -44,6 +50,16 @@ func _ready() -> void:
 	_tip.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_tip.custom_minimum_size = Vector2(300, 0)
 	col.add_child(_tip)
+	_done = HBoxContainer.new()
+	_done.name = "DoneRow"
+	_done.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_done.add_theme_constant_override("separation", 10)
+	_done.visible = false
+	var tick := TickIcon.new()
+	_done.add_child(tick)
+	_done_label = UIStyle.label("", 22, UIStyle.TEAL_DARK)
+	_done.add_child(_done_label)
+	col.add_child(_done)
 	_help = UIStyle.button("?", false)
 	_help.name = "HelpButton"
 	_help.custom_minimum_size = Vector2(60, 60)
@@ -53,6 +69,7 @@ func _ready() -> void:
 	_help.pressed.connect(func(): help_requested.emit())
 	row.add_child(_help)
 	ObjectiveManager.objective_changed.connect(_refresh)
+	ObjectiveManager.objective_completed.connect(_on_completed)
 	Localization.locale_changed.connect(func(_l): _refresh())
 	InputHints.device_changed.connect(func(_d): _refresh())
 	_refresh()
@@ -97,3 +114,35 @@ func _announce() -> void:
 	var tw := create_tween()
 	sb.border_color = Color("FFD86B")
 	tw.tween_property(sb, "border_color", UIStyle.GOLD, 1.2)
+
+
+## A mission step is done: "Done! Nice work." with a tick, a chime, the
+## words read aloud (narration on), and a small pop of the card.
+func _on_completed(_id: String) -> void:
+	_done_serial += 1
+	var serial: int = _done_serial
+	_done_label.text = Localization.t("objective.done")
+	_done.visible = true
+	AudioManager.play_sfx("success", 1.0, -4.0)
+	AudioManager.narrate(_done_label.text)
+	if not Settings.reduced_motion and visible:
+		pivot_offset = size * 0.5
+		var tw := create_tween()
+		tw.tween_property(self, "scale", Vector2.ONE * 1.06, 0.12).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+		tw.tween_property(self, "scale", Vector2.ONE, 0.25).set_trans(Tween.TRANS_SINE)
+	await get_tree().create_timer(3.0).timeout
+	if serial == _done_serial:
+		_done.visible = false
+
+
+## A drawn tick in a teal circle (a shape, readable without colour).
+class TickIcon extends Control:
+	func _init() -> void:
+		custom_minimum_size = Vector2(30, 30)
+		mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+	func _draw() -> void:
+		var c: Vector2 = size * 0.5
+		var r: float = minf(size.x, size.y) * 0.5
+		draw_circle(c, r, UIStyle.TEAL)
+		draw_polyline(PackedVector2Array([c + Vector2(-r * 0.45, 0), c + Vector2(-r * 0.1, r * 0.38), c + Vector2(r * 0.5, -r * 0.35)]), Color.WHITE, 3.5, true)
