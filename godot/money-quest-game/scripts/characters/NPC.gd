@@ -42,6 +42,12 @@ extends Interaction
 ## "mentor", "shopkeeper", "child", "librarian", "guide", "gardener"...).
 ## Empty = chosen from npc_id.
 @export var behaviour_profile: String = ""
+## A body with legs that can walk (for an NPC who demonstrates things —
+## see Demonstration). Ordinary NPCs keep the cheaper standing body.
+@export var animated_body: bool = false
+## True while a script moves this NPC (a demonstration): it does not turn
+## to the player or greet on its own meanwhile.
+var scripted: bool = false
 
 signal talked_to(npc_id: String)
 
@@ -49,6 +55,8 @@ enum Indicator { NONE, TALK, QUEST }
 
 const NOTICE_RANGE: float = 6.5
 const FACE_RANGE: float = 4.0
+## Remembered lines (NpcVoice) only when the child is really close by.
+const VOICE_RANGE: float = 4.5
 
 ## Label3D, not a Control/Label — in the 3D world a name floats above the
 ## NPC's head in world space (billboarded toward the camera).
@@ -76,6 +84,9 @@ var _neighbour_checked: bool = false
 var _last_spoke: float = -100.0
 var _linger: float = 0.0
 var _lingered: bool = false
+var _card_key: String = ""
+## A remembered line (NpcVoice) waiting for a calm moment to be said.
+var _voice_pending: bool = false
 
 
 func _ready() -> void:
@@ -84,7 +95,7 @@ func _ready() -> void:
 	if interaction_priority == 10:
 		interaction_priority = 50
 	prompt_height = 2.6
-	visual = CharacterBuilder.build(CharacterLook.for_npc(npc_id), false)
+	visual = CharacterBuilder.build(CharacterLook.for_npc(npc_id), animated_body)
 	visual.idle_phase = float(absi(npc_id.hash()) % 1000) * 0.0063
 	visual.can_wave = npc_id == "hub-guide"
 	visual.behaviour = CharacterBehaviour.preset(behaviour_profile if not behaviour_profile.is_empty() else CharacterBehaviour.preset_id_for_npc(npc_id))
@@ -109,7 +120,7 @@ func _process(delta: float) -> void:
 	if _player == null or not is_instance_valid(_player) or _player.is_queued_for_deletion():
 		_player = _find_player()
 	_update_bubble()
-	if _player == null or visual == null:
+	if _player == null or visual == null or scripted:
 		return
 	var to_player: Vector3 = _player.global_position - global_position
 	to_player.y = 0.0
@@ -117,18 +128,23 @@ func _process(delta: float) -> void:
 	visual.look_target = _player if d < NOTICE_RANGE else _neighbour_glance()
 	if d < NOTICE_RANGE and not _greeted:
 		_greeted = true
-		visual.greet()
-		if not call_out_key.is_empty():
-			AudioManager.say(Localization.t(call_out_key), get_display_name())
+		_greet_contextually()
+	if _voice_pending and d < VOICE_RANGE and _calm_moment():
+		_voice_pending = false
+		var key: String = NpcVoice.approach(npc_id)
+		if not key.is_empty():
+			NpcVoice.took_turn()
+			AudioManager.say(Localization.t(key), get_display_name())
+	# (Never while a Play & Learn activity is guiding the child.)
 	# A small easter egg: stay near someone for a while without talking and
-	# they notice — a happy two-handed hello and a friendly line (shown as
-	# a subtitle). Once per visit; never during a conversation.
-	if not _lingered and d < 3.2 and _player is CharacterBody3D and Vector2(_player.velocity.x, _player.velocity.z).length() < 0.1 and not DialogueBox.visible and not ChoicePanel.visible:
+	# they notice — a happy two-handed hello (a gesture, not a line: the
+	# same words every time would soon feel mechanical). Once per visit;
+	# never during a conversation.
+	if not _lingered and not Settings.focus_mode and not _activity_running() and d < 3.2 and _player is CharacterBody3D and Vector2(_player.velocity.x, _player.velocity.z).length() < 0.1 and not DialogueBox.visible and not ChoicePanel.visible:
 		_linger += delta
 		if _linger > 9.0:
 			_lingered = true
 			visual.play_reaction("both_wave")
-			AudioManager.say(Localization.t("npc.linger_hello"), get_display_name())
 	else:
 		_linger = 0.0
 	if d < FACE_RANGE and d > 0.2:
@@ -159,8 +175,14 @@ func get_display_name() -> String:
 
 
 func interact() -> void:
+	_voice_pending = false   # talking now: no extra call-out on top
 	talked_to.emit(npc_id)
 	if greeting:
+		# What they say can depend on what the child has (NpcVoice).
+		if _card_key.is_empty():
+			_card_key = greeting.text_key
+		var k: String = NpcVoice.talk_key(npc_id)
+		greeting.text_key = k if not k.is_empty() else _card_key
 		var card: InteractionCard = InteractionCard.find(self)
 		if card:
 			card.toggle(greeting, self, get_display_name())
@@ -255,3 +277,42 @@ func _on_answer_checked(correct: bool) -> void:
 	if _player == null or _player.global_position.distance_to(global_position) > NOTICE_RANGE:
 		return
 	visual.play_reaction("happy" if correct else "confused")
+
+
+func _activity_running() -> bool:
+	for a in get_tree().get_nodes_in_group("mq_play_activity"):
+		if a.running:
+			return true
+	return false
+
+
+## Coming near for the first time on this visit: their own greeting
+## gesture, plus a zone's call-out line if it set one; otherwise, at the
+## next calm moment, what this character remembers about the child
+## (NpcVoice) — or, with nothing new to say, nothing more than the gesture.
+func _greet_contextually() -> void:
+	var g: String = NpcVoice.gesture(npc_id)
+	if g.is_empty() or g == "wave":
+		visual.greet()
+	else:
+		visual.play_reaction(g)
+	if not call_out_key.is_empty():
+		AudioManager.say(Localization.t(call_out_key), get_display_name())
+	elif NpcVoice.has_voice(npc_id):
+		_voice_pending = true
+
+
+## When a remembered line may be said: not just after arriving, not over
+## a conversation, a card or a Play & Learn activity, not in Focus Mode,
+## and only when no one else has just spoken (NpcVoice.my_turn).
+func _calm_moment() -> bool:
+	return _time > 2.5 and not Settings.focus_mode and not _activity_running() and not DialogueBox.visible and not ChoicePanel.visible and not _card_open() and NpcVoice.my_turn()
+
+
+func _card_open() -> bool:
+	var hud: Node = get_tree().get_first_node_in_group("mq_hud")
+	if hud == null:
+		return false
+	if not get_tree().get_nodes_in_group("mq_purpose_card").is_empty():
+		return true
+	return (hud.get("_card") != null and hud._card.is_open()) or (hud.get("shop_card") != null and hud.shop_card.is_open())

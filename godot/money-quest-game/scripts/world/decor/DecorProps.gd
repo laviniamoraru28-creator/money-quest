@@ -216,6 +216,8 @@ static func market_stall(m: MeshMerger, x: Transform3D, awning: String = "ember"
 	for t in 3:
 		var tx: float = -0.7 + t * 0.7
 		m.part(K.box(Vector3(0.6, 0.1, 0.6)), K.mat("wood_dark"), Vector3(tx, 1.03, 0))
+		if goods.is_empty():
+			continue   # an empty counter: a shop places its own products
 		for k in 5:
 			m.part(K.sphere(0.1, 8, 4), K.mat(goods[t % goods.size()]), Vector3(tx - 0.18 + (k % 3) * 0.18, 1.13 + (0.08 if k > 2 else 0.0), -0.1 + (k / 3) * 0.2))
 	# Poles and a striped awning
@@ -227,6 +229,8 @@ static func market_stall(m: MeshMerger, x: Transform3D, awning: String = "ember"
 		m.part(K.box(Vector3(2.3 / 7.0, 0.05, 1.3)), K.cloth(awning if s % 2 == 0 else "cream"), Vector3(ax, 2.45, 0.05), Vector3(-12, 0, 0))
 		m.part(K.prism(Vector3(2.3 / 7.0, 0.2, 0.04)), K.cloth(awning if s % 2 == 0 else "cream"), Vector3(ax, 2.22, 0.72), Vector3(180, 0, 0))
 	# A hanging round sign with a picture of what is sold
+	if goods.is_empty():
+		return
 	m.part(K.cyl(0.26, 0.26, 0.05, 16), K.mat(sign_color), Vector3(1.05, 1.9, 0.62), Vector3(90, 0, 0))
 	m.part(K.sphere(0.12, 8, 4), K.mat(goods[0]), Vector3(1.05, 1.88, 0.67), Vector3.ZERO, Vector3(1, 1, 0.3))
 	m.part(K.sphere(0.05, 6, 3), K.mat("leaf"), Vector3(1.1, 2.0, 0.68), Vector3.ZERO, Vector3(1, 0.5, 0.3))

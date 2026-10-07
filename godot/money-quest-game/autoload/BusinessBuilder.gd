@@ -70,6 +70,10 @@ func start_building() -> void:
 		profile.completed_stage_ids.append(stage_id)
 		profile_changed.emit()
 
+	# Profit saved earlier is still there: a later decision (or keep it).
+	if profile.business_savings > 0:
+		await _savings_decision()
+
 	profile.pitch_completed = true
 	profile_changed.emit()
 
@@ -149,6 +153,8 @@ func _run_stage(stage_id: String) -> void:
 			if profile.has_simulator_run:
 				await DialogueBox.show_text("eq_stage.calculate_your_profit.result_hint")
 				await DialogueBox.show_text("eq_stage.calculate_your_profit.profit_amount", {"amount": profile.last_profit})
+				if profile.last_profit > 0 and profile.profit_plan.is_empty():
+					await _profit_decision()
 			else:
 				await DialogueBox.show_text("eq_stage.calculate_your_profit.no_run_yet_hint")
 		"handle-competition":
@@ -177,3 +183,130 @@ func _run_stage(stage_id: String) -> void:
 func _run_existing_quest(quest_id: String) -> void:
 	if not QuestManager.is_quest_completed(quest_id):
 		await QuestManager.start_quest(quest_id)
+
+
+# --- Money is a tool: what will you do with the profit? -----------------------------
+
+## Profit is not just "money = reward": it creates new choices. Right after
+## the child sees their profit, a picture choice offers the decisions a
+## small business really has (as many as SupportProfile suggests). Each
+## changes ONE clear thing about the business, saved in the profile:
+##
+##   stock      more items ready to sell        (supply)
+##   equipment  each item costs 1 coin less     (cost, never below 1)
+##   learn      a better product: +1 coin each  (value)
+##   help       neighbours like you: +3 customers (reputation)
+##   save       the profit waits in the business jar for a later decision
+##
+## and the consequence is shown as pictures: what changed, and "Day 2" —
+## the same business run again with that change (next_round), next to
+## Day 1 (the child's own simulator run). No option is the right one;
+## which helps most depends on the business. "Later" leaves it undecided.
+const PROFIT_OPTIONS: Array = [
+	{"purpose": "stock", "id": "stock", "icons": ["coin", "then", "box", "box"]},
+	{"purpose": "save", "id": "save", "icons": ["coin", "then", "jar"]},
+	{"purpose": "equipment", "id": "equipment", "icons": ["coin", "then", "tools"]},
+	{"purpose": "learn", "id": "learn", "icons": ["coin", "then", "book"]},
+	{"purpose": "help", "id": "help", "icons": ["coin", "then", "heart"]},
+]
+const LEARN_XP: int = 10
+const HELP_CUSTOMERS: int = 3
+## Day-1 buyers who could not buy because the items ran out (the child
+## sold everything): a few more would have bought.
+const SOLD_OUT_EXTRA: int = 3
+
+
+func _profit_decision() -> void:
+	var picked: Dictionary = await ResourcePurpose.choose(self, ResourcePurpose.for_support(PROFIT_OPTIONS), profile.last_profit)
+	if picked.is_empty():
+		return
+	await apply_profit_plan(String(picked["id"]), profile.last_profit)
+
+
+## A later decision for profit that was saved: the same choices except
+## "save" (keeping it is "Later").
+func _savings_decision() -> void:
+	var options: Array = PROFIT_OPTIONS.filter(func(o): return o["id"] != "save")
+	var picked: Dictionary = await ResourcePurpose.choose(self, ResourcePurpose.for_support(options), profile.business_savings, ["jar"])
+	if picked.is_empty():
+		return
+	var amount: int = profile.business_savings
+	profile.business_savings = 0
+	await apply_profit_plan(String(picked["id"]), amount)
+
+
+## Applies a decision paid with `amount` coins of profit and shows what
+## changed (also used by tests).
+func apply_profit_plan(plan: String, amount: int = -1) -> void:
+	var p: int = maxi(amount if amount >= 0 else profile.last_profit, 0)
+	var day1: Dictionary = next_round()
+	profile.profit_plan = plan
+	var rows: Array = []
+	match plan:
+		"stock":
+			var before: int = items_ready()
+			profile.stock_ready += maxi(p / maxi(profile.cost_per_unit, 1), 1)
+			rows.append([["box", "num:%d" % before], ["box", "num:%d" % items_ready()]])
+		"save":
+			var before_s: int = profile.business_savings
+			profile.business_savings += p
+			rows.append([["jar", "num:%d" % before_s], ["jar", "num:%d" % profile.business_savings]])
+		"equipment":
+			var before_c: int = unit_cost()
+			profile.equipment_level += 1
+			rows.append([["tools", "coin", "num:%d" % before_c], ["tools", "coin", "num:%d" % unit_cost()]])
+		"learn":
+			var before_p: int = unit_price()
+			profile.learn_level += 1
+			GameState.add_xp(LEARN_XP)
+			rows.append([["book", "coin", "num:%d" % before_p], ["book", "coin", "num:%d" % unit_price()]])
+		"help":
+			var before_k: int = customers()
+			profile.goodwill += 1
+			rows.append([["heart", "you", "num:%d" % before_k], ["heart", "you", "num:%d" % customers()]])
+	SupportProfile.record_success()
+	profile_changed.emit()
+	if plan != "save":
+		# Day 1 (the child's own run) → Day 2 (with this decision).
+		rows.append([["coin", "num:%d" % int(day1["profit"])], ["coin", "num:%d" % int(next_round()["profit"])]])
+	await ResourcePurpose.show_change(self, rows, "eq.plan." + plan, {"profit1": day1["profit"], "profit2": next_round()["profit"]})
+
+
+# --- the business, with its decisions -----------------------------------------------
+
+## Items ready to sell on the next day: what the child made on Day 1,
+## plus extra stock bought with profit.
+func items_ready() -> int:
+	return profile.last_units_made + profile.stock_ready
+
+
+## Each item's cost, after better tools (never below 1 coin).
+func unit_cost() -> int:
+	return maxi(profile.cost_per_unit - profile.equipment_level, 1)
+
+
+## Each item's price, after learning to make a better product.
+func unit_price() -> int:
+	return profile.price + profile.learn_level
+
+
+## Customers who want to buy on the next day: Day 1's buyers, a few more
+## if Day 1 sold out, and more when the neighbours like the business.
+func customers() -> int:
+	var k: int = profile.last_units_sold
+	if profile.last_units_sold >= profile.last_units_made and profile.last_units_made > 0:
+		k += SOLD_OUT_EXTRA
+	return k + profile.goodwill * HELP_CUSTOMERS
+
+
+## The next day, from the child's own simulator run plus their decisions.
+## Simple on purpose: sold = min(items ready, customers); income = sold ×
+## price; costs = the same other costs as Day 1 (packaging, adverts) plus
+## making Day 1's amount again at today's cost per item (extra stock was
+## already paid for with profit).
+func next_round() -> Dictionary:
+	var sold: int = mini(items_ready(), customers())
+	var other_costs: int = maxi(profile.last_costs - profile.last_units_made * profile.cost_per_unit, 0)
+	var costs: int = other_costs + profile.last_units_made * unit_cost()
+	var sales: int = sold * unit_price()
+	return {"items": items_ready(), "customers": customers(), "sold": sold, "sales": sales, "costs": costs, "profit": sales - costs}

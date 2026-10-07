@@ -31,7 +31,8 @@ func _ready() -> void:
 		prompt_text_key = data.prompt_key
 		interaction_priority = data.priority()
 		prompt_height = data.prompt_height
-		if data.remember and not ProgressManager.has_discovered_world(discovery_id()):
+		# Secrets stay secret: no glint for them (finding them is the fun).
+		if data.remember and data.kind != "secret" and not ProgressManager.has_discovered_world(discovery_id()):
 			_build_hint()
 
 
@@ -112,7 +113,7 @@ func _process(delta: float) -> void:
 	if _hint == null:
 		set_process(false)
 		return
-	_hint.visible = _near and not player_in_range
+	_hint.visible = _near and not player_in_range and not Settings.focus_mode
 	if not _hint.visible:
 		return
 	_hint_time += delta

@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="ShopData" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/economy/ShopData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/world/economy/ProductData.gd" id="2"]
+
+[sub_resource type="Resource" id="apples"]
+script = ExtResource("2")
+product_id = "apples"
+name_key = "product.apples.name"
+description_key = "product.apples.desc"
+fact_key = "product.apples.fact"
+price = 2
+category = "food"
+tag = "need"
+visual = "apple"
+color = Color(0.82, 0.24, 0.1, 1)
+learning_tag = "needs_wants"
+
+[sub_resource type="Resource" id="bread"]
+script = ExtResource("2")
+product_id = "bread"
+name_key = "product.bread.name"
+description_key = "product.bread.desc"
+fact_key = "product.bread.fact"
+price = 3
+category = "food"
+tag = "need"
+visual = "bread"
+color = Color(0.85, 0.6, 0.3, 1)
+learning_tag = "needs_wants"
+
+[sub_resource type="Resource" id="juice"]
+script = ExtResource("2")
+product_id = "juice"
+name_key = "product.juice.name"
+description_key = "product.juice.desc"
+fact_key = "product.juice.fact"
+price = 3
+category = "food"
+tag = "want"
+visual = "juice"
+color = Color(0.95, 0.63, 0.24, 1)
+learning_tag = "needs_wants"
+
+[resource]
+script = ExtResource("1")
+shop_id = "market_fruit"
+name_key = "shop.market_fruit.name"
+welcome_key = "shop.market_fruit.welcome"
+keeper_npc_id = "fruit_seller"
+accent = "leaf"
+products = Array[ExtResource("2")]([SubResource("apples"), SubResource("bread"), SubResource("juice")])

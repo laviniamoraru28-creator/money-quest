@@ -73,6 +73,9 @@ var talking: bool = false
 var behaviour: CharacterBehaviour = CharacterBehaviour.preset("default")
 ## The player's character idles only after standing still this long.
 var idle_delay: float = 0.0
+## Walking speed (m/s) for a character moved by script rather than by
+## physics (an NPC demonstrating something); -1 = read the parent body.
+var walk_override: float = -1.0
 
 var _arm_rest_l: Basis
 var _arm_rest_r: Basis
@@ -185,6 +188,36 @@ func current_action() -> String:
 	return _action
 
 
+## Turn toward a world point and point at it (a demonstration: "this one").
+func point_at(world_pos: Vector3, seconds: float = 2.4) -> void:
+	var d: Vector3 = world_pos - global_position
+	d.y = 0.0
+	if d.length() > 0.05:
+		global_rotation.y = atan2(d.x, d.z)
+	glance_at(world_pos + Vector3(0, 0.3, 0), seconds)
+	if Settings.reduced_motion or arm_r == null:
+		return
+	_reaction = ""
+	_action = "point"
+	_action_t = 0.0
+	_next_action = _time + seconds + 4.0
+
+
+## Something held in the right hand (a coin to pay with, a bought item);
+## null to let go. Returns the holder node.
+func hold(item: Node3D) -> void:
+	if arm_r == null:
+		return
+	var old: Node = arm_r.get_node_or_null("Held")
+	if old:
+		old.queue_free()
+	if item == null:
+		return
+	item.name = "Held"
+	item.position = Vector3(0, -0.5, 0.06)
+	arm_r.add_child(item)
+
+
 ## Look at a world point for a few seconds (something happening nearby).
 func glance_at(point: Vector3, seconds: float = 2.5) -> void:
 	_glance_point = point
@@ -217,7 +250,9 @@ func _process(delta: float) -> void:
 
 	var speed: float = 0.0
 	var parent := get_parent()
-	if parent is CharacterBody3D:
+	if walk_override >= 0.0:
+		speed = walk_override
+	elif parent is CharacterBody3D:
 		speed = Vector2(parent.velocity.x, parent.velocity.z).length()
 	_walk = lerpf(_walk, clampf(speed / WALK_SPEED_REFERENCE, 0.0, 1.0), 1.0 - exp(-10.0 * delta))
 	_still_time = 0.0 if speed > 0.2 else _still_time + delta

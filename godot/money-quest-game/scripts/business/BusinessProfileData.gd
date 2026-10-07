@@ -53,3 +53,14 @@ extends Resource
 @export var last_costs: int = 0
 @export var last_profit: int = 0
 @export var last_remaining_money: int = 0
+
+## Money is a tool: what the child decided to do with the profit (stage
+## "calculate-your-profit"): "stock", "save", "equipment", "learn" or
+## "help" ("" = not decided yet), and what that changed. No choice is the
+## right one; each has its own effect.
+@export var profit_plan: String = ""
+@export var business_savings: int = 0
+@export var stock_ready: int = 0
+@export var equipment_level: int = 0
+@export var goodwill: int = 0
+@export var learn_level: int = 0

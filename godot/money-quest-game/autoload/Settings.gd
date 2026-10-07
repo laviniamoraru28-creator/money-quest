@@ -114,6 +114,10 @@ const DEFAULTS: Dictionary = {
 	"subtitles": true,
 	"narration": false,
 	"hints": true,
+	"focus_mode": false,
+	"show_text": true,
+	"visual_guidance": "normal",
+	"support_level": 0,
 	"camera_sensitivity": 1.0,
 	"camera_smoothing": true,
 	"camera_fov": 65.0,
@@ -131,6 +135,18 @@ var subtitles: bool = true
 var narration: bool = false
 ## Offer gentle help ("Need a little help?") when the player seems stuck.
 var hints: bool = true
+## Focus Mode (as on the website): only the main activity — optional extras
+## (fun-fact lines, discovery glints, ambient events, chatty asides) are
+## left out. Never hides anything needed to play.
+var focus_mode: bool = false
+## Universal Play & Learn (see SupportProfile): words are an extra layer —
+## with show_text off, cards, prices and the balance speak in pictures,
+## coins and numbers, and nothing needed to play is lost.
+var show_text: bool = true
+## How strongly the world points things out: "strong" | "normal" | "light".
+var visual_guidance: String = "normal"
+## 0 = Auto (inferred locally from successful play), or a fixed 1–4.
+var support_level: int = 0
 var camera_sensitivity: float = 1.0
 ## Smooth camera follow (off = the camera snaps, like Reduced Motion).
 var camera_smoothing: bool = true
@@ -153,6 +169,11 @@ func set_value(key: String, value: Variant) -> bool:
 			value = clampf(float(value), 0.25, 3.0)
 		"camera_fov":
 			value = clampf(float(value), 55.0, 85.0)
+		"visual_guidance":
+			if not (value in ["strong", "normal", "light"]):
+				return false
+		"support_level":
+			value = clampi(int(value), 0, 4)
 		_:
 			if typeof(DEFAULTS[key]) == TYPE_BOOL:
 				value = bool(value)

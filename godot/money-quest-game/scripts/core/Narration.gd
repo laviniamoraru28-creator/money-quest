@@ -20,6 +20,9 @@ static func listen_button() -> Button:
 	b.custom_minimum_size = Vector2(0, 52)
 	b.add_theme_font_size_override("font_size", 20)
 	b.pressed.connect(AudioManager.replay)
+	# A speaker picture, so "listen" is clear without reading.
+	b.icon = speaker_icon()
+	b.expand_icon = false
 	b.visible = AudioManager.can_narrate()
 	# One connection per button, held only while it is in the tree (a
 	# shared bound static callable could be connected just once).
@@ -37,7 +40,40 @@ static func listen_button() -> Button:
 
 static func _relabel(_device: String, b: Button) -> void:
 	if is_instance_valid(b):
-		b.text = InputHints.prompt(Localization.t("narration.listen"), "listen")
+		# Words off: the speaker picture and the control ("L" / "X") only.
+		b.text = InputHints.prompt(Localization.t("narration.listen"), "listen") if SupportProfile.show_text() else InputHints.glyph("listen")
+
+
+static var _speaker: Texture2D
+
+
+## A 28 px speaker with two sound waves, drawn once.
+static func speaker_icon() -> Texture2D:
+	if _speaker:
+		return _speaker
+	var n: int = 28
+	var img := Image.create(n, n, false, Image.FORMAT_RGBA8)
+	img.fill(Color(0, 0, 0, 0))
+	var ink := Color("1C2624")
+	for y in n:
+		for x in n:
+			var fx: float = x + 0.5
+			var fy: float = y + 0.5
+			var c: float = n * 0.5
+			var on: bool = false
+			# body: a small box, then the cone widening to the right
+			if fx >= 3.0 and fx <= 8.0 and absf(fy - c) <= 3.5:
+				on = true
+			if fx > 8.0 and fx <= 14.0 and absf(fy - c) <= 3.5 + (fx - 8.0) * 1.1:
+				on = true
+			# two waves
+			var d: float = Vector2(fx - 13.0, fy - c).length()
+			if fx > 15.5 and ((d > 5.5 and d < 7.5) or (d > 10.0 and d < 12.0)) and absf(fy - c) < d * 0.75:
+				on = true
+			if on:
+				img.set_pixel(x, y, ink)
+	_speaker = ImageTexture.create_from_image(img)
+	return _speaker
 
 
 ## Reads `control`'s text when it gets keyboard/gamepad focus or the

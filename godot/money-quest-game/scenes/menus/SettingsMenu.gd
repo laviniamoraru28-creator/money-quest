@@ -25,6 +25,8 @@ var reduced_motion_check: CheckButton
 var subtitles_check: CheckButton
 var narration_check: CheckButton
 var hints_check: CheckButton
+var focus_check: CheckButton
+var show_text_check: CheckButton
 var scale_buttons: Dictionary = {}     # scale id -> Button
 var master_slider: HSlider
 var mute_check: CheckButton
@@ -86,6 +88,10 @@ func _ready() -> void:
 		var note := UIStyle.label(Localization.t("settings.narration_unavailable"), 18, UIStyle.MUTED)
 		list.add_child(note)
 	hints_check = _check(list, "settings.hints_label", Settings.hints, func(on): Settings.set_value("hints", on))
+	focus_check = _check(list, "settings.focus_mode_label", Settings.focus_mode, func(on): Settings.set_value("focus_mode", on))
+	var focus_note := UIStyle.label(Localization.t("settings.focus_mode_hint"), 18, UIStyle.MUTED)
+	focus_note.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	list.add_child(focus_note)
 
 	_section(list, "settings.section_text")
 	var row := _row(list, "settings.ui_scale_label")
@@ -104,6 +110,13 @@ func _ready() -> void:
 		b.pressed.connect(func(): Settings.set_value("ui_scale", id))
 		row.add_child(b)
 		scale_buttons[id] = b
+
+	# Universal Play & Learn: how much support, how strong the pointing,
+	# and whether words are shown (never needed to play).
+	_section(list, "settings.section_support")
+	show_text_check = _check(list, "settings.show_text_label", Settings.show_text, func(on): Settings.set_value("show_text", on))
+	_choice_row(list, "settings.guidance_label", "visual_guidance", ["strong", "normal", "light"], Settings.visual_guidance)
+	_choice_row(list, "settings.support_level_label", "support_level", [0, 1, 2, 3, 4], Settings.support_level)
 
 	_section(list, "settings.section_sound")
 	master_slider = _slider(list, "settings.master_volume_label", Settings.master_volume, 0.0, 1.0, func(x): Settings.set_value("master_volume", x))
@@ -202,3 +215,22 @@ func _unhandled_input(event: InputEvent) -> void:
 func _exit_tree() -> void:
 	if not _pointer_last and is_instance_valid(_return_focus) and _return_focus.is_inside_tree():
 		_return_focus.grab_focus.call_deferred()
+
+
+## A row of toggle buttons for one setting (one pressed at a time).
+func _choice_row(parent: Container, label_key: String, key: String, values: Array, current: Variant) -> void:
+	var row := _row(parent, label_key)
+	var group := ButtonGroup.new()
+	for v in values:
+		var b := UIStyle.button(Localization.t("settings.%s.%s" % [key, str(v)]), false)
+		b.name = "%s_%s" % [key, str(v)]
+		b.toggle_mode = true
+		b.button_group = group
+		b.button_pressed = current == v
+		b.custom_minimum_size = Vector2(0, 52)
+		b.add_theme_font_size_override("font_size", 20)
+		var pressed_sb: StyleBoxFlat = (b.get_theme_stylebox("normal") as StyleBoxFlat).duplicate()
+		pressed_sb.bg_color = UIStyle.GOLD
+		b.add_theme_stylebox_override("pressed", pressed_sb)
+		b.pressed.connect(func(): Settings.set_value(key, v))
+		row.add_child(b)

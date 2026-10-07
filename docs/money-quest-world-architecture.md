@@ -1899,3 +1899,442 @@ All are optional and never part of a mission.
 - **Characters** are still built from primitives. A future art pass could
   replace the meshes behind `CharacterBuilder` without touching
   `CharacterLook`, `CharacterRig` or the behaviour profiles.
+
+---
+
+## 15. Interactive world and economy (Phase 6)
+
+Exploration leads naturally to money decisions. A child can walk up to a
+stall, look at what is for sale, see the price and what buying would
+leave, buy with virtual coins or decide not to, and keep exploring. All of
+it is optional unless it is the active mission, and none of it is required
+to continue.
+
+### 15.1 The layers
+
+| Layer | Piece | What it does |
+|---|---|---|
+| Money | `VirtualMoney`, `GameState` | `spend_coins()` and `can_afford()` are the only way coins leave. `add_coins()` as before. Virtual only: no real money, payments, network or currency symbol. |
+| Words | `Localization.tn()` | Plural forms for counts (one/few/many/other per language). Coins always read as "N virtual coins" (`money.virtual_coins*`). |
+| Rules | `Shop` | `quote()` (price, balance, what is left, how many more are needed, or already have / sold out) and `buy()`. Same rules for every stall in every district. |
+| Ownership | `ProgressManager.owned_items` | `{count, acquired, used}` per item: deliberately not an RPG inventory. Saved as `owned_items`. |
+| Data | `ProductData`, `ShopData` | Products and shops as `.tres` (`data/shops/`). A product has a name, description, optional fact, price, category, need/want/useful tag, look, optional one-off limit and stock. A shop has a name, welcome, keeper and an optional compare pair. |
+| World | `ShopStall` | A shop placed anywhere: stall, products on the counter with price tags, keeper behind the counter. Uses the existing discovery glint. |
+| UI | `ShopCard` | List → product → confirm → bought, with the same look, focus, Listen and Escape behaviour as `InteractionCard`. |
+| Discoveries | `CuriosityProp` | `with_reward(coins, xp, text)` gives a one-time reward, guarded by the saved discovery record. `with_action(...)` opens a book, exhibit or mentor card. Secrets (`kind = "secret"`) never glint. |
+
+### 15.2 Purchases
+
+Every purchase is confirmed and can be cancelled ("Not now", Back, Escape
+or B). When there is not enough money the card says, in words:
+
+> You have 4 virtual coins. This costs 6. You need 2 more.
+
+followed by a note that saving up is a smart choice too. The keeper adds a
+kind line. Nothing is ever framed as wrong.
+
+A successful purchase gives:
+
+- a text confirmation that includes what is left;
+- the product giving a small hop on the counter;
+- the keeper smiling and the player's character reacting happily;
+- a soft coin sound and a "−N" coin chip by the balance.
+
+Reduced Motion keeps the text and the sound and drops the motion.
+
+### 15.3 Comparing, and needs vs wants
+
+**Compare** is a stall option (`ShopData.compare_ids`). It reuses
+`ChoicePanel.show_quiz`, which now accepts display texts so live prices can
+be shown, with answers shuffled by `AnswerOrder`:
+
+1. "Which costs less?" has a right answer. The child can try again, and a
+   right first try earns 5 XP, once.
+2. "Which would you choose?" has no wrong answer. The card explains the
+   choice: "that one costs 3 more — is the extra worth it to you?"
+
+The website's `CompareMechanic` is React and cannot run in Godot; this is
+its Godot counterpart.
+
+**Needs vs wants** is an optional board in the square. It reuses
+`SortPanel` with the market's own products, then shows a one-line
+explanation. Product cards also show a need / want / useful label, as a
+word plus a shape.
+
+### 15.4 Market Town flow (`MarketTownFlow`)
+
+The flow places three stalls with keepers:
+
+| Stall | Products |
+|---|---|
+| Fruit & bread | apples, bread, juice |
+| Toys | ball, toy car, kite |
+| Paper | plain notebook, sparkly notebook, pencils (with the compare pair) |
+
+It also places:
+
+- a helping job (unpacking crates pays 3 coins, once);
+- the needs/wants board;
+- a customer who is saving up for the kite;
+- two secrets: a lost coin, and a very old price tag.
+
+The mission is a suggestion: "Explore the market" → "Buy something you
+can afford". If the child can't afford anything yet, it first suggests
+"Help at the market to earn some coins". Comparing, sorting and helping
+are listed as "Also try". Everything is rebuilt from saved progress, so
+nothing repeats after a reload.
+
+### 15.5 Focus Mode
+
+A new setting with the same meaning as the website's Focus mode: only the
+main activity. It hides optional fact lines, discovery glints, ambient
+events and the linger hello, and never anything needed to play.
+
+### 15.6 Hooks for other districts
+
+- **Golden Vault:** `ShopStall` plus a `ShopData` (for example a
+  savings-goal counter), or more `CuriosityProp.with_reward` discoveries.
+  The tiny vault is now the model hidden discovery.
+- **Library, Museum and Mentor Hall:**
+  `CuriosityProp.make(...).with_action("library_book" | "exhibit" | "mentor", id)`
+  opens the existing verified cards and records discovery the same way.
+- **Idea Lab:** a `ShopData` whose keeper is the child's own business is
+  possible later; `Shop.buy` stays the single money path.
+- **Calm World:** use only `CuriosityProp` without rewards or objectives,
+  and its quiet ZoneLife. No shops, no missions, no pressure.
+
+### 15.7 Not yet
+
+Other districts' content isn't built; only the hooks above exist. Product
+stock is supported in data, but no current product uses it. Owned items
+are not used anywhere yet: "used" is recorded for future activities such
+as gifting or giving. Pre-existing content (about 1,985 strings from
+earlier phases) still has only English and Romanian. All Phase 6 strings
+are in all nine languages and need native-speaker review.
+
+---
+
+## 16. Universal Play & Learn (see → do → choose → consequence)
+
+One game with several ways to understand it. Words are an optional layer:
+a child who cannot read, or does not use spoken language, plays the same
+activities through pictures, pointing, demonstration and visible
+consequences. A strong reader gets the same activity, plus words and
+deeper reasoning at higher support levels. There is no separate "mode":
+the same data and systems are used, and only the presentation changes.
+
+### 16.1 Support, as settings (extended, not duplicated)
+
+The new Settings keys sit with the existing accessibility settings and are
+saved like them:
+
+| Key | Values | Meaning |
+|---|---|---|
+| `show_text` | on (default) / off | "Show words". Words are never needed. |
+| `visual_guidance` | strong / normal / light | How strongly things are pointed out. |
+| `support_level` | 0 = Auto, or 1–4 | How much support the activity gives. |
+
+`SupportProfile` turns these into presentation parameters:
+
+| Parameter | What it controls |
+|---|---|
+| `choice_count()` | Level 1 offers two choices, levels 2–3 offer three, level 4 offers four |
+| `highlight_strength()` | Size of the "look here" beacon |
+| `demonstration_enabled()` | Whether a character shows the action first |
+| `interaction_timeout()` | How long before help grows |
+| `confirmation_required()` | Always on for purchases |
+| `animation_speed()` | 0 with Reduced Motion |
+| `show_text()` | The words layer |
+
+The Auto level is inferred locally from successful play: a saved count of
+successes, with no tests or profiling and nothing sent anywhere.
+
+### 16.2 One visual language
+
+| Meaning | How it is shown |
+|---|---|
+| Look here | `VisualCues.beacon()`: a floor ring plus a bobbing gold chevron. Light guidance shows the ring only; Reduced Motion keeps it still. |
+| Go here | The existing `GuidanceSystem` trail of lights, when the child seems stuck |
+| Do this | `Demonstration`: a character walks, points, pays a coin, receives the item and smiles |
+| Money | `MoneyIcons`: a coin, pips (gold = have, hollow = missing), arrows, bag, tick and cross |
+| Money changes | `MoneyHUD`: coins fly into or out of the balance, with a **BEFORE → AFTER** strip |
+| It is yours | The bag in the HUD; bought things fly into it |
+| Success | Character reactions, the existing "Done!" tick, and the confetti burst |
+| Not enough | Hollow coins show the gap and the purchase simply does not happen. The keeper nods. |
+
+Sound accompanies these but never carries meaning on its own. With words
+off, subtitles step aside, the mission card (which is only words) hides,
+and the world's beacons and guide show the way.
+
+### 16.3 Activities as data
+
+`PlayActivityData` (`data/activities/*.tres`) is a list of steps that
+`PlayActivity` runs by calling the existing systems:
+
+| Phase | Steps |
+|---|---|
+| SEE | `highlight`, `point`, `demonstrate_buy`, `say` (optional words or voice) |
+| DO | `wait_collect`, `wait_near` (help grows after the timeout: the guide points again, then the trail appears) |
+| CHOOSE | `choose_purchase` (the stall offers the activity's choices, as many as the support level suggests) |
+| CONSEQUENCE | `give_coins`, plus everything `ShopCard`, `Shop` and `MoneyHUD` already show |
+| FLOW | `objective`, `complete_objective`, `reward`, `wait` |
+
+Runs are restart-safe and a finished activity never repeats.
+
+### 16.4 Market Town: the reference implementation
+
+On the first visit:
+
+1. Three coins wait, with beacons, between the arrival point and the
+   guide, Lina. Walking into each one sends it flying into the balance,
+   which shows 0 → 1 → 2 → 3.
+2. Lina points at the fruit stall. Unless guidance is light, she walks
+   there, points at the bread, pays the keeper a coin, receives the bread
+   and smiles.
+3. Lina points again: "your turn". The child walks up and opens the
+   stall.
+4. At level 1 there are two clearly different choices, each with a
+   picture and a price as coins. Choosing one shows its price coins
+   against the child's own coins, plus 3 → 1 if it is bought.
+5. After a confirm (coins → item), the coins leave the balance and the
+   item flies into the bag.
+6. The keeper and the child react, the step's "Done!" plays and 20 XP is
+   given.
+7. Open exploration (Phase 6) continues.
+
+Children who had already bought something (older saves) skip it.
+
+### 16.5 Reuse later
+
+| Area | Uses the same pieces for |
+|---|---|
+| Money Quest | earning (`give_coins`), saving (a "keep or spend" choose step), budgeting (`choice_count` plus a budget), needs vs wants |
+| Entrepreneur Quest | the same stall, with the child as the keeper (customers pay *them*); stock and costs come later |
+| Leadership, Mind Lab | demonstrations and choose steps with consequences |
+| Library, Museum | `CuriosityProp.with_action` plus beacons |
+| Calm World | beacons and demonstrations only, with no objectives or rewards |
+
+### 16.6 Not yet
+
+- The steps are code-backed kinds. A new kind of step (for example
+  "choose to save") needs a few lines in `PlayActivity`.
+- Older content (lesson dialogues, quizzes, the Golden Vault tutorial)
+  still communicates mainly through words. It works as before and should
+  be migrated one activity at a time.
+- The HUD's level and Settings labels are still words.
+
+---
+
+## 17. Visual missions, world guidance and NPC voice
+
+### 17.1 Missions as pictures
+
+`ObjectiveManager` is extended, not replaced. An objective can now also
+be a row of pictures:
+
+- `set_icons(tokens)` sets them;
+- `icons()` returns them, falling back to the `VisualMissions` registry by
+  objective id;
+- `MissionStrip` draws them.
+
+The mission card shows the pictures whether words are on or off. With
+words off the card is pictures only (plus "?"). The help panel shows them
+too.
+
+Tokens:
+
+| Token | Picture |
+|---|---|
+| `you` | The child's own avatar face, rendered by `Portraits.get_avatar()` |
+| `npc:<id>` | A character's face |
+| `then` | An arrow |
+| `coins` | Pips that count `have` of `need` |
+| `coin`, `bag`, `tick` | The MoneyIcons pictures |
+| `item:<shape>[:hex]` | A product picture |
+| `stall`, `crate`, `board`, `door`, `eye`, `hand`, `walk`, `choose`, `pay`, `star` | Glyphs |
+| `jar`, `book`, `tools`, `heart`, `sprout`, `flowers`, `play`, `box`, `bulb`, `question` | The purpose glyphs (`PurposeGlyphs`) |
+
+A zone registers its own map (`MarketTownFlow.MISSION_ICONS`), or a
+`PlayActivity` `objective` step carries `"icons"`. `wait_collect` keeps
+the count up to date and moves the guidance target to the next coin.
+
+### 17.2 The picture intro
+
+`VisualIntro` shows "you → this place", then a few picture rows that
+appear one by one. Words are optional.
+
+- **Short:** about 1.4 s per row, closing by itself about 6 s later.
+- **Skippable:** any action, click or tap closes it, and the press still
+  does its usual job. Only Escape or B is used up.
+- **Never in the way:** it never blocks walking.
+- **Placement:** it sits beside the mission card.
+- **Reduced Motion:** every row is shown at once.
+- **When:** on the first visit, and again from Help → "Show me again"
+  (`ObjectiveManager.intro_available` / `intro_requested`).
+
+### 17.3 Guidance by support level
+
+- `SupportProfile.highlight_strength()` by level: 0.6 / 0.6 / 0.35 / 0
+  (level 4 shows a quiet ring only).
+- `interaction_timeout()` with normal guidance: 12 / 18 / 24 / 30 s.
+  Strong guidance is 8 s and light guidance is 30 s.
+- `PlayActivity._wait_near` gives no extra help while the child is
+  getting closer. Help (the guide points, then the trail of lights) grows
+  only while they are not.
+
+### 17.4 Contextual NPC voice
+
+`NpcVoice` holds per-character data (lines and the character's usual
+gesture) plus local memory (`activity_state "npc_voice"`).
+
+On approach, a character says one of:
+
+1. their first hello (a "sees your item" line takes priority over it);
+2. a line about something bought from them since the last visit;
+3. a comment on something the child owns;
+4. one "welcome back", only once ever.
+
+Otherwise they make a gesture only.
+
+Lines wait for a calm moment. A calm moment means:
+
+- not within 2.5 s of arriving;
+- no card, dialogue or activity open;
+- not in Focus Mode;
+- the child is within 4.5 m;
+- nobody else has spoken in the last 6 s.
+
+The old generic "Hello again! Exploring is fun" linger line is gone
+everywhere: the linger moment is now a two-handed wave. A character's
+card line can change with what the child owns (`"talk"`). Zone call-out
+lines (Golden Vault) are unchanged.
+
+---
+
+## 18. Money is a tool (ResourcePurpose)
+
+The child gradually discovers that money and resources give choices:
+**earn, save, spend, learn, create, help, improve, enjoy**. There is no
+"right" choice. The best one depends on what the child is trying to do.
+
+### 18.1 Design rule: discovered in the world, not chosen from a menu
+
+`ResourcePurpose` is a small shared vocabulary: purpose → picture → an
+optional word. A place presents its purposes as **things in the world**
+(a jar, a bare flower bed, a learning desk, a business decision). A small
+picture choice (`PurposeChoiceCard`) appears only AT such a thing, with
+only the choices that make sense there.
+
+The card works like this:
+
+- coins are drawn as pips against the child's own coins;
+- "Later" always closes it;
+- "not enough" changes nothing, and the hollow coins show the gap.
+
+There is never a generic SAVE / LEARN / HELP menu after a purchase.
+
+`ResourcePurpose.show_outcome()` shows a non-coin consequence as
+[before] → [after] ✓. Coin changes already show BEFORE → AFTER in the
+HUD.
+
+### 18.2 Implemented
+
+**Market Town: save, spend, improve, enjoy, help.**
+
+- **Savings jar** (by Noah, goal: the kite, 8 coins).
+  - "Put one in" really moves a coin out of the wallet.
+  - "Take one out" is always allowed.
+  - Reaching the goal shows jar → kite.
+- **Flower bed.**
+  - Bare soil and twigs → "plant seeds" (2 coins) → flowers grow.
+  - Nearby people celebrate.
+  - The change is saved for good.
+- **The free goal lists what is left to discover** as pictures: jar,
+  bed, notebook, board, compare, crates.
+- **After the first purchase**, Lina points at the jar and then the bed,
+  once, with beacons. With light guidance there are beacons only.
+
+**Library: learn.**
+
+- A `LearningDesk` turns a notebook bought with coins into a skill:
+  "price detective".
+- From then on every stall stars its cheapest thing in the shop list.
+  The skill changes what the child can do: coins → tool → learning →
+  skill → new possibility.
+- Without a notebook, pictures show where one comes from. Reading stays
+  free.
+
+**Entrepreneur Quest: profit creates choices.**
+
+- In `calculate-your-profit` a positive profit opens a picture decision:
+  more stock, save, better tools, learn, help. The number of options
+  follows SupportProfile.
+- Each has its own saved effect in `BusinessProfileData`: `profit_plan`,
+  `stock_ready`, `business_savings`, `equipment_level`, `goodwill`.
+- "Later" leaves it undecided.
+
+### 18.3 Golden Vault: save or spend, both valid
+
+`SaveGoalActivity` now uses the same picture choice at the jar, with two
+options in random order. Both complete the activity:
+
+| | Save (delayed benefit) | Spend (immediate benefit) |
+|---|---|---|
+| What happens | Coins go into the jar and the vault adds 1 coin of interest. Pictures show jar 4 → kite. | A snack now: it flies into the bag and the guide is pleased. |
+| Afterwards | The jar stays full. | The jar stays empty. |
+| Reward | +30 XP, the badge, and the 4 coins come back. | +30 XP and the badge. No coins come back: they bought the snack. |
+
+- The choice is remembered (`gv-first-savings` state `"choice"`). Older
+  saves count as "save".
+- "Later" closes the card with nothing chosen.
+- The guide says what happened, never which choice was right. The
+  mission reads "Bring your coins to the jar".
+
+### 18.4 Entrepreneur Quest: decisions change the business
+
+Each profit decision changes one thing. "Day 2" (`BusinessBuilder.next_round()`)
+replays the child's own Day 1 simulator run with that change, so the
+effect is visible as Day 1 profit → Day 2 profit:
+
+| Decision | Changes | Shown as |
+|---|---|---|
+| More stock | `items_ready()` + profit ÷ cost | box N → box M (helps only if customers want more: honest) |
+| Better tools | `unit_cost()` − 1 (min 1) | tools · coin 2 → 1 |
+| Learn | `unit_price()` + 1 (a better product), +10 XP | book · coin 5 → 6 |
+| Help | `customers()` + 3 (reputation) | heart · customers 8 → 11 |
+| Save | `business_savings` | jar 0 → 12, then a later decision |
+
+The later decision for saved profit appears at the end of the build,
+before the pitch: the same choices without "save" ("Later" keeps the
+money saved). The website-ported simulator itself is unchanged.
+
+### 18.5 The reusable rule
+
+Market Town is the first proof of concept, not a special case. Every
+place uses the same loop and the same pieces:
+
+**SEE → DO → CHOOSE → CONSEQUENCE → REPEAT**
+
+| Step | Pieces |
+|---|---|
+| SEE | `VisualCues`, `Demonstration`, NPC gestures, `VisualIntro` |
+| DO | `ActivityStation` / `CuriosityProp` things in the world, and `PlayActivity` steps |
+| CHOOSE | `PurposeChoiceCard` at the thing, only with options that make sense there |
+| CONSEQUENCE | `MoneyHUD` before → after, `ResourcePurpose.show_change`, visible world changes (`FlowerBed`), saved state |
+| REPEAT | `VisualMissions` shows the next thing to discover; `SupportProfile` adjusts the help |
+
+There is no separate mode for any group of children. Words are an
+optional layer everywhere. Images, placement, character actions,
+animation, icons, sound and visible consequences carry the meaning.
+
+**Leadership Quest, later.** Resources include time, attention and team
+effort as well as coins. The same pieces apply:
+
+- a `PurposeChoiceCard` at a team task: help a teammate, improve the
+  plan, or learn a skill first;
+- `show_change` for the team's before → after;
+- `NpcVoice` for teammates who remember what the child chose;
+- `VisualMissions` icons for each step.
+
+**Museum and Mind Lab:** only where it is natural (ideas, time, problem
+solving). No coins are forced in.

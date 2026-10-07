@@ -46,6 +46,7 @@ func _ready() -> void:
 	_world_label.text = Localization.t("zone.library.section.money_around_the_world")
 	_coming_soon_label.text = Localization.t("zone.library.section.coming_soon")
 	_discovery_table_label.text = Localization.t("zone.library.section.discovery_table")
+	_add_learning_desk.call_deferred()
 
 
 func _on_librarian_talked_to(_npc_id: String) -> void:
@@ -54,3 +55,26 @@ func _on_librarian_talked_to(_npc_id: String) -> void:
 			QuestManager.start_quest(quest_id)
 			return
 	DialogueBox.show_text("zone.library.librarian.all_discoveries_found")
+
+
+# --- Money is a tool: learning ------------------------------------------------------
+
+## The learning desk beside the discovery table (LearningDesk): a notebook
+## bought with coins at the market becomes a skill here. With a notebook
+## in the bag, the mission card shows it as pictures (you → notebook →
+## book); otherwise the library is free to explore as before.
+var desk: LearningDesk
+
+
+func _add_learning_desk() -> void:
+	desk = LearningDesk.new()
+	desk.name = "LearningDesk"
+	add_child(desk)
+	# Off the paths between the entrance and the shelves.
+	desk.position = Vector3(4.2, 0, 1.4)
+	desk.rotation_degrees.y = -20.0
+	desk.learned.connect(func() -> void:
+		ObjectiveManager.complete("lib.learn"))
+	if not LearningDesk.is_learned() and not LearningDesk.has_notebook().is_empty():
+		ObjectiveManager.set_objective("lib.learn", "objective.lib.learn", {}, desk)
+		ObjectiveManager.set_icons(["you", "item:notebook:6FA8DC", "then", "book"])

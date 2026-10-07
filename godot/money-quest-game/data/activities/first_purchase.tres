@@ -1,0 +1,75 @@
+[gd_resource type="Resource" script_class="PlayActivityData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/core/PlayActivityData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+activity_id = "mt-first-purchase"
+learned_key = "learn.mt.first_purchase"
+steps = Array[Dictionary]([{
+"do": "objective",
+"id": "mt.coins",
+"key": "objective.mt.coins",
+"target": "coin_first"
+}, {
+"do": "wait_collect",
+"targets": "coins"
+}, {
+"do": "complete_objective",
+"id": "mt.coins"
+}, {
+"do": "wait",
+"seconds": 0.8
+}, {
+"do": "say",
+"who": "guide",
+"key": "market.guide.hello"
+}, {
+"do": "point",
+"who": "guide",
+"target": "stall",
+"seconds": 2.2
+}, {
+"do": "objective",
+"id": "mt.follow",
+"key": "objective.mt.follow",
+"target": "stall"
+}, {
+"do": "demonstrate_buy",
+"who": "guide",
+"stall": "stall",
+"product": "bread"
+}, {
+"do": "point",
+"who": "guide",
+"target": "stall",
+"seconds": 1.6
+}, {
+"do": "wait_near",
+"target": "stall",
+"radius": 3.4,
+"helper": "guide"
+}, {
+"do": "complete_objective",
+"id": "mt.follow"
+}, {
+"do": "objective",
+"id": "mt.choose",
+"key": "objective.mt.choose",
+"target": "stall"
+}, {
+"do": "choose_purchase",
+"stall": "stall",
+"choices": ["apples", "juice", "bread"],
+"helper": "guide"
+}, {
+"do": "complete_objective",
+"id": "mt.choose"
+}, {
+"do": "reward",
+"xp": 20
+}, {
+"do": "say",
+"who": "guide",
+"key": "market.guide.well_done"
+}])

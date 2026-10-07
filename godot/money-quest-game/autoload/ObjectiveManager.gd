@@ -28,6 +28,17 @@ var tip_text: String = ""
 ## What the player has learned in this place (translation keys), for the
 ## help panel's "What you learned" list.
 var learned: Array[String] = []
+## Visual mission (Universal Play & Learn): the same objective as a row of
+## pictures — "you → coin ×3", "you → stall → bag" — readable without
+## words. Tokens are drawn by MissionStrip (see VisualMissions for the
+## list). Empty = the registry's pictures for this objective id, if any.
+var icon_tokens: Array = []
+## True while the current place has a picture intro to replay (Help). The
+## place sets it on arrival and clears it when it leaves the tree.
+var intro_available: bool = false
+
+## The place's picture intro was asked for again ("Show me again" in Help).
+signal intro_requested
 
 
 func _ready() -> void:
@@ -46,6 +57,8 @@ func has_objective() -> bool:
 ## the text/params (e.g. a counter) without announcing a new mission.
 func set_objective(id: String, key: String, key_params: Dictionary = {}, target: Node3D = null) -> void:
 	var is_new: bool = id != objective_id
+	if is_new:
+		icon_tokens = []
 	objective_id = id
 	text_key = key
 	params = key_params
@@ -53,6 +66,19 @@ func set_objective(id: String, key: String, key_params: Dictionary = {}, target:
 	objective_changed.emit()
 	if is_new:
 		AudioManager.narrate(text())
+
+
+## Pictures for the current objective (see VisualMissions).
+func set_icons(tokens: Array) -> void:
+	icon_tokens = tokens
+	objective_changed.emit()
+
+
+## The current objective as pictures: set explicitly, or from the registry.
+func icons() -> Array:
+	if not icon_tokens.is_empty():
+		return icon_tokens
+	return VisualMissions.icons_for(objective_id)
 
 
 func set_optional(lines: Array) -> void:
@@ -76,6 +102,7 @@ func clear() -> void:
 	optional = []
 	tip_text = ""
 	learned = []
+	icon_tokens = []
 	objective_changed.emit()
 
 

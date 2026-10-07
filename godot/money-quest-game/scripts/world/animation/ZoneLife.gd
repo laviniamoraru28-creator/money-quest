@@ -97,7 +97,7 @@ func set_ambient_active(active: bool) -> void:
 ## Starts an event now (tests, or a scripted moment). Returns false if it
 ## cannot happen here (no spot for it) or life is off.
 func trigger(kind: String) -> bool:
-	if not _active or not EVENT_SECONDS.has(kind):
+	if not _active or Settings.focus_mode or not EVENT_SECONDS.has(kind):
 		return false
 	var pos: Variant = _pick_spot(kind)
 	if pos == null:
@@ -109,6 +109,15 @@ func trigger(kind: String) -> bool:
 func ambient_update(_t: float, delta: float) -> void:
 	if not _active:
 		return
+	# Focus Mode: the place stays still and quiet (no motes, no events).
+	if Settings.focus_mode:
+		if _particles and _particles.visible:
+			_particles.visible = false
+		if event != "":
+			_end_event()
+		return
+	if _particles and not _particles.visible:
+		_particles.visible = true
 	_time += delta
 	if event != "":
 		_event_t += delta

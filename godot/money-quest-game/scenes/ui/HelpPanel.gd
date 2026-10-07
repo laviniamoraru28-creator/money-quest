@@ -38,6 +38,11 @@ func _ready() -> void:
 	outer.add_theme_constant_override("separation", 12)
 	card.add_child(outer)
 	outer.add_child(UIStyle.label(Localization.t("help.title"), UIStyle.TITLE, UIStyle.TEAL_DARK))
+	# The mission as pictures first (readable without words).
+	if ObjectiveManager.has_objective() and not ObjectiveManager.icons().is_empty():
+		var strip := MissionStrip.new(60.0)
+		strip.show_tokens(ObjectiveManager.icons(), ObjectiveManager.params)
+		outer.add_child(strip)
 	var scroll := ScrollContainer.new()
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	outer.add_child(scroll)
@@ -76,6 +81,14 @@ func _ready() -> void:
 	_show_way.visible = ObjectiveManager.target() != null
 	_show_way.pressed.connect(_on_show_way)
 	row.add_child(_show_way)
+	# The place's picture intro, again.
+	if ObjectiveManager.intro_available:
+		var again := UIStyle.button(Localization.t("help.show_intro"), false)
+		again.name = "ShowIntroButton"
+		again.pressed.connect(func() -> void:
+			close()
+			ObjectiveManager.intro_requested.emit())
+		row.add_child(again)
 	# Stuck somewhere? Always one press away from the start of this place.
 	var restart := UIStyle.button(Localization.t("help.back_to_start"), false)
 	restart.name = "BackToStartButton"

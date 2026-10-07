@@ -37,6 +37,21 @@ func add_coins(amount: int) -> void:
 	coins_changed.emit(wallet.balance)
 
 
+## Spends virtual coins if the child has enough — the only way the world
+## takes coins away (shops call this through Shop.buy). Returns false and
+## changes nothing when the balance is too low. Educational virtual money
+## only: nothing here is, or ever touches, real money.
+func spend_coins(amount: int) -> bool:
+	if not wallet.spend(amount):
+		return false
+	coins_changed.emit(wallet.balance)
+	return true
+
+
+func can_afford(amount: int) -> bool:
+	return amount >= 0 and wallet.can_afford(amount)
+
+
 ## Mirrors computeLevel() in the website's local-progress/state.ts exactly
 ## (floor(xp/100)+1) so a level earned on the website and a level earned
 ## in Godot mean the same thing conceptually, even though progress is not

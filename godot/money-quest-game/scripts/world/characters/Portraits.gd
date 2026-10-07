@@ -27,7 +27,23 @@ static func get_portrait(npc_id: String, on_ready: Callable = Callable()) -> Tex
 	return null
 
 
-static func _render(npc_id: String) -> void:
+## The player's own avatar as a picture (visual missions, the intro:
+## "this is YOU"). Re-rendered when the look changes (keyed by the look).
+static func get_avatar(on_ready: Callable = Callable()) -> Texture2D:
+	var look := CharacterLook.from_avatar_config(ProgressManager.avatar_config)
+	var key: String = "avatar|" + look.key()
+	if _cache.has(key):
+		return _cache[key]
+	if _pending.has(key):
+		if on_ready.is_valid():
+			_pending[key].append(on_ready)
+		return null
+	_pending[key] = [on_ready] if on_ready.is_valid() else []
+	_render(key, look)
+	return null
+
+
+static func _render(npc_id: String, look: CharacterLook = null) -> void:
 	var tree := Engine.get_main_loop() as SceneTree
 	var vp := SubViewport.new()
 	vp.size = Vector2i(SIZE, SIZE)
@@ -46,7 +62,7 @@ static func _render(npc_id: String) -> void:
 	sun.rotation = Vector3(deg_to_rad(-30), deg_to_rad(25), 0)
 	sun.light_energy = 0.9
 	vp.add_child(sun)
-	var rig: CharacterRig = CharacterBuilder.build(CharacterLook.for_npc(npc_id), false)
+	var rig: CharacterRig = CharacterBuilder.build(look if look else CharacterLook.for_npc(npc_id), false)
 	rig.process_mode = Node.PROCESS_MODE_DISABLED   # a still, resting pose
 	vp.add_child(rig)
 	var cam := Camera3D.new()

@@ -76,7 +76,8 @@ func _ready() -> void:
 		c.collected.connect(_on_coin_collected)
 		coins[id] = c
 	if ProgressManager.is_activity_completed(ACTIVITY):
-		jar.set_fill(1.0)
+		# Saved: a full jar. Spent: the jar stays empty (older saves: saved).
+		jar.set_fill(0.0 if saved_choice() == "spend" else 1.0)
 	QuestManager.quest_finished.connect(func(_id): refresh())
 	InputHints.device_changed.connect(func(_d): _update_tip())
 	var timer := Timer.new()
@@ -264,26 +265,39 @@ func _on_jar_used() -> void:
 		"save_coins":
 			_run_activity()
 		"done":
-			_say_line("gv.jar.full")
+			_say_line("gv.jar.spent_done" if saved_choice() == "spend" else "gv.jar.full")
 		"find_guide":
 			_say_line("gv.jar.meet_guide")
 		_:
 			_say_line("gv.jar.not_yet")
 
 
+## Save or spend: both complete the activity (SaveGoalActivity). Saving
+## gives the coins back later with interest (+4 coins); spending gives a
+## snack now (no coins back). Same XP and badge either way — the choice
+## changes what happens, not how "good" the child was.
 func _run_activity() -> void:
 	_busy = true
-	ObjectiveManager.complete("gv.save_coins")
 	activity = SaveGoalActivity.new("savings-guide", jar)
 	activity.coins = COIN_TOTAL
 	activity.interest = 1
 	await activity.run()
+	if activity.choice.is_empty():
+		# "Later": nothing chosen; the jar waits.
+		_busy = false
+		refresh()
+		return
+	ObjectiveManager.complete("gv.save_coins")
+	var saved: bool = activity.choice == "save"
+	var coins_back: int = COIN_REWARD if saved else 0
 	# Reward first, then mark complete (which saves the game with it).
+	ProgressManager.set_activity_state(ACTIVITY, "choice", activity.choice)
 	GameState.add_xp(XP_REWARD)
-	GameState.add_coins(COIN_REWARD)
+	if coins_back > 0:
+		GameState.add_coins(coins_back)
 	ProgressManager.award_badge(BADGE_ID)
 	ProgressManager.complete_activity(ACTIVITY)
-	await RewardPopup.celebrate("reward.activity_complete", "gv.reward.message", XP_REWARD, COIN_REWARD, "badge.golden-coin.name")
+	await RewardPopup.celebrate("reward.activity_complete", "gv.reward.message" if saved else "gv.reward.message_spend", XP_REWARD, coins_back, "badge.golden-coin.name")
 	await DialogueBox.say("savings-guide", "gv.guide.next_maya")
 	_xp_tip_left = 10.0
 	_busy = false
@@ -292,3 +306,9 @@ func _run_activity() -> void:
 
 func is_busy() -> bool:
 	return _busy
+
+
+## What the child chose at the jar: "save" or "spend" ("save" for saves
+## made before both choices completed the activity).
+func saved_choice() -> String:
+	return String(ProgressManager.get_activity_state(ACTIVITY, "choice", "save"))

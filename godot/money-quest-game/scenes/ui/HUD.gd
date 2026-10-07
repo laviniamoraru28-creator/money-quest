@@ -39,6 +39,8 @@ var _current_interaction_manager: InteractionManager = null
 ## E / Space, or the gamepad's A button), the InteractionCard, and a short
 ## non-blocking toast for the first visit to a district.
 var _card: InteractionCard
+## Looking, choosing and buying at a stall (Phase 6).
+var shop_card: ShopCard
 var _pill: Button
 ## The big entry card for important places (Destinations) — used instead of
 ## the pill when the thing in reach is a door to one of them.
@@ -48,6 +50,9 @@ var _toast_title: Label
 var _toast_text: Label
 var _toast_serial: int = 0
 var _last_xp: int = -1
+var _last_coins: int = -1
+## The picture layer for money and owned things (coin, before → after, bag).
+var money_hud: MoneyHUD
 
 ## Guidance UI (vertical slice): the mission card, the "Where am I?"
 ## banner, the help offer, subtitles and the soft screen fade used when the
@@ -82,27 +87,33 @@ func _refresh() -> void:
 
 
 func _on_coins_changed(new_balance: int) -> void:
-	coins_label.text = Localization.t("money.virtual_coins", {"amount": new_balance})
+	if _last_coins >= 0 and new_balance != _last_coins and money_hud:
+		money_hud.balance_changed(_last_coins, new_balance)
+	_last_coins = new_balance
+	# Always the number (beside a gold coin); the words only when words are on.
+	coins_label.text = Localization.tn("money.virtual_coins", new_balance) if SupportProfile.show_text() else str(new_balance)
 
 
 func _on_xp_changed(new_total: int) -> void:
 	level_label.text = Localization.t("hud.level_label", {"level": GameState.compute_level()})
 	if _last_xp >= 0 and new_total > _last_xp:
-		_show_xp_chip(new_total - _last_xp)
+		_show_chip(Localization.t("hud.xp_gain", {"xp": new_total - _last_xp}), level_label)
 	_last_xp = new_total
 
 
 ## "+30 XP" beside the level for a moment: words, not only a sound. It
 ## floats up a little and fades, or simply appears and goes with Reduced
 ## Motion.
-func _show_xp_chip(amount: int) -> void:
-	var chip := UIStyle.label(Localization.t("hud.xp_gain", {"xp": amount}), 22, Color("FFE7A0"))
-	chip.name = "XpChip"
+func _show_chip(text: String, beside: Control) -> void:
+	var chip := UIStyle.label(text, 22, Color("FFE7A0"))
+	chip.name = "XpChip" if beside == level_label else "CoinChip"
 	chip.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	chip.add_theme_color_override("font_outline_color", UIStyle.INK)
 	chip.add_theme_constant_override("outline_size", 8)
 	add_child(chip)
-	chip.global_position = level_label.global_position + Vector2(level_label.size.x + 12.0, 0)
+	# Just after the top bar (never over the next label), coins above XP.
+	var end_x: float = settings_button.global_position.x + settings_button.size.x + 14.0
+	chip.global_position = Vector2(end_x, settings_button.global_position.y + (0.0 if beside == coins_label else 52.0))
 	var tw := create_tween()
 	if Settings.reduced_motion:
 		tw.tween_interval(2.4)
@@ -114,6 +125,8 @@ func _show_xp_chip(amount: int) -> void:
 
 func _on_zone_loaded(_zone_data: ZoneData) -> void:
 	_last_xp = GameState.xp_total
+	_last_coins = GameState.wallet.balance
+	shop_card.close()
 	zone_banner.show_zone(_zone_data)
 	hint_toast.dismiss()
 	# Arriving somewhere new: nothing from the last place stays on screen,
@@ -261,6 +274,10 @@ func _build_interaction_ui() -> void:
 	_card = InteractionCard.new()
 	_card.name = "InteractionCard"
 	add_child(_card)
+	shop_card = ShopCard.new()
+	shop_card.name = "ShopCard"
+	add_child(shop_card)
+	shop_card.visibility_changed.connect(_on_shop_card_visibility)
 
 	_pill = Button.new()
 	_pill.name = "InteractionPrompt"
@@ -372,6 +389,13 @@ func _build_guidance_ui() -> void:
 	settings_button.add_theme_font_size_override("font_size", 22)
 	settings_button.custom_minimum_size = Vector2(0, 48)
 
+	money_hud = MoneyHUD.new()
+	money_hud.name = "MoneyHUD"
+	add_child(money_hud)
+	money_hud.setup(self, $Bar, coins_label, settings_button)
+	Settings.changed.connect(func(k: String, _v: Variant) -> void:
+		if k == "show_text":
+			_on_coins_changed(GameState.wallet.balance))
 	objective_panel = ObjectivePanel.new()
 	objective_panel.position = Vector2(16, 70)
 	objective_panel.help_requested.connect(open_help)
@@ -419,6 +443,8 @@ func offer_hint() -> void:
 ## What the Listen control reads when no panel is open: the open
 ## interaction card, or else the current mission (and its how-to tip).
 func listen_text() -> String:
+	if shop_card.is_open():
+		return shop_card.listen_text()
 	if _card.is_open():
 		return _card.listen_text()
 	if destination_prompt.visible:
@@ -429,3 +455,30 @@ func listen_text() -> String:
 	if not ObjectiveManager.tip_text.is_empty():
 		parts.append(ObjectiveManager.tip_text)
 	return ". ".join(parts)
+
+
+## While the shop card is open it needs the screen: the mission card steps
+## aside, and spoken lines (subtitles) move above the card.
+func _on_shop_card_visibility() -> void:
+	if objective_panel:
+		objective_panel.suppressed = shop_card.visible
+	if shop_card.visible:
+		_toast_serial += 1
+		_toast.visible = false
+	if not shop_card.visible:
+		subtitle_line.offset_bottom = -120.0
+		_fit_subtitle()
+
+
+## Called by the shop card when it settles its size (see ShopCard._place).
+func shop_card_layout(panel_rect: Rect2) -> void:
+	if not shop_card.visible:
+		return   # (a late layout pass after the card closed)
+	var vp: Vector2 = get_viewport().get_visible_rect().size
+	subtitle_line.offset_bottom = -maxf(120.0, vp.y - panel_rect.position.y + 12.0)
+	_fit_subtitle()
+
+
+## Keeps the subtitle box hugging its line after it is moved.
+func _fit_subtitle() -> void:
+	subtitle_line.offset_top = subtitle_line.offset_bottom - subtitle_line.get_combined_minimum_size().y

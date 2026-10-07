@@ -50,4 +50,4 @@ func can_afford(amount: int) -> bool:
 ## a balance — never print a bare number next to a coin icon with no
 ## "virtual" qualifier anywhere on screen.
 func formatted() -> String:
-	return Localization.t("money.virtual_coins", {"amount": balance})
+	return Localization.tn("money.virtual_coins", balance)

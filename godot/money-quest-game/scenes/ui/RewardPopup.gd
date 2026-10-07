@@ -131,7 +131,7 @@ func _set_rewards(xp_shown: int, _xp: int, coins: int) -> void:
 	if _xp > 0:
 		parts.append("+" + Localization.t("reward.xp_earned", {"amount": xp_shown}))
 	if coins > 0:
-		parts.append(Localization.t("money.virtual_coins", {"amount": coins}))
+		parts.append(Localization.tn("money.virtual_coins", coins))
 	rewards_label.text = "   ·   ".join(parts)
 	rewards_label.visible = not parts.is_empty()
 

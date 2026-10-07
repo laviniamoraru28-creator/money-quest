@@ -1,0 +1,53 @@
+[gd_resource type="Resource" script_class="ShopData" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/world/economy/ShopData.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/world/economy/ProductData.gd" id="2"]
+
+[sub_resource type="Resource" id="notebook"]
+script = ExtResource("2")
+product_id = "notebook"
+name_key = "product.notebook.name"
+description_key = "product.notebook.desc"
+price = 2
+category = "school"
+tag = "need"
+visual = "notebook"
+color = Color(0.21, 0.49, 0.6, 1)
+learning_tag = "compare"
+
+[sub_resource type="Resource" id="notebook_fancy"]
+script = ExtResource("2")
+product_id = "notebook_fancy"
+name_key = "product.notebook_fancy.name"
+description_key = "product.notebook_fancy.desc"
+fact_key = "product.notebook_fancy.fact"
+price = 5
+category = "school"
+tag = "want"
+visual = "notebook_fancy"
+color = Color(0.94, 0.48, 0.35, 1)
+learning_tag = "compare"
+
+[sub_resource type="Resource" id="pencils"]
+script = ExtResource("2")
+product_id = "pencils"
+name_key = "product.pencils.name"
+description_key = "product.pencils.desc"
+price = 3
+category = "school"
+tag = "useful"
+visual = "pencils"
+color = Color(0.91, 0.64, 0.24, 1)
+learning_tag = "needs_wants"
+
+[resource]
+script = ExtResource("1")
+shop_id = "market_paper"
+name_key = "shop.market_paper.name"
+welcome_key = "shop.market_paper.welcome"
+keeper_npc_id = "paper_seller"
+accent = "gold"
+products = Array[ExtResource("2")]([SubResource("notebook"), SubResource("notebook_fancy"), SubResource("pencils")])
+compare_ids = Array[String](["notebook", "notebook_fancy"])
+compare_question_key = "shop.market_paper.compare_q"
+compare_choose_key = "shop.market_paper.compare_choose"

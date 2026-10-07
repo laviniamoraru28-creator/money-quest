@@ -148,3 +148,43 @@ func set_activity_state(activity_id: String, key: String, value: Variant) -> voi
 		activity_state[activity_id] = {}
 	activity_state[activity_id][key] = value
 	activity_changed.emit(activity_id)
+
+
+# --- Owned items (Phase 6: the world's simple "what do I have") -----------------
+# Deliberately NOT an RPG inventory: no slots, weight, rarity or crafting.
+# Only: does the child own it, how many, when it was first acquired, and
+# whether it has been used. Saved as "owned_items" (older saves: none).
+
+signal item_acquired(item_id: String, count: int)
+
+## item_id -> {"count": int, "acquired": int (unix seconds), "used": bool}
+var owned_items: Dictionary = {}
+
+
+func own_item(item_id: String, count: int = 1) -> void:
+	if item_id.is_empty() or count <= 0:
+		return
+	var rec: Dictionary = owned_items.get(item_id, {"count": 0, "acquired": int(Time.get_unix_time_from_system()), "used": false})
+	rec["count"] = int(rec.get("count", 0)) + count
+	owned_items[item_id] = rec
+	item_acquired.emit(item_id, rec["count"])
+
+
+func owned_count(item_id: String) -> int:
+	var rec: Variant = owned_items.get(item_id, null)
+	return int((rec as Dictionary).get("count", 0)) if rec is Dictionary else 0
+
+
+func owns(item_id: String) -> bool:
+	return owned_count(item_id) > 0
+
+
+func mark_item_used(item_id: String) -> void:
+	if owned_items.has(item_id):
+		owned_items[item_id]["used"] = true
+		item_acquired.emit(item_id, owned_count(item_id))
+
+
+func is_item_used(item_id: String) -> bool:
+	var rec: Variant = owned_items.get(item_id, null)
+	return bool((rec as Dictionary).get("used", false)) if rec is Dictionary else false

@@ -51,3 +51,42 @@ func t(key: String, params: Dictionary = {}) -> String:
 	for param_key in params.keys():
 		translated = translated.replace("{%s}" % param_key, str(params[param_key]))
 	return translated
+
+
+## Like t(), for a phrase with a count: picks `key_one`, `key_few`,
+## `key_many` or plain `key` (the "other" form) by the current language's
+## plural rule, with `{amount}` = n. A form a language does not need is
+## simply left empty in the CSV and falls back to `key`.
+##   en es fr de it pt nl: one (1; French also 0) / other
+##   ro: one (1) / few (0, 2–19, or ending 01–19) / other (20+, "de")
+##   pl: one (1) / few (2–4, 22–24…, not 12–14) / many (everything else)
+func tn(key: String, n: int, params: Dictionary = {}) -> String:
+	var form: String = plural_form(n)
+	var p: Dictionary = params.duplicate()
+	p["amount"] = n
+	if form != "other":
+		var k: String = "%s_%s" % [key, form]
+		if tr(k) != k:
+			return t(k, p)
+	return t(key, p)
+
+
+func plural_form(n: int) -> String:
+	var a: int = absi(n)
+	match current_locale:
+		"pl":
+			if a == 1:
+				return "one"
+			if a % 10 >= 2 and a % 10 <= 4 and not (a % 100 >= 12 and a % 100 <= 14):
+				return "few"
+			return "many"
+		"ro":
+			if a == 1:
+				return "one"
+			if a == 0 or (a % 100 >= 1 and a % 100 <= 19):
+				return "few"
+			return "other"
+		"fr":
+			return "one" if a <= 1 else "other"
+		_:
+			return "one" if a == 1 else "other"

@@ -91,7 +91,9 @@ func show_choice(choice: DialogueChoice) -> ChoiceOption:
 	return result
 
 
-func show_quiz(question_key: String, option_keys: Array[String], correct_index: int) -> bool:
+## `option_texts` (optional): what each answer shows, when it needs live
+## values (a price); the keys still identify the question for AnswerOrder.
+func show_quiz(question_key: String, option_keys: Array[String], correct_index: int, option_texts: Array[String] = []) -> bool:
 	prompt_label.text = Localization.t(question_key)
 	_clear_options()
 	var qid: String = AnswerOrder.question_id(question_key, option_keys)
@@ -102,7 +104,8 @@ func show_quiz(question_key: String, option_keys: Array[String], correct_index: 
 		# The button remembers which ORIGINAL answer it shows; correctness is
 		# judged on that, never on the position on screen.
 		var data_index: int = shown_order[slot]
-		var button := _make_option_button(Localization.t(option_keys[data_index]))
+		var label: String = option_texts[data_index] if data_index < option_texts.size() else Localization.t(option_keys[data_index])
+		var button := _make_option_button(label)
 		texts.append(button.text)
 		button.pressed.connect(func():
 			if visible:

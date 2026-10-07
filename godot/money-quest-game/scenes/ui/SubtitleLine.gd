@@ -38,12 +38,15 @@ func _ready() -> void:
 
 
 func show_line(text: String, speaker: String = "") -> void:
-	if not Settings.subtitles or text.is_empty():
+	# Subtitles are words: with words off (Universal Play & Learn) they step
+	# aside — nothing they say is ever needed to play.
+	if not Settings.subtitles or text.is_empty() or not SupportProfile.show_text():
 		return
 	set_process(true)
 	_label.text = ("%s:  %s" % [speaker, text]) if speaker != "" else text
 	visible = true
 	reset_size()
+	offset_top = offset_bottom - get_combined_minimum_size().y
 	_serial += 1
 	var serial: int = _serial
 	await get_tree().create_timer(2.5 + 0.06 * text.length()).timeout
@@ -52,9 +55,10 @@ func show_line(text: String, speaker: String = "") -> void:
 		set_process(false)
 
 
-## A panel (dialogue, choice, reward) opening takes over the screen: the
-## subtitle steps aside rather than covering it.
+## A panel (dialogue, choice, reward, a character's card) opening takes
+## over the screen: the subtitle steps aside rather than covering it.
 func _process(_delta: float) -> void:
-	if DialogueBox.visible or ChoicePanel.visible or RewardPopup.visible:
+	var card: Variant = get_parent().get("_card")
+	if DialogueBox.visible or ChoicePanel.visible or RewardPopup.visible or (card != null and card.is_open()) or not get_tree().get_nodes_in_group("mq_purpose_card").is_empty():
 		visible = false
 		set_process(false)

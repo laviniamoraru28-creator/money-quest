@@ -51,6 +51,7 @@ const DEFAULT_SAVE: Dictionary = {
 	# Vertical slice (all additive: an older save simply gets these defaults)
 	"completed_activity_ids": [],
 	"activity_state": {},
+	"owned_items": {},
 }
 
 
@@ -73,6 +74,10 @@ func _ready() -> void:
 	Localization.locale_changed.connect(func(_v): save_progress())
 	Settings.changed.connect(func(_k, _v): save_progress())
 	ProgressManager.activity_changed.connect(func(_id): save_progress())
+	ProgressManager.item_acquired.connect(func(_id, _n): save_progress())
+	# Spending (and earning outside lessons) is saved straight away, so a
+	# purchase can never be lost or repeated by closing the game.
+	GameState.coins_changed.connect(func(_b): save_progress())
 
 
 func load_progress() -> void:
@@ -178,12 +183,26 @@ func load_progress() -> void:
 		var v: Variant = data.get(key, fallback)
 		if typeof(fallback) == TYPE_FLOAT and (typeof(v) == TYPE_INT or typeof(v) == TYPE_FLOAT):
 			v = float(v)
+		elif typeof(fallback) == TYPE_INT and typeof(v) == TYPE_FLOAT:
+			v = int(v)   # JSON numbers load as floats
 		Settings.set(key, v if typeof(v) == typeof(fallback) else fallback)
 	if not Settings.UI_SCALES.has(Settings.ui_scale):
 		Settings.ui_scale = Settings.DEFAULTS["ui_scale"]
+	if not (Settings.visual_guidance in ["strong", "normal", "light"]):
+		Settings.visual_guidance = Settings.DEFAULTS["visual_guidance"]
+	Settings.support_level = clampi(Settings.support_level, 0, 4)
 	ProgressManager.completed_activity_ids.assign(data.get("completed_activity_ids", []))
 	var state: Variant = data.get("activity_state", {})
 	ProgressManager.activity_state = (state as Dictionary).duplicate(true) if state is Dictionary else {}
+	# Phase 6: owned items (older saves have none; anything malformed is
+	# dropped rather than trusted).
+	var owned: Variant = data.get("owned_items", {})
+	ProgressManager.owned_items = {}
+	if owned is Dictionary:
+		for id in owned:
+			var rec: Variant = owned[id]
+			if rec is Dictionary and int(rec.get("count", 0)) > 0:
+				ProgressManager.owned_items[String(id)] = {"count": int(rec["count"]), "acquired": int(rec.get("acquired", 0)), "used": bool(rec.get("used", false))}
 
 	Localization.set_locale(data.get("locale", Localization.DEFAULT_LOCALE))
 
@@ -228,6 +247,7 @@ func save_progress() -> void:
 		"calm_garden_creature_id": ProgressManager.calm_garden_config.creature_id,
 		"completed_activity_ids": ProgressManager.completed_activity_ids,
 		"activity_state": ProgressManager.activity_state,
+		"owned_items": ProgressManager.owned_items,
 	}
 	for key in Settings.DEFAULTS.keys():
 		data[key] = Settings.get(key)
@@ -271,6 +291,12 @@ func _load_business_profile(data: Dictionary) -> void:
 	profile.last_costs = data.get("last_costs", 0)
 	profile.last_profit = data.get("last_profit", 0)
 	profile.last_remaining_money = data.get("last_remaining_money", 0)
+	profile.profit_plan = String(data.get("profit_plan", ""))
+	profile.business_savings = int(data.get("business_savings", 0))
+	profile.stock_ready = int(data.get("stock_ready", 0))
+	profile.equipment_level = int(data.get("equipment_level", 0))
+	profile.goodwill = int(data.get("goodwill", 0))
+	profile.learn_level = int(data.get("learn_level", 0))
 
 	var logo_data: Dictionary = data.get("logo", {})
 	profile.logo.shape = logo_data.get("shape", "circle")
@@ -307,4 +333,10 @@ func _serialize_business_profile() -> Dictionary:
 		"last_costs": profile.last_costs,
 		"last_profit": profile.last_profit,
 		"last_remaining_money": profile.last_remaining_money,
+		"profit_plan": profile.profit_plan,
+		"business_savings": profile.business_savings,
+		"stock_ready": profile.stock_ready,
+		"equipment_level": profile.equipment_level,
+		"goodwill": profile.goodwill,
+		"learn_level": profile.learn_level,
 	}

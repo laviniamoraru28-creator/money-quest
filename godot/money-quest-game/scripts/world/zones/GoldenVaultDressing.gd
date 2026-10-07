@@ -152,7 +152,7 @@ func _purposeful_details(m: MeshMerger, body: StaticBody3D, h: Vector2, back_z: 
 			CuriosityProp.make(self, "vault_jar", "savings_jar", jar, 20.0, "curio.vault_jar.title", "curio.vault_jar.text", "bounce")
 		var tiny := Vector3(h.x - 1.4, 0, 7.6)
 		if is_free(tiny, 0.5) and _clear_of_flow(tiny, 1.5):
-			CuriosityProp.make(self, "tiny_vault", "tiny_vault", tiny, -90.0, "curio.tiny_vault.title", "curio.tiny_vault.text", "wobble", 1.5, "secret")
+			CuriosityProp.make(self, "tiny_vault", "tiny_vault", tiny, -90.0, "curio.tiny_vault.title", "curio.tiny_vault.text", "wobble", 1.5, "secret").with_reward(0, 10, "curio.tiny_vault.reward")
 
 
 ## The vault's own activity pieces (GoldenVaultFlow: three hidden coins and

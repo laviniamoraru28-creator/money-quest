@@ -19,9 +19,17 @@ var _help: Button
 var _shown_id: String = ""
 var _hold_serial: int = 0
 var _held: bool = false
+## True while a full-width world card (the shop) needs the space: the
+## mission is not lost, just tucked away until the card closes.
+var suppressed: bool = false:
+	set(v):
+		suppressed = v
+		_refresh()
 var _done: HBoxContainer
 var _done_label: Label
 var _done_serial: int = 0
+## The mission as pictures (VisualMissions) — shown with words on or off.
+var strip: MissionStrip
 
 
 func _ready() -> void:
@@ -42,6 +50,9 @@ func _ready() -> void:
 	row.add_child(col)
 	_title = UIStyle.label("", UIStyle.TEXT_SMALL, UIStyle.TEAL_DARK)
 	col.add_child(_title)
+	strip = MissionStrip.new(52.0)
+	strip.visible = false
+	col.add_child(strip)
 	_text = UIStyle.label("", 26)
 	_text.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	_text.custom_minimum_size = Vector2(300, 0)
@@ -72,11 +83,19 @@ func _ready() -> void:
 	ObjectiveManager.objective_completed.connect(_on_completed)
 	Localization.locale_changed.connect(func(_l): _refresh())
 	InputHints.device_changed.connect(func(_d): _refresh())
+	Settings.changed.connect(func(k: String, _v: Variant) -> void:
+		if k == "show_text":
+			_refresh())
 	_refresh()
 
 
 func _refresh() -> void:
-	visible = ObjectiveManager.has_objective() and not _held
+	# The mission as pictures (always, when the place gives some) and as
+	# words (an optional layer). With words off and no pictures, the world
+	# itself shows the way (beacons, a pointing guide, the trail of lights).
+	var icons: Array = ObjectiveManager.icons()
+	var words: bool = SupportProfile.show_text()
+	visible = ObjectiveManager.has_objective() and not _held and not suppressed and (words or not icons.is_empty())
 	if not visible:
 		_shown_id = ""
 		return
@@ -85,6 +104,13 @@ func _refresh() -> void:
 	_text.text = ObjectiveManager.text()
 	_tip.text = ObjectiveManager.tip_text
 	_tip.visible = not ObjectiveManager.tip_text.is_empty()
+	strip.show_tokens(icons, ObjectiveManager.params)
+	strip.visible = not icons.is_empty()
+	_title.visible = words
+	_text.visible = words
+	_tip.visible = words and _tip.visible
+	custom_minimum_size.x = 360.0 if words else 0.0
+	reset_size.call_deferred()
 	if ObjectiveManager.objective_id != _shown_id:
 		_shown_id = ObjectiveManager.objective_id
 		_announce()
@@ -122,6 +148,7 @@ func _on_completed(_id: String) -> void:
 	_done_serial += 1
 	var serial: int = _done_serial
 	_done_label.text = Localization.t("objective.done")
+	_done_label.visible = SupportProfile.show_text()
 	_done.visible = true
 	AudioManager.play_sfx("success", 1.0, -4.0)
 	AudioManager.narrate(_done_label.text)
