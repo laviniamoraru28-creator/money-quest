@@ -16,7 +16,7 @@ extends RefCounted
 ## A new destination joins by adding one entry here.
 
 const ENTRIES: Dictionary = {
-	"world-hub": {"title": "zone.world_hub.name", "prompt": false, "purpose": "place.world_hub.purpose", "icon": "compass", "accent": "teal_light"},
+	"world-hub": {"title": "zone.world_hub.name", "purpose": "place.world_hub.purpose", "icon": "compass", "accent": "teal_light"},
 	"golden-vault": {"title": "place.golden_vault.name", "district": "place.district.money_quest", "purpose": "place.golden_vault.purpose", "icon": "coin", "accent": "gold"},
 	"time-vault": {"title": "place.time_vault.name", "district": "place.district.money_quest", "purpose": "place.time_vault.purpose", "icon": "coin", "accent": "teal"},
 	"idea-lab": {"title": "zone.idea_lab.name", "district": "hub.portal.entrepreneur_quest", "purpose": "place.idea_lab.purpose", "icon": "bulb", "accent": "ember"},
@@ -38,11 +38,12 @@ static func entry(zone_id: String) -> Dictionary:
 	return ENTRIES.get(zone_id, {})
 
 
-## Whether reaching this place's entrance shows the big DestinationPrompt
-## (the way back to the Hub keeps the ordinary small prompt: it sits right
-## behind every arrival point).
+## Whether reaching this place's entrance shows the big DestinationPrompt:
+## every door to a place, the way back to the Hub included (the player now
+## arrives a few steps from that door, out of its reach — see Main).
 static func wants_prompt(zone_id: String) -> bool:
-	return has(zone_id) and bool(entry(zone_id).get("prompt", true))
+	# Every place gets it (rooms inside a place show their area's emblem).
+	return (has(zone_id) or WorldManager.get_zone(zone_id) != null) and bool(entry(zone_id).get("prompt", true))
 
 
 ## The place's name: its own title, or the zone's display name.
@@ -56,7 +57,11 @@ static func title(zone_id: String) -> String:
 
 static func district(zone_id: String) -> String:
 	var e: Dictionary = entry(zone_id)
-	return Localization.t(e["district"]) if e.has("district") else ""
+	if e.has("district"):
+		return Localization.t(e["district"])
+	# A room inside a place: that place's name, small above the room's.
+	var home: String = WorldManager.emblem_place(zone_id)
+	return title(home) if home != zone_id and has(home) else ""
 
 
 static func purpose(zone_id: String) -> String:
@@ -65,8 +70,8 @@ static func purpose(zone_id: String) -> String:
 
 
 static func icon(zone_id: String) -> String:
-	return String(entry(zone_id).get("icon", "compass"))
+	return String(entry(WorldManager.emblem_place(zone_id)).get("icon", "compass"))
 
 
 static func accent(zone_id: String) -> Color:
-	return DecorKit.color(String(entry(zone_id).get("accent", "gold")))
+	return DecorKit.color(String(entry(WorldManager.emblem_place(zone_id)).get("accent", "gold")))

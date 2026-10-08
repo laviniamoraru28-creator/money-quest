@@ -36,11 +36,37 @@ func _on_zone_change_requested(zone_data: ZoneData) -> void:
 
 	var player: Node3D = _current_zone_instance.find_child("Player", true, false)
 	if player:
-		player.global_position = zone_data.player_spawn_position
+		var arrive: Vector3 = _arrival_point(zone_data)
+		player.global_position = arrive
 		if player.get("safety"):
-			player.safety.set_spawn(zone_data.player_spawn_position)
+			player.safety.set_spawn(arrive)
 
 	WorldManager.notify_zone_loaded(zone_data)
+
+
+## Where the player appears: beside the door that leads back to the place
+## they just came from (so "I came through that door" is true, and ← BACK is
+## right behind them), a few steps into the room, out of the door's reach.
+## Falls back to the zone's own spawn point (first arrival, no such door).
+const ARRIVE_FROM_DOOR: float = 3.2
+## A place whose own (designed) spawn point is already this close to that
+## door keeps it: the player is beside the door either way.
+const SPAWN_BESIDE_DOOR: float = 6.0
+
+func _arrival_point(zone_data: ZoneData) -> Vector3:
+	var spawn: Vector3 = zone_data.player_spawn_position
+	var from: String = WorldManager.previous_zone_id
+	if from.is_empty():
+		return spawn
+	for n in _current_zone_instance.find_children("*", "Area3D", true, false):
+		if n is PortalInteraction and (n as PortalInteraction).target_zone_id == from:
+			var door: Vector3 = (n as Node3D).global_position
+			var inward := Vector3(spawn.x - door.x, 0, spawn.z - door.z)
+			if inward.length() <= SPAWN_BESIDE_DOOR:
+				return spawn
+			var p: Vector3 = door + inward.normalized() * ARRIVE_FROM_DOOR
+			return Vector3(p.x, spawn.y, p.z)
+	return spawn
 
 
 func _apply_zone_environment(zone: Node) -> void:

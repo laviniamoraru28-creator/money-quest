@@ -94,6 +94,25 @@ func _ready() -> void:
 	restart.name = "BackToStartButton"
 	restart.pressed.connect(_on_back_to_start)
 	row.add_child(restart)
+	# The Hub, from anywhere: one press (its compass, as on its door).
+	if WorldManager.current_zone_id != "world-hub":
+		var home := UIStyle.button(Destinations.title("world-hub"), false)
+		home.name = "GoToHubButton"
+		var badge := DestinationIcon.new()
+		badge.icon = "compass"
+		badge.accent = Destinations.accent("world-hub")
+		badge.custom_minimum_size = Vector2(40, 40)
+		badge.set_anchors_preset(Control.PRESET_CENTER_LEFT)
+		badge.offset_left = 8.0
+		badge.offset_right = 48.0
+		badge.offset_top = -20.0
+		badge.offset_bottom = 20.0
+		home.add_child(badge)
+		home.text = "      " + home.text
+		home.pressed.connect(func() -> void:
+			close()
+			WorldManager.travel_to("world-hub"))
+		row.add_child(home)
 	_close = UIStyle.button(Localization.t("common.close_button"), false)
 	_close.name = "CloseButton"
 	_close.pressed.connect(close)
@@ -119,8 +138,10 @@ func _exits() -> PackedStringArray:
 			continue
 		var zone: Node = p.get_parent()
 		for n in zone.find_children("*", "Area3D", true, false):
-			if n is PortalInteraction and not n.label_key.is_empty():
-				out.append(Localization.t(n.label_key))
+			if n is PortalInteraction and not (n as PortalInteraction).target_zone_id.is_empty():
+				# Where it really leads, and which way (← BACK, → FORWARD).
+				var d: PortalInteraction = n
+				out.append(("← " if d.role == "back" else "→ ") + Destinations.title(d.target_zone_id))
 	return out
 
 

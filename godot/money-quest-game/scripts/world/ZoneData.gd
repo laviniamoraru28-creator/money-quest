@@ -29,3 +29,9 @@ enum ZoneKind { HUB, QUEST, LIBRARY, MUSEUM, MIND_LAB, CALM }
 ## Where the player avatar appears when entering this zone (local to the
 ## zone's own scene). Read by WorldManager after instancing the zone.
 @export var player_spawn_position: Vector3 = Vector3.ZERO
+
+## Where ← BACK leads from here (ZoneNavigation): the previous room of this
+## place's chain, or the Hub for a place the Hub opens onto directly. Empty
+## only for the Hub itself. The door that leads there is this room's BACK
+## door; every other door goes FORWARD. (tests check it matches the doors.)
+@export var back_zone_id: String = ""

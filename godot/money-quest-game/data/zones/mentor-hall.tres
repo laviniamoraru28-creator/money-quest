@@ -16,3 +16,4 @@ exhibit_ids = Array[String]([])
 book_ids = Array[String]([])
 mentor_ids = Array[String](["katherine-johnson", "ada-lovelace", "george-washington-carver", "sara-blakely", "daymond-john"])
 player_spawn_position = Vector3(0, 0, 3)
+back_zone_id = "library"

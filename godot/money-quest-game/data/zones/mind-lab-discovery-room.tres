@@ -17,3 +17,4 @@ book_ids = Array[String]([])
 mentor_ids = Array[String]([])
 mindlab_entry_ids = Array[String](["mindlab-fact-attention", "mindlab-fact-working-memory", "mindlab-fact-cognitive-flexibility", "mindlab-fact-confirmation-bias"])
 player_spawn_position = Vector3(0, 0, 3)
+back_zone_id = "adaptability-lab"

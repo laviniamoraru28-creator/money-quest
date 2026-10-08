@@ -29,6 +29,7 @@ var zone_id: String = ""
 var locked: bool = false
 
 var _icon: DestinationIcon
+var _arrow: NavArrow
 var _district: Label
 var _title: Label
 var _purpose: Label
@@ -61,6 +62,11 @@ func _ready() -> void:
 	row.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	row.add_theme_constant_override("separation", 20)
 	add_child(row)
+	# ← BACK or → FORWARD (inside a place; the Hub's doors all lead in).
+	_arrow = NavArrow.new("forward", 64.0)
+	_arrow.name = "DoorArrow"
+	_arrow.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	row.add_child(_arrow)
 	_icon = DestinationIcon.new()
 	_icon.custom_minimum_size = Vector2(96, 96)
 	_icon.size_flags_vertical = Control.SIZE_SHRINK_CENTER
@@ -123,6 +129,9 @@ func show_for(p_zone_id: String, p_locked: bool) -> void:
 	var fresh: bool = not visible or zone_id != p_zone_id
 	zone_id = p_zone_id
 	locked = p_locked
+	var here: String = WorldManager.current_zone_id
+	_arrow.visible = not here.is_empty() and here != "world-hub"
+	_arrow.direction = WorldManager.door_role(here, zone_id)
 	_icon.icon = Destinations.icon(zone_id)
 	_icon.accent = Destinations.accent(zone_id)
 	_style.border_color = Destinations.accent(zone_id).lightened(0.1)

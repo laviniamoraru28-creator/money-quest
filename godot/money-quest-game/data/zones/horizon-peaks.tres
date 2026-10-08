@@ -15,3 +15,4 @@ quest_ids = Array[String](["builder-long-term-thinking-l1-quest", "strategist-lo
 exhibit_ids = Array[String]([])
 book_ids = Array[String]([])
 player_spawn_position = Vector3(0, 0, 3)
+back_zone_id = "coin-cove"

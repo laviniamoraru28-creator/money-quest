@@ -71,6 +71,8 @@ func travel_to(zone_id: String) -> void:
 	if not is_zone_unlocked(zone_id):
 		push_warning("WorldManager: zone '%s' is locked, ignoring travel request" % zone_id)
 		return
+	if zone_id != current_zone_id:
+		previous_zone_id = current_zone_id
 	current_zone_id = zone_id
 	zone_change_requested.emit(zone)
 
@@ -81,6 +83,42 @@ func travel_to(zone_id: String) -> void:
 func notify_zone_loaded(zone_data: ZoneData) -> void:
 	zone_loaded.emit(zone_data)
 
+
+
+# --- navigation: ← BACK and → FORWARD, the same everywhere ------------------------
+
+## The zone the player was in before this one ("" at the start): the player
+## arrives beside the door that leads back there (Main).
+var previous_zone_id: String = ""
+
+
+## Where ← BACK leads from `zone_id` (ZoneData.back_zone_id): the previous
+## room of its chain, or the Hub. "" for the Hub itself.
+func back_of(zone_id: String) -> String:
+	var z: ZoneData = get_zone(zone_id)
+	return z.back_zone_id if z else ""
+
+
+## A door in `from_zone` leading to `target`: "back" when it is where ← BACK
+## leads, otherwise "forward" (→, further along, or into a place).
+func door_role(from_zone: String, target: String) -> String:
+	return "back" if not target.is_empty() and target == back_of(from_zone) else "forward"
+
+
+## The place whose emblem stands for `zone_id`: itself when it has one
+## (Destinations), otherwise the first place up its BACK chain that does —
+## so every room of the Museum shows the Museum's column, every Calm World
+## room the leaf. One meaning per emblem, everywhere.
+func emblem_place(zone_id: String) -> String:
+	var z: String = zone_id
+	for i in 20:
+		if Destinations.has(z):
+			return z
+		var b: String = back_of(z)
+		if b.is_empty() or b == "world-hub":
+			return z
+		z = b
+	return z
 
 func unlock_zone(zone_id: String) -> void:
 	if not ProgressManager.unlocked_zone_ids.has(zone_id):

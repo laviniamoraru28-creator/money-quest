@@ -16,3 +16,4 @@ exhibit_ids = Array[String]([])
 book_ids = Array[String](["a-kids-book-about-money", "money-for-beginners", "how-it-works-money", "everything-kids-money-book", "a-smart-girls-guide-money", "how-to-turn-100-into-1000000", "little-daymond-learns-to-earn", "national-geographic-kids-everything-money"])
 mentor_ids = Array[String]([])
 player_spawn_position = Vector3(0, 0, 3)
+back_zone_id = "world-hub"

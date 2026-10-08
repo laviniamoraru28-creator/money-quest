@@ -31,6 +31,36 @@ func _ready() -> void:
 		prompt_text_key = "interaction.enter_prompt"
 	if _label and not label_key.is_empty():
 		_label.text = Localization.t(label_key)
+	_apply_navigation()
+
+
+## "back" or "forward" in the room this door stands in (see below).
+var role: String = "forward"
+
+
+## ← BACK / → FORWARD, the same rule in every room (WorldManager.back_of):
+## the door to where BACK leads is the BACK door; every other door goes
+## FORWARD. In a room deeper in a chain, the old way straight to the Hub
+## becomes the way BACK to the room before (so ← always means "the room I
+## came through"; the Hub is one step from Help, and BACK, BACK... reaches
+## it too). The door shows where it goes and which way (DoorMarker); its
+## written label is for readers and steps aside with words off.
+func _apply_navigation() -> void:
+	var here: String = WorldManager.current_zone_id
+	if here.is_empty() or here == "world-hub" or target_zone_id.is_empty():
+		return
+	var back: String = WorldManager.back_of(here)
+	if target_zone_id == "world-hub" and not back.is_empty() and back != "world-hub":
+		target_zone_id = back
+		if _label:
+			_label.text = Destinations.title(back)
+	role = WorldManager.door_role(here, target_zone_id)
+	var marker := DoorMarker.make(target_zone_id, role)
+	var top: float = (_label.position.y + 1.0) if _label else 3.4
+	marker.position = Vector3(0, maxf(top, 3.4), 0)
+	add_child(marker)
+	if _label:
+		_label.visible = SupportProfile.show_text()
 
 
 func interact() -> void:

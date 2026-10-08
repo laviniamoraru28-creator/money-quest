@@ -16,3 +16,4 @@ exhibit_ids = Array[String](["gold-bar"])
 book_ids = Array[String]([])
 mentor_ids = Array[String]([])
 player_spawn_position = Vector3(0, 0, 3)
+back_zone_id = "banknote-lab"

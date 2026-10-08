@@ -15,3 +15,4 @@ quest_ids = Array[String](["eq-business-pivot-quest", "eq-grow-or-stay-small-que
 exhibit_ids = Array[String]([])
 book_ids = Array[String]([])
 player_spawn_position = Vector3(0, 0, 3)
+back_zone_id = "ai-workshop"

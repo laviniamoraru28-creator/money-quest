@@ -15,3 +15,4 @@ quest_ids = Array[String](["lq-everyone-has-an-idea-quest", "lq-motivation-probl
 exhibit_ids = Array[String]([])
 book_ids = Array[String]([])
 player_spawn_position = Vector3(0, 0, 3)
+back_zone_id = "strategy-room"

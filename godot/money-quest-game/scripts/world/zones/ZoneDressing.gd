@@ -306,7 +306,8 @@ func _local(n: Node3D) -> Vector3:
 func return_portal() -> Node3D:
 	var best: Node3D = null
 	for p in _portals:
-		if String(p.get("target_zone_id")) == RETURN_ZONE_ID:
+		# The way back: the Hub door, or (inside a chain) the ← BACK door.
+		if String(p.get("target_zone_id")) == RETURN_ZONE_ID or String(p.get("role")) == "back":
 			return p
 		if best == null or _local(p).z > _local(best).z:
 			best = p

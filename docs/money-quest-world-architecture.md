@@ -2613,3 +2613,54 @@ languages fall back to English, as they did before.
   words on and off, and Reduced Motion. It checks pictures, focus, the
   picked state, More, practice, quiz, reward and save, and takes
   screenshots.
+
+## 22. Universal navigation (Phase A)
+
+The same rule in every place, shown with pictures rather than words:
+
+- **← BACK** leads to the previous room of the chain. A place the Hub
+  opens onto directly (a chain head) goes BACK to the Hub.
+- **→ FORWARD** leads to the next room, or into a place.
+- **The Hub** is the entry point: its doors lead into places and have no
+  arrows.
+- **🏠 Hub** is one press away from anywhere, in the help panel.
+
+### 22.1 Pieces
+
+| Piece | What it does |
+|---|---|
+| `ZoneData.back_zone_id` | Where ← BACK leads (data, one value per place; empty for the Hub). Filled from the real door graph; a test checks it still matches the doors |
+| `WorldManager` | `previous_zone_id`, `back_of()`, `door_role()` ("back" / "forward"), `emblem_place()` (a room without its own emblem uses its area's) |
+| `PortalInteraction` | Each door works out its own role in the room it stands in. In a room deeper in a chain, the old Hub door becomes the ← BACK door. Adds a `DoorMarker`; its written label steps aside with words off |
+| `DoorMarker` | Over every door inside the world: ← + emblem (BACK) or emblem + → (FORWARD), 2.2 m wide, always facing the camera, never moving. Drawn once per kind and cached |
+| `NavArrow` | The one ← / → picture, on doors, on the entry card and in help |
+| `Destinations` | Every place has an emblem, the area's name as its district line, and the big entry card (the Hub door included) |
+| `Main` | Arrive beside the door you came through, 3.2 m into the room. A designed spawn point already within 6 m of that door is kept |
+| `Player` | The tap or click that opens a door is not also a "walk there" in the new room |
+| `HelpPanel` | "Ways to go" lists each door's real destination with ← / →, plus the 🏠 Hub button |
+
+Places with their own flow find "the way out" as the BACK door
+(`role == "back"`): `MarketTownFlow`, and `ZoneDressing.return_portal()`.
+
+### 22.2 Tests (scratch)
+
+- **`_nav.tscn scenario=graph`:** BACK matches the doors in all 53 places;
+  exactly one BACK door per room; BACK always reaches the Hub; every place
+  has an emblem.
+- **`_nav.tscn scenario=walk`:** real door use through 6 areas (Museum,
+  Calm World, Mind Lab, Entrepreneur, Money Quest, Library / Mentor Hall)
+  and BACK to the Hub, with keyboard, gamepad, mouse and touch, words on
+  and off, and Reduced Motion. It checks arrival, door roles, markers, the
+  card arrow and the 🏠 Hub button.
+
+### 22.3 Backlog for Phase B
+
+1. Market Town's picture intro: "Let's go" works with E / A / Enter but
+   shows no focus ring.
+2. In plain rooms the camera faces the BACK door on arrival, so the FORWARD
+   door starts behind the camera. Needs camera or visual guidance so the
+   way on is obvious.
+3. A tap on any on-screen panel can also reach the player's tap-to-walk.
+   Only the door-card case is handled.
+4. Tests: the `np_mouse` and `_purpose` suites write screenshots under the
+   same prefix and overwrite each other.

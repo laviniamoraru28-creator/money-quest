@@ -409,7 +409,8 @@ func _stall(shop_id: String) -> ShopStall:
 
 func _nearest_portal() -> Node3D:
 	for n in get_parent().find_children("*", "Area3D", true, false):
-		if n is PortalInteraction and n.target_zone_id == "world-hub":
+		# The way out: this room's ← BACK door (WorldManager.back_of).
+		if n is PortalInteraction and (n as PortalInteraction).role == "back":
 			return n
 	return null
 

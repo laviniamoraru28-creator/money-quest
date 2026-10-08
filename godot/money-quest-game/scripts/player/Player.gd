@@ -37,6 +37,7 @@ var visual: CharacterRig = null
 
 var _target_position: Vector3 = Vector3.ZERO
 var _has_target: bool = false
+var _born_frame: int = -1
 var _step_distance: float = 0.0
 var _step_left: bool = false
 ## The universal safety net (see PlayerSafety): brings the player back to
@@ -46,6 +47,7 @@ var safety: PlayerSafety
 
 func _ready() -> void:
 	add_to_group("player")
+	_born_frame = Engine.get_process_frames()
 	_target_position = global_position
 	safety = PlayerSafety.new()
 	safety.name = "Safety"
@@ -81,6 +83,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	if event.is_action_pressed("interact"):
 		request_interact()
+		return
+	# A click / tap in the frame this player was made is the one that just
+	# brought them here through a door (the zone loads inside that same
+	# press): it is not a "walk there".
+	if Engine.get_process_frames() == _born_frame and (event is InputEventMouseButton or event is InputEventScreenTouch):
 		return
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		_set_target_from_screen_point(event.position)

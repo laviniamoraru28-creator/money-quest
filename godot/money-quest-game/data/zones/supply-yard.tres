@@ -15,3 +15,4 @@ quest_ids = Array[String](["eq-pricing-experiment-quest", "eq-choose-a-supplier-
 exhibit_ids = Array[String]([])
 book_ids = Array[String]([])
 player_spawn_position = Vector3(0, 0, 3)
+back_zone_id = "main-street"
