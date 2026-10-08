@@ -105,6 +105,27 @@ font_size = 48
 outline_size = 8
 text = ""
 
+[node name="PortalToTimeVault" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, 4.5)
+script = ExtResource("5")
+label_key = "zone.time_vault.name"
+target_zone_id = "time-vault"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PortalToTimeVault"]
+shape = SubResource("CylinderShape3D_portal")
+
+[node name="Visual" type="MeshInstance3D" parent="PortalToTimeVault"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_portal")
+
+[node name="Label" type="Label3D" parent="PortalToTimeVault"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, 0)
+billboard = 1
+no_depth_test = true
+font_size = 48
+outline_size = 8
+text = ""
+
 [node name="ZoneDressing" type="Node3D" parent="."]
 script = ExtResource("6")
 

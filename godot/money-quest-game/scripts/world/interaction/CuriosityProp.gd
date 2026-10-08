@@ -109,7 +109,7 @@ func _give_reward() -> void:
 	if reward_coins <= 0 and reward_xp <= 0:
 		return
 	if reward_coins > 0:
-		GameState.add_coins(reward_coins)
+		GameState.add_coins(reward_coins, "curio:" + data.interaction_id, "coin", "earn" if data.kind == "activity" else "reward")
 	if reward_xp > 0:
 		GameState.add_xp(reward_xp)
 	var line: String = Localization.t(reward_text_key, {"coins": Shop.coins(reward_coins), "xp": reward_xp}) if not reward_text_key.is_empty() else ""

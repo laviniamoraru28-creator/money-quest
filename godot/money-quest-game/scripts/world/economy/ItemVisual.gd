@@ -154,5 +154,23 @@ class Icon extends Control:
 				draw_rect(Rect2(c + Vector2(-u * 0.5, -u * 0.55), Vector2(u * 0.95, u * 0.5)), Color("7DB6CF"))
 				for sx in [-0.55, 0.55]:
 					draw_circle(c + Vector2(sx * u, u * 0.55), u * 0.25, INK)
+			"chocolate":
+				# A chocolate bar in its wrapper, a corner unwrapped.
+				var bar := Rect2(c + Vector2(-u * 0.6, -u * 1.0), Vector2(u * 1.2, u * 2.0))
+				draw_rect(bar, Color("6B3E26"))
+				for i in 2:
+					for j in 3:
+						draw_rect(Rect2(bar.position + Vector2(u * 0.1 + i * u * 0.55, u * 0.1 + j * u * 0.6), Vector2(u * 0.45, u * 0.5)), Color("8A5235"))
+				draw_rect(Rect2(bar.position + Vector2(0, u * 0.75), Vector2(u * 1.2, u * 1.25)), col)
+				draw_rect(bar, INK, false, 3.0)
+			"coat":
+				# A warm winter coat.
+				var pts := PackedVector2Array([c + Vector2(-u * 0.45, -u * 0.95), c + Vector2(u * 0.45, -u * 0.95), c + Vector2(u * 1.0, -u * 0.4), c + Vector2(u * 0.75, u * 0.0), c + Vector2(u * 0.55, -u * 0.2), c + Vector2(u * 0.55, u * 1.0), c + Vector2(-u * 0.55, u * 1.0), c + Vector2(-u * 0.55, -u * 0.2), c + Vector2(-u * 0.75, u * 0.0), c + Vector2(-u * 1.0, -u * 0.4)])
+				draw_colored_polygon(pts, col)
+				pts.append(pts[0])
+				draw_polyline(pts, INK, 3.0)
+				draw_line(c + Vector2(0, -u * 0.95), c + Vector2(0, u * 1.0), INK, 2.0)
+				for k in 3:
+					draw_circle(c + Vector2(u * 0.15, -u * 0.4 + k * u * 0.45), u * 0.07, INK)
 			_:
 				draw_rect(Rect2(c - Vector2(u, u) * 0.7, Vector2(u, u) * 1.4), col)

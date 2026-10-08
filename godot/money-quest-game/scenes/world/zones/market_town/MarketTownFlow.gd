@@ -67,7 +67,8 @@ const VOICES: Dictionary = {
 const JAR_POSITION: Vector3 = Vector3(3.2, 0, -10.2)
 const BED_POSITION: Vector3 = Vector3(-4.2, 0, 0.2)
 const SAVINGS_STATE: String = "savings"
-const JAR_KEY: String = "market_jar"
+const JAR_KEY: String = "market_jar"   # (before MoneyLife; migrated into JAR_POT)
+const JAR_POT: String = "pot:market_jar"
 const SAVE_GOAL: int = 8   # the kite
 const KITE_ICON: String = "item:kite:7A68B8"
 const INTRO_STATE: String = "intro"
@@ -357,7 +358,7 @@ func _on_tutorial_coin(_id: String, coin: Node3D) -> void:
 	var hud: Node = get_tree().get_first_node_in_group("mq_hud")
 	if hud and hud.money_hud:
 		hud.money_hud.coins_from_world(coin.global_position + Vector3(0, 0.9, 0))
-	GameState.add_coins(1)
+	GameState.add_coins(1, "market_town:found", "coin", "earn")
 
 
 func _exit_tree() -> void:
@@ -442,8 +443,17 @@ func play_intro() -> void:
 
 # --- money is a tool: the jar and the flower bed ----------------------------------
 
+## The jar is a real MoneyLife savings pot (coins moved into it are "save"
+## entries in the ledger), with the kite as its goal.
 func saved() -> int:
-	return int(ProgressManager.get_activity_state(SAVINGS_STATE, JAR_KEY, 0))
+	return MoneyLife.balance(JAR_POT)
+
+
+func _ensure_jar_pot() -> void:
+	if not MoneyLife.has_account(JAR_POT):
+		MoneyLife.open_pot(JAR_POT, "home_jar", "jar")
+	if not MoneyLife.book.goals.has("market_kite"):
+		MoneyLife.add_goal("market_kite", SAVE_GOAL, KITE_ICON, JAR_POT)
 
 
 ## The jar: put coins in (they really leave the wallet), take them out
@@ -465,10 +475,10 @@ func _on_jar_used() -> void:
 		if picked["id"] == "put":
 			if hud and hud.money_hud:
 				hud.money_hud.coins_from_world(jar.global_position + Vector3(0, 1.4, 0))
-			if not GameState.spend_coins(1):
-				break
+			_ensure_jar_pot()
 			var first: bool = saved() == 0
-			ProgressManager.set_activity_state(SAVINGS_STATE, JAR_KEY, saved() + 1)
+			if not MoneyLife.transfer("wallet", JAR_POT, 1, "market_town:jar", "jar"):
+				break
 			await jar.drop_coins(1, float(saved()) / SAVE_GOAL)
 			if first:
 				SupportProfile.record_success()
@@ -476,11 +486,11 @@ func _on_jar_used() -> void:
 				customer.visual.play_reaction("celebrate")
 				ResourcePurpose.show_outcome(self, ["jar", "coins"], [KITE_ICON], "jar.goal_reached", {"before": {"have": SAVE_GOAL, "need": SAVE_GOAL}})
 		else:
-			ProgressManager.set_activity_state(SAVINGS_STATE, JAR_KEY, saved() - 1)
-			jar.set_fill(float(saved()) / SAVE_GOAL)
 			if hud and hud.money_hud:
 				hud.money_hud.coins_from_world(jar.global_position + Vector3(0, 1.4, 0))
-			GameState.add_coins(1)
+			if not MoneyLife.transfer(JAR_POT, "wallet", 1, "market_town:jar", "coin"):
+				break
+			jar.set_fill(float(saved()) / SAVE_GOAL)
 			AudioManager.play_sfx("coin", 1.0, -4.0)
 	_busy = false
 	refresh()

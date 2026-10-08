@@ -17,3 +17,11 @@ extends Resource
 ## resolving to "Maya keeps her goal in mind and buys the sketchbook
 ## herself three weeks later." — never a raw number.
 @export var consequence_text_key: String = ""
+## Visual-first: pictures beside the consequence line (e.g. ["jar", "coins"]).
+@export var icons: Array[String] = []
+## Visual-first: what changed, shown as [before] → [after] (Feedback.changed)
+## while the line is on screen, e.g. ["jar", "coins"] → ["jar", "coins"]
+## with change_params {"before": {"have": 2, "need": 5}, "after": {...}}.
+@export var change_before: Array[String] = []
+@export var change_after: Array[String] = []
+@export var change_params: Dictionary = {}

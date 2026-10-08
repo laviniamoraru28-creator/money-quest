@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="ActivitySpec" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/core/ActivitySpec.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+activity_id = "time-vault"
+competencies = Array[String](["financial_literacy", "numeracy", "planning", "decision_making", "risk_awareness", "self_regulation"])
+primary_competency = "financial_literacy"
+info_topic = "long_term_saving"
+checklist = {
+"objective_without_reading": "auto",
+"complete_without_speaking": "auto",
+"complete_without_hearing": "auto",
+"success_visible": "auto",
+"failure_visible": "auto",
+"retry": "auto",
+"what_changed": "auto",
+"compare_alternatives": "auto",
+"competency_levels": "auto",
+"teaches_something_useful": "manual: places differ in growth and access; time grows money; access matters when a need comes",
+"fun": "pending: play-test with children (the design test cannot judge fun)",
+"reduced_motion": "auto",
+"muted": "auto",
+"words_off": "auto",
+"keyboard": "auto",
+"gamepad": "auto",
+"mouse_touch": "auto"
+}

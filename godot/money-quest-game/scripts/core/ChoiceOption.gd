@@ -14,3 +14,8 @@ extends Resource
 
 @export var label_key: String = ""
 @export var consequence: ConsequenceEffect
+## Visual-first (dialogue standard): the picture that says what this option
+## means without reading — a MissionStrip / Symbols token, e.g. "jar",
+## "item:bread", "want". Shown inside the button; with words off it is the
+## whole button. "" = text only (older content).
+@export var icon: String = ""

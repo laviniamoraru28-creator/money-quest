@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="LessonData" load_steps=16 format=3]
+[gd_resource type="Resource" script_class="LessonData" load_steps=18 format=3]
 
 [ext_resource type="Script" path="res://scripts/core/LessonData.gd" id="1"]
 [ext_resource type="Script" path="res://scripts/core/VocabTerm.gd" id="2"]
@@ -21,38 +21,57 @@ definition_key = "curriculum.explorer-scams-l1.vocabulary.1.definition"
 script = ExtResource("3")
 speaker_id = ""
 text_key = "lesson.explorer_scams_l1.intro.line1"
+icons = Array[String](["popup", "star"])
 
 [sub_resource type="Resource" id="DialogueLine_intro2"]
 script = ExtResource("3")
 speaker_id = "grown_up"
 text_key = "lesson.explorer_scams_l1.intro.line2"
+icons = Array[String](["popup", "warning"])
 
 [sub_resource type="Resource" id="ConsequenceEffect_close_the_popup"]
 script = ExtResource("6")
 coin_delta = 4
 xp_delta = 5
 consequence_text_key = "lesson.explorer_scams_l1.choice.consequence_close_the_popup"
+icons = Array[String](["close", "then", "shield"])
 
 [sub_resource type="Resource" id="ChoiceOption_close_the_popup"]
 script = ExtResource("5")
 label_key = "lesson.explorer_scams_l1.choice.option_close_the_popup"
 consequence = SubResource("ConsequenceEffect_close_the_popup")
+icon = "close"
 
 [sub_resource type="Resource" id="ConsequenceEffect_show_someone"]
 script = ExtResource("6")
 coin_delta = 4
 xp_delta = 5
 consequence_text_key = "lesson.explorer_scams_l1.choice.consequence_show_someone"
+icons = Array[String](["chat", "npc:grown_up", "warning"])
 
 [sub_resource type="Resource" id="ChoiceOption_show_someone"]
 script = ExtResource("5")
 label_key = "lesson.explorer_scams_l1.choice.option_show_someone"
 consequence = SubResource("ConsequenceEffect_show_someone")
+icon = "chat"
 
 [sub_resource type="Resource" id="DialogueChoice_the_popup"]
 script = ExtResource("4")
 situation_text_key = "lesson.explorer_scams_l1.choice.situation"
 options = Array[ChoiceOption]([SubResource("ChoiceOption_close_the_popup"), SubResource("ChoiceOption_show_someone")])
+situation_icons = Array[String](["popup", "question"])
+
+[sub_resource type="Resource" id="DialogueLine_exp1"]
+script = ExtResource("3")
+speaker_id = "grown_up"
+text_key = "lesson.explorer_scams_l1.explain.line1"
+icons = Array[String](["popup", "warning"])
+
+[sub_resource type="Resource" id="DialogueLine_exp2"]
+script = ExtResource("3")
+speaker_id = "grown_up"
+text_key = "lesson.explorer_scams_l1.explain.line2"
+icons = Array[String](["hand", "close", "chat"])
 
 [resource]
 script = ExtResource("1")
@@ -76,3 +95,9 @@ quiz_success_feedback_key = "curriculum.explorer-scams-l1.feedback.success"
 quiz_retry_feedback_key = "curriculum.explorer-scams-l1.feedback.retry"
 reward_message_key = "curriculum.explorer-scams-l1.rewardMessage"
 stage_scene_path = ""
+visual_first = true
+explanation_lines = Array[DialogueLine]([SubResource("DialogueLine_exp1"), SubResource("DialogueLine_exp2")])
+quiz_question_icons = Array[String](["popup", "question"])
+quiz_option_icons = Array[String](["chat", "hand", "you", "lock"])
+quiz_success_icons = Array[String](["shield"])
+quiz_retry_icons = Array[String](["npc:grown_up", "question"])

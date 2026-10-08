@@ -294,7 +294,7 @@ func _run_activity() -> void:
 	ProgressManager.set_activity_state(ACTIVITY, "choice", activity.choice)
 	GameState.add_xp(XP_REWARD)
 	if coins_back > 0:
-		GameState.add_coins(coins_back)
+		GameState.add_coins(coins_back, "golden_vault:jar", "jar", "reward")
 	ProgressManager.award_badge(BADGE_ID)
 	ProgressManager.complete_activity(ACTIVITY)
 	await RewardPopup.celebrate("reward.activity_complete", "gv.reward.message" if saved else "gv.reward.message_spend", XP_REWARD, coins_back, "badge.golden-coin.name")

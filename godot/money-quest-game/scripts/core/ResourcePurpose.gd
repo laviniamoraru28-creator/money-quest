@@ -84,7 +84,11 @@ static func show_outcome(host: Node, before: Array, after: Array, key: String = 
 ## and, under it, "profit 12 → 18"). Each row: [before, after] or
 ## [before, after, before_params, after_params]. Stays a little longer
 ## when there is more to see. Not blocking.
-static func show_change(host: Node, rows: Array, key: String = "", params: Dictionary = {}) -> void:
+## `story` (lessons): the change belongs to the story on screen, not to the
+## player's own money — the card sits with the dialogue (just above it, away
+## from the HUD's real coin counters) and stays for the whole result line,
+## until the lesson dismisses it (dismiss_change).
+static func show_change(host: Node, rows: Array, key: String = "", params: Dictionary = {}, story: bool = false) -> void:
 	var hud: Node = host.get_tree().get_first_node_in_group("mq_hud")
 	if hud == null:
 		return
@@ -131,9 +135,31 @@ static func show_change(host: Node, rows: Array, key: String = "", params: Dicti
 				pos.y = r.end.y + 12.0
 	panel.position = pos
 	AudioManager.play_sfx("success", 1.0, -6.0)
-	if not Settings.reduced_motion:
-		panel.modulate.a = 0.0
+	panel.modulate.a = 0.0
+	if story:
+		# Placed once the dialogue line under it has its size.
+		for i in 2:
+			await hud.get_tree().process_frame
+		if not is_instance_valid(panel):
+			return
+		var box: Control = DialogueBox.panel
+		if DialogueBox.visible:
+			pos = Vector2((vp.x - panel.size.x) * 0.5, box.get_global_rect().position.y - panel.size.y - 12.0)
+		panel.position = pos
+	if Settings.reduced_motion:
+		panel.modulate.a = 1.0
+	else:
 		panel.create_tween().tween_property(panel, "modulate:a", 1.0, 0.25)
+	if story:
+		return
 	await hud.get_tree().create_timer(3.2 + 1.2 * (rows.size() - 1)).timeout
 	if is_instance_valid(panel):
+		panel.queue_free()
+
+
+## Removes a story change card (the lesson moved on).
+static func dismiss_change(host: Node) -> void:
+	var hud: Node = host.get_tree().get_first_node_in_group("mq_hud")
+	var panel: Node = hud.get_node_or_null("PurposeOutcome") if hud else null
+	if panel:
 		panel.queue_free()

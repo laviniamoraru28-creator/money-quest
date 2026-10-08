@@ -70,16 +70,80 @@ func _run_choice_point() -> void:
 
 	var chosen_option: ChoiceOption = await ChoicePanel.show_choice(lesson_data.choice_point)
 	if chosen_option.consequence:
-		GameState.add_coins(max(chosen_option.consequence.coin_delta, 0))
-		GameState.add_xp(max(chosen_option.consequence.xp_delta, 0))
-		await DialogueBox.show_text(chosen_option.consequence.consequence_text_key)
+		var c: ConsequenceEffect = chosen_option.consequence
+		GameState.add_coins(max(c.coin_delta, 0), "lesson:choice", "choose", "reward")
+		GameState.add_xp(max(c.xp_delta, 0))
+		# Visual-first: what changed in the story, as [before] → [after] (e.g.
+		# the story's jar filling up), with the short line, for as long as
+		# that line is on screen.
+		if not c.change_before.is_empty() or not c.change_after.is_empty():
+			Feedback.changed(self, [[c.change_before, c.change_after, c.change_params.get("before", {}), c.change_params.get("after", {})]], "", {}, true)
+		await DialogueBox.show_text(c.consequence_text_key, {}, c.icons)
+		ResourcePurpose.dismiss_change(self)
 	_run_explanation()
 
 
 func _run_explanation() -> void:
+	if lesson_data.visual_first and not lesson_data.explanation_lines.is_empty():
+		# Short lines with pictures; the original full explanation is still
+		# there, as "More" (never needed to play).
+		var topic: String = _register_more_topic()
+		for i in lesson_data.explanation_lines.size():
+			var last: bool = i == lesson_data.explanation_lines.size() - 1
+			await DialogueBox.show_line(lesson_data.explanation_lines[i], topic if last else "")
+		_run_practice()
+		return
 	if not lesson_data.explanation_key.is_empty():
 		await DialogueBox.show_text(lesson_data.explanation_key)
 	_run_quiz()
+
+
+## Visual-first: practise by choosing with pictures (e.g. "Need or want?"
+## for bread, then chocolate...). Each round repeats until it is right;
+## a picture says how it went, then the next one comes.
+func _run_practice() -> void:
+	for r in lesson_data.practice_rounds:
+		var options: Array[String] = []
+		options.assign(r.get("options", []))
+		var right: bool = false
+		while not right:
+			right = await ChoicePanel.show_quiz(String(r.get("question_key", "")), options, int(r.get("correct", 0)), NO_TEXTS, r.get("option_icons", []), r.get("icons", []))
+			var answer_icons: Array = r.get("icons", []) + ["then", String(r.get("option_icons", [""])[int(r.get("correct", 0))])]
+			if right:
+				Feedback.success(self, answer_icons)
+			else:
+				Feedback.not_yet(self, r.get("icons", []))
+			await get_tree().create_timer(0.9).timeout
+	_run_quiz()
+
+
+## The lesson's own MORE topic: its key concept (layer 2) and its original
+## explanation and quiz explanation (layer 3), unchanged.
+func _register_more_topic() -> String:
+	var id: String = "lesson:" + lesson_data.lesson_id
+	var deep: Array = []
+	for k in [lesson_data.explanation_key, lesson_data.quiz_explanation_key]:
+		if not String(k).is_empty():
+			deep.append(k)
+	InfoLayers.register_topic(id, {
+		"icon": TOPIC_ICONS.get(lesson_data.topic_id, "book"),
+		"title_key": lesson_data.explanation_key.replace(".explanation", ".title"),
+		"short_key": lesson_data.key_concept_key,
+		"deep_keys": deep,
+	})
+	return id
+
+
+## Lesson answers come from their keys (no live texts); typed, as show_quiz needs.
+const NO_TEXTS: Array[String] = []
+
+## A picture for each topic (Symbols tokens).
+const TOPIC_ICONS: Dictionary = {
+	"saving": "jar", "needs_wants": "need", "money_basics": "coin",
+	"currencies": "coin_foreign", "digital_money": "card", "giving": "heart",
+	"investing_basics": "growth", "junior_isa": "vault",
+	"long_term_thinking": "clock", "scams": "warning",
+}
 
 
 func _run_quiz() -> void:
@@ -92,15 +156,20 @@ func _run_quiz() -> void:
 		is_correct = await ChoicePanel.show_quiz(
 			lesson_data.quiz_question_key,
 			lesson_data.quiz_option_keys,
-			lesson_data.quiz_correct_index
+			lesson_data.quiz_correct_index,
+			NO_TEXTS,
+			lesson_data.quiz_option_icons,
+			lesson_data.quiz_question_icons
 		)
 		var feedback_key: String = (
 			lesson_data.quiz_success_feedback_key if is_correct
 			else lesson_data.quiz_retry_feedback_key
 		)
+		var feedback_icons: Array = lesson_data.quiz_success_icons if is_correct else lesson_data.quiz_retry_icons
 		if not feedback_key.is_empty():
-			await DialogueBox.show_text(feedback_key)
-		if is_correct and not lesson_data.quiz_explanation_key.is_empty():
+			await DialogueBox.show_text(feedback_key, {}, feedback_icons)
+		# (Visual-first lessons keep the quiz explanation in their MORE topic.)
+		if is_correct and not lesson_data.visual_first and not lesson_data.quiz_explanation_key.is_empty():
 			await DialogueBox.show_text(lesson_data.quiz_explanation_key)
 	_run_reward()
 

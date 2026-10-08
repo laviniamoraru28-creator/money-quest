@@ -98,5 +98,6 @@ static func draw(ci: CanvasItem, kind: String, c: Vector2, u: float) -> bool:
 			ci.draw_line(c + Vector2(u * 0.15, u * 0.05), c + Vector2(0, u * 0.35), INK, u * 0.22)
 			ci.draw_circle(c + Vector2(0, u * 0.75), u * 0.14, INK)
 		_:
-			return false
+			# The wider visual language (bank, lock, clock, growth...).
+			return Symbols.draw(ci, kind, c, u)
 	return true

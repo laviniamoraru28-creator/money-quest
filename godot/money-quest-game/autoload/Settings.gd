@@ -118,6 +118,8 @@ const DEFAULTS: Dictionary = {
 	"show_text": true,
 	"visual_guidance": "normal",
 	"support_level": 0,
+	"region": "",
+	"avatar_growth": true,
 	"camera_sensitivity": 1.0,
 	"camera_smoothing": true,
 	"camera_fov": 65.0,
@@ -147,6 +149,12 @@ var show_text: bool = true
 var visual_guidance: String = "normal"
 ## 0 = Auto (inferred locally from successful play), or a fixed 1–4.
 var support_level: int = 0
+## Which country's real financial products to show ("" = from the
+## language; see FinanceLocale). Concepts are the same everywhere.
+var region: String = ""
+## Time jumps may show the avatar growing up a little (storytelling only —
+## never a difficulty or a gate). Off = the avatar stays as it is.
+var avatar_growth: bool = true
 var camera_sensitivity: float = 1.0
 ## Smooth camera follow (off = the camera snaps, like Reduced Motion).
 var camera_smoothing: bool = true
@@ -174,6 +182,9 @@ func set_value(key: String, value: Variant) -> bool:
 				return false
 		"support_level":
 			value = clampi(int(value), 0, 4)
+		"region":
+			if not (value == "" or FinanceLocale.REGIONS.has(value)):
+				return false
 		_:
 			if typeof(DEFAULTS[key]) == TYPE_BOOL:
 				value = bool(value)

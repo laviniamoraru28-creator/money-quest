@@ -27,6 +27,32 @@ const SUCCESS_STATE: String = "support"
 const LEVEL_THRESHOLDS: Array[int] = [2, 5, 9]
 
 
+## Support for a specific activity, from the child's level in the skills it
+## develops (Competency) — the primary system from now on. A fixed
+## support level in Settings still overrides it (a grown-up's choice).
+## Ladder 1–2 → support 1 (most help) ... 7–8 → support 4 (least).
+static func level_for(competencies: Array) -> int:
+	if Settings.support_level > 0:
+		return Settings.support_level
+	if competencies.is_empty():
+		return level()
+	var lo: int = Competency.MAX_LEVEL
+	for c in competencies:
+		lo = mini(lo, Competency.level(String(c)))
+	return clampi(int(ceil(lo / 2.0)), 1, 4)
+
+
+## Whether a character shows it first, for these skills.
+static func demonstration_enabled_for(competencies: Array) -> bool:
+	if Settings.visual_guidance == "strong":
+		return true
+	if Settings.visual_guidance == "light":
+		return false
+	return level_for(competencies) <= 1
+
+
+## The global level: the older, single-number fallback (kept for the
+## activities not yet moved to competencies; see level_for).
 static func level() -> int:
 	if Settings.support_level > 0:
 		return Settings.support_level

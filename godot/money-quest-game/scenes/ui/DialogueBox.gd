@@ -41,6 +41,11 @@ func _ready() -> void:
 var _current_speaker_id: String = ""
 var _current_text_key: String = ""
 var _current_text_params: Dictionary = {}
+var _current_icons: Array = []
+var _more_topic: String = ""
+var picture_strip: MissionStrip
+var more_button: Button
+var _continue_arrow: Control
 
 
 ## Larger, warmer layout built around the original nodes (their paths and
@@ -96,8 +101,31 @@ func _restyle() -> void:
 	listen_button = Narration.listen_button()
 	listen_button.custom_minimum_size = Vector2(0, 64)
 	buttons.add_child(listen_button)
+	# Visual-first: optional depth (InfoLayers) for this line.
+	more_button = UIStyle.button(Localization.t("more.more"), false)
+	more_button.name = "MoreButton"
+	more_button.custom_minimum_size = Vector2(0, 64)
+	more_button.visible = false
+	more_button.pressed.connect(_on_more_pressed)
+	buttons.add_child(more_button)
 	continue_button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	buttons.add_child(continue_button)
+	# Visual-first: pictures with the line (instead of it, with words off).
+	picture_strip = MissionStrip.new(72.0)
+	picture_strip.name = "LinePictures"
+	picture_strip.visible = false
+	vbox.add_child(picture_strip)
+	vbox.move_child(picture_strip, text_label.get_index())
+	# With words off, Continue is an arrow (still Enter / A / a tap).
+	_continue_arrow = MoneyIcons.Arrow.new(40.0)
+	_continue_arrow.name = "ContinueArrow"
+	_continue_arrow.set_anchors_preset(Control.PRESET_CENTER)
+	_continue_arrow.offset_left = -20.0
+	_continue_arrow.offset_right = 20.0
+	_continue_arrow.offset_top = -20.0
+	_continue_arrow.offset_bottom = 20.0
+	_continue_arrow.visible = false
+	continue_button.add_child(_continue_arrow)
 
 
 ## A round mask for the portrait (it sits in a round frame).
@@ -117,10 +145,14 @@ void fragment() {
 
 
 ## Shows one DialogueLine and waits for the child to tap Continue.
-func show_line(line: DialogueLine) -> void:
+## `more_topic` (optional): an InfoLayers topic offered as "More" (depth,
+## never needed).
+func show_line(line: DialogueLine, more_topic: String = "") -> void:
 	_current_speaker_id = line.speaker_id
 	_current_text_key = line.text_key
 	_current_text_params = {}
+	_current_icons = line.icons
+	_more_topic = more_topic
 	_refresh_current_text()
 	await _wait_for_continue()
 
@@ -128,21 +160,26 @@ func show_line(line: DialogueLine) -> void:
 ## Shows a single translated text block with no named speaker — used for
 ## the lesson's consequence/explanation/feedback beats. `params` fills
 ## any `{placeholder}` tokens the key's own translation contains (see
-## Localization.t) — e.g. a dynamically computed amount.
-func show_text(text_key: String, params: Dictionary = {}) -> void:
+## Localization.t) — e.g. a dynamically computed amount. `icons`
+## (visual-first) are shown with the line, and instead of it with words off.
+func show_text(text_key: String, params: Dictionary = {}, icons: Array = [], more_topic: String = "") -> void:
 	_current_speaker_id = ""
 	_current_text_key = text_key
 	_current_text_params = params
+	_current_icons = icons
+	_more_topic = more_topic
 	_refresh_current_text()
 	await _wait_for_continue()
 
 
 ## Shows a line spoken by `speaker_id` from a translation key (the same as
 ## show_line, without needing a DialogueLine resource).
-func say(speaker_id: String, text_key: String, params: Dictionary = {}) -> void:
+func say(speaker_id: String, text_key: String, params: Dictionary = {}, icons: Array = []) -> void:
 	_current_speaker_id = speaker_id
 	_current_text_key = text_key
 	_current_text_params = params
+	_current_icons = icons
+	_more_topic = ""
 	_refresh_current_text()
 	await _wait_for_continue()
 
@@ -150,11 +187,21 @@ func say(speaker_id: String, text_key: String, params: Dictionary = {}) -> void:
 func _refresh_current_text() -> void:
 	if _current_text_key.is_empty():
 		return
-	speaker_label.visible = not _current_speaker_id.is_empty()
-	if speaker_label.visible:
+	# The name tag is words; with words off the portrait says who is speaking.
+	speaker_label.visible = not _current_speaker_id.is_empty() and SupportProfile.show_text()
+	if not _current_speaker_id.is_empty():
 		speaker_label.text = Localization.t("npc.%s.name" % _current_speaker_id)
 	text_label.text = Localization.t(_current_text_key, _current_text_params)
 	continue_button.text = InputHints.prompt(Localization.t("common.continue_button"), "confirm")
+	# Pictures with the line; with words off they carry it alone.
+	var words: bool = SupportProfile.show_text()
+	picture_strip.show_tokens(_current_icons, _current_text_params)
+	picture_strip.visible = not _current_icons.is_empty()
+	text_label.visible = words or _current_icons.is_empty()
+	_continue_arrow.visible = not words
+	if not words:
+		continue_button.text = ""
+	more_button.visible = not _more_topic.is_empty() and InfoLayers.has_topic(_more_topic)
 	_portrait_frame.visible = not _current_speaker_id.is_empty()
 	if _portrait_frame.visible:
 		portrait.texture = Portraits.get_portrait(_current_speaker_id, _on_portrait_ready.bind(_current_speaker_id))
@@ -186,7 +233,7 @@ func _wait_for_continue() -> void:
 func listen_text() -> String:
 	if not visible:
 		return ""
-	return ("%s: %s" % [speaker_label.text, text_label.text]) if speaker_label.visible else text_label.text
+	return ("%s: %s" % [speaker_label.text, text_label.text]) if not _current_speaker_id.is_empty() else text_label.text
 
 
 func _on_continue_pressed() -> void:
@@ -194,3 +241,16 @@ func _on_continue_pressed() -> void:
 		_waiting = false
 		AudioManager.stop_narration()
 		advanced.emit()
+
+
+## "More": the line's optional depth (layers 2 and 3) on top of the box;
+## closing it comes back to the same line.
+func _on_more_pressed() -> void:
+	if _more_topic.is_empty():
+		return
+	var card: MoreCard = InfoLayers.open(self, _more_topic)
+	# Back to Continue, not to More (pressing confirm again moves the story on
+	# instead of reopening the card).
+	card._return_focus = continue_button
+	await card.closed
+	UIFocus.focus(continue_button)

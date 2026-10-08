@@ -66,3 +66,22 @@ extends Resource
 ## runtime via load(). Empty for a pure dialogue+choice lesson with no
 ## hands-on stage.
 @export var stage_scene_path: String = ""
+
+@export_group("Visual-first (dialogue standard)")
+## True when this lesson follows the dialogue standard (DialogueStandard):
+## short lines with pictures, picture choices, a picture practice round,
+## and the long explanation kept as optional depth (MORE), never required.
+@export var visual_first: bool = false
+## The explanation as short lines with pictures (replaces explanation_key in
+## the main path; explanation_key and quiz_explanation_key stay — unchanged —
+## as the deep layer of the lesson's MORE topic, so nothing is lost).
+@export var explanation_lines: Array[DialogueLine] = []
+## Practice with pictures before the quiz (sorting by choosing), e.g.
+## [{"icons": ["item:bread"], "question_key": "...", "options":
+## ["shop.tag.need", "shop.tag.want"], "option_icons": ["need", "want"],
+## "correct": 0}, ...]. Each round repeats until answered right.
+@export var practice_rounds: Array[Dictionary] = []
+@export var quiz_question_icons: Array[String] = []
+@export var quiz_option_icons: Array[String] = []
+@export var quiz_success_icons: Array[String] = []
+@export var quiz_retry_icons: Array[String] = []

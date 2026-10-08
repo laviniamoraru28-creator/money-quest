@@ -56,10 +56,17 @@ static func make_token(t: String, params: Dictionary, p: float) -> Control:
 		"coin":
 			return MoneyIcons.Coin.new(p * 0.62)
 		"coins":
-			var pips := MoneyIcons.Pips.new()
-			pips.coin_px = p * 0.42
 			var need: int = int(params.get("need", 3))
 			var have: int = clampi(int(params.get("have", 0)), 0, need)
+			if need > MoneyIcons.Pips.MAX_DRAWN:
+				# Too many to draw one by one: a coin and the number.
+				var row := HBoxContainer.new()
+				row.mouse_filter = Control.MOUSE_FILTER_IGNORE
+				row.add_child(MoneyIcons.Coin.new(p * 0.62))
+				row.add_child(make_token("num:%d" % have, {}, p))
+				return row
+			var pips := MoneyIcons.Pips.new()
+			pips.coin_px = p * 0.42
 			pips.filled = have
 			pips.hollow = need - have
 			return pips

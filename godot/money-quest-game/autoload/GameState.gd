@@ -32,20 +32,31 @@ func add_xp(amount: int) -> void:
 	xp_changed.emit(xp_total)
 
 
-func add_coins(amount: int) -> void:
-	wallet.add(amount)
-	coins_changed.emit(wallet.balance)
+## Coins arrive (a reward, a job, something found). A thin wrapper over
+## MoneyLife.earn, which writes the ledger entry and announces the change;
+## `source` (default: the current place), `picture` and `kind` ("earn",
+## "reward"...) describe it for future Activity screens. Kept so every
+## existing caller works unchanged.
+func add_coins(amount: int, source: String = "", picture: String = "coin", kind: String = "earn") -> void:
+	if amount < 0:
+		push_warning("GameState.add_coins() called with a negative amount; use spend_coins() instead")
+		return
+	if amount == 0 or not MoneyLife.earn(amount, source, picture, kind):
+		coins_changed.emit(wallet.balance)
 
 
 ## Spends virtual coins if the child has enough — the only way the world
 ## takes coins away (shops call this through Shop.buy). Returns false and
-## changes nothing when the balance is too low. Educational virtual money
-## only: nothing here is, or ever touches, real money.
-func spend_coins(amount: int) -> bool:
-	if not wallet.spend(amount):
+## changes nothing when the balance is too low. A thin wrapper over
+## MoneyLife.spend (one ledger entry). Educational virtual money only:
+## nothing here is, or ever touches, real money.
+func spend_coins(amount: int, source: String = "", picture: String = "") -> bool:
+	if amount < 0:
+		push_warning("GameState.spend_coins() called with a negative amount")
 		return false
-	coins_changed.emit(wallet.balance)
-	return true
+	if amount == 0:
+		return true
+	return MoneyLife.spend(amount, source, picture)
 
 
 func can_afford(amount: int) -> bool:

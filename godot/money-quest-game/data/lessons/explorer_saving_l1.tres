@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="LessonData" load_steps=16 format=3]
+[gd_resource type="Resource" script_class="LessonData" load_steps=19 format=3]
 
 [ext_resource type="Script" path="res://scripts/core/LessonData.gd" id="1"]
 [ext_resource type="Script" path="res://scripts/core/VocabTerm.gd" id="2"]
@@ -21,38 +21,68 @@ definition_key = "curriculum.explorer-saving-l1.vocabulary.1.definition"
 script = ExtResource("3")
 speaker_id = ""
 text_key = "lesson.explorer_saving_l1.intro.line1"
+icons = Array[String](["you", "then", "coin"])
 
 [sub_resource type="Resource" id="DialogueLine_intro2"]
 script = ExtResource("3")
 speaker_id = "savings-guide"
 text_key = "lesson.explorer_saving_l1.intro.line2"
+icons = Array[String](["coin", "question"])
 
 [sub_resource type="Resource" id="ConsequenceEffect_spend_it"]
 script = ExtResource("6")
 coin_delta = 4
 xp_delta = 5
 consequence_text_key = "lesson.explorer_saving_l1.choice.consequence_spend_it"
+icons = Array[String](["coin", "then", "item:juice:F2994A"])
+change_before = Array[String](["coin"])
+change_after = Array[String](["item:juice:F2994A"])
 
 [sub_resource type="Resource" id="ChoiceOption_spend_it"]
 script = ExtResource("5")
 label_key = "lesson.explorer_saving_l1.choice.option_spend_it"
 consequence = SubResource("ConsequenceEffect_spend_it")
+icon = "item:juice:F2994A"
 
 [sub_resource type="Resource" id="ConsequenceEffect_save_it"]
 script = ExtResource("6")
 coin_delta = 4
 xp_delta = 5
 consequence_text_key = "lesson.explorer_saving_l1.choice.consequence_save_it"
+icons = Array[String](["coin", "then", "jar"])
+change_before = Array[String](["jar", "coins"])
+change_after = Array[String](["jar", "coins"])
+change_params = {"after": {"have": 3, "need": 5}, "before": {"have": 2, "need": 5}}
 
 [sub_resource type="Resource" id="ChoiceOption_save_it"]
 script = ExtResource("5")
 label_key = "lesson.explorer_saving_l1.choice.option_save_it"
 consequence = SubResource("ConsequenceEffect_save_it")
+icon = "jar"
 
 [sub_resource type="Resource" id="DialogueChoice_todays_coin"]
 script = ExtResource("4")
 situation_text_key = "lesson.explorer_saving_l1.choice.situation"
 options = Array[ChoiceOption]([SubResource("ChoiceOption_spend_it"), SubResource("ChoiceOption_save_it")])
+situation_icons = Array[String](["coin"])
+
+[sub_resource type="Resource" id="DialogueLine_exp1"]
+script = ExtResource("3")
+speaker_id = "savings-guide"
+text_key = "lesson.explorer_saving_l1.explain.line1"
+icons = Array[String](["coin", "then", "jar"])
+
+[sub_resource type="Resource" id="DialogueLine_exp2"]
+script = ExtResource("3")
+speaker_id = "savings-guide"
+text_key = "lesson.explorer_saving_l1.explain.line2"
+icons = Array[String](["jar", "then", "flag", "item:kite:7A68B8"])
+
+[sub_resource type="Resource" id="DialogueLine_exp3"]
+script = ExtResource("3")
+speaker_id = "savings-guide"
+text_key = "lesson.explorer_saving_l1.explain.line3"
+icons = Array[String](["item:juice:F2994A", "jar", "choose"])
 
 [resource]
 script = ExtResource("1")
@@ -76,3 +106,9 @@ quiz_success_feedback_key = "curriculum.explorer-saving-l1.feedback.success"
 quiz_retry_feedback_key = "curriculum.explorer-saving-l1.feedback.retry"
 reward_message_key = "curriculum.explorer-saving-l1.rewardMessage"
 stage_scene_path = ""
+visual_first = true
+explanation_lines = Array[DialogueLine]([SubResource("DialogueLine_exp1"), SubResource("DialogueLine_exp2"), SubResource("DialogueLine_exp3")])
+quiz_question_icons = Array[String](["jar", "question"])
+quiz_option_icons = Array[String](["stall", "jar", "loss", "heart"])
+quiz_success_icons = Array[String](["jar"])
+quiz_retry_icons = Array[String](["jar"])

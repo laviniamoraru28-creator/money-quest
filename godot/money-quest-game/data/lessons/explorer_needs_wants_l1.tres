@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="LessonData" load_steps=16 format=3]
+[gd_resource type="Resource" script_class="LessonData" load_steps=19 format=3]
 
 [ext_resource type="Script" path="res://scripts/core/LessonData.gd" id="1"]
 [ext_resource type="Script" path="res://scripts/core/VocabTerm.gd" id="2"]
@@ -21,38 +21,67 @@ definition_key = "curriculum.explorer-needs_wants-l1.vocabulary.1.definition"
 script = ExtResource("3")
 speaker_id = ""
 text_key = "lesson.explorer_needs_wants_l1.intro.line1"
+icons = Array[String](["item:bread:D9A15B", "then", "need"])
 
 [sub_resource type="Resource" id="DialogueLine_intro2"]
 script = ExtResource("3")
 speaker_id = "baker"
 text_key = "lesson.explorer_needs_wants_l1.intro.line2"
+icons = Array[String](["item:chocolate:C8342B", "then", "want"])
 
 [sub_resource type="Resource" id="ConsequenceEffect_bread"]
 script = ExtResource("6")
 coin_delta = 4
 xp_delta = 5
 consequence_text_key = "lesson.explorer_needs_wants_l1.choice.consequence_bread"
+icons = Array[String](["item:bread:D9A15B", "need", "tick"])
+change_before = Array[String](["coin"])
+change_after = Array[String](["item:bread:D9A15B"])
 
 [sub_resource type="Resource" id="ChoiceOption_bread"]
 script = ExtResource("5")
 label_key = "lesson.explorer_needs_wants_l1.choice.option_bread"
 consequence = SubResource("ConsequenceEffect_bread")
+icon = "item:bread:D9A15B"
 
 [sub_resource type="Resource" id="ConsequenceEffect_chocolate"]
 script = ExtResource("6")
 coin_delta = 4
 xp_delta = 5
 consequence_text_key = "lesson.explorer_needs_wants_l1.choice.consequence_chocolate"
+icons = Array[String](["item:chocolate:C8342B", "want", "question"])
+change_before = Array[String](["coin"])
+change_after = Array[String](["item:chocolate:C8342B"])
 
 [sub_resource type="Resource" id="ChoiceOption_chocolate"]
 script = ExtResource("5")
 label_key = "lesson.explorer_needs_wants_l1.choice.option_chocolate"
 consequence = SubResource("ConsequenceEffect_chocolate")
+icon = "item:chocolate:C8342B"
 
 [sub_resource type="Resource" id="DialogueChoice_bakery"]
 script = ExtResource("4")
 situation_text_key = "lesson.explorer_needs_wants_l1.choice.situation"
 options = Array[ChoiceOption]([SubResource("ChoiceOption_bread"), SubResource("ChoiceOption_chocolate")])
+situation_icons = Array[String](["coin", "item:bread:D9A15B", "item:chocolate:C8342B"])
+
+[sub_resource type="Resource" id="DialogueLine_exp1"]
+script = ExtResource("3")
+speaker_id = "baker"
+text_key = "lesson.explorer_needs_wants_l1.explain.line1"
+icons = Array[String](["need", "item:bread:D9A15B", "item:coat:367D99"])
+
+[sub_resource type="Resource" id="DialogueLine_exp2"]
+script = ExtResource("3")
+speaker_id = "baker"
+text_key = "lesson.explorer_needs_wants_l1.explain.line2"
+icons = Array[String](["want", "item:chocolate:C8342B", "item:ball:367D99"])
+
+[sub_resource type="Resource" id="DialogueLine_exp3"]
+script = ExtResource("3")
+speaker_id = "baker"
+text_key = "lesson.explorer_needs_wants_l1.explain.line3"
+icons = Array[String](["need", "then", "want"])
 
 [resource]
 script = ExtResource("1")
@@ -76,3 +105,10 @@ quiz_success_feedback_key = "curriculum.explorer-needs_wants-l1.feedback.success
 quiz_retry_feedback_key = "curriculum.explorer-needs_wants-l1.feedback.retry"
 reward_message_key = "curriculum.explorer-needs_wants-l1.rewardMessage"
 stage_scene_path = ""
+visual_first = true
+explanation_lines = Array[DialogueLine]([SubResource("DialogueLine_exp1"), SubResource("DialogueLine_exp2"), SubResource("DialogueLine_exp3")])
+practice_rounds = Array[Dictionary]([{"correct": 0, "icons": ["item:bread:D9A15B"], "option_icons": ["need", "want"], "options": ["shop.tag.need", "shop.tag.want"], "question_key": "lesson.explorer_needs_wants_l1.practice.question"}, {"correct": 1, "icons": ["item:chocolate:C8342B"], "option_icons": ["need", "want"], "options": ["shop.tag.need", "shop.tag.want"], "question_key": "lesson.explorer_needs_wants_l1.practice.question"}, {"correct": 0, "icons": ["item:coat:367D99"], "option_icons": ["need", "want"], "options": ["shop.tag.need", "shop.tag.want"], "question_key": "lesson.explorer_needs_wants_l1.practice.question"}, {"correct": 1, "icons": ["item:ball:367D99"], "option_icons": ["need", "want"], "options": ["shop.tag.need", "shop.tag.want"], "question_key": "lesson.explorer_needs_wants_l1.practice.question"}])
+quiz_question_icons = Array[String](["need", "question"])
+quiz_option_icons = Array[String](["item:coat:367D99", "game", "item:toy_car:D13E19", "star"])
+quiz_success_icons = Array[String](["item:coat:367D99"])
+quiz_retry_icons = Array[String](["need"])

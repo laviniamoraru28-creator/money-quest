@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="LessonData" load_steps=16 format=3]
+[gd_resource type="Resource" script_class="LessonData" load_steps=19 format=3]
 
 [ext_resource type="Script" path="res://scripts/core/LessonData.gd" id="1"]
 [ext_resource type="Script" path="res://scripts/core/VocabTerm.gd" id="2"]
@@ -21,38 +21,63 @@ definition_key = "curriculum.explorer-digital_money-l1.vocabulary.1.definition"
 script = ExtResource("3")
 speaker_id = ""
 text_key = "lesson.explorer_digital_money_l1.intro.line1"
+icons = Array[String](["npc:mum", "card", "then", "stall"])
 
 [sub_resource type="Resource" id="DialogueLine_intro2"]
 script = ExtResource("3")
 speaker_id = "mum"
 text_key = "lesson.explorer_digital_money_l1.intro.line2"
+icons = Array[String](["card", "coin"])
 
 [sub_resource type="Resource" id="ConsequenceEffect_ask_where_it_went"]
 script = ExtResource("6")
 coin_delta = 4
 xp_delta = 5
 consequence_text_key = "lesson.explorer_digital_money_l1.choice.consequence_ask_where_it_went"
+icons = Array[String](["card", "loss", "stall", "growth"])
 
 [sub_resource type="Resource" id="ChoiceOption_ask_where_it_went"]
 script = ExtResource("5")
 label_key = "lesson.explorer_digital_money_l1.choice.option_ask_where_it_went"
 consequence = SubResource("ConsequenceEffect_ask_where_it_went")
+icon = "question"
 
 [sub_resource type="Resource" id="ConsequenceEffect_watch_for_next_tap"]
 script = ExtResource("6")
 coin_delta = 4
 xp_delta = 5
 consequence_text_key = "lesson.explorer_digital_money_l1.choice.consequence_watch_for_next_tap"
+icons = Array[String](["card", "then", "tick"])
 
 [sub_resource type="Resource" id="ChoiceOption_watch_for_next_tap"]
 script = ExtResource("5")
 label_key = "lesson.explorer_digital_money_l1.choice.option_watch_for_next_tap"
 consequence = SubResource("ConsequenceEffect_watch_for_next_tap")
+icon = "eye"
 
 [sub_resource type="Resource" id="DialogueChoice_the_card_tap"]
 script = ExtResource("4")
 situation_text_key = "lesson.explorer_digital_money_l1.choice.situation"
 options = Array[ChoiceOption]([SubResource("ChoiceOption_ask_where_it_went"), SubResource("ChoiceOption_watch_for_next_tap")])
+situation_icons = Array[String](["card", "question"])
+
+[sub_resource type="Resource" id="DialogueLine_exp1"]
+script = ExtResource("3")
+speaker_id = "mum"
+text_key = "lesson.explorer_digital_money_l1.explain.line1"
+icons = Array[String](["card", "loss"])
+
+[sub_resource type="Resource" id="DialogueLine_exp2"]
+script = ExtResource("3")
+speaker_id = "mum"
+text_key = "lesson.explorer_digital_money_l1.explain.line2"
+icons = Array[String](["stall", "growth"])
+
+[sub_resource type="Resource" id="DialogueLine_exp3"]
+script = ExtResource("3")
+speaker_id = "mum"
+text_key = "lesson.explorer_digital_money_l1.explain.line3"
+icons = Array[String](["card", "then", "stall"])
 
 [resource]
 script = ExtResource("1")
@@ -76,3 +101,9 @@ quiz_success_feedback_key = "curriculum.explorer-digital_money-l1.feedback.succe
 quiz_retry_feedback_key = "curriculum.explorer-digital_money-l1.feedback.retry"
 reward_message_key = "curriculum.explorer-digital_money-l1.rewardMessage"
 stage_scene_path = ""
+visual_first = true
+explanation_lines = Array[DialogueLine]([SubResource("DialogueLine_exp1"), SubResource("DialogueLine_exp2"), SubResource("DialogueLine_exp3")])
+quiz_question_icons = Array[String](["card", "question"])
+quiz_option_icons = Array[String](["card", "coin", "note", "piggy"])
+quiz_success_icons = Array[String](["card"])
+quiz_retry_icons = Array[String](["npc:mum", "card"])

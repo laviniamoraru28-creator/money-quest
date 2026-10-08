@@ -18,6 +18,7 @@ extends RefCounted
 const ENTRIES: Dictionary = {
 	"world-hub": {"title": "zone.world_hub.name", "prompt": false, "purpose": "place.world_hub.purpose", "icon": "compass", "accent": "teal_light"},
 	"golden-vault": {"title": "place.golden_vault.name", "district": "place.district.money_quest", "purpose": "place.golden_vault.purpose", "icon": "coin", "accent": "gold"},
+	"time-vault": {"title": "place.time_vault.name", "district": "place.district.money_quest", "purpose": "place.time_vault.purpose", "icon": "coin", "accent": "teal"},
 	"idea-lab": {"title": "zone.idea_lab.name", "district": "hub.portal.entrepreneur_quest", "purpose": "place.idea_lab.purpose", "icon": "bulb", "accent": "ember"},
 	"leadership-academy": {"title": "zone.leadership_academy.name", "district": "hub.portal.leadership_quest", "purpose": "place.leadership_academy.purpose", "icon": "star", "accent": "sky"},
 	"library": {"title": "hub.portal.library", "purpose": "place.library.purpose", "icon": "book", "accent": "book_red"},

@@ -308,9 +308,48 @@ func _blink() -> void:
 	eyelids.visible = _time < _blink_until
 
 
+## How this character feels, shown on the face (mouth shape) and as an
+## emote bubble over the head (Emote) — readable without words or sound.
+## Kinds: "happy" / "proud" (big smile), "wow" (round "oh"), "thinking"
+## (a small flat mouth, "?"), "oh_no" (a small frown, "!"), "thanks" (smile,
+## heart), "locked" (flat mouth, a lock). Works with Reduced Motion (the
+## shapes are still; only the pop is skipped).
+const EXPRESSION_EMOTE: Dictionary = {
+	"happy": "yes", "proud": "proud", "wow": "wow", "thinking": "thinking",
+	"oh_no": "oh_no", "thanks": "thanks", "locked": "locked", "waiting": "waiting",
+}
+var expression: String = ""
+var _expr_left: float = 0.0
+
+
+func express(kind: String, seconds: float = 2.2) -> void:
+	expression = kind
+	_expr_left = seconds
+	Emote.pop(self, EXPRESSION_EMOTE.get(kind, "waiting"), seconds)
+	_mouth()
+
+
 func _mouth() -> void:
 	if mouth == null:
 		return
+	mouth.rotation.z = 0.0
+	if expression != "" and not talking:
+		_expr_left -= get_process_delta_time()
+		if _expr_left <= 0.0:
+			expression = ""
+		else:
+			mouth.visible = true
+			match expression:
+				"happy", "proud", "thanks":
+					mouth.scale = Vector3(1.3, 0.55, 1.0)
+				"wow":
+					mouth.scale = Vector3(0.55, 0.95, 1.0)
+				"oh_no":
+					mouth.scale = Vector3(1.0, 0.3, 1.0)
+					mouth.rotation.z = PI   # a small frown
+				_:
+					mouth.scale = Vector3(0.9, 0.16, 1.0)
+			return
 	var open: float = 0.0
 	if talking:
 		open = 0.35 + 0.65 * absf(sin(_time * 10.5)) * (0.6 + 0.4 * sin(_time * 3.1))

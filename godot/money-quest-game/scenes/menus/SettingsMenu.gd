@@ -117,6 +117,22 @@ func _ready() -> void:
 	show_text_check = _check(list, "settings.show_text_label", Settings.show_text, func(on): Settings.set_value("show_text", on))
 	_choice_row(list, "settings.guidance_label", "visual_guidance", ["strong", "normal", "light"], Settings.visual_guidance)
 	_choice_row(list, "settings.support_level_label", "support_level", [0, 1, 2, 3, 4], Settings.support_level)
+	# Storytelling only (never a difficulty): may time jumps show the avatar
+	# growing up a little?
+	_check(list, "settings.avatar_growth_label", Settings.avatar_growth, func(on): Settings.set_value("avatar_growth", on))
+	# Which country's real money products to show (FinanceLocale).
+	var region_row := _row(list, "settings.region_label")
+	var region_pick := OptionButton.new()
+	region_pick.name = "RegionPicker"
+	region_pick.custom_minimum_size = Vector2(260, 52)
+	region_pick.add_theme_font_size_override("font_size", 20)
+	var regions: Array = [""] + Array(FinanceLocale.REGIONS)
+	for i in regions.size():
+		region_pick.add_item(Localization.t("settings.region." + (regions[i] if regions[i] != "" else "auto")), i)
+		if regions[i] == Settings.region:
+			region_pick.select(i)
+	region_pick.item_selected.connect(func(i: int) -> void: Settings.set_value("region", regions[i]))
+	region_row.add_child(region_pick)
 
 	_section(list, "settings.section_sound")
 	master_slider = _slider(list, "settings.master_volume_label", Settings.master_volume, 0.0, 1.0, func(x): Settings.set_value("master_volume", x))

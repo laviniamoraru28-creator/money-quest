@@ -69,7 +69,7 @@ func complete_lesson(lesson_id: String, xp_reward: int, coin_reward: int) -> voi
 		return
 	completed_lesson_ids.append(lesson_id)
 	GameState.add_xp(xp_reward)
-	GameState.add_coins(coin_reward)
+	GameState.add_coins(coin_reward, "lesson:" + lesson_id, "book", "reward")
 	lesson_completed.emit(lesson_id)
 
 

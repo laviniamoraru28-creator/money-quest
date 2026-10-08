@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="LessonData" load_steps=16 format=3]
+[gd_resource type="Resource" script_class="LessonData" load_steps=19 format=3]
 
 [ext_resource type="Script" path="res://scripts/core/LessonData.gd" id="1"]
 [ext_resource type="Script" path="res://scripts/core/VocabTerm.gd" id="2"]
@@ -21,38 +21,63 @@ definition_key = "curriculum.explorer-junior_isa-l1.vocabulary.1.definition"
 script = ExtResource("3")
 speaker_id = ""
 text_key = "lesson.explorer_junior_isa_l1.intro.line1"
+icons = Array[String](["npc:grandma", "coin", "then", "vault"])
 
 [sub_resource type="Resource" id="DialogueLine_intro2"]
 script = ExtResource("3")
 speaker_id = "freya"
 text_key = "lesson.explorer_junior_isa_l1.intro.line2"
+icons = Array[String](["npc:freya", "vault", "npc:mum"])
 
 [sub_resource type="Resource" id="ConsequenceEffect_ask_grandma_why"]
 script = ExtResource("6")
 coin_delta = 4
 xp_delta = 5
 consequence_text_key = "lesson.explorer_junior_isa_l1.choice.consequence_ask_grandma_why"
+icons = Array[String](["vault", "lock", "then", "calendar"])
 
 [sub_resource type="Resource" id="ChoiceOption_ask_grandma_why"]
 script = ExtResource("5")
 label_key = "lesson.explorer_junior_isa_l1.choice.option_ask_grandma_why"
 consequence = SubResource("ConsequenceEffect_ask_grandma_why")
+icon = "question"
 
 [sub_resource type="Resource" id="ConsequenceEffect_ask_when_she_can_use_it"]
 script = ExtResource("6")
 coin_delta = 4
 xp_delta = 5
 consequence_text_key = "lesson.explorer_junior_isa_l1.choice.consequence_ask_when_she_can_use_it"
+icons = Array[String](["calendar", "npc:freya", "vault"])
 
 [sub_resource type="Resource" id="ChoiceOption_ask_when_she_can_use_it"]
 script = ExtResource("5")
 label_key = "lesson.explorer_junior_isa_l1.choice.option_ask_when_she_can_use_it"
 consequence = SubResource("ConsequenceEffect_ask_when_she_can_use_it")
+icon = "calendar"
 
 [sub_resource type="Resource" id="DialogueChoice_whose_money_is_it"]
 script = ExtResource("4")
 situation_text_key = "lesson.explorer_junior_isa_l1.choice.situation"
 options = Array[ChoiceOption]([SubResource("ChoiceOption_ask_grandma_why"), SubResource("ChoiceOption_ask_when_she_can_use_it")])
+situation_icons = Array[String](["npc:freya", "question"])
+
+[sub_resource type="Resource" id="DialogueLine_exp1"]
+script = ExtResource("3")
+speaker_id = "freya"
+text_key = "lesson.explorer_junior_isa_l1.explain.line1"
+icons = Array[String](["flag", "vault"])
+
+[sub_resource type="Resource" id="DialogueLine_exp2"]
+script = ExtResource("3")
+speaker_id = "freya"
+text_key = "lesson.explorer_junior_isa_l1.explain.line2"
+icons = Array[String](["vault", "then", "npc:freya"])
+
+[sub_resource type="Resource" id="DialogueLine_exp3"]
+script = ExtResource("3")
+speaker_id = "freya"
+text_key = "lesson.explorer_junior_isa_l1.explain.line3"
+icons = Array[String](["npc:mum", "shield", "vault"])
 
 [resource]
 script = ExtResource("1")
@@ -76,3 +101,9 @@ quiz_success_feedback_key = "curriculum.explorer-junior_isa-l1.feedback.success"
 quiz_retry_feedback_key = "curriculum.explorer-junior_isa-l1.feedback.retry"
 reward_message_key = "curriculum.explorer-junior_isa-l1.rewardMessage"
 stage_scene_path = ""
+visual_first = true
+explanation_lines = Array[DialogueLine]([SubResource("DialogueLine_exp1"), SubResource("DialogueLine_exp2"), SubResource("DialogueLine_exp3")])
+quiz_question_icons = Array[String](["vault", "question"])
+quiz_option_icons = Array[String](["npc:freya", "npc:mum", "bank", "question"])
+quiz_success_icons = Array[String](["npc:freya", "vault"])
+quiz_retry_icons = Array[String](["npc:mum", "question"])

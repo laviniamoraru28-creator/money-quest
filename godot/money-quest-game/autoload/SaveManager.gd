@@ -205,6 +205,10 @@ func load_progress() -> void:
 				ProgressManager.owned_items[String(id)] = {"count": int(rec["count"]), "acquired": int(rec.get("acquired", 0)), "used": bool(rec.get("used", false))}
 
 	Localization.set_locale(data.get("locale", Localization.DEFAULT_LOCALE))
+	# MoneyLife last: it reads the wallet and (for an older save) the
+	# activity state it migrates from.
+	var money: Variant = data.get("money_life", {})
+	MoneyLife.load_dict(money if money is Dictionary else {})
 
 
 func save_progress() -> void:
@@ -248,6 +252,9 @@ func save_progress() -> void:
 		"completed_activity_ids": ProgressManager.completed_activity_ids,
 		"activity_state": ProgressManager.activity_state,
 		"owned_items": ProgressManager.owned_items,
+		# The whole virtual-money state (accounts, ledger, goals, card, clock).
+		# "virtual_coins" above stays the wallet's balance for older readers.
+		"money_life": MoneyLife.to_dict(),
 	}
 	for key in Settings.DEFAULTS.keys():
 		data[key] = Settings.get(key)

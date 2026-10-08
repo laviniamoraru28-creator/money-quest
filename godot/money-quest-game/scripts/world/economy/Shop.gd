@@ -56,7 +56,8 @@ static func buy(p: ProductData, shop_id: String = "") -> Dictionary:
 	var q: Dictionary = quote(p)
 	if q["status"] != OK:
 		return q
-	if not GameState.spend_coins(p.price):
+	# A MoneyLife "spend" entry: the shop, and a picture of what was bought.
+	if not GameState.spend_coins(p.price, "shop:" + (shop_id if not shop_id.is_empty() else "market"), "item:%s:%s" % [p.visual, p.color.to_html(false)]):
 		q["status"] = NOT_ENOUGH
 		return q
 	ProgressManager.own_item(p.item_id())

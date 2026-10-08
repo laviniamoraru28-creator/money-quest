@@ -10,3 +10,6 @@ extends Resource
 
 @export var speaker_id: String = ""
 @export var text_key: String = ""
+## Visual-first: pictures shown with the line (and instead of it, with words
+## off). Tokens as in MissionStrip / Symbols. Empty = words only.
+@export var icons: Array[String] = []

@@ -119,7 +119,7 @@ func _run_one_choice(choice: DialogueChoice) -> void:
 		return
 	var chosen: ChoiceOption = await ChoicePanel.show_choice(choice)
 	if chosen.consequence:
-		GameState.add_coins(max(chosen.consequence.coin_delta, 0))
+		GameState.add_coins(max(chosen.consequence.coin_delta, 0), "quest:choice", "choose", "reward")
 		GameState.add_xp(max(chosen.consequence.xp_delta, 0))
 		await DialogueBox.show_text(chosen.consequence.consequence_text_key)
 
@@ -128,7 +128,7 @@ func _run_one_choice(choice: DialogueChoice) -> void:
 ## coin_reward and shows its reward message, if any.
 func _pay_flat_reward(quest: QuestData) -> void:
 	GameState.add_xp(quest.xp_reward)
-	GameState.add_coins(quest.coin_reward)
+	GameState.add_coins(quest.coin_reward, "quest:" + quest.quest_id, "flag", "reward")
 	if not quest.reward_message_key.is_empty():
 		await RewardPopup.show_reward(quest.reward_message_key, quest.xp_reward, quest.coin_reward)
 
@@ -272,6 +272,6 @@ func _complete_exploration_quest(quest: QuestData) -> void:
 		_active = false
 	else:
 		GameState.add_xp(quest.xp_reward)
-		GameState.add_coins(quest.coin_reward)
+		GameState.add_coins(quest.coin_reward, "quest:" + quest.quest_id, "flag", "reward")
 	ProgressManager.complete_quest(quest.quest_id, quest.skill_ids)
 	quest_finished.emit(quest.quest_id)

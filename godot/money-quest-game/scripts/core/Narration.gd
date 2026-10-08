@@ -28,13 +28,21 @@ static func listen_button() -> Button:
 	# shared bound static callable could be connected just once).
 	var relabel := func(d: String) -> void:
 		_relabel(d, b)
+	# ...and when words are turned on or off.
+	var on_setting := func(key: String, _v: Variant) -> void:
+		if key == "show_text":
+			_relabel(InputHints.device, b)
 	b.tree_entered.connect(func() -> void:
 		if not InputHints.device_changed.is_connected(relabel):
 			InputHints.device_changed.connect(relabel)
+		if not Settings.changed.is_connected(on_setting):
+			Settings.changed.connect(on_setting)
 		_relabel(InputHints.device, b))
 	b.tree_exiting.connect(func() -> void:
 		if InputHints.device_changed.is_connected(relabel):
-			InputHints.device_changed.disconnect(relabel))
+			InputHints.device_changed.disconnect(relabel)
+		if Settings.changed.is_connected(on_setting):
+			Settings.changed.disconnect(on_setting))
 	return b
 
 

@@ -15,3 +15,5 @@ extends Resource
 
 @export var situation_text_key: String = ""
 @export var options: Array[ChoiceOption] = []
+## Visual-first: pictures above the question (what the choice is about).
+@export var situation_icons: Array[String] = []

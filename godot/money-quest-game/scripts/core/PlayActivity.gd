@@ -113,7 +113,7 @@ func _run_step(s: Dictionary) -> void:
 			var from: Node3D = _node(s.get("from", ""))
 			if hud and hud.money_hud and from:
 				hud.money_hud.coins_from_world(from.global_position + Vector3(0, 1.0, 0))
-			GameState.add_coins(int(s["amount"]))
+			GameState.add_coins(int(s["amount"]), "activity:" + data.activity_id, "coin", "reward")
 		"reward":
 			GameState.add_xp(int(s.get("xp", 0)))
 		"wait":

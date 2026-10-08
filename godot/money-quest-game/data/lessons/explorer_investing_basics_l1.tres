@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="LessonData" load_steps=16 format=3]
+[gd_resource type="Resource" script_class="LessonData" load_steps=19 format=3]
 
 [ext_resource type="Script" path="res://scripts/core/LessonData.gd" id="1"]
 [ext_resource type="Script" path="res://scripts/core/VocabTerm.gd" id="2"]
@@ -21,38 +21,63 @@ definition_key = "curriculum.explorer-investing_basics-l1.vocabulary.1.definitio
 script = ExtResource("3")
 speaker_id = ""
 text_key = "lesson.explorer_investing_basics_l1.intro.line1"
+icons = Array[String](["coin", "then", "jar"])
 
 [sub_resource type="Resource" id="DialogueLine_intro2"]
 script = ExtResource("3")
 speaker_id = "leo"
 text_key = "lesson.explorer_investing_basics_l1.intro.line2"
+icons = Array[String](["updown"])
 
 [sub_resource type="Resource" id="ConsequenceEffect_ask_sister_more"]
 script = ExtResource("6")
 coin_delta = 4
 xp_delta = 5
 consequence_text_key = "lesson.explorer_investing_basics_l1.choice.consequence_ask_sister_more"
+icons = Array[String](["growth", "loss"])
 
 [sub_resource type="Resource" id="ChoiceOption_ask_sister_more"]
 script = ExtResource("5")
 label_key = "lesson.explorer_investing_basics_l1.choice.option_ask_sister_more"
 consequence = SubResource("ConsequenceEffect_ask_sister_more")
+icon = "chat"
 
 [sub_resource type="Resource" id="ConsequenceEffect_keep_saving_for_now"]
 script = ExtResource("6")
 coin_delta = 4
 xp_delta = 5
 consequence_text_key = "lesson.explorer_investing_basics_l1.choice.consequence_keep_saving_for_now"
+icons = Array[String](["coin", "then", "jar", "tick"])
 
 [sub_resource type="Resource" id="ChoiceOption_keep_saving_for_now"]
 script = ExtResource("5")
 label_key = "lesson.explorer_investing_basics_l1.choice.option_keep_saving_for_now"
 consequence = SubResource("ConsequenceEffect_keep_saving_for_now")
+icon = "jar"
 
 [sub_resource type="Resource" id="DialogueChoice_the_new_idea"]
 script = ExtResource("4")
 situation_text_key = "lesson.explorer_investing_basics_l1.choice.situation"
 options = Array[ChoiceOption]([SubResource("ChoiceOption_ask_sister_more"), SubResource("ChoiceOption_keep_saving_for_now")])
+situation_icons = Array[String](["jar", "updown", "question"])
+
+[sub_resource type="Resource" id="DialogueLine_exp1"]
+script = ExtResource("3")
+speaker_id = "leo"
+text_key = "lesson.explorer_investing_basics_l1.explain.line1"
+icons = Array[String](["coin", "then", "jar"])
+
+[sub_resource type="Resource" id="DialogueLine_exp2"]
+script = ExtResource("3")
+speaker_id = "leo"
+text_key = "lesson.explorer_investing_basics_l1.explain.line2"
+icons = Array[String](["updown"])
+
+[sub_resource type="Resource" id="DialogueLine_exp3"]
+script = ExtResource("3")
+speaker_id = "leo"
+text_key = "lesson.explorer_investing_basics_l1.explain.line3"
+icons = Array[String](["growth", "question"])
 
 [resource]
 script = ExtResource("1")
@@ -76,3 +101,9 @@ quiz_success_feedback_key = "curriculum.explorer-investing_basics-l1.feedback.su
 quiz_retry_feedback_key = "curriculum.explorer-investing_basics-l1.feedback.retry"
 reward_message_key = "curriculum.explorer-investing_basics-l1.rewardMessage"
 stage_scene_path = ""
+visual_first = true
+explanation_lines = Array[DialogueLine]([SubResource("DialogueLine_exp1"), SubResource("DialogueLine_exp2"), SubResource("DialogueLine_exp3")])
+quiz_question_icons = Array[String](["jar", "updown", "question"])
+quiz_option_icons = Array[String](["updown", "growth", "jar", "stall"])
+quiz_success_icons = Array[String](["updown"])
+quiz_retry_icons = Array[String](["chat", "updown"])

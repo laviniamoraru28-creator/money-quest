@@ -2338,3 +2338,278 @@ effort as well as coins. The same pieces apply:
 
 **Museum and Mind Lab:** only where it is natural (ideas, time, problem
 solving). No coins are forced in.
+
+---
+
+## 19. Communication and learning foundation (the Time Vault phase)
+
+**Show, don't tell.** The game communicates through objects, characters,
+pictures, numbers and visible consequences. Text is an optional layer.
+Progression follows demonstrated ability in each skill, never age.
+
+### 19.1 The foundation (reusable, shared by every activity)
+
+| Need | System | Notes |
+|---|---|---|
+| One picture per idea | `Symbols` (+ `PurposeGlyphs`, `MoneyIcons`) | `Symbols.token("risk")` → "warning", etc. Adds bank, card, warning, growth, loss, compare, retry, lock, unlock, clock, calendar, flag, shield, vault, piggy, bike, bike_broken and tree. Every token works in every picture strip. |
+| How someone feels | `CharacterRig.express()` + `Emote` | Mouth shapes (smile, "oh", flat, frown) plus a comic emote bubble (✓ ★ ! ? ♥ … lock), readable at camera distance. Reduced Motion keeps the shapes. |
+| Look / go / show / react | `WorldGuide` | One interface over the beacons, trail, demonstrations and expressions. Help is sized by the child's level in the activity's skills. |
+| How it went | `Feedback` | `success` ✓, `not_yet` ↻ plus the reason, `changed` (before → after rows), `try_again_button`. Never a red cross or a "wrong". |
+| Coins in hand | `PursePanel` | Activity coins, kept separate from the wallet. Coins fly between places and the purse. |
+| What if? | `WhatIf` / `WhatIfCard` | Your choice → your result next to another choice → its result. Differences are marked. Answers: try again, try that way, done. Remembers outcomes per activity. |
+| Layers of information | `InfoLayers` / `MoreCard` / `InfoStand` | Layer 1 is gameplay. Layer 2 (short) and layer 3 (deep) open only by choice, with Listen and "Keep in the Library" (the Library's kept-topics stand). |
+| Real products by country | `FinanceLocale` | Keeps the financial **concept**, the real-world **product** and local **terms** apart. Products are listed only when verified, with a source. Without one, the concept is taught with neutral words. `Settings.region` defaults to the language. |
+| Skills | `Competency` + `ActivitySpec` | 22 competencies on an 8-step ladder (recognize → … → create). Evidence: independent, supported, after retry, after demonstration. Levels never drop. Stored locally only. |
+| Support per skill | `SupportProfile.level_for(skills)`, `demonstration_enabled_for` | Replaces the single global level progressively. A level fixed in Settings still overrides. |
+| Quality standard | `ActivityChecklist` + `docs/activity-quality-checklist.md` | 17 questions per activity: auto / manual / pending / empty. |
+
+### 19.2 The Time Vault (the first gold-standard interaction)
+
+A small room off the Golden Vault (`time-vault`).
+
+| Step | What happens |
+|---|---|
+| SEE | Three places that differ by shape: piggy, bank, and a vault with a padlock. Otto points at each, once per visit, when the child's level calls for it. |
+| DO | Walk up and press: one coin goes in. With empty hands, a press takes one back. |
+| CHOOSE | How to share the coins out. There is no right answer. |
+| CONSEQUENCE | The clock makes years pass: seasons in the window, the calendar counts, the tree and (optionally) the avatar grow, and the numbers change. The bike breaks: take coins from open places and fix it. The vault refuses, with a lock and why (UK: 18). At the end the vault opens and everything is counted. |
+| WHAT IF? | Your split next to another reasonable split. |
+| REPEAT | Try again, try that way, or done. |
+
+- **Stages:** `TimeVaultModel.STAGES` maps the ladder to complexity:
+  - two places;
+  - a locked place plus a need;
+  - a goal;
+  - new numbers;
+  - rising prices;
+  - inflation on the goal;
+  - two needs;
+  - choosing your own goal.
+- **The rules are plain numbers** (`TimeVaultModel.simulate`). The test
+  proves every stage is solvable but not trivial.
+- **Persistent:** the tree outside grows a little with every finished
+  visit, and the best total is remembered.
+- **MORE:** the long-term-saving concept everywhere. In the UK the Junior
+  ISA appears only as one short example in the deep layer; elsewhere no
+  product is invented (updated in section 20).
+
+### 19.3 Next migration (one at a time, after the Time Vault is evaluated)
+
+Golden Vault → Market Town → Entrepreneur Quest (picture pickers instead
+of typing) → Museum → Mind Lab → Library → Leadership Quest.
+
+---
+
+## 20. MoneyLife: the central virtual-money system (foundation)
+
+MoneyLife is the one source of truth for the child's virtual money.
+
+- **100% virtual and offline:** no real money, no real accounts, no
+  logins, no network.
+- **Future screens read it:** the Bank, Card and App will read MoneyLife
+  and ask it to move coins. They never keep a balance of their own.
+- **It records, it doesn't judge:** competency evidence stays in
+  `Competency`.
+
+### 20.1 Pieces
+
+| Piece | What it is |
+|---|---|
+| `MoneyLife` (autoload) | Owns the real `MoneyBook`. API: `earn`, `spend`, `transfer`, `open_pot`, `add_goal`, `advance_clock`, `entries`, `sandbox`. Signals: `transaction_posted`, `balance_changed`, `clock_advanced`. |
+| `MoneyBook` | The state as plain data and rules: accounts, ledger, goals, card, subscriptions, `day`. No scene and no signals, so it can be copied. |
+| `ProductRules` | How each kind of place behaves: growth (`none` / `rate` / `variable`), access (`open` / `locked`), fee and risk. Simulation rules only; real products stay in `FinanceLocale`. |
+
+### 20.2 Accounts
+
+Each account has a kind, a product and a whole-coin balance:
+
+| Kind | Example | Product |
+|---|---|---|
+| wallet | coins in your pocket | `cash` |
+| current | the everyday account (not opened until the future Bank opens it) | `current_basic` |
+| savings | `pot:market_jar` | `home_jar` |
+| goal | the pot behind a goal | — |
+| business | future | — |
+| activity | e.g. the Time Vault's purse (never saved) | — |
+
+**Compatibility.** The wallet's balance is `GameState.wallet` (the one
+`VirtualMoney` the whole game already reads). There is never a second
+balance. `GameState.add_coins` and `spend_coins` are thin wrappers over
+`MoneyLife.earn` and `spend`, with optional `source`, `picture` and
+`kind`, so every existing caller works unchanged.
+
+### 20.3 Ledger
+
+One compact entry per movement:
+`{t: day, k: kind, a: amount, f: from, to: to, s: source, p: picture, n?: text key}`.
+
+- **Kinds:** earn, spend, save, transfer, interest, growth, fee,
+  subscription, refund, reward, donation, business_income,
+  business_expense, opening.
+- **"world"** is everything outside the child's accounts.
+- **Size:** the newest 200 entries are kept; older ones are folded into
+  `totals` (count and sum per kind).
+
+### 20.4 Game clock
+
+`day` advances only through play or an explicit activity
+(`advance_clock`). It never uses real time, so nothing happens while the
+child is away.
+
+- **Calendar:** 7-day weeks, 30-day months, 360-day years.
+- **Growth:** credited in whole coins. The unearned part of a coin is kept
+  as `carry`, so coins never appear from rounding.
+- **Subscriptions:** due ones are paid; one that can't be paid stops. It
+  never creates debt.
+
+### 20.5 What if?
+
+`MoneyLife.sandbox()` returns a copy, and changes to it never come back.
+Activities with their own coins, like the Time Vault, use a fresh
+`MoneyBook` (`TimeVaultModel.new_book`), so a simulation can never touch
+real money.
+
+### 20.6 Saving and migration
+
+- **Where it's saved:** the `money_life` section (with `version`).
+  `virtual_coins` is still written as the wallet balance for older readers.
+- **Saves from before MoneyLife** are migrated once:
+  - the wallet balance gets an `opening` marker;
+  - the Market jar's saved coins become `pot:market_jar`, also with an
+    `opening` marker;
+  - the old jar value is cleared.
+- **A damaged section** loads with safe defaults.
+
+### 20.7 Connected so far
+
+| Where | What it does now |
+|---|---|
+| All coin rewards | Ledger entries with source and picture: lessons and quests as `reward`, curiosities as `earn` or `reward`, the found coin as `earn` |
+| Market Town shops | Every purchase is a `spend` from the stall, with the item's picture |
+| Market Town jar | A savings pot with the kite as a goal: putting in is `save`, taking out is `transfer` |
+| Time Vault | Its places are accounts with product rules (`home_piggy`, `easy_saver`, `locked_saver`) in their own book. Growth is the place's rule, shown by a rule badge on each place. The lock starts when the clock starts. There is no product name in the room: the Junior ISA is only a short example in the More layer for the UK. |
+
+### 20.8 Next (not built)
+
+- **First Bank station:** open the current account and issue the card
+  (the `card` state is already there).
+- **Purchases by card,** paying from the current account.
+- **A minimal App** that reads `entries()` and balances.
+
+
+## 21. Dialogue standard (visual-first lessons)
+
+**The rule:** the child learns by seeing, choosing and doing. Words help.
+They are never the thing the child must read in order to play.
+
+Every beat is **SEE → CHOOSE → ACT → SEE RESULT**:
+
+- **SEE:** pictures of the situation.
+- **CHOOSE:** large picture answers.
+- **ACT:** the pick lights up.
+- **SEE RESULT:** before → after pictures, and a short line.
+
+### 21.1 Limits (DialogueStandard)
+
+`DialogueStandard` (`scripts/core/DialogueStandard.gd`) measures every
+lesson against these limits:
+
+| Beat | Max words |
+|---|---|
+| Line (spoken or narrated) | 12 (aim for 8) |
+| Question (choice, practice, quiz) | 12 |
+| Answer on a button | 4 |
+| Feedback (consequence, right / not yet, reward) | 6 |
+
+- A **visual-first** lesson must also have pictures on every beat, so it
+  still works with words off.
+- `check(lesson)` returns the problems it finds.
+- Visual-first lessons are **strict**: they must have none. Other lessons
+  are only reported. The check grows lesson by lesson; it never fails
+  content that has not been brought up to the standard yet.
+- Word counting: "pop-up" and "Mum's" are one word each; "..." and "!" are
+  not words.
+- **Not measured:** the hidden curriculum fields (learning objective, key
+  concept, vocabulary) and the full explanation behind More.
+
+### 21.2 Data (all optional, so old lessons are unchanged)
+
+| Field | Where | What |
+|---|---|---|
+| `icons` | `DialogueLine` | pictures with the line |
+| `situation_icons` | `DialogueChoice` | pictures above the question |
+| `icon` | `ChoiceOption` | the answer's picture |
+| `icons`, `change_before`, `change_after`, `change_params` | `ConsequenceEffect` | the result line's pictures, and the before → after card (`Feedback.changed`) |
+| `visual_first` | `LessonData` | turns the flow on |
+| `explanation_lines` | `LessonData` | short picture lines that replace the paragraph |
+| `practice_rounds` | `LessonData` | e.g. "Need or want?" for bread, chocolate, coat, ball |
+| `quiz_question_icons`, `quiz_option_icons`, `quiz_success_icons`, `quiz_retry_icons` | `LessonData` | pictures for the quiz and its feedback |
+
+Picture tokens are the MissionStrip tokens: `coin`, `coins`, `jar`, `you`,
+`npc:<id>`, `num:<n>`, `item:<shape>:<hex tint>`, and any glyph. New glyphs
+for this phase: `need`, `want`, `leaf`, `rock`, `note`, `chat`, `popup`,
+`coin_foreign`, `updown`, `close`, `game`. New item shapes: `chocolate`, `coat`.
+
+### 21.3 Flow (LessonManager, when `visual_first`)
+
+1. **Intro lines** with pictures.
+2. **Choice.** Picture answers; the pick lights up. Both options are
+   always valid.
+3. **Result.** The before → after card, plus a short line.
+4. **Explanation lines.** The last one offers **More** (InfoLayers):
+   - layer 2 is the key concept;
+   - layer 3 is the original explanation and quiz explanation.
+   The long text is kept, just no longer required.
+5. **Practice rounds** (if any). Each repeats until right, with a
+   `Feedback.success` / `not_yet` card.
+6. **Quiz** with pictures; the feedback lines carry pictures too. The
+   quiz explanation lives in More.
+7. **Reward.** XP and coins are unchanged.
+
+### 21.4 Shared UI
+
+- **ChoicePanel:**
+  - a picture inside each answer;
+  - with words off, the picture fills the button (the words stay in the
+    button's meta, tooltip and narration);
+  - a 6px gold focus ring and a gold hover;
+  - the picked answer turns gold with a tick for 0.28s (0.12s with
+    Reduced Motion) before the panel closes;
+  - pictures above the question; with words off, the question's words
+    step aside.
+- **DialogueBox:**
+  - a picture strip above the line; with words off, the line's words
+    step aside;
+  - Continue becomes an arrow with words off;
+  - an optional More button. Closing More returns focus to Continue, so
+    pressing confirm again moves on instead of reopening the card.
+  - with words off, the speaker name tag steps aside (the portrait shows
+    who is speaking; Listen still reads the name).
+- **Story result card** (`Feedback.changed(..., story = true)`): sits just
+  above the dialogue, away from the HUD's real coin counters, so a story jar
+  is never read as the player's own money. It stays for the whole result
+  line and is dismissed when the explanation begins.
+
+### 21.5 Localization
+
+Lesson text exists in **English and Romanian**. The other seven
+languages fall back to English, as they did before.
+
+- New keys (`lesson.<id>.explain.lineN`, `lesson.<id>.practice.question`)
+  have English and Romanian.
+- Shortened lines were changed in place, in English and Romanian.
+- Romanian is held to the same limits.
+- `place.golden_vault.purpose` was corrected in all 9 languages: it said
+  saving makes money grow, which a jar never does (MoneyLife).
+
+### 21.6 Tests (scratch)
+
+`_dialogue.tscn` has two scenarios:
+
+- **`scenario=standard`:** the limits for all lessons, all 9 locales
+  resolve, and the hidden curriculum is intact.
+- **`scenario=ui`:** the real flow (travel, then talk to the NPC) for the
+  saving and needs/wants lessons, with keyboard, gamepad, mouse and touch,
+  words on and off, and Reduced Motion. It checks pictures, focus, the
+  picked state, More, practice, quiz, reward and save, and takes
+  screenshots.
