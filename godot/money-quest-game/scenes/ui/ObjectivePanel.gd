@@ -28,6 +28,13 @@ var suppressed: bool = false:
 var _done: HBoxContainer
 var _done_label: Label
 var _done_serial: int = 0
+## ✓ DONE stays visible for a moment even when nothing follows (the card
+## shows the finished goal with its tick, then tucks away).
+var _finishing: bool = false
+var _finishing_quest: bool = false
+var _last_icons: Array = []
+var _last_params: Dictionary = {}
+var _last_text: String = ""
 ## The mission as pictures (VisualMissions) — shown with words on or off.
 var strip: MissionStrip
 
@@ -95,23 +102,32 @@ func _refresh() -> void:
 	# itself shows the way (beacons, a pointing guide, the trail of lights).
 	var icons: Array = ObjectiveManager.icons()
 	var words: bool = SupportProfile.show_text()
-	visible = ObjectiveManager.has_objective() and not _held and not suppressed and (words or not icons.is_empty())
+	# A finished goal is shown with its ✓ for a moment before whatever comes
+	# next (a quest's goal always; another goal only when nothing follows).
+	var finished_only: bool = _finishing and (_finishing_quest or not ObjectiveManager.has_objective())
+	if finished_only:
+		icons = _last_icons
+	visible = (ObjectiveManager.has_objective() or finished_only) and not _held and not suppressed and (words or not icons.is_empty())
 	if not visible:
 		_shown_id = ""
 		return
 	var key: String = InputHints.glyph("help")
 	_title.text = Localization.t("objective.title") + ("   ·   %s %s" % [Localization.t("objective.help_hint"), key] if key != "" else "")
-	_text.text = ObjectiveManager.text()
+	_text.text = _last_text if finished_only else ObjectiveManager.text()
 	_tip.text = ObjectiveManager.tip_text
 	_tip.visible = not ObjectiveManager.tip_text.is_empty()
-	strip.show_tokens(icons, ObjectiveManager.params)
+	strip.show_tokens(icons, _last_params if finished_only else ObjectiveManager.params)
+	if not finished_only:
+		_last_icons = icons.duplicate()
+		_last_params = ObjectiveManager.params
+		_last_text = _text.text
 	strip.visible = not icons.is_empty()
 	_title.visible = words
 	_text.visible = words
 	_tip.visible = words and _tip.visible
 	custom_minimum_size.x = 360.0 if words else 0.0
 	reset_size.call_deferred()
-	if ObjectiveManager.objective_id != _shown_id:
+	if not finished_only and ObjectiveManager.objective_id != _shown_id:
 		_shown_id = ObjectiveManager.objective_id
 		_announce()
 
@@ -144,9 +160,12 @@ func _announce() -> void:
 
 ## A mission step is done: "Done! Nice work." with a tick, a chime, the
 ## words read aloud (narration on), and a small pop of the card.
-func _on_completed(_id: String) -> void:
+func _on_completed(id: String) -> void:
 	_done_serial += 1
 	var serial: int = _done_serial
+	_finishing = true
+	_finishing_quest = id.begins_with("quest:")
+	_refresh()
 	_done_label.text = Localization.t("objective.done")
 	_done_label.visible = SupportProfile.show_text()
 	_done.visible = true
@@ -160,6 +179,9 @@ func _on_completed(_id: String) -> void:
 	await get_tree().create_timer(3.0).timeout
 	if serial == _done_serial:
 		_done.visible = false
+		_finishing = false
+		_finishing_quest = false
+		_refresh()
 
 
 ## A drawn tick in a teal circle (a shape, readable without colour).

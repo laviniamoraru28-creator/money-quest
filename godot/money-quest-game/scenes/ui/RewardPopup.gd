@@ -78,15 +78,22 @@ func _ready() -> void:
 
 
 ## The original API (lessons and quests): message + XP + virtual coins.
-func show_reward(message_key: String, xp: int, coins: int) -> void:
-	await celebrate("reward.well_done", message_key, xp, coins)
+## `level_at_start` (optional): the level when the quest / lesson began, so a
+## level reached during it (e.g. from a choice's XP) is announced too.
+func show_reward(message_key: String, xp: int, coins: int, level_at_start: int = -1) -> void:
+	await celebrate("reward.well_done", message_key, xp, coins, "", level_at_start)
 
 
-## The full celebration. `badge_key`: a badge name key to announce (or "").
-func celebrate(title_key: String, message_key: String, xp: int, coins: int, badge_key: String = "") -> void:
-	var level_before: int = GameState.compute_level() - _pending_level_delta(xp)
+## Whether the last card was a milestone (full) or compact (tests read it).
+var last_was_milestone: bool = false
+
+
+## The celebration. `badge_key`: a badge name key to announce (or "").
+func celebrate(title_key: String, message_key: String, xp: int, coins: int, badge_key: String = "", level_at_start: int = -1) -> void:
+	var level_before: int = level_at_start if level_at_start > 0 else GameState.compute_level() - _pending_level_delta(xp)
 	title_label.text = Localization.t(title_key)
-	message_label.text = Localization.t(message_key)
+	message_label.text = Localization.t(message_key) if not message_key.is_empty() else ""
+	message_label.visible = not message_label.text.is_empty()
 	_set_rewards(xp if Settings.reduced_motion else 0, xp, coins)
 	var extras: PackedStringArray = []
 	if not badge_key.is_empty():
@@ -96,12 +103,30 @@ func celebrate(title_key: String, message_key: String, xp: int, coins: int, badg
 	extra_label.text = "\n".join(extras)
 	extra_label.visible = not extras.is_empty()
 	continue_button.text = InputHints.prompt(Localization.t("common.nice_button"), "confirm")
+	# A real milestone (a new badge, a new level) gets the full celebration;
+	# a routine finish a calm, compact one: the same card and words, no
+	# fanfare, confetti or pop. Rewards back the learning, they are not it.
+	var milestone: bool = not extras.is_empty()
+	last_was_milestone = milestone
+	# A compact card is as tall as what it says (never cut: measured after
+	# the words are in, so larger text sizes still fit); a milestone keeps
+	# the full card.
+	panel.offset_top = -220.0
+	panel.offset_bottom = 220.0
+	if not milestone:
+		await get_tree().process_frame
+		var h: float = clampf(panel.get_combined_minimum_size().y, 260.0, 440.0)
+		panel.offset_top = -h * 0.5
+		panel.offset_bottom = h * 0.5
 
 	visible = true
 	UIFocus.focus(continue_button)
-	AudioManager.play_sfx("fanfare")
+	AudioManager.play_sfx("fanfare" if milestone else "success", 1.0, 0.0 if milestone else -4.0)
 	AudioManager.narrate("%s %s" % [title_label.text, message_label.text])
-	if not Settings.reduced_motion:
+	if not milestone:
+		panel.scale = Vector2.ONE
+		_set_rewards(xp, xp, coins)
+	elif not Settings.reduced_motion:
 		panel.scale = Vector2(0.85, 0.85)
 		create_tween().tween_property(panel, "scale", Vector2.ONE, 0.3).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 		_confetti.position = get_viewport().get_visible_rect().size * Vector2(0.5, 0.42)

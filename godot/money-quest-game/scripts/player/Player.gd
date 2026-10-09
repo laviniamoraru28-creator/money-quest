@@ -226,10 +226,12 @@ func _on_answer_checked(correct: bool) -> void:
 
 ## A small celebration when a mission step is done (the objective card
 ## says so in words as well).
-func _on_objective_completed(_id: String) -> void:
+func _on_objective_completed(id: String) -> void:
 	if visual and is_inside_tree():
 		visual.play_reaction("celebrate")
-		_confetti()
+		# A quest's ✓ already had its reward card: the happy reaction only.
+		if not id.begins_with("quest:"):
+			_confetti()
 
 
 ## A small, short burst of paper confetti around the character (none with

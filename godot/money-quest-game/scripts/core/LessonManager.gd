@@ -33,10 +33,13 @@ extends Node
 signal lesson_finished(lesson_id: String)
 
 var lesson_data: LessonData
+## The level when this lesson began (a level reached during it is announced).
+var _level_at_start: int = -1
 
 
 func start_lesson(data: LessonData) -> void:
 	lesson_data = data
+	_level_at_start = GameState.compute_level()
 	GameState.current_lesson_id = data.lesson_id
 	_run_intro_dialogue()
 
@@ -175,10 +178,16 @@ func _run_quiz() -> void:
 
 
 func _run_reward() -> void:
+	# A lesson pays its reward the first time only (ProgressManager); a
+	# replay shows the same card truthfully, without "+XP / coins".
+	var first_time: bool = not ProgressManager.is_lesson_completed(lesson_data.lesson_id)
 	ProgressManager.complete_lesson(
 		lesson_data.lesson_id, lesson_data.xp_reward, lesson_data.coin_reward
 	)
 	await RewardPopup.show_reward(
-		lesson_data.reward_message_key, lesson_data.xp_reward, lesson_data.coin_reward
+		lesson_data.reward_message_key if first_time else "",
+		lesson_data.xp_reward if first_time else 0,
+		lesson_data.coin_reward if first_time else 0,
+		_level_at_start
 	)
 	lesson_finished.emit(lesson_data.lesson_id)

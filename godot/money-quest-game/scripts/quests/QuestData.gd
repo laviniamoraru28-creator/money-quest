@@ -115,3 +115,10 @@ enum QuestKind { LESSON, EXPLORATION, CHALLENGE, SIMULATION, MATCH, SPOT, ALLOCA
 ## Which Smart Skill(s) this quest develops (see ProgressManager.skill_points)
 ## — a quest "demonstrates" a skill by listing it; no separate grading engine.
 @export var skill_ids: Array[String] = []
+
+@export_group("Visual-first (dialogue standard)")
+## 🎯 This quest's goal as pictures, on the mission card while it runs
+## (ObjectiveManager; ✓ when it ends). Empty = a default from the quest:
+## the face of the character you are helping → what it is about (a
+## lesson's topic picture, otherwise "choose").
+@export var goal_icons: Array[String] = []

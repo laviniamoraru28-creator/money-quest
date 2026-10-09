@@ -70,6 +70,8 @@ func start_quest(quest_id: String) -> void:
 		return
 
 	_active = true
+	_level_at_start = GameState.compute_level()
+	var place_goal: Dictionary = _begin_goal(quest)
 	quest_started.emit(quest_id)
 
 	match quest.kind:
@@ -96,9 +98,68 @@ func start_quest(quest_id: String) -> void:
 			push_warning("QuestManager: quest kind %s has no runner yet (quest '%s')" % [quest.kind, quest_id])
 
 	ProgressManager.complete_quest(quest_id, quest.skill_ids)
+	_finish_goal(quest, place_goal)
 	_active = false
 	quest_finished.emit(quest_id)
 
+
+
+# --- 🎯 GOAL and ✓ DONE, the same for every quest ---------------------------------
+
+## The level when the running quest began (its reward announces a level
+## reached at any point during it).
+var _level_at_start: int = -1
+
+
+## While a quest runs, the mission card shows ITS goal (pictures, the title
+## as optional words); when it ends, the goal is ✓ done and the place's own
+## goal comes back. Returns the place's goal as it was, to restore.
+func _begin_goal(quest: QuestData) -> Dictionary:
+	var om: Node = ObjectiveManager
+	var before: Dictionary = {}
+	if om.has_objective():
+		before = {"id": om.objective_id, "key": om.text_key, "params": om.params, "target": om.target(),
+			"icons": om.icon_tokens.duplicate(), "optional": om.optional.duplicate(), "tip": om.tip_text, "learned": om.learned.duplicate()}
+	om.set_objective(goal_id(quest.quest_id), quest.title_key)
+	om.set_icons(goal_icons(quest))
+	om.set_optional([])
+	om.set_tip("")
+	return before
+
+
+func _finish_goal(quest: QuestData, before: Dictionary) -> void:
+	var om: Node = ObjectiveManager
+	om.complete(goal_id(quest.quest_id))   # ✓ Done! on the mission card
+	# The place's goal again, unless the place has already set a new one.
+	if before.is_empty() or om.has_objective():
+		return
+	om.set_objective(before.id, before.key, before.params, before.target)
+	if not (before.icons as Array).is_empty():
+		om.set_icons(before.icons)
+	om.set_optional(before.optional)
+	om.set_tip(before.tip)
+	om.learned.assign(before.learned)
+
+
+static func goal_id(quest_id: String) -> String:
+	return "quest:" + quest_id
+
+
+## The goal as pictures: the quest's own (QuestData.goal_icons), or the face
+## of the character you are helping → what it is about.
+func goal_icons(quest: QuestData) -> Array:
+	if not quest.goal_icons.is_empty():
+		return Array(quest.goal_icons)
+	var what: String = "choose"
+	if quest.kind == QuestData.QuestKind.LESSON:
+		var lesson: LessonData = load(quest.lesson_data_path) as LessonData
+		if lesson:
+			what = String(LessonManager.TOPIC_ICONS.get(lesson.topic_id, "book"))
+	var icons: Array = []
+	if not quest.giver_npc_id.is_empty():
+		icons.append_array(["npc:" + quest.giver_npc_id, "then"])
+	icons.append(what)
+	return icons
 
 ## Shared by every runner below: the intro beats every quest kind opens
 ## with (spoken lines, then an optional single narrator-style line) —
@@ -130,7 +191,7 @@ func _pay_flat_reward(quest: QuestData) -> void:
 	GameState.add_xp(quest.xp_reward)
 	GameState.add_coins(quest.coin_reward, "quest:" + quest.quest_id, "flag", "reward")
 	if not quest.reward_message_key.is_empty():
-		await RewardPopup.show_reward(quest.reward_message_key, quest.xp_reward, quest.coin_reward)
+		await RewardPopup.show_reward(quest.reward_message_key, quest.xp_reward, quest.coin_reward, _level_at_start)
 
 
 ## For a standalone situation-and-consequence quest with no wrapped
