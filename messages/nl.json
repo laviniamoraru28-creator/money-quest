@@ -6352,5 +6352,392 @@
         }
       ]
     }
+  },
+  "realLifeQuests": {
+    "hubTitle": "Praktijkquests",
+    "hubTagline": "Neem wat je hebt geleerd mee de echte wereld in.",
+    "hubIntro": "Praktijkquests zijn missies die je buiten het scherm uitvoert, met de mensen en spullen die je al om je heen hebt. Kies er een, doe hem op je eigen tempo, en vertel ons hoe het ging. Er is geen haast, en geen verkeerde manier om ze te doen.",
+    "parentIntroTitle": "Voor ouders en opvoeders",
+    "parentIntro": "Praktijkquests verbinden wat je kind leert in Money Quest, Ondernemersquest en Leiderschapsquest met alledaagse situaties thuis. Elke missie kan worden gedaan met speelgeld, tekeningen, of spullen die je al hebt - er hoeft niets gekocht te worden, en er wordt nooit echt verkocht of betaald zonder dat jij erbij bent. Kies missies samen, pas ze vrij aan op je kind, en er is geen druk om snel of perfect klaar te zijn.",
+    "categories": {
+      "money-skills": {
+        "title": "Geldvaardigheden",
+        "description": "Oefen met sparen, slim uitgeven en plannen met geld - in het echte leven, niet alleen met cijfers op een scherm."
+      },
+      "entrepreneurship": {
+        "title": "Ondernemerschap",
+        "description": "Maak dingen, test ideeën, en snap hoe kosten en prijzen werken - allemaal op een veilige, begeleide manier."
+      },
+      "leadership": {
+        "title": "Leiderschap",
+        "description": "Los problemen op, werk samen met anderen, deel je ideeën, en leer van wat niet ging zoals gepland."
+      }
+    },
+    "supervision": {
+      "label": "Hulp van een volwassene",
+      "independent": "Kan dit alleen proberen",
+      "with-adult": "Fijn met een volwassene in de buurt",
+      "adult-required": "Heeft een volwassene nodig"
+    },
+    "status": {
+      "not-started": "Nog niet begonnen",
+      "started": "Mee bezig",
+      "completed": "Voltooid!"
+    },
+    "variantLabels": {
+      "standard": "Gewone versie",
+      "independent": "Zelfstandigere versie",
+      "simpler": "Eenvoudigere, visuele versie"
+    },
+    "variantsTitle": "Kies je versie",
+    "objectivesTitle": "Wat je gaat oefenen",
+    "materialsTitle": "Wat je nodig hebt",
+    "stepsTitle": "Stappen",
+    "durationLabel": "Hoe lang het ongeveer duurt",
+    "nonverbalTitle": "Niet praten of schrijven? Geen probleem",
+    "parentGuidanceTitle": "Voor ouders en opvoeders",
+    "markStartedButton": "Markeer als begonnen",
+    "markCompletedButton": "Markeer als voltooid",
+    "missionCompletedHint": "Goed gedaan - je kunt je versie altijd nog wijzigen of iets toevoegen aan je reflectie.",
+    "backToHub": "Terug naar Praktijkquests",
+    "linkedActivityIntro": "Wil je ook op het scherm verder gaan?",
+    "linkedActivity": {
+      "savingsGoals": "Probeer de tool Spaardoelen",
+      "priceDetectiveGame": "Speel het spel Prijsdetective",
+      "buildABudgetGame": "Speel het spel Maak een Budget",
+      "entrepreneurQuest": "Ga verder in Ondernemersquest",
+      "leadershipQuest": "Ga verder in Leiderschapsquest"
+    },
+    "reflectionTitle": "Hoe ging het?",
+    "reflectionHint": "Kies wat voor jou klopt - er is geen fout antwoord.",
+    "reflectionChoices": {
+      "great": "😊 Dat ging heel goed!",
+      "okay": "😐 Het was oké",
+      "tricky": "🤔 Dat was lastig",
+      "idea": "💡 Ik heb nu een nieuw idee"
+    },
+    "reflectionTextLabel": "Wil je meer vertellen? (helemaal optioneel)",
+    "reflectionTextPlaceholder": "Je kunt hier typen, of het gewoon leeg laten.",
+    "rewardEarnedText": "Je hebt {xp} XP verdiend voor het proberen van deze missie!",
+    "missionsCompletedCount": "{completed} van {total} missies geprobeerd",
+    "categoryFilterAll": "Alle",
+    "resetConfirm": "Dit wist al je voortgang van Praktijkquests op dit apparaat. Weet je het zeker?",
+    "resetButton": "Voortgang Praktijkquests resetten",
+    "missions": {
+      "save-for-something-you-love": {
+        "title": "Sparen voor Iets wat Je Graag Wilt",
+        "intro": "Kies iets wat je heel graag wilt. Maak dan een eenvoudig plan om er geleidelijk voor te sparen.",
+        "objectives": [
+          "Kies één ding waarvoor je wilt sparen",
+          "Maak een eenvoudig spaarplan",
+          "Houd je voortgang bij terwijl je spaart"
+        ],
+        "materials": [
+          "Een vel papier of een pot",
+          "Stickers, streepjes of tekeningen om je voortgang bij te houden (of gebruik de tool Spaardoelen)",
+          "Een potlood of stiften"
+        ],
+        "steps": [
+          "Denk aan iets wat je graag zou willen hebben of doen - groot of klein.",
+          "Teken het, of schrijf de naam ervan, boven op je papier of op je pot.",
+          "Bepaal hoeveel \"stapjes\" je ervoor nodig hebt (bijvoorbeeld 5 stickers of 5 muntjes).",
+          "Voeg elke keer dat je een beetje spaart een sticker, muntje of streepje toe.",
+          "Ga door totdat je plan vol is!"
+        ],
+        "durationEstimate": "Ongeveer 10 minuten om te beginnen, en daarna elke week een klein moment om bij te kijken - dit duurt in totaal wat langer.",
+        "independentVersion": "Stel helemaal zelf je doel vast en houd het zelf bij, en probeer het ook online met de tool Spaardoelen.",
+        "simplerVersion": "Gebruik een pot en echte voorwerpen (muntjes, knopen, stickers) in plaats van cijfers - kijk gewoon hoe de pot elke keer voller wordt.",
+        "nonverbalAdaptation": "Kies je doel door naar een plaatje of voorwerp te wijzen in plaats van het te zeggen. Voortgang bijhouden met stickers of streepjes kan helemaal zonder praten of schrijven.",
+        "reflectionPrompt": "Hoe voelde het om je plan te zien groeien?",
+        "parentGuidance": "Laat je kind het doel kiezen, ook een klein doel telt mee. Er is geen haast nodig; het idee is om te oefenen met wachten en plannen, niet om snel klaar te zijn. Zijn er jongere kinderen in de buurt, dan zijn stickers of streepjes een veiliger manier om bij te houden dan kleine muntjes of knopen."
+      },
+      "the-price-detective": {
+        "title": "De Prijsdetective",
+        "intro": "Word een detective! Bekijk twee vergelijkbare dingen en onderzoek waarom hun prijzen verschillen.",
+        "objectives": [
+          "Vergelijk twee vergelijkbare producten",
+          "Let op wat er anders is tussen de twee",
+          "Denk na over wat \"goede waarde\" betekent"
+        ],
+        "materials": [
+          "Twee vergelijkbare dingen die je al thuis hebt, of twee uit een folder of website samen met een volwassene - een winkelbezoek is nooit verplicht",
+          "Verder niets nodig!"
+        ],
+        "steps": [
+          "Kies twee vergelijkbare dingen die je al hebt, of zoek er twee op in een folder of website samen met een volwassene - zoals twee soorten sap of twee schriften.",
+          "Bekijk elke prijs (of vraag een volwassene om ze voor te lezen).",
+          "Bekijk elk ding goed - de grootte, hoe het eruitziet, hoe lang het misschien meegaat.",
+          "Besluit welke jij de betere keuze vindt, en waarom.",
+          "Vertel iemand je conclusie als detective!"
+        ],
+        "durationEstimate": "Ongeveer 15 minuten.",
+        "independentVersion": "Onderzoek drie of meer dingen in plaats van twee, en rangschik ze van beste tot minste waarde.",
+        "simplerVersion": "Wijs gewoon naar het ding dat groter lijkt, of naar het ding met een blije-gezicht-sticker die een volwassene naast de prijs heeft gezet.",
+        "nonverbalAdaptation": "Wijs, knik, of gebruik duim omhoog en duim omlaag om je conclusie als detective te laten weten, in plaats van het uit te leggen met woorden.",
+        "reflectionPrompt": "Welke heb je gekozen, en waarom koos je die?",
+        "parentGuidance": "Er is hier geen \"goed\" antwoord - het gaat om opmerken en vergelijken, niet om de \"juiste\" keuze maken. Een duurder ding kan nog steeds de betere waarde zijn; laat je kind er hardop over nadenken, of door te wijzen. Dingen vergelijken die je al thuis hebt of in een folder werkt net zo goed als een winkelbezoek - gaan jullie toch samen naar een echte winkel, dan gaat er altijd een volwassene mee die je vertrouwt."
+      },
+      "plan-a-shopping-trip": {
+        "title": "Plan een Boodschappentrip",
+        "intro": "Help een echte (of een doe-alsof) boodschappentrip plannen. Maak een lijstje en denk na over hoeveel alles ongeveer kost.",
+        "objectives": [
+          "Help een boodschappenlijstje maken",
+          "Denk na over een eenvoudig budget",
+          "Oefen met kiezen wat het belangrijkst is"
+        ],
+        "materials": [
+          "Papier en een potlood, of een whiteboard of tablet-notitie",
+          "Een echt boodschappenlijstje, of een doe-alsof lijstje met een speelgoedwinkel"
+        ],
+        "steps": [
+          "Vraag een volwassene wat er nodig is voor de volgende boodschappentrip.",
+          "Help het lijstje samen schrijven of tekenen.",
+          "Kies samen een \"budget\"-getal - echt of doe-alsof.",
+          "Bekijk het lijstje en besluit wat het belangrijkst is als het budget krap is.",
+          "Ga op pad met een volwassene die je vertrouwt - ga nooit alleen boodschappen doen - of speel in plaats daarvan thuis doe-alsof-winkeltje, en kijk hoe dicht het plan erbij kwam."
+        ],
+        "durationEstimate": "Ongeveer 20 minuten om te plannen; de trip zelf duurt zo lang als nodig is.",
+        "independentVersion": "Probeer de totale kosten te schatten vóór de trip, en kijk daarna hoe dicht je gok erbij kwam.",
+        "simplerVersion": "Gebruik plaatjeskaartjes of een boodschappenlijst met plaatjes in plaats van woorden, en gebruik muntjes of fiches in plaats van echte prijzen.",
+        "nonverbalAdaptation": "Wijs naar plaatjes om de lijst te maken. Praten of schrijven is niet nodig - wijzen en knikken werken perfect.",
+        "reflectionPrompt": "Wat was het moeilijkste onderdeel van het plannen van de lijst?",
+        "parentGuidance": "Laat je kind echte keuzes maken, ook kleine, zoals welke snack. Een echte boodschappentrip gebeurt altijd samen met een volwassene die je vertrouwt - je kind mag nooit alleen boodschappen doen. Een doe-alsof-winkeltje zonder echt geld werkt net zo goed als een echte trip."
+      },
+      "resource-rescue": {
+        "title": "De Materialenredding",
+        "intro": "Voordat je iets nieuws koopt, ga op reddingsmissie: zoek dingen die al thuis zijn en die je opnieuw kunt gebruiken.",
+        "objectives": [
+          "Vind materialen die al thuis zijn",
+          "Gebruik ze opnieuw om iets te maken of te repareren",
+          "Let op hoeveel er \"gered\" is in plaats van gekocht"
+        ],
+        "materials": [
+          "Dingen die al in huis zijn - dozen, papier, lapjes stof, oud speelgoed, bakjes",
+          "Plakband, lijm, of touw (optioneel)"
+        ],
+        "steps": [
+          "Denk aan iets wat je zou willen maken, repareren, of bouwen.",
+          "Ga op \"reddingsmissie\" door het huis om materialen te vinden - vraag het eerst!",
+          "Kijk wat je kunt maken met alleen wat je hebt gevonden.",
+          "Als er iets ontbreekt, denk aan een creatief alternatief voordat je vraagt om het te kopen.",
+          "Laat je geredde creatie trots zien!"
+        ],
+        "durationEstimate": "Ongeveer 20-30 minuten.",
+        "independentVersion": "Geef jezelf een uitdaging: maak iets met maar 3 geredde voorwerpen.",
+        "simplerVersion": "Een volwassene verzamelt vooraf 3-4 veilige keuzes, en jij kiest en combineert ze vrij - geen zoeken nodig.",
+        "nonverbalAdaptation": "Wijs naar voorwerpen of verzamel ze, in plaats van ze te benoemen. Bouwen en materialen combineren kan helemaal zonder woorden.",
+        "reflectionPrompt": "Wat heb je gered in plaats van nieuw te kopen?",
+        "parentGuidance": "Dit ontwikkelt vindingrijkheid, niet zuinigheid als regel. Vier de creativiteit, niet alleen het geld dat \"bespaard\" is."
+      },
+      "make-something": {
+        "title": "Maak Iets",
+        "intro": "Maak iets eenvoudigs met wat je hebt, en laat het dan aan iemand zien om te vragen wat ze ervan vinden.",
+        "objectives": [
+          "Maak een eenvoudig product met beschikbare materialen",
+          "Deel het met iemand die je vertrouwt",
+          "Luister naar hun feedback"
+        ],
+        "materials": [
+          "Papier, kleurpotloden, stickers, lijm, of andere knutselspullen die je al hebt",
+          "Iemand om het aan te laten zien (een familielid of iemand die je vertrouwt)"
+        ],
+        "steps": [
+          "Besluit wat je wilt maken - een tekening, een armbandje, een kaart, wat dan ook.",
+          "Verzamel je materialen en maak het - heb je een schaar of iets scherps nodig, vraag dan een volwassene om te helpen.",
+          "Laat het zien aan een familielid of iemand die je vertrouwt.",
+          "Vraag hen één ding dat ze mooi vinden, en één idee voor de volgende keer.",
+          "Besluit of je er nog een wilt maken, op een andere manier."
+        ],
+        "durationEstimate": "Ongeveer 30 minuten.",
+        "independentVersion": "Maak twee versies en vraag welke mensen liever hebben, en waarom.",
+        "simplerVersion": "Gebruik een eenvoudige knutselset of sjabloon in plaats van zelf iets te ontwerpen.",
+        "nonverbalAdaptation": "Laat je creatie zien en laat de ander wijzen naar of een gebaar maken over hun favoriete deel, in plaats van het met woorden te beschrijven.",
+        "reflectionPrompt": "Wat zou je de volgende keer anders doen?",
+        "parentGuidance": "Houd feedback vriendelijk en specifiek. Het doel is de gewoonte van maken-en-delen opbouwen, niet een perfect resultaat krijgen. Pas het gereedschap aan op wat je kind veilig kan gebruiken, en help zelf direct met alles wat scherp is."
+      },
+      "my-first-mini-business": {
+        "title": "Mijn Eerste Miniwinkeltje",
+        "intro": "Plan met hulp van een volwassene een heel klein doe-alsof winkeltje of kraampje voor een familiefeest, en oefen met het runnen ervan.",
+        "objectives": [
+          "Kies een eenvoudig product of activiteit om aan te bieden",
+          "Bepaal een prijs (doe-alsof, of een heel klein echt bedrag)",
+          "Oefen met praten tegen \"klanten\""
+        ],
+        "materials": [
+          "Een eenvoudig product (tekeningen, zelfgebakken lekkers, een spelletjeskraam) - met toezicht van een volwassene",
+          "Speelgeld, fiches, of (samen met een volwassene) een paar kleine echte muntjes",
+          "Een klein tafeltje of dienblad"
+        ],
+        "steps": [
+          "Kies samen met een volwassene één eenvoudig ding om te \"verkopen\" of aan te bieden op een familiefeest - gaat het om eten, dan controleert een volwassene op allergieën en doet het kookwerk.",
+          "Bepaal samen een prijs - speelgeld is helemaal prima.",
+          "Richt samen een klein kraampje in.",
+          "Oefen met het begroeten van een \"klant\" (een familielid) en zijn of haar bestelling opnemen.",
+          "Praat er daarna over hoe het voelde en wat je de volgende keer zou willen proberen."
+        ],
+        "durationEstimate": "Ongeveer 20 minuten om te plannen, plus het feest zelf.",
+        "independentVersion": "Neem zelf het woord bij de klanten, terwijl de volwassene alleen vanuit de buurt toezicht houdt.",
+        "simplerVersion": "De volwassene praat met alle klanten; jij geeft de dingen af en verzamelt de speelfiches.",
+        "nonverbalAdaptation": "Gebruik een menukaart of prijslijst met plaatjes in plaats van prijzen hardop te zeggen. Iets overhandigen is op zichzelf al een complete interactie.",
+        "reflectionPrompt": "Wat was leuk, en wat voelde lastig?",
+        "parentGuidance": "Dit moet altijd onder toezicht blijven en binnen familie of vertrouwde kring, nooit met vreemden, en nooit met echte openbare verkoop. Gaat het om eten, controleer dan op allergieën en laat een volwassene de bereiding en hygiëne doen. Een helemaal doe-alsof-versie - doe-alsof-eten, doe-alsof-geld - leert precies dezelfde lessen zonder dat er ook maar iets van echt eten bij komt."
+      },
+      "test-my-idea": {
+        "title": "Test Mijn Idee",
+        "intro": "Heb je een idee voor iets om te maken of te doen? Test het bij een paar mensen voordat je er veel werk in steekt.",
+        "objectives": [
+          "Beschrijf een probleem of idee eenvoudig",
+          "Vraag een paar mensen wat ze ervan denken",
+          "Besluit wat je gaat proberen op basis van hun feedback"
+        ],
+        "materials": [
+          "Alleen je idee - papier om het te schetsen helpt ook",
+          "2-3 familieleden of vertrouwde mensen om het aan te vragen"
+        ],
+        "steps": [
+          "Denk aan een klein probleem dat je hebt opgemerkt, of een idee dat je hebt.",
+          "Beschrijf het in één eenvoudige zin, of teken het.",
+          "Vraag 2-3 mensen: \"Wat vind je hiervan?\"",
+          "Luister naar wat ze zeggen, ook als het anders is dan je verwachtte.",
+          "Besluit: het idee hetzelfde houden, een beetje veranderen, of iets nieuws proberen."
+        ],
+        "durationEstimate": "Ongeveer 15-20 minuten.",
+        "independentVersion": "Vraag het aan mensen die je nog niet zo goed kent (met een vertrouwde volwassene erbij) voor een bredere mix aan meningen.",
+        "simplerVersion": "Laat een tekening of voorwerp zien in plaats van het met woorden uit te leggen, en laat mensen wijzen naar duim omhoog of duim omlaag.",
+        "nonverbalAdaptation": "Gebruik een tekening, een symbolenkaart, of wijs naar het idee. Feedback kan een knik zijn, een duim omhoog of omlaag, of een eenvoudig gebaar.",
+        "reflectionPrompt": "Zei iemand iets wat je verraste?",
+        "parentGuidance": "Dit leert dat feedback vragen vóórdat je veel moeite steekt in iets, waardevol is, niet eng. Houd elke reactie vriendelijk, ook een \"nee, liever niet\"."
+      },
+      "understand-the-numbers": {
+        "title": "Begrijp de Cijfers",
+        "intro": "Gebruik een eenvoudig voorbeeld om het verschil te zien tussen wat iets kost om te maken, waarvoor het verkocht wordt, en wat er overblijft.",
+        "objectives": [
+          "Onderscheid kosten, prijs en winst met één voorbeeld",
+          "Gebruik een visuele of praktische versie als cijfers lastig zijn",
+          "Zie dat winst is wat er overblijft na de kosten"
+        ],
+        "materials": [
+          "Een eenvoudig voorbeeld - limonade, koekjes, of een tekening van een kraampje",
+          "Muntjes, telblokjes, of tekeningen (een versie zonder rekenmachine mag altijd)"
+        ],
+        "steps": [
+          "Kies één doe-alsof product - zoals een bekertje limonade.",
+          "Zoek uit (of vraag een volwassene om te helpen uitzoeken) wat het kost om één bekertje te maken.",
+          "Bepaal voor welke prijs je het zou verkopen.",
+          "Gebruik voorwerpen of tekeningen om te laten zien: prijs min kosten is wat er overblijft (de winst).",
+          "Probeer het opnieuw met een andere prijs en kijk wat er verandert."
+        ],
+        "durationEstimate": "Ongeveer 15 minuten.",
+        "independentVersion": "Probeer het met 2-3 producten tegelijk en vergelijk welk product het meeste overlaat.",
+        "simplerVersion": "Gebruik gekleurde telblokjes: een stapel voor de kosten, een grotere stapel voor de prijs, en haal de kostenstapel er letterlijk af om te zien wat overblijft - geen rekenen nodig.",
+        "nonverbalAdaptation": "Gebruik telblokjes of tekeningen om het hele idee te laten zien zonder een enkel getal te spreken of te schrijven.",
+        "reflectionPrompt": "Wat gebeurde er met het bedrag dat overbleef toen je de prijs veranderde?",
+        "parentGuidance": "Dit is hetzelfde idee dat in Ondernemersquest wordt onderwezen: kosten, prijs en winst. Een visuele versie zonder rekenen leert het concept net zo goed als de sommen zelf maken."
+      },
+      "solve-a-real-problem": {
+        "title": "Los een Echt Probleem Op",
+        "intro": "Merk een klein probleem op in je dagelijks leven, en kom met je eigen praktische manier om het op te lossen.",
+        "objectives": [
+          "Merk een klein, echt probleem op",
+          "Denk aan een praktische oplossing",
+          "Probeer het uit"
+        ],
+        "materials": [
+          "Niets nodig - alleen opletten!",
+          "Papier of tekenspullen als dat helpt om te denken"
+        ],
+        "steps": [
+          "Denk aan iets wat een beetje vervelend of lastig is in je dag (een rommelige plank, een vergeten klusje, een verwarrend schema).",
+          "Beschrijf het probleem eenvoudig - in woorden, een tekening, of voor jezelf.",
+          "Denk aan één praktische manier om het beter te maken.",
+          "Probeer je oplossing uit.",
+          "Kijk wat er gebeurde - hielp het?"
+        ],
+        "durationEstimate": "Ongeveer 15 minuten, plus het uitproberen van de oplossing.",
+        "independentVersion": "Los een probleem op dat meer mensen raakt dan alleen jezelf, zoals iets thuis waarmee iedereen te maken heeft.",
+        "simplerVersion": "Kies uit een kort lijstje met veelvoorkomende problemen dat een volwassene aanbiedt, en kies een oplossing uit een paar plaatjes.",
+        "nonverbalAdaptation": "Wijs naar het probleem of speel het uit, in plaats van het met woorden te beschrijven. De oplossing kan getoond worden door iets te doen in plaats van uit te leggen.",
+        "reflectionPrompt": "Werkte je oplossing zoals je hoopte?",
+        "parentGuidance": "Laat je kind een echt klein probleem kiezen - de grootte maakt niet uit. Vier de poging, ook als de oplossing niet helemaal werkt."
+      },
+      "make-something-together": {
+        "title": "Maak Samen Iets",
+        "intro": "Werk samen met een familielid of iemand die je vertrouwt om samen een klein project te plannen en af te maken.",
+        "objectives": [
+          "Plan een project met iemand anders",
+          "Wissel om de beurt af en deel beslissingen",
+          "Maak het samen af"
+        ],
+        "materials": [
+          "Elk eenvoudig project - een puzzel, een knutselwerkje, een ruimte opruimen, of (met hulp van een volwassene) een eenvoudig recept",
+          "Iemand om mee samen te werken"
+        ],
+        "steps": [
+          "Kies een klein project dat je in één keer samen kunt afmaken.",
+          "Besluit samen wie welk deel doet - wissel om de beurt af met beslissen.",
+          "Werk er samen aan, en check steeds even bij elkaar - gaan jullie koken, dan controleert een volwassene op allergieën en doet alles wat heet of scherp is.",
+          "Maak het project af.",
+          "Praat erover hoe het samenwerken voelde."
+        ],
+        "durationEstimate": "Ongeveer 20-30 minuten.",
+        "independentVersion": "Neem zelf de leiding bij het plannen van wie wat doet, terwijl je partner jouw plan volgt.",
+        "simplerVersion": "Gebruik een visuele beurtenkaart (twee plaatjes, wissel na elke beurt) in plaats van te praten over wie er aan de beurt is.",
+        "nonverbalAdaptation": "Gebruik gebaren, wijzen, of een beurtvoorwerp (zoals een klein voorwerp doorgeven) om te laten zien wie er aan de beurt is - praten is niet nodig.",
+        "reflectionPrompt": "Hoe voelde het om de beslissingen te delen?",
+        "parentGuidance": "Geef je kind echte invloed op de beslissingen, ook over kleine dingen. De controle delen is hier de echte les. Kies je voor een recept, controleer dan op allergieën en laat hygiëne en alles wat heet of scherp is aan de volwassene over - een puzzel of knutselwerkje leert dezelfde samenwerking, zonder dat er een keuken nodig is."
+      },
+      "share-my-idea": {
+        "title": "Deel Mijn Idee",
+        "intro": "Denk aan een idee, en deel het met iemand anders, op de manier die het beste bij jou past.",
+        "objectives": [
+          "Heb een idee dat het waard is om te delen",
+          "Communiceer het op jouw eigen manier",
+          "Kijk hoe iemand erop reageert"
+        ],
+        "materials": [
+          "Alleen je idee",
+          "Papier, plaatjes, symbolen, of een communicatiehulpmiddel als dat is hoe jij communiceert - allemaal even goed"
+        ],
+        "steps": [
+          "Denk aan één idee dat je graag zou willen delen - een spel, een plan, een verhaal, wat dan ook.",
+          "Kies hoe je het gaat delen: praten, schrijven, tekenen, symbolen, een communicatiehulpmiddel, of het laten zien of uitspelen.",
+          "Deel het met iemand die je vertrouwt.",
+          "Kijk hoe ze reageren.",
+          "Merk op hoe het voelde om iets van jezelf te delen."
+        ],
+        "durationEstimate": "Ongeveer 10-15 minuten.",
+        "independentVersion": "Deel je idee met meer dan één persoon en kijk of hun reacties verschillen.",
+        "simplerVersion": "Gebruik één plaatje of voorwerp om het hele idee te laten zien, in plaats van elk detail uit te leggen.",
+        "nonverbalAdaptation": "Spreken is hier nooit verplicht - tekenen, naar symbolen wijzen, een communicatiehulpmiddel gebruiken, of het idee voordoen zijn allemaal complete, geldige manieren om het te delen.",
+        "reflectionPrompt": "Hoe voelde het toen iemand jouw idee hoorde?",
+        "parentGuidance": "Hoe je kind ook communiceert, dat is de juiste manier voor deze missie. Het doel is gehoord worden, niet een bepaalde methode gebruiken."
+      },
+      "learn-change-and-try-again": {
+        "title": "Leer, Verander, en Probeer Opnieuw",
+        "intro": "Denk aan iets wat niet helemaal ging zoals gepland, en besluit of je het opnieuw wilt proberen, op een andere manier.",
+        "objectives": [
+          "Denk terug aan iets wat niet ging zoals verwacht",
+          "Denk aan één mogelijke verandering",
+          "Kies of je het opnieuw wilt proberen"
+        ],
+        "materials": [
+          "Niets nodig - alleen even terugdenken",
+          "Papier of tekenspullen als dat helpt"
+        ],
+        "steps": [
+          "Denk aan iets recents wat niet helemaal ging zoals je hoopte - groot of klein.",
+          "Denk na over (of teken) wat er gebeurde.",
+          "Denk aan één ding dat je anders zou kunnen proberen.",
+          "Besluit: wil je het opnieuw proberen? Beide antwoorden zijn goed.",
+          "Als je het opnieuw probeert, let dan op wat er anders ging."
+        ],
+        "durationEstimate": "Ongeveer 10 minuten, plus opnieuw proberen als je dat wilt.",
+        "independentVersion": "Probeer de activiteit helemaal zelfstandig opnieuw, en pas je eigen verandering toe.",
+        "simplerVersion": "Kies je \"verandering\" uit een kort lijstje met plaatjes dat een volwassene aanbiedt, in plaats van er zelf een te verzinnen.",
+        "nonverbalAdaptation": "Wijs naar een gezicht (blij, oké, of gefrustreerd) om te laten zien hoe de eerste keer voelde, en wijs naar een plaatje om de verandering te laten zien die je wilt proberen - geen woorden nodig.",
+        "reflectionPrompt": "Wat zou je de volgende keer anders willen proberen?",
+        "parentGuidance": "Er is geen druk om het opnieuw te proberen - niet opnieuw proberen is ook een helemaal prima uitkomst. De echte vaardigheid hier is eerlijk reflecteren, niet slagen bij de tweede poging."
+      }
+    }
   }
 }

@@ -6352,5 +6352,392 @@
     "safetyBody": "Pregătim o adresă de contact dedicată pentru probleme de siguranță, dar nu este încă publicată aici. Revino curând.",
     "everythingElseTitle": "Orice altceva",
     "everythingElseBody": "Pregătim o adresă de contact generală pentru întrebări și feedback, dar nu este încă publicată aici. Revino curând."
+  },
+  "realLifeQuests": {
+    "hubTitle": "Misiuni din Viața Reală",
+    "hubTagline": "Du ce ai învățat în lumea reală.",
+    "hubIntro": "Misiunile din Viața Reală sunt provocări pe care le încerci departe de ecran, cu oamenii și lucrurile din jurul tău. Alege una, încearc-o în ritmul tău și spune-ne cum a fost. Nu e nicio grabă și nu există un mod greșit de a le face.",
+    "parentIntroTitle": "Pentru părinți și educatori",
+    "parentIntro": "Misiunile din Viața Reală leagă ce învață copilul tău în Money Quest, Misiunea Antreprenorului și Misiunea de Lider de situații de zi cu zi, acasă. Fiecare misiune se poate face cu bani imaginari, desene sau lucruri pe care le aveți deja - nu trebuie cumpărat nimic și nu are loc niciodată vânzare sau plată reală fără tine de față. Alegeți misiunile împreună, schimbați-le liber ca să se potrivească copilului tău și nu există nicio presiune să le terminați rapid sau perfect.",
+    "categories": {
+      "money-skills": {
+        "title": "Abilități cu Banii",
+        "description": "Exersează economisirea, cheltuirea înțeleaptă și planificarea cu bani - folosind viața reală, nu doar cifre pe un ecran."
+      },
+      "entrepreneurship": {
+        "title": "Antreprenoriat",
+        "description": "Creează lucruri, testează-ți ideile și înțelege cum funcționează costurile și prețurile - totul într-un mod sigur, supravegheat."
+      },
+      "leadership": {
+        "title": "Leadership",
+        "description": "Rezolvă probleme, lucrează cu alții, spune-ți ideile și învață din ce nu a mers conform planului."
+      }
+    },
+    "supervision": {
+      "label": "Implicarea unui adult",
+      "independent": "Poate fi încercată singur/singură",
+      "with-adult": "Bine cu un adult prin preajmă",
+      "adult-required": "Ai nevoie de un adult alături"
+    },
+    "status": {
+      "not-started": "Încă neîncepută",
+      "started": "În curs",
+      "completed": "Finalizată!"
+    },
+    "variantLabels": {
+      "standard": "Versiunea obișnuită",
+      "independent": "Versiune mai independentă",
+      "simpler": "Versiune mai simplă, vizuală"
+    },
+    "variantsTitle": "Alege-ți versiunea",
+    "objectivesTitle": "Ce vei exersa",
+    "materialsTitle": "De ce vei avea nevoie",
+    "stepsTitle": "Pași",
+    "durationLabel": "Cam cât durează",
+    "nonverbalTitle": "Nu vorbești sau nu scrii? E perfect așa",
+    "parentGuidanceTitle": "Pentru părinți și educatori",
+    "markStartedButton": "Marchează ca începută",
+    "markCompletedButton": "Marchează ca finalizată",
+    "missionCompletedHint": "Treabă bună - poți oricând să-ți schimbi versiunea sau să adaugi la reflecția ta.",
+    "backToHub": "Înapoi la Misiunile din Viața Reală",
+    "linkedActivityIntro": "Vrei să continui și pe ecran?",
+    "linkedActivity": {
+      "savingsGoals": "Încearcă unealta Obiective de Economisire",
+      "priceDetectiveGame": "Joacă jocul Detectivul de Prețuri",
+      "buildABudgetGame": "Joacă jocul Construiește un Buget",
+      "entrepreneurQuest": "Continuă în Misiunea Antreprenorului",
+      "leadershipQuest": "Continuă în Misiunea de Lider"
+    },
+    "reflectionTitle": "Cum a fost?",
+    "reflectionHint": "Alege ce ți se pare adevărat - nu există un răspuns greșit.",
+    "reflectionChoices": {
+      "great": "😊 A fost grozav!",
+      "okay": "😐 A fost okay",
+      "tricky": "🤔 A fost cam dificil",
+      "idea": "💡 Am o idee nouă acum"
+    },
+    "reflectionTextLabel": "Vrei să spui mai multe? (total opțional)",
+    "reflectionTextPlaceholder": "Poți scrie aici, sau poți lăsa necompletat.",
+    "rewardEarnedText": "Ai câștigat {xp} XP pentru că ai încercat această misiune!",
+    "missionsCompletedCount": "{completed} din {total} misiuni încercate",
+    "categoryFilterAll": "Toate",
+    "resetConfirm": "Aceasta șterge tot progresul tău la Misiunile din Viața Reală de pe acest dispozitiv. Ești sigur?",
+    "resetButton": "Resetează progresul la Misiunile din Viața Reală",
+    "missions": {
+      "save-for-something-you-love": {
+        "title": "Economisește pentru Ceva ce Iubești",
+        "intro": "Alege ceva ce îți dorești cu adevărat. Apoi fă un plan simplu ca să economisești pentru el, puțin câte puțin.",
+        "objectives": [
+          "Alege un lucru pentru care vrei să economisești",
+          "Fă un plan simplu de economisire pentru el",
+          "Urmărește-ți progresul pe parcurs"
+        ],
+        "materials": [
+          "O foaie de hârtie sau un borcan",
+          "Abțibilduri, bife sau desene pentru a urmări progresul (sau folosește unealta Obiective de Economisire)",
+          "Un creion sau carioci"
+        ],
+        "steps": [
+          "Gândește-te la un lucru pe care ți-ar plăcea să-l ai sau să-l faci - mare sau mic.",
+          "Desenează-l sau scrie-i numele în partea de sus a foii sau pe borcan.",
+          "Decide din câți \"pași\" va fi nevoie ca să ajungi acolo (de exemplu, 5 abțibilduri sau 5 monede).",
+          "De fiecare dată când economisești puțin, adaugă un abțibild, o monedă sau o bifă.",
+          "Continuă până când planul tău e complet!"
+        ],
+        "durationEstimate": "Cam 10 minute ca să pornești, apoi un mic bilanț în fiecare săptămână - asta durează câtva timp până se termină.",
+        "independentVersion": "Alege-ți singur obiectivul și urmărește-l complet de unul singur, și încearcă-l și online cu unealta Obiective de Economisire.",
+        "simplerVersion": "Folosește un borcan și obiecte reale (monede, nasturi, abțibilduri) în loc de cifre - privește doar cum se umple borcanul de fiecare dată.",
+        "nonverbalAdaptation": "Alege-ți obiectivul arătând cu degetul spre o poză sau un obiect, în loc să-l spui cu voce tare. Urmărirea progresului cu abțibilduri sau bife nu are nevoie deloc de vorbit sau scris.",
+        "reflectionPrompt": "Cum a fost să vezi planul tău crescând?",
+        "parentGuidance": "Lasă-ți copilul să aleagă obiectivul, chiar și unul mic e suficient de bun. Nu e nevoie de grabă; ideea este să exersați răbdarea și planificarea, nu să terminați rapid. Dacă sunt copii mai mici în preajmă, abțibildurile sau bifele sunt o metodă de urmărire mai sigură decât monedele mici sau nasturii."
+      },
+      "the-price-detective": {
+        "title": "Detectivul de Prețuri",
+        "intro": "Devino detectiv! Privește la două lucruri similare și investighează ce le face prețurile diferite.",
+        "objectives": [
+          "Compară două produse similare",
+          "Observă ce diferă între ele",
+          "Gândește-te la ce înseamnă \"valoare bună\""
+        ],
+        "materials": [
+          "Două obiecte similare pe care le ai deja acasă, sau două dintr-un pliant sau site de magazin, cu un adult - nu e nevoie niciodată să mergeți la magazin",
+          "Nimic altceva nu e nevoie!"
+        ],
+        "steps": [
+          "Alege două lucruri similare pe care le ai deja, sau găsește două într-un pliant sau site, cu un adult - cum ar fi două sortimente de suc sau două caiete.",
+          "Privește (sau cere unui adult să-ți spună) fiecare preț.",
+          "Privește cu atenție la fiecare - mărime, cum arată, cât ar putea ține.",
+          "Decide pe care îl crezi a fi alegerea mai bună, și de ce.",
+          "Spune-i cuiva concluzia ta de detectiv!"
+        ],
+        "durationEstimate": "Cam 15 minute.",
+        "independentVersion": "Investighează trei sau mai multe obiecte în loc de două, și clasează-le de la cea mai bună valoare la cea mai mică.",
+        "simplerVersion": "Arată doar spre cel care pare mai mare, sau cel cu un abțibild cu față vesel pe care un adult l-a pus lângă preț.",
+        "nonverbalAdaptation": "Arată cu degetul, dă din cap, sau folosește degetul mare sus și jos ca să-ți spui concluzia de detectiv, în loc să o explici în cuvinte.",
+        "reflectionPrompt": "Pe care l-ai ales, și ce te-a făcut să-l alegi?",
+        "parentGuidance": "Nu există un răspuns \"corect\" aici - scopul este să observi și să compari, nu să obții alegerea \"corectă\". Un obiect mai scump poate fi totuși cea mai bună valoare; lasă-ți copilul să raționeze cu voce tare sau arătând cu degetul. A compara lucruri pe care le aveți deja acasă sau dintr-un pliant funcționează la fel de bine ca o vizită la magazin - iar dacă mergeți totuși la un magazin real, un adult de încredere vă acompaniază mereu."
+      },
+      "plan-a-shopping-trip": {
+        "title": "Planifică o Ieșire la Cumpărături",
+        "intro": "Ajută la planificarea unei ieșiri reale (sau imaginare) la cumpărături. Fă o listă și gândește-te cât ar putea costa totul.",
+        "objectives": [
+          "Ajută la alcătuirea unei liste de cumpărături",
+          "Gândește-te la un buget simplu",
+          "Exersează să alegi ce e mai important"
+        ],
+        "materials": [
+          "Hârtie și creion, sau o tăbliță sau o notă pe tabletă",
+          "O listă de cumpărături reală, sau una imaginară cu un magazin de jucărie"
+        ],
+        "steps": [
+          "Întreabă un adult de ce e nevoie pentru următoarea ieșire la cumpărături.",
+          "Ajutați-vă să scrieți sau să desenați lista împreună.",
+          "Alegeți împreună o cifră pentru \"buget\" - reală sau imaginară.",
+          "Privește lista și decide ce e mai important dacă bugetul e strâmt.",
+          "Mergi la cumpărături împreună cu adultul tău de încredere - nu te duci niciodată singur la cumpărături - sau jucați-vă de-a magazinul acasă, și vedeți cât de aproape a fost planul."
+        ],
+        "durationEstimate": "Cam 20 de minute pentru planificare; ieșirea în sine durează cât durează.",
+        "independentVersion": "Încearcă să estimezi costul total înainte de ieșire, apoi verifică cât de aproape a fost ghicitoarea.",
+        "simplerVersion": "Folosește cartonașe cu imagini sau o listă de cumpărături cu poze în loc să scrii cuvinte, și folosește monede sau jetoane în loc de prețuri reale.",
+        "nonverbalAdaptation": "Arată cu degetul spre poze ca să alcătuiești lista. Nu e nevoie să vorbești sau să scrii - a arăta cu degetul și a da din cap funcționează perfect.",
+        "reflectionPrompt": "Care a fost cea mai dificilă parte din planificarea listei?",
+        "parentGuidance": "Lasă-ți copilul să facă alegeri reale, chiar și mici, cum ar fi să aleagă ce gustare. O ieșire reală se face mereu împreună cu un adult de încredere - copilul tău nu trebuie să meargă niciodată singur la cumpărături. Un magazin imaginar, fără bani reali, funcționează la fel de bine ca o ieșire reală."
+      },
+      "resource-rescue": {
+        "title": "Misiunea de Salvare a Resurselor",
+        "intro": "Înainte să cumperi ceva nou, pornește într-o misiune de salvare: găsește lucruri deja acasă care ar putea fi refolosite în schimb.",
+        "objectives": [
+          "Găsește materiale deja existente acasă",
+          "Refolosește-le ca să faci sau să repari ceva",
+          "Observă cât ai \"salvat\" în loc să cumperi"
+        ],
+        "materials": [
+          "Lucruri deja prin casă - cutii, hârtie, resturi de material, jucării vechi, cutiuțe",
+          "Bandă adezivă, lipici sau sfoară (opțional)"
+        ],
+        "steps": [
+          "Gândește-te la ceva ce ți-ar plăcea să faci, să repari sau să construiești.",
+          "Pornește într-o \"misiune de salvare\" prin casă ca să găsești materiale - întreabă mai întâi!",
+          "Vezi ce poți face folosind doar ce ai găsit.",
+          "Dacă lipsește ceva, gândește-te la o înlocuire creativă înainte să ceri să cumperi.",
+          "Arată-ți creația salvată!"
+        ],
+        "durationEstimate": "Cam 20-30 de minute.",
+        "independentVersion": "Pune-ți o provocare: fă ceva folosind doar 3 lucruri salvate.",
+        "simplerVersion": "Un adult adună dinainte 3-4 variante sigure, iar tu alegi și le combini liber - fără să fie nevoie să cauți.",
+        "nonverbalAdaptation": "Arată cu degetul spre obiecte sau adună-le în loc să le numești. Construirea și combinarea materialelor nu are nevoie deloc de cuvinte.",
+        "reflectionPrompt": "Ce ai salvat în loc să cumperi nou?",
+        "parentGuidance": "Asta construiește ingeniozitate, nu economie cu orice preț ca regulă. Sărbătorește creativitatea, nu doar banii \"economisiți\"."
+      },
+      "make-something": {
+        "title": "Fă Ceva",
+        "intro": "Creează ceva simplu cu ce ai, apoi arată-i cuiva și întreabă-l ce părere are.",
+        "objectives": [
+          "Fă un produs simplu din materiale disponibile",
+          "Împarte-l cu cineva în care ai încredere",
+          "Ascultă părerea lui"
+        ],
+        "materials": [
+          "Hârtie, carioci, abțibilduri, lipici, sau alte materiale de meșterit pe care le ai deja",
+          "Cineva căruia să-i arăți (un membru al familiei sau o persoană de încredere)"
+        ],
+        "steps": [
+          "Decide ce ți-ar plăcea să faci - un desen, o brățară, o felicitare, orice.",
+          "Adună-ți materialele și fă-l - dacă ai nevoie de foarfecă sau de altceva ascuțit, cere ajutorul unui adult.",
+          "Arată-l unui membru al familiei sau unei persoane de încredere.",
+          "Întreabă-l un lucru care îi place, și o idee pentru data viitoare.",
+          "Decide dacă ai vrea să mai faci unul, diferit."
+        ],
+        "durationEstimate": "Cam 30 de minute.",
+        "independentVersion": "Fă două versiuni și întreabă pe care o preferă oamenii, și de ce.",
+        "simplerVersion": "Folosește un set simplu de meșterit sau un șablon în loc să creezi de la zero.",
+        "nonverbalAdaptation": "Arată-ți creația și lasă cealaltă persoană să arate cu degetul sau să gesticuleze spre partea ei preferată, în loc s-o descrie în cuvinte.",
+        "reflectionPrompt": "Ce ai face diferit data viitoare?",
+        "parentGuidance": "Păstrează feedback-ul blând și concret. Scopul este să construiți obiceiul de a face și de a împărtăși, nu să obții un rezultat perfect. Alege uneltele potrivite pentru ce poate folosi copilul tău în siguranță, și ajută-l direct cu orice e ascuțit."
+      },
+      "my-first-mini-business": {
+        "title": "Prima Mea Mini-Afacere",
+        "intro": "Cu ajutorul unui adult, planifică un mic stand sau magazin imaginar pentru un eveniment de familie, și exersează cum îl conduci.",
+        "objectives": [
+          "Alege un produs sau o activitate simplă de oferit",
+          "Stabilește un preț (imaginar, sau o sumă reală foarte mică)",
+          "Exersează să vorbești cu \"clienții\""
+        ],
+        "materials": [
+          "Un produs simplu (desene, prăjituri, un stand de jocuri) - supravegheat de un adult",
+          "Bani imaginari, jetoane, sau (cu un adult) monede mici reale",
+          "O masă mică sau o tavă"
+        ],
+        "steps": [
+          "Cu un adult, alege un lucru simplu de \"vândut\" sau oferit la un eveniment de familie - dacă e vorba de mâncare, un adult verifică alergiile și se ocupă de gătit.",
+          "Decideți împreună un preț - banii imaginari sunt perfect în regulă.",
+          "Pregătiți împreună un mic stand.",
+          "Exersează să întâmpini un \"client\" (un membru al familiei) și să-i iei comanda.",
+          "Vorbiți apoi despre cum a fost și ce ai vrea să încerci data viitoare."
+        ],
+        "durationEstimate": "Cam 20 de minute pentru planificare, plus evenimentul în sine.",
+        "independentVersion": "Ia tu conducerea discuțiilor cu clienții, cât adultul doar supraveghează de aproape.",
+        "simplerVersion": "Adultul se ocupă de toate discuțiile cu clienții; tu înmânezi obiectele și strângi jetoanele imaginare.",
+        "nonverbalAdaptation": "Folosește un meniu cu poze sau un grafic de prețuri în loc să spui prețurile cu voce tare. A da un obiect este o interacțiune completă prin ea însăși.",
+        "reflectionPrompt": "Ce a fost distractiv, și ce a fost dificil?",
+        "parentGuidance": "Asta trebuie supravegheată mereu și ținută doar în familie sau cu persoane de încredere, niciodată cu străini, și niciodată cu vânzare publică reală. Dacă e implicată mâncare, verifică alergiile și lasă un adult să se ocupe de preparare și de igienă. O variantă complet imaginară - mâncare imaginară, bani imaginari - învață exact aceleași lucruri, fără să fie implicată deloc mâncare reală."
+      },
+      "test-my-idea": {
+        "title": "Testează-mi Ideea",
+        "intro": "Ai o idee pentru ceva de făcut? Testeaz-o cu câțiva oameni înainte să pui mult efort în ea.",
+        "objectives": [
+          "Descrie o problemă sau o idee simplu",
+          "Întreabă câțiva oameni ce părere au",
+          "Decide ce să încerci pe baza părerilor lor"
+        ],
+        "materials": [
+          "Doar ideea ta - o hârtie pentru schițe ajută și ea",
+          "2-3 membri ai familiei sau persoane de încredere pe care să le întrebi"
+        ],
+        "steps": [
+          "Gândește-te la o mică problemă pe care ai observat-o, sau o idee pe care o ai.",
+          "Descrie-o într-o propoziție simplă, sau desenează-o.",
+          "Întreabă 2-3 persoane: \"Ce părere ai despre asta?\"",
+          "Ascultă ce îți spun, chiar dacă e diferit de ce te așteptai.",
+          "Decide: păstrezi ideea la fel, o schimbi puțin, sau încerci ceva nou."
+        ],
+        "durationEstimate": "Cam 15-20 de minute.",
+        "independentVersion": "Întreabă oameni pe care nu-i cunoști încă foarte bine (cu un adult de încredere de față) ca să obții o gamă mai largă de păreri.",
+        "simplerVersion": "Arată un desen sau un obiect în loc să explici în cuvinte, și lasă-i pe oameni să arate cu degetul mare sus sau jos.",
+        "nonverbalAdaptation": "Folosește un desen, un cartonaș cu simbol, sau arată cu degetul spre idee. Părerea poate fi un semn din cap, un deget mare sus sau jos, sau un gest simplu.",
+        "reflectionPrompt": "A spus cineva ceva care te-a surprins?",
+        "parentGuidance": "Asta învață că primirea de păreri înainte de a investi mult efort este valoroasă, nu înfricoșătoare. Păstrează fiecare răspuns blând, chiar și un \"nu, mulțumesc\"."
+      },
+      "understand-the-numbers": {
+        "title": "Înțelege Cifrele",
+        "intro": "Folosește un exemplu simplu ca să vezi diferența dintre cât costă să faci ceva, cu cât se vinde, și ce rămâne în plus.",
+        "objectives": [
+          "Distinge costul, prețul și profitul folosind un exemplu",
+          "Folosește o versiune vizuală sau practică dacă cifrele sunt dificile",
+          "Vezi că profitul este ce rămâne după costuri"
+        ],
+        "materials": [
+          "Un exemplu simplu - limonadă, biscuiți, sau un desen cu un stand",
+          "Monede, jetoane sau desene (o versiune fără calculator e mereu în regulă)"
+        ],
+        "steps": [
+          "Alege un produs imaginar - cum ar fi un pahar de limonadă.",
+          "Află (sau cere unui adult să te ajute să afli) cât costă să faci un pahar.",
+          "Decide cu ce preț l-ai vinde.",
+          "Folosește obiecte sau desene ca să arăți: prețul minus costul egal ce rămâne (profitul).",
+          "Încearcă din nou cu un alt preț și vezi ce se schimbă."
+        ],
+        "durationEstimate": "Cam 15 minute.",
+        "independentVersion": "Încearcă cu 2-3 produse deodată și compară care lasă cel mai mult în plus.",
+        "simplerVersion": "Folosește jetoane colorate: un stos pentru cost, un stos mai mare pentru preț, și scoate fizic stosul de cost ca să vezi ce rămâne - fără calcule.",
+        "nonverbalAdaptation": "Folosește jetoane sau desene ca să arăți toată ideea fără să vorbești sau să scrii vreo cifră.",
+        "reflectionPrompt": "Ce s-a întâmplat cu suma rămasă când ai schimbat prețul?",
+        "parentGuidance": "Aceasta este aceeași idee predată în Misiunea Antreprenorului: cost, preț și profit. O versiune vizuală, fără calcule, învață conceptul la fel de bine ca făcând socotelile."
+      },
+      "solve-a-real-problem": {
+        "title": "Rezolvă o Problemă Reală",
+        "intro": "Observă o mică problemă din viața ta de zi cu zi, și vino cu propriul tău mod practic de a o rezolva.",
+        "objectives": [
+          "Observă o problemă mică, reală",
+          "Gândește-te la o soluție practică",
+          "Încearc-o"
+        ],
+        "materials": [
+          "Nimic nu e nevoie - doar observă!",
+          "Hârtie sau materiale de desenat dacă te ajută să gândești"
+        ],
+        "steps": [
+          "Gândește-te la ceva puțin enervant sau dificil din ziua ta (un raft dezordonat, o treabă casnică uitată, un program confuz).",
+          "Descrie problema simplu - în cuvinte, un desen, sau pentru tine.",
+          "Gândește-te la un mod practic de a o face mai bună.",
+          "Încearcă-ți soluția.",
+          "Vezi ce s-a întâmplat - a ajutat?"
+        ],
+        "durationEstimate": "Cam 15 minute, plus încercarea soluției.",
+        "independentVersion": "Rezolvă o problemă care afectează mai mult decât pe tine, cum ar fi ceva de acasă cu care se confruntă toată lumea.",
+        "simplerVersion": "Alege dintr-o listă scurtă de probleme obișnuite oferite de un adult, și alege o soluție din câteva opțiuni cu poze.",
+        "nonverbalAdaptation": "Arată cu degetul sau mimează problema în loc s-o descrii în cuvinte. Soluția poate fi arătată printr-o acțiune, nu printr-o explicație.",
+        "reflectionPrompt": "A funcționat soluția ta cum ai sperat?",
+        "parentGuidance": "Lasă-ți copilul să aleagă o problemă cu adevărat mică, reală - mărimea nu are importanță. Sărbătorește încercarea, chiar dacă soluția nu funcționează complet."
+      },
+      "make-something-together": {
+        "title": "Fă Ceva Împreună",
+        "intro": "Formează o echipă cu un membru al familiei sau o persoană de încredere ca să planificați și să terminați un mic proiect împreună.",
+        "objectives": [
+          "Planifică un proiect cu altcineva",
+          "Faceți cu rândul și împărțiți deciziile",
+          "Terminați-l împreună"
+        ],
+        "materials": [
+          "Orice proiect simplu - un puzzle, un meșterit, ordonarea unui spațiu, sau (cu ajutorul unui adult) o rețetă simplă",
+          "Un partener cu care să lucrezi"
+        ],
+        "steps": [
+          "Alegeți un mic proiect pe care îl puteți termina împreună într-o singură ședință.",
+          "Decideți împreună cine face ce parte - faceți cu rândul la decizii.",
+          "Lucrați la el împreună, verificând pe parcurs - dacă gătiți, un adult verifică alergiile și se ocupă de tot ce e fierbinte sau ascuțit.",
+          "Terminați proiectul.",
+          "Vorbiți despre cum a fost să lucrați în echipă."
+        ],
+        "durationEstimate": "Cam 20-30 de minute.",
+        "independentVersion": "Ia tu conducerea planificării cine face ce, cu partenerul tău urmând planul tău.",
+        "simplerVersion": "Folosiți un grafic vizual pentru rând (două poze, schimbați-le după fiecare rând) în loc să vorbiți despre cine urmează.",
+        "nonverbalAdaptation": "Folosiți gesturi, arătați cu degetul, sau un obiect pentru rând (ca a da din mână un obiect mic) ca să arătați al cui e rândul - fără să fie nevoie de vorbit.",
+        "reflectionPrompt": "Cum a fost să împărțiți deciziile?",
+        "parentGuidance": "Lasă-ți copilul să aibă putere reală de decizie, chiar și asupra lucrurilor mici. Împărțirea controlului este chiar lecția de aici. Dacă alegeți o rețetă, verifică alergiile și lasă igiena și tot ce e fierbinte sau ascuțit în grija adultului - un puzzle sau un meșterit învață același lucru în echipă, fără să fie nevoie de bucătărie."
+      },
+      "share-my-idea": {
+        "title": "Împarte-mi Ideea",
+        "intro": "Gândește-te la o idee, și împarte-o cu altcineva, în modul care funcționează cel mai bine pentru tine.",
+        "objectives": [
+          "Ai o idee care merită împărtășită",
+          "Comunică-o în propriul tău fel",
+          "Vezi cum răspunde cineva la ea"
+        ],
+        "materials": [
+          "Doar ideea ta",
+          "Hârtie, poze, simboluri, sau un dispozitiv AAC dacă așa comunici tu - toate sunt la fel de bune"
+        ],
+        "steps": [
+          "Gândește-te la o idee pe care ți-ar plăcea să o împarți - un joc, un plan, o poveste, orice.",
+          "Alege cum o vei împărți: vorbind, scriind, desenând, cu simboluri, AAC, sau arătând-o ori jucând-o.",
+          "Împarte-o cu cineva în care ai încredere.",
+          "Vezi cum răspunde.",
+          "Observă cum te-ai simțit împărțind ceva al tău."
+        ],
+        "durationEstimate": "Cam 10-15 minute.",
+        "independentVersion": "Împarte-ți ideea cu mai mult de o persoană și vezi dacă răspunsurile lor diferă.",
+        "simplerVersion": "Folosește o singură poză sau obiect care să reprezinte toată ideea în loc să explici fiecare detaliu.",
+        "nonverbalAdaptation": "Vorbirea nu este niciodată obligatorie aici - desenul, arătarea spre simboluri, folosirea AAC, sau demonstrarea ideii sunt toate moduri complete și valide de a o împărți.",
+        "reflectionPrompt": "Cum a fost când cineva a ascultat ideea ta?",
+        "parentGuidance": "Orice mod comunică copilul tău este modul potrivit pentru această misiune. Scopul este să fie ascultat, nu să folosească o anumită metodă."
+      },
+      "learn-change-and-try-again": {
+        "title": "Învață, Schimbă și Încearcă din Nou",
+        "intro": "Gândește-te la ceva care nu a mers exact cum ai planificat, și decide dacă ai vrea să-l încerci din nou, diferit.",
+        "objectives": [
+          "Reflectează asupra a ceva care nu a mers cum te așteptai",
+          "Gândește-te la o posibilă schimbare",
+          "Decide dacă să încerci din nou"
+        ],
+        "materials": [
+          "Nimic nu e nevoie - doar să gândești înapoi",
+          "Hârtie sau materiale de desenat dacă te ajută"
+        ],
+        "steps": [
+          "Gândește-te la ceva recent care nu a mers chiar cum speraseai - mare sau mic.",
+          "Gândește-te (sau desenează) ce s-a întâmplat.",
+          "Gândește-te la un lucru pe care l-ai putea încerca diferit.",
+          "Decide: ai vrea să încerci din nou? E în regulă în ambele cazuri.",
+          "Dacă încerci din nou, observă ce s-a schimbat."
+        ],
+        "durationEstimate": "Cam 10 minute, plus încercarea din nou dacă alegi asta.",
+        "independentVersion": "Încearcă activitatea din nou complet de unul singur, aplicându-ți propria schimbare.",
+        "simplerVersion": "Alege-ți \"schimbarea\" dintr-o listă scurtă de opțiuni cu poze oferite de un adult, în loc să vii cu una de la zero.",
+        "nonverbalAdaptation": "Arată cu degetul spre o față (vesel, okay, sau frustrat) ca să arăți cum a fost prima încercare, și arată spre o poză ca să arăți schimbarea pe care ai vrea s-o încerci - fără cuvinte.",
+        "reflectionPrompt": "Ce ai vrea să încerci diferit data viitoare?",
+        "parentGuidance": "Nu există presiune să încerci din nou - a nu alege asta este de asemenea un rezultat perfect de bun. Adevărata abilitate de aici e să reflectezi sincer, nu să reușești la a doua încercare."
+      }
+    }
   }
 }

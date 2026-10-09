@@ -5961,5 +5961,392 @@
     "safetyBody": "We're setting up a dedicated safety contact address, and it isn't published here yet. Please check back soon.",
     "everythingElseTitle": "Everything else",
     "everythingElseBody": "We're setting up a general contact address for questions and feedback, and it isn't published here yet. Please check back soon."
+  },
+  "realLifeQuests": {
+    "hubTitle": "Real Life Quests",
+    "hubTagline": "Take what you've learned out into the real world.",
+    "hubIntro": "Real Life Quests are missions you try away from the screen, with the people and things already around you. Pick one, try it at your own pace, and tell us how it went. There's no rush, and no wrong way to do them.",
+    "parentIntroTitle": "For parents and educators",
+    "parentIntro": "Real Life Quests connect what your child learns in Money Quest, Entrepreneur Quest, and Leadership Quest to everyday situations at home. Every mission can be done with pretend money, drawings, or things you already have - nothing needs to be bought, and no real selling or payment ever happens without you there. Pick missions together, change them freely to fit your child, and there's no pressure to finish quickly or perfectly.",
+    "categories": {
+      "money-skills": {
+        "title": "Money Skills",
+        "description": "Practise saving, spending wisely, and planning with money - using real life, not just numbers on a screen."
+      },
+      "entrepreneurship": {
+        "title": "Entrepreneurship",
+        "description": "Make things, test ideas, and understand how costs and prices work - all in a safe, supervised way."
+      },
+      "leadership": {
+        "title": "Leadership",
+        "description": "Solve problems, work with others, share your ideas, and learn from what didn't go to plan."
+      }
+    },
+    "supervision": {
+      "label": "Adult involvement",
+      "independent": "Can try this alone",
+      "with-adult": "Good with an adult nearby",
+      "adult-required": "Needs an adult with you"
+    },
+    "status": {
+      "not-started": "Not started yet",
+      "started": "In progress",
+      "completed": "Completed!"
+    },
+    "variantLabels": {
+      "standard": "Regular version",
+      "independent": "More independent version",
+      "simpler": "Simpler, visual version"
+    },
+    "variantsTitle": "Choose your version",
+    "objectivesTitle": "What you'll practise",
+    "materialsTitle": "What you'll need",
+    "stepsTitle": "Steps",
+    "durationLabel": "About how long",
+    "nonverbalTitle": "No talking or writing? That's fine",
+    "parentGuidanceTitle": "For parents and educators",
+    "markStartedButton": "Mark as started",
+    "markCompletedButton": "Mark as completed",
+    "missionCompletedHint": "Nice work - you can still change your version or add to your reflection any time.",
+    "backToHub": "Back to Real Life Quests",
+    "linkedActivityIntro": "Want to keep going on the screen too?",
+    "linkedActivity": {
+      "savingsGoals": "Try the Savings Goals tool",
+      "priceDetectiveGame": "Play the Price Detective game",
+      "buildABudgetGame": "Play the Build a Budget game",
+      "entrepreneurQuest": "Continue in Entrepreneur Quest",
+      "leadershipQuest": "Continue in Leadership Quest"
+    },
+    "reflectionTitle": "How did it go?",
+    "reflectionHint": "Pick whichever feels true - there's no wrong answer.",
+    "reflectionChoices": {
+      "great": "😊 That went great!",
+      "okay": "😐 It was okay",
+      "tricky": "🤔 That was tricky",
+      "idea": "💡 I have a new idea now"
+    },
+    "reflectionTextLabel": "Want to say more? (totally optional)",
+    "reflectionTextPlaceholder": "You can type here, or just leave it blank.",
+    "rewardEarnedText": "You earned {xp} XP for trying this mission!",
+    "missionsCompletedCount": "{completed} of {total} missions tried",
+    "categoryFilterAll": "All",
+    "resetConfirm": "This clears all your Real Life Quests progress on this device. Are you sure?",
+    "resetButton": "Reset Real Life Quests progress",
+    "missions": {
+      "save-for-something-you-love": {
+        "title": "Save for Something You Love",
+        "intro": "Pick something you really want. Then make a simple plan to save up for it, a little bit at a time.",
+        "objectives": [
+          "Choose one thing you'd like to save for",
+          "Make a simple plan for saving toward it",
+          "Track your progress as you go"
+        ],
+        "materials": [
+          "A piece of paper or a jar",
+          "Stickers, tally marks, or drawings to track progress (or use the Savings Goals tool)",
+          "A pencil or crayons"
+        ],
+        "steps": [
+          "Think of one thing you'd love to have or do - big or small.",
+          "Draw it, or write its name, at the top of your paper or on your jar.",
+          "Decide how many \"steps\" it will take to get there (for example, 5 stickers or 5 coins).",
+          "Each time you save a little bit, add one sticker, coin, or tally mark.",
+          "Keep going until your plan is full!"
+        ],
+        "durationEstimate": "About 10 minutes to set up, then a little check-in each week - this one takes some time to finish.",
+        "independentVersion": "Set your own goal and track it completely by yourself, and also try it online with the Savings Goals tool.",
+        "simplerVersion": "Use a jar and real objects (coins, buttons, stickers) instead of numbers - just watch the jar get fuller each time.",
+        "nonverbalAdaptation": "Choose your goal by pointing at a picture or object instead of saying it out loud. Tracking progress with stickers or tally marks needs no talking or writing at all.",
+        "reflectionPrompt": "How did it feel to watch your plan grow?",
+        "parentGuidance": "Let your child pick the goal, even a small one counts. There's no need to rush; the idea is to practise waiting and planning, not to finish quickly. If younger children are around, stickers or tally marks are a safer tracker than small coins or buttons."
+      },
+      "the-price-detective": {
+        "title": "The Price Detective",
+        "intro": "Become a detective! Look at two similar things and investigate what makes their prices different.",
+        "objectives": [
+          "Compare two similar products",
+          "Notice what's different between them",
+          "Think about what \"good value\" means"
+        ],
+        "materials": [
+          "Two similar items already at home, or two from a shop flyer or website with an adult - a shop visit is never required",
+          "Nothing else needed!"
+        ],
+        "steps": [
+          "Pick two similar things you already have, or find two in a flyer or website with an adult - like two kinds of juice or two notebooks.",
+          "Look at (or ask an adult to tell you) each price.",
+          "Look closely at each one - size, how it looks, how long it might last.",
+          "Decide which one you think is the better choice, and why.",
+          "Tell someone your detective conclusion!"
+        ],
+        "durationEstimate": "About 15 minutes.",
+        "independentVersion": "Investigate three or more items instead of two, and rank them from best value to least.",
+        "simplerVersion": "Just point to the one that looks bigger, or the one with a happier face sticker an adult added next to the price.",
+        "nonverbalAdaptation": "Point, nod, or use thumbs up and thumbs down to share your detective conclusion instead of explaining it in words.",
+        "reflectionPrompt": "Which one did you choose, and what made you pick it?",
+        "parentGuidance": "There's no \"correct\" answer here - the goal is noticing and comparing, not getting the \"right\" choice. A pricier item can still be the better value; let your child reason it through out loud or by pointing. Comparing things already at home or in a flyer works just as well as a shop visit - if you do visit a real shop together, a trusted adult always comes along."
+      },
+      "plan-a-shopping-trip": {
+        "title": "Plan a Shopping Trip",
+        "intro": "Help plan a real (or pretend) shopping trip. Make a list and think about how much everything might cost.",
+        "objectives": [
+          "Help make a shopping list",
+          "Think about a simple budget",
+          "Practise choosing what matters most"
+        ],
+        "materials": [
+          "Paper and a pencil, or a whiteboard or tablet note",
+          "A real shopping list, or a pretend one with a toy shop"
+        ],
+        "steps": [
+          "Ask an adult what's needed for the next shopping trip.",
+          "Help write or draw the list together.",
+          "Pick a \"budget\" number together - real or pretend.",
+          "Look at the list and decide what matters most if the budget is tight.",
+          "Go on the trip with your trusted adult - never go shopping alone - or play pretend-shop at home instead, and see how close the plan was."
+        ],
+        "durationEstimate": "About 20 minutes to plan; the trip itself takes as long as it takes.",
+        "independentVersion": "Try estimating the total cost before the trip, then check how close the guess was afterward.",
+        "simplerVersion": "Use picture cards or a picture shopping list instead of writing words, and use coins or tokens instead of real prices.",
+        "nonverbalAdaptation": "Point to pictures to build the list. No speaking or writing is needed - pointing and nodding work perfectly.",
+        "reflectionPrompt": "What was the trickiest part of planning the list?",
+        "parentGuidance": "Let your child make real choices, even small ones, like picking which snack. A real trip always happens together with a trusted adult - your child should never go shopping alone. A pretend shop with no real money works just as well as a real trip."
+      },
+      "resource-rescue": {
+        "title": "Resource Rescue",
+        "intro": "Before buying something new, go on a rescue mission: find things already at home that could be reused instead.",
+        "objectives": [
+          "Find materials already at home",
+          "Reuse them to make or fix something",
+          "Notice how much was \"rescued\" instead of bought"
+        ],
+        "materials": [
+          "Things already around the house - boxes, paper, fabric scraps, old toys, containers",
+          "Tape, glue, or string (optional)"
+        ],
+        "steps": [
+          "Think of something you'd like to make, fix, or build.",
+          "Go on a \"rescue mission\" around the house to find materials - ask first!",
+          "See what you can make using only what you found.",
+          "If something's missing, think of a creative substitute before asking to buy it.",
+          "Show off your rescued creation!"
+        ],
+        "durationEstimate": "About 20-30 minutes.",
+        "independentVersion": "Set yourself a challenge: make something using only 3 rescued items.",
+        "simplerVersion": "An adult gathers 3-4 safe options in advance, and you pick and combine them freely - no searching required.",
+        "nonverbalAdaptation": "Point to or collect objects instead of naming them. Building and combining materials needs no words at all.",
+        "reflectionPrompt": "What did you rescue instead of buying new?",
+        "parentGuidance": "This builds resourcefulness, not frugality-as-a-rule. Celebrate the creativity, not just the money \"saved.\""
+      },
+      "make-something": {
+        "title": "Make Something",
+        "intro": "Create something simple with what you have, then show it to someone and ask what they think.",
+        "objectives": [
+          "Make a simple product from available materials",
+          "Share it with someone you trust",
+          "Listen to their feedback"
+        ],
+        "materials": [
+          "Paper, crayons, stickers, glue, or other craft supplies you already have",
+          "Someone to show it to (a family member or trusted person)"
+        ],
+        "steps": [
+          "Decide what you'd like to make - a drawing, a bracelet, a card, anything.",
+          "Gather your materials and make it - if you need scissors or anything sharp, ask an adult to help.",
+          "Show it to a family member or trusted person.",
+          "Ask them one thing they like, and one idea for next time.",
+          "Decide if you'd like to make another one, differently."
+        ],
+        "durationEstimate": "About 30 minutes.",
+        "independentVersion": "Make two versions and ask which one people prefer, and why.",
+        "simplerVersion": "Use a simple craft kit or template instead of designing from scratch.",
+        "nonverbalAdaptation": "Show your creation and let the other person point to or gesture their favourite part instead of describing it in words.",
+        "reflectionPrompt": "What's one thing you'd do differently next time?",
+        "parentGuidance": "Keep feedback kind and specific. The goal is building the making-and-sharing habit, not getting a perfect result. Match any tools to what your child can safely use, and help directly with anything sharp."
+      },
+      "my-first-mini-business": {
+        "title": "My First Mini Business",
+        "intro": "With an adult's help, plan a tiny pretend shop or stall for a family event, and practise running it.",
+        "objectives": [
+          "Choose a simple product or activity to offer",
+          "Set a price (pretend, or a tiny real amount)",
+          "Practise talking with \"customers\""
+        ],
+        "materials": [
+          "A simple product (drawings, baked goods, a game stall) - adult-supervised",
+          "Pretend money, tokens, or (with an adult) small real coins",
+          "A small table or tray"
+        ],
+        "steps": [
+          "With an adult, choose one simple thing to \"sell\" or offer at a family event - if it's food, an adult checks for allergies and handles the cooking.",
+          "Decide together on a price - pretend money is perfectly fine.",
+          "Set up a small stall together.",
+          "Practise greeting a \"customer\" (a family member) and taking their order.",
+          "Talk afterward about how it felt and what you'd try next."
+        ],
+        "durationEstimate": "About 20 minutes to plan, plus the event itself.",
+        "independentVersion": "Take the lead on talking to customers while the adult only supervises nearby.",
+        "simplerVersion": "The adult handles all the customer talking; you hand out the items and collect the pretend tokens.",
+        "nonverbalAdaptation": "Use a picture menu or price chart instead of speaking prices aloud. Handing over an item is a complete interaction on its own.",
+        "reflectionPrompt": "What was fun, and what felt tricky?",
+        "parentGuidance": "This must always be supervised and kept inside family or trusted settings, never with strangers, and never with real public selling. If food is involved, check for allergies and have an adult handle preparation and hygiene. A fully pretend version - pretend food, pretend money - teaches the exact same lessons with no food involved at all."
+      },
+      "test-my-idea": {
+        "title": "Test My Idea",
+        "intro": "Got an idea for something to make or do? Test it with a few people before putting in lots of work.",
+        "objectives": [
+          "Describe a problem or idea simply",
+          "Ask a few people what they think",
+          "Decide what to try based on their feedback"
+        ],
+        "materials": [
+          "Just your idea - paper to sketch it helps too",
+          "2-3 family members or trusted people to ask"
+        ],
+        "steps": [
+          "Think of a small problem you've noticed, or an idea you have.",
+          "Describe it in one simple sentence, or draw it.",
+          "Ask 2-3 people: \"What do you think of this?\"",
+          "Listen to what they say, even if it's different from what you expected.",
+          "Decide: keep the idea the same, change it a little, or try something new."
+        ],
+        "durationEstimate": "About 15-20 minutes.",
+        "independentVersion": "Ask people you don't know as well yet (with a trusted adult present) to get a wider range of opinions.",
+        "simplerVersion": "Show a drawing or object instead of explaining with words, and let people point to a thumbs up or thumbs down.",
+        "nonverbalAdaptation": "Use a drawing, a symbol card, or point to the idea. Feedback can be a nod, a thumbs up or down, or a simple gesture.",
+        "reflectionPrompt": "Did anyone say something that surprised you?",
+        "parentGuidance": "This teaches that feedback before investing lots of effort is valuable, not scary. Keep every response kind, even a \"no thanks.\""
+      },
+      "understand-the-numbers": {
+        "title": "Understand the Numbers",
+        "intro": "Use a simple example to see the difference between what something costs to make, what it sells for, and what's left over.",
+        "objectives": [
+          "Tell apart cost, price, and profit using one example",
+          "Use a visual or hands-on version if numbers are tricky",
+          "See that profit is what's left after costs"
+        ],
+        "materials": [
+          "A simple example - lemonade, cookies, or a drawing of a stall",
+          "Coins, counters, or drawings (a calculator-free version is always fine)"
+        ],
+        "steps": [
+          "Pick one pretend product - like a cup of lemonade.",
+          "Figure out (or ask an adult to help figure out) what it costs to make one cup.",
+          "Decide what price you'd sell it for.",
+          "Use objects or drawings to show: price minus cost equals what's left (the profit).",
+          "Try it again with a different price and see what changes."
+        ],
+        "durationEstimate": "About 15 minutes.",
+        "independentVersion": "Try it with 2-3 products at once and compare which leaves the most left over.",
+        "simplerVersion": "Use coloured counters: a stack for cost, a bigger stack for price, and physically remove the cost stack to see what's left - no arithmetic needed.",
+        "nonverbalAdaptation": "Use counters or drawings to show the whole idea without speaking or writing a single number.",
+        "reflectionPrompt": "What happened to the amount left over when you changed the price?",
+        "parentGuidance": "This is the same idea taught in Entrepreneur Quest: cost, price, and profit. A visual, no-arithmetic version teaches the concept just as well as doing the sums."
+      },
+      "solve-a-real-problem": {
+        "title": "Solve a Real Problem",
+        "intro": "Notice a small problem in your everyday life, and come up with your own practical way to solve it.",
+        "objectives": [
+          "Notice a small, real problem",
+          "Think of a practical solution",
+          "Try it out"
+        ],
+        "materials": [
+          "Nothing needed - just noticing!",
+          "Paper or drawing materials if that helps you think"
+        ],
+        "steps": [
+          "Think of something a bit annoying or tricky in your day (a messy shelf, a forgotten chore, a confusing schedule).",
+          "Describe the problem simply - in words, a drawing, or to yourself.",
+          "Think of one practical way to make it better.",
+          "Try your solution.",
+          "See what happened - did it help?"
+        ],
+        "durationEstimate": "About 15 minutes, plus trying the solution.",
+        "independentVersion": "Solve a problem that affects more than just you, like something at home everyone deals with.",
+        "simplerVersion": "Choose from a short list of common problems an adult offers, and pick a solution from a few pictured options.",
+        "nonverbalAdaptation": "Point to or act out the problem instead of describing it in words. The solution can be shown through action rather than explanation.",
+        "reflectionPrompt": "Did your solution work the way you hoped?",
+        "parentGuidance": "Let your child pick a genuinely small, real problem - the size doesn't matter. Celebrate the attempt, even if the solution doesn't fully work."
+      },
+      "make-something-together": {
+        "title": "Make Something Together",
+        "intro": "Team up with a family member or trusted person to plan and finish a small project together.",
+        "objectives": [
+          "Plan a project with someone else",
+          "Take turns and share decisions",
+          "Finish it together"
+        ],
+        "materials": [
+          "Any simple project - a puzzle, a craft, tidying a space, or (with an adult's help) a simple recipe",
+          "A partner to work with"
+        ],
+        "steps": [
+          "Pick a small project you can finish together in one sitting.",
+          "Decide together who does which part - take turns deciding.",
+          "Work on it together, checking in as you go - if you're cooking, an adult checks for allergies and handles anything hot or sharp.",
+          "Finish the project.",
+          "Talk about how the teamwork felt."
+        ],
+        "durationEstimate": "About 20-30 minutes.",
+        "independentVersion": "Take the lead on planning who does what, with your partner following your plan.",
+        "simplerVersion": "Use a visual turn-taking chart (two pictures, swap after each turn) instead of talking through who goes next.",
+        "nonverbalAdaptation": "Use gestures, pointing, or a turn-taking object (like passing a small item) to show whose turn it is - no talking required.",
+        "reflectionPrompt": "What was it like sharing the decisions?",
+        "parentGuidance": "Let your child have real decision-making power, even over small things. Sharing control is the actual lesson here. If you choose a recipe, check for allergies and keep hygiene and hot or sharp things to the adult - a puzzle or craft teaches the same teamwork with no kitchen needed."
+      },
+      "share-my-idea": {
+        "title": "Share My Idea",
+        "intro": "Think of an idea, and share it with someone else, in whatever way works best for you.",
+        "objectives": [
+          "Have an idea worth sharing",
+          "Communicate it in your own way",
+          "See how someone responds to it"
+        ],
+        "materials": [
+          "Just your idea",
+          "Paper, pictures, symbols, or an AAC device if that's how you communicate - all equally good"
+        ],
+        "steps": [
+          "Think of one idea you'd like to share - a game, a plan, a story, anything.",
+          "Choose how you'll share it: talking, writing, drawing, symbols, AAC, or showing or acting it out.",
+          "Share it with someone you trust.",
+          "See how they respond.",
+          "Notice how it felt to share something of your own."
+        ],
+        "durationEstimate": "About 10-15 minutes.",
+        "independentVersion": "Share your idea with more than one person and see if their responses differ.",
+        "simplerVersion": "Use a single picture or object to represent the whole idea instead of explaining every detail.",
+        "nonverbalAdaptation": "Speech is never required here - drawing, pointing to symbols, using AAC, or demonstrating the idea are all complete, valid ways to share it.",
+        "reflectionPrompt": "How did it feel when someone heard your idea?",
+        "parentGuidance": "However your child communicates is the right way for this mission. The goal is being heard, not using any particular method."
+      },
+      "learn-change-and-try-again": {
+        "title": "Learn, Change, and Try Again",
+        "intro": "Think about something that didn't quite go as planned, and decide if you'd like to try it again, differently.",
+        "objectives": [
+          "Reflect on something that didn't go as expected",
+          "Think of one possible change",
+          "Choose whether to try again"
+        ],
+        "materials": [
+          "Nothing needed - just thinking back",
+          "Paper or drawing materials if that helps"
+        ],
+        "steps": [
+          "Think of something recent that didn't go quite the way you hoped - big or small.",
+          "Think about (or draw) what happened.",
+          "Think of one thing you could try differently.",
+          "Decide: would you like to try again? It's okay either way.",
+          "If you try again, notice what changed."
+        ],
+        "durationEstimate": "About 10 minutes, plus trying again if you choose to.",
+        "independentVersion": "Try the activity again fully on your own, applying your own change.",
+        "simplerVersion": "Choose your \"change\" from a short list of pictured options an adult offers instead of coming up with one from scratch.",
+        "nonverbalAdaptation": "Point to a face (happy, okay, or frustrated) to show how the first try felt, and point to a picture to show the change you'd like to try - no words needed.",
+        "reflectionPrompt": "What would you like to try differently next time?",
+        "parentGuidance": "There's no pressure to try again - choosing not to is a completely fine outcome too. The real skill here is reflecting honestly, not succeeding on the second try."
+      }
+    }
   }
 }
