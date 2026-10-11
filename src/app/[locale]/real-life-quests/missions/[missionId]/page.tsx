@@ -53,15 +53,22 @@ export default function RealLifeQuestMissionPage() {
   const mission = getRLQMissionById(missionId);
 
   // Keep the local textarea value in sync with the saved reflection
-  // whenever the mission itself changes (a client-side nav between two
-  // mission pages re-renders this same component rather than remounting
-  // it) — without this, a stale draft from the previous mission could
-  // briefly show on the new one.
+  // whenever the mission changes (a client-side nav between two mission
+  // pages re-renders this same component rather than remounting it), AND
+  // once the hook's own async localStorage read finishes (`isLoaded`
+  // flips false -> true exactly once, right after mount). Without the
+  // `isLoaded` dependency, this effect's first run reads the hook's
+  // still-default, not-yet-loaded state, writes "" into the textarea, and
+  // then never re-runs for the SAME mission once the real saved data
+  // arrives moments later — leaving a non-empty saved reflection
+  // permanently invisible in the textarea despite being correctly in
+  // localStorage. `isLoaded` only ever flips once per mount, so this
+  // can't re-fire later and clobber a child's in-progress typing.
   useEffect(() => {
     setReflectionText(getMissionProgress(missionId).reflectionText);
     setJustEarnedXp(null);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [missionId]);
+  }, [missionId, isLoaded]);
 
   if (!isLoaded || !progressLoaded) {
     return <div className="grid min-h-screen place-items-center bg-fog text-ink/60">{t("common.loading")}</div>;

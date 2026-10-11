@@ -25,7 +25,9 @@ export type PilotIconName =
   | "story"
   | "built"
   | "listener"
-  | "listenerHappy";
+  | "listenerHappy"
+  | "presentItem"
+  | "presentIdea";
 
 const PATHS: Record<PilotIconName, React.ReactNode> = {
   toy: (
@@ -126,6 +128,30 @@ const PATHS: Record<PilotIconName, React.ReactNode> = {
       <path d="M10.3 7.3c.7.6 1.7.6 2.4 0" />
       <path d="M5.5 20c0-4.1 3-6.5 6.5-6.5s6.5 2.4 6.5 6.5" />
       <path d="M18 3.5c1 .3 1.6 1.1 1.6 2 0 1.3-1.6 2.4-1.6 2.4S16.4 6.8 16.4 5.5c0-.9.6-1.7 1.6-2z" fill="currentColor" stroke="none" />
+    </>
+  ),
+  // An open eye — "look at this" — used on the "Show it!" action button
+  // so its purpose (presenting something to someone) has a visual
+  // affordance of its own, not text alone. Chosen over an earlier
+  // hand-plus-object attempt because that version was too detailed to
+  // read clearly at a 20px button size; an eye shape stays unambiguous
+  // that small and doesn't risk being mistaken for the page's other
+  // person-shaped icons (customer/listener).
+  presentItem: (
+    <>
+      <path d="M2.5 12S6 5.8 12 5.8 21.5 12 21.5 12 18 18.2 12 18.2 2.5 12 2.5 12z" />
+      <circle cx="12" cy="12" r="3" />
+    </>
+  ),
+  // A lightbulb — "here's an idea" — used on the "Share it!" action
+  // button. Deliberately a plain, bold, well-known idea pictogram rather
+  // than a hand holding a smaller bulb (which, at small size, read too
+  // much like the page's person icons); clearly distinct from
+  // presentItem and from customer/listener, and doesn't imply speech.
+  presentIdea: (
+    <>
+      <path d="M12 3a6 6 0 00-6 6c0 2.5 1.5 3.8 2.3 4.9.5.7.7 1.3.7 2.1h6c0-.8.2-1.4.7-2.1C16.5 12.8 18 11.5 18 9a6 6 0 00-6-6z" />
+      <path d="M9.6 18.2h4.8M10 20.5h4" />
     </>
   ),
 };

@@ -79,6 +79,7 @@ export function ShareIdeaVisual({
             <PilotIcon name={revealed ? "listenerHappy" : "listener"} className="h-14 w-14 text-ink/60" />
           </div>
           <Button type="button" variant="secondary" size="large" className="mt-xs" onClick={() => setRevealed(true)}>
+            <PilotIcon name="presentIdea" className="h-5 w-5" />
             {t("realLifeQuests.visualPilot.shareIdeaButton")}
           </Button>
           {revealed && (
