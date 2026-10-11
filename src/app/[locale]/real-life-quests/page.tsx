@@ -7,6 +7,7 @@ import { RLQ_CATEGORIES, RLQ_MISSIONS, getRLQMissionsByCategory, type RLQCategor
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { ProgressBar } from "@/components/ui/ProgressBar";
+import { MissionIcon, CategoryIcon, CompletedBadge } from "@/components/real-life-quests/MissionIcon";
 
 /**
  * The Real Life Quests hub — the landing page for all 12 missions,
@@ -58,7 +59,10 @@ export default function RealLifeQuestsHubPage() {
           const missions = getRLQMissionsByCategory(category);
           return (
             <section key={category} className="mt-lg">
-              <h2 className="font-display text-xl font-bold">{t(`realLifeQuests.categories.${category}.title`)}</h2>
+              <div className="flex items-center gap-2xs">
+                <CategoryIcon category={category} className="h-7 w-7 text-teal" />
+                <h2 className="font-display text-xl font-bold">{t(`realLifeQuests.categories.${category}.title`)}</h2>
+              </div>
               <p className="mt-2xs text-sm text-ink/70">{t(`realLifeQuests.categories.${category}.description`)}</p>
               <div className="mt-sm grid gap-sm sm:grid-cols-2">
                 {missions.map((mission) => {
@@ -67,14 +71,22 @@ export default function RealLifeQuestsHubPage() {
                     <Link
                       key={mission.id}
                       href={`/real-life-quests/missions/${mission.id}`}
-                      className="block rounded-lg border-2 border-ink/10 bg-white p-sm shadow-resting transition-shadow duration-quick hover:shadow-floating hover:border-teal"
+                      className="relative block rounded-lg border-2 border-ink/10 bg-white p-sm shadow-resting transition-shadow duration-quick hover:shadow-floating hover:border-teal"
                     >
-                      <p className="text-xs font-medium uppercase tracking-wide text-ink/50">
-                        {t(`realLifeQuests.supervision.${mission.supervision}`)}
-                      </p>
-                      <h3 className="mt-2xs font-display text-md font-bold leading-tight">
-                        {t(`realLifeQuests.missions.${mission.id}.title`)}
-                      </h3>
+                      {progress.status === "completed" && (
+                        <CompletedBadge className="absolute right-2xs top-2xs h-6 w-6 text-teal" />
+                      )}
+                      <div className="flex items-start gap-xs">
+                        <MissionIcon missionId={mission.id} className="mt-3xs h-10 w-10 shrink-0 text-teal" />
+                        <div>
+                          <p className="text-xs font-medium uppercase tracking-wide text-ink/50">
+                            {t(`realLifeQuests.supervision.${mission.supervision}`)}
+                          </p>
+                          <h3 className="mt-2xs font-display text-md font-bold leading-tight">
+                            {t(`realLifeQuests.missions.${mission.id}.title`)}
+                          </h3>
+                        </div>
+                      </div>
                       <p className="mt-2xs text-sm text-ink/70">{t(`realLifeQuests.missions.${mission.id}.intro`)}</p>
                       <p className="mt-sm text-xs font-semibold text-teal">{t(`realLifeQuests.status.${progress.status}`)}</p>
                     </Link>

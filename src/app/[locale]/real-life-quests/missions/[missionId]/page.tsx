@@ -18,6 +18,7 @@ import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { ReadAloudButton } from "@/components/ui/ReadAloudButton";
 import { VariantIcon, SelectedCheckIcon } from "@/components/real-life-quests/VariantIcon";
+import { MissionIcon, CompletedBadge } from "@/components/real-life-quests/MissionIcon";
 
 /**
  * One generic page renders every mission, driven entirely by
@@ -99,10 +100,15 @@ export default function RealLifeQuestMissionPage() {
           <span aria-hidden="true">←</span> {t("realLifeQuests.backToHub")}
         </Link>
 
-        <p className="mt-sm text-xs font-medium uppercase tracking-wide text-ink/50">
-          {t(`realLifeQuests.supervision.${mission.supervision}`)}
-        </p>
-        <h1 className="mt-2xs font-display text-2xl font-bold">{t(`${base}.title`)}</h1>
+        <div className="mt-sm flex items-start gap-sm">
+          <MissionIcon missionId={missionId} className="h-16 w-16 shrink-0 text-teal" />
+          <div>
+            <p className="text-xs font-medium uppercase tracking-wide text-ink/50">
+              {t(`realLifeQuests.supervision.${mission.supervision}`)}
+            </p>
+            <h1 className="mt-2xs font-display text-2xl font-bold">{t(`${base}.title`)}</h1>
+          </div>
+        </div>
         <p className="mt-2xs text-base text-ink/80">{t(`${base}.intro`)}</p>
         <div className="mt-xs">
           <ReadAloudButton
@@ -114,7 +120,10 @@ export default function RealLifeQuestMissionPage() {
             uiLocale={uiLocale}
           />
         </div>
-        <p className="mt-sm text-sm font-semibold text-teal">{t(`realLifeQuests.status.${progress.status}`)}</p>
+        <p className="mt-sm flex items-center gap-2xs text-sm font-semibold text-teal">
+          {progress.status === "completed" && <CompletedBadge className="h-5 w-5" />}
+          {t(`realLifeQuests.status.${progress.status}`)}
+        </p>
 
         <Card variant="activity" className="mt-sm">
           <h2 className="font-display text-md font-bold">{t("realLifeQuests.objectivesTitle")}</h2>
@@ -139,9 +148,17 @@ export default function RealLifeQuestMissionPage() {
 
         <Card variant="activity" className="mt-sm">
           <h2 className="font-display text-md font-bold">{t("realLifeQuests.stepsTitle")}</h2>
-          <ol className="mt-2xs list-decimal space-y-2 pl-5 text-sm text-ink/80">
+          <ol className="mt-2xs space-y-2">
             {(t.raw(`${base}.steps`) as string[]).map((item, i) => (
-              <li key={i}>{item}</li>
+              <li key={i} className="flex items-start gap-xs">
+                <span
+                  aria-hidden="true"
+                  className="mt-0 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-teal text-sm font-bold text-white"
+                >
+                  {i + 1}
+                </span>
+                <span className="pt-0.5 text-sm text-ink/80">{item}</span>
+              </li>
             ))}
           </ol>
         </Card>
@@ -180,11 +197,12 @@ export default function RealLifeQuestMissionPage() {
 
         <div className="mt-md flex flex-wrap gap-xs">
           {progress.status === "not-started" && (
-            <Button type="button" variant="secondary" onClick={() => startMission(missionId)}>
+            <Button type="button" variant="secondary" size="large" onClick={() => startMission(missionId)}>
               {t("realLifeQuests.markStartedButton")}
             </Button>
           )}
-          <Button type="button" variant="quest-primary" onClick={handleMarkCompleted} disabled={progress.status === "completed"}>
+          <Button type="button" variant="quest-primary" size="large" onClick={handleMarkCompleted} disabled={progress.status === "completed"}>
+            {progress.status === "completed" && <CompletedBadge className="h-5 w-5" />}
             {t("realLifeQuests.markCompletedButton")}
           </Button>
         </div>
