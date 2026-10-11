@@ -32,17 +32,24 @@ static func listen_button() -> Button:
 	var on_setting := func(key: String, _v: Variant) -> void:
 		if key == "show_text":
 			_relabel(InputHints.device, b)
+	# ...and when the language changes (its word, in the new language).
+	var on_locale := func(_l: String) -> void:
+		_relabel(InputHints.device, b)
 	b.tree_entered.connect(func() -> void:
 		if not InputHints.device_changed.is_connected(relabel):
 			InputHints.device_changed.connect(relabel)
 		if not Settings.changed.is_connected(on_setting):
 			Settings.changed.connect(on_setting)
+		if not Localization.locale_changed.is_connected(on_locale):
+			Localization.locale_changed.connect(on_locale)
 		_relabel(InputHints.device, b))
 	b.tree_exiting.connect(func() -> void:
 		if InputHints.device_changed.is_connected(relabel):
 			InputHints.device_changed.disconnect(relabel)
 		if Settings.changed.is_connected(on_setting):
-			Settings.changed.disconnect(on_setting))
+			Settings.changed.disconnect(on_setting)
+		if Localization.locale_changed.is_connected(on_locale):
+			Localization.locale_changed.disconnect(on_locale))
 	return b
 
 

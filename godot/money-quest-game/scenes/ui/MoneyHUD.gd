@@ -172,6 +172,14 @@ func _show_strip(before: int, after: int) -> void:
 	# Just after the top bar (never over the mission card); XP chips go below.
 	var sb_btn: Control = hud.settings_button
 	panel.position = Vector2(sb_btn.global_position.x + sb_btn.size.x + 14.0, maxf(sb_btn.global_position.y - 6.0, 4.0))
+	# A "+XP" chip shown just before (same reward) moves below this pill
+	# instead of sitting under it.
+	var prect := Rect2(panel.position, panel.get_combined_minimum_size()).grow(4.0)
+	var next_y: float = prect.end.y + 4.0
+	for c in hud.get_tree().get_nodes_in_group("mq_xp_chip"):
+		if c is Control and not c.is_queued_for_deletion() and (c as Control).global_position.y < next_y:
+			(c as Control).global_position.y = next_y
+			next_y = (c as Control).get_global_rect().end.y + 4.0
 	if not Settings.reduced_motion:
 		panel.modulate.a = 0.0
 		panel.create_tween().tween_property(panel, "modulate:a", 1.0, 0.2)

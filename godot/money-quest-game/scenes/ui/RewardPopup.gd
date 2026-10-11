@@ -74,7 +74,79 @@ func _ready() -> void:
 	ramp.set_color(1, Color("0F7A6B"))
 	ramp.add_point(0.5, Color("F07A5A"))
 	_confetti.color_initial_ramp = ramp
-	add_child(_confetti)
+	# On its own layer under the HUD (9) and this card (12), above the world:
+	# the burst shows around them, never over the card's words or the HUD.
+	var confetti_layer := CanvasLayer.new()
+	confetti_layer.name = "ConfettiLayer"
+	confetti_layer.layer = 8
+	add_child(confetti_layer)
+	confetti_layer.add_child(_confetti)
+	_build_words_off(vbox)
+
+
+# --- words off: the card speaks in pictures and numbers ------------------------------
+# ✓ instead of the title; the sentence steps aside (Listen still reads it);
+# the rewards as "+15 XP" and a coin with its number (as the HUD shows coins);
+# a new level as "Level 2" (the HUD's own words); Continue as an arrow (as in
+# the dialogue box). With words on, nothing changes.
+var _tick_box: CenterContainer
+var _pictures: HBoxContainer
+var _xp_label: Label
+var _coin_strip: MissionStrip
+var _arrow: Control
+
+
+func _build_words_off(vbox: VBoxContainer) -> void:
+	_tick_box = CenterContainer.new()
+	_tick_box.name = "DoneTick"
+	_tick_box.add_child(MoneyIcons.Tick.new(64.0))
+	_tick_box.visible = false
+	vbox.add_child(_tick_box)
+	vbox.move_child(_tick_box, 0)
+	_pictures = HBoxContainer.new()
+	_pictures.name = "RewardPictures"
+	_pictures.alignment = BoxContainer.ALIGNMENT_CENTER
+	_pictures.add_theme_constant_override("separation", 22)
+	_pictures.visible = false
+	_xp_label = UIStyle.label("", 30, Color("9A5B00"))
+	_pictures.add_child(_xp_label)
+	_coin_strip = MissionStrip.new(56.0)
+	_pictures.add_child(_coin_strip)
+	vbox.add_child(_pictures)
+	vbox.move_child(_pictures, rewards_label.get_index() + 1)
+	_arrow = MoneyIcons.Arrow.new(40.0)
+	_arrow.name = "ContinueArrow"
+	_arrow.set_anchors_preset(Control.PRESET_CENTER)
+	_arrow.offset_left = -20.0
+	_arrow.offset_right = 20.0
+	_arrow.offset_top = -20.0
+	_arrow.offset_bottom = 20.0
+	_arrow.visible = false
+	continue_button.add_child(_arrow)
+
+
+## Shows the card in words or in pictures (SupportProfile.show_text()). The
+## words are always set, so Listen / read-aloud say the whole thing.
+func _apply_words(xp: int, coins: int, level_up: int, badge_line: String) -> void:
+	var words: bool = SupportProfile.show_text()
+	_tick_box.visible = not words
+	title_label.visible = words
+	message_label.visible = words and not message_label.text.is_empty()
+	rewards_label.visible = words and not rewards_label.text.is_empty()
+	_pictures.visible = not words and (xp > 0 or coins > 0)
+	_xp_label.visible = xp > 0
+	_coin_strip.show_tokens(["coin", "num:%d" % coins] if coins > 0 else [], {})
+	_coin_strip.visible = coins > 0
+	if not words:
+		var short: PackedStringArray = []
+		if not badge_line.is_empty():
+			short.append(badge_line)
+		if level_up > 0:
+			short.append(Localization.t("hud.level_label", {"level": level_up}))
+		extra_label.text = "\n".join(short)
+		extra_label.visible = not short.is_empty()
+	continue_button.text = InputHints.prompt(Localization.t("common.nice_button"), "confirm") if words else ""
+	_arrow.visible = not words
 
 
 ## The original API (lessons and quests): message + XP + virtual coins.
@@ -103,21 +175,33 @@ func celebrate(title_key: String, message_key: String, xp: int, coins: int, badg
 	extra_label.text = "\n".join(extras)
 	extra_label.visible = not extras.is_empty()
 	continue_button.text = InputHints.prompt(Localization.t("common.nice_button"), "confirm")
+	var new_level: int = GameState.compute_level() if GameState.compute_level() > level_before else 0
+	_apply_words(xp, coins, new_level, extras[0] if not badge_key.is_empty() else "")
 	# A real milestone (a new badge, a new level) gets the full celebration;
 	# a routine finish a calm, compact one: the same card and words, no
 	# fanfare, confetti or pop. Rewards back the learning, they are not it.
 	var milestone: bool = not extras.is_empty()
 	last_was_milestone = milestone
-	# A compact card is as tall as what it says (never cut: measured after
-	# the words are in, so larger text sizes still fit); a milestone keeps
-	# the full card.
+	# The card is as tall as what it says (never cut: measured after the
+	# words are in, so larger text sizes still fit) — a milestone too, so a
+	# words-off card is never half empty; the milestone keeps its fanfare,
+	# confetti and level line.
 	panel.offset_top = -220.0
 	panel.offset_bottom = 220.0
-	if not milestone:
-		await get_tree().process_frame
-		var h: float = clampf(panel.get_combined_minimum_size().y, 260.0, 440.0)
-		panel.offset_top = -h * 0.5
-		panel.offset_bottom = h * 0.5
+	# Measured laid out at its real width (a hidden card measures wrapped
+	# text one word per line): shown fully transparent, its button off, for
+	# two frames — nothing can be pressed or seen — then sized and revealed.
+	panel.modulate.a = 0.0
+	continue_button.disabled = true
+	visible = true
+	await get_tree().process_frame
+	await get_tree().process_frame
+	var h: float = clampf(panel.get_combined_minimum_size().y, 260.0, 440.0)
+	panel.offset_top = -h * 0.5
+	panel.offset_bottom = h * 0.5
+	panel.modulate.a = 1.0
+	continue_button.disabled = false
+	panel.pivot_offset = Vector2(320.0, h * 0.5)   # the pop scales from the card's centre
 
 	visible = true
 	UIFocus.focus(continue_button)
@@ -158,7 +242,9 @@ func _set_rewards(xp_shown: int, _xp: int, coins: int) -> void:
 	if coins > 0:
 		parts.append(Localization.tn("money.virtual_coins", coins))
 	rewards_label.text = "   ·   ".join(parts)
-	rewards_label.visible = not parts.is_empty()
+	rewards_label.visible = not parts.is_empty() and SupportProfile.show_text()
+	if _xp_label:
+		_xp_label.text = "+" + Localization.t("reward.xp_earned", {"amount": xp_shown})
 
 
 ## XP is usually added just before the celebration; this lets "Level up!"

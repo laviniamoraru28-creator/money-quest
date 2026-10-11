@@ -107,13 +107,28 @@ func _on_xp_changed(new_total: int) -> void:
 func _show_chip(text: String, beside: Control) -> void:
 	var chip := UIStyle.label(text, 22, Color("FFE7A0"))
 	chip.name = "XpChip" if beside == level_label else "CoinChip"
+	if beside == level_label:
+		chip.add_to_group("mq_xp_chip")   # names repeat; the group finds every +XP chip
 	chip.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	chip.add_theme_color_override("font_outline_color", UIStyle.INK)
 	chip.add_theme_constant_override("outline_size", 8)
 	add_child(chip)
-	# Just after the top bar (never over the next label), coins above XP.
+	# Just after the top bar (never over the next label), coins above XP. The
+	# XP chip goes below the Settings button and below the coin-change pill
+	# when one is showing — measured, so it never covers them at any UI size.
 	var end_x: float = settings_button.global_position.x + settings_button.size.x + 14.0
-	chip.global_position = Vector2(end_x, settings_button.global_position.y + (0.0 if beside == coins_label else 52.0))
+	var y: float = settings_button.global_position.y
+	if beside != coins_label:
+		y = settings_button.get_global_rect().end.y + 8.0
+		var pill: Control = money_hud._strip if money_hud and is_instance_valid(money_hud._strip) else null
+		if pill:
+			y = maxf(y, pill.get_global_rect().end.y + 8.0)
+		# Two gains in a row (a choice's XP, then the reward's): the new
+		# chip goes under the one still showing, never on top of it.
+		for other in get_tree().get_nodes_in_group("mq_xp_chip"):
+			if other != chip and not other.is_queued_for_deletion():
+				y = maxf(y, (other as Control).get_global_rect().end.y + 4.0)
+	chip.global_position = Vector2(end_x, y)
 	var tw := create_tween()
 	if Settings.reduced_motion:
 		tw.tween_interval(2.4)
