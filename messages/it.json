@@ -6738,6 +6738,29 @@
         "reflectionPrompt": "Cosa vorresti provare a fare diversamente la prossima volta?",
         "parentGuidance": "Non c'è nessuna pressione a riprovare - scegliere di non farlo va benissimo. La vera abilità qui è riflettere onestamente, non riuscire al secondo tentativo."
       }
+    },
+    "visualPilot": {
+      "goalOptionToy": "Un giocattolo",
+      "goalOptionBook": "Un libro",
+      "goalOptionGame": "Un gioco",
+      "goalOptionOther": "Qualcos'altro",
+      "jarStepLabel": "Passo {number}",
+      "jarCompleteLabel": "Obiettivo raggiunto!",
+      "offerOptionDrawing": "Un disegno",
+      "offerOptionBaking": "Qualcosa al forno",
+      "offerOptionStall": "Un piccolo stand di giochi",
+      "offerOptionOther": "Qualcos'altro",
+      "showToCustomerButton": "Mostralo!",
+      "customerHappyLabel": "Gli piace!",
+      "ideaOptionGame": "Un gioco",
+      "ideaOptionStory": "Una storia",
+      "ideaOptionBuilt": "Qualcosa che ho costruito",
+      "ideaOptionDrawing": "Un disegno",
+      "shareIdeaButton": "Condividila!",
+      "listenerHappyLabel": "Adora la tua idea!",
+      "chooseGoalTitle": "Scegli il tuo obiettivo",
+      "chooseOfferTitle": "Scegli cosa offrire",
+      "chooseIdeaTitle": "Scegli la tua idea"
     }
   }
 }

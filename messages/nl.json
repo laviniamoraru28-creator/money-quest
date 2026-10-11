@@ -6738,6 +6738,29 @@
         "reflectionPrompt": "Wat zou je de volgende keer anders willen proberen?",
         "parentGuidance": "Er is geen druk om het opnieuw te proberen - niet opnieuw proberen is ook een helemaal prima uitkomst. De echte vaardigheid hier is eerlijk reflecteren, niet slagen bij de tweede poging."
       }
+    },
+    "visualPilot": {
+      "goalOptionToy": "Een speelgoedje",
+      "goalOptionBook": "Een boek",
+      "goalOptionGame": "Een spel",
+      "goalOptionOther": "Iets anders",
+      "jarStepLabel": "Stap {number}",
+      "jarCompleteLabel": "Doel bereikt!",
+      "offerOptionDrawing": "Een tekening",
+      "offerOptionBaking": "Iets gebakken",
+      "offerOptionStall": "Een klein spelletjeskraampje",
+      "offerOptionOther": "Iets anders",
+      "showToCustomerButton": "Laat het zien!",
+      "customerHappyLabel": "Die vindt het leuk!",
+      "ideaOptionGame": "Een spel",
+      "ideaOptionStory": "Een verhaal",
+      "ideaOptionBuilt": "Iets dat ik heb gemaakt",
+      "ideaOptionDrawing": "Een tekening",
+      "shareIdeaButton": "Deel het!",
+      "listenerHappyLabel": "Die vindt je idee geweldig!",
+      "chooseGoalTitle": "Kies je doel",
+      "chooseOfferTitle": "Kies wat je aanbiedt",
+      "chooseIdeaTitle": "Kies je idee"
     }
   }
 }

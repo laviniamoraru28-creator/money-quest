@@ -13,7 +13,10 @@ import {
   setMissionVariant,
   completeMission,
   setReflection,
+  setVisualChoice,
+  setFilledSteps,
   countMissionsByStatus,
+  type RealLifeQuestsState,
 } from "../src/lib/real-life-quests/state";
 import { RLQ_MISSIONS, RLQ_CATEGORIES, getRLQMissionsByCategory, getRLQMissionById } from "../src/content/real-life-quests/structures";
 import enMessages from "../messages/en.json";
@@ -36,6 +39,7 @@ check("An unrecorded mission reads as not-started/standard", getMissionProgress(
   variant: "standard",
   reflectionChoice: null,
   reflectionText: "",
+  visualProgress: { selectedChoiceId: null, filledSteps: 0 },
 });
 
 // --- startMission ---
@@ -64,7 +68,13 @@ state = setMissionVariant(state, "the-price-detective", "simpler");
 check(
   "Changing variant preserves status and reflection",
   getMissionProgress(state, "the-price-detective"),
-  { status: "started", variant: "simpler", reflectionChoice: "great", reflectionText: "It went well!" }
+  {
+    status: "started",
+    variant: "simpler",
+    reflectionChoice: "great",
+    reflectionText: "It went well!",
+    visualProgress: { selectedChoiceId: null, filledSteps: 0 },
+  }
 );
 
 // --- setReflection trims free text and allows clearing the choice ---
@@ -185,6 +195,57 @@ function includesAny(haystack: string, needles: string[]): boolean {
   const m = rlqMessages.missions["save-for-something-you-love"]!;
   checkTrue("F. save-for-something-you-love: materials avoid small-coin choking risk for a tracker", includesAny(m.materials.join(" "), ["stickers", "tally"]) && !includesAny(m.materials[1] ?? "", ["coins", "buttons"]));
   checkTrue("F. save-for-something-you-love: parentGuidance warns small coins/buttons are riskier than stickers for younger children", includesAny(m.parentGuidance, ["safer tracker", "small coins"]));
+}
+
+// --- Visual pilot: setVisualChoice toggles, never breaks other fields ---
+state = createDefaultState();
+state = setVisualChoice(state, "share-my-idea", "game");
+check("setVisualChoice records the tapped choice", getMissionProgress(state, "share-my-idea").visualProgress.selectedChoiceId, "game");
+state = setVisualChoice(state, "share-my-idea", "game");
+check("Tapping the same choice again clears it (toggle, not one-way)", getMissionProgress(state, "share-my-idea").visualProgress.selectedChoiceId, null);
+state = setVisualChoice(state, "share-my-idea", "game");
+state = setVisualChoice(state, "share-my-idea", "story");
+check("Tapping a different choice replaces the previous one", getMissionProgress(state, "share-my-idea").visualProgress.selectedChoiceId, "story");
+state = startMission(state, "share-my-idea");
+check("setVisualChoice never disturbs mission status", getMissionProgress(state, "share-my-idea").status, "started");
+
+// --- Visual pilot: setFilledSteps clamps to [0, 5] ---
+state = createDefaultState();
+state = setFilledSteps(state, "save-for-something-you-love", 3);
+check("setFilledSteps records a mid-range value", getMissionProgress(state, "save-for-something-you-love").visualProgress.filledSteps, 3);
+state = setFilledSteps(state, "save-for-something-you-love", 9);
+check("setFilledSteps clamps above the max down to 5", getMissionProgress(state, "save-for-something-you-love").visualProgress.filledSteps, 5);
+state = setFilledSteps(state, "save-for-something-you-love", -2);
+check("setFilledSteps clamps below zero up to 0", getMissionProgress(state, "save-for-something-you-love").visualProgress.filledSteps, 0);
+
+// --- Visual pilot: the two pilot fields are independent per mission and
+// don't interfere with each other within the same mission's progress. ---
+state = createDefaultState();
+state = setVisualChoice(state, "my-first-mini-business", "baking");
+state = setFilledSteps(state, "my-first-mini-business", 2);
+check(
+  "selectedChoiceId and filledSteps coexist independently",
+  getMissionProgress(state, "my-first-mini-business").visualProgress,
+  { selectedChoiceId: "baking", filledSteps: 2 }
+);
+
+// --- Visual pilot: backward-compatible defaulting for progress saved
+// before this field existed — a returning child's older localStorage
+// record must still read cleanly rather than throwing or losing data. ---
+{
+  const legacyState = {
+    missions: {
+      "make-something": { status: "completed", variant: "standard", reflectionChoice: "proud", reflectionText: "Loved it" },
+    },
+  } as unknown as RealLifeQuestsState;
+  const progress = getMissionProgress(legacyState, "make-something");
+  check("Legacy saved progress (no visualProgress field) defaults it in", progress.visualProgress, { selectedChoiceId: null, filledSteps: 0 });
+  check("Legacy saved progress keeps its other fields intact", {
+    status: progress.status,
+    variant: progress.variant,
+    reflectionChoice: progress.reflectionChoice,
+    reflectionText: progress.reflectionText,
+  }, { status: "completed", variant: "standard", reflectionChoice: "proud", reflectionText: "Loved it" });
 }
 
 console.log(failures === 0 ? "\n✅ All real-life-quests engine checks passed." : `\n❌ ${failures} check(s) failed.`);

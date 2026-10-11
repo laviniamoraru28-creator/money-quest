@@ -6738,6 +6738,29 @@
         "reflectionPrompt": "O que gostarias de tentar de forma diferente na próxima vez?",
         "parentGuidance": "Não há pressão para tentar outra vez - escolher não tentar também é um resultado perfeitamente válido. A verdadeira competência aqui é refletir honestamente, não ter sucesso na segunda tentativa."
       }
+    },
+    "visualPilot": {
+      "goalOptionToy": "Um brinquedo",
+      "goalOptionBook": "Um livro",
+      "goalOptionGame": "Um jogo",
+      "goalOptionOther": "Outra coisa",
+      "jarStepLabel": "Passo {number}",
+      "jarCompleteLabel": "Objetivo alcançado!",
+      "offerOptionDrawing": "Um desenho",
+      "offerOptionBaking": "Algo cozinhado",
+      "offerOptionStall": "Uma pequena banca de jogos",
+      "offerOptionOther": "Outra coisa",
+      "showToCustomerButton": "Mostra-o!",
+      "customerHappyLabel": "Gosta!",
+      "ideaOptionGame": "Um jogo",
+      "ideaOptionStory": "Uma história",
+      "ideaOptionBuilt": "Algo que construí",
+      "ideaOptionDrawing": "Um desenho",
+      "shareIdeaButton": "Partilha-a!",
+      "listenerHappyLabel": "Adora a tua ideia!",
+      "chooseGoalTitle": "Escolhe o teu objetivo",
+      "chooseOfferTitle": "Escolhe o que oferecer",
+      "chooseIdeaTitle": "Escolhe a tua ideia"
     }
   }
 }

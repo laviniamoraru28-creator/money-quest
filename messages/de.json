@@ -6738,6 +6738,29 @@
         "reflectionPrompt": "Was würdest du beim nächsten Mal gern anders versuchen?",
         "parentGuidance": "Es gibt keinen Druck, es noch einmal zu versuchen - sich dagegen zu entscheiden ist auch völlig in Ordnung. Die eigentliche Fähigkeit hier ist ehrliches Nachdenken, nicht beim zweiten Versuch erfolgreich zu sein."
       }
+    },
+    "visualPilot": {
+      "goalOptionToy": "Ein Spielzeug",
+      "goalOptionBook": "Ein Buch",
+      "goalOptionGame": "Ein Spiel",
+      "goalOptionOther": "Etwas anderes",
+      "jarStepLabel": "Schritt {number}",
+      "jarCompleteLabel": "Ziel erreicht!",
+      "offerOptionDrawing": "Ein Bild",
+      "offerOptionBaking": "Etwas Gebackenes",
+      "offerOptionStall": "Ein kleiner Spielstand",
+      "offerOptionOther": "Etwas anderes",
+      "showToCustomerButton": "Zeig es!",
+      "customerHappyLabel": "Gefällt ihm!",
+      "ideaOptionGame": "Ein Spiel",
+      "ideaOptionStory": "Eine Geschichte",
+      "ideaOptionBuilt": "Etwas, das ich gebaut habe",
+      "ideaOptionDrawing": "Ein Bild",
+      "shareIdeaButton": "Teile sie!",
+      "listenerHappyLabel": "Die Idee gefällt ihm sehr!",
+      "chooseGoalTitle": "Wähle dein Ziel",
+      "chooseOfferTitle": "Wähle, was du anbietest",
+      "chooseIdeaTitle": "Wähle deine Idee"
     }
   }
 }

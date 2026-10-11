@@ -6738,6 +6738,29 @@
         "reflectionPrompt": "Ce ai vrea să încerci diferit data viitoare?",
         "parentGuidance": "Nu există presiune să încerci din nou - a nu alege asta este de asemenea un rezultat perfect de bun. Adevărata abilitate de aici e să reflectezi sincer, nu să reușești la a doua încercare."
       }
+    },
+    "visualPilot": {
+      "goalOptionToy": "O jucărie",
+      "goalOptionBook": "O carte",
+      "goalOptionGame": "Un joc",
+      "goalOptionOther": "Altceva",
+      "jarStepLabel": "Pasul {number}",
+      "jarCompleteLabel": "Obiectiv atins!",
+      "offerOptionDrawing": "Un desen",
+      "offerOptionBaking": "Ceva copt",
+      "offerOptionStall": "Un mic stand de jocuri",
+      "offerOptionOther": "Altceva",
+      "showToCustomerButton": "Arată-l!",
+      "customerHappyLabel": "Îi place!",
+      "ideaOptionGame": "Un joc",
+      "ideaOptionStory": "O poveste",
+      "ideaOptionBuilt": "Ceva ce am construit",
+      "ideaOptionDrawing": "Un desen",
+      "shareIdeaButton": "Spune-o!",
+      "listenerHappyLabel": "Îi place ideea ta!",
+      "chooseGoalTitle": "Alege-ți obiectivul",
+      "chooseOfferTitle": "Alege ce oferi",
+      "chooseIdeaTitle": "Alege-ți ideea"
     }
   }
 }

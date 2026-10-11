@@ -19,6 +19,9 @@ import { Button } from "@/components/ui/Button";
 import { ReadAloudButton } from "@/components/ui/ReadAloudButton";
 import { VariantIcon, SelectedCheckIcon } from "@/components/real-life-quests/VariantIcon";
 import { MissionIcon, CompletedBadge } from "@/components/real-life-quests/MissionIcon";
+import { SaveForGoalVisual } from "@/components/real-life-quests/visuals/SaveForGoalVisual";
+import { MiniBusinessVisual } from "@/components/real-life-quests/visuals/MiniBusinessVisual";
+import { ShareIdeaVisual } from "@/components/real-life-quests/visuals/ShareIdeaVisual";
 
 /**
  * One generic page renders every mission, driven entirely by
@@ -33,7 +36,16 @@ export default function RealLifeQuestMissionPage() {
   const t = useTranslations();
   const uiLocale = useLocale();
   const { isLoaded: progressLoaded, completeActivity } = useLocalProgress();
-  const { isLoaded, getMissionProgress, startMission, setMissionVariant, completeMission, setReflection } = useRealLifeQuests();
+  const {
+    isLoaded,
+    getMissionProgress,
+    startMission,
+    setMissionVariant,
+    completeMission,
+    setReflection,
+    setVisualChoice,
+    setFilledSteps,
+  } = useRealLifeQuests();
   const [reflectionText, setReflectionText] = useState("");
   const [justEarnedXp, setJustEarnedXp] = useState<number | null>(null);
 
@@ -124,6 +136,27 @@ export default function RealLifeQuestMissionPage() {
           {progress.status === "completed" && <CompletedBadge className="h-5 w-5" />}
           {t(`realLifeQuests.status.${progress.status}`)}
         </p>
+
+        {missionId === "save-for-something-you-love" && (
+          <SaveForGoalVisual
+            selectedChoiceId={progress.visualProgress.selectedChoiceId}
+            filledSteps={progress.visualProgress.filledSteps}
+            onSelectChoice={(choiceId) => setVisualChoice(missionId, choiceId)}
+            onSetFilledSteps={(filledSteps) => setFilledSteps(missionId, filledSteps)}
+          />
+        )}
+        {missionId === "my-first-mini-business" && (
+          <MiniBusinessVisual
+            selectedChoiceId={progress.visualProgress.selectedChoiceId}
+            onSelectChoice={(choiceId) => setVisualChoice(missionId, choiceId)}
+          />
+        )}
+        {missionId === "share-my-idea" && (
+          <ShareIdeaVisual
+            selectedChoiceId={progress.visualProgress.selectedChoiceId}
+            onSelectChoice={(choiceId) => setVisualChoice(missionId, choiceId)}
+          />
+        )}
 
         <Card variant="activity" className="mt-sm">
           <h2 className="font-display text-md font-bold">{t("realLifeQuests.objectivesTitle")}</h2>

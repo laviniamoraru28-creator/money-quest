@@ -7,6 +7,8 @@ import {
   setMissionVariant as setMissionVariantPure,
   completeMission as completeMissionPure,
   setReflection as setReflectionPure,
+  setVisualChoice as setVisualChoicePure,
+  setFilledSteps as setFilledStepsPure,
   getMissionProgress,
   type RealLifeQuestsState,
 } from "./state";
@@ -94,6 +96,20 @@ export function useRealLifeQuests() {
     [state, persist]
   );
 
+  const setVisualChoice = useCallback(
+    (missionId: string, choiceId: string) => {
+      persist(setVisualChoicePure(state, missionId, choiceId));
+    },
+    [state, persist]
+  );
+
+  const setFilledSteps = useCallback(
+    (missionId: string, filledSteps: number) => {
+      persist(setFilledStepsPure(state, missionId, filledSteps));
+    },
+    [state, persist]
+  );
+
   const resetProgress = useCallback(() => {
     const fresh = resetRealLifeQuests();
     setState(fresh);
@@ -107,6 +123,8 @@ export function useRealLifeQuests() {
     setMissionVariant,
     completeMission,
     setReflection,
+    setVisualChoice,
+    setFilledSteps,
     resetProgress,
   };
 }
