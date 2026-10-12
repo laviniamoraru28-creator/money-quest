@@ -197,3 +197,172 @@ export function CompletedBadge({ className = "" }: { className?: string }) {
     </svg>
   );
 }
+
+/** A play-triangle-in-a-circle — "begin this mission" — on the "Mark as
+ * started" button, so starting has a visual affordance of its own, not
+ * text alone. Universally used for "start/play"; decorative only
+ * (`aria-hidden`), the button's own translated text stays the real
+ * accessible name. */
+export function StartIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      className={`shrink-0 ${className}`}
+    >
+      <circle cx="12" cy="12" r="9.3" />
+      <path d="M10 8.3l6 3.7-6 3.7z" fill="currentColor" stroke="currentColor" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+/** The "Mark as completed" button's BEFORE-completion icon — an outline
+ * checkmark-in-a-circle, deliberately the unfilled counterpart of
+ * CompletedBadge's filled circle, so "you can still do this" and
+ * "you've done this" are two different shapes (outline vs filled), not
+ * two colors of the same shape. Decorative only. */
+export function MarkCompleteIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      className={`shrink-0 ${className}`}
+    >
+      <circle cx="12" cy="12" r="9.3" />
+      <path d="M7.5 12.5l3 3 6-6.5" />
+    </svg>
+  );
+}
+
+/** A medal (star inside a disc, with ribbon tails) — "you earned a
+ * reward" — shown once, right when a mission is freshly completed, next
+ * to the existing translated XP text. A distinct shape from the
+ * checkmark-based icons above so "you did it" (MarkCompleteIcon /
+ * CompletedBadge) and "here's your reward" (this) are never confused.
+ * Static: no animation, no flashing — it simply appears when the
+ * surrounding text does, like every other icon on this page. */
+export function RewardIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      className={`shrink-0 ${className}`}
+    >
+      <path d="M9 13.5l-2 6.5 5-2.2 5 2.2-2-6.5" />
+      <circle cx="12" cy="9" r="5.5" />
+      <path d="M12 6.3l1.2 2.4 2.6.4-1.9 1.9.5 2.6-2.4-1.3-2.4 1.3.5-2.6-1.9-1.9 2.6-.4z" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+/** A smiling face — the "That went great!" reflection choice. Part of a
+ * four-icon set (this, OkayFaceIcon, TrickyFaceIcon, NewIdeaIcon) added
+ * alongside the existing translated, emoji-prefixed labels so the
+ * reflection choices have a real, design-owned visual symbol (the same
+ * "shape a design system controls, not a font glyph that renders
+ * differently per device" reasoning MissionIcon's own module comment
+ * already gives for every other icon here) rather than relying on the
+ * emoji inside the text alone. Decorative only — the translated label
+ * stays the accessible name, and SelectedCheckIcon (VariantIcon.tsx,
+ * already documented as shared with "the variant/reflection toggle
+ * buttons") marks which one is picked. */
+export function GreatFaceIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      className={`shrink-0 ${className}`}
+    >
+      <circle cx="12" cy="12" r="9.3" />
+      <path d="M8.3 10.3h.01M15.7 10.3h.01" strokeWidth="2.6" />
+      <path d="M7.8 14c1.1 1.7 2.6 2.6 4.2 2.6s3.1-.9 4.2-2.6" />
+    </svg>
+  );
+}
+
+/** A neutral/flat-mouth face — "It was okay". See GreatFaceIcon. */
+export function OkayFaceIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      className={`shrink-0 ${className}`}
+    >
+      <circle cx="12" cy="12" r="9.3" />
+      <path d="M8.3 10.3h.01M15.7 10.3h.01" strokeWidth="2.6" />
+      <path d="M8.3 15h7.4" />
+    </svg>
+  );
+}
+
+/** A wavy-mouth, slightly puzzled face — "That was tricky". See
+ * GreatFaceIcon. Wavy rather than frowning/sad: "tricky" means
+ * challenging, not upsetting, and this app never shows a child a sad
+ * face for their own honest answer. */
+export function TrickyFaceIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      className={`shrink-0 ${className}`}
+    >
+      <circle cx="12" cy="12" r="9.3" />
+      <path d="M8.3 10.3h.01M15.7 10.3h.01" strokeWidth="2.6" />
+      <path d="M8.3 15.3c1-.9 2.2-1.3 3.7-1.3s2.7.4 3.7 1.3" />
+    </svg>
+  );
+}
+
+/** A lightbulb — "I have a new idea now". See GreatFaceIcon. Same
+ * pictogram concept as the visual pilot's ShareIdeaVisual "Share it!"
+ * button (VisualPilotIcons.tsx's `presentIdea`), redrawn here rather
+ * than imported so this shared, all-missions page never depends on the
+ * pilot-scoped icon module (VisualPilotIcons.tsx's own comment reserves
+ * it for the three pilot missions' picker/result widgets). */
+export function NewIdeaIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      className={`shrink-0 ${className}`}
+    >
+      <path d="M12 3a6 6 0 00-6 6c0 2.5 1.5 3.8 2.3 4.9.5.7.7 1.3.7 2.1h6c0-.8.2-1.4.7-2.1C16.5 12.8 18 11.5 18 9a6 6 0 00-6-6z" />
+      <path d="M9.6 18.2h4.8M10 20.5h4" />
+    </svg>
+  );
+}

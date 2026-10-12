@@ -18,10 +18,32 @@ import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { ReadAloudButton } from "@/components/ui/ReadAloudButton";
 import { VariantIcon, SelectedCheckIcon } from "@/components/real-life-quests/VariantIcon";
-import { MissionIcon, CompletedBadge } from "@/components/real-life-quests/MissionIcon";
+import {
+  MissionIcon,
+  CompletedBadge,
+  StartIcon,
+  MarkCompleteIcon,
+  RewardIcon,
+  GreatFaceIcon,
+  OkayFaceIcon,
+  TrickyFaceIcon,
+  NewIdeaIcon,
+} from "@/components/real-life-quests/MissionIcon";
 import { SaveForGoalVisual } from "@/components/real-life-quests/visuals/SaveForGoalVisual";
 import { MiniBusinessVisual } from "@/components/real-life-quests/visuals/MiniBusinessVisual";
 import { ShareIdeaVisual } from "@/components/real-life-quests/visuals/ShareIdeaVisual";
+
+/** Maps each reflection choice to its visual symbol (module-scope: a
+ * plain lookup, not per-render). Keeps the choice's existing meaning and
+ * translated, emoji-prefixed label untouched — this is a second,
+ * design-owned visual on top of what's already there, not a replacement
+ * requiring any locale file to change. */
+const REFLECTION_CHOICE_ICONS: Record<RLQReflectionChoice, typeof GreatFaceIcon> = {
+  great: GreatFaceIcon,
+  okay: OkayFaceIcon,
+  tricky: TrickyFaceIcon,
+  idea: NewIdeaIcon,
+};
 
 /**
  * One generic page renders every mission, driven entirely by
@@ -238,16 +260,33 @@ export default function RealLifeQuestMissionPage() {
         <div className="mt-md flex flex-wrap gap-xs">
           {progress.status === "not-started" && (
             <Button type="button" variant="secondary" size="large" onClick={() => startMission(missionId)}>
+              <StartIcon className="h-5 w-5" />
               {t("realLifeQuests.markStartedButton")}
             </Button>
           )}
           <Button type="button" variant="quest-primary" size="large" onClick={handleMarkCompleted} disabled={progress.status === "completed"}>
-            {progress.status === "completed" && <CompletedBadge className="h-5 w-5" />}
+            {progress.status === "completed" ? (
+              // text-ink override: CompletedBadge's circle uses
+              // `fill="currentColor"` and its checkmark is a hardcoded
+              // white stroke. Everywhere else it sits inside teal text
+              // (e.g. the status line above), so the circle naturally
+              // comes out teal and the white check reads clearly. This
+              // button's own text is white (quest-primary), which would
+              // make the circle white too -- an invisible white check on
+              // a white circle. Forcing a dark circle here keeps the
+              // checkmark visible regardless of the button's own text
+              // color, without changing the shared component or its
+              // other (already-correct) usage.
+              <CompletedBadge className="h-5 w-5 text-ink" />
+            ) : (
+              <MarkCompleteIcon className="h-5 w-5" />
+            )}
             {t("realLifeQuests.markCompletedButton")}
           </Button>
         </div>
         {progress.status === "completed" && (
-          <p className="mt-2xs text-sm text-ink/60">
+          <p className="mt-2xs inline-flex items-center gap-2xs rounded-full border border-gold/50 bg-gold/15 px-sm py-2xs text-sm text-ink/70">
+            {justEarnedXp !== null && <RewardIcon className="h-5 w-5 text-gold" />}
             {justEarnedXp !== null ? t("realLifeQuests.rewardEarnedText", { xp: justEarnedXp }) : t("realLifeQuests.missionCompletedHint")}
           </p>
         )}
@@ -256,23 +295,29 @@ export default function RealLifeQuestMissionPage() {
           <h2 className="font-display text-md font-bold">{t("realLifeQuests.reflectionTitle")}</h2>
           <p className="mt-2xs text-sm text-ink/80">{t(`${base}.reflectionPrompt`)}</p>
           <p className="mt-2xs text-xs text-ink/50">{t("realLifeQuests.reflectionHint")}</p>
-          <div className="mt-sm flex flex-wrap gap-2xs">
-            {RLQ_REFLECTION_CHOICES.map((choice: RLQReflectionChoice) => (
-              <button
-                key={choice}
-                type="button"
-                onClick={() => handleReflectionChoice(choice)}
-                aria-pressed={progress.reflectionChoice === choice}
-                className={[
-                  "min-h-touch-min rounded-sm border-[1.5px] px-sm py-2xs text-sm font-medium transition-colors duration-quick",
-                  progress.reflectionChoice === choice
-                    ? "border-gold bg-gold text-ink"
-                    : "border-ink/20 bg-white text-ink/80 hover:border-gold",
-                ].join(" ")}
-              >
-                {t(`realLifeQuests.reflectionChoices.${choice}`)}
-              </button>
-            ))}
+          <div className="mt-sm grid grid-cols-2 gap-2xs sm:grid-cols-4">
+            {RLQ_REFLECTION_CHOICES.map((choice: RLQReflectionChoice) => {
+              const ReflectionIcon = REFLECTION_CHOICE_ICONS[choice];
+              const selected = progress.reflectionChoice === choice;
+              return (
+                <button
+                  key={choice}
+                  type="button"
+                  onClick={() => handleReflectionChoice(choice)}
+                  aria-pressed={selected}
+                  className={[
+                    "flex min-h-touch-min-child w-full flex-col items-center gap-2xs rounded-lg border-[1.5px] p-xs text-center text-sm font-medium transition-colors duration-quick",
+                    selected ? "border-gold bg-gold text-ink" : "border-ink/20 bg-white text-ink/80 hover:border-gold",
+                  ].join(" ")}
+                >
+                  <ReflectionIcon className="h-7 w-7" />
+                  <span className="inline-flex items-center gap-2xs">
+                    {t(`realLifeQuests.reflectionChoices.${choice}`)}
+                    {selected && <SelectedCheckIcon />}
+                  </span>
+                </button>
+              );
+            })}
           </div>
           <label htmlFor="reflection-text" className="mt-sm block text-sm text-ink/60">
             {t("realLifeQuests.reflectionTextLabel")}
