@@ -253,3 +253,46 @@ test.describe("Real Life Quests - pilot missions' visual-choice pickers at 320px
     }
   });
 });
+
+/**
+ * Regression coverage for the mission title/supervision header overflow
+ * reported at 320px for three locale+mission combinations with longer
+ * translated strings (a flexbox "min-width: auto" bug: the text column
+ * next to the fixed-size mission icon refused to shrink and wrap, so it
+ * pushed the row past the viewport). Fixed with `min-w-0` on that
+ * column. Each case here is the exact locale/mission pair that
+ * previously overflowed, plus one still-wide desktop check to confirm
+ * the fix doesn't regress larger screens.
+ */
+test.describe("Real Life Quests - mission header fits at 320px in longer-string locales", () => {
+  test.use({ viewport: { width: 320, height: 700 } });
+
+  test("de/my-first-mini-business, nl/my-first-mini-business, ro/save-for-something-you-love have no horizontal overflow", async ({ page }) => {
+    const cases: Array<[string, string]> = [
+      ["de", "my-first-mini-business"],
+      ["nl", "my-first-mini-business"],
+      ["ro", "save-for-something-you-love"],
+    ];
+    for (const [locale, missionId] of cases) {
+      await page.goto(`/${locale}/real-life-quests/missions/${missionId}`);
+      const scrollWidth = await page.evaluate(() => document.documentElement.scrollWidth);
+      const clientWidth = await page.evaluate(() => document.documentElement.clientWidth);
+      expect(scrollWidth, `${locale}/${missionId} should not overflow at 320px`).toBeLessThanOrEqual(clientWidth + 1);
+      // The title and supervision label must still both be present and
+      // visible, not hidden/truncated-away as a shortcut fix.
+      await expect(page.locator("h1")).toBeVisible();
+      await expect(page.locator("p.uppercase").first()).toBeVisible();
+    }
+  });
+
+  test("the mission header still renders correctly at 375px and on a wider desktop viewport (no regression)", async ({ page }) => {
+    for (const width of [375, 1280]) {
+      await page.setViewportSize({ width, height: 800 });
+      await page.goto("/de/real-life-quests/missions/my-first-mini-business");
+      const scrollWidth = await page.evaluate(() => document.documentElement.scrollWidth);
+      const clientWidth = await page.evaluate(() => document.documentElement.clientWidth);
+      expect(scrollWidth, `width=${width} should not overflow`).toBeLessThanOrEqual(clientWidth + 1);
+      await expect(page.locator("h1")).toHaveText("Mein erstes Mini-Unternehmen");
+    }
+  });
+});

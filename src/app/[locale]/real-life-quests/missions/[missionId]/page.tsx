@@ -143,11 +143,30 @@ export default function RealLifeQuestMissionPage() {
 
         <div className="mt-sm flex items-start gap-sm">
           <MissionIcon missionId={missionId} className="h-16 w-16 shrink-0 text-teal" />
-          <div>
-            <p className="text-xs font-medium uppercase tracking-wide text-ink/50">
+          {/* min-w-0: a flex item's default min-width is "auto", meaning
+              it refuses to shrink below its content's unwrapped intrinsic
+              width even though the sibling icon is shrink-0 and takes a
+              fixed share of the row. Without this, a long translated
+              title or supervision label (e.g. German/Dutch/Romanian)
+              pushes the row past the viewport at 320-375px instead of
+              wrapping. min-w-0 lets this column shrink to the row's
+              actual available width so normal (space/hyphen) text
+              wrapping takes over.
+              break-words (overflow-wrap: break-word) on the title and
+              supervision text themselves: min-w-0 alone still isn't
+              enough when a SINGLE word has no space or hyphen to wrap
+              at and is simply too long for the column at this width —
+              German compound nouns are the real-world case ("Mein
+              erstes Mini-Unternehmen" wraps at the hyphen, but
+              "Unternehmen" alone still doesn't fit at 320px and was
+              overflowing the viewport by ~53px, confirmed visually,
+              until this was added). break-words lets that one long word
+              wrap mid-word as a last resort instead of overflowing. */}
+          <div className="min-w-0">
+            <p className="break-words text-xs font-medium uppercase tracking-wide text-ink/50">
               {t(`realLifeQuests.supervision.${mission.supervision}`)}
             </p>
-            <h1 className="mt-2xs font-display text-2xl font-bold">{t(`${base}.title`)}</h1>
+            <h1 className="mt-2xs break-words font-display text-2xl font-bold">{t(`${base}.title`)}</h1>
           </div>
         </div>
         <p className="mt-2xs text-base text-ink/80">{t(`${base}.intro`)}</p>
