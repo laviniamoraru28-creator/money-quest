@@ -5961,5 +5961,415 @@
         }
       ]
     }
+  },
+  "realLifeQuests": {
+    "hubTitle": "Misiones en la Vida Real",
+    "hubTagline": "Lleva lo que has aprendido fuera de la pantalla, al mundo real.",
+    "hubIntro": "Las Misiones en la Vida Real son retos que haces lejos de la pantalla, con las personas y las cosas que ya tienes a tu alrededor. Elige una, hazla a tu ritmo, y cuéntanos cómo te fue. No hay prisa, y no hay una forma equivocada de hacerlas.",
+    "parentIntroTitle": "Para madres, padres y educadores",
+    "parentIntro": "Las Misiones en la Vida Real conectan lo que tu hijo o hija aprende en Money Quest, Entrepreneur Quest y Leadership Quest con situaciones del día a día en casa. Todas las misiones se pueden hacer con dinero imaginario, dibujos, o cosas que ya tienes - no hace falta comprar nada, y nunca se vende ni se cobra de verdad sin que tú estés presente. Elegid las misiones juntos, cambiadlas con total libertad para que se adapten a tu hijo o hija, y no hay ninguna presión por terminarlas rápido ni a la perfección.",
+    "categories": {
+      "money-skills": {
+        "title": "Habilidades con el Dinero",
+        "description": "Practica ahorrar, gastar con cabeza y planificar con dinero - usando la vida real, no solo números en una pantalla."
+      },
+      "entrepreneurship": {
+        "title": "Emprendimiento",
+        "description": "Haz cosas, pon a prueba tus ideas, y entiende cómo funcionan los costos y los precios - todo de forma segura y supervisada."
+      },
+      "leadership": {
+        "title": "Liderazgo",
+        "description": "Resuelve problemas, trabaja con otras personas, comparte tus ideas, y aprende de lo que no salió como esperabas."
+      }
+    },
+    "supervision": {
+      "label": "Participación de una persona adulta",
+      "independent": "Puedes intentarlo solo o sola",
+      "with-adult": "Mejor con una persona adulta cerca",
+      "adult-required": "Necesitas a una persona adulta contigo"
+    },
+    "status": {
+      "not-started": "Todavía sin empezar",
+      "started": "En marcha",
+      "completed": "¡Completada!"
+    },
+    "variantLabels": {
+      "standard": "Versión normal",
+      "independent": "Versión más independiente",
+      "simpler": "Versión más sencilla y visual"
+    },
+    "variantsTitle": "Elige tu versión",
+    "objectivesTitle": "Lo que vas a practicar",
+    "materialsTitle": "Lo que vas a necesitar",
+    "stepsTitle": "Pasos",
+    "durationLabel": "Cuánto tiempo lleva, más o menos",
+    "nonverbalTitle": "¿Sin hablar ni escribir? No pasa nada",
+    "parentGuidanceTitle": "Para madres, padres y educadores",
+    "markStartedButton": "Marcar como empezada",
+    "markCompletedButton": "Marcar como completada",
+    "missionCompletedHint": "¡Buen trabajo! Todavía puedes cambiar tu versión o añadir algo a tu reflexión cuando quieras.",
+    "backToHub": "Volver a Misiones en la Vida Real",
+    "linkedActivityIntro": "¿Quieres seguir jugando en la pantalla también?",
+    "linkedActivity": {
+      "savingsGoals": "Prueba la herramienta de Metas de Ahorro",
+      "priceDetectiveGame": "Juega al Detective de Precios",
+      "buildABudgetGame": "Juega a Construye un Presupuesto",
+      "entrepreneurQuest": "Sigue con Entrepreneur Quest",
+      "leadershipQuest": "Sigue con Leadership Quest"
+    },
+    "reflectionTitle": "¿Cómo te fue?",
+    "reflectionHint": "Elige lo que más se parezca a lo que sentiste - no hay una respuesta equivocada.",
+    "reflectionChoices": {
+      "great": "😊 ¡Me fue genial!",
+      "okay": "😐 Estuvo bien",
+      "tricky": "🤔 Fue complicado",
+      "idea": "💡 Ahora tengo una idea nueva"
+    },
+    "reflectionTextLabel": "¿Quieres contar más? (totalmente opcional)",
+    "reflectionTextPlaceholder": "Puedes escribir aquí, o dejarlo en blanco.",
+    "rewardEarnedText": "¡Ganaste {xp} XP por intentar esta misión!",
+    "missionsCompletedCount": "{completed} de {total} misiones probadas",
+    "categoryFilterAll": "Todas",
+    "resetConfirm": "Esto borra todo tu progreso de Misiones en la Vida Real en este dispositivo. ¿Estás seguro o segura?",
+    "resetButton": "Reiniciar progreso de Misiones en la Vida Real",
+    "missions": {
+      "save-for-something-you-love": {
+        "title": "Ahorra para Algo que Te Encanta",
+        "intro": "Elige algo que de verdad quieras tener. Después haz un plan sencillo para ahorrar para conseguirlo, poco a poco.",
+        "objectives": [
+          "Elegir una cosa para la que quieras ahorrar",
+          "Hacer un plan sencillo para ahorrar para conseguirla",
+          "Seguir tu progreso mientras avanzas"
+        ],
+        "materials": [
+          "Un papel o un frasco",
+          "Pegatinas, marcas de conteo, o dibujos para seguir tu progreso (o usa la herramienta de Metas de Ahorro)",
+          "Un lápiz o ceras de colores"
+        ],
+        "steps": [
+          "Piensa en algo que te encantaría tener o hacer - grande o pequeño.",
+          "Dibújalo, o escribe su nombre, arriba de tu papel o en tu frasco.",
+          "Decide cuántos \"pasos\" harán falta para conseguirlo (por ejemplo, 5 pegatinas o 5 monedas).",
+          "Cada vez que ahorres un poco, añade una pegatina, una moneda, o una marca.",
+          "¡Sigue así hasta que tu plan esté completo!"
+        ],
+        "durationEstimate": "Unos 10 minutos para empezar, y después una revisión pequeña cada semana - esta misión lleva su tiempo en terminarse.",
+        "independentVersion": "Elige tu propia meta y sigue tu progreso completamente solo o sola, y además pruébalo en la pantalla con la herramienta de Metas de Ahorro.",
+        "simplerVersion": "Usa un frasco y objetos reales (monedas, botones, pegatinas) en vez de números - solo mira cómo el frasco se va llenando cada vez.",
+        "nonverbalAdaptation": "Elige tu meta señalando un dibujo o un objeto en vez de decirlo en voz alta. Seguir tu progreso con pegatinas o marcas no necesita hablar ni escribir.",
+        "reflectionPrompt": "¿Qué sentiste al ver crecer tu plan?",
+        "parentGuidance": "Deja que tu hijo o hija elija la meta, incluso una pequeña cuenta. No hay necesidad de ir rápido; la idea es practicar la espera y la planificación, no terminar enseguida. Si hay niños o niñas más pequeños cerca, las pegatinas o las marcas de conteo son una forma más segura de seguir el progreso que las monedas pequeñas o los botones."
+      },
+      "the-price-detective": {
+        "title": "El Detective de Precios",
+        "intro": "¡Conviértete en detective! Mira dos cosas parecidas e investiga qué hace que sus precios sean diferentes.",
+        "objectives": [
+          "Comparar dos productos parecidos",
+          "Fijarte en qué es diferente entre ellos",
+          "Pensar en qué significa \"buena relación calidad-precio\""
+        ],
+        "materials": [
+          "Dos cosas parecidas que ya tengas en casa, o dos de un folleto de tienda o una página web con una persona adulta - nunca es necesario ir a una tienda",
+          "¡No se necesita nada más!"
+        ],
+        "steps": [
+          "Elige dos cosas parecidas que ya tengas, o encuentra dos en un folleto o una página web con una persona adulta - como dos tipos de zumo o dos cuadernos.",
+          "Mira cada precio (o pide a una persona adulta que te lo diga).",
+          "Mira cada cosa con atención - el tamaño, su aspecto, cuánto podría durar.",
+          "Decide cuál crees que es la mejor opción, y por qué.",
+          "¡Cuéntale a alguien tu conclusión de detective!"
+        ],
+        "durationEstimate": "Unos 15 minutos.",
+        "independentVersion": "Investiga tres cosas o más en vez de dos, y ordénalas de la mejor a la peor relación calidad-precio.",
+        "simplerVersion": "Solo señala la que se ve más grande, o la que tiene la pegatina con la carita más feliz que puso una persona adulta junto al precio.",
+        "nonverbalAdaptation": "Señala, asiente, o usa el pulgar hacia arriba o hacia abajo para contar tu conclusión de detective en vez de explicarla con palabras.",
+        "reflectionPrompt": "¿Cuál elegiste, y qué te hizo elegirla?",
+        "parentGuidance": "Aquí no hay una respuesta \"correcta\" - el objetivo es fijarse y comparar, no acertar la elección \"correcta\". Algo más caro todavía puede ser la mejor opción; deja que tu hijo o hija lo piense en voz alta o señalando. Comparar cosas que ya tengáis en casa o en un folleto funciona igual de bien que ir a una tienda - y si vais juntos a una tienda real, siempre debe acompañaros una persona adulta de confianza."
+      },
+      "plan-a-shopping-trip": {
+        "title": "Planea una Compra",
+        "intro": "Ayuda a planear una compra real (o de mentira). Haz una lista y piensa en cuánto podría costar todo.",
+        "objectives": [
+          "Ayudar a hacer una lista de la compra",
+          "Pensar en un presupuesto sencillo",
+          "Practicar cómo elegir lo que más importa"
+        ],
+        "materials": [
+          "Papel y un lápiz, o una pizarra o una nota en una tablet",
+          "Una lista de la compra real, o una de mentira con una tienda de juguete"
+        ],
+        "steps": [
+          "Pregunta a una persona adulta qué hace falta para la próxima compra.",
+          "Ayuda a escribir o dibujar la lista juntos.",
+          "Decidid juntos un número de \"presupuesto\" - real o de mentira.",
+          "Mira la lista y decide qué es lo más importante si el presupuesto es ajustado.",
+          "Ve a hacer la compra con tu persona adulta de confianza - nunca vayas de compras solo o sola - o juega a la tienda de mentira en casa, y mira qué tan cerca estuvo el plan."
+        ],
+        "durationEstimate": "Unos 20 minutos para planear; la compra en sí dura lo que tenga que durar.",
+        "independentVersion": "Intenta calcular el costo total antes de ir, y después comprueba qué tan cerca estuvo tu cálculo.",
+        "simplerVersion": "Usa tarjetas con dibujos o una lista de compra con imágenes en vez de escribir palabras, y usa monedas o fichas en vez de precios reales.",
+        "nonverbalAdaptation": "Señala dibujos para armar la lista. No hace falta hablar ni escribir - señalar y asentir funcionan perfectamente.",
+        "reflectionPrompt": "¿Qué fue lo más difícil de planear la lista?",
+        "parentGuidance": "Deja que tu hijo o hija tome decisiones reales, aunque sean pequeñas, como elegir qué snack llevar. Una compra real siempre se hace junto a una persona adulta de confianza - tu hijo o hija nunca debería ir de compras solo o sola. Una tienda de mentira sin dinero real funciona igual de bien que una compra real."
+      },
+      "resource-rescue": {
+        "title": "Rescate de Recursos",
+        "intro": "Antes de comprar algo nuevo, ve en una misión de rescate: busca cosas que ya tienes en casa y que podrías reutilizar.",
+        "objectives": [
+          "Encontrar materiales que ya tienes en casa",
+          "Reutilizarlos para hacer o arreglar algo",
+          "Fijarte en cuánto \"rescataste\" en vez de comprar"
+        ],
+        "materials": [
+          "Cosas que ya tienes por casa - cajas, papel, retales de tela, juguetes viejos, envases",
+          "Cinta, pegamento, o cuerda (opcional)"
+        ],
+        "steps": [
+          "Piensa en algo que te gustaría hacer, arreglar, o construir.",
+          "Ve en una \"misión de rescate\" por la casa para buscar materiales - ¡pide permiso primero!",
+          "Mira qué puedes hacer usando solo lo que encontraste.",
+          "Si falta algo, piensa en un sustituto creativo antes de pedir comprarlo.",
+          "¡Enseña con orgullo tu creación rescatada!"
+        ],
+        "durationEstimate": "Entre 20 y 30 minutos, más o menos.",
+        "independentVersion": "Pon a prueba un reto: haz algo usando solo 3 cosas rescatadas.",
+        "simplerVersion": "Una persona adulta reúne de antemano 3 o 4 opciones seguras, y tú elige y combina libremente - sin tener que buscar.",
+        "nonverbalAdaptation": "Señala o recoge objetos en vez de nombrarlos. Construir y combinar materiales no necesita ninguna palabra.",
+        "reflectionPrompt": "¿Qué rescataste en vez de comprar algo nuevo?",
+        "parentGuidance": "Esto desarrolla el ingenio, no la idea de ahorrar por norma. Celebra la creatividad, no solo el dinero \"ahorrado\"."
+      },
+      "make-something": {
+        "title": "Haz Algo",
+        "intro": "Crea algo sencillo con lo que tengas a mano, y después muéstraselo a alguien y pregúntale qué piensa.",
+        "objectives": [
+          "Hacer un producto sencillo con materiales disponibles",
+          "Compartirlo con alguien en quien confíes",
+          "Escuchar lo que te diga"
+        ],
+        "materials": [
+          "Papel, ceras de colores, pegatinas, pegamento, u otros materiales de manualidades que ya tengas",
+          "Alguien a quien mostrárselo (una persona de tu familia o de confianza)"
+        ],
+        "steps": [
+          "Decide qué te gustaría hacer - un dibujo, una pulsera, una tarjeta, lo que sea.",
+          "Reúne tus materiales y hazlo - si necesitas tijeras o algo afilado, pide ayuda a una persona adulta.",
+          "Muéstraselo a alguien de tu familia o de confianza.",
+          "Pregúntale una cosa que le guste, y una idea para la próxima vez.",
+          "Decide si quieres hacer otro, de forma diferente."
+        ],
+        "durationEstimate": "Unos 30 minutos.",
+        "independentVersion": "Haz dos versiones y pregunta cuál prefiere la gente, y por qué.",
+        "simplerVersion": "Usa un kit de manualidades sencillo o una plantilla en vez de diseñar desde cero.",
+        "nonverbalAdaptation": "Muestra tu creación y deja que la otra persona señale o haga un gesto hacia su parte favorita en vez de describirla con palabras.",
+        "reflectionPrompt": "¿Qué harías diferente la próxima vez?",
+        "parentGuidance": "Mantén los comentarios amables y concretos. El objetivo es crear el hábito de hacer y compartir, no conseguir un resultado perfecto. Elige herramientas que tu hijo o hija pueda usar de forma segura, y ayuda directamente con cualquier cosa afilada."
+      },
+      "my-first-mini-business": {
+        "title": "Mi Primer Mini Negocio",
+        "intro": "Con la ayuda de una persona adulta, planea un pequeño puesto o tienda de mentira para un evento familiar, y practica llevarlo.",
+        "objectives": [
+          "Elegir un producto o actividad sencilla para ofrecer",
+          "Fijar un precio (de mentira, o una cantidad real muy pequeña)",
+          "Practicar hablar con los \"clientes\""
+        ],
+        "materials": [
+          "Un producto sencillo (dibujos, galletas, un puesto de juegos) - supervisado por una persona adulta",
+          "Dinero de mentira, fichas, o (con una persona adulta) monedas reales pequeñas",
+          "Una mesa pequeña o una bandeja"
+        ],
+        "steps": [
+          "Con una persona adulta, elige una cosa sencilla para \"vender\" u ofrecer en un evento familiar - si es comida, una persona adulta debe comprobar las alergias y encargarse de cocinarla.",
+          "Decidid juntos un precio - el dinero de mentira funciona perfectamente.",
+          "Montad juntos un pequeño puesto.",
+          "Practica saludar a un \"cliente\" (alguien de tu familia) y tomar su pedido.",
+          "Hablad después sobre cómo te sentiste y qué te gustaría probar la próxima vez."
+        ],
+        "durationEstimate": "Unos 20 minutos para planear, más el evento en sí.",
+        "independentVersion": "Toma la iniciativa de hablar con los clientes mientras la persona adulta solo supervisa cerca.",
+        "simplerVersion": "La persona adulta se encarga de hablar con todos los clientes; tú entregas los productos y recoges las fichas de mentira.",
+        "nonverbalAdaptation": "Usa un menú con dibujos o una tabla de precios en vez de decir los precios en voz alta. Entregar un producto es una interacción completa por sí sola.",
+        "reflectionPrompt": "¿Qué fue divertido, y qué se sintió difícil?",
+        "parentGuidance": "Esto siempre debe estar supervisado y mantenerse dentro de la familia o de personas de confianza, nunca con desconocidos, y nunca como una venta pública real. Si hay comida de por medio, comprueba las alergias y que sea una persona adulta quien se encargue de la preparación y la higiene. Una versión completamente de mentira - comida de mentira, dinero de mentira - enseña exactamente las mismas lecciones sin usar comida de verdad."
+      },
+      "test-my-idea": {
+        "title": "Pon a Prueba Mi Idea",
+        "intro": "¿Tienes una idea para hacer o crear algo? Pruébala con unas cuantas personas antes de ponerle mucho esfuerzo.",
+        "objectives": [
+          "Describir un problema o una idea de forma sencilla",
+          "Preguntar a algunas personas qué piensan",
+          "Decidir qué hacer según lo que te digan"
+        ],
+        "materials": [
+          "Solo tu idea - un papel para dibujarla también ayuda",
+          "2 o 3 personas de tu familia o de confianza a quienes preguntar"
+        ],
+        "steps": [
+          "Piensa en un pequeño problema que hayas notado, o en una idea que tengas.",
+          "Descríbela en una frase sencilla, o dibújala.",
+          "Pregunta a 2 o 3 personas: \"¿Qué te parece esto?\"",
+          "Escucha lo que digan, incluso si es diferente de lo que esperabas.",
+          "Decide: dejar la idea igual, cambiarla un poco, o probar algo nuevo."
+        ],
+        "durationEstimate": "Unos 15 a 20 minutos.",
+        "independentVersion": "Pregunta a personas que todavía no conozcas tan bien (con una persona adulta de confianza presente) para tener una variedad más amplia de opiniones.",
+        "simplerVersion": "Muestra un dibujo o un objeto en vez de explicarlo con palabras, y deja que la gente señale un pulgar arriba o abajo.",
+        "nonverbalAdaptation": "Usa un dibujo, una tarjeta con un símbolo, o señala la idea. La respuesta puede ser un gesto de asentir, un pulgar arriba o abajo, o un gesto sencillo.",
+        "reflectionPrompt": "¿Alguien te dijo algo que te sorprendiera?",
+        "parentGuidance": "Esto enseña que recibir comentarios antes de poner mucho esfuerzo es algo valioso, no algo que dé miedo. Mantén todas las respuestas amables, incluso un \"no, gracias\"."
+      },
+      "understand-the-numbers": {
+        "title": "Entiende los Números",
+        "intro": "Usa un ejemplo sencillo para ver la diferencia entre lo que cuesta hacer algo, lo que cuesta venderlo, y lo que queda al final.",
+        "objectives": [
+          "Diferenciar costo, precio, y ganancia usando un ejemplo",
+          "Usar una versión visual o práctica si los números se complican",
+          "Ver que la ganancia es lo que queda después de los costos"
+        ],
+        "materials": [
+          "Un ejemplo sencillo - limonada, galletas, o un dibujo de un puesto",
+          "Monedas, fichas, o dibujos (una versión sin calculadora siempre está bien)"
+        ],
+        "steps": [
+          "Elige un producto de mentira - como un vaso de limonada.",
+          "Calcula (o pide ayuda a una persona adulta para calcular) cuánto cuesta hacer un vaso.",
+          "Decide a qué precio lo venderías.",
+          "Usa objetos o dibujos para mostrar: precio menos costo es igual a lo que queda (la ganancia).",
+          "Pruébalo otra vez con un precio diferente y mira qué cambia."
+        ],
+        "durationEstimate": "Unos 15 minutos.",
+        "independentVersion": "Pruébalo con 2 o 3 productos a la vez y compara cuál deja más ganancia.",
+        "simplerVersion": "Usa fichas de colores: una pila para el costo, una pila más grande para el precio, y quita de verdad la pila del costo para ver lo que queda - sin necesidad de hacer cuentas.",
+        "nonverbalAdaptation": "Usa fichas o dibujos para mostrar toda la idea sin hablar ni escribir un solo número.",
+        "reflectionPrompt": "¿Qué pasó con lo que quedaba cuando cambiaste el precio?",
+        "parentGuidance": "Esta es la misma idea que se enseña en Entrepreneur Quest: costo, precio, y ganancia. Una versión visual, sin cálculos, enseña el concepto tan bien como hacer las cuentas."
+      },
+      "solve-a-real-problem": {
+        "title": "Resuelve un Problema Real",
+        "intro": "Fíjate en un pequeño problema de tu día a día, y busca tu propia manera práctica de resolverlo.",
+        "objectives": [
+          "Fijarte en un problema pequeño y real",
+          "Pensar en una solución práctica",
+          "Probarla"
+        ],
+        "materials": [
+          "¡No se necesita nada - solo fijarse!",
+          "Papel o materiales de dibujo si eso te ayuda a pensar"
+        ],
+        "steps": [
+          "Piensa en algo un poco molesto o complicado en tu día (un estante desordenado, una tarea olvidada, un horario confuso).",
+          "Describe el problema de forma sencilla - con palabras, con un dibujo, o para ti mismo o misma.",
+          "Piensa en una manera práctica de mejorarlo.",
+          "Prueba tu solución.",
+          "Mira qué pasó - ¿ayudó?"
+        ],
+        "durationEstimate": "Unos 15 minutos, más el tiempo de probar la solución.",
+        "independentVersion": "Resuelve un problema que afecte a más personas, no solo a ti, como algo de casa que le pasa a todo el mundo.",
+        "simplerVersion": "Elige entre una lista corta de problemas comunes que te ofrezca una persona adulta, y elige una solución entre unas pocas opciones con dibujos.",
+        "nonverbalAdaptation": "Señala o actúa el problema en vez de describirlo con palabras. La solución se puede mostrar con acciones en vez de con explicaciones.",
+        "reflectionPrompt": "¿Tu solución funcionó como esperabas?",
+        "parentGuidance": "Deja que tu hijo o hija elija un problema realmente pequeño y real - el tamaño no importa. Celebra el intento, aunque la solución no funcione del todo."
+      },
+      "make-something-together": {
+        "title": "Hagan Algo Juntos",
+        "intro": "Haz equipo con alguien de tu familia o de confianza para planear y terminar un pequeño proyecto juntos.",
+        "objectives": [
+          "Planear un proyecto con otra persona",
+          "Turnarse y compartir las decisiones",
+          "Terminarlo juntos"
+        ],
+        "materials": [
+          "Cualquier proyecto sencillo - un rompecabezas, una manualidad, ordenar un espacio, o (con la ayuda de una persona adulta) una receta sencilla",
+          "Alguien con quien trabajar"
+        ],
+        "steps": [
+          "Elige un proyecto pequeño que puedan terminar juntos en una sola vez.",
+          "Decidid juntos quién hace cada parte - túrnense para decidir.",
+          "Trabajen en ello juntos, revisando cómo va todo - si están cocinando, una persona adulta debe comprobar las alergias y encargarse de todo lo caliente o afilado.",
+          "Terminen el proyecto.",
+          "Hablen sobre cómo se sintió trabajar en equipo."
+        ],
+        "durationEstimate": "Entre 20 y 30 minutos, más o menos.",
+        "independentVersion": "Toma la iniciativa de planear quién hace qué, mientras tu compañero o compañera sigue tu plan.",
+        "simplerVersion": "Usa una tabla visual de turnos (dos dibujos, que se cambian después de cada turno) en vez de hablar sobre quién sigue.",
+        "nonverbalAdaptation": "Usa gestos, señala, o pasa un objeto pequeño para mostrar de quién es el turno - sin necesidad de hablar.",
+        "reflectionPrompt": "¿Cómo se sintió compartir las decisiones?",
+        "parentGuidance": "Deja que tu hijo o hija tenga poder real de decisión, incluso en cosas pequeñas. Compartir el control es la verdadera lección aquí. Si eligen una receta, comprueba las alergias y deja la higiene y lo caliente o afilado en manos de la persona adulta - un rompecabezas o una manualidad enseñan el mismo trabajo en equipo sin necesidad de cocina."
+      },
+      "share-my-idea": {
+        "title": "Comparte Mi Idea",
+        "intro": "Piensa en una idea, y compártela con alguien más, de la forma que mejor te funcione.",
+        "objectives": [
+          "Tener una idea que valga la pena compartir",
+          "Comunicarla a tu manera",
+          "Ver cómo reacciona alguien a ella"
+        ],
+        "materials": [
+          "Solo tu idea",
+          "Papel, imágenes, símbolos, o un dispositivo de comunicación (CAA) si así es como te comunicas - todos funcionan igual de bien"
+        ],
+        "steps": [
+          "Piensa en una idea que te gustaría compartir - un juego, un plan, una historia, lo que sea.",
+          "Elige cómo la vas a compartir: hablando, escribiendo, dibujando, con símbolos, con CAA, o mostrándola o actuándola.",
+          "Compártela con alguien en quien confíes.",
+          "Mira cómo reacciona.",
+          "Fíjate en cómo se sintió compartir algo tuyo."
+        ],
+        "durationEstimate": "Unos 10 a 15 minutos.",
+        "independentVersion": "Comparte tu idea con más de una persona y mira si sus reacciones son diferentes.",
+        "simplerVersion": "Usa un solo dibujo u objeto para representar toda la idea en vez de explicar cada detalle.",
+        "nonverbalAdaptation": "Hablar nunca es obligatorio aquí - dibujar, señalar símbolos, usar CAA, o mostrar la idea actuándola son todas formas completas y válidas de compartirla.",
+        "reflectionPrompt": "¿Cómo te sentiste cuando alguien escuchó tu idea?",
+        "parentGuidance": "La forma en que tu hijo o hija se comunica es la forma correcta para esta misión. El objetivo es que lo escuchen, no usar un método en concreto."
+      },
+      "learn-change-and-try-again": {
+        "title": "Aprende, Cambia, e Inténtalo de Nuevo",
+        "intro": "Piensa en algo que no salió del todo como esperabas, y decide si quieres volver a intentarlo, de forma diferente.",
+        "objectives": [
+          "Reflexionar sobre algo que no salió como esperabas",
+          "Pensar en un posible cambio",
+          "Decidir si volver a intentarlo"
+        ],
+        "materials": [
+          "No se necesita nada - solo pensar un poco",
+          "Papel o materiales de dibujo si eso te ayuda"
+        ],
+        "steps": [
+          "Piensa en algo reciente que no salió del todo como querías - grande o pequeño.",
+          "Piensa en (o dibuja) lo que pasó.",
+          "Piensa en una cosa que podrías probar de forma diferente.",
+          "Decide: ¿quieres volver a intentarlo? Está bien decir cualquiera de las dos cosas.",
+          "Si vuelves a intentarlo, fíjate en qué cambió."
+        ],
+        "durationEstimate": "Unos 10 minutos, más el tiempo de volver a intentarlo si quieres.",
+        "independentVersion": "Vuelve a intentar la actividad completamente solo o sola, aplicando tu propio cambio.",
+        "simplerVersion": "Elige tu \"cambio\" de una lista corta de opciones con dibujos que te ofrezca una persona adulta, en vez de pensar una desde cero.",
+        "nonverbalAdaptation": "Señala una cara (feliz, normal, o frustrada) para mostrar cómo te sentiste en el primer intento, y señala un dibujo para mostrar el cambio que te gustaría probar - sin necesidad de palabras.",
+        "reflectionPrompt": "¿Qué te gustaría probar diferente la próxima vez?",
+        "parentGuidance": "No hay ninguna presión por volver a intentarlo - decidir que no es un resultado perfectamente válido también. La verdadera habilidad aquí es reflexionar con sinceridad, no acertar en el segundo intento."
+      }
+    },
+    "visualPilot": {
+      "goalOptionToy": "Un juguete",
+      "goalOptionBook": "Un libro",
+      "goalOptionGame": "Un juego",
+      "goalOptionOther": "Algo más",
+      "jarStepLabel": "Paso {number}",
+      "jarCompleteLabel": "¡Meta alcanzada!",
+      "offerOptionDrawing": "Un dibujo",
+      "offerOptionBaking": "Algo horneado",
+      "offerOptionStall": "Un pequeño puesto de juegos",
+      "offerOptionOther": "Algo más",
+      "showToCustomerButton": "¡Muéstralo!",
+      "customerHappyLabel": "¡Le gusta!",
+      "ideaOptionGame": "Un juego",
+      "ideaOptionStory": "Un cuento",
+      "ideaOptionBuilt": "Algo que construí",
+      "ideaOptionDrawing": "Un dibujo",
+      "shareIdeaButton": "¡Compártela!",
+      "listenerHappyLabel": "¡Le encanta tu idea!",
+      "chooseGoalTitle": "Elige tu meta",
+      "chooseOfferTitle": "Elige qué ofrecer",
+      "chooseIdeaTitle": "Elige tu idea"
+    }
   }
 }
