@@ -38,6 +38,9 @@ func _ready() -> void:
 func show_spot(scenario_text_key: String, items: Array[SpotItemData]) -> void:
 	scenario_label.text = Localization.t(scenario_text_key)
 	submit_button.text = Localization.t("common.spot_submit_button")
+	if items.any(func(it): return not it.icon_tokens.is_empty()):
+		await _show_picture_spot(scenario_text_key, items)
+		return
 	# Items in a fresh random order (AnswerOrder): each button stays paired
 	# with its own item, so the check below is unchanged.
 	_qid = AnswerOrder.question_id(scenario_text_key, items.map(func(it): return it.text_key))
@@ -76,7 +79,7 @@ func show_spot(scenario_text_key: String, items: Array[SpotItemData]) -> void:
 func listen_text() -> String:
 	if not visible:
 		return ""
-	var texts: Array = _item_buttons.map(func(b): return b.text)
+	var texts: Array = _item_buttons.map(func(b): return PictureChoice.words_of(b))
 	var s: String = Narration.question_text(scenario_label.text, texts)
 	return s + (" " + _feedback.text if _feedback.visible else "")
 
@@ -110,3 +113,123 @@ func _on_submit_pressed() -> void:
 func _clear_items() -> void:
 	for child in items_box.get_children():
 		child.queue_free()
+
+
+# --- picture spot (items with pictures) ------------------------------------------------
+# The same "spot the problem" game, as picture cards answered at once: a
+# tap on a tricky one marks it found (a warning sign and a ✓ — shapes,
+# not only colours); a tap on a fine one shows a "try again" sign and
+# "this one is OK" — nothing is lost. Done when every tricky one is found.
+
+var picture_mode: bool = false
+var _found: Array = []   # bool per item
+
+
+func _show_picture_spot(scenario_text_key: String, items: Array[SpotItemData]) -> void:
+	picture_mode = true
+	var words: bool = SupportProfile.show_text()
+	_qid = AnswerOrder.question_id(scenario_text_key, items.map(func(it): return it.text_key))
+	var shown: Array[SpotItemData] = []
+	for i in AnswerOrder.order_for(_qid, items.size()):
+		shown.append(items[i])
+	_items = shown
+	_solved = false
+	_feedback.visible = false
+	_clear_items()
+	_item_buttons.clear()
+	_found.clear()
+	scenario_label.visible = words
+	submit_button.visible = false
+	var grid := GridContainer.new()
+	grid.name = "PictureItems"
+	grid.columns = 2
+	grid.add_theme_constant_override("h_separation", 12)
+	grid.add_theme_constant_override("v_separation", 12)
+	items_box.add_child(grid)
+	for i in _items.size():
+		var b := PictureChoice.make(Localization.t(_items[i].text_key), Array(_items[i].icon_tokens), 50.0, 20)
+		b.name = "Message_%s" % _items[i].item_id
+		b.custom_minimum_size = Vector2(300, 86)
+		# Room on the right for the ✓ and the warning sign (never over the words).
+		for st in ["normal", "hover", "pressed", "disabled", "focus"]:
+			var sbx: StyleBox = b.get_theme_stylebox(st)
+			if sbx:
+				var sb2: StyleBox = sbx.duplicate()
+				sb2.content_margin_right = 52.0
+				b.add_theme_stylebox_override(st, sb2)
+		b.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		var idx := i
+		b.pressed.connect(func(): _on_picture_message(idx))
+		grid.add_child(b)
+		_item_buttons.append(b)
+		_found.append(false)
+	visible = true
+	UIFocus.focus(_item_buttons[0] if not _item_buttons.is_empty() else submit_button)
+	AudioManager.present(listen_text())
+	_fit_spot_to_content()
+	while not _solved:
+		await get_tree().process_frame
+	AnswerOrder.answered(_qid)
+	await get_tree().create_timer(0.9).timeout
+	visible = false
+	picture_mode = false
+	submit_button.visible = true
+	scenario_label.visible = true
+	panel.offset_top = _base_top
+	panel.offset_bottom = _base_bottom
+
+
+var _base_top: float = 0.0
+var _base_bottom: float = 0.0
+
+
+func _fit_spot_to_content() -> void:
+	_base_top = panel.offset_top
+	_base_bottom = panel.offset_bottom
+	await get_tree().process_frame
+	await get_tree().process_frame
+	var h: float = maxf(panel.get_combined_minimum_size().y, 240.0)
+	panel.offset_top = -h * 0.5
+	panel.offset_bottom = h * 0.5
+
+
+func _on_picture_message(i: int) -> void:
+	if _found[i]:
+		return
+	var b: Button = _item_buttons[i]
+	if _items[i].is_suspicious:
+		# Found a trick: a warning sign, a ✓, and it stays marked.
+		_found[i] = true
+		PictureChoice.set_picked(b, true)
+		var sign := MissionStrip.Glyph.new("warning", 40.0)
+		sign.name = "TrickSign"
+		sign.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		sign.set_anchors_preset(Control.PRESET_BOTTOM_RIGHT)
+		sign.offset_left = -44.0
+		sign.offset_right = -6.0
+		sign.offset_top = -44.0
+		sign.offset_bottom = -6.0
+		b.add_child(sign)
+		AudioManager.play_sfx("coin", 1.0, -6.0)
+		var all_found: bool = true
+		for j in _items.size():
+			if _items[j].is_suspicious and not _found[j]:
+				all_found = false
+		if all_found:
+			Narration.show_feedback(_feedback, true)
+			_feedback.visible = SupportProfile.show_text()
+			_solved = true
+	else:
+		# A fine message: "try again" for a moment — this one is OK.
+		var sign := MissionStrip.Glyph.new("retry", 40.0)
+		sign.name = "TryAgain"
+		sign.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		sign.position = Vector2(6, 6)
+		b.add_child(sign)
+		AudioManager.play_sfx("retry", 1.0, -6.0)
+		_feedback.text = Localization.t("gg.spot.this_is_ok")
+		_feedback.visible = SupportProfile.show_text()
+		AudioManager.narrate(_feedback.text)
+		await get_tree().create_timer(1.2).timeout
+		if is_instance_valid(sign):
+			sign.queue_free()

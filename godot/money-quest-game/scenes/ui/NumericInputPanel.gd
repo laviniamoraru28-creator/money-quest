@@ -31,6 +31,7 @@ var _value: int = 1
 
 
 func _ready() -> void:
+	panel.add_theme_stylebox_override("panel", UIStyle.dark_panel())
 	visible = false
 	minus_button.pressed.connect(func(): _adjust(-STEP_AMOUNT))
 	plus_button.pressed.connect(func(): _adjust(STEP_AMOUNT))
@@ -42,6 +43,7 @@ func show_numeric_input(label_key: String, help_key: String, initial_value: int)
 	if help_label.visible:
 		help_label.text = Localization.t(help_key)
 	continue_button.text = Localization.t("common.save_and_continue_button")
+	PictureChoice.action_symbol(continue_button, "next")
 
 	_value = max(MIN_VALUE, initial_value)
 	_refresh_value_label()

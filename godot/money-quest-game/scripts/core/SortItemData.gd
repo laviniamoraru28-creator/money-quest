@@ -9,3 +9,7 @@ extends Resource
 @export var item_id: String = ""
 @export var text_key: String = ""
 @export var correct_bucket_key: String = ""
+## Optional: the item as a picture (MissionStrip tokens). When a sort's
+## items have pictures, SortPanel shows them as picture buttons (pictures
+## only with words off). Left empty, nothing changes.
+@export var icon_tokens: Array[String] = []

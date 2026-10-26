@@ -13,25 +13,13 @@ static var _cache: Dictionary = {}       # npc_id -> Texture2D
 static var _pending: Dictionary = {}     # npc_id -> Array[Callable]
 
 
-static func get_portrait(npc_id: String, on_ready: Callable = Callable()) -> Texture2D:
+## `expression` (optional): the character showing a feeling with its own
+## face (CharacterRig expressions: "happy", "proud", "wow", "thinking",
+## "oh_no", "thanks") — rendered and kept separately per expression.
+static func get_portrait(npc_id: String, on_ready: Callable = Callable(), expression: String = "") -> Texture2D:
 	if npc_id.is_empty():
 		return null
-	if _cache.has(npc_id):
-		return _cache[npc_id]
-	if _pending.has(npc_id):
-		if on_ready.is_valid():
-			_pending[npc_id].append(on_ready)
-		return null
-	_pending[npc_id] = [on_ready] if on_ready.is_valid() else []
-	_render(npc_id)
-	return null
-
-
-## The player's own avatar as a picture (visual missions, the intro:
-## "this is YOU"). Re-rendered when the look changes (keyed by the look).
-static func get_avatar(on_ready: Callable = Callable()) -> Texture2D:
-	var look := CharacterLook.from_avatar_config(ProgressManager.avatar_config)
-	var key: String = "avatar|" + look.key()
+	var key: String = npc_id if expression.is_empty() else npc_id + "|" + expression
 	if _cache.has(key):
 		return _cache[key]
 	if _pending.has(key):
@@ -39,11 +27,27 @@ static func get_avatar(on_ready: Callable = Callable()) -> Texture2D:
 			_pending[key].append(on_ready)
 		return null
 	_pending[key] = [on_ready] if on_ready.is_valid() else []
-	_render(key, look)
+	_render(key, CharacterLook.for_npc(npc_id) if not expression.is_empty() else null, expression)
 	return null
 
 
-static func _render(npc_id: String, look: CharacterLook = null) -> void:
+## The player's own avatar as a picture (visual missions, the intro:
+## "this is YOU"). Re-rendered when the look changes (keyed by the look).
+static func get_avatar(on_ready: Callable = Callable(), expression: String = "") -> Texture2D:
+	var look := CharacterLook.from_avatar_config(ProgressManager.avatar_config)
+	var key: String = "avatar|" + look.key() + ("" if expression.is_empty() else "|" + expression)
+	if _cache.has(key):
+		return _cache[key]
+	if _pending.has(key):
+		if on_ready.is_valid():
+			_pending[key].append(on_ready)
+		return null
+	_pending[key] = [on_ready] if on_ready.is_valid() else []
+	_render(key, look, expression)
+	return null
+
+
+static func _render(npc_id: String, look: CharacterLook = null, expression: String = "") -> void:
 	var tree := Engine.get_main_loop() as SceneTree
 	var vp := SubViewport.new()
 	vp.size = Vector2i(SIZE, SIZE)
@@ -65,6 +69,14 @@ static func _render(npc_id: String, look: CharacterLook = null) -> void:
 	var rig: CharacterRig = CharacterBuilder.build(look if look else CharacterLook.for_npc(npc_id), false)
 	rig.process_mode = Node.PROCESS_MODE_DISABLED   # a still, resting pose
 	vp.add_child(rig)
+	if not expression.is_empty():
+		# The face only (no emote bubble): the mouth shape of that feeling.
+		rig.expression = expression
+		rig._expr_left = 1.0e9
+		rig._mouth()
+		# A picture is small: the feeling's mouth shape, larger, so it reads.
+		if rig.mouth:
+			rig.mouth.scale *= Vector3(1.7, 2.0, 1.0)
 	var cam := Camera3D.new()
 	cam.fov = 32.0
 	vp.add_child(cam)

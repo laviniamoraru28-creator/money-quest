@@ -188,3 +188,28 @@ func mark_item_used(item_id: String) -> void:
 func is_item_used(item_id: String) -> bool:
 	var rec: Variant = owned_items.get(item_id, null)
 	return bool((rec as Dictionary).get("used", false)) if rec is Dictionary else false
+
+
+## The child chose to give `count` of an item away (Kindness Grove). Only
+## what they really hold can be given: a count above what they own (or
+## nothing owned) gives nothing and returns false. The record is never
+## deleted — its purchase date stays and "given" adds up — so the history
+## ("you have bought something here") and everything that depends on it
+## stays true; only the count in hand goes down (never below 0).
+func give_item(item_id: String, count: int = 1) -> bool:
+	if count <= 0 or not (owned_items.get(item_id) is Dictionary):
+		return false
+	var rec: Dictionary = owned_items[item_id]
+	var have: int = int(rec.get("count", 0))
+	if count > have:
+		return false
+	rec["count"] = have - count
+	rec["given"] = int(rec.get("given", 0)) + count
+	owned_items[item_id] = rec
+	item_acquired.emit(item_id, rec["count"])
+	return true
+
+
+func given_count(item_id: String) -> int:
+	var rec: Variant = owned_items.get(item_id, null)
+	return int((rec as Dictionary).get("given", 0)) if rec is Dictionary else 0

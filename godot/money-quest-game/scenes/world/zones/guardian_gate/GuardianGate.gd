@@ -40,11 +40,42 @@ const SCAMS_STRATEGIST_QUEST_ID: String = "strategist-scams-l1-quest"
 @onready var marcus: NPC = $Marcus
 
 
+## The message board: "Spot the tricks" — a hands-on activity in the room.
+var board: MessageBoard
+var _spotting: bool = false
+
+
 func _ready() -> void:
 	camera_controller.target = player
 	zara.talked_to.connect(_on_zara_talked_to)
 	grown_up.talked_to.connect(_on_grown_up_talked_to)
 	marcus.talked_to.connect(_on_marcus_talked_to)
+	board = MessageBoard.new()
+	board.name = "MessageBoard"
+	board.position = Vector3(4.6, 0, -0.6)
+	board.rotation_degrees.y = -60.0
+	add_child(board)
+	board.used.connect(_on_board_used)
+	_set_place_goal.call_deferred()
+
+
+## The room's own goal while the board is not done: you → the messages → ⚠.
+func _set_place_goal() -> void:
+	if MessageBoard.done() or not is_inside_tree():
+		return
+	ObjectiveManager.set_objective("gg.spot", "objective.gg.spot", {}, board)
+	ObjectiveManager.set_icons(["you", "then", "chat", "warning"])
+
+
+func _on_board_used() -> void:
+	if _spotting:
+		return
+	_spotting = true
+	var first: bool = not MessageBoard.done()
+	await board.play()
+	_spotting = false
+	if first and ObjectiveManager.objective_id == "gg.spot":
+		ObjectiveManager.complete("gg.spot")
 
 
 func _on_zara_talked_to(_npc_id: String) -> void:

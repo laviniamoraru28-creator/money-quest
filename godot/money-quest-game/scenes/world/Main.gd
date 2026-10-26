@@ -40,8 +40,32 @@ func _on_zone_change_requested(zone_data: ZoneData) -> void:
 		player.global_position = arrive
 		if player.get("safety"):
 			player.safety.set_spawn(arrive)
+		_face_the_way_on(zone_data, player)
 
 	WorldManager.notify_zone_loaded(zone_data)
+
+
+## Coming in through a room's ← BACK door (further along its chain), the
+## camera turns so the room's → FORWARD door(s) are in view — the way on is
+## never behind the camera. Scenes with their own designed opening view
+## keep it (CameraController.use_authored_offset).
+func _face_the_way_on(zone_data: ZoneData, player: Node3D) -> void:
+	var from: String = WorldManager.previous_zone_id
+	if from.is_empty() or from != zone_data.back_zone_id:
+		return
+	var cam := _current_zone_instance.find_child("CameraController", true, false) as CameraController
+	if cam == null or cam.use_authored_offset:
+		return
+	var sum := Vector3.ZERO
+	var n: int = 0
+	for d in _current_zone_instance.find_children("*", "Area3D", true, false):
+		if d is PortalInteraction and WorldManager.door_role(zone_data.zone_id, (d as PortalInteraction).target_zone_id) == "forward":
+			sum += (d as Node3D).global_position
+			n += 1
+	if n > 0:
+		if cam.target == null:
+			cam.target = player
+		cam.face_toward(sum / n)
 
 
 ## Where the player appears: beside the door that leads back to the place

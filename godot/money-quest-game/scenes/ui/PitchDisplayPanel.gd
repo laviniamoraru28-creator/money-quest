@@ -28,13 +28,18 @@ const COLOR_BY_KEY: Dictionary = {
 	"soft-blue": Color(0.498, 0.702, 0.800, 1),
 }
 
+var _listen_text: String = ""
+
 
 func _ready() -> void:
+	panel.add_theme_stylebox_override("panel", UIStyle.dark_panel())
 	visible = false
 	done_button.text = Localization.t("eq_build.pitch.done_button")
 
 
 func show_pitch(profile: BusinessProfileData) -> void:
+	done_button.text = Localization.t("eq_build.pitch.done_button")
+	PictureChoice.action_symbol(done_button, "done")
 	preview.refresh(profile.logo.shape, COLOR_BY_KEY.get(profile.logo.color_key, Color.WHITE))
 	preview_symbol_label.text = profile.logo.symbol
 
@@ -60,12 +65,48 @@ func show_pitch(profile: BusinessProfileData) -> void:
 	]
 	lines_label.text = "\n\n".join(lines)
 
+	# What Listen reads: the same pitch, but a typed answer is spoken as
+	# "your own words" — the child's own text never goes to a speech voice.
+	var spoken_lines: Array[String] = [
+		_pitch_line(Localization.t("eq_build.pitch.my_business_is_label"), _spoken(profile.business_name), not_set),
+		_pitch_line(Localization.t("eq_build.pitch.it_helps_label"), _spoken(profile.problem), not_set),
+		_pitch_line(Localization.t("eq_build.pitch.my_customers_are_label"), customer_text, not_set),
+		_pitch_line(Localization.t("eq_build.pitch.my_product_is_label"), _spoken(profile.product_description), not_set),
+		_pitch_line(Localization.t("eq_build.pitch.it_costs_me_label"), "%d %s" % [profile.cost_per_unit, per_item], not_set),
+		_pitch_line(Localization.t("eq_build.pitch.i_would_charge_label"), "%d %s" % [profile.price, per_item], not_set),
+		_pitch_line(Localization.t("eq_build.pitch.i_could_make_label"), profit_text, not_set),
+		_pitch_line(Localization.t("eq_build.pitch.why_choose_label"), _spoken(profile.why_choose_us), not_set),
+		_pitch_line(Localization.t("eq_build.pitch.next_step_label"), _spoken(profile.next_step), not_set),
+	]
+	var spoken: Array[String] = [preview_symbol_label.text,
+		_spoken(profile.business_name) if not profile.business_name.is_empty() else not_set]
+	if slogan_label.visible:
+		spoken.append(_spoken(profile.slogan))
+	spoken.append_array(spoken_lines)
+	spoken.append(done_button.text)
+	var parts: PackedStringArray = []
+	for s in spoken:
+		if not s.strip_edges().is_empty():
+			parts.append(s.strip_edges())
+	_listen_text = ". ".join(parts)
+
 	done_button.pressed.connect(func(): _closed.emit(), CONNECT_ONE_SHOT)
 
 	visible = true
 	UIFocus.focus(done_button)
 	await _closed
 	visible = false
+
+
+## The Listen control's text (AudioManager.listen_text): the pitch with
+## typed answers replaced by "your own words" (built in show_pitch).
+func listen_text() -> String:
+	return _listen_text if visible else ""
+
+
+## An answer as Listen says it; empty stays empty (shown as "not set yet").
+func _spoken(value: String) -> String:
+	return "" if value.is_empty() else BusinessBuilder.spoken_answer(value)
 
 
 func _pitch_line(label_text: String, value: String, not_set_text: String) -> String:

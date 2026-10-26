@@ -35,6 +35,16 @@ extends RefCounted
 ##   calm_world   — choice and calm: greens, water, soft light — the
 ##                  quietest life profile of all
 ##   leadership   — teamwork: sky blue, round tables, challenge boards
+##   coin_cove    — a seaside cove: sand, a boardwalk to the sea, cliffs,
+##                  a lighthouse, treasure chests and a rowing boat
+##   guardian_gate — protecting money: a stone courtyard, battlements,
+##                  towers, shields and lanterns, a gatehouse on the way on
+##   kindness_grove — giving: an open woodland garden, trees and hedges,
+##                  flower beds, benches, a picnic to share
+##   sky_exchange — money around the world: a bright travel hall, sky
+##                  windows, a picture departures board, exchange counters
+##   horizon_peaks — planning ahead: an alpine lookout, distant peaks,
+##                  pines, a telescope, milestone cairns
 
 const STYLES: Dictionary = {
 	"golden_vault": {
@@ -84,6 +94,33 @@ const STYLES: Dictionary = {
 		"palette": {"floor": "stone", "floor_accent": "path_slate", "wall": "plaster", "wainscot": "sky_light",
 			"trim": "cream", "pilaster": "sky", "path": "path_slate", "kerb": "sky", "accent": "sky"},
 		"sun": 0.65, "open_air": false, "life": "workshop", "motifs": ["round_table", "board", "flag"],
+	},
+	# The Money Quest trail's outdoor rooms (each has its own dressing
+	# subclass for its edges and set pieces; these are their palettes).
+	"coin_cove": {
+		"palette": {"floor": "path_gold", "floor_accent": "path_wood", "wall": "rock", "wainscot": "stone_dark",
+			"trim": "cream", "pilaster": "wood_dark", "path": "wood", "kerb": "wood_dark", "accent": "gold"},
+		"sun": 0.7, "open_air": false, "life": "town", "motifs": ["shore", "boardwalk", "chest", "boat"],
+	},
+	"guardian_gate": {
+		"palette": {"floor": "mountain", "floor_accent": "rock", "wall": "rock", "wainscot": "mountain",
+			"trim": "gold", "pilaster": "teal_dark", "path": "path_gold", "kerb": "teal_dark", "accent": "teal"},
+		"sun": 0.55, "open_air": false, "life": "town", "motifs": ["shield", "tower", "lantern", "banner"],
+	},
+	"kindness_grove": {
+		"palette": {"floor": "grass_light", "floor_accent": "grass", "wall": "leaf", "wainscot": "leaf_dark",
+			"trim": "cream", "pilaster": "wood", "path": "path_terracotta", "kerb": "leaf_dark", "accent": "coral"},
+		"sun": 0.7, "open_air": false, "life": "town", "motifs": ["tree", "flower_bed", "bench", "heart"],
+	},
+	"sky_exchange": {
+		"palette": {"floor": "path_slate", "floor_accent": "mountain", "wall": "sky", "wainscot": "teal_dark",
+			"trim": "gold", "pilaster": "cream", "path": "path_gold", "kerb": "teal_dark", "accent": "sky"},
+		"sun": 0.65, "open_air": false, "life": "hub", "motifs": ["window", "globe", "suitcase", "flag"],
+	},
+	"horizon_peaks": {
+		"palette": {"floor": "grass", "floor_accent": "hill", "wall": "rock", "wainscot": "mountain",
+			"trim": "cream", "pilaster": "wood_dark", "path": "paving", "kerb": "soil", "accent": "sky"},
+		"sun": 0.75, "open_air": false, "life": "hub", "motifs": ["peak", "pine", "telescope", "cairn"],
 	},
 }
 

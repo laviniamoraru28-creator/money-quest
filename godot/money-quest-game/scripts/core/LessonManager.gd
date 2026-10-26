@@ -76,14 +76,21 @@ func _run_choice_point() -> void:
 		var c: ConsequenceEffect = chosen_option.consequence
 		GameState.add_coins(max(c.coin_delta, 0), "lesson:choice", "choose", "reward")
 		GameState.add_xp(max(c.xp_delta, 0))
-		# Visual-first: what changed in the story, as [before] → [after] (e.g.
-		# the story's jar filling up), with the short line, for as long as
-		# that line is on screen.
-		if not c.change_before.is_empty() or not c.change_after.is_empty():
-			Feedback.changed(self, [[c.change_before, c.change_after, c.change_params.get("before", {}), c.change_params.get("after", {})]], "", {}, true)
-		await DialogueBox.show_text(c.consequence_text_key, {}, c.icons)
-		ResourcePurpose.dismiss_change(self)
+		await present_consequence(self, c)
 	_run_explanation()
+
+
+## SEE RESULT, shared by lessons and every quest runner (QuestManager): the
+## consequence line with its pictures, and — when the consequence says what
+## changed — the story's before → after card for as long as that line is on
+## screen. A consequence without picture data shows exactly the plain line,
+## as before.
+static func present_consequence(host: Node, c: ConsequenceEffect) -> void:
+	if not c.change_before.is_empty() or not c.change_after.is_empty():
+		Feedback.changed(host, [[c.change_before, c.change_after, c.change_params.get("before", {}), c.change_params.get("after", {})]], "", {}, true)
+	await DialogueBox.show_text(c.consequence_text_key, {}, c.icons)
+	if not c.change_before.is_empty() or not c.change_after.is_empty():
+		ResourcePurpose.dismiss_change(host)
 
 
 func _run_explanation() -> void:

@@ -95,3 +95,42 @@ static func _mesh(kind: String) -> Mesh:
 				m.part(DecorKit.sphere(0.03, 6, 3), ink, Vector3(x, 0, z))
 	_meshes[kind] = m.commit()
 	return _meshes[kind]
+
+
+## The same bubble, flat, for pictures (MissionStrip faces): a cream disc
+## with a dark rim and the same symbol and colour as in the world, so a
+## feeling looks the same on screen as over a character's head. "happy"
+## has no bubble (the smile says it, and ✓ stays the sign for "right").
+## Returns false when this feeling has no bubble.
+static func draw_bubble(ci: CanvasItem, expression: String, c: Vector2, r: float) -> bool:
+	var kind: String = CharacterRig.EXPRESSION_EMOTE.get(expression, "")
+	if kind in ["", "yes", "waiting", "locked"]:
+		return false
+	ci.draw_circle(c, r, MoneyIcons.INK)
+	ci.draw_circle(c, r - 2.5, MoneyIcons.CREAM)
+	ci.draw_circle(c + Vector2(-r * 0.85, r * 0.95), r * 0.2, MoneyIcons.INK)
+	ci.draw_circle(c + Vector2(-r * 0.85, r * 0.95), r * 0.2 - 1.5, MoneyIcons.CREAM)
+	var u: float = r / 0.25   # the 3D bubble is 0.25 across: same proportions
+	match kind:
+		"proud":
+			var pts := PackedVector2Array()
+			for i in 10:
+				var a: float = -PI * 0.5 + TAU * i / 10.0
+				pts.append(c + Vector2(cos(a), sin(a)) * (u * (0.13 if i % 2 == 0 else 0.055)))
+			ci.draw_colored_polygon(pts, MoneyIcons.GOLD)
+		"wow", "oh_no":
+			var col: Color = Color("F07A5A") if kind == "oh_no" else MoneyIcons.GOLD_DEEP
+			ci.draw_rect(Rect2(c + Vector2(-u * 0.03, -u * 0.15), Vector2(u * 0.06, u * 0.2)), col)
+			ci.draw_circle(c + Vector2(0, u * 0.12), u * 0.035, col)
+		"thinking":
+			for i in 6:
+				var a2: float = PI * 0.95 - i * PI * 0.27
+				ci.draw_circle(c + Vector2(cos(a2) * 0.075, -(0.07 + sin(a2) * 0.075)) * u, u * 0.028, MoneyIcons.TEAL)
+			ci.draw_circle(c + Vector2(0, u * 0.04), u * 0.028, MoneyIcons.TEAL)
+			ci.draw_circle(c + Vector2(0, u * 0.13), u * 0.03, MoneyIcons.TEAL)
+		"thanks":
+			var h := Color("F07A5A")
+			ci.draw_circle(c + Vector2(-u * 0.05, -u * 0.04), u * 0.065, h)
+			ci.draw_circle(c + Vector2(u * 0.05, -u * 0.04), u * 0.065, h)
+			ci.draw_colored_polygon(PackedVector2Array([c + Vector2(-u * 0.11, -u * 0.01), c + Vector2(u * 0.11, -u * 0.01), c + Vector2(0, u * 0.12)]), h)
+	return true

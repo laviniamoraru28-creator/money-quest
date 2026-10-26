@@ -23,8 +23,10 @@ func _ready() -> void:
 	dir.list_dir_begin()
 	var file_name := dir.get_next()
 	while file_name != "":
-		if file_name.ends_with(".tres"):
-			var exhibit: ExhibitData = load(EXHIBITS_DIR + file_name)
+		# Exported builds list resources as "x.tres.remap".
+		var res_name := file_name.trim_suffix(".remap")
+		if res_name.ends_with(".tres"):
+			var exhibit: ExhibitData = load(EXHIBITS_DIR + res_name)
 			if exhibit != null:
 				_exhibit_registry[exhibit.entry_id] = exhibit
 		file_name = dir.get_next()

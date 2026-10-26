@@ -2,7 +2,9 @@ class_name DestinationIcon
 extends Control
 ## DestinationIcon — a destination's simple, recognisable shape drawn in 2D
 ## (the same shapes as its 3D sign emblem): coin, book, bulb, column, mind
-## (a thought cloud), leaf, star, bag, frame, compass. On a round badge in
+## (a thought cloud), leaf, star, bag, frame, compass — and, for the mission
+## card only (Destinations.MISSION_PICTURES), coin_check, message_warning
+## and hand_heart. On a round badge in
 ## the district colour, with a dark outline — so a place is recognisable by
 ## SHAPE as well as by name and colour (never colour alone).
 
@@ -73,6 +75,46 @@ func _draw() -> void:
 			pts.append(pts[0])
 			draw_polyline(pts, INK, 3.0, true)
 			draw_line(c + Vector2(-u, 0).rotated(-0.6), c + Vector2(u, 0).rotated(-0.6), INK, 2.0)
+		"coin_check":   # mission card only: a coin and a ✓ ("is it money?")
+			var cc: Vector2 = c + Vector2(-0.3, -0.2) * u
+			draw_circle(cc, u * 0.95, INK)
+			draw_circle(cc, u * 0.82, UIStyle.GOLD)
+			draw_arc(cc, u * 0.55, 0, TAU, 32, INK, 2.5)
+			var tc: Vector2 = c + Vector2(0.62, 0.58) * u
+			draw_circle(tc, u * 0.6, INK)
+			draw_circle(tc, u * 0.5, UIStyle.TEAL)
+			draw_polyline(PackedVector2Array([tc + Vector2(-0.26, 0.0) * u, tc + Vector2(-0.06, 0.2) * u, tc + Vector2(0.28, -0.18) * u]), CREAM, maxf(u * 0.14, 2.5))
+		"message_warning":   # mission card only: a message bubble and a ⚠
+			var box := Rect2(c + Vector2(-1.0, -0.95) * u, Vector2(1.7, 1.15) * u)
+			var tail := PackedVector2Array([c + Vector2(-0.62, 0.18) * u, c + Vector2(-0.22, 0.18) * u, c + Vector2(-0.78, 0.62) * u])
+			draw_rect(box, Color.WHITE)
+			draw_colored_polygon(tail, Color.WHITE)
+			draw_rect(box, INK, false, 3.0)
+			draw_polyline(PackedVector2Array([tail[0], tail[2], tail[1]]), INK, 3.0)
+			draw_line(tail[0] + Vector2(1.5, -1.5), tail[1] + Vector2(-1.5, -1.5), Color.WHITE, 3.0)
+			for x in [-0.55, -0.15, 0.25]:
+				draw_circle(c + Vector2(x, -0.38) * u, maxf(u * 0.13, 2.0), INK)
+			var tri := PackedVector2Array([c + Vector2(0.62, 0.02) * u, c + Vector2(1.12, 0.92) * u, c + Vector2(0.12, 0.92) * u])
+			draw_colored_polygon(tri, UIStyle.GOLD)
+			draw_polyline(PackedVector2Array([tri[0], tri[1], tri[2], tri[0]]), INK, 3.0)
+			draw_line(c + Vector2(0.62, 0.32) * u, c + Vector2(0.62, 0.62) * u, INK, maxf(u * 0.13, 2.5))
+			draw_circle(c + Vector2(0.62, 0.78) * u, maxf(u * 0.08, 1.6), INK)
+		"hand_heart":   # mission card only: a heart held out on an open hand
+			var hand := PackedVector2Array()
+			for p in [Vector2(-1.1, 0.05), Vector2(-0.85, 0.0), Vector2(-0.72, 0.35), Vector2(0.9, 0.35), Vector2(1.1, 0.45), Vector2(1.1, 0.65), Vector2(0.9, 0.78), Vector2(-0.4, 0.88), Vector2(-0.92, 0.72), Vector2(-1.15, 0.35)]:
+				hand.append(c + p * u)
+			draw_colored_polygon(hand, Color("F2C9A0"))
+			var outline := hand.duplicate()
+			outline.append(hand[0])
+			draw_polyline(outline, INK, 3.0, true)
+			for y in [0.5, 0.64]:
+				draw_line(c + Vector2(0.3, y) * u, c + Vector2(1.0, y) * u, INK, 2.0)
+			# The heart, just above the palm.
+			for grow in [0.1, 0.0]:
+				var col: Color = INK if grow > 0.0 else Color("F07A5A")
+				draw_circle(c + Vector2(-0.3, -0.62) * u, (0.34 + grow) * u, col)
+				draw_circle(c + Vector2(0.3, -0.62) * u, (0.34 + grow) * u, col)
+				draw_colored_polygon(PackedVector2Array([c + Vector2(-0.62 - grow, -0.52) * u, c + Vector2(0.62 + grow, -0.52) * u, c + Vector2(0, 0.12 + grow * 1.6) * u]), col)
 		"star":
 			_star(c, u * 1.15, INK)
 			_star(c, u * 0.95, accent)

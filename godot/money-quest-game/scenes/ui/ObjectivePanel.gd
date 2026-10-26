@@ -37,6 +37,8 @@ var _last_params: Dictionary = {}
 var _last_text: String = ""
 ## The mission as pictures (VisualMissions) — shown with words on or off.
 var strip: MissionStrip
+var _route: HBoxContainer
+var _route_sig: String = ""
 
 
 func _ready() -> void:
@@ -57,6 +59,15 @@ func _ready() -> void:
 	row.add_child(col)
 	_title = UIStyle.label("", UIStyle.TEXT_SMALL, UIStyle.TEAL_DARK)
 	col.add_child(_title)
+	# The guided adventure: which mission of the chapter this is (✓ done,
+	# ★ now, ○ next — shapes, not colours), shown while the route guides.
+	_route = HBoxContainer.new()
+	_route.name = "RouteRow"
+	_route.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_route.add_theme_constant_override("separation", 6)
+	_route.visible = false
+	col.add_child(_route)
+	GuidedRoute.route_changed.connect(_refresh)
 	strip = MissionStrip.new(52.0)
 	strip.visible = false
 	col.add_child(strip)
@@ -101,6 +112,9 @@ func _refresh() -> void:
 	# words (an optional layer). With words off and no pictures, the world
 	# itself shows the way (beacons, a pointing guide, the trail of lights).
 	var icons: Array = ObjectiveManager.icons()
+	if icons.is_empty() and ObjectiveManager.has_objective():
+		# On a guided mission: its goal picture when this step has none.
+		icons = GuidedRoute.goal_icons_here()
 	var words: bool = SupportProfile.show_text()
 	# A finished goal is shown with its ✓ for a moment before whatever comes
 	# next (a quest's goal always; another goal only when nothing follows).
@@ -122,6 +136,7 @@ func _refresh() -> void:
 		_last_params = ObjectiveManager.params
 		_last_text = _text.text
 	strip.visible = not icons.is_empty()
+	_refresh_route(words)
 	_title.visible = words
 	_text.visible = words
 	_tip.visible = words and _tip.visible
@@ -130,6 +145,26 @@ func _refresh() -> void:
 	if not finished_only and ObjectiveManager.objective_id != _shown_id:
 		_shown_id = ObjectiveManager.objective_id
 		_announce()
+
+
+## "Mission 2 of 3" with the chapter's dots, while the guided route is on.
+func _refresh_route(words: bool) -> void:
+	var p: Dictionary = GuidedRoute.progress() if GuidedRoute.is_active() else {}
+	_route.visible = not p.is_empty()
+	if p.is_empty():
+		_route_sig = ""
+		return
+	var sig: String = "%d/%d/%s/%s" % [p["index"], p["count"], words, Localization.current_locale]
+	if sig == _route_sig:
+		return
+	_route_sig = sig
+	for c in _route.get_children():
+		c.queue_free()
+	for i in int(p["count"]):
+		_route.add_child(GuidedMissionCard.RouteDot.new(22.0, "done" if i < int(p["index"]) else ("now" if i == int(p["index"]) else "next")))
+	if words:
+		var l := UIStyle.label(Localization.t("guided.mission_of", {"n": int(p["index"]) + 1, "count": int(p["count"])}), UIStyle.TEXT_SMALL, UIStyle.TEAL_DARK)
+		_route.add_child(l)
 
 
 ## Keeps the card hidden for a moment (while a place's name is shown on

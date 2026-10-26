@@ -49,6 +49,7 @@ var _symbol_buttons: Dictionary = {}
 
 
 func _ready() -> void:
+	panel.add_theme_stylebox_override("panel", UIStyle.dark_panel())
 	visible = false
 
 
@@ -62,6 +63,7 @@ func show_logo_builder(logo: BusinessLogoData, initial_slogan: String) -> String
 	slogan_edit.max_length = 60
 	slogan_edit.text = initial_slogan
 	continue_button.text = Localization.t("common.save_and_continue_button")
+	PictureChoice.action_symbol(continue_button, "next")
 
 	_build_shape_buttons()
 	_build_color_buttons()
@@ -78,11 +80,49 @@ func show_logo_builder(logo: BusinessLogoData, initial_slogan: String) -> String
 	return slogan_edit.text
 
 
+## The Listen control's text (AudioManager.listen_text): the panel's visible
+## words in on-screen order, like the generic reader, except the typed
+## slogan, which is spoken as "your own words" — the child's own text never
+## goes to a speech voice.
+func listen_text() -> String:
+	if not visible:
+		return ""
+	var parts: PackedStringArray = []
+	for c in find_children("*", "Control", true, false):
+		var ctl := c as Control
+		if not ctl.is_visible_in_tree():
+			continue
+		var t: String = ""
+		if ctl == slogan_edit:
+			t = Localization.t("narration.own_words") if not slogan_edit.text.strip_edges().is_empty() else ""
+		elif ctl is Label:
+			t = (ctl as Label).text
+		elif ctl is Button:
+			t = (ctl as Button).text
+		if not t.strip_edges().is_empty():
+			parts.append(t.strip_edges())
+	return ". ".join(parts)
+
+
 func _build_shape_buttons() -> void:
 	_clear_box(shape_box)
 	_shape_buttons.clear()
 	for shape_id in SHAPE_IDS:
 		var button := _make_option_button(Localization.t("eq_build.logo_shape.%s" % shape_id))
+		# The shape itself, drawn on the button (the words are an extra).
+		var pic := LogoPreviewDraw.new()
+		pic.name = "ShapePicture"
+		pic.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		pic.set_anchors_preset(Control.PRESET_CENTER_LEFT)
+		pic.offset_left = 8.0
+		pic.offset_right = 44.0
+		pic.offset_top = -18.0
+		pic.offset_bottom = 18.0
+		button.add_child(pic)
+		pic.refresh(shape_id, UIStyle.TEAL)
+		button.set_meta("words", button.text)
+		button.custom_minimum_size.x = 140.0 if SupportProfile.show_text() else 64.0
+		button.alignment = HORIZONTAL_ALIGNMENT_RIGHT
 		button.pressed.connect(func(): _on_shape_picked(shape_id))
 		shape_box.add_child(button)
 		_shape_buttons[shape_id] = button
@@ -135,7 +175,12 @@ func _on_symbol_picked(symbol: String) -> void:
 
 func _refresh_shape_highlight() -> void:
 	for shape_id in _shape_buttons.keys():
-		_shape_buttons[shape_id].modulate = SELECTED_COLOR if shape_id == _logo.shape else DEFAULT_COLOR
+		var b: Button = _shape_buttons[shape_id]
+		var picked: bool = shape_id == _logo.shape
+		b.modulate = SELECTED_COLOR if picked else DEFAULT_COLOR
+		# The picked one also gets a tick (a shape, not only the tint).
+		var w: String = String(b.get_meta("words", "")) if SupportProfile.show_text() else ""
+		b.text = ("✓ " if picked else "") + w
 
 
 func _refresh_color_highlight() -> void:
@@ -146,7 +191,9 @@ func _refresh_color_highlight() -> void:
 
 func _refresh_symbol_highlight() -> void:
 	for symbol in _symbol_buttons.keys():
-		_symbol_buttons[symbol].modulate = SELECTED_COLOR if symbol == _logo.symbol else DEFAULT_COLOR
+		var picked: bool = symbol == _logo.symbol
+		_symbol_buttons[symbol].modulate = SELECTED_COLOR if picked else DEFAULT_COLOR
+		_symbol_buttons[symbol].text = ("✓" if picked else "") + symbol
 
 
 func _refresh_preview() -> void:

@@ -88,6 +88,7 @@ func show_book(book: BookData) -> void:
 	UIFocus.focus(close_button)
 	await _closed
 	visible = false
+	GrownUpGate.cancel_all(read_more_button.get_parent())
 
 	if explore_button.visible and explore_button.pressed.is_connected(on_explore):
 		explore_button.pressed.disconnect(on_explore)
@@ -95,7 +96,10 @@ func show_book(book: BookData) -> void:
 
 func _on_read_more_pressed() -> void:
 	var book: BookData = read_more_button.get_meta("book")
-	if book and not book.source_url.is_empty():
+	if book == null or book.source_url.is_empty():
+		return
+	# "Ask a grown-up" first (owner decision D3); same destination as before.
+	if await GrownUpGate.ask(read_more_button):
 		OS.shell_open(book.source_url)
 
 

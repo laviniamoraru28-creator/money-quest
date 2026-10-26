@@ -35,6 +35,24 @@ static func panel(accent: Color = TEAL, radius: int = 18, alpha: float = 1.0) ->
 	return sb
 
 
+## The Entrepreneur BUILD panels' card: the same dark look as before (their
+## words are light), but solid — nothing behind (a place's name, the
+## world) shows through and competes with the choices.
+static func dark_panel() -> StyleBoxFlat:
+	var sb := StyleBoxFlat.new()
+	sb.bg_color = Color(0.13, 0.15, 0.17, 0.97)
+	sb.set_corner_radius_all(16)
+	sb.border_color = GOLD
+	sb.set_border_width_all(3)
+	sb.content_margin_left = 20
+	sb.content_margin_right = 20
+	sb.content_margin_top = 16
+	sb.content_margin_bottom = 16
+	sb.shadow_color = Color(0, 0, 0, 0.25)
+	sb.shadow_size = 8
+	return sb
+
+
 static func label(text: String, size: int = TEXT, color: Color = INK) -> Label:
 	var l := Label.new()
 	l.text = text

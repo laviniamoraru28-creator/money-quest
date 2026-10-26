@@ -118,6 +118,7 @@ func show_exhibit(exhibit: ExhibitData) -> void:
 	UIFocus.focus(close_button)
 	await _closed
 	visible = false
+	GrownUpGate.cancel_all(learn_more_button.get_parent())
 
 	if continue_story_button.visible and continue_story_button.pressed.is_connected(on_continue_story):
 		continue_story_button.pressed.disconnect(on_continue_story)
@@ -127,7 +128,10 @@ func show_exhibit(exhibit: ExhibitData) -> void:
 
 func _on_learn_more_pressed() -> void:
 	var exhibit: ExhibitData = learn_more_button.get_meta("exhibit")
-	if exhibit and not exhibit.source_url.is_empty():
+	if exhibit == null or exhibit.source_url.is_empty():
+		return
+	# "Ask a grown-up" first (owner decision D3); same destination as before.
+	if await GrownUpGate.ask(learn_more_button):
 		OS.shell_open(exhibit.source_url)
 
 

@@ -617,7 +617,7 @@ up-to-date table. In short:
 | Calm World's all 9 spaces (Bubble Garden, Aquarium Room, Light Room, Rain Room, Underwater Room, Forest Walk, Music Room, Grow-a-Garden, Create Your Own Calm Garden) — always unlocked, no quest gate, all motion respects `reduced_motion`; Bubble Garden now has an explicit "choose what feels right" Calm Guide NPC and optional bubble-popping, Aquarium Room has 2 optional fish facts, and Create Your Own Calm Garden lets a child pick 7 independent decorative categories, saved via the existing `SaveManager` | — |
 | `AvatarConfig` + `AvatarCreation.tscn`, now fully wired to `Player.tscn` (see "Avatar wiring fix" below) — 4 body presets incl. a wheelchair-style look, 4 accessories (glasses, cap, hearing aid, cane), all purely visual | — |
 | Zone/quest/skill/avatar progression fields in `ProgressManager`, persisted by `SaveManager` | — |
-| 4 real `AudioServer` buses (Music/SFX/Voice/Ambient) + `SettingsMenu.tscn` (reduced-motion toggle + 4 volume sliders), reachable from `MainMenu` and the in-world HUD — see "Audio + Settings screen fix" below | Read-aloud/text-to-speech (`AudioManager.speak()` is a documented no-op — no TTS engine exists, so no toggle is shown for it) |
+| 4 real `AudioServer` buses (Music/SFX/Voice/Ambient) + `SettingsMenu.tscn` (reduced-motion toggle + 4 volume sliders), reachable from `MainMenu` and the in-world HUD — see "Audio + Settings screen fix" below | Read-aloud uses the OS text-to-speech voices where available (see Known limitations) |
 | HUD "Talk" button, shown only when something is in interaction range | — |
 
 ## Content fidelity
@@ -1507,6 +1507,13 @@ locale COLUMN from the single `localization/translations.csv` file
 (`keys,en,ro,...`) — it is not one file per locale. Opening the project in
 the Godot editor imports it automatically.
 
+**Initial release: English only.** `Localization.SELECTABLE_LOCALES` is
+`["en"]`; a save that holds any other language opens in English (only the
+language changes, nothing else in the save is reset or rewritten). All 9
+translation columns and the localization system are kept unchanged for a
+possible later release — Romanian is complete; the other 7 are ~75% empty.
+There is no in-game language selector. (Owner decision D2, 2026-10-21.)
+
 ### Input
 
 THREE input paths feed the same movement vector in `Player.gd` — keyboard
@@ -1541,9 +1548,11 @@ git-ignored (see `.gitignore`); Godot regenerates both on import. The
   the architecture. The 4 audio buses and their volume sliders are real
   and already wired to `AudioServer`, but silent until real `.ogg` files
   are dropped into `assets/audio/` and referenced from `AudioManager.gd`.
-  Read-aloud/text-to-speech has no engine wired in at all — not even a
-  silent placeholder bus — since one would require either an offline
-  voice model or a paid API, both out of scope per the brief.
+  Read-aloud now uses the operating system's own text-to-speech voices
+  (`AudioManager._speak` → `DisplayServer.tts_speak`, enabled by
+  `audio/general/text_to_speech`); it is offered only where the device has
+  a voice for the current language (`AudioManager.can_narrate()`), and no
+  paid API or bundled voice model is used.
 - All 30 of Money Quest's real website curriculum lessons are now wired
   up as Quests. **All 26 of Entrepreneur Quest's real decision events
   are now ported** (its v1 set, its v2 Business Problems, the v2 RUN

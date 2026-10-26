@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://museum0001"]
 
-[ext_resource type="Script" path="res://scripts/world/zones/ZoneDressing.gd" id="zd_dress"]
+[ext_resource type="Script" path="res://scripts/world/zones/MuseumDressing.gd" id="zd_dress"]
 [ext_resource type="Script" path="res://scripts/world/EnvironmentOverride.gd" id="zd_env"]
 [ext_resource type="Environment" path="res://assets/environment/mq_interior_environment.tres" id="zd_envres"]
 [ext_resource type="Script" path="res://scenes/world/zones/museum/Museum.gd" id="1"]

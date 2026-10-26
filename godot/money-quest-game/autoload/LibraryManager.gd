@@ -30,8 +30,10 @@ func _load_all(dir_path: String, registry: Dictionary) -> void:
 	dir.list_dir_begin()
 	var file_name := dir.get_next()
 	while file_name != "":
-		if file_name.ends_with(".tres"):
-			var entry: EntryData = load(dir_path + file_name)
+		# Exported builds list resources as "x.tres.remap".
+		var res_name := file_name.trim_suffix(".remap")
+		if res_name.ends_with(".tres"):
+			var entry: EntryData = load(dir_path + res_name)
 			if entry != null:
 				registry[entry.entry_id] = entry
 		file_name = dir.get_next()

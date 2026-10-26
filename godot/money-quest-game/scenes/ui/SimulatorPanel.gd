@@ -15,7 +15,12 @@ extends CanvasLayer
 ## `BusinessProfileData`'s own comment on this project's business
 ## numbers never being minor-unit/currency-formatted.
 
-const STEP_AMOUNT: int = 1
+## Coins per + / − press: 5, so sharing out 50 coins is a few presses,
+## not 50 — and "the rest" puts everything still left into one row with a
+## single press.
+const STEP_AMOUNT: int = 5
+## Each row's picture (readable without words).
+const CATEGORY_ICONS: Dictionary = {"materials": ["tools"], "packaging": ["box"], "advertising": ["board"], "saved_aside": ["jar"]}
 const CATEGORY_KEYS: Array[String] = ["materials", "packaging", "advertising", "saved_aside"]
 
 ## Any of this panel's finishing buttons -> the waiting show function
@@ -46,6 +51,7 @@ var _last_run: Dictionary = {}
 
 
 func _ready() -> void:
+	panel.add_theme_stylebox_override("panel", UIStyle.dark_panel())
 	visible = false
 	see_result_button.pressed.connect(_on_see_result_pressed)
 
@@ -86,10 +92,19 @@ func _build_category_rows() -> void:
 		var row := HBoxContainer.new()
 		row.add_theme_constant_override("separation", 10)
 
+		var pic := MissionStrip.new(44.0)
+		pic.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		pic.show_tokens(CATEGORY_ICONS.get(key, []))
+		row.add_child(pic)
 		var name_label := Label.new()
 		name_label.text = Localization.t("eq_build.simulator.category_%s" % key)
 		name_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		name_label.visible = SupportProfile.show_text()
 		row.add_child(name_label)
+		if not name_label.visible:
+			var spacer := Control.new()
+			spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+			row.add_child(spacer)
 
 		var minus_button := Button.new()
 		minus_button.text = "-"
@@ -109,6 +124,25 @@ func _build_category_rows() -> void:
 		plus_button.custom_minimum_size = Vector2(48, 48)
 		plus_button.pressed.connect(func(): _adjust(this_key, STEP_AMOUNT))
 		row.add_child(plus_button)
+
+		# "The rest": every coin still left goes into this row (a pile of
+		# coins → here), one press.
+		var rest := Button.new()
+		rest.name = "RestButton"
+		rest.custom_minimum_size = Vector2(72, 48)
+		rest.tooltip_text = Localization.t("eq_build.simulator.rest")
+		var pile := MissionStrip.new(30.0)
+		pile.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		pile.show_tokens(["coins"], {"have": 3, "need": 3})
+		pile.set_anchors_preset(Control.PRESET_CENTER)
+		pile.offset_left = -30.0
+		pile.offset_right = 30.0
+		pile.offset_top = -15.0
+		pile.offset_bottom = 15.0
+		rest.add_child(pile)
+		rest.pressed.connect(func(): _adjust(this_key, _starting_money - _sum_allocated()))
+		Narration.read_on_focus(rest, Localization.t("eq_build.simulator.rest"))
+		row.add_child(rest)
 
 		categories_box.add_child(row)
 
@@ -141,6 +175,7 @@ func _refresh_allocation_labels() -> void:
 		remaining_label.text = Localization.t("eq_build.simulator.remaining_to_allocate", {"amount": remaining})
 	see_result_button.disabled = remaining != 0
 	see_result_button.text = Localization.t("eq_build.simulator.see_result_button")
+	PictureChoice.action_symbol(see_result_button, "next")
 
 
 func _on_see_result_pressed() -> void:
@@ -200,7 +235,9 @@ func _show_result_view(run: Dictionary) -> void:
 		explanation_label.text = Localization.t("eq_build.simulator.explanation_loss")
 
 	try_again_button.text = Localization.t("eq_build.simulator.try_again_button")
+	PictureChoice.action_symbol(try_again_button, "again")
 	continue_button.text = Localization.t("common.continue_button")
+	PictureChoice.action_symbol(continue_button, "next")
 
 	try_again_button.pressed.connect(_on_try_again_pressed, CONNECT_ONE_SHOT)
 

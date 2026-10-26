@@ -56,38 +56,45 @@ script = ExtResource("6")
 coin_delta = 3
 xp_delta = 5
 consequence_text_key = "lq.decision.meet_your_team.choice.excited.consequence"
+icons = Array[String](["you:happy", "then", "npc:nadia:happy", "npc:oren:happy", "npc:priya:happy", "npc:theo:happy"])
 
 [sub_resource type="Resource" id="ChoiceOption_excited"]
 script = ExtResource("5")
 label_key = "lq.decision.meet_your_team.choice.excited.label"
 consequence = SubResource("ConsequenceEffect_excited")
+icon = "you:happy"
 
 [sub_resource type="Resource" id="ConsequenceEffect_nervous_but_ready"]
 script = ExtResource("6")
 coin_delta = 3
 xp_delta = 5
 consequence_text_key = "lq.decision.meet_your_team.choice.nervous_but_ready.consequence"
+icons = Array[String](["you:oh_no", "then", "npc:priya:happy"])
 
 [sub_resource type="Resource" id="ChoiceOption_nervous_but_ready"]
 script = ExtResource("5")
 label_key = "lq.decision.meet_your_team.choice.nervous_but_ready.label"
 consequence = SubResource("ConsequenceEffect_nervous_but_ready")
+icon = "you:oh_no"
 
 [sub_resource type="Resource" id="ConsequenceEffect_not_sure_yet"]
 script = ExtResource("6")
 coin_delta = 3
 xp_delta = 5
 consequence_text_key = "lq.decision.meet_your_team.choice.not_sure_yet.consequence"
+icons = Array[String](["you:thinking", "then", "npc:nadia", "npc:oren", "npc:priya", "npc:theo"])
 
 [sub_resource type="Resource" id="ChoiceOption_not_sure_yet"]
 script = ExtResource("5")
 label_key = "lq.decision.meet_your_team.choice.not_sure_yet.label"
 consequence = SubResource("ConsequenceEffect_not_sure_yet")
+icon = "you:thinking"
 
 [sub_resource type="Resource" id="DialogueChoice_meet_your_team"]
 script = ExtResource("4")
 situation_text_key = "lq.decision.meet_your_team.situation"
 options = Array[ChoiceOption]([SubResource("ChoiceOption_excited"), SubResource("ChoiceOption_nervous_but_ready"), SubResource("ChoiceOption_not_sure_yet")])
+situation_icons = Array[String](["npc:nadia", "npc:oren", "npc:priya", "npc:theo", "then", "you", "question"])
 
 [resource]
 script = ExtResource("1")

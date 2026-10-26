@@ -42,11 +42,38 @@ const GIVING_STRATEGIST_QUEST_ID: String = "strategist-giving-l1-quest"
 @onready var sofia: NPC = $Sofia
 
 
+## The sharing bed: share a coin or something you bought, or keep it.
+var share_spot: ShareSpot
+
+
 func _ready() -> void:
 	camera_controller.target = player
 	omar.talked_to.connect(_on_omar_talked_to)
 	friend.talked_to.connect(_on_friend_talked_to)
 	sofia.talked_to.connect(_on_sofia_talked_to)
+	share_spot = ShareSpot.new()
+	share_spot.name = "ShareSpot"
+	share_spot.position = Vector3(4.4, 0, 0.0)
+	add_child(share_spot)
+	share_spot.used.connect(_on_share_used)
+	_set_place_goal.call_deferred()
+
+
+## The room's own goal while no choice was made yet: you → ♥ or bag.
+func _set_place_goal() -> void:
+	if ShareSpot.done() or not is_inside_tree():
+		return
+	ObjectiveManager.set_objective("kg.share", "objective.kg.share", {}, share_spot)
+	ObjectiveManager.set_icons(["you", "then", "heart", "bag"])
+
+
+func _on_share_used() -> void:
+	# The choice is made in ShareSpot.interact(); its ✓ once recorded.
+	await get_tree().process_frame
+	while is_inside_tree() and not ShareSpot.done() and get_tree().get_nodes_in_group("mq_purpose_card").size() > 0:
+		await get_tree().create_timer(0.2).timeout
+	if ShareSpot.done() and ObjectiveManager.objective_id == "kg.share":
+		ObjectiveManager.complete("kg.share")
 
 
 func _on_omar_talked_to(_npc_id: String) -> void:

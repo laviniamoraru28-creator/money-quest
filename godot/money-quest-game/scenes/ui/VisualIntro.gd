@@ -119,6 +119,33 @@ func _ready() -> void:
 		_go.add_child(arrow)
 	_go.pressed.connect(close)
 	v.add_child(_go)
+	# The button never takes focus (walking keeps working while the card is
+	# up), but it is what E / A / Enter press: with a keyboard or gamepad it
+	# wears the same gold ring as a focused button, so "this is what my
+	# press does" is visible.
+	var ring := Panel.new()
+	ring.name = "FocusRing"
+	ring.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	ring.set_anchors_preset(Control.PRESET_FULL_RECT)
+	var sb := StyleBoxFlat.new()
+	sb.draw_center = false
+	sb.set_corner_radius_all(16)
+	sb.border_color = UIStyle.GOLD
+	sb.set_border_width_all(6)
+	sb.expand_margin_left = 4
+	sb.expand_margin_right = 4
+	sb.expand_margin_top = 4
+	sb.expand_margin_bottom = 4
+	ring.add_theme_stylebox_override("panel", sb)
+	_go.add_child(ring)
+	var show_ring := func(d: String) -> void:
+		if is_instance_valid(ring):
+			ring.visible = d == "keyboard" or d == "gamepad"
+	show_ring.call(InputHints.device)
+	InputHints.device_changed.connect(show_ring)
+	tree_exiting.connect(func() -> void:
+		if InputHints.device_changed.is_connected(show_ring):
+			InputHints.device_changed.disconnect(show_ring))
 	_place.call_deferred()
 	get_viewport().size_changed.connect(_place)
 	AudioManager.play_sfx("hint", 1.0, -6.0)

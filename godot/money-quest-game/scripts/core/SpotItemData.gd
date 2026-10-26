@@ -10,3 +10,7 @@ extends Resource
 @export var item_id: String = ""
 @export var text_key: String = ""
 @export var is_suspicious: bool = false
+## Optional: the item as a picture (MissionStrip tokens). When a spot's
+## items have pictures, SpotPanel shows them as picture cards and answers
+## each tap at once. Left empty, nothing changes.
+@export var icon_tokens: Array[String] = []

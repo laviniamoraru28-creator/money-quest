@@ -117,6 +117,13 @@ enum QuestKind { LESSON, EXPLORATION, CHALLENGE, SIMULATION, MATCH, SPOT, ALLOCA
 @export var skill_ids: Array[String] = []
 
 @export_group("Visual-first (dialogue standard)")
+## Optional pictures (MissionStrip tokens, as on DialogueLine.icons) for the
+## narrator's `intro_text_key` line and for the mini-game's outro line
+## (match / spot / allocate / sort). Empty = the plain line, exactly as
+## before. Choices and consequences carry their own pictures
+## (DialogueChoice.situation_icons, ChoiceOption.icon, ConsequenceEffect).
+@export var intro_text_icons: Array[String] = []
+@export var outro_icons: Array[String] = []
 ## 🎯 This quest's goal as pictures, on the mission card while it runs
 ## (ObjectiveManager; ✓ when it ends). Empty = a default from the quest:
 ## the face of the character you are helping → what it is about (a

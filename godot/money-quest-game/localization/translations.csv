@@ -2530,7 +2530,7 @@ objective.mt.choose,Pick one and buy it,Alege unul și cumpără-l,Elige uno y c
 market.guide.hello,Hi! Watch me buy something.,Salut! Uită-te cum cumpăr ceva.,¡Hola! Mira cómo compro algo.,Salut ! Regarde-moi acheter quelque chose.,"Hallo! Schau mal, wie ich etwas kaufe.",Ciao! Guarda come compro qualcosa.,Olá! Vê como eu compro uma coisa.,Hoi! Kijk hoe ik iets koop.,"Cześć! Zobacz, jak coś kupuję."
 market.guide.well_done,You did it! You paid and now it's yours.,Ai reușit! Ai plătit și acum e al tău.,¡Lo hiciste! Pagaste y ahora es tuyo.,Bravo ! Tu as payé et maintenant c'est à toi.,Geschafft! Du hast bezahlt und jetzt gehört es dir.,Ce l'hai fatta! Hai pagato e ora è tuo.,Conseguiste! Pagaste e agora é teu.,Gelukt! Je hebt betaald en nu is het van jou.,Udało się! Jest zapłacone i teraz to twoje.
 learn.mt.first_purchase,Paying: you give coins and get the thing you chose.,A plăti: dai monede și primești lucrul ales.,Pagar: das monedas y recibes lo que elegiste.,Payer : tu donnes des pièces et tu reçois ce que tu as choisi.,"Bezahlen: Du gibst Münzen und bekommst, was du ausgesucht hast.",Pagare: dai monete e ricevi la cosa scelta.,Pagar: dás moedas e recebes o que escolheste.,Betalen: je geeft munten en krijgt wat je hebt gekozen.,"Płacenie: dajesz monety i dostajesz to, co wybrałeś."
-objective.mt.free,Try something new here,Încearcă ceva nou aici,Prueba algo nuevo aquí,Essaie quelque chose de nouveau ici,Probier hier etwas Neues aus,Prova qualcosa di nuovo qui,Experimenta algo novo aqui,Probeer hier iets nieuws,Spróbuj tu czegoś nowego
+objective.mt.free,Choose one thing to do here,Alege un lucru de făcut aici,Elige una cosa para hacer aquí,Choisis une chose à faire ici,Wähle eine Sache aus,Scegli una cosa da fare qui,Escolhe uma coisa para fazer aqui,Kies één ding om te doen,Wybierz jedną rzecz do zrobienia
 objective.mt.visit,Go and see another place,Mergi să vezi alt loc,Ve a ver otro lugar,Va voir un autre endroit,Schau dir einen anderen Ort an,Vai a vedere un altro posto,Vai ver outro sítio,Ga een andere plek bekijken,Odwiedź inne miejsce
 intro.go,Let's go,Hai,¡Vamos!,C'est parti,Los geht's,Andiamo,Vamos,Kom op,Ruszamy
 intro.mt.coins,Find coins.,Găsește monede.,Encuentra monedas.,Trouve des pièces.,Finde Münzen.,Trova le monete.,Encontra moedas.,Zoek munten.,Znajdź monety.
@@ -2671,3 +2671,78 @@ npc.sourcing-advisor.name,Sourcing Advisor,Consilierul de Aprovizionare,,,,,,,
 npc.stock-keeper.name,Stock Keeper,Gestionarul de Stoc,,,,,,,
 npc.supplier-scout.name,Supplier Scout,Cercetașul de Furnizori,,,,,,,
 npc.tech-advisor.name,Tech Advisor,Consilierul Tehnic,,,,,,,
+eq_build.suggest.problem.thirsty,Kids are thirsty after playing,Copiilor le e sete după joacă,,,,,,,
+eq_build.suggest.problem.bored,Break time feels boring,Pauza e plictisitoare,,,,,,,
+eq_build.suggest.problem.plants,The school plants are drying out,Plantele școlii se usucă,,,,,,,
+eq_build.suggest.problem.homework,Homework feels too hard,Temele par prea grele,,,,,,,
+eq_build.suggest.idea.juice,Sell cold juice at the park,Vinde suc rece în parc,,,,,,,
+eq_build.suggest.idea.games,Make and sell simple games,Fă și vinde jocuri simple,,,,,,,
+eq_build.suggest.idea.plants,Water plants for a small fee,Udă plante pentru o mică plată,,,,,,,
+eq_build.suggest.idea.homework,Run a homework help club,Un club de ajutor la teme,,,,,,,
+eq_build.suggest.name.sunny,Sunny Stand,Taraba Însorită,,,,,,,
+eq_build.suggest.name.helpers,Happy Helpers,Ajutoarele Vesele,,,,,,,
+eq_build.suggest.name.bright,Bright Ideas,Idei Luminoase,,,,,,,
+eq_build.suggest.name.green,Green Team,Echipa Verde,,,,,,,
+eq_build.suggest.why.kind,We are friendly and kind,Suntem prietenoși și buni,,,,,,,
+eq_build.suggest.why.fair,Our price is fair,Prețul nostru e corect,,,,,,,
+eq_build.suggest.why.care,We make things with care,Lucrăm cu grijă,,,,,,,
+eq_build.suggest.why.neighbours,We help our neighbours,Îi ajutăm pe vecini,,,,,,,
+eq_build.suggest.next.save,Save some of the profit,Să economisim din profit,,,,,,,
+eq_build.suggest.next.more,Make more to sell,Să facem mai multe de vândut,,,,,,,
+eq_build.suggest.next.learn,Learn something new,Să învățăm ceva nou,,,,,,,
+eq_build.suggest.next.customers,Tell more people about it,Să le spunem mai multor oameni,,,,,,,
+guided.c1.title,Coins and choices,Monede și alegeri,,,,,,,
+guided.c1.save,Put your coins in the jar.,Pune monedele în borcan.,,,,,,,
+guided.c1.buy,Buy something with your coins.,Cumpără ceva cu monedele tale.,,,,,,,
+guided.c1.time,Share out your coins. Then turn the clock.,Împarte-ți monedele. Apoi învârte ceasul.,,,,,,,
+guided.go,Let's go!,Hai!,,,,,,,
+guided.later,Not now,Nu acum,,,,,,,
+guided.ok,OK,Bine,,,,,,,
+guided.mission_of,Mission {n} of {count},Misiunea {n} din {count},,,,,,,
+guided.mission_done,Mission done!,Misiune îndeplinită!,,,,,,,
+guided.chapter_done,Chapter done!,Capitol terminat!,,,,,,,
+guided.all_done,You finished every mission so far. Well done!,Ai terminat toate misiunile de până acum. Bravo!,,,,,,,
+guided.help_button,Mission,Misiune,,,,,,,
+tv.share.one,One coin,O monedă,Una moneda,Une pièce,Eine Münze,Una moneta,Uma moeda,Eén munt,Jedna moneta
+tv.share.half,Half of them,Jumătate,La mitad,La moitié,Die Hälfte,La metà,Metade,De helft,Połowa
+tv.share.all,All of them,Toate,Todas,Toutes,Alle,Tutte,Todas,Alle,Wszystkie
+eq_build.simulator.rest,All the rest,Tot restul,,,,,,,
+cc.sort.instructions,"Is it money? Tap a picture, then where it goes.","Sunt bani? Atinge o imagine, apoi locul potrivit.",¿Es dinero? Toca una imagen y luego dónde va.,"C'est de l'argent ? Touche une image, puis sa place.","Ist das Geld? Tippe auf ein Bild, dann auf seinen Platz.","Sono soldi? Tocca un'immagine, poi dove va.",É dinheiro? Toca numa imagem e depois onde vai.,Is het geld? Tik op een plaatje en dan waar het hoort.,"Czy to pieniądze? Dotknij obrazka, a potem jego miejsca."
+cc.sort.money,Money,Bani,Dinero,Argent,Geld,Soldi,Dinheiro,Geld,Pieniądze
+cc.sort.not_money,Not money,Nu sunt bani,No es dinero,Pas de l'argent,Kein Geld,Non sono soldi,Não é dinheiro,Geen geld,To nie pieniądze
+cc.item.coin,Coin,Monedă,Moneda,Pièce,Münze,Moneta,Moeda,Munt,Moneta
+cc.item.note,Banknote,Bancnotă,Billete,Billet,Geldschein,Banconota,Nota,Bankbiljet,Banknot
+cc.item.card,Bank card,Card bancar,Tarjeta,Carte bancaire,Bankkarte,Carta,Cartão,Bankpas,Karta
+cc.item.leaf,Leaf,Frunză,Hoja,Feuille,Blatt,Foglia,Folha,Blad,Liść
+cc.item.rock,Stone,Piatră,Piedra,Caillou,Stein,Sasso,Pedra,Steen,Kamień
+cc.item.apple,Apple,Măr,Manzana,Pomme,Apfel,Mela,Maçã,Appel,Jabłko
+cc.sort.done,"Coins, notes and cards are money!","Monedele, bancnotele și cardurile sunt bani!","¡Monedas, billetes y tarjetas son dinero!","Les pièces, les billets et les cartes, c'est de l'argent !","Münzen, Scheine und Karten sind Geld!","Monete, banconote e carte sono soldi!","Moedas, notas e cartões são dinheiro!","Munten, briefjes en pasjes zijn geld!","Monety, banknoty i karty to pieniądze!"
+objective.cc.sort,Sort the money,Sortează banii,Ordena el dinero,Trie l'argent,Sortiere das Geld,Ordina i soldi,Separa o dinheiro,Sorteer het geld,Posortuj pieniądze
+gg.spot.instructions,Some messages are tricks. Tap the tricky ones.,Unele mesaje sunt păcăleli. Atinge-le pe cele înșelătoare.,Algunos mensajes son trampas. Toca los engañosos.,Certains messages sont des pièges. Touche ceux qui trompent.,Manche Nachrichten sind Tricks. Tippe auf die falschen.,Alcuni messaggi sono trucchi. Tocca quelli ingannevoli.,Algumas mensagens são truques. Toca nas enganosas.,Sommige berichten zijn trucs. Tik op de valse.,Niektóre wiadomości to sztuczki. Dotknij tych podejrzanych.
+gg.msg.prize,You won a prize! Tap here!,Ai câștigat un premiu! Apasă aici!,¡Ganaste un premio! ¡Toca aquí!,Tu as gagné un prix ! Touche ici !,Du hast gewonnen! Tippe hier!,Hai vinto un premio! Tocca qui!,Ganhaste um prémio! Toca aqui!,Je hebt een prijs gewonnen! Tik hier!,Wygrałeś nagrodę! Dotknij tutaj!
+gg.msg.secret,Tell me your secret code.,Spune-mi codul tău secret.,Dime tu código secreto.,Dis-moi ton code secret.,Sag mir deinen Geheimcode.,Dimmi il tuo codice segreto.,Diz-me o teu código secreto.,Vertel me je geheime code.,Podaj mi swój tajny kod.
+gg.msg.double,Send me 1 coin. Get 3 back!,Trimite-mi o monedă. Primești 3 înapoi!,Envíame 1 moneda. ¡Recibe 3!,Envoie-moi 1 pièce. Reçois-en 3 !,Schick mir 1 Münze. Du bekommst 3 zurück!,Mandami 1 moneta. Ne ricevi 3!,Envia-me 1 moeda. Recebe 3!,Stuur me 1 munt. Krijg er 3 terug!,Wyślij mi 1 monetę. Dostaniesz 3!
+gg.msg.family,Grandma: See you on Sunday!,Bunica: Ne vedem duminică!,Abuela: ¡Nos vemos el domingo!,Mamie : À dimanche !,Oma: Bis Sonntag!,Nonna: Ci vediamo domenica!,Avó: Até domingo!,Oma: Tot zondag!,Babcia: Do zobaczenia w niedzielę!
+gg.msg.trip,School trip on Friday.,Excursie cu școala vineri.,Excursión escolar el viernes.,Sortie scolaire vendredi.,Klassenausflug am Freitag.,Gita scolastica venerdì.,Visita de estudo na sexta.,Schoolreisje op vrijdag.,Wycieczka szkolna w piątek.
+gg.msg.play,Your friend: Want to play?,Prietenul tău: Ne jucăm?,Tu amigo: ¿Jugamos?,Ton ami : On joue ?,Dein Freund: Spielen wir?,Il tuo amico: Giochiamo?,O teu amigo: Brincamos?,Je vriend: Spelen we?,Twój przyjaciel: Pobawimy się?
+gg.spot.this_is_ok,This one is OK. Look again.,Acesta e în regulă. Mai uită-te.,Este está bien. Mira otra vez.,Celui-ci est correct. Regarde encore.,Diese ist in Ordnung. Schau noch mal.,Questo va bene. Guarda ancora.,Esta está bem. Olha outra vez.,Deze is goed. Kijk nog eens.,Ta jest w porządku. Popatrz jeszcze raz.
+gg.spot.done,Not sure? Ask a grown-up!,Nu ești sigur? Întreabă un adult!,¿No estás seguro? ¡Pregunta a un adulto!,Pas sûr ? Demande à un adulte !,Unsicher? Frag einen Erwachsenen!,Non sei sicuro? Chiedi a un adulto!,Não tens a certeza? Pergunta a um adulto!,Twijfel je? Vraag het een volwassene!,Nie wiesz? Zapytaj dorosłego!
+objective.gg.spot,Spot the tricks,Găsește păcălelile,Encuentra las trampas,Repère les pièges,Finde die Tricks,Trova i trucchi,Encontra os truques,Vind de trucs,Znajdź sztuczki
+interaction.share_prompt,Share,Împarte,Compartir,Partager,Teilen,Condividi,Partilhar,Delen,Podziel się
+kg.share.coin,Share a coin,Dă o monedă,Compartir una moneda,Partager une pièce,Eine Münze teilen,Condividi una moneta,Partilhar uma moeda,Een munt delen,Podziel się monetą
+kg.share.item,Share it,Dă-l mai departe,Compartirlo,Le partager,Teilen,Condividilo,Partilhar,Delen,Podziel się
+kg.share.keep,Keep it,Păstrează,Guardarlo,Le garder,Behalten,Tenerlo,Ficar com ele,Houden,Zatrzymaj
+kg.share.yes,"Yes, share it","Da, dă-l","Sí, compartir","Oui, partager","Ja, teilen","Sì, condividi","Sim, partilhar","Ja, delen","Tak, podziel się"
+kg.share.no,"No, keep it","Nu, păstrează-l","No, guardarlo","Non, le garder","Nein, behalten","No, tienilo","Não, ficar com ele","Nee, houden","Nie, zatrzymaj"
+kg.share.shared,You helped! The grove blooms.,Ai ajutat! Grădina înflorește.,¡Ayudaste! El jardín florece.,Tu as aidé ! Le jardin fleurit.,Du hast geholfen! Der Garten blüht.,Hai aiutato! Il giardino fiorisce.,Ajudaste! O jardim floresce.,Je hielp! De tuin bloeit.,Pomogłeś! Ogród kwitnie.
+kg.share.kept,That's OK too. It's your choice.,E în regulă. Tu alegi.,También está bien. Tú decides.,C'est bien aussi. C'est ton choix.,Das ist auch okay. Du entscheidest.,Va bene lo stesso. Scegli tu.,Também está bem. Tu escolhes.,Dat is ook goed. Jij kiest.,To też jest w porządku. Ty decydujesz.
+objective.kg.share,Choose: share or keep,Alege: dai sau păstrezi,Elige: compartir o guardar,Choisis : partager ou garder,Wähle: teilen oder behalten,Scegli: condividere o tenere,Escolhe: partilhar ou guardar,Kies: delen of houden,Wybierz: podziel się albo zatrzymaj
+guided.c2.title,What money is,Ce sunt banii,Qué es el dinero,Ce qu'est l'argent,Was Geld ist,Che cos'è il denaro,O que é o dinheiro,Wat geld is,Czym są pieniądze
+guided.c2.sort,Sort: money or not money?,Sortează: bani sau nu?,Ordena: ¿dinero o no?,Trie : argent ou pas ?,Sortiere: Geld oder nicht?,Ordina: soldi o no?,Separa: dinheiro ou não?,Sorteer: geld of niet?,Posortuj: pieniądze czy nie?
+guided.c2.spot,Find the tricky messages.,Găsește mesajele-capcană.,Encuentra los mensajes trampa.,Trouve les messages pièges.,Finde die Trick-Nachrichten.,Trova i messaggi trappola.,Encontra as mensagens-armadilha.,Vind de neppe berichten.,Znajdź podstępne wiadomości.
+guided.c2.share,Share or keep. You choose.,Dăruiești sau păstrezi. Tu alegi.,Comparte o guarda. Tú eliges.,Partage ou garde. Tu choisis.,Teilen oder behalten. Du entscheidest.,Condividi o tieni. Scegli tu.,Partilha ou guarda. Tu escolhes.,Delen of houden. Jij kiest.,Podziel się albo zatrzymaj. Ty wybierasz.
+grownup_gate.message,"This opens a website outside the game. Ask a grown-up before you go on.","Asta deschide un site web din afara jocului. Întreabă un adult înainte să continui.","Esto abre una página web fuera del juego. Pregunta a una persona adulta antes de continuar.","Cela ouvre un site web en dehors du jeu. Demande à un adulte avant de continuer.","Das öffnet eine Website außerhalb des Spiels. Frag einen Erwachsenen, bevor du weitermachst.","Questo apre un sito web fuori dal gioco. Chiedi a un adulto prima di continuare.","Isto abre um site fora do jogo. Pede a um adulto antes de continuares.","Dit opent een website buiten het spel. Vraag het eerst aan een volwassene.","To otworzy stronę internetową poza grą. Zapytaj dorosłego, zanim przejdziesz dalej."
+grownup_gate.open_button,Open the website,Deschide site-ul,Abrir la página web,Ouvrir le site,Website öffnen,Apri il sito,Abrir o site,Website openen,Otwórz stronę
+grownup_gate.cancel_button,Not now,Nu acum,Ahora no,Pas maintenant,Nicht jetzt,Non ora,Agora não,Niet nu,Nie teraz
+rotate_hint.message,Turn your device sideways,,,,,,,,
+narration.own_words,your own words,,,,,,,,

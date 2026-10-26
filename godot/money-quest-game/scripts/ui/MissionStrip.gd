@@ -48,9 +48,11 @@ static func make_token(t: String, params: Dictionary, p: float) -> Control:
 	var parts: PackedStringArray = t.split(":")
 	match parts[0]:
 		"you":
-			return Face.new(p, "")
+			# "you:happy": the player showing a feeling with their own face.
+			return Face.new(p, "", parts[1] if parts.size() > 1 else "")
 		"npc":
-			return Face.new(p, parts[1] if parts.size() > 1 else "")
+			# "npc:mia" or "npc:mia:oh_no" (that character, with that feeling).
+			return Face.new(p, parts[1] if parts.size() > 1 else "", parts[2] if parts.size() > 2 else "")
 		"then":
 			return MoneyIcons.Arrow.new(p * 0.5)
 		"coin":
@@ -108,17 +110,19 @@ func _pop(ctl: Control) -> void:
 ## a simple drawn head meanwhile, or where nothing can be rendered.
 class Face extends Control:
 	var npc_id: String = ""
+	var expression: String = ""
 	var tex: Texture2D = null
 
-	func _init(p: float, p_npc: String) -> void:
+	func _init(p: float, p_npc: String, p_expression: String = "") -> void:
 		npc_id = p_npc
+		expression = p_expression
 		custom_minimum_size = Vector2(p, p)
 		mouse_filter = Control.MOUSE_FILTER_IGNORE
 		var cb := func(t: Texture2D) -> void:
 			if is_instance_valid(self):
 				tex = t
 				queue_redraw()
-		tex = Portraits.get_avatar(cb) if npc_id.is_empty() else Portraits.get_portrait(npc_id, cb)
+		tex = Portraits.get_avatar(cb, expression) if npc_id.is_empty() else Portraits.get_portrait(npc_id, cb, expression)
 
 	func _draw() -> void:
 		var c: Vector2 = size * 0.5
@@ -129,6 +133,9 @@ class Face extends Control:
 		if tex:
 			var s: float = (r - 7.0) * 1.9
 			draw_texture_rect(tex, Rect2(c - Vector2(s, s) * 0.5 + Vector2(0, 1), Vector2(s, s)), false)
+			# A feeling: the same bubble as over the character in the world.
+			if not expression.is_empty():
+				Emote.draw_bubble(self, expression, c + Vector2(r * 0.66, -r * 0.62), r * 0.38)
 		else:
 			draw_circle(c + Vector2(0, -r * 0.12), r * 0.3, MoneyIcons.INK)
 			draw_arc(c + Vector2(0, r * 0.62), r * 0.5, PI * 1.15, PI * 1.85, 16, MoneyIcons.INK, r * 0.2)

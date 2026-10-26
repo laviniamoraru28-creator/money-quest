@@ -56,11 +56,12 @@ func setup(p_hud: CanvasLayer, bar: Container, coins_label: Label, before_node: 
 	refresh_bag(false)
 
 
-## How many different products the child owns.
+## How many different products the child holds right now (a product given
+## away entirely keeps its record — its history — but is not in the bag).
 func owned_kinds() -> int:
 	var n: int = 0
 	for id in ProgressManager.owned_items:
-		if String(id).begins_with("product:"):
+		if String(id).begins_with("product:") and ProgressManager.owned_count(String(id)) > 0:
 			n += 1
 	return n
 

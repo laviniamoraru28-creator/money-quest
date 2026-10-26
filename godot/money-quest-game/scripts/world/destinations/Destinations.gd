@@ -30,6 +30,25 @@ const ENTRIES: Dictionary = {
 }
 
 
+## Mission-card pictures for rooms that are NOT destinations of their own
+## (they stay out of ENTRIES): only the guided route's mission card shows
+## them, so that card says where the mission is. Signs, banners and door
+## markers keep showing the area's emblem.
+const MISSION_PICTURES: Dictionary = {
+	"coin-cove": {"icon": "coin_check", "accent": "gold"},
+	"guardian-gate": {"icon": "message_warning", "accent": "sky"},
+	"kindness-grove": {"icon": "hand_heart", "accent": "coral"},
+}
+
+
+## The mission card's picture for a room: {"icon", "accent": Color}, or {}.
+static func mission_picture(zone_id: String) -> Dictionary:
+	var e: Dictionary = MISSION_PICTURES.get(zone_id, {})
+	if e.is_empty():
+		return {}
+	return {"icon": String(e["icon"]), "accent": DecorKit.color(String(e["accent"]))}
+
+
 static func has(zone_id: String) -> bool:
 	return ENTRIES.has(zone_id)
 

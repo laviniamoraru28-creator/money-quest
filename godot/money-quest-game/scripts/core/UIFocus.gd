@@ -36,3 +36,29 @@ static func first_button(root: Node) -> Control:
 static func visible_focus(viewport: Viewport) -> Control:
 	var f: Control = viewport.gui_get_focus_owner()
 	return f if f != null and f.is_visible_in_tree() else null
+
+
+## True when `screen_point` is on a piece of on-screen interface (a panel,
+## card or button that takes pointer input) — so a tap there is for the
+## interface, never also a "walk there" in the world. Godot gives the GUI
+## the mouse event a touch makes, but the touch itself still reaches the
+## world; this closes that gap for every panel at once.
+static func is_over_ui(viewport: Viewport, screen_point: Vector2) -> bool:
+	for layer in viewport.get_tree().root.find_children("*", "CanvasLayer", true, false):
+		if not (layer as CanvasLayer).visible:
+			continue
+		for child in layer.get_children():
+			if child is Control and _blocks_at(child as Control, screen_point):
+				return true
+	return false
+
+
+static func _blocks_at(c: Control, p: Vector2) -> bool:
+	if not c.visible or c.is_queued_for_deletion():
+		return false
+	if c.mouse_filter == Control.MOUSE_FILTER_STOP and c.get_global_rect().has_point(p):
+		return true
+	for child in c.get_children():
+		if child is Control and _blocks_at(child as Control, p):
+			return true
+	return false

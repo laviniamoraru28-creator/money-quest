@@ -201,10 +201,22 @@ func load_progress() -> void:
 	if owned is Dictionary:
 		for id in owned:
 			var rec: Variant = owned[id]
-			if rec is Dictionary and int(rec.get("count", 0)) > 0:
-				ProgressManager.owned_items[String(id)] = {"count": int(rec["count"]), "acquired": int(rec.get("acquired", 0)), "used": bool(rec.get("used", false))}
+			if not (rec is Dictionary):
+				continue
+			var count: int = int(rec.get("count", 0))
+			var given: int = int(rec.get("given", 0))
+			# Kept when held, or when given away (count 0, given > 0): the
+			# purchase history stays. Older saves (no "given") load as before.
+			if count > 0 or (count == 0 and given > 0):
+				var r: Dictionary = {"count": maxi(count, 0), "acquired": int(rec.get("acquired", 0)), "used": bool(rec.get("used", false))}
+				if given > 0:
+					r["given"] = given
+				ProgressManager.owned_items[String(id)] = r
 
-	Localization.set_locale(data.get("locale", Localization.DEFAULT_LOCALE))
+	# A save from before D2 may hold one of the hidden languages: it opens
+	# in English instead (the save itself is only rewritten on the next save).
+	var saved_locale: String = str(data.get("locale", Localization.DEFAULT_LOCALE))
+	Localization.set_locale(saved_locale if Localization.is_selectable(saved_locale) else Localization.DEFAULT_LOCALE)
 	# MoneyLife last: it reads the wallet and (for an older save) the
 	# activity state it migrates from.
 	var money: Variant = data.get("money_life", {})

@@ -238,7 +238,17 @@ func _on_place_used(kind: String) -> void:
 	match phase:
 		"place":
 			if pocket > 0:
-				book.transfer("purse", kind, 1, "time_vault")
+				# How many? One coin, half, or all of them — a picture choice,
+				# so sharing out 10–14 coins takes a few presses, not one
+				# press per coin. A single coin in hand simply goes in.
+				var n: int = 1
+				if pocket > 1:
+					_busy = true
+					n = await _how_many(kind)
+					_busy = false
+					if n <= 0 or not is_inside_tree() or phase != "place":
+						return
+				book.transfer("purse", kind, n, "time_vault")
 				p.set_value(book.balance(kind))
 				p.pulse()
 				purse.set_amount(pocket, p.global_position + Vector3(0, 1.4, 0))
@@ -259,6 +269,19 @@ func _on_place_used(kind: String) -> void:
 			await _take_for_need(kind)
 		"done":
 			await reset_run()
+
+
+## "How many coins go in here?" — the shared picture choice
+## (ResourcePurpose): a big number, then coin → this place. Returns the
+## amount (0 for "Later").
+func _how_many(kind: String) -> int:
+	var options: Array = [{"id": "one", "picture": "num:1", "icons": ["coin", "then", kind], "key": "tv.share.one", "amount": 1}]
+	var half: int = pocket / 2
+	if half >= 2 and half < pocket:
+		options.append({"id": "half", "picture": "num:%d" % half, "icons": ["coin", "then", kind], "key": "tv.share.half", "amount": half})
+	options.append({"id": "all", "picture": "num:%d" % pocket, "icons": ["coin", "then", kind], "key": "tv.share.all", "amount": pocket})
+	var picked: Dictionary = await ResourcePurpose.choose(self, options, pocket, ["then", kind])
+	return int(picked.get("amount", 0))
 
 
 func _all_placed() -> void:

@@ -63,6 +63,20 @@ func _apply_navigation() -> void:
 		_label.visible = SupportProfile.show_text()
 
 
+## The written name over the door fades out when the camera is right at
+## it (like the DoorMarker), so it never fills the view on arrival; from a
+## few steps away it is fully readable again. Distance, not time.
+func _process(_delta: float) -> void:
+	if _label == null or not _label.visible:
+		return
+	var cam: Camera3D = get_viewport().get_camera_3d()
+	if cam:
+		var d: float = cam.global_position.distance_to(_label.global_position)
+		var a: float = clampf((d - DoorMarker.NEAR_HIDE) / DoorMarker.NEAR_FADE, 0.0, 1.0)
+		_label.modulate.a = a
+		_label.outline_modulate.a = a
+
+
 func interact() -> void:
 	if not target_zone_id.is_empty():
 		if WorldManager.get_zone(target_zone_id) != null and not WorldManager.is_zone_unlocked(target_zone_id):

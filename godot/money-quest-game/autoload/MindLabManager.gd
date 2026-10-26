@@ -18,8 +18,10 @@ func _ready() -> void:
 	dir.list_dir_begin()
 	var file_name := dir.get_next()
 	while file_name != "":
-		if file_name.ends_with(".tres"):
-			var entry: MindLabEntryData = load(ENTRIES_DIR + file_name)
+		# Exported builds list resources as "x.tres.remap".
+		var res_name := file_name.trim_suffix(".remap")
+		if res_name.ends_with(".tres"):
+			var entry: MindLabEntryData = load(ENTRIES_DIR + res_name)
 			if entry != null:
 				_entry_registry[entry.entry_id] = entry
 		file_name = dir.get_next()

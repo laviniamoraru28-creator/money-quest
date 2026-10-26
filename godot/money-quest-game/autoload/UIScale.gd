@@ -65,6 +65,15 @@ func _fit_later(layer: CanvasLayer) -> void:
 	var panel := layer.get_node_or_null("Panel") as Control
 	if panel == null:
 		return
+	# Measured again whenever the panel's size changes while it shows: in its
+	# first frame wrapped text can measure one word per line (a panel then
+	# looks thousands of pixels tall), and a scale fitted to that would leave
+	# the settled panel tiny and off screen.
+	if not panel.has_meta("uiscale_refit"):
+		panel.set_meta("uiscale_refit", true)
+		panel.resized.connect(func() -> void:
+			if is_instance_valid(panel) and panel.is_visible_in_tree():
+				fit(panel))
 	await get_tree().process_frame
 	if not is_instance_valid(panel):
 		return

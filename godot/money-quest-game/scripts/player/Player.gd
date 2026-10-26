@@ -89,6 +89,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	# press): it is not a "walk there".
 	if Engine.get_process_frames() == _born_frame and (event is InputEventMouseButton or event is InputEventScreenTouch):
 		return
+	# A tap / click on a panel, card or button is for that panel — never
+	# also a "walk there" (a touch reaches the world as well as the GUI).
+	if (event is InputEventMouseButton or event is InputEventScreenTouch) and event.pressed and UIFocus.is_over_ui(get_viewport(), event.position):
+		return
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		_set_target_from_screen_point(event.position)
 	elif event is InputEventScreenTouch and event.pressed:

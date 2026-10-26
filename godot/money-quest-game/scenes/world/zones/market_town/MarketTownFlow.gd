@@ -189,7 +189,7 @@ func step() -> String:
 
 
 func refresh() -> void:
-	if not is_inside_tree() or _busy or (activity and activity.running):
+	if not is_inside_tree() or _busy or (activity and activity.running) or not _is_current_place():
 		return
 	match step():
 		"explore":
@@ -216,7 +216,16 @@ func refresh() -> void:
 
 ## Finishing a step: the shared "Done!" moment (ObjectiveManager) and a
 ## little XP, once each.
+## The market is still where the child is. When they leave, this node lives
+## on until the end of that frame while the next place starts — and that
+## place's own progress must never bring the market's goal back.
+func _is_current_place() -> bool:
+	return WorldManager.current_zone_id == ZONE_ID and not get_parent().is_queued_for_deletion()
+
+
 func _on_progress() -> void:
+	if not _is_current_place():
+		return
 	var id: String = ObjectiveManager.objective_id
 	if id == "mt.explore" and explored():
 		_finish("mt.explore", EXPLORE_XP)

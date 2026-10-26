@@ -42,6 +42,23 @@ func _ready() -> void:
 	_render(key, zone_id, role)
 
 
+## Readable from across a room, but never a wall in front of the camera:
+## a sign right at the camera (e.g. the ← BACK door just behind the
+## player on arrival) fades out — hidden within NEAR_HIDE metres, fully
+## shown again from NEAR_HIDE + NEAR_FADE. Distance, not time: nothing
+## animates by itself (Reduced Motion needs nothing extra).
+const NEAR_HIDE: float = 3.0
+const NEAR_FADE: float = 3.0
+
+
+func _process(_delta: float) -> void:
+	var cam: Camera3D = get_viewport().get_camera_3d()
+	if cam == null:
+		return
+	var d: float = cam.global_position.distance_to(global_position)
+	modulate.a = clampf((d - NEAR_HIDE) / NEAR_FADE, 0.0, 1.0)
+
+
 static func _render(key: String, p_zone: String, p_role: String) -> void:
 	var tree := Engine.get_main_loop() as SceneTree
 	var vp := SubViewport.new()

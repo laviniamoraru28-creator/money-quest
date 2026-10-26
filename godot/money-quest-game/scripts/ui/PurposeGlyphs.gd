@@ -97,6 +97,20 @@ static func draw(ci: CanvasItem, kind: String, c: Vector2, u: float) -> bool:
 			ci.draw_arc(c + Vector2(0, -u * 0.35), u * 0.45, PI, TAU + PI * 0.4, 16, INK, u * 0.22)
 			ci.draw_line(c + Vector2(u * 0.15, u * 0.05), c + Vector2(0, u * 0.35), INK, u * 0.22)
 			ci.draw_circle(c + Vector2(0, u * 0.75), u * 0.14, INK)
+		"paw":
+			# A paw print (pets, animal lovers): a pad and four toes.
+			ci.draw_circle(c + Vector2(0, u * 0.35), u * 0.52, INK)
+			ci.draw_circle(c + Vector2(0, u * 0.35), u * 0.44, WOOD)
+			for t in [Vector2(-u * 0.72, -u * 0.12), Vector2(-u * 0.27, -u * 0.6), Vector2(u * 0.27, -u * 0.6), Vector2(u * 0.72, -u * 0.12)]:
+				ci.draw_circle(c + t, u * 0.24, INK)
+				ci.draw_circle(c + t, u * 0.17, WOOD)
+		"screen":
+			# A computer screen on a stand (technology).
+			var s := Rect2(c + Vector2(-u * 0.95, -u * 0.75), Vector2(u * 1.9, u * 1.2))
+			ci.draw_rect(s, SKY)
+			ci.draw_rect(s, INK, false, 2.5)
+			ci.draw_line(c + Vector2(0, u * 0.45), c + Vector2(0, u * 0.8), INK, u * 0.18)
+			ci.draw_line(c + Vector2(-u * 0.5, u * 0.85), c + Vector2(u * 0.5, u * 0.85), INK, u * 0.18)
 		_:
 			# The wider visual language (bank, lock, clock, growth...).
 			return Symbols.draw(ci, kind, c, u)

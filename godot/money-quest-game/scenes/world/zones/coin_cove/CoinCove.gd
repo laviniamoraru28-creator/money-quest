@@ -39,11 +39,42 @@ const MONEY_BASICS_STRATEGIST_QUEST_ID: String = "strategist-money-basics-l1-que
 @onready var priya: NPC = $Priya
 
 
+## The sorting table: "Is it money?" — a hands-on activity in the room.
+var sort_table: MoneySortTable
+var _sorting: bool = false
+
+
 func _ready() -> void:
 	camera_controller.target = player
 	shopkeeper.talked_to.connect(_on_shopkeeper_talked_to)
 	amir.talked_to.connect(_on_amir_talked_to)
 	priya.talked_to.connect(_on_priya_talked_to)
+	sort_table = MoneySortTable.new()
+	sort_table.name = "MoneySortTable"
+	sort_table.position = Vector3(4.6, 0, 0.4)
+	sort_table.rotation_degrees.y = -90.0
+	add_child(sort_table)
+	sort_table.used.connect(_on_sort_table_used)
+	_set_place_goal.call_deferred()
+
+
+## The room's own goal while the sort is not done: you → the table → money ✓.
+func _set_place_goal() -> void:
+	if MoneySortTable.done() or not is_inside_tree():
+		return
+	ObjectiveManager.set_objective("cc.sort", "objective.cc.sort", {}, sort_table)
+	ObjectiveManager.set_icons(["you", "then", "coin", "tick"])
+
+
+func _on_sort_table_used() -> void:
+	if _sorting:
+		return
+	_sorting = true
+	var first: bool = not MoneySortTable.done()
+	await sort_table.play()
+	_sorting = false
+	if first and ObjectiveManager.objective_id == "cc.sort":
+		ObjectiveManager.complete("cc.sort")
 
 
 func _on_shopkeeper_talked_to(_npc_id: String) -> void:

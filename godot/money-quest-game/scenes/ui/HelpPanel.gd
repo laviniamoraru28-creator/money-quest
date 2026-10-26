@@ -72,9 +72,12 @@ func _ready() -> void:
 			controls.append("•  %s:  %s" % [Localization.t(pair[1]), g])
 	_line(v, "help.controls", "\n".join(controls))
 
-	var row := HBoxContainer.new()
-	row.add_theme_constant_override("separation", 14)
-	row.alignment = BoxContainer.ALIGNMENT_CENTER
+	# The buttons wrap onto a second line when they do not fit (large text,
+	# small windows) — never wider than the screen.
+	var row := HFlowContainer.new()
+	row.add_theme_constant_override("h_separation", 14)
+	row.add_theme_constant_override("v_separation", 12)
+	row.alignment = FlowContainer.ALIGNMENT_CENTER
 	outer.add_child(row)
 	_show_way = UIStyle.button(Localization.t("help.show_way"))
 	_show_way.name = "ShowWayButton"
@@ -89,6 +92,22 @@ func _ready() -> void:
 			close()
 			ObjectiveManager.intro_requested.emit())
 		row.add_child(again)
+	# The guided adventure: back to the next mission (also after "Not now").
+	if not GuidedRoute.current().is_empty():
+		var mission := UIStyle.button(Localization.t("guided.help_button"), false)
+		mission.name = "MissionButton"
+		var star := GuidedMissionCard.RouteDot.new(34.0, "now")
+		star.set_anchors_preset(Control.PRESET_CENTER_LEFT)
+		star.offset_left = 10.0
+		star.offset_right = 44.0
+		star.offset_top = -17.0
+		star.offset_bottom = 17.0
+		mission.add_child(star)
+		mission.text = "      " + mission.text
+		mission.pressed.connect(func() -> void:
+			close()
+			GuidedRoute.resume())
+		row.add_child(mission)
 	# Stuck somewhere? Always one press away from the start of this place.
 	var restart := UIStyle.button(Localization.t("help.back_to_start"), false)
 	restart.name = "BackToStartButton"
@@ -117,6 +136,27 @@ func _ready() -> void:
 	_close.name = "CloseButton"
 	_close.pressed.connect(close)
 	row.add_child(_close)
+	# ← / → go through the buttons in order, also across a wrapped line
+	# (↑ / ↓ move between the lines as they are placed).
+	var order: Array = row.get_children().filter(func(c): return c is Button and c.visible)
+	for i in order.size():
+		var bi: Button = order[i]
+		bi.focus_neighbor_right = bi.get_path_to(order[(i + 1) % order.size()])
+		bi.focus_neighbor_left = bi.get_path_to(order[(i - 1 + order.size()) % order.size()])
+	# Words off: every action is a picture (Listen still says its words).
+	if not SupportProfile.show_text():
+		for pair in [["ShowWayButton", "walk"], ["ShowIntroButton", "eye"], ["BackToStartButton", "again"], ["CloseButton", "close"]]:
+			var b: Button = row.get_node_or_null(pair[0])
+			if b:
+				PictureChoice.action_symbol(b, pair[1])
+		for n in ["MissionButton", "GoToHubButton"]:
+			var b2: Button = row.get_node_or_null(n)
+			if b2:
+				var w: String = b2.text.strip_edges()
+				b2.set_meta("words", w)
+				Narration.read_on_focus(b2, w)
+				b2.text = ""
+				b2.custom_minimum_size.x = 64.0
 	AudioManager.play_sfx("ui_open", 1.0, -4.0)
 	UIFocus.focus(_show_way if _show_way.visible else _close)
 

@@ -48,6 +48,23 @@ func _ready() -> void:
 		_yaw = follow_offset.signed_angle_to(Vector3.FORWARD, Vector3.UP) if follow_offset.length() > 0.0 else 0.0
 
 
+## Turns the camera so it looks past the player toward `point` (the
+## camera sits behind the player, on the far side from it) and places it
+## there at once — used on arrival, so the way on is in view. A scene that
+## frames its own opening view (use_authored_offset) keeps it.
+func face_toward(point: Vector3) -> void:
+	if use_authored_offset or target == null:
+		return
+	var dir: Vector3 = point - target.global_position
+	dir.y = 0.0
+	var flat := Vector3(follow_offset.x, 0.0, follow_offset.z)
+	if dir.length() < 0.01 or flat.length() < 0.01:
+		return
+	_yaw = flat.signed_angle_to(-dir.normalized(), Vector3.UP)
+	global_position = target.global_position + follow_offset.rotated(Vector3.UP, _yaw)
+	look_at(target.global_position + Vector3.UP * 1.0, Vector3.UP)
+
+
 func _unhandled_input(event: InputEvent) -> void:
 	# Desktop-only nicety — touch and gamepad players never trigger this,
 	# and the camera still follows correctly without it (see _physics_process).

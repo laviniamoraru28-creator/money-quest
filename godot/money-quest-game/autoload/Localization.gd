@@ -16,6 +16,11 @@ const SUPPORTED_LOCALES: Array[String] = [
 	"en", "ro", "es", "fr", "de", "it", "pt", "nl", "pl"
 ]
 const DEFAULT_LOCALE: String = "en"
+## The languages a player may actually be in. The initial release is
+## English-only (owner decision D2, 2026-10-21; see
+## docs/completion-checklist.md). The other 8 stay supported — their
+## translation files are kept and still load — for a possible later release.
+const SELECTABLE_LOCALES: Array[String] = ["en"]
 
 signal locale_changed(new_locale: String)
 
@@ -33,6 +38,10 @@ func set_locale(locale_code: String) -> void:
 	current_locale = locale_code
 	TranslationServer.set_locale(locale_code)
 	locale_changed.emit(locale_code)
+
+
+func is_selectable(locale_code: String) -> bool:
+	return SELECTABLE_LOCALES.has(locale_code)
 
 
 ## The one function every script should call for user-facing text.

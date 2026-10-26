@@ -60,6 +60,8 @@ LibraryManager="*res://autoload/LibraryManager.gd"
 MuseumManager="*res://autoload/MuseumManager.gd"
 MindLabManager="*res://autoload/MindLabManager.gd"
 ObjectiveManager="*res://autoload/ObjectiveManager.gd"
+GuidedRoute="*res://autoload/GuidedRoute.gd"
+RotateHint="*res://scenes/ui/RotateHint.gd"
 
 [display]
 

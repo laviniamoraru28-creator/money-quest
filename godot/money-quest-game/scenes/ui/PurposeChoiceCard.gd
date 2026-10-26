@@ -25,6 +25,8 @@ var buttons: Array[Button] = []
 var _later: Button
 var _done: bool = false
 var _return_focus: Control
+## The options' row (sized so up to three sit side by side).
+var _row: HFlowContainer
 
 
 func _ready() -> void:
@@ -68,6 +70,7 @@ func _ready() -> void:
 		head.add_child(q)
 	# The options.
 	var row := HFlowContainer.new()
+	_row = row
 	row.alignment = FlowContainer.ALIGNMENT_CENTER
 	row.add_theme_constant_override("h_separation", 14)
 	row.add_theme_constant_override("v_separation", 14)
@@ -159,6 +162,14 @@ func _fit_buttons() -> void:
 		var col: Control = b.get_meta("content")
 		var need: Vector2 = col.get_combined_minimum_size()
 		b.custom_minimum_size = Vector2(maxf(164.0, need.x + 28.0), need.y + 24.0)
+	# Up to three options side by side (a wrapping row inside a centred
+	# card would otherwise be as narrow as one option — words off has no
+	# question line to widen it), never wider than the screen.
+	if _row:
+		var w: float = 0.0
+		for i in mini(buttons.size(), 3):
+			w += buttons[i].custom_minimum_size.x + (14.0 if i > 0 else 0.0)
+		_row.custom_minimum_size.x = minf(w, get_viewport().get_visible_rect().size.x - 120.0)
 
 
 func _pick(index: int) -> void:

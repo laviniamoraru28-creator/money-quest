@@ -33,8 +33,10 @@ func _load_all_quests() -> void:
 	dir.list_dir_begin()
 	var file_name := dir.get_next()
 	while file_name != "":
-		if file_name.ends_with(".tres"):
-			var quest: QuestData = load(QUESTS_DIR + file_name)
+		# Exported builds list resources as "x.tres.remap".
+		var res_name := file_name.trim_suffix(".remap")
+		if res_name.ends_with(".tres"):
+			var quest: QuestData = load(QUESTS_DIR + res_name)
 			if quest != null:
 				_quest_registry[quest.quest_id] = quest
 		file_name = dir.get_next()
@@ -168,7 +170,7 @@ func _show_intro(quest: QuestData) -> void:
 	for line in quest.intro_dialogue:
 		await DialogueBox.show_line(line)
 	if not quest.intro_text_key.is_empty():
-		await DialogueBox.show_text(quest.intro_text_key)
+		await DialogueBox.show_text(quest.intro_text_key, {}, quest.intro_text_icons)
 
 
 ## Shared by every runner below: shows one open-ended DialogueChoice (if
@@ -182,7 +184,7 @@ func _run_one_choice(choice: DialogueChoice) -> void:
 	if chosen.consequence:
 		GameState.add_coins(max(chosen.consequence.coin_delta, 0), "quest:choice", "choose", "reward")
 		GameState.add_xp(max(chosen.consequence.xp_delta, 0))
-		await DialogueBox.show_text(chosen.consequence.consequence_text_key)
+		await LessonManager.present_consequence(self, chosen.consequence)
 
 
 ## Shared by every runner below: pays the quest's flat xp_reward/
@@ -205,7 +207,7 @@ func _run_challenge_quest(quest: QuestData) -> void:
 	if quest.diagnosis_choice:
 		var cause: ChoiceOption = await ChoicePanel.show_choice(quest.diagnosis_choice)
 		if cause.consequence:
-			await DialogueBox.show_text(cause.consequence.consequence_text_key)
+			await LessonManager.present_consequence(self, cause.consequence)
 
 	await _run_one_choice(quest.challenge_choice)
 	await _pay_flat_reward(quest)
@@ -217,7 +219,7 @@ func _run_match_quest(quest: QuestData) -> void:
 	await _show_intro(quest)
 	await MatchPanel.show_match(quest.match_pairs)
 	if not quest.match_outro_text_key.is_empty():
-		await DialogueBox.show_text(quest.match_outro_text_key)
+		await DialogueBox.show_text(quest.match_outro_text_key, {}, quest.outro_icons)
 	await _run_one_choice(quest.challenge_choice)
 	await _pay_flat_reward(quest)
 
@@ -228,7 +230,7 @@ func _run_spot_quest(quest: QuestData) -> void:
 	await _show_intro(quest)
 	await SpotPanel.show_spot(quest.spot_scenario_text_key, quest.spot_items)
 	if not quest.spot_outro_text_key.is_empty():
-		await DialogueBox.show_text(quest.spot_outro_text_key)
+		await DialogueBox.show_text(quest.spot_outro_text_key, {}, quest.outro_icons)
 	await _run_one_choice(quest.challenge_choice)
 	await _pay_flat_reward(quest)
 
@@ -239,7 +241,7 @@ func _run_allocate_quest(quest: QuestData) -> void:
 	await _show_intro(quest)
 	await AllocatePanel.show_allocate(quest.allocate_total_amount, quest.allocate_unit_label_key, quest.allocate_categories)
 	if not quest.allocate_outro_text_key.is_empty():
-		await DialogueBox.show_text(quest.allocate_outro_text_key)
+		await DialogueBox.show_text(quest.allocate_outro_text_key, {}, quest.outro_icons)
 	await _run_one_choice(quest.challenge_choice)
 	await _pay_flat_reward(quest)
 
@@ -251,7 +253,7 @@ func _run_sort_quest(quest: QuestData) -> void:
 	await _show_intro(quest)
 	await SortPanel.show_sort(quest.sort_buckets, quest.sort_items)
 	if not quest.sort_outro_text_key.is_empty():
-		await DialogueBox.show_text(quest.sort_outro_text_key)
+		await DialogueBox.show_text(quest.sort_outro_text_key, {}, quest.outro_icons)
 	await _run_one_choice(quest.challenge_choice)
 	await _pay_flat_reward(quest)
 
@@ -262,7 +264,7 @@ func _run_multi_step_quest(quest: QuestData) -> void:
 	await _show_intro(quest)
 	await MatchPanel.show_match(quest.match_pairs)
 	if not quest.match_outro_text_key.is_empty():
-		await DialogueBox.show_text(quest.match_outro_text_key)
+		await DialogueBox.show_text(quest.match_outro_text_key, {}, quest.outro_icons)
 	await _run_one_choice(quest.challenge_choice)
 	await _run_one_choice(quest.second_challenge_choice)
 	await _pay_flat_reward(quest)

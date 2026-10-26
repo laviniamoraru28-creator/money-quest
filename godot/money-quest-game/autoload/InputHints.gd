@@ -85,8 +85,13 @@ func _keys(action: String, keys: Array) -> String:
 
 
 ## The label printed on the player's own keyboard for a physical key.
+## Only desktop display servers can map a physical key to the local layout;
+## elsewhere (headless, phones, the web) the call just logs an error, so the
+## physical key's own name is used instead.
 static func key_label(physical: Key) -> String:
-	var code: Key = DisplayServer.keyboard_get_keycode_from_physical(physical)
+	var code: Key = KEY_NONE
+	if DisplayServer.get_name() in ["Windows", "macOS", "X11", "Wayland"]:
+		code = DisplayServer.keyboard_get_keycode_from_physical(physical)
 	var s: String = OS.get_keycode_string(code if code != KEY_NONE else physical)
 	return "Esc" if s == "Escape" else s
 

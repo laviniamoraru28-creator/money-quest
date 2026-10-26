@@ -9,3 +9,6 @@ extends Resource
 
 @export var bucket_key: String = ""
 @export var label_key: String = ""
+## Optional: the bucket as a picture (MissionStrip tokens), shown as a
+## large pictured area in a picture sort. Left empty, nothing changes.
+@export var icon_tokens: Array[String] = []

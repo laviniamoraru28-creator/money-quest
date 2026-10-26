@@ -33,8 +33,10 @@ func _load_all_zones() -> void:
 	dir.list_dir_begin()
 	var file_name := dir.get_next()
 	while file_name != "":
-		if file_name.ends_with(".tres"):
-			var zone: ZoneData = load(ZONES_DIR + file_name)
+		# Exported builds list resources as "x.tres.remap".
+		var res_name := file_name.trim_suffix(".remap")
+		if res_name.ends_with(".tres"):
+			var zone: ZoneData = load(ZONES_DIR + res_name)
 			if zone != null:
 				register_zone(zone)
 		file_name = dir.get_next()

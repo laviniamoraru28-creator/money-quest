@@ -129,6 +129,8 @@ func _show_chip(text: String, beside: Control) -> void:
 			if other != chip and not other.is_queued_for_deletion():
 				y = maxf(y, (other as Control).get_global_rect().end.y + 4.0)
 	chip.global_position = Vector2(end_x, y)
+	if beside != coins_label:
+		_clear_of_door_signs(chip)
 	var tw := create_tween()
 	if Settings.reduced_motion:
 		tw.tween_interval(2.4)
@@ -136,6 +138,49 @@ func _show_chip(text: String, beside: Control) -> void:
 		tw.tween_property(chip, "position:y", chip.position.y - 14.0, 2.2).set_trans(Tween.TRANS_SINE)
 		tw.parallel().tween_property(chip, "modulate:a", 0.0, 0.6).set_delay(1.8)
 	tw.tween_callback(chip.queue_free)
+
+
+## A "+XP" chip never covers a door's ← / → sign (DoorMarker) that shows on
+## screen just there: it moves to the right of the sign, or below it when
+## there is no room on the right.
+func _clear_of_door_signs(chip: Control) -> void:
+	var signs: Array = door_sign_rects()
+	if signs.is_empty():
+		return
+	var vp: Vector2 = get_viewport().get_visible_rect().size
+	var start: Vector2 = chip.global_position
+	var size: Vector2 = chip.get_combined_minimum_size()
+	for i in 4:
+		var r := Rect2(chip.global_position, size)
+		var hit: Rect2 = Rect2()
+		for s in signs:
+			if (s as Rect2).grow(6.0).intersects(r):
+				hit = s
+				break
+		if hit.size == Vector2.ZERO:
+			return
+		if hit.end.x + 8.0 + size.x <= vp.x - 8.0:
+			chip.global_position.x = hit.end.x + 8.0
+		else:
+			chip.global_position = Vector2(start.x, hit.end.y + 6.0)
+
+
+## Where the doors' ← / → signs (DoorMarker billboards) are on screen now.
+func door_sign_rects() -> Array:
+	var out: Array = []
+	var cam: Camera3D = get_viewport().get_camera_3d()
+	if cam == null:
+		return out
+	for m in get_tree().root.find_children("DoorMarker", "DoorMarker", true, false):
+		var d: DoorMarker = m
+		if not d.is_visible_in_tree() or d.texture == null or d.modulate.a < 0.05 or cam.is_position_behind(d.global_position):
+			continue
+		var half := Vector2(d.texture.get_width(), d.texture.get_height()) * d.pixel_size * 0.5 * d.global_basis.get_scale().x
+		var r := Rect2(cam.unproject_position(d.global_position), Vector2.ZERO)
+		for c in [Vector2(-1, -1), Vector2(1, -1), Vector2(-1, 1), Vector2(1, 1)]:
+			r = r.expand(cam.unproject_position(d.global_position + cam.global_basis.x * half.x * c.x + cam.global_basis.y * half.y * c.y))
+		out.append(r)
+	return out
 
 
 func _on_zone_loaded(_zone_data: ZoneData) -> void:

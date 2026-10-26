@@ -41,6 +41,94 @@ const EQ_MARKETING_APPROACH_IDS: Array = ["poster", "social-style-advert", "word
 const STARTING_MONEY: int = 50
 const TOTAL_POTENTIAL_CUSTOMERS: int = 20
 
+# --- no typing needed: picture choices for every written stage ----------------------
+# Each text stage offers a few short, child-friendly ideas as picture
+# buttons (the same MissionStrip pictures as everywhere else). Picking one
+# fills the answer; typing your own stays possible. The four problems and
+# the four ideas belong together (the idea for the chosen problem is
+# offered first), so the business makes sense without writing anything.
+const SUGGEST_PROBLEM: Array = [
+	{"key": "eq_build.suggest.problem.thirsty", "icons": ["you", "then", "item:juice"]},
+	{"key": "eq_build.suggest.problem.bored", "icons": ["clock", "game", "question"]},
+	{"key": "eq_build.suggest.problem.plants", "icons": ["item:plant", "warning"]},
+	{"key": "eq_build.suggest.problem.homework", "icons": ["book", "question"]},
+]
+const SUGGEST_IDEA: Array = [
+	{"key": "eq_build.suggest.idea.juice", "icons": ["item:juice", "then", "stall"]},
+	{"key": "eq_build.suggest.idea.games", "icons": ["tools", "then", "game"]},
+	{"key": "eq_build.suggest.idea.plants", "icons": ["hand", "item:plant", "then", "coin"]},
+	{"key": "eq_build.suggest.idea.homework", "icons": ["book", "heart"]},
+]
+const SUGGEST_NAME: Array = [
+	{"key": "eq_build.suggest.name.sunny", "icons": ["star", "stall"]},
+	{"key": "eq_build.suggest.name.helpers", "icons": ["heart", "hand"]},
+	{"key": "eq_build.suggest.name.bright", "icons": ["bulb"]},
+	{"key": "eq_build.suggest.name.green", "icons": ["leaf"]},
+]
+const SUGGEST_WHY: Array = [
+	{"key": "eq_build.suggest.why.kind", "icons": ["heart"]},
+	{"key": "eq_build.suggest.why.fair", "icons": ["coin", "tick"]},
+	{"key": "eq_build.suggest.why.care", "icons": ["tools", "star"]},
+	{"key": "eq_build.suggest.why.neighbours", "icons": ["hand", "heart"]},
+]
+const SUGGEST_NEXT: Array = [
+	{"key": "eq_build.suggest.next.save", "icons": ["coin", "then", "jar"]},
+	{"key": "eq_build.suggest.next.more", "icons": ["box", "box"]},
+	{"key": "eq_build.suggest.next.learn", "icons": ["book"]},
+	{"key": "eq_build.suggest.next.customers", "icons": ["board", "then", "stall"]},
+]
+## Pictures for the categories (product, customer, marketing).
+const PRODUCT_ICONS: Dictionary = {
+	"food": ["item:apple"], "art": ["item:pencils"], "crafts": ["tools"], "games": ["game"],
+	"pets": ["paw"], "sports": ["play"], "fashion": ["item:socks"], "technology": ["screen"],
+	"education": ["book"], "environment": ["leaf"], "helping-people": ["hand", "heart"], "other": ["question"],
+}
+const CUSTOMER_ICONS: Dictionary = {
+	"kids": ["npc:market_shopper"], "families": ["npc:market_guide", "npc:market_shopper"],
+	"teens": ["npc:market_shopper", "num:13+"], "adults": ["npc:market_guide", "num:18+"],
+	"school-community": ["book", "npc:market_shopper"], "neighbors": ["door", "npc:market_guide"],
+	"animal-lovers": ["heart", "paw"], "other": ["question"],
+}
+const MARKETING_ICONS: Dictionary = {
+	"poster": ["board"], "social-style-advert": ["popup"], "word-of-mouth": ["chat"],
+	"school-community-idea": ["book", "board"], "special-offer": ["star", "coin"],
+}
+
+
+## True when `value` is one of the game's own picture answers (a suggestion
+## or a product category's words), not something the child typed. Read
+## aloud only these: typed answers are never handed to a speech voice,
+## which on some browsers is an online service.
+func is_built_in_answer(value: String) -> bool:
+	if value.strip_edges().is_empty():
+		return false
+	for list in [SUGGEST_PROBLEM, SUGGEST_IDEA, SUGGEST_NAME, SUGGEST_WHY, SUGGEST_NEXT]:
+		for s in list:
+			if value == Localization.t(String(s["key"])):
+				return true
+	for id in EQ_PRODUCT_CATEGORY_IDS:
+		if value == Localization.t("eq_build.category.product." + String(id)):
+			return true
+	return false
+
+
+## What Listen says for an answer: the answer itself when it is one of the
+## game's own picture answers, otherwise a neutral "your own words".
+func spoken_answer(value: String) -> String:
+	return value if is_built_in_answer(value) else Localization.t("narration.own_words")
+
+
+## The ideas, with the one that answers the chosen problem first.
+func _ideas_for_problem() -> Array:
+	var ideas: Array = SUGGEST_IDEA.duplicate()
+	for i in SUGGEST_PROBLEM.size():
+		if profile.problem == Localization.t(String(SUGGEST_PROBLEM[i]["key"])):
+			var match_idea: Dictionary = ideas[i]
+			ideas.remove_at(i)
+			ideas.push_front(match_idea)
+			break
+	return ideas
+
 signal profile_changed
 
 var profile: BusinessProfileData = BusinessProfileData.new()
@@ -87,12 +175,12 @@ func _run_stage(stage_id: String) -> void:
 			await DialogueBox.show_text("eq_stage.find_a_problem.learn_text")
 			profile.problem = await TextInputPanel.show_text_input(
 				"eq_stage.find_a_problem.field_label", "eq_stage.find_a_problem.placeholder",
-				profile.problem, true, 200)
+				profile.problem, true, 200, "", SUGGEST_PROBLEM)
 		"create-an-idea":
 			await DialogueBox.show_text("eq_stage.create_an_idea.learn_text")
 			profile.idea_description = await TextInputPanel.show_text_input(
 				"eq_stage.create_an_idea.field_label", "eq_stage.create_an_idea.placeholder",
-				profile.idea_description, true, 200)
+				profile.idea_description, true, 200, "", _ideas_for_problem())
 		"research-demand":
 			await _run_existing_quest("eq-research-demand-quest")
 		"test-the-idea":
@@ -101,7 +189,7 @@ func _run_stage(stage_id: String) -> void:
 			await DialogueBox.show_text("eq_stage.name_your_business.learn_text")
 			profile.business_name = await TextInputPanel.show_text_input(
 				"eq_stage.name_your_business.field_label", "eq_stage.name_your_business.placeholder",
-				profile.business_name, false, 40, "eq_build.safety_hint")
+				profile.business_name, false, 40, "eq_build.safety_hint", SUGGEST_NAME)
 		"create-your-logo":
 			await DialogueBox.show_text("eq_stage.create_your_logo.learn_text")
 			profile.slogan = await LogoBuilderPanel.show_logo_builder(profile.logo, profile.slogan)
@@ -111,15 +199,18 @@ func _run_stage(stage_id: String) -> void:
 				"eq_stage.choose_your_product.category_label", EQ_PRODUCT_CATEGORY_IDS,
 				"eq_build.category.product", true,
 				"eq_stage.choose_your_product.description_label", "eq_stage.choose_your_product.description_placeholder",
-				profile.product_category, profile.product_description)
+				profile.product_category, profile.product_description, PRODUCT_ICONS)
 			profile.product_category = product_result["category"]
 			profile.product_description = product_result["description"]
+			# Optional: without words of their own, the chosen picture says it.
+			if profile.product_description.strip_edges().is_empty():
+				profile.product_description = Localization.t("eq_build.category.product." + profile.product_category)
 		"choose-your-customer":
 			await DialogueBox.show_text("eq_stage.choose_your_customer.learn_text")
 			var customer_result: Dictionary = await CategoryPickerPanel.show_category_picker(
 				"", EQ_CUSTOMER_CATEGORY_IDS,
 				"eq_build.category.customer", false, "", "",
-				profile.customer_category, "")
+				profile.customer_category, "", CUSTOMER_ICONS)
 			profile.customer_category = customer_result["category"]
 		"understand-costs":
 			await DialogueBox.show_text("eq_stage.understand_costs.learn_text")
@@ -134,7 +225,7 @@ func _run_stage(stage_id: String) -> void:
 			var marketing_result: Dictionary = await CategoryPickerPanel.show_category_picker(
 				"", EQ_MARKETING_APPROACH_IDS,
 				"eq_build.category.marketing", false, "", "",
-				profile.marketing_approach, "")
+				profile.marketing_approach, "", MARKETING_ICONS)
 			profile.marketing_approach = marketing_result["category"]
 			await _run_existing_quest("eq-create-your-marketing-quest")
 		"make-your-first-sale":
@@ -171,10 +262,10 @@ func _run_stage(stage_id: String) -> void:
 			await DialogueBox.show_text("eq_stage.create_your_final_pitch.learn_text")
 			profile.why_choose_us = await TextInputPanel.show_text_input(
 				"eq_stage.create_your_final_pitch.why_choose_label", "eq_stage.create_your_final_pitch.why_choose_placeholder",
-				profile.why_choose_us, true, 200)
+				profile.why_choose_us, true, 200, "", SUGGEST_WHY)
 			profile.next_step = await TextInputPanel.show_text_input(
 				"eq_stage.create_your_final_pitch.next_step_label", "eq_stage.create_your_final_pitch.next_step_placeholder",
-				profile.next_step, true, 200)
+				profile.next_step, true, 200, "", SUGGEST_NEXT)
 
 
 ## Runs a quest already built by another Entrepreneur Quest zone,
