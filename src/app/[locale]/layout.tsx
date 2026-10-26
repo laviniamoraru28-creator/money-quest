@@ -132,33 +132,35 @@ export default async function LocaleLayout({
             switch away from), was reading an unreliable/default locale
             regardless of the URL. */}
         <NextIntlClientProvider locale={locale} messages={messages}>
-          {children}
           {/* The one place every page gets a language switcher, after an
               audit found it present on only 3 of 39 routes (homepage,
-              /learn, /learn/[slug] — each with its own inline copy). Top-right
-              and fixed, deliberately NOT the bottom-right corner /play,
-              /entrepreneur-quest, /leadership-quest, and /real-life-quests
-              already float AccessibilityMenu + SoundToggle in (see those
-              layouts) — two independent fixed elements anchored to the same
-              corner from different layout levels would be an unnecessary
-              visual/z-index risk this avoids entirely. The 3 pages that used
-              to embed LanguageSwitcher inline have had that copy removed, so
-              this is the only one rendered anywhere, never a duplicate.
+              /learn, /learn/[slug] — each with its own inline copy). The 3
+              pages that used to embed LanguageSwitcher inline have had that
+              copy removed, so this is the only one rendered anywhere, never
+              a duplicate.
 
-              top-3xl (6rem/96px), not top-sm: homepage's and learn/[slug]'s
-              own <header> — mx-auto px-sm py-xs around a min-h-touch-min
-              (2.75rem) button — is exactly 12+44+12 = 68px tall on every
-              viewport narrower than its max-w-[1200px] (i.e. almost every
-              real device, where that header's own content reaches the true
-              right edge same as this fixed element does). top-sm (16px)
-              would sit entirely inside that 68px band, directly under
-              homepage's "Get Started" button and learn/[slug]'s "Learn"
-              link. 96px clears it with margin to spare; pages with no
-              in-flow header (most of the other 36 routes) simply float a
-              little lower than the bare minimum, which costs nothing. */}
-          <div className="fixed right-sm top-3xl z-50">
+              A real, in-flow bar — not position: fixed — deliberately.
+              A first attempt floated it fixed at a fixed top offset
+              (top-3xl, chosen to clear homepage's/learn/[slug]'s own
+              68px-tall <header>), which then visually collided with
+              Entrepreneur Quest's, Leadership Quest's, and Real Life
+              Quests' page titles: those three share a template with no
+              in-flow header and a large h1 starting much closer to the
+              top, so a single fixed offset tuned for one template
+              overlapped another. An in-flow bar reserves its own real
+              height before {"{children}"}, so every page's content is
+              pushed down below it — correct for every current template
+              and every future page, by construction, with no per-page
+              offset to tune or re-break. Right-aligned to match where the
+              fixed version sat; not the bottom-right corner
+              /play, /entrepreneur-quest, /leadership-quest, and
+              /real-life-quests already float AccessibilityMenu +
+              SoundToggle in (see those layouts) — kept at opposite ends of
+              the page on purpose. */}
+          <div className="flex justify-end px-sm py-2xs">
             <LanguageSwitcher />
           </div>
+          {children}
         </NextIntlClientProvider>
       </body>
     </html>
