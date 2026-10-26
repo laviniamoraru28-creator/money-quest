@@ -74,8 +74,11 @@ func _run_choice_point() -> void:
 	var chosen_option: ChoiceOption = await ChoicePanel.show_choice(lesson_data.choice_point)
 	if chosen_option.consequence:
 		var c: ConsequenceEffect = chosen_option.consequence
-		GameState.add_coins(max(c.coin_delta, 0), "lesson:choice", "choose", "reward")
-		GameState.add_xp(max(c.xp_delta, 0))
+		# Like the lesson's own reward: coins and XP the first time only; a
+		# replay keeps the same choice and consequence, unpaid.
+		if not ProgressManager.is_lesson_completed(lesson_data.lesson_id):
+			GameState.add_coins(max(c.coin_delta, 0), "lesson:choice", "choose", "reward")
+			GameState.add_xp(max(c.xp_delta, 0))
 		await present_consequence(self, c)
 	_run_explanation()
 
