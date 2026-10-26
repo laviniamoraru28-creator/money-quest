@@ -73,31 +73,44 @@ func start_quest(quest_id: String) -> void:
 
 	_active = true
 	_level_at_start = GameState.compute_level()
+	# Replay policy (owner decision 2026-10-26): a completed quest can be
+	# played again freely, but its XP and coins are paid only the first time.
+	_first_time = not is_quest_completed(quest_id)
 	var place_goal: Dictionary = _begin_goal(quest)
 	quest_started.emit(quest_id)
 
+	var ok: bool = false
 	match quest.kind:
 		QuestData.QuestKind.LESSON:
-			await _run_lesson_quest(quest)
+			ok = await _run_lesson_quest(quest)
 		QuestData.QuestKind.CHALLENGE:
-			await _run_challenge_quest(quest)
+			ok = await _run_challenge_quest(quest)
 		QuestData.QuestKind.MATCH:
-			await _run_match_quest(quest)
+			ok = await _run_match_quest(quest)
 		QuestData.QuestKind.SPOT:
-			await _run_spot_quest(quest)
+			ok = await _run_spot_quest(quest)
 		QuestData.QuestKind.ALLOCATE:
-			await _run_allocate_quest(quest)
+			ok = await _run_allocate_quest(quest)
 		QuestData.QuestKind.SORT:
-			await _run_sort_quest(quest)
+			ok = await _run_sort_quest(quest)
 		QuestData.QuestKind.MULTI_STEP:
-			await _run_multi_step_quest(quest)
+			ok = await _run_multi_step_quest(quest)
 		_:
 			# SIMULATION is architecture-ready (QuestData already models
-			# it) but has no concrete runner built yet. Finish immediately
-			# rather than hang the game on an unimplemented quest kind.
+			# it) but has no concrete runner built yet. End at once rather
+			# than hang the game — and never count it as completed.
 			# (EXPLORATION is handled above, before this match, since it
 			# never sets `_active` — see _start_exploration_quest().)
 			push_warning("QuestManager: quest kind %s has no runner yet (quest '%s')" % [quest.kind, quest_id])
+
+	if not ok:
+		# Nothing was really done: no ✓, no progress, no reward, and the
+		# place's own goal comes back as it was.
+		push_warning("QuestManager: quest '%s' did not run to the end — not completed" % quest_id)
+		ObjectiveManager.clear()
+		_restore_goal(place_goal)
+		_active = false
+		return
 
 	ProgressManager.complete_quest(quest_id, quest.skill_ids)
 	_finish_goal(quest, place_goal)
@@ -111,6 +124,9 @@ func start_quest(quest_id: String) -> void:
 ## The level when the running quest began (its reward announces a level
 ## reached at any point during it).
 var _level_at_start: int = -1
+## True while the running quest has never been completed before: only then
+## are its XP and coins paid (a replay is the same experience, unpaid).
+var _first_time: bool = true
 
 
 ## While a quest runs, the mission card shows ITS goal (pictures, the title
@@ -135,6 +151,14 @@ func _finish_goal(quest: QuestData, before: Dictionary) -> void:
 	# The place's goal again, unless the place has already set a new one.
 	if before.is_empty() or om.has_objective():
 		return
+	_restore_goal(before)
+
+
+## The place's goal as it was before the quest (`before` from _begin_goal).
+func _restore_goal(before: Dictionary) -> void:
+	if before.is_empty():
+		return
+	var om: Node = ObjectiveManager
 	om.set_objective(before.id, before.key, before.params, before.target)
 	if not (before.icons as Array).is_empty():
 		om.set_icons(before.icons)
@@ -182,18 +206,23 @@ func _run_one_choice(choice: DialogueChoice) -> void:
 		return
 	var chosen: ChoiceOption = await ChoicePanel.show_choice(choice)
 	if chosen.consequence:
-		GameState.add_coins(max(chosen.consequence.coin_delta, 0), "quest:choice", "choose", "reward")
-		GameState.add_xp(max(chosen.consequence.xp_delta, 0))
+		# A choice's coins and XP are paid on the first completion only.
+		if _first_time:
+			GameState.add_coins(max(chosen.consequence.coin_delta, 0), "quest:choice", "choose", "reward")
+			GameState.add_xp(max(chosen.consequence.xp_delta, 0))
 		await LessonManager.present_consequence(self, chosen.consequence)
 
 
 ## Shared by every runner below: pays the quest's flat xp_reward/
-## coin_reward and shows its reward message, if any.
+## coin_reward (first completion only) and shows its reward message, if
+## any — on a replay the same message, truthfully without "+XP / coins".
 func _pay_flat_reward(quest: QuestData) -> void:
-	GameState.add_xp(quest.xp_reward)
-	GameState.add_coins(quest.coin_reward, "quest:" + quest.quest_id, "flag", "reward")
+	var xp: int = quest.xp_reward if _first_time else 0
+	var coins: int = quest.coin_reward if _first_time else 0
+	GameState.add_xp(xp)
+	GameState.add_coins(coins, "quest:" + quest.quest_id, "flag", "reward")
 	if not quest.reward_message_key.is_empty():
-		await RewardPopup.show_reward(quest.reward_message_key, quest.xp_reward, quest.coin_reward, _level_at_start)
+		await RewardPopup.show_reward(quest.reward_message_key, xp, coins, _level_at_start)
 
 
 ## For a standalone situation-and-consequence quest with no wrapped
@@ -201,7 +230,7 @@ func _pay_flat_reward(quest: QuestData) -> void:
 ## website's own "mission"-shaped decision events — see QuestData.gd's own
 ## comment). Pays its own xp_reward/coin_reward directly, unlike a LESSON-
 ## kind quest where the wrapped LessonData already paid its reward.
-func _run_challenge_quest(quest: QuestData) -> void:
+func _run_challenge_quest(quest: QuestData) -> bool:
 	await _show_intro(quest)
 
 	if quest.diagnosis_choice:
@@ -211,56 +240,61 @@ func _run_challenge_quest(quest: QuestData) -> void:
 
 	await _run_one_choice(quest.challenge_choice)
 	await _pay_flat_reward(quest)
+	return true
 
 
 ## For a MATCH-kind quest's matching mini-game (e.g. Leadership Quest's
 ## "Meet Your Team"), optionally followed by a decision point.
-func _run_match_quest(quest: QuestData) -> void:
+func _run_match_quest(quest: QuestData) -> bool:
 	await _show_intro(quest)
 	await MatchPanel.show_match(quest.match_pairs)
 	if not quest.match_outro_text_key.is_empty():
 		await DialogueBox.show_text(quest.match_outro_text_key, {}, quest.outro_icons)
 	await _run_one_choice(quest.challenge_choice)
 	await _pay_flat_reward(quest)
+	return true
 
 
 ## For a SPOT-kind quest's "spot the problem" mini-game (e.g. Leadership
 ## Quest's "The Team Conflict"), optionally followed by a decision point.
-func _run_spot_quest(quest: QuestData) -> void:
+func _run_spot_quest(quest: QuestData) -> bool:
 	await _show_intro(quest)
 	await SpotPanel.show_spot(quest.spot_scenario_text_key, quest.spot_items)
 	if not quest.spot_outro_text_key.is_empty():
 		await DialogueBox.show_text(quest.spot_outro_text_key, {}, quest.outro_icons)
 	await _run_one_choice(quest.challenge_choice)
 	await _pay_flat_reward(quest)
+	return true
 
 
 ## For an ALLOCATE-kind quest's budget-splitting mini-game (e.g. Leadership
 ## Quest's "The Deadline"), optionally followed by a decision point.
-func _run_allocate_quest(quest: QuestData) -> void:
+func _run_allocate_quest(quest: QuestData) -> bool:
 	await _show_intro(quest)
 	await AllocatePanel.show_allocate(quest.allocate_total_amount, quest.allocate_unit_label_key, quest.allocate_categories)
 	if not quest.allocate_outro_text_key.is_empty():
 		await DialogueBox.show_text(quest.allocate_outro_text_key, {}, quest.outro_icons)
 	await _run_one_choice(quest.challenge_choice)
 	await _pay_flat_reward(quest)
+	return true
 
 
 ## For a SORT-kind quest's tap-select-then-tap-bucket sorting mini-game
 ## (e.g. Leadership Quest's "The Pressure Test"), optionally followed by a
 ## decision point.
-func _run_sort_quest(quest: QuestData) -> void:
+func _run_sort_quest(quest: QuestData) -> bool:
 	await _show_intro(quest)
 	await SortPanel.show_sort(quest.sort_buckets, quest.sort_items)
 	if not quest.sort_outro_text_key.is_empty():
 		await DialogueBox.show_text(quest.sort_outro_text_key, {}, quest.outro_icons)
 	await _run_one_choice(quest.challenge_choice)
 	await _pay_flat_reward(quest)
+	return true
 
 
 ## For a MULTI_STEP-kind quest combining a matching mini-game with two
 ## separate decision points (e.g. Leadership Quest's "Final Challenge").
-func _run_multi_step_quest(quest: QuestData) -> void:
+func _run_multi_step_quest(quest: QuestData) -> bool:
 	await _show_intro(quest)
 	await MatchPanel.show_match(quest.match_pairs)
 	if not quest.match_outro_text_key.is_empty():
@@ -268,13 +302,14 @@ func _run_multi_step_quest(quest: QuestData) -> void:
 	await _run_one_choice(quest.challenge_choice)
 	await _run_one_choice(quest.second_challenge_choice)
 	await _pay_flat_reward(quest)
+	return true
 
 
-func _run_lesson_quest(quest: QuestData) -> void:
-	var lesson_data: LessonData = load(quest.lesson_data_path)
+func _run_lesson_quest(quest: QuestData) -> bool:
+	var lesson_data: LessonData = load(quest.lesson_data_path) if ResourceLoader.exists(quest.lesson_data_path) else null
 	if lesson_data == null:
 		push_error("QuestManager: could not load LessonData at %s" % quest.lesson_data_path)
-		return
+		return false
 
 	var lesson_manager := LessonManager.new()
 	add_child(lesson_manager)
@@ -284,6 +319,7 @@ func _run_lesson_quest(quest: QuestData) -> void:
 	# signal instead, the real end of the lesson.
 	await lesson_manager.lesson_finished
 	lesson_manager.queue_free()
+	return true
 
 
 ## For an EXPLORATION-kind quest (a Library discovery prompt — "find a
@@ -329,11 +365,13 @@ func _complete_exploration_quest(quest: QuestData) -> void:
 	# should never interrupt it. Progress is never lost either way: the
 	# quest still completes below, just without the popup animation that
 	# one time.
+	var first: bool = not is_quest_completed(quest.quest_id)
 	if has_reward and not _active:
 		_active = true
+		_first_time = first
 		await _pay_flat_reward(quest)
 		_active = false
-	else:
+	elif first:
 		GameState.add_xp(quest.xp_reward)
 		GameState.add_coins(quest.coin_reward, "quest:" + quest.quest_id, "flag", "reward")
 	ProgressManager.complete_quest(quest.quest_id, quest.skill_ids)
