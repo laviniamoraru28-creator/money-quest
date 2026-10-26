@@ -1,0 +1,76 @@
+name: Playwright E2E (Chromium)
+
+# Manual-only: this exists to finally run e2e/journeys/*.spec.ts against a
+# real browser and a real running build, something no local sandbox in this
+# project's development history has been able to do (see playwright.config.ts
+# and docs/testing-strategy.md). It never runs on push or PR, and it never
+# deploys or uploads anything anywhere — it only reports pass/fail.
+#
+# Scope: desktop-chrome and mobile-chrome only, matching this project's
+# standing restriction against installing WebKit/Firefox without separate
+# authorization. The config's third project, tablet-safari (WebKit), is
+# deliberately not run here.
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          # Matches package.json "engines" and the Namecheap build workflow's
+          # own Node pin — keeping every workflow on the same major version
+          # avoids a build behaving differently in CI than in production.
+          node-version: "20"
+
+      - name: Install dependencies (reproducible)
+        run: npm ci
+
+      - name: Install Chromium
+        # The official Playwright install command, scoped to one browser.
+        # No --with-deps here: ubuntu-latest's own image already carries the
+        # OS packages Chromium needs; --with-deps would additionally apt-get
+        # install system libraries this job doesn't need and shouldn't touch.
+        run: npx playwright install chromium
+
+      - name: Build
+        run: npm run build
+
+      - name: Start the server and wait for it to answer
+        run: |
+          npm run start &
+          echo $! > server.pid
+          for i in $(seq 1 30); do
+            if curl -sf http://localhost:3000/api/health > /dev/null; then
+              echo "Server is up after ${i}s"
+              exit 0
+            fi
+            sleep 1
+          done
+          echo "::error::Server never became healthy within 30s"
+          exit 1
+
+      - name: Run Chromium e2e projects
+        env:
+          E2E_BASE_URL: http://localhost:3000
+        run: npx playwright test --project=mobile-chrome --project=desktop-chrome
+        timeout-minutes: 10
+
+      - name: Stop the server
+        if: always()
+        run: kill "$(cat server.pid)" 2>/dev/null || true
+
+      - name: Upload failure traces/report
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 14
