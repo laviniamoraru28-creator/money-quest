@@ -6,10 +6,15 @@ import { usePathname } from "@/i18n/navigation";
 import { LOCALES, LOCALE_LABELS, type Locale } from "@/i18n/config";
 
 /**
- * The one language selector component used everywhere the brief requires
- * it (public site header, dashboard header, and — once a Settings page
- * exists — there too): same component, different mounting point, never
- * a re-implementation. Switches language by constructing the target
+ * The one language selector component for the whole app — mounted once,
+ * in a fixed top-right corner, from the root `[locale]/layout.tsx`, so
+ * every page gets it automatically rather than each page (or each new
+ * page) needing its own copy. (Earlier versions mounted it inline on 3
+ * individual pages' own headers; an audit found the other 36 routes had
+ * no language selector at all, so this moved to the one layout that
+ * already wraps every route — see that file's own comment for why a
+ * different corner than the AccessibilityMenu/SoundToggle cluster.)
+ * Switches language by constructing the target
  * locale's URL and doing a full page navigation, preserving the
  * current page (a parent switching from English to Romanian on the
  * Dashboard stays on the Dashboard, in Romanian) rather than bouncing

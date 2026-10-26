@@ -2,7 +2,6 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
-import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 import { buildOrganizationSchema, buildWebSiteSchema } from "@/lib/seo/structured-data";
 import { safeJsonLd } from "@/lib/seo/safe-json-ld";
 import { getSiteUrl } from "@/lib/seo/site-url";
@@ -34,7 +33,6 @@ export default async function LandingPage({ params: { locale } }: { params: { lo
             <Link href="/#safety" className="hover:text-teal">{t("nav.safety")}</Link>
           </nav>
           <div className="flex items-center gap-sm">
-            <LanguageSwitcher />
             <Link href="/play">
               <Button variant="portal-primary">{t("nav.getStarted")}</Button>
             </Link>

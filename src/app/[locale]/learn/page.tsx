@@ -6,7 +6,6 @@ import { buildBreadcrumbSchema, buildOrganizationSchema } from "@/lib/seo/struct
 import { safeJsonLd } from "@/lib/seo/safe-json-ld";
 import { getSiteUrl, DEFAULT_OG_IMAGE } from "@/lib/seo/site-url";
 import { LOCALES } from "@/i18n/config";
-import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 
 interface PageProps {
   params: { locale: string };
@@ -55,7 +54,6 @@ export default async function LearnHubPage({ params: { locale } }: PageProps) {
           <Link href="/" className="font-display text-lg font-bold text-teal">
             {t("common.moneyQuest")}
           </Link>
-          <LanguageSwitcher />
         </div>
       </header>
 

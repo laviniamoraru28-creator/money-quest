@@ -8,7 +8,6 @@ import { safeJsonLd } from "@/lib/seo/safe-json-ld";
 import { getSiteUrl, DEFAULT_OG_IMAGE } from "@/lib/seo/site-url";
 import { LOCALES } from "@/i18n/config";
 import { Breadcrumbs } from "@/components/marketing/Breadcrumbs";
-import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 
 interface PageProps {
   params: { locale: string; slug: string };
@@ -101,7 +100,6 @@ export default async function ArticlePage({ params: { locale, slug } }: PageProp
             <Link href="/learn" className="text-sm text-ink/70 hover:text-teal">
               {t("nav.learn")}
             </Link>
-            <LanguageSwitcher />
           </div>
         </div>
       </header>
