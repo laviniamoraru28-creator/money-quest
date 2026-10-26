@@ -10,6 +10,16 @@ extends Node
 ## _ready() runs, so it's safe to push loaded values into them here.
 
 const SAVE_PATH: String = "user://progress.json"
+## Safe writes: the new save is written to TEMP_PATH and checked first; the
+## previous good save is kept as BACKUP_PATH; a save that cannot be read is
+## moved aside to CORRUPT_PATH (never overwritten), and the backup is used.
+const TEMP_PATH: String = "user://progress.json.tmp"
+const BACKUP_PATH: String = "user://progress.json.bak"
+const CORRUPT_PATH: String = "user://progress.corrupt.json"
+
+## Where the last load_progress() took its data from: "main", "backup" or
+## "defaults" (for tests and diagnostics).
+var last_load_source: String = ""
 
 const DEFAULT_SAVE: Dictionary = {
 	"age_band": "builder",
@@ -83,21 +93,29 @@ func _ready() -> void:
 func load_progress() -> void:
 	var data: Dictionary = DEFAULT_SAVE.duplicate(true)
 
-	if FileAccess.file_exists(SAVE_PATH):
-		var file := FileAccess.open(SAVE_PATH, FileAccess.READ)
-		var raw_text := file.get_as_text()
-		file.close()
-		var parsed: Variant = JSON.parse_string(raw_text)
-		if parsed is Dictionary:
-			# Merge over the defaults rather than trusting the file
-			# wholesale — an older save missing a newer field (e.g. a
-			# future "theme" addition) should never crash the game,
-			# the same additive-schema safety the website's
-			# readFromStorage() deep-merge already relies on.
-			for key in parsed.keys():
-				data[key] = parsed[key]
+	var parsed: Variant = _read_save(SAVE_PATH)
+	last_load_source = "main"
+	if parsed == null:
+		if FileAccess.file_exists(SAVE_PATH):
+			# Damaged (cut off, empty, not JSON): keep it aside untouched so
+			# the next autosave can never destroy it, then use the backup.
+			_quarantine(SAVE_PATH)
+		parsed = _read_save(BACKUP_PATH)
+		last_load_source = "backup"
+		if parsed == null:
+			last_load_source = "defaults"
 		else:
-			push_warning("SaveManager: progress.json was not valid JSON — starting from defaults")
+			push_warning("SaveManager: progress.json missing or damaged — restored from the backup")
+	if parsed is Dictionary:
+		# Merge over the defaults rather than trusting the file
+		# wholesale — an older save missing a newer field (e.g. a
+		# future "theme" addition) should never crash the game,
+		# the same additive-schema safety the website's
+		# readFromStorage() deep-merge already relies on.
+		for key in parsed.keys():
+			data[key] = parsed[key]
+	elif FileAccess.file_exists(CORRUPT_PATH):
+		push_warning("SaveManager: no readable save or backup — starting from defaults (damaged file kept as %s)" % CORRUPT_PATH)
 
 	GameState.age_band = data.get("age_band", DEFAULT_SAVE["age_band"])
 	GameState.xp_total = data.get("xp_total", 0)
@@ -271,19 +289,67 @@ func save_progress() -> void:
 	for key in Settings.DEFAULTS.keys():
 		data[key] = Settings.get(key)
 
-	var file := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
+	_write_safely(JSON.stringify(data, "\t"))
+
+
+## Writes `text` to TEMP_PATH, reads it back, and only then makes it the
+## save: the previous good save becomes BACKUP_PATH, the checked temp file
+## becomes SAVE_PATH. A failed write leaves the existing save untouched.
+func _write_safely(text: String) -> void:
+	var file := FileAccess.open(TEMP_PATH, FileAccess.WRITE)
 	if file == null:
-		push_error("SaveManager: could not open %s for writing" % SAVE_PATH)
+		push_error("SaveManager: could not open %s for writing" % TEMP_PATH)
 		return
-	file.store_string(JSON.stringify(data, "\t"))
+	file.store_string(text)
 	file.close()
+	if _read_save(TEMP_PATH) == null:
+		push_error("SaveManager: the new save did not read back correctly — keeping the previous save")
+		DirAccess.remove_absolute(TEMP_PATH)
+		return
+	if FileAccess.file_exists(SAVE_PATH):
+		if _read_save(SAVE_PATH) == null:
+			_quarantine(SAVE_PATH)   # never turn a damaged save into the backup
+		else:
+			if FileAccess.file_exists(BACKUP_PATH):
+				DirAccess.remove_absolute(BACKUP_PATH)
+			DirAccess.rename_absolute(SAVE_PATH, BACKUP_PATH)
+	if DirAccess.rename_absolute(TEMP_PATH, SAVE_PATH) != OK:
+		push_error("SaveManager: could not replace %s — the backup still holds the last save" % SAVE_PATH)
+
+
+## The save at `path` as a Dictionary, or null when it is missing, empty or
+## not a JSON object.
+func _read_save(path: String) -> Variant:
+	if not FileAccess.file_exists(path):
+		return null
+	var file := FileAccess.open(path, FileAccess.READ)
+	if file == null:
+		return null
+	var raw_text := file.get_as_text()
+	file.close()
+	var parsed: Variant = JSON.parse_string(raw_text)
+	return parsed if parsed is Dictionary else null
+
+
+## Moves a damaged save aside (CORRUPT_PATH, or a numbered name when one is
+## already kept) so it is never overwritten and can still be inspected.
+func _quarantine(path: String) -> void:
+	var target: String = CORRUPT_PATH
+	var n: int = 1
+	while FileAccess.file_exists(target):
+		target = "user://progress.corrupt-%d-%d.json" % [int(Time.get_unix_time_from_system()), n]
+		n += 1
+	if DirAccess.rename_absolute(path, target) == OK:
+		push_warning("SaveManager: damaged save kept as %s" % target)
 
 
 ## For a future "reset progress" button, mirroring the website's existing
-## reset-progress pattern in every quest feature.
+## reset-progress pattern in every quest feature. Removes the backup too, so
+## the reset is not undone by the recovery; damaged copies are kept.
 func reset_progress() -> void:
-	if FileAccess.file_exists(SAVE_PATH):
-		DirAccess.remove_absolute(SAVE_PATH)
+	for path in [SAVE_PATH, BACKUP_PATH, TEMP_PATH]:
+		if FileAccess.file_exists(path):
+			DirAccess.remove_absolute(path)
 	load_progress()
 
 
