@@ -69,6 +69,29 @@ export default function WorldPage() {
             <LevelBadgeStar size={36} className="ml-auto shrink-0" />
           )}
         </div>
+        {world.id === "coin-cove" && (
+          <div className="mt-md overflow-hidden rounded-2xl border-2 border-amber-200 bg-gradient-to-br from-amber-50 via-white to-sky-50 p-sm sm:p-md">
+            <div className="flex items-center gap-sm">
+              <span className="text-4xl" aria-hidden="true">🏝️</span>
+              <div>
+                <p className="font-display text-lg font-bold">{t(`levels.${world.id}`)}</p>
+                <p className="text-sm text-ink/70">{world.description}</p>
+              </div>
+            </div>
+            <div className="mt-sm grid grid-cols-3 gap-xs" aria-label="Money examples">
+              {[
+                { icon: "🪙", label: "Coins" },
+                { icon: "💵", label: "Banknotes" },
+                { icon: "💳", label: "Payment cards" },
+              ].map((item) => (
+                <div key={item.label} className="flex min-h-24 flex-col items-center justify-center gap-2xs rounded-xl bg-white p-xs shadow-sm">
+                  <span className="text-4xl" aria-hidden="true">{item.icon}</span>
+                  <span className="text-center text-xs font-semibold text-ink">{item.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
         <p className="mt-2xs text-base text-ink/70">{world.description}</p>
 
         <div className="mt-md grid gap-sm">
