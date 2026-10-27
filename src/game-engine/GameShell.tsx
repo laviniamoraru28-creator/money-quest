@@ -248,6 +248,19 @@ export function GameShell({ config, ageBand, difficulty = "standard", currencyCo
         </div>
       </div>
 
+      {/* Screen-reader announcement of the round result — kept as its
+          own always-mounted live region, separate from the visible
+          feedback card below, rather than putting aria-live on that
+          card directly. The card only mounts once `phase` leaves
+          "playing", and some screen-reader/browser combinations don't
+          reliably announce a brand-new node that arrives already
+          carrying aria-live — only a text change inside an
+          already-present live region is guaranteed to be picked up. */}
+      <div aria-live="polite" className="sr-only">
+        {phase === "correct" && config.feedback.correct}
+        {phase === "incorrect" && config.feedback.incorrect}
+      </div>
+
       <Card variant="activity">
         <p className="text-lg font-medium">{round.prompt}</p>
 

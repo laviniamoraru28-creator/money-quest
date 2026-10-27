@@ -1,25 +1,33 @@
-> DRAFT — for lawyer review before publishing. See `privacy-policy-DRAFT.md` for the full policy; this is the parent-facing summary version, written for the person actually making the decisions.
+> DRAFT — for lawyer review before publishing. This describes the actual current implementation (verified against the live codebase during the 2026 launch-readiness audit), not the account-based system described in an earlier version of this document. Statements marked **[LEGAL REVIEW NEEDED]** below state a reasonable, good-faith position but are not a substitute for a qualified UK privacy lawyer's sign-off before publication.
 
 # Money Quest — Parent Privacy Notice
 
-## You are the account holder
+## There is no account to hold
 
-Your child does not have a separate login or account of their own — they use a profile you create and control entirely, inside your account.
+Money Quest does not use accounts, sign-up, login, usernames, or passwords of any kind — for you or your child. There is no "Grown-up Mode," no parent dashboard, and no Settings-based account deletion, because none of that infrastructure exists in the current version of the website. (An earlier version of this notice described a parent-account system; that system was removed as part of a privacy-first redesign and this notice has been rewritten to match.)
 
 ## What we collect from you
-Your email (to run the account) and, optionally, a coarse region (to suggest a currency). That's it — no address, no phone number.
 
-## What we collect about your child, and why
-A nickname, age band, country/currency, and their in-app learning progress — every field tied directly to a specific feature (see `dpia.md`'s data inventory for the exhaustive list). Nothing else.
+Nothing. The website never asks for your email address, name, or any other identifying detail about you as a parent.
+
+## What we collect about your child
+
+Nothing that leaves your device. The only information the website remembers is a learning-level choice (Explorer / Builder / Strategist) and a currency preference, plus your child's in-app learning progress — all of it stored exclusively in your own browser's local storage, on your own device. It is never transmitted to us, never backed up on our servers (because we have no servers that store it), and never seen by anyone else.
 
 ## Your controls
-- A PIN-gated "Grown-up Mode" separates your settings from your child's experience.
-- You can set screen-time limits and enable reduced motion per child.
-- You can correct your child's nickname or age band at any time.
-- You can export everything we hold, remove one child, or delete the whole account, from Settings.
+
+- Everything above lives on your device, under your control, at all times.
+- To remove it, use the "Reset Progress" option in the app, or clear your browser's site data for this website directly — either one is immediate and complete, and neither requires contacting us.
+- Because nothing is held centrally, there is no "account" to delete, export, or request — there is nothing on our side to hold in the first place.
 
 ## Advertising
-No advertising currently targets your child with anything beyond in-house creative content — there is no live third-party ad network connected to this app as of this notice.
+
+No advertising currently targets your child with anything beyond the website's own in-house content. **[LEGAL REVIEW NEEDED: if any advertising is introduced in future, this notice must be updated first, and reviewed against the ICO's Children's Code before anything goes live — see `docs/advertising-architecture.md` for the current, deliberately-deferred plan.]**
 
 ## Your rights
-See `data-subject-rights-procedure.md` for the full, itemised list of what you can do and exactly where to do it in the app.
+
+Because this website collects no personal data about you or your child on our servers, most UK GDPR data-subject rights (access, portability, erasure of centrally-held data) have no central data to apply to — there is nothing on our systems to request. **[LEGAL REVIEW NEEDED: confirm this characterisation is correct and sufficiently complete for a UK audience before publishing — in particular, confirm whether any rights nonetheless apply to this architecture and how a parent should be told to exercise them.]** For anything on your own device, use the "Reset Progress" option described above.
+
+## Questions
+
+Contact us via the website's Contact page if you have any question about what this notice describes.

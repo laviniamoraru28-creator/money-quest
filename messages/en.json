@@ -67,7 +67,9 @@
     "whatWouldYouDo": "What would you do?",
     "keyIdea": "Key idea",
     "tryThisAtHome": "Try this at home!",
-    "printableWorksheetButton": "Printable worksheet"
+    "printableWorksheetButton": "Printable worksheet",
+    "interactiveActivityLabel": "Try this activity",
+    "commonMisconceptionLabel": "A common misunderstanding"
   },
   "worksheet": {
     "pageTitle": "Printable Worksheet",

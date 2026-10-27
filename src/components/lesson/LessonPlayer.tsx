@@ -126,6 +126,16 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
         )}
       </div>
 
+      {/* Screen-reader announcement of the quiz result — see
+          GameShell.tsx's identical pattern for why this is a
+          separate, always-mounted live region rather than aria-live
+          on the visible feedback card, which only mounts once `phase`
+          leaves "unanswered". */}
+      <div aria-live="polite" className="sr-only">
+        {phase === "incorrect" && feedbackMessage.retry}
+        {phase === "correct" && feedbackMessage.success}
+      </div>
+
       {/* The book — a two-page spread on desktop/tablet, stacked into
           a single page on mobile. Left page: an illustration relating
           directly to this lesson's topic (see LessonIllustration's
@@ -174,6 +184,50 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
                 ))}
               </div>
             </div>
+          )}
+
+          {/* Three authored-but-previously-unrendered fields, each its
+              own clearly labelled, collapsed-by-default <details>
+              disclosure. Native <details>/<summary> is keyboard- and
+              screen-reader-operable with no new ARIA or JS state
+              needed. Shown regardless of quiz-completion state —
+              unlike the post-completion "Try This At Home" challenge
+              below, a parent accompanying a child may want this
+              context before or during the lesson, not only after a
+              correct answer. Labelled for a mixed parent/child
+              audience since there is no parent-only view in this
+              app's no-accounts architecture (see docs/ for why) —
+              worded so a curious child reading it isn't confused.
+              `gameIdea` is deliberately NOT rendered here: a
+              significant fraction of its authored text names a game
+              that doesn't exist in the real registry (see
+              src/content/catalog.ts) and needs a content-reconciliation
+              pass first, not a UI change. */}
+          {activity.content.parentNote && (
+            <details className="mt-sm rounded-md border border-ink/15 bg-fog/60 p-sm text-sm">
+              <summary className="cursor-pointer font-medium text-ink/70">
+                {t("lesson.forParentsLabel")}
+              </summary>
+              <p className="mt-2xs text-ink/70">{activity.content.parentNote}</p>
+            </details>
+          )}
+
+          {activity.content.interactiveActivity && (
+            <details className="mt-2xs rounded-md border border-ink/15 bg-fog/60 p-sm text-sm">
+              <summary className="cursor-pointer font-medium text-ink/70">
+                {t("lesson.interactiveActivityLabel")}
+              </summary>
+              <p className="mt-2xs text-ink/70">{activity.content.interactiveActivity}</p>
+            </details>
+          )}
+
+          {activity.content.commonMisconception && (
+            <details className="mt-2xs rounded-md border border-ink/15 bg-fog/60 p-sm text-sm">
+              <summary className="cursor-pointer font-medium text-ink/70">
+                {t("lesson.commonMisconceptionLabel")}
+              </summary>
+              <p className="mt-2xs text-ink/70">{activity.content.commonMisconception}</p>
+            </details>
           )}
 
           <span className="absolute bottom-2xs left-sm font-display text-sm text-ink/30" aria-hidden="true">
