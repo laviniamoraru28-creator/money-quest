@@ -33,6 +33,9 @@ test("core lessons remain usable when storage is blocked",async({page})=>{
 });
 
 test("reset progress updates the world map immediately",async({page})=>{
+ await page.addInitScript(()=>{for(const key of ["money-quest-discovery-v1","moneyquest_labs_v1","moneyquest_entrepreneur_quest_v1","moneyquest_leadership_quest_v1","moneyquest_real_life_quests_v1"])localStorage.setItem(key,"[]");localStorage.setItem("moneyquest_accessibility_prefs_v1",JSON.stringify({reducedMotion:true,focusMode:false}))});
  await page.goto("/en/play");await page.getByRole("button",{name:/Explorer.*6-8/i}).click();
  await expect(page.getByRole("heading",{name:"Your World Map",exact:true})).toBeVisible();page.on("dialog",dialog=>dialog.accept());await page.getByRole("button",{name:"Reset Progress",exact:true}).click();await expect(page.getByRole("heading",{name:"Choose your learning level",exact:true})).toBeVisible();
+ for(const key of ["money-quest-discovery-v1","moneyquest_labs_v1","moneyquest_entrepreneur_quest_v1","moneyquest_leadership_quest_v1","moneyquest_real_life_quests_v1"])expect(await page.evaluate(key=>localStorage.getItem(key),key)).toBeNull();
+ expect(await page.evaluate(()=>localStorage.getItem("moneyquest_accessibility_prefs_v1"))).not.toBeNull();
 });

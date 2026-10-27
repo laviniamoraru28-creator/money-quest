@@ -65,6 +65,11 @@ function writeToStorage(state: LocalProgressState): void {
 
 export function resetLocalProgress(): LocalProgressState {
   const fresh = createDefaultState();
+  if (typeof window !== "undefined") {
+    for (const key of ["money-quest-discovery-v1", "moneyquest_labs_v1", "moneyquest_entrepreneur_quest_v1", "moneyquest_leadership_quest_v1", "moneyquest_real_life_quests_v1"]) {
+      try { window.localStorage.removeItem(key); } catch {}
+    }
+  }
   writeToStorage(fresh);
   return fresh;
 }
