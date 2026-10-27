@@ -1,0 +1,747 @@
+{
+  "worlds": [
+    {
+      "id": "coin-cove",
+      "name": "Coin Cove",
+      "url": "/en/play/world/coin-cove",
+      "levels": [
+        {
+          "level": "explorer",
+          "activities": [
+            {
+              "id": "explorer-money_basics-l1",
+              "worldId": "coin-cove",
+              "topicId": "money_basics",
+              "ageBand": "explorer",
+              "activityType": "lesson",
+              "title": "What Is Money?",
+              "url": "/en/play/world/coin-cove/lesson/explorer-money_basics-l1"
+            },
+            {
+              "id": "game-explorer-earn-your-coins",
+              "worldId": "coin-cove",
+              "topicId": "earning",
+              "ageBand": "explorer",
+              "activityType": "game",
+              "title": "Earn Your Coins",
+              "url": "/en/play/world/coin-cove/game/game-explorer-earn-your-coins"
+            }
+          ]
+        },
+        {
+          "level": "builder",
+          "activities": [
+            {
+              "id": "builder-money_basics-l1",
+              "worldId": "coin-cove",
+              "topicId": "money_basics",
+              "ageBand": "builder",
+              "activityType": "lesson",
+              "title": "Where Does Money Come From?",
+              "url": "/en/play/world/coin-cove/lesson/builder-money_basics-l1"
+            }
+          ]
+        },
+        {
+          "level": "strategist",
+          "activities": [
+            {
+              "id": "strategist-money_basics-l1",
+              "worldId": "coin-cove",
+              "topicId": "money_basics",
+              "ageBand": "strategist",
+              "activityType": "lesson",
+              "title": "Money as a Tool, Not a Goal",
+              "url": "/en/play/world/coin-cove/lesson/strategist-money_basics-l1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "market-town",
+      "name": "Market Town",
+      "url": "/en/play/world/market-town",
+      "levels": [
+        {
+          "level": "explorer",
+          "activities": [
+            {
+              "id": "explorer-needs_wants-l1",
+              "worldId": "market-town",
+              "topicId": "needs_wants",
+              "ageBand": "explorer",
+              "activityType": "lesson",
+              "title": "Need It or Want It?",
+              "url": "/en/play/world/market-town/lesson/explorer-needs_wants-l1"
+            },
+            {
+              "id": "game-explorer-needs-or-wants",
+              "worldId": "market-town",
+              "topicId": "needs_wants",
+              "ageBand": "explorer",
+              "activityType": "game",
+              "title": "Needs or Wants?",
+              "url": "/en/play/world/market-town/game/game-explorer-needs-or-wants"
+            },
+            {
+              "id": "game-explorer-price-detective",
+              "worldId": "market-town",
+              "topicId": "comparing_prices",
+              "ageBand": "explorer",
+              "activityType": "game",
+              "title": "Price Detective",
+              "url": "/en/play/world/market-town/game/game-explorer-price-detective"
+            },
+            {
+              "id": "game-explorer-smart-shopper",
+              "worldId": "market-town",
+              "topicId": "smart_shopping",
+              "ageBand": "explorer",
+              "activityType": "game",
+              "title": "Smart Shopper",
+              "url": "/en/play/world/market-town/game/game-explorer-smart-shopper"
+            },
+            {
+              "id": "game-explorer-real-life-missions",
+              "worldId": "market-town",
+              "topicId": "real-life-missions",
+              "ageBand": "explorer",
+              "activityType": "game",
+              "title": "Real-Life Missions",
+              "url": "/en/play/world/market-town/game/game-explorer-real-life-missions"
+            },
+            {
+              "id": "game-explorer-money-and-emotions",
+              "worldId": "market-town",
+              "topicId": "money-and-emotions",
+              "ageBand": "explorer",
+              "activityType": "game",
+              "title": "Money and Feelings",
+              "url": "/en/play/world/market-town/game/game-explorer-money-and-emotions"
+            },
+            {
+              "id": "game-explorer-smart-shopping-detective",
+              "worldId": "market-town",
+              "topicId": "advertising-literacy",
+              "ageBand": "explorer",
+              "activityType": "game",
+              "title": "Smart Shopping Detective",
+              "url": "/en/play/world/market-town/game/game-explorer-smart-shopping-detective"
+            }
+          ]
+        },
+        {
+          "level": "builder",
+          "activities": [
+            {
+              "id": "builder-needs_wants-l1",
+              "worldId": "market-town",
+              "topicId": "needs_wants",
+              "ageBand": "builder",
+              "activityType": "lesson",
+              "title": "The Grey Area",
+              "url": "/en/play/world/market-town/lesson/builder-needs_wants-l1"
+            },
+            {
+              "id": "game-builder-needs-or-wants",
+              "worldId": "market-town",
+              "topicId": "needs_wants",
+              "ageBand": "builder",
+              "activityType": "game",
+              "title": "Needs or Wants?",
+              "url": "/en/play/world/market-town/game/game-builder-needs-or-wants"
+            },
+            {
+              "id": "game-builder-real-life-missions",
+              "worldId": "market-town",
+              "topicId": "real-life-missions",
+              "ageBand": "builder",
+              "activityType": "game",
+              "title": "Real-Life Missions",
+              "url": "/en/play/world/market-town/game/game-builder-real-life-missions"
+            },
+            {
+              "id": "game-builder-money-and-emotions",
+              "worldId": "market-town",
+              "topicId": "money-and-emotions",
+              "ageBand": "builder",
+              "activityType": "game",
+              "title": "Money and Feelings",
+              "url": "/en/play/world/market-town/game/game-builder-money-and-emotions"
+            },
+            {
+              "id": "game-builder-smart-shopping-detective",
+              "worldId": "market-town",
+              "topicId": "advertising-literacy",
+              "ageBand": "builder",
+              "activityType": "game",
+              "title": "Smart Shopping Detective",
+              "url": "/en/play/world/market-town/game/game-builder-smart-shopping-detective"
+            }
+          ]
+        },
+        {
+          "level": "strategist",
+          "activities": [
+            {
+              "id": "strategist-needs_wants-l1",
+              "worldId": "market-town",
+              "topicId": "needs_wants",
+              "ageBand": "strategist",
+              "activityType": "lesson",
+              "title": "Needs, Wants, and Social Pressure",
+              "url": "/en/play/world/market-town/lesson/strategist-needs_wants-l1"
+            },
+            {
+              "id": "game-strategist-needs-or-wants",
+              "worldId": "market-town",
+              "topicId": "needs_wants",
+              "ageBand": "strategist",
+              "activityType": "game",
+              "title": "Needs or Wants?",
+              "url": "/en/play/world/market-town/game/game-strategist-needs-or-wants"
+            },
+            {
+              "id": "game-strategist-real-life-missions",
+              "worldId": "market-town",
+              "topicId": "real-life-missions",
+              "ageBand": "strategist",
+              "activityType": "game",
+              "title": "Real-Life Missions",
+              "url": "/en/play/world/market-town/game/game-strategist-real-life-missions"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "golden-vault",
+      "name": "Golden Vault",
+      "url": "/en/play/world/golden-vault",
+      "levels": [
+        {
+          "level": "explorer",
+          "activities": [
+            {
+              "id": "explorer-saving-l1",
+              "worldId": "golden-vault",
+              "topicId": "saving",
+              "ageBand": "explorer",
+              "activityType": "lesson",
+              "title": "What Does Saving Mean?",
+              "url": "/en/play/world/golden-vault/lesson/explorer-saving-l1"
+            },
+            {
+              "id": "game-explorer-bank-builder",
+              "worldId": "golden-vault",
+              "topicId": "banking",
+              "ageBand": "explorer",
+              "activityType": "game",
+              "title": "Bank Builder",
+              "url": "/en/play/world/golden-vault/game/game-explorer-bank-builder"
+            },
+            {
+              "id": "game-explorer-build-a-budget",
+              "worldId": "golden-vault",
+              "topicId": "budgeting",
+              "ageBand": "explorer",
+              "activityType": "game",
+              "title": "Build a Budget",
+              "url": "/en/play/world/golden-vault/game/game-explorer-build-a-budget"
+            },
+            {
+              "id": "game-explorer-interest-grower",
+              "worldId": "golden-vault",
+              "topicId": "interest",
+              "ageBand": "explorer",
+              "activityType": "game",
+              "title": "Interest Grower",
+              "url": "/en/play/world/golden-vault/game/game-explorer-interest-grower"
+            },
+            {
+              "id": "game-explorer-reach-your-goal",
+              "worldId": "golden-vault",
+              "topicId": "financial_goals",
+              "ageBand": "explorer",
+              "activityType": "game",
+              "title": "Reach Your Goal",
+              "url": "/en/play/world/golden-vault/game/game-explorer-reach-your-goal"
+            },
+            {
+              "id": "game-explorer-save-or-spend",
+              "worldId": "golden-vault",
+              "topicId": "saving",
+              "ageBand": "explorer",
+              "activityType": "game",
+              "title": "Save or Spend?",
+              "url": "/en/play/world/golden-vault/game/game-explorer-save-or-spend"
+            },
+            {
+              "id": "game-explorer-money-mistakes-lab",
+              "worldId": "golden-vault",
+              "topicId": "money-mistakes-lab",
+              "ageBand": "explorer",
+              "activityType": "game",
+              "title": "Money Mistakes Lab",
+              "url": "/en/play/world/golden-vault/game/game-explorer-money-mistakes-lab"
+            }
+          ]
+        },
+        {
+          "level": "builder",
+          "activities": [
+            {
+              "id": "builder-saving-l1",
+              "worldId": "golden-vault",
+              "topicId": "saving",
+              "ageBand": "builder",
+              "activityType": "lesson",
+              "title": "Saving for Something Bigger",
+              "url": "/en/play/world/golden-vault/lesson/builder-saving-l1"
+            },
+            {
+              "id": "game-builder-money-mistakes-lab",
+              "worldId": "golden-vault",
+              "topicId": "money-mistakes-lab",
+              "ageBand": "builder",
+              "activityType": "game",
+              "title": "Money Mistakes Lab",
+              "url": "/en/play/world/golden-vault/game/game-builder-money-mistakes-lab"
+            }
+          ]
+        },
+        {
+          "level": "strategist",
+          "activities": [
+            {
+              "id": "strategist-saving-l1",
+              "worldId": "golden-vault",
+              "topicId": "saving",
+              "ageBand": "strategist",
+              "activityType": "lesson",
+              "title": "Saving vs. Spending: The Real Trade-off",
+              "url": "/en/play/world/golden-vault/lesson/strategist-saving-l1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sky-exchange",
+      "name": "Sky Exchange",
+      "url": "/en/play/world/sky-exchange",
+      "levels": [
+        {
+          "level": "explorer",
+          "activities": [
+            {
+              "id": "explorer-currencies-l1",
+              "worldId": "sky-exchange",
+              "topicId": "currencies",
+              "ageBand": "explorer",
+              "activityType": "lesson",
+              "title": "Money Looks Different Everywhere",
+              "url": "/en/play/world/sky-exchange/lesson/explorer-currencies-l1"
+            },
+            {
+              "id": "explorer-digital_money-l1",
+              "worldId": "sky-exchange",
+              "topicId": "digital_money",
+              "ageBand": "explorer",
+              "activityType": "lesson",
+              "title": "Money You Can't Hold",
+              "url": "/en/play/world/sky-exchange/lesson/explorer-digital_money-l1"
+            },
+            {
+              "id": "explorer-investing_basics-l1",
+              "worldId": "sky-exchange",
+              "topicId": "investing_basics",
+              "ageBand": "explorer",
+              "activityType": "lesson",
+              "title": "Saving vs Growing Your Money",
+              "url": "/en/play/world/sky-exchange/lesson/explorer-investing_basics-l1"
+            },
+            {
+              "id": "explorer-junior_isa-l1",
+              "worldId": "sky-exchange",
+              "topicId": "junior_isa",
+              "ageBand": "explorer",
+              "activityType": "lesson",
+              "title": "A Special Savings Account Just for Kids (UK)",
+              "url": "/en/play/world/sky-exchange/lesson/explorer-junior_isa-l1"
+            },
+            {
+              "id": "game-explorer-currency-explorer",
+              "worldId": "sky-exchange",
+              "topicId": "currencies",
+              "ageBand": "explorer",
+              "activityType": "game",
+              "title": "Currency Explorer",
+              "url": "/en/play/world/sky-exchange/game/game-explorer-currency-explorer"
+            },
+            {
+              "id": "game-explorer-digital-money-explorer",
+              "worldId": "sky-exchange",
+              "topicId": "digital-money",
+              "ageBand": "explorer",
+              "activityType": "game",
+              "title": "Digital Money Explorer",
+              "url": "/en/play/world/sky-exchange/game/game-explorer-digital-money-explorer"
+            }
+          ]
+        },
+        {
+          "level": "builder",
+          "activities": [
+            {
+              "id": "builder-currencies-l1",
+              "worldId": "sky-exchange",
+              "topicId": "currencies",
+              "ageBand": "builder",
+              "activityType": "lesson",
+              "title": "Cash, Cards, and Currencies",
+              "url": "/en/play/world/sky-exchange/lesson/builder-currencies-l1"
+            },
+            {
+              "id": "builder-digital_money-l1",
+              "worldId": "sky-exchange",
+              "topicId": "digital_money",
+              "ageBand": "builder",
+              "activityType": "lesson",
+              "title": "How a Card Payment Actually Works",
+              "url": "/en/play/world/sky-exchange/lesson/builder-digital_money-l1"
+            },
+            {
+              "id": "builder-investing_basics-l1",
+              "worldId": "sky-exchange",
+              "topicId": "investing_basics",
+              "ageBand": "builder",
+              "activityType": "lesson",
+              "title": "Owning a Small Piece of a Company",
+              "url": "/en/play/world/sky-exchange/lesson/builder-investing_basics-l1"
+            },
+            {
+              "id": "builder-junior_isa-l1",
+              "worldId": "sky-exchange",
+              "topicId": "junior_isa",
+              "ageBand": "builder",
+              "activityType": "lesson",
+              "title": "Locked Until 18: How a Junior ISA Works",
+              "url": "/en/play/world/sky-exchange/lesson/builder-junior_isa-l1"
+            },
+            {
+              "id": "game-builder-digital-money-explorer",
+              "worldId": "sky-exchange",
+              "topicId": "digital-money",
+              "ageBand": "builder",
+              "activityType": "game",
+              "title": "Digital Money Explorer",
+              "url": "/en/play/world/sky-exchange/game/game-builder-digital-money-explorer"
+            }
+          ]
+        },
+        {
+          "level": "strategist",
+          "activities": [
+            {
+              "id": "strategist-currencies-l1",
+              "worldId": "sky-exchange",
+              "topicId": "currencies",
+              "ageBand": "strategist",
+              "activityType": "lesson",
+              "title": "Understanding Exchange Rates",
+              "url": "/en/play/world/sky-exchange/lesson/strategist-currencies-l1"
+            },
+            {
+              "id": "strategist-digital_money-l1",
+              "worldId": "sky-exchange",
+              "topicId": "digital_money",
+              "ageBand": "strategist",
+              "activityType": "lesson",
+              "title": "Staying Safe and Aware With Digital Money",
+              "url": "/en/play/world/sky-exchange/lesson/strategist-digital_money-l1"
+            },
+            {
+              "id": "strategist-investing_basics-l1",
+              "worldId": "sky-exchange",
+              "topicId": "investing_basics",
+              "ageBand": "strategist",
+              "activityType": "lesson",
+              "title": "Risk, Diversification, and Time",
+              "url": "/en/play/world/sky-exchange/lesson/strategist-investing_basics-l1"
+            },
+            {
+              "id": "strategist-junior_isa-l1",
+              "worldId": "sky-exchange",
+              "topicId": "junior_isa",
+              "ageBand": "strategist",
+              "activityType": "lesson",
+              "title": "Junior ISAs: Ownership, Timing, and Changing Rules",
+              "url": "/en/play/world/sky-exchange/lesson/strategist-junior_isa-l1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guardian-gate",
+      "name": "Guardian Gate",
+      "url": "/en/play/world/guardian-gate",
+      "levels": [
+        {
+          "level": "explorer",
+          "activities": [
+            {
+              "id": "explorer-scams-l1",
+              "worldId": "guardian-gate",
+              "topicId": "scams",
+              "ageBand": "explorer",
+              "activityType": "lesson",
+              "title": "Some Promises Are Too Good",
+              "url": "/en/play/world/guardian-gate/lesson/explorer-scams-l1"
+            },
+            {
+              "id": "game-explorer-scam-detective",
+              "worldId": "guardian-gate",
+              "topicId": "scams",
+              "ageBand": "explorer",
+              "activityType": "game",
+              "title": "Scam Detective",
+              "url": "/en/play/world/guardian-gate/game/game-explorer-scam-detective"
+            }
+          ]
+        },
+        {
+          "level": "builder",
+          "activities": [
+            {
+              "id": "builder-scams-l1",
+              "worldId": "guardian-gate",
+              "topicId": "scams",
+              "ageBand": "builder",
+              "activityType": "lesson",
+              "title": "Spotting a Scam",
+              "url": "/en/play/world/guardian-gate/lesson/builder-scams-l1"
+            },
+            {
+              "id": "game-builder-scam-detective",
+              "worldId": "guardian-gate",
+              "topicId": "scams",
+              "ageBand": "builder",
+              "activityType": "game",
+              "title": "Scam Detective",
+              "url": "/en/play/world/guardian-gate/game/game-builder-scam-detective"
+            }
+          ]
+        },
+        {
+          "level": "strategist",
+          "activities": [
+            {
+              "id": "strategist-scams-l1",
+              "worldId": "guardian-gate",
+              "topicId": "scams",
+              "ageBand": "strategist",
+              "activityType": "lesson",
+              "title": "Scams Target Emotions, Not Logic",
+              "url": "/en/play/world/guardian-gate/lesson/strategist-scams-l1"
+            },
+            {
+              "id": "game-strategist-scam-detective",
+              "worldId": "guardian-gate",
+              "topicId": "scams",
+              "ageBand": "strategist",
+              "activityType": "game",
+              "title": "Scam Detective",
+              "url": "/en/play/world/guardian-gate/game/game-strategist-scam-detective"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "horizon-peaks",
+      "name": "Horizon Peaks",
+      "url": "/en/play/world/horizon-peaks",
+      "levels": [
+        {
+          "level": "explorer",
+          "activities": [
+            {
+              "id": "explorer-long_term_thinking-l1",
+              "worldId": "horizon-peaks",
+              "topicId": "long_term_thinking",
+              "ageBand": "explorer",
+              "activityType": "lesson",
+              "title": "Waiting Can Pay Off",
+              "url": "/en/play/world/horizon-peaks/lesson/explorer-long_term_thinking-l1"
+            },
+            {
+              "id": "game-explorer-money-choices",
+              "worldId": "horizon-peaks",
+              "topicId": "decision_making",
+              "ageBand": "explorer",
+              "activityType": "game",
+              "title": "Money Choices",
+              "url": "/en/play/world/horizon-peaks/game/game-explorer-money-choices"
+            }
+          ]
+        },
+        {
+          "level": "builder",
+          "activities": [
+            {
+              "id": "builder-long_term_thinking-l1",
+              "worldId": "horizon-peaks",
+              "topicId": "long_term_thinking",
+              "ageBand": "builder",
+              "activityType": "lesson",
+              "title": "Planning a Few Steps Ahead",
+              "url": "/en/play/world/horizon-peaks/lesson/builder-long_term_thinking-l1"
+            }
+          ]
+        },
+        {
+          "level": "strategist",
+          "activities": [
+            {
+              "id": "strategist-long_term_thinking-l1",
+              "worldId": "horizon-peaks",
+              "topicId": "long_term_thinking",
+              "ageBand": "strategist",
+              "activityType": "lesson",
+              "title": "Big Decisions, Long Timelines",
+              "url": "/en/play/world/horizon-peaks/lesson/strategist-long_term_thinking-l1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kindness-grove",
+      "name": "Kindness Grove",
+      "url": "/en/play/world/kindness-grove",
+      "levels": [
+        {
+          "level": "explorer",
+          "activities": [
+            {
+              "id": "explorer-giving-l1",
+              "worldId": "kindness-grove",
+              "topicId": "giving",
+              "ageBand": "explorer",
+              "activityType": "lesson",
+              "title": "The Joy of Sharing",
+              "url": "/en/play/world/kindness-grove/lesson/explorer-giving-l1"
+            }
+          ]
+        },
+        {
+          "level": "builder",
+          "activities": [
+            {
+              "id": "builder-giving-l1",
+              "worldId": "kindness-grove",
+              "topicId": "giving",
+              "ageBand": "builder",
+              "activityType": "lesson",
+              "title": "Giving on Purpose",
+              "url": "/en/play/world/kindness-grove/lesson/builder-giving-l1"
+            }
+          ]
+        },
+        {
+          "level": "strategist",
+          "activities": [
+            {
+              "id": "strategist-giving-l1",
+              "worldId": "kindness-grove",
+              "topicId": "giving",
+              "ageBand": "strategist",
+              "activityType": "lesson",
+              "title": "Giving Thoughtfully",
+              "url": "/en/play/world/kindness-grove/lesson/strategist-giving-l1"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "museum": [
+    {
+      "title": "Before Money",
+      "url": "/en/museum/before-money"
+    },
+    {
+      "title": "The First Coins",
+      "url": "/en/museum/first-coins"
+    },
+    {
+      "title": "Unusual Money",
+      "url": "/en/museum/strange-money"
+    },
+    {
+      "title": "Money Through Time",
+      "url": "/en/museum/money-through-time"
+    },
+    {
+      "title": "Banknote Lab",
+      "url": "/en/museum/banknote-lab"
+    },
+    {
+      "title": "The Gold Vault",
+      "url": "/en/museum/gold-vault"
+    },
+    {
+      "title": "Money Around the World",
+      "url": "/en/museum/around-the-world"
+    },
+    {
+      "title": "Business and Invention",
+      "url": "/en/museum/business-invention"
+    },
+    {
+      "title": "Museum of Mistakes",
+      "url": "/en/museum/museum-of-mistakes"
+    },
+    {
+      "title": "Future Money Lab",
+      "url": "/en/museum/future-money"
+    }
+  ],
+  "library": [
+    {
+      "title": "The Saving Seed",
+      "url": "/en/library/the-saving-seed"
+    },
+    {
+      "title": "The Want Monster",
+      "url": "/en/library/the-want-monster"
+    },
+    {
+      "title": "The Lemonade Test",
+      "url": "/en/library/the-lemonade-test"
+    },
+    {
+      "title": "The Team Bridge",
+      "url": "/en/library/the-team-bridge"
+    },
+    {
+      "title": "The Brave Mistake",
+      "url": "/en/library/the-brave-mistake"
+    },
+    {
+      "title": "The Digital Coin",
+      "url": "/en/library/the-digital-coin"
+    },
+    {
+      "title": "Ada and the Machine",
+      "url": "/en/library/ada-and-the-machine"
+    },
+    {
+      "title": "George and the Invention",
+      "url": "/en/library/george-and-the-invention"
+    }
+  ]
+}
