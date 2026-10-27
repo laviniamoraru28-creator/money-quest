@@ -28,6 +28,8 @@ export default async function LandingPage({ params: { locale } }: { params: { lo
         <div className="mx-auto flex max-w-[1200px] items-center justify-between px-sm py-xs">
           <span className="font-display text-lg font-bold text-teal">{t("common.moneyQuest")}</span>
           <nav className="hidden gap-md text-base md:flex" aria-label={t("a11y.mainNavigationLabel")}>
+            <Link href="/library" className="hover:text-teal">Library</Link>
+            <Link href="/museum" className="hover:text-teal">Museum</Link>
             <Link href="/learn" className="hover:text-teal">{t("nav.learn")}</Link>
             <Link href="/#how-it-works" className="hover:text-teal">{t("nav.howItWorks")}</Link>
             <Link href="/parent-info" className="hover:text-teal">{t("nav.forParents")}</Link>
@@ -78,6 +80,23 @@ export default async function LandingPage({ params: { locale } }: { params: { lo
           </div>
         </section>
 
+        {/* Independent discovery experiences, no Godot required */}
+        <section className="mx-auto max-w-[1200px] px-sm py-xl" aria-labelledby="discovery-heading">
+          <h2 id="discovery-heading" className="font-display text-2xl font-bold">Explore the Money Quest Library and Museum</h2>
+          <p className="mt-xs text-ink/70">Discover stories, biographies and the history of money without playing a game.</p>
+          <div className="mt-md grid gap-md md:grid-cols-2">
+            <Link href="/library" className="rounded-2xl border border-ink/10 bg-white p-lg hover:border-teal focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal">
+              <span aria-hidden="true" className="text-4xl">📚</span><h3 className="mt-xs font-display text-xl font-bold">The Library</h3>
+              <p className="mt-xs">Explore eight short books and biographies, with optional read-aloud support.</p>
+              <span className="mt-sm inline-block font-bold text-teal">Open the Library →</span>
+            </Link>
+            <Link href="/museum" className="rounded-2xl border border-ink/10 bg-white p-lg hover:border-teal focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal">
+              <span aria-hidden="true" className="text-4xl">🏛️</span><h3 className="mt-xs font-display text-xl font-bold">The Museum</h3>
+              <p className="mt-xs">Visit ten rooms about money, inventions and learning from mistakes.</p>
+              <span className="mt-sm inline-block font-bold text-teal">Enter the Museum →</span>
+            </Link>
+          </div>
+        </section>
         {/* Why free */}
         <section className="border-y border-ink/10 bg-white py-lg">
           <div className="mx-auto max-w-[1200px] px-sm text-center">
