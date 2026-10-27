@@ -7,7 +7,7 @@ const ACCENT_CLASSES: Record<NonNullable<KeyTermBadgeProps["accentColor"]>, stri
   gold: "bg-gold/20 text-gold-text",
   coral: "bg-coral/25 text-ink",
   "soft-blue": "bg-soft-blue/25 text-ink",
-  teal: "bg-teal/15 text-teal",
+  teal: "bg-teal/15 text-teal-text",
 };
 
 /**

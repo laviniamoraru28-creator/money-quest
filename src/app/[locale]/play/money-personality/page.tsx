@@ -74,17 +74,17 @@ export default function MoneyPersonalityPage() {
 
   return (
     <div className="min-h-screen bg-fog px-sm py-lg">
-      <main className="mx-auto max-w-[700px]">
+      <main id="main-content" tabIndex={-1} className="mx-auto max-w-[700px]">
         <div className="flex flex-wrap gap-2xs">
           <Link
             href="/"
-            className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal transition-colors duration-quick hover:bg-teal/5"
+            className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal-text transition-colors duration-quick hover:bg-teal/5"
           >
             <span aria-hidden="true">🏠</span> {t.raw("nav.home") as string}
           </Link>
           <Link
             href="/play"
-            className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal transition-colors duration-quick hover:bg-teal/5"
+            className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal-text transition-colors duration-quick hover:bg-teal/5"
           >
             <span aria-hidden="true">←</span> {content.backToWorldMap}
           </Link>
@@ -122,8 +122,8 @@ export default function MoneyPersonalityPage() {
 
         {isFinished && (
           <Card variant="data" className="mt-md text-center">
-            <p className="text-sm text-ink/60">{content.resultIntro}</p>
-            <p className="mt-2xs font-display text-2xl font-bold text-teal">{result.name}</p>
+            <p className="text-sm text-ink/70">{content.resultIntro}</p>
+            <p className="mt-2xs font-display text-2xl font-bold text-teal-text">{result.name}</p>
             <p className="mt-sm text-base text-ink/80">{result.description}</p>
             <p className="mt-md text-sm font-medium">{content.challengeLabel}</p>
             <p className="mt-2xs text-base text-ink/80">{result.challenge}</p>
@@ -131,7 +131,7 @@ export default function MoneyPersonalityPage() {
               <button
                 type="button"
                 onClick={retake}
-                className="min-h-touch-min-child rounded-lg border-2 border-teal px-md py-xs font-medium text-teal hover:bg-teal/5"
+                className="min-h-touch-min-child rounded-lg border-2 border-teal px-md py-xs font-medium text-teal-text hover:bg-teal/5"
               >
                 {content.retakeButton}
               </button>

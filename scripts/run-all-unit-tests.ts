@@ -33,7 +33,7 @@ const results: { file: string; passed: boolean; durationMs: number }[] = [];
 
 for (const file of testFiles) {
   const start = Date.now();
-  const result = spawnSync("npx", ["tsx", path.join(scriptsDir, file)], {
+  const result = spawnSync(process.execPath, ["--import", "tsx", path.join(scriptsDir, file)], {
     stdio: "inherit",
     env: process.env,
   });

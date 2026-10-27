@@ -47,7 +47,7 @@ export default function InvestingLabPage() {
   const priceLookup = (companyId: string) => getCurrentPrice(seriesByCompany[companyId] ?? []);
 
   if (!progressLoaded || !labLoaded) {
-    return <div className="grid min-h-screen place-items-center bg-fog text-ink/60">{t("common.loading")}</div>;
+    return <div className="grid min-h-screen place-items-center bg-fog text-ink/70">{t("common.loading")}</div>;
   }
 
   const currencyCode = progress.currencyCode;
@@ -61,17 +61,17 @@ export default function InvestingLabPage() {
 
   return (
     <div className="min-h-screen bg-fog px-sm py-lg">
-      <main className="mx-auto max-w-[700px]">
+      <main id="main-content" tabIndex={-1} className="mx-auto max-w-[700px]">
         <div className="flex flex-wrap gap-2xs">
           <Link
             href="/"
-            className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal transition-colors duration-quick hover:bg-teal/5"
+            className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal-text transition-colors duration-quick hover:bg-teal/5"
           >
             <span aria-hidden="true">🏠</span> {t("nav.home")}
           </Link>
           <Link
             href="/play"
-            className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal transition-colors duration-quick hover:bg-teal/5"
+            className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal-text transition-colors duration-quick hover:bg-teal/5"
           >
             <span aria-hidden="true">←</span> {t("nav.backToWorldMap")}
           </Link>
@@ -88,15 +88,15 @@ export default function InvestingLabPage() {
         <Card variant="data" className="mt-md">
           <div className="grid grid-cols-2 gap-sm">
             <div>
-              <p className="text-xs uppercase tracking-wide text-ink/50">{t("investingLab.cashLabel")}</p>
-              <p className="font-display text-xl font-bold text-teal">{formatCurrency(portfolio.cashMinorUnits, currencyCode, uiLocale)}</p>
+              <p className="text-xs uppercase tracking-wide text-ink/70">{t("investingLab.cashLabel")}</p>
+              <p className="font-display text-xl font-bold text-teal-text">{formatCurrency(portfolio.cashMinorUnits, currencyCode, uiLocale)}</p>
             </div>
             <div>
-              <p className="text-xs uppercase tracking-wide text-ink/50">{t("investingLab.portfolioValueLabel")}</p>
+              <p className="text-xs uppercase tracking-wide text-ink/70">{t("investingLab.portfolioValueLabel")}</p>
               <p className="font-display text-xl font-bold">{formatCurrency(portfolioValue, currencyCode, uiLocale)}</p>
             </div>
           </div>
-          <p className={["mt-2xs text-sm font-medium", overallChangeMinorUnits >= 0 ? "text-success" : "text-error"].join(" ")}>
+          <p className={["mt-2xs text-sm font-medium", overallChangeMinorUnits >= 0 ? "text-success-text" : "text-error-text"].join(" ")}>
             {overallChangeMinorUnits >= 0 ? "▲" : "▼"}{" "}
             {t("investingLab.overallChangeLabel", {
               amount: formatCurrency(Math.abs(overallChangeMinorUnits), currencyCode, uiLocale),
@@ -157,12 +157,12 @@ export default function InvestingLabPage() {
           <h2 className="font-display text-lg font-bold">{t("investingLab.watchlistTitle")}</h2>
           <div className="mt-2xs">
             {watchedCompanies.length === 0 ? (
-              <p className="text-sm text-ink/60">{t("investingLab.watchlistEmptyHint")}</p>
+              <p className="text-sm text-ink/70">{t("investingLab.watchlistEmptyHint")}</p>
             ) : (
               <ul className="grid gap-3xs">
                 {watchedCompanies.map((c) => (
                   <li key={c.id} className="flex items-center justify-between text-sm text-ink/70">
-                    <button type="button" onClick={() => setSelectedCompanyId(c.id)} className="text-teal hover:underline">
+                    <button type="button" onClick={() => setSelectedCompanyId(c.id)} className="text-teal-text hover:underline">
                       {c.name}
                     </button>
                     <span>{formatCurrency(priceLookup(c.id), currencyCode, uiLocale)}</span>
@@ -203,7 +203,7 @@ function ResetInvestingLabButton({ onReset }: { onReset: () => void }) {
         onClick={() => {
           if (window.confirm(t("investingLab.resetConfirm"))) onReset();
         }}
-        className="text-xs text-ink/40 hover:text-error"
+        className="text-xs text-ink/70 hover:text-error-text"
       >
         {t("investingLab.resetButton")}
       </button>

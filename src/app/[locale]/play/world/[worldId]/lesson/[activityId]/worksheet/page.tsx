@@ -26,14 +26,14 @@ export default function WorksheetPage() {
 
   if (!structure || !filename) {
     return (
-      <div className="grid min-h-screen place-items-center bg-fog px-sm text-center">
+      <main id="main-content" tabIndex={-1} className="grid min-h-screen place-items-center bg-fog px-sm text-center">
         <div>
           <p className="text-base text-ink/70">{t("play.lessonNotAvailable")}</p>
-          <Link href={`/play/world/${params.worldId}`} className="mt-sm inline-block text-teal hover:underline">
+          <Link href={`/play/world/${params.worldId}`} className="mt-sm inline-block text-teal-text hover:underline">
             {t("play.backToTheWorld")}
           </Link>
         </div>
-      </div>
+      </main>
     );
   }
 
@@ -41,17 +41,17 @@ export default function WorksheetPage() {
 
   return (
     <div className="min-h-screen bg-fog px-sm py-lg">
-      <main className="mx-auto max-w-[600px]">
+      <main id="main-content" tabIndex={-1} className="mx-auto max-w-[600px]">
         <div className="flex flex-wrap gap-2xs">
           <Link
             href="/"
-            className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal transition-colors duration-quick hover:bg-teal/5"
+            className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal-text transition-colors duration-quick hover:bg-teal/5"
           >
             <span aria-hidden="true">🏠</span> {t("nav.home")}
           </Link>
           <Link
             href={`/play/world/${params.worldId}/lesson/${params.activityId}`}
-            className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal transition-colors duration-quick hover:bg-teal/5"
+            className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal-text transition-colors duration-quick hover:bg-teal/5"
           >
             <span aria-hidden="true">←</span> {t("worksheet.backToLesson")}
           </Link>
@@ -59,7 +59,7 @@ export default function WorksheetPage() {
 
         <h1 className="mt-sm font-display text-2xl font-bold">{t("worksheet.pageTitle")}</h1>
         <p className="mt-2xs text-base text-ink/70">{lessonTitle}</p>
-        <p className="mt-2xs text-sm text-ink/50">{t("worksheet.englishOnlyNote")}</p>
+        <p className="mt-2xs text-sm text-ink/70">{t("worksheet.englishOnlyNote")}</p>
 
         <a
           href={`/worksheets/${filename}`}
@@ -69,13 +69,13 @@ export default function WorksheetPage() {
         >
           {t("worksheet.openButton")}
         </a>
-        <p className="mt-2xs text-sm text-ink/60">{t("worksheet.printHint")}</p>
+        <p className="mt-2xs text-sm text-ink/70">{t("worksheet.printHint")}</p>
 
         <a
           href="/worksheets/answer-key/money-quest-worksheets-answer-key.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-md inline-block text-sm text-teal hover:underline"
+          className="mt-md inline-block text-sm text-teal-text hover:underline"
         >
           {t("worksheet.answerKeyLink")}
         </a>

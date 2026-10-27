@@ -26,7 +26,7 @@ export function MissionMechanic({ round, currencyCode, uiLocale, usesCurrency, o
   function choose(key: string) {
     if (chosenKey) return; // one choice per round, matching every other mechanic's "answer once" model
     setChosenKey(key);
-    onAnswer(true);
+    onAnswer(true, key);
   }
 
   return (
@@ -65,7 +65,7 @@ export function MissionMechanic({ round, currencyCode, uiLocale, usesCurrency, o
         })}
       </div>
 
-      {!chosenKey && <p className="mt-sm text-sm text-ink/50">{t("game.chooseAnyOption")}</p>}
+      {!chosenKey && <p className="mt-sm text-sm text-ink/70">{t("game.chooseAnyOption")}</p>}
     </div>
   );
 }

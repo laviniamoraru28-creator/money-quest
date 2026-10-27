@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { Space_Grotesk, Atkinson_Hyperlegible } from "next/font/google";
-import { LOCALES, getTextDirection, isSupportedLocale, type Locale } from "@/i18n/config";
+import { ACTIVE_LOCALES, getTextDirection, isSupportedLocale, type Locale } from "@/i18n/config";
 import { getSiteUrl, DEFAULT_OG_IMAGE } from "@/lib/seo/site-url";
 import "../globals.css";
 
@@ -26,7 +26,7 @@ const atkinsonHyperlegible = Atkinson_Hyperlegible({
 // /en/, /ro/, /es/ ... URL structure genuinely crawlable (brief
 // requirement 14), not just technically reachable.
 export function generateStaticParams() {
-  return LOCALES.map((locale) => ({ locale }));
+  return ACTIVE_LOCALES.map((locale) => ({ locale }));
 }
 
 /**
@@ -47,10 +47,11 @@ export const viewport: Viewport = {
 };
 
 export async function generateMetadata({
-  params: { locale },
+  params,
 }: {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
+  const { locale } = await params;
   if (!isSupportedLocale(locale)) notFound();
   const t = await getTranslations({ locale, namespace: "seo" });
   const siteUrl = getSiteUrl();
@@ -76,7 +77,7 @@ export async function generateMetadata({
     // left as a path-only string.
     alternates: {
       canonical: `${siteUrl}/${locale}`,
-      languages: Object.fromEntries(LOCALES.map((l) => [l, `${siteUrl}/${l}`])),
+      languages: Object.fromEntries(ACTIVE_LOCALES.map((l) => [l, `${siteUrl}/${l}`])),
     },
     openGraph: {
       title: t("defaultTitle"),
@@ -85,7 +86,7 @@ export async function generateMetadata({
       type: "website",
       siteName: "Money Quest",
       locale,
-      alternateLocale: LOCALES.filter((l) => l !== locale),
+      alternateLocale: ACTIVE_LOCALES.filter((l) => l !== locale),
       // The site's one existing lightweight photo, reused as the
       // default social-share image for every page that doesn't set its
       // own — better than no preview image at all. Square (800x800)
@@ -105,11 +106,13 @@ export async function generateMetadata({
 
 export default async function LocaleLayout({
   children,
-  params: { locale },
+  params,
 }: {
   children: ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
+  const { locale } = await params;
+
   if (!isSupportedLocale(locale)) {
     notFound();
   }
@@ -131,6 +134,7 @@ export default async function LocaleLayout({
             switch away from), was reading an unreliable/default locale
             regardless of the URL. */}
         <NextIntlClientProvider locale={locale} messages={messages}>
+          <a href="#main-content" className="sr-only z-50 rounded-lg bg-white p-4 font-bold text-teal-text focus:not-sr-only focus:absolute focus:left-4 focus:top-4">Skip to content</a>
           {children}
         </NextIntlClientProvider>
       </body>

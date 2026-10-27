@@ -7,8 +7,7 @@ name: Build Money Quest for Namecheap
 # runtime files this deployment needs — .next, messages, server.js,
 # package.json, next.config.mjs, src/i18n (see the step below for why
 # src/i18n specifically is kept even though the rest of src/ isn't
-# needed at runtime). No public/ — this app has no static assets that
-# need it (see that step's own comment) — with everything already at
+# needed at runtime). Includes public/ artwork and worksheets — with everything already at
 # the archive root, no outer wrapper folder.
 #
 # To use: push this repository to GitHub (a free private repo is
@@ -39,9 +38,12 @@ jobs:
           node-version: "20"
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Production build
+        env:
+          NEXT_PUBLIC_SITE_URL: https://moneyquesteducation.com
+          NEXT_TELEMETRY_DISABLED: 1
         run: npm run build
 
       - name: Verify the build actually produced output
@@ -63,20 +65,10 @@ jobs:
           cp -r messages deploy/
           cp server.js deploy/
           cp package.json deploy/
+          cp package-lock.json deploy/
           cp next.config.mjs deploy/
-          # public/ is deliberately NOT copied here — this app has no
-          # static assets that need it. Every illustration is an
-          # inline SVG React component, the sound system synthesizes
-          # tones live via the Web Audio API (no audio files), fonts
-          # are self-hosted automatically by next/font/google at
-          # build time, and the favicon is served via Next's own
-          # src/app/icon.svg convention. Verified by searching the
-          # whole codebase for any reference to a file that would
-          # need to live in public/ — none exists. The repository's
-          # public/ folder is empty, which is exactly why this step
-          # used to fail: Git doesn't track empty directories at all,
-          # so it was never actually present after checkout to copy
-          # from in the first place.
+          # All local artwork and printable worksheets are runtime assets.
+          cp -r public deploy/
           # src/i18n is kept (not all of src/) because next-intl's
           # build plugin wires the request-config module path in at
           # build time; keeping the original source removes any risk

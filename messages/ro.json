@@ -67,7 +67,9 @@
     "whatWouldYouDo": "Ce ai face?",
     "keyIdea": "Idee cheie",
     "tryThisAtHome": "Încearcă asta acasă!",
-    "printableWorksheetButton": "Fișă de lucru printabilă"
+    "printableWorksheetButton": "Fișă de lucru printabilă",
+    "interactiveActivityLabel": "Încearcă această activitate",
+    "commonMisconceptionLabel": "O neînțelegere frecventă"
   },
   "worksheet": {
     "pageTitle": "Fișă de lucru printabilă",
@@ -288,7 +290,9 @@
     "focusModeHint": "Ascunde detaliile suplimentare astfel încât să se vadă doar activitatea principală.",
     "listenToLessonLabel": "Ascultă lecția",
     "mainNavigationLabel": "Principal",
-    "categoryMayNeedAdjusting": "- această categorie ar putea avea nevoie de ajustări"
+    "categoryMayNeedAdjusting": "- această categorie ar putea avea nevoie de ajustări",
+    "answerCorrectAnnouncement": "Răspuns corect",
+    "answerIncorrectAnnouncement": "Încearcă din nou"
   },
   "characters": {
     "pip": "Pip",
@@ -362,7 +366,9 @@
     "spendSome": "Cheltuiește o parte",
     "moneyPersonalityLink": "Personalitatea Financiară",
     "levelActivityProgress": "Nivelul {level} · Activitatea {position} din {total}",
-    "investingLabLink": "Laboratorul de Investiții →"
+    "investingLabLink": "Laboratorul de Investiții →",
+    "entrepreneurQuestLink": "Misiunea Antreprenorului →",
+    "leadershipQuestLink": "Misiunea de Lider →"
   },
   "parentInfo": {
     "title": "Informații pentru Părinți",
@@ -404,7 +410,9 @@
     "pq5Body": "Funcționează bine fie alături de copilul tău pentru primele câteva lecții, fie ca ceva pe care îl explorează independent odată ce se simte confortabil cu el. După o lecție, o continuare bună este simpla întrebare „ce ai învățat?” - lecțiile sunt suficient de scurte încât își va aminti de obicei exemplul concret, nu doar un subiect vag.",
     "pq6Title": "Cum pot vorbi cu copilul meu despre bani acasă?",
     "pq6Body": "Câteva puncte de plecare: întreabă-l ce ar face cu o sumă fixă de bani înainte să-i spui ce ai face tu. Când faceți cumpărături împreună, întreabă cu voce tare „avem nevoie de asta, sau o dorim?”, astfel încât distincția să devină un obicei, nu doar o regulă. Dacă își dorește ceva scump, calculați împreună câte săptămâni de economisire ar dura - un număr concret tinde să aibă mai mult impact decât „poate mai târziu”. Niciuna dintre acestea nu necesită să-ți dezvălui propriile finanțe - conversația contează mai mult decât detaliile.",
-    "privacySectionTitle": "Confidențialitate și Datele Tale"
+    "privacySectionTitle": "Confidențialitate și Datele Tale",
+    "pq7Title": "Ce este Misiunea Antreprenorului?",
+    "pq7Body": "O secțiune nouă din Money Quest în care copilul tău construiește o mică afacere virtuală, pas cu pas: găsește o problemă, conturează o idee, stabilește un preț și ia decizii atunci când lucrurile nu merg conform planului. Pe parcurs exersează educația financiară, rezolvarea de probleme, creativitatea, luarea deciziilor, comunicarea, planificarea, munca în echipă și noțiuni de bază despre afaceri - totul cu bani virtuali, salvați doar pe acest dispozitiv. Este gândită să dezvolte aceste abilități prin joc, nu să încurajeze un copil să pornească o afacere reală fără îndrumarea și implicarea unui adult."
   },
   "privacyPage": {
     "title": "Confidențialitate",
@@ -3983,6 +3991,2109 @@
     "savedLocallyNote": "Feedback-ul tău este salvat doar pe acest dispozitiv - Money Quest nu are încă un server unde să-l trimită.",
     "saveFailedNote": "Nu am putut salva feedback-ul pe acest dispozitiv chiar acum - browserul tău ar putea bloca stocarea."
   },
+  "entrepreneurQuest": {
+    "hubTitle": "Misiunea Antreprenorului",
+    "hubTagline": "Învață cum să transformi o idee într-o afacere.",
+    "hubIntro": "Construiește-ți propria afacere virtuală, pas cu pas. Vei lua decizii adevărate, vei vedea ce se întâmplă și vei învăța făcând - nu doar citind și apăsând Continuă.",
+    "virtualMoneyExplainer": "Toți banii din Misiunea Antreprenorului sunt virtuali, doar pentru exersat. Nu sunt bani reali.",
+    "myBusinessTitle": "Afacerea Mea",
+    "myBusinessEmptyHint": "Încă nu ai pornit o afacere. Hai să construim una!",
+    "startBuildingButton": "Începe să-ți Construiești Afacerea",
+    "continueBuildingButton": "Continuă să-ți Construiești Afacerea",
+    "stageProgress": "Etapa {current} din {total}",
+    "buildLink": "Construiește-ți Afacerea",
+    "simulatorLink": "Simulatorul de Afaceri",
+    "challengesLink": "Provocări de Afaceri",
+    "pitchLink": "Prezentarea Afacerii Mele",
+    "pitchLinkLockedHint": "Termină mai întâi de construit afacerea ca să-ți deblochezi prezentarea.",
+    "badgesEarnedTitle": "Insignele Tale",
+    "noBadgesYetHint": "Finalizează etape și provocări ca să câștigi prima ta insignă.",
+    "realWorldMissionsTitle": "Misiuni din Viața Reală (Opțional)",
+    "realWorldMissionsHint": "Acestea sunt doar pentru a observa lucruri din viața reală - nu trebuie să notezi sau să trimiți nimic.",
+    "realWorldMissionDoneLabel": "Marchează ca finalizat",
+    "resetBusinessButton": "Începe o Afacere Nouă",
+    "resetBusinessConfirm": "Aceasta îți va șterge afacerea actuală și vei porni de la zero. Ești sigur?",
+    "backToHub": "Înapoi la Misiunea Antreprenorului",
+    "continueButton": "Continuă",
+    "saveAndContinueButton": "Salvează și Continuă",
+    "stages": {
+      "find-a-problem": {
+        "title": "Găsește o Problemă",
+        "learnText": "Orice afacere bună începe prin rezolvarea unei probleme. O problemă este ceva care îi deranjează pe oameni, le pierde timpul sau este greu de făcut.",
+        "fieldLabel": "Ce problemă ar putea rezolva afacerea ta?",
+        "placeholder": "De exemplu: Prietenii mei nu găsesc niciodată o sticlă de apă care să le placă."
+      },
+      "create-an-idea": {
+        "title": "Creează o Idee",
+        "learnText": "Acum transformă acea problemă într-o idee. Ideea ta este răspunsul tău la problema pe care ai găsit-o.",
+        "fieldLabel": "Care este ideea ta?",
+        "placeholder": "De exemplu: Aș putea face abțibilduri colorate pentru sticle de apă."
+      },
+      "name-your-business": {
+        "title": "Numește-ți Afacerea",
+        "learnText": "Un nume bun de afacere este scurt, ușor de reținut și dă un indiciu despre ce faci.",
+        "fieldLabel": "Cum îți vei numi afacerea?",
+        "placeholder": "De exemplu: Abțibilduri Splash"
+      },
+      "create-your-logo": {
+        "title": "Creează-ți Logo-ul",
+        "learnText": "Un logo este o imagine mică ce îi ajută pe oameni să-ți recunoască afacerea dintr-o privire. Alege o formă, o culoare și un simbol care se potrivesc afacerii tale.",
+        "shapeLabel": "Alege o formă",
+        "colorLabel": "Alege o culoare",
+        "symbolLabel": "Alege un simbol",
+        "sloganLabel": "Scrie un slogan scurt (opțional)",
+        "sloganPlaceholder": "De exemplu: Colorează-ți lumea"
+      },
+      "choose-your-product": {
+        "title": "Alege-ți Produsul",
+        "learnText": "Produsul tău este lucrul (sau serviciul) pe care îl vei vinde de fapt. Alege categoria care i se potrivește cel mai bine, apoi descrie-l cu cuvintele tale.",
+        "categoryLabel": "Ce fel de produs sau serviciu este?",
+        "descriptionLabel": "Descrie-ți produsul sau serviciul",
+        "descriptionPlaceholder": "De exemplu: Un pachet de 10 abțibilduri rezistente la apă."
+      },
+      "choose-your-customer": {
+        "title": "Alege-ți Clientul",
+        "learnText": "Un client este persoana care ar cumpăra cu adevărat produsul tău. Gândindu-te la el te ajută să creezi ceva ce chiar își va dori."
+      },
+      "understand-costs": {
+        "title": "Înțelege Costurile",
+        "learnText": "Costurile reprezintă câți bani este nevoie ca să faci un articol. Dacă te costă puțini bani să faci o brățară, acesta este costul tău pe articol.",
+        "fieldLabel": "Cât te costă să faci UN singur articol?",
+        "helpText": "Aceștia sunt banii pe care îi cheltuiești pe materiale pentru un singur articol, nu pentru toată afacerea ta."
+      },
+      "set-your-price": {
+        "title": "Stabilește-ți Prețul",
+        "learnText": "Prețul tău este suma pe care i-o ceri unui client pentru un articol. Un punct de plecare obișnuit este să ceri cam dublu față de cât te costă să-l faci - dar alegerea îți aparține.",
+        "fieldLabel": "Cât vei cere pentru un articol?",
+        "helpText": "Un preț mic poate însemna că mai mulți oameni cumpără, dar rămâi cu mai puțini bani pe articol. Un preț mare înseamnă mai mulți bani pe articol, dar poate cumpăra mai puțină lume."
+      },
+      "create-your-marketing": {
+        "title": "Creează-ți Marketingul",
+        "learnText": "Marketingul înseamnă să le spui oamenilor despre afacerea ta, ca să știe că există și să înțeleagă ce face. Alege o abordare, apoi vezi ce se întâmplă."
+      },
+      "make-your-first-sale": {
+        "title": "Fă-ți Prima Vânzare",
+        "learnText": "E timpul să vezi ce se întâmplă! Vei decide cum să-ți cheltui banii de pornire, apoi vei afla cum merg primele tale vânzări.",
+        "ctaButton": "Mergi la Simulatorul de Afaceri"
+      },
+      "calculate-your-profit": {
+        "title": "Calculează-ți Profitul",
+        "learnText": "Profitul este banii care îți rămân după ce plătești costurile. Profit = Vânzări minus Costuri.",
+        "resultHint": "Iată profitul tău din Simulatorul de Afaceri.",
+        "noRunYetHint": "Vizitează mai întâi Simulatorul de Afaceri ca să vezi aici un profit real."
+      },
+      "handle-competition": {
+        "title": "Gestionează Concurența",
+        "learnText": "Un concurent este o altă afacere care vinde ceva asemănător cu al tău. Aproape orice afacere are concurenți."
+      },
+      "handle-a-customer-problem": {
+        "title": "Rezolvă o Problemă cu un Client",
+        "learnText": "Afacerile adevărate au uneori probleme cu clienții. Ce contează este cum răspunzi."
+      },
+      "make-a-business-decision": {
+        "title": "Ia o Decizie de Afaceri",
+        "learnText": "Antreprenorii buni își gândesc bine alegerile în loc să ghicească."
+      },
+      "grow-your-business": {
+        "title": "Dezvoltă-ți Afacerea",
+        "learnText": "Uneori lucrurile nu merg cum ai plănuit. A dezvolta o afacere înseamnă adesea să încerci din nou cu ceva nou."
+      },
+      "create-your-final-pitch": {
+        "title": "Creează-ți Prezentarea Finală a Afacerii",
+        "learnText": "Ai construit o afacere! Răspunde la aceste ultime două întrebări, apoi vezi cum arată prezentarea afacerii tale, toată pusă cap la cap.",
+        "whyChooseLabel": "De ce ar putea oamenii să aleagă afacerea ta?",
+        "whyChoosePlaceholder": "De exemplu: Abțibildurile mele sunt rezistente la apă și vin în culori vii pe care nimeni altcineva nu le are.",
+        "nextStepLabel": "Care ar fi următorul tău pas?",
+        "nextStepPlaceholder": "De exemplu: Întreabă cinci prieteni ce alte modele de abțibilduri și-ar dori.",
+        "viewPitchButton": "Vezi Prezentarea Afacerii Mele"
+      },
+      "research-demand": {
+        "title": "Cercetează Cererea",
+        "learnText": "Înainte să construiască ceva, antreprenorii isteți verifică dacă oamenii chiar vor cumpăra. Uită-te la datele de piață de mai jos."
+      },
+      "test-the-idea": {
+        "title": "Testează Ideea",
+        "learnText": "E tentant să sari direct la construit - dar testarea unei idei mici mai întâi te poate scuti de o greșeală costisitoare."
+      }
+    },
+    "decisionEvents": {
+      "product-unclear": {
+        "situation": "Unor clienți le place produsul tău, dar nu înțeleg de fapt ce face.",
+        "choices": [
+          {
+            "key": "explain-simply",
+            "label": "Scrie o propoziție simplă care explică ce face produsul tău",
+            "consequence": "Acum mai mulți oameni înțeleg produsul tău, iar câțiva se hotărăsc să cumpere. Cuvintele clare chiar ajută!"
+          },
+          {
+            "key": "add-picture",
+            "label": "Arată o poză cu cineva care îl folosește",
+            "consequence": "Văzându-l în acțiune, oamenii înțeleg mai repede. Câțiva clienți în plus îl încearcă."
+          },
+          {
+            "key": "do-nothing",
+            "label": "Lasă-l așa cum e și speră că oamenii își vor da seama",
+            "consequence": "Unii clienți tot se simt confuzi și câțiva decid să nu cumpere. De obicei, o explicație clară ajută mai mult decât tăcerea."
+          }
+        ]
+      },
+      "competitor-lower-price": {
+        "situation": "Un concurent începe să vândă ceva asemănător cu produsul tău, dar la un preț mai mic.",
+        "choices": [
+          {
+            "key": "lower-price",
+            "label": "Scade-ți prețul ca să te aliniezi cu ei",
+            "consequence": "Din nou, mai mulți oameni aleg produsul tău, dar rămâi cu mai puțini bani la fiecare vânzare."
+          },
+          {
+            "key": "explain-value",
+            "label": "Păstrează-ți prețul, dar explică de ce merită produsul tău",
+            "consequence": "Unii clienți sunt de acord și rămân cu tine. Alții aleg totuși varianta mai ieftină."
+          },
+          {
+            "key": "ignore",
+            "label": "Păstrează totul exact la fel",
+            "consequence": "Câțiva clienți se îndreaptă spre opțiunea mai ieftină. Concurenții sunt normali - de obicei ajută să reacționezi cumva."
+          }
+        ]
+      },
+      "materials-cost-increase": {
+        "situation": "Materialele de care ai nevoie pentru produsul tău devin brusc mai scumpe.",
+        "choices": [
+          {
+            "key": "raise-price",
+            "label": "Crește-ți puțin prețul ca să acoperi costul suplimentar",
+            "consequence": "Profitul tău pe articol rămâne bun, deși câțiva clienți sensibili la preț ar putea cumpăra mai rar."
+          },
+          {
+            "key": "absorb-cost",
+            "label": "Păstrează-ți prețul la fel și câștigă mai puțin profit pe articol",
+            "consequence": "Clienții nu observă nicio schimbare, dar rămâi cu mai puțini bani din fiecare vânzare."
+          },
+          {
+            "key": "find-cheaper-materials",
+            "label": "Caută un mod mai ieftin de a-ți face produsul",
+            "consequence": "Dacă găsești unul, asta poate rezolva complet problema, deși ar putea dura ceva timp să-l găsești."
+          }
+        ]
+      },
+      "too-expensive-feedback": {
+        "situation": "Un client îți spune că produsul tău este prea scump.",
+        "choices": [
+          {
+            "key": "ask-why",
+            "label": "Întreabă-l ce preț i s-ar părea corect",
+            "consequence": "Afli ceva util despre ce așteaptă clienții, chiar dacă nu-ți schimbi prețul."
+          },
+          {
+            "key": "offer-smaller-version",
+            "label": "Oferă o variantă mai mică și mai ieftină a produsului tău",
+            "consequence": "Unii clienți care nu-și permiteau varianta completă cumpără în schimb varianta mai mică."
+          },
+          {
+            "key": "stand-firm",
+            "label": "Explică faptul că prețul tău reflectă costurile și efortul tău",
+            "consequence": "Unii clienți înțeleg și rămân. Alții tot simt că e prea mult pentru ei - și e în regulă."
+          }
+        ]
+      },
+      "more-orders-than-expected": {
+        "situation": "Mult mai mulți oameni vor să cumpere de la tine decât te așteptai!",
+        "choices": [
+          {
+            "key": "make-more",
+            "label": "Încearcă să produci mai mult ca să faci față",
+            "consequence": "Vinzi mai mult, dar să produci în grabă costă mai mult timp și efort decât de obicei."
+          },
+          {
+            "key": "raise-price-slightly",
+            "label": "Crește-ți puțin prețul, din moment ce cererea e mare",
+            "consequence": "Câștigi mai mult pe articol, deși câțiva clienți decid să aștepte sau să caute în altă parte."
+          },
+          {
+            "key": "waitlist",
+            "label": "Spune-le clienților în plus că vei avea mai multe în curând",
+            "consequence": "Clienții dispuși să aștepte de obicei tot cumpără de la tine mai târziu."
+          }
+        ]
+      },
+      "teammate-wants-change": {
+        "situation": "Cineva care te ajută cu afacerea vrea să schimbe produsul într-un fel de care nu ești sigur.",
+        "choices": [
+          {
+            "key": "hear-them-out",
+            "label": "Roagă-l să-și explice ideea complet înainte să decizi",
+            "consequence": "Afli mai multe despre cum gândește, ceea ce face mult mai ușor să decideți împreună."
+          },
+          {
+            "key": "say-no",
+            "label": "Spune nu și păstrează produsul exact așa cum e",
+            "consequence": "Produsul rămâne la fel, dar coechipierul tău s-ar putea simți neascultat data viitoare când are o idee."
+          },
+          {
+            "key": "try-a-test-version",
+            "label": "Încearcă-i ideea mai întâi doar pe câteva articole, ca test",
+            "consequence": "Poți vedea dacă schimbarea chiar funcționează înainte să schimbi totul."
+          }
+        ]
+      },
+      "fewer-sales-than-expected": {
+        "situation": "Ai făcut mai puține vânzări săptămâna aceasta decât sperai.",
+        "choices": [
+          {
+            "key": "ask-customers",
+            "label": "Întreabă câțiva oameni de ce nu au cumpărat",
+            "consequence": "Primești un feedback real pe care îl poți folosi ca să te îmbunătățești, chiar dacă e greu de auzit."
+          },
+          {
+            "key": "try-something-new",
+            "label": "Încearcă un preț diferit sau un nou mod de a-ți explica produsul",
+            "consequence": "Uneori a încerca ceva nou funcționează mai bine, alteori nu. Oricum ar fi, înveți ceva."
+          },
+          {
+            "key": "keep-going",
+            "label": "Continuă să faci exact același lucru și vezi ce urmează",
+            "consequence": "Unele săptămâni sunt pur și simplu mai lente decât altele. Dar dacă asta continuă, poate merită să încerci ceva diferit."
+          }
+        ]
+      },
+      "market-detective-reflection": {
+        "situation": "Uitându-te la datele de piață pentru Păstrăv Proaspăt, ce crezi?",
+        "choices": [
+          {
+            "key": "looks-like-a-good-opportunity",
+            "label": "Asta pare o oportunitate grozavă",
+            "consequence": "Mulți clienți interesați sunt un semn bun! Dar ține minte: cererea mare nu înseamnă automat profit mare - depinde tot de costuri și de câți competitori vând deja."
+          },
+          {
+            "key": "needs-more-thought",
+            "label": "Asta are nevoie de mai multă gândire înainte să decizi",
+            "consequence": "Instinct bun - doar 75 din cei 300 de oameni interesați au cumpărat de fapt recent, și există deja 4 competitori. Este isteț să sapi mai adânc înainte să te angajezi."
+          },
+          {
+            "key": "not-sure-yet",
+            "label": "Nu sunt sigur încă",
+            "consequence": "E un punct de plecare corect - antreprenorii adevărați au deseori nevoie de mai multe informații înainte să fie siguri. Uită-te din nou la prețurile competitorilor și la tiparul cererii."
+          }
+        ]
+      },
+      "test-before-invest": {
+        "situation": "Ai niște bani de pornire. Cum vrei să începi?",
+        "choices": [
+          {
+            "key": "spend-it-all-now",
+            "label": "Cheltuiește tot imediat pentru a construi afacerea",
+            "consequence": "Ești implicat complet din prima zi - dar dacă ideea nu merge, ai cheltuit deja tot ca să afli asta."
+          },
+          {
+            "key": "test-a-little-first",
+            "label": "Cheltuiește puțin mai întâi ca să testezi dacă clienții chiar vor cumpăra",
+            "consequence": "Afli devreme - și ieftin - dacă oamenii chiar își doresc asta, înainte să riști totul pe ea."
+          }
+        ]
+      }
+    },
+    "challenges": {
+      "five-pound-challenge": {
+        "title": "Provocarea de {amount}",
+        "situation": "Ai {amount} bani virtuali. Ce ai putea crea cu ei?",
+        "choices": [
+          {
+            "key": "cheap-materials",
+            "label": "Cumpără câteva materiale ieftine și fă mai multe articole mici",
+            "consequence": "Poți face mai multe articole de vândut, deși fiecare ar putea fi simplu."
+          },
+          {
+            "key": "one-good-material",
+            "label": "Cheltuiește totul pe un material de calitate mai bună",
+            "consequence": "Poți face mai puține articole, dar fiecare ar putea părea mai special și ar putea valora mai mult."
+          },
+          {
+            "key": "save-some",
+            "label": "Economisește o parte și cheltuiește restul cu grijă",
+            "consequence": "Începi mai mic, dar tot îți rămân niște bani dacă ai nevoie de ei mai târziu."
+          }
+        ]
+      },
+      "pricing-challenge": {
+        "title": "Provocarea Prețului",
+        "situation": "Produsul tău costă {amount} de făcut. Ce preț vei alege?",
+        "choices": [
+          {
+            "key": "price-low",
+            "label": "Cere puțin mai mult decât te costă",
+            "consequence": "Mai mulți oameni și-l pot permite, dar rămâi doar cu o sumă mică din fiecare vânzare."
+          },
+          {
+            "key": "price-double",
+            "label": "Cere cam dublu față de cât te costă",
+            "consequence": "O alegere obișnuită și echilibrată - majoritatea afacerilor pornesc cam de aici."
+          },
+          {
+            "key": "price-high",
+            "label": "Cere mult mai mult decât te costă",
+            "consequence": "Câștigi mult din fiecare vânzare, dar mai puțini oameni ar putea decide să cumpere."
+          }
+        ]
+      },
+      "customer-challenge": {
+        "title": "Provocarea Clientului",
+        "situation": "Nimeni nu pare interesat de produsul tău. Ce ai putea schimba?",
+        "choices": [
+          {
+            "key": "ask-people",
+            "label": "Întreabă câțiva oameni ce și-ar dori de fapt în schimb",
+            "consequence": "Primești idei reale și utile, chiar dacă unele te surprind."
+          },
+          {
+            "key": "change-product",
+            "label": "Schimbă produsul ca să rezolve o problemă mai mare",
+            "consequence": "Asta chiar poate ajuta, deși necesită timp și efort suplimentar ca să refaci totul."
+          },
+          {
+            "key": "same-different-customer",
+            "label": "Păstrează produsul la fel, dar gândește-te cine altcineva l-ar putea dori",
+            "consequence": "Uneori clientul potrivit e pur și simplu altul decât ai crezut inițial."
+          }
+        ]
+      },
+      "marketing-challenge": {
+        "title": "Provocarea de Marketing",
+        "situation": "Ai {amount} bani virtuali pentru marketing. Cum îi vei folosi?",
+        "choices": [
+          {
+            "key": "tell-friends",
+            "label": "Roagă prietenii și familia să te ajute să răspândească vestea",
+            "consequence": "Asta nu costă nimic și chiar poate ajuta - oamenii au încredere în recomandările din partea celor pe care îi cunosc."
+          },
+          {
+            "key": "make-a-poster",
+            "label": "Cheltuiește-i pe un afiș sau o pancartă care atrage privirea",
+            "consequence": "Un afiș clar și atrăgător poate atrage atenția oamenilor care trec pe acolo."
+          },
+          {
+            "key": "spend-it-all",
+            "label": "Cheltuiește totul încercând să ajungi la cât mai mulți oameni posibil",
+            "consequence": "Ajungi la mai mulți oameni, dar nu-ți mai rămâne nimic dacă apare ceva neașteptat."
+          }
+        ]
+      },
+      "bad-review-challenge": {
+        "title": "Provocarea Recenziei Proaste",
+        "situation": "Un client este nemulțumit de ce a cumpărat de la tine.",
+        "choices": [
+          {
+            "key": "apologize-and-fix",
+            "label": "Cere-ți scuze și oferă-te să-l repari sau să-l înlocuiești",
+            "consequence": "Majoritatea clienților nemulțumiți se simt mult mai bine când cineva le ia problema în serios."
+          },
+          {
+            "key": "explain-politely",
+            "label": "Explică politicos de ce produsul funcționează așa cum funcționează",
+            "consequence": "Uneori asta ajută, mai ales dacă clientul a înțeles greșit ceva."
+          },
+          {
+            "key": "ignore-it",
+            "label": "Ignoră asta și treci la următorul client",
+            "consequence": "Clientul nemulțumit ar putea povesti altora despre experiența lui. De obicei, a răspunde ajută mai mult decât tăcerea."
+          }
+        ]
+      }
+    },
+    "challengesListTitle": "Provocări de Afaceri",
+    "challengesListIntro": "Provocări scurte și independente pe care le poți încerca oricând - fiecare te învață altceva despre cum se conduce o afacere.",
+    "challengeCompletedBadge": "Finalizată",
+    "realWorldMissions": {
+      "find-a-problem-at-home": "Uită-te în jurul tău, acasă sau la școală. Poți găsi o problemă pe care o au oamenii?",
+      "notice-what-people-buy": "Găsește ceva ce oamenii cumpără des. De ce crezi că îl cumpără?",
+      "improve-a-product-you-use": "Alege un produs pe care îl folosești. Ce l-ar putea îmbunătăți?",
+      "ask-someone-what-they-would-change": "Întreabă pe cineva ce ar schimba la un produs pe care îl folosește."
+    },
+    "badges": {
+      "eq-problem-solver": {
+        "name": "Rezolvator de Probleme",
+        "description": "A găsit o problemă reală de rezolvat"
+      },
+      "eq-idea-finder": {
+        "name": "Descoperitor de Idei",
+        "description": "A transformat o problemă într-o idee"
+      },
+      "eq-money-manager": {
+        "name": "Administrator de Bani",
+        "description": "A calculat profitul unei afaceri"
+      },
+      "eq-marketing-explorer": {
+        "name": "Explorator de Marketing",
+        "description": "A exersat să le spună oamenilor despre o afacere"
+      },
+      "eq-young-founder": {
+        "name": "Tânăr Fondator",
+        "description": "A finalizat o prezentare completă de afacere"
+      }
+    },
+    "simulator": {
+      "title": "Simulatorul de Afaceri",
+      "intro": "E timpul să vezi cum merge afacerea ta! Decide cum să-ți cheltui banii de pornire, apoi află ce se întâmplă.",
+      "startingMoneyLabel": "Banii tăi de pornire",
+      "allocateInstructions": "Decide cum să-ți cheltui {amount}.",
+      "categoryMaterials": "Materiale",
+      "categoryPackaging": "Ambalaj",
+      "categoryAdvertising": "Publicitate",
+      "categorySavedAside": "Bani puși deoparte",
+      "seeResultButton": "Vezi Ce Se Întâmplă",
+      "resultTitle": "Iată Ce S-a Întâmplat",
+      "unitsMadeLabel": "Ai făcut {count} articole",
+      "unitsSoldLabel": "Ai vândut {count} dintre ele",
+      "salesLabel": "Vânzări",
+      "costsLabel": "Costuri",
+      "profitLabel": "Profit",
+      "remainingLabel": "Banii pe care îi ai acum",
+      "formulaReminder": "Profit = Vânzări - Costuri",
+      "explanationProfit": "Ai obținut un profit de {profit}! Vânzări minus Costuri egal Profit.",
+      "explanationLoss": "De data aceasta, costurile tale au fost mai mari decât vânzările. Se mai întâmplă uneori - poți încerca din nou cu alte alegeri.",
+      "tryAgainButton": "Încearcă Alte Alegeri"
+    },
+    "pitch": {
+      "title": "Prima Mea Afacere",
+      "myBusinessIsLabel": "Afacerea mea este...",
+      "itHelpsLabel": "Ajută...",
+      "myCustomersAreLabel": "Clienții mei sunt...",
+      "myProductIsLabel": "Produsul sau serviciul meu este...",
+      "itCostsMeLabel": "Mă costă...",
+      "iWouldChargeLabel": "Aș cere...",
+      "iCouldMakeLabel": "Aș putea face...",
+      "whyChooseLabel": "Oamenii ar putea alege afacerea mea pentru că...",
+      "nextStepLabel": "Următorul meu pas ar fi...",
+      "perItemSuffix": "pe articol",
+      "notSetYet": "Încă nedecis",
+      "editBusinessButton": "Editează-mi Afacerea",
+      "notReadyTitle": "Prezentarea Ta Nu Este Încă Gata",
+      "notReadyHint": "Termină mai întâi de construit afacerea și prezentarea ta va apărea aici.",
+      "goToBuildButton": "Continuă să-ți Construiești Afacerea",
+      "reputationLabel": "Reputația afacerii mele este...",
+      "reputationValue": "{stars} din 5 stele"
+    },
+    "productCategories": {
+      "food": "Mâncare",
+      "art": "Artă",
+      "crafts": "Meșteșuguri",
+      "games": "Jocuri",
+      "pets": "Animale de companie",
+      "sports": "Sport",
+      "fashion": "Modă",
+      "technology": "Tehnologie",
+      "education": "Educație",
+      "environment": "Mediu",
+      "helping-people": "Ajutorarea Oamenilor",
+      "other": "Altceva"
+    },
+    "customerCategories": {
+      "kids": "Copii",
+      "families": "Familii",
+      "teens": "Adolescenți",
+      "adults": "Adulți",
+      "school-community": "Comunitatea Școlii Mele",
+      "neighbors": "Vecini",
+      "animal-lovers": "Iubitori de Animale",
+      "other": "Altcineva"
+    },
+    "marketingApproaches": {
+      "poster": "Fă un Afiș",
+      "social-style-advert": "Reclamă în Stil Social Media",
+      "word-of-mouth": "Din Gură în Gură",
+      "school-community-idea": "Idee pentru Școală sau Comunitate",
+      "special-offer": "Ofertă Specială"
+    },
+    "logoShapes": {
+      "circle": "Cerc",
+      "square": "Pătrat",
+      "hexagon": "Hexagon",
+      "star": "Stea"
+    },
+    "safety": {
+      "nameHint": "Folosește un nume amuzant și inventat pentru afacerea ta - nu numele tău real complet, adresa, numărul de telefon sau numele școlii."
+    },
+    "dashboard": {
+      "title": "Compania Mea",
+      "productLabel": "Produs",
+      "customersLabel": "Clienți",
+      "priceLabel": "Preț",
+      "costLabel": "Cost",
+      "profitPerSaleLabel": "Profit pe vânzare",
+      "salesLabel": "Vânzări",
+      "revenueLabel": "Venituri",
+      "costsLabel": "Costuri",
+      "profitLabel": "Profit",
+      "reputationLabel": "Reputație",
+      "reputationValue": "{stars}/5",
+      "goalLabel": "Obiectiv actual",
+      "goalPlaceholder": "De exemplu: Fă 20 de vânzări",
+      "saveGoalButton": "Salvează Obiectivul",
+      "cashLabel": "Numerar",
+      "customersTotalLabel": "Clienți",
+      "repeatCustomersLabel": "Clienți Fideli",
+      "stockLabel": "Stoc",
+      "demandLabel": "Cerere",
+      "showMoreButton": "Arată mai multe detalii",
+      "showLessButton": "Arată mai puține detalii"
+    },
+    "phases": {
+      "build": "Construiește",
+      "run": "Administrează",
+      "rescueGrow": "Salvează și Dezvoltă"
+    },
+    "levels": {
+      "low": "Scăzut",
+      "medium": "Mediu",
+      "high": "Ridicat"
+    },
+    "demandLevels": {
+      "low": "Scăzută",
+      "medium": "Medie",
+      "high": "Ridicată",
+      "seasonal-high": "Ridicată (Sezonieră)",
+      "seasonal-low": "Scăzută (Sezonieră)"
+    },
+    "problemFlow": {
+      "investigateLabel": "Investighează",
+      "tapToReveal": "Atinge pentru a dezvălui",
+      "causeLabel": "Care este cauza probabilă?",
+      "responseLabel": "Ce vei face?"
+    },
+    "problemsListIntro": "Afacerile reale se lovesc de probleme. Investighează fiecare problemă folosind datele, apoi decide cum să răspunzi.",
+    "marketDetective": {
+      "scenarioTitle": "Păstrăv Proaspăt: O Piață de Investigat",
+      "interestedCustomersLabel": "Clienți Interesați",
+      "recentBuyersLabel": "Cumpărători Recenți",
+      "competitorCountLabel": "Competitori",
+      "competitorPriceLabel": "Prețul Mediu al Competitorilor",
+      "productionCostLabel": "Costul Estimat de Producție",
+      "weekendDemandLabel": "Cererea în Weekend",
+      "winterDemandLabel": "Cererea de Iarnă",
+      "demandLadderTitle": "De la Interes la Clienți Fideli",
+      "demandLadder": {
+        "likeTheIdea": "Oameni cărora le place ideea",
+        "mightBuy": "Oameni care ar putea cumpăra",
+        "actuallyBuy": "Oameni care chiar cumpără",
+        "becomeRepeatCustomers": "Oameni care devin clienți fideli"
+      }
+    },
+    "problems": {
+      "not-enough-customers": {
+        "title": "Nu Sunt Suficienți Clienți",
+        "situation": "Afacerea ta funcționează de ceva vreme, dar aproape nimeni nu cumpără.",
+        "responsePrompt": "Ce vei face?",
+        "clues": {
+          "footTraffic": "Mai puțini oameni ți-au vizitat taraba sau magazinul decât luna trecută.",
+          "onlineViews": "Nu prea mulți oameni se uită la postările sau anunțurile tale.",
+          "competitorActivity": "O afacere asemănătoare din apropiere a fost plină de clienți."
+        },
+        "causes": {
+          "wrong-customer-group": {
+            "label": "Poate nu ajungi la clienții potriviți",
+            "feedback": "E posibil - merită să verifici cui încerci de fapt să vinzi."
+          },
+          "weak-marketing": {
+            "label": "Poate nu suficienți oameni știu despre afacerea ta",
+            "feedback": "S-ar putea să fie asta - dacă oamenii nu știu că exiști, nu pot cumpăra de la tine."
+          },
+          "price-too-high": {
+            "label": "Poate prețul tău li se pare prea mare oamenilor",
+            "feedback": "Merită luat în calcul și asta - prețul influențează câți oameni decid să cumpere."
+          }
+        },
+        "responses": {
+          "improve-marketing": {
+            "label": "Spune mai multor oameni despre afacerea ta",
+            "consequence": "Cheltuiești puțin mai mult ca să răspândești vestea, iar câțiva clienți noi te găsesc."
+          },
+          "research-customers": {
+            "label": "Întreabă oamenii ce își doresc de fapt",
+            "consequence": "Nu vinzi mai mult imediat, dar înveți ceva ce te-ar putea ajuta mai târziu."
+          },
+          "lower-price-temporarily": {
+            "label": "Scade prețul pentru o perioadă scurtă",
+            "consequence": "Mai mulți oameni decid să încerce produsul tău, deși câștigi puțin mai puțin la fiecare."
+          }
+        }
+      },
+      "costs-increased": {
+        "title": "Costurile Au Crescut",
+        "situation": "Materialele pe care le folosești pentru produsul tău au devenit brusc mai scumpe.",
+        "responsePrompt": "Ce vei face?",
+        "clues": {
+          "supplierPriceNotice": "Furnizorul tău ți-a trimis un mesaj că prețurile lui au crescut.",
+          "fuelPrices": "Costul combustibilului și al livrării a crescut și el.",
+          "wageChanges": "Nu s-a schimbat nimic la cât plătești pentru ajutor - partea asta a rămas la fel."
+        },
+        "causes": {
+          "supplier-price-rise": {
+            "label": "Furnizorul tău pur și simplu cere mai mult acum",
+            "feedback": "Asta se potrivește cu ce spunea mesajul furnizorului."
+          },
+          "inflation": {
+            "label": "Prețurile cresc peste tot în acest moment",
+            "feedback": "Și asta face parte din poveste - uneori multe costuri cresc împreună."
+          },
+          "more-materials-needed": {
+            "label": "Folosești mai multe materiale decât înainte",
+            "feedback": "E posibil, dar indiciile arată mai degrabă spre schimbarea de preț a furnizorului."
+          }
+        },
+        "responses": {
+          "absorb-the-cost": {
+            "label": "Păstrează prețul la fel și câștigă mai puțin profit",
+            "consequence": "Clienții nu observă nicio schimbare, dar rămâi cu mai puțini bani din fiecare vânzare."
+          },
+          "raise-your-price": {
+            "label": "Crește puțin prețul ca să acoperi diferența",
+            "consequence": "Profitul pe produs rămâne sănătos, deși câțiva clienți ar putea cumpăra mai rar."
+          },
+          "find-a-cheaper-supplier": {
+            "label": "Caută un furnizor mai ieftin",
+            "consequence": "Dacă găsești unul, asta poate rezolva complet problema - deși ar putea dura și calitatea ar putea fi diferită."
+          }
+        }
+      },
+      "negative-review": {
+        "title": "O Recenzie Negativă",
+        "situation": "Un client a lăsat o recenzie spunând că nu a fost mulțumit de ce a cumpărat.",
+        "responsePrompt": "Ce vei face?",
+        "clues": {
+          "reviewText": "Recenzia spune că produsul a ajuns puțin deteriorat.",
+          "otherReviews": "Toate celelalte recenzii recente au fost pozitive.",
+          "returnRequests": "E prima dată când cineva cere o înlocuire."
+        },
+        "causes": {
+          "product-fault": {
+            "label": "Ceva nu a mers bine cu acest produs anume",
+            "feedback": "Se potrivește - celelalte recenzii sunt bune, deci pare un caz izolat."
+          },
+          "unclear-instructions": {
+            "label": "Poate instrucțiunile nu au fost suficient de clare",
+            "feedback": "Posibil, dar recenzia vorbește despre deteriorare, nu despre confuzie."
+          },
+          "slow-response": {
+            "label": "Poate ai răspuns prea târziu",
+            "feedback": "Merită luat în calcul, dar recenzia în sine vorbește despre produsul ajuns deteriorat."
+          }
+        },
+        "responses": {
+          "apologise-and-fix": {
+            "label": "Cere-ți scuze și oferă-te să-l repari sau să-l înlocuiești",
+            "consequence": "Clientul se simte ascultat, iar majoritatea oamenilor se simt mult mai bine când problema lor este luată în serios."
+          },
+          "offer-replacement": {
+            "label": "Trimite o înlocuire gratuită",
+            "consequence": "Te costă puțin, dar clientul este mulțumit și ar putea cumpăra din nou de la tine."
+          },
+          "ignore-and-move-on": {
+            "label": "Lasă așa și treci mai departe la alți clienți",
+            "consequence": "Clientul nemulțumit ar putea povesti altora despre experiența lui - de obicei, a răspunde ajută mai mult decât tăcerea."
+          }
+        }
+      },
+      "sales-falling": {
+        "title": "Vânzările Scad",
+        "situation": "Vânzările tale au tot scăzut în ultimele săptămâni.",
+        "responsePrompt": "Ce vei face?",
+        "clues": {
+          "salesChart": "Vânzările erau constante, apoi au început să scadă acum vreo trei săptămâni.",
+          "competitorPrices": "Un competitor a început să vândă ceva asemănător mai ieftin cam în aceeași perioadă.",
+          "customerFeedback": "Câțiva clienți au spus că produsul tău pare 'la fel ca întotdeauna'."
+        },
+        "causes": {
+          "price-too-high-now": {
+            "label": "Prețul tău pare mare comparat cu cel al competitorului",
+            "feedback": "Momentul se potrivește cu apariția competitorului - asta pare probabil."
+          },
+          "new-competitor": {
+            "label": "Un competitor nou îți ia niște clienți",
+            "feedback": "Asta se potrivește bine cu momentul."
+          },
+          "product-losing-novelty": {
+            "label": "Clienții doar s-au obișnuit cu produsul",
+            "feedback": "E posibil și asta - comentariile despre 'la fel ca întotdeauna' sugerează acest lucru."
+          }
+        },
+        "responses": {
+          "run-a-special-offer": {
+            "label": "Fă o ofertă specială de scurtă durată",
+            "consequence": "Câțiva clienți care se îndepărtaseră revin să încerce din nou."
+          },
+          "refresh-the-product": {
+            "label": "Reînnoiește sau îmbunătățește produsul",
+            "consequence": "Costă puțin să faci schimbarea, dar clienții observă ceva nou și câțiva se întorc."
+          },
+          "ask-customers-directly": {
+            "label": "Întreabă clienții direct ce cred",
+            "consequence": "Nu vinzi mai mult imediat, dar afli ceva util pe care poți acționa."
+          }
+        }
+      },
+      "rising-costs-eating-profit": {
+        "title": "De Ce Nu Facem Bani?",
+        "situation": "Vânzările cresc și veniturile cresc și ele - dar profitul tot scade.",
+        "responsePrompt": "Ce vei face?",
+        "clues": {
+          "priceHistory": "Prețul tău nu s-a schimbat de luni de zile.",
+          "productionCostHistory": "Producerea fiecărui produs a devenit, încet, puțin mai scumpă în timp.",
+          "advertisingSpend": "Ai cheltuit tot mai mult pe reclamă ca să menții creșterea vânzărilor."
+        },
+        "causes": {
+          "advertising-spend-too-high": {
+            "label": "Reclama costă mai mult decât aduce",
+            "feedback": "Se potrivește - a cheltui mai mult ca să menții aceeași creștere consumă din profit."
+          },
+          "waste-in-production": {
+            "label": "Poate se irosesc niște materiale",
+            "feedback": "Merită verificat, deși indiciile arată mai clar spre creșterea costurilor de reclamă și de producție."
+          },
+          "discounts-too-generous": {
+            "label": "Poate reducerile au fost prea generoase",
+            "feedback": "Posibil - reducerile pot micșora profitul pe tăcute chiar și atunci când vânzările par bune."
+          }
+        },
+        "responses": {
+          "review-advertising-spend": {
+            "label": "Verifică dacă reclama merită costul ei",
+            "consequence": "Reduci ce nu funcționează, iar costurile scad fără să pierzi multe vânzări."
+          },
+          "reduce-waste": {
+            "label": "Caută modalități de a reduce risipa din producție",
+            "consequence": "E nevoie de puțin efort ca să găsești sursa, dar acum fiecare produs costă puțin mai puțin de făcut."
+          },
+          "adjust-discounts": {
+            "label": "Oferă reduceri mai mici",
+            "consequence": "Rămâi cu mai mult din fiecare vânzare, deși câțiva clienți care căutau reduceri cumpără mai puțin."
+          }
+        }
+      },
+      "profit-but-no-cash": {
+        "title": "Profit, Dar Fără Numerar",
+        "situation": "Cifrele tale arată profit - dar nu ai suficienți bani disponibili chiar acum ca să plătești ce ai nevoie.",
+        "responsePrompt": "Ce vei face?",
+        "clues": {
+          "unpaidInvoices": "Unii clienți încă nu te-au plătit pentru comenzile recente.",
+          "cashOnHand": "Banii pe care îi ai de fapt disponibili sunt mult mai puțini decât cifra profitului tău.",
+          "upcomingBills": "Ai o factură de la furnizor care trebuie plătită foarte curând."
+        },
+        "causes": {
+          "customers-pay-late": {
+            "label": "Clienții te plătesc mai târziu decât te așteptai",
+            "feedback": "Asta se potrivește cu facturile neplătite."
+          },
+          "spent-too-much-on-equipment": {
+            "label": "Ai cheltuit mult pe echipamente recent",
+            "feedback": "Posibil, dar indiciile arată mai degrabă spre bani care ți se datorează, nu spre bani cheltuiți de tine."
+          },
+          "stock-tied-up-money": {
+            "label": "Banii sunt blocați în stocul nevândut",
+            "feedback": "Și asta e o posibilitate reală - stocul este bani care încă nu s-au transformat în numerar."
+          }
+        },
+        "responses": {
+          "ask-for-faster-payment": {
+            "label": "Cere clienților să plătească mai repede",
+            "consequence": "Unii clienți plătesc mai repede odată ce li se cere, aducând numerarul care ți se datora."
+          },
+          "use-savings": {
+            "label": "Folosește banii puși deoparte",
+            "consequence": "Acoperă diferența pentru moment, deși rezerva ta rămâne mai mică după aceea."
+          },
+          "delay-a-purchase": {
+            "label": "Amână o achiziție pe care o plănuiai",
+            "consequence": "Asta eliberează niște numerar acum, deși ai putea pierde oportunitatea pentru care era."
+          }
+        }
+      },
+      "too-much-stock": {
+        "title": "Prea Mult Stoc Nevândut",
+        "situation": "Ai făcut mai multe produse decât ai reușit să vinzi, iar acestea ocupă spațiu.",
+        "responsePrompt": "Ce vei face?",
+        "clues": {
+          "stockRoomPhoto": "Spațiul tău de depozitare este mai plin ca oricând.",
+          "unsoldItemsList": "Unele produse stau nevândute de săptămâni întregi.",
+          "seasonalTrend": "Cererea pentru acest tip de produs este de obicei mai mică în această perioadă a anului."
+        },
+        "causes": {
+          "over-ordered": {
+            "label": "Ai făcut sau ai comandat mai mult decât aveai nevoie",
+            "feedback": "Se potrivește cu ce arată cifrele de depozitare."
+          },
+          "demand-was-seasonal": {
+            "label": "Cererea scade în mod natural în această perioadă a anului",
+            "feedback": "Se potrivește și cu tiparul sezonier."
+          },
+          "product-less-popular-than-expected": {
+            "label": "Produsul nu a fost atât de popular pe cât te așteptai",
+            "feedback": "Posibil - merită ținut minte pentru data viitoare."
+          }
+        },
+        "responses": {
+          "run-a-clearance-sale": {
+            "label": "Vinde stocul în plus la preț redus",
+            "consequence": "Transformi stocul nevândut în numerar, chiar dacă câștigi mai puțin la fiecare produs."
+          },
+          "donate-or-repurpose": {
+            "label": "Donează sau reutilizează stocul în plus",
+            "consequence": "Nu primești bani înapoi, dar eliberezi spațiul și reputația ta primește un mic impuls."
+          },
+          "order-less-next-time": {
+            "label": "Ține minte doar să comanzi mai puțin data viitoare",
+            "consequence": "Nimic nu se schimbă acum, dar ai învățat ceva pentru următoarea comandă."
+          }
+        }
+      }
+    },
+    "run": {
+      "hubTitle": "Administrează-ți Afacerea",
+      "hubIntro": "Compania ta există acum - dar să o administrezi bine înseamnă să iei decizii reale despre prețuri, furnizori, numerar și problemele care apar pe parcurs.",
+      "lockedTitle": "Nu Ești Încă Pregătit",
+      "lockedHint": "Termină mai întâi construirea afacerii tale, apoi revino aici ca să începi să o administrezi.",
+      "pricingExperimentLink": "Experiment de Preț",
+      "supplierAndStockLink": "Furnizori și Stoc",
+      "cashFlowLink": "Flux de Numerar",
+      "problemsLink": "Probleme de Afaceri",
+      "problemsProgress": "{done} din {total} rezolvate",
+      "pricingExperiment": {
+        "intro": "Același produs poate fi prețuit diferit. Vezi ce se întâmplă cu vânzările, veniturile, costurile și profitul la trei prețuri diferite.",
+        "priceColumn": "Preț",
+        "unitsSoldColumn": "Unități Vândute",
+        "reflectionPrompt": "Uitându-te la cifre, ce preț ai alege pentru o afacere ca aceasta?",
+        "reflectionChoices": {
+          "pick-low-price": {
+            "label": "Cel mai mic preț",
+            "consequence": "Mulți oameni cumpără, dar câștigi cel mai puțin de la fiecare - vezi dacă profitul total este chiar cel mai mare."
+          },
+          "pick-middle-price": {
+            "label": "Prețul din mijloc",
+            "consequence": "Un echilibru între câți oameni cumpără și cât câștigi de la fiecare."
+          },
+          "pick-high-price": {
+            "label": "Cel mai mare preț",
+            "consequence": "Mai puțini oameni cumpără, dar câștigi mai mult din fiecare vânzare - verifică dacă asta înseamnă mai mult sau mai puțin profit în total."
+          }
+        }
+      },
+      "supplierAndStock": {
+        "intro": "Alegerea unui furnizor este un compromis - rareori există un răspuns perfect. Compară opțiunile, apoi decide.",
+        "supplierColumn": "Furnizor",
+        "priceLevelLabel": "Preț",
+        "deliverySpeedLabel": "Viteza de Livrare",
+        "minimumOrderLabel": "Comandă Minimă",
+        "qualityLabel": "Calitate",
+        "supplierPrompt": "Ce furnizor vei alege?",
+        "suppliers": {
+          "supplier-a": {
+            "label": "Furnizorul A",
+            "consequence": "Economisești bani la materiale, dar livrările durează mai mult și trebuie să comanzi mult odată."
+          },
+          "supplier-b": {
+            "label": "Furnizorul B",
+            "consequence": "Primești materialele repede și poți comanda cantități mici, dar plătești mai mult pentru asta."
+          },
+          "supplier-c": {
+            "label": "Furnizorul C",
+            "consequence": "Plătești puțin mai mult decât cea mai ieftină opțiune, dar livrarea este de încredere și calitatea este ridicată."
+          }
+        },
+        "stockPrompt": "Cât stoc vei comanda?",
+        "stockChoices": {
+          "order-a-lot": {
+            "label": "Comandă mult, ca să fii sigur",
+            "consequence": "Nu vei rămâne fără stoc, dar dacă nu se vinde tot, vei fi irosit bani pe stoc nevândut."
+          },
+          "order-just-enough": {
+            "label": "Comandă exact cât te aștepți să vinzi",
+            "consequence": "O abordare echilibrată - deși dacă cererea crește brusc, s-ar putea să rămâi fără stoc."
+          },
+          "order-a-little-and-restock": {
+            "label": "Comandă puțin și reaprovizionează-te mai târziu dacă e nevoie",
+            "consequence": "Eviți risipa, dar dacă cererea crește rapid, ai putea pierde câteva vânzări înainte să sosească reaprovizionarea."
+          }
+        }
+      },
+      "cashFlow": {
+        "intro": "Chiar și o afacere profitabilă poate avea probleme cu banii dacă numerarul nu sosește atunci când e nevoie de el.",
+        "decisionPrompt": "Ce vei face?",
+        "scenarioText": "Un client comandă produse de {orderAmount}, dar nu va plăti timp de {days} zile. Între timp, tot trebuie să plătești {upfrontCosts} pentru materiale, salarii, electricitate și transport chiar acum.",
+        "profitVsCashExplainer": "Profitul este bani pe care i-ai câștigat pe hârtie. Numerarul este bani pe care chiar îi poți cheltui azi - și nu sunt mereu același lucru.",
+        "choices": {
+          "wait-for-payment": {
+            "label": "Așteaptă să sosească plata",
+            "consequence": "Nu cheltuiești nimic în plus, dar vei avea foarte puțin numerar disponibil până sosește plata."
+          },
+          "use-savings-to-cover-costs": {
+            "label": "Folosește banii economisiți ca să acoperi costurile acum",
+            "consequence": "Facturile tale sunt plătite la timp, deși economiile tale sunt mai mici până sosește plata."
+          },
+          "ask-for-partial-payment-upfront": {
+            "label": "Cere clientului să plătească o parte în avans",
+            "consequence": "Primești puțin numerar imediat, ceea ce ajută la acoperirea costurilor cât timp aștepți restul."
+          }
+        }
+      }
+    },
+    "aiLab": {
+      "hubTitle": "Laboratorul AI pentru Afaceri",
+      "hubLink": "Laboratorul AI pentru Afaceri",
+      "simulatedAiLabel": "Asistent AI Simulat (nu este AI real)",
+      "askAi": {
+        "title": "Cu Ce Poate Ajuta AI-ul?",
+        "intro": "Instrumentele AI pot ajuta un proprietar de afacere să gândească - dar nu iau decizii în locul tău. Atinge o întrebare ca să vezi cum ar putea răspunde un asistent AI.",
+        "questions": {
+          "brainstorm-ideas": {
+            "question": "Mă poți ajuta să găsesc idei de afaceri?",
+            "answer": "Iată câteva direcții la care să te gândești: rezolvarea unei probleme pe care o observi des, îmbunătățirea a ceva ce oamenii deja folosesc sau combinarea a două lucruri care îți plac. Care dintre acestea ți se potrivește cel mai bine?"
+          },
+          "customer-research-questions": {
+            "question": "Ce întrebări ar trebui să le pun clienților mei?",
+            "answer": "Încearcă să întrebi: Ce problemă speri că rezolvă asta? Ce te-ar face să alegi asta în locul altceva? Care e singurul lucru care te-ar face să cumperi din nou?"
+          },
+          "marketing-ideas": {
+            "question": "Cum pot spune mai multor oameni despre afacerea mea?",
+            "answer": "Câteva idei: roagă clienții mulțumiți să spună unui prieten, fă un afiș simplu și clar sau oferă o mică ofertă specială clienților noi."
+          },
+          "analyse-feedback": {
+            "question": "Cum înțeleg părerile clienților?",
+            "answer": "Încearcă să grupezi comentariile pe teme - preț, calitate, viteză, prietenie - apoi vezi ce temă apare cel mai des. De obicei, aceea merită rezolvată prima."
+          },
+          "compare-options": {
+            "question": "Cum compar doi furnizori?",
+            "answer": "Fă o listă cu ce contează cel mai mult pentru tine - preț, viteză, calitate, încredere - apoi compară fiecare furnizor cu aceeași listă, unul lângă altul."
+          }
+        }
+      },
+      "promptQuality": {
+        "title": "Cum Să Pui Întrebări Bune",
+        "intro": "Felul în care pui o întrebare unui asistent AI schimbă cât de utilă poate fi răspunsul lui.",
+        "question": "Care dintre acestea este cea mai utilă întrebare pe care i-o poți pune unui asistent AI?",
+        "options": {
+          "poor": "Ajută-mi afacerea.",
+          "better": "Vânzările brutăriei mele au scăzut de la 80 de comenzi la 50 de comenzi pe săptămână. Dă-mi motive posibile pe care ar trebui să le investighez.",
+          "best": "Iată cifrele mele de vânzări, prețurile și părerile clienților. Ce tipare ar trebui să investighez și ce ar trebui să verific înainte să decid ceva?"
+        }
+      },
+      "wrongAnswer": {
+        "title": "AI-ul Poate Greși",
+        "intro": "Un asistent AI poate suna încrezător și totuși să greșească. Merită mereu să-i verifici răspunsul cu informațiile tale reale.",
+        "aiSuggestion": "Pe baza tendințelor generale, vânzările tale probabil scad pentru că prețul tău este prea mare. Ar trebui să-l scazi.",
+        "realData": "Dar propriile tale date de vânzări arată de fapt altceva: prețul tău nu s-a schimbat de luni de zile, iar vânzările au început să scadă abia după ce a apărut un competitor nou în apropiere.",
+        "choices": {
+          "trust-the-ai": {
+            "label": "Ai încredere în sugestia AI-ului și scade prețul",
+            "consequence": "Ai putea scădea prețul din motivul greșit - cauza reală pare a fi noul competitor, nu prețul tău."
+          },
+          "check-the-data-first": {
+            "label": "Verifică-ți propriile date înainte să decizi",
+            "consequence": "Instinct bun - datele tale arată o altă cauză decât cea sugerată de AI, deci verificarea întâi te ajută să eviți soluția greșită."
+          },
+          "ask-ai-to-explain": {
+            "label": "Cere-i AI-ului să explice de ce crede asta",
+            "consequence": "Cerându-i motivul poate dezvălui că nu s-a uitat de fapt atent la datele tale - un obicei util înainte să ai încredere în orice sugestie."
+          }
+        }
+      },
+      "privacy": {
+        "title": "AI și Confidențialitatea",
+        "intro": "Nu împărtăși niciodată informații personale reale - numele, adresa, numărul de telefon sau detalii private despre clienți - cu niciun instrument AI.",
+        "quizQuestion": "Care dintre acestea este sigur să-i spui unui asistent AI despre afacerea ta?",
+        "quizOptions": {
+          "product-name": "Numele produsului tău",
+          "real-address": "Adresa ta de acasă",
+          "customer-phone-number": "Numărul de telefon al unui client"
+        }
+      }
+    },
+    "rescueGrow": {
+      "hubTitle": "Salvează și Dezvoltă",
+      "hubIntro": "Afacerile reale trec prin momente grele și decizii mari. Exersează diagnosticarea problemelor, decizia de a schimba direcția și alegerea cum - sau dacă - să te dezvolți.",
+      "hubLink": "Salvează și Dezvoltă",
+      "lockedTitle": "Nu Ești Încă Pregătit",
+      "lockedHint": "Încearcă mai întâi cel puțin o Problemă de Afaceri din Administrează-ți Afacerea, apoi revino aici.",
+      "pivotLink": "Schimbare de Direcție",
+      "growLink": "Dezvoltă-te sau Rămâi Mic",
+      "ethicsLink": "Etica în Afaceri",
+      "businessRescueLink": "Salvarea Afacerii",
+      "reviewLink": "Analiza Afacerii",
+      "pivot": {
+        "intro": "Uneori o afacere trebuie să-și schimbe direcția ca să reușească. Nu există un singur răspuns corect aici - doar compromisuri.",
+        "situation": "{businessName} nu se dezvoltă așa cum sperai. Ce vei face?",
+        "choices": {
+          "keep-model": {
+            "label": "Păstrează totul la fel deocamdată",
+            "consequence": "Nimic nu se schimbă imediat - uneori asta e decizia corectă, iar alteori o afacere are nevoie de mai mult timp înainte să decidă să se schimbe."
+          },
+          "change-customer": {
+            "label": "Încearcă să ajungi la un alt grup de clienți",
+            "consequence": "Afacerea ta se concentrează acum pe un grup nou de clienți - un nou început real, care vine cu propriile necunoscute."
+          },
+          "change-product": {
+            "label": "Schimbă ce vinzi de fapt",
+            "consequence": "Afacerea ta oferă acum ceva diferit - o schimbare adevărată de direcție, cu lucruri noi de învățat despre ce funcționează."
+          },
+          "stop-idea": {
+            "label": "Decide să oprești această idee",
+            "consequence": "Nu orice idee trebuie să continue pentru totdeauna - a recunoaște când să te oprești este și ea o abilitate reală în afaceri."
+          }
+        }
+      },
+      "grow": {
+        "intro": "Dezvoltarea unei afaceri crește ce ai putea câștiga - dar și ce ai putea risca. Să rămâi mic este de asemenea o alegere cu adevărat valabilă.",
+        "situation": "Afacerea ta merge bine. Vrei să o dezvolți sau să o păstrezi așa cum e?",
+        "choices": {
+          "stay-small": {
+            "label": "Păstrează afacerea la aceeași dimensiune",
+            "consequence": "Nimic nu se schimbă - o alegere stabilă, cu risc mai mic, care este deseori la fel de înțeleaptă ca dezvoltarea."
+          },
+          "hire-help": {
+            "label": "Găsește pe cineva care să te ajute",
+            "consequence": "Poți produce și vinde mai mult, dar a plăti pentru ajutor costă bani în avans."
+          },
+          "buy-equipment": {
+            "label": "Cumpără echipament mai bun",
+            "consequence": "Produsele tale se îmbunătățesc și poți produce mai mult, deși echipamentul în sine costă bani acum."
+          },
+          "expand-to-new-market": {
+            "label": "Încearcă să vinzi unui grup mai mare de clienți",
+            "consequence": "Ai putea ajunge la mult mai mulți oameni, dar dacă te întinzi prea mult poți acorda mai puțină atenție personală fiecărui client."
+          }
+        }
+      },
+      "ethics": {
+        "scenarios": {
+          "misleading-ad": {
+            "situation": "Ai putea descrie produsul tău într-un fel care sună mai bine decât este de fapt.",
+            "choices": {
+              "honest-ad": {
+                "label": "Descrie-l cinstit, chiar dacă sună mai puțin interesant",
+                "consequence": "Clienții primesc exact ce se așteptau - o încredere de genul acesta tinde să dureze."
+              },
+              "slightly-exaggerate": {
+                "label": "Exagerează puțin ca să sune mai bine",
+                "consequence": "Câțiva oameni în plus cumpără la început, dar unii s-ar putea simți dezamăgiți când nu se potrivește chiar."
+              },
+              "mislead-customers": {
+                "label": "Descrie-l într-un fel despre care știi că nu e chiar adevărat",
+                "consequence": "Ai putea vinde mai mult imediat, dar clienții care se simt induși în eroare de multe ori nu se mai întorc - sau povestesc altora."
+              }
+            }
+          },
+          "hiding-a-problem": {
+            "situation": "Ai observat o mică problemă la produsul tău după ce ai vândut deja mai multe.",
+            "choices": {
+              "tell-customers": {
+                "label": "Spune-le clienților care l-au cumpărat despre problemă",
+                "consequence": "E incomod să recunoști, dar clienții apreciază de obicei sinceritatea mai mult decât îi deranjează problema în sine."
+              },
+              "fix-quietly": {
+                "label": "Repar-o discret pentru viitorii clienți",
+                "consequence": "Viitorii clienți primesc un produs mai bun, deși cei care au cumpărat deja nu află niciodată."
+              },
+              "hide-it": {
+                "label": "Nu spune nimic și speră că nimeni nu observă",
+                "consequence": "Dacă e observată mai târziu, clienții ar putea simți că le-a fost ascunsă intenționat - ceea ce poate costa mai multă încredere decât problema inițială."
+              }
+            }
+          },
+          "cheap-questionable-supplier": {
+            "situation": "Există un furnizor mult mai ieftin, dar ai auzit că își tratează angajații prost.",
+            "choices": {
+              "choose-ethical-supplier": {
+                "label": "Alege un furnizor despre care știi că tratează oamenii corect",
+                "consequence": "Plătești puțin mai mult, dar te poți simți bine cu privire la felul în care e făcut produsul tău."
+              },
+              "choose-cheap-supplier": {
+                "label": "Alege oricum furnizorul mai ieftin",
+                "consequence": "Economisești bani, dar dacă clienții află vreodată, ar putea afecta serios felul în care văd afacerea ta."
+              },
+              "ask-questions-first": {
+                "label": "Pune mai multe întrebări înainte să decizi",
+                "consequence": "Instinct bun - a afla mai multe înainte să decizi te ajută să faci o alegere cu care te simți confortabil."
+              }
+            }
+          }
+        }
+      },
+      "businessRescue": {
+        "introStory": "Bine ai venit la Ferma de Păstrăv. Această mică afacere cu pește funcționează de ceva vreme, dar pierde bani și are nevoie de ajutorul tău. Iată cum stau lucrurile chiar acum:",
+        "startButton": "Începe Salvarea",
+        "outcomes": {
+          "improved": {
+            "title": "Afacerea S-a Îmbunătățit!",
+            "text": "Alegerile tale au ajutat la întoarcerea situației - veniturile au crescut, costurile au fost ținute sub control, iar clienții sunt mai mulțumiți ca înainte."
+          },
+          "stabilised": {
+            "title": "Afacerea S-a Stabilizat",
+            "text": "Lucrurile nu sunt perfecte, dar afacerea este într-o poziție mai stabilă decât atunci când ai început - un pas solid în direcția corectă."
+          },
+          "needs-pivot": {
+            "title": "Această Afacere Ar Putea Avea Nevoie de o Schimbare Mai Mare",
+            "text": "Alegerile tale au ajutat puțin, dar încrederea a scăzut mai mult decât se spera - uneori o afacere are nevoie de o schimbare mai mare de direcție, nu doar de mici ajustări."
+          },
+          "still-struggling": {
+            "title": "Încă Se Luptă",
+            "text": "Afacerea nu și-a revenit încă - și acesta este de asemenea un rezultat realist. Afacerile reale nu-și revin întotdeauna repede, chiar și cu decizii bune."
+          }
+        }
+      },
+      "review": {
+        "intro": "Oprește-te o clipă să te uiți înapoi la afacerea ta și să te gândești la ce ai învățat.",
+        "whatWorkedLabel": "Ce a mers bine?",
+        "whatWorkedPlaceholder": "De exemplu: Clienților le-a plăcut ideea mea de marketing.",
+        "whatDidntWorkLabel": "Ce nu a mers?",
+        "whatDidntWorkPlaceholder": "De exemplu: Prețul meu ar fi putut fi prea mare la început.",
+        "whatWouldChangeLabel": "Ce ai schimba data viitoare?",
+        "whatWouldChangePlaceholder": "De exemplu: Mi-aș testa ideea înainte să cheltuiesc toți banii."
+      }
+    }
+  },
+  "leadershipQuest": {
+    "hubTitle": "Misiunea de Lider",
+    "hubTagline": "Condu o echipă prin provocări reale — o alegere pe rând.",
+    "hubIntro": "Ești pe cale să devii liderul unei echipe mici. Ei au nevoie ca tu să asculți, să decizi și să-i ajuți să treacă peste orice apare în cale.",
+    "introStory": "Cunoaște-ți echipa, pornește în prima ta misiune și descoperă ce fel de lider devii — o alegere pe rând.",
+    "missionProgress": "Misiunea {current} din {total}",
+    "labLink": "Laboratorul de Leadership",
+    "labTitle": "Laboratorul de Leadership",
+    "labIntro": "Situații scurte în care poți exersa leadershipul, oricând ai chef.",
+    "profileLink": "Profilul Tău de Lider",
+    "profileLinkLockedHint": "Profilul Tău de Lider (termină mai întâi Provocarea Finală)",
+    "badgesEarnedTitle": "Insigne Câștigate",
+    "noBadgesYetHint": "Finalizează misiuni ca să începi să câștigi insigne.",
+    "entrepreneurQuestLinkTitle": "Ai construit o afacere. Acum ai o echipă.",
+    "entrepreneurQuestLinkText": "Abilitățile de leadership te pot ajuta atunci când afacerea ta crește și începi să lucrezi cu alți oameni.",
+    "resetConfirm": "Ești sigur că vrei să resetezi progresul din Misiunea de Lider? Această acțiune nu poate fi anulată.",
+    "resetButton": "Resetează Misiunea de Lider",
+    "continueButton": "Continuă",
+    "finishMissionButton": "Termină Misiunea",
+    "missionCompleteBadge": "Misiune finalizată",
+    "continueToNextMissionButton": "Continuă la Următoarea Misiune",
+    "backToTeamHub": "Înapoi la Echipa Ta",
+    "teamStatus": {
+      "title": "Starea Echipei",
+      "trust": "Încredere",
+      "morale": "Moral",
+      "progress": "Progres",
+      "energy": "Energie"
+    },
+    "characters": {
+      "nadia": {
+        "name": "Nadia",
+        "personality": "Plină de idei și mereu gândindu-se cu trei pași înainte.",
+        "strength": "Vine cu idei creative la care nimeni altcineva nu s-a gândit.",
+        "challenge": "Se entuziasmează atât de tare din cauza ideilor, încât uneori vorbește peste ceilalți.",
+        "interest": "Desenează benzi desenate și inventează mici dispozitive.",
+        "communicationStyle": "Rapidă, entuziastă și plină de \"ce-ar fi dacă am încerca...\""
+      },
+      "oren": {
+        "name": "Oren",
+        "personality": "Atent și precis — observă detalii pe care ceilalți le ratează.",
+        "strength": "Excelent la construit și reparat lucruri, cum trebuie.",
+        "challenge": "Are adesea idei grozave, dar nu vorbește într-un grup mare.",
+        "interest": "Demontează lucruri ca să vadă cum funcționează și rezolvă puzzle-uri.",
+        "communicationStyle": "Tăcut în grup, dar se deschide dacă îl întrebi direct."
+      },
+      "priya": {
+        "name": "Priya",
+        "personality": "Caldă, expresivă și foarte bună la a vorbi cu oricine.",
+        "strength": "Poate explica lucrurile clar și îi face pe oameni să se simtă confortabil.",
+        "challenge": "Se entuziasmează pentru următoarea idee înainte să o termine pe ultima.",
+        "interest": "Îi place să joace roluri, să spună povești și să cunoască oameni noi.",
+        "communicationStyle": "Vorbește mult, cu energie — uneori are nevoie de o amintire blândă să încheie."
+      },
+      "theo": {
+        "name": "Theo",
+        "personality": "Calm, organizat și ține mereu evidența planului.",
+        "strength": "Menține echipa în grafic și își amintește fiecare detaliu.",
+        "challenge": "Găsește schimbările bruște de plan stresante.",
+        "interest": "Face liste, programe și merge la plimbări lungi.",
+        "communicationStyle": "Calm și precis — preferă să fie anunțat înainte ca lucrurile să se schimbe."
+      }
+    },
+    "missions": {
+      "meet-your-team": {
+        "title": "Cunoaște-ți Echipa",
+        "alertText": "",
+        "dialogue": [
+          {
+            "character": "nadia",
+            "text": "Bună! Sunt FOARTE bucuroasă că ești aici — am deja vreo zece idei pentru primul nostru proiect!"
+          },
+          {
+            "character": "oren",
+            "text": "...Bună. Eu sunt Oren. Vreau mai ales să începem odată."
+          },
+          {
+            "character": "priya",
+            "text": "Bine ai venit! Sincer, cred că echipa asta va fi grozavă cu tine în frunte."
+          },
+          {
+            "character": "theo",
+            "text": "Bună ziua. Am făcut un mic program pentru azi, dacă e de folos."
+          }
+        ],
+        "tasks": {
+          "come-up-with-ideas": "Vino cu idei pentru proiectul nostru",
+          "fix-something-broken": "Repară ceva ce nu funcționează cum trebuie",
+          "talk-to-a-visitor": "Vorbește cu un vizitator și explică-i ce facem",
+          "keep-track-of-the-plan": "Ține evidența planului și a programului"
+        },
+        "outro": "Acum știi puțin despre fiecare coechipier — și cine e bun la ce.",
+        "events": {
+          "meet-your-team-reflection": {
+            "situation": "Prima ta zi în care conduci această echipă a început bine. Cum te simți în legătură cu asta?",
+            "choices": [
+              {
+                "key": "excited",
+                "label": "Entuziasmat — hai să începem!",
+                "consequence": "Energia ta se transmite puțin și echipei."
+              },
+              {
+                "key": "nervous-but-ready",
+                "label": "Puțin emoționat, dar pregătit.",
+                "consequence": "E sincer — și complet normal pentru un lider nou."
+              },
+              {
+                "key": "not-sure-yet",
+                "label": "Nu sunt sigur încă — o să-mi dau seama pe parcurs.",
+                "consequence": "E un mod cinstit de a începe. Vei învăța multe de la echipa ta."
+              }
+            ]
+          }
+        }
+      },
+      "first-challenge": {
+        "title": "Prima Provocare",
+        "alertText": "Echipa ta are primul ei proiect adevărat — și trebuie dus la capăt.",
+        "dialogue": [
+          {
+            "character": "theo",
+            "text": "Bine, avem un proiect. Cineva trebuie să facă fiecare parte."
+          },
+          {
+            "character": "nadia",
+            "text": "Am deja idei pentru poster!"
+          },
+          {
+            "character": "priya",
+            "text": "Aș putea vorbi cu oamenii care vin la standul nostru."
+          }
+        ],
+        "tasks": {
+          "design-the-poster": "Proiectează posterul",
+          "build-the-display": "Construiește standul de prezentare",
+          "explain-it-to-visitors": "Explică-l vizitatorilor",
+          "make-the-plan": "Fă planul și ține pe toată lumea în grafic"
+        },
+        "outro": "Pentru că ai potrivit fiecare sarcină cu persoana care se pricepe cu adevărat la ea, proiectul prinde contur fără probleme."
+      },
+      "everyone-has-an-idea": {
+        "title": "Fiecare Are o Idee",
+        "alertText": "🚨 Doi coechipieri nu se pot înțelege — și amândoi vor ca tu să decizi.",
+        "dialogue": [
+          {
+            "character": "nadia",
+            "text": "Ideea mea e mult mai interesantă — ar trebui să facem cum zic eu!"
+          },
+          {
+            "character": "oren",
+            "text": "...A mea ar fi de fapt mai ușor de dus la capăt, cum trebuie."
+          }
+        ],
+        "events": {
+          "everyone-has-an-idea-choice": {
+            "situation": "Nadia și Oren țin amândoi foarte mult la propria idee. Așteaptă să decizi tu.",
+            "choices": [
+              {
+                "key": "pick-one-idea",
+                "label": "Mergi cu ideea Nadiei — e cea mai interesantă.",
+                "consequence": "Nadia e încântată. Oren tace și nu mai spune mare lucru tot restul zilei."
+              },
+              {
+                "key": "combine-both-ideas",
+                "label": "Găsește un mod de a combina ambele idei.",
+                "consequence": "Durează un pic mai mult să rezolvi, dar amândoi se simt ascultați."
+              },
+              {
+                "key": "let-them-decide-together",
+                "label": "Roagă-i pe Nadia și Oren să discute între ei.",
+                "consequence": "Discută singuri — și vin cu un plan care le place cu adevărat amândurora."
+              },
+              {
+                "key": "go-with-your-own-idea",
+                "label": "Sugerează o idee complet diferită, a ta.",
+                "consequence": "Rezolvă neînțelegerea, dar niciunul din ei nu simte că ideea lui a contat."
+              }
+            ]
+          }
+        }
+      },
+      "missing-task": {
+        "title": "Sarcina Lipsă",
+        "alertText": "🚨 O sarcină tot nu e gata — și termenul limită se apropie.",
+        "dialogue": [
+          {
+            "character": "theo",
+            "text": "Ar trebui să fim gata până mâine. Partea lui Oren nu e terminată încă."
+          },
+          {
+            "character": "priya",
+            "text": "Poate că a apărut ceva? Nu sunt sigură."
+          }
+        ],
+        "investigateLabel": "Află ce se întâmplă înainte să decizi.",
+        "investigate": {
+          "ask-the-teammate": "Îl întrebi pe Oren direct. Spune că nu era sigur cum să înceapă și nu a vrut să recunoască.",
+          "check-the-shared-plan": "Verifici planul comun. Partea lui Oren nu i-a fost niciodată explicată clar.",
+          "ask-another-teammate": "Priya menționează că Oren părea confuz mai devreme în săptămână, dar nu a spus nimic."
+        },
+        "events": {
+          "missing-task-choice": {
+            "situation": "Acum știi un pic mai mult despre ce s-a întâmplat. Ce faci?",
+            "choices": [
+              {
+                "key": "ask-what-happened",
+                "label": "Vorbește cu Oren și ajută-l să-și dea seama de ce e nevoie.",
+                "consequence": "Oren termină sarcina cu ajutorul tău și se simte mai confortabil să întrebe data viitoare."
+              },
+              {
+                "key": "do-it-yourself-quietly",
+                "label": "Termină sarcina tu însuți, pe tăcute.",
+                "consequence": "Sarcina se termină repede, dar Oren nu află niciodată ce a ratat — și nici nu are ocazia să repare."
+              },
+              {
+                "key": "remind-them-firmly",
+                "label": "Amintește-i ferm lui Oren că termenul limită e mâine.",
+                "consequence": "Sarcina începe să avanseze, dar Oren tot nu e sigur ce a greșit prima dată."
+              },
+              {
+                "key": "wait-and-see",
+                "label": "Așteaptă și vezi dacă se termină de la sine.",
+                "consequence": "Termenul limită se apropie, și nimic nu se schimbă."
+              }
+            ]
+          }
+        }
+      },
+      "big-mistake": {
+        "title": "Greșeala Mare",
+        "alertText": "🚨 Ceva a mers prost — și e ceva serios.",
+        "dialogue": [
+          {
+            "character": "priya",
+            "text": "Eu... cred că am trimis clientului varianta greșită. Cea cu toate greșelile în ea."
+          },
+          {
+            "character": "oren",
+            "text": "Toată lumea se uită la tine."
+          }
+        ],
+        "events": {
+          "big-mistake-choice": {
+            "situation": "Priya a făcut o greșeală serioasă, și toată lumea se uită să vadă ce vei face.",
+            "choices": [
+              {
+                "key": "blame-publicly",
+                "label": "Arată greșeala în fața tuturor.",
+                "consequence": "Echipa o repară rapid — dar Priya pare stânjenită și pare emoționată să mai vorbească din nou."
+              },
+              {
+                "key": "fix-it-yourself",
+                "label": "Repar-o tu însuți, pe tăcute, și mergi mai departe.",
+                "consequence": "Se rezolvă repede, dar Priya nu are niciodată ocazia să înțeleagă ce a mers prost."
+              },
+              {
+                "key": "talk-privately",
+                "label": "Vorbește cu Priya între patru ochi și află ce s-a întâmplat.",
+                "consequence": "Durează un pic mai mult, dar Priya se simte sprijinită — și e mai atentă data viitoare."
+              },
+              {
+                "key": "ignore-it",
+                "label": "Decide că nu e mare lucru și ignoră situația.",
+                "consequence": "Greșeala rămâne necorectată, iar clientul observă."
+              }
+            ]
+          }
+        }
+      },
+      "angry-customer": {
+        "title": "Clientul Supărat",
+        "alertText": "🚨 Un client e supărat din cauza a ceva ce a făcut echipa ta.",
+        "dialogue": [
+          {
+            "character": "theo",
+            "text": "E un client la telefon. Nu pare deloc mulțumit."
+          }
+        ],
+        "events": {
+          "angry-customer-choice": {
+            "situation": "Clientul spune că munca echipei tale nu e ceea ce a cerut.",
+            "choices": [
+              {
+                "key": "listen-first",
+                "label": "Ascultă cu atenție ce a mers prost înainte să răspunzi.",
+                "consequence": "Clientul se simte ascultat, iar tu îți faci o idee mai clară despre ce s-a întâmplat de fapt."
+              },
+              {
+                "key": "apologise-and-fix-it",
+                "label": "Cere-ți scuze și oferă-te să repari imediat.",
+                "consequence": "Clientul se simte ușurat, iar problema se rezolvă repede."
+              },
+              {
+                "key": "explain-why-you-were-right",
+                "label": "Explică de ce alegerea echipei tale a fost de fapt cea corectă.",
+                "consequence": "Clientul nu se simte deloc mai bine și tot nu e sigur că ai înțeles problema."
+              },
+              {
+                "key": "let-a-teammate-handle-it",
+                "label": "Las-o pe Priya, care se pricepe la oameni, să preia apelul.",
+                "consequence": "Priya îl liniștește pe client, iar echipa vede că ai încredere în ei și în momentele grele."
+              }
+            ]
+          }
+        }
+      },
+      "better-idea": {
+        "title": "Ideea Mai Bună",
+        "alertText": "🚨 Cineva tocmai a sugerat o idee mai bună decât a ta.",
+        "dialogue": [
+          {
+            "character": "nadia",
+            "text": "De fapt... ce-ar fi să facem în cu totul alt fel? Cred că ar putea merge mai bine."
+          }
+        ],
+        "events": {
+          "better-idea-choice": {
+            "situation": "Ideea Nadiei e chiar mai bună decât cea pe care o plănuiseși inițial.",
+            "choices": [
+              {
+                "key": "use-their-idea",
+                "label": "Mergi cu ideea Nadiei în loc de a ta.",
+                "consequence": "Proiectul devine mai puternic, iar Nadia se simte cu adevărat apreciată."
+              },
+              {
+                "key": "combine-ideas",
+                "label": "Combină cele mai bune părți din ambele idei.",
+                "consequence": "E nevoie de puțin mai multă muncă, dar rezultatul e și mai bun."
+              },
+              {
+                "key": "stick-with-your-idea",
+                "label": "Rămâi la planul tău inițial.",
+                "consequence": "Proiectul merge înainte conform planului, dar Nadia se întreabă dacă ideile ei chiar sunt binevenite."
+              },
+              {
+                "key": "ask-the-team-to-vote",
+                "label": "Întreabă toată echipa care idee o preferă.",
+                "consequence": "Echipa se simte implicată în decizie, indiferent care idee câștigă."
+              }
+            ]
+          }
+        }
+      },
+      "team-conflict": {
+        "title": "Conflictul din Echipă",
+        "alertText": "🚨 Doi coechipieri se ceartă, iar asta încetinește pe toată lumea.",
+        "dialogue": [
+          {
+            "character": "priya",
+            "text": "Nu mă asculți niciodată!"
+          },
+          {
+            "character": "theo",
+            "text": "Nu e corect — cred doar că vedem lucrurile diferit."
+          }
+        ],
+        "spotScenario": "Citește ce își spun Priya și Theo. Care părți înrăutățesc lucrurile, nu le îmbunătățesc?",
+        "outro": "Ai observat ce înrăutățește lucrurile. Acum e timpul să intervii.",
+        "events": {
+          "team-conflict-choice": {
+            "situation": "Priya și Theo tot nu se înțeleg. Ce faci?",
+            "choices": [
+              {
+                "key": "hear-both-sides",
+                "label": "Roagă-i pe fiecare să-și explice punctul de vedere, pe rând.",
+                "consequence": "Amândoi se simt ascultați și încep să înțeleagă punctul de vedere al celuilalt."
+              },
+              {
+                "key": "pick-a-side",
+                "label": "Decide cine are dreptate și spune-i celuilalt să lase baltă.",
+                "consequence": "Cearta se oprește, dar cel care a \"pierdut\" se simte tratat nedrept."
+              },
+              {
+                "key": "find-common-ground",
+                "label": "Ajută-i să găsească un compromis cu care amândoi să fie de acord.",
+                "consequence": "E nevoie de puțină răbdare, dar ies din discuție în relații bune."
+              },
+              {
+                "key": "tell-them-to-stop-and-move-on",
+                "label": "Spune-le să nu se mai certe și să revină la treabă.",
+                "consequence": "Munca continuă, dar neînțelegerea reală nu se rezolvă niciodată."
+              }
+            ]
+          }
+        }
+      },
+      "motivation-problem": {
+        "title": "Problema de Motivație",
+        "alertText": "🚨 Echipa ta pierde energie, iar tu nu ești sigur de ce.",
+        "dialogue": [
+          {
+            "character": "oren",
+            "text": "Nu știu... pur și simplu nu am chef să fac asta azi."
+          }
+        ],
+        "spotScenario": "Gândește-te la ce s-a întâmplat de fapt cu echipa ta săptămâna asta. Ce se întâmplă cu adevărat?",
+        "outro": "Acum ai o idee mai clară despre ce se întâmplă cu adevărat.",
+        "events": {
+          "motivation-problem-choice": {
+            "situation": "Ți-ai dat seama ce afectează de fapt echipa. Ce faci în continuare?",
+            "choices": [
+              {
+                "key": "explain-the-goal-again",
+                "label": "Explică din nou obiectivul, clar, întregii echipe.",
+                "consequence": "Lucrurile devin clare pentru câțiva coechipieri care nu erau siguri către ce lucrau."
+              },
+              {
+                "key": "check-in-with-each-person",
+                "label": "Vorbește cu fiecare persoană, individual.",
+                "consequence": "Câțiva coechipieri se deschid și spun că s-au simțit ignorați în ultima vreme."
+              },
+              {
+                "key": "push-through-and-keep-going",
+                "label": "Continuă înainte cu orice preț — termenul limită nu așteaptă.",
+                "consequence": "Proiectul avansează, dar energia echipei rămâne scăzută."
+              },
+              {
+                "key": "take-a-short-break",
+                "label": "Dă-i echipei o pauză scurtă înainte să continuați.",
+                "consequence": "Toată lumea se simte puțin mai bine, deși problema de fond e tot acolo."
+              }
+            ]
+          }
+        }
+      },
+      "the-deadline": {
+        "title": "Termenul Limită",
+        "alertText": "🚨 Termenul limită tocmai s-a apropiat — și nu există nicio șansă să terminați totul.",
+        "dialogue": [
+          {
+            "character": "theo",
+            "text": "Termenul limită s-a mutat mai devreme. Nu mai putem face toate cele cinci lucruri de pe listă."
+          }
+        ],
+        "tasks": {
+          "finish-the-main-feature": "Termină funcția principală",
+          "fix-the-known-problem": "Repară problema pe care o știi deja",
+          "polish-the-design": "Lustruiește designul",
+          "write-the-instructions": "Scrie instrucțiunile",
+          "extra-nice-to-have": "Adaugă un plus care ar fi frumos să existe"
+        },
+        "outro": "Ai decis ce contează cel mai mult — acum echipa trebuie să audă asta de la tine.",
+        "events": {
+          "the-deadline-choice": {
+            "situation": "Ai stabilit noile priorități. Cum împărtășești planul cu echipa?",
+            "choices": [
+              {
+                "key": "explain-the-new-plan-to-everyone",
+                "label": "Explică noul plan și de ce l-ai ales.",
+                "consequence": "Echipa înțelege raționamentul, chiar și părțile care nu îi încântă."
+              },
+              {
+                "key": "just-tell-people-what-to-drop",
+                "label": "Spune-le pur și simplu, rapid, ce să renunțe.",
+                "consequence": "Planul avansează rapid, dar câțiva coechipieri se simt puțin luați prin surprindere."
+              },
+              {
+                "key": "ask-the-team-what-to-cut",
+                "label": "Întreabă echipa ce cred ei că ar trebui renunțat.",
+                "consequence": "Durează un pic mai mult, dar toată lumea se simte parte din decizie."
+              }
+            ]
+          }
+        }
+      },
+      "pressure-test": {
+        "title": "Testul Presiunii",
+        "alertText": "🚨 Totul se întâmplă în același timp.",
+        "dialogue": [
+          {
+            "character": "priya",
+            "text": "Clientul tocmai și-a schimbat cerințele. Și Oren nu e aici azi. Și — s-a stricat și chestia aia acum?"
+          }
+        ],
+        "buckets": {
+          "deal-with-first": "Rezolvă primul",
+          "deal-with-next": "Rezolvă imediat după",
+          "can-wait": "Poate aștepta"
+        },
+        "problems": {
+          "a-teammate-is-stuck-and-blocked": "Un coechipier e blocat și nu poate continua fără ajutor",
+          "the-customer-is-waiting-for-an-answer": "Clientul așteaptă un răspuns",
+          "one-teammate-seems-upset": "Un coechipier pare supărat din cauza a tot ce se întâmplă deodată",
+          "a-small-typo-in-the-document": "Există o mică greșeală de scriere într-un document",
+          "an-idea-for-a-later-improvement": "Cineva a sugerat o idee pentru mai târziu"
+        },
+        "outro": "Ai stabilit de ce ai nevoie să te ocupi acum — și ce poate aștepta.",
+        "events": {
+          "pressure-test-reflection": {
+            "situation": "Acum că totul e rezolvat, cum faci față presiunii?",
+            "choices": [
+              {
+                "key": "stay-calm-and-work-the-list",
+                "label": "Rămâi calm și parcurge lista, un lucru pe rând.",
+                "consequence": "Echipa observă că rămâi calm, iar asta îi ajută și pe ei să rămână calmi."
+              },
+              {
+                "key": "panic-a-little-but-push-through",
+                "label": "Te simți puțin panicat, dar continui oricum.",
+                "consequence": "Reușești să treci peste, chiar dacă nu a fost cel mai calm moment al tău."
+              },
+              {
+                "key": "ask-the-team-for-help",
+                "label": "Roagă echipa să te ajute să rezolvați împreună.",
+                "consequence": "Împărțirea sarcinii face presiunea mai ușoară pentru toată lumea, inclusiv pentru tine."
+              }
+            ]
+          }
+        }
+      },
+      "final-challenge": {
+        "title": "Provocarea Finală",
+        "alertText": "🚨 Asta e marea provocare — proiectul care aduce totul la un loc.",
+        "dialogue": [
+          {
+            "character": "nadia",
+            "text": "Asta e — ultimul proiect mare! Am atât de multe idei."
+          },
+          {
+            "character": "theo",
+            "text": "Hai să facem un plan și să folosim punctele forte ale fiecăruia."
+          },
+          {
+            "character": "priya",
+            "text": "Abia aștept să le arăt oamenilor ce am construit."
+          }
+        ],
+        "tasks": {
+          "come-up-with-the-idea": "Vino cu ideea cea mare",
+          "build-the-thing": "Construiește-o",
+          "present-it-to-people": "Prezintă-o oamenilor",
+          "keep-everyone-on-track": "Ține pe toată lumea pe drumul cel bun"
+        },
+        "outro": "Cu fiecare făcând ce știe mai bine, proiectul chiar prinde contur.",
+        "events": {
+          "final-challenge-choice-1": {
+            "situationByTag": {
+              "the-listener": "Ai petrecut toată această călătorie ascultând cu atenție înainte să decizi. Pe măsură ce proiectul final prinde contur, o parte tot mai are nevoie de o decizie. Întrebi mai întâi în jur, sau decizi singur?",
+              "the-problem-solver": "Ai fost mereu rapid să găsești o soluție când ceva nu merge bine. Acum apare o mică problemă în proiectul final. Te arunci s-o rezolvi, sau verifici mai întâi cu echipa?",
+              "the-team-builder": "Ai construit încredere adevărată în această echipă. Pe măsură ce proiectul final prinde contur, o parte tot mai are nevoie de o decizie. Ai încredere că echipa se descurcă, sau verifici tu însuți?",
+              "the-calm-thinker": "Ai rămas calm prin câteva momente cu adevărat stresante. Acum, cu linia de sosire aproape, o parte din proiect tot mai are nevoie de o decizie. Ce faci?",
+              "the-encourager": "Ți-ai făcut obiceiul din a-ți încuraja echipa. Pe măsură ce proiectul final prinde contur, o parte tot mai are nevoie de o decizie. Ce faci?",
+              "the-big-picture-thinker": "Te-ai uitat adesea la imaginea de ansamblu, în loc să rămâi blocat în detalii mici. Acum, pe măsură ce proiectul final prinde contur, o parte tot mai are nevoie de o decizie. Ce faci?",
+              "none": "Pe măsură ce proiectul final prinde contur, o parte tot mai are nevoie de o decizie. Ce faci?"
+            },
+            "choices": [
+              {
+                "key": "trust-the-team-to-handle-it",
+                "label": "Ai încredere că echipa se descurcă, fără să verifici.",
+                "consequence": "Se descurcă bine — și simt că li se acordă cu adevărat încredere."
+              },
+              {
+                "key": "double-check-everything-yourself",
+                "label": "Verifică tu însuți totul de două ori înainte să iasă.",
+                "consequence": "E făcut cu grijă, dar durează mai mult, iar echipa observă că le verifici munca."
+              },
+              {
+                "key": "ask-for-a-quick-check-in",
+                "label": "Cere o verificare rapidă înainte să fie gata.",
+                "consequence": "E un echilibru bun — temeinic, fără să preiei controlul."
+              }
+            ]
+          },
+          "final-challenge-choice-2": {
+            "situation": "Proiectul e finalizat. Echipa ta a reușit. Ce faci acum?",
+            "choices": [
+              {
+                "key": "celebrate-what-the-team-achieved",
+                "label": "Sărbătoriți împreună ce a realizat echipa.",
+                "consequence": "Echipa se simte mândră — și pregătită pentru orice urmează."
+              },
+              {
+                "key": "immediately-plan-the-next-project",
+                "label": "Începe să plănuiești imediat următorul proiect.",
+                "consequence": "Echipa e impresionată de ambiția ta, chiar dacă ar fi vrut mai întâi un moment de sărbătoare."
+              },
+              {
+                "key": "thank-each-person-individually",
+                "label": "Mulțumește fiecărei persoane, individual, pentru ce a adus la proiect.",
+                "consequence": "Fiecare coechipier se simte cu adevărat văzut pentru contribuția proprie."
+              }
+            ]
+          }
+        }
+      }
+    },
+    "spotItems": {
+      "teamConflict": {
+        "you-never-listen-to-me": "\"Nu mă asculți niciodată!\"",
+        "i-think-we-see-it-differently": "\"Cred că doar vedem lucrurile diferit.\"",
+        "youre-doing-this-on-purpose": "\"Faci asta intenționat, nu-i așa?\"",
+        "can-we-slow-down-for-a-second": "\"Putem încetini puțin?\"",
+        "fine-whatever-you-want": "\"Bine. Cum vrei tu.\""
+      },
+      "motivationProblem": {
+        "unclear-goal": "Nimeni nu e cu adevărat sigur cum arată obiectivul final.",
+        "too-much-work": "Se adună multe sarcini chiar acum.",
+        "boredom": "Munca s-a simțit la fel de ceva vreme.",
+        "feeling-ignored": "Ideile câtorva coechipieri nu au mai fost menționate de ceva vreme.",
+        "lack-of-progress": "Nu pare că proiectul a avansat prea mult în ultima vreme."
+      }
+    },
+    "uhOh": {
+      "uh-oh-printer": {
+        "title": "Imprimanta tocmai s-a stricat.",
+        "situation": "E aproape timpul pentru prezentarea ta, iar imprimanta nu vrea să tipărească nimic.",
+        "choices": [
+          {
+            "key": "borrow-one-from-another-team",
+            "label": "Întreabă altă echipă dacă poți s-o împrumuți pe a lor.",
+            "consequence": "Merge bine, cu câteva minute rezervă."
+          },
+          {
+            "key": "present-without-printed-materials",
+            "label": "Prezintă fără materiale tipărite.",
+            "consequence": "E puțin improvizat, dar merge bine."
+          },
+          {
+            "key": "delay-the-presentation",
+            "label": "Cere câteva minute în plus înainte de prezentare.",
+            "consequence": "Primești timpul suplimentar de care ai nevoie, și nimănui nu-i pasă să aștepte puțin."
+          }
+        ]
+      },
+      "uh-oh-teammate-absent": {
+        "title": "Unul dintre coechipierii tăi lipsește azi.",
+        "situation": "Oren nu e prezent azi, iar el avea o sarcină importantă pe listă.",
+        "choices": [
+          {
+            "key": "share-out-their-tasks",
+            "label": "Împarte sarcinile lui între restul echipei.",
+            "consequence": "Se termină, iar echipa se simte bine că a contribuit."
+          },
+          {
+            "key": "wait-until-they-are-back",
+            "label": "Așteaptă până se întoarce Oren ca să continuați acea parte.",
+            "consequence": "Acea parte a proiectului e pusă pe pauză deocamdată."
+          },
+          {
+            "key": "do-their-work-yourself",
+            "label": "Fă tu partea lui Oren, pe lângă a ta.",
+            "consequence": "Se termină, dar e mult de dus singur."
+          }
+        ]
+      },
+      "uh-oh-customer-changed-mind": {
+        "title": "Clientul s-a răzgândit.",
+        "situation": "Clientul tocmai a trimis un mesaj că acum vrea ceva puțin diferit.",
+        "choices": [
+          {
+            "key": "adjust-the-plan-together",
+            "label": "Adună echipa și ajustați planul împreună.",
+            "consequence": "E nevoie de puțină muncă suplimentară, dar echipa se adaptează bine împreună."
+          },
+          {
+            "key": "explain-why-you-cant-change-now",
+            "label": "Explică faptul că e prea târziu să schimbați direcția acum.",
+            "consequence": "Clientul acceptă, dar pare puțin dezamăgit."
+          },
+          {
+            "key": "panic-and-start-over-completely",
+            "label": "Simți că trebuie să o iei de la capăt, complet.",
+            "consequence": "Se dovedește că trebuia schimbată doar o mică parte."
+          }
+        ]
+      },
+      "uh-oh-misunderstood-instructions": {
+        "title": "Îți dai seama că a fost o confuzie.",
+        "situation": "Uitându-vă din nou la instrucțiuni, echipa ta a înțeles o parte diferit de cum era menit.",
+        "choices": [
+          {
+            "key": "explain-the-mix-up-and-fix-it-together",
+            "label": "Explică-i echipei confuzia și rezolvați-o împreună.",
+            "consequence": "Echipa apreciază că știe exact ce s-a întâmplat."
+          },
+          {
+            "key": "quietly-fix-it-yourself",
+            "label": "Rezolvă confuzia tu însuți, pe tăcute.",
+            "consequence": "Se rezolvă, dar echipa nu află niciodată ce s-a întâmplat — sau cum să evite asta data viitoare."
+          },
+          {
+            "key": "blame-the-instructions",
+            "label": "Decide că instrucțiunile în sine au fost pur și simplu neclare.",
+            "consequence": "E parțial adevărat, dar deocamdată nu rezolvă nimic de fapt."
+          }
+        ]
+      },
+      "uh-oh-idea-stops-working": {
+        "title": "Cea mai bună idee a echipei nu mai funcționează, brusc.",
+        "situation": "Abordarea care funcționa atât de bine toată săptămâna a lovit brusc un zid.",
+        "choices": [
+          {
+            "key": "try-a-different-approach-together",
+            "label": "Adună echipa ca să încercați o abordare diferită.",
+            "consequence": "E nevoie de câteva încercări, dar echipa găsește o nouă cale de urmat."
+          },
+          {
+            "key": "keep-trying-the-same-way",
+            "label": "Continuă să încerci aceeași abordare, sperând că va funcționa până la urmă.",
+            "consequence": "Nu pare să meargă mai bine."
+          },
+          {
+            "key": "ask-the-team-for-new-ideas",
+            "label": "Cere echipei idei noi.",
+            "consequence": "Cineva vine cu o perspectivă la care nimeni nu se gândise încă."
+          }
+        ]
+      }
+    },
+    "lab": {
+      "lab-rejected-idea": {
+        "title": "O Idee Respinsă",
+        "situation": "Prietenul tău e supărat pentru că nu i-ai ales ideea. Ce ai putea să-i spui?",
+        "choices": {
+          "say-sorry-and-explain-why": {
+            "label": "Cere-ți scuze și explică sincer de ce ai ales altceva.",
+            "consequence": "Înțelege motivele tale, chiar dacă tot e puțin dezamăgit."
+          },
+          "ask-them-to-explain-more": {
+            "label": "Roagă-l să-și explice din nou ideea — poate ai ratat ceva.",
+            "consequence": "S-ar putea să descoperi că funcționează mai bine decât ai crezut inițial."
+          },
+          "say-nothing-and-move-on": {
+            "label": "Nu spune nimic și treci mai departe.",
+            "consequence": "Momentul trece, dar s-ar putea ca el să se întrebe în continuare ce crezi despre ideile lui."
+          }
+        }
+      },
+      "lab-quiet-teammate": {
+        "title": "Un Coechipier Tăcut",
+        "situation": "Cineva din echipa ta e foarte tăcut. Ce ai putea face?",
+        "choices": {
+          "ask-them-directly-what-they-think": {
+            "label": "Întreabă-l direct ce crede.",
+            "consequence": "Împărtășește o idee pe care poate nu ar fi oferit-o din proprie inițiativă."
+          },
+          "give-them-a-small-task-to-build-confidence": {
+            "label": "Dă-i o sarcină mică, ca să-i clădești încrederea.",
+            "consequence": "Pare puțin mai confortabil să participe."
+          },
+          "let-them-stay-quiet": {
+            "label": "Lasă-l să rămână tăcut, dacă așa e el.",
+            "consequence": "E în regulă și așa — nu toată lumea trebuie să vorbească în același fel."
+          }
+        }
+      },
+      "lab-hide-or-tell": {
+        "title": "Ascunzi sau Spui?",
+        "situation": "Ai făcut o greșeală. O ascunzi sau o spui echipei?",
+        "choices": {
+          "tell-the-team-right-away": {
+            "label": "Spune-i echipei imediat.",
+            "consequence": "E puțin neplăcut, dar echipa poate ajuta să se repare mai repede."
+          },
+          "fix-it-quietly-first": {
+            "label": "Încearcă mai întâi s-o repari pe tăcute.",
+            "consequence": "S-ar putea să meargă — sau ar putea deveni mai greu de explicat mai târziu."
+          },
+          "hide-it-and-hope-no-one-notices": {
+            "label": "Ascunde-o și speră că nimeni nu observă.",
+            "consequence": "S-ar putea să iasă la iveală mai târziu, când va fi mai greu de rezolvat."
+          }
+        }
+      },
+      "lab-doesnt-agree": {
+        "title": "O Neînțelegere Publică",
+        "situation": "Un coechipier nu e de acord cu planul tău în fața tuturor. Ce faci?",
+        "choices": {
+          "ask-them-to-explain-their-thinking": {
+            "label": "Roagă-l să-și explice raționamentul.",
+            "consequence": "Afli ceva la care nu te-ai gândit."
+          },
+          "explain-why-your-plan-is-better": {
+            "label": "Explică de ce planul tău e cel mai bun.",
+            "consequence": "S-ar putea să ai dreptate, dar el s-ar putea simți ignorat."
+          },
+          "suggest-talking-about-it-after": {
+            "label": "Propune să discutați despre asta între patru ochi, mai târziu.",
+            "consequence": "Vă oferă amândurora timp să vă gândiți calm la asta."
+          }
+        }
+      },
+      "lab-credit-for-idea": {
+        "title": "A Cui a Fost Ideea?",
+        "situation": "Ideea cuiva a funcționat foarte bine, dar nimeni nu a menționat că a fost a lui. Ce faci?",
+        "choices": {
+          "point-out-whose-idea-it-was": {
+            "label": "Menționează că a fost ideea lui.",
+            "consequence": "Se simte cu adevărat recunoscut."
+          },
+          "say-nothing-its-not-a-big-deal": {
+            "label": "Nu spune nimic — nu e mare lucru.",
+            "consequence": "S-ar putea să nu conteze pentru el, sau ar putea conta mai mult decât crezi."
+          },
+          "ask-them-how-they-feel-about-it": {
+            "label": "Întreabă-l cum se simte în legătură cu asta.",
+            "consequence": "Afli direct, în loc să ghicești."
+          }
+        }
+      },
+      "lab-tired-teammate": {
+        "title": "Un Coechipier Obosit",
+        "situation": "Un coechipier pare obosit și spune că e bine. Ce faci?",
+        "choices": {
+          "check-in-again-later": {
+            "label": "Verifică din nou mai târziu, ca să fii sigur.",
+            "consequence": "Apreciază faptul că ai observat."
+          },
+          "take-something-off-their-plate": {
+            "label": "Ia-i pe tăcute ceva de pe lista de sarcini.",
+            "consequence": "Ajută, chiar dacă nu spune multe despre asta."
+          },
+          "take-their-word-for-it": {
+            "label": "Crede-l pe cuvânt și treci mai departe.",
+            "consequence": "S-ar putea să fie chiar bine — sau poate n-a vrut să spună."
+          }
+        }
+      },
+      "lab-new-member": {
+        "title": "Un Membru Nou în Echipă",
+        "situation": "O persoană nouă se alătură echipei tale pe la mijlocul proiectului. Ce faci?",
+        "choices": {
+          "introduce-them-to-everyone-and-explain-the-plan": {
+            "label": "Prezintă-o tuturor și explică-i planul de până acum.",
+            "consequence": "Se simte binevenită și pregătită să contribuie."
+          },
+          "let-them-figure-it-out": {
+            "label": "Las-o să-și dea seama pe parcurs.",
+            "consequence": "Se descurcă, deși îi ia mai mult timp să se acomodeze."
+          },
+          "ask-the-team-to-help-them-settle-in": {
+            "label": "Roagă echipa s-o ajute să se acomodeze.",
+            "consequence": "Toată echipa contribuie, și nu cade totul doar pe tine."
+          }
+        }
+      },
+      "lab-mixed-feedback": {
+        "title": "Un Feedback Greu de Dat",
+        "situation": "Trebuie să-i spui unui coechipier că munca lui are nevoie de câteva schimbări. Ce faci?",
+        "choices": {
+          "say-what-you-liked-and-what-to-change": {
+            "label": "Spune ce ți-a plăcut și ce trebuie schimbat.",
+            "consequence": "Știe exact ce a mers bine și ce trebuie reparat."
+          },
+          "just-say-its-not-good-enough": {
+            "label": "Spune pur și simplu că nu e suficient de bun.",
+            "consequence": "Știe că ceva nu e în regulă, dar nu ce ar trebui de fapt să facă."
+          },
+          "avoid-saying-anything-and-fix-it-yourself": {
+            "label": "Evită să spui ceva și repară tu însuți.",
+            "consequence": "Se repară, dar el nu află niciodată ce trebuia schimbat."
+          }
+        }
+      }
+    },
+    "badges": {
+      "lq-first-leader": {
+        "name": "Primul Lider",
+        "description": "Ți-ai început călătoria conducând o echipă."
+      },
+      "lq-team-builder": {
+        "name": "Constructor de Echipă",
+        "description": "Ai potrivit sarcinile cu punctele forte ale echipei tale."
+      },
+      "lq-good-listener": {
+        "name": "Bun Ascultător",
+        "description": "Ai ascultat cu atenție înainte să decizi."
+      },
+      "lq-problem-solver": {
+        "name": "Rezolvator de Probleme",
+        "description": "Ai rezolvat o problemă complicată."
+      },
+      "lq-calm-under-pressure": {
+        "name": "Calm sub Presiune",
+        "description": "Ți-ai păstrat calmul când totul se întâmpla deodată."
+      },
+      "lq-final-leader": {
+        "name": "Liderul Final",
+        "description": "Ți-ai condus echipa de-a lungul întregii călătorii."
+      }
+    },
+    "profile": {
+      "title": "Profilul Tău de Lider",
+      "lockedHint": "Termină Provocarea Finală ca să-ți vezi Profilul de Lider.",
+      "intro": "Acesta nu e un scor — e o privire asupra felului în care obișnuiești să conduci, pe baza alegerilor pe care le-ai făcut chiar tu.",
+      "noPatternYetHint": "Alegerile tale nu au înclinat puternic către un singur tipar — și e complet în regulă și așa.",
+      "noBetterOrWorseNote": "Niciunul dintre aceste tipare nu e mai bun decât altul. Un leadership bun poate arăta diferit pentru fiecare persoană.",
+      "archetypes": {
+        "the-listener": {
+          "title": "Ascultătorul",
+          "statements": [
+            "Adesea asculți cu atenție înainte să decizi.",
+            "Ai tendința să întrebi oamenii ce s-a întâmplat înainte să tragi concluzii pripite.",
+            "Faci loc punctului de vedere al celorlalți.",
+            "Observi când cineva nu a fost încă ascultat."
+          ]
+        },
+        "the-problem-solver": {
+          "title": "Rezolvatorul de Probleme",
+          "statements": [
+            "Adesea cauți o soluție practică atunci când ceva merge prost.",
+            "Ai tendința să sapi adânc într-o problemă, în loc s-o eviți.",
+            "Te concentrezi pe găsirea unei căi de urmat.",
+            "Rămâi curios în legătură cu ce cauzează cu adevărat o problemă."
+          ]
+        },
+        "the-team-builder": {
+          "title": "Constructorul de Echipă",
+          "statements": [
+            "Adesea ai încredere că echipa ta se descurcă singură.",
+            "Ai tendința să potrivești sarcinile cu punctele forte ale oamenilor.",
+            "Aduci oamenii împreună, în loc să decizi singur.",
+            "Observi când cineva merită mai multă încredere sau recunoaștere."
+          ]
+        },
+        "the-calm-thinker": {
+          "title": "Gânditorul Calm",
+          "statements": [
+            "Adesea rămâi calm atunci când lucrurile devin stresante.",
+            "Ai tendința să rezolvi problemele pe rând, una câte una.",
+            "Nu lași presiunea să-ți grăbească deciziile.",
+            "Calmul tău tinde să-i ajute și pe cei din jurul tău."
+          ]
+        },
+        "the-encourager": {
+          "title": "Încurajatorul",
+          "statements": [
+            "Adesea îi ridici pe cei din jurul tău.",
+            "Ai tendința să observi cum se simt oamenii.",
+            "Îți faci timp să recunoști ce au făcut bine ceilalți.",
+            "Îi faci pe oameni să se simtă în siguranță să greșească."
+          ]
+        },
+        "the-big-picture-thinker": {
+          "title": "Gânditorul de Ansamblu",
+          "statements": [
+            "Adesea te uiți la imaginea de ansamblu, în loc de detalii mici.",
+            "Ai tendința să te adaptezi rapid când planurile se schimbă.",
+            "Ești deschis la idei diferite de ale tale.",
+            "Te concentrezi pe direcția în care merge echipa, nu doar pe sarcina de azi."
+          ]
+        }
+      }
+    }
+  },
   "articles": {
     "saving-money-for-kids": {
       "title": "Economisirea Banilor pentru Copii: Un Ghid Practic pentru Părinți",
@@ -4245,5 +6356,415 @@
     "safetyBody": "Pregătim o adresă de contact dedicată pentru probleme de siguranță, dar nu este încă publicată aici. Revino curând.",
     "everythingElseTitle": "Orice altceva",
     "everythingElseBody": "Pregătim o adresă de contact generală pentru întrebări și feedback, dar nu este încă publicată aici. Revino curând."
+  },
+  "realLifeQuests": {
+    "hubTitle": "Misiuni din Viața Reală",
+    "hubTagline": "Du ce ai învățat în lumea reală.",
+    "hubIntro": "Misiunile din Viața Reală sunt provocări pe care le încerci departe de ecran, cu oamenii și lucrurile din jurul tău. Alege una, încearc-o în ritmul tău și spune-ne cum a fost. Nu e nicio grabă și nu există un mod greșit de a le face.",
+    "parentIntroTitle": "Pentru părinți și educatori",
+    "parentIntro": "Misiunile din Viața Reală leagă ce învață copilul tău în Money Quest, Misiunea Antreprenorului și Misiunea de Lider de situații de zi cu zi, acasă. Fiecare misiune se poate face cu bani imaginari, desene sau lucruri pe care le aveți deja - nu trebuie cumpărat nimic și nu are loc niciodată vânzare sau plată reală fără tine de față. Alegeți misiunile împreună, schimbați-le liber ca să se potrivească copilului tău și nu există nicio presiune să le terminați rapid sau perfect.",
+    "categories": {
+      "money-skills": {
+        "title": "Abilități cu Banii",
+        "description": "Exersează economisirea, cheltuirea înțeleaptă și planificarea cu bani - folosind viața reală, nu doar cifre pe un ecran."
+      },
+      "entrepreneurship": {
+        "title": "Antreprenoriat",
+        "description": "Creează lucruri, testează-ți ideile și înțelege cum funcționează costurile și prețurile - totul într-un mod sigur, supravegheat."
+      },
+      "leadership": {
+        "title": "Leadership",
+        "description": "Rezolvă probleme, lucrează cu alții, spune-ți ideile și învață din ce nu a mers conform planului."
+      }
+    },
+    "supervision": {
+      "label": "Implicarea unui adult",
+      "independent": "Poate fi încercată singur/singură",
+      "with-adult": "Bine cu un adult prin preajmă",
+      "adult-required": "Ai nevoie de un adult alături"
+    },
+    "status": {
+      "not-started": "Încă neîncepută",
+      "started": "În curs",
+      "completed": "Finalizată!"
+    },
+    "variantLabels": {
+      "standard": "Versiunea obișnuită",
+      "independent": "Versiune mai independentă",
+      "simpler": "Versiune mai simplă, vizuală"
+    },
+    "variantsTitle": "Alege-ți versiunea",
+    "objectivesTitle": "Ce vei exersa",
+    "materialsTitle": "De ce vei avea nevoie",
+    "stepsTitle": "Pași",
+    "durationLabel": "Cam cât durează",
+    "nonverbalTitle": "Nu vorbești sau nu scrii? E perfect așa",
+    "parentGuidanceTitle": "Pentru părinți și educatori",
+    "markStartedButton": "Marchează ca începută",
+    "markCompletedButton": "Marchează ca finalizată",
+    "missionCompletedHint": "Treabă bună - poți oricând să-ți schimbi versiunea sau să adaugi la reflecția ta.",
+    "backToHub": "Înapoi la Misiunile din Viața Reală",
+    "linkedActivityIntro": "Vrei să continui și pe ecran?",
+    "linkedActivity": {
+      "savingsGoals": "Încearcă unealta Obiective de Economisire",
+      "priceDetectiveGame": "Joacă jocul Detectivul de Prețuri",
+      "buildABudgetGame": "Joacă jocul Construiește un Buget",
+      "entrepreneurQuest": "Continuă în Misiunea Antreprenorului",
+      "leadershipQuest": "Continuă în Misiunea de Lider"
+    },
+    "reflectionTitle": "Cum a fost?",
+    "reflectionHint": "Alege ce ți se pare adevărat - nu există un răspuns greșit.",
+    "reflectionChoices": {
+      "great": "😊 A fost grozav!",
+      "okay": "😐 A fost okay",
+      "tricky": "🤔 A fost cam dificil",
+      "idea": "💡 Am o idee nouă acum"
+    },
+    "reflectionTextLabel": "Vrei să spui mai multe? (total opțional)",
+    "reflectionTextPlaceholder": "Poți scrie aici, sau poți lăsa necompletat.",
+    "rewardEarnedText": "Ai câștigat {xp} XP pentru că ai încercat această misiune!",
+    "missionsCompletedCount": "{completed} din {total} misiuni încercate",
+    "categoryFilterAll": "Toate",
+    "resetConfirm": "Aceasta șterge tot progresul tău la Misiunile din Viața Reală de pe acest dispozitiv. Ești sigur?",
+    "resetButton": "Resetează progresul la Misiunile din Viața Reală",
+    "missions": {
+      "save-for-something-you-love": {
+        "title": "Economisește pentru Ceva ce Iubești",
+        "intro": "Alege ceva ce îți dorești cu adevărat. Apoi fă un plan simplu ca să economisești pentru el, puțin câte puțin.",
+        "objectives": [
+          "Alege un lucru pentru care vrei să economisești",
+          "Fă un plan simplu de economisire pentru el",
+          "Urmărește-ți progresul pe parcurs"
+        ],
+        "materials": [
+          "O foaie de hârtie sau un borcan",
+          "Abțibilduri, bife sau desene pentru a urmări progresul (sau folosește unealta Obiective de Economisire)",
+          "Un creion sau carioci"
+        ],
+        "steps": [
+          "Gândește-te la un lucru pe care ți-ar plăcea să-l ai sau să-l faci - mare sau mic.",
+          "Desenează-l sau scrie-i numele în partea de sus a foii sau pe borcan.",
+          "Decide din câți \"pași\" va fi nevoie ca să ajungi acolo (de exemplu, 5 abțibilduri sau 5 monede).",
+          "De fiecare dată când economisești puțin, adaugă un abțibild, o monedă sau o bifă.",
+          "Continuă până când planul tău e complet!"
+        ],
+        "durationEstimate": "Cam 10 minute ca să pornești, apoi un mic bilanț în fiecare săptămână - asta durează câtva timp până se termină.",
+        "independentVersion": "Alege-ți singur obiectivul și urmărește-l complet de unul singur, și încearcă-l și online cu unealta Obiective de Economisire.",
+        "simplerVersion": "Folosește un borcan și obiecte reale (monede, nasturi, abțibilduri) în loc de cifre - privește doar cum se umple borcanul de fiecare dată.",
+        "nonverbalAdaptation": "Alege-ți obiectivul arătând cu degetul spre o poză sau un obiect, în loc să-l spui cu voce tare. Urmărirea progresului cu abțibilduri sau bife nu are nevoie deloc de vorbit sau scris.",
+        "reflectionPrompt": "Cum a fost să vezi planul tău crescând?",
+        "parentGuidance": "Lasă-ți copilul să aleagă obiectivul, chiar și unul mic e suficient de bun. Nu e nevoie de grabă; ideea este să exersați răbdarea și planificarea, nu să terminați rapid. Dacă sunt copii mai mici în preajmă, abțibildurile sau bifele sunt o metodă de urmărire mai sigură decât monedele mici sau nasturii."
+      },
+      "the-price-detective": {
+        "title": "Detectivul de Prețuri",
+        "intro": "Devino detectiv! Privește la două lucruri similare și investighează ce le face prețurile diferite.",
+        "objectives": [
+          "Compară două produse similare",
+          "Observă ce diferă între ele",
+          "Gândește-te la ce înseamnă \"valoare bună\""
+        ],
+        "materials": [
+          "Două obiecte similare pe care le ai deja acasă, sau două dintr-un pliant sau site de magazin, cu un adult - nu e nevoie niciodată să mergeți la magazin",
+          "Nimic altceva nu e nevoie!"
+        ],
+        "steps": [
+          "Alege două lucruri similare pe care le ai deja, sau găsește două într-un pliant sau site, cu un adult - cum ar fi două sortimente de suc sau două caiete.",
+          "Privește (sau cere unui adult să-ți spună) fiecare preț.",
+          "Privește cu atenție la fiecare - mărime, cum arată, cât ar putea ține.",
+          "Decide pe care îl crezi a fi alegerea mai bună, și de ce.",
+          "Spune-i cuiva concluzia ta de detectiv!"
+        ],
+        "durationEstimate": "Cam 15 minute.",
+        "independentVersion": "Investighează trei sau mai multe obiecte în loc de două, și clasează-le de la cea mai bună valoare la cea mai mică.",
+        "simplerVersion": "Arată doar spre cel care pare mai mare, sau cel cu un abțibild cu față vesel pe care un adult l-a pus lângă preț.",
+        "nonverbalAdaptation": "Arată cu degetul, dă din cap, sau folosește degetul mare sus și jos ca să-ți spui concluzia de detectiv, în loc să o explici în cuvinte.",
+        "reflectionPrompt": "Pe care l-ai ales, și ce te-a făcut să-l alegi?",
+        "parentGuidance": "Nu există un răspuns \"corect\" aici - scopul este să observi și să compari, nu să obții alegerea \"corectă\". Un obiect mai scump poate fi totuși cea mai bună valoare; lasă-ți copilul să raționeze cu voce tare sau arătând cu degetul. A compara lucruri pe care le aveți deja acasă sau dintr-un pliant funcționează la fel de bine ca o vizită la magazin - iar dacă mergeți totuși la un magazin real, un adult de încredere vă acompaniază mereu."
+      },
+      "plan-a-shopping-trip": {
+        "title": "Planifică o Ieșire la Cumpărături",
+        "intro": "Ajută la planificarea unei ieșiri reale (sau imaginare) la cumpărături. Fă o listă și gândește-te cât ar putea costa totul.",
+        "objectives": [
+          "Ajută la alcătuirea unei liste de cumpărături",
+          "Gândește-te la un buget simplu",
+          "Exersează să alegi ce e mai important"
+        ],
+        "materials": [
+          "Hârtie și creion, sau o tăbliță sau o notă pe tabletă",
+          "O listă de cumpărături reală, sau una imaginară cu un magazin de jucărie"
+        ],
+        "steps": [
+          "Întreabă un adult de ce e nevoie pentru următoarea ieșire la cumpărături.",
+          "Ajutați-vă să scrieți sau să desenați lista împreună.",
+          "Alegeți împreună o cifră pentru \"buget\" - reală sau imaginară.",
+          "Privește lista și decide ce e mai important dacă bugetul e strâmt.",
+          "Mergi la cumpărături împreună cu adultul tău de încredere - nu te duci niciodată singur la cumpărături - sau jucați-vă de-a magazinul acasă, și vedeți cât de aproape a fost planul."
+        ],
+        "durationEstimate": "Cam 20 de minute pentru planificare; ieșirea în sine durează cât durează.",
+        "independentVersion": "Încearcă să estimezi costul total înainte de ieșire, apoi verifică cât de aproape a fost ghicitoarea.",
+        "simplerVersion": "Folosește cartonașe cu imagini sau o listă de cumpărături cu poze în loc să scrii cuvinte, și folosește monede sau jetoane în loc de prețuri reale.",
+        "nonverbalAdaptation": "Arată cu degetul spre poze ca să alcătuiești lista. Nu e nevoie să vorbești sau să scrii - a arăta cu degetul și a da din cap funcționează perfect.",
+        "reflectionPrompt": "Care a fost cea mai dificilă parte din planificarea listei?",
+        "parentGuidance": "Lasă-ți copilul să facă alegeri reale, chiar și mici, cum ar fi să aleagă ce gustare. O ieșire reală se face mereu împreună cu un adult de încredere - copilul tău nu trebuie să meargă niciodată singur la cumpărături. Un magazin imaginar, fără bani reali, funcționează la fel de bine ca o ieșire reală."
+      },
+      "resource-rescue": {
+        "title": "Misiunea de Salvare a Resurselor",
+        "intro": "Înainte să cumperi ceva nou, pornește într-o misiune de salvare: găsește lucruri deja acasă care ar putea fi refolosite în schimb.",
+        "objectives": [
+          "Găsește materiale deja existente acasă",
+          "Refolosește-le ca să faci sau să repari ceva",
+          "Observă cât ai \"salvat\" în loc să cumperi"
+        ],
+        "materials": [
+          "Lucruri deja prin casă - cutii, hârtie, resturi de material, jucării vechi, cutiuțe",
+          "Bandă adezivă, lipici sau sfoară (opțional)"
+        ],
+        "steps": [
+          "Gândește-te la ceva ce ți-ar plăcea să faci, să repari sau să construiești.",
+          "Pornește într-o \"misiune de salvare\" prin casă ca să găsești materiale - întreabă mai întâi!",
+          "Vezi ce poți face folosind doar ce ai găsit.",
+          "Dacă lipsește ceva, gândește-te la o înlocuire creativă înainte să ceri să cumperi.",
+          "Arată-ți creația salvată!"
+        ],
+        "durationEstimate": "Cam 20-30 de minute.",
+        "independentVersion": "Pune-ți o provocare: fă ceva folosind doar 3 lucruri salvate.",
+        "simplerVersion": "Un adult adună dinainte 3-4 variante sigure, iar tu alegi și le combini liber - fără să fie nevoie să cauți.",
+        "nonverbalAdaptation": "Arată cu degetul spre obiecte sau adună-le în loc să le numești. Construirea și combinarea materialelor nu are nevoie deloc de cuvinte.",
+        "reflectionPrompt": "Ce ai salvat în loc să cumperi nou?",
+        "parentGuidance": "Asta construiește ingeniozitate, nu economie cu orice preț ca regulă. Sărbătorește creativitatea, nu doar banii \"economisiți\"."
+      },
+      "make-something": {
+        "title": "Fă Ceva",
+        "intro": "Creează ceva simplu cu ce ai, apoi arată-i cuiva și întreabă-l ce părere are.",
+        "objectives": [
+          "Fă un produs simplu din materiale disponibile",
+          "Împarte-l cu cineva în care ai încredere",
+          "Ascultă părerea lui"
+        ],
+        "materials": [
+          "Hârtie, carioci, abțibilduri, lipici, sau alte materiale de meșterit pe care le ai deja",
+          "Cineva căruia să-i arăți (un membru al familiei sau o persoană de încredere)"
+        ],
+        "steps": [
+          "Decide ce ți-ar plăcea să faci - un desen, o brățară, o felicitare, orice.",
+          "Adună-ți materialele și fă-l - dacă ai nevoie de foarfecă sau de altceva ascuțit, cere ajutorul unui adult.",
+          "Arată-l unui membru al familiei sau unei persoane de încredere.",
+          "Întreabă-l un lucru care îi place, și o idee pentru data viitoare.",
+          "Decide dacă ai vrea să mai faci unul, diferit."
+        ],
+        "durationEstimate": "Cam 30 de minute.",
+        "independentVersion": "Fă două versiuni și întreabă pe care o preferă oamenii, și de ce.",
+        "simplerVersion": "Folosește un set simplu de meșterit sau un șablon în loc să creezi de la zero.",
+        "nonverbalAdaptation": "Arată-ți creația și lasă cealaltă persoană să arate cu degetul sau să gesticuleze spre partea ei preferată, în loc s-o descrie în cuvinte.",
+        "reflectionPrompt": "Ce ai face diferit data viitoare?",
+        "parentGuidance": "Păstrează feedback-ul blând și concret. Scopul este să construiți obiceiul de a face și de a împărtăși, nu să obții un rezultat perfect. Alege uneltele potrivite pentru ce poate folosi copilul tău în siguranță, și ajută-l direct cu orice e ascuțit."
+      },
+      "my-first-mini-business": {
+        "title": "Prima Mea Mini-Afacere",
+        "intro": "Cu ajutorul unui adult, planifică un mic stand sau magazin imaginar pentru un eveniment de familie, și exersează cum îl conduci.",
+        "objectives": [
+          "Alege un produs sau o activitate simplă de oferit",
+          "Stabilește un preț (imaginar, sau o sumă reală foarte mică)",
+          "Exersează să vorbești cu \"clienții\""
+        ],
+        "materials": [
+          "Un produs simplu (desene, prăjituri, un stand de jocuri) - supravegheat de un adult",
+          "Bani imaginari, jetoane, sau (cu un adult) monede mici reale",
+          "O masă mică sau o tavă"
+        ],
+        "steps": [
+          "Cu un adult, alege un lucru simplu de \"vândut\" sau oferit la un eveniment de familie - dacă e vorba de mâncare, un adult verifică alergiile și se ocupă de gătit.",
+          "Decideți împreună un preț - banii imaginari sunt perfect în regulă.",
+          "Pregătiți împreună un mic stand.",
+          "Exersează să întâmpini un \"client\" (un membru al familiei) și să-i iei comanda.",
+          "Vorbiți apoi despre cum a fost și ce ai vrea să încerci data viitoare."
+        ],
+        "durationEstimate": "Cam 20 de minute pentru planificare, plus evenimentul în sine.",
+        "independentVersion": "Ia tu conducerea discuțiilor cu clienții, cât adultul doar supraveghează de aproape.",
+        "simplerVersion": "Adultul se ocupă de toate discuțiile cu clienții; tu înmânezi obiectele și strângi jetoanele imaginare.",
+        "nonverbalAdaptation": "Folosește un meniu cu poze sau un grafic de prețuri în loc să spui prețurile cu voce tare. A da un obiect este o interacțiune completă prin ea însăși.",
+        "reflectionPrompt": "Ce a fost distractiv, și ce a fost dificil?",
+        "parentGuidance": "Asta trebuie supravegheată mereu și ținută doar în familie sau cu persoane de încredere, niciodată cu străini, și niciodată cu vânzare publică reală. Dacă e implicată mâncare, verifică alergiile și lasă un adult să se ocupe de preparare și de igienă. O variantă complet imaginară - mâncare imaginară, bani imaginari - învață exact aceleași lucruri, fără să fie implicată deloc mâncare reală."
+      },
+      "test-my-idea": {
+        "title": "Testează-mi Ideea",
+        "intro": "Ai o idee pentru ceva de făcut? Testeaz-o cu câțiva oameni înainte să pui mult efort în ea.",
+        "objectives": [
+          "Descrie o problemă sau o idee simplu",
+          "Întreabă câțiva oameni ce părere au",
+          "Decide ce să încerci pe baza părerilor lor"
+        ],
+        "materials": [
+          "Doar ideea ta - o hârtie pentru schițe ajută și ea",
+          "2-3 membri ai familiei sau persoane de încredere pe care să le întrebi"
+        ],
+        "steps": [
+          "Gândește-te la o mică problemă pe care ai observat-o, sau o idee pe care o ai.",
+          "Descrie-o într-o propoziție simplă, sau desenează-o.",
+          "Întreabă 2-3 persoane: \"Ce părere ai despre asta?\"",
+          "Ascultă ce îți spun, chiar dacă e diferit de ce te așteptai.",
+          "Decide: păstrezi ideea la fel, o schimbi puțin, sau încerci ceva nou."
+        ],
+        "durationEstimate": "Cam 15-20 de minute.",
+        "independentVersion": "Întreabă oameni pe care nu-i cunoști încă foarte bine (cu un adult de încredere de față) ca să obții o gamă mai largă de păreri.",
+        "simplerVersion": "Arată un desen sau un obiect în loc să explici în cuvinte, și lasă-i pe oameni să arate cu degetul mare sus sau jos.",
+        "nonverbalAdaptation": "Folosește un desen, un cartonaș cu simbol, sau arată cu degetul spre idee. Părerea poate fi un semn din cap, un deget mare sus sau jos, sau un gest simplu.",
+        "reflectionPrompt": "A spus cineva ceva care te-a surprins?",
+        "parentGuidance": "Asta învață că primirea de păreri înainte de a investi mult efort este valoroasă, nu înfricoșătoare. Păstrează fiecare răspuns blând, chiar și un \"nu, mulțumesc\"."
+      },
+      "understand-the-numbers": {
+        "title": "Înțelege Cifrele",
+        "intro": "Folosește un exemplu simplu ca să vezi diferența dintre cât costă să faci ceva, cu cât se vinde, și ce rămâne în plus.",
+        "objectives": [
+          "Distinge costul, prețul și profitul folosind un exemplu",
+          "Folosește o versiune vizuală sau practică dacă cifrele sunt dificile",
+          "Vezi că profitul este ce rămâne după costuri"
+        ],
+        "materials": [
+          "Un exemplu simplu - limonadă, biscuiți, sau un desen cu un stand",
+          "Monede, jetoane sau desene (o versiune fără calculator e mereu în regulă)"
+        ],
+        "steps": [
+          "Alege un produs imaginar - cum ar fi un pahar de limonadă.",
+          "Află (sau cere unui adult să te ajute să afli) cât costă să faci un pahar.",
+          "Decide cu ce preț l-ai vinde.",
+          "Folosește obiecte sau desene ca să arăți: prețul minus costul egal ce rămâne (profitul).",
+          "Încearcă din nou cu un alt preț și vezi ce se schimbă."
+        ],
+        "durationEstimate": "Cam 15 minute.",
+        "independentVersion": "Încearcă cu 2-3 produse deodată și compară care lasă cel mai mult în plus.",
+        "simplerVersion": "Folosește jetoane colorate: un stos pentru cost, un stos mai mare pentru preț, și scoate fizic stosul de cost ca să vezi ce rămâne - fără calcule.",
+        "nonverbalAdaptation": "Folosește jetoane sau desene ca să arăți toată ideea fără să vorbești sau să scrii vreo cifră.",
+        "reflectionPrompt": "Ce s-a întâmplat cu suma rămasă când ai schimbat prețul?",
+        "parentGuidance": "Aceasta este aceeași idee predată în Misiunea Antreprenorului: cost, preț și profit. O versiune vizuală, fără calcule, învață conceptul la fel de bine ca făcând socotelile."
+      },
+      "solve-a-real-problem": {
+        "title": "Rezolvă o Problemă Reală",
+        "intro": "Observă o mică problemă din viața ta de zi cu zi, și vino cu propriul tău mod practic de a o rezolva.",
+        "objectives": [
+          "Observă o problemă mică, reală",
+          "Gândește-te la o soluție practică",
+          "Încearc-o"
+        ],
+        "materials": [
+          "Nimic nu e nevoie - doar observă!",
+          "Hârtie sau materiale de desenat dacă te ajută să gândești"
+        ],
+        "steps": [
+          "Gândește-te la ceva puțin enervant sau dificil din ziua ta (un raft dezordonat, o treabă casnică uitată, un program confuz).",
+          "Descrie problema simplu - în cuvinte, un desen, sau pentru tine.",
+          "Gândește-te la un mod practic de a o face mai bună.",
+          "Încearcă-ți soluția.",
+          "Vezi ce s-a întâmplat - a ajutat?"
+        ],
+        "durationEstimate": "Cam 15 minute, plus încercarea soluției.",
+        "independentVersion": "Rezolvă o problemă care afectează mai mult decât pe tine, cum ar fi ceva de acasă cu care se confruntă toată lumea.",
+        "simplerVersion": "Alege dintr-o listă scurtă de probleme obișnuite oferite de un adult, și alege o soluție din câteva opțiuni cu poze.",
+        "nonverbalAdaptation": "Arată cu degetul sau mimează problema în loc s-o descrii în cuvinte. Soluția poate fi arătată printr-o acțiune, nu printr-o explicație.",
+        "reflectionPrompt": "A funcționat soluția ta cum ai sperat?",
+        "parentGuidance": "Lasă-ți copilul să aleagă o problemă cu adevărat mică, reală - mărimea nu are importanță. Sărbătorește încercarea, chiar dacă soluția nu funcționează complet."
+      },
+      "make-something-together": {
+        "title": "Fă Ceva Împreună",
+        "intro": "Formează o echipă cu un membru al familiei sau o persoană de încredere ca să planificați și să terminați un mic proiect împreună.",
+        "objectives": [
+          "Planifică un proiect cu altcineva",
+          "Faceți cu rândul și împărțiți deciziile",
+          "Terminați-l împreună"
+        ],
+        "materials": [
+          "Orice proiect simplu - un puzzle, un meșterit, ordonarea unui spațiu, sau (cu ajutorul unui adult) o rețetă simplă",
+          "Un partener cu care să lucrezi"
+        ],
+        "steps": [
+          "Alegeți un mic proiect pe care îl puteți termina împreună într-o singură ședință.",
+          "Decideți împreună cine face ce parte - faceți cu rândul la decizii.",
+          "Lucrați la el împreună, verificând pe parcurs - dacă gătiți, un adult verifică alergiile și se ocupă de tot ce e fierbinte sau ascuțit.",
+          "Terminați proiectul.",
+          "Vorbiți despre cum a fost să lucrați în echipă."
+        ],
+        "durationEstimate": "Cam 20-30 de minute.",
+        "independentVersion": "Ia tu conducerea planificării cine face ce, cu partenerul tău urmând planul tău.",
+        "simplerVersion": "Folosiți un grafic vizual pentru rând (două poze, schimbați-le după fiecare rând) în loc să vorbiți despre cine urmează.",
+        "nonverbalAdaptation": "Folosiți gesturi, arătați cu degetul, sau un obiect pentru rând (ca a da din mână un obiect mic) ca să arătați al cui e rândul - fără să fie nevoie de vorbit.",
+        "reflectionPrompt": "Cum a fost să împărțiți deciziile?",
+        "parentGuidance": "Lasă-ți copilul să aibă putere reală de decizie, chiar și asupra lucrurilor mici. Împărțirea controlului este chiar lecția de aici. Dacă alegeți o rețetă, verifică alergiile și lasă igiena și tot ce e fierbinte sau ascuțit în grija adultului - un puzzle sau un meșterit învață același lucru în echipă, fără să fie nevoie de bucătărie."
+      },
+      "share-my-idea": {
+        "title": "Împarte-mi Ideea",
+        "intro": "Gândește-te la o idee, și împarte-o cu altcineva, în modul care funcționează cel mai bine pentru tine.",
+        "objectives": [
+          "Ai o idee care merită împărtășită",
+          "Comunică-o în propriul tău fel",
+          "Vezi cum răspunde cineva la ea"
+        ],
+        "materials": [
+          "Doar ideea ta",
+          "Hârtie, poze, simboluri, sau un dispozitiv AAC dacă așa comunici tu - toate sunt la fel de bune"
+        ],
+        "steps": [
+          "Gândește-te la o idee pe care ți-ar plăcea să o împarți - un joc, un plan, o poveste, orice.",
+          "Alege cum o vei împărți: vorbind, scriind, desenând, cu simboluri, AAC, sau arătând-o ori jucând-o.",
+          "Împarte-o cu cineva în care ai încredere.",
+          "Vezi cum răspunde.",
+          "Observă cum te-ai simțit împărțind ceva al tău."
+        ],
+        "durationEstimate": "Cam 10-15 minute.",
+        "independentVersion": "Împarte-ți ideea cu mai mult de o persoană și vezi dacă răspunsurile lor diferă.",
+        "simplerVersion": "Folosește o singură poză sau obiect care să reprezinte toată ideea în loc să explici fiecare detaliu.",
+        "nonverbalAdaptation": "Vorbirea nu este niciodată obligatorie aici - desenul, arătarea spre simboluri, folosirea AAC, sau demonstrarea ideii sunt toate moduri complete și valide de a o împărți.",
+        "reflectionPrompt": "Cum a fost când cineva a ascultat ideea ta?",
+        "parentGuidance": "Orice mod comunică copilul tău este modul potrivit pentru această misiune. Scopul este să fie ascultat, nu să folosească o anumită metodă."
+      },
+      "learn-change-and-try-again": {
+        "title": "Învață, Schimbă și Încearcă din Nou",
+        "intro": "Gândește-te la ceva care nu a mers exact cum ai planificat, și decide dacă ai vrea să-l încerci din nou, diferit.",
+        "objectives": [
+          "Reflectează asupra a ceva care nu a mers cum te așteptai",
+          "Gândește-te la o posibilă schimbare",
+          "Decide dacă să încerci din nou"
+        ],
+        "materials": [
+          "Nimic nu e nevoie - doar să gândești înapoi",
+          "Hârtie sau materiale de desenat dacă te ajută"
+        ],
+        "steps": [
+          "Gândește-te la ceva recent care nu a mers chiar cum speraseai - mare sau mic.",
+          "Gândește-te (sau desenează) ce s-a întâmplat.",
+          "Gândește-te la un lucru pe care l-ai putea încerca diferit.",
+          "Decide: ai vrea să încerci din nou? E în regulă în ambele cazuri.",
+          "Dacă încerci din nou, observă ce s-a schimbat."
+        ],
+        "durationEstimate": "Cam 10 minute, plus încercarea din nou dacă alegi asta.",
+        "independentVersion": "Încearcă activitatea din nou complet de unul singur, aplicându-ți propria schimbare.",
+        "simplerVersion": "Alege-ți \"schimbarea\" dintr-o listă scurtă de opțiuni cu poze oferite de un adult, în loc să vii cu una de la zero.",
+        "nonverbalAdaptation": "Arată cu degetul spre o față (vesel, okay, sau frustrat) ca să arăți cum a fost prima încercare, și arată spre o poză ca să arăți schimbarea pe care ai vrea s-o încerci - fără cuvinte.",
+        "reflectionPrompt": "Ce ai vrea să încerci diferit data viitoare?",
+        "parentGuidance": "Nu există presiune să încerci din nou - a nu alege asta este de asemenea un rezultat perfect de bun. Adevărata abilitate de aici e să reflectezi sincer, nu să reușești la a doua încercare."
+      }
+    },
+    "visualPilot": {
+      "goalOptionToy": "O jucărie",
+      "goalOptionBook": "O carte",
+      "goalOptionGame": "Un joc",
+      "goalOptionOther": "Altceva",
+      "jarStepLabel": "Pasul {number}",
+      "jarCompleteLabel": "Obiectiv atins!",
+      "offerOptionDrawing": "Un desen",
+      "offerOptionBaking": "Ceva copt",
+      "offerOptionStall": "Un mic stand de jocuri",
+      "offerOptionOther": "Altceva",
+      "showToCustomerButton": "Arată-l!",
+      "customerHappyLabel": "Îi place!",
+      "ideaOptionGame": "Un joc",
+      "ideaOptionStory": "O poveste",
+      "ideaOptionBuilt": "Ceva ce am construit",
+      "ideaOptionDrawing": "Un desen",
+      "shareIdeaButton": "Spune-o!",
+      "listenerHappyLabel": "Îi place ideea ta!",
+      "chooseGoalTitle": "Alege-ți obiectivul",
+      "chooseOfferTitle": "Alege ce oferi",
+      "chooseIdeaTitle": "Alege-ți ideea"
+    }
   }
 }

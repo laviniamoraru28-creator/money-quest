@@ -6,12 +6,11 @@ import { getLocalizedArticle, getAllArticleSlugs } from "@/lib/seo/get-article";
 import { buildArticleSchema, buildBreadcrumbSchema, buildFaqSchema } from "@/lib/seo/structured-data";
 import { safeJsonLd } from "@/lib/seo/safe-json-ld";
 import { getSiteUrl, DEFAULT_OG_IMAGE } from "@/lib/seo/site-url";
-import { LOCALES } from "@/i18n/config";
+import { ACTIVE_LOCALES } from "@/i18n/config";
 import { Breadcrumbs } from "@/components/marketing/Breadcrumbs";
-import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 
 interface PageProps {
-  params: { locale: string; slug: string };
+  params: Promise<{ locale: string; slug: string }>;
 }
 
 /**
@@ -25,10 +24,11 @@ interface PageProps {
  * product).
  */
 export function generateStaticParams() {
-  return getAllArticleSlugs().flatMap((slug) => LOCALES.map((locale) => ({ locale, slug })));
+  return getAllArticleSlugs().flatMap((slug) => ACTIVE_LOCALES.map((locale) => ({ locale, slug })));
 }
 
-export async function generateMetadata({ params: { locale, slug } }: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale, slug } = await params;
   const article = await getLocalizedArticle(slug, locale);
   if (!article) return {};
 
@@ -40,7 +40,7 @@ export async function generateMetadata({ params: { locale, slug } }: PageProps):
     description: article.metaDescription,
     alternates: {
       canonical: `${siteUrl}/${locale}${path}`,
-      languages: Object.fromEntries(LOCALES.map((l) => [l, `${siteUrl}/${l}${path}`])),
+      languages: Object.fromEntries(ACTIVE_LOCALES.map((l) => [l, `${siteUrl}/${l}${path}`])),
     },
     openGraph: {
       title: article.title,
@@ -61,7 +61,8 @@ export async function generateMetadata({ params: { locale, slug } }: PageProps):
   };
 }
 
-export default async function ArticlePage({ params: { locale, slug } }: PageProps) {
+export default async function ArticlePage({ params }: PageProps) {
+  const { locale, slug } = await params;
   const article = await getLocalizedArticle(slug, locale);
   if (!article) notFound();
 
@@ -94,19 +95,18 @@ export default async function ArticlePage({ params: { locale, slug } }: PageProp
 
       <header className="border-b border-ink/10 bg-white">
         <div className="mx-auto flex max-w-[900px] items-center justify-between px-sm py-xs">
-          <Link href="/" className="font-display text-lg font-bold text-teal">
+          <Link href="/" className="font-display text-lg font-bold text-teal-text">
             {t("common.moneyQuest")}
           </Link>
           <div className="flex items-center gap-sm">
-            <Link href="/learn" className="text-sm text-ink/70 hover:text-teal">
+            <Link href="/learn" className="text-sm text-ink/70 hover:text-teal-text">
               {t("nav.learn")}
             </Link>
-            <LanguageSwitcher />
           </div>
         </div>
       </header>
 
-      <main className="mx-auto max-w-[700px] px-sm py-lg">
+      <main id="main-content" tabIndex={-1} className="mx-auto max-w-[700px] px-sm py-lg">
         <Breadcrumbs
           ariaLabel={t("a11y.breadcrumbLabel")}
           items={[
@@ -164,7 +164,7 @@ export default async function ArticlePage({ params: { locale, slug } }: PageProp
             <ul className="mt-sm grid gap-2xs">
               {relatedArticles.map((related) => (
                 <li key={related.slug}>
-                  <Link href={`/learn/${related.slug}`} className="font-medium text-teal hover:underline">
+                  <Link href={`/learn/${related.slug}`} className="font-medium text-teal-text hover:underline">
                     {related.title}
                   </Link>
                 </li>

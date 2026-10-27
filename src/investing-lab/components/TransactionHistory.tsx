@@ -18,7 +18,7 @@ export function TransactionHistory({ transactions, companies, currencyCode }: Tr
   const uiLocale = useLocale();
 
   if (transactions.length === 0) {
-    return <p className="text-sm text-ink/60">{t("investingLab.noTransactionsYet")}</p>;
+    return <p className="text-sm text-ink/70">{t("investingLab.noTransactionsYet")}</p>;
   }
 
   return (
