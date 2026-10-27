@@ -22,6 +22,7 @@ const GLYPHS: Dictionary = {
 	"interact": [[KEY_E], "A", "hint.click", "hint.tap"],
 	"help": [[KEY_H], "Y", "", ""],
 	"listen": [[KEY_L], "X", "", ""],
+	"mission": [[KEY_M], "Select", "", ""],   # hide / show the mission card
 	"back": [[KEY_ESCAPE], "B", "", ""],
 	"confirm": [[KEY_ENTER], "A", "hint.click", "hint.tap"],
 	"move": [[KEY_W, KEY_A, KEY_S, KEY_D], "hint.left_stick", "hint.click_floor", "hint.tap_floor"],

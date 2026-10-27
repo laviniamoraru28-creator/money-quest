@@ -2746,3 +2746,6 @@ grownup_gate.open_button,Open the website,Deschide site-ul,Abrir la página web,
 grownup_gate.cancel_button,Not now,Nu acum,Ahora no,Pas maintenant,Nicht jetzt,Non ora,Agora não,Niet nu,Nie teraz
 rotate_hint.message,Turn your device sideways,,,,,,,,
 narration.own_words,your own words,,,,,,,,
+objective.minimize,Hide the mission,,,,,,,,
+objective.expand,Show the mission,,,,,,,,
+objective.minimize_hint,Hide,,,,,,,,

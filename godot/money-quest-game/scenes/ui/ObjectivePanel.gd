@@ -9,6 +9,11 @@ extends PanelContainer
 ## A finished step shows a "Done!" line with a tick (a shape, not only a
 ## colour) and a soft success chime, read aloud when narration is on; the
 ## card gives a small happy pop — or, with Reduced Motion, just the tick.
+## The card can be minimized (the button beside "?", M on the keyboard, Select
+## on a gamepad) to one compact row — the goal pictures, a one-line title and
+## an Expand button — and expanded again at any time. A genuinely new mission
+## always opens it in full; nothing else (a shop, the arrival banner, a
+## setting or language change) reopens it, and nothing closes it by itself.
 
 signal help_requested
 
@@ -39,6 +44,22 @@ var _last_text: String = ""
 var strip: MissionStrip
 var _route: HBoxContainer
 var _route_sig: String = ""
+## Minimized by the player (the session remembers it across places). Only a
+## mission this card has never shown before opens it in full again.
+var _collapsed: bool = false
+var _seen_ids: Dictionary = {}
+var _row: HBoxContainer
+var _toggle: Button
+var _compact: HBoxContainer
+var _mini: MissionStrip
+var _mini_title: Label
+var _mini_tick: TickIcon
+var _expand: Button
+var _style_full: StyleBoxFlat
+var _style_compact: StyleBoxFlat
+const COMPACT_BUTTON := 56.0
+## The compact row stays within this share of the screen width.
+const COMPACT_MAX_SHARE := 0.4
 
 
 func _ready() -> void:
@@ -46,9 +67,16 @@ func _ready() -> void:
 	# Clicks pass through the card to the world behind it (tap-to-move); only
 	# the "?" button takes them.
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
-	add_theme_stylebox_override("panel", UIStyle.panel(UIStyle.GOLD))
+	_style_full = UIStyle.panel(UIStyle.GOLD)
+	_style_compact = UIStyle.panel(UIStyle.GOLD)
+	_style_compact.content_margin_top = 6
+	_style_compact.content_margin_bottom = 6
+	_style_compact.content_margin_left = 14
+	_style_compact.content_margin_right = 8
+	add_theme_stylebox_override("panel", _style_full)
 	custom_minimum_size = Vector2(360, 0)
 	var row := HBoxContainer.new()
+	_row = row
 	row.add_theme_constant_override("separation", 16)
 	row.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(row)
@@ -96,7 +124,38 @@ func _ready() -> void:
 	_help.focus_mode = Control.FOCUS_NONE   # the help action (H / Y) is the keyboard/gamepad route
 	_help.tooltip_text = ""
 	_help.pressed.connect(func(): help_requested.emit())
-	row.add_child(_help)
+	# "?" and Minimize stacked (the card is no wider than before).
+	var buttons := VBoxContainer.new()
+	buttons.name = "CardButtons"
+	buttons.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	buttons.add_theme_constant_override("separation", 8)
+	buttons.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	buttons.add_child(_help)
+	row.add_child(buttons)
+	_toggle = _make_toggle("MinimizeButton", true, 60.0)
+	_toggle.pressed.connect(minimize)
+	buttons.add_child(_toggle)
+	# The compact form: [goal pictures] [title, one line] [Expand].
+	_compact = HBoxContainer.new()
+	_compact.name = "CompactRow"
+	_compact.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_compact.add_theme_constant_override("separation", 10)
+	_compact.visible = false
+	_mini_tick = TickIcon.new()
+	_mini_tick.visible = false
+	_compact.add_child(_mini_tick)
+	_mini = MissionStrip.new(34.0)
+	_mini.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	_compact.add_child(_mini)
+	_mini_title = UIStyle.label("", 20, UIStyle.INK)
+	_mini_title.clip_text = true
+	_mini_title.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	_mini_title.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	_compact.add_child(_mini_title)
+	_expand = _make_toggle("ExpandButton", false, COMPACT_BUTTON)
+	_expand.pressed.connect(expand)
+	_compact.add_child(_expand)
+	add_child(_compact)
 	ObjectiveManager.objective_changed.connect(_refresh)
 	ObjectiveManager.objective_completed.connect(_on_completed)
 	Localization.locale_changed.connect(func(_l): _refresh())
@@ -125,8 +184,15 @@ func _refresh() -> void:
 	if not visible:
 		_shown_id = ""
 		return
+	if not finished_only and not _seen_ids.has(ObjectiveManager.objective_id):
+		# A genuinely new mission: always shown in full.
+		_seen_ids[ObjectiveManager.objective_id] = true
+		_collapsed = false
 	var key: String = InputHints.glyph("help")
 	_title.text = Localization.t("objective.title") + ("   ·   %s %s" % [Localization.t("objective.help_hint"), key] if key != "" else "")
+	var mkey: String = InputHints.glyph("mission")
+	if mkey != "":
+		_title.text += "   ·   %s %s" % [Localization.t("objective.minimize_hint"), mkey]
 	_text.text = _last_text if finished_only else ObjectiveManager.text()
 	_tip.text = ObjectiveManager.tip_text
 	_tip.visible = not ObjectiveManager.tip_text.is_empty()
@@ -141,6 +207,7 @@ func _refresh() -> void:
 	_text.visible = words
 	_tip.visible = words and _tip.visible
 	custom_minimum_size.x = 360.0 if words else 0.0
+	_apply_collapsed(icons, words, finished_only)
 	reset_size.call_deferred()
 	if not finished_only and ObjectiveManager.objective_id != _shown_id:
 		_shown_id = ObjectiveManager.objective_id
@@ -230,3 +297,103 @@ class TickIcon extends Control:
 		var r: float = minf(size.x, size.y) * 0.5
 		draw_circle(c, r, UIStyle.TEAL)
 		draw_polyline(PackedVector2Array([c + Vector2(-r * 0.45, 0), c + Vector2(-r * 0.1, r * 0.38), c + Vector2(r * 0.5, -r * 0.35)]), Color.WHITE, 3.5, true)
+
+
+func is_collapsed() -> bool:
+	return _collapsed
+
+
+## Minimize: the compact row (pictures, one-line title, Expand). Instant —
+## no animation, no timer; the mission itself is untouched.
+func minimize() -> void:
+	if _collapsed:
+		return
+	_collapsed = true
+	AudioManager.play_sfx("ui_click")
+	_refresh()
+
+
+## Expand: the full card again, exactly as it was.
+func expand() -> void:
+	if not _collapsed:
+		return
+	_collapsed = false
+	AudioManager.play_sfx("ui_click")
+	_refresh()
+
+
+func toggle() -> void:
+	if _collapsed:
+		expand()
+	else:
+		minimize()
+
+
+## M (keyboard) / Select (gamepad): only while exploring — never while a
+## menu or panel has the focus, the same rule as the help control.
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("mission") and visible and UIFocus.visible_focus(get_viewport()) == null:
+		get_viewport().set_input_as_handled()
+		toggle()
+
+
+## Shows the full card or the compact row; the compact row keeps to
+## COMPACT_MAX_SHARE of the screen width (the title is cut with "…").
+func _apply_collapsed(icons: Array, words: bool, finished_only: bool) -> void:
+	_row.visible = not _collapsed
+	_compact.visible = _collapsed
+	add_theme_stylebox_override("panel", _style_compact if _collapsed else _style_full)
+	if not _collapsed:
+		return
+	custom_minimum_size.x = 0.0
+	var mini_icons: Array = icons.slice(0, 3)
+	_mini.show_tokens(mini_icons, _last_params if finished_only else ObjectiveManager.params)
+	_mini.visible = not mini_icons.is_empty()
+	_mini_tick.visible = _finishing
+	_mini_title.text = _text.text
+	_mini_title.visible = words and not _mini_title.text.is_empty()
+	if _mini_title.visible:
+		var used: float = COMPACT_BUTTON + _style_compact.content_margin_left + _style_compact.content_margin_right + 30.0
+		if _mini.visible:
+			used += _mini.get_combined_minimum_size().x + 10.0
+		if _mini_tick.visible:
+			used += 40.0
+		_mini_title.custom_minimum_size.x = clampf(get_viewport_rect().size.x * COMPACT_MAX_SHARE - used, 60.0, 280.0)
+
+
+func _make_toggle(node_name: String, minimizing: bool, px: float) -> Button:
+	var b := UIStyle.button("", false)
+	b.name = node_name
+	b.custom_minimum_size = Vector2(px, px)
+	b.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	b.focus_mode = Control.FOCUS_NONE   # the mission control (M / Select) is the keyboard/gamepad route
+	b.tooltip_text = Localization.t("objective.minimize" if minimizing else "objective.expand")
+	b.set_meta("words", b.tooltip_text)
+	var icon := ToggleIcon.new(minimizing)
+	icon.set_anchors_preset(Control.PRESET_FULL_RECT)
+	b.add_child(icon)
+	return b
+
+
+## Minimize: a chevron pointing up onto a bar (fold it away). Expand: a
+## chevron pointing down over three text lines (open the mission). Two
+## different shapes, readable without words or colour.
+class ToggleIcon extends Control:
+	var minimizing: bool = true
+
+	func _init(m: bool) -> void:
+		minimizing = m
+		mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+	func _draw() -> void:
+		var c: Vector2 = size * 0.5
+		var s: float = minf(size.x, size.y) * 0.22
+		var ink: Color = UIStyle.TEAL_DARK
+		if minimizing:
+			draw_line(c + Vector2(-s, -s * 1.1), c + Vector2(s, -s * 1.1), ink, 4.0, true)
+			draw_polyline(PackedVector2Array([c + Vector2(-s, s * 0.9), c + Vector2(0, -s * 0.1), c + Vector2(s, s * 0.9)]), ink, 4.0, true)
+		else:
+			draw_polyline(PackedVector2Array([c + Vector2(-s, -s * 1.1), c + Vector2(0, -s * 0.1), c + Vector2(s, -s * 1.1)]), ink, 4.0, true)
+			for i in 3:
+				var y: float = s * (0.45 + 0.42 * i)
+				draw_line(c + Vector2(-s, y), c + Vector2(s * (1.0 - 0.35 * i), y), ink, 3.0, true)
