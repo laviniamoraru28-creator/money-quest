@@ -78,6 +78,31 @@ export default async function LandingPage({ params: { locale } }: { params: { lo
           </div>
         </section>
 
+        {/* Preview artwork for planned learning labs. No links until modules exist. */}
+        {locale === "en" && (
+          <section aria-labelledby="future-labs-heading" className="mx-auto max-w-[1200px] px-sm py-2xl">
+            <h2 id="future-labs-heading" className="font-display text-2xl font-bold">More adventures are on the way!</h2>
+            <p className="mt-2xs text-base text-ink/70">Little discoveries. Big ideas. Coming soon!</p>
+            <div className="mt-md grid gap-sm sm:grid-cols-2 lg:grid-cols-4">
+              {[
+                { name: "Brain Lab", image: "/images/future-skills/brain-lab.svg", alt: "A smiling brain with bright ideas" },
+                { name: "Mind Lab", image: "/images/future-skills/mind-lab.svg", alt: "A friendly heart and cheerful emotion bubbles" },
+                { name: "Future Skills", image: "/images/future-skills/future-skills.svg", alt: "A cheerful light bulb for creative thinking" },
+                { name: "Inclusive Learning", image: "/images/future-skills/inclusive-learning.svg", alt: "A welcoming rainbow for different ways of learning" },
+              ].map((lab) => (
+                <div key={lab.name} className="overflow-hidden rounded-xl border border-ink/10 bg-white shadow-resting">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={lab.image} alt={lab.alt} width={640} height={420} loading="lazy" className="h-auto w-full" />
+                  <div className="p-sm">
+                    <h3 className="font-display text-lg font-bold">{lab.name}</h3>
+                    <p className="mt-2xs text-sm text-ink/70">Coming soon</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
         {/* Why free */}
         <section className="border-y border-ink/10 bg-white py-lg">
           <div className="mx-auto max-w-[1200px] px-sm text-center">
