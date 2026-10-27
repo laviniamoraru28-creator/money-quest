@@ -40,7 +40,17 @@ export default function PlayPage() {
   }
 
   if (!state.ageBand) {
-    return (
+    const worldArtwork: Record<string, { symbol: string; background: string; label: string }> = {
+    "coin-cove": { symbol: "🪙", background: "linear-gradient(135deg,#fff2c5,#ffe0a0)", label: "Coins and treasure" },
+    "market-town": { symbol: "🛍️", background: "linear-gradient(135deg,#ffe1d4,#ffd5b5)", label: "Shopping and choices" },
+    "golden-vault": { symbol: "🐷", background: "linear-gradient(135deg,#d8f4dc,#b7e8d1)", label: "Saving for a goal" },
+    "sky-exchange": { symbol: "💳", background: "linear-gradient(135deg,#d5edff,#cbdcff)", label: "Digital money" },
+    "guardian-gate": { symbol: "🛡️", background: "linear-gradient(135deg,#e8e0ff,#d9d2fb)", label: "Staying safe online" },
+    "horizon-peaks": { symbol: "🏔️", background: "linear-gradient(135deg,#e2f3ff,#d5e4e9)", label: "Planning ahead" },
+    "kindness-grove": { symbol: "🌳", background: "linear-gradient(135deg,#fce0e8,#f7e5c9)", label: "Helping others" },
+  };
+
+  return (
       <div className="min-h-screen bg-fog px-sm py-lg">
         <main className="mx-auto max-w-lg text-center">
           <Link
@@ -135,10 +145,15 @@ export default function PlayPage() {
               <Link
                 key={world.id}
                 href={`/play/world/${world.id}`}
-                className="flex items-center gap-sm rounded-lg border-2 p-md shadow-resting transition-shadow hover:shadow-floating"
+                className="group flex min-h-[152px] items-center gap-sm rounded-2xl border-2 bg-white p-sm shadow-resting transition-all hover:-translate-y-0.5 hover:shadow-floating focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-teal motion-reduce:transform-none motion-reduce:transition-none sm:p-md"
                 style={{ borderColor: world.themeColor }}
               >
-                <LevelProgressRing percent={percent} color={world.themeColor} />
+                <div className="flex shrink-0 flex-col items-center gap-2xs">
+                  <div aria-hidden="true" className="flex h-20 w-20 items-center justify-center rounded-2xl text-5xl shadow-sm sm:h-24 sm:w-24" style={{ background: worldArtwork[world.id]?.background ?? "#f5f5f5" }}>
+                    {worldArtwork[world.id]?.symbol ?? "✨"}
+                  </div>
+                  <LevelProgressRing percent={percent} color={world.themeColor} />
+                </div>
                 <div className="min-w-0 flex-1">
                   <p className="text-xs font-medium uppercase tracking-wide text-ink/50">
                     {t("play.levelLabel", { number: world.orderIndex })}
