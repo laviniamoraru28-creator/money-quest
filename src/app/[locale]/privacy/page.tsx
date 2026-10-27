@@ -7,10 +7,11 @@ import { getSiteUrl, DEFAULT_OG_IMAGE } from "@/lib/seo/site-url";
 import { LOCALES } from "@/i18n/config";
 
 interface PageProps {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }
 
-export async function generateMetadata({ params: { locale } }: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "privacyPage" });
   const siteUrl = getSiteUrl();
   const path = "/privacy";
@@ -41,7 +42,8 @@ export async function generateMetadata({ params: { locale } }: PageProps): Promi
  * Fully wired into the translation system (privacyPage.* namespace) —
  * found missing during a later audit and fixed then.
  */
-export default async function PrivacyPage({ params: { locale } }: PageProps) {
+export default async function PrivacyPage({ params }: PageProps) {
+  const { locale } = await params;
   const t = await getTranslations();
   const siteUrl = getSiteUrl();
   const breadcrumbSchema = buildBreadcrumbSchema([

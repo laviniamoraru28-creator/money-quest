@@ -5,7 +5,7 @@ import { AccessibilityMenu } from "@/components/ui/AccessibilityMenu";
 import { SoundToggle } from "@/components/ui/SoundToggle";
 
 interface LayoutProps {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }
 
 /**
@@ -20,7 +20,8 @@ interface LayoutProps {
  * re-implemented, so Real Life Quests has the same accessibility
  * affordances as the rest of the app, never a second, separate system.
  */
-export async function generateMetadata({ params: { locale } }: LayoutProps): Promise<Metadata> {
+export async function generateMetadata({ params }: LayoutProps): Promise<Metadata> {
+  const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "realLifeQuests" });
   return {
     title: t("hubTitle"),

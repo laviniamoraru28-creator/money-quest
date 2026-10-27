@@ -7,10 +7,11 @@ import { getSiteUrl, DEFAULT_OG_IMAGE } from "@/lib/seo/site-url";
 import { LOCALES } from "@/i18n/config";
 
 interface PageProps {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }
 
-export async function generateMetadata({ params: { locale } }: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "contact" });
   const siteUrl = getSiteUrl();
   const path = "/contact";
@@ -33,7 +34,8 @@ export async function generateMetadata({ params: { locale } }: PageProps): Promi
   };
 }
 
-export default async function ContactPage({ params: { locale } }: PageProps) {
+export default async function ContactPage({ params }: PageProps) {
+  const { locale } = await params;
   const t = await getTranslations();
   const siteUrl = getSiteUrl();
   const breadcrumbSchema = buildBreadcrumbSchema([

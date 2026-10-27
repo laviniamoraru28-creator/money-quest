@@ -7,7 +7,8 @@ import { buildOrganizationSchema, buildWebSiteSchema } from "@/lib/seo/structure
 import { safeJsonLd } from "@/lib/seo/safe-json-ld";
 import { getSiteUrl } from "@/lib/seo/site-url";
 
-export default async function LandingPage({ params: { locale } }: { params: { locale: string } }) {
+export default async function LandingPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
   const t = await getTranslations();
   const siteUrl = getSiteUrl();
   const orgSchema = buildOrganizationSchema(siteUrl);

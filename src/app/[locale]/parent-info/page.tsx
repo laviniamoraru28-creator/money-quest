@@ -7,10 +7,11 @@ import { getSiteUrl, DEFAULT_OG_IMAGE } from "@/lib/seo/site-url";
 import { LOCALES } from "@/i18n/config";
 
 interface PageProps {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }
 
-export async function generateMetadata({ params: { locale } }: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "parentInfo" });
   const siteUrl = getSiteUrl();
   const path = "/parent-info";
@@ -42,7 +43,8 @@ export async function generateMetadata({ params: { locale } }: PageProps): Promi
  * system (parentInfo.* namespace) — found missing during a later audit
  * and fixed then, not part of the original build.
  */
-export default async function ParentInfoPage({ params: { locale } }: PageProps) {
+export default async function ParentInfoPage({ params }: PageProps) {
+  const { locale } = await params;
   const t = await getTranslations();
   const siteUrl = getSiteUrl();
   const breadcrumbSchema = buildBreadcrumbSchema([

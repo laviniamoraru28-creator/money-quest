@@ -10,7 +10,7 @@ import { LOCALES } from "@/i18n/config";
 import { Breadcrumbs } from "@/components/marketing/Breadcrumbs";
 
 interface PageProps {
-  params: { locale: string; slug: string };
+  params: Promise<{ locale: string; slug: string }>;
 }
 
 /**
@@ -27,7 +27,8 @@ export function generateStaticParams() {
   return getAllArticleSlugs().flatMap((slug) => LOCALES.map((locale) => ({ locale, slug })));
 }
 
-export async function generateMetadata({ params: { locale, slug } }: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale, slug } = await params;
   const article = await getLocalizedArticle(slug, locale);
   if (!article) return {};
 
@@ -60,7 +61,8 @@ export async function generateMetadata({ params: { locale, slug } }: PageProps):
   };
 }
 
-export default async function ArticlePage({ params: { locale, slug } }: PageProps) {
+export default async function ArticlePage({ params }: PageProps) {
+  const { locale, slug } = await params;
   const article = await getLocalizedArticle(slug, locale);
   if (!article) notFound();
 

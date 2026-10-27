@@ -5,7 +5,7 @@ import { AccessibilityMenu } from "@/components/ui/AccessibilityMenu";
 import { SoundToggle } from "@/components/ui/SoundToggle";
 
 interface LayoutProps {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }
 
 /**
@@ -15,7 +15,8 @@ interface LayoutProps {
  * SoundToggle are the same persistent, floating controls every quest
  * section already gets — reused here rather than reimplemented.
  */
-export async function generateMetadata({ params: { locale } }: LayoutProps): Promise<Metadata> {
+export async function generateMetadata({ params }: LayoutProps): Promise<Metadata> {
+  const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "leadershipQuest" });
   return {
     title: t("hubTitle"),
