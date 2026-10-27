@@ -1,3 +1,5 @@
+import { getSiteUrl } from "@/lib/seo/site-url";
 import DiscoveryExperience from "@/components/DiscoveryExperience";
 export default function Page(){return <DiscoveryExperience kind="library" />;}
-export const metadata = {title:"Money Quest Library",description:"Explore the Money Quest Library with child-friendly stories and activities."};
+\n
+export function generateMetadata({params}:{params:{locale:string}}){return {title:"Money Quest Library",description:"Explore eight children's books and biographies.",alternates:{canonical:`${getSiteUrl()}/${params.locale}/library`},robots:{index:params.locale==="en",follow:true}};}
