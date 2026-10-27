@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { getSiteUrl } from "@/lib/seo/site-url";
 import { ARTICLE_STRUCTURES } from "@/content/articles";
 import { LOCALES } from "@/i18n/config";
+import { museumRooms, libraryBooks } from "@/content/discovery";
 
 /**
  * Covers every genuinely public, indexable page — the landing page,
@@ -30,6 +31,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const allPaths = [...staticPaths, ...articlePaths];
 
   const entries: MetadataRoute.Sitemap = [];
+  const discoveryPaths = ["/museum", ...museumRooms.map((room) => `/museum/${room.slug}`), "/library", ...libraryBooks.map((book) => `/library/${book.slug}`)];
+  for (const path of discoveryPaths) {
+    entries.push({url: `${siteUrl}/en${path}`, changeFrequency: "monthly", priority: 0.7});
+  }
 
   for (const path of allPaths) {
     for (const locale of LOCALES) {
