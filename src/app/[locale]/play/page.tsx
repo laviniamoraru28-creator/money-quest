@@ -35,12 +35,7 @@ export default function PlayPage() {
   const t = useTranslations();
   const { state, isLoaded, level, setAgeBand, setCurrencyCode } = useLocalProgress();
 
-  if (!isLoaded) {
-    return <div className="grid min-h-screen place-items-center bg-fog text-ink/60">{t("common.loading")}</div>;
-  }
-
-  if (!state.ageBand) {
-    const worldArtwork: Record<string, { symbol: string; background: string; label: string }> = {
+  const worldArtwork: Record<string, { symbol: string; background: string; label: string }> = {
     "coin-cove": { symbol: "🪙", background: "linear-gradient(135deg,#fff2c5,#ffe0a0)", label: "Coins and treasure" },
     "market-town": { symbol: "🛍️", background: "linear-gradient(135deg,#ffe1d4,#ffd5b5)", label: "Shopping and choices" },
     "golden-vault": { symbol: "🐷", background: "linear-gradient(135deg,#d8f4dc,#b7e8d1)", label: "Saving for a goal" },
@@ -49,6 +44,12 @@ export default function PlayPage() {
     "horizon-peaks": { symbol: "🏔️", background: "linear-gradient(135deg,#e2f3ff,#d5e4e9)", label: "Planning ahead" },
     "kindness-grove": { symbol: "🌳", background: "linear-gradient(135deg,#fce0e8,#f7e5c9)", label: "Helping others" },
   };
+
+  if (!isLoaded) {
+    return <div className="grid min-h-screen place-items-center bg-fog text-ink/60">{t("common.loading")}</div>;
+  }
+
+  if (!state.ageBand) {
 
   return (
       <div className="min-h-screen bg-fog px-sm py-lg">
