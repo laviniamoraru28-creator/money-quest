@@ -1,8 +1,8 @@
-import { getSiteUrl } from "@/lib/seo/site-url";
+import {learningMetadata} from "@/lib/seo/learning-metadata";
 import DiscoveryExperience from "@/components/DiscoveryExperience";
-import { notFound } from "next/navigation";
-import { libraryBooks } from "@/content/discovery";
-export default async function Page({params}:{params:Promise<{slug:string}>}){const {slug}=await params;if (!libraryBooks.some(x=>x.slug===slug)) notFound(); return <DiscoveryExperience kind="library" slug={slug} />;}
-export function generateStaticParams(){return libraryBooks.map(x=>({slug:x.slug}));}
-
-export async function generateMetadata({params}:{params:Promise<{locale:string;slug:string}>}){const {locale,slug}=await params;const entry=libraryBooks.find(x=>x.slug===slug);if(!entry)return {};const url=`${getSiteUrl()}/${locale}/library/${slug}`;return {title:`${entry.title} | Money Quest Library`,description:entry.topic,alternates:{canonical:url,languages:{en:url}},robots:{index:locale==="en",follow:true}};}
+import {notFound} from "next/navigation";
+import {libraryBooks} from "@/content/discovery";
+type Props={params:Promise<{slug:string}>};
+export default async function Page({params}:Props){const {slug}=await params;if(!libraryBooks.some(entry=>entry.slug===slug))notFound();return <DiscoveryExperience kind="library" slug={slug}/>}
+export function generateStaticParams(){return libraryBooks.map(entry=>({slug:entry.slug}))}
+export async function generateMetadata({params}:Props){const {slug}=await params;const entry=libraryBooks.find(item=>item.slug===slug);if(!entry)notFound();return learningMetadata(entry.title,entry.topic,`/library/${slug}`,"sections/library.webp")}

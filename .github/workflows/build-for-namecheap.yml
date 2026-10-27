@@ -38,7 +38,7 @@ jobs:
           node-version: "20"
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Production build
         env:
@@ -65,6 +65,7 @@ jobs:
           cp -r messages deploy/
           cp server.js deploy/
           cp package.json deploy/
+          cp package-lock.json deploy/
           cp next.config.mjs deploy/
           # All local artwork and printable worksheets are runtime assets.
           cp -r public deploy/

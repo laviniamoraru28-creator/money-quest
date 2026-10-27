@@ -32,7 +32,7 @@ const CORRECT_GAME_ANSWER = "Stop and think about it first";
 
 test.describe("Lesson quiz answer order", () => {
   test("the correct answer is not pinned to the first position across repeated visits", async ({ page }) => {
-    await chooseLevel(page, "Primary");
+    await chooseLevel(page, "Builder");
     await page.goto(LESSON_URL);
 
     const positions = new Set<number>();
@@ -56,7 +56,7 @@ test.describe("Lesson quiz answer order", () => {
   });
 
   test("selecting the correct answer scores correct and shows success feedback, wherever it is displayed", async ({ page }) => {
-    await chooseLevel(page, "Primary");
+    await chooseLevel(page, "Builder");
     await page.goto(LESSON_URL);
 
     const radios = page.getByRole("radio");
@@ -71,7 +71,7 @@ test.describe("Lesson quiz answer order", () => {
   });
 
   test("selecting a wrong answer shows retry feedback, and Try Again returns to an answerable state", async ({ page }) => {
-    await chooseLevel(page, "Primary");
+    await chooseLevel(page, "Builder");
     await page.goto(LESSON_URL);
 
     const labelLocator = page.locator("fieldset label");
@@ -93,7 +93,7 @@ test.describe("Lesson quiz answer order", () => {
   });
 
   test("the answer options are reachable and operable with keyboard only", async ({ page }) => {
-    await chooseLevel(page, "Primary");
+    await chooseLevel(page, "Builder");
     await page.goto(LESSON_URL);
 
     const radios = page.getByRole("radio");
@@ -125,7 +125,7 @@ test.describe("Lesson quiz answer order", () => {
 
 test.describe("Game-engine multiple-choice round answer order", () => {
   test("the correct option is not pinned to one position, and scoring stays correct", async ({ page }) => {
-    await chooseLevel(page, "Early Learner");
+    await chooseLevel(page, "Explorer");
     await page.goto(GAME_URL);
 
     const positions = new Set<number>();
@@ -146,7 +146,7 @@ test.describe("Game-engine multiple-choice round answer order", () => {
   });
 
   test("selecting a wrong option shows the game's wrong-answer feedback", async ({ page }) => {
-    await chooseLevel(page, "Early Learner");
+    await chooseLevel(page, "Explorer");
     await page.goto(GAME_URL);
 
     const labelLocator = page.locator("fieldset label");

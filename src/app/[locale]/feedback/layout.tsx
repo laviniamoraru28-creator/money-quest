@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { getTranslations } from "next-intl/server";
 import { getSiteUrl } from "@/lib/seo/site-url";
-import { LOCALES } from "@/i18n/config";
+import { ACTIVE_LOCALES } from "@/i18n/config";
 
 interface LayoutProps {
   params: Promise<{ locale: string }>;
@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
     robots: { index: false, follow: true },
     alternates: {
       canonical: `${siteUrl}/${locale}${path}`,
-      languages: Object.fromEntries(LOCALES.map((l) => [l, `${siteUrl}/${l}${path}`])),
+      languages: Object.fromEntries(ACTIVE_LOCALES.map((l) => [l, `${siteUrl}/${l}${path}`])),
     },
   };
 }

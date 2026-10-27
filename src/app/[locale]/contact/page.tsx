@@ -4,7 +4,7 @@ import { Link } from "@/i18n/navigation";
 import { buildBreadcrumbSchema } from "@/lib/seo/structured-data";
 import { safeJsonLd } from "@/lib/seo/safe-json-ld";
 import { getSiteUrl, DEFAULT_OG_IMAGE } from "@/lib/seo/site-url";
-import { LOCALES } from "@/i18n/config";
+import { ACTIVE_LOCALES } from "@/i18n/config";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description: t("metaDescription"),
     alternates: {
       canonical: `${siteUrl}/${locale}${path}`,
-      languages: Object.fromEntries(LOCALES.map((l) => [l, `${siteUrl}/${l}${path}`])),
+      languages: Object.fromEntries(ACTIVE_LOCALES.map((l) => [l, `${siteUrl}/${l}${path}`])),
     },
     openGraph: {
       title: t("title"),

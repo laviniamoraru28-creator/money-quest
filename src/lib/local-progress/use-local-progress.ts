@@ -21,21 +21,37 @@ import {
  * the device. There is no network call anywhere in this file.
  */
 const STORAGE_KEY = "moneyquest_local_progress_v1";
+// Keep the current visit usable when browser storage is blocked.
+let memoryState = createDefaultState();
 
 function readFromStorage(): LocalProgressState {
   if (typeof window === "undefined") return createDefaultState();
   try {
     const raw = window.localStorage.getItem(STORAGE_KEY);
-    if (!raw) return createDefaultState();
+    if (!raw) return memoryState;
     const parsed = JSON.parse(raw);
-    return { ...createDefaultState(), ...parsed };
+    if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) return memoryState;
+    const next = { ...createDefaultState(), ...parsed };
+    if (![null,"explorer","builder","strategist"].includes(next.ageBand)) next.ageBand = null;
+    if (typeof next.currencyCode !== "string" || !/^[A-Z]{3}$/.test(next.currencyCode)) next.currencyCode = "GBP";
+    for (const field of ["xpTotal","walletBalanceMinorUnits"] as const) if (!Number.isSafeInteger(next[field]) || next[field] < 0) next[field] = 0;
+    next.completedActivityIds = Array.isArray(next.completedActivityIds) ? next.completedActivityIds.filter((id: unknown) => typeof id === "string") : [];
+    next.earnedBadgeIds = Array.isArray(next.earnedBadgeIds) ? next.earnedBadgeIds.filter((id: unknown) => typeof id === "string") : [];
+    next.goals = Array.isArray(next.goals) ? next.goals.filter((goal: unknown) => {
+      if (!goal || typeof goal !== "object") return false;
+      const value=goal as Record<string,unknown>;
+      return typeof value.id === "string" && typeof value.name === "string" && typeof value.targetMinorUnits === "number" && Number.isSafeInteger(value.targetMinorUnits) && value.targetMinorUnits > 0 && typeof value.currentMinorUnits === "number" && Number.isSafeInteger(value.currentMinorUnits) && value.currentMinorUnits >= 0 && (value.achievedAt === null || typeof value.achievedAt === "string");
+    }) : [];
+    memoryState = next;
+    return next;
   } catch {
-    return createDefaultState();
+    return memoryState;
   }
 }
 
 function writeToStorage(state: LocalProgressState): void {
   if (typeof window === "undefined") return;
+  memoryState = state;
   try {
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
   } catch {

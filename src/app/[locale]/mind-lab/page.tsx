@@ -1,6 +1,6 @@
 import LearningLabExperience from "@/components/LearningLabExperience";
 import {getLearningLab} from "@/content/learning-labs";
-import {getSiteUrl} from "@/lib/seo/site-url";
+import {learningMetadata} from "@/lib/seo/learning-metadata";
 const lab=getLearningLab("mind-lab")!;
-export const metadata={title:lab.title,description:lab.description,alternates:{canonical:`${getSiteUrl()}/en/mind-lab`,languages:{en:`${getSiteUrl()}/en/mind-lab`}}};
+export const metadata=learningMetadata(lab.title,lab.description,"/mind-lab","sections/mind-lab.webp");
 export default function Page(){return <LearningLabExperience lab={lab}/>}

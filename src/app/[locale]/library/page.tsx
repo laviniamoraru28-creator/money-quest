@@ -1,5 +1,4 @@
-import { getSiteUrl } from "@/lib/seo/site-url";
+import {learningMetadata} from "@/lib/seo/learning-metadata";
 import DiscoveryExperience from "@/components/DiscoveryExperience";
-export default function Page(){return <DiscoveryExperience kind="library" />;}
-
-export async function generateMetadata({params}:{params:Promise<{locale:string}>}){const {locale}=await params;return {title:"Money Quest Library",description:"Explore eight children's books and biographies.",alternates:{languages:{en:`${getSiteUrl()}/en/library`},canonical:`${getSiteUrl()}/${locale}/library`},robots:{index:locale==="en",follow:true}};}
+export const metadata=learningMetadata("Money Quest Library","Explore eight short children's books and biographies.","/library","sections/library.webp");
+export default function Page(){return <DiscoveryExperience kind="library"/>}

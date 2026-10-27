@@ -163,7 +163,8 @@ export function GameShell({ config, ageBand, difficulty = "standard", currencyCo
     const scorePercent = Math.round((firstTryCorrectCount / variant.rounds.length) * 100);
     return (
       <Card variant="reward" className="text-center">
-        <h2 className="font-display text-2xl font-bold">{t("game.questComplete")}</h2>
+        <h1 className="font-display text-2xl font-bold">{t("game.questComplete")}</h1>
+        <GuidePanel compact message="You have finished this activity. Notice what you learned, then choose where to go next."/>
         <p className="mt-2xs text-base text-ink/70">
           {t("game.scoreLine", { correct: firstTryCorrectCount, total: variant.rounds.length, percent: scorePercent })}
         </p>
@@ -238,7 +239,8 @@ export function GameShell({ config, ageBand, difficulty = "standard", currencyCo
         )}
       </div>
 
-      <GuidePanel compact message="Choose your answer. You can use a hint or try again. There is no timer." />
+      <h1 className="font-display text-xl font-bold">{config.title}</h1>
+      <GuidePanel compact message={phase === "incorrect" ? "Pause and look at the explanation. You can try a different answer when you are ready." : phase === "correct" ? "You have finished this step. Use what you noticed in the next round." : "Choose your answer. You can use a hint or try again. There is no timer."} />
       {/* Progress */}
       <div>
         <p className="text-sm text-ink/70" aria-live="polite">
@@ -302,7 +304,7 @@ export function GameShell({ config, ageBand, difficulty = "standard", currencyCo
 
         {phase === "correct" && (
           <div className="mt-md rounded-sm border border-success/30 bg-success/5 p-sm">
-            <p role="status" className="font-medium text-success">{config.feedback.correct}</p>
+            <p className="font-medium text-success">{config.feedback.correct}</p>
             <p className="mt-2xs text-sm text-ink/70">{round.explanation}</p>
             {!isLastRound && (
               <Button variant="quest-primary" className="mt-sm w-full" onClick={handleNextRound}>
@@ -314,7 +316,7 @@ export function GameShell({ config, ageBand, difficulty = "standard", currencyCo
 
         {phase === "incorrect" && (
           <div className="mt-md rounded-sm border border-error/30 bg-error/5 p-sm">
-            <p role="status" className="font-medium text-error">{config.feedback.incorrect}</p>
+            <p className="font-medium text-error">{config.feedback.incorrect}</p>
             <div className="mt-2xs flex items-start gap-2xs">
               
               <p className="text-sm text-ink/70">{round.explanation}</p>

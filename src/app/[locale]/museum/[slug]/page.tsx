@@ -1,8 +1,8 @@
-import { getSiteUrl } from "@/lib/seo/site-url";
+import {learningMetadata} from "@/lib/seo/learning-metadata";
 import DiscoveryExperience from "@/components/DiscoveryExperience";
-import { notFound } from "next/navigation";
-import { museumRooms } from "@/content/discovery";
-export default async function Page({params}:{params:Promise<{slug:string}>}){const {slug}=await params;if (!museumRooms.some(x=>x.slug===slug)) notFound(); return <DiscoveryExperience kind="museum" slug={slug} />;}
-export function generateStaticParams(){return museumRooms.map(x=>({slug:x.slug}));}
-
-export async function generateMetadata({params}:{params:Promise<{locale:string;slug:string}>}){const {locale,slug}=await params;const entry=museumRooms.find(x=>x.slug===slug);if(!entry)return {};const url=`${getSiteUrl()}/${locale}/museum/${slug}`;return {title:`${entry.title} | Money Quest Museum`,description:entry.intro,alternates:{canonical:url,languages:{en:url}},robots:{index:locale==="en",follow:true}};}
+import {notFound} from "next/navigation";
+import {museumRooms} from "@/content/discovery";
+type Props={params:Promise<{slug:string}>};
+export default async function Page({params}:Props){const {slug}=await params;if(!museumRooms.some(entry=>entry.slug===slug))notFound();return <DiscoveryExperience kind="museum" slug={slug}/>}
+export function generateStaticParams(){return museumRooms.map(entry=>({slug:entry.slug}))}
+export async function generateMetadata({params}:Props){const {slug}=await params;const entry=museumRooms.find(item=>item.slug===slug);if(!entry)notFound();return learningMetadata(entry.title,entry.intro,`/museum/${slug}`,"sections/museum.webp")}
