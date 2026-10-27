@@ -1,3 +1,5 @@
+> Historical planning record. The combined implementation and current scope are recorded in `website-integration-record.md`. Consult the final QA record for executed checks.
+
 # Web-only Future Skills Hub — proposed content architecture
 
 This is separate from Godot and Real Life Quests. No game engine required.

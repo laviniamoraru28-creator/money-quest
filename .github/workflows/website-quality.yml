@@ -35,11 +35,12 @@ jobs:
       - name: Browser journeys and WCAG checks
         env:
           E2E_BASE_URL: http://localhost:3000
-        run: npx playwright test --project=desktop-chrome --project=mobile-chrome
+        run: npx playwright test --project=desktop-chrome --project=mobile-chrome --max-failures=8
       - uses: actions/upload-artifact@v4
-        if: failure()
+        if: always()
         with:
           name: website-test-evidence
+          retention-days: 7
           path: |
             test-results/
             server.log

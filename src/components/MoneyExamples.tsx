@@ -13,7 +13,7 @@ const examples = [
 /** Labelled diagrams use exact HTML amounts. They are teaching models, not legal tender. */
 export function MoneyDiagram({kind}: {kind:string}) {
   return <div aria-hidden="true" className="flex h-28 items-center justify-center rounded-xl bg-cream p-3">
-    {kind === "account" ? <div className="rounded-xl border-2 border-teal bg-white px-5 py-2 text-center shadow-md"><span className="block text-sm">Bank balance</span><span className="text-2xl font-bold text-teal">£12.00</span></div> : <img src={`/images/money-quest/money/${kind}.webp`} alt="" width={384} height={384} loading="lazy" className="h-full w-full object-contain"/>}
+    {kind === "account" ? <div className="w-full min-w-0 rounded-xl border-2 border-teal bg-white px-2 py-2 text-center shadow-md"><span className="block text-sm">Bank balance</span><span className="text-base font-bold text-teal sm:text-xl">£12.00</span></div> : <img src={`/images/money-quest/money/${kind}.webp`} alt="" width={384} height={384} loading="lazy" className="h-full w-full object-contain"/>}
   </div>;
 }
 export function MoneyExamples() {

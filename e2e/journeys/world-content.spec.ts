@@ -8,6 +8,7 @@ for(const ageBand of ["explorer","builder","strategist"] as const) test(`all wor
  for(const world of WORLDS){
   await page.goto(`/en/play/world/${world.id}`);await expect(page.locator("main")).toBeVisible();
   await expect(page.locator(`img[src="/images/money-quest/worlds/${world.id}.webp"]`)).toBeVisible();
+  if(ageBand === "explorer") await page.screenshot({path:test.info().outputPath(`${world.id}.png`),fullPage:true});
   const catalog=getWorldCatalog(world.id,ageBand,key=>key);
   for(const entry of catalog){
    const type=entry.activityType==="lesson"?"lesson":"game";
@@ -24,4 +25,9 @@ test("core lessons remain usable when storage is blocked",async({page})=>{
  await page.goto("/en/play");await page.getByRole("button",{name:/Explorer.*6-8/i}).click();
  await page.locator('a[href="/en/play/world/coin-cove"]').click();await expect(page.getByRole("heading",{name:"Meet money and ways to pay",exact:true})).toBeVisible();
  await page.locator('a[href*="/lesson/"]').first().click();await expect(page.getByRole("button",{name:"Check my answer",exact:true})).toBeVisible();
+});
+
+test("reset progress updates the world map immediately",async({page})=>{
+ await page.goto("/en/play");await page.getByRole("button",{name:/Explorer.*6-8/i}).click();
+ await expect(page.getByRole("heading",{name:"Your World Map",exact:true})).toBeVisible();page.on("dialog",dialog=>dialog.accept());await page.getByRole("button",{name:"Reset Progress",exact:true}).click();await expect(page.getByRole("heading",{name:"Choose your learning level",exact:true})).toBeVisible();
 });

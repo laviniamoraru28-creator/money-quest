@@ -96,7 +96,7 @@ export default function EntrepreneurQuestHubPage() {
               <span className="font-medium">{t("entrepreneurQuest.pitchLink")}</span>
             </Link>
           ) : (
-            <div className="flex items-center gap-xs rounded-lg border-2 border-ink/10 bg-white/60 p-sm opacity-60">
+            <div className="flex items-center gap-xs rounded-lg border-2 border-ink/10 bg-white/60 p-sm border-dashed">
               <span aria-hidden="true" className="text-2xl">📇</span>
               <span className="text-sm text-ink/70">{t("entrepreneurQuest.pitchLinkLockedHint")}</span>
             </div>
@@ -107,7 +107,7 @@ export default function EntrepreneurQuestHubPage() {
               <span className="font-medium">{t("entrepreneurQuest.run.hubTitle")}</span>
             </Link>
           ) : (
-            <div className="flex items-center gap-xs rounded-lg border-2 border-ink/10 bg-white/60 p-sm opacity-60">
+            <div className="flex items-center gap-xs rounded-lg border-2 border-ink/10 bg-white/60 p-sm border-dashed">
               <span aria-hidden="true" className="text-2xl">🏃</span>
               <span className="text-sm text-ink/70">{t("entrepreneurQuest.run.lockedHint")}</span>
             </div>
@@ -118,7 +118,7 @@ export default function EntrepreneurQuestHubPage() {
               <span className="font-medium">{t("entrepreneurQuest.rescueGrow.hubTitle")}</span>
             </Link>
           ) : (
-            <div className="flex items-center gap-xs rounded-lg border-2 border-ink/10 bg-white/60 p-sm opacity-60">
+            <div className="flex items-center gap-xs rounded-lg border-2 border-ink/10 bg-white/60 p-sm border-dashed">
               <span aria-hidden="true" className="text-2xl">🚀</span>
               <span className="text-sm text-ink/70">{t("entrepreneurQuest.rescueGrow.lockedHint")}</span>
             </div>

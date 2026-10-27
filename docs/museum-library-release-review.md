@@ -1,3 +1,5 @@
+> Historical planning record. The combined implementation and current scope are recorded in `website-integration-record.md`. Consult the final QA record for executed checks.
+
 # Museum and Library integration status
 
 Branch: `feature/museum-library`. This is a work-in-progress branch. Do not merge or deploy without tests and editorial review.

@@ -52,6 +52,7 @@ function readFromStorage(): LocalProgressState {
 function writeToStorage(state: LocalProgressState): void {
   if (typeof window === "undefined") return;
   memoryState = state;
+  window.dispatchEvent(new CustomEvent("moneyquest-progress", {detail: state}));
   try {
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
   } catch {
@@ -84,6 +85,10 @@ export function useLocalProgress() {
   useEffect(() => {
     setState(readFromStorage());
     setIsLoaded(true);
+    const sync = (event: Event) => setState(event instanceof CustomEvent ? event.detail : readFromStorage());
+    window.addEventListener("moneyquest-progress", sync);
+    window.addEventListener("storage", sync);
+    return () => {window.removeEventListener("moneyquest-progress", sync);window.removeEventListener("storage", sync)};
   }, []);
 
   const persist = useCallback((next: LocalProgressState) => {

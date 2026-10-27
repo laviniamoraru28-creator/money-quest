@@ -65,14 +65,14 @@ export default function LeadershipQuestMissionPage() {
 
   if (!mission) {
     return (
-      <div className="grid min-h-screen place-items-center bg-fog px-sm text-center">
+      <main id="main-content" tabIndex={-1} className="grid min-h-screen place-items-center bg-fog px-sm text-center">
         <div>
           <p className="text-base text-ink/70">{t("errors.genericTryAgain")}</p>
           <Link href="/leadership-quest" className="mt-sm inline-block text-teal hover:underline">
             {t("leadershipQuest.hubTitle")}
           </Link>
         </div>
-      </div>
+      </main>
     );
   }
 

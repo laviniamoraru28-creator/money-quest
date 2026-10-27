@@ -75,7 +75,7 @@ export default function LeadershipQuestHubPage() {
 
             if (isLocked) {
               return (
-                <div key={mission.id} className="flex items-center gap-xs rounded-md border border-ink/10 bg-white/60 p-sm opacity-60">
+                <div key={mission.id} className="flex items-center gap-xs rounded-md border border-ink/10 bg-white/60 p-sm border-dashed">
                   <span aria-hidden="true" className="text-xl">
                     🔒
                   </span>
@@ -114,7 +114,7 @@ export default function LeadershipQuestHubPage() {
             <span className="font-medium">{t("leadershipQuest.profileLink")}</span>
           </Link>
         ) : (
-          <div className="mt-sm flex items-center gap-xs rounded-lg border-2 border-ink/10 bg-white/60 p-sm opacity-60">
+          <div className="mt-sm flex items-center gap-xs rounded-lg border-2 border-ink/10 bg-white/60 p-sm border-dashed">
             <span aria-hidden="true" className="text-2xl">
               🌟
             </span>

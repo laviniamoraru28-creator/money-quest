@@ -71,7 +71,8 @@ export function useAccessibilityPrefs() {
   useEffect(() => {
     if (typeof document === "undefined" || !isLoaded) return;
     document.documentElement.setAttribute("data-reduced-motion", prefs.reducedMotion ? "true" : "false");
-  }, [prefs.reducedMotion, isLoaded]);
+    document.documentElement.setAttribute("data-focus-mode", prefs.focusMode ? "true" : "false");
+  }, [prefs.reducedMotion, prefs.focusMode, isLoaded]);
 
   const update = useCallback((key: keyof AccessibilityPrefs) => {
     const next = { ...prefs, [key]: !prefs[key] };

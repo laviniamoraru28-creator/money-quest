@@ -5,11 +5,13 @@ import {learningLabs} from "../../src/content/learning-labs";
 const pages=["/en","/en/play","/en/museum","/en/library","/en/brain-lab","/en/mind-lab","/en/future-skills","/en/inclusive-learning","/en/play/simulator","/en/entrepreneur-quest","/en/leadership-quest","/en/real-life-quests"];
 for(const path of pages) test(`page, images, hydration and accessibility: ${path}`,async({page})=>{
  const errors:string[]=[];page.on("pageerror",e=>errors.push(e.message));page.on("console",message=>{if(message.type()==="error"&&/hydration|did not match|server rendered/i.test(message.text()))errors.push(message.text())});
+ if(path === "/en/play/simulator") await page.addInitScript(()=>localStorage.setItem("moneyquest_local_progress_v1",JSON.stringify({ageBand:"explorer"})));
  const response=await page.goto(path);expect(response?.status()).toBe(200);await expect(page.locator("main")).toBeVisible();
  await expect(page.locator('a[href="#main-content"]')).toHaveCount(1);
  // Scroll every lazy image into view before checking its decoded size.
  for(const image of await page.locator("main img").all()) {await image.scrollIntoViewIfNeeded();await expect.poll(()=>image.evaluate((el:HTMLImageElement)=>el.complete&&el.naturalWidth>0)).toBe(true)}
  expect(await page.evaluate(()=>document.documentElement.scrollWidth>window.innerWidth)).toBe(false);
+ await page.screenshot({path:test.info().outputPath("page.png"),fullPage:true});
  const result=await new AxeBuilder({page}).withTags(["wcag2a","wcag2aa","wcag21aa"]).analyze();expect(result.violations).toEqual([]);expect(errors).toEqual([]);
 });
 test("all museum and library detail routes have correct canonical metadata",async({page})=>{
@@ -41,5 +43,9 @@ test("storage failure leaves learning usable",async({page})=>{
  await page.goto("/en/brain-lab");await page.getByRole("button",{name:"Mark as practised",exact:true}).click();await expect(page.getByRole("status").filter({hasText:"could not save"})).toBeVisible();await page.getByRole("button",{name:"Next",exact:true}).click();await expect(page.getByRole("heading",{name:"One thing at a time",exact:true})).toBeVisible();
 });
 test("keyboard settings and synchronized focus mode",async({page})=>{
- await page.goto("/en/brain-lab");await page.getByRole("button",{name:/Accessibility settings/i}).click();const checkbox=page.getByRole("checkbox",{name:/Focus Mode/i});await checkbox.check();await expect(page.locator('aside[aria-label="Your learning guides"] img')).toHaveCount(0);await page.keyboard.press("Escape");await expect(checkbox).toHaveCount(0);
+ await page.goto("/en/brain-lab");await page.getByRole("button",{name:/Accessibility settings/i}).click();const checkbox=page.getByRole("checkbox",{name:/Focus Mode/i});await checkbox.check();await expect(page.locator('aside[aria-label="Your learning guides"] img')).toHaveCount(0);await expect(page.locator('[data-learning-decoration]').first()).toBeHidden();await page.keyboard.press("Escape");await expect(checkbox).toHaveCount(0);
+});
+
+test("picture choices fit at 320px without horizontal scrolling",async({page})=>{
+ await page.setViewportSize({width:320,height:800});await page.goto("/en/inclusive-learning");await expect(page.getByRole("heading",{name:"Meet money and ways to pay",exact:true})).toBeVisible();expect(await page.evaluate(()=>document.documentElement.scrollWidth>window.innerWidth)).toBe(false);
 });

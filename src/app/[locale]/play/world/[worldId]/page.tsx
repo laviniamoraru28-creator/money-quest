@@ -21,14 +21,14 @@ export default function WorldPage() {
   if (!isLoaded) return <div className="grid min-h-screen place-items-center bg-fog text-ink/70">{t("common.loading")}</div>;
   if (!state.ageBand) {
     return (
-      <div className="grid min-h-screen place-items-center bg-fog px-sm text-center">
+      <main id="main-content" tabIndex={-1} className="grid min-h-screen place-items-center bg-fog px-sm text-center">
         <div>
           <p className="text-base text-ink/70">{t("play.chooseLevelFirst")}</p>
           <Link href="/play" className="mt-sm inline-block text-teal hover:underline">
             {t("play.goToWorldMap")}
           </Link>
         </div>
-      </div>
+      </main>
     );
   }
 
@@ -37,14 +37,14 @@ export default function WorldPage() {
 
   if (!world) {
     return (
-      <div className="grid min-h-screen place-items-center bg-fog px-sm text-center">
+      <main id="main-content" tabIndex={-1} className="grid min-h-screen place-items-center bg-fog px-sm text-center">
         <div>
           <p className="text-base text-ink/70">{t("play.worldNotFound")}</p>
           <Link href="/play" className="mt-sm inline-block text-teal hover:underline">
             {t("nav.backToWorldMap")}
           </Link>
         </div>
-      </div>
+      </main>
     );
   }
 
@@ -71,7 +71,7 @@ export default function WorldPage() {
             <LevelBadgeStar size={36} className="ml-auto shrink-0" />
           )}
         </div>
-        <img src={`/images/money-quest/worlds/${world.id}.webp`} alt="" width={768} height={768} className="mt-5 max-h-96 w-full rounded-2xl bg-cream object-contain" />
+        <img data-learning-decoration src={`/images/money-quest/worlds/${world.id}.webp`} alt="" width={768} height={768} className="mt-5 max-h-96 w-full rounded-2xl bg-cream object-contain" />
         <GuidePanel message={`Welcome to ${world.name}. ${world.description} Choose a lesson or a game below. You can take your time.`}/>
         {world.id === "coin-cove" && <MoneyExamples/>}
         <p className="mt-2xs text-base text-ink/70">{world.description}</p>

@@ -98,14 +98,14 @@ export default function RealLifeQuestMissionPage() {
 
   if (!mission) {
     return (
-      <div className="grid min-h-screen place-items-center bg-fog px-sm text-center">
+      <main id="main-content" tabIndex={-1} className="grid min-h-screen place-items-center bg-fog px-sm text-center">
         <div>
           <p className="text-base text-ink/70">{t("errors.genericTryAgain")}</p>
           <Link href="/real-life-quests" className="mt-sm inline-block text-teal hover:underline">
             {t("realLifeQuests.backToHub")}
           </Link>
         </div>
-      </div>
+      </main>
     );
   }
 

@@ -1,3 +1,5 @@
+> Historical planning record. The combined implementation and current scope are recorded in `website-integration-record.md`. Consult the final QA record for executed checks.
+
 # Inclusive Future Skills — initial GitHub audit
 
 Scope: website (Next.js), not the Godot game. Source reviewed on `main` on 27 October 2026. Changes are isolated to `feature/inclusive-future-skills`.

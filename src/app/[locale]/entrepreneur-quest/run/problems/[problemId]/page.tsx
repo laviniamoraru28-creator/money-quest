@@ -28,14 +28,14 @@ export default function BusinessProblemDetailPage() {
 
   if (!isValidProblem) {
     return (
-      <div className="grid min-h-screen place-items-center bg-fog px-sm text-center">
+      <main id="main-content" tabIndex={-1} className="grid min-h-screen place-items-center bg-fog px-sm text-center">
         <div>
           <p className="text-base text-ink/70">{t("errors.genericTryAgain")}</p>
           <Link href="/entrepreneur-quest/run/problems" className="mt-sm inline-block text-teal hover:underline">
             {t("entrepreneurQuest.run.problemsLink")}
           </Link>
         </div>
-      </div>
+      </main>
     );
   }
 

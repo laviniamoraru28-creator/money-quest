@@ -264,7 +264,7 @@ test.describe("Real Life Quests - pilot missions' visual-choice pickers at 320px
  * previously overflowed, plus one still-wide desktop check to confirm
  * the fix doesn't regress larger screens.
  */
-test.describe("Real Life Quests - mission header fits at 320px in longer-string locales", () => {
+test.describe("Real Life Quests - mission header fits at 320px through legacy locale redirects", () => {
   test.use({ viewport: { width: 320, height: 700 } });
 
   test("de/my-first-mini-business, nl/my-first-mini-business, ro/save-for-something-you-love have no horizontal overflow", async ({ page }) => {
@@ -292,7 +292,7 @@ test.describe("Real Life Quests - mission header fits at 320px in longer-string 
       const scrollWidth = await page.evaluate(() => document.documentElement.scrollWidth);
       const clientWidth = await page.evaluate(() => document.documentElement.clientWidth);
       expect(scrollWidth, `width=${width} should not overflow`).toBeLessThanOrEqual(clientWidth + 1);
-      await expect(page.locator("h1")).toHaveText("Mein erstes Mini-Unternehmen");
+      await expect(page.locator("h1")).toHaveText("My First Mini Business");
     }
   });
 });
