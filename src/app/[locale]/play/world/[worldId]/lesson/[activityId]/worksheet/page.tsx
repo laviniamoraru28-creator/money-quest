@@ -41,7 +41,7 @@ export default function WorksheetPage() {
 
   return (
     <div className="min-h-screen bg-fog px-sm py-lg">
-      <main className="mx-auto max-w-[600px]">
+      <main id="main-content" tabIndex={-1} className="mx-auto max-w-[600px]">
         <div className="flex flex-wrap gap-2xs">
           <Link
             href="/"
@@ -59,7 +59,7 @@ export default function WorksheetPage() {
 
         <h1 className="mt-sm font-display text-2xl font-bold">{t("worksheet.pageTitle")}</h1>
         <p className="mt-2xs text-base text-ink/70">{lessonTitle}</p>
-        <p className="mt-2xs text-sm text-ink/50">{t("worksheet.englishOnlyNote")}</p>
+        <p className="mt-2xs text-sm text-ink/70">{t("worksheet.englishOnlyNote")}</p>
 
         <a
           href={`/worksheets/${filename}`}
@@ -69,7 +69,7 @@ export default function WorksheetPage() {
         >
           {t("worksheet.openButton")}
         </a>
-        <p className="mt-2xs text-sm text-ink/60">{t("worksheet.printHint")}</p>
+        <p className="mt-2xs text-sm text-ink/70">{t("worksheet.printHint")}</p>
 
         <a
           href="/worksheets/answer-key/money-quest-worksheets-answer-key.pdf"

@@ -47,7 +47,7 @@ export default function InvestingLabPage() {
   const priceLookup = (companyId: string) => getCurrentPrice(seriesByCompany[companyId] ?? []);
 
   if (!progressLoaded || !labLoaded) {
-    return <div className="grid min-h-screen place-items-center bg-fog text-ink/60">{t("common.loading")}</div>;
+    return <div className="grid min-h-screen place-items-center bg-fog text-ink/70">{t("common.loading")}</div>;
   }
 
   const currencyCode = progress.currencyCode;
@@ -61,7 +61,7 @@ export default function InvestingLabPage() {
 
   return (
     <div className="min-h-screen bg-fog px-sm py-lg">
-      <main className="mx-auto max-w-[700px]">
+      <main id="main-content" tabIndex={-1} className="mx-auto max-w-[700px]">
         <div className="flex flex-wrap gap-2xs">
           <Link
             href="/"
@@ -88,11 +88,11 @@ export default function InvestingLabPage() {
         <Card variant="data" className="mt-md">
           <div className="grid grid-cols-2 gap-sm">
             <div>
-              <p className="text-xs uppercase tracking-wide text-ink/50">{t("investingLab.cashLabel")}</p>
+              <p className="text-xs uppercase tracking-wide text-ink/70">{t("investingLab.cashLabel")}</p>
               <p className="font-display text-xl font-bold text-teal">{formatCurrency(portfolio.cashMinorUnits, currencyCode, uiLocale)}</p>
             </div>
             <div>
-              <p className="text-xs uppercase tracking-wide text-ink/50">{t("investingLab.portfolioValueLabel")}</p>
+              <p className="text-xs uppercase tracking-wide text-ink/70">{t("investingLab.portfolioValueLabel")}</p>
               <p className="font-display text-xl font-bold">{formatCurrency(portfolioValue, currencyCode, uiLocale)}</p>
             </div>
           </div>
@@ -157,7 +157,7 @@ export default function InvestingLabPage() {
           <h2 className="font-display text-lg font-bold">{t("investingLab.watchlistTitle")}</h2>
           <div className="mt-2xs">
             {watchedCompanies.length === 0 ? (
-              <p className="text-sm text-ink/60">{t("investingLab.watchlistEmptyHint")}</p>
+              <p className="text-sm text-ink/70">{t("investingLab.watchlistEmptyHint")}</p>
             ) : (
               <ul className="grid gap-3xs">
                 {watchedCompanies.map((c) => (
@@ -203,7 +203,7 @@ function ResetInvestingLabButton({ onReset }: { onReset: () => void }) {
         onClick={() => {
           if (window.confirm(t("investingLab.resetConfirm"))) onReset();
         }}
-        className="text-xs text-ink/40 hover:text-error"
+        className="text-xs text-ink/70 hover:text-error"
       >
         {t("investingLab.resetButton")}
       </button>

@@ -16,7 +16,7 @@ export default function LessonPage() {
   const t = useTranslations();
   const { state, isLoaded, completeActivity } = useLocalProgress();
 
-  if (!isLoaded) return <div className="grid min-h-screen place-items-center bg-fog text-ink/60">{t("common.loading")}</div>;
+  if (!isLoaded) return <div className="grid min-h-screen place-items-center bg-fog text-ink/70">{t("common.loading")}</div>;
 
   const structure = getLessonStructureById(params.activityId);
   if (!structure || !state.ageBand) {
@@ -47,11 +47,11 @@ export default function LessonPage() {
 
   return (
     <div className="min-h-screen bg-fog px-sm py-lg">
-      <main className="mx-auto max-w-[700px]">
-        <p className="text-xs font-medium uppercase tracking-wide text-ink/50">
+      <main id="main-content" tabIndex={-1} className="mx-auto max-w-[700px]">
+        <p className="text-xs font-medium uppercase tracking-wide text-ink/70">
           {t("play.yourLevelLabel", { level: t(getLevelLabelKey(state.ageBand)) })}
         </p>
-        <LessonPlayer
+        <LessonPlayer key={params.activityId}
           activity={activity}
           backToWorldHref={`/play/world/${params.worldId}`}
           nextActivityHref={nextActivityHref}

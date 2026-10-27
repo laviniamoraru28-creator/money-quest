@@ -1,5 +1,6 @@
 "use client";
 
+import {useEffect} from "react";
 import { useTranslations } from "next-intl";
 import { useReadAloud } from "@/lib/accessibility/use-read-aloud";
 
@@ -21,6 +22,7 @@ export function ReadAloudButton({ text, uiLocale }: { text: string; uiLocale: st
   const t = useTranslations();
   const { isSupported, isSpeaking, speak, stop } = useReadAloud(uiLocale);
 
+  useEffect(() => { stop(); }, [text, stop]);
   if (!isSupported) return null;
 
   return (

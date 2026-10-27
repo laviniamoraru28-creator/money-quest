@@ -1,4 +1,6 @@
 import createIntlMiddleware from "next-intl/middleware";
+import { NextRequest, NextResponse } from "next/server";
+import { LOCALES } from "@/i18n/config";
 import { routing } from "@/i18n/navigation";
 
 /**
@@ -11,7 +13,16 @@ import { routing } from "@/i18n/navigation";
  * what next-intl itself needs for locale preference, no auth-route
  * redirects — there is nothing left to redirect away from.
  */
-export default createIntlMiddleware(routing);
+const intlMiddleware = createIntlMiddleware(routing);
+export default function middleware(request: NextRequest) {
+  const segment = request.nextUrl.pathname.split("/")[1];
+  if (segment !== "en" && LOCALES.some(locale => locale === segment)) {
+    const url = request.nextUrl.clone();
+    url.pathname = url.pathname.replace(`/${segment}`, "/en");
+    return NextResponse.redirect(url, 307);
+  }
+  return intlMiddleware(request);
+}
 
 export const config = {
   matcher: [
@@ -34,6 +45,6 @@ export const config = {
     // that don't exist and 404. That silently broke robots.txt/sitemap
     // discovery for every crawler hitting the standard, expected paths
     // (confirmed live: both returned a redirect-to-404 before this fix).
-    "/((?!api/|_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|.*\\.(?:svg|png|jpg|jpeg|gif|webp|pdf)$).*)",
+    "/((?!api/|_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|.*\\.(?:svg|png|jpg|jpeg|gif|webp|avif|pdf)$).*)",
   ],
 };

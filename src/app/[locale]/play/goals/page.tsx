@@ -17,11 +17,11 @@ export default function GoalsPage() {
   const [name, setName] = useState("");
   const [target, setTarget] = useState("");
 
-  if (!isLoaded) return <div className="grid min-h-screen place-items-center bg-fog text-ink/60">{t("common.loading")}</div>;
+  if (!isLoaded) return <div className="grid min-h-screen place-items-center bg-fog text-ink/70">{t("common.loading")}</div>;
 
   return (
     <div className="min-h-screen bg-fog px-sm py-lg">
-      <main className="mx-auto max-w-[700px]">
+      <main id="main-content" tabIndex={-1} className="mx-auto max-w-[700px]">
         <div className="flex flex-wrap gap-2xs">
           <Link
             href="/"
@@ -49,7 +49,7 @@ export default function GoalsPage() {
 
         <Card variant="data" className="mt-md">
           <div className="flex items-center justify-between">
-            <p className="text-sm text-ink/60">{t("play.yourCoins")}</p>
+            <p className="text-sm text-ink/70">{t("play.yourCoins")}</p>
             <button type="button" onClick={() => setShowForm((v) => !v)} className="text-sm font-medium text-teal hover:underline">
               {showForm ? t("common.cancel") : t("play.newGoal")}
             </button>
@@ -99,7 +99,7 @@ export default function GoalsPage() {
         )}
 
         <div className="mt-sm grid gap-sm">
-          {state.goals.length === 0 && <p className="text-base text-ink/60">{t("play.noGoalsYet")}</p>}
+          {state.goals.length === 0 && <p className="text-base text-ink/70">{t("play.noGoalsYet")}</p>}
           {state.goals.map((goal) => {
             const percent = Math.min(100, Math.round((goal.currentMinorUnits / goal.targetMinorUnits) * 100));
             return (
@@ -111,7 +111,7 @@ export default function GoalsPage() {
                 <div className="mt-2xs h-3 w-full">
                   <ProgressBar percent={percent} label={t("play.progressTowardGoal", { goalName: goal.name })} />
                 </div>
-                <p className="mt-2xs text-sm text-ink/60">
+                <p className="mt-2xs text-sm text-ink/70">
                   {t("play.amountOfTarget", { current: formatCurrency(goal.currentMinorUnits, state.currencyCode, uiLocale), target: formatCurrency(goal.targetMinorUnits, state.currencyCode, uiLocale) })}
                 </p>
                 {!goal.achievedAt && (
@@ -131,7 +131,7 @@ export default function GoalsPage() {
                     )}
                   </>
                 )}
-                <button type="button" onClick={() => removeGoal(goal.id)} className="mt-2xs text-xs text-ink/40 hover:text-error">
+                <button type="button" onClick={() => removeGoal(goal.id)} className="mt-2xs text-xs text-ink/70 hover:text-error">
                   {t("play.removeGoal")}
                 </button>
               </Card>
@@ -248,7 +248,7 @@ function WithdrawRow({ goal, currencyCode, onWithdraw }: { goal: { id: string; c
   const [amount, setAmount] = useState("");
   return (
     <div className="mt-2xs">
-      <p className="text-xs text-ink/50">{t("play.whatIfYouSpendSome")}</p>
+      <p className="text-xs text-ink/70">{t("play.whatIfYouSpendSome")}</p>
       <div className="mt-3xs flex items-center gap-2xs">
         <label htmlFor={`withdraw-${goal.id}`} className="sr-only">
           {t("play.amountToWithdraw")}

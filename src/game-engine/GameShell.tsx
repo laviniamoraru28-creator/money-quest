@@ -12,7 +12,7 @@ import { Card } from "@/components/ui/Card";
 import { MoneyAmount } from "@/components/ui/MoneyAmount";
 import { LevelBadgeStar } from "@/components/ui/LevelBadgeStar";
 import { ProgressBar } from "@/components/ui/ProgressBar";
-import { CharacterZip } from "@/components/characters/CharacterZip";
+import { GuidePanel } from "@/components/GuidePanel";
 import { getWorldById } from "@/content/worlds";
 import { useSound } from "@/lib/audio/use-sound";
 
@@ -175,7 +175,7 @@ export function GameShell({ config, ageBand, difficulty = "standard", currencyCo
             <span className="font-bold text-teal">{t("lesson.xpEarned", { xp: award.xp })}</span>
             {award.coins > 0 && (
               <span className="flex flex-col items-start">
-                <span className="text-xs font-normal text-ink/60">{t("lesson.virtualCoinsLabel")}</span>
+                <span className="text-xs font-normal text-ink/70">{t("lesson.virtualCoinsLabel")}</span>
                 <MoneyAmount amountMinorUnits={award.coins} currencyCode={currencyCode} uiLocale={uiLocale} showCoinIcon />
               </span>
             )}
@@ -238,6 +238,7 @@ export function GameShell({ config, ageBand, difficulty = "standard", currencyCo
         )}
       </div>
 
+      <GuidePanel compact message="Choose your answer. You can use a hint or try again. There is no timer." />
       {/* Progress */}
       <div>
         <p className="text-sm text-ink/70" aria-live="polite">
@@ -246,6 +247,30 @@ export function GameShell({ config, ageBand, difficulty = "standard", currencyCo
         <div className="mt-3xs h-2 w-full">
           <ProgressBar percent={((roundIndex + 1) / variant.rounds.length) * 100} label={t("a11y.gameProgressLabel")} />
         </div>
+      </div>
+
+      {/* Screen-reader announcement of the round result — kept as its
+          own always-mounted live region, separate from the visible
+          feedback card below, rather than putting aria-live on that
+          card directly. The card only mounts once `phase` leaves
+          "playing", and some screen-reader/browser combinations don't
+          reliably announce a brand-new node that arrives already
+          carrying aria-live — only a text change inside an
+          already-present live region is guaranteed to be picked up.
+
+          Deliberately a SHORT, distinct status word, not a repeat of
+          the visible feedback card's full sentence below: repeating
+          the exact same text created a second element matching every
+          getByText('<feedback sentence>') query in the e2e suite
+          (caught by a real CI run), and a short, immediate status
+          announcement is also closer to the WAI-ARIA-recommended
+          pattern for this case anyway — the full explanatory sentence
+          is better read by the child in their own time via the
+          visible card, not forced on a screen-reader user the instant
+          the round resolves. */}
+      <div aria-live="polite" className="sr-only">
+        {phase === "correct" && t("a11y.answerCorrectAnnouncement")}
+        {phase === "incorrect" && t("a11y.answerIncorrectAnnouncement")}
       </div>
 
       <Card variant="activity">
@@ -277,7 +302,7 @@ export function GameShell({ config, ageBand, difficulty = "standard", currencyCo
 
         {phase === "correct" && (
           <div className="mt-md rounded-sm border border-success/30 bg-success/5 p-sm">
-            <p className="font-medium text-success">{config.feedback.correct}</p>
+            <p role="status" className="font-medium text-success">{config.feedback.correct}</p>
             <p className="mt-2xs text-sm text-ink/70">{round.explanation}</p>
             {!isLastRound && (
               <Button variant="quest-primary" className="mt-sm w-full" onClick={handleNextRound}>
@@ -289,9 +314,9 @@ export function GameShell({ config, ageBand, difficulty = "standard", currencyCo
 
         {phase === "incorrect" && (
           <div className="mt-md rounded-sm border border-error/30 bg-error/5 p-sm">
-            <p className="font-medium text-error">{config.feedback.incorrect}</p>
+            <p role="status" className="font-medium text-error">{config.feedback.incorrect}</p>
             <div className="mt-2xs flex items-start gap-2xs">
-              {config.key === "money-mistakes-lab" && <CharacterZip size={32} className="shrink-0" />}
+              
               <p className="text-sm text-ink/70">{round.explanation}</p>
             </div>
             <Button variant="secondary" className="mt-sm" onClick={handleRetry}>

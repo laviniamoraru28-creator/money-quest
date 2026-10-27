@@ -1,13 +1,13 @@
+import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
-import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 import { buildOrganizationSchema, buildWebSiteSchema } from "@/lib/seo/structured-data";
 import { safeJsonLd } from "@/lib/seo/safe-json-ld";
 import { getSiteUrl } from "@/lib/seo/site-url";
 
-export default async function LandingPage({ params: { locale } }: { params: { locale: string } }) {
+export default async function LandingPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
   const t = await getTranslations();
   const siteUrl = getSiteUrl();
   const orgSchema = buildOrganizationSchema(siteUrl);
@@ -28,21 +28,20 @@ export default async function LandingPage({ params: { locale } }: { params: { lo
         <div className="mx-auto flex max-w-[1200px] items-center justify-between px-sm py-xs">
           <span className="font-display text-lg font-bold text-teal">{t("common.moneyQuest")}</span>
           <nav className="hidden gap-md text-base md:flex" aria-label={t("a11y.mainNavigationLabel")}>
+            <Link href="/library" className="hover:text-teal">Library</Link>
+            <Link href="/museum" className="hover:text-teal">Museum</Link>
             <Link href="/learn" className="hover:text-teal">{t("nav.learn")}</Link>
             <Link href="/#how-it-works" className="hover:text-teal">{t("nav.howItWorks")}</Link>
             <Link href="/parent-info" className="hover:text-teal">{t("nav.forParents")}</Link>
             <Link href="/#safety" className="hover:text-teal">{t("nav.safety")}</Link>
           </nav>
           <div className="flex items-center gap-sm">
-            <LanguageSwitcher />
-            <Link href="/play">
-              <Button variant="portal-primary">{t("nav.getStarted")}</Button>
-            </Link>
+            <Link href="/play" className="inline-flex min-h-12 items-center justify-center rounded-xl px-5 py-3 font-medium bg-teal text-white hover:bg-teal/90">{t("nav.getStarted")}</Link>
           </div>
         </div>
       </header>
 
-      <main>
+      <main id="main-content" tabIndex={-1}>
         {/* Hero */}
         <section className="mx-auto max-w-[1200px] px-sm py-2xl md:py-3xl">
           <div className="grid gap-lg md:grid-cols-2 md:items-center">
@@ -54,35 +53,38 @@ export default async function LandingPage({ params: { locale } }: { params: { lo
                 {t("landing.heroSubtitle")}
               </p>
               <div className="mt-md flex flex-wrap gap-xs">
-                <Link href="/play">
-                  <Button variant="portal-primary" size="large">{t("landing.ctaGetStartedFree")}</Button>
-                </Link>
-                <Link href="/#how-it-works">
-                  <Button variant="secondary" size="large">{t("landing.ctaSeeHowItWorks")}</Button>
-                </Link>
+                <Link href="/play" className="inline-flex min-h-12 items-center justify-center rounded-xl px-5 py-3 font-medium bg-teal text-white hover:bg-teal/90">{t("landing.ctaGetStartedFree")}</Link>
+                <Link href="/#how-it-works" className="inline-flex min-h-12 items-center justify-center rounded-xl px-5 py-3 font-medium border border-teal text-teal hover:bg-teal/5">{t("landing.ctaSeeHowItWorks")}</Link>
               </div>
               <Link href="/parent-info" className="mt-sm inline-block text-sm text-teal hover:underline">
                 {t("nav.forParents")}
               </Link>
             </div>
             <div className="flex justify-center">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/money-quest/homepage-hero.webp"
-                alt={t("landing.heroImageAlt")}
-                width={800}
-                height={800}
+              {/* next/image (not a plain <img>) — this is the site's
+                  single above-the-fold hero image, so `priority`
+                  matters for LCP. No remote domain config is needed:
+                  the source is a local file under public/, and
+                  next.config.mjs's lack of `images.remotePatterns` was
+                  about there being no EXTERNAL images to configure,
+                  not a reason to avoid next/image for local ones. */}
+              <Image
+                src="/images/money-quest/worlds/coin-cove.webp"
+                alt="A girl in a purple compass hoodie and her brown-and-white puppy explore Coin Cove."
+                width={768}
+                height={768}
+                priority
                 className="h-64 w-64 rounded-2xl object-cover md:h-80 md:w-80"
               />
             </div>
           </div>
         </section>
 
-        {/* Preview artwork for planned learning labs. No links until modules exist. */}
+        {/* Authored, interactive learning spaces. */}
         {locale === "en" && (
           <section aria-labelledby="future-labs-heading" className="mx-auto max-w-[1200px] px-sm py-2xl">
-            <h2 id="future-labs-heading" className="font-display text-2xl font-bold">More adventures are on the way!</h2>
-            <p className="mt-2xs text-base text-ink/70">Little discoveries. Big ideas. Coming soon!</p>
+            <h2 id="future-labs-heading" className="font-display text-2xl font-bold">Choose your next discovery</h2>
+            <p className="mt-2xs text-base text-ink/70">Practise useful skills with short activities and challenges at three levels.</p>
             <div className="mt-md grid gap-sm sm:grid-cols-2 lg:grid-cols-4">
               {[
                 { name: "Brain Lab", image: "/images/future-skills/brain-lab.svg", alt: "A smiling brain with bright ideas" },
@@ -90,19 +92,36 @@ export default async function LandingPage({ params: { locale } }: { params: { lo
                 { name: "Future Skills", image: "/images/future-skills/future-skills.svg", alt: "A cheerful light bulb for creative thinking" },
                 { name: "Inclusive Learning", image: "/images/future-skills/inclusive-learning.svg", alt: "A welcoming rainbow for different ways of learning" },
               ].map((lab) => (
-                <div key={lab.name} className="overflow-hidden rounded-xl border border-ink/10 bg-white shadow-resting">
+                <Link href={`/${lab.name.toLowerCase().replaceAll(" ", "-")}`} key={lab.name} className="overflow-hidden rounded-xl border border-ink/10 bg-white shadow-resting">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={lab.image} alt={lab.alt} width={640} height={420} loading="lazy" className="h-auto w-full" />
+                  <img src={`/images/money-quest/sections/${lab.name.toLowerCase().replaceAll(" ", "-")}-thumb.webp`} alt="" width={640} height={420} loading="lazy" className="h-auto w-full" />
                   <div className="p-sm">
                     <h3 className="font-display text-lg font-bold">{lab.name}</h3>
-                    <p className="mt-2xs text-sm text-ink/70">Coming soon</p>
+                    <p className="mt-2xs text-sm text-teal">Explore activities →</p>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </section>
         )}
 
+        {/* Independent discovery experiences, no Godot required */}
+        <section className="mx-auto max-w-[1200px] px-sm py-xl" aria-labelledby="discovery-heading">
+          <h2 id="discovery-heading" className="font-display text-2xl font-bold">Explore the Money Quest Library and Museum</h2>
+          <p className="mt-xs text-ink/70">Discover stories, biographies and the history of money without playing a game.</p>
+          <div className="mt-md grid gap-md md:grid-cols-2">
+            <Link href="/library" className="rounded-2xl border border-ink/10 bg-white p-lg hover:border-teal focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal">
+              <img src="/images/money-quest/sections/library-thumb.webp" alt="" width={320} height={320} loading="lazy" className="mb-4 h-44 w-full rounded-xl object-contain"/><h3 className="mt-xs font-display text-xl font-bold">The Library</h3>
+              <p className="mt-xs">Explore eight short books and biographies, with optional read-aloud support.</p>
+              <span className="mt-sm inline-block font-bold text-teal">Open the Library →</span>
+            </Link>
+            <Link href="/museum" className="rounded-2xl border border-ink/10 bg-white p-lg hover:border-teal focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal">
+              <img src="/images/money-quest/sections/museum-thumb.webp" alt="" width={320} height={320} loading="lazy" className="mb-4 h-44 w-full rounded-xl object-contain"/><h3 className="mt-xs font-display text-xl font-bold">The Museum</h3>
+              <p className="mt-xs">Visit ten rooms about money, inventions and learning from mistakes.</p>
+              <span className="mt-sm inline-block font-bold text-teal">Enter the Museum →</span>
+            </Link>
+          </div>
+        </section>
         {/* Why free */}
         <section className="border-y border-ink/10 bg-white py-lg">
           <div className="mx-auto max-w-[1200px] px-sm text-center">

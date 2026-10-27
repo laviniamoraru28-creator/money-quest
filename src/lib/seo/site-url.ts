@@ -7,7 +7,7 @@
  * obvious rather than silently pointing at the wrong domain.
  */
 export function getSiteUrl(): string {
-  return process.env.NEXT_PUBLIC_SITE_URL ?? "https://moneyquest.example";
+  return process.env.NEXT_PUBLIC_SITE_URL ?? "https://moneyquesteducation.com";
 }
 
 /**

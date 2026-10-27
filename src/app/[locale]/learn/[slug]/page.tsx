@@ -8,10 +8,9 @@ import { safeJsonLd } from "@/lib/seo/safe-json-ld";
 import { getSiteUrl, DEFAULT_OG_IMAGE } from "@/lib/seo/site-url";
 import { LOCALES } from "@/i18n/config";
 import { Breadcrumbs } from "@/components/marketing/Breadcrumbs";
-import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 
 interface PageProps {
-  params: { locale: string; slug: string };
+  params: Promise<{ locale: string; slug: string }>;
 }
 
 /**
@@ -28,7 +27,8 @@ export function generateStaticParams() {
   return getAllArticleSlugs().flatMap((slug) => LOCALES.map((locale) => ({ locale, slug })));
 }
 
-export async function generateMetadata({ params: { locale, slug } }: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale, slug } = await params;
   const article = await getLocalizedArticle(slug, locale);
   if (!article) return {};
 
@@ -61,7 +61,8 @@ export async function generateMetadata({ params: { locale, slug } }: PageProps):
   };
 }
 
-export default async function ArticlePage({ params: { locale, slug } }: PageProps) {
+export default async function ArticlePage({ params }: PageProps) {
+  const { locale, slug } = await params;
   const article = await getLocalizedArticle(slug, locale);
   if (!article) notFound();
 
@@ -101,12 +102,11 @@ export default async function ArticlePage({ params: { locale, slug } }: PageProp
             <Link href="/learn" className="text-sm text-ink/70 hover:text-teal">
               {t("nav.learn")}
             </Link>
-            <LanguageSwitcher />
           </div>
         </div>
       </header>
 
-      <main className="mx-auto max-w-[700px] px-sm py-lg">
+      <main id="main-content" tabIndex={-1} className="mx-auto max-w-[700px] px-sm py-lg">
         <Breadcrumbs
           ariaLabel={t("a11y.breadcrumbLabel")}
           items={[

@@ -8,12 +8,14 @@ import { Card } from "@/components/ui/Card";
 import { MoneyAmount } from "@/components/ui/MoneyAmount";
 import { LevelBadgeStar } from "@/components/ui/LevelBadgeStar";
 import { KeyTermBadge } from "@/components/ui/KeyTermBadge";
-import { CharacterSage } from "@/components/characters/CharacterSage";
+import { GuidePanel } from "@/components/GuidePanel";
+import { MoneyExamples } from "@/components/MoneyExamples";
 import { ReadAloudButton } from "@/components/ui/ReadAloudButton";
 import { LessonIllustration } from "@/components/lesson/LessonIllustration";
 import { getWorldById } from "@/content/worlds";
 import { useAccessibilityPrefs } from "@/lib/accessibility/use-accessibility-preferences";
 import { useSound } from "@/lib/audio/use-sound";
+import { useAnswerOrder } from "@/lib/answer-order";
 import type { ActivityDetail } from "@/lib/domain/activity";
 
 interface LessonPlayerProps {
@@ -63,6 +65,10 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
   const { quiz, feedbackMessage } = activity.content;
   const world = getWorldById(activity.worldId);
   const worldThemeColor = world?.themeColor ?? "#0F7A6B";
+  // Display order only — handleCheckAnswer below always compares the
+  // selected option's own text against quiz.correct_answer, never a
+  // position, so shuffling this never changes what counts as correct.
+  const shuffledOptions = useAnswerOrder(quiz.options);
 
   async function handleCheckAnswer() {
     if (!selectedOption) return;
@@ -121,6 +127,20 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
         )}
       </div>
 
+      <GuidePanel compact message={`Your goal: explore ${activity.title.toLowerCase()}. Read or listen, then try the question. You can take your time.`} />
+      {activity.topicId === "money_basics" && <MoneyExamples/>}
+      {/* Screen-reader announcement of the quiz result — see
+          GameShell.tsx's identical pattern and comment for why this
+          is a separate, always-mounted live region with a SHORT
+          status word rather than aria-live on the visible feedback
+          card (which only mounts once `phase` leaves "unanswered")
+          or a repeat of its full sentence (which previously collided
+          with e2e getByText queries matching that same sentence). */}
+      <div aria-live="polite" className="sr-only">
+        {phase === "incorrect" && t("a11y.answerIncorrectAnnouncement")}
+        {phase === "correct" && t("a11y.answerCorrectAnnouncement")}
+      </div>
+
       {/* The book — a two-page spread on desktop/tablet, stacked into
           a single page on mobile. Left page: an illustration relating
           directly to this lesson's topic (see LessonIllustration's
@@ -133,7 +153,7 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
           style={{ backgroundColor: `${worldThemeColor}22` }}
         >
           <LessonIllustration topicId={activity.topicId} worldThemeColor={worldThemeColor} className="h-48 w-48 md:h-64 md:w-64" />
-          <span className="absolute bottom-2xs right-sm font-display text-sm text-ink/40" aria-hidden="true">
+          <span className="absolute bottom-2xs right-sm font-display text-sm text-ink/70" aria-hidden="true">
             1
           </span>
         </div>
@@ -171,7 +191,51 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
             </div>
           )}
 
-          <span className="absolute bottom-2xs left-sm font-display text-sm text-ink/30" aria-hidden="true">
+          {/* Three authored-but-previously-unrendered fields, each its
+              own clearly labelled, collapsed-by-default <details>
+              disclosure. Native <details>/<summary> is keyboard- and
+              screen-reader-operable with no new ARIA or JS state
+              needed. Shown regardless of quiz-completion state —
+              unlike the post-completion "Try This At Home" challenge
+              below, a parent accompanying a child may want this
+              context before or during the lesson, not only after a
+              correct answer. Labelled for a mixed parent/child
+              audience since there is no parent-only view in this
+              app's no-accounts architecture (see docs/ for why) —
+              worded so a curious child reading it isn't confused.
+              `gameIdea` is deliberately NOT rendered here: a
+              significant fraction of its authored text names a game
+              that doesn't exist in the real registry (see
+              src/content/catalog.ts) and needs a content-reconciliation
+              pass first, not a UI change. */}
+          {activity.content.parentNote && (
+            <details className="mt-sm rounded-md border border-ink/15 bg-fog/60 p-sm text-sm">
+              <summary className="cursor-pointer font-medium text-ink/70">
+                {t("lesson.forParentsLabel")}
+              </summary>
+              <p className="mt-2xs text-ink/70">{activity.content.parentNote}</p>
+            </details>
+          )}
+
+          {activity.content.interactiveActivity && (
+            <details className="mt-2xs rounded-md border border-ink/15 bg-fog/60 p-sm text-sm">
+              <summary className="cursor-pointer font-medium text-ink/70">
+                {t("lesson.interactiveActivityLabel")}
+              </summary>
+              <p className="mt-2xs text-ink/70">{activity.content.interactiveActivity}</p>
+            </details>
+          )}
+
+          {activity.content.commonMisconception && (
+            <details className="mt-2xs rounded-md border border-ink/15 bg-fog/60 p-sm text-sm">
+              <summary className="cursor-pointer font-medium text-ink/70">
+                {t("lesson.commonMisconceptionLabel")}
+              </summary>
+              <p className="mt-2xs text-ink/70">{activity.content.commonMisconception}</p>
+            </details>
+          )}
+
+          <span className="absolute bottom-2xs left-sm font-display text-sm text-ink/70" aria-hidden="true">
             2
           </span>
         </div>
@@ -198,7 +262,7 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
         <fieldset className="mt-sm" disabled={phase === "correct" || activity.isCompleted}>
           <legend className="sr-only">{t("lesson.answerOptions")}</legend>
           <div className="grid gap-2xs">
-            {quiz.options.map((option) => {
+            {shuffledOptions.map((option) => {
               const isSelected = selectedOption === option;
               const showAsCorrect = phase === "incorrect" && option === quiz.correct_answer;
               const showAsIncorrect = phase === "incorrect" && isSelected && option !== quiz.correct_answer;
@@ -255,9 +319,9 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
 
         {phase === "incorrect" && (
           <div className="mt-md rounded-sm border border-error/30 bg-error/5 p-sm">
-            <p className="font-medium text-error">{feedbackMessage.retry}</p>
+            <GuidePanel compact message={feedbackMessage.retry}/>
             <div className="mt-2xs flex items-start gap-2xs">
-              <CharacterSage size={32} className="shrink-0" />
+              
               <p className="text-sm text-ink/70">{quiz.explanation}</p>
             </div>
             <Button variant="secondary" className="mt-sm" onClick={handleTryAgain}>
@@ -272,7 +336,7 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
               {activity.isCompleted && phase === "unanswered" ? t("lesson.alreadyCompleted") : feedbackMessage.success}
             </p>
             <div className="mt-2xs flex items-start gap-2xs">
-              <CharacterSage size={32} className="shrink-0" />
+              
               <p className="text-sm text-ink/70">{quiz.explanation}</p>
             </div>
             {award && (award.xp > 0 || award.coins > 0) && (
@@ -280,18 +344,18 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
                 {award.xp > 0 && <span className="font-bold text-teal">{t("lesson.xpEarned", { xp: award.xp })}</span>}
                 {award.coins > 0 && (
                   <span className="flex flex-col items-start">
-                    <span className="text-xs font-normal text-ink/60">{t("lesson.virtualCoinsLabel")}</span>
+                    <span className="text-xs font-normal text-ink/70">{t("lesson.virtualCoinsLabel")}</span>
                     <MoneyAmount amountMinorUnits={award.coins} currencyCode={activity.childCurrencyCode} uiLocale={uiLocale} showCoinIcon />
                   </span>
                 )}
               </div>
             )}
             {award && (award.xp > 0 || award.coins > 0) && activity.content.rewardMessage && (
-              <p className="mt-2xs text-sm italic text-ink/60">{activity.content.rewardMessage}</p>
+              <p className="mt-2xs text-sm italic text-ink/70">{activity.content.rewardMessage}</p>
             )}
             {activity.content.challenge && !focusMode && (
               <div className="mt-sm rounded-md border border-coral/30 bg-coral/10 p-sm">
-                <p className="text-xs font-bold uppercase tracking-wide text-ink/60">{t("lesson.tryThisAtHome")}</p>
+                <p className="text-xs font-bold uppercase tracking-wide text-ink/70">{t("lesson.tryThisAtHome")}</p>
                 <p className="mt-3xs text-sm text-ink/80">{activity.content.challenge}</p>
               </div>
             )}

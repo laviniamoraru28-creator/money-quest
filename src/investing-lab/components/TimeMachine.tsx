@@ -103,11 +103,11 @@ export function TimeMachine({ companies, seriesByCompany, currencyCode }: TimeMa
               {isUp ? "▲" : "▼"} {Math.abs(result.percentChange).toFixed(1)}%
             </span>
           </p>
-          {result.shares === 0 && <p className="mt-2xs text-xs text-ink/50">{t("investingLab.timeMachineTooSmallHint")}</p>}
+          {result.shares === 0 && <p className="mt-2xs text-xs text-ink/70">{t("investingLab.timeMachineTooSmallHint")}</p>}
         </div>
       )}
 
-      <p className="mt-2xs text-xs text-ink/50">{t("investingLab.timeMachineDisclaimer")}</p>
+      <p className="mt-2xs text-xs text-ink/70">{t("investingLab.timeMachineDisclaimer")}</p>
     </div>
   );
 }

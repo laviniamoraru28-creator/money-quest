@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useState, useEffect } from "react";
 
 /**
  * Uses the browser's built-in Web Speech API (SpeechSynthesis) —
@@ -16,7 +16,12 @@ import { useCallback, useState } from "react";
 export function useReadAloud(uiLocale: string) {
   const [isSpeaking, setIsSpeaking] = useState(false);
 
-  const isSupported = typeof window !== "undefined" && "speechSynthesis" in window;
+  const [isSupported, setIsSupported] = useState(false);
+  useEffect(() => {
+    setIsSupported("speechSynthesis" in window);
+    return () => { try { window.speechSynthesis?.cancel(); } catch {} };
+  }, []);
+  useEffect(() => { setIsSpeaking(false); try { window.speechSynthesis?.cancel(); } catch {} }, [uiLocale]);
 
   const speak = useCallback(
     (text: string) => {

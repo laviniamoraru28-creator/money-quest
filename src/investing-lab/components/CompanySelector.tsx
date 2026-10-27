@@ -40,7 +40,7 @@ export function CompanySelector({ companies, seriesByCompany, selectedCompanyId,
               isSelected ? "border-teal bg-teal/5" : "border-ink/15 hover:border-teal/50",
             ].join(" ")}
           >
-            <span className="block text-xs uppercase tracking-wide text-ink/50">{company.symbol}</span>
+            <span className="block text-xs uppercase tracking-wide text-ink/70">{company.symbol}</span>
             <span className="block truncate text-sm font-medium">{company.name}</span>
             <span className="block text-sm font-bold text-ink">{formatCurrency(price, currencyCode, uiLocale)}</span>
           </button>

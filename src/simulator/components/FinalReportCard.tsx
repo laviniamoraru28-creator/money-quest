@@ -73,7 +73,7 @@ export function FinalReportCard({ state, scenario, currencyCode, uiLocale, award
         <div className="mt-md flex items-center gap-md rounded-sm border border-gold/40 bg-gold/10 p-sm">
           <span className="font-bold text-teal">{t("lesson.xpEarned", { xp: award.xp })}</span>
           <span className="flex flex-col items-start">
-            <span className="text-xs font-normal text-ink/60">{t("lesson.virtualCoinsLabel")}</span>
+            <span className="text-xs font-normal text-ink/70">{t("lesson.virtualCoinsLabel")}</span>
             <span className="font-bold text-ink">+{fmt(award.coins)}</span>
           </span>
         </div>

@@ -7,10 +7,11 @@ import { getSiteUrl, DEFAULT_OG_IMAGE } from "@/lib/seo/site-url";
 import { LOCALES } from "@/i18n/config";
 
 interface PageProps {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }
 
-export async function generateMetadata({ params: { locale } }: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "parentInfo" });
   const siteUrl = getSiteUrl();
   const path = "/parent-info";
@@ -42,7 +43,8 @@ export async function generateMetadata({ params: { locale } }: PageProps): Promi
  * system (parentInfo.* namespace) — found missing during a later audit
  * and fixed then, not part of the original build.
  */
-export default async function ParentInfoPage({ params: { locale } }: PageProps) {
+export default async function ParentInfoPage({ params }: PageProps) {
+  const { locale } = await params;
   const t = await getTranslations();
   const siteUrl = getSiteUrl();
   const breadcrumbSchema = buildBreadcrumbSchema([
@@ -53,7 +55,7 @@ export default async function ParentInfoPage({ params: { locale } }: PageProps) 
   return (
     <div className="min-h-screen bg-fog px-sm py-lg">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(breadcrumbSchema) }} />
-      <main className="mx-auto max-w-[700px]">
+      <main id="main-content" tabIndex={-1} className="mx-auto max-w-[700px]">
         <Link href="/" className="text-sm text-teal hover:underline">
           ← {t("common.moneyQuest")}
         </Link>
@@ -85,6 +87,10 @@ export default async function ParentInfoPage({ params: { locale } }: PageProps) 
           <section className="rounded-md border-2 border-soft-blue/40 bg-soft-blue/10 p-sm">
             <h3 className="font-display text-lg font-bold">{t("parentInfo.pq6Title")}</h3>
             <p className="mt-2xs text-base text-ink/80">{t("parentInfo.pq6Body")}</p>
+          </section>
+          <section>
+            <h3 className="font-display text-lg font-bold">{t("parentInfo.pq7Title")}</h3>
+            <p className="mt-2xs text-base text-ink/80">{t("parentInfo.pq7Body")}</p>
           </section>
         </div>
 
@@ -142,7 +148,7 @@ export default async function ParentInfoPage({ params: { locale } }: PageProps) 
           </section>
         </div>
 
-        <p className="mt-lg text-sm text-ink/60">
+        <p className="mt-lg text-sm text-ink/70">
           {t("parentInfo.footerPrefix")}{" "}
           <Link href="/privacy" className="text-teal hover:underline">
             {t("parentInfo.privacyPolicyLink")}

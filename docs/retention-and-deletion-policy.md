@@ -1,20 +1,20 @@
 # Money Quest — Retention and Deletion Policy
 
-## Technical mechanisms already implemented
+> Rewritten during the 2026 launch-readiness audit: an earlier version of this policy described account/login data held in a Supabase database. That architecture has been fully removed — see `docs/dpia.md` for the current data-flow picture this policy now matches.
 
-| Data | Retention period | Mechanism | Automatic? |
-|---|---|---|---|
-| Login attempt log | 7 days rolling | `delete_old_login_attempts()` (`0018_login_rate_limiting.sql`) | Function exists; scheduling is a deployment step |
-| Everything tied to a specific child | Until that child is removed | `ON DELETE CASCADE` from `children` on every child-scoped table | Yes — immediate, triggered by the parent's own action |
-| Everything tied to an account | Until account deletion | `deleteAccount()` — deletes the `parents` row (cascading to every child), purges the login-attempt log by email, then deletes the actual Supabase Auth credential | Yes — immediate, triggered by the parent's own action |
-| Anonymous analytics | Indefinite | N/A — contains no identifier, so there is nothing to delete "for" a specific person | N/A |
+## What's actually retained, and where
+
+| Data | Where it lives | Retention period | Deletion mechanism | Automatic? |
+|---|---|---|---|---|
+| Learning-level/currency preference, learning progress, XP, badges | The visitor's own browser `localStorage` — never on any server operated by this website | Until the visitor (or whoever uses that device) clears it | "Reset Progress" in the app, or clearing the browser's site data for this website | Immediate when triggered; never automatic, since there is no server-side timer to run — there is simply nothing on our side to expire |
+| Error reports (only if `ERROR_REPORTING_WEBHOOK_URL` is configured) | Whatever third-party service receives the webhook — outside this codebase | Governed by that service's own policy | Outside this codebase's control | **[LEGAL REVIEW NEEDED: if this is enabled in production, document the receiving service's retention period here explicitly rather than leaving it unstated.]** |
 
 ## What this policy commits to
 
-- No personal data is kept "just in case" beyond the periods above.
-- The one time-bound log (login attempts) exists for a narrow, stated security purpose and is deleted automatically once that purpose's relevant window has passed.
-- A parent-triggered deletion (removing a child, or deleting the whole account) is immediate and complete — not queued, not "eventually," and (as of this session) not leaving a residual email behind in the login-attempt log either.
+- No personal data is held on any server operated by this website — there is nothing to retain centrally, by design, because nothing is sent centrally.
+- The only "deletion" that matters happens entirely on the visitor's own device, is immediate, and never requires contacting anyone.
+- If this architecture ever changes (for example, if a future feature introduces any server-side storage of personal data), this policy will be rewritten before that feature ships, not after.
 
-## Genuine gap, stated plainly
+## Why the previous version of this document no longer applies
 
-The retention function exists and is correct, but is not currently scheduled to run automatically — it needs to be invoked periodically (a cron job, a Supabase Edge Function on a schedule, or an external scheduler hitting a protected endpoint). This is a real, specific, and easy-to-close deployment gap — listed in the final readiness report's YELLOW category, not silently assumed done.
+The previous policy described `deleteAccount()`, a Supabase Auth credential, and a rolling login-attempt log — all part of an account-based architecture that has been removed in full. There is no account to delete and no login-attempt log to retain, because there is no login. This isn't a gap in the current implementation; it's the direct consequence of there being no server-side personal data at all for a retention schedule to apply to.

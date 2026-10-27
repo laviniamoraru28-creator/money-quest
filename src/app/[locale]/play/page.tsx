@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/Button";
 import { ProgressBar } from "@/components/ui/ProgressBar";
 import { LevelProgressRing } from "@/components/ui/LevelProgressRing";
 import { LevelBadgeStar } from "@/components/ui/LevelBadgeStar";
-import { CharacterPip } from "@/components/characters/CharacterPip";
+import { GuidePanel } from "@/components/GuidePanel";
 import { LEVEL_OPTIONS } from "@/content/level-options";
 import type { AgeBand } from "@/types/database.types";
 
@@ -35,25 +35,15 @@ export default function PlayPage() {
   const t = useTranslations();
   const { state, isLoaded, level, setAgeBand, setCurrencyCode } = useLocalProgress();
 
-  const worldArtwork: Record<string, { symbol: string; background: string; label: string }> = {
-    "coin-cove": { symbol: "🪙", background: "linear-gradient(135deg,#fff2c5,#ffe0a0)", label: "Coins and treasure" },
-    "market-town": { symbol: "🛍️", background: "linear-gradient(135deg,#ffe1d4,#ffd5b5)", label: "Shopping and choices" },
-    "golden-vault": { symbol: "🐷", background: "linear-gradient(135deg,#d8f4dc,#b7e8d1)", label: "Saving for a goal" },
-    "sky-exchange": { symbol: "💳", background: "linear-gradient(135deg,#d5edff,#cbdcff)", label: "Digital money" },
-    "guardian-gate": { symbol: "🛡️", background: "linear-gradient(135deg,#e8e0ff,#d9d2fb)", label: "Staying safe online" },
-    "horizon-peaks": { symbol: "🏔️", background: "linear-gradient(135deg,#e2f3ff,#d5e4e9)", label: "Planning ahead" },
-    "kindness-grove": { symbol: "🌳", background: "linear-gradient(135deg,#fce0e8,#f7e5c9)", label: "Helping others" },
-  };
-
   if (!isLoaded) {
-    return <div className="grid min-h-screen place-items-center bg-fog text-ink/60">{t("common.loading")}</div>;
+    return <div className="grid min-h-screen place-items-center bg-fog text-ink/70">{t("common.loading")}</div>;
   }
 
   if (!state.ageBand) {
 
   return (
       <div className="min-h-screen bg-fog px-sm py-lg">
-        <main className="mx-auto max-w-lg text-center">
+        <main id="main-content" tabIndex={-1} className="mx-auto max-w-lg text-center">
           <Link
             href="/"
             className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal transition-colors duration-quick hover:bg-teal/5"
@@ -61,7 +51,7 @@ export default function PlayPage() {
             <span aria-hidden="true">🏠</span> {t("nav.home")}
           </Link>
           <div className="mt-sm flex justify-center">
-            <CharacterPip size={80} />
+            <GuidePanel message="Choose a learning level that feels comfortable. You can change it at any time." />
           </div>
           <h1 className="mt-sm font-display text-2xl font-bold">{t("play.chooseYourLevel")}</h1>
           <p className="mt-2xs text-base text-ink/70">{t("play.levelChoiceHint")}</p>
@@ -74,7 +64,7 @@ export default function PlayPage() {
                 className="min-h-touch-min-child rounded-lg border-2 border-ink/20 bg-white p-md text-left shadow-resting hover:border-teal hover:bg-teal/5"
               >
                 <span className="font-display text-lg font-bold">{t(option.labelKey)}</span>
-                <span className="ml-2xs text-sm text-ink/60">{t(option.rangeKey)}</span>
+                <span className="ml-2xs text-sm text-ink/70">{t(option.rangeKey)}</span>
               </button>
             ))}
           </div>
@@ -85,7 +75,7 @@ export default function PlayPage() {
 
   return (
     <div className="min-h-screen bg-fog px-sm py-lg">
-      <main className="mx-auto max-w-[900px]">
+      <main id="main-content" tabIndex={-1} className="mx-auto max-w-[900px]">
         <div className="flex flex-wrap items-center justify-between gap-xs">
           <h1 className="font-display text-2xl font-bold">{t("play.yourWorldMap")}</h1>
           <div className="flex flex-wrap gap-xs">
@@ -103,20 +93,20 @@ export default function PlayPage() {
 
         <div className="mt-sm grid gap-sm sm:grid-cols-3">
           <Card variant="data">
-            <p className="text-sm text-ink/60">{t("dashboard.level")}</p>
+            <p className="text-sm text-ink/70">{t("dashboard.level")}</p>
             <p className="mt-2xs font-display text-2xl font-bold">{level}</p>
             <div className="mt-2xs h-2 w-full">
               <ProgressBar percent={state.xpTotal % 100} label={t("a11y.xpProgressLabel")} />
             </div>
           </Card>
           <Card variant="data">
-            <p className="text-sm text-ink/60">{t("play.yourCoins")}</p>
+            <p className="text-sm text-ink/70">{t("play.yourCoins")}</p>
             <p className="mt-2xs font-display text-2xl font-bold text-teal">
               {formatCurrency(state.walletBalanceMinorUnits, state.currencyCode, uiLocale)}
             </p>
           </Card>
           <Card variant="data">
-            <label htmlFor="currency-select" className="text-sm text-ink/60">
+            <label htmlFor="currency-select" className="text-sm text-ink/70">
               {t("play.currency")}
             </label>
             <select
@@ -134,7 +124,7 @@ export default function PlayPage() {
           </Card>
         </div>
 
-        <p className="mt-sm text-xs text-ink/50">{t("play.virtualMoneyExplainer")}</p>
+        <p className="mt-sm text-xs text-ink/70">{t("play.virtualMoneyExplainer")}</p>
 
         <div className="mt-md grid gap-sm sm:grid-cols-2">
           {WORLDS.map((world) => {
@@ -150,18 +140,16 @@ export default function PlayPage() {
                 style={{ borderColor: world.themeColor }}
               >
                 <div className="flex shrink-0 flex-col items-center gap-2xs">
-                  <div aria-hidden="true" className="flex h-20 w-20 items-center justify-center rounded-2xl text-5xl shadow-sm sm:h-24 sm:w-24" style={{ background: worldArtwork[world.id]?.background ?? "#f5f5f5" }}>
-                    {worldArtwork[world.id]?.symbol ?? "✨"}
-                  </div>
+                  <img src={`/images/money-quest/worlds/${world.id}-thumb.webp`} alt="" width={144} height={144} loading="lazy" className="h-24 w-24 rounded-2xl object-cover sm:h-36 sm:w-36" />
                   <LevelProgressRing percent={percent} color={world.themeColor} />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="text-xs font-medium uppercase tracking-wide text-ink/50">
+                  <p className="text-xs font-medium uppercase tracking-wide text-ink/70">
                     {t("play.levelLabel", { number: world.orderIndex })}
                   </p>
                   <h2 className="font-display text-lg font-bold leading-tight">{t(`levels.${world.id}`)}</h2>
-                  <p className="text-sm text-ink/60">{world.name}</p>
-                  <p className="mt-2xs text-xs text-ink/50">
+                  <p className="text-sm text-ink/70">{world.name}</p>
+                  <p className="mt-2xs text-xs text-ink/70">
                     {t("play.completeOfTotal", { completed: completedCount, total: catalog.length })}
                   </p>
                 </div>
@@ -176,6 +164,7 @@ export default function PlayPage() {
             language as the World cards above, so these existing
             features (nothing new here) are actually discoverable
             rather than easy to miss at the bottom of the page. */}
+        <nav aria-label="More learning spaces" className="mt-6 flex flex-wrap gap-3">{["museum","library","brain-lab","mind-lab","future-skills","inclusive-learning"].map(path=><Link key={path} href={`/${path}`} className="min-h-12 rounded-xl border border-teal bg-white px-4 py-3 font-semibold capitalize text-teal">{path.replaceAll("-"," ")}</Link>)}</nav>
         <h2 className="mt-lg font-display text-lg font-bold">{t("play.moreFeaturesTitle")}</h2>
         <div className="mt-sm grid gap-sm sm:grid-cols-3">
           <Link
@@ -205,6 +194,27 @@ export default function PlayPage() {
           >
             <span aria-hidden="true" className="text-2xl">📈</span>
             <span className="font-medium">{t("play.investingLabLink")}</span>
+          </Link>
+          <Link
+            href="/entrepreneur-quest"
+            className="flex items-center gap-xs rounded-lg border-2 border-ink/10 bg-white p-sm shadow-resting transition-shadow hover:shadow-floating hover:border-teal"
+          >
+            <span aria-hidden="true" className="text-2xl">💡</span>
+            <span className="font-medium">{t("play.entrepreneurQuestLink")}</span>
+          </Link>
+          <Link
+            href="/leadership-quest"
+            className="flex items-center gap-xs rounded-lg border-2 border-ink/10 bg-white p-sm shadow-resting transition-shadow hover:shadow-floating hover:border-teal"
+          >
+            <span aria-hidden="true" className="text-2xl">🤝</span>
+            <span className="font-medium">{t("play.leadershipQuestLink")}</span>
+          </Link>
+          <Link
+            href="/real-life-quests"
+            className="flex items-center gap-xs rounded-lg border-2 border-ink/10 bg-white p-sm shadow-resting transition-shadow hover:shadow-floating hover:border-teal"
+          >
+            <span aria-hidden="true" className="text-2xl">🌍</span>
+            <span className="font-medium">{t("play.realLifeQuestsLink")}</span>
           </Link>
           <Link
             href="/feedback"

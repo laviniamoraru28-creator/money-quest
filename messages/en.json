@@ -67,7 +67,9 @@
     "whatWouldYouDo": "What would you do?",
     "keyIdea": "Key idea",
     "tryThisAtHome": "Try this at home!",
-    "printableWorksheetButton": "Printable worksheet"
+    "printableWorksheetButton": "Printable worksheet",
+    "interactiveActivityLabel": "Try this activity",
+    "commonMisconceptionLabel": "A common misunderstanding"
   },
   "worksheet": {
     "pageTitle": "Printable Worksheet",
@@ -288,7 +290,9 @@
     "focusModeHint": "Hides extra details so only the main activity shows.",
     "listenToLessonLabel": "Listen to the lesson",
     "mainNavigationLabel": "Main",
-    "categoryMayNeedAdjusting": "- this category may need adjusting"
+    "categoryMayNeedAdjusting": "- this category may need adjusting",
+    "answerCorrectAnnouncement": "Correct answer",
+    "answerIncorrectAnnouncement": "Try again"
   },
   "characters": {
     "pip": "Pip",
@@ -362,7 +366,9 @@
     "spendSome": "Spend some",
     "moneyPersonalityLink": "Money Personality",
     "levelActivityProgress": "Level {level} · Activity {position} of {total}",
-    "investingLabLink": "Investing Lab →"
+    "investingLabLink": "Investing Lab →",
+    "entrepreneurQuestLink": "Entrepreneur Quest →",
+    "leadershipQuestLink": "Leadership Quest →"
   },
   "parentInfo": {
     "title": "Parent Information",
@@ -404,6 +410,8 @@
     "pq5Body": "It works well either alongside your child for the first few lessons, or as something they explore independently once they're comfortable with it. After a lesson, a good follow-up is simply asking \"what did you learn?\" - the lessons are short enough that they'll usually remember the specific example, not just a vague topic.",
     "pq6Title": "How can I talk to my child about money at home?",
     "pq6Body": "A few starting points: ask what they'd do with a fixed amount of money before telling them what you'd do. When shopping together, ask \"do we need this, or do we want it?\" out loud, so the distinction becomes a habit rather than a rule. If they want something expensive, work out together how many weeks of saving it would take - a concrete number tends to land better than \"maybe later\". None of this requires sharing your own finances with them - the conversation matters more than the specifics.",
+    "pq7Title": "What is Entrepreneur Quest?",
+    "pq7Body": "A new section of Money Quest where your child builds a small virtual business, step by step: finding a problem, shaping an idea, setting a price, and making decisions when things don't go as planned. Along the way they're practising financial literacy, problem solving, creativity, decision making, communication, planning, teamwork, and basic business concepts - entirely with virtual money, saved only on this device. It's designed to build these skills through play, not to encourage a child to start a real business without an adult's guidance and involvement.",
     "privacySectionTitle": "Privacy and Your Data"
   },
   "privacyPage": {
@@ -3983,6 +3991,1718 @@
     "savedLocallyNote": "Your feedback is saved only on this device - Money Quest has no server to send it to yet.",
     "saveFailedNote": "We could not save your feedback on this device just now - your browser may be blocking storage."
   },
+  "entrepreneurQuest": {
+    "hubTitle": "Entrepreneur Quest",
+    "hubTagline": "Learn how to turn an idea into a business.",
+    "hubIntro": "Build your own virtual business, step by step. You'll make real decisions, see what happens, and learn by doing - not by reading and clicking Next.",
+    "virtualMoneyExplainer": "All the money in Entrepreneur Quest is virtual, just for practicing. It is not real money.",
+    "myBusinessTitle": "My Business",
+    "myBusinessEmptyHint": "You haven't started a business yet. Let's build one!",
+    "startBuildingButton": "Start Building Your Business",
+    "continueBuildingButton": "Continue Building Your Business",
+    "stageProgress": "Stage {current} of {total}",
+    "buildLink": "Build Your Business",
+    "simulatorLink": "Business Simulator",
+    "challengesLink": "Business Challenges",
+    "pitchLink": "My Business Pitch",
+    "pitchLinkLockedHint": "Finish building your business first to unlock your pitch.",
+    "badgesEarnedTitle": "Your Badges",
+    "noBadgesYetHint": "Complete stages and challenges to earn your first badge.",
+    "realWorldMissionsTitle": "Real-World Missions (Optional)",
+    "realWorldMissionsHint": "These are just for noticing things in the real world - nothing to write down or send in.",
+    "realWorldMissionDoneLabel": "Mark as done",
+    "resetBusinessButton": "Start a New Business",
+    "resetBusinessConfirm": "This will clear your current business and start fresh. Are you sure?",
+    "backToHub": "Back to Entrepreneur Quest",
+    "continueButton": "Continue",
+    "saveAndContinueButton": "Save and Continue",
+    "stages": {
+      "find-a-problem": {
+        "title": "Find a Problem",
+        "learnText": "Every good business starts by solving a problem. A problem is something that annoys people, wastes their time, or is hard to do.",
+        "fieldLabel": "What problem could your business solve?",
+        "placeholder": "For example: My friends can never find a water bottle they like."
+      },
+      "create-an-idea": {
+        "title": "Create an Idea",
+        "learnText": "Now turn that problem into an idea. Your idea is your answer to the problem you found.",
+        "fieldLabel": "What is your idea?",
+        "placeholder": "For example: I could make colorful stickers for water bottles."
+      },
+      "research-demand": {
+        "title": "Research Demand",
+        "learnText": "Before building anything, smart entrepreneurs investigate whether people will actually buy. Look at the market data below."
+      },
+      "test-the-idea": {
+        "title": "Test the Idea",
+        "learnText": "It's tempting to jump straight into building - but testing a small idea first can save you from a costly mistake."
+      },
+      "name-your-business": {
+        "title": "Name Your Business",
+        "learnText": "A good business name is short, easy to remember, and gives a hint about what you do.",
+        "fieldLabel": "What will you call your business?",
+        "placeholder": "For example: Sticker Splash"
+      },
+      "create-your-logo": {
+        "title": "Create Your Logo",
+        "learnText": "A logo is a small picture that helps people recognize your business at a glance. Pick a shape, a color, and a symbol that feel like your business.",
+        "shapeLabel": "Pick a shape",
+        "colorLabel": "Pick a color",
+        "symbolLabel": "Pick a symbol",
+        "sloganLabel": "Write a short slogan (optional)",
+        "sloganPlaceholder": "For example: Colour your world"
+      },
+      "choose-your-product": {
+        "title": "Choose Your Product",
+        "learnText": "Your product is the actual thing (or service) you will sell. Pick the category it fits best, then describe it in your own words.",
+        "categoryLabel": "What kind of product or service is it?",
+        "descriptionLabel": "Describe your product or service",
+        "descriptionPlaceholder": "For example: A pack of 10 waterproof stickers."
+      },
+      "choose-your-customer": {
+        "title": "Choose Your Customer",
+        "learnText": "A customer is the person who would actually buy your product. Thinking about them helps you make something they will really want."
+      },
+      "understand-costs": {
+        "title": "Understand Costs",
+        "learnText": "Costs are how much money it takes to make one item. If it costs you a little bit of money to make a bracelet, that is your cost per item.",
+        "fieldLabel": "How much does it cost you to make ONE item?",
+        "helpText": "This is the money you spend on materials for just one item, not your whole business."
+      },
+      "set-your-price": {
+        "title": "Set Your Price",
+        "learnText": "Your price is how much you charge a customer for one item. A common starting point is charging about double what something costs you to make - but it is your choice.",
+        "fieldLabel": "How much will you charge for one item?",
+        "helpText": "A low price can mean more people buy, but you keep less money per item. A high price means more money per item, but fewer people may buy."
+      },
+      "create-your-marketing": {
+        "title": "Create Your Marketing",
+        "learnText": "Marketing means telling people about your business so they know it exists, and understand what it does. Pick an approach, then see what happens."
+      },
+      "make-your-first-sale": {
+        "title": "Make Your First Sale",
+        "learnText": "Time to see what happens! You'll decide how to spend your starting money, then find out how your first sales go.",
+        "ctaButton": "Go to the Business Simulator"
+      },
+      "calculate-your-profit": {
+        "title": "Calculate Your Profit",
+        "learnText": "Profit is the money you keep after paying your costs. Profit = Sales minus Costs.",
+        "resultHint": "Here is your profit from the Business Simulator.",
+        "noRunYetHint": "Visit the Business Simulator first to see a real profit number here."
+      },
+      "handle-competition": {
+        "title": "Handle Competition",
+        "learnText": "A competitor is another business selling something similar to yours. Almost every business has competitors."
+      },
+      "handle-a-customer-problem": {
+        "title": "Handle a Customer Problem",
+        "learnText": "Real businesses run into problems with customers sometimes. What matters is how you respond."
+      },
+      "make-a-business-decision": {
+        "title": "Make a Business Decision",
+        "learnText": "Good business owners think through their choices instead of just guessing."
+      },
+      "grow-your-business": {
+        "title": "Grow Your Business",
+        "learnText": "Sometimes things don't go as planned. Growing a business often means trying again with something new."
+      },
+      "create-your-final-pitch": {
+        "title": "Create Your Final Business Pitch",
+        "learnText": "You've built a business! Answer these last two questions, then see your business pitch all put together.",
+        "whyChooseLabel": "Why might people choose your business?",
+        "whyChoosePlaceholder": "For example: My stickers are waterproof and come in bright colors nobody else has.",
+        "nextStepLabel": "What would your next step be?",
+        "nextStepPlaceholder": "For example: Ask five friends what other sticker designs they would like.",
+        "viewPitchButton": "View My Business Pitch"
+      }
+    },
+    "decisionEvents": {
+      "product-unclear": {
+        "situation": "Some customers like your product, but they don't understand what it actually does.",
+        "choices": [
+          {
+            "key": "explain-simply",
+            "label": "Write one simple sentence that explains what your product does",
+            "consequence": "More people understand your product now, and a few decide to buy. Clear words really do help!"
+          },
+          {
+            "key": "add-picture",
+            "label": "Show a picture of someone using it",
+            "consequence": "Seeing it in action helps people understand faster. A few more customers give it a try."
+          },
+          {
+            "key": "do-nothing",
+            "label": "Leave it as it is and hope people figure it out",
+            "consequence": "Some customers still feel confused, and a few decide not to buy. Explaining clearly usually helps more than staying quiet."
+          }
+        ]
+      },
+      "competitor-lower-price": {
+        "situation": "A competitor starts selling something similar to your product, but for less money.",
+        "choices": [
+          {
+            "key": "lower-price",
+            "label": "Lower your price to match them",
+            "consequence": "More people choose your product again, but you keep less money on each one you sell."
+          },
+          {
+            "key": "explain-value",
+            "label": "Keep your price, but explain why your product is worth it",
+            "consequence": "Some customers agree and stay with you. Others still choose the cheaper option."
+          },
+          {
+            "key": "ignore",
+            "label": "Keep everything exactly the same",
+            "consequence": "A few customers drift toward the cheaper option. Competitors are normal - it often helps to respond somehow."
+          }
+        ]
+      },
+      "materials-cost-increase": {
+        "situation": "The materials you need to make your product suddenly become more expensive.",
+        "choices": [
+          {
+            "key": "raise-price",
+            "label": "Raise your price a little to cover the extra cost",
+            "consequence": "Your profit per item stays healthy, though a few price-sensitive customers may buy less often."
+          },
+          {
+            "key": "absorb-cost",
+            "label": "Keep your price the same and earn less profit per item",
+            "consequence": "Customers notice nothing has changed, but you keep less money from each sale."
+          },
+          {
+            "key": "find-cheaper-materials",
+            "label": "Look for a cheaper way to make your product",
+            "consequence": "If you find one, this can solve the problem completely, though it might take some time to figure out."
+          }
+        ]
+      },
+      "too-expensive-feedback": {
+        "situation": "A customer tells you your product is too expensive.",
+        "choices": [
+          {
+            "key": "ask-why",
+            "label": "Ask them what price would feel fair to them",
+            "consequence": "You learn something useful about what customers expect, even if you don't change your price."
+          },
+          {
+            "key": "offer-smaller-version",
+            "label": "Offer a smaller, cheaper version of your product",
+            "consequence": "Some customers who couldn't afford the full version buy the smaller one instead."
+          },
+          {
+            "key": "stand-firm",
+            "label": "Explain that your price reflects your costs and effort",
+            "consequence": "Some customers understand and stay. Others still feel it's too much for them - and that's okay."
+          }
+        ]
+      },
+      "more-orders-than-expected": {
+        "situation": "Way more people want to buy from you than you expected!",
+        "choices": [
+          {
+            "key": "make-more",
+            "label": "Try to make more product to keep up",
+            "consequence": "You sell more, but making extra in a hurry costs more time and effort than usual."
+          },
+          {
+            "key": "raise-price-slightly",
+            "label": "Raise your price a little since demand is high",
+            "consequence": "You earn more per item, though a few customers decide to wait or look elsewhere."
+          },
+          {
+            "key": "waitlist",
+            "label": "Tell extra customers you'll have more ready soon",
+            "consequence": "Customers who are willing to wait usually still buy from you later."
+          }
+        ]
+      },
+      "teammate-wants-change": {
+        "situation": "Someone helping with your business wants to change the product in a way you're not sure about.",
+        "choices": [
+          {
+            "key": "hear-them-out",
+            "label": "Ask them to explain their idea fully before deciding",
+            "consequence": "You learn more about their thinking, which makes it much easier to decide together."
+          },
+          {
+            "key": "say-no",
+            "label": "Say no and keep the product exactly as it is",
+            "consequence": "The product stays the same, but your teammate may feel unheard next time they have an idea."
+          },
+          {
+            "key": "try-a-test-version",
+            "label": "Try their idea on just a few items first, as a test",
+            "consequence": "You get to see if the change actually works before changing everything."
+          }
+        ]
+      },
+      "fewer-sales-than-expected": {
+        "situation": "You made fewer sales this week than you hoped for.",
+        "choices": [
+          {
+            "key": "ask-customers",
+            "label": "Ask a few people why they didn't buy",
+            "consequence": "You get real feedback you can actually use to improve, even if it's hard to hear."
+          },
+          {
+            "key": "try-something-new",
+            "label": "Try a different price or a new way of explaining your product",
+            "consequence": "Trying something new sometimes works better, and sometimes it doesn't. Either way, you learn."
+          },
+          {
+            "key": "keep-going",
+            "label": "Keep doing exactly the same thing and see what happens next",
+            "consequence": "Some weeks are just slower than others. But if this keeps happening, it may be worth trying something different."
+          }
+        ]
+      },
+      "market-detective-reflection": {
+        "situation": "Looking at the Fresh Trout market data, what do you think?",
+        "choices": [
+          {
+            "key": "looks-like-a-good-opportunity",
+            "label": "This looks like a great opportunity",
+            "consequence": "Lots of interested customers is a good sign! But remember: high demand doesn't automatically mean high profit - it still depends on costs and how many competitors are already selling."
+          },
+          {
+            "key": "needs-more-thought",
+            "label": "This needs more thought before deciding",
+            "consequence": "Good instinct - only 75 of 300 interested people actually bought recently, and there are already 4 competitors. Digging deeper before committing is smart."
+          },
+          {
+            "key": "not-sure-yet",
+            "label": "I'm not sure yet",
+            "consequence": "That's a fair place to start - real entrepreneurs often need more information before they're confident. Look at the competitor prices and demand pattern again."
+          }
+        ]
+      },
+      "test-before-invest": {
+        "situation": "You have some starting money. How do you want to begin?",
+        "choices": [
+          {
+            "key": "spend-it-all-now",
+            "label": "Spend it all building the business right away",
+            "consequence": "You're fully committed from day one - but if the idea doesn't work out, you've already spent everything finding that out."
+          },
+          {
+            "key": "test-a-little-first",
+            "label": "Spend a little first to test whether customers will actually buy",
+            "consequence": "You find out early - cheaply - whether people really want this, before risking everything on it."
+          }
+        ]
+      }
+    },
+    "challenges": {
+      "five-pound-challenge": {
+        "title": "The {amount} Challenge",
+        "situation": "You have {amount} of virtual money. What could you create with it?",
+        "choices": [
+          {
+            "key": "cheap-materials",
+            "label": "Buy a few cheap materials and make several small items",
+            "consequence": "You can make more items to sell, though each one might be simple."
+          },
+          {
+            "key": "one-good-material",
+            "label": "Spend it all on one better-quality material",
+            "consequence": "You can make fewer items, but each one might feel more special and be worth more."
+          },
+          {
+            "key": "save-some",
+            "label": "Save part of it and spend the rest carefully",
+            "consequence": "You start smaller, but you still have some money left if you need it later."
+          }
+        ]
+      },
+      "pricing-challenge": {
+        "title": "The Pricing Challenge",
+        "situation": "Your product costs {amount} to make. What price will you choose?",
+        "choices": [
+          {
+            "key": "price-low",
+            "label": "Charge just a little more than it costs you",
+            "consequence": "More people can afford it, but you keep only a small amount from each sale."
+          },
+          {
+            "key": "price-double",
+            "label": "Charge about double what it costs you",
+            "consequence": "A common, balanced choice - most businesses start around here."
+          },
+          {
+            "key": "price-high",
+            "label": "Charge much more than it costs you",
+            "consequence": "You earn a lot from each sale, but fewer people may decide to buy."
+          }
+        ]
+      },
+      "customer-challenge": {
+        "title": "The Customer Challenge",
+        "situation": "Nobody seems interested in your product. What could you change?",
+        "choices": [
+          {
+            "key": "ask-people",
+            "label": "Ask a few people what they'd actually want instead",
+            "consequence": "You get real, useful ideas, even if some of them surprise you."
+          },
+          {
+            "key": "change-product",
+            "label": "Change the product to solve a bigger problem",
+            "consequence": "This can genuinely help, though it takes extra time and effort to redo."
+          },
+          {
+            "key": "same-different-customer",
+            "label": "Keep the product the same, but think about who else might want it",
+            "consequence": "Sometimes the right customer was just different than you first thought."
+          }
+        ]
+      },
+      "marketing-challenge": {
+        "title": "The Marketing Challenge",
+        "situation": "You have {amount} of virtual money for marketing. How will you use it?",
+        "choices": [
+          {
+            "key": "tell-friends",
+            "label": "Ask friends and family to help spread the word",
+            "consequence": "This costs nothing and can genuinely help - people trust recommendations from people they know."
+          },
+          {
+            "key": "make-a-poster",
+            "label": "Spend it making an eye-catching poster or sign",
+            "consequence": "A clear, attractive poster can catch the attention of people passing by."
+          },
+          {
+            "key": "spend-it-all",
+            "label": "Spend all of it trying to reach as many people as possible",
+            "consequence": "You reach more people, but you have nothing left over if something unexpected comes up."
+          }
+        ]
+      },
+      "bad-review-challenge": {
+        "title": "The Bad Review Challenge",
+        "situation": "A customer is unhappy with what they bought from you.",
+        "choices": [
+          {
+            "key": "apologize-and-fix",
+            "label": "Apologize and offer to fix or replace it",
+            "consequence": "Most unhappy customers feel much better when someone takes their problem seriously."
+          },
+          {
+            "key": "explain-politely",
+            "label": "Politely explain why the product works the way it does",
+            "consequence": "This sometimes helps, especially if the customer misunderstood something."
+          },
+          {
+            "key": "ignore-it",
+            "label": "Ignore it and move on to the next customer",
+            "consequence": "The unhappy customer may tell others about their experience. Responding usually helps more than staying silent."
+          }
+        ]
+      }
+    },
+    "challengesListTitle": "Business Challenges",
+    "challengesListIntro": "Short, standalone challenges you can try any time - each one teaches something different about running a business.",
+    "challengeCompletedBadge": "Completed",
+    "realWorldMissions": {
+      "find-a-problem-at-home": "Look around your home or school. Can you find a problem that people have?",
+      "notice-what-people-buy": "Find something people buy regularly. Why do you think they buy it?",
+      "improve-a-product-you-use": "Choose a product you use. What could make it better?",
+      "ask-someone-what-they-would-change": "Ask someone what they would change about a product they use."
+    },
+    "badges": {
+      "eq-problem-solver": {
+        "name": "Problem Solver",
+        "description": "Found a real problem to solve"
+      },
+      "eq-idea-finder": {
+        "name": "Idea Finder",
+        "description": "Turned a problem into an idea"
+      },
+      "eq-money-manager": {
+        "name": "Money Manager",
+        "description": "Worked out a business's profit"
+      },
+      "eq-marketing-explorer": {
+        "name": "Marketing Explorer",
+        "description": "Practiced telling people about a business"
+      },
+      "eq-young-founder": {
+        "name": "Young Founder",
+        "description": "Completed a full business pitch"
+      }
+    },
+    "simulator": {
+      "title": "Business Simulator",
+      "intro": "Time to see how your business does! Decide how to spend your starting money, then find out what happens.",
+      "startingMoneyLabel": "Your starting money",
+      "allocateInstructions": "Decide how to spend your {amount}.",
+      "categoryMaterials": "Materials",
+      "categoryPackaging": "Packaging",
+      "categoryAdvertising": "Advertising",
+      "categorySavedAside": "Money kept aside",
+      "seeResultButton": "See What Happens",
+      "resultTitle": "Here's What Happened",
+      "unitsMadeLabel": "You made {count} items",
+      "unitsSoldLabel": "You sold {count} of them",
+      "salesLabel": "Sales",
+      "costsLabel": "Costs",
+      "profitLabel": "Profit",
+      "remainingLabel": "Money you have now",
+      "formulaReminder": "Profit = Sales - Costs",
+      "explanationProfit": "You made a profit of {profit}! Sales minus Costs equals Profit.",
+      "explanationLoss": "This time, your costs were higher than your sales. That happens sometimes - you can try again with different choices.",
+      "tryAgainButton": "Try Different Choices"
+    },
+    "pitch": {
+      "title": "My First Business",
+      "myBusinessIsLabel": "My business is...",
+      "itHelpsLabel": "It helps...",
+      "myCustomersAreLabel": "My customers are...",
+      "myProductIsLabel": "My product or service is...",
+      "itCostsMeLabel": "It costs me...",
+      "iWouldChargeLabel": "I would charge...",
+      "iCouldMakeLabel": "I could make...",
+      "whyChooseLabel": "People might choose my business because...",
+      "nextStepLabel": "My next step would be...",
+      "perItemSuffix": "per item",
+      "notSetYet": "Not decided yet",
+      "editBusinessButton": "Edit My Business",
+      "notReadyTitle": "Your Pitch Isn't Ready Yet",
+      "notReadyHint": "Finish building your business first, and your pitch will appear here.",
+      "goToBuildButton": "Continue Building Your Business",
+      "reputationLabel": "My business reputation is...",
+      "reputationValue": "{stars} out of 5 stars"
+    },
+    "productCategories": {
+      "food": "Food",
+      "art": "Art",
+      "crafts": "Crafts",
+      "games": "Games",
+      "pets": "Pets",
+      "sports": "Sports",
+      "fashion": "Fashion",
+      "technology": "Technology",
+      "education": "Education",
+      "environment": "Environment",
+      "helping-people": "Helping People",
+      "other": "Something Else"
+    },
+    "customerCategories": {
+      "kids": "Kids",
+      "families": "Families",
+      "teens": "Teens",
+      "adults": "Adults",
+      "school-community": "My School Community",
+      "neighbors": "Neighbors",
+      "animal-lovers": "Animal Lovers",
+      "other": "Someone Else"
+    },
+    "marketingApproaches": {
+      "poster": "Make a Poster",
+      "social-style-advert": "Social Media-Style Advert",
+      "word-of-mouth": "Word of Mouth",
+      "school-community-idea": "School or Community Idea",
+      "special-offer": "Special Offer"
+    },
+    "logoShapes": {
+      "circle": "Circle",
+      "square": "Square",
+      "hexagon": "Hexagon",
+      "star": "Star"
+    },
+    "safety": {
+      "nameHint": "Use a fun made-up name for your business - not your real full name, address, phone number, or school name."
+    },
+    "dashboard": {
+      "title": "My Company",
+      "productLabel": "Product",
+      "customersLabel": "Customers",
+      "priceLabel": "Price",
+      "costLabel": "Cost",
+      "profitPerSaleLabel": "Profit per sale",
+      "salesLabel": "Sales",
+      "revenueLabel": "Revenue",
+      "costsLabel": "Costs",
+      "profitLabel": "Profit",
+      "reputationLabel": "Reputation",
+      "reputationValue": "{stars}/5",
+      "goalLabel": "Current goal",
+      "goalPlaceholder": "For example: Make 20 sales",
+      "saveGoalButton": "Save Goal",
+      "cashLabel": "Cash",
+      "customersTotalLabel": "Customers",
+      "repeatCustomersLabel": "Repeat Customers",
+      "stockLabel": "Stock",
+      "demandLabel": "Demand",
+      "showMoreButton": "Show more details",
+      "showLessButton": "Show fewer details"
+    },
+    "phases": {
+      "build": "Build",
+      "run": "Run",
+      "rescueGrow": "Rescue & Grow"
+    },
+    "levels": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High"
+    },
+    "demandLevels": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High",
+      "seasonal-high": "High (Seasonal)",
+      "seasonal-low": "Low (Seasonal)"
+    },
+    "problemFlow": {
+      "investigateLabel": "Investigate",
+      "tapToReveal": "Tap to reveal",
+      "causeLabel": "What's the likely cause?",
+      "responseLabel": "What will you do?"
+    },
+    "problemsListIntro": "Real businesses run into problems. Investigate each one using the data, then decide how to respond.",
+    "marketDetective": {
+      "scenarioTitle": "Fresh Trout: A Market to Investigate",
+      "interestedCustomersLabel": "Interested Customers",
+      "recentBuyersLabel": "Recent Buyers",
+      "competitorCountLabel": "Competitors",
+      "competitorPriceLabel": "Average Competitor Price",
+      "productionCostLabel": "Estimated Production Cost",
+      "weekendDemandLabel": "Weekend Demand",
+      "winterDemandLabel": "Winter Demand",
+      "demandLadderTitle": "From Interest to Repeat Customers",
+      "demandLadder": {
+        "likeTheIdea": "People who like the idea",
+        "mightBuy": "People who might buy",
+        "actuallyBuy": "People who actually buy",
+        "becomeRepeatCustomers": "People who become repeat customers"
+      }
+    },
+    "problems": {
+      "not-enough-customers": {
+        "title": "Not Enough Customers",
+        "situation": "Your business has been running for a while, but hardly anyone is buying.",
+        "responsePrompt": "What will you do?",
+        "clues": {
+          "footTraffic": "Fewer people have been visiting your stall or shop than last month.",
+          "onlineViews": "Not many people are looking at your posts or listings.",
+          "competitorActivity": "A similar business nearby has been busy with customers."
+        },
+        "causes": {
+          "wrong-customer-group": {
+            "label": "Maybe you're not reaching the right customers",
+            "feedback": "That's possible - it's worth checking who you're actually trying to sell to."
+          },
+          "weak-marketing": {
+            "label": "Maybe not enough people know about your business",
+            "feedback": "That could be it - if people don't know you exist, they can't buy from you."
+          },
+          "price-too-high": {
+            "label": "Maybe your price feels too high to people",
+            "feedback": "That's worth considering too - price affects how many people decide to buy."
+          }
+        },
+        "responses": {
+          "improve-marketing": {
+            "label": "Tell more people about your business",
+            "consequence": "You spend a bit more getting the word out, and a few new customers find you."
+          },
+          "research-customers": {
+            "label": "Ask people what they actually want",
+            "consequence": "You don't sell more right away, but you learn something that could help later."
+          },
+          "lower-price-temporarily": {
+            "label": "Lower your price for a short time",
+            "consequence": "More people decide to try your product, though you earn a little less on each one."
+          }
+        }
+      },
+      "costs-increased": {
+        "title": "Costs Increased",
+        "situation": "The materials you use to make your product have suddenly become more expensive.",
+        "responsePrompt": "What will you do?",
+        "clues": {
+          "supplierPriceNotice": "Your supplier sent a message saying their prices have gone up.",
+          "fuelPrices": "The cost of fuel and delivery has been rising too.",
+          "wageChanges": "Nothing has changed about how much you pay for help - that part is the same."
+        },
+        "causes": {
+          "supplier-price-rise": {
+            "label": "Your supplier simply charges more now",
+            "feedback": "That matches what the supplier's message said."
+          },
+          "inflation": {
+            "label": "Prices are rising everywhere at the moment",
+            "feedback": "That's part of it too - many costs rise together sometimes."
+          },
+          "more-materials-needed": {
+            "label": "You're using more materials than before",
+            "feedback": "That's possible, but the clues point more to the supplier's own price change."
+          }
+        },
+        "responses": {
+          "absorb-the-cost": {
+            "label": "Keep your price the same and earn less profit",
+            "consequence": "Customers notice nothing has changed, but you keep less money from each sale."
+          },
+          "raise-your-price": {
+            "label": "Raise your price a little to cover it",
+            "consequence": "Your profit per item stays healthy, though a few customers may buy less often."
+          },
+          "find-a-cheaper-supplier": {
+            "label": "Look for a cheaper supplier",
+            "consequence": "If you find one, this can fix the problem completely - though it might take time and the quality could be different."
+          }
+        }
+      },
+      "negative-review": {
+        "title": "A Negative Review",
+        "situation": "A customer left a review saying they were unhappy with what they bought.",
+        "responsePrompt": "What will you do?",
+        "clues": {
+          "reviewText": "The review says the item arrived a little damaged.",
+          "otherReviews": "Your other recent reviews have all been positive.",
+          "returnRequests": "This is the first time anyone has asked for a replacement."
+        },
+        "causes": {
+          "product-fault": {
+            "label": "Something went wrong with this one item",
+            "feedback": "That fits - your other reviews are fine, so this looks like a one-off."
+          },
+          "unclear-instructions": {
+            "label": "Maybe the instructions weren't clear enough",
+            "feedback": "Possible, but the review is about damage, not confusion."
+          },
+          "slow-response": {
+            "label": "Maybe you took too long to reply",
+            "feedback": "Worth thinking about, but the review itself is about the product arriving damaged."
+          }
+        },
+        "responses": {
+          "apologise-and-fix": {
+            "label": "Apologise and offer to fix or replace it",
+            "consequence": "The customer feels heard, and most people feel much better when their problem is taken seriously."
+          },
+          "offer-replacement": {
+            "label": "Send a free replacement",
+            "consequence": "It costs you a little, but the customer is happy and may buy from you again."
+          },
+          "ignore-and-move-on": {
+            "label": "Leave it and move on to other customers",
+            "consequence": "The unhappy customer may tell others about their experience - responding usually helps more than staying silent."
+          }
+        }
+      },
+      "sales-falling": {
+        "title": "Sales Are Falling",
+        "situation": "Your sales have been dropping over the past few weeks.",
+        "responsePrompt": "What will you do?",
+        "clues": {
+          "salesChart": "Sales were steady, then started dropping about three weeks ago.",
+          "competitorPrices": "A competitor started selling something similar for less around the same time.",
+          "customerFeedback": "A few customers mentioned your product feels 'the same as always'."
+        },
+        "causes": {
+          "price-too-high-now": {
+            "label": "Your price feels high compared to the competitor",
+            "feedback": "The timing matches when the competitor appeared - this looks likely."
+          },
+          "new-competitor": {
+            "label": "A new competitor is taking some customers",
+            "feedback": "That fits the timing well."
+          },
+          "product-losing-novelty": {
+            "label": "Customers are just getting used to the product",
+            "feedback": "That's possible too - the feedback about 'the same as always' hints at this."
+          }
+        },
+        "responses": {
+          "run-a-special-offer": {
+            "label": "Run a short special offer",
+            "consequence": "A few customers who'd drifted away come back to try it again."
+          },
+          "refresh-the-product": {
+            "label": "Refresh or improve the product",
+            "consequence": "It costs a bit to make the change, but customers notice something new and a few more come back."
+          },
+          "ask-customers-directly": {
+            "label": "Ask customers directly what they think",
+            "consequence": "You don't sell more right away, but you learn something useful you can act on."
+          }
+        }
+      },
+      "rising-costs-eating-profit": {
+        "title": "Why Aren't We Making Money?",
+        "situation": "Sales are going up and revenue is going up too - but profit keeps going down.",
+        "responsePrompt": "What will you do?",
+        "clues": {
+          "priceHistory": "Your price hasn't changed in months.",
+          "productionCostHistory": "Making each item has quietly gotten a little more expensive over time.",
+          "advertisingSpend": "You've been spending more on advertising to keep sales growing."
+        },
+        "causes": {
+          "advertising-spend-too-high": {
+            "label": "Advertising is costing more than it's bringing in",
+            "feedback": "That fits - spending more to keep the same growth eats into profit."
+          },
+          "waste-in-production": {
+            "label": "Some materials might be getting wasted",
+            "feedback": "Worth checking, though the clues point more directly at rising advertising and production costs."
+          },
+          "discounts-too-generous": {
+            "label": "Maybe discounts have been too generous",
+            "feedback": "Possible - discounts can quietly reduce profit even when sales look good."
+          }
+        },
+        "responses": {
+          "review-advertising-spend": {
+            "label": "Check whether advertising is worth its cost",
+            "consequence": "You trim back what isn't working, and costs come down without losing many sales."
+          },
+          "reduce-waste": {
+            "label": "Look for ways to reduce waste in production",
+            "consequence": "It takes a bit of effort to find the source, but each item now costs a little less to make."
+          },
+          "adjust-discounts": {
+            "label": "Offer smaller discounts",
+            "consequence": "You keep more from each sale, though a few discount-seeking customers buy less."
+          }
+        }
+      },
+      "profit-but-no-cash": {
+        "title": "Profit But No Cash",
+        "situation": "Your numbers show a profit - but you don't have enough money available right now to pay for what you need.",
+        "responsePrompt": "What will you do?",
+        "clues": {
+          "unpaidInvoices": "Some customers haven't paid you yet for recent orders.",
+          "cashOnHand": "The money you actually have available is much lower than your profit number.",
+          "upcomingBills": "You have a supplier bill due very soon."
+        },
+        "causes": {
+          "customers-pay-late": {
+            "label": "Customers are paying you later than expected",
+            "feedback": "That matches the unpaid invoices."
+          },
+          "spent-too-much-on-equipment": {
+            "label": "You spent a lot on equipment recently",
+            "feedback": "Possible, but the clues point more to money owed to you, not spent by you."
+          },
+          "stock-tied-up-money": {
+            "label": "Money is tied up in unsold stock",
+            "feedback": "That's a real possibility too - stock is money that hasn't turned into cash yet."
+          }
+        },
+        "responses": {
+          "ask-for-faster-payment": {
+            "label": "Ask customers to pay sooner",
+            "consequence": "Some customers pay faster once asked, bringing in cash you were owed."
+          },
+          "use-savings": {
+            "label": "Use money you'd set aside",
+            "consequence": "It covers the gap for now, though your reserve is smaller afterward."
+          },
+          "delay-a-purchase": {
+            "label": "Delay a purchase you were planning",
+            "consequence": "This frees up some cash now, though you may miss out on the opportunity it was for."
+          }
+        }
+      },
+      "too-much-stock": {
+        "title": "Too Much Unsold Stock",
+        "situation": "You made more items than you've been able to sell, and they're taking up space.",
+        "responsePrompt": "What will you do?",
+        "clues": {
+          "stockRoomPhoto": "Your storage area is fuller than it's ever been.",
+          "unsoldItemsList": "Some items have been sitting unsold for weeks.",
+          "seasonalTrend": "Demand for this kind of product is usually lower at this time of year."
+        },
+        "causes": {
+          "over-ordered": {
+            "label": "You made or ordered more than you needed",
+            "feedback": "That fits what the storage numbers show."
+          },
+          "demand-was-seasonal": {
+            "label": "Demand naturally drops at this time of year",
+            "feedback": "That matches the seasonal pattern too."
+          },
+          "product-less-popular-than-expected": {
+            "label": "The product wasn't as popular as expected",
+            "feedback": "Possible - worth keeping in mind for next time."
+          }
+        },
+        "responses": {
+          "run-a-clearance-sale": {
+            "label": "Sell the extra stock at a lower price",
+            "consequence": "You turn unsold stock into cash, even though you earn less on each item."
+          },
+          "donate-or-repurpose": {
+            "label": "Donate or repurpose the extra stock",
+            "consequence": "You don't get money back, but you clear the space and your reputation gets a small boost."
+          },
+          "order-less-next-time": {
+            "label": "Just remember to order less next time",
+            "consequence": "Nothing changes right now, but you've learned something for your next order."
+          }
+        }
+      }
+    },
+    "run": {
+      "hubTitle": "Run Your Business",
+      "hubIntro": "Your company exists now - but running it well means making real decisions about pricing, suppliers, cash, and problems along the way.",
+      "lockedTitle": "Not Ready Yet",
+      "lockedHint": "Finish building your business first, then come back here to start running it.",
+      "pricingExperimentLink": "Pricing Experiment",
+      "supplierAndStockLink": "Suppliers and Stock",
+      "cashFlowLink": "Cash Flow",
+      "problemsLink": "Business Problems",
+      "problemsProgress": "{done} of {total} solved",
+      "pricingExperiment": {
+        "intro": "The same product can be priced differently. See what happens to sales, revenue, costs, and profit at three different prices.",
+        "priceColumn": "Price",
+        "unitsSoldColumn": "Units Sold",
+        "reflectionPrompt": "Looking at the numbers, which price would you choose for a business like this?",
+        "reflectionChoices": {
+          "pick-low-price": {
+            "label": "The lowest price",
+            "consequence": "Lots of people buy, but you earn the least from each one - look at whether the total profit is really the highest."
+          },
+          "pick-middle-price": {
+            "label": "The middle price",
+            "consequence": "A balance between how many people buy and how much you earn from each one."
+          },
+          "pick-high-price": {
+            "label": "The highest price",
+            "consequence": "Fewer people buy, but you earn more from each sale - check whether that adds up to more or less profit overall."
+          }
+        }
+      },
+      "supplierAndStock": {
+        "intro": "Choosing a supplier is a trade-off - there's rarely one perfect answer. Compare your options, then decide.",
+        "supplierColumn": "Supplier",
+        "priceLevelLabel": "Price",
+        "deliverySpeedLabel": "Delivery Speed",
+        "minimumOrderLabel": "Minimum Order",
+        "qualityLabel": "Quality",
+        "supplierPrompt": "Which supplier will you choose?",
+        "suppliers": {
+          "supplier-a": {
+            "label": "Supplier A",
+            "consequence": "You save money on materials, but deliveries take longer and you have to order a lot at once."
+          },
+          "supplier-b": {
+            "label": "Supplier B",
+            "consequence": "You get your materials fast and can order small amounts, but you pay more for it."
+          },
+          "supplier-c": {
+            "label": "Supplier C",
+            "consequence": "You pay a bit more than the cheapest option, but delivery is reliable and quality is high."
+          }
+        },
+        "stockPrompt": "How much stock will you order?",
+        "stockChoices": {
+          "order-a-lot": {
+            "label": "Order a lot, just in case",
+            "consequence": "You won't run out, but if it doesn't all sell, you'll have wasted money on unsold stock."
+          },
+          "order-just-enough": {
+            "label": "Order just enough for what you expect to sell",
+            "consequence": "A balanced approach - though if demand suddenly rises, you might sell out."
+          },
+          "order-a-little-and-restock": {
+            "label": "Order a little and restock later if needed",
+            "consequence": "You avoid waste, but if demand rises quickly you might miss some sales before restocking arrives."
+          }
+        }
+      },
+      "cashFlow": {
+        "intro": "Even a profitable business can run into money trouble if cash doesn't arrive when it's needed.",
+        "decisionPrompt": "What will you do?",
+        "scenarioText": "A customer orders {orderAmount} worth of your product, but won't pay for {days} days. Meanwhile, you still need to pay {upfrontCosts} for materials, wages, electricity, and transport right now.",
+        "profitVsCashExplainer": "Profit is money you've earned on paper. Cash is money you can actually spend today - and they aren't always the same thing.",
+        "choices": {
+          "wait-for-payment": {
+            "label": "Wait for the payment to arrive",
+            "consequence": "You don't spend anything extra, but you'll have very little cash available until the payment comes in."
+          },
+          "use-savings-to-cover-costs": {
+            "label": "Use money you've saved to cover the costs now",
+            "consequence": "Your bills get paid on time, though your savings are lower until the payment arrives."
+          },
+          "ask-for-partial-payment-upfront": {
+            "label": "Ask the customer to pay part of it upfront",
+            "consequence": "You get some cash right away, which helps cover costs while you wait for the rest."
+          }
+        }
+      }
+    },
+    "aiLab": {
+      "hubTitle": "AI Business Lab",
+      "hubLink": "AI Business Lab",
+      "simulatedAiLabel": "Simulated AI Assistant (not real AI)",
+      "askAi": {
+        "title": "What Can AI Help With?",
+        "intro": "AI tools can help a business owner think - but they don't make decisions for you. Tap a question to see how an AI helper might respond.",
+        "questions": {
+          "brainstorm-ideas": {
+            "question": "Can you help me brainstorm business ideas?",
+            "answer": "Here are a few directions to think about: solving a problem you notice often, improving something people already use, or combining two things you enjoy. Which of these feels most like you?"
+          },
+          "customer-research-questions": {
+            "question": "What questions should I ask my customers?",
+            "answer": "Try asking: What problem are you hoping this solves? What would make you choose this over something else? What's the one thing that would make you buy again?"
+          },
+          "marketing-ideas": {
+            "question": "How can I tell more people about my business?",
+            "answer": "A few ideas: ask happy customers to tell a friend, make a simple, clear poster, or offer a small special deal to first-time customers."
+          },
+          "analyse-feedback": {
+            "question": "How do I make sense of customer feedback?",
+            "answer": "Try grouping comments into themes - price, quality, speed, friendliness - then look at which theme comes up most often. That's usually the one worth acting on first."
+          },
+          "compare-options": {
+            "question": "How do I compare two suppliers?",
+            "answer": "List what matters most to you - price, speed, quality, reliability - then compare each supplier against that same list side by side."
+          }
+        }
+      },
+      "promptQuality": {
+        "title": "Asking Good Questions",
+        "intro": "The way you ask an AI helper a question changes how useful its answer can be.",
+        "question": "Which of these is the most useful question to ask an AI helper?",
+        "options": {
+          "poor": "Help my business.",
+          "better": "My bakery sales have fallen from 80 orders to 50 orders a week. Give me possible reasons I should investigate.",
+          "best": "Here are my sales numbers, prices, and customer feedback. What patterns should I look into, and what should I check before deciding anything?"
+        }
+      },
+      "wrongAnswer": {
+        "title": "AI Can Be Wrong",
+        "intro": "An AI helper can sound confident and still be wrong. It's always worth checking its answer against your real information.",
+        "aiSuggestion": "Based on general trends, your sales are probably falling because your price is too high. You should lower it.",
+        "realData": "But your own sales data actually shows something different: your price hasn't changed in months, and sales only started falling after a new competitor appeared nearby.",
+        "choices": {
+          "trust-the-ai": {
+            "label": "Trust the AI's suggestion and lower the price",
+            "consequence": "You might lower your price for the wrong reason - the real cause looks like the new competitor, not your price."
+          },
+          "check-the-data-first": {
+            "label": "Check your own data before deciding",
+            "consequence": "Good instinct - your data points to a different cause than the AI suggested, so checking first helps you avoid the wrong fix."
+          },
+          "ask-ai-to-explain": {
+            "label": "Ask the AI to explain why it thinks that",
+            "consequence": "Asking for its reasoning can reveal it didn't actually look closely at your data - a useful habit before trusting any suggestion."
+          }
+        }
+      },
+      "privacy": {
+        "title": "AI and Privacy",
+        "intro": "Never share real personal information - your name, address, phone number, or private details about customers - with any AI tool.",
+        "quizQuestion": "Which of these is safe to tell an AI helper about your business?",
+        "quizOptions": {
+          "product-name": "The name of your product",
+          "real-address": "Your home address",
+          "customer-phone-number": "A customer's phone number"
+        }
+      }
+    },
+    "rescueGrow": {
+      "hubTitle": "Rescue & Grow",
+      "hubIntro": "Real businesses face tough moments and big decisions. Practice diagnosing problems, deciding whether to change direction, and choosing how - or whether - to grow.",
+      "hubLink": "Rescue & Grow",
+      "lockedTitle": "Not Ready Yet",
+      "lockedHint": "Try at least one Business Problem in Run Your Business first, then come back here.",
+      "pivotLink": "Business Pivot",
+      "growLink": "Grow or Stay Small",
+      "ethicsLink": "Business Ethics",
+      "businessRescueLink": "Business Rescue",
+      "reviewLink": "Business Review",
+      "pivot": {
+        "intro": "Sometimes a business needs to change direction to succeed. There's no single right answer here - only trade-offs.",
+        "situation": "{businessName} isn't growing the way you hoped. What will you do?",
+        "choices": {
+          "keep-model": {
+            "label": "Keep everything the same for now",
+            "consequence": "Nothing changes immediately - sometimes that's the right call, and sometimes a business needs more time before deciding to change."
+          },
+          "change-customer": {
+            "label": "Try reaching a different group of customers",
+            "consequence": "Your business now focuses on a new customer group - a real, fresh start that comes with its own unknowns."
+          },
+          "change-product": {
+            "label": "Change what you're actually selling",
+            "consequence": "Your business now offers something different - a genuine pivot, with new things to learn about what works."
+          },
+          "stop-idea": {
+            "label": "Decide to stop this idea",
+            "consequence": "Not every idea needs to continue forever - recognizing when to stop is also a real business skill."
+          }
+        }
+      },
+      "grow": {
+        "intro": "Growing a business increases what you could earn - but also what you could risk. Staying small is a genuinely valid choice too.",
+        "situation": "Your business is doing okay. Do you want to grow it, or keep it as it is?",
+        "choices": {
+          "stay-small": {
+            "label": "Keep the business the same size",
+            "consequence": "Nothing changes - a steady, lower-risk choice that's often just as sensible as growing."
+          },
+          "hire-help": {
+            "label": "Get someone to help you",
+            "consequence": "You can make and sell more, but paying for help costs money upfront."
+          },
+          "buy-equipment": {
+            "label": "Buy better equipment",
+            "consequence": "Your products improve and you can make more, though the equipment itself costs money now."
+          },
+          "expand-to-new-market": {
+            "label": "Try selling to a bigger group of customers",
+            "consequence": "You could reach a lot more people, but spreading yourself wider can mean less personal attention to each customer."
+          }
+        }
+      },
+      "ethics": {
+        "scenarios": {
+          "misleading-ad": {
+            "situation": "You could describe your product in a way that sounds better than it really is.",
+            "choices": {
+              "honest-ad": {
+                "label": "Describe it honestly, even if it sounds less exciting",
+                "consequence": "Customers get exactly what they expect - trust like that tends to last."
+              },
+              "slightly-exaggerate": {
+                "label": "Exaggerate a little to make it sound better",
+                "consequence": "A few more people buy at first, but some may feel let down when it doesn't quite match."
+              },
+              "mislead-customers": {
+                "label": "Describe it in a way you know isn't quite true",
+                "consequence": "You might sell more right away, but customers who feel misled often don't come back - or tell others."
+              }
+            }
+          },
+          "hiding-a-problem": {
+            "situation": "You've noticed a small problem with your product after already selling several.",
+            "choices": {
+              "tell-customers": {
+                "label": "Tell customers who bought it about the problem",
+                "consequence": "It's uncomfortable to admit, but customers usually appreciate honesty more than they mind the problem itself."
+              },
+              "fix-quietly": {
+                "label": "Just fix it quietly for future customers",
+                "consequence": "Future customers get a better product, though the ones who already bought never find out."
+              },
+              "hide-it": {
+                "label": "Say nothing and hope no one notices",
+                "consequence": "If it's noticed later, customers may feel it was hidden from them on purpose - which can cost more trust than the original problem."
+              }
+            }
+          },
+          "cheap-questionable-supplier": {
+            "situation": "A much cheaper supplier is available, but you've heard they treat their workers poorly.",
+            "choices": {
+              "choose-ethical-supplier": {
+                "label": "Choose a supplier you know treats people fairly",
+                "consequence": "You pay a bit more, but you can feel good about how your product is made."
+              },
+              "choose-cheap-supplier": {
+                "label": "Choose the cheaper supplier anyway",
+                "consequence": "You save money, but if customers ever find out, it could seriously damage how they see your business."
+              },
+              "ask-questions-first": {
+                "label": "Ask more questions before deciding",
+                "consequence": "Good instinct - finding out more before deciding helps you make a choice you're comfortable with."
+              }
+            }
+          }
+        }
+      },
+      "businessRescue": {
+        "introStory": "Welcome to the Trout Farm. This small fish business has been running for a while, but it's losing money and needs your help. Here's how things stand right now:",
+        "startButton": "Start the Rescue",
+        "outcomes": {
+          "improved": {
+            "title": "The Business Improved!",
+            "text": "Your choices helped turn things around - revenue grew, costs came under control, and customers are happier than before."
+          },
+          "stabilised": {
+            "title": "The Business Stabilised",
+            "text": "Things aren't perfect, but the business is in a steadier position than when you started - a solid step in the right direction."
+          },
+          "needs-pivot": {
+            "title": "This Business May Need a Bigger Change",
+            "text": "Your choices helped a little, but trust dropped further than hoped - sometimes a business needs a bigger change in direction, not just small fixes."
+          },
+          "still-struggling": {
+            "title": "Still Struggling",
+            "text": "The business hasn't turned around yet - and that's a realistic outcome too. Real businesses don't always recover quickly, even with good decisions."
+          }
+        }
+      },
+      "review": {
+        "intro": "Take a moment to look back at your business and think about what you've learned.",
+        "whatWorkedLabel": "What worked well?",
+        "whatWorkedPlaceholder": "For example: Customers liked my marketing idea.",
+        "whatDidntWorkLabel": "What didn't work?",
+        "whatDidntWorkPlaceholder": "For example: My price might have been too high at first.",
+        "whatWouldChangeLabel": "What would you change next time?",
+        "whatWouldChangePlaceholder": "For example: I'd test my idea before spending all my money."
+      }
+    }
+  },
+  "leadershipQuest": {
+    "hubTitle": "Leadership Quest",
+    "hubTagline": "Lead a team through real challenges — one choice at a time.",
+    "hubIntro": "You're about to become the leader of a small team. They'll need you to listen, decide, and help them through anything that comes up.",
+    "introStory": "Meet your team, take on your first mission, and find out what kind of leader you become — one choice at a time.",
+    "missionProgress": "Mission {current} of {total}",
+    "labLink": "Leadership Lab",
+    "labTitle": "Leadership Lab",
+    "labIntro": "Short situations to practise leadership, any time you like.",
+    "profileLink": "Leadership Profile",
+    "profileLinkLockedHint": "Leadership Profile (complete the Final Challenge first)",
+    "badgesEarnedTitle": "Badges Earned",
+    "noBadgesYetHint": "Complete missions to start earning badges.",
+    "entrepreneurQuestLinkTitle": "You built a business. Now you have a team.",
+    "entrepreneurQuestLinkText": "Leadership skills can help when your business grows and you start working with other people.",
+    "resetConfirm": "Are you sure you want to reset your Leadership Quest progress? This can't be undone.",
+    "resetButton": "Reset Leadership Quest",
+    "continueButton": "Continue",
+    "finishMissionButton": "Finish Mission",
+    "missionCompleteBadge": "Mission complete",
+    "continueToNextMissionButton": "Continue to Next Mission",
+    "backToTeamHub": "Back to Team Hub",
+    "teamStatus": {
+      "title": "Team Status",
+      "trust": "Trust",
+      "morale": "Morale",
+      "progress": "Progress",
+      "energy": "Energy"
+    },
+    "characters": {
+      "nadia": {
+        "name": "Nadia",
+        "personality": "Full of ideas and always thinking three steps ahead.",
+        "strength": "Comes up with creative ideas nobody else thought of.",
+        "challenge": "Gets so excited about ideas that she sometimes talks over people.",
+        "interest": "Drawing comics and inventing little gadgets.",
+        "communicationStyle": "Fast, enthusiastic, and full of \"what if we tried...\""
+      },
+      "oren": {
+        "name": "Oren",
+        "personality": "Careful and precise — he notices details other people miss.",
+        "strength": "Excellent at building and fixing things properly.",
+        "challenge": "Often has great ideas but doesn't speak up in a big group.",
+        "interest": "Taking things apart to see how they work, and solving puzzles.",
+        "communicationStyle": "Quiet in groups, but opens up if you ask him directly."
+      },
+      "priya": {
+        "name": "Priya",
+        "personality": "Warm, expressive, and great at talking to anyone.",
+        "strength": "Can explain things clearly and make people feel comfortable.",
+        "challenge": "Gets excited about the next idea before finishing the last one.",
+        "interest": "Performing, telling stories, and meeting new people.",
+        "communicationStyle": "Talks a lot, with energy — sometimes needs a gentle reminder to wrap up."
+      },
+      "theo": {
+        "name": "Theo",
+        "personality": "Steady, organized, and always keeps track of the plan.",
+        "strength": "Keeps the team on schedule and remembers every detail.",
+        "challenge": "Finds sudden changes to the plan stressful.",
+        "interest": "Making lists, schedules, and going on long walks.",
+        "communicationStyle": "Calm and precise — prefers a heads-up before things change."
+      }
+    },
+    "missions": {
+      "meet-your-team": {
+        "title": "Meet Your Team",
+        "alertText": "",
+        "dialogue": [
+          { "character": "nadia", "text": "Hi! I'm SO glad you're here — I already have about ten ideas for our first project!" },
+          { "character": "oren", "text": "...Hi. I'm Oren. I mostly just want to get started." },
+          { "character": "priya", "text": "Welcome! Honestly, I think this team is going to be great with you leading us." },
+          { "character": "theo", "text": "Hello. I've made a small schedule for today, if that's helpful." }
+        ],
+        "tasks": {
+          "come-up-with-ideas": "Come up with ideas for our project",
+          "fix-something-broken": "Fix something that's not working right",
+          "talk-to-a-visitor": "Talk to a visitor and explain what we're doing",
+          "keep-track-of-the-plan": "Keep track of the plan and the schedule"
+        },
+        "outro": "Now you know a little about each teammate — and who's good at what.",
+        "events": {
+          "meet-your-team-reflection": {
+            "situation": "Your first day leading this team is off to a good start. How are you feeling about it?",
+            "choices": [
+              { "key": "excited", "label": "Excited — let's get started!", "consequence": "Your energy rubs off on the team a little." },
+              { "key": "nervous-but-ready", "label": "A bit nervous, but ready.", "consequence": "That's honest — and completely normal for a new leader." },
+              { "key": "not-sure-yet", "label": "Not sure yet — I'll figure it out as I go.", "consequence": "That's a fair way to start. You'll learn a lot from your team." }
+            ]
+          }
+        }
+      },
+      "first-challenge": {
+        "title": "The First Challenge",
+        "alertText": "Your team has its first real project — and it needs to get done.",
+        "dialogue": [
+          { "character": "theo", "text": "Okay, we have a project. Someone needs to do each part." },
+          { "character": "nadia", "text": "I already have ideas for the poster!" },
+          { "character": "priya", "text": "I could talk to people who visit our stand." }
+        ],
+        "tasks": {
+          "design-the-poster": "Design the poster",
+          "build-the-display": "Build the display",
+          "explain-it-to-visitors": "Explain it to visitors",
+          "make-the-plan": "Make the plan and keep everyone on schedule"
+        },
+        "outro": "Because you matched each task to the person who's actually good at it, the project comes together smoothly."
+      },
+      "everyone-has-an-idea": {
+        "title": "Everyone Has an Idea",
+        "alertText": "🚨 Two teammates can't agree — and they both want you to decide.",
+        "dialogue": [
+          { "character": "nadia", "text": "My idea is way more exciting — we should do it my way!" },
+          { "character": "oren", "text": "...Mine would actually be easier to finish properly." }
+        ],
+        "events": {
+          "everyone-has-an-idea-choice": {
+            "situation": "Nadia and Oren both feel strongly about their own idea. They're waiting for you to decide.",
+            "choices": [
+              { "key": "pick-one-idea", "label": "Go with Nadia's idea — it's the more exciting one.", "consequence": "Nadia is thrilled. Oren goes quiet and doesn't say much for the rest of the day." },
+              { "key": "combine-both-ideas", "label": "Find a way to combine both ideas.", "consequence": "It takes a little longer to work out, but both of them feel heard." },
+              { "key": "let-them-decide-together", "label": "Ask Nadia and Oren to talk it through together.", "consequence": "They talk it out themselves — and come back with a plan they both actually like." },
+              { "key": "go-with-your-own-idea", "label": "Suggest a completely different idea of your own.", "consequence": "It solves the disagreement, but neither of them feels like their idea mattered." }
+            ]
+          }
+        }
+      },
+      "missing-task": {
+        "title": "The Missing Task",
+        "alertText": "🚨 One task still isn't done — and the deadline is close.",
+        "dialogue": [
+          { "character": "theo", "text": "We're supposed to be ready by tomorrow. Oren's part isn't finished yet." },
+          { "character": "priya", "text": "Maybe something came up? I'm not sure." }
+        ],
+        "investigateLabel": "Find out what's going on before you decide.",
+        "investigate": {
+          "ask-the-teammate": "You ask Oren directly. He says he wasn't sure how to start, and didn't want to admit it.",
+          "check-the-shared-plan": "You check the shared plan. Oren's part was never clearly explained to him.",
+          "ask-another-teammate": "Priya mentions Oren seemed confused earlier in the week, but she didn't say anything."
+        },
+        "events": {
+          "missing-task-choice": {
+            "situation": "Now you know a bit more about what happened. What do you do?",
+            "choices": [
+              { "key": "ask-what-happened", "label": "Talk to Oren, and help him figure out what's needed.", "consequence": "Oren finishes the task with your help, and feels more comfortable asking next time." },
+              { "key": "do-it-yourself-quietly", "label": "Quietly finish the task yourself.", "consequence": "The task gets done fast, but Oren never finds out what he missed — or gets the chance to fix it." },
+              { "key": "remind-them-firmly", "label": "Remind Oren firmly that the deadline is tomorrow.", "consequence": "The task gets moving, but Oren still isn't sure what went wrong the first time." },
+              { "key": "wait-and-see", "label": "Wait and see if it gets finished on its own.", "consequence": "The deadline gets closer, and nothing changes." }
+            ]
+          }
+        }
+      },
+      "big-mistake": {
+        "title": "The Big Mistake",
+        "alertText": "🚨 Something's gone wrong — and it's a big one.",
+        "dialogue": [
+          { "character": "priya", "text": "I... think I sent the wrong version to the customer. The one with all the mistakes in it." },
+          { "character": "oren", "text": "Everyone's looking at you." }
+        ],
+        "events": {
+          "big-mistake-choice": {
+            "situation": "Priya made a real mistake, and everyone's watching to see what you'll do.",
+            "choices": [
+              { "key": "blame-publicly", "label": "Point out the mistake in front of everyone.", "consequence": "The team fixes it quickly — but Priya looks embarrassed, and seems nervous about speaking up again." },
+              { "key": "fix-it-yourself", "label": "Quietly fix it yourself and move on.", "consequence": "It's sorted fast, but Priya never gets the chance to understand what went wrong." },
+              { "key": "talk-privately", "label": "Talk to Priya privately and figure out what happened.", "consequence": "It takes a bit longer, but Priya feels supported — and is more careful next time." },
+              { "key": "ignore-it", "label": "Decide it's not a big deal and ignore it.", "consequence": "The mistake stays uncorrected, and the customer notices." }
+            ]
+          }
+        }
+      },
+      "angry-customer": {
+        "title": "The Angry Customer",
+        "alertText": "🚨 A customer is upset about something your team made.",
+        "dialogue": [
+          { "character": "theo", "text": "There's a customer on the phone. They don't sound happy." }
+        ],
+        "events": {
+          "angry-customer-choice": {
+            "situation": "The customer says your team's work wasn't what they asked for.",
+            "choices": [
+              { "key": "listen-first", "label": "Listen carefully to what went wrong before responding.", "consequence": "The customer feels heard, and you get a clearer idea of what actually happened." },
+              { "key": "apologise-and-fix-it", "label": "Apologise and offer to fix it right away.", "consequence": "The customer is relieved, and the problem gets solved quickly." },
+              { "key": "explain-why-you-were-right", "label": "Explain why your team's choice was actually the right one.", "consequence": "The customer doesn't feel any better, and still isn't sure you understood the problem." },
+              { "key": "let-a-teammate-handle-it", "label": "Let Priya, who's great with people, handle the call.", "consequence": "Priya calms the customer down, and the team sees you trust them with hard moments too." }
+            ]
+          }
+        }
+      },
+      "better-idea": {
+        "title": "The Better Idea",
+        "alertText": "🚨 Someone just suggested an idea that's better than yours.",
+        "dialogue": [
+          { "character": "nadia", "text": "Actually... what if we did it a completely different way? I think it might work better." }
+        ],
+        "events": {
+          "better-idea-choice": {
+            "situation": "Nadia's idea is genuinely better than the one you originally planned.",
+            "choices": [
+              { "key": "use-their-idea", "label": "Go with Nadia's idea instead of your own.", "consequence": "The project gets stronger, and Nadia feels genuinely valued." },
+              { "key": "combine-ideas", "label": "Combine the best parts of both ideas.", "consequence": "It takes a little more work, but the result is even better." },
+              { "key": "stick-with-your-idea", "label": "Stick with your original plan.", "consequence": "The project goes ahead as planned, but Nadia wonders if her ideas are really welcome." },
+              { "key": "ask-the-team-to-vote", "label": "Ask the whole team which idea they prefer.", "consequence": "The team feels involved in the decision, whichever idea wins." }
+            ]
+          }
+        }
+      },
+      "team-conflict": {
+        "title": "The Team Conflict",
+        "alertText": "🚨 Two teammates are arguing, and it's slowing everyone down.",
+        "dialogue": [
+          { "character": "priya", "text": "You never listen to me!" },
+          { "character": "theo", "text": "That's not fair — I just think we see this differently." }
+        ],
+        "spotScenario": "Read what's being said between Priya and Theo. Which parts are making things worse, not better?",
+        "outro": "You've spotted what's making things worse. Now it's time to step in.",
+        "events": {
+          "team-conflict-choice": {
+            "situation": "Priya and Theo are still not seeing eye to eye. What do you do?",
+            "choices": [
+              { "key": "hear-both-sides", "label": "Ask each of them to explain their side, one at a time.", "consequence": "They both feel heard, and start to understand each other's point." },
+              { "key": "pick-a-side", "label": "Decide who's right and tell the other to drop it.", "consequence": "The argument stops, but the one who \"lost\" feels unfairly treated." },
+              { "key": "find-common-ground", "label": "Help them find a middle ground they can both agree to.", "consequence": "It takes some patience, but they leave the conversation on good terms." },
+              { "key": "tell-them-to-stop-and-move-on", "label": "Tell them to stop arguing and get back to work.", "consequence": "Work continues, but the actual disagreement never gets resolved." }
+            ]
+          }
+        }
+      },
+      "motivation-problem": {
+        "title": "The Motivation Problem",
+        "alertText": "🚨 Your team is losing energy, and you're not sure why.",
+        "dialogue": [
+          { "character": "oren", "text": "I don't know... I just don't feel like doing this today." }
+        ],
+        "spotScenario": "Think about what's actually been happening with your team this week. What's really going on?",
+        "outro": "Now you have a better idea of what's really going on.",
+        "events": {
+          "motivation-problem-choice": {
+            "situation": "You've figured out what's really affecting the team. What do you do next?",
+            "choices": [
+              { "key": "explain-the-goal-again", "label": "Explain the goal again, clearly, to the whole team.", "consequence": "Things click for a few teammates who weren't sure what they were working towards." },
+              { "key": "check-in-with-each-person", "label": "Check in with each person one-on-one.", "consequence": "A couple of teammates open up about feeling overlooked lately." },
+              { "key": "push-through-and-keep-going", "label": "Push through and keep going — the deadline won't wait.", "consequence": "The project moves forward, but the team's energy stays low." },
+              { "key": "take-a-short-break", "label": "Give the team a short break before continuing.", "consequence": "Everyone feels a bit better, though the underlying issue is still there." }
+            ]
+          }
+        }
+      },
+      "the-deadline": {
+        "title": "The Deadline",
+        "alertText": "🚨 The deadline just moved closer — and there's no way to finish everything.",
+        "dialogue": [
+          { "character": "theo", "text": "The deadline moved up. We can't do all five things on the list anymore." }
+        ],
+        "tasks": {
+          "finish-the-main-feature": "Finish the main feature",
+          "fix-the-known-problem": "Fix the problem you already know about",
+          "polish-the-design": "Polish the design",
+          "write-the-instructions": "Write the instructions",
+          "extra-nice-to-have": "Add an extra nice-to-have"
+        },
+        "outro": "You've decided what matters most — now the team needs to hear it from you.",
+        "events": {
+          "the-deadline-choice": {
+            "situation": "You've worked out the new priorities. How do you share the plan with the team?",
+            "choices": [
+              { "key": "explain-the-new-plan-to-everyone", "label": "Explain the new plan and why you chose it.", "consequence": "The team understands the reasoning, even the parts they're not thrilled about." },
+              { "key": "just-tell-people-what-to-drop", "label": "Just tell people what to drop, quickly.", "consequence": "The plan moves fast, but a couple of teammates feel a bit blindsided." },
+              { "key": "ask-the-team-what-to-cut", "label": "Ask the team what they think should be cut.", "consequence": "It takes a bit longer, but everyone feels part of the decision." }
+            ]
+          }
+        }
+      },
+      "pressure-test": {
+        "title": "The Pressure Test",
+        "alertText": "🚨 Everything is happening at once.",
+        "dialogue": [
+          { "character": "priya", "text": "The customer just changed what they want. Also, Oren's not here today. Also — is that thing broken now too?" }
+        ],
+        "buckets": {
+          "deal-with-first": "Deal with first",
+          "deal-with-next": "Deal with next",
+          "can-wait": "Can wait"
+        },
+        "problems": {
+          "a-teammate-is-stuck-and-blocked": "A teammate is stuck and can't continue without help",
+          "the-customer-is-waiting-for-an-answer": "The customer is waiting for an answer",
+          "one-teammate-seems-upset": "One teammate seems upset about everything happening at once",
+          "a-small-typo-in-the-document": "There's a small typo in a document",
+          "an-idea-for-a-later-improvement": "Someone suggested an idea for later"
+        },
+        "outro": "You've worked out what needs your attention right now — and what can wait.",
+        "events": {
+          "pressure-test-reflection": {
+            "situation": "With everything sorted out, how are you handling the pressure?",
+            "choices": [
+              { "key": "stay-calm-and-work-the-list", "label": "Stay calm and work through the list, one thing at a time.", "consequence": "The team notices you staying steady, and it helps them stay steady too." },
+              { "key": "panic-a-little-but-push-through", "label": "Feel a bit panicked, but push through anyway.", "consequence": "You get through it, even though it wasn't your calmest moment." },
+              { "key": "ask-the-team-for-help", "label": "Ask the team to help you handle it together.", "consequence": "Sharing the load makes the pressure easier for everyone, including you." }
+            ]
+          }
+        }
+      },
+      "final-challenge": {
+        "title": "The Final Challenge",
+        "alertText": "🚨 This is the big one — the project that brings everything together.",
+        "dialogue": [
+          { "character": "nadia", "text": "This is it — the last big project! I've got so many ideas." },
+          { "character": "theo", "text": "Let's make a plan and use everyone's strengths." },
+          { "character": "priya", "text": "I can't wait to show people what we've built." }
+        ],
+        "tasks": {
+          "come-up-with-the-idea": "Come up with the big idea",
+          "build-the-thing": "Build it",
+          "present-it-to-people": "Present it to people",
+          "keep-everyone-on-track": "Keep everyone on track"
+        },
+        "outro": "With everyone doing what they do best, the project is really coming together.",
+        "events": {
+          "final-challenge-choice-1": {
+            "situationByTag": {
+              "the-listener": "You've spent this whole journey listening carefully before deciding. As the final project comes together, one part still needs a decision. Do you ask around first, or decide it yourself?",
+              "the-problem-solver": "You've always been quick to find a fix when something's wrong. Now a small problem comes up in the final project. Do you dive in and solve it, or check with the team first?",
+              "the-team-builder": "You've built real trust in this team. As the final project comes together, one part still needs a decision. Do you trust the team to handle it, or check it yourself?",
+              "the-calm-thinker": "You've stayed steady through some genuinely stressful moments. Now, with the finish line close, one part of the project still needs a decision. What do you do?",
+              "the-encourager": "You've made a habit of lifting the team up. As the final project comes together, one part still needs a decision. What do you do?",
+              "the-big-picture-thinker": "You've often looked at the bigger picture rather than getting stuck on small details. Now, with the final project coming together, one part still needs a decision. What do you do?",
+              "none": "As the final project comes together, one part still needs a decision. What do you do?"
+            },
+            "choices": [
+              { "key": "trust-the-team-to-handle-it", "label": "Trust the team to handle it without checking in.", "consequence": "They handle it well — and feel genuinely trusted." },
+              { "key": "double-check-everything-yourself", "label": "Double-check everything yourself before it goes out.", "consequence": "It's done carefully, but it takes longer, and the team notices you checking their work." },
+              { "key": "ask-for-a-quick-check-in", "label": "Ask for a quick check-in before it's finished.", "consequence": "It's a good middle ground — thorough, without taking over." }
+            ]
+          },
+          "final-challenge-choice-2": {
+            "situation": "The project is complete. Your team pulled it off. What do you do now?",
+            "choices": [
+              { "key": "celebrate-what-the-team-achieved", "label": "Celebrate what the team achieved, together.", "consequence": "The team feels proud — and ready for whatever comes next." },
+              { "key": "immediately-plan-the-next-project", "label": "Start planning the next project right away.", "consequence": "The team is impressed by your drive, even if they'd have liked a moment to celebrate first." },
+              { "key": "thank-each-person-individually", "label": "Thank each person individually for what they brought to the project.", "consequence": "Each teammate feels genuinely seen for their own contribution." }
+            ]
+          }
+        }
+      }
+    },
+    "spotItems": {
+      "teamConflict": {
+        "you-never-listen-to-me": "\"You never listen to me!\"",
+        "i-think-we-see-it-differently": "\"I think we just see this differently.\"",
+        "youre-doing-this-on-purpose": "\"You're doing this on purpose, aren't you?\"",
+        "can-we-slow-down-for-a-second": "\"Can we slow down for a second?\"",
+        "fine-whatever-you-want": "\"Fine. Whatever you want.\""
+      },
+      "motivationProblem": {
+        "unclear-goal": "Nobody's really sure what the final goal looks like.",
+        "too-much-work": "There's a lot of tasks piling up right now.",
+        "boredom": "The work has felt the same for a while.",
+        "feeling-ignored": "A couple of teammates' ideas haven't been mentioned in a while.",
+        "lack-of-progress": "It doesn't feel like the project has moved forward much lately."
+      }
+    },
+    "uhOh": {
+      "uh-oh-printer": {
+        "title": "The printer just stopped working.",
+        "situation": "It's almost time for your presentation, and the printer won't print anything.",
+        "choices": [
+          { "key": "borrow-one-from-another-team", "label": "Ask another team if you can borrow theirs.", "consequence": "It works out, with a few minutes to spare." },
+          { "key": "present-without-printed-materials", "label": "Present without any printed materials.", "consequence": "It's a little improvised, but it goes fine." },
+          { "key": "delay-the-presentation", "label": "Ask for a few extra minutes before presenting.", "consequence": "You get the extra time you need, and nobody minds waiting a little." }
+        ]
+      },
+      "uh-oh-teammate-absent": {
+        "title": "One of your teammates is away today.",
+        "situation": "Oren isn't in today, and he had an important task on his list.",
+        "choices": [
+          { "key": "share-out-their-tasks", "label": "Share his tasks out across the rest of the team.", "consequence": "It gets done, and the team feels good about pitching in." },
+          { "key": "wait-until-they-are-back", "label": "Wait until Oren is back to continue that part.", "consequence": "That part of the project pauses for now." },
+          { "key": "do-their-work-yourself", "label": "Do Oren's part yourself as well as your own.", "consequence": "It gets done, but it's a lot to take on by yourself." }
+        ]
+      },
+      "uh-oh-customer-changed-mind": {
+        "title": "The customer changed their mind.",
+        "situation": "The customer just messaged to say they want something a bit different now.",
+        "choices": [
+          { "key": "adjust-the-plan-together", "label": "Get the team together and adjust the plan.", "consequence": "It takes a bit of rework, but the team adapts well together." },
+          { "key": "explain-why-you-cant-change-now", "label": "Explain that it's too late to change course now.", "consequence": "The customer accepts it, but seems a little disappointed." },
+          { "key": "panic-and-start-over-completely", "label": "Feel like you need to start completely from scratch.", "consequence": "It turns out only a small part actually needed to change." }
+        ]
+      },
+      "uh-oh-misunderstood-instructions": {
+        "title": "You realise there's been a mix-up.",
+        "situation": "Looking back at the instructions, your team understood one part differently than intended.",
+        "choices": [
+          { "key": "explain-the-mix-up-and-fix-it-together", "label": "Explain the mix-up to the team and fix it together.", "consequence": "The team appreciates knowing exactly what happened." },
+          { "key": "quietly-fix-it-yourself", "label": "Quietly fix the mix-up yourself.", "consequence": "It gets fixed, but the team never finds out what happened — or how to avoid it next time." },
+          { "key": "blame-the-instructions", "label": "Decide the instructions themselves were just unclear.", "consequence": "It's partly true, but it doesn't actually solve anything yet." }
+        ]
+      },
+      "uh-oh-idea-stops-working": {
+        "title": "The team's best idea suddenly isn't working.",
+        "situation": "The approach that was working so well all week has suddenly hit a wall.",
+        "choices": [
+          { "key": "try-a-different-approach-together", "label": "Get the team together to try a different approach.", "consequence": "It takes some trial and error, but the team finds a new way forward." },
+          { "key": "keep-trying-the-same-way", "label": "Keep trying the same approach, hoping it works eventually.", "consequence": "It doesn't seem to be working any better." },
+          { "key": "ask-the-team-for-new-ideas", "label": "Ask the team for fresh ideas.", "consequence": "Someone comes up with an angle nobody had thought of yet." }
+        ]
+      }
+    },
+    "lab": {
+      "lab-rejected-idea": {
+        "title": "A Rejected Idea",
+        "situation": "Your friend is upset because you didn't choose their idea. What could you say?",
+        "choices": {
+          "say-sorry-and-explain-why": { "label": "Say sorry, and explain honestly why you chose differently.", "consequence": "They understand your reasons, even if they're still a little disappointed." },
+          "ask-them-to-explain-more": { "label": "Ask them to explain their idea again — maybe you missed something.", "consequence": "You might discover it works better than you first thought." },
+          "say-nothing-and-move-on": { "label": "Say nothing and just move on.", "consequence": "The moment passes, but they might still be wondering how you feel about their ideas." }
+        }
+      },
+      "lab-quiet-teammate": {
+        "title": "A Quiet Teammate",
+        "situation": "Someone in your team is very quiet. What could you do?",
+        "choices": {
+          "ask-them-directly-what-they-think": { "label": "Ask them directly what they think.", "consequence": "They share an idea they might not have offered on their own." },
+          "give-them-a-small-task-to-build-confidence": { "label": "Give them a small task to help build their confidence.", "consequence": "They seem a little more comfortable taking part." },
+          "let-them-stay-quiet": { "label": "Let them stay quiet if that's how they are.", "consequence": "That's fine too — not everyone needs to speak up the same way." }
+        }
+      },
+      "lab-hide-or-tell": {
+        "title": "Hide It or Tell?",
+        "situation": "You made a mistake. Do you hide it or tell the team?",
+        "choices": {
+          "tell-the-team-right-away": { "label": "Tell the team right away.", "consequence": "It's a little uncomfortable, but the team can help fix it faster." },
+          "fix-it-quietly-first": { "label": "Try to fix it quietly first.", "consequence": "It might work out — or it might get harder to explain later." },
+          "hide-it-and-hope-no-one-notices": { "label": "Hide it and hope no one notices.", "consequence": "It might come up later, when it's harder to deal with." }
+        }
+      },
+      "lab-doesnt-agree": {
+        "title": "A Public Disagreement",
+        "situation": "A teammate disagrees with your plan in front of everyone. What do you do?",
+        "choices": {
+          "ask-them-to-explain-their-thinking": { "label": "Ask them to explain their thinking.", "consequence": "You learn something you hadn't considered." },
+          "explain-why-your-plan-is-better": { "label": "Explain why your plan is the better one.", "consequence": "You might be right, but they may feel dismissed." },
+          "suggest-talking-about-it-after": { "label": "Suggest talking about it privately afterwards.", "consequence": "It gives both of you time to think it through calmly." }
+        }
+      },
+      "lab-credit-for-idea": {
+        "title": "Whose Idea Was It?",
+        "situation": "Someone's idea worked really well, but nobody mentioned it was theirs. What do you do?",
+        "choices": {
+          "point-out-whose-idea-it-was": { "label": "Point out that it was their idea.", "consequence": "They feel genuinely recognised." },
+          "say-nothing-its-not-a-big-deal": { "label": "Say nothing — it's not a big deal.", "consequence": "It might not matter to them, or it might matter more than you think." },
+          "ask-them-how-they-feel-about-it": { "label": "Ask them how they feel about it.", "consequence": "You find out directly, instead of guessing." }
+        }
+      },
+      "lab-tired-teammate": {
+        "title": "A Tired Teammate",
+        "situation": "A teammate looks tired and says they're fine. What do you do?",
+        "choices": {
+          "check-in-again-later": { "label": "Check in again later, just in case.", "consequence": "They appreciate that you noticed." },
+          "take-something-off-their-plate": { "label": "Quietly take something off their to-do list.", "consequence": "It helps, even if they don't say much about it." },
+          "take-their-word-for-it": { "label": "Take their word for it and move on.", "consequence": "They might really be fine — or might not have wanted to say." }
+        }
+      },
+      "lab-new-member": {
+        "title": "A New Team Member",
+        "situation": "A new person joins your team partway through the project. What do you do?",
+        "choices": {
+          "introduce-them-to-everyone-and-explain-the-plan": { "label": "Introduce them to everyone and explain the plan so far.", "consequence": "They feel welcomed and ready to contribute." },
+          "let-them-figure-it-out": { "label": "Let them figure it out as they go.", "consequence": "They manage, though it takes them longer to settle in." },
+          "ask-the-team-to-help-them-settle-in": { "label": "Ask the team to help them settle in.", "consequence": "The whole team pitches in, and it doesn't just fall on you." }
+        }
+      },
+      "lab-mixed-feedback": {
+        "title": "Feedback That's Hard to Give",
+        "situation": "You need to tell a teammate their work needs some changes. What do you do?",
+        "choices": {
+          "say-what-you-liked-and-what-to-change": { "label": "Say what you liked, and what needs to change.", "consequence": "They know exactly what worked and what to fix." },
+          "just-say-its-not-good-enough": { "label": "Just say it's not good enough.", "consequence": "They know something's wrong, but not what to actually do about it." },
+          "avoid-saying-anything-and-fix-it-yourself": { "label": "Avoid saying anything and just fix it yourself.", "consequence": "It gets fixed, but they never learn what needed to change." }
+        }
+      }
+    },
+    "badges": {
+      "lq-first-leader": { "name": "First Leader", "description": "You began your journey leading a team." },
+      "lq-team-builder": { "name": "Team Builder", "description": "You matched tasks to your team's strengths." },
+      "lq-good-listener": { "name": "Good Listener", "description": "You listened carefully before deciding." },
+      "lq-problem-solver": { "name": "Problem Solver", "description": "You worked through a tricky problem." },
+      "lq-calm-under-pressure": { "name": "Calm Under Pressure", "description": "You kept your head when everything happened at once." },
+      "lq-final-leader": { "name": "Final Leader", "description": "You led your team through the whole journey." }
+    },
+    "profile": {
+      "title": "Your Leadership Profile",
+      "lockedHint": "Complete the Final Challenge to see your Leadership Profile.",
+      "intro": "This isn't a score — it's a look at how you tend to lead, based on the choices you actually made.",
+      "noPatternYetHint": "Your choices didn't lean strongly toward one pattern — and that's completely fine too.",
+      "noBetterOrWorseNote": "None of these patterns is better than another. Good leadership can look different for different people.",
+      "archetypes": {
+        "the-listener": {
+          "title": "The Listener",
+          "statements": [
+            "You often listen carefully before deciding.",
+            "You tend to ask people what happened before jumping to conclusions.",
+            "You make space for other people's point of view.",
+            "You notice when someone hasn't been heard yet."
+          ]
+        },
+        "the-problem-solver": {
+          "title": "The Problem Solver",
+          "statements": [
+            "You often look for a practical fix when something goes wrong.",
+            "You tend to dig into a problem rather than avoid it.",
+            "You focus on finding a way forward.",
+            "You stay curious about what's really causing a problem."
+          ]
+        },
+        "the-team-builder": {
+          "title": "The Team Builder",
+          "statements": [
+            "You often trust your team to handle things themselves.",
+            "You tend to match tasks to people's strengths.",
+            "You bring people together rather than deciding alone.",
+            "You notice when someone deserves more trust or credit."
+          ]
+        },
+        "the-calm-thinker": {
+          "title": "The Calm Thinker",
+          "statements": [
+            "You often stay steady when things get stressful.",
+            "You tend to work through problems one at a time.",
+            "You don't let pressure rush your decisions.",
+            "Your calmness tends to help the people around you too."
+          ]
+        },
+        "the-encourager": {
+          "title": "The Encourager",
+          "statements": [
+            "You often lift the people around you up.",
+            "You tend to notice how people are feeling.",
+            "You take time to recognise what others have done well.",
+            "You make people feel safe to make mistakes."
+          ]
+        },
+        "the-big-picture-thinker": {
+          "title": "The Big-Picture Thinker",
+          "statements": [
+            "You often look at the bigger picture rather than small details.",
+            "You tend to adapt quickly when plans change.",
+            "You're open to ideas that are different from your own.",
+            "You focus on where the team is headed, not just today's task."
+          ]
+        }
+      }
+    }
+  },
   "articles": {
     "saving-money-for-kids": {
       "title": "Saving Money for Kids: A Practical Guide for Parents",
@@ -4245,5 +5965,415 @@
     "safetyBody": "We're setting up a dedicated safety contact address, and it isn't published here yet. Please check back soon.",
     "everythingElseTitle": "Everything else",
     "everythingElseBody": "We're setting up a general contact address for questions and feedback, and it isn't published here yet. Please check back soon."
+  },
+  "realLifeQuests": {
+    "hubTitle": "Real Life Quests",
+    "hubTagline": "Take what you've learned out into the real world.",
+    "hubIntro": "Real Life Quests are missions you try away from the screen, with the people and things already around you. Pick one, try it at your own pace, and tell us how it went. There's no rush, and no wrong way to do them.",
+    "parentIntroTitle": "For parents and educators",
+    "parentIntro": "Real Life Quests connect what your child learns in Money Quest, Entrepreneur Quest, and Leadership Quest to everyday situations at home. Every mission can be done with pretend money, drawings, or things you already have - nothing needs to be bought, and no real selling or payment ever happens without you there. Pick missions together, change them freely to fit your child, and there's no pressure to finish quickly or perfectly.",
+    "categories": {
+      "money-skills": {
+        "title": "Money Skills",
+        "description": "Practise saving, spending wisely, and planning with money - using real life, not just numbers on a screen."
+      },
+      "entrepreneurship": {
+        "title": "Entrepreneurship",
+        "description": "Make things, test ideas, and understand how costs and prices work - all in a safe, supervised way."
+      },
+      "leadership": {
+        "title": "Leadership",
+        "description": "Solve problems, work with others, share your ideas, and learn from what didn't go to plan."
+      }
+    },
+    "supervision": {
+      "label": "Adult involvement",
+      "independent": "Can try this alone",
+      "with-adult": "Good with an adult nearby",
+      "adult-required": "Needs an adult with you"
+    },
+    "status": {
+      "not-started": "Not started yet",
+      "started": "In progress",
+      "completed": "Completed!"
+    },
+    "variantLabels": {
+      "standard": "Regular version",
+      "independent": "More independent version",
+      "simpler": "Simpler, visual version"
+    },
+    "variantsTitle": "Choose your version",
+    "objectivesTitle": "What you'll practise",
+    "materialsTitle": "What you'll need",
+    "stepsTitle": "Steps",
+    "durationLabel": "About how long",
+    "nonverbalTitle": "No talking or writing? That's fine",
+    "parentGuidanceTitle": "For parents and educators",
+    "markStartedButton": "Mark as started",
+    "markCompletedButton": "Mark as completed",
+    "missionCompletedHint": "Nice work - you can still change your version or add to your reflection any time.",
+    "backToHub": "Back to Real Life Quests",
+    "linkedActivityIntro": "Want to keep going on the screen too?",
+    "linkedActivity": {
+      "savingsGoals": "Try the Savings Goals tool",
+      "priceDetectiveGame": "Play the Price Detective game",
+      "buildABudgetGame": "Play the Build a Budget game",
+      "entrepreneurQuest": "Continue in Entrepreneur Quest",
+      "leadershipQuest": "Continue in Leadership Quest"
+    },
+    "reflectionTitle": "How did it go?",
+    "reflectionHint": "Pick whichever feels true - there's no wrong answer.",
+    "reflectionChoices": {
+      "great": "😊 That went great!",
+      "okay": "😐 It was okay",
+      "tricky": "🤔 That was tricky",
+      "idea": "💡 I have a new idea now"
+    },
+    "reflectionTextLabel": "Want to say more? (totally optional)",
+    "reflectionTextPlaceholder": "You can type here, or just leave it blank.",
+    "rewardEarnedText": "You earned {xp} XP for trying this mission!",
+    "missionsCompletedCount": "{completed} of {total} missions tried",
+    "categoryFilterAll": "All",
+    "resetConfirm": "This clears all your Real Life Quests progress on this device. Are you sure?",
+    "resetButton": "Reset Real Life Quests progress",
+    "missions": {
+      "save-for-something-you-love": {
+        "title": "Save for Something You Love",
+        "intro": "Pick something you really want. Then make a simple plan to save up for it, a little bit at a time.",
+        "objectives": [
+          "Choose one thing you'd like to save for",
+          "Make a simple plan for saving toward it",
+          "Track your progress as you go"
+        ],
+        "materials": [
+          "A piece of paper or a jar",
+          "Stickers, tally marks, or drawings to track progress (or use the Savings Goals tool)",
+          "A pencil or crayons"
+        ],
+        "steps": [
+          "Think of one thing you'd love to have or do - big or small.",
+          "Draw it, or write its name, at the top of your paper or on your jar.",
+          "Decide how many \"steps\" it will take to get there (for example, 5 stickers or 5 coins).",
+          "Each time you save a little bit, add one sticker, coin, or tally mark.",
+          "Keep going until your plan is full!"
+        ],
+        "durationEstimate": "About 10 minutes to set up, then a little check-in each week - this one takes some time to finish.",
+        "independentVersion": "Set your own goal and track it completely by yourself, and also try it online with the Savings Goals tool.",
+        "simplerVersion": "Use a jar and real objects (coins, buttons, stickers) instead of numbers - just watch the jar get fuller each time.",
+        "nonverbalAdaptation": "Choose your goal by pointing at a picture or object instead of saying it out loud. Tracking progress with stickers or tally marks needs no talking or writing at all.",
+        "reflectionPrompt": "How did it feel to watch your plan grow?",
+        "parentGuidance": "Let your child pick the goal, even a small one counts. There's no need to rush; the idea is to practise waiting and planning, not to finish quickly. If younger children are around, stickers or tally marks are a safer tracker than small coins or buttons."
+      },
+      "the-price-detective": {
+        "title": "The Price Detective",
+        "intro": "Become a detective! Look at two similar things and investigate what makes their prices different.",
+        "objectives": [
+          "Compare two similar products",
+          "Notice what's different between them",
+          "Think about what \"good value\" means"
+        ],
+        "materials": [
+          "Two similar items already at home, or two from a shop flyer or website with an adult - a shop visit is never required",
+          "Nothing else needed!"
+        ],
+        "steps": [
+          "Pick two similar things you already have, or find two in a flyer or website with an adult - like two kinds of juice or two notebooks.",
+          "Look at (or ask an adult to tell you) each price.",
+          "Look closely at each one - size, how it looks, how long it might last.",
+          "Decide which one you think is the better choice, and why.",
+          "Tell someone your detective conclusion!"
+        ],
+        "durationEstimate": "About 15 minutes.",
+        "independentVersion": "Investigate three or more items instead of two, and rank them from best value to least.",
+        "simplerVersion": "Just point to the one that looks bigger, or the one with a happier face sticker an adult added next to the price.",
+        "nonverbalAdaptation": "Point, nod, or use thumbs up and thumbs down to share your detective conclusion instead of explaining it in words.",
+        "reflectionPrompt": "Which one did you choose, and what made you pick it?",
+        "parentGuidance": "There's no \"correct\" answer here - the goal is noticing and comparing, not getting the \"right\" choice. A pricier item can still be the better value; let your child reason it through out loud or by pointing. Comparing things already at home or in a flyer works just as well as a shop visit - if you do visit a real shop together, a trusted adult always comes along."
+      },
+      "plan-a-shopping-trip": {
+        "title": "Plan a Shopping Trip",
+        "intro": "Help plan a real (or pretend) shopping trip. Make a list and think about how much everything might cost.",
+        "objectives": [
+          "Help make a shopping list",
+          "Think about a simple budget",
+          "Practise choosing what matters most"
+        ],
+        "materials": [
+          "Paper and a pencil, or a whiteboard or tablet note",
+          "A real shopping list, or a pretend one with a toy shop"
+        ],
+        "steps": [
+          "Ask an adult what's needed for the next shopping trip.",
+          "Help write or draw the list together.",
+          "Pick a \"budget\" number together - real or pretend.",
+          "Look at the list and decide what matters most if the budget is tight.",
+          "Go on the trip with your trusted adult - never go shopping alone - or play pretend-shop at home instead, and see how close the plan was."
+        ],
+        "durationEstimate": "About 20 minutes to plan; the trip itself takes as long as it takes.",
+        "independentVersion": "Try estimating the total cost before the trip, then check how close the guess was afterward.",
+        "simplerVersion": "Use picture cards or a picture shopping list instead of writing words, and use coins or tokens instead of real prices.",
+        "nonverbalAdaptation": "Point to pictures to build the list. No speaking or writing is needed - pointing and nodding work perfectly.",
+        "reflectionPrompt": "What was the trickiest part of planning the list?",
+        "parentGuidance": "Let your child make real choices, even small ones, like picking which snack. A real trip always happens together with a trusted adult - your child should never go shopping alone. A pretend shop with no real money works just as well as a real trip."
+      },
+      "resource-rescue": {
+        "title": "Resource Rescue",
+        "intro": "Before buying something new, go on a rescue mission: find things already at home that could be reused instead.",
+        "objectives": [
+          "Find materials already at home",
+          "Reuse them to make or fix something",
+          "Notice how much was \"rescued\" instead of bought"
+        ],
+        "materials": [
+          "Things already around the house - boxes, paper, fabric scraps, old toys, containers",
+          "Tape, glue, or string (optional)"
+        ],
+        "steps": [
+          "Think of something you'd like to make, fix, or build.",
+          "Go on a \"rescue mission\" around the house to find materials - ask first!",
+          "See what you can make using only what you found.",
+          "If something's missing, think of a creative substitute before asking to buy it.",
+          "Show off your rescued creation!"
+        ],
+        "durationEstimate": "About 20-30 minutes.",
+        "independentVersion": "Set yourself a challenge: make something using only 3 rescued items.",
+        "simplerVersion": "An adult gathers 3-4 safe options in advance, and you pick and combine them freely - no searching required.",
+        "nonverbalAdaptation": "Point to or collect objects instead of naming them. Building and combining materials needs no words at all.",
+        "reflectionPrompt": "What did you rescue instead of buying new?",
+        "parentGuidance": "This builds resourcefulness, not frugality-as-a-rule. Celebrate the creativity, not just the money \"saved.\""
+      },
+      "make-something": {
+        "title": "Make Something",
+        "intro": "Create something simple with what you have, then show it to someone and ask what they think.",
+        "objectives": [
+          "Make a simple product from available materials",
+          "Share it with someone you trust",
+          "Listen to their feedback"
+        ],
+        "materials": [
+          "Paper, crayons, stickers, glue, or other craft supplies you already have",
+          "Someone to show it to (a family member or trusted person)"
+        ],
+        "steps": [
+          "Decide what you'd like to make - a drawing, a bracelet, a card, anything.",
+          "Gather your materials and make it - if you need scissors or anything sharp, ask an adult to help.",
+          "Show it to a family member or trusted person.",
+          "Ask them one thing they like, and one idea for next time.",
+          "Decide if you'd like to make another one, differently."
+        ],
+        "durationEstimate": "About 30 minutes.",
+        "independentVersion": "Make two versions and ask which one people prefer, and why.",
+        "simplerVersion": "Use a simple craft kit or template instead of designing from scratch.",
+        "nonverbalAdaptation": "Show your creation and let the other person point to or gesture their favourite part instead of describing it in words.",
+        "reflectionPrompt": "What's one thing you'd do differently next time?",
+        "parentGuidance": "Keep feedback kind and specific. The goal is building the making-and-sharing habit, not getting a perfect result. Match any tools to what your child can safely use, and help directly with anything sharp."
+      },
+      "my-first-mini-business": {
+        "title": "My First Mini Business",
+        "intro": "With an adult's help, plan a tiny pretend shop or stall for a family event, and practise running it.",
+        "objectives": [
+          "Choose a simple product or activity to offer",
+          "Set a price (pretend, or a tiny real amount)",
+          "Practise talking with \"customers\""
+        ],
+        "materials": [
+          "A simple product (drawings, baked goods, a game stall) - adult-supervised",
+          "Pretend money, tokens, or (with an adult) small real coins",
+          "A small table or tray"
+        ],
+        "steps": [
+          "With an adult, choose one simple thing to \"sell\" or offer at a family event - if it's food, an adult checks for allergies and handles the cooking.",
+          "Decide together on a price - pretend money is perfectly fine.",
+          "Set up a small stall together.",
+          "Practise greeting a \"customer\" (a family member) and taking their order.",
+          "Talk afterward about how it felt and what you'd try next."
+        ],
+        "durationEstimate": "About 20 minutes to plan, plus the event itself.",
+        "independentVersion": "Take the lead on talking to customers while the adult only supervises nearby.",
+        "simplerVersion": "The adult handles all the customer talking; you hand out the items and collect the pretend tokens.",
+        "nonverbalAdaptation": "Use a picture menu or price chart instead of speaking prices aloud. Handing over an item is a complete interaction on its own.",
+        "reflectionPrompt": "What was fun, and what felt tricky?",
+        "parentGuidance": "This must always be supervised and kept inside family or trusted settings, never with strangers, and never with real public selling. If food is involved, check for allergies and have an adult handle preparation and hygiene. A fully pretend version - pretend food, pretend money - teaches the exact same lessons with no food involved at all."
+      },
+      "test-my-idea": {
+        "title": "Test My Idea",
+        "intro": "Got an idea for something to make or do? Test it with a few people before putting in lots of work.",
+        "objectives": [
+          "Describe a problem or idea simply",
+          "Ask a few people what they think",
+          "Decide what to try based on their feedback"
+        ],
+        "materials": [
+          "Just your idea - paper to sketch it helps too",
+          "2-3 family members or trusted people to ask"
+        ],
+        "steps": [
+          "Think of a small problem you've noticed, or an idea you have.",
+          "Describe it in one simple sentence, or draw it.",
+          "Ask 2-3 people: \"What do you think of this?\"",
+          "Listen to what they say, even if it's different from what you expected.",
+          "Decide: keep the idea the same, change it a little, or try something new."
+        ],
+        "durationEstimate": "About 15-20 minutes.",
+        "independentVersion": "Ask people you don't know as well yet (with a trusted adult present) to get a wider range of opinions.",
+        "simplerVersion": "Show a drawing or object instead of explaining with words, and let people point to a thumbs up or thumbs down.",
+        "nonverbalAdaptation": "Use a drawing, a symbol card, or point to the idea. Feedback can be a nod, a thumbs up or down, or a simple gesture.",
+        "reflectionPrompt": "Did anyone say something that surprised you?",
+        "parentGuidance": "This teaches that feedback before investing lots of effort is valuable, not scary. Keep every response kind, even a \"no thanks.\""
+      },
+      "understand-the-numbers": {
+        "title": "Understand the Numbers",
+        "intro": "Use a simple example to see the difference between what something costs to make, what it sells for, and what's left over.",
+        "objectives": [
+          "Tell apart cost, price, and profit using one example",
+          "Use a visual or hands-on version if numbers are tricky",
+          "See that profit is what's left after costs"
+        ],
+        "materials": [
+          "A simple example - lemonade, cookies, or a drawing of a stall",
+          "Coins, counters, or drawings (a calculator-free version is always fine)"
+        ],
+        "steps": [
+          "Pick one pretend product - like a cup of lemonade.",
+          "Figure out (or ask an adult to help figure out) what it costs to make one cup.",
+          "Decide what price you'd sell it for.",
+          "Use objects or drawings to show: price minus cost equals what's left (the profit).",
+          "Try it again with a different price and see what changes."
+        ],
+        "durationEstimate": "About 15 minutes.",
+        "independentVersion": "Try it with 2-3 products at once and compare which leaves the most left over.",
+        "simplerVersion": "Use coloured counters: a stack for cost, a bigger stack for price, and physically remove the cost stack to see what's left - no arithmetic needed.",
+        "nonverbalAdaptation": "Use counters or drawings to show the whole idea without speaking or writing a single number.",
+        "reflectionPrompt": "What happened to the amount left over when you changed the price?",
+        "parentGuidance": "This is the same idea taught in Entrepreneur Quest: cost, price, and profit. A visual, no-arithmetic version teaches the concept just as well as doing the sums."
+      },
+      "solve-a-real-problem": {
+        "title": "Solve a Real Problem",
+        "intro": "Notice a small problem in your everyday life, and come up with your own practical way to solve it.",
+        "objectives": [
+          "Notice a small, real problem",
+          "Think of a practical solution",
+          "Try it out"
+        ],
+        "materials": [
+          "Nothing needed - just noticing!",
+          "Paper or drawing materials if that helps you think"
+        ],
+        "steps": [
+          "Think of something a bit annoying or tricky in your day (a messy shelf, a forgotten chore, a confusing schedule).",
+          "Describe the problem simply - in words, a drawing, or to yourself.",
+          "Think of one practical way to make it better.",
+          "Try your solution.",
+          "See what happened - did it help?"
+        ],
+        "durationEstimate": "About 15 minutes, plus trying the solution.",
+        "independentVersion": "Solve a problem that affects more than just you, like something at home everyone deals with.",
+        "simplerVersion": "Choose from a short list of common problems an adult offers, and pick a solution from a few pictured options.",
+        "nonverbalAdaptation": "Point to or act out the problem instead of describing it in words. The solution can be shown through action rather than explanation.",
+        "reflectionPrompt": "Did your solution work the way you hoped?",
+        "parentGuidance": "Let your child pick a genuinely small, real problem - the size doesn't matter. Celebrate the attempt, even if the solution doesn't fully work."
+      },
+      "make-something-together": {
+        "title": "Make Something Together",
+        "intro": "Team up with a family member or trusted person to plan and finish a small project together.",
+        "objectives": [
+          "Plan a project with someone else",
+          "Take turns and share decisions",
+          "Finish it together"
+        ],
+        "materials": [
+          "Any simple project - a puzzle, a craft, tidying a space, or (with an adult's help) a simple recipe",
+          "A partner to work with"
+        ],
+        "steps": [
+          "Pick a small project you can finish together in one sitting.",
+          "Decide together who does which part - take turns deciding.",
+          "Work on it together, checking in as you go - if you're cooking, an adult checks for allergies and handles anything hot or sharp.",
+          "Finish the project.",
+          "Talk about how the teamwork felt."
+        ],
+        "durationEstimate": "About 20-30 minutes.",
+        "independentVersion": "Take the lead on planning who does what, with your partner following your plan.",
+        "simplerVersion": "Use a visual turn-taking chart (two pictures, swap after each turn) instead of talking through who goes next.",
+        "nonverbalAdaptation": "Use gestures, pointing, or a turn-taking object (like passing a small item) to show whose turn it is - no talking required.",
+        "reflectionPrompt": "What was it like sharing the decisions?",
+        "parentGuidance": "Let your child have real decision-making power, even over small things. Sharing control is the actual lesson here. If you choose a recipe, check for allergies and keep hygiene and hot or sharp things to the adult - a puzzle or craft teaches the same teamwork with no kitchen needed."
+      },
+      "share-my-idea": {
+        "title": "Share My Idea",
+        "intro": "Think of an idea, and share it with someone else, in whatever way works best for you.",
+        "objectives": [
+          "Have an idea worth sharing",
+          "Communicate it in your own way",
+          "See how someone responds to it"
+        ],
+        "materials": [
+          "Just your idea",
+          "Paper, pictures, symbols, or an AAC device if that's how you communicate - all equally good"
+        ],
+        "steps": [
+          "Think of one idea you'd like to share - a game, a plan, a story, anything.",
+          "Choose how you'll share it: talking, writing, drawing, symbols, AAC, or showing or acting it out.",
+          "Share it with someone you trust.",
+          "See how they respond.",
+          "Notice how it felt to share something of your own."
+        ],
+        "durationEstimate": "About 10-15 minutes.",
+        "independentVersion": "Share your idea with more than one person and see if their responses differ.",
+        "simplerVersion": "Use a single picture or object to represent the whole idea instead of explaining every detail.",
+        "nonverbalAdaptation": "Speech is never required here - drawing, pointing to symbols, using AAC, or demonstrating the idea are all complete, valid ways to share it.",
+        "reflectionPrompt": "How did it feel when someone heard your idea?",
+        "parentGuidance": "However your child communicates is the right way for this mission. The goal is being heard, not using any particular method."
+      },
+      "learn-change-and-try-again": {
+        "title": "Learn, Change, and Try Again",
+        "intro": "Think about something that didn't quite go as planned, and decide if you'd like to try it again, differently.",
+        "objectives": [
+          "Reflect on something that didn't go as expected",
+          "Think of one possible change",
+          "Choose whether to try again"
+        ],
+        "materials": [
+          "Nothing needed - just thinking back",
+          "Paper or drawing materials if that helps"
+        ],
+        "steps": [
+          "Think of something recent that didn't go quite the way you hoped - big or small.",
+          "Think about (or draw) what happened.",
+          "Think of one thing you could try differently.",
+          "Decide: would you like to try again? It's okay either way.",
+          "If you try again, notice what changed."
+        ],
+        "durationEstimate": "About 10 minutes, plus trying again if you choose to.",
+        "independentVersion": "Try the activity again fully on your own, applying your own change.",
+        "simplerVersion": "Choose your \"change\" from a short list of pictured options an adult offers instead of coming up with one from scratch.",
+        "nonverbalAdaptation": "Point to a face (happy, okay, or frustrated) to show how the first try felt, and point to a picture to show the change you'd like to try - no words needed.",
+        "reflectionPrompt": "What would you like to try differently next time?",
+        "parentGuidance": "There's no pressure to try again - choosing not to is a completely fine outcome too. The real skill here is reflecting honestly, not succeeding on the second try."
+      }
+    },
+    "visualPilot": {
+      "goalOptionToy": "A toy",
+      "goalOptionBook": "A book",
+      "goalOptionGame": "A game",
+      "goalOptionOther": "Something else",
+      "jarStepLabel": "Step {number}",
+      "jarCompleteLabel": "Goal reached!",
+      "offerOptionDrawing": "A drawing",
+      "offerOptionBaking": "Something baked",
+      "offerOptionStall": "A small game stall",
+      "offerOptionOther": "Something else",
+      "showToCustomerButton": "Show it!",
+      "customerHappyLabel": "They like it!",
+      "ideaOptionGame": "A game",
+      "ideaOptionStory": "A story",
+      "ideaOptionBuilt": "Something I built",
+      "ideaOptionDrawing": "A drawing",
+      "shareIdeaButton": "Share it!",
+      "listenerHappyLabel": "They love your idea!",
+      "chooseGoalTitle": "Pick your goal",
+      "chooseOfferTitle": "Pick what to offer",
+      "chooseIdeaTitle": "Pick your idea"
+    }
   }
 }

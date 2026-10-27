@@ -67,7 +67,9 @@
     "whatWouldYouDo": "Cosa faresti?",
     "keyIdea": "Idea chiave",
     "tryThisAtHome": "Provalo a casa!",
-    "printableWorksheetButton": "Scheda stampabile"
+    "printableWorksheetButton": "Scheda stampabile",
+    "interactiveActivityLabel": "Prova questa attività",
+    "commonMisconceptionLabel": "Un equivoco comune"
   },
   "worksheet": {
     "pageTitle": "Scheda stampabile",
@@ -288,7 +290,9 @@
     "focusModeHint": "Nasconde i dettagli extra in modo che si veda solo l'attività principale.",
     "listenToLessonLabel": "Ascolta la lezione",
     "mainNavigationLabel": "Principale",
-    "categoryMayNeedAdjusting": "- questa categoria potrebbe dover essere modificata"
+    "categoryMayNeedAdjusting": "- questa categoria potrebbe dover essere modificata",
+    "answerCorrectAnnouncement": "Risposta corretta",
+    "answerIncorrectAnnouncement": "Riprova"
   },
   "characters": {
     "pip": "Pip",
@@ -362,7 +366,9 @@
     "spendSome": "Spendine un po'",
     "moneyPersonalityLink": "Personalità del Denaro",
     "levelActivityProgress": "Livello {level} · Attività {position} di {total}",
-    "investingLabLink": "Laboratorio di Investimento →"
+    "investingLabLink": "Laboratorio di Investimento →",
+    "entrepreneurQuestLink": "Missione Imprenditore →",
+    "leadershipQuestLink": "Missione Leadership →"
   },
   "parentInfo": {
     "title": "Informazioni per i Genitori",
@@ -404,7 +410,9 @@
     "pq5Body": "Funziona bene sia accanto a tuo figlio per le prime lezioni, sia come qualcosa che esplora in autonomia una volta che si sente a suo agio. Dopo una lezione, un buon modo per proseguire è semplicemente chiedere \"cosa hai imparato?\" - le lezioni sono abbastanza brevi da fargli ricordare solitamente l'esempio concreto, non solo un argomento vago.",
     "pq6Title": "Come posso parlare di denaro con mio figlio a casa?",
     "pq6Body": "Alcuni spunti di partenza: chiedigli cosa farebbe con una somma fissa di denaro prima di dirgli cosa faresti tu. Quando fate la spesa insieme, chiedi ad alta voce \"ne abbiamo bisogno, o lo desideriamo soltanto?\", così la distinzione diventa un'abitudine, non solo una regola. Se desidera qualcosa di costoso, calcolate insieme quante settimane di risparmio ci vorrebbero - un numero concreto tende a colpire più di un \"forse più avanti\". Niente di tutto questo richiede di condividere le tue finanze personali con lui - la conversazione conta più dei dettagli.",
-    "privacySectionTitle": "Privacy e i Tuoi Dati"
+    "privacySectionTitle": "Privacy e i Tuoi Dati",
+    "pq7Title": "Cos'è la Missione Imprenditore?",
+    "pq7Body": "Una nuova sezione di Money Quest in cui tuo figlio costruisce, passo dopo passo, una piccola attività virtuale: trovare un problema, dare forma a un'idea, fissare un prezzo e prendere decisioni quando le cose non vanno come previsto. Lungo il percorso esercita l'educazione finanziaria, la capacità di risolvere problemi, la creatività, il prendere decisioni, la comunicazione, la pianificazione, il lavoro di squadra e concetti di base sul mondo del lavoro - il tutto con denaro interamente virtuale, salvato solo su questo dispositivo. È pensato per sviluppare queste competenze attraverso il gioco, non per incoraggiare un bambino ad avviare un'attività vera senza la guida e il coinvolgimento di un adulto."
   },
   "privacyPage": {
     "title": "Privacy",
@@ -3983,6 +3991,2109 @@
     "savedLocallyNote": "Il tuo feedback è salvato solo su questo dispositivo - Money Quest non ha ancora un server a cui inviarlo.",
     "saveFailedNote": "Non siamo riusciti a salvare il tuo feedback su questo dispositivo in questo momento - il tuo browser potrebbe bloccare l'archiviazione."
   },
+  "entrepreneurQuest": {
+    "hubTitle": "Missione Imprenditore",
+    "hubTagline": "Impara come trasformare un'idea in un'attività.",
+    "hubIntro": "Costruisci la tua attività virtuale, passo dopo passo. Prenderai decisioni vere, vedrai cosa succede e imparerai facendo - non leggendo e cliccando su Avanti.",
+    "virtualMoneyExplainer": "Tutto il denaro nella Missione Imprenditore è virtuale, serve solo per esercitarsi. Non è denaro vero.",
+    "myBusinessTitle": "La Mia Attività",
+    "myBusinessEmptyHint": "Non hai ancora avviato un'attività. Costruiamone una!",
+    "startBuildingButton": "Inizia a Costruire la Tua Attività",
+    "continueBuildingButton": "Continua a Costruire la Tua Attività",
+    "stageProgress": "Fase {current} di {total}",
+    "buildLink": "Costruisci la Tua Attività",
+    "simulatorLink": "Simulatore d'Impresa",
+    "challengesLink": "Sfide Imprenditoriali",
+    "pitchLink": "La Mia Presentazione",
+    "pitchLinkLockedHint": "Finisci prima di costruire la tua attività per sbloccare la tua presentazione.",
+    "badgesEarnedTitle": "I Tuoi Distintivi",
+    "noBadgesYetHint": "Completa fasi e sfide per guadagnare il tuo primo distintivo.",
+    "realWorldMissionsTitle": "Missioni nel Mondo Reale (Facoltative)",
+    "realWorldMissionsHint": "Queste servono solo a notare cose nel mondo reale - non c'è nulla da scrivere o inviare.",
+    "realWorldMissionDoneLabel": "Segna come fatto",
+    "resetBusinessButton": "Avvia una Nuova Attività",
+    "resetBusinessConfirm": "Questo cancellerà la tua attività attuale e ricomincerai da capo. Sei sicuro?",
+    "backToHub": "Torna alla Missione Imprenditore",
+    "continueButton": "Continua",
+    "saveAndContinueButton": "Salva e Continua",
+    "stages": {
+      "find-a-problem": {
+        "title": "Trova un Problema",
+        "learnText": "Ogni buona attività inizia risolvendo un problema. Un problema è qualcosa che infastidisce le persone, fa perdere loro tempo, o è difficile da fare.",
+        "fieldLabel": "Quale problema potrebbe risolvere la tua attività?",
+        "placeholder": "Per esempio: I miei amici non riescono mai a trovare una borraccia che gli piaccia."
+      },
+      "create-an-idea": {
+        "title": "Crea un'Idea",
+        "learnText": "Ora trasforma quel problema in un'idea. La tua idea è la tua risposta al problema che hai trovato.",
+        "fieldLabel": "Qual è la tua idea?",
+        "placeholder": "Per esempio: Potrei creare adesivi colorati per le borracce."
+      },
+      "name-your-business": {
+        "title": "Dai un Nome alla Tua Attività",
+        "learnText": "Un buon nome per un'attività è breve, facile da ricordare, e dà un indizio su cosa fai.",
+        "fieldLabel": "Come chiamerai la tua attività?",
+        "placeholder": "Per esempio: Sticker Splash"
+      },
+      "create-your-logo": {
+        "title": "Crea il Tuo Logo",
+        "learnText": "Un logo è una piccola immagine che aiuta le persone a riconoscere la tua attività a colpo d'occhio. Scegli una forma, un colore e un simbolo che rappresentino la tua attività.",
+        "shapeLabel": "Scegli una forma",
+        "colorLabel": "Scegli un colore",
+        "symbolLabel": "Scegli un simbolo",
+        "sloganLabel": "Scrivi uno slogan breve (facoltativo)",
+        "sloganPlaceholder": "Per esempio: Colora il tuo mondo"
+      },
+      "choose-your-product": {
+        "title": "Scegli il Tuo Prodotto",
+        "learnText": "Il tuo prodotto è la cosa vera e propria (o il servizio) che venderai. Scegli la categoria che si adatta meglio, poi descrivilo con parole tue.",
+        "categoryLabel": "Che tipo di prodotto o servizio è?",
+        "descriptionLabel": "Descrivi il tuo prodotto o servizio",
+        "descriptionPlaceholder": "Per esempio: Una confezione di 10 adesivi impermeabili."
+      },
+      "choose-your-customer": {
+        "title": "Scegli i Tuoi Clienti",
+        "learnText": "Un cliente è la persona che comprerebbe davvero il tuo prodotto. Pensare a loro ti aiuta a creare qualcosa che vorranno davvero."
+      },
+      "understand-costs": {
+        "title": "Capisci i Costi",
+        "learnText": "I costi sono quanto denaro serve per produrre un articolo. Se ti costa un po' di denaro fare un braccialetto, quello è il tuo costo per articolo.",
+        "fieldLabel": "Quanto ti costa produrre UN articolo?",
+        "helpText": "Questo è il denaro che spendi in materiali per un solo articolo, non per tutta la tua attività."
+      },
+      "set-your-price": {
+        "title": "Fissa il Tuo Prezzo",
+        "learnText": "Il tuo prezzo è quanto fai pagare a un cliente per un articolo. Un buon punto di partenza è far pagare circa il doppio di quanto ti costa produrlo - ma la scelta è tua.",
+        "fieldLabel": "Quanto farai pagare per un articolo?",
+        "helpText": "Un prezzo basso può significare che più persone comprano, ma tieni meno denaro per articolo. Un prezzo alto significa più denaro per articolo, ma meno persone potrebbero comprare."
+      },
+      "create-your-marketing": {
+        "title": "Crea il Tuo Marketing",
+        "learnText": "Il marketing significa far sapere alle persone della tua attività, così che sappiano che esiste e capiscano cosa fa. Scegli un approccio, poi guarda cosa succede."
+      },
+      "make-your-first-sale": {
+        "title": "Fai la Tua Prima Vendita",
+        "learnText": "È ora di vedere cosa succede! Deciderai come spendere i tuoi soldi iniziali, poi scoprirai come vanno le tue prime vendite.",
+        "ctaButton": "Vai al Simulatore d'Impresa"
+      },
+      "calculate-your-profit": {
+        "title": "Calcola il Tuo Profitto",
+        "learnText": "Il profitto è il denaro che ti resta dopo aver pagato i costi. Profitto = Vendite meno Costi.",
+        "resultHint": "Ecco il tuo profitto dal Simulatore d'Impresa.",
+        "noRunYetHint": "Visita prima il Simulatore d'Impresa per vedere qui un numero reale di profitto."
+      },
+      "handle-competition": {
+        "title": "Gestisci la Concorrenza",
+        "learnText": "Un concorrente è un'altra attività che vende qualcosa di simile alla tua. Quasi ogni attività ha concorrenti."
+      },
+      "handle-a-customer-problem": {
+        "title": "Gestisci un Problema con un Cliente",
+        "learnText": "Le attività vere a volte hanno problemi con i clienti. Ciò che conta è come rispondi."
+      },
+      "make-a-business-decision": {
+        "title": "Prendi una Decisione Imprenditoriale",
+        "learnText": "I bravi imprenditori riflettono sulle loro scelte invece di limitarsi a indovinare."
+      },
+      "grow-your-business": {
+        "title": "Fai Crescere la Tua Attività",
+        "learnText": "A volte le cose non vanno come previsto. Far crescere un'attività spesso significa riprovare con qualcosa di nuovo."
+      },
+      "create-your-final-pitch": {
+        "title": "Crea la Tua Presentazione Finale",
+        "learnText": "Hai costruito un'attività! Rispondi a queste ultime due domande, poi guarda la tua presentazione messa tutta insieme.",
+        "whyChooseLabel": "Perché le persone potrebbero scegliere la tua attività?",
+        "whyChoosePlaceholder": "Per esempio: I miei adesivi sono impermeabili e disponibili in colori vivaci che nessun altro ha.",
+        "nextStepLabel": "Quale sarebbe il tuo prossimo passo?",
+        "nextStepPlaceholder": "Per esempio: Chiedere a cinque amici quali altri disegni di adesivi vorrebbero.",
+        "viewPitchButton": "Guarda la Mia Presentazione"
+      },
+      "research-demand": {
+        "title": "Studia la Domanda",
+        "learnText": "Prima di costruire qualsiasi cosa, gli imprenditori intelligenti verificano se le persone comprerebbero davvero. Guarda i dati di mercato qui sotto."
+      },
+      "test-the-idea": {
+        "title": "Testa l'Idea",
+        "learnText": "È allettante iniziare subito a costruire - ma testare prima una piccola idea può risparmiarti un errore costoso."
+      }
+    },
+    "decisionEvents": {
+      "product-unclear": {
+        "situation": "Ad alcuni clienti piace il tuo prodotto, ma non capiscono cosa faccia esattamente.",
+        "choices": [
+          {
+            "key": "explain-simply",
+            "label": "Scrivi una frase semplice che spieghi cosa fa il tuo prodotto",
+            "consequence": "Ora più persone capiscono il tuo prodotto, e alcune decidono di comprarlo. Le parole chiare aiutano davvero!"
+          },
+          {
+            "key": "add-picture",
+            "label": "Mostra un'immagine di qualcuno che lo usa",
+            "consequence": "Vederlo in azione aiuta le persone a capire più velocemente. Qualche cliente in più decide di provarlo."
+          },
+          {
+            "key": "do-nothing",
+            "label": "Lascialo così com'è e spera che le persone capiscano da sole",
+            "consequence": "Alcuni clienti restano confusi, e alcuni decidono di non comprare. Spiegare chiaramente di solito aiuta più che restare in silenzio."
+          }
+        ]
+      },
+      "competitor-lower-price": {
+        "situation": "Un concorrente inizia a vendere qualcosa di simile al tuo prodotto, ma a un prezzo più basso.",
+        "choices": [
+          {
+            "key": "lower-price",
+            "label": "Abbassa il tuo prezzo per pareggiare il loro",
+            "consequence": "Più persone scelgono di nuovo il tuo prodotto, ma tieni meno denaro per ogni pezzo che vendi."
+          },
+          {
+            "key": "explain-value",
+            "label": "Mantieni il tuo prezzo, ma spiega perché il tuo prodotto lo vale",
+            "consequence": "Alcuni clienti sono d'accordo e restano con te. Altri scelgono comunque l'opzione più economica."
+          },
+          {
+            "key": "ignore",
+            "label": "Lascia tutto esattamente com'è",
+            "consequence": "Alcuni clienti si spostano verso l'opzione più economica. I concorrenti sono normali - spesso aiuta rispondere in qualche modo."
+          }
+        ]
+      },
+      "materials-cost-increase": {
+        "situation": "I materiali di cui hai bisogno per produrre il tuo prodotto diventano improvvisamente più costosi.",
+        "choices": [
+          {
+            "key": "raise-price",
+            "label": "Alza un po' il tuo prezzo per coprire il costo extra",
+            "consequence": "Il tuo profitto per articolo resta sano, anche se alcuni clienti sensibili al prezzo potrebbero comprare meno spesso."
+          },
+          {
+            "key": "absorb-cost",
+            "label": "Mantieni lo stesso prezzo e guadagna meno profitto per articolo",
+            "consequence": "I clienti non notano che qualcosa è cambiato, ma tieni meno denaro da ogni vendita."
+          },
+          {
+            "key": "find-cheaper-materials",
+            "label": "Cerca un modo più economico per produrre il tuo prodotto",
+            "consequence": "Se ne trovi uno, questo può risolvere completamente il problema, anche se potrebbe volerci del tempo per capirlo."
+          }
+        ]
+      },
+      "too-expensive-feedback": {
+        "situation": "Un cliente ti dice che il tuo prodotto è troppo caro.",
+        "choices": [
+          {
+            "key": "ask-why",
+            "label": "Chiedigli quale prezzo gli sembrerebbe giusto",
+            "consequence": "Impari qualcosa di utile su cosa si aspettano i clienti, anche se non cambi il tuo prezzo."
+          },
+          {
+            "key": "offer-smaller-version",
+            "label": "Offri una versione più piccola e più economica del tuo prodotto",
+            "consequence": "Alcuni clienti che non potevano permettersi la versione completa comprano quella più piccola."
+          },
+          {
+            "key": "stand-firm",
+            "label": "Spiega che il tuo prezzo riflette i tuoi costi e il tuo impegno",
+            "consequence": "Alcuni clienti capiscono e restano. Ad altri sembra comunque troppo - e va bene così."
+          }
+        ]
+      },
+      "more-orders-than-expected": {
+        "situation": "Molte più persone di quante ti aspettassi vogliono comprare da te!",
+        "choices": [
+          {
+            "key": "make-more",
+            "label": "Prova a produrre più prodotti per stare al passo",
+            "consequence": "Vendi di più, ma produrre in fretta costa più tempo e fatica del solito."
+          },
+          {
+            "key": "raise-price-slightly",
+            "label": "Alza un po' il prezzo dato che la domanda è alta",
+            "consequence": "Guadagni di più per articolo, anche se alcuni clienti decidono di aspettare o di guardare altrove."
+          },
+          {
+            "key": "waitlist",
+            "label": "Di' ai clienti in più che presto ne avrai altri pronti",
+            "consequence": "I clienti disposti ad aspettare di solito comprano comunque da te più avanti."
+          }
+        ]
+      },
+      "teammate-wants-change": {
+        "situation": "Qualcuno che ti aiuta con la tua attività vuole cambiare il prodotto in un modo di cui non sei sicuro.",
+        "choices": [
+          {
+            "key": "hear-them-out",
+            "label": "Chiedigli di spiegare completamente la sua idea prima di decidere",
+            "consequence": "Impari di più sul suo modo di pensare, il che rende molto più facile decidere insieme."
+          },
+          {
+            "key": "say-no",
+            "label": "Di' di no e mantieni il prodotto esattamente com'è",
+            "consequence": "Il prodotto resta lo stesso, ma il tuo compagno di squadra potrebbe sentirsi non ascoltato la prossima volta che ha un'idea."
+          },
+          {
+            "key": "try-a-test-version",
+            "label": "Prova la sua idea prima solo su pochi articoli, come test",
+            "consequence": "Puoi vedere se il cambiamento funziona davvero prima di cambiare tutto."
+          }
+        ]
+      },
+      "fewer-sales-than-expected": {
+        "situation": "Questa settimana hai fatto meno vendite di quanto speravi.",
+        "choices": [
+          {
+            "key": "ask-customers",
+            "label": "Chiedi ad alcune persone perché non hanno comprato",
+            "consequence": "Ricevi un feedback reale che puoi davvero usare per migliorare, anche se è difficile da sentire."
+          },
+          {
+            "key": "try-something-new",
+            "label": "Prova un prezzo diverso o un nuovo modo di spiegare il tuo prodotto",
+            "consequence": "Provare qualcosa di nuovo a volte funziona meglio, e a volte no. In ogni caso, impari qualcosa."
+          },
+          {
+            "key": "keep-going",
+            "label": "Continua a fare esattamente la stessa cosa e guarda cosa succede dopo",
+            "consequence": "Alcune settimane sono semplicemente più lente di altre. Ma se continua così, potrebbe valere la pena provare qualcosa di diverso."
+          }
+        ]
+      },
+      "market-detective-reflection": {
+        "situation": "Guardando i dati di mercato della Trota Fresca, cosa ne pensi?",
+        "choices": [
+          {
+            "key": "looks-like-a-good-opportunity",
+            "label": "Sembra un'ottima opportunità",
+            "consequence": "Tanti clienti interessati sono un buon segno! Ma ricorda: una domanda alta non significa automaticamente un profitto alto - dipende comunque dai costi e da quanti concorrenti vendono già."
+          },
+          {
+            "key": "needs-more-thought",
+            "label": "Serve pensarci meglio prima di decidere",
+            "consequence": "Buon istinto - solo 75 delle 300 persone interessate hanno davvero comprato di recente, e ci sono già 4 concorrenti. Approfondire prima di impegnarsi è saggio."
+          },
+          {
+            "key": "not-sure-yet",
+            "label": "Non sono ancora sicuro",
+            "consequence": "È un punto di partenza onesto - i veri imprenditori spesso hanno bisogno di più informazioni prima di sentirsi sicuri. Guarda di nuovo i prezzi dei concorrenti e l'andamento della domanda."
+          }
+        ]
+      },
+      "test-before-invest": {
+        "situation": "Hai un po' di soldi per iniziare. Come vuoi cominciare?",
+        "choices": [
+          {
+            "key": "spend-it-all-now",
+            "label": "Spenderli tutti subito per costruire l'attività",
+            "consequence": "Ti impegni al massimo fin dal primo giorno - ma se l'idea non funziona, hai già speso tutto per scoprirlo."
+          },
+          {
+            "key": "test-a-little-first",
+            "label": "Spendere un po' prima per testare se i clienti comprano davvero",
+            "consequence": "Scopri presto - e a poco prezzo - se le persone vogliono davvero questo, prima di rischiare tutto."
+          }
+        ]
+      }
+    },
+    "challenges": {
+      "five-pound-challenge": {
+        "title": "La Sfida da {amount}",
+        "situation": "Hai {amount} di denaro virtuale. Cosa potresti creare con quello?",
+        "choices": [
+          {
+            "key": "cheap-materials",
+            "label": "Compra alcuni materiali economici e produci diversi piccoli articoli",
+            "consequence": "Puoi produrre più articoli da vendere, anche se ognuno potrebbe essere semplice."
+          },
+          {
+            "key": "one-good-material",
+            "label": "Spendi tutto in un materiale di qualità migliore",
+            "consequence": "Puoi produrre meno articoli, ma ognuno potrebbe sembrare più speciale e valere di più."
+          },
+          {
+            "key": "save-some",
+            "label": "Metti da parte una parte e spendi il resto con attenzione",
+            "consequence": "Inizi più in piccolo, ma ti resta ancora un po' di denaro se ne hai bisogno più avanti."
+          }
+        ]
+      },
+      "pricing-challenge": {
+        "title": "La Sfida del Prezzo",
+        "situation": "Il tuo prodotto costa {amount} da produrre. Che prezzo sceglierai?",
+        "choices": [
+          {
+            "key": "price-low",
+            "label": "Fai pagare solo un po' di più di quanto ti costa",
+            "consequence": "Più persone possono permetterselo, ma tieni solo una piccola somma da ogni vendita."
+          },
+          {
+            "key": "price-double",
+            "label": "Fai pagare circa il doppio di quanto ti costa",
+            "consequence": "Una scelta comune ed equilibrata - la maggior parte delle attività inizia più o meno qui."
+          },
+          {
+            "key": "price-high",
+            "label": "Fai pagare molto di più di quanto ti costa",
+            "consequence": "Guadagni molto da ogni vendita, ma meno persone potrebbero decidere di comprare."
+          }
+        ]
+      },
+      "customer-challenge": {
+        "title": "La Sfida dei Clienti",
+        "situation": "Nessuno sembra interessato al tuo prodotto. Cosa potresti cambiare?",
+        "choices": [
+          {
+            "key": "ask-people",
+            "label": "Chiedi ad alcune persone cosa vorrebbero davvero invece",
+            "consequence": "Ricevi idee vere e utili, anche se alcune ti sorprendono."
+          },
+          {
+            "key": "change-product",
+            "label": "Cambia il prodotto per risolvere un problema più grande",
+            "consequence": "Questo può davvero aiutare, anche se richiede tempo e fatica extra per rifarlo."
+          },
+          {
+            "key": "same-different-customer",
+            "label": "Mantieni il prodotto uguale, ma pensa a chi altro potrebbe volerlo",
+            "consequence": "A volte il cliente giusto era semplicemente diverso da quello che pensavi all'inizio."
+          }
+        ]
+      },
+      "marketing-challenge": {
+        "title": "La Sfida del Marketing",
+        "situation": "Hai {amount} di denaro virtuale per il marketing. Come lo userai?",
+        "choices": [
+          {
+            "key": "tell-friends",
+            "label": "Chiedi ad amici e famiglia di aiutarti a spargere la voce",
+            "consequence": "Questo non costa nulla e può davvero aiutare - le persone si fidano dei consigli di chi conoscono."
+          },
+          {
+            "key": "make-a-poster",
+            "label": "Spendilo per fare un poster o un cartello accattivante",
+            "consequence": "Un poster chiaro e attraente può attirare l'attenzione di chi passa."
+          },
+          {
+            "key": "spend-it-all",
+            "label": "Spendilo tutto cercando di raggiungere più persone possibile",
+            "consequence": "Raggiungi più persone, ma non ti resta nulla se succede qualcosa di imprevisto."
+          }
+        ]
+      },
+      "bad-review-challenge": {
+        "title": "La Sfida della Recensione Negativa",
+        "situation": "Un cliente non è soddisfatto di ciò che ha comprato da te.",
+        "choices": [
+          {
+            "key": "apologize-and-fix",
+            "label": "Scusati e offriti di ripararlo o sostituirlo",
+            "consequence": "La maggior parte dei clienti insoddisfatti si sente molto meglio quando qualcuno prende sul serio il loro problema."
+          },
+          {
+            "key": "explain-politely",
+            "label": "Spiega educatamente perché il prodotto funziona in quel modo",
+            "consequence": "A volte questo aiuta, specialmente se il cliente ha frainteso qualcosa."
+          },
+          {
+            "key": "ignore-it",
+            "label": "Ignoralo e passa al cliente successivo",
+            "consequence": "Il cliente insoddisfatto potrebbe raccontare ad altri la sua esperienza. Rispondere di solito aiuta più che restare in silenzio."
+          }
+        ]
+      }
+    },
+    "challengesListTitle": "Sfide Imprenditoriali",
+    "challengesListIntro": "Sfide brevi e indipendenti che puoi provare in qualsiasi momento - ognuna insegna qualcosa di diverso su come gestire un'attività.",
+    "challengeCompletedBadge": "Completata",
+    "realWorldMissions": {
+      "find-a-problem-at-home": "Guardati intorno a casa o a scuola. Riesci a trovare un problema che ha la gente?",
+      "notice-what-people-buy": "Trova qualcosa che le persone comprano regolarmente. Perché pensi che lo comprino?",
+      "improve-a-product-you-use": "Scegli un prodotto che usi. Cosa potrebbe renderlo migliore?",
+      "ask-someone-what-they-would-change": "Chiedi a qualcuno cosa cambierebbe di un prodotto che usa."
+    },
+    "badges": {
+      "eq-problem-solver": {
+        "name": "Risolutore di Problemi",
+        "description": "Ha trovato un vero problema da risolvere"
+      },
+      "eq-idea-finder": {
+        "name": "Cercatore di Idee",
+        "description": "Ha trasformato un problema in un'idea"
+      },
+      "eq-money-manager": {
+        "name": "Gestore del Denaro",
+        "description": "Ha calcolato il profitto di un'attività"
+      },
+      "eq-marketing-explorer": {
+        "name": "Esploratore del Marketing",
+        "description": "Ha esercitato a raccontare alle persone di un'attività"
+      },
+      "eq-young-founder": {
+        "name": "Giovane Fondatore",
+        "description": "Ha completato una presentazione aziendale completa"
+      }
+    },
+    "simulator": {
+      "title": "Simulatore d'Impresa",
+      "intro": "È ora di vedere come va la tua attività! Decidi come spendere i tuoi soldi iniziali, poi scopri cosa succede.",
+      "startingMoneyLabel": "I tuoi soldi iniziali",
+      "allocateInstructions": "Decidi come spendere i tuoi {amount}.",
+      "categoryMaterials": "Materiali",
+      "categoryPackaging": "Imballaggio",
+      "categoryAdvertising": "Pubblicità",
+      "categorySavedAside": "Denaro messo da parte",
+      "seeResultButton": "Guarda Cosa Succede",
+      "resultTitle": "Ecco Cosa È Successo",
+      "unitsMadeLabel": "Hai prodotto {count} articoli",
+      "unitsSoldLabel": "Ne hai venduti {count}",
+      "salesLabel": "Vendite",
+      "costsLabel": "Costi",
+      "profitLabel": "Profitto",
+      "remainingLabel": "Denaro che hai ora",
+      "formulaReminder": "Profitto = Vendite - Costi",
+      "explanationProfit": "Hai fatto un profitto di {profit}! Vendite meno Costi è uguale a Profitto.",
+      "explanationLoss": "Questa volta, i tuoi costi erano più alti delle tue vendite. Capita a volte - puoi riprovare con scelte diverse.",
+      "tryAgainButton": "Prova Scelte Diverse"
+    },
+    "pitch": {
+      "title": "La Mia Prima Attività",
+      "myBusinessIsLabel": "La mia attività è...",
+      "itHelpsLabel": "Aiuta...",
+      "myCustomersAreLabel": "I miei clienti sono...",
+      "myProductIsLabel": "Il mio prodotto o servizio è...",
+      "itCostsMeLabel": "Mi costa...",
+      "iWouldChargeLabel": "Farei pagare...",
+      "iCouldMakeLabel": "Potrei produrre...",
+      "whyChooseLabel": "Le persone potrebbero scegliere la mia attività perché...",
+      "nextStepLabel": "Il mio prossimo passo sarebbe...",
+      "perItemSuffix": "per articolo",
+      "notSetYet": "Non ancora deciso",
+      "editBusinessButton": "Modifica la Mia Attività",
+      "notReadyTitle": "La Tua Presentazione Non È Ancora Pronta",
+      "notReadyHint": "Finisci prima di costruire la tua attività, e la tua presentazione apparirà qui.",
+      "goToBuildButton": "Continua a Costruire la Tua Attività",
+      "reputationLabel": "La mia reputazione aziendale è...",
+      "reputationValue": "{stars} su 5 stelle"
+    },
+    "productCategories": {
+      "food": "Cibo",
+      "art": "Arte",
+      "crafts": "Fai da Te",
+      "games": "Giochi",
+      "pets": "Animali",
+      "sports": "Sport",
+      "fashion": "Moda",
+      "technology": "Tecnologia",
+      "education": "Istruzione",
+      "environment": "Ambiente",
+      "helping-people": "Aiutare le Persone",
+      "other": "Qualcos'Altro"
+    },
+    "customerCategories": {
+      "kids": "Bambini",
+      "families": "Famiglie",
+      "teens": "Adolescenti",
+      "adults": "Adulti",
+      "school-community": "La Mia Comunità Scolastica",
+      "neighbors": "Vicini di Casa",
+      "animal-lovers": "Amanti degli Animali",
+      "other": "Qualcun Altro"
+    },
+    "marketingApproaches": {
+      "poster": "Fai un Poster",
+      "social-style-advert": "Pubblicità in Stile Social Media",
+      "word-of-mouth": "Passaparola",
+      "school-community-idea": "Idea per Scuola o Comunità",
+      "special-offer": "Offerta Speciale"
+    },
+    "logoShapes": {
+      "circle": "Cerchio",
+      "square": "Quadrato",
+      "hexagon": "Esagono",
+      "star": "Stella"
+    },
+    "safety": {
+      "nameHint": "Usa un nome divertente e inventato per la tua attività - non il tuo vero nome completo, indirizzo, numero di telefono o il nome della tua scuola."
+    },
+    "dashboard": {
+      "title": "La Mia Azienda",
+      "productLabel": "Prodotto",
+      "customersLabel": "Clienti",
+      "priceLabel": "Prezzo",
+      "costLabel": "Costo",
+      "profitPerSaleLabel": "Profitto per Vendita",
+      "salesLabel": "Vendite",
+      "revenueLabel": "Ricavi",
+      "costsLabel": "Costi",
+      "profitLabel": "Profitto",
+      "reputationLabel": "Reputazione",
+      "reputationValue": "{stars}/5",
+      "goalLabel": "Obiettivo Attuale",
+      "goalPlaceholder": "Per esempio: Fai 20 vendite",
+      "saveGoalButton": "Salva Obiettivo",
+      "cashLabel": "Contanti",
+      "customersTotalLabel": "Clienti",
+      "repeatCustomersLabel": "Clienti Abituali",
+      "stockLabel": "Scorte",
+      "demandLabel": "Domanda",
+      "showMoreButton": "Mostra più dettagli",
+      "showLessButton": "Mostra meno dettagli"
+    },
+    "phases": {
+      "build": "Costruisci",
+      "run": "Gestisci",
+      "rescueGrow": "Salva e Cresci"
+    },
+    "levels": {
+      "low": "Basso",
+      "medium": "Medio",
+      "high": "Alto"
+    },
+    "demandLevels": {
+      "low": "Bassa",
+      "medium": "Media",
+      "high": "Alta",
+      "seasonal-high": "Alta (Stagionale)",
+      "seasonal-low": "Bassa (Stagionale)"
+    },
+    "problemFlow": {
+      "investigateLabel": "Indaga",
+      "tapToReveal": "Tocca per rivelare",
+      "causeLabel": "Qual è la causa probabile?",
+      "responseLabel": "Cosa farai?"
+    },
+    "problemsListIntro": "Le aziende vere incontrano dei problemi. Indaga su ognuno usando i dati, poi decidi come reagire.",
+    "marketDetective": {
+      "scenarioTitle": "Trota Fresca: Un Mercato da Indagare",
+      "interestedCustomersLabel": "Clienti Interessati",
+      "recentBuyersLabel": "Acquirenti Recenti",
+      "competitorCountLabel": "Concorrenti",
+      "competitorPriceLabel": "Prezzo Medio dei Concorrenti",
+      "productionCostLabel": "Costo di Produzione Stimato",
+      "weekendDemandLabel": "Domanda nel Weekend",
+      "winterDemandLabel": "Domanda Invernale",
+      "demandLadderTitle": "Dall'Interesse ai Clienti Abituali",
+      "demandLadder": {
+        "likeTheIdea": "Persone a cui piace l'idea",
+        "mightBuy": "Persone che potrebbero comprare",
+        "actuallyBuy": "Persone che comprano davvero",
+        "becomeRepeatCustomers": "Persone che diventano clienti abituali"
+      }
+    },
+    "problems": {
+      "not-enough-customers": {
+        "title": "Non Abbastanza Clienti",
+        "situation": "La tua attività va avanti da un po', ma quasi nessuno compra.",
+        "responsePrompt": "Cosa farai?",
+        "clues": {
+          "footTraffic": "Meno persone hanno visitato il tuo banco o negozio rispetto al mese scorso.",
+          "onlineViews": "Non molte persone guardano i tuoi post o annunci.",
+          "competitorActivity": "Un'attività simile nelle vicinanze è stata piena di clienti."
+        },
+        "causes": {
+          "wrong-customer-group": {
+            "label": "Forse non stai raggiungendo i clienti giusti",
+            "feedback": "È possibile - vale la pena controllare a chi stai davvero cercando di vendere."
+          },
+          "weak-marketing": {
+            "label": "Forse non abbastanza persone conoscono la tua attività",
+            "feedback": "Potrebbe essere questo - se le persone non sanno che esisti, non possono comprare da te."
+          },
+          "price-too-high": {
+            "label": "Forse il tuo prezzo sembra troppo alto alla gente",
+            "feedback": "Vale la pena considerarlo anche questo - il prezzo influisce su quante persone decidono di comprare."
+          }
+        },
+        "responses": {
+          "improve-marketing": {
+            "label": "Fai sapere a più persone della tua attività",
+            "consequence": "Spendi un po' di più per farti conoscere, e qualche nuovo cliente ti trova."
+          },
+          "research-customers": {
+            "label": "Chiedi alla gente cosa vuole davvero",
+            "consequence": "Non vendi di più subito, ma impari qualcosa che potrebbe aiutarti più avanti."
+          },
+          "lower-price-temporarily": {
+            "label": "Abbassa il tuo prezzo per un breve periodo",
+            "consequence": "Più persone decidono di provare il tuo prodotto, anche se guadagni un po' meno su ognuno."
+          }
+        }
+      },
+      "costs-increased": {
+        "title": "I Costi Sono Aumentati",
+        "situation": "I materiali che usi per fare il tuo prodotto sono improvvisamente diventati più cari.",
+        "responsePrompt": "Cosa farai?",
+        "clues": {
+          "supplierPriceNotice": "Il tuo fornitore ti ha mandato un messaggio dicendo che i suoi prezzi sono aumentati.",
+          "fuelPrices": "Anche il costo del carburante e della consegna è aumentato.",
+          "wageChanges": "Non è cambiato niente in quanto paghi per l'aiuto - quella parte è rimasta uguale."
+        },
+        "causes": {
+          "supplier-price-rise": {
+            "label": "Il tuo fornitore semplicemente fa pagare di più adesso",
+            "feedback": "Corrisponde a quello che diceva il messaggio del fornitore."
+          },
+          "inflation": {
+            "label": "I prezzi stanno aumentando ovunque in questo momento",
+            "feedback": "Anche questo fa parte del quadro - a volte molti costi salgono insieme."
+          },
+          "more-materials-needed": {
+            "label": "Stai usando più materiali di prima",
+            "feedback": "È possibile, ma gli indizi puntano più al cambio di prezzo del fornitore stesso."
+          }
+        },
+        "responses": {
+          "absorb-the-cost": {
+            "label": "Mantieni lo stesso prezzo e guadagna meno profitto",
+            "consequence": "I clienti non notano nessun cambiamento, ma tieni meno soldi da ogni vendita."
+          },
+          "raise-your-price": {
+            "label": "Alza un po' il tuo prezzo per coprirlo",
+            "consequence": "Il tuo profitto per articolo resta sano, anche se qualche cliente potrebbe comprare meno spesso."
+          },
+          "find-a-cheaper-supplier": {
+            "label": "Cerca un fornitore più economico",
+            "consequence": "Se ne trovi uno, questo può risolvere completamente il problema - anche se potrebbe volerci tempo e la qualità potrebbe essere diversa."
+          }
+        }
+      },
+      "negative-review": {
+        "title": "Una Recensione Negativa",
+        "situation": "Un cliente ha lasciato una recensione dicendo che non era soddisfatto di quello che ha comprato.",
+        "responsePrompt": "Cosa farai?",
+        "clues": {
+          "reviewText": "La recensione dice che l'articolo è arrivato un po' danneggiato.",
+          "otherReviews": "Le tue altre recensioni recenti sono state tutte positive.",
+          "returnRequests": "È la prima volta che qualcuno chiede una sostituzione."
+        },
+        "causes": {
+          "product-fault": {
+            "label": "Qualcosa è andato storto con questo articolo",
+            "feedback": "Corrisponde - le tue altre recensioni vanno bene, quindi sembra un caso isolato."
+          },
+          "unclear-instructions": {
+            "label": "Forse le istruzioni non erano abbastanza chiare",
+            "feedback": "Possibile, ma la recensione parla di un danno, non di confusione."
+          },
+          "slow-response": {
+            "label": "Forse hai impiegato troppo tempo a rispondere",
+            "feedback": "Vale la pena pensarci, ma la recensione stessa parla del prodotto arrivato danneggiato."
+          }
+        },
+        "responses": {
+          "apologise-and-fix": {
+            "label": "Scusati e offriti di ripararlo o sostituirlo",
+            "consequence": "Il cliente si sente ascoltato, e la maggior parte delle persone si sente molto meglio quando il proprio problema viene preso sul serio."
+          },
+          "offer-replacement": {
+            "label": "Manda una sostituzione gratuita",
+            "consequence": "Ti costa un po', ma il cliente è felice e potrebbe comprare di nuovo da te."
+          },
+          "ignore-and-move-on": {
+            "label": "Lascia perdere e passa ad altri clienti",
+            "consequence": "Il cliente insoddisfatto potrebbe raccontare ad altri la sua esperienza - rispondere di solito aiuta più che rimanere in silenzio."
+          }
+        }
+      },
+      "sales-falling": {
+        "title": "Le Vendite Stanno Calando",
+        "situation": "Le tue vendite sono diminuite nelle ultime settimane.",
+        "responsePrompt": "Cosa farai?",
+        "clues": {
+          "salesChart": "Le vendite erano stabili, poi hanno iniziato a calare circa tre settimane fa.",
+          "competitorPrices": "Un concorrente ha iniziato a vendere qualcosa di simile a un prezzo più basso più o meno nello stesso periodo.",
+          "customerFeedback": "Alcuni clienti hanno detto che il tuo prodotto sembra 'sempre uguale'."
+        },
+        "causes": {
+          "price-too-high-now": {
+            "label": "Il tuo prezzo sembra alto rispetto al concorrente",
+            "feedback": "Il momento coincide con quando è apparso il concorrente - sembra probabile."
+          },
+          "new-competitor": {
+            "label": "Un nuovo concorrente sta portando via alcuni clienti",
+            "feedback": "Coincide bene con i tempi."
+          },
+          "product-losing-novelty": {
+            "label": "I clienti si stanno solo abituando al prodotto",
+            "feedback": "È possibile anche questo - il commento 'sempre uguale' lo suggerisce."
+          }
+        },
+        "responses": {
+          "run-a-special-offer": {
+            "label": "Lancia una breve offerta speciale",
+            "consequence": "Alcuni clienti che si erano allontanati tornano a provarlo di nuovo."
+          },
+          "refresh-the-product": {
+            "label": "Rinnova o migliora il prodotto",
+            "consequence": "Costa un po' fare il cambiamento, ma i clienti notano qualcosa di nuovo e qualcuno in più torna."
+          },
+          "ask-customers-directly": {
+            "label": "Chiedi direttamente ai clienti cosa ne pensano",
+            "consequence": "Non vendi di più subito, ma impari qualcosa di utile su cui agire."
+          }
+        }
+      },
+      "rising-costs-eating-profit": {
+        "title": "Perché Non Guadagniamo?",
+        "situation": "Le vendite stanno crescendo e anche i ricavi crescono - ma il profitto continua a scendere.",
+        "responsePrompt": "Cosa farai?",
+        "clues": {
+          "priceHistory": "Il tuo prezzo non è cambiato da mesi.",
+          "productionCostHistory": "Produrre ogni articolo è diventato silenziosamente un po' più caro nel tempo.",
+          "advertisingSpend": "Hai speso di più in pubblicità per far crescere le vendite."
+        },
+        "causes": {
+          "advertising-spend-too-high": {
+            "label": "La pubblicità costa più di quanto porta",
+            "feedback": "Corrisponde - spendere di più per mantenere la stessa crescita erode il profitto."
+          },
+          "waste-in-production": {
+            "label": "Forse alcuni materiali vengono sprecati",
+            "feedback": "Vale la pena controllarlo, anche se gli indizi puntano più direttamente all'aumento dei costi pubblicitari e di produzione."
+          },
+          "discounts-too-generous": {
+            "label": "Forse gli sconti sono stati troppo generosi",
+            "feedback": "Possibile - gli sconti possono ridurre silenziosamente il profitto anche quando le vendite sembrano buone."
+          }
+        },
+        "responses": {
+          "review-advertising-spend": {
+            "label": "Controlla se la pubblicità vale il suo costo",
+            "consequence": "Tagli quello che non funziona, e i costi scendono senza perdere molte vendite."
+          },
+          "reduce-waste": {
+            "label": "Cerca modi per ridurre gli sprechi nella produzione",
+            "consequence": "Ci vuole un po' di impegno per trovare la fonte, ma ora ogni articolo costa un po' meno da produrre."
+          },
+          "adjust-discounts": {
+            "label": "Offri sconti più piccoli",
+            "consequence": "Tieni più soldi da ogni vendita, anche se qualche cliente in cerca di sconti compra di meno."
+          }
+        }
+      },
+      "profit-but-no-cash": {
+        "title": "Profitto Ma Niente Contanti",
+        "situation": "I tuoi numeri mostrano un profitto - ma non hai abbastanza denaro disponibile in questo momento per pagare quello di cui hai bisogno.",
+        "responsePrompt": "Cosa farai?",
+        "clues": {
+          "unpaidInvoices": "Alcuni clienti non ti hanno ancora pagato per gli ordini recenti.",
+          "cashOnHand": "Il denaro che hai davvero disponibile è molto inferiore al tuo profitto.",
+          "upcomingBills": "Hai una fattura del fornitore in scadenza a breve."
+        },
+        "causes": {
+          "customers-pay-late": {
+            "label": "I clienti ti pagano più tardi del previsto",
+            "feedback": "Corrisponde alle fatture non pagate."
+          },
+          "spent-too-much-on-equipment": {
+            "label": "Hai speso molto in attrezzature di recente",
+            "feedback": "Possibile, ma gli indizi puntano più a denaro che ti è dovuto, non a denaro che hai speso."
+          },
+          "stock-tied-up-money": {
+            "label": "Il denaro è bloccato in scorte invendute",
+            "feedback": "Anche questa è una possibilità reale - le scorte sono denaro che non si è ancora trasformato in contanti."
+          }
+        },
+        "responses": {
+          "ask-for-faster-payment": {
+            "label": "Chiedi ai clienti di pagare prima",
+            "consequence": "Alcuni clienti pagano più in fretta se richiesto, portando il denaro che ti dovevano."
+          },
+          "use-savings": {
+            "label": "Usa il denaro che avevi messo da parte",
+            "consequence": "Copre il divario per ora, anche se la tua riserva sarà più piccola dopo."
+          },
+          "delay-a-purchase": {
+            "label": "Rimanda un acquisto che stavi pianificando",
+            "consequence": "Questo libera un po' di contanti ora, anche se potresti perdere l'opportunità per cui era pensato."
+          }
+        }
+      },
+      "too-much-stock": {
+        "title": "Troppe Scorte Invendute",
+        "situation": "Hai prodotto più articoli di quanti sei riuscito a vendere, e occupano spazio.",
+        "responsePrompt": "Cosa farai?",
+        "clues": {
+          "stockRoomPhoto": "Il tuo magazzino è più pieno che mai.",
+          "unsoldItemsList": "Alcuni articoli sono rimasti invenduti per settimane.",
+          "seasonalTrend": "La domanda per questo tipo di prodotto è di solito più bassa in questo periodo dell'anno."
+        },
+        "causes": {
+          "over-ordered": {
+            "label": "Hai prodotto o ordinato più di quanto ti serviva",
+            "feedback": "Corrisponde a quello che mostrano i numeri del magazzino."
+          },
+          "demand-was-seasonal": {
+            "label": "La domanda cala naturalmente in questo periodo dell'anno",
+            "feedback": "Corrisponde anche allo schema stagionale."
+          },
+          "product-less-popular-than-expected": {
+            "label": "Il prodotto non era popolare come previsto",
+            "feedback": "Possibile - vale la pena tenerlo a mente per la prossima volta."
+          }
+        },
+        "responses": {
+          "run-a-clearance-sale": {
+            "label": "Vendi le scorte in eccesso a un prezzo più basso",
+            "consequence": "Trasformi le scorte invendute in contanti, anche se guadagni meno su ogni articolo."
+          },
+          "donate-or-repurpose": {
+            "label": "Dona o riutilizza le scorte in eccesso",
+            "consequence": "Non recuperi denaro, ma liberi spazio e la tua reputazione riceve una piccola spinta."
+          },
+          "order-less-next-time": {
+            "label": "Ricorda semplicemente di ordinare meno la prossima volta",
+            "consequence": "Non cambia nulla adesso, ma hai imparato qualcosa per il tuo prossimo ordine."
+          }
+        }
+      }
+    },
+    "run": {
+      "hubTitle": "Gestisci la Tua Attività",
+      "hubIntro": "La tua azienda esiste ora - ma gestirla bene significa prendere decisioni vere su prezzi, fornitori, contanti e problemi lungo il percorso.",
+      "lockedTitle": "Non Ancora Pronto",
+      "lockedHint": "Finisci prima di costruire la tua attività, poi torna qui per iniziare a gestirla.",
+      "pricingExperimentLink": "Esperimento sui Prezzi",
+      "supplierAndStockLink": "Fornitori e Scorte",
+      "cashFlowLink": "Flusso di Cassa",
+      "problemsLink": "Problemi Aziendali",
+      "problemsProgress": "{done} di {total} risolti",
+      "pricingExperiment": {
+        "intro": "Lo stesso prodotto può avere prezzi diversi. Guarda cosa succede a vendite, ricavi, costi e profitto a tre prezzi diversi.",
+        "priceColumn": "Prezzo",
+        "unitsSoldColumn": "Unità Vendute",
+        "reflectionPrompt": "Guardando i numeri, quale prezzo sceglieresti per un'attività come questa?",
+        "reflectionChoices": {
+          "pick-low-price": {
+            "label": "Il prezzo più basso",
+            "consequence": "Tante persone comprano, ma guadagni meno su ognuna - controlla se il profitto totale è davvero il più alto."
+          },
+          "pick-middle-price": {
+            "label": "Il prezzo medio",
+            "consequence": "Un equilibrio tra quante persone comprano e quanto guadagni da ognuna."
+          },
+          "pick-high-price": {
+            "label": "Il prezzo più alto",
+            "consequence": "Meno persone comprano, ma guadagni di più per vendita - controlla se questo porta a più o meno profitto complessivo."
+          }
+        }
+      },
+      "supplierAndStock": {
+        "intro": "Scegliere un fornitore è un compromesso - raramente c'è una risposta perfetta. Confronta le tue opzioni, poi decidi.",
+        "supplierColumn": "Fornitore",
+        "priceLevelLabel": "Prezzo",
+        "deliverySpeedLabel": "Velocità di Consegna",
+        "minimumOrderLabel": "Ordine Minimo",
+        "qualityLabel": "Qualità",
+        "supplierPrompt": "Quale fornitore sceglierai?",
+        "suppliers": {
+          "supplier-a": {
+            "label": "Fornitore A",
+            "consequence": "Risparmi denaro sui materiali, ma le consegne richiedono più tempo e devi ordinare molto in una volta."
+          },
+          "supplier-b": {
+            "label": "Fornitore B",
+            "consequence": "Ricevi i tuoi materiali velocemente e puoi ordinare piccole quantità, ma paghi di più."
+          },
+          "supplier-c": {
+            "label": "Fornitore C",
+            "consequence": "Paghi un po' di più rispetto all'opzione più economica, ma la consegna è affidabile e la qualità alta."
+          }
+        },
+        "stockPrompt": "Quante scorte ordinerai?",
+        "stockChoices": {
+          "order-a-lot": {
+            "label": "Ordina molto, per sicurezza",
+            "consequence": "Non ti mancherà mai nulla, ma se non vendi tutto, avrai sprecato soldi in scorte invendute."
+          },
+          "order-just-enough": {
+            "label": "Ordina solo quanto pensi di vendere",
+            "consequence": "Un approccio equilibrato - anche se la domanda aumenta improvvisamente, potresti esaurire le scorte."
+          },
+          "order-a-little-and-restock": {
+            "label": "Ordina poco e rifornisciti più tardi se serve",
+            "consequence": "Eviti sprechi, ma se la domanda cresce velocemente potresti perdere qualche vendita prima che arrivi il rifornimento."
+          }
+        }
+      },
+      "cashFlow": {
+        "intro": "Anche un'attività profittevole può avere problemi di denaro se i contanti non arrivano quando servono.",
+        "decisionPrompt": "Cosa farai?",
+        "scenarioText": "Un cliente ordina {orderAmount} del tuo prodotto, ma non pagherà per {days} giorni. Nel frattempo, devi comunque pagare subito {upfrontCosts} per materiali, salari, elettricità e trasporto.",
+        "profitVsCashExplainer": "Il profitto è denaro che hai guadagnato sulla carta. I contanti sono denaro che puoi davvero spendere oggi - e non sono sempre la stessa cosa.",
+        "choices": {
+          "wait-for-payment": {
+            "label": "Aspettare che arrivi il pagamento",
+            "consequence": "Non spendi niente in più, ma avrai pochissimi contanti disponibili finché non arriva il pagamento."
+          },
+          "use-savings-to-cover-costs": {
+            "label": "Usare i risparmi per coprire i costi ora",
+            "consequence": "Le tue bollette vengono pagate in tempo, anche se i tuoi risparmi saranno più bassi finché non arriva il pagamento."
+          },
+          "ask-for-partial-payment-upfront": {
+            "label": "Chiedere al cliente di pagare una parte in anticipo",
+            "consequence": "Ricevi subito un po' di contanti, che aiuta a coprire i costi mentre aspetti il resto."
+          }
+        }
+      }
+    },
+    "aiLab": {
+      "hubTitle": "Laboratorio IA per Aziende",
+      "hubLink": "Laboratorio IA per Aziende",
+      "simulatedAiLabel": "Assistente IA Simulato (non è IA vera)",
+      "askAi": {
+        "title": "In Cosa Può Aiutare l'IA?",
+        "intro": "Gli strumenti di IA possono aiutare un imprenditore a pensare - ma non prendono decisioni al posto tuo. Tocca una domanda per vedere come potrebbe rispondere un aiutante IA.",
+        "questions": {
+          "brainstorm-ideas": {
+            "question": "Puoi aiutarmi a trovare idee per un'attività?",
+            "answer": "Ecco alcune direzioni su cui pensare: risolvere un problema che noti spesso, migliorare qualcosa che le persone già usano, o combinare due cose che ti piacciono. Quale di queste ti sembra più tua?"
+          },
+          "customer-research-questions": {
+            "question": "Quali domande dovrei fare ai miei clienti?",
+            "answer": "Prova a chiedere: Quale problema speri che questo risolva? Cosa ti farebbe scegliere questo invece di qualcos'altro? Qual è l'unica cosa che ti farebbe comprare di nuovo?"
+          },
+          "marketing-ideas": {
+            "question": "Come posso far sapere a più persone della mia attività?",
+            "answer": "Alcune idee: chiedi ai clienti soddisfatti di parlarne a un amico, fai un poster semplice e chiaro, oppure offri una piccola offerta speciale ai clienti alla prima visita."
+          },
+          "analyse-feedback": {
+            "question": "Come capisco il feedback dei clienti?",
+            "answer": "Prova a raggruppare i commenti in temi - prezzo, qualità, velocità, cordialità - poi guarda quale tema ricorre più spesso. Di solito è quello su cui vale la pena agire per primo."
+          },
+          "compare-options": {
+            "question": "Come confronto due fornitori?",
+            "answer": "Elenca cosa ti importa di più - prezzo, velocità, qualità, affidabilità - poi confronta ogni fornitore su questa stessa lista, uno accanto all'altro."
+          }
+        }
+      },
+      "promptQuality": {
+        "title": "Fare Buone Domande",
+        "intro": "Il modo in cui fai una domanda a un aiutante IA cambia quanto può essere utile la sua risposta.",
+        "question": "Quale di queste è la domanda più utile da fare a un aiutante IA?",
+        "options": {
+          "poor": "Aiuta la mia attività.",
+          "better": "Le vendite della mia panetteria sono scese da 80 a 50 ordini a settimana. Dammi possibili motivi da indagare.",
+          "best": "Ecco i miei numeri di vendita, prezzi e feedback dei clienti. Quali schemi dovrei esaminare, e cosa dovrei controllare prima di decidere qualsiasi cosa?"
+        }
+      },
+      "wrongAnswer": {
+        "title": "L'IA Può Sbagliare",
+        "intro": "Un aiutante IA può sembrare sicuro di sé ed essere comunque sbagliato. Vale sempre la pena controllare la sua risposta con le tue informazioni reali.",
+        "aiSuggestion": "In base alle tendenze generali, le tue vendite probabilmente stanno calando perché il tuo prezzo è troppo alto. Dovresti abbassarlo.",
+        "realData": "Ma i tuoi dati di vendita in realtà mostrano qualcosa di diverso: il tuo prezzo non è cambiato da mesi, e le vendite hanno iniziato a calare solo dopo che è apparso un nuovo concorrente nelle vicinanze.",
+        "choices": {
+          "trust-the-ai": {
+            "label": "Fidarsi del suggerimento dell'IA e abbassare il prezzo",
+            "consequence": "Potresti abbassare il prezzo per il motivo sbagliato - la vera causa sembra essere il nuovo concorrente, non il tuo prezzo."
+          },
+          "check-the-data-first": {
+            "label": "Controllare i tuoi dati prima di decidere",
+            "consequence": "Buon istinto - i tuoi dati indicano una causa diversa da quella suggerita dall'IA, quindi controllare prima ti aiuta a evitare la soluzione sbagliata."
+          },
+          "ask-ai-to-explain": {
+            "label": "Chiedere all'IA di spiegare perché lo pensa",
+            "consequence": "Chiedere il suo ragionamento può rivelare che non ha davvero guardato bene i tuoi dati - un'abitudine utile prima di fidarsi di qualsiasi suggerimento."
+          }
+        }
+      },
+      "privacy": {
+        "title": "IA e Privacy",
+        "intro": "Non condividere mai informazioni personali reali - il tuo nome, indirizzo, numero di telefono o dettagli privati sui clienti - con nessuno strumento IA.",
+        "quizQuestion": "Quale di queste è sicura da dire a un aiutante IA sulla tua attività?",
+        "quizOptions": {
+          "product-name": "Il nome del tuo prodotto",
+          "real-address": "Il tuo indirizzo di casa",
+          "customer-phone-number": "Il numero di telefono di un cliente"
+        }
+      }
+    },
+    "rescueGrow": {
+      "hubTitle": "Salva e Cresci",
+      "hubIntro": "Le aziende vere affrontano momenti difficili e grandi decisioni. Fai pratica nel diagnosticare i problemi, decidere se cambiare direzione, e scegliere come - o se - crescere.",
+      "hubLink": "Salva e Cresci",
+      "lockedTitle": "Non Ancora Pronto",
+      "lockedHint": "Prova almeno un Problema Aziendale in Gestisci la Tua Attività prima, poi torna qui.",
+      "pivotLink": "Cambio di Rotta",
+      "growLink": "Crescere o Restare Piccoli",
+      "ethicsLink": "Etica Aziendale",
+      "businessRescueLink": "Salvataggio Aziendale",
+      "reviewLink": "Bilancio Finale",
+      "pivot": {
+        "intro": "A volte un'attività deve cambiare direzione per avere successo. Qui non c'è un'unica risposta giusta - solo compromessi.",
+        "situation": "{businessName} non sta crescendo come speravi. Cosa farai?",
+        "choices": {
+          "keep-model": {
+            "label": "Lascia tutto com'è per ora",
+            "consequence": "Niente cambia subito - a volte è la scelta giusta, e a volte un'attività ha bisogno di più tempo prima di decidere di cambiare."
+          },
+          "change-customer": {
+            "label": "Prova a raggiungere un gruppo diverso di clienti",
+            "consequence": "La tua attività ora si concentra su un nuovo gruppo di clienti - un vero nuovo inizio, con le sue incognite."
+          },
+          "change-product": {
+            "label": "Cambia quello che vendi davvero",
+            "consequence": "La tua attività ora offre qualcosa di diverso - un vero cambio di rotta, con cose nuove da imparare su cosa funziona."
+          },
+          "stop-idea": {
+            "label": "Decidi di fermare questa idea",
+            "consequence": "Non ogni idea deve continuare per sempre - riconoscere quando fermarsi è anche una vera competenza imprenditoriale."
+          }
+        }
+      },
+      "grow": {
+        "intro": "Far crescere un'attività aumenta quanto potresti guadagnare - ma anche quanto potresti rischiare. Restare piccoli è comunque una scelta del tutto valida.",
+        "situation": "La tua attività se la sta cavando bene. Vuoi farla crescere, o mantenerla così com'è?",
+        "choices": {
+          "stay-small": {
+            "label": "Mantieni l'attività della stessa dimensione",
+            "consequence": "Niente cambia - una scelta stabile e a basso rischio che spesso è tanto sensata quanto crescere."
+          },
+          "hire-help": {
+            "label": "Trova qualcuno che ti aiuti",
+            "consequence": "Puoi produrre e vendere di più, ma pagare per l'aiuto costa denaro in anticipo."
+          },
+          "buy-equipment": {
+            "label": "Compra attrezzature migliori",
+            "consequence": "I tuoi prodotti migliorano e puoi produrne di più, anche se l'attrezzatura stessa costa denaro ora."
+          },
+          "expand-to-new-market": {
+            "label": "Prova a vendere a un gruppo più grande di clienti",
+            "consequence": "Potresti raggiungere molte più persone, ma allargarti può significare meno attenzione personale per ogni cliente."
+          }
+        }
+      },
+      "ethics": {
+        "scenarios": {
+          "misleading-ad": {
+            "situation": "Potresti descrivere il tuo prodotto in un modo che lo faccia sembrare migliore di quanto sia davvero.",
+            "choices": {
+              "honest-ad": {
+                "label": "Descrivilo onestamente, anche se suona meno entusiasmante",
+                "consequence": "I clienti ottengono esattamente quello che si aspettano - una fiducia così dura di solito a lungo."
+              },
+              "slightly-exaggerate": {
+                "label": "Esagera un po' per farlo sembrare migliore",
+                "consequence": "Qualche persona in più compra all'inizio, ma alcuni potrebbero rimanere delusi quando non corrisponde del tutto."
+              },
+              "mislead-customers": {
+                "label": "Descrivilo in un modo che sai non essere del tutto vero",
+                "consequence": "Potresti vendere di più subito, ma i clienti che si sentono ingannati spesso non tornano - o lo raccontano ad altri."
+              }
+            }
+          },
+          "hiding-a-problem": {
+            "situation": "Hai notato un piccolo problema con il tuo prodotto dopo averne già venduti diversi.",
+            "choices": {
+              "tell-customers": {
+                "label": "Informa del problema i clienti che l'hanno comprato",
+                "consequence": "È scomodo ammetterlo, ma i clienti di solito apprezzano l'onestà più di quanto si dispiacciano per il problema stesso."
+              },
+              "fix-quietly": {
+                "label": "Risolvilo semplicemente in silenzio per i clienti futuri",
+                "consequence": "I clienti futuri ottengono un prodotto migliore, anche se chi ha già comprato non lo scoprirà mai."
+              },
+              "hide-it": {
+                "label": "Non dire nulla e sperare che nessuno se ne accorga",
+                "consequence": "Se viene notato più tardi, i clienti potrebbero sentire che è stato nascosto loro di proposito - il che può costare più fiducia del problema originale."
+              }
+            }
+          },
+          "cheap-questionable-supplier": {
+            "situation": "È disponibile un fornitore molto più economico, ma hai sentito che tratta male i suoi lavoratori.",
+            "choices": {
+              "choose-ethical-supplier": {
+                "label": "Scegli un fornitore che sai trattare bene le persone",
+                "consequence": "Paghi un po' di più, ma puoi sentirti bene su come viene fatto il tuo prodotto."
+              },
+              "choose-cheap-supplier": {
+                "label": "Scegli comunque il fornitore più economico",
+                "consequence": "Risparmi denaro, ma se i clienti lo scoprissero mai, potrebbe danneggiare seriamente come vedono la tua attività."
+              },
+              "ask-questions-first": {
+                "label": "Fai altre domande prima di decidere",
+                "consequence": "Buon istinto - scoprire di più prima di decidere ti aiuta a fare una scelta con cui ti senti a tuo agio."
+              }
+            }
+          }
+        }
+      },
+      "businessRescue": {
+        "introStory": "Benvenuto alla Fattoria delle Trote. Questa piccola attività di pesce va avanti da un po', ma sta perdendo denaro e ha bisogno del tuo aiuto. Ecco come stanno le cose adesso:",
+        "startButton": "Inizia il Salvataggio",
+        "outcomes": {
+          "improved": {
+            "title": "L'Attività È Migliorata!",
+            "text": "Le tue scelte hanno aiutato a cambiare le cose - i ricavi sono cresciuti, i costi sono sotto controllo, e i clienti sono più soddisfatti di prima."
+          },
+          "stabilised": {
+            "title": "L'Attività Si È Stabilizzata",
+            "text": "Non è perfetto, ma l'attività è in una posizione più stabile rispetto a quando hai iniziato - un passo solido nella direzione giusta."
+          },
+          "needs-pivot": {
+            "title": "Questa Attività Potrebbe Aver Bisogno di un Cambiamento Più Grande",
+            "text": "Le tue scelte hanno aiutato un po', ma la fiducia è calata più del previsto - a volte un'attività ha bisogno di un cambiamento di direzione più grande, non solo piccoli aggiustamenti."
+          },
+          "still-struggling": {
+            "title": "Ancora in Difficoltà",
+            "text": "L'attività non si è ancora ripresa - ed è anche questo un risultato realistico. Le aziende vere non si riprendono sempre in fretta, anche con buone decisioni."
+          }
+        }
+      },
+      "review": {
+        "intro": "Prenditi un momento per guardare indietro alla tua attività e pensare a cosa hai imparato.",
+        "whatWorkedLabel": "Cosa ha funzionato bene?",
+        "whatWorkedPlaceholder": "Per esempio: Ai clienti è piaciuta la mia idea di marketing.",
+        "whatDidntWorkLabel": "Cosa non ha funzionato?",
+        "whatDidntWorkPlaceholder": "Per esempio: Il mio prezzo forse era troppo alto all'inizio.",
+        "whatWouldChangeLabel": "Cosa cambieresti la prossima volta?",
+        "whatWouldChangePlaceholder": "Per esempio: Testerei la mia idea prima di spendere tutti i miei soldi."
+      }
+    }
+  },
+  "leadershipQuest": {
+    "hubTitle": "Missione Leadership",
+    "hubTagline": "Guida una squadra attraverso sfide vere - una scelta alla volta.",
+    "hubIntro": "Stai per diventare la guida di una piccola squadra. Avranno bisogno che tu li ascolti, prenda decisioni e li aiuti a superare qualsiasi cosa capiti.",
+    "introStory": "Conosci la tua squadra, affronta la tua prima missione e scopri che tipo di leader diventerai - una scelta alla volta.",
+    "missionProgress": "Missione {current} di {total}",
+    "labLink": "Laboratorio di Leadership",
+    "labTitle": "Laboratorio di Leadership",
+    "labIntro": "Brevi situazioni per esercitarti nella leadership, quando vuoi.",
+    "profileLink": "Profilo da Leader",
+    "profileLinkLockedHint": "Profilo da Leader (completa prima la Sfida Finale)",
+    "badgesEarnedTitle": "Distintivi Guadagnati",
+    "noBadgesYetHint": "Completa le missioni per iniziare a guadagnare distintivi.",
+    "entrepreneurQuestLinkTitle": "Hai costruito un'attività. Ora hai una squadra.",
+    "entrepreneurQuestLinkText": "Le capacità di leadership possono aiutarti quando la tua attività cresce e inizi a lavorare con altre persone.",
+    "resetConfirm": "Sei sicuro di voler azzerare i tuoi progressi nella Missione Leadership? Non si può annullare.",
+    "resetButton": "Azzera Missione Leadership",
+    "continueButton": "Continua",
+    "finishMissionButton": "Termina Missione",
+    "missionCompleteBadge": "Missione completata",
+    "continueToNextMissionButton": "Vai alla Prossima Missione",
+    "backToTeamHub": "Torna alla Base della Squadra",
+    "teamStatus": {
+      "title": "Stato della Squadra",
+      "trust": "Fiducia",
+      "morale": "Morale",
+      "progress": "Progresso",
+      "energy": "Energia"
+    },
+    "characters": {
+      "nadia": {
+        "name": "Nadia",
+        "personality": "Piena di idee e sempre tre passi avanti a tutti.",
+        "strength": "Ha idee creative a cui nessun altro avrebbe pensato.",
+        "challenge": "Si entusiasma così tanto per le sue idee che a volte interrompe gli altri.",
+        "interest": "Disegnare fumetti e inventare piccoli aggeggi.",
+        "communicationStyle": "Veloce, entusiasta, e piena di \"e se provassimo a...\""
+      },
+      "oren": {
+        "name": "Oren",
+        "personality": "Attento e preciso - nota dettagli che agli altri sfuggono.",
+        "strength": "Bravissimo a costruire e riparare le cose per bene.",
+        "challenge": "Ha spesso ottime idee ma non parla facilmente in un grande gruppo.",
+        "interest": "Smontare le cose per vedere come funzionano, e risolvere rompicapi.",
+        "communicationStyle": "Silenzioso in gruppo, ma si apre se gli chiedi direttamente."
+      },
+      "priya": {
+        "name": "Priya",
+        "personality": "Calorosa, espressiva, e bravissima a parlare con chiunque.",
+        "strength": "Sa spiegare le cose chiaramente e mette le persone a proprio agio.",
+        "challenge": "Si entusiasma per l'idea successiva prima ancora di finire l'ultima.",
+        "interest": "Recitare, raccontare storie e conoscere nuove persone.",
+        "communicationStyle": "Parla molto, con energia - a volte ha bisogno di un promemoria gentile per concludere."
+      },
+      "theo": {
+        "name": "Theo",
+        "personality": "Stabile, organizzato, e tiene sempre traccia del piano.",
+        "strength": "Mantiene la squadra nei tempi e ricorda ogni dettaglio.",
+        "challenge": "Trova stressanti i cambiamenti improvvisi al piano.",
+        "interest": "Fare liste, programmi, e fare lunghe passeggiate.",
+        "communicationStyle": "Calmo e preciso - preferisce essere avvisato prima che le cose cambino."
+      }
+    },
+    "missions": {
+      "meet-your-team": {
+        "title": "Conosci la Tua Squadra",
+        "alertText": "",
+        "dialogue": [
+          {
+            "character": "nadia",
+            "text": "Ciao! Sono FELICISSIMA che tu sia qui - ho già una decina di idee per il nostro primo progetto!"
+          },
+          {
+            "character": "oren",
+            "text": "...Ciao. Sono Oren. Io vorrei soprattutto iniziare."
+          },
+          {
+            "character": "priya",
+            "text": "Benvenuto! Sinceramente, penso che questa squadra sarà fantastica con te a guidarci."
+          },
+          {
+            "character": "theo",
+            "text": "Ciao. Ho preparato un piccolo programma per oggi, se può essere utile."
+          }
+        ],
+        "tasks": {
+          "come-up-with-ideas": "Trovare idee per il nostro progetto",
+          "fix-something-broken": "Riparare qualcosa che non funziona bene",
+          "talk-to-a-visitor": "Parlare con un visitatore e spiegare cosa stiamo facendo",
+          "keep-track-of-the-plan": "Tenere traccia del piano e del programma"
+        },
+        "outro": "Ora conosci un po' ogni compagno di squadra - e sai chi è bravo in cosa.",
+        "events": {
+          "meet-your-team-reflection": {
+            "situation": "Il tuo primo giorno alla guida di questa squadra è iniziato bene. Come ti senti a riguardo?",
+            "choices": [
+              {
+                "key": "excited",
+                "label": "Entusiasta - iniziamo subito!",
+                "consequence": "La tua energia contagia un po' la squadra."
+              },
+              {
+                "key": "nervous-but-ready",
+                "label": "Un po' nervoso, ma pronto.",
+                "consequence": "È sincero - ed è del tutto normale per chi guida per la prima volta."
+              },
+              {
+                "key": "not-sure-yet",
+                "label": "Non ancora sicuro - lo capirò strada facendo.",
+                "consequence": "È un buon modo per iniziare. Imparerai molto dalla tua squadra."
+              }
+            ]
+          }
+        }
+      },
+      "first-challenge": {
+        "title": "La Prima Sfida",
+        "alertText": "La tua squadra ha il suo primo vero progetto - e deve essere completato.",
+        "dialogue": [
+          {
+            "character": "theo",
+            "text": "Ok, abbiamo un progetto. Ogni parte ha bisogno di qualcuno che se ne occupi."
+          },
+          {
+            "character": "nadia",
+            "text": "Ho già delle idee per il poster!"
+          },
+          {
+            "character": "priya",
+            "text": "Potrei parlare con le persone che visitano il nostro stand."
+          }
+        ],
+        "tasks": {
+          "design-the-poster": "Progettare il poster",
+          "build-the-display": "Costruire lo stand",
+          "explain-it-to-visitors": "Spiegarlo ai visitatori",
+          "make-the-plan": "Fare il piano e tenere tutti nei tempi"
+        },
+        "outro": "Poiché hai assegnato ogni compito alla persona davvero brava in quello, il progetto procede senza intoppi."
+      },
+      "everyone-has-an-idea": {
+        "title": "Tutti Hanno un'Idea",
+        "alertText": "🚨 Due compagni di squadra non riescono a mettersi d'accordo - ed entrambi vogliono che decida tu.",
+        "dialogue": [
+          {
+            "character": "nadia",
+            "text": "La mia idea è molto più interessante - dovremmo farla a modo mio!"
+          },
+          {
+            "character": "oren",
+            "text": "...La mia sarebbe in realtà più facile da portare a termine bene."
+          }
+        ],
+        "events": {
+          "everyone-has-an-idea-choice": {
+            "situation": "Nadia e Oren credono entrambi fortemente nella propria idea. Aspettano che tu decida.",
+            "choices": [
+              {
+                "key": "pick-one-idea",
+                "label": "Scegliere l'idea di Nadia - è la più interessante.",
+                "consequence": "Nadia è al settimo cielo. Oren diventa silenzioso e non dice quasi più nulla per il resto della giornata."
+              },
+              {
+                "key": "combine-both-ideas",
+                "label": "Trovare un modo per combinare entrambe le idee.",
+                "consequence": "Ci vuole un po' più di tempo per definirla, ma entrambi si sentono ascoltati."
+              },
+              {
+                "key": "let-them-decide-together",
+                "label": "Chiedere a Nadia e Oren di parlarne insieme.",
+                "consequence": "Ne discutono da soli - e tornano con un piano che piace davvero a entrambi."
+              },
+              {
+                "key": "go-with-your-own-idea",
+                "label": "Proporre una tua idea completamente diversa.",
+                "consequence": "Risolve il disaccordo, ma nessuno dei due sente che la propria idea abbia contato qualcosa."
+              }
+            ]
+          }
+        }
+      },
+      "missing-task": {
+        "title": "Il Compito Mancante",
+        "alertText": "🚨 Un compito non è ancora finito - e la scadenza è vicina.",
+        "dialogue": [
+          {
+            "character": "theo",
+            "text": "Dovremmo essere pronti per domani. La parte di Oren non è ancora finita."
+          },
+          {
+            "character": "priya",
+            "text": "Forse è successo qualcosa? Non ne sono sicura."
+          }
+        ],
+        "investigateLabel": "Scopri cosa sta succedendo prima di decidere.",
+        "investigate": {
+          "ask-the-teammate": "Chiedi direttamente a Oren. Dice che non era sicuro di come iniziare, e non voleva ammetterlo.",
+          "check-the-shared-plan": "Controlli il piano condiviso. La parte di Oren non gli era mai stata spiegata chiaramente.",
+          "ask-another-teammate": "Priya racconta che Oren sembrava confuso già all'inizio della settimana, ma non aveva detto nulla."
+        },
+        "events": {
+          "missing-task-choice": {
+            "situation": "Ora sai qualcosa in più su cosa è successo. Cosa fai?",
+            "choices": [
+              {
+                "key": "ask-what-happened",
+                "label": "Parlare con Oren e aiutarlo a capire cosa serve fare.",
+                "consequence": "Oren finisce il compito con il tuo aiuto, e la prossima volta si sentirà più a suo agio a chiedere."
+              },
+              {
+                "key": "do-it-yourself-quietly",
+                "label": "Finire il compito tu stesso, senza dire nulla.",
+                "consequence": "Il compito viene finito in fretta, ma Oren non scopre mai cosa gli è sfuggito - né ha la possibilità di rimediare."
+              },
+              {
+                "key": "remind-them-firmly",
+                "label": "Ricordare fermamente a Oren che la scadenza è domani.",
+                "consequence": "Il compito si sblocca, ma Oren continua a non capire cosa sia andato storto la prima volta."
+              },
+              {
+                "key": "wait-and-see",
+                "label": "Aspettare e vedere se si risolve da solo.",
+                "consequence": "La scadenza si avvicina, e nulla cambia."
+              }
+            ]
+          }
+        }
+      },
+      "big-mistake": {
+        "title": "Il Grande Errore",
+        "alertText": "🚨 Qualcosa è andato storto - e non è cosa da poco.",
+        "dialogue": [
+          {
+            "character": "priya",
+            "text": "Io... credo di aver inviato la versione sbagliata al cliente. Quella piena di errori."
+          },
+          {
+            "character": "oren",
+            "text": "Ti stanno guardando tutti."
+          }
+        ],
+        "events": {
+          "big-mistake-choice": {
+            "situation": "Priya ha fatto un vero errore, e tutti osservano cosa deciderai di fare.",
+            "choices": [
+              {
+                "key": "blame-publicly",
+                "label": "Far notare l'errore davanti a tutti.",
+                "consequence": "La squadra lo sistema in fretta - ma Priya sembra a disagio, e sembra nervosa all'idea di farsi sentire di nuovo."
+              },
+              {
+                "key": "fix-it-yourself",
+                "label": "Sistemarlo tu stesso, senza dire nulla, e andare avanti.",
+                "consequence": "Viene risolto in fretta, ma Priya non ha mai la possibilità di capire cosa sia andato storto."
+              },
+              {
+                "key": "talk-privately",
+                "label": "Parlare con Priya in privato e capire cosa è successo.",
+                "consequence": "Ci vuole un po' più di tempo, ma Priya si sente sostenuta - e la volta dopo sta più attenta."
+              },
+              {
+                "key": "ignore-it",
+                "label": "Decidere che non è un grosso problema e ignorarlo.",
+                "consequence": "L'errore rimane senza correzione, e il cliente se ne accorge."
+              }
+            ]
+          }
+        }
+      },
+      "angry-customer": {
+        "title": "Il Cliente Arrabbiato",
+        "alertText": "🚨 Un cliente è sconvolto per qualcosa che la tua squadra ha realizzato.",
+        "dialogue": [
+          {
+            "character": "theo",
+            "text": "C'è un cliente al telefono. Non sembra affatto contento."
+          }
+        ],
+        "events": {
+          "angry-customer-choice": {
+            "situation": "Il cliente dice che il lavoro della tua squadra non era quello che aveva chiesto.",
+            "choices": [
+              {
+                "key": "listen-first",
+                "label": "Ascoltare con attenzione cosa è andato storto prima di rispondere.",
+                "consequence": "Il cliente si sente ascoltato, e tu ti fai un'idea più chiara di cosa sia successo davvero."
+              },
+              {
+                "key": "apologise-and-fix-it",
+                "label": "Scusarti e offrirti di risolvere subito.",
+                "consequence": "Il cliente si sente sollevato, e il problema viene risolto in fretta."
+              },
+              {
+                "key": "explain-why-you-were-right",
+                "label": "Spiegare perché la scelta della tua squadra era in realtà quella giusta.",
+                "consequence": "Il cliente non si sente affatto meglio, e non è ancora sicuro che tu abbia capito il problema."
+              },
+              {
+                "key": "let-a-teammate-handle-it",
+                "label": "Lasciare che sia Priya, bravissima con le persone, a gestire la chiamata.",
+                "consequence": "Priya calma il cliente, e la squadra vede che ti fidi di loro anche nei momenti difficili."
+              }
+            ]
+          }
+        }
+      },
+      "better-idea": {
+        "title": "L'Idea Migliore",
+        "alertText": "🚨 Qualcuno ha appena proposto un'idea migliore della tua.",
+        "dialogue": [
+          {
+            "character": "nadia",
+            "text": "In realtà... e se lo facessimo in un modo completamente diverso? Penso che potrebbe funzionare meglio."
+          }
+        ],
+        "events": {
+          "better-idea-choice": {
+            "situation": "L'idea di Nadia è davvero migliore di quella che avevi pianificato inizialmente.",
+            "choices": [
+              {
+                "key": "use-their-idea",
+                "label": "Scegliere l'idea di Nadia invece della tua.",
+                "consequence": "Il progetto ne esce rafforzato, e Nadia si sente davvero valorizzata."
+              },
+              {
+                "key": "combine-ideas",
+                "label": "Combinare le parti migliori di entrambe le idee.",
+                "consequence": "Ci vuole un po' più di lavoro, ma il risultato è ancora migliore."
+              },
+              {
+                "key": "stick-with-your-idea",
+                "label": "Restare fedele al tuo piano originale.",
+                "consequence": "Il progetto procede come previsto, ma Nadia si chiede se le sue idee siano davvero ben accolte."
+              },
+              {
+                "key": "ask-the-team-to-vote",
+                "label": "Chiedere a tutta la squadra quale idea preferisce.",
+                "consequence": "La squadra si sente coinvolta nella decisione, qualunque idea vinca."
+              }
+            ]
+          }
+        }
+      },
+      "team-conflict": {
+        "title": "Il Conflitto in Squadra",
+        "alertText": "🚨 Due compagni di squadra stanno litigando, e questo rallenta tutti.",
+        "dialogue": [
+          {
+            "character": "priya",
+            "text": "Non mi ascolti mai!"
+          },
+          {
+            "character": "theo",
+            "text": "Non è giusto - penso solo che vediamo la cosa in modo diverso."
+          }
+        ],
+        "spotScenario": "Leggi cosa si dicono Priya e Theo. Quali parti stanno peggiorando le cose, invece di migliorarle?",
+        "outro": "Hai individuato cosa sta peggiorando le cose. Ora è il momento di intervenire.",
+        "events": {
+          "team-conflict-choice": {
+            "situation": "Priya e Theo continuano a non essere d'accordo. Cosa fai?",
+            "choices": [
+              {
+                "key": "hear-both-sides",
+                "label": "Chiedere a ciascuno di spiegare il proprio punto di vista, uno alla volta.",
+                "consequence": "Entrambi si sentono ascoltati, e iniziano a capire il punto di vista dell'altro."
+              },
+              {
+                "key": "pick-a-side",
+                "label": "Decidere chi ha ragione e dire all'altro di lasciar perdere.",
+                "consequence": "La discussione si ferma, ma chi ha \"perso\" si sente trattato ingiustamente."
+              },
+              {
+                "key": "find-common-ground",
+                "label": "Aiutarli a trovare un punto d'incontro su cui entrambi possano essere d'accordo.",
+                "consequence": "Ci vuole un po' di pazienza, ma finiscono la conversazione in buoni rapporti."
+              },
+              {
+                "key": "tell-them-to-stop-and-move-on",
+                "label": "Dire loro di smettere di litigare e tornare al lavoro.",
+                "consequence": "Il lavoro continua, ma il vero disaccordo non viene mai risolto."
+              }
+            ]
+          }
+        }
+      },
+      "motivation-problem": {
+        "title": "Il Problema della Motivazione",
+        "alertText": "🚨 La tua squadra sta perdendo energia, e non sei sicuro del perché.",
+        "dialogue": [
+          {
+            "character": "oren",
+            "text": "Non lo so... oggi non ho proprio voglia di farlo."
+          }
+        ],
+        "spotScenario": "Pensa a cosa è successo davvero alla tua squadra questa settimana. Cosa c'è realmente dietro?",
+        "outro": "Ora hai un'idea più chiara di cosa sta succedendo davvero.",
+        "events": {
+          "motivation-problem-choice": {
+            "situation": "Hai capito cosa sta davvero influenzando la squadra. Cosa fai adesso?",
+            "choices": [
+              {
+                "key": "explain-the-goal-again",
+                "label": "Spiegare di nuovo l'obiettivo, con chiarezza, a tutta la squadra.",
+                "consequence": "Per qualche compagno di squadra che non era sicuro verso cosa stesse lavorando, qualcosa fa clic."
+              },
+              {
+                "key": "check-in-with-each-person",
+                "label": "Fare un check-in con ogni persona, uno a uno.",
+                "consequence": "Un paio di compagni di squadra si aprono, dicendo di essersi sentiti trascurati ultimamente."
+              },
+              {
+                "key": "push-through-and-keep-going",
+                "label": "Insistere e andare avanti - la scadenza non aspetta.",
+                "consequence": "Il progetto va avanti, ma l'energia della squadra resta bassa."
+              },
+              {
+                "key": "take-a-short-break",
+                "label": "Concedere alla squadra una breve pausa prima di continuare.",
+                "consequence": "Tutti si sentono un po' meglio, anche se il problema di fondo è ancora lì."
+              }
+            ]
+          }
+        }
+      },
+      "the-deadline": {
+        "title": "La Scadenza",
+        "alertText": "🚨 La scadenza si è appena avvicinata - e non c'è modo di finire tutto.",
+        "dialogue": [
+          {
+            "character": "theo",
+            "text": "La scadenza è stata anticipata. Non possiamo più fare tutte e cinque le cose della lista."
+          }
+        ],
+        "tasks": {
+          "finish-the-main-feature": "Finire la funzionalità principale",
+          "fix-the-known-problem": "Risolvere il problema che già conoscete",
+          "polish-the-design": "Rifinire il design",
+          "write-the-instructions": "Scrivere le istruzioni",
+          "extra-nice-to-have": "Aggiungere un extra piacevole ma non essenziale"
+        },
+        "outro": "Hai deciso cosa conta di più - ora la squadra deve sentirtelo dire.",
+        "events": {
+          "the-deadline-choice": {
+            "situation": "Hai definito le nuove priorità. Come condividi il piano con la squadra?",
+            "choices": [
+              {
+                "key": "explain-the-new-plan-to-everyone",
+                "label": "Spiegare il nuovo piano e perché lo hai scelto.",
+                "consequence": "La squadra capisce le ragioni, anche nelle parti che non li entusiasmano."
+              },
+              {
+                "key": "just-tell-people-what-to-drop",
+                "label": "Dire semplicemente alle persone cosa eliminare, in fretta.",
+                "consequence": "Il piano procede velocemente, ma un paio di compagni di squadra si sentono un po' spiazzati."
+              },
+              {
+                "key": "ask-the-team-what-to-cut",
+                "label": "Chiedere alla squadra cosa pensa si dovrebbe eliminare.",
+                "consequence": "Ci vuole un po' più di tempo, ma tutti si sentono parte della decisione."
+              }
+            ]
+          }
+        }
+      },
+      "pressure-test": {
+        "title": "La Prova di Pressione",
+        "alertText": "🚨 Sta succedendo tutto insieme.",
+        "dialogue": [
+          {
+            "character": "priya",
+            "text": "Il cliente ha appena cambiato idea su cosa vuole. E poi, oggi Oren non c'è. E poi - anche quel coso lì si è rotto ora?"
+          }
+        ],
+        "buckets": {
+          "deal-with-first": "Da affrontare per prima cosa",
+          "deal-with-next": "Da affrontare subito dopo",
+          "can-wait": "Può aspettare"
+        },
+        "problems": {
+          "a-teammate-is-stuck-and-blocked": "Un compagno di squadra è bloccato e non può andare avanti senza aiuto",
+          "the-customer-is-waiting-for-an-answer": "Il cliente è in attesa di una risposta",
+          "one-teammate-seems-upset": "Un compagno di squadra sembra sconvolto perché sta succedendo tutto insieme",
+          "a-small-typo-in-the-document": "C'è un piccolo errore di battitura in un documento",
+          "an-idea-for-a-later-improvement": "Qualcuno ha proposto un'idea per più avanti"
+        },
+        "outro": "Hai capito cosa richiede la tua attenzione adesso - e cosa può aspettare.",
+        "events": {
+          "pressure-test-reflection": {
+            "situation": "Con tutto sistemato, come stai gestendo la pressione?",
+            "choices": [
+              {
+                "key": "stay-calm-and-work-the-list",
+                "label": "Restare calmo e affrontare la lista, una cosa alla volta.",
+                "consequence": "La squadra nota che resti stabile, e questo aiuta anche loro a restare stabili."
+              },
+              {
+                "key": "panic-a-little-but-push-through",
+                "label": "Sentirti un po' in ansia, ma andare avanti comunque.",
+                "consequence": "Ce la fai, anche se non è stato il tuo momento più calmo."
+              },
+              {
+                "key": "ask-the-team-for-help",
+                "label": "Chiedere alla squadra di aiutarti ad affrontarlo insieme.",
+                "consequence": "Condividere il peso rende la pressione più leggera per tutti, te compreso."
+              }
+            ]
+          }
+        }
+      },
+      "final-challenge": {
+        "title": "La Sfida Finale",
+        "alertText": "🚨 Questo è il grande momento - il progetto che mette insieme tutto.",
+        "dialogue": [
+          {
+            "character": "nadia",
+            "text": "Ci siamo - l'ultimo grande progetto! Ho così tante idee."
+          },
+          {
+            "character": "theo",
+            "text": "Facciamo un piano e usiamo i punti di forza di tutti."
+          },
+          {
+            "character": "priya",
+            "text": "Non vedo l'ora di mostrare alle persone cosa abbiamo costruito."
+          }
+        ],
+        "tasks": {
+          "come-up-with-the-idea": "Trovare la grande idea",
+          "build-the-thing": "Costruirla",
+          "present-it-to-people": "Presentarla alle persone",
+          "keep-everyone-on-track": "Tenere tutti sulla giusta strada"
+        },
+        "outro": "Con ognuno che fa quello in cui è più bravo, il progetto sta davvero prendendo forma.",
+        "events": {
+          "final-challenge-choice-1": {
+            "situationByTag": {
+              "the-listener": "Hai passato tutto questo percorso ad ascoltare con attenzione prima di decidere. Mentre il progetto finale prende forma, una parte ha ancora bisogno di una decisione. Chiedi in giro per primo, o decidi da solo?",
+              "the-problem-solver": "Sei sempre stato rapido nel trovare una soluzione quando qualcosa non andava. Ora nel progetto finale spunta un piccolo problema. Ti butti a risolverlo, o controlli prima con la squadra?",
+              "the-team-builder": "Hai costruito una fiducia vera in questa squadra. Mentre il progetto finale prende forma, una parte ha ancora bisogno di una decisione. Ti fidi che la squadra se ne occupi, o controlli tu stesso?",
+              "the-calm-thinker": "Sei rimasto stabile in momenti davvero stressanti. Ora, con il traguardo vicino, una parte del progetto ha ancora bisogno di una decisione. Cosa fai?",
+              "the-encourager": "Hai preso l'abitudine di far sentire forte la tua squadra. Mentre il progetto finale prende forma, una parte ha ancora bisogno di una decisione. Cosa fai?",
+              "the-big-picture-thinker": "Hai spesso guardato al quadro generale invece di restare bloccato sui piccoli dettagli. Ora, con il progetto finale che prende forma, una parte ha ancora bisogno di una decisione. Cosa fai?",
+              "none": "Mentre il progetto finale prende forma, una parte ha ancora bisogno di una decisione. Cosa fai?"
+            },
+            "choices": [
+              {
+                "key": "trust-the-team-to-handle-it",
+                "label": "Fidarti che la squadra se ne occupi senza controllare.",
+                "consequence": "Se la cavano bene - e si sentono davvero degni di fiducia."
+              },
+              {
+                "key": "double-check-everything-yourself",
+                "label": "Ricontrollare tutto tu stesso prima che esca.",
+                "consequence": "Viene fatto con cura, ma ci vuole più tempo, e la squadra nota che stai controllando il loro lavoro."
+              },
+              {
+                "key": "ask-for-a-quick-check-in",
+                "label": "Chiedere un rapido aggiornamento prima che sia finito.",
+                "consequence": "È una buona via di mezzo - accurata, senza prendere il controllo."
+              }
+            ]
+          },
+          "final-challenge-choice-2": {
+            "situation": "Il progetto è completo. La tua squadra ce l'ha fatta. Cosa fai adesso?",
+            "choices": [
+              {
+                "key": "celebrate-what-the-team-achieved",
+                "label": "Festeggiare insieme quello che la squadra ha ottenuto.",
+                "consequence": "La squadra si sente orgogliosa - e pronta per qualsiasi cosa venga dopo."
+              },
+              {
+                "key": "immediately-plan-the-next-project",
+                "label": "Iniziare subito a pianificare il prossimo progetto.",
+                "consequence": "La squadra è colpita dalla tua determinazione, anche se avrebbe voluto un momento per festeggiare prima."
+              },
+              {
+                "key": "thank-each-person-individually",
+                "label": "Ringraziare ogni persona individualmente per quello che ha portato al progetto.",
+                "consequence": "Ogni compagno di squadra si sente davvero riconosciuto per il proprio contributo."
+              }
+            ]
+          }
+        }
+      }
+    },
+    "spotItems": {
+      "teamConflict": {
+        "you-never-listen-to-me": "\"Non mi ascolti mai!\"",
+        "i-think-we-see-it-differently": "\"Penso solo che vediamo la cosa in modo diverso.\"",
+        "youre-doing-this-on-purpose": "\"Lo stai facendo apposta, vero?\"",
+        "can-we-slow-down-for-a-second": "\"Possiamo rallentare un secondo?\"",
+        "fine-whatever-you-want": "\"Va bene. Come vuoi tu.\""
+      },
+      "motivationProblem": {
+        "unclear-goal": "Nessuno è davvero sicuro di come sia fatto l'obiettivo finale.",
+        "too-much-work": "In questo momento si stanno accumulando un sacco di compiti.",
+        "boredom": "Il lavoro è sembrato uguale per un po' di tempo.",
+        "feeling-ignored": "Le idee di un paio di compagni di squadra non vengono menzionate da un po'.",
+        "lack-of-progress": "Non sembra che il progetto sia andato molto avanti ultimamente."
+      }
+    },
+    "uhOh": {
+      "uh-oh-printer": {
+        "title": "La stampante ha appena smesso di funzionare.",
+        "situation": "È quasi ora della vostra presentazione, e la stampante non vuole stampare niente.",
+        "choices": [
+          {
+            "key": "borrow-one-from-another-team",
+            "label": "Chiedere a un'altra squadra se puoi usare la loro.",
+            "consequence": "Funziona, con qualche minuto di margine."
+          },
+          {
+            "key": "present-without-printed-materials",
+            "label": "Presentare senza materiali stampati.",
+            "consequence": "È un po' improvvisato, ma va bene."
+          },
+          {
+            "key": "delay-the-presentation",
+            "label": "Chiedere qualche minuto in più prima di presentare.",
+            "consequence": "Ottieni il tempo extra di cui hai bisogno, e a nessuno dispiace aspettare un po'."
+          }
+        ]
+      },
+      "uh-oh-teammate-absent": {
+        "title": "Uno dei tuoi compagni di squadra è assente oggi.",
+        "situation": "Oggi Oren non c'è, e aveva un compito importante nella sua lista.",
+        "choices": [
+          {
+            "key": "share-out-their-tasks",
+            "label": "Distribuire i suoi compiti tra il resto della squadra.",
+            "consequence": "Viene fatto, e la squadra si sente bene nel dare una mano."
+          },
+          {
+            "key": "wait-until-they-are-back",
+            "label": "Aspettare che Oren torni per continuare quella parte.",
+            "consequence": "Quella parte del progetto per ora resta in pausa."
+          },
+          {
+            "key": "do-their-work-yourself",
+            "label": "Fare la parte di Oren oltre alla tua.",
+            "consequence": "Viene fatta, ma è tanto da gestire da solo."
+          }
+        ]
+      },
+      "uh-oh-customer-changed-mind": {
+        "title": "Il cliente ha cambiato idea.",
+        "situation": "Il cliente ha appena scritto per dire che ora vuole qualcosa di un po' diverso.",
+        "choices": [
+          {
+            "key": "adjust-the-plan-together",
+            "label": "Riunire la squadra e adattare il piano.",
+            "consequence": "Serve un po' di lavoro extra, ma la squadra si adatta bene insieme."
+          },
+          {
+            "key": "explain-why-you-cant-change-now",
+            "label": "Spiegare che ormai è troppo tardi per cambiare rotta.",
+            "consequence": "Il cliente lo accetta, ma sembra un po' deluso."
+          },
+          {
+            "key": "panic-and-start-over-completely",
+            "label": "Sentire di dover ricominciare completamente da zero.",
+            "consequence": "Si scopre che in realtà doveva cambiare solo una piccola parte."
+          }
+        ]
+      },
+      "uh-oh-misunderstood-instructions": {
+        "title": "Ti rendi conto che c'è stato un equivoco.",
+        "situation": "Ripensando alle istruzioni, la tua squadra ha capito una parte in modo diverso da quello previsto.",
+        "choices": [
+          {
+            "key": "explain-the-mix-up-and-fix-it-together",
+            "label": "Spiegare l'equivoco alla squadra e sistemarlo insieme.",
+            "consequence": "La squadra apprezza sapere esattamente cosa è successo."
+          },
+          {
+            "key": "quietly-fix-it-yourself",
+            "label": "Sistemare l'equivoco tu stesso, senza dire nulla.",
+            "consequence": "Viene sistemato, ma la squadra non scopre mai cosa è successo - né come evitarlo la prossima volta."
+          },
+          {
+            "key": "blame-the-instructions",
+            "label": "Decidere che erano proprio le istruzioni a non essere chiare.",
+            "consequence": "È in parte vero, ma per ora non risolve davvero nulla."
+          }
+        ]
+      },
+      "uh-oh-idea-stops-working": {
+        "title": "La migliore idea della squadra all'improvviso non funziona più.",
+        "situation": "L'approccio che aveva funzionato così bene per tutta la settimana ha improvvisamente incontrato un ostacolo.",
+        "choices": [
+          {
+            "key": "try-a-different-approach-together",
+            "label": "Riunire la squadra per provare un approccio diverso.",
+            "consequence": "Serve un po' di tentativi ed errori, ma la squadra trova un nuovo modo di andare avanti."
+          },
+          {
+            "key": "keep-trying-the-same-way",
+            "label": "Continuare a provare lo stesso approccio, sperando che alla fine funzioni.",
+            "consequence": "Non sembra funzionare meglio."
+          },
+          {
+            "key": "ask-the-team-for-new-ideas",
+            "label": "Chiedere alla squadra idee nuove.",
+            "consequence": "Qualcuno trova un punto di vista a cui nessuno aveva ancora pensato."
+          }
+        ]
+      }
+    },
+    "lab": {
+      "lab-rejected-idea": {
+        "title": "Un'Idea Respinta",
+        "situation": "Il tuo amico è dispiaciuto perché non hai scelto la sua idea. Cosa potresti dire?",
+        "choices": {
+          "say-sorry-and-explain-why": {
+            "label": "Scusarti, e spiegare onestamente perché hai scelto diversamente.",
+            "consequence": "Capiscono le tue ragioni, anche se restano un po' delusi."
+          },
+          "ask-them-to-explain-more": {
+            "label": "Chiedergli di spiegare di nuovo la sua idea - forse ti è sfuggito qualcosa.",
+            "consequence": "Potresti scoprire che funziona meglio di quanto pensassi all'inizio."
+          },
+          "say-nothing-and-move-on": {
+            "label": "Non dire nulla e andare avanti.",
+            "consequence": "Il momento passa, ma potrebbero comunque chiedersi cosa pensi delle loro idee."
+          }
+        }
+      },
+      "lab-quiet-teammate": {
+        "title": "Un Compagno di Squadra Silenzioso",
+        "situation": "Qualcuno nella tua squadra è molto silenzioso. Cosa potresti fare?",
+        "choices": {
+          "ask-them-directly-what-they-think": {
+            "label": "Chiedergli direttamente cosa ne pensa.",
+            "consequence": "Condivide un'idea che forse non avrebbe proposto da solo."
+          },
+          "give-them-a-small-task-to-build-confidence": {
+            "label": "Dargli un piccolo compito per aiutarlo a costruire fiducia in sé stesso.",
+            "consequence": "Sembra un po' più a suo agio nel partecipare."
+          },
+          "let-them-stay-quiet": {
+            "label": "Lasciarlo tranquillo, se è così che è fatto.",
+            "consequence": "Va bene anche così - non tutti devono farsi sentire allo stesso modo."
+          }
+        }
+      },
+      "lab-hide-or-tell": {
+        "title": "Nasconderlo o Dirlo?",
+        "situation": "Hai fatto un errore. Lo nascondi o lo dici alla squadra?",
+        "choices": {
+          "tell-the-team-right-away": {
+            "label": "Dirlo subito alla squadra.",
+            "consequence": "È un po' scomodo, ma la squadra può aiutare a sistemarlo più in fretta."
+          },
+          "fix-it-quietly-first": {
+            "label": "Provare prima a sistemarlo senza dire nulla.",
+            "consequence": "Potrebbe funzionare - oppure potrebbe diventare più difficile da spiegare più avanti."
+          },
+          "hide-it-and-hope-no-one-notices": {
+            "label": "Nasconderlo e sperare che nessuno se ne accorga.",
+            "consequence": "Potrebbe venire fuori più avanti, quando sarà più difficile gestirlo."
+          }
+        }
+      },
+      "lab-doesnt-agree": {
+        "title": "Un Disaccordo Pubblico",
+        "situation": "Un compagno di squadra non è d'accordo con il tuo piano davanti a tutti. Cosa fai?",
+        "choices": {
+          "ask-them-to-explain-their-thinking": {
+            "label": "Chiedergli di spiegare il suo ragionamento.",
+            "consequence": "Impari qualcosa a cui non avevi pensato."
+          },
+          "explain-why-your-plan-is-better": {
+            "label": "Spiegare perché il tuo piano è quello migliore.",
+            "consequence": "Potresti avere ragione, ma potrebbero sentirsi messi da parte."
+          },
+          "suggest-talking-about-it-after": {
+            "label": "Proporre di parlarne in privato più tardi.",
+            "consequence": "Dà a entrambi il tempo di rifletterci con calma."
+          }
+        }
+      },
+      "lab-credit-for-idea": {
+        "title": "Di Chi Era l'Idea?",
+        "situation": "L'idea di qualcuno ha funzionato davvero bene, ma nessuno ha detto che era sua. Cosa fai?",
+        "choices": {
+          "point-out-whose-idea-it-was": {
+            "label": "Far notare che era la sua idea.",
+            "consequence": "Si sente davvero riconosciuto."
+          },
+          "say-nothing-its-not-a-big-deal": {
+            "label": "Non dire nulla - non è una gran cosa.",
+            "consequence": "Potrebbe non importargli, o potrebbe importargli più di quanto pensi."
+          },
+          "ask-them-how-they-feel-about-it": {
+            "label": "Chiedergli come si sente al riguardo.",
+            "consequence": "Lo scopri direttamente, invece di indovinare."
+          }
+        }
+      },
+      "lab-tired-teammate": {
+        "title": "Un Compagno di Squadra Stanco",
+        "situation": "Un compagno di squadra sembra stanco e dice che sta bene. Cosa fai?",
+        "choices": {
+          "check-in-again-later": {
+            "label": "Chiedere di nuovo più tardi, giusto per sicurezza.",
+            "consequence": "Apprezza che tu l'abbia notato."
+          },
+          "take-something-off-their-plate": {
+            "label": "Togliergli qualcosa dalla lista di cose da fare, senza dire nulla.",
+            "consequence": "Aiuta, anche se non ne parla molto."
+          },
+          "take-their-word-for-it": {
+            "label": "Fidarti della sua parola e andare avanti.",
+            "consequence": "Potrebbe davvero stare bene - oppure potrebbe non aver voluto dirlo."
+          }
+        }
+      },
+      "lab-new-member": {
+        "title": "Un Nuovo Membro della Squadra",
+        "situation": "A metà del progetto, una nuova persona entra nella tua squadra. Cosa fai?",
+        "choices": {
+          "introduce-them-to-everyone-and-explain-the-plan": {
+            "label": "Presentarla a tutti e spiegare il piano finora.",
+            "consequence": "Si sente accolta e pronta a contribuire."
+          },
+          "let-them-figure-it-out": {
+            "label": "Lasciarla capire le cose da sola, strada facendo.",
+            "consequence": "Ce la fa, anche se le ci vuole più tempo per ambientarsi."
+          },
+          "ask-the-team-to-help-them-settle-in": {
+            "label": "Chiedere alla squadra di aiutarla ad ambientarsi.",
+            "consequence": "Tutta la squadra dà una mano, e non ricade tutto solo su di te."
+          }
+        }
+      },
+      "lab-mixed-feedback": {
+        "title": "Un Feedback Difficile da Dare",
+        "situation": "Devi dire a un compagno di squadra che il suo lavoro ha bisogno di alcune modifiche. Cosa fai?",
+        "choices": {
+          "say-what-you-liked-and-what-to-change": {
+            "label": "Dire cosa ti è piaciuto e cosa deve cambiare.",
+            "consequence": "Sa esattamente cosa ha funzionato e cosa correggere."
+          },
+          "just-say-its-not-good-enough": {
+            "label": "Dire semplicemente che non è abbastanza buono.",
+            "consequence": "Sa che qualcosa non va, ma non cosa fare concretamente al riguardo."
+          },
+          "avoid-saying-anything-and-fix-it-yourself": {
+            "label": "Evitare di dire qualsiasi cosa e sistemarlo tu stesso.",
+            "consequence": "Viene sistemato, ma non impara mai cosa doveva cambiare."
+          }
+        }
+      }
+    },
+    "badges": {
+      "lq-first-leader": {
+        "name": "Primo Leader",
+        "description": "Hai iniziato il tuo percorso guidando una squadra."
+      },
+      "lq-team-builder": {
+        "name": "Costruttore di Squadre",
+        "description": "Hai assegnato i compiti in base ai punti di forza della tua squadra."
+      },
+      "lq-good-listener": {
+        "name": "Buon Ascoltatore",
+        "description": "Hai ascoltato con attenzione prima di decidere."
+      },
+      "lq-problem-solver": {
+        "name": "Risolutore di Problemi",
+        "description": "Hai risolto un problema complicato."
+      },
+      "lq-calm-under-pressure": {
+        "name": "Calmo Sotto Pressione",
+        "description": "Hai mantenuto la calma quando succedeva tutto insieme."
+      },
+      "lq-final-leader": {
+        "name": "Leader Fino in Fondo",
+        "description": "Hai guidato la tua squadra per tutto il percorso."
+      }
+    },
+    "profile": {
+      "title": "Il Tuo Profilo da Leader",
+      "lockedHint": "Completa la Sfida Finale per vedere il tuo Profilo da Leader.",
+      "intro": "Non è un punteggio - è uno sguardo su come tendi a guidare, basato sulle scelte che hai davvero fatto.",
+      "noPatternYetHint": "Le tue scelte non si sono orientate con forza verso un unico modello - e va benissimo anche così.",
+      "noBetterOrWorseNote": "Nessuno di questi modelli è migliore di un altro. Una buona leadership può assumere forme diverse per persone diverse.",
+      "archetypes": {
+        "the-listener": {
+          "title": "L'Ascoltatore",
+          "statements": [
+            "Spesso ascolti con attenzione prima di decidere.",
+            "Tendi a chiedere alle persone cosa è successo prima di trarre conclusioni affrettate.",
+            "Lasci spazio al punto di vista degli altri.",
+            "Ti accorgi quando qualcuno non è stato ancora ascoltato."
+          ]
+        },
+        "the-problem-solver": {
+          "title": "Il Risolutore di Problemi",
+          "statements": [
+            "Spesso cerchi una soluzione pratica quando qualcosa va storto.",
+            "Tendi ad affrontare un problema piuttosto che evitarlo.",
+            "Ti concentri sul trovare una via da seguire.",
+            "Resti curioso su cosa stia davvero causando un problema."
+          ]
+        },
+        "the-team-builder": {
+          "title": "Il Costruttore di Squadre",
+          "statements": [
+            "Spesso ti fidi che sia la tua squadra a gestire le cose da sola.",
+            "Tendi ad assegnare i compiti in base ai punti di forza delle persone.",
+            "Fai incontrare le persone invece di decidere da solo.",
+            "Ti accorgi quando qualcuno merita più fiducia o riconoscimento."
+          ]
+        },
+        "the-calm-thinker": {
+          "title": "Il Pensatore Calmo",
+          "statements": [
+            "Spesso resti stabile quando le cose diventano stressanti.",
+            "Tendi ad affrontare i problemi uno alla volta.",
+            "Non lasci che la pressione affretti le tue decisioni.",
+            "La tua calma tende ad aiutare anche le persone intorno a te."
+          ]
+        },
+        "the-encourager": {
+          "title": "L'Incoraggiatore",
+          "statements": [
+            "Spesso dai forza alle persone intorno a te.",
+            "Tendi a notare come si sentono le persone.",
+            "Ti prendi il tempo di riconoscere cosa gli altri hanno fatto bene.",
+            "Fai sentire le persone al sicuro nel fare errori."
+          ]
+        },
+        "the-big-picture-thinker": {
+          "title": "Chi Guarda il Quadro Generale",
+          "statements": [
+            "Spesso guardi al quadro generale piuttosto che ai piccoli dettagli.",
+            "Tendi ad adattarti in fretta quando i piani cambiano.",
+            "Sei aperto a idee diverse dalle tue.",
+            "Ti concentri su dove sta andando la squadra, non solo sul compito di oggi."
+          ]
+        }
+      }
+    }
+  },
   "notFound": {
     "title": "Ehm, non troviamo questa pagina",
     "body": "Quella pagina non esiste, o potrebbe essersi spostata. Non c'è niente che non va con il tuo account - ti riportiamo in un posto familiare.",
@@ -4244,6 +6355,416 @@
           "answer": "No - le valute di Money Quest sono denaro di gioco interamente fittizio all'interno dell'account proprio di ogni bambino, impostato per corrispondere alla valuta del mondo reale della propria famiglia per familiarità, ma mai connesso a tassi di cambio reali, conti reali o transazioni reali."
         }
       ]
+    }
+  },
+  "realLifeQuests": {
+    "hubTitle": "Missioni nella Vita Reale",
+    "hubTagline": "Porta quello che hai imparato fuori, nel mondo vero.",
+    "hubIntro": "Le Missioni nella Vita Reale sono sfide che provi lontano dallo schermo, con le persone e le cose che hai già intorno a te. Scegline una, provala con i tuoi tempi, e raccontaci come è andata. Non c'è fretta, e non esiste un modo sbagliato di farle.",
+    "parentIntroTitle": "Per genitori ed educatori",
+    "parentIntro": "Le Missioni nella Vita Reale collegano quello che tuo figlio o tua figlia impara in Money Quest, Missione Imprenditore e Missione Leadership a situazioni di tutti i giorni a casa. Ogni missione si può fare con soldi finti, disegni, o cose che avete già - non serve comprare nulla, e non avviene mai una vendita o un pagamento vero senza che tu sia presente. Scegliete le missioni insieme, adattatele liberamente a vostro figlio o vostra figlia, e non c'è nessuna pressione a finire in fretta o alla perfezione.",
+    "categories": {
+      "money-skills": {
+        "title": "Abilità con il Denaro",
+        "description": "Esercitati a risparmiare, spendere con saggezza e pianificare con i soldi - nella vita vera, non solo con numeri su uno schermo."
+      },
+      "entrepreneurship": {
+        "title": "Imprenditorialità",
+        "description": "Crea cose, metti alla prova le tue idee, e capisci come funzionano i costi e i prezzi - sempre in modo sicuro e supervisionato."
+      },
+      "leadership": {
+        "title": "Leadership",
+        "description": "Risolvi problemi, lavora con altri, condividi le tue idee, e impara da quello che non è andato come previsto."
+      }
+    },
+    "supervision": {
+      "label": "Presenza di un adulto",
+      "independent": "Puoi provarla da solo",
+      "with-adult": "Meglio con un adulto vicino",
+      "adult-required": "Serve un adulto con te"
+    },
+    "status": {
+      "not-started": "Non ancora iniziata",
+      "started": "In corso",
+      "completed": "Completata!"
+    },
+    "variantLabels": {
+      "standard": "Versione normale",
+      "independent": "Versione più autonoma",
+      "simpler": "Versione più semplice e visiva"
+    },
+    "variantsTitle": "Scegli la tua versione",
+    "objectivesTitle": "Cosa ti alleni a fare",
+    "materialsTitle": "Cosa ti serve",
+    "stepsTitle": "I passaggi",
+    "durationLabel": "Quanto tempo serve",
+    "nonverbalTitle": "Niente parlare o scrivere? Va benissimo",
+    "parentGuidanceTitle": "Per genitori ed educatori",
+    "markStartedButton": "Segna come iniziata",
+    "markCompletedButton": "Segna come completata",
+    "missionCompletedHint": "Ottimo lavoro - puoi sempre cambiare la tua versione o aggiungere qualcosa alla tua riflessione.",
+    "backToHub": "Torna alle Missioni nella Vita Reale",
+    "linkedActivityIntro": "Vuoi continuare anche sullo schermo?",
+    "linkedActivity": {
+      "savingsGoals": "Prova lo strumento Obiettivi di Risparmio",
+      "priceDetectiveGame": "Gioca al Detective dei Prezzi",
+      "buildABudgetGame": "Gioca a Costruisci un Budget",
+      "entrepreneurQuest": "Continua nella Missione Imprenditore",
+      "leadershipQuest": "Continua nella Missione Leadership"
+    },
+    "reflectionTitle": "Com'è andata?",
+    "reflectionHint": "Scegli quella che senti più vera - non c'è una risposta sbagliata.",
+    "reflectionChoices": {
+      "great": "😊 È andata benissimo!",
+      "okay": "😐 È andata bene",
+      "tricky": "🤔 È stata difficile",
+      "idea": "💡 Ora ho una nuova idea"
+    },
+    "reflectionTextLabel": "Vuoi dire qualcosa in più? (del tutto facoltativo)",
+    "reflectionTextPlaceholder": "Puoi scrivere qui, oppure lasciarlo vuoto.",
+    "rewardEarnedText": "Hai guadagnato {xp} XP per aver provato questa missione!",
+    "missionsCompletedCount": "{completed} di {total} missioni provate",
+    "categoryFilterAll": "Tutte",
+    "resetConfirm": "Questo azzera tutti i tuoi progressi nelle Missioni nella Vita Reale su questo dispositivo. Sei sicuro?",
+    "resetButton": "Azzera i progressi delle Missioni nella Vita Reale",
+    "missions": {
+      "save-for-something-you-love": {
+        "title": "Risparmia per Qualcosa che Ami",
+        "intro": "Scegli qualcosa che desideri davvero. Poi fai un piano semplice per risparmiare un po' alla volta.",
+        "objectives": [
+          "Scegli una cosa per cui vuoi risparmiare",
+          "Fai un piano semplice per risparmiare",
+          "Segui i tuoi progressi strada per strada"
+        ],
+        "materials": [
+          "Un foglio di carta o un barattolo",
+          "Adesivi, segni, o disegni per segnare i progressi (oppure usa lo strumento Obiettivi di Risparmio)",
+          "Una matita o dei pastelli"
+        ],
+        "steps": [
+          "Pensa a una cosa che vorresti avere o fare - grande o piccola.",
+          "Disegnala, o scrivine il nome, in alto sul foglio o sul barattolo.",
+          "Decidi quanti \"passi\" ti serviranno per arrivarci (per esempio, 5 adesivi o 5 monete).",
+          "Ogni volta che risparmi un po', aggiungi un adesivo, una moneta, o un segno.",
+          "Continua finché il tuo piano non è completo!"
+        ],
+        "durationEstimate": "Circa 10 minuti per iniziare, poi un piccolo controllo ogni settimana - questa missione richiede un po' di tempo per finire.",
+        "independentVersion": "Fissa il tuo obiettivo e seguilo tutto da solo, provando anche lo strumento Obiettivi di Risparmio online.",
+        "simplerVersion": "Usa un barattolo e oggetti veri (monete, bottoni, adesivi) invece dei numeri - guarda semplicemente il barattolo riempirsi ogni volta.",
+        "nonverbalAdaptation": "Scegli il tuo obiettivo indicando un'immagine o un oggetto, invece di dirlo a voce. Segnare i progressi con adesivi o segni non richiede parlare né scrivere.",
+        "reflectionPrompt": "Che effetto ti ha fatto vedere crescere il tuo piano?",
+        "parentGuidance": "Lascia che tuo figlio o tua figlia scelga l'obiettivo, anche piccolo va benissimo. Non c'è bisogno di avere fretta; l'idea è esercitarsi ad aspettare e pianificare, non finire in fretta. Se ci sono bambini più piccoli nelle vicinanze, adesivi o segni sono un modo più sicuro per tenere il conto rispetto a piccole monete o bottoni."
+      },
+      "the-price-detective": {
+        "title": "Il Detective dei Prezzi",
+        "intro": "Diventa un detective! Osserva due cose simili e investiga su cosa rende diversi i loro prezzi.",
+        "objectives": [
+          "Confronta due prodotti simili",
+          "Nota cosa c'è di diverso tra loro",
+          "Pensa a cosa significa \"un buon affare\""
+        ],
+        "materials": [
+          "Due oggetti simili che hai già a casa, oppure due da un volantino o un sito con un adulto - non è mai necessario andare in un negozio",
+          "Non serve altro!"
+        ],
+        "steps": [
+          "Scegli due cose simili che hai già, oppure trovane due in un volantino o su un sito con un adulto - come due tipi di succo o due quaderni.",
+          "Guarda ogni prezzo (o chiedi a un adulto di dirtelo).",
+          "Osserva bene ciascuno - dimensione, aspetto, quanto potrebbe durare.",
+          "Decidi quale pensi sia la scelta migliore, e perché.",
+          "Racconta a qualcuno la tua conclusione da detective!"
+        ],
+        "durationEstimate": "Circa 15 minuti.",
+        "independentVersion": "Investiga su tre o più oggetti invece di due, e classificali dal migliore al peggior affare.",
+        "simplerVersion": "Indica semplicemente quello che sembra più grande, o quello con l'adesivo della faccina più felice che un adulto ha messo vicino al prezzo.",
+        "nonverbalAdaptation": "Indica, annuisci, oppure usa il pollice in su o in giù per condividere la tua conclusione da detective invece di spiegarla a parole.",
+        "reflectionPrompt": "Quale hai scelto, e cosa ti ha fatto decidere così?",
+        "parentGuidance": "Non c'è una risposta \"corretta\" qui - l'obiettivo è notare e confrontare, non trovare la scelta \"giusta\". Un oggetto più caro può comunque essere il migliore affare; lascia che tuo figlio o tua figlia ragioni a voce alta o indicando. Confrontare cose che avete già a casa o che trovate in un volantino funziona altrettanto bene di una visita in negozio - se andate davvero insieme in un negozio, un adulto di fiducia è sempre presente."
+      },
+      "plan-a-shopping-trip": {
+        "title": "Pianifica una Spesa",
+        "intro": "Aiuta a pianificare una spesa vera (o immaginaria). Fai una lista e pensa a quanto potrebbe costare tutto.",
+        "objectives": [
+          "Aiuta a fare una lista della spesa",
+          "Pensa a un budget semplice",
+          "Esercitati a scegliere cosa conta di più"
+        ],
+        "materials": [
+          "Carta e matita, oppure una lavagnetta o una nota sul tablet",
+          "Una lista della spesa vera, oppure una immaginaria con un negozio giocattolo"
+        ],
+        "steps": [
+          "Chiedi a un adulto cosa serve per la prossima spesa.",
+          "Aiuta a scrivere o disegnare la lista insieme.",
+          "Scegliete insieme un numero \"budget\" - vero o immaginario.",
+          "Guarda la lista e decidi cosa conta di più se il budget è limitato.",
+          "Fai la spesa insieme al tuo adulto di fiducia - non andare mai a fare la spesa da solo o da sola - oppure, invece, giocate al negozio a casa, e guardate quanto il piano era vicino alla realtà."
+        ],
+        "durationEstimate": "Circa 20 minuti per pianificare; la spesa stessa dura quanto deve durare.",
+        "independentVersion": "Provare a stimare il costo totale prima della spesa, poi controllare quanto ci si è avvicinati dopo.",
+        "simplerVersion": "Usa cartine illustrate o una lista della spesa a immagini invece delle parole, e usa monete o gettoni invece dei prezzi reali.",
+        "nonverbalAdaptation": "Indica le immagini per costruire la lista. Non serve parlare né scrivere - indicare e annuire funzionano perfettamente.",
+        "reflectionPrompt": "Qual è stata la parte più difficile nel pianificare la lista?",
+        "parentGuidance": "Lascia che tuo figlio o tua figlia faccia scelte vere, anche piccole, come scegliere quale snack prendere. Una spesa vera avviene sempre insieme a un adulto di fiducia - tuo figlio o tua figlia non dovrebbe mai andare a fare la spesa da solo o da sola. Un negozio immaginario senza soldi veri funziona altrettanto bene di una spesa vera."
+      },
+      "resource-rescue": {
+        "title": "Missione Salvataggio Materiali",
+        "intro": "Prima di comprare qualcosa di nuovo, parti per una missione di salvataggio: trova cose già in casa che si possono riutilizzare.",
+        "objectives": [
+          "Trova materiali già presenti in casa",
+          "Riutilizzali per costruire o riparare qualcosa",
+          "Nota quanto hai \"salvato\" invece di comprare"
+        ],
+        "materials": [
+          "Cose già in casa - scatole, carta, ritagli di stoffa, giocattoli vecchi, contenitori",
+          "Nastro adesivo, colla, o spago (facoltativo)"
+        ],
+        "steps": [
+          "Pensa a qualcosa che vorresti costruire, riparare, o fare.",
+          "Parti per una \"missione di salvataggio\" in casa per trovare i materiali - chiedi prima il permesso!",
+          "Guarda cosa riesci a costruire usando solo ciò che hai trovato.",
+          "Se manca qualcosa, pensa a un sostituto creativo prima di chiedere di comprarlo.",
+          "Mostra con orgoglio la tua creazione salvata!"
+        ],
+        "durationEstimate": "Circa 20-30 minuti.",
+        "independentVersion": "Datti una sfida: costruisci qualcosa usando solo 3 oggetti salvati.",
+        "simplerVersion": "Un adulto prepara in anticipo 3-4 opzioni sicure, e tu scegli e combini liberamente - senza bisogno di cercare.",
+        "nonverbalAdaptation": "Indica o raccogli gli oggetti invece di nominarli. Costruire e combinare i materiali non richiede parole.",
+        "reflectionPrompt": "Cosa hai salvato invece di comprarlo nuovo?",
+        "parentGuidance": "Questo costruisce creatività nel risolvere problemi, non il risparmio come regola fissa. Celebra la creatività, non solo i soldi \"risparmiati\"."
+      },
+      "make-something": {
+        "title": "Crea Qualcosa",
+        "intro": "Crea qualcosa di semplice con quello che hai, poi mostralo a qualcuno e chiedigli cosa ne pensa.",
+        "objectives": [
+          "Crea un prodotto semplice con i materiali disponibili",
+          "Condividilo con qualcuno di cui ti fidi",
+          "Ascolta il suo parere"
+        ],
+        "materials": [
+          "Carta, pastelli, adesivi, colla, o altri materiali per il fai da te che hai già",
+          "Qualcuno a cui mostrarlo (un familiare o una persona di cui ti fidi)"
+        ],
+        "steps": [
+          "Decidi cosa vorresti creare - un disegno, un braccialetto, un biglietto, qualsiasi cosa.",
+          "Raccogli i materiali e crealo - se hai bisogno delle forbici o di qualcosa di appuntito, chiedi aiuto a un adulto.",
+          "Mostralo a un familiare o a una persona di cui ti fidi.",
+          "Chiedigli una cosa che gli piace, e un'idea per la prossima volta.",
+          "Decidi se vuoi crearne un altro, in modo diverso."
+        ],
+        "durationEstimate": "Circa 30 minuti.",
+        "independentVersion": "Crea due versioni e chiedi quale preferiscono le persone, e perché.",
+        "simplerVersion": "Usa un kit creativo semplice o un modello invece di progettare da zero.",
+        "nonverbalAdaptation": "Mostra la tua creazione e lascia che l'altra persona indichi o faccia un gesto verso la sua parte preferita invece di descriverla a parole.",
+        "reflectionPrompt": "Cosa faresti diversamente la prossima volta?",
+        "parentGuidance": "Mantieni il feedback gentile e specifico. L'obiettivo è costruire l'abitudine di creare e condividere, non ottenere un risultato perfetto. Scegli gli strumenti in base a quello che tuo figlio o tua figlia può usare in sicurezza, e occupati direttamente di tutto ciò che è appuntito."
+      },
+      "my-first-mini-business": {
+        "title": "La Mia Prima Mini Attività",
+        "intro": "Con l'aiuto di un adulto, pianifica un piccolissimo negozio o banchetto immaginario per un evento di famiglia, e fai pratica a gestirlo.",
+        "objectives": [
+          "Scegli un prodotto o un'attività semplice da offrire",
+          "Fissa un prezzo (immaginario, o una piccolissima cifra vera)",
+          "Esercitati a parlare con i \"clienti\""
+        ],
+        "materials": [
+          "Un prodotto semplice (disegni, dolci fatti in casa, un banchetto con un gioco) - sempre con un adulto",
+          "Soldi finti, gettoni, o (con un adulto) piccole monete vere",
+          "Un tavolino o un vassoio"
+        ],
+        "steps": [
+          "Con un adulto, scegli una cosa semplice da \"vendere\" o offrire a un evento di famiglia - se si tratta di cibo, un adulto controlla le allergie e si occupa della cottura.",
+          "Decidete insieme un prezzo - i soldi finti vanno benissimo.",
+          "Allestite insieme un piccolo banchetto.",
+          "Esercitati a salutare un \"cliente\" (un familiare) e a prendere il suo ordine.",
+          "Parlatene dopo, di come ci si è sentiti e cosa vorresti provare la prossima volta."
+        ],
+        "durationEstimate": "Circa 20 minuti per pianificare, più l'evento stesso.",
+        "independentVersion": "Prendi l'iniziativa di parlare con i clienti, mentre l'adulto supervisiona soltanto da vicino.",
+        "simplerVersion": "L'adulto gestisce tutte le conversazioni con i clienti; tu consegni gli articoli e raccogli i gettoni finti.",
+        "nonverbalAdaptation": "Usa un menu illustrato o un cartellone dei prezzi invece di dire i prezzi a voce. Consegnare un oggetto è già di per sé un'interazione completa.",
+        "reflectionPrompt": "Cosa è stato divertente, e cosa ti è sembrato difficile?",
+        "parentGuidance": "Questo va sempre fatto con supervisione e rimanendo in famiglia o tra persone di fiducia, mai con estranei, e mai con una vendita pubblica vera. Se c'è di mezzo del cibo, controlla le allergie e lascia che sia un adulto a occuparsi della preparazione e dell'igiene. Una versione completamente immaginaria - cibo finto, soldi finti - insegna esattamente le stesse lezioni, senza che ci sia cibo vero coinvolto."
+      },
+      "test-my-idea": {
+        "title": "Metti alla Prova la Mia Idea",
+        "intro": "Hai un'idea per qualcosa da creare o da fare? Mettila alla prova con qualche persona prima di dedicarci troppo lavoro.",
+        "objectives": [
+          "Descrivi un problema o un'idea in modo semplice",
+          "Chiedi a qualche persona cosa ne pensa",
+          "Decidi cosa provare in base al loro parere"
+        ],
+        "materials": [
+          "Solo la tua idea - un foglio per uno schizzo aiuta anche",
+          "2-3 familiari o persone di fiducia da interpellare"
+        ],
+        "steps": [
+          "Pensa a un piccolo problema che hai notato, o a un'idea che hai avuto.",
+          "Descrivila in una frase semplice, oppure disegnala.",
+          "Chiedi a 2-3 persone: \"Cosa ne pensi?\"",
+          "Ascolta cosa dicono, anche se è diverso da quello che ti aspettavi.",
+          "Decidi: tenere l'idea com'è, cambiarla un po', o provare qualcosa di nuovo."
+        ],
+        "durationEstimate": "Circa 15-20 minuti.",
+        "independentVersion": "Chiedi a persone che conosci meno bene (con un adulto di fiducia presente) per avere un'opinione più varia.",
+        "simplerVersion": "Mostra un disegno o un oggetto invece di spiegare a parole, e lascia che le persone indichino pollice in su o in giù.",
+        "nonverbalAdaptation": "Usa un disegno, una tessera con un simbolo, oppure indica l'idea. Il feedback può essere un cenno, un pollice in su o in giù, o un gesto semplice.",
+        "reflectionPrompt": "Qualcuno ha detto qualcosa che ti ha sorpreso?",
+        "parentGuidance": "Questo insegna che ricevere un parere prima di investire tanto impegno è utile, non spaventoso. Mantieni ogni risposta gentile, anche un \"no grazie\"."
+      },
+      "understand-the-numbers": {
+        "title": "Capisci i Numeri",
+        "intro": "Usa un esempio semplice per vedere la differenza tra quanto costa fare una cosa, a quanto si vende, e cosa resta.",
+        "objectives": [
+          "Distingui costo, prezzo e guadagno con un esempio",
+          "Usa una versione visiva o pratica se i numeri sono difficili",
+          "Scopri che il guadagno è quello che resta dopo i costi"
+        ],
+        "materials": [
+          "Un esempio semplice - limonata, biscotti, o il disegno di un banchetto",
+          "Monete, gettoni per contare, o disegni (una versione senza calcolatrice va sempre bene)"
+        ],
+        "steps": [
+          "Scegli un prodotto immaginario - come un bicchiere di limonata.",
+          "Scopri (o chiedi a un adulto di aiutarti a scoprire) quanto costa fare un bicchiere.",
+          "Decidi a quale prezzo lo venderesti.",
+          "Usa oggetti o disegni per mostrare: prezzo meno costo è uguale a quello che resta (il guadagno).",
+          "Riprova con un prezzo diverso e guarda cosa cambia."
+        ],
+        "durationEstimate": "Circa 15 minuti.",
+        "independentVersion": "Provalo con 2-3 prodotti insieme e confronta quale lascia più guadagno.",
+        "simplerVersion": "Usa gettoni colorati: una pila per il costo, una pila più grande per il prezzo, e togli davvero la pila del costo per vedere cosa resta - senza nessun calcolo.",
+        "nonverbalAdaptation": "Usa gettoni o disegni per mostrare tutta l'idea senza dire o scrivere nemmeno un numero.",
+        "reflectionPrompt": "Cosa è successo a quello che restava quando hai cambiato il prezzo?",
+        "parentGuidance": "È la stessa idea insegnata nella Missione Imprenditore: costo, prezzo e guadagno. Una versione visiva, senza calcoli, insegna il concetto altrettanto bene che fare i conti."
+      },
+      "solve-a-real-problem": {
+        "title": "Risolvi un Problema Vero",
+        "intro": "Nota un piccolo problema nella tua vita di tutti i giorni, e inventa un modo pratico, tuo, per risolverlo.",
+        "objectives": [
+          "Nota un piccolo problema vero",
+          "Pensa a una soluzione pratica",
+          "Provala"
+        ],
+        "materials": [
+          "Non serve nulla - basta osservare!",
+          "Carta o materiali da disegno se ti aiutano a pensare"
+        ],
+        "steps": [
+          "Pensa a qualcosa che ti infastidisce un po' o ti crea difficoltà nella giornata (uno scaffale in disordine, una faccenda dimenticata, un orario confuso).",
+          "Descrivi il problema in modo semplice - a parole, con un disegno, o solo tra te e te.",
+          "Pensa a un modo pratico per migliorarlo.",
+          "Prova la tua soluzione.",
+          "Guarda cosa è successo - ha funzionato?"
+        ],
+        "durationEstimate": "Circa 15 minuti, più il tempo per provare la soluzione.",
+        "independentVersion": "Risolvi un problema che riguarda più di te solo, come qualcosa in casa con cui tutti hanno a che fare.",
+        "simplerVersion": "Scegli da una breve lista di problemi comuni che un adulto propone, e scegli una soluzione tra poche opzioni illustrate.",
+        "nonverbalAdaptation": "Indica o mima il problema invece di descriverlo a parole. La soluzione si può mostrare con un'azione invece che con una spiegazione.",
+        "reflectionPrompt": "La tua soluzione ha funzionato come speravi?",
+        "parentGuidance": "Lascia che tuo figlio o tua figlia scelga un problema davvero piccolo e vero - la dimensione non conta. Celebra il tentativo, anche se la soluzione non funziona del tutto."
+      },
+      "make-something-together": {
+        "title": "Create Qualcosa Insieme",
+        "intro": "Fai squadra con un familiare o una persona di fiducia per pianificare e finire insieme un piccolo progetto.",
+        "objectives": [
+          "Pianifica un progetto con qualcun altro",
+          "Fate a turno e condividete le decisioni",
+          "Finitelo insieme"
+        ],
+        "materials": [
+          "Qualsiasi progetto semplice - un puzzle, un lavoretto, riordinare uno spazio, oppure (con l'aiuto di un adulto) una ricetta semplice",
+          "Qualcuno con cui lavorare"
+        ],
+        "steps": [
+          "Scegliete un piccolo progetto che potete finire insieme in un'unica sessione.",
+          "Decidete insieme chi fa quale parte - fate a turno nelle decisioni.",
+          "Lavorateci insieme, controllando come va man mano - se state cucinando, un adulto controlla le allergie e si occupa di tutto ciò che è caldo o appuntito.",
+          "Finite il progetto.",
+          "Parlate di come vi siete sentiti a lavorare in squadra."
+        ],
+        "durationEstimate": "Circa 20-30 minuti.",
+        "independentVersion": "Prendi l'iniziativa nel pianificare chi fa cosa, mentre il tuo compagno o la tua compagna segue il tuo piano.",
+        "simplerVersion": "Usa una tabella visiva per i turni (due immagini, che si scambiano dopo ogni turno) invece di discutere a parole chi va dopo.",
+        "nonverbalAdaptation": "Usa gesti, indica, oppure un oggetto per i turni (come passarsi un piccolo oggetto) per mostrare di chi è il turno - senza bisogno di parlare.",
+        "reflectionPrompt": "Come è stato condividere le decisioni?",
+        "parentGuidance": "Lascia che tuo figlio o tua figlia abbia un vero potere decisionale, anche su cose piccole. Condividere il controllo è proprio la lezione qui. Se scegliete una ricetta, controlla le allergie e lascia l'igiene e tutto ciò che è caldo o appuntito all'adulto - un puzzle o un lavoretto insegna lo stesso spirito di squadra senza bisogno della cucina."
+      },
+      "share-my-idea": {
+        "title": "Condividi la Mia Idea",
+        "intro": "Pensa a un'idea, e condividila con qualcuno, nel modo che funziona meglio per te.",
+        "objectives": [
+          "Avere un'idea che vale la pena condividere",
+          "Comunicarla nel tuo modo",
+          "Vedere come qualcuno reagisce"
+        ],
+        "materials": [
+          "Solo la tua idea",
+          "Carta, immagini, simboli, o un dispositivo CAA se è così che comunichi - vanno tutti bene"
+        ],
+        "steps": [
+          "Pensa a un'idea che vorresti condividere - un gioco, un piano, una storia, qualsiasi cosa.",
+          "Scegli come condividerla: parlando, scrivendo, disegnando, con simboli, con la CAA, o mostrandola e recitandola.",
+          "Condividila con qualcuno di cui ti fidi.",
+          "Guarda come reagisce.",
+          "Nota come ti sei sentito a condividere qualcosa tuo."
+        ],
+        "durationEstimate": "Circa 10-15 minuti.",
+        "independentVersion": "Condividi la tua idea con più di una persona e guarda se le reazioni sono diverse.",
+        "simplerVersion": "Usa una sola immagine o un oggetto per rappresentare tutta l'idea invece di spiegare ogni dettaglio.",
+        "nonverbalAdaptation": "Qui parlare non è mai obbligatorio - disegnare, indicare simboli, usare la CAA, o mostrare l'idea recitandola sono tutti modi completi e validi per condividerla.",
+        "reflectionPrompt": "Come ti sei sentito quando qualcuno ha ascoltato la tua idea?",
+        "parentGuidance": "Qualunque sia il modo in cui tuo figlio o tua figlia comunica, è quello giusto per questa missione. L'obiettivo è essere ascoltati, non usare un metodo particolare."
+      },
+      "learn-change-and-try-again": {
+        "title": "Impara, Cambia, e Riprova",
+        "intro": "Pensa a qualcosa che non è andato proprio come previsto, e decidi se vuoi riprovarci, in modo diverso.",
+        "objectives": [
+          "Rifletti su qualcosa che non è andato come ti aspettavi",
+          "Pensa a un possibile cambiamento",
+          "Scegli se riprovare"
+        ],
+        "materials": [
+          "Non serve nulla - basta ripensarci",
+          "Carta o materiali da disegno se ti aiutano"
+        ],
+        "steps": [
+          "Pensa a qualcosa di recente che non è andato proprio come speravi - grande o piccolo.",
+          "Pensa a (o disegna) cosa è successo.",
+          "Pensa a una cosa che potresti provare a fare diversamente.",
+          "Decidi: vuoi riprovare? Va bene in entrambi i casi.",
+          "Se riprovi, nota cosa è cambiato."
+        ],
+        "durationEstimate": "Circa 10 minuti, più il tempo per riprovare, se scegli di farlo.",
+        "independentVersion": "Riprova l'attività completamente da solo, applicando il tuo cambiamento.",
+        "simplerVersion": "Scegli il tuo \"cambiamento\" da una breve lista di opzioni illustrate che un adulto propone, invece di inventarne una da zero.",
+        "nonverbalAdaptation": "Indica una faccina (felice, okay, o frustrata) per mostrare come ti sei sentito al primo tentativo, e indica un'immagine per mostrare il cambiamento che vorresti provare - senza bisogno di parole.",
+        "reflectionPrompt": "Cosa vorresti provare a fare diversamente la prossima volta?",
+        "parentGuidance": "Non c'è nessuna pressione a riprovare - scegliere di non farlo va benissimo. La vera abilità qui è riflettere onestamente, non riuscire al secondo tentativo."
+      }
+    },
+    "visualPilot": {
+      "goalOptionToy": "Un giocattolo",
+      "goalOptionBook": "Un libro",
+      "goalOptionGame": "Un gioco",
+      "goalOptionOther": "Qualcos'altro",
+      "jarStepLabel": "Passo {number}",
+      "jarCompleteLabel": "Obiettivo raggiunto!",
+      "offerOptionDrawing": "Un disegno",
+      "offerOptionBaking": "Qualcosa al forno",
+      "offerOptionStall": "Un piccolo stand di giochi",
+      "offerOptionOther": "Qualcos'altro",
+      "showToCustomerButton": "Mostralo!",
+      "customerHappyLabel": "Gli piace!",
+      "ideaOptionGame": "Un gioco",
+      "ideaOptionStory": "Una storia",
+      "ideaOptionBuilt": "Qualcosa che ho costruito",
+      "ideaOptionDrawing": "Un disegno",
+      "shareIdeaButton": "Condividila!",
+      "listenerHappyLabel": "Adora la tua idea!",
+      "chooseGoalTitle": "Scegli il tuo obiettivo",
+      "chooseOfferTitle": "Scegli cosa offrire",
+      "chooseIdeaTitle": "Scegli la tua idea"
     }
   }
 }

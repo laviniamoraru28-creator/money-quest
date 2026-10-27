@@ -8,7 +8,7 @@
 export const LOCALES = ["en", "ro", "es", "fr", "de", "it", "pt", "nl", "pl"] as const;
 export type Locale = (typeof LOCALES)[number];
 
-export const DEFAULT_LOCALE: Locale = "en";
+export const DEFAULT_LOCALE = "en" as const;
 
 /**
  * Every supported language is now first-class and fully translated —
@@ -56,3 +56,6 @@ export function getTextDirection(locale: Locale): "ltr" | "rtl" {
 export function isSupportedLocale(value: string): value is Locale {
   return (LOCALES as readonly string[]).includes(value);
 }
+
+/** Launch language. Translation files remain available for a later release. */
+export const ACTIVE_LOCALES = ["en"] as const;

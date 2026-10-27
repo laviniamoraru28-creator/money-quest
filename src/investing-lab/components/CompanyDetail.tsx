@@ -51,7 +51,7 @@ export function CompanyDetail({ company, series, period, onPeriodChange, cashMin
     <div>
       <div className="flex items-start justify-between gap-xs">
         <div>
-          <p className="text-xs uppercase tracking-wide text-ink/50">
+          <p className="text-xs uppercase tracking-wide text-ink/70">
             {company.symbol} · {t(`investingLab.sector.${company.sector}`)}
           </p>
           <h3 className="font-display text-lg font-bold">{company.name}</h3>
@@ -83,7 +83,7 @@ export function CompanyDetail({ company, series, period, onPeriodChange, cashMin
 
       {company.events.length > 0 && (
         <div className="mt-sm">
-          <p className="text-xs font-medium uppercase tracking-wide text-ink/50">{t("investingLab.companyNewsTitle")}</p>
+          <p className="text-xs font-medium uppercase tracking-wide text-ink/70">{t("investingLab.companyNewsTitle")}</p>
           <ul className="mt-3xs grid gap-3xs">
             {company.events.map((event) => (
               <li key={event.id} className="flex items-start gap-2xs text-xs text-ink/70">
@@ -131,7 +131,7 @@ export function CompanyDetail({ company, series, period, onPeriodChange, cashMin
             {t("investingLab.buyButton")}
           </button>
         </div>
-        <p className="mt-3xs text-xs text-ink/50">{t("investingLab.maxAffordableHint", { shares: maxAffordable })}</p>
+        <p className="mt-3xs text-xs text-ink/70">{t("investingLab.maxAffordableHint", { shares: maxAffordable })}</p>
         <p className="mt-2xs text-sm" aria-live="polite">
           {feedback}
         </p>

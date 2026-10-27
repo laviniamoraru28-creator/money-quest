@@ -6,13 +6,13 @@ import { buildBreadcrumbSchema, buildOrganizationSchema } from "@/lib/seo/struct
 import { safeJsonLd } from "@/lib/seo/safe-json-ld";
 import { getSiteUrl, DEFAULT_OG_IMAGE } from "@/lib/seo/site-url";
 import { LOCALES } from "@/i18n/config";
-import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 
 interface PageProps {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }
 
-export async function generateMetadata({ params: { locale } }: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "learnHub" });
   const siteUrl = getSiteUrl();
   return {
@@ -34,7 +34,8 @@ export async function generateMetadata({ params: { locale } }: PageProps): Promi
   };
 }
 
-export default async function LearnHubPage({ params: { locale } }: PageProps) {
+export default async function LearnHubPage({ params }: PageProps) {
+  const { locale } = await params;
   const t = await getTranslations({ locale });
   const articles = await getAllArticles(locale);
   const siteUrl = getSiteUrl();
@@ -55,11 +56,10 @@ export default async function LearnHubPage({ params: { locale } }: PageProps) {
           <Link href="/" className="font-display text-lg font-bold text-teal">
             {t("common.moneyQuest")}
           </Link>
-          <LanguageSwitcher />
         </div>
       </header>
 
-      <main className="mx-auto max-w-[900px] px-sm py-lg">
+      <main id="main-content" tabIndex={-1} className="mx-auto max-w-[900px] px-sm py-lg">
         <h1 className="font-display text-3xl font-bold">{t("learnHub.title")}</h1>
         <p className="mt-sm max-w-[65ch] text-lg text-ink/70">
           {t("learnHub.introPrefix")}{" "}

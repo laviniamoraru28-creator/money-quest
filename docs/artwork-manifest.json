@@ -1,0 +1,230 @@
+{
+  "original_scenes": 18,
+  "files": [
+    {
+      "path": "public/images/money-quest/guides/girl-and-puppy-thumb.webp",
+      "bytes": 10218,
+      "width": 256,
+      "height": 256,
+      "sha256": "fce67e3a671df016aff27633d93005bca5e8334379273dbce655305d70d060a5"
+    },
+    {
+      "path": "public/images/money-quest/guides/girl-and-puppy.webp",
+      "bytes": 59876,
+      "width": 768,
+      "height": 768,
+      "sha256": "2ff75061f0790a25b59a71976d95b0dadbfc4f4b17673c695b42e861cb3b0e3f"
+    },
+    {
+      "path": "public/images/money-quest/worlds/coin-cove-thumb.webp",
+      "bytes": 19250,
+      "width": 256,
+      "height": 256,
+      "sha256": "30534d31f5bdbb5dbf653322fba84f8931634a527b49ad34a22ea2239442373c"
+    },
+    {
+      "path": "public/images/money-quest/worlds/coin-cove.webp",
+      "bytes": 109942,
+      "width": 768,
+      "height": 768,
+      "sha256": "44ba741dce09879ad7d35f321fa59ec3be33084b5c4757faf946bc4087a33f21"
+    },
+    {
+      "path": "public/images/money-quest/worlds/golden-vault-thumb.webp",
+      "bytes": 19432,
+      "width": 256,
+      "height": 256,
+      "sha256": "6e6ce0469335d253a1288230269fcbf76c02f9a8d72cc0c5a81494e773b405cd"
+    },
+    {
+      "path": "public/images/money-quest/worlds/golden-vault.webp",
+      "bytes": 105248,
+      "width": 768,
+      "height": 768,
+      "sha256": "f0f90b1d34bfa24ff4352a5b489eea4cf1d4f9fe5e04a62913784a7227d1e78b"
+    },
+    {
+      "path": "public/images/money-quest/worlds/guardian-gate-thumb.webp",
+      "bytes": 21130,
+      "width": 256,
+      "height": 256,
+      "sha256": "21e46f62a49d222186921789546282c21d83cfc4feece2982225bc9fcc4cce5f"
+    },
+    {
+      "path": "public/images/money-quest/worlds/guardian-gate.webp",
+      "bytes": 131386,
+      "width": 768,
+      "height": 768,
+      "sha256": "830dc5c86d27f9fc1fb72a845c0e3b9a2f2a4e6dd77b169eda161322768304a3"
+    },
+    {
+      "path": "public/images/money-quest/worlds/horizon-peaks-thumb.webp",
+      "bytes": 21434,
+      "width": 256,
+      "height": 256,
+      "sha256": "013660dba24334cec5387ecc76ae060fe98a88ab7ffe340b568e3a48e65e6848"
+    },
+    {
+      "path": "public/images/money-quest/worlds/horizon-peaks.webp",
+      "bytes": 130640,
+      "width": 768,
+      "height": 768,
+      "sha256": "b9ed01901b322e01e6add6d1a4c0328667f4cac5cb3fd94d0b1e17db87d7bd48"
+    },
+    {
+      "path": "public/images/money-quest/worlds/kindness-grove-thumb.webp",
+      "bytes": 23896,
+      "width": 256,
+      "height": 256,
+      "sha256": "4b780ab63265d24caccf9d67c943528b005c2dceb253eed1ac6652287e5f2a35"
+    },
+    {
+      "path": "public/images/money-quest/worlds/kindness-grove.webp",
+      "bytes": 134910,
+      "width": 768,
+      "height": 768,
+      "sha256": "19f3264e7e93ee1533978a9ad0eac700d4ffa1e712eaff7459241987827ff827"
+    },
+    {
+      "path": "public/images/money-quest/worlds/market-town-thumb.webp",
+      "bytes": 21356,
+      "width": 256,
+      "height": 256,
+      "sha256": "e26cf3f867956255c5c090dd61edbb0fe724e83f53472fbf093c6d40f35030db"
+    },
+    {
+      "path": "public/images/money-quest/worlds/market-town.webp",
+      "bytes": 119618,
+      "width": 768,
+      "height": 768,
+      "sha256": "203f6a1777e0851720645798bd3ad4d8847e9201e1df94bab4909e16b9760b76"
+    },
+    {
+      "path": "public/images/money-quest/worlds/sky-exchange-thumb.webp",
+      "bytes": 15516,
+      "width": 256,
+      "height": 256,
+      "sha256": "00989d5f835c1487494d5a4127602e3bfed81cb18376b8b7ec89bc60a0b2e8c7"
+    },
+    {
+      "path": "public/images/money-quest/worlds/sky-exchange.webp",
+      "bytes": 78134,
+      "width": 768,
+      "height": 768,
+      "sha256": "9322660617fe8d58bc01d7f183b232e40d34c057dff6abdadb42a822b50ce0b1"
+    },
+    {
+      "path": "public/images/money-quest/money/banknote.webp",
+      "bytes": 19738,
+      "width": 384,
+      "height": 384,
+      "sha256": "585d32e11ba1b349ba1e7e8ec20c9ec0842d1e160e053ce56c9762f2a6ba7f7b"
+    },
+    {
+      "path": "public/images/money-quest/money/card.webp",
+      "bytes": 8012,
+      "width": 384,
+      "height": 384,
+      "sha256": "f4820de45afb13190349453d5232940829b981d9c497879020a0a42b77b99f54"
+    },
+    {
+      "path": "public/images/money-quest/money/coins.webp",
+      "bytes": 23056,
+      "width": 384,
+      "height": 384,
+      "sha256": "53655259bba0b6670232bfc6b2a64178b2b8584b4f43f410144727e7c9ee668f"
+    },
+    {
+      "path": "public/images/money-quest/money/phone.webp",
+      "bytes": 12282,
+      "width": 384,
+      "height": 384,
+      "sha256": "f6a94f938de5317e64f5f9352580c295d1d7d58b1203701e799f8e04b331a2bf"
+    },
+    {
+      "path": "public/images/money-quest/sections/brain-lab-thumb.webp",
+      "bytes": 19574,
+      "width": 320,
+      "height": 320,
+      "sha256": "a2447514e8e3794f2346a64e7f44b0b13a6e29a744c200fcb492aeca7f6bd64d"
+    },
+    {
+      "path": "public/images/money-quest/sections/brain-lab.webp",
+      "bytes": 54060,
+      "width": 640,
+      "height": 640,
+      "sha256": "9da353925037f342dcf789f67e6e3fc5eac99ec38bfb44d2ae3674f6254ac96c"
+    },
+    {
+      "path": "public/images/money-quest/sections/future-skills-thumb.webp",
+      "bytes": 25092,
+      "width": 320,
+      "height": 320,
+      "sha256": "cb455d6426af22ca6f05f9c5995b6790e47c056b7523c9b846954744140d5274"
+    },
+    {
+      "path": "public/images/money-quest/sections/future-skills.webp",
+      "bytes": 74852,
+      "width": 640,
+      "height": 640,
+      "sha256": "820c1bea9c57dba589c746bae80dc8b9d150050683e55b705f83e958b8711152"
+    },
+    {
+      "path": "public/images/money-quest/sections/inclusive-learning-thumb.webp",
+      "bytes": 21452,
+      "width": 320,
+      "height": 320,
+      "sha256": "3c9bde70c5998570b989a12325f42c1040630dd9a1a3a4deedf2253df07fbd05"
+    },
+    {
+      "path": "public/images/money-quest/sections/inclusive-learning.webp",
+      "bytes": 64226,
+      "width": 640,
+      "height": 640,
+      "sha256": "1deb753a2d0ab5759e49a41b5d57c7d5a42bc23390dabed7fa0b6e56e20431af"
+    },
+    {
+      "path": "public/images/money-quest/sections/library-thumb.webp",
+      "bytes": 26620,
+      "width": 320,
+      "height": 320,
+      "sha256": "1775e8bc694fa13976e2139b2e193ee9947461178b8b6be31bcac3c5bb8a7c8d"
+    },
+    {
+      "path": "public/images/money-quest/sections/library.webp",
+      "bytes": 80600,
+      "width": 640,
+      "height": 640,
+      "sha256": "ee3b6e46c18740c66178cec958108e38c6ddea5b38954108d24675f2f1fb2660"
+    },
+    {
+      "path": "public/images/money-quest/sections/mind-lab-thumb.webp",
+      "bytes": 21514,
+      "width": 320,
+      "height": 320,
+      "sha256": "95eb2cc57885c73f7ab59978dfb04a1956bf5df2a475bab71deae52c55b8e996"
+    },
+    {
+      "path": "public/images/money-quest/sections/mind-lab.webp",
+      "bytes": 61680,
+      "width": 640,
+      "height": 640,
+      "sha256": "270657e06da067fbda6884a431c58d89f0b9eddf8af70ee04d3f147e8524f565"
+    },
+    {
+      "path": "public/images/money-quest/sections/museum-thumb.webp",
+      "bytes": 27102,
+      "width": 320,
+      "height": 320,
+      "sha256": "e319874b13f1d14e6010295988e995b09623b62faeae48a32301a581439f2644"
+    },
+    {
+      "path": "public/images/money-quest/sections/museum.webp",
+      "bytes": 84866,
+      "width": 640,
+      "height": 640,
+      "sha256": "ed2eaaf022828032bfa1476460582190e0dfd99fb1a7ac53ff3ee0c4bf273961"
+    }
+  ],
+  "total_bytes": 1646712
+}

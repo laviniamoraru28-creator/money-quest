@@ -74,7 +74,7 @@ export default function MoneyPersonalityPage() {
 
   return (
     <div className="min-h-screen bg-fog px-sm py-lg">
-      <main className="mx-auto max-w-[700px]">
+      <main id="main-content" tabIndex={-1} className="mx-auto max-w-[700px]">
         <div className="flex flex-wrap gap-2xs">
           <Link
             href="/"
@@ -122,7 +122,7 @@ export default function MoneyPersonalityPage() {
 
         {isFinished && (
           <Card variant="data" className="mt-md text-center">
-            <p className="text-sm text-ink/60">{content.resultIntro}</p>
+            <p className="text-sm text-ink/70">{content.resultIntro}</p>
             <p className="mt-2xs font-display text-2xl font-bold text-teal">{result.name}</p>
             <p className="mt-sm text-base text-ink/80">{result.description}</p>
             <p className="mt-md text-sm font-medium">{content.challengeLabel}</p>

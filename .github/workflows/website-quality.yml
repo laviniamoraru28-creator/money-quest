@@ -1,0 +1,45 @@
+name: Website completion quality
+on:
+  push:
+    branches: [feature/website-completion-20261027]
+  workflow_dispatch: {}
+permissions:
+  contents: read
+jobs:
+  website:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      NEXT_PUBLIC_SITE_URL: https://moneyquesteducation.com
+      NEXT_TELEMETRY_DISABLED: 1
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run test:unit
+      - run: npm run build
+      - run: npx playwright install chromium
+      - name: Start production server
+        run: |
+          npm run start > server.log 2>&1 &
+          for i in $(seq 1 60); do
+            if curl -sf http://localhost:3000/api/health; then exit 0; fi
+            sleep 1
+          done
+          cat server.log
+          exit 1
+      - name: Browser journeys and WCAG checks
+        env:
+          E2E_BASE_URL: http://localhost:3000
+        run: npx playwright test --project=desktop-chrome --project=mobile-chrome
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: website-test-evidence
+          path: |
+            test-results/
+            server.log

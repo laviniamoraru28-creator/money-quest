@@ -27,11 +27,11 @@ import { AccessibilityMenu } from "@/components/ui/AccessibilityMenu";
 export default function PlayLayout({ children }: { children: ReactNode }) {
   return (
     <>
-      {children}
-      <div className="fixed bottom-sm right-sm z-50 flex flex-col items-end gap-2xs sm:flex-row sm:items-end">
+      <div className="sticky top-0 z-40 flex flex-wrap justify-end gap-2 bg-white/95 px-4 py-2 shadow-sm" aria-label="Learning settings">
         <AccessibilityMenu />
         <SoundToggle />
       </div>
+      {children}
     </>
   );
 }
