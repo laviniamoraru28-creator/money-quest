@@ -55,7 +55,7 @@ export default function PricingExperimentPage() {
       <main id="main-content" tabIndex={-1} className="mx-auto max-w-[700px]">
         <Link
           href="/entrepreneur-quest/run"
-          className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal transition-colors duration-quick hover:bg-teal/5"
+          className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal-text transition-colors duration-quick hover:bg-teal/5"
         >
           <span aria-hidden="true">←</span> {t("entrepreneurQuest.run.hubTitle")}
         </Link>
@@ -83,7 +83,7 @@ export default function PricingExperimentPage() {
                     <td className="py-2xs pr-xs">{row.unitsSold}</td>
                     <td className="py-2xs pr-xs">{formatCurrency(computed.revenueMinorUnits, progressState.currencyCode, uiLocale)}</td>
                     <td className="py-2xs pr-xs">{formatCurrency(computed.costsMinorUnits, progressState.currencyCode, uiLocale)}</td>
-                    <td className="py-2xs font-bold text-teal">{formatCurrency(computed.profitMinorUnits, progressState.currencyCode, uiLocale)}</td>
+                    <td className="py-2xs font-bold text-teal-text">{formatCurrency(computed.profitMinorUnits, progressState.currencyCode, uiLocale)}</td>
                   </tr>
                 );
               })}

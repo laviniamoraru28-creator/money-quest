@@ -55,7 +55,7 @@ export default async function PrivacyPage({ params }: PageProps) {
     <div className="min-h-screen bg-fog px-sm py-2xl">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(breadcrumbSchema) }} />
       <div className="mx-auto max-w-2xl">
-        <Link href="/" className="text-sm text-teal">
+        <Link href="/" className="text-sm text-teal-text">
           {t("nav.backHome")}
         </Link>
         <main id="main-content" tabIndex={-1}>
@@ -89,11 +89,11 @@ export default async function PrivacyPage({ params }: PageProps) {
 
           <p className="mt-md text-sm text-ink/70">
             {t("privacyPage.readMorePrefix")}{" "}
-            <Link href="/parent-info" className="text-teal">
+            <Link href="/parent-info" className="text-teal-text">
               {t("privacyPage.parentInfoLink")}
             </Link>
             {t("privacyPage.readMoreMiddle")}{" "}
-            <Link href="/contact" className="text-teal">
+            <Link href="/contact" className="text-teal-text">
               {t("privacyPage.contactUsLink")}
             </Link>
           </p>

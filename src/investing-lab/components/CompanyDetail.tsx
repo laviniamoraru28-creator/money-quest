@@ -10,9 +10,9 @@ import type { DisplayCompany } from "../localized-types";
 import type { PricePoint, TimePeriod } from "../types";
 
 const RISK_COLOR: Record<DisplayCompany["riskProfile"], string> = {
-  lower: "#39813D",
-  medium: "#AC6615",
-  higher: "#C6433A",
+  lower: "#28692D",
+  medium: "#89500D",
+  higher: "#A8352D",
 };
 
 interface CompanyDetailProps {
@@ -60,7 +60,7 @@ export function CompanyDetail({ company, series, period, onPeriodChange, cashMin
           type="button"
           onClick={onToggleWatch}
           aria-pressed={isWatched}
-          className="min-h-touch-min-child shrink-0 rounded-sm border border-ink/15 px-2xs py-3xs text-xs font-medium text-ink/70 hover:border-teal hover:text-teal"
+          className="min-h-touch-min-child shrink-0 rounded-sm border border-ink/15 px-2xs py-3xs text-xs font-medium text-ink/70 hover:border-teal hover:text-teal-text"
         >
           {isWatched ? t("investingLab.removeFromWatchlist") : t("investingLab.addToWatchlist")}
         </button>
@@ -74,7 +74,7 @@ export function CompanyDetail({ company, series, period, onPeriodChange, cashMin
 
       <div className="mt-sm flex items-baseline gap-xs">
         <span className="font-display text-2xl font-bold">{formatCurrency(currentPrice, currencyCode, uiLocale)}</span>
-        <span className={["text-sm font-medium", isUp ? "text-success" : "text-error"].join(" ")}>
+        <span className={["text-sm font-medium", isUp ? "text-success-text" : "text-error-text"].join(" ")}>
           {isUp ? "▲" : "▼"} {Math.abs(changePercent).toFixed(1)}%
         </span>
       </div>

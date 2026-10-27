@@ -43,13 +43,13 @@ export function MultipleChoiceMechanic({ round, onAnswer, isResolved }: Mechanic
                 <input type="radio" name={`mc-${round.id}`} value={option} checked={isSelected} onChange={() => setSelected(option)} />
                 {option}
                 {showAsCorrect && (
-                  <span className="ml-auto text-success">
+                  <span className="ml-auto text-success-text">
                     <span aria-hidden="true">✓</span>
                     <span className="sr-only"> {t("lesson.correctAnswerSuffix")}</span>
                   </span>
                 )}
                 {showAsIncorrect && (
-                  <span className="ml-auto text-error">
+                  <span className="ml-auto text-error-text">
                     <span aria-hidden="true">✗</span>
                     <span className="sr-only"> {t("lesson.yourAnswerNotQuiteSuffix")}</span>
                   </span>

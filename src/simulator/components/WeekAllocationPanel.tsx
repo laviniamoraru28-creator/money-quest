@@ -83,7 +83,7 @@ export function WeekAllocationPanel({ spendableIncomeMinorUnits, currencyCode, u
 
       <p className="mt-sm text-sm font-medium" aria-live="polite">
         {remaining === 0 ? (
-          <span className="text-success">{t("game.everyCoinPlanned")}</span>
+          <span className="text-success-text">{t("game.everyCoinPlanned")}</span>
         ) : (
           <span className="text-ink/70">{t("game.coinsLeftToPlan", { amount: fmt(remaining) })}</span>
         )}

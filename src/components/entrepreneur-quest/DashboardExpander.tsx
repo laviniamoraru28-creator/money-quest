@@ -19,7 +19,7 @@ export function DashboardExpander({ children }: { children: ReactNode }) {
         type="button"
         onClick={() => setExpanded((e) => !e)}
         aria-expanded={expanded}
-        className="min-h-touch-min text-sm font-medium text-teal underline-offset-2 hover:underline"
+        className="min-h-touch-min text-sm font-medium text-teal-text underline-offset-2 hover:underline"
       >
         {expanded ? t("entrepreneurQuest.dashboard.showLessButton") : t("entrepreneurQuest.dashboard.showMoreButton")}
       </button>

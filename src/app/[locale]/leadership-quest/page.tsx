@@ -33,13 +33,13 @@ export default function LeadershipQuestHubPage() {
         <div className="flex flex-wrap gap-2xs">
           <Link
             href="/"
-            className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal transition-colors duration-quick hover:bg-teal/5"
+            className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal-text transition-colors duration-quick hover:bg-teal/5"
           >
             <span aria-hidden="true">🏠</span> {t("nav.home")}
           </Link>
           <Link
             href="/play"
-            className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal transition-colors duration-quick hover:bg-teal/5"
+            className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal-text transition-colors duration-quick hover:bg-teal/5"
           >
             {t("play.yourWorldMap")}
           </Link>
@@ -140,7 +140,7 @@ export default function LeadershipQuestHubPage() {
         <Card variant="data" className="mt-sm">
           <p className="font-medium">{t("leadershipQuest.entrepreneurQuestLinkTitle")}</p>
           <p className="mt-2xs text-sm text-ink/70">{t("leadershipQuest.entrepreneurQuestLinkText")}</p>
-          <Link href="/entrepreneur-quest" className="mt-sm inline-block text-teal hover:underline">
+          <Link href="/entrepreneur-quest" className="mt-sm inline-block text-teal-text hover:underline">
             {t("entrepreneurQuest.hubTitle")}
           </Link>
         </Card>

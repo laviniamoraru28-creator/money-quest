@@ -95,11 +95,11 @@ export default async function ArticlePage({ params }: PageProps) {
 
       <header className="border-b border-ink/10 bg-white">
         <div className="mx-auto flex max-w-[900px] items-center justify-between px-sm py-xs">
-          <Link href="/" className="font-display text-lg font-bold text-teal">
+          <Link href="/" className="font-display text-lg font-bold text-teal-text">
             {t("common.moneyQuest")}
           </Link>
           <div className="flex items-center gap-sm">
-            <Link href="/learn" className="text-sm text-ink/70 hover:text-teal">
+            <Link href="/learn" className="text-sm text-ink/70 hover:text-teal-text">
               {t("nav.learn")}
             </Link>
           </div>
@@ -164,7 +164,7 @@ export default async function ArticlePage({ params }: PageProps) {
             <ul className="mt-sm grid gap-2xs">
               {relatedArticles.map((related) => (
                 <li key={related.slug}>
-                  <Link href={`/learn/${related.slug}`} className="font-medium text-teal hover:underline">
+                  <Link href={`/learn/${related.slug}`} className="font-medium text-teal-text hover:underline">
                     {related.title}
                   </Link>
                 </li>

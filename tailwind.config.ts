@@ -11,6 +11,10 @@ const config: Config = {
     extend: {
       colors: {
         teal: "#0F7A6B",
+        "teal-text": "#0B6559",
+        "success-text": "#28692D",
+        "warning-text": "#89500D",
+        "error-text": "#A8352D",
         gold: "#E8A33D",
         /** A darker gold specifically for TEXT — the base `gold`
          * (#E8A33D) only reaches 2.16:1 contrast against white, well

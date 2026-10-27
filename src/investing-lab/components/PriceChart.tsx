@@ -57,7 +57,7 @@ export function PriceChart({ points, period, onPeriodChange, color }: PriceChart
             onClick={() => onPeriodChange(p)}
             className={[
               "min-h-touch-min-child rounded-sm border px-2xs py-3xs text-xs font-medium",
-              period === p ? "border-teal bg-teal/10 text-teal" : "border-ink/15 text-ink/70 hover:border-teal/50",
+              period === p ? "border-teal bg-teal/10 text-teal-text" : "border-ink/15 text-ink/70 hover:border-teal/50",
             ].join(" ")}
           >
             {t(`investingLab.period.${p}`)}

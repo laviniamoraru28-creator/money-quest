@@ -26,13 +26,13 @@ export default function GoalsPage() {
         <div className="flex flex-wrap gap-2xs">
           <Link
             href="/"
-            className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal transition-colors duration-quick hover:bg-teal/5"
+            className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal-text transition-colors duration-quick hover:bg-teal/5"
           >
             <span aria-hidden="true">🏠</span> {t("nav.home")}
           </Link>
           <Link
             href="/play"
-            className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal transition-colors duration-quick hover:bg-teal/5"
+            className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal-text transition-colors duration-quick hover:bg-teal/5"
           >
             <span aria-hidden="true">←</span> {t("nav.backToWorldMap")}
           </Link>
@@ -51,11 +51,11 @@ export default function GoalsPage() {
         <Card variant="data" className="mt-md">
           <div className="flex items-center justify-between">
             <p className="text-sm text-ink/70">{t("play.yourCoins")}</p>
-            <button type="button" onClick={() => setShowForm((v) => !v)} className="text-sm font-medium text-teal hover:underline">
+            <button type="button" onClick={() => setShowForm((v) => !v)} className="text-sm font-medium text-teal-text hover:underline">
               {showForm ? t("common.cancel") : t("play.newGoal")}
             </button>
           </div>
-          <p className="font-display text-2xl font-bold text-teal">{formatCurrency(state.walletBalanceMinorUnits, state.currencyCode, uiLocale)}</p>
+          <p className="font-display text-2xl font-bold text-teal-text">{formatCurrency(state.walletBalanceMinorUnits, state.currencyCode, uiLocale)}</p>
         </Card>
 
         {showForm && (
@@ -132,7 +132,7 @@ export default function GoalsPage() {
                     )}
                   </>
                 )}
-                <button type="button" onClick={() => removeGoal(goal.id)} className="mt-2xs text-xs text-ink/70 hover:text-error">
+                <button type="button" onClick={() => removeGoal(goal.id)} className="mt-2xs text-xs text-ink/70 hover:text-error-text">
                   {t("play.removeGoal")}
                 </button>
               </Card>
@@ -170,7 +170,7 @@ function ContributeRow({ goal, currencyCode, onContribute }: { goal: { id: strin
           onContribute(toMinorUnits(major, currencyCode));
           setAmount("");
         }}
-        className="min-h-touch-min-child rounded-sm border-2 border-teal px-sm py-2xs text-sm font-medium text-teal hover:bg-teal/5"
+        className="min-h-touch-min-child rounded-sm border-2 border-teal px-sm py-2xs text-sm font-medium text-teal-text hover:bg-teal/5"
       >
         {t("play.addCoins")}
       </button>
@@ -226,7 +226,7 @@ function SavingPlanner({ remainingMinorUnits, currencyCode, uiLocale }: { remain
               key={major}
               type="button"
               onClick={() => setWeeklyAmount(String(major))}
-              className="min-h-touch-min-child rounded-sm border border-ink/15 px-2xs py-3xs text-xs text-ink/70 hover:border-teal hover:text-teal"
+              className="min-h-touch-min-child rounded-sm border border-ink/15 px-2xs py-3xs text-xs text-ink/70 hover:border-teal hover:text-teal-text"
             >
               {formatCurrency(toMinorUnits(major, currencyCode), currencyCode, uiLocale)}
             </button>

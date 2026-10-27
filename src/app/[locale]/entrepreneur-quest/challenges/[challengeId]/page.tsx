@@ -34,7 +34,7 @@ export default function EntrepreneurQuestChallengePage() {
       <main id="main-content" tabIndex={-1} className="grid min-h-screen place-items-center bg-fog px-sm text-center">
         <div>
           <p className="text-base text-ink/70">{t("errors.genericTryAgain")}</p>
-          <Link href="/entrepreneur-quest/challenges" className="mt-sm inline-block text-teal hover:underline">
+          <Link href="/entrepreneur-quest/challenges" className="mt-sm inline-block text-teal-text hover:underline">
             {t("entrepreneurQuest.challengesLink")}
           </Link>
         </div>
@@ -55,7 +55,7 @@ export default function EntrepreneurQuestChallengePage() {
       <main id="main-content" tabIndex={-1} className="mx-auto max-w-[700px]">
         <Link
           href="/entrepreneur-quest/challenges"
-          className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal transition-colors duration-quick hover:bg-teal/5"
+          className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal-text transition-colors duration-quick hover:bg-teal/5"
         >
           <span aria-hidden="true">←</span> {t("entrepreneurQuest.challengesLink")}
         </Link>
@@ -79,7 +79,7 @@ export default function EntrepreneurQuestChallengePage() {
             </Button>
           )}
           {isDone && (
-            <p className="mt-sm text-sm font-medium text-success">✓ {t("entrepreneurQuest.challengeCompletedBadge")}</p>
+            <p className="mt-sm text-sm font-medium text-success-text">✓ {t("entrepreneurQuest.challengeCompletedBadge")}</p>
           )}
         </Card>
       </main>

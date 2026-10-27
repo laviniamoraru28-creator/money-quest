@@ -173,7 +173,7 @@ export function GameShell({ config, ageBand, difficulty = "standard", currencyCo
 
         {award && (award.xp > 0 || award.coins > 0) && (
           <div className="mt-sm flex items-center justify-center gap-md">
-            <span className="font-bold text-teal">{t("lesson.xpEarned", { xp: award.xp })}</span>
+            <span className="font-bold text-teal-text">{t("lesson.xpEarned", { xp: award.xp })}</span>
             {award.coins > 0 && (
               <span className="flex flex-col items-start">
                 <span className="text-xs font-normal text-ink/70">{t("lesson.virtualCoinsLabel")}</span>
@@ -196,7 +196,7 @@ export function GameShell({ config, ageBand, difficulty = "standard", currencyCo
           <>
             <div className="mt-sm flex flex-col items-center gap-2xs">
               <LevelBadgeStar size={40} />
-              <p className="text-sm font-bold text-teal">{t("play.levelComplete")}</p>
+              <p className="text-sm font-bold text-teal-text">{t("play.levelComplete")}</p>
               <p className="text-sm text-ink/70">{t("play.worldSequenceComplete")}</p>
             </div>
             <Button variant="quest-primary" size="large" className="mt-2xs w-full" onClick={() => router.push(backHref)}>
@@ -233,7 +233,7 @@ export function GameShell({ config, ageBand, difficulty = "standard", currencyCo
           <span aria-hidden="true">🏠</span> {t("nav.home")}
         </Button>
         {activityPosition && (
-          <span className="ml-auto rounded-full bg-teal/10 px-sm py-3xs font-medium text-teal">
+          <span className="ml-auto rounded-full bg-teal/10 px-sm py-3xs font-medium text-teal-text">
             {world && t("play.levelActivityProgress", { level: world.orderIndex, position: activityPosition.position, total: activityPosition.total })}
           </span>
         )}
@@ -293,7 +293,7 @@ export function GameShell({ config, ageBand, difficulty = "standard", currencyCo
         {phase === "playing" && (
           <div className="mt-sm">
             {!showHint ? (
-              <button type="button" onClick={() => setShowHint(true)} className="text-sm font-medium text-teal underline-offset-2 hover:underline">
+              <button type="button" onClick={() => setShowHint(true)} className="text-sm font-medium text-teal-text underline-offset-2 hover:underline">
                 {t("game.needHint")}
               </button>
             ) : (
@@ -304,7 +304,7 @@ export function GameShell({ config, ageBand, difficulty = "standard", currencyCo
 
         {phase === "correct" && (
           <div className="mt-md rounded-sm border border-success/30 bg-success/5 p-sm">
-            <p className="font-medium text-success">{config.feedback.correct}</p>
+            <p className="font-medium text-success-text">{config.feedback.correct}</p>
             <p className="mt-2xs text-sm text-ink/70">{round.explanation}</p>
             {!isLastRound && (
               <Button variant="quest-primary" className="mt-sm w-full" onClick={handleNextRound}>
@@ -316,7 +316,7 @@ export function GameShell({ config, ageBand, difficulty = "standard", currencyCo
 
         {phase === "incorrect" && (
           <div className="mt-md rounded-sm border border-error/30 bg-error/5 p-sm">
-            <p className="font-medium text-error">{config.feedback.incorrect}</p>
+            <p className="font-medium text-error-text">{config.feedback.incorrect}</p>
             <div className="mt-2xs flex items-start gap-2xs">
               
               <p className="text-sm text-ink/70">{round.explanation}</p>

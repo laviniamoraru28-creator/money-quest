@@ -34,7 +34,7 @@ export default function RealLifeQuestsHubPage() {
         <div className="flex flex-wrap items-center justify-between gap-xs">
           <Link
             href="/play"
-            className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal transition-colors duration-quick hover:bg-teal/5"
+            className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal-text transition-colors duration-quick hover:bg-teal/5"
           >
             <span aria-hidden="true">🏠</span> {t("nav.home")}
           </Link>
@@ -60,7 +60,7 @@ export default function RealLifeQuestsHubPage() {
           return (
             <section key={category} className="mt-lg">
               <div className="flex items-center gap-2xs">
-                <CategoryIcon category={category} className="h-7 w-7 text-teal" />
+                <CategoryIcon category={category} className="h-7 w-7 text-teal-text" />
                 <h2 className="font-display text-xl font-bold">{t(`realLifeQuests.categories.${category}.title`)}</h2>
               </div>
               <p className="mt-2xs text-sm text-ink/70">{t(`realLifeQuests.categories.${category}.description`)}</p>
@@ -74,10 +74,10 @@ export default function RealLifeQuestsHubPage() {
                       className="relative block rounded-lg border-2 border-ink/10 bg-white p-sm shadow-resting transition-shadow duration-quick hover:shadow-floating hover:border-teal"
                     >
                       {progress.status === "completed" && (
-                        <CompletedBadge className="absolute right-2xs top-2xs h-6 w-6 text-teal" />
+                        <CompletedBadge className="absolute right-2xs top-2xs h-6 w-6 text-teal-text" />
                       )}
                       <div className="flex items-start gap-xs">
-                        <MissionIcon missionId={mission.id} className="mt-3xs h-10 w-10 shrink-0 text-teal" />
+                        <MissionIcon missionId={mission.id} className="mt-3xs h-10 w-10 shrink-0 text-teal-text" />
                         <div>
                           <p className="text-xs font-medium uppercase tracking-wide text-ink/70">
                             {t(`realLifeQuests.supervision.${mission.supervision}`)}
@@ -88,7 +88,7 @@ export default function RealLifeQuestsHubPage() {
                         </div>
                       </div>
                       <p className="mt-2xs text-sm text-ink/70">{t(`realLifeQuests.missions.${mission.id}.intro`)}</p>
-                      <p className="mt-sm text-xs font-semibold text-teal">{t(`realLifeQuests.status.${progress.status}`)}</p>
+                      <p className="mt-sm text-xs font-semibold text-teal-text">{t(`realLifeQuests.status.${progress.status}`)}</p>
                     </Link>
                   );
                 })}

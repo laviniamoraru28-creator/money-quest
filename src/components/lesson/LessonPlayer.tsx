@@ -121,7 +121,7 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
           <span aria-hidden="true">🏠</span> {t("nav.home")}
         </Button>
         {activityPosition && (
-          <span className="ml-auto rounded-full bg-teal/10 px-sm py-3xs font-medium text-teal">
+          <span className="ml-auto rounded-full bg-teal/10 px-sm py-3xs font-medium text-teal-text">
             {world && t("play.levelActivityProgress", { level: world.orderIndex, position: activityPosition.position, total: activityPosition.total })}
           </span>
         )}
@@ -166,7 +166,7 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
               uiLocale={uiLocale}
             />
           </div>
-          <p className="mt-2xs text-base font-medium text-teal">{activity.content.shortIntroduction}</p>
+          <p className="mt-2xs text-base font-medium text-teal-text">{activity.content.shortIntroduction}</p>
 
           {activity.content.keyConcept && (
             <div className="mt-sm rounded-md border-2 border-gold/40 bg-gold/10 p-sm">
@@ -256,7 +256,7 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
           {activity.content.story}
         </p>
 
-        <p className="mt-md font-display text-lg font-bold text-teal">{t("lesson.whatWouldYouDo")}</p>
+        <p className="mt-md font-display text-lg font-bold text-teal-text">{t("lesson.whatWouldYouDo")}</p>
         <p className="mt-2xs text-base font-medium">{quiz.question}</p>
 
         <fieldset className="mt-sm" disabled={phase === "correct" || activity.isCompleted}>
@@ -332,7 +332,7 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
 
         {(phase === "correct" || activity.isCompleted) && (
           <div className="mt-md rounded-sm border border-success/30 bg-success/5 p-sm">
-            <p className="font-medium text-success">
+            <p className="font-medium text-success-text">
               {activity.isCompleted && phase === "unanswered" ? t("lesson.alreadyCompleted") : feedbackMessage.success}
             </p>
             <div className="mt-2xs flex items-start gap-2xs">
@@ -341,7 +341,7 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
             </div>
             {award && (award.xp > 0 || award.coins > 0) && (
               <div className="mt-sm flex items-center gap-md">
-                {award.xp > 0 && <span className="font-bold text-teal">{t("lesson.xpEarned", { xp: award.xp })}</span>}
+                {award.xp > 0 && <span className="font-bold text-teal-text">{t("lesson.xpEarned", { xp: award.xp })}</span>}
                 {award.coins > 0 && (
                   <span className="flex flex-col items-start">
                     <span className="text-xs font-normal text-ink/70">{t("lesson.virtualCoinsLabel")}</span>
@@ -382,7 +382,7 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
               <>
                 <div className="mt-sm flex flex-col items-center gap-2xs">
                 <LevelBadgeStar size={40} />
-                <p className="text-sm font-bold text-teal">{t("play.levelComplete")}</p>
+                <p className="text-sm font-bold text-teal-text">{t("play.levelComplete")}</p>
                 <p className="text-sm text-ink/70">{t("play.worldSequenceComplete")}</p>
               </div>
                 <Button

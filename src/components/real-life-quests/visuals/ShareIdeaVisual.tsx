@@ -74,7 +74,7 @@ export function ShareIdeaVisual({
       {chosenIcon && (
         <div className="mt-md flex flex-col items-center">
           <div className="flex items-center gap-sm">
-            <PilotIcon name={chosenIcon} className="h-14 w-14 text-teal" />
+            <PilotIcon name={chosenIcon} className="h-14 w-14 text-teal-text" />
             <span aria-hidden="true" className="text-xl text-ink/70">→</span>
             <PilotIcon name={revealed ? "listenerHappy" : "listener"} className="h-14 w-14 text-ink/70" />
           </div>
@@ -83,7 +83,7 @@ export function ShareIdeaVisual({
             {t("realLifeQuests.visualPilot.shareIdeaButton")}
           </Button>
           {revealed && (
-            <p className="mt-xs flex items-center gap-2xs text-sm font-semibold text-teal">
+            <p className="mt-xs flex items-center gap-2xs text-sm font-semibold text-teal-text">
               <PilotIcon name="star" className="h-5 w-5" />
               {t("realLifeQuests.visualPilot.listenerHappyLabel")}
             </p>

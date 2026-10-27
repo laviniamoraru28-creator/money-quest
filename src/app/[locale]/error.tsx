@@ -49,7 +49,7 @@ export default function ErrorBoundary({ error, reset }: { error: Error & { diges
         </button>
         <p className="mt-sm">
           {/* eslint-disable-next-line @next/next/no-html-link-for-pages -- Full navigation can recover a broken router or locale provider. */}
-          <a href="/" className="text-sm text-teal hover:underline">
+          <a href="/" className="text-sm text-teal-text hover:underline">
             Or go to the home page
           </a>
         </p>

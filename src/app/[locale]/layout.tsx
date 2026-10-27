@@ -134,7 +134,7 @@ export default async function LocaleLayout({
             switch away from), was reading an unreliable/default locale
             regardless of the URL. */}
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <a href="#main-content" className="sr-only z-50 rounded-lg bg-white p-4 font-bold text-teal focus:not-sr-only focus:absolute focus:left-4 focus:top-4">Skip to content</a>
+          <a href="#main-content" className="sr-only z-50 rounded-lg bg-white p-4 font-bold text-teal-text focus:not-sr-only focus:absolute focus:left-4 focus:top-4">Skip to content</a>
           {children}
         </NextIntlClientProvider>
       </body>

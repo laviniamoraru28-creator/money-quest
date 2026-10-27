@@ -46,7 +46,7 @@ export default async function ContactPage({ params }: PageProps) {
     <div className="min-h-screen bg-fog px-sm py-2xl">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(breadcrumbSchema) }} />
       <div className="mx-auto max-w-lg">
-        <Link href="/" className="text-sm text-teal">
+        <Link href="/" className="text-sm text-teal-text">
           ← {t("contact.backHome")}
         </Link>
         <main id="main-content" tabIndex={-1}>

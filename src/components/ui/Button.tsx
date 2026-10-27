@@ -18,7 +18,7 @@ const VARIANT_CLASSES: Record<ButtonVariant, string> = {
   "quest-primary":
     "rounded-lg bg-teal text-white shadow-resting hover:bg-teal/90 active:scale-[0.98] font-medium",
   "portal-primary": "rounded-sm bg-teal text-white hover:bg-teal/90 active:bg-teal/80 font-medium",
-  secondary: "rounded-sm border-[1.5px] border-teal text-teal bg-transparent hover:bg-teal/5 font-medium",
+  secondary: "rounded-sm border-[1.5px] border-teal text-teal-text bg-transparent hover:bg-teal/5 font-medium",
   reward: "rounded-lg bg-gold text-ink shadow-resting hover:bg-gold/90 active:scale-[0.98] font-bold",
   destructive: "rounded-sm bg-error text-white hover:bg-error/90 font-medium",
 };

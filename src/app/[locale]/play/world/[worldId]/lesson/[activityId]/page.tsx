@@ -24,7 +24,7 @@ export default function LessonPage() {
       <main id="main-content" tabIndex={-1} className="grid min-h-screen place-items-center bg-fog px-sm text-center">
         <div>
           <p className="text-base text-ink/70">{t("play.lessonNotAvailable")}</p>
-          <Link href={`/play/world/${params.worldId}`} className="mt-sm inline-block text-teal hover:underline">
+          <Link href={`/play/world/${params.worldId}`} className="mt-sm inline-block text-teal-text hover:underline">
             {t("play.backToTheWorld")}
           </Link>
         </div>
@@ -65,7 +65,7 @@ export default function LessonPage() {
         {getWorksheetFilename(structure.id) && (
           <Link
             href={`/play/world/${params.worldId}/lesson/${structure.id}/worksheet`}
-            className="mt-sm inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal transition-colors duration-quick hover:bg-teal/5"
+            className="mt-sm inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal-text transition-colors duration-quick hover:bg-teal/5"
           >
             <span aria-hidden="true">🖨️</span> {t("lesson.printableWorksheetButton")}
           </Link>

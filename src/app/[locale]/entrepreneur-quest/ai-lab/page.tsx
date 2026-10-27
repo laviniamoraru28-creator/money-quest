@@ -97,13 +97,13 @@ export default function AiLabPage() {
       <main id="main-content" tabIndex={-1} className="mx-auto max-w-[700px]">
         <Link
           href="/entrepreneur-quest/run"
-          className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal transition-colors duration-quick hover:bg-teal/5"
+          className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal-text transition-colors duration-quick hover:bg-teal/5"
         >
           <span aria-hidden="true">←</span> {t("entrepreneurQuest.run.hubTitle")}
         </Link>
 
         <h1 className="mt-sm font-display text-2xl font-bold">{t("entrepreneurQuest.aiLab.hubTitle")}</h1>
-        <span className="mt-2xs inline-block rounded-full bg-teal/10 px-sm py-3xs text-sm font-medium text-teal">
+        <span className="mt-2xs inline-block rounded-full bg-teal/10 px-sm py-3xs text-sm font-medium text-teal-text">
           {t("entrepreneurQuest.stageProgress", { current: step + 1, total: AI_LAB_STEP_IDS.length })}
         </span>
 

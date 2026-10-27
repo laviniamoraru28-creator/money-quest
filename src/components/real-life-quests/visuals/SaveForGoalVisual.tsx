@@ -60,7 +60,7 @@ export function SaveForGoalVisual({
       </div>
 
       <div className="mt-md flex flex-col items-center">
-        <PilotIcon name={goalReached ? "jarFilled" : "jarEmpty"} className="h-20 w-20 text-teal" />
+        <PilotIcon name={goalReached ? "jarFilled" : "jarEmpty"} className="h-20 w-20 text-teal-text" />
         <div className="mt-xs flex gap-2xs">
           {Array.from({ length: TOTAL_STEPS }, (_, i) => {
             const filled = i < filledSteps;
@@ -82,7 +82,7 @@ export function SaveForGoalVisual({
           })}
         </div>
         {goalReached && (
-          <p className="mt-xs flex items-center gap-2xs text-sm font-semibold text-teal">
+          <p className="mt-xs flex items-center gap-2xs text-sm font-semibold text-teal-text">
             <PilotIcon name="star" className="h-5 w-5" />
             {t("realLifeQuests.visualPilot.jarCompleteLabel")}
           </p>

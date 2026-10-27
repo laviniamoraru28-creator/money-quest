@@ -101,7 +101,7 @@ export default function RealLifeQuestMissionPage() {
       <main id="main-content" tabIndex={-1} className="grid min-h-screen place-items-center bg-fog px-sm text-center">
         <div>
           <p className="text-base text-ink/70">{t("errors.genericTryAgain")}</p>
-          <Link href="/real-life-quests" className="mt-sm inline-block text-teal hover:underline">
+          <Link href="/real-life-quests" className="mt-sm inline-block text-teal-text hover:underline">
             {t("realLifeQuests.backToHub")}
           </Link>
         </div>
@@ -136,13 +136,13 @@ export default function RealLifeQuestMissionPage() {
       <main id="main-content" tabIndex={-1} className="mx-auto max-w-[700px]">
         <Link
           href="/real-life-quests"
-          className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal transition-colors duration-quick hover:bg-teal/5"
+          className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal-text transition-colors duration-quick hover:bg-teal/5"
         >
           <span aria-hidden="true">←</span> {t("realLifeQuests.backToHub")}
         </Link>
 
         <div className="mt-sm flex items-start gap-sm">
-          <MissionIcon missionId={missionId} className="h-16 w-16 shrink-0 text-teal" />
+          <MissionIcon missionId={missionId} className="h-16 w-16 shrink-0 text-teal-text" />
           {/* min-w-0: a flex item's default min-width is "auto", meaning
               it refuses to shrink below its content's unwrapped intrinsic
               width even though the sibling icon is shrink-0 and takes a
@@ -180,7 +180,7 @@ export default function RealLifeQuestMissionPage() {
             uiLocale={uiLocale}
           />
         </div>
-        <p className="mt-sm flex items-center gap-2xs text-sm font-semibold text-teal">
+        <p className="mt-sm flex items-center gap-2xs text-sm font-semibold text-teal-text">
           {progress.status === "completed" && <CompletedBadge className="h-5 w-5" />}
           {t(`realLifeQuests.status.${progress.status}`)}
         </p>
@@ -360,7 +360,7 @@ export default function RealLifeQuestMissionPage() {
         {linkedHref && mission.linkedActivity && (
           <p className="mt-md text-center">
             <span className="block text-sm text-ink/70">{t("realLifeQuests.linkedActivityIntro")}</span>
-            <Link href={linkedHref} className="mt-2xs inline-block text-teal hover:underline">
+            <Link href={linkedHref} className="mt-2xs inline-block text-teal-text hover:underline">
               {t(`realLifeQuests.linkedActivity.${mission.linkedActivity}`)}
             </Link>
           </p>

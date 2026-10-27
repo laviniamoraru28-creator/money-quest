@@ -31,7 +31,7 @@ export function ReadAloudButton({ text, uiLocale }: { text: string; uiLocale: st
       onClick={() => (isSpeaking ? stop() : speak(text))}
       aria-label={isSpeaking ? t("a11y.stopReadingLabel") : t("a11y.listenToLessonLabel")}
       title={isSpeaking ? t("a11y.stopReadingLabel") : t("a11y.listenToLessonLabel")}
-      className="inline-flex h-touch-min shrink-0 items-center gap-3xs rounded-full border border-teal/30 bg-white px-2xs text-sm font-medium text-teal hover:bg-cream"
+      className="inline-flex h-touch-min shrink-0 items-center gap-3xs rounded-full border border-teal/30 bg-white px-2xs text-sm font-medium text-teal-text hover:bg-cream"
     >
       <span aria-hidden="true">{isSpeaking ? "⏸️" : "🔊"}</span>
       <span>{isSpeaking ? t("a11y.stopReadingLabel") : t("a11y.listenToLessonLabel")}</span>

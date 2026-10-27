@@ -77,7 +77,7 @@ export default function EntrepreneurQuestSimulatorPage() {
       <main id="main-content" tabIndex={-1} className="mx-auto max-w-[700px]">
         <Link
           href="/entrepreneur-quest"
-          className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal transition-colors duration-quick hover:bg-teal/5"
+          className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal-text transition-colors duration-quick hover:bg-teal/5"
         >
           <span aria-hidden="true">←</span> {t("entrepreneurQuest.backToHub")}
         </Link>
@@ -87,7 +87,7 @@ export default function EntrepreneurQuestSimulatorPage() {
 
         <Card variant="data" className="mt-md">
           <p className="text-sm text-ink/70">{t("entrepreneurQuest.simulator.startingMoneyLabel")}</p>
-          <p className="font-display text-2xl font-bold text-teal">{formatCurrency(EQ_STARTING_MONEY_MINOR_UNITS, currencyCode, uiLocale)}</p>
+          <p className="font-display text-2xl font-bold text-teal-text">{formatCurrency(EQ_STARTING_MONEY_MINOR_UNITS, currencyCode, uiLocale)}</p>
         </Card>
 
         <Card variant="activity" className="mt-sm">
@@ -128,7 +128,7 @@ export default function EntrepreneurQuestSimulatorPage() {
 
           <p className="mt-sm text-sm font-medium" aria-live="polite">
             {remaining === 0 ? (
-              <span className="text-success">{t("game.everyCoinPlanned")}</span>
+              <span className="text-success-text">{t("game.everyCoinPlanned")}</span>
             ) : (
               <span className="text-ink/70">{t("game.coinsLeftToPlan", { amount: formatCurrency(remaining, currencyCode, uiLocale) })}</span>
             )}
@@ -180,7 +180,7 @@ function StatBlock({ label, value, emphasize }: { label: string; value: string; 
   return (
     <div className="rounded-sm border border-ink/10 p-xs">
       <p className="text-xs text-ink/70">{label}</p>
-      <p className={["font-bold", emphasize ? "text-teal text-lg" : "text-ink"].join(" ")}>{value}</p>
+      <p className={["font-bold", emphasize ? "text-teal-text text-lg" : "text-ink"].join(" ")}>{value}</p>
     </div>
   );
 }

@@ -100,7 +100,7 @@ function HoldingRow({
           <p className="text-xs uppercase tracking-wide text-ink/70">{symbol}</p>
           <p className="font-medium">{companyName}</p>
         </div>
-        <span className={["text-sm font-medium", isUp ? "text-success" : "text-error"].join(" ")}>
+        <span className={["text-sm font-medium", isUp ? "text-success-text" : "text-error-text"].join(" ")}>
           {isUp ? "▲" : "▼"} {formatCurrency(Math.abs(gainLossAbsolute), currencyCode, uiLocale)} ({Math.abs(gainLossPercent).toFixed(1)}%)
         </span>
       </div>
@@ -150,7 +150,7 @@ function HoldingRow({
               setSellInput("");
             }
           }}
-          className="min-h-touch-min-child rounded-sm border-2 border-ink/20 px-sm py-2xs text-sm font-medium text-ink/70 hover:border-error hover:text-error"
+          className="min-h-touch-min-child rounded-sm border-2 border-ink/20 px-sm py-2xs text-sm font-medium text-ink/70 hover:border-error hover:text-error-text"
         >
           {t("investingLab.sellButton")}
         </button>

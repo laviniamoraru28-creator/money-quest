@@ -28,7 +28,7 @@ export default function LeadershipProfilePage() {
       <main id="main-content" tabIndex={-1} className="mx-auto max-w-[700px]">
         <Link
           href="/leadership-quest"
-          className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal transition-colors duration-quick hover:bg-teal/5"
+          className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal-text transition-colors duration-quick hover:bg-teal/5"
         >
           <span aria-hidden="true">←</span> {t("leadershipQuest.hubTitle")}
         </Link>
@@ -55,7 +55,7 @@ export default function LeadershipProfilePage() {
                   const statements = t.raw(`leadershipQuest.profile.archetypes.${archetypeId}.statements`) as string[];
                   return (
                     <Card key={archetypeId} variant="reward">
-                      <h2 className="font-display text-xl font-bold text-teal">{t(`leadershipQuest.profile.archetypes.${archetypeId}.title`)}</h2>
+                      <h2 className="font-display text-xl font-bold text-teal-text">{t(`leadershipQuest.profile.archetypes.${archetypeId}.title`)}</h2>
                       <ul className="mt-sm grid gap-2xs">
                         {statements.map((statement, i) => (
                           <li key={i} className="flex items-start gap-2xs text-base text-ink/80">

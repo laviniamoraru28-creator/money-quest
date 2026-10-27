@@ -28,7 +28,7 @@ export function CategorySelect({
           aria-pressed={selectedId === id}
           className={[
             "min-h-touch-min-child rounded-sm border-2 px-sm py-2xs text-left text-base font-medium",
-            selectedId === id ? "border-teal bg-teal/5 text-teal" : "border-ink/15 text-ink/80",
+            selectedId === id ? "border-teal bg-teal/5 text-teal-text" : "border-ink/15 text-ink/80",
           ].join(" ")}
         >
           {getLabel(id)}

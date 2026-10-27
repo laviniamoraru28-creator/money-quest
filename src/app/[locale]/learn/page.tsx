@@ -53,7 +53,7 @@ export default async function LearnHubPage({ params }: PageProps) {
 
       <header className="border-b border-ink/10 bg-white">
         <div className="mx-auto flex max-w-[900px] items-center justify-between px-sm py-xs">
-          <Link href="/" className="font-display text-lg font-bold text-teal">
+          <Link href="/" className="font-display text-lg font-bold text-teal-text">
             {t("common.moneyQuest")}
           </Link>
         </div>
@@ -63,7 +63,7 @@ export default async function LearnHubPage({ params }: PageProps) {
         <h1 className="font-display text-3xl font-bold">{t("learnHub.title")}</h1>
         <p className="mt-sm max-w-[65ch] text-lg text-ink/70">
           {t("learnHub.introPrefix")}{" "}
-          <Link href="/" className="text-teal hover:underline">
+          <Link href="/" className="text-teal-text hover:underline">
             {t("common.moneyQuest")}
           </Link>
           {t("learnHub.introSuffix")}

@@ -47,7 +47,7 @@ export default function PlayPage() {
         <main id="main-content" tabIndex={-1} className="mx-auto max-w-lg text-center">
           <Link
             href="/"
-            className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal transition-colors duration-quick hover:bg-teal/5"
+            className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal-text transition-colors duration-quick hover:bg-teal/5"
           >
             <span aria-hidden="true">🏠</span> {t("nav.home")}
           </Link>
@@ -82,7 +82,7 @@ export default function PlayPage() {
           <div className="flex flex-wrap gap-xs">
             <Link
               href="/"
-              className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal transition-colors duration-quick hover:bg-teal/5"
+              className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal-text transition-colors duration-quick hover:bg-teal/5"
             >
               <span aria-hidden="true">🏠</span> {t("nav.home")}
             </Link>
@@ -102,7 +102,7 @@ export default function PlayPage() {
           </Card>
           <Card variant="data">
             <p className="text-sm text-ink/70">{t("play.yourCoins")}</p>
-            <p className="mt-2xs font-display text-2xl font-bold text-teal">
+            <p className="mt-2xs font-display text-2xl font-bold text-teal-text">
               {formatCurrency(state.walletBalanceMinorUnits, state.currencyCode, uiLocale)}
             </p>
           </Card>
@@ -165,7 +165,7 @@ export default function PlayPage() {
             language as the World cards above, so these existing
             features (nothing new here) are actually discoverable
             rather than easy to miss at the bottom of the page. */}
-        <nav aria-label="More learning spaces" className="mt-6 flex flex-wrap gap-3">{["museum","library","brain-lab","mind-lab","future-skills","inclusive-learning"].map(path=><Link key={path} href={`/${path}`} className="min-h-12 rounded-xl border border-teal bg-white px-4 py-3 font-semibold capitalize text-teal">{path.replaceAll("-"," ")}</Link>)}</nav>
+        <nav aria-label="More learning spaces" className="mt-6 flex flex-wrap gap-3">{["museum","library","brain-lab","mind-lab","future-skills","inclusive-learning"].map(path=><Link key={path} href={`/${path}`} className="min-h-12 rounded-xl border border-teal bg-white px-4 py-3 font-semibold capitalize text-teal-text">{path.replaceAll("-"," ")}</Link>)}</nav>
         <h2 className="mt-lg font-display text-lg font-bold">{t("play.moreFeaturesTitle")}</h2>
         <div className="mt-sm grid gap-sm sm:grid-cols-3">
           <Link

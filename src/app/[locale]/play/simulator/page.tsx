@@ -29,7 +29,7 @@ export default function SimulatorPage() {
       <main id="main-content" tabIndex={-1} className="grid min-h-screen place-items-center bg-fog px-sm text-center">
         <div>
           <p className="text-base text-ink/70">{t("play.chooseLevelFirst")}</p>
-          <Link href="/play" className="mt-sm inline-block text-teal hover:underline">
+          <Link href="/play" className="mt-sm inline-block text-teal-text hover:underline">
             {t("play.goToWorldMap")}
           </Link>
         </div>

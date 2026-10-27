@@ -25,7 +25,7 @@ export default function WorldPage() {
       <main id="main-content" tabIndex={-1} className="grid min-h-screen place-items-center bg-fog px-sm text-center">
         <div>
           <p className="text-base text-ink/70">{t("play.chooseLevelFirst")}</p>
-          <Link href="/play" className="mt-sm inline-block text-teal hover:underline">
+          <Link href="/play" className="mt-sm inline-block text-teal-text hover:underline">
             {t("play.goToWorldMap")}
           </Link>
         </div>
@@ -41,7 +41,7 @@ export default function WorldPage() {
       <main id="main-content" tabIndex={-1} className="grid min-h-screen place-items-center bg-fog px-sm text-center">
         <div>
           <p className="text-base text-ink/70">{t("play.worldNotFound")}</p>
-          <Link href="/play" className="mt-sm inline-block text-teal hover:underline">
+          <Link href="/play" className="mt-sm inline-block text-teal-text hover:underline">
             {t("nav.backToWorldMap")}
           </Link>
         </div>
@@ -92,7 +92,7 @@ export default function WorldPage() {
                   <span className="block font-medium">{entry.title}</span>
                 </span>
                 {isDone && (
-                  <span className="text-success" aria-label={t("play.completedLabel")}>
+                  <span className="text-success-text" aria-label={t("play.completedLabel")}>
                     ✓
                   </span>
                 )}

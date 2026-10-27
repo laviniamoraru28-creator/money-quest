@@ -26,14 +26,14 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
 
       <header className="border-b border-ink/10 bg-white">
         <div className="mx-auto flex max-w-[1200px] items-center justify-between px-sm py-xs">
-          <span className="font-display text-lg font-bold text-teal">{t("common.moneyQuest")}</span>
+          <span className="font-display text-lg font-bold text-teal-text">{t("common.moneyQuest")}</span>
           <nav className="hidden gap-md text-base md:flex" aria-label={t("a11y.mainNavigationLabel")}>
-            <Link href="/library" className="hover:text-teal">Library</Link>
-            <Link href="/museum" className="hover:text-teal">Museum</Link>
-            <Link href="/learn" className="hover:text-teal">{t("nav.learn")}</Link>
-            <Link href="/#how-it-works" className="hover:text-teal">{t("nav.howItWorks")}</Link>
-            <Link href="/parent-info" className="hover:text-teal">{t("nav.forParents")}</Link>
-            <Link href="/#safety" className="hover:text-teal">{t("nav.safety")}</Link>
+            <Link href="/library" className="hover:text-teal-text">Library</Link>
+            <Link href="/museum" className="hover:text-teal-text">Museum</Link>
+            <Link href="/learn" className="hover:text-teal-text">{t("nav.learn")}</Link>
+            <Link href="/#how-it-works" className="hover:text-teal-text">{t("nav.howItWorks")}</Link>
+            <Link href="/parent-info" className="hover:text-teal-text">{t("nav.forParents")}</Link>
+            <Link href="/#safety" className="hover:text-teal-text">{t("nav.safety")}</Link>
           </nav>
           <div className="flex items-center gap-sm">
             <Link href="/play" className="inline-flex min-h-12 items-center justify-center rounded-xl px-5 py-3 font-medium bg-teal text-white hover:bg-teal/90">{t("nav.getStarted")}</Link>
@@ -54,9 +54,9 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
               </p>
               <div className="mt-md flex flex-wrap gap-xs">
                 <Link href="/play" className="inline-flex min-h-12 items-center justify-center rounded-xl px-5 py-3 font-medium bg-teal text-white hover:bg-teal/90">{t("landing.ctaGetStartedFree")}</Link>
-                <Link href="/#how-it-works" className="inline-flex min-h-12 items-center justify-center rounded-xl px-5 py-3 font-medium border border-teal text-teal hover:bg-teal/5">{t("landing.ctaSeeHowItWorks")}</Link>
+                <Link href="/#how-it-works" className="inline-flex min-h-12 items-center justify-center rounded-xl px-5 py-3 font-medium border border-teal text-teal-text hover:bg-teal/5">{t("landing.ctaSeeHowItWorks")}</Link>
               </div>
-              <Link href="/parent-info" className="mt-sm inline-block text-sm text-teal hover:underline">
+              <Link href="/parent-info" className="mt-sm inline-block text-sm text-teal-text hover:underline">
                 {t("nav.forParents")}
               </Link>
             </div>
@@ -94,10 +94,10 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
               ].map((lab) => (
                 <Link href={`/${lab.name.toLowerCase().replaceAll(" ", "-")}`} key={lab.name} className="overflow-hidden rounded-xl border border-ink/10 bg-white shadow-resting">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <Image unoptimized src={`/images/money-quest/sections/${lab.name.toLowerCase().replaceAll(" ", "-")}-thumb.webp`} alt="" width={640} height={420} loading="lazy" className="h-auto w-full" />
+                  <Image unoptimized src={`/images/money-quest/sections/${lab.name.toLowerCase().replaceAll(" ", "-")}-thumb.webp`} alt="" width={320} height={320} loading="lazy" className="h-auto w-full" />
                   <div className="p-sm">
                     <h3 className="font-display text-lg font-bold">{lab.name}</h3>
-                    <p className="mt-2xs text-sm text-teal">Explore activities →</p>
+                    <p className="mt-2xs text-sm text-teal-text">Explore activities →</p>
                   </div>
                 </Link>
               ))}
@@ -113,12 +113,12 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
             <Link href="/library" className="rounded-2xl border border-ink/10 bg-white p-lg hover:border-teal focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal">
               <Image unoptimized src="/images/money-quest/sections/library-thumb.webp" alt="" width={320} height={320} loading="lazy" className="mb-4 h-44 w-full rounded-xl object-contain"/><h3 className="mt-xs font-display text-xl font-bold">The Library</h3>
               <p className="mt-xs">Explore eight short books and biographies, with optional read-aloud support.</p>
-              <span className="mt-sm inline-block font-bold text-teal">Open the Library →</span>
+              <span className="mt-sm inline-block font-bold text-teal-text">Open the Library →</span>
             </Link>
             <Link href="/museum" className="rounded-2xl border border-ink/10 bg-white p-lg hover:border-teal focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal">
               <Image unoptimized src="/images/money-quest/sections/museum-thumb.webp" alt="" width={320} height={320} loading="lazy" className="mb-4 h-44 w-full rounded-xl object-contain"/><h3 className="mt-xs font-display text-xl font-bold">The Museum</h3>
               <p className="mt-xs">Visit ten rooms about money, inventions and learning from mistakes.</p>
-              <span className="mt-sm inline-block font-bold text-teal">Enter the Museum →</span>
+              <span className="mt-sm inline-block font-bold text-teal-text">Enter the Museum →</span>
             </Link>
           </div>
         </section>
@@ -160,7 +160,7 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
               <li>✓ {t("landing.trust3")}</li>
               <li>✓ {t("landing.trust4")}</li>
             </ul>
-            <Link href="/parent-info" className="mt-sm inline-block text-teal hover:underline">
+            <Link href="/parent-info" className="mt-sm inline-block text-teal-text hover:underline">
               {t("landing.readFullParentInfoLink")}
             </Link>
           </div>
@@ -179,10 +179,10 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
         <div className="mx-auto flex max-w-[1200px] flex-wrap justify-between gap-sm px-sm text-sm text-ink/70">
           <span>{t("landing.copyright", { year: new Date().getFullYear() })}</span>
           <div className="flex flex-wrap gap-sm">
-            <Link href="/parent-info" className="hover:text-teal">{t("nav.forParents")}</Link>
-            <Link href="/privacy" className="hover:text-teal">{t("footer.privacy")}</Link>
-            <Link href="/feedback" className="hover:text-teal">{t("footer.feedback")}</Link>
-            <Link href="/contact" className="hover:text-teal">{t("footer.contact")}</Link>
+            <Link href="/parent-info" className="hover:text-teal-text">{t("nav.forParents")}</Link>
+            <Link href="/privacy" className="hover:text-teal-text">{t("footer.privacy")}</Link>
+            <Link href="/feedback" className="hover:text-teal-text">{t("footer.feedback")}</Link>
+            <Link href="/contact" className="hover:text-teal-text">{t("footer.contact")}</Link>
           </div>
         </div>
       </footer>

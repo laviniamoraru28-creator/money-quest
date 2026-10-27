@@ -40,13 +40,13 @@ export default function EntrepreneurQuestHubPage() {
         <div className="flex flex-wrap gap-2xs">
           <Link
             href="/"
-            className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal transition-colors duration-quick hover:bg-teal/5"
+            className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal-text transition-colors duration-quick hover:bg-teal/5"
           >
             <span aria-hidden="true">🏠</span> {t("nav.home")}
           </Link>
           <Link
             href="/play"
-            className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal transition-colors duration-quick hover:bg-teal/5"
+            className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal-text transition-colors duration-quick hover:bg-teal/5"
           >
             {t("play.yourWorldMap")}
           </Link>
@@ -201,7 +201,7 @@ function PhaseChip({ label, done, locked }: { label: string; done: boolean; lock
     <span
       className={[
         "rounded-full px-sm py-3xs font-medium",
-        done ? "bg-success/15 text-success" : locked ? "bg-ink/5 text-ink/70" : "bg-teal/10 text-teal",
+        done ? "bg-success/15 text-success-text" : locked ? "bg-ink/5 text-ink/70" : "bg-teal/10 text-teal-text",
       ].join(" ")}
     >
       {done ? "✓ " : ""}
@@ -248,7 +248,7 @@ function CompanyDashboard({
       <div className="mt-2xs flex items-center gap-sm">
         <EntrepreneurQuestLogo logo={business.logo} size={72} />
         <div>
-          <p className="font-display text-xl font-bold text-teal">{business.businessName || notSetYet}</p>
+          <p className="font-display text-xl font-bold text-teal-text">{business.businessName || notSetYet}</p>
           {business.slogan && <p className="text-sm italic text-ink/70">&ldquo;{business.slogan}&rdquo;</p>}
         </div>
       </div>

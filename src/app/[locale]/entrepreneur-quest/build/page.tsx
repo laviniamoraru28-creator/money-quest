@@ -109,11 +109,11 @@ export default function EntrepreneurQuestBuildPage() {
         <div className="flex flex-wrap items-center gap-xs">
           <Link
             href="/entrepreneur-quest"
-            className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal transition-colors duration-quick hover:bg-teal/5"
+            className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal-text transition-colors duration-quick hover:bg-teal/5"
           >
             <span aria-hidden="true">←</span> {t("entrepreneurQuest.backToHub")}
           </Link>
-          <span className="ml-auto rounded-full bg-teal/10 px-sm py-3xs text-sm font-medium text-teal">
+          <span className="ml-auto rounded-full bg-teal/10 px-sm py-3xs text-sm font-medium text-teal-text">
             {t("entrepreneurQuest.stageProgress", { current: currentOrder, total: EQ_STAGES.length })}
           </span>
         </div>
@@ -451,7 +451,7 @@ function LogoStage({
             onClick={() => onChangeLogo("shape", shape)}
             aria-pressed={logo.shape === shape}
             aria-label={t(`entrepreneurQuest.logoShapes.${shape}`)}
-            className={["min-h-touch-min-child rounded-sm border-2 px-sm py-2xs text-sm font-medium", logo.shape === shape ? "border-teal bg-teal/5 text-teal" : "border-ink/15 text-ink/80"].join(" ")}
+            className={["min-h-touch-min-child rounded-sm border-2 px-sm py-2xs text-sm font-medium", logo.shape === shape ? "border-teal bg-teal/5 text-teal-text" : "border-ink/15 text-ink/80"].join(" ")}
           >
             {t(`entrepreneurQuest.logoShapes.${shape}`)}
           </button>
@@ -651,7 +651,7 @@ function ProfitReflectStage({
       ) : (
         <>
           <p className="mt-sm text-sm text-ink/70">{t("entrepreneurQuest.stages.calculate-your-profit.resultHint")}</p>
-          <p className="mt-2xs font-display text-2xl font-bold text-teal">{formatCurrency(profitMinorUnits, currencyCode, uiLocale)}</p>
+          <p className="mt-2xs font-display text-2xl font-bold text-teal-text">{formatCurrency(profitMinorUnits, currencyCode, uiLocale)}</p>
         </>
       )}
       <Button variant="quest-primary" className="mt-sm w-full" onClick={onContinue}>
