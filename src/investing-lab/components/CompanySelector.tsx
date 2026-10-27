@@ -23,7 +23,7 @@ export function CompanySelector({ companies, seriesByCompany, selectedCompanyId,
   const uiLocale = useLocale();
 
   return (
-    <div role="list" aria-label={t("investingLab.companyListLabel")} className="grid grid-cols-2 gap-2xs sm:grid-cols-3">
+    <div role="group" aria-label={t("investingLab.companyListLabel")} className="grid grid-cols-2 gap-2xs sm:grid-cols-3">
       {companies.map((company) => {
         const series = seriesByCompany[company.id] ?? [];
         const price = getCurrentPrice(series);
@@ -32,7 +32,6 @@ export function CompanySelector({ companies, seriesByCompany, selectedCompanyId,
           <button
             key={company.id}
             type="button"
-            role="listitem"
             aria-pressed={isSelected}
             onClick={() => onSelect(company.id)}
             className={[

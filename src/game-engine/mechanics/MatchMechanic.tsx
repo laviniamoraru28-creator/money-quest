@@ -59,7 +59,7 @@ export function MatchMechanic({ round, onAnswer, isResolved }: MechanicProps<Mat
       </p>
 
       <div className="mt-2xs grid grid-cols-2 gap-md">
-        <div className="grid gap-2xs" role="list" aria-label={t("game.matchThese")}>
+        <div className="grid gap-2xs" role="group" aria-label={t("game.matchThese")}>
           {round.pairs.map((pair) => {
             const isMatched = matchedIds.has(pair.id);
             return (
@@ -68,8 +68,7 @@ export function MatchMechanic({ round, onAnswer, isResolved }: MechanicProps<Mat
                 type="button"
                 disabled={isResolved || isMatched}
                 aria-pressed={selectedLeftId === pair.id}
-                role="listitem"
-                onClick={() => handleLeftTap(pair.id)}
+                    onClick={() => handleLeftTap(pair.id)}
                 className={[
                   "min-h-touch-min-child rounded-sm border-2 px-sm py-2xs text-left text-base",
                   isMatched ? "border-success bg-success/10 opacity-60" : "",
@@ -87,7 +86,7 @@ export function MatchMechanic({ round, onAnswer, isResolved }: MechanicProps<Mat
             );
           })}
         </div>
-        <div className="grid gap-2xs" role="list" aria-label={t("game.withThese")}>
+        <div className="grid gap-2xs" role="group" aria-label={t("game.withThese")}>
           {shuffledRight.map((pair) => {
             const isMatched = matchedIds.has(pair.id);
             const isWrongFlash = wrongFlash === pair.id;
@@ -96,8 +95,7 @@ export function MatchMechanic({ round, onAnswer, isResolved }: MechanicProps<Mat
                 key={pair.id}
                 type="button"
                 disabled={isResolved || isMatched}
-                role="listitem"
-                onClick={() => handleRightTap(pair.id)}
+                    onClick={() => handleRightTap(pair.id)}
                 className={[
                   "min-h-touch-min-child rounded-sm border-2 px-sm py-2xs text-left text-base",
                   isMatched ? "border-success bg-success/10 opacity-60" : "",

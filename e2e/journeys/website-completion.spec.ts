@@ -2,10 +2,10 @@ import {test,expect} from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import {museumRooms,libraryBooks} from "../../src/content/discovery";
 import {learningLabs} from "../../src/content/learning-labs";
-const pages=["/en","/en/play","/en/museum","/en/library","/en/brain-lab","/en/mind-lab","/en/future-skills","/en/inclusive-learning","/en/play/simulator","/en/entrepreneur-quest","/en/leadership-quest","/en/real-life-quests"];
+const pages=["/en","/en/play","/en/museum","/en/library","/en/brain-lab","/en/mind-lab","/en/future-skills","/en/inclusive-learning","/en/play/simulator","/en/play/investing-lab","/en/play/goals","/en/play/money-personality","/en/entrepreneur-quest","/en/leadership-quest","/en/real-life-quests"];
 for(const path of pages) test(`page, images, hydration and accessibility: ${path}`,async({page})=>{
  const errors:string[]=[];page.on("pageerror",e=>errors.push(e.message));page.on("console",message=>{if(message.type()==="error"&&/hydration|did not match|server rendered/i.test(message.text()))errors.push(message.text())});
- if(path === "/en/play/simulator") await page.addInitScript(()=>localStorage.setItem("moneyquest_local_progress_v1",JSON.stringify({ageBand:"explorer"})));
+ if(path.startsWith("/en/play/")) await page.addInitScript(()=>localStorage.setItem("moneyquest_local_progress_v1",JSON.stringify({ageBand:"explorer"})));
  const response=await page.goto(path);expect(response?.status()).toBe(200);await expect(page.locator("main")).toBeVisible();
  await expect(page.locator('a[href="#main-content"]')).toHaveCount(1);
  // Scroll every lazy image into view before checking its decoded size.

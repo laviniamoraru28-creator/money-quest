@@ -55,7 +55,7 @@ export default function EntrepreneurQuestPitchPage() {
             <EntrepreneurQuestLogo logo={business.logo} size={80} />
           </div>
           <h2 className="mt-2xs font-display text-xl font-bold">{business.businessName || t("entrepreneurQuest.pitch.notSetYet")}</h2>
-          {business.slogan && <p className="mt-3xs text-sm italic text-ink/70">"{business.slogan}"</p>}
+          {business.slogan && <p className="mt-3xs text-sm italic text-ink/70">&quot;{business.slogan}&quot;</p>}
 
           <dl className="mt-md grid gap-sm text-left">
             <PitchLine label={t("entrepreneurQuest.pitch.myBusinessIsLabel")} value={business.businessName} />

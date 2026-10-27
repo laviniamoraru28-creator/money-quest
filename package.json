@@ -9,7 +9,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "NODE_ENV=production node server.js",
-    "lint": "next lint",
+    "lint": "eslint src --ext .ts,.tsx --max-warnings=0",
     "typecheck": "tsc --noEmit",
     "test:unit": "node --import tsx scripts/run-all-unit-tests.ts",
     "test:e2e": "playwright test"

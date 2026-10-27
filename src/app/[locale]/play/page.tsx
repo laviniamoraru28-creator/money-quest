@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
@@ -140,7 +141,7 @@ export default function PlayPage() {
                 style={{ borderColor: world.themeColor }}
               >
                 <div className="flex shrink-0 flex-col items-center gap-2xs">
-                  <img src={`/images/money-quest/worlds/${world.id}-thumb.webp`} alt="" width={144} height={144} loading="lazy" className="h-24 w-24 rounded-2xl object-cover sm:h-36 sm:w-36" />
+                  <Image unoptimized src={`/images/money-quest/worlds/${world.id}-thumb.webp`} alt="" width={144} height={144} loading="lazy" className="h-24 w-24 rounded-2xl object-cover sm:h-36 sm:w-36" />
                   <LevelProgressRing percent={percent} color={world.themeColor} />
                 </div>
                 <div className="min-w-0 flex-1">

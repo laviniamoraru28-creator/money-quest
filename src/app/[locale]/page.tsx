@@ -94,7 +94,7 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
               ].map((lab) => (
                 <Link href={`/${lab.name.toLowerCase().replaceAll(" ", "-")}`} key={lab.name} className="overflow-hidden rounded-xl border border-ink/10 bg-white shadow-resting">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={`/images/money-quest/sections/${lab.name.toLowerCase().replaceAll(" ", "-")}-thumb.webp`} alt="" width={640} height={420} loading="lazy" className="h-auto w-full" />
+                  <Image unoptimized src={`/images/money-quest/sections/${lab.name.toLowerCase().replaceAll(" ", "-")}-thumb.webp`} alt="" width={640} height={420} loading="lazy" className="h-auto w-full" />
                   <div className="p-sm">
                     <h3 className="font-display text-lg font-bold">{lab.name}</h3>
                     <p className="mt-2xs text-sm text-teal">Explore activities →</p>
@@ -111,12 +111,12 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
           <p className="mt-xs text-ink/70">Discover stories, biographies and the history of money without playing a game.</p>
           <div className="mt-md grid gap-md md:grid-cols-2">
             <Link href="/library" className="rounded-2xl border border-ink/10 bg-white p-lg hover:border-teal focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal">
-              <img src="/images/money-quest/sections/library-thumb.webp" alt="" width={320} height={320} loading="lazy" className="mb-4 h-44 w-full rounded-xl object-contain"/><h3 className="mt-xs font-display text-xl font-bold">The Library</h3>
+              <Image unoptimized src="/images/money-quest/sections/library-thumb.webp" alt="" width={320} height={320} loading="lazy" className="mb-4 h-44 w-full rounded-xl object-contain"/><h3 className="mt-xs font-display text-xl font-bold">The Library</h3>
               <p className="mt-xs">Explore eight short books and biographies, with optional read-aloud support.</p>
               <span className="mt-sm inline-block font-bold text-teal">Open the Library →</span>
             </Link>
             <Link href="/museum" className="rounded-2xl border border-ink/10 bg-white p-lg hover:border-teal focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal">
-              <img src="/images/money-quest/sections/museum-thumb.webp" alt="" width={320} height={320} loading="lazy" className="mb-4 h-44 w-full rounded-xl object-contain"/><h3 className="mt-xs font-display text-xl font-bold">The Museum</h3>
+              <Image unoptimized src="/images/money-quest/sections/museum-thumb.webp" alt="" width={320} height={320} loading="lazy" className="mb-4 h-44 w-full rounded-xl object-contain"/><h3 className="mt-xs font-display text-xl font-bold">The Museum</h3>
               <p className="mt-xs">Visit ten rooms about money, inventions and learning from mistakes.</p>
               <span className="mt-sm inline-block font-bold text-teal">Enter the Museum →</span>
             </Link>

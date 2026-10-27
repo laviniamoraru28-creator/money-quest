@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 /**
  * Shared "answer order" architecture — the website's equivalent of the
@@ -53,7 +53,8 @@ export function shuffleArray<T>(items: readonly T[]): T[] {
  */
 export function useAnswerOrder<T>(items: readonly T[]): T[] {
   // Match the server and initial client render. Randomise after hydration.
-  const [order, setOrder] = useState<T[]>(() => items.slice());
-  useEffect(() => { setOrder(shuffleArray(items)); }, []); // The caller keys the component by question.
+  const initialItems = useRef(items);
+  const [order, setOrder] = useState<T[]>(() => initialItems.current.slice());
+  useEffect(() => { setOrder(shuffleArray(initialItems.current)); }, []); // The caller keys the component by question.
   return order;
 }

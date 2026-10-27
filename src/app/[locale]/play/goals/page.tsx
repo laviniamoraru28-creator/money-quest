@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 
 import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
@@ -42,7 +43,7 @@ export default function GoalsPage() {
             than a replacement. */}
         <div className="mt-sm flex justify-center" aria-hidden="true">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/money-quest/lessons/money-goals.webp" alt="" width={512} height={512} className="h-24 w-24" />
+          <Image unoptimized src="/images/money-quest/lessons/money-goals.webp" alt="" width={512} height={512} className="h-24 w-24" />
         </div>
         <h1 className="mt-sm font-display text-2xl font-bold">{t("play.mySavingsGoalsTitle")}</h1>
         <p className="mt-2xs text-sm text-ink/70">{t("play.goalsSavedLocallyHint")}</p>

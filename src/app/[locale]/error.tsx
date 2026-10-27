@@ -38,8 +38,7 @@ export default function ErrorBoundary({ error, reset }: { error: Error & { diges
         </span>
         <h1 className="mt-sm font-display text-2xl font-bold">Something went wrong</h1>
         <p className="mt-2xs text-base text-ink/70">
-          Nothing's wrong with your account or your progress - this was just a hiccup. Let's try
-          again.
+          Try again. You can also return to the home page.
         </p>
         <button
           type="button"
@@ -49,6 +48,7 @@ export default function ErrorBoundary({ error, reset }: { error: Error & { diges
           Try again
         </button>
         <p className="mt-sm">
+          {/* eslint-disable-next-line @next/next/no-html-link-for-pages -- Full navigation can recover a broken router or locale provider. */}
           <a href="/" className="text-sm text-teal hover:underline">
             Or go to the home page
           </a>
