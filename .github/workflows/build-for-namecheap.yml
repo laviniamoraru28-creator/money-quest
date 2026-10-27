@@ -42,6 +42,21 @@ jobs:
         run: npm install
 
       - name: Production build
+        env:
+          # Baked into the compiled bundle at build time (NEXT_PUBLIC_*
+          # vars are inlined by Next.js here, not read at server
+          # runtime) — this is the ONLY place that matters for this
+          # variable, since the build happens here on GitHub's runners,
+          # never on Namecheap itself. Setting it later in Namecheap's
+          # cPanel Node.js App environment-variable screen has no
+          # effect: the bundle shipped there already has whatever
+          # value was present (or wasn't) right here. Without this,
+          # getSiteUrl() (src/lib/seo/site-url.ts) falls back to its
+          # deliberately-placeholder value, and every canonical URL,
+          # sitemap entry, hreflang alternate, Open Graph URL, and
+          # structured-data @id across the entire site would point at
+          # a domain that doesn't exist.
+          NEXT_PUBLIC_SITE_URL: https://moneyquesteducation.com
         run: npm run build
 
       - name: Verify the build actually produced output

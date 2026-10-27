@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/Button";
@@ -64,12 +65,19 @@ export default async function LandingPage({ params: { locale } }: { params: { lo
               </Link>
             </div>
             <div className="flex justify-center">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              {/* next/image (not a plain <img>) — this is the site's
+                  single above-the-fold hero image, so `priority`
+                  matters for LCP. No remote domain config is needed:
+                  the source is a local file under public/, and
+                  next.config.mjs's lack of `images.remotePatterns` was
+                  about there being no EXTERNAL images to configure,
+                  not a reason to avoid next/image for local ones. */}
+              <Image
                 src="/images/money-quest/homepage-hero.webp"
                 alt={t("landing.heroImageAlt")}
                 width={800}
                 height={800}
+                priority
                 className="h-64 w-64 rounded-2xl object-cover md:h-80 md:w-80"
               />
             </div>
