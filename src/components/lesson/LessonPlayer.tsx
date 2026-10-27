@@ -127,13 +127,15 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
       </div>
 
       {/* Screen-reader announcement of the quiz result — see
-          GameShell.tsx's identical pattern for why this is a
-          separate, always-mounted live region rather than aria-live
-          on the visible feedback card, which only mounts once `phase`
-          leaves "unanswered". */}
+          GameShell.tsx's identical pattern and comment for why this
+          is a separate, always-mounted live region with a SHORT
+          status word rather than aria-live on the visible feedback
+          card (which only mounts once `phase` leaves "unanswered")
+          or a repeat of its full sentence (which previously collided
+          with e2e getByText queries matching that same sentence). */}
       <div aria-live="polite" className="sr-only">
-        {phase === "incorrect" && feedbackMessage.retry}
-        {phase === "correct" && feedbackMessage.success}
+        {phase === "incorrect" && t("a11y.answerIncorrectAnnouncement")}
+        {phase === "correct" && t("a11y.answerCorrectAnnouncement")}
       </div>
 
       {/* The book — a two-page spread on desktop/tablet, stacked into

@@ -290,7 +290,9 @@
     "focusModeHint": "Blendet zusätzliche Details aus, sodass nur die Hauptaktivität angezeigt wird.",
     "listenToLessonLabel": "Lektion anhören",
     "mainNavigationLabel": "Hauptnavigation",
-    "categoryMayNeedAdjusting": "- diese Kategorie muss eventuell angepasst werden"
+    "categoryMayNeedAdjusting": "- diese Kategorie muss eventuell angepasst werden",
+    "answerCorrectAnnouncement": "Richtige Antwort",
+    "answerIncorrectAnnouncement": "Versuch es noch einmal"
   },
   "characters": {
     "pip": "Pip",

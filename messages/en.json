@@ -290,7 +290,9 @@
     "focusModeHint": "Hides extra details so only the main activity shows.",
     "listenToLessonLabel": "Listen to the lesson",
     "mainNavigationLabel": "Main",
-    "categoryMayNeedAdjusting": "- this category may need adjusting"
+    "categoryMayNeedAdjusting": "- this category may need adjusting",
+    "answerCorrectAnnouncement": "Correct answer",
+    "answerIncorrectAnnouncement": "Try again"
   },
   "characters": {
     "pip": "Pip",

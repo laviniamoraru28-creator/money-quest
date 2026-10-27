@@ -255,10 +255,21 @@ export function GameShell({ config, ageBand, difficulty = "standard", currencyCo
           "playing", and some screen-reader/browser combinations don't
           reliably announce a brand-new node that arrives already
           carrying aria-live — only a text change inside an
-          already-present live region is guaranteed to be picked up. */}
+          already-present live region is guaranteed to be picked up.
+
+          Deliberately a SHORT, distinct status word, not a repeat of
+          the visible feedback card's full sentence below: repeating
+          the exact same text created a second element matching every
+          getByText('<feedback sentence>') query in the e2e suite
+          (caught by a real CI run), and a short, immediate status
+          announcement is also closer to the WAI-ARIA-recommended
+          pattern for this case anyway — the full explanatory sentence
+          is better read by the child in their own time via the
+          visible card, not forced on a screen-reader user the instant
+          the round resolves. */}
       <div aria-live="polite" className="sr-only">
-        {phase === "correct" && config.feedback.correct}
-        {phase === "incorrect" && config.feedback.incorrect}
+        {phase === "correct" && t("a11y.answerCorrectAnnouncement")}
+        {phase === "incorrect" && t("a11y.answerIncorrectAnnouncement")}
       </div>
 
       <Card variant="activity">

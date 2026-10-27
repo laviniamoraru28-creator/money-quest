@@ -2002,7 +2002,9 @@
     "focusModeHint": "Ukrywa dodatkowe szczegóły, tak by widoczne było tylko główne zadanie.",
     "listenToLessonLabel": "Posłuchaj lekcji",
     "mainNavigationLabel": "Menu główne",
-    "categoryMayNeedAdjusting": "- ta kategoria może wymagać poprawki"
+    "categoryMayNeedAdjusting": "- ta kategoria może wymagać poprawki",
+    "answerCorrectAnnouncement": "Poprawna odpowiedź",
+    "answerIncorrectAnnouncement": "Spróbuj jeszcze raz"
   },
   "characters": {
     "pip": "Pip",

@@ -2393,7 +2393,9 @@
     "focusModeHint": "Verbergt extra details zodat alleen de hoofdactiviteit wordt getoond.",
     "listenToLessonLabel": "Luister naar de les",
     "mainNavigationLabel": "Hoofdmenu",
-    "categoryMayNeedAdjusting": "- deze categorie moet mogelijk worden aangepast"
+    "categoryMayNeedAdjusting": "- deze categorie moet mogelijk worden aangepast",
+    "answerCorrectAnnouncement": "Goed antwoord",
+    "answerIncorrectAnnouncement": "Probeer het opnieuw"
   },
   "characters": {
     "pip": "Pip",

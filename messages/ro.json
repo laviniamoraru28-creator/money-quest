@@ -290,7 +290,9 @@
     "focusModeHint": "Ascunde detaliile suplimentare astfel încât să se vadă doar activitatea principală.",
     "listenToLessonLabel": "Ascultă lecția",
     "mainNavigationLabel": "Principal",
-    "categoryMayNeedAdjusting": "- această categorie ar putea avea nevoie de ajustări"
+    "categoryMayNeedAdjusting": "- această categorie ar putea avea nevoie de ajustări",
+    "answerCorrectAnnouncement": "Răspuns corect",
+    "answerIncorrectAnnouncement": "Încearcă din nou"
   },
   "characters": {
     "pip": "Pip",

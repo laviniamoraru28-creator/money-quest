@@ -290,7 +290,9 @@
     "focusModeHint": "Oculta los detalles extra para que solo se vea la actividad principal.",
     "listenToLessonLabel": "Escucha la lección",
     "mainNavigationLabel": "Principal",
-    "categoryMayNeedAdjusting": "- esta categoría podría necesitar un ajuste"
+    "categoryMayNeedAdjusting": "- esta categoría podría necesitar un ajuste",
+    "answerCorrectAnnouncement": "Respuesta correcta",
+    "answerIncorrectAnnouncement": "Inténtalo de nuevo"
   },
   "characters": {
     "pip": "Pip",
