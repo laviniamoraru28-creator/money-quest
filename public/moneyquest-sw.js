@@ -2,6 +2,12 @@
 const PREFIX = "moneyquest-offline-";
 const READY = "/__moneyquest_offline_ready__";
 let downloading = null;
+// Next.js chunk folders contain [locale]/[slug]. Browsers request these
+// as %5Blocale%5D, while build manifests list literal brackets.
+function cacheKey(pathname) {
+  try { return pathname.split("/").map(part => encodeURIComponent(decodeURIComponent(part))).join("/"); }
+  catch { return pathname; }
+}
 self.addEventListener("install", event => event.waitUntil(self.skipWaiting()));
 self.addEventListener("activate", event => event.waitUntil(self.clients.claim()));
 
@@ -35,7 +41,7 @@ async function download(locale, send) {
         try {
           const result = await fetch(url.href,{cache:"reload",credentials:"omit",signal:controller.signal});
           if (!result.ok || result.redirected && new URL(result.url).origin!==self.location.origin) throw new Error(`Could not save ${item}.`);
-          await cache.put(url.pathname,result);
+          await cache.put(cacheKey(url.pathname),result);
           send({type:"progress",done:++done,total:urls.length});
         } catch(error) { failed=true; throw error; }
         finally {clearTimeout(timer);}
@@ -64,9 +70,9 @@ self.addEventListener("fetch", event => {
     event.respondWith((async()=>{
       try {const response=await fetch(event.request);if(response.status<500)return response;}catch{}
       const cache=await savedCache();
-      return await cache?.match(url.pathname==="/"?"/en":url.pathname) || await cache?.match("/offline.html") || new Response("Reconnect to download Money Quest for offline use.",{status:503,headers:{"Content-Type":"text/plain; charset=utf-8"}});
+      return await cache?.match(cacheKey(url.pathname==="/"?"/en":url.pathname)) || await cache?.match("/offline.html") || new Response("Reconnect to download Money Quest for offline use.",{status:503,headers:{"Content-Type":"text/plain; charset=utf-8"}});
     })());
   } else if(url.pathname.startsWith("/_next/static/")||/\.(webp|png|jpg|jpeg|svg|avif|pdf|woff2?|webmanifest)$/.test(url.pathname)) {
-    event.respondWith((async()=>{const cache=await savedCache();return await cache?.match(url.pathname)||fetch(event.request);})());
+    event.respondWith((async()=>{const cache=await savedCache();return await cache?.match(cacheKey(url.pathname))||fetch(event.request);})());
   }
 });
