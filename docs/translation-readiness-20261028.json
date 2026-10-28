@@ -1,0 +1,110 @@
+{
+  "generated": "2026-10-28",
+  "scope": "New authored content only. This inventory does not certify linguistic quality or cover all hardcoded UI, SEO, commerce policies or privately stored printable manuscripts.",
+  "activeLocales": [
+    "en"
+  ],
+  "domains": {
+    "originalBooks": {
+      "sourceStrings": 908,
+      "sourceHash": "f04430fc77cadd52be25c7be7f7fef0cfeb6890e4e2f28ccab510be202ae1e3e"
+    },
+    "biographies": {
+      "sourceStrings": 147,
+      "sourceHash": "e35c4e6b4a20ee435d7ea93717dfe77f93dc58a63cb32e388435239f2ca9523a"
+    },
+    "shortReads": {
+      "sourceStrings": 96,
+      "sourceHash": "077ff46d2f195954cab7efd0031828dabe96e0df33cf507d5e77d4d472cd24fc"
+    },
+    "museumRooms": {
+      "sourceStrings": 90,
+      "sourceHash": "6f043c73f9ae9713ab0609a3875f415ca1ccf85237a77e40a38a51c33a169e75"
+    },
+    "laboratories": {
+      "sourceStrings": 226,
+      "sourceHash": "2d104ce52ff69170f2483f5a2deaef6846c14fa0519cf6c508cd65fe59879c89"
+    },
+    "labAgeVariants": {
+      "sourceStrings": 264,
+      "sourceHash": "dd813c5994e01609e30f173ad7f9b9e28e63a2e23b8e137eb2e8741c86caff31"
+    },
+    "discoveryNotes": {
+      "sourceStrings": 84,
+      "sourceHash": "6cbf0f6e8c775f3d6439b217e2e57dc48c0bf28a8a11c0ad3e60576b37aab613"
+    },
+    "externalBookIntroductions": {
+      "sourceStrings": 123,
+      "sourceHash": "e44cd1461d97d116702dea5dbcde8b7a38ad0cf501f78e4a9d631cca4ceb237b"
+    }
+  },
+  "locales": [
+    {
+      "locale": "en",
+      "messageKeys": "validated separately; key parity does not prove authored-content translation",
+      "newContent": "source edition",
+      "publicActivation": "active"
+    },
+    {
+      "locale": "ro",
+      "messageKeys": "validated separately; key parity does not prove authored-content translation",
+      "newContent": "10 biography drafts; other domains pending",
+      "publicActivation": "blocked pending complete content and review"
+    },
+    {
+      "locale": "es",
+      "messageKeys": "validated separately; key parity does not prove authored-content translation",
+      "newContent": "pending",
+      "publicActivation": "blocked pending complete content and review"
+    },
+    {
+      "locale": "fr",
+      "messageKeys": "validated separately; key parity does not prove authored-content translation",
+      "newContent": "pending",
+      "publicActivation": "blocked pending complete content and review"
+    },
+    {
+      "locale": "de",
+      "messageKeys": "validated separately; key parity does not prove authored-content translation",
+      "newContent": "pending",
+      "publicActivation": "blocked pending complete content and review"
+    },
+    {
+      "locale": "it",
+      "messageKeys": "validated separately; key parity does not prove authored-content translation",
+      "newContent": "pending",
+      "publicActivation": "blocked pending complete content and review"
+    },
+    {
+      "locale": "pt",
+      "messageKeys": "validated separately; key parity does not prove authored-content translation",
+      "newContent": "pending",
+      "publicActivation": "blocked pending complete content and review"
+    },
+    {
+      "locale": "nl",
+      "messageKeys": "validated separately; key parity does not prove authored-content translation",
+      "newContent": "pending",
+      "publicActivation": "blocked pending complete content and review"
+    },
+    {
+      "locale": "pl",
+      "messageKeys": "validated separately; key parity does not prove authored-content translation",
+      "newContent": "pending",
+      "publicActivation": "blocked pending complete content and review"
+    }
+  ],
+  "romanianBiographies": {
+    "entries": 10,
+    "translatedStrings": 147,
+    "editorialStatus": "draft, not owner-reviewed",
+    "sourceFingerprintManifest": "src/content/translations/people.ro.sources.json"
+  },
+  "additionalWork": [
+    "Translate and wire every hardcoded UI and SEO field",
+    "Translate parent shop, consumer/privacy text and recovery flow",
+    "Translate all privately stored worksheets, journal pages, guides and answers",
+    "Proofread terminology, level labels, amounts, dates and right/wrong feedback",
+    "Validate routes, real audio and layout per language before ACTIVE_LOCALES changes"
+  ]
+}
