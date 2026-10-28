@@ -6,7 +6,7 @@ import { libraryBooks } from "../src/content/discovery";
 import { libraryPeople } from "../src/content/people";
 import sitemap from "../src/app/sitemap";
 
-assert.equal(originalBooks.length, 3);
+assert.equal(originalBooks.length, 10);
 assert.equal(libraryBooks.length, 8, "Keep existing short reads");
 const slugs = [...originalBooks, ...libraryBooks, ...libraryPeople].map(book => book.slug);
 assert.equal(new Set(slugs).size, slugs.length, "Book routes must not collide");
@@ -36,13 +36,13 @@ for (const book of authorBooks) {
   assert.ok(book.authors && book.publisher && book.age && book.access);
 }
 assert.equal(authorBooks.length, 12);
-assert.equal(libraryPeople.length, 3);
+assert.equal(libraryPeople.length, 10);
 for (const person of libraryPeople) {
   assert.ok(existsSync(`public${person.image}`), `Missing portrait: ${person.name}`);
   assert.equal(new URL(person.source).protocol, "https:");
   assert.equal(person.sections.length, 3);
   assert.ok(sitemap().some(entry => new URL(entry.url).pathname === `/en/library/${person.slug}`));
 }
-console.log("PASS: 3 original books / 20 developed chapters, 12 attributed external listings, original routes/assets and existing 8 short reads preserved.");
+console.log("PASS: 10 original books / 62 developed chapters and 10 biographies, 12 attributed external listings, original routes/assets and existing 8 short reads preserved.");
 
 for (const topic of ["Money", "Entrepreneurship", "Leadership", "Creativity", "AI literacy", "Brain Lab", "Mind Lab", "Money psychology", "Digital safety", "Practical skills"]) assert.ok(authorBooks.some(book => book.topics.includes(topic)), `Missing domain: ${topic}`);

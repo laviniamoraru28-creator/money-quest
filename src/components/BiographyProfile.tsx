@@ -9,7 +9,7 @@ export default function BiographyProfile({ person }: { person: LibraryPerson }) 
     <main id="main-content" tabIndex={-1} className="mx-auto max-w-4xl px-5 py-8"><article className="rounded-3xl border border-ink/15 bg-white p-5 md:p-9">
       <p className="font-semibold text-teal-text">People, ideas and questions · Money Quest mini-biography</p><h1 className="mt-3 text-3xl">{person.title}</h1><p className="mt-3">{person.topic}</p><p className="mt-2 text-sm">{person.ages}</p>
       <Image unoptimized data-learning-decoration src={person.image} alt={person.alt} width={768} height={768} className="mx-auto mt-6 aspect-square w-full max-w-md rounded-3xl object-contain"/>
-      <p className="mt-2 text-sm">Original AI-generated cartoon illustration. An imagined scene, not a photograph or historical evidence.</p>
+      <p className="mt-2 text-sm">{person.illustrationNote ?? "Original AI-generated cartoon illustration. An imagined scene, not a photograph or historical evidence."}</p>
       <aside aria-label="A playful introduction" className="mt-5 rounded-xl bg-fog p-4"><p>{person.playful}</p></aside>
       <div className="mt-5"><ReadAloudButton text={`${person.title}. ${person.sections.map(section => `${section.heading}. ${section.text}`).join(" ")}`} uiLocale="en-GB"/></div>
       {person.sections.map(section => <section key={section.heading} className="mt-6 max-w-[65ch]"><h2 className="text-2xl">{section.heading}</h2><p className="mt-3 text-lg leading-loose">{section.text}</p></section>)}

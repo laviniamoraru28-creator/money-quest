@@ -17,7 +17,7 @@ Namecheap's Stellar plan runs Node.js apps via cPanel's "Setup Node.js App" scre
 
 1. Log in to Namecheap's cPanel for your hosting account.
 2. Open **Setup Node.js App**.
-3. If this is the first deployment, create a new Node.js app: set the Node.js version to **20** (matching the version the GitHub Actions build itself uses — see the workflow's `node-version` setting — using a different major version here can cause the already-built app to behave differently or fail to start), set the application startup file to `server.js`, and set the application root to wherever you'll unzip the files below.
+3. If this is the first deployment, create a new Node.js app: set the Node.js version to **24** (matching the version the GitHub Actions build itself uses — see the workflow's `node-version` setting — using a different major version here can cause the already-built app to behave differently or fail to start), set the application startup file to `server.js`, and set the application root to wherever you'll unzip the files below.
 4. Unzip the downloaded artifact and upload its contents (everything was packaged at the archive's root — `.next/`, `messages/`, `server.js`, `package.json`, `next.config.mjs`, `src/i18n/` — there is no outer wrapper folder to account for) into that application root, via cPanel's File Manager or FTP.
 5. In the Node.js App screen, make sure the **`PORT`** environment variable cPanel assigns is respected (it is — `server.js` reads `process.env.PORT` automatically; see that file's own comment).
 6. Click **Restart** on the Node.js app.

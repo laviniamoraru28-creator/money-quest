@@ -17,15 +17,15 @@ export function LibraryShelves() {
     </nav>
     <section id="money-quest-books" aria-labelledby="original-shelf-title" className="mt-8 scroll-mt-8">
       <h2 id="original-shelf-title" className="text-2xl">Money Quest original books</h2>
-      <p className="mt-2">Read the full stories here for free. Choose any chapter, listen if you wish, and explore the activities at your own pace.</p>
+      <p className="mt-2">Read all 10 full stories here for free. Choose any chapter, listen if you wish, and explore the activities at your own pace.</p>
       <div className="mt-5 grid gap-5 md:grid-cols-3">{originalBooks.map(book => <article key={book.slug} className="overflow-hidden rounded-2xl border border-ink/20 bg-white">
         <Image unoptimized data-learning-decoration src={book.cover} alt="" width={576} height={384} className="aspect-[3/2] w-full object-cover"/>
         <div className="p-5"><p className="text-sm font-bold text-teal-text">Money Quest original · {book.chapters.length} chapters</p><h3 className="mt-2 text-xl"><Link href={`/library/${book.slug}`} className="inline-block min-h-12 py-2 text-teal-text underline">{book.title}</Link></h3><p className="mt-2 text-sm">{book.audience}</p><p className="mt-3">{book.description}</p></div>
       </article>)}</div>
     </section>
     <section id="people-and-ideas" aria-labelledby="people-shelf-title" className="mt-10 scroll-mt-8">
-      <h2 id="people-shelf-title" className="text-2xl">People and ideas: playful mini-biographies</h2>
-      <p className="mt-2">Meet real people through short factual introductions and imagined cartoon portraits. Explore their work, the people around them and questions worth asking.</p>
+      <h2 id="people-shelf-title" className="text-2xl">People and ideas: 10 mini-biographies</h2>
+      <p className="mt-2">Meet real people through short factual introductions, cartoon portraits and thematic illustrations. Explore their work, the people around them and questions worth asking.</p>
       <div className="mt-5 grid gap-5 md:grid-cols-3">{libraryPeople.map(person => <article key={person.slug} className="overflow-hidden rounded-2xl border border-ink/20 bg-white"><Image unoptimized data-learning-decoration src={person.image} alt="" width={384} height={384} className="aspect-square w-full object-cover"/><div className="p-5"><h3 className="text-xl"><Link href={`/library/${person.slug}`} className="inline-block min-h-12 py-2 font-semibold text-teal-text underline">{person.name}</Link></h3><p className="mt-2">{person.topic}</p><p className="mt-2 text-sm">{person.ages}</p></div></article>)}</div>
     </section>
     <section id="author-books" aria-labelledby="author-shelf-title" className="mt-10 scroll-mt-8 rounded-3xl border border-ink/15 bg-white p-5 md:p-8">

@@ -37,7 +37,8 @@ export default function OriginalBookReader({ book }: { book: OriginalBook }) {
   }, [book.slug]);
   const move = (index: number) => { if (index < 0 || index >= book.chapters.length) return; stop(); setPage(spreads.findIndex(item=>item.chapterIndex===index)); };
   const turnPage = (index:number) => { if(index<0||index>=spreads.length)return;stop();setPage(index); };
-  const art = chapter===0 ? book.cover : `/images/money-quest/worlds/${book.slug==="the-little-compass-and-the-money-choices"?["coin-cove","sky-exchange","market-town","market-town","golden-vault","guardian-gate","kindness-grove","coin-cove"][chapter]:book.slug==="the-garden-everyone-could-enter"?"kindness-grove":"market-town"}.webp`;
+  const useBookCover = chapter === 0 || !["the-little-compass-and-the-money-choices", "the-garden-everyone-could-enter", "the-market-town-notebook"].includes(book.slug);
+  const art = useBookCover ? book.cover : `/images/money-quest/worlds/${book.slug==="the-little-compass-and-the-money-choices"?["coin-cove","sky-exchange","market-town","market-town","golden-vault","guardian-gate","kindness-grove","coin-cove"][chapter]:book.slug==="the-garden-everyone-could-enter"?"kindness-grove":book.slug==="the-market-town-notebook"?"market-town":""}.webp`;
   const markFinished = () => {
     try {
       const parsed: unknown = JSON.parse(localStorage.getItem(STORE) || "[]");

@@ -35,7 +35,7 @@ jobs:
           # Node.js App screen — keeping these in sync matters because
           # a build produced under a different major Node version can
           # behave differently at runtime.
-          node-version: "20"
+          node-version: "24"
 
       - name: Install dependencies
         run: npm ci

@@ -4,7 +4,7 @@ This branch is a draft implementation, not a launch-ready release. It extends th
 
 ## Implemented in this checkpoint
 
-- Three original books, twelve external book listings, three sourced mini-biographies, eight preserved short reads.
+- Ten original books (62 chapters), twelve external book listings, ten sourced mini-biographies, eight preserved short reads.
 - Illustrated paper-style book spreads, separate page-turn buttons, contents and optional chapter questions. Explorer pages have one short paragraph; other books have up to two. Not every spread has newly commissioned unique art. Six optimized WebPs are committed, including the new Brain Lab image requested by the owner.
 - Site-wide Listen / Stop, scoped readers, word-preserving long-text chunking. Actual voice playback depends on browser/OS and still needs manual checking.
 - Night view, synchronized with existing accessibility preferences and kept separate from progress reset. Existing Reduced Motion and Focus Mode remain.
@@ -29,3 +29,13 @@ This branch is a draft implementation, not a launch-ready release. It extends th
 See `child-design-evidence-20261028.md`, `library-expansion-20261028.md`, `library-artwork-prompts-20261028.md`, and the GitHub Actions run linked from the draft PR. Local checks on Node 24.22.1 have passed lint, typecheck, 23 unit/content suites and production build before the final browser additions. Re-run after subsequent edits. Five pre-existing feedback-phrasing warnings still appear in the older-content validator. No unexecuted browser test is a passing result.
 
 Offline implementation references: https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API and https://developer.mozilla.org/en-US/docs/Web/API/CacheStorage . HTTPS/localhost is required; CacheStorage availability and eviction vary by browser. Service workers are opt-in here, not a new tracking or push-notification system.
+
+## Follow-up scope and verification
+
+The owner expanded the target to ten original books and ten biographies. Seven new Explorer shared-reading stories cover planning/practice, feelings, digital safety, repair/reuse, AI literacy, a pretend budget and participation. Existing Builder/Strategist manuscripts remain. New biographies cover Katherine Johnson, Mae Jemison, Tim Berners-Lee, Wangari Maathai, Louis Braille, Jane Goodall and Beatrix Potter. These seven use existing thematic illustrations clearly labelled as not depicting the person; bespoke portraits have not been generated.
+
+All three CI workflows and deployment instructions now target Node 24; package engines are >=24 <25. Local lint, typecheck and all 23 unit/content suites passed. The five existing feedback-phrase warnings remain. Production build and browser results are recorded separately after completion.
+
+The owner now requires ALL deliverables in all nine languages, including PDFs, journals and answer guides. This supersedes the earlier English-only printable brief. No uncompleted translations have been activated. The requested parent pack, printable journal, store, payments and higher-quality narration remain distinct work; this content checkpoint does not claim they are implemented.
+
+Production build completed successfully: 91 static pages; offline manifest lists 211 learning routes and 175 assets. Local Chromium installation failed because the browser download returned truncated/non-ZIP data. Browser checks are therefore pending the Node 24 GitHub Actions run, not reported as passing locally. New stories retain their relevant cover art on later pages instead of falling back to unrelated market artwork.

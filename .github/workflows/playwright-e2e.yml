@@ -26,7 +26,7 @@ jobs:
           # Matches package.json "engines" and the Namecheap build workflow's
           # own Node pin — keeping every workflow on the same major version
           # avoids a build behaving differently in CI than in production.
-          node-version: "20"
+          node-version: "24"
 
       - name: Install dependencies (reproducible)
         run: npm ci
