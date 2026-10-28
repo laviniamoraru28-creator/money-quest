@@ -32,9 +32,19 @@ const AGE_BAND_KEYS: Dictionary = {
 }
 
 
+## The shared reading layout (CardLayout): picture header, scrolling body,
+## Listen + Close.
+var _layout: Dictionary = {}
+
+
 func _ready() -> void:
 	visible = false
 	source_toggle_button.pressed.connect(_on_source_toggle_pressed)
+	_layout = CardLayout.setup(panel, $Panel/VBox, title_label, [author_label, age_label, summary_label, discover_label, read_more_button, explore_button, source_toggle_button, source_label], close_button)
+	for l in [author_label, age_label, source_label]:
+		CardLayout.style_label(l, CardLayout.SMALL_TEXT, UIStyle.MUTED)
+	for l in [summary_label, discover_label]:
+		CardLayout.style_label(l, CardLayout.BODY_TEXT, UIStyle.INK)
 
 
 func show_book(book: BookData) -> void:
@@ -68,6 +78,7 @@ func show_book(book: BookData) -> void:
 	source_toggle_button.visible = not book.source_name.is_empty()
 	source_label.visible = false
 	source_label.text = Localization.t("library.card.source_line", {"source_name": book.source_name})
+	CardLayout.label_source_button(source_toggle_button, false)
 
 	close_button.text = Localization.t("common.close_button")
 
@@ -84,8 +95,10 @@ func show_book(book: BookData) -> void:
 		explore_button.pressed.connect(on_explore, CONNECT_ONE_SHOT)
 	close_button.pressed.connect(func(): _closed.emit(), CONNECT_ONE_SHOT)
 
+	CardLayout.prepare(panel, _layout, ["book", "then", "bulb"])
 	visible = true
 	UIFocus.focus(close_button)
+	AudioManager.present(listen_text())
 	await _closed
 	visible = false
 	GrownUpGate.cancel_all(read_more_button.get_parent())
@@ -104,4 +117,9 @@ func _on_read_more_pressed() -> void:
 
 
 func _on_source_toggle_pressed() -> void:
-	source_label.visible = not source_label.visible
+	CardLayout.toggle_source(source_toggle_button, source_label)
+
+
+## What Listen reads: the title and the card's visible text.
+func listen_text() -> String:
+	return CardLayout.listen_text(_layout, title_label)

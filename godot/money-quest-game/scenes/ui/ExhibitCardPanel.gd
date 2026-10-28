@@ -43,10 +43,32 @@ const CATEGORY_KEYS: Dictionary = {
 }
 
 
+## A picture cue for each kind of exhibit (MissionStrip tokens), shown
+## above the title — with the card's words, never instead of them.
+const CATEGORY_PICTURES: Dictionary = {
+	"money-through-time": ["coin", "then", "eye"],
+	"business-stories": ["bulb", "then", "coin"],
+	"failure-museum": ["question", "then", "bulb"],
+	"great-ideas": ["bulb", "then", "eye"],
+	"leadership-stories": ["star", "then", "hand"],
+	"innovation": ["bulb", "then", "star"],
+}
+
+## The shared reading layout (CardLayout): picture header, scrolling body,
+## Listen + Close.
+var _layout: Dictionary = {}
+
+
 func _ready() -> void:
 	visible = false
 	source_toggle_button.pressed.connect(_on_source_toggle_pressed)
 	detail_toggle_button.pressed.connect(_on_detail_toggle_pressed)
+	_layout = CardLayout.setup(panel, $Panel/VBox, title_label, [category_label, summary_label, detail_toggle_button, detail_label, what_happened_label, what_went_wrong_label, what_could_differ_label, what_we_learn_label, learn_more_button, continue_story_button, explore_button, source_toggle_button, source_label], close_button)
+	for l in [category_label, source_label]:
+		CardLayout.style_label(l, CardLayout.SMALL_TEXT, UIStyle.MUTED)
+	for l in [summary_label, detail_label, what_happened_label, what_went_wrong_label, what_could_differ_label]:
+		CardLayout.style_label(l, CardLayout.BODY_TEXT, UIStyle.INK)
+	CardLayout.style_label(what_we_learn_label, CardLayout.BODY_TEXT, UIStyle.TEAL_DARK)
 
 
 func show_exhibit(exhibit: ExhibitData) -> void:
@@ -97,6 +119,7 @@ func show_exhibit(exhibit: ExhibitData) -> void:
 	source_toggle_button.visible = not exhibit.source_name.is_empty()
 	source_label.visible = false
 	source_label.text = Localization.t("library.card.source_line", {"source_name": exhibit.source_name})
+	CardLayout.label_source_button(source_toggle_button, false)
 
 	close_button.text = Localization.t("common.close_button")
 
@@ -114,8 +137,10 @@ func show_exhibit(exhibit: ExhibitData) -> void:
 		explore_button.pressed.connect(on_explore, CONNECT_ONE_SHOT)
 	close_button.pressed.connect(func(): _closed.emit(), CONNECT_ONE_SHOT)
 
+	CardLayout.prepare(panel, _layout, CATEGORY_PICTURES.get(exhibit.exhibit_category, ["eye", "then", "bulb"]))
 	visible = true
 	UIFocus.focus(close_button)
+	AudioManager.present(listen_text())
 	await _closed
 	visible = false
 	GrownUpGate.cancel_all(learn_more_button.get_parent())
@@ -137,7 +162,14 @@ func _on_learn_more_pressed() -> void:
 
 func _on_detail_toggle_pressed() -> void:
 	detail_label.visible = not detail_label.visible
+	if detail_label.visible:
+		CardLayout.reveal(detail_label)
 
 
 func _on_source_toggle_pressed() -> void:
-	source_label.visible = not source_label.visible
+	CardLayout.toggle_source(source_toggle_button, source_label)
+
+
+## What Listen reads: the title and the card's visible text.
+func listen_text() -> String:
+	return CardLayout.listen_text(_layout, title_label)

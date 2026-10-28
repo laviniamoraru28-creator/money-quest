@@ -24,9 +24,19 @@ signal _closed
 @onready var close_button: Button = $Panel/VBox/CloseButton
 
 
+## The shared reading layout (CardLayout): picture header, scrolling body,
+## Listen + Close.
+var _layout: Dictionary = {}
+
+
 func _ready() -> void:
 	visible = false
 	source_toggle_button.pressed.connect(_on_source_toggle_pressed)
+	_layout = CardLayout.setup(panel, $Panel/VBox, name_label, [who_label, known_for_label, challenge_label, lesson_label, try_button, explore_button, source_toggle_button, source_label], close_button)
+	for l in [who_label, known_for_label, challenge_label]:
+		CardLayout.style_label(l, CardLayout.BODY_TEXT, UIStyle.INK)
+	CardLayout.style_label(lesson_label, CardLayout.BODY_TEXT, UIStyle.TEAL_DARK)
+	CardLayout.style_label(source_label, CardLayout.SMALL_TEXT, UIStyle.MUTED)
 
 
 func show_mentor(mentor: MentorData) -> void:
@@ -51,6 +61,7 @@ func show_mentor(mentor: MentorData) -> void:
 	source_toggle_button.visible = not mentor.source_name.is_empty()
 	source_label.visible = false
 	source_label.text = Localization.t("library.card.source_line", {"source_name": mentor.source_name})
+	CardLayout.label_source_button(source_toggle_button, false)
 
 	close_button.text = Localization.t("common.close_button")
 
@@ -68,8 +79,10 @@ func show_mentor(mentor: MentorData) -> void:
 		explore_button.pressed.connect(on_explore, CONNECT_ONE_SHOT)
 	close_button.pressed.connect(func(): _closed.emit(), CONNECT_ONE_SHOT)
 
+	CardLayout.prepare(panel, _layout, ["star", "then", "hand"])
 	visible = true
 	UIFocus.focus(close_button)
+	AudioManager.present(listen_text())
 	await _closed
 	visible = false
 
@@ -80,4 +93,9 @@ func show_mentor(mentor: MentorData) -> void:
 
 
 func _on_source_toggle_pressed() -> void:
-	source_label.visible = not source_label.visible
+	CardLayout.toggle_source(source_toggle_button, source_label)
+
+
+## What Listen reads: the title and the card's visible text.
+func listen_text() -> String:
+	return CardLayout.listen_text(_layout, name_label)
