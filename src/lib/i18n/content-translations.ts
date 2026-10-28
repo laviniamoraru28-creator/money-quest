@@ -1,4 +1,5 @@
 import {createHash} from "node:crypto";
+import type {OriginalBook} from "@/content/original-books";
 import type {Biography} from "@/content/people";
 const FIELDS=["title","topic","ages","alt","playful","sections","takeaways","illustrationNote"] as const;
 export function biographyTranslationSource(person:Biography){
@@ -29,4 +30,13 @@ export function draftTranslatedBiography(person:Biography,translation:unknown,ex
  // Only the exact translatable projection is accepted. Names, sources, dates,
  // slugs, image paths and quiz structure can never be overwritten by copy.
  return {...person,...translation as ReturnType<typeof biographyTranslationSource>} as Biography;
+}
+
+const BOOK_FIELDS=["title","subtitle","audience","description","coverAlt","chapters","glossary"] as const;
+export function bookTranslationSource(book:OriginalBook){return Object.fromEntries(BOOK_FIELDS.map(key=>[key,book[key]]))}
+export function draftTranslatedBook(book:OriginalBook,translation:unknown,expectedSourceHash:string):OriginalBook{
+ const source=bookTranslationSource(book);
+ if(sourceFingerprint(source)!==expectedSourceHash)throw new Error(`Stale translation: ${book.slug}`);
+ assertTranslationShape(source,translation,book.slug);
+ return {...book,...translation as ReturnType<typeof bookTranslationSource>} as OriginalBook;
 }
