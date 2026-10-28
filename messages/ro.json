@@ -11,6 +11,7 @@
     "moneyQuest": "Money Quest"
   },
   "nav": {
+    "parentShop": "Magazin pentru părinți · PDF",
     "howItWorks": "Cum funcționează",
     "forParents": "Pentru părinți",
     "safety": "Siguranță",
@@ -25,12 +26,13 @@
     "changeLanguage": "Schimbă limba"
   },
   "landing": {
+    "parentResourcesLink": "Resurse pentru părinți și materiale de imprimat",
     "heroTitle": "Învață despre bani jucându-te, explorând și luând decizii.",
     "heroSubtitle": "Money Quest este o lume gratuită de educație financiară pentru copii de 6–14 ani - misiuni, un portofel fictiv și abilități reale. Fără cont necesar.",
-    "heroImageAlt": "Un copil zâmbitor ținând un telefon pe care se vede aplicația Money Quest, lângă logo-ul Money Quest și textul Skills for Life.",
+    "heroImageAlt": "Imagine generată cu AI: un copil zâmbitor ține un telefon pe care apare website-ul Money Quest.",
     "ctaGetStartedFree": "Începe-ți Aventura Money Quest",
     "ctaSeeHowItWorks": "Vezi cum funcționează",
-    "whyFree": "Money Quest este gratuit pentru familii, susținut de publicitate care respectă confidențialitatea, afișată doar pe paginile pentru părinți - niciodată în experiența copilului tău. Fără achiziții pentru copii, niciodată.",
+    "whyFree": "Activitățile educaționale de bază Money Quest rămân gratuite. Resursele opționale de imprimat acasă pentru părinți se vând separat. Copilul nu trebuie să cumpere nimic în timpul activităților.",
     "howItWorksTitle": "Cum funcționează",
     "step1Title": "1. Alege un nivel",
     "step1Body": "Alege un nivel de învățare - fără înregistrare, fără cont, salvat doar pe acest dispozitiv.",
@@ -42,7 +44,7 @@
     "trust1": "Fără funcții sociale, fără mesagerie între copii, fără profiluri publice",
     "trust2": "Fără publicitate personalizată către copii, niciodată",
     "trust3": "Toți banii din experiența copilului sunt complet ficțiune",
-    "trust4": "Fără conturi, fără înregistrare și fără informații personale colectate vreodată",
+    "trust4": "Copilul poate învăța fără cont, înscriere sau date personale.",
     "readFullParentInfoLink": "Citește toată pagina noastră de Informații pentru Părinți →",
     "safetyTitle": "Siguranța este pe primul loc",
     "safetyBody": "Nu cerem niciodată copilului tău numele real, adresa, școala sau orice informație financiară. Fiecare joc, poveste și provocare este verificată conform cadrelor reale de educație financiară de la OECD, CFPB și UK Money and Pensions Service.",

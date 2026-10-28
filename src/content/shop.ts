@@ -1,0 +1,8 @@
+export const SHOP_TERMS_VERSION = "2026-10-28-draft-v1";
+export const shopProducts = [
+  {id:"family-adventure-pack",title:"Family Adventure Pack",price:599,description:"20 original illustrated activities for money choices, planning, digital safety and thinking together.",image:"/images/money-quest/products/family-pack-preview.webp",sample:"/resources/samples/free-family-sample-en.pdf",pages:"20 activities in each of two visual versions",includes:["Colour and reduced-distraction PDFs","40 individual activity PDFs","Four-page parent and carer guide","Five-page answers and discussion guide"],file:"money-quest-family-pack-en.zip",priceEnv:"MONEYQUEST_STRIPE_FAMILY_PRICE_ID",releaseReady:false},
+  {id:"adventure-journal",title:"My Money Quest Adventure Journal",price:799,description:"12 undated weeks of stories, activities and reflection, with space to draw or respond your way.",image:"/images/money-quest/products/journal-preview.webp",sample:"/resources/samples/free-journal-week-one-en.pdf",pages:"39 A4 pages in each of two visual versions",includes:["Colour and reduced-distraction journals","Clear 25 mm left margin for hole punching","12 weeks, each with Discover, Try and Reflect pages","Parent and carer guide"],file:"money-quest-journal-en.zip",priceEnv:"MONEYQUEST_STRIPE_JOURNAL_PRICE_ID",releaseReady:false}
+] as const;
+export type ShopProduct = typeof shopProducts[number];
+export function findProduct(id:string){return shopProducts.find(product=>product.id===id)}
+export function priceLabel(minor:number){return new Intl.NumberFormat("en-GB",{style:"currency",currency:"GBP"}).format(minor/100)}

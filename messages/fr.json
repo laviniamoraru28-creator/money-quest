@@ -11,6 +11,7 @@
     "moneyQuest": "Money Quest"
   },
   "nav": {
+    "parentShop": "Boutique parents · PDF",
     "howItWorks": "Comment ça marche",
     "forParents": "Pour les parents",
     "safety": "Sécurité",
@@ -25,12 +26,13 @@
     "changeLanguage": "Changer de langue"
   },
   "landing": {
+    "parentResourcesLink": "Ressources pour les parents et boutique de fichiers à imprimer",
     "heroTitle": "Apprends l'argent en jouant, en explorant et en prenant des décisions.",
     "heroSubtitle": "Money Quest est un monde gratuit d'éducation financière pour les enfants de 6 à 14 ans - des quêtes, un portefeuille fictif et de vraies compétences. Aucun compte nécessaire.",
-    "heroImageAlt": "Un enfant souriant tenant un téléphone qui affiche l'application Money Quest, à côté du logo Money Quest et du texte Skills for Life.",
+    "heroImageAlt": "Image générée par IA : un enfant souriant tient un téléphone affichant le site Money Quest.",
     "ctaGetStartedFree": "Commence ta Money Quest",
     "ctaSeeHowItWorks": "Voir comment ça marche",
-    "whyFree": "Money Quest est gratuit pour les familles, financé par une publicité respectueuse de la vie privée affichée uniquement sur les pages destinées aux parents - jamais dans l'expérience de ton enfant. Aucun achat pour enfants, jamais.",
+    "whyFree": "Les activités essentielles de Money Quest restent gratuites. Les ressources facultatives à imprimer pour les parents sont vendues séparément. Aucun achat n’est nécessaire dans les activités pour enfants.",
     "howItWorksTitle": "Comment ça marche",
     "step1Title": "1. Choisis un niveau",
     "step1Body": "Choisis un niveau d'apprentissage - sans inscription, sans compte, enregistré uniquement sur cet appareil.",
@@ -42,7 +44,7 @@
     "trust1": "Aucune fonction sociale, aucune messagerie entre enfants, aucun profil public",
     "trust2": "Aucune publicité personnalisée destinée aux enfants, jamais",
     "trust3": "Tout l'argent dans l'expérience de l'enfant est entièrement fictif",
-    "trust4": "Aucun compte, aucune inscription, et aucune information personnelle jamais collectée",
+    "trust4": "Les activités pour enfants ne demandent ni compte, ni inscription, ni données personnelles.",
     "readFullParentInfoLink": "Lis toute notre page d'Informations pour les Parents →",
     "safetyTitle": "La sécurité avant tout",
     "safetyBody": "Nous ne demandons jamais à ton enfant son vrai nom, son adresse, son école ou toute information financière. Chaque jeu, histoire et défi est vérifié selon de véritables cadres d'éducation financière de l'OCDE, de la CFPB et du UK Money and Pensions Service.",

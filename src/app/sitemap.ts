@@ -28,7 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // with no unique indexable content (see feedback/layout.tsx's own
   // noindex), not an oversight — listing a noindexed URL in the
   // sitemap would just send Google a contradictory signal.
-  const staticPaths = ["/reviews", "/brain-lab", "/mind-lab", "/future-skills", "/inclusive-learning", "", "/learn", "/privacy", "/contact", "/parent-info"];
+  const staticPaths = ["/parents/resources", "/parents/shop", "/parents/shop/terms", "/reviews", "/brain-lab", "/mind-lab", "/future-skills", "/inclusive-learning", "", "/learn", "/privacy", "/contact", "/parent-info"];
   const articlePaths = ARTICLE_STRUCTURES.map((a) => `/learn/${a.slug}`);
   const allPaths = [...staticPaths, ...articlePaths];
 

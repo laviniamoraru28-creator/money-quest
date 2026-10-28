@@ -11,6 +11,7 @@
     "moneyQuest": "Money Quest"
   },
   "nav": {
+    "parentShop": "Loja para famílias · PDF",
     "howItWorks": "Como funciona",
     "forParents": "Para pais",
     "safety": "Segurança",
@@ -25,12 +26,13 @@
     "changeLanguage": "Mudar idioma"
   },
   "landing": {
+    "parentResourcesLink": "Recursos para famílias e loja de materiais para imprimir",
     "heroTitle": "Aprende sobre dinheiro brincando, explorando e tomando decisões.",
     "heroSubtitle": "Money Quest é um mundo gratuito de educação financeira para crianças de 6 a 14 anos - missões, uma carteira fictícia e competências reais. Sem necessidade de conta.",
-    "heroImageAlt": "Uma criança sorridente a segurar um telemóvel que mostra a aplicação Money Quest, ao lado do logótipo Money Quest e do texto Skills for Life.",
+    "heroImageAlt": "Imagem gerada por IA de uma criança sorridente com um telemóvel que mostra o site Money Quest.",
     "ctaGetStartedFree": "Começa a tua Money Quest",
     "ctaSeeHowItWorks": "Ver como funciona",
-    "whyFree": "O Money Quest é gratuito para as famílias, apoiado por publicidade respeitadora da privacidade mostrada apenas em páginas para pais - nunca dentro da experiência do teu filho. Nunca compras infantis.",
+    "whyFree": "As atividades educativas básicas do Money Quest continuam gratuitas. Os recursos opcionais para os pais imprimirem em casa são vendidos separadamente. As crianças não precisam de fazer compras para aprender.",
     "howItWorksTitle": "Como funciona",
     "step1Title": "1. Escolhe um nível",
     "step1Body": "Escolhe um nível de aprendizagem - sem registo, sem conta, guardado apenas neste dispositivo.",
@@ -42,7 +44,7 @@
     "trust1": "Sem funcionalidades sociais, sem mensagens entre crianças, sem perfis públicos",
     "trust2": "Nunca publicidade personalizada dirigida a crianças",
     "trust3": "Todo o dinheiro na experiência da criança é completamente fictício",
-    "trust4": "Sem contas, sem registo e sem informação pessoal alguma vez recolhida",
+    "trust4": "As crianças podem aprender sem conta, registo ou dados pessoais.",
     "readFullParentInfoLink": "Lê toda a nossa página de Informação para Pais →",
     "safetyTitle": "A segurança em primeiro lugar",
     "safetyBody": "Nunca pedimos ao teu filho o nome verdadeiro, morada, escola ou qualquer informação financeira. Cada jogo, história e desafio é revisto segundo estruturas reais de educação financeira da OCDE, da CFPB e do UK Money and Pensions Service.",

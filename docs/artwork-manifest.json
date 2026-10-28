@@ -1,5 +1,5 @@
 {
-  "original_scenes": 23,
+  "original_scenes": 24,
   "files": [
     {
       "path": "public/images/money-quest/guides/girl-and-puppy-thumb.webp",
@@ -266,7 +266,42 @@
       "width": 320,
       "height": 320,
       "sha256": "bb56c44359ec22bc05b25f9ed40399701e11d9f4c47706e5a11e637d722d4e3b"
+    },
+    {
+      "path": "public/images/money-quest/homepage-family-v2.webp",
+      "bytes": 133864,
+      "width": 1536,
+      "height": 1024,
+      "sha256": "6ee7e16d5f71d2fb0b9357b333b75bcbb63380090416af17b3d1e9247e5ba7b4"
+    },
+    {
+      "path": "public/images/money-quest/homepage-family-v2-mobile.webp",
+      "bytes": 69996,
+      "width": 830,
+      "height": 768,
+      "sha256": "094cf60cc30fe71242980e99b64e4810fd4aaa33287825e75b956133a3105b6c"
+    },
+    {
+      "path": "public/images/money-quest/products/journal-preview.webp",
+      "bytes": 54188,
+      "width": 637,
+      "height": 900,
+      "sha256": "be2b71be4fbf56d57721f6f8854574b4f0339347565a93658fc71cb2652d5729"
+    },
+    {
+      "path": "public/images/money-quest/products/journal-inside-preview.webp",
+      "bytes": 23266,
+      "width": 637,
+      "height": 900,
+      "sha256": "5965c859c70d892c22a39cb367d78e629c566a9f06d7c34673e4bf6b3e578628"
+    },
+    {
+      "path": "public/images/money-quest/products/family-pack-preview.webp",
+      "bytes": 28228,
+      "width": 637,
+      "height": 900,
+      "sha256": "8189820a0251b083f42a1553e9993699cf4bc929ed3d2339c747219ae271a0e3"
     }
   ],
-  "total_bytes": 1646712
+  "total_bytes": 2347670
 }

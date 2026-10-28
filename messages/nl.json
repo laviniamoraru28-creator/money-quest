@@ -11,6 +11,7 @@
     "moneyQuest": "Money Quest"
   },
   "nav": {
+    "parentShop": "Oudershop · PDF",
     "howItWorks": "Hoe het werkt",
     "forParents": "Voor ouders",
     "safety": "Veiligheid",
@@ -25,12 +26,13 @@
     "changeLanguage": "Taal wijzigen"
   },
   "landing": {
+    "parentResourcesLink": "Oudermateriaal en winkel met printbare activiteiten",
     "heroTitle": "Leer over geld door te spelen, ontdekken en beslissingen te nemen.",
     "heroSubtitle": "Money Quest is een gratis financiële-geletterdheidswereld voor kinderen van 6 tot 14 jaar - questen, een fictieve portemonnee en echte vaardigheden. Geen account nodig.",
-    "heroImageAlt": "Een lachend kind met een telefoon met de Money Quest-app, naast het Money Quest-logo en de tekst Skills for Life.",
+    "heroImageAlt": "Een met AI gemaakte afbeelding van een glimlachend kind met een telefoon waarop de Money Quest-website staat.",
     "ctaGetStartedFree": "Begin je Money Quest",
     "ctaSeeHowItWorks": "Bekijk hoe het werkt",
-    "whyFree": "Money Quest is gratis voor gezinnen, mogelijk gemaakt door privacyvriendelijke advertenties die alleen op pagina's voor ouders worden getoond - nooit binnen de ervaring van je kind. Nooit aankopen door kinderen.",
+    "whyFree": "De basisactiviteiten van Money Quest blijven gratis. Optionele printmaterialen voor ouders worden apart verkocht. Kinderen hoeven niets te kopen om aan de leeractiviteiten mee te doen.",
     "howItWorksTitle": "Hoe het werkt",
     "step1Title": "1. Kies een niveau",
     "step1Body": "Kies een leerniveau - zonder registratie, zonder account, alleen opgeslagen op dit apparaat.",
@@ -42,7 +44,7 @@
     "trust1": "Geen sociale functies, geen berichten tussen kinderen, geen openbare profielen",
     "trust2": "Nooit gepersonaliseerde advertenties gericht op kinderen",
     "trust3": "Al het geld in de ervaring van het kind is volledig fictief",
-    "trust4": "Geen accounts, geen registratie en nooit persoonlijke informatie verzameld",
+    "trust4": "Kinderen leren zonder account, aanmelding of persoonlijke gegevens.",
     "readFullParentInfoLink": "Lees onze volledige pagina met Informatie voor Ouders →",
     "safetyTitle": "Veiligheid staat voorop",
     "safetyBody": "We vragen je kind nooit om zijn of haar echte naam, adres, school of financiële informatie. Elk spel, verhaal en uitdaging wordt getoetst aan echte financiële-educatiekaders van de OESO, de CFPB en de UK Money and Pensions Service.",

@@ -18,7 +18,7 @@ const pages=new Set<string>();
 for(const file of files("src/app/[locale]")) {
   if(!file.endsWith("/page.tsx"))continue;
   const route=file.replace("src/app/[locale]","").replace("/page.tsx","");
-  if(!route.includes("[") && route!=="/feedback" && !route.startsWith("/reviews"))pages.add(`/en${route}`);
+  if(!route.includes("[") && route!=="/feedback" && !route.startsWith("/reviews") && !route.startsWith("/parents/shop"))pages.add(`/en${route}`);
 }
 const coverage=JSON.parse(readFileSync("docs/website-coverage.json","utf8"));
 function visit(value: unknown): void {

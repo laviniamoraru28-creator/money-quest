@@ -27,7 +27,7 @@ export default function robots(): MetadataRoute.Robots {
       // sections with no static content of their own to index (their
       // per-mission status/version/reflection is personalized, client-side
       // localStorage state), not because they contain anything private.
-      disallow: ["/*/play", "/*/entrepreneur-quest", "/*/leadership-quest", "/*/real-life-quests", "/api/", "/*/reviews/moderate", "/offline.html"],
+      disallow: ["/*/parents/shop/success", "/*/parents/shop/download", "/*/play", "/*/entrepreneur-quest", "/*/leadership-quest", "/*/real-life-quests", "/api/", "/*/reviews/moderate", "/offline.html"],
     },
     sitemap: `${siteUrl}/sitemap.xml`,
   };
