@@ -1,5 +1,5 @@
 {
-  "original_scenes": 18,
+  "original_scenes": 23,
   "files": [
     {
       "path": "public/images/money-quest/guides/girl-and-puppy-thumb.webp",
@@ -224,6 +224,48 @@
       "width": 640,
       "height": 640,
       "sha256": "ed2eaaf022828032bfa1476460582190e0dfd99fb1a7ac53ff3ee0c4bf273961"
+    },
+    {
+      "path": "public/images/money-quest/books/little-compass-cover.webp",
+      "bytes": 137664,
+      "width": 1152,
+      "height": 768,
+      "sha256": "db6d697a1cb3063bf32125cd126ea9045bab482fe5d8f1a1042ee761dea700d4"
+    },
+    {
+      "path": "public/images/money-quest/people/mark-zuckerberg.webp",
+      "bytes": 37498,
+      "width": 768,
+      "height": 768,
+      "sha256": "6e35c2fc2517cf51e0eb57fee049ee924aa91729b386eadc38af54575f71e47c"
+    },
+    {
+      "path": "public/images/money-quest/people/ada-lovelace.webp",
+      "bytes": 63946,
+      "width": 768,
+      "height": 768,
+      "sha256": "d671cbea7582accc90cf366a68ffb3deba3f98791723de58f92cc921a7c90a6d"
+    },
+    {
+      "path": "public/images/money-quest/people/madam-cj-walker.webp",
+      "bytes": 77358,
+      "width": 768,
+      "height": 768,
+      "sha256": "caabb0a4f5fbfe55e90a3be090a33b72b78c3d527b8e2c8f5b14cede79103c1b"
+    },
+    {
+      "path": "public/images/money-quest/sections/brain-lab-v2.webp",
+      "bytes": 54378,
+      "width": 640,
+      "height": 640,
+      "sha256": "0b7d470477571527f71a11da15393038deb02752aa5a829c764d448a843849b1"
+    },
+    {
+      "path": "public/images/money-quest/sections/brain-lab-v2-thumb.webp",
+      "bytes": 20572,
+      "width": 320,
+      "height": 320,
+      "sha256": "bb56c44359ec22bc05b25f9ed40399701e11d9f4c47706e5a11e637d722d4e3b"
     }
   ],
   "total_bytes": 1646712

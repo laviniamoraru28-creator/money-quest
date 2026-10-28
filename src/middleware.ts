@@ -45,6 +45,6 @@ export const config = {
     // that don't exist and 404. That silently broke robots.txt/sitemap
     // discovery for every crawler hitting the standard, expected paths
     // (confirmed live: both returned a redirect-to-404 before this fix).
-    "/((?!api/|_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|.*\\.(?:svg|png|jpg|jpeg|gif|webp|avif|pdf)$).*)",
+    "/((?!api/|_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|moneyquest-sw.js|offline-manifest.json|site.webmanifest|offline.html|.*\\.(?:svg|png|jpg|jpeg|gif|webp|avif|pdf)$).*)",
   ],
 };

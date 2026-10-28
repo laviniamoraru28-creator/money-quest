@@ -283,12 +283,12 @@
     "gameProgressLabel": "Game progress",
     "breadcrumbLabel": "Breadcrumb",
     "readAloudLabel": "Read this aloud",
-    "stopReadingLabel": "Stop reading",
+    "stopReadingLabel": "Stop",
     "accessibilityMenuLabel": "Accessibility settings",
     "reducedMotionLabel": "Reduce animations",
     "focusModeLabel": "Focus mode",
     "focusModeHint": "Hides extra details so only the main activity shows.",
-    "listenToLessonLabel": "Listen to the lesson",
+    "listenToLessonLabel": "Listen",
     "mainNavigationLabel": "Main",
     "categoryMayNeedAdjusting": "- this category may need adjusting",
     "answerCorrectAnnouncement": "Correct answer",
@@ -525,7 +525,7 @@
       "title": "Money as a Tool, Not a Goal",
       "learningObjective": "Understand money as a shared system that only works because people agree to trust it, and recognise that different countries use different currencies for this system.",
       "shortIntroduction": "Money only 'works' because millions of strangers agree to trust the same idea. That's genuinely strange when you think about it.",
-      "story": "Priya is helping plan a school fundraiser and notices something: the coins in her pocket are worthless outside her own country. A friend visiting from abroad hands her a note from home, and neither of them can use it here. Priya realises money isn't some fixed, universal thing - it's a system that works because a specific group of people agree it does.",
+      "story": "Mia is helping plan a school fundraiser and notices something: the coins in her pocket are worthless outside her own country. A friend visiting from abroad hands her a note from home, and neither of them can use it here. Mia realises money isn't some fixed, universal thing - it's a system that works because a specific group of people agree it does.",
       "keyConcept": "Money is a shared system of trust, not a fixed universal object - different countries use different currencies, and a currency's value comes from people agreeing to use and trust it.",
       "vocabulary": [
         {
@@ -768,7 +768,7 @@
       "title": "Saving vs. Spending: The Real Trade-off",
       "learningObjective": "Evaluate saving decisions by weighing short-term enjoyment against longer-term goals, and understand that saved money can sometimes grow over time.",
       "shortIntroduction": "Some saved money can actually grow on its own over time. Here's the honest version of how - and why it's not magic.",
-      "story": "Theo has two options for money he doesn't need right now: spend it, or put it somewhere it might slowly grow over time by earning a small amount extra, sometimes called interest. He realises this only really matters if he leaves the money alone for a while - pulling it out quickly barely makes a difference.",
+      "story": "Sam has two options for money he doesn't need right now: spend it, or put it somewhere it might slowly grow over time by earning a small amount extra, sometimes called interest. He realises this only really matters if he leaves the money alone for a while - pulling it out quickly barely makes a difference.",
       "keyConcept": "Money saved over a longer period can sometimes grow through interest, but the trade-off between enjoying money now and having more later is the real decision underneath every saving choice.",
       "vocabulary": [
         {
@@ -1387,7 +1387,7 @@
       "title": "Staying Safe and Aware With Digital Money",
       "learningObjective": "Apply practical habits for managing digital spending safely and critically, including checking payment messages and tracking spending, and recognise why digital money can feel less 'real' than cash.",
       "shortIntroduction": "Digital money is convenient - but its convenience is exactly why it needs a bit more conscious attention than cash.",
-      "story": "Priya notices she's spent more this month than she expected, even though she doesn't remember any one big purchase. Looking back through her digital wallet's history, she sees several small payments she'd barely registered making - each felt too small to think about at the time.",
+      "story": "Mia notices she's spent more this month than she expected, even though she doesn't remember any one big purchase. Looking back through her digital wallet's history, she sees several small payments she'd barely registered making - each felt too small to think about at the time.",
       "keyConcept": "Because digital payments don't involve physically handing anything over, they can feel less 'real' in the moment - which makes deliberately checking what you're spending and confirming payments genuinely worthwhile habits.",
       "vocabulary": [
         {
@@ -1420,7 +1420,7 @@
       },
       "feedback": {
         "success": "Exactly - noticing that is the first step to staying in control of digital spending. 📱",
-        "retry": "Think about why Priya's spending crept up without any single big purchase."
+        "retry": "Think about why Mia's spending crept up without any single big purchase."
       },
       "rewardMessage": "Coins earned for thinking carefully about staying aware with digital money!",
       "parentNote": "This lesson is not about restricting digital payments, but about building conscious awareness - the same skill adults have to practise too. If your teen has any access to a card or digital wallet, reviewing a spending history together occasionally (without judgement) is a genuinely useful shared habit, not just a check-up.",
@@ -3257,8 +3257,8 @@
             {
               "id": "forgot-to-plan",
               "mechanic": "multiple-choice",
-              "prompt": "Priya forgot her friend's birthday was coming up and had already spent her allowance on games. What could help Priya avoid this next time?",
-              "hint": "Think about what Priya could do earlier, before the money is already spent.",
+              "prompt": "Mia forgot her friend's birthday was coming up and had already spent her allowance on games. What could help Mia avoid this next time?",
+              "hint": "Think about what Mia could do earlier, before the money is already spent.",
               "explanation": "Planning ahead for costs you already know are coming - like a birthday you know about in advance - helps avoid being caught short later.",
               "options": [
                 "Planning ahead for costs she already knows about",
@@ -5180,7 +5180,7 @@
     },
     "characters": {
       "nadia": {
-        "name": "Nadia",
+        "name": "Emma",
         "personality": "Full of ideas and always thinking three steps ahead.",
         "strength": "Comes up with creative ideas nobody else thought of.",
         "challenge": "Gets so excited about ideas that she sometimes talks over people.",
@@ -5188,7 +5188,7 @@
         "communicationStyle": "Fast, enthusiastic, and full of \"what if we tried...\""
       },
       "oren": {
-        "name": "Oren",
+        "name": "Ben",
         "personality": "Careful and precise — he notices details other people miss.",
         "strength": "Excellent at building and fixing things properly.",
         "challenge": "Often has great ideas but doesn't speak up in a big group.",
@@ -5196,7 +5196,7 @@
         "communicationStyle": "Quiet in groups, but opens up if you ask him directly."
       },
       "priya": {
-        "name": "Priya",
+        "name": "Mia",
         "personality": "Warm, expressive, and great at talking to anyone.",
         "strength": "Can explain things clearly and make people feel comfortable.",
         "challenge": "Gets excited about the next idea before finishing the last one.",
@@ -5204,7 +5204,7 @@
         "communicationStyle": "Talks a lot, with energy — sometimes needs a gentle reminder to wrap up."
       },
       "theo": {
-        "name": "Theo",
+        "name": "Sam",
         "personality": "Steady, organized, and always keeps track of the plan.",
         "strength": "Keeps the team on schedule and remembers every detail.",
         "challenge": "Finds sudden changes to the plan stressful.",
@@ -5218,7 +5218,7 @@
         "alertText": "",
         "dialogue": [
           { "character": "nadia", "text": "Hi! I'm SO glad you're here — I already have about ten ideas for our first project!" },
-          { "character": "oren", "text": "...Hi. I'm Oren. I mostly just want to get started." },
+          { "character": "oren", "text": "...Hi. I'm Ben. I mostly just want to get started." },
           { "character": "priya", "text": "Welcome! Honestly, I think this team is going to be great with you leading us." },
           { "character": "theo", "text": "Hello. I've made a small schedule for today, if that's helpful." }
         ],
@@ -5265,11 +5265,11 @@
         ],
         "events": {
           "everyone-has-an-idea-choice": {
-            "situation": "Nadia and Oren both feel strongly about their own idea. They're waiting for you to decide.",
+            "situation": "Emma and Ben both feel strongly about their own idea. They're waiting for you to decide.",
             "choices": [
-              { "key": "pick-one-idea", "label": "Go with Nadia's idea — it's the more exciting one.", "consequence": "Nadia is thrilled. Oren goes quiet and doesn't say much for the rest of the day." },
+              { "key": "pick-one-idea", "label": "Go with Emma's idea — it's the more exciting one.", "consequence": "Emma is thrilled. Ben goes quiet and doesn't say much for the rest of the day." },
               { "key": "combine-both-ideas", "label": "Find a way to combine both ideas.", "consequence": "It takes a little longer to work out, but both of them feel heard." },
-              { "key": "let-them-decide-together", "label": "Ask Nadia and Oren to talk it through together.", "consequence": "They talk it out themselves — and come back with a plan they both actually like." },
+              { "key": "let-them-decide-together", "label": "Ask Emma and Ben to talk it through together.", "consequence": "They talk it out themselves — and come back with a plan they both actually like." },
               { "key": "go-with-your-own-idea", "label": "Suggest a completely different idea of your own.", "consequence": "It solves the disagreement, but neither of them feels like their idea mattered." }
             ]
           }
@@ -5279,22 +5279,22 @@
         "title": "The Missing Task",
         "alertText": "🚨 One task still isn't done — and the deadline is close.",
         "dialogue": [
-          { "character": "theo", "text": "We're supposed to be ready by tomorrow. Oren's part isn't finished yet." },
+          { "character": "theo", "text": "We're supposed to be ready by tomorrow. Ben's part isn't finished yet." },
           { "character": "priya", "text": "Maybe something came up? I'm not sure." }
         ],
         "investigateLabel": "Find out what's going on before you decide.",
         "investigate": {
-          "ask-the-teammate": "You ask Oren directly. He says he wasn't sure how to start, and didn't want to admit it.",
-          "check-the-shared-plan": "You check the shared plan. Oren's part was never clearly explained to him.",
-          "ask-another-teammate": "Priya mentions Oren seemed confused earlier in the week, but she didn't say anything."
+          "ask-the-teammate": "You ask Ben directly. He says he wasn't sure how to start, and didn't want to admit it.",
+          "check-the-shared-plan": "You check the shared plan. Ben's part was never clearly explained to him.",
+          "ask-another-teammate": "Mia mentions Ben seemed confused earlier in the week, but she didn't say anything."
         },
         "events": {
           "missing-task-choice": {
             "situation": "Now you know a bit more about what happened. What do you do?",
             "choices": [
-              { "key": "ask-what-happened", "label": "Talk to Oren, and help him figure out what's needed.", "consequence": "Oren finishes the task with your help, and feels more comfortable asking next time." },
-              { "key": "do-it-yourself-quietly", "label": "Quietly finish the task yourself.", "consequence": "The task gets done fast, but Oren never finds out what he missed — or gets the chance to fix it." },
-              { "key": "remind-them-firmly", "label": "Remind Oren firmly that the deadline is tomorrow.", "consequence": "The task gets moving, but Oren still isn't sure what went wrong the first time." },
+              { "key": "ask-what-happened", "label": "Talk to Ben, and help him figure out what's needed.", "consequence": "Ben finishes the task with your help, and feels more comfortable asking next time." },
+              { "key": "do-it-yourself-quietly", "label": "Quietly finish the task yourself.", "consequence": "The task gets done fast, but Ben never finds out what he missed — or gets the chance to fix it." },
+              { "key": "remind-them-firmly", "label": "Remind Ben firmly that the deadline is tomorrow.", "consequence": "The task gets moving, but Ben still isn't sure what went wrong the first time." },
               { "key": "wait-and-see", "label": "Wait and see if it gets finished on its own.", "consequence": "The deadline gets closer, and nothing changes." }
             ]
           }
@@ -5309,11 +5309,11 @@
         ],
         "events": {
           "big-mistake-choice": {
-            "situation": "Priya made a real mistake, and everyone's watching to see what you'll do.",
+            "situation": "Mia made a real mistake, and everyone's watching to see what you'll do.",
             "choices": [
-              { "key": "blame-publicly", "label": "Point out the mistake in front of everyone.", "consequence": "The team fixes it quickly — but Priya looks embarrassed, and seems nervous about speaking up again." },
-              { "key": "fix-it-yourself", "label": "Quietly fix it yourself and move on.", "consequence": "It's sorted fast, but Priya never gets the chance to understand what went wrong." },
-              { "key": "talk-privately", "label": "Talk to Priya privately and figure out what happened.", "consequence": "It takes a bit longer, but Priya feels supported — and is more careful next time." },
+              { "key": "blame-publicly", "label": "Point out the mistake in front of everyone.", "consequence": "The team fixes it quickly — but Mia looks embarrassed, and seems nervous about speaking up again." },
+              { "key": "fix-it-yourself", "label": "Quietly fix it yourself and move on.", "consequence": "It's sorted fast, but Mia never gets the chance to understand what went wrong." },
+              { "key": "talk-privately", "label": "Talk to Mia privately and figure out what happened.", "consequence": "It takes a bit longer, but Mia feels supported — and is more careful next time." },
               { "key": "ignore-it", "label": "Decide it's not a big deal and ignore it.", "consequence": "The mistake stays uncorrected, and the customer notices." }
             ]
           }
@@ -5332,7 +5332,7 @@
               { "key": "listen-first", "label": "Listen carefully to what went wrong before responding.", "consequence": "The customer feels heard, and you get a clearer idea of what actually happened." },
               { "key": "apologise-and-fix-it", "label": "Apologise and offer to fix it right away.", "consequence": "The customer is relieved, and the problem gets solved quickly." },
               { "key": "explain-why-you-were-right", "label": "Explain why your team's choice was actually the right one.", "consequence": "The customer doesn't feel any better, and still isn't sure you understood the problem." },
-              { "key": "let-a-teammate-handle-it", "label": "Let Priya, who's great with people, handle the call.", "consequence": "Priya calms the customer down, and the team sees you trust them with hard moments too." }
+              { "key": "let-a-teammate-handle-it", "label": "Let Mia, who's great with people, handle the call.", "consequence": "Mia calms the customer down, and the team sees you trust them with hard moments too." }
             ]
           }
         }
@@ -5345,11 +5345,11 @@
         ],
         "events": {
           "better-idea-choice": {
-            "situation": "Nadia's idea is genuinely better than the one you originally planned.",
+            "situation": "Emma's idea is genuinely better than the one you originally planned.",
             "choices": [
-              { "key": "use-their-idea", "label": "Go with Nadia's idea instead of your own.", "consequence": "The project gets stronger, and Nadia feels genuinely valued." },
+              { "key": "use-their-idea", "label": "Go with Emma's idea instead of your own.", "consequence": "The project gets stronger, and Emma feels genuinely valued." },
               { "key": "combine-ideas", "label": "Combine the best parts of both ideas.", "consequence": "It takes a little more work, but the result is even better." },
-              { "key": "stick-with-your-idea", "label": "Stick with your original plan.", "consequence": "The project goes ahead as planned, but Nadia wonders if her ideas are really welcome." },
+              { "key": "stick-with-your-idea", "label": "Stick with your original plan.", "consequence": "The project goes ahead as planned, but Emma wonders if her ideas are really welcome." },
               { "key": "ask-the-team-to-vote", "label": "Ask the whole team which idea they prefer.", "consequence": "The team feels involved in the decision, whichever idea wins." }
             ]
           }
@@ -5362,11 +5362,11 @@
           { "character": "priya", "text": "You never listen to me!" },
           { "character": "theo", "text": "That's not fair — I just think we see this differently." }
         ],
-        "spotScenario": "Read what's being said between Priya and Theo. Which parts are making things worse, not better?",
+        "spotScenario": "Read what's being said between Mia and Sam. Which parts are making things worse, not better?",
         "outro": "You've spotted what's making things worse. Now it's time to step in.",
         "events": {
           "team-conflict-choice": {
-            "situation": "Priya and Theo are still not seeing eye to eye. What do you do?",
+            "situation": "Mia and Sam are still not seeing eye to eye. What do you do?",
             "choices": [
               { "key": "hear-both-sides", "label": "Ask each of them to explain their side, one at a time.", "consequence": "They both feel heard, and start to understand each other's point." },
               { "key": "pick-a-side", "label": "Decide who's right and tell the other to drop it.", "consequence": "The argument stops, but the one who \"lost\" feels unfairly treated." },
@@ -5425,7 +5425,7 @@
         "title": "The Pressure Test",
         "alertText": "🚨 Everything is happening at once.",
         "dialogue": [
-          { "character": "priya", "text": "The customer just changed what they want. Also, Oren's not here today. Also — is that thing broken now too?" }
+          { "character": "priya", "text": "The customer just changed what they want. Also, Ben's not here today. Also — is that thing broken now too?" }
         ],
         "buckets": {
           "deal-with-first": "Deal with first",
@@ -5522,11 +5522,11 @@
       },
       "uh-oh-teammate-absent": {
         "title": "One of your teammates is away today.",
-        "situation": "Oren isn't in today, and he had an important task on his list.",
+        "situation": "Ben isn't in today, and he had an important task on his list.",
         "choices": [
           { "key": "share-out-their-tasks", "label": "Share his tasks out across the rest of the team.", "consequence": "It gets done, and the team feels good about pitching in." },
-          { "key": "wait-until-they-are-back", "label": "Wait until Oren is back to continue that part.", "consequence": "That part of the project pauses for now." },
-          { "key": "do-their-work-yourself", "label": "Do Oren's part yourself as well as your own.", "consequence": "It gets done, but it's a lot to take on by yourself." }
+          { "key": "wait-until-they-are-back", "label": "Wait until Ben is back to continue that part.", "consequence": "That part of the project pauses for now." },
+          { "key": "do-their-work-yourself", "label": "Do Ben's part yourself as well as your own.", "consequence": "It gets done, but it's a lot to take on by yourself." }
         ]
       },
       "uh-oh-customer-changed-mind": {

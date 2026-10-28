@@ -6,6 +6,8 @@ import { getMessages, getTranslations } from "next-intl/server";
 import { Space_Grotesk, Atkinson_Hyperlegible } from "next/font/google";
 import { ACTIVE_LOCALES, getTextDirection, isSupportedLocale, type Locale } from "@/i18n/config";
 import { getSiteUrl, DEFAULT_OG_IMAGE } from "@/lib/seo/site-url";
+import {CoinRewardEffect} from "@/components/ui/CoinRewardEffect";
+import {PageReadAloud} from "@/components/ui/PageReadAloud";
 import "../globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -66,6 +68,7 @@ export async function generateMetadata({
     // explicitly anyway (see getSiteUrl() call sites), so this is a
     // safety net, not the primary mechanism.
     metadataBase: new URL(siteUrl),
+    manifest: "/site.webmanifest",
     title: { default: t("defaultTitle"), template: `%s - Money Quest` },
     description: t("defaultDescription"),
     // hreflang alternates (brief requirement 14) — one entry per
@@ -135,7 +138,9 @@ export default async function LocaleLayout({
             regardless of the URL. */}
         <NextIntlClientProvider locale={locale} messages={messages}>
           <a href="#main-content" className="sr-only z-50 rounded-lg bg-white p-4 font-bold text-teal-text focus:not-sr-only focus:absolute focus:left-4 focus:top-4">Skip to content</a>
+          <PageReadAloud locale={locale}/>
           {children}
+          <CoinRewardEffect/>
         </NextIntlClientProvider>
       </body>
     </html>

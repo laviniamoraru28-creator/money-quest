@@ -94,7 +94,7 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
               ].map((lab) => (
                 <Link href={`/${lab.name.toLowerCase().replaceAll(" ", "-")}`} key={lab.name} className="overflow-hidden rounded-xl border border-ink/10 bg-white shadow-resting">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <Image unoptimized src={`/images/money-quest/sections/${lab.name.toLowerCase().replaceAll(" ", "-")}-thumb.webp`} alt="" width={320} height={320} loading="lazy" className="h-auto w-full" />
+                  <Image unoptimized src={`/images/money-quest/sections/${lab.name === "Brain Lab" ? "brain-lab-v2" : lab.name.toLowerCase().replaceAll(" ", "-")}-thumb.webp`} alt="" width={320} height={320} loading="lazy" className="h-auto w-full" />
                   <div className="p-sm">
                     <h3 className="font-display text-lg font-bold">{lab.name}</h3>
                     <p className="mt-2xs text-sm text-teal-text">Explore activities →</p>

@@ -1455,7 +1455,7 @@
     },
     "characters": {
       "nadia": {
-        "name": "Nadia",
+        "name": "Emma",
         "personality": "Boordevol ideeën en altijd drie stappen vooruit aan het denken.",
         "strength": "Komt met creatieve ideeën waar niemand anders aan dacht.",
         "challenge": "Raakt zo enthousiast over ideeën dat ze soms door mensen heen praat.",
@@ -1463,7 +1463,7 @@
         "communicationStyle": "Snel, enthousiast, en altijd met een \"wat als we eens...\""
       },
       "oren": {
-        "name": "Oren",
+        "name": "Ben",
         "personality": "Voorzichtig en precies - hij merkt details op die anderen missen.",
         "strength": "Uitstekend in dingen goed bouwen en repareren.",
         "challenge": "Heeft vaak goede ideeën, maar zegt weinig in een grote groep.",
@@ -1471,7 +1471,7 @@
         "communicationStyle": "Stil in groepen, maar gaat open als je hem er rechtstreeks naar vraagt."
       },
       "priya": {
-        "name": "Priya",
+        "name": "Mia",
         "personality": "Warm, expressief, en geweldig in het praten met iedereen.",
         "strength": "Kan dingen duidelijk uitleggen en mensen op hun gemak stellen.",
         "challenge": "Raakt enthousiast over het volgende idee voordat het vorige af is.",
@@ -1479,7 +1479,7 @@
         "communicationStyle": "Praat veel, met energie - heeft soms een vriendelijk duwtje nodig om af te ronden."
       },
       "theo": {
-        "name": "Theo",
+        "name": "Sam",
         "personality": "Stabiel, georganiseerd, en houdt altijd het plan in de gaten.",
         "strength": "Houdt het team op schema en onthoudt elk detail.",
         "challenge": "Vindt plotselinge veranderingen in het plan stressvol.",
@@ -1498,7 +1498,7 @@
           },
           {
             "character": "oren",
-            "text": "...Hoi. Ik ben Oren. Ik wil eigenlijk vooral gewoon beginnen."
+            "text": "...Hoi. Ik ben Ben. Ik wil eigenlijk vooral gewoon beginnen."
           },
           {
             "character": "priya",
@@ -1579,12 +1579,12 @@
         ],
         "events": {
           "everyone-has-an-idea-choice": {
-            "situation": "Nadia en Oren voelen zich allebei sterk over hun eigen idee. Ze wachten tot jij beslist.",
+            "situation": "Emma en Ben voelen zich allebei sterk over hun eigen idee. Ze wachten tot jij beslist.",
             "choices": [
               {
                 "key": "pick-one-idea",
-                "label": "Ga voor het idee van Nadia - dat is het spannendste.",
-                "consequence": "Nadia is dolblij. Oren wordt stil en zegt de rest van de dag niet veel."
+                "label": "Ga voor het idee van Emma - dat is het spannendste.",
+                "consequence": "Emma is dolblij. Ben wordt stil en zegt de rest van de dag niet veel."
               },
               {
                 "key": "combine-both-ideas",
@@ -1593,7 +1593,7 @@
               },
               {
                 "key": "let-them-decide-together",
-                "label": "Vraag Nadia en Oren om er samen over te praten.",
+                "label": "Vraag Emma en Ben om er samen over te praten.",
                 "consequence": "Ze praten het zelf uit - en komen terug met een plan dat ze allebei echt goed vinden."
               },
               {
@@ -1611,7 +1611,7 @@
         "dialogue": [
           {
             "character": "theo",
-            "text": "We zouden morgen klaar moeten zijn. Het deel van Oren is nog niet af."
+            "text": "We zouden morgen klaar moeten zijn. Het deel van Ben is nog niet af."
           },
           {
             "character": "priya",
@@ -1620,9 +1620,9 @@
         ],
         "investigateLabel": "Zoek uit wat er aan de hand is voordat je beslist.",
         "investigate": {
-          "ask-the-teammate": "Je vraagt het rechtstreeks aan Oren. Hij zegt dat hij niet zeker wist hoe hij moest beginnen, en dat niet wilde toegeven.",
-          "check-the-shared-plan": "Je bekijkt het gedeelde plan. Het deel van Oren is hem nooit duidelijk uitgelegd.",
-          "ask-another-teammate": "Priya vertelt dat Oren eerder deze week verward leek, maar ze zei er niets over."
+          "ask-the-teammate": "Je vraagt het rechtstreeks aan Ben. Hij zegt dat hij niet zeker wist hoe hij moest beginnen, en dat niet wilde toegeven.",
+          "check-the-shared-plan": "Je bekijkt het gedeelde plan. Het deel van Ben is hem nooit duidelijk uitgelegd.",
+          "ask-another-teammate": "Mia vertelt dat Ben eerder deze week verward leek, maar ze zei er niets over."
         },
         "events": {
           "missing-task-choice": {
@@ -1630,18 +1630,18 @@
             "choices": [
               {
                 "key": "ask-what-happened",
-                "label": "Praat met Oren, en help hem uitzoeken wat er nodig is.",
-                "consequence": "Oren maakt de taak af met jouw hulp, en voelt zich de volgende keer eerder op zijn gemak om iets te vragen."
+                "label": "Praat met Ben, en help hem uitzoeken wat er nodig is.",
+                "consequence": "Ben maakt de taak af met jouw hulp, en voelt zich de volgende keer eerder op zijn gemak om iets te vragen."
               },
               {
                 "key": "do-it-yourself-quietly",
                 "label": "Maak de taak stilletjes zelf af.",
-                "consequence": "De taak is snel klaar, maar Oren komt nooit te weten wat hij miste - of krijgt de kans om het te verbeteren."
+                "consequence": "De taak is snel klaar, maar Ben komt nooit te weten wat hij miste - of krijgt de kans om het te verbeteren."
               },
               {
                 "key": "remind-them-firmly",
-                "label": "Herinner Oren er streng aan dat de deadline morgen is.",
-                "consequence": "De taak komt in beweging, maar Oren weet nog steeds niet precies wat er de eerste keer misging."
+                "label": "Herinner Ben er streng aan dat de deadline morgen is.",
+                "consequence": "De taak komt in beweging, maar Ben weet nog steeds niet precies wat er de eerste keer misging."
               },
               {
                 "key": "wait-and-see",
@@ -1667,22 +1667,22 @@
         ],
         "events": {
           "big-mistake-choice": {
-            "situation": "Priya heeft echt een fout gemaakt, en iedereen kijkt om te zien wat jij gaat doen.",
+            "situation": "Mia heeft echt een fout gemaakt, en iedereen kijkt om te zien wat jij gaat doen.",
             "choices": [
               {
                 "key": "blame-publicly",
                 "label": "Wijs de fout aan waar iedereen bij is.",
-                "consequence": "Het team lost het snel op - maar Priya voelt zich beschaamd, en lijkt zenuwachtig om weer iets te zeggen."
+                "consequence": "Het team lost het snel op - maar Mia voelt zich beschaamd, en lijkt zenuwachtig om weer iets te zeggen."
               },
               {
                 "key": "fix-it-yourself",
                 "label": "Los het stilletjes zelf op en ga verder.",
-                "consequence": "Het is snel geregeld, maar Priya krijgt nooit de kans om te begrijpen wat er misging."
+                "consequence": "Het is snel geregeld, maar Mia krijgt nooit de kans om te begrijpen wat er misging."
               },
               {
                 "key": "talk-privately",
-                "label": "Praat privé met Priya en zoek uit wat er gebeurd is.",
-                "consequence": "Het duurt wat langer, maar Priya voelt zich gesteund - en is de volgende keer voorzichtiger."
+                "label": "Praat privé met Mia en zoek uit wat er gebeurd is.",
+                "consequence": "Het duurt wat langer, maar Mia voelt zich gesteund - en is de volgende keer voorzichtiger."
               },
               {
                 "key": "ignore-it",
@@ -1723,8 +1723,8 @@
               },
               {
                 "key": "let-a-teammate-handle-it",
-                "label": "Laat Priya, die geweldig is met mensen, het gesprek doen.",
-                "consequence": "Priya kalmeert de klant, en het team ziet dat je hen ook bij lastige momenten vertrouwt."
+                "label": "Laat Mia, die geweldig is met mensen, het gesprek doen.",
+                "consequence": "Mia kalmeert de klant, en het team ziet dat je hen ook bij lastige momenten vertrouwt."
               }
             ]
           }
@@ -1741,12 +1741,12 @@
         ],
         "events": {
           "better-idea-choice": {
-            "situation": "Het idee van Nadia is echt beter dan wat je oorspronkelijk had gepland.",
+            "situation": "Het idee van Emma is echt beter dan wat je oorspronkelijk had gepland.",
             "choices": [
               {
                 "key": "use-their-idea",
-                "label": "Ga voor het idee van Nadia in plaats van je eigen idee.",
-                "consequence": "Het project wordt sterker, en Nadia voelt zich echt gewaardeerd."
+                "label": "Ga voor het idee van Emma in plaats van je eigen idee.",
+                "consequence": "Het project wordt sterker, en Emma voelt zich echt gewaardeerd."
               },
               {
                 "key": "combine-ideas",
@@ -1756,7 +1756,7 @@
               {
                 "key": "stick-with-your-idea",
                 "label": "Houd vast aan je oorspronkelijke plan.",
-                "consequence": "Het project gaat verder zoals gepland, maar Nadia vraagt zich af of haar ideeën echt welkom zijn."
+                "consequence": "Het project gaat verder zoals gepland, maar Emma vraagt zich af of haar ideeën echt welkom zijn."
               },
               {
                 "key": "ask-the-team-to-vote",
@@ -1780,11 +1780,11 @@
             "text": "Dat is niet eerlijk - ik denk gewoon dat we dit anders zien."
           }
         ],
-        "spotScenario": "Lees wat Priya en Theo tegen elkaar zeggen. Welke delen maken het erger, in plaats van beter?",
+        "spotScenario": "Lees wat Mia en Sam tegen elkaar zeggen. Welke delen maken het erger, in plaats van beter?",
         "outro": "Je hebt gezien wat de zaken erger maakt. Tijd om in te grijpen.",
         "events": {
           "team-conflict-choice": {
-            "situation": "Priya en Theo zijn het nog steeds niet met elkaar eens. Wat doe je?",
+            "situation": "Mia en Sam zijn het nog steeds niet met elkaar eens. Wat doe je?",
             "choices": [
               {
                 "key": "hear-both-sides",
@@ -1895,7 +1895,7 @@
         "dialogue": [
           {
             "character": "priya",
-            "text": "De klant is net van gedachten veranderd over wat ze willen. Oren is er ook niet vandaag. En is dat ding nu ook nog stuk?"
+            "text": "De klant is net van gedachten veranderd over wat ze willen. Ben is er ook niet vandaag. En is dat ding nu ook nog stuk?"
           }
         ],
         "buckets": {
@@ -2050,7 +2050,7 @@
       },
       "uh-oh-teammate-absent": {
         "title": "Een van je teamleden is er vandaag niet.",
-        "situation": "Oren is er vandaag niet, en hij had een belangrijke taak op zijn lijst.",
+        "situation": "Ben is er vandaag niet, en hij had een belangrijke taak op zijn lijst.",
         "choices": [
           {
             "key": "share-out-their-tasks",
@@ -2059,12 +2059,12 @@
           },
           {
             "key": "wait-until-they-are-back",
-            "label": "Wacht tot Oren terug is om dat deel verder te doen.",
+            "label": "Wacht tot Ben terug is om dat deel verder te doen.",
             "consequence": "Dat deel van het project ligt voorlopig stil."
           },
           {
             "key": "do-their-work-yourself",
-            "label": "Doe het deel van Oren zelf, naast je eigen deel.",
+            "label": "Doe het deel van Ben zelf, naast je eigen deel.",
             "consequence": "Het wordt gedaan, maar het is veel om er in je eentje bij te nemen."
           }
         ]
@@ -2628,7 +2628,7 @@
       "title": "Geld als hulpmiddel, niet als doel",
       "learningObjective": "Geld begrijpen als een gedeeld systeem dat alleen werkt omdat mensen ermee instemmen het te vertrouwen, en herkennen dat verschillende landen verschillende valuta gebruiken voor dit systeem.",
       "shortIntroduction": "Geld \"werkt\" alleen omdat miljoenen vreemden ermee instemmen hetzelfde idee te vertrouwen. Dat is best vreemd als je erover nadenkt.",
-      "story": "Priya helpt bij het plannen van een schoolinzamelingsactie en merkt iets op: de munten in haar zak zijn buiten haar eigen land niets waard. Een vriendin die op bezoek is uit het buitenland geeft haar een briefje van thuis, en geen van beiden kan het hier gebruiken. Priya beseft dat geld geen vast, universeel ding is - het is een systeem dat werkt omdat een specifieke groep mensen het ermee eens is dat het werkt.",
+      "story": "Mia helpt bij het plannen van een schoolinzamelingsactie en merkt iets op: de munten in haar zak zijn buiten haar eigen land niets waard. Een vriendin die op bezoek is uit het buitenland geeft haar een briefje van thuis, en geen van beiden kan het hier gebruiken. Mia beseft dat geld geen vast, universeel ding is - het is een systeem dat werkt omdat een specifieke groep mensen het ermee eens is dat het werkt.",
       "keyConcept": "Geld is een gedeeld vertrouwenssysteem, geen vast universeel object - verschillende landen gebruiken verschillende valuta, en de waarde van een valuta komt voort uit het feit dat mensen ermee instemmen om het te gebruiken en te vertrouwen.",
       "vocabulary": [
         {
@@ -2871,7 +2871,7 @@
       "title": "Sparen vs. Uitgeven: De echte afweging",
       "learningObjective": "Spaarbeslissingen evalueren door kortetermijnplezier af te wegen tegen langetermijndoelen, en begrijpen dat gespaard geld soms na verloop van tijd kan groeien.",
       "shortIntroduction": "Sommig gespaard geld kan na verloop van tijd echt vanzelf groeien. Hier is de eerlijke versie van hoe - en waarom het geen magie is.",
-      "story": "Theo heeft twee opties voor geld dat hij nu niet nodig heeft: het uitgeven, of het ergens neerzetten waar het langzaam kan groeien in de loop van de tijd door een klein extra bedrag te verdienen, soms rente genoemd. Hij beseft dat dit alleen echt telt als hij het geld een tijdje met rust laat - het snel opnemen maakt nauwelijks verschil.",
+      "story": "Sam heeft twee opties voor geld dat hij nu niet nodig heeft: het uitgeven, of het ergens neerzetten waar het langzaam kan groeien in de loop van de tijd door een klein extra bedrag te verdienen, soms rente genoemd. Hij beseft dat dit alleen echt telt als hij het geld een tijdje met rust laat - het snel opnemen maakt nauwelijks verschil.",
       "keyConcept": "Geld dat over een langere periode wordt gespaard, kan soms groeien door rente, maar de afweging tussen nu van geld genieten en later meer hebben is de echte beslissing achter elke spaarkeuze.",
       "vocabulary": [
         {
@@ -3490,7 +3490,7 @@
       "title": "Veilig en alert met digitaal geld",
       "learningObjective": "Praktische gewoontes toepassen om digitale uitgaven veilig en kritisch te beheren, waaronder betalingsberichten controleren en uitgaven bijhouden, en herkennen waarom digitaal geld minder „echt” kan aanvoelen dan contant geld.",
       "shortIntroduction": "Digitaal geld is handig - en juist daarom heeft het wat meer bewuste aandacht nodig dan contant geld.",
-      "story": "Priya merkt dat ze deze maand meer heeft uitgegeven dan verwacht, ook al herinnert ze zich geen enkele grote aankoop. Als ze de geschiedenis van haar digitale portemonnee bekijkt, ziet ze verschillende kleine betalingen die ze nauwelijks had opgemerkt toen ze ze deed - elke leek op dat moment te klein om erover na te denken.",
+      "story": "Mia merkt dat ze deze maand meer heeft uitgegeven dan verwacht, ook al herinnert ze zich geen enkele grote aankoop. Als ze de geschiedenis van haar digitale portemonnee bekijkt, ziet ze verschillende kleine betalingen die ze nauwelijks had opgemerkt toen ze ze deed - elke leek op dat moment te klein om erover na te denken.",
       "keyConcept": "Omdat digitale betalingen niets fysieks overhandigen, kunnen ze op het moment zelf minder „echt” aanvoelen - waardoor bewust controleren wat je uitgeeft en betalingen bevestigen echt nuttige gewoontes zijn.",
       "vocabulary": [
         {
@@ -3523,7 +3523,7 @@
       },
       "feedback": {
         "success": "Precies - dat opmerken is de eerste stap om grip te houden op digitale uitgaven. 📱",
-        "retry": "Denk na over waarom Priya's uitgaven stegen zonder één grote aankoop."
+        "retry": "Denk na over waarom Mia's uitgaven stegen zonder één grote aankoop."
       },
       "rewardMessage": "Munten verdiend omdat je zorgvuldig hebt nagedacht over alertheid met digitaal geld!",
       "parentNote": "Deze les gaat niet over het beperken van digitale betalingen, maar over het opbouwen van bewust bewustzijn - dezelfde vaardigheid die ook volwassenen moeten oefenen. Als je tiener toegang heeft tot een pasje of digitale portemonnee, is het af en toe samen bekijken van een uitgavengeschiedenis (zonder oordeel) een echt nuttige gedeelde gewoonte, geen controle.",
@@ -5360,8 +5360,8 @@
             {
               "id": "forgot-to-plan",
               "mechanic": "multiple-choice",
-              "prompt": "Priya vergat dat de verjaardag van haar vriendin eraan kwam en had haar zakgeld al uitgegeven aan spelletjes. Wat zou Priya kunnen helpen dit de volgende keer te voorkomen?",
-              "hint": "Denk na over wat Priya eerder had kunnen doen, voordat het geld al is uitgegeven.",
+              "prompt": "Mia vergat dat de verjaardag van haar vriendin eraan kwam en had haar zakgeld al uitgegeven aan spelletjes. Wat zou Mia kunnen helpen dit de volgende keer te voorkomen?",
+              "hint": "Denk na over wat Mia eerder had kunnen doen, voordat het geld al is uitgegeven.",
               "explanation": "Vooruit plannen voor kosten waarvan je al weet dat ze eraan komen - zoals een verjaardag die je van tevoren kent - helpt voorkomen dat je later krap zit.",
               "options": [
                 "Vooruit plannen voor kosten die ze al kent",

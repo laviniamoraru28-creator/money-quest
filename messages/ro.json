@@ -525,7 +525,7 @@
       "title": "Banii ca instrument, nu ca scop",
       "learningObjective": "Înțelegerea banilor ca sistem comun care funcționează doar pentru că oamenii sunt de acord să aibă încredere în el, și recunoașterea faptului că diferite țări folosesc valute diferite pentru acest sistem.",
       "shortIntroduction": "Banii „funcționează” doar pentru că milioane de străini sunt de acord să aibă încredere în aceeași idee. E cu adevărat ciudat dacă te gândești la asta.",
-      "story": "Priya ajută la planificarea unei strângeri de fonduri școlare și observă ceva: monedele din buzunarul ei nu valorează nimic în afara țării ei. O prietenă în vizită din străinătate îi întinde o bancnotă de acasă, și niciuna dintre ele nu o poate folosi aici. Priya își dă seama că banii nu sunt ceva fix, universal - sunt un sistem care funcționează pentru că un anumit grup de oameni este de acord că funcționează.",
+      "story": "Mia ajută la planificarea unei strângeri de fonduri școlare și observă ceva: monedele din buzunarul ei nu valorează nimic în afara țării ei. O prietenă în vizită din străinătate îi întinde o bancnotă de acasă, și niciuna dintre ele nu o poate folosi aici. Mia își dă seama că banii nu sunt ceva fix, universal - sunt un sistem care funcționează pentru că un anumit grup de oameni este de acord că funcționează.",
       "keyConcept": "Banii sunt un sistem comun de încredere, nu un obiect universal fix - diferite țări folosesc valute diferite, iar valoarea unei valute vine din faptul că oamenii sunt de acord să o folosească și să aibă încredere în ea.",
       "vocabulary": [
         {
@@ -768,7 +768,7 @@
       "title": "Economisire vs. Cheltuire: Compromisul real",
       "learningObjective": "Evaluarea deciziilor de economisire prin cântărirea plăcerii pe termen scurt față de obiectivele pe termen lung, și înțelegerea faptului că banii economisiți pot uneori crește în timp.",
       "shortIntroduction": "Unii bani economisiți pot de fapt crește de la sine în timp. Iată versiunea onestă a modului în care se întâmplă asta - și de ce nu este magie.",
-      "story": "Theo are două opțiuni pentru bani de care nu are nevoie chiar acum: să-i cheltuiască, sau să-i pună undeva unde ar putea crește încet în timp, câștigând o sumă mică în plus, numită uneori dobândă. Își dă seama că asta contează cu adevărat doar dacă lasă banii deoparte o vreme - scoțându-i rapid abia dacă face vreo diferență.",
+      "story": "Sam are două opțiuni pentru bani de care nu are nevoie chiar acum: să-i cheltuiască, sau să-i pună undeva unde ar putea crește încet în timp, câștigând o sumă mică în plus, numită uneori dobândă. Își dă seama că asta contează cu adevărat doar dacă lasă banii deoparte o vreme - scoțându-i rapid abia dacă face vreo diferență.",
       "keyConcept": "Banii economisiți pe o perioadă mai lungă pot uneori crește prin dobândă, dar compromisul dintre a te bucura de bani acum și a avea mai mulți mai târziu este decizia reală din spatele fiecărei alegeri de economisire.",
       "vocabulary": [
         {
@@ -1387,7 +1387,7 @@
       "title": "Siguranță și atenție cu banii digitali",
       "learningObjective": "Să aplice obiceiuri practice pentru gestionarea sigură și atentă a cheltuielilor digitale, inclusiv verificarea mesajelor de plată și urmărirea cheltuielilor, și să recunoască de ce banii digitali pot părea mai puțin „reali” decât numerarul.",
       "shortIntroduction": "Banii digitali sunt comozi - iar tocmai de asta au nevoie de puțin mai multă atenție conștientă decât numerarul.",
-      "story": "Priya observă că a cheltuit mai mult luna aceasta decât se aștepta, deși nu își amintește nicio cumpărătură mare. Uitându-se prin istoricul portofelului digital, vede mai multe plăți mici pe care abia le-a observat când le-a făcut - fiecare a părut prea mică pentru a fi băgată în seamă atunci.",
+      "story": "Mia observă că a cheltuit mai mult luna aceasta decât se aștepta, deși nu își amintește nicio cumpărătură mare. Uitându-se prin istoricul portofelului digital, vede mai multe plăți mici pe care abia le-a observat când le-a făcut - fiecare a părut prea mică pentru a fi băgată în seamă atunci.",
       "keyConcept": "Pentru că plățile digitale nu implică predarea fizică a nimic, ele pot părea mai puțin „reale” în acel moment - de aceea a verifica deliberat ce cheltuiești și a confirma plățile sunt obiceiuri cu adevărat utile.",
       "vocabulary": [
         {
@@ -3257,8 +3257,8 @@
             {
               "id": "forgot-to-plan",
               "mechanic": "multiple-choice",
-              "prompt": "Priya a uitat că ziua de naștere a prietenei sale se apropia și își cheltuise deja alocația pe jocuri. Ce ar putea ajuta-o pe Priya să evite asta data viitoare?",
-              "hint": "Gândește-te la ce ar putea face Priya mai devreme, înainte ca banii să fie deja cheltuiți.",
+              "prompt": "Mia a uitat că ziua de naștere a prietenei sale se apropia și își cheltuise deja alocația pe jocuri. Ce ar putea ajuta-o pe Mia să evite asta data viitoare?",
+              "hint": "Gândește-te la ce ar putea face Mia mai devreme, înainte ca banii să fie deja cheltuiți.",
               "explanation": "Planificarea din timp pentru costuri despre care știi deja că vor apărea - cum ar fi o zi de naștere despre care știi din timp - ajută la evitarea situației de a rămâne fără bani mai târziu.",
               "options": [
                 "Planificarea din timp pentru costuri despre care știe deja",
@@ -5180,7 +5180,7 @@
     },
     "characters": {
       "nadia": {
-        "name": "Nadia",
+        "name": "Emma",
         "personality": "Plină de idei și mereu gândindu-se cu trei pași înainte.",
         "strength": "Vine cu idei creative la care nimeni altcineva nu s-a gândit.",
         "challenge": "Se entuziasmează atât de tare din cauza ideilor, încât uneori vorbește peste ceilalți.",
@@ -5188,7 +5188,7 @@
         "communicationStyle": "Rapidă, entuziastă și plină de \"ce-ar fi dacă am încerca...\""
       },
       "oren": {
-        "name": "Oren",
+        "name": "Ben",
         "personality": "Atent și precis — observă detalii pe care ceilalți le ratează.",
         "strength": "Excelent la construit și reparat lucruri, cum trebuie.",
         "challenge": "Are adesea idei grozave, dar nu vorbește într-un grup mare.",
@@ -5196,7 +5196,7 @@
         "communicationStyle": "Tăcut în grup, dar se deschide dacă îl întrebi direct."
       },
       "priya": {
-        "name": "Priya",
+        "name": "Mia",
         "personality": "Caldă, expresivă și foarte bună la a vorbi cu oricine.",
         "strength": "Poate explica lucrurile clar și îi face pe oameni să se simtă confortabil.",
         "challenge": "Se entuziasmează pentru următoarea idee înainte să o termine pe ultima.",
@@ -5204,7 +5204,7 @@
         "communicationStyle": "Vorbește mult, cu energie — uneori are nevoie de o amintire blândă să încheie."
       },
       "theo": {
-        "name": "Theo",
+        "name": "Sam",
         "personality": "Calm, organizat și ține mereu evidența planului.",
         "strength": "Menține echipa în grafic și își amintește fiecare detaliu.",
         "challenge": "Găsește schimbările bruște de plan stresante.",
@@ -5223,7 +5223,7 @@
           },
           {
             "character": "oren",
-            "text": "...Bună. Eu sunt Oren. Vreau mai ales să începem odată."
+            "text": "...Bună. Eu sunt Ben. Vreau mai ales să începem odată."
           },
           {
             "character": "priya",
@@ -5304,12 +5304,12 @@
         ],
         "events": {
           "everyone-has-an-idea-choice": {
-            "situation": "Nadia și Oren țin amândoi foarte mult la propria idee. Așteaptă să decizi tu.",
+            "situation": "Emma și Ben țin amândoi foarte mult la propria idee. Așteaptă să decizi tu.",
             "choices": [
               {
                 "key": "pick-one-idea",
                 "label": "Mergi cu ideea Nadiei — e cea mai interesantă.",
-                "consequence": "Nadia e încântată. Oren tace și nu mai spune mare lucru tot restul zilei."
+                "consequence": "Emma e încântată. Ben tace și nu mai spune mare lucru tot restul zilei."
               },
               {
                 "key": "combine-both-ideas",
@@ -5318,7 +5318,7 @@
               },
               {
                 "key": "let-them-decide-together",
-                "label": "Roagă-i pe Nadia și Oren să discute între ei.",
+                "label": "Roagă-i pe Emma și Ben să discute între ei.",
                 "consequence": "Discută singuri — și vin cu un plan care le place cu adevărat amândurora."
               },
               {
@@ -5336,7 +5336,7 @@
         "dialogue": [
           {
             "character": "theo",
-            "text": "Ar trebui să fim gata până mâine. Partea lui Oren nu e terminată încă."
+            "text": "Ar trebui să fim gata până mâine. Partea lui Ben nu e terminată încă."
           },
           {
             "character": "priya",
@@ -5345,9 +5345,9 @@
         ],
         "investigateLabel": "Află ce se întâmplă înainte să decizi.",
         "investigate": {
-          "ask-the-teammate": "Îl întrebi pe Oren direct. Spune că nu era sigur cum să înceapă și nu a vrut să recunoască.",
-          "check-the-shared-plan": "Verifici planul comun. Partea lui Oren nu i-a fost niciodată explicată clar.",
-          "ask-another-teammate": "Priya menționează că Oren părea confuz mai devreme în săptămână, dar nu a spus nimic."
+          "ask-the-teammate": "Îl întrebi pe Ben direct. Spune că nu era sigur cum să înceapă și nu a vrut să recunoască.",
+          "check-the-shared-plan": "Verifici planul comun. Partea lui Ben nu i-a fost niciodată explicată clar.",
+          "ask-another-teammate": "Mia menționează că Ben părea confuz mai devreme în săptămână, dar nu a spus nimic."
         },
         "events": {
           "missing-task-choice": {
@@ -5355,18 +5355,18 @@
             "choices": [
               {
                 "key": "ask-what-happened",
-                "label": "Vorbește cu Oren și ajută-l să-și dea seama de ce e nevoie.",
-                "consequence": "Oren termină sarcina cu ajutorul tău și se simte mai confortabil să întrebe data viitoare."
+                "label": "Vorbește cu Ben și ajută-l să-și dea seama de ce e nevoie.",
+                "consequence": "Ben termină sarcina cu ajutorul tău și se simte mai confortabil să întrebe data viitoare."
               },
               {
                 "key": "do-it-yourself-quietly",
                 "label": "Termină sarcina tu însuți, pe tăcute.",
-                "consequence": "Sarcina se termină repede, dar Oren nu află niciodată ce a ratat — și nici nu are ocazia să repare."
+                "consequence": "Sarcina se termină repede, dar Ben nu află niciodată ce a ratat — și nici nu are ocazia să repare."
               },
               {
                 "key": "remind-them-firmly",
-                "label": "Amintește-i ferm lui Oren că termenul limită e mâine.",
-                "consequence": "Sarcina începe să avanseze, dar Oren tot nu e sigur ce a greșit prima dată."
+                "label": "Amintește-i ferm lui Ben că termenul limită e mâine.",
+                "consequence": "Sarcina începe să avanseze, dar Ben tot nu e sigur ce a greșit prima dată."
               },
               {
                 "key": "wait-and-see",
@@ -5392,22 +5392,22 @@
         ],
         "events": {
           "big-mistake-choice": {
-            "situation": "Priya a făcut o greșeală serioasă, și toată lumea se uită să vadă ce vei face.",
+            "situation": "Mia a făcut o greșeală serioasă, și toată lumea se uită să vadă ce vei face.",
             "choices": [
               {
                 "key": "blame-publicly",
                 "label": "Arată greșeala în fața tuturor.",
-                "consequence": "Echipa o repară rapid — dar Priya pare stânjenită și pare emoționată să mai vorbească din nou."
+                "consequence": "Echipa o repară rapid — dar Mia pare stânjenită și pare emoționată să mai vorbească din nou."
               },
               {
                 "key": "fix-it-yourself",
                 "label": "Repar-o tu însuți, pe tăcute, și mergi mai departe.",
-                "consequence": "Se rezolvă repede, dar Priya nu are niciodată ocazia să înțeleagă ce a mers prost."
+                "consequence": "Se rezolvă repede, dar Mia nu are niciodată ocazia să înțeleagă ce a mers prost."
               },
               {
                 "key": "talk-privately",
-                "label": "Vorbește cu Priya între patru ochi și află ce s-a întâmplat.",
-                "consequence": "Durează un pic mai mult, dar Priya se simte sprijinită — și e mai atentă data viitoare."
+                "label": "Vorbește cu Mia între patru ochi și află ce s-a întâmplat.",
+                "consequence": "Durează un pic mai mult, dar Mia se simte sprijinită — și e mai atentă data viitoare."
               },
               {
                 "key": "ignore-it",
@@ -5448,8 +5448,8 @@
               },
               {
                 "key": "let-a-teammate-handle-it",
-                "label": "Las-o pe Priya, care se pricepe la oameni, să preia apelul.",
-                "consequence": "Priya îl liniștește pe client, iar echipa vede că ai încredere în ei și în momentele grele."
+                "label": "Las-o pe Mia, care se pricepe la oameni, să preia apelul.",
+                "consequence": "Mia îl liniștește pe client, iar echipa vede că ai încredere în ei și în momentele grele."
               }
             ]
           }
@@ -5471,7 +5471,7 @@
               {
                 "key": "use-their-idea",
                 "label": "Mergi cu ideea Nadiei în loc de a ta.",
-                "consequence": "Proiectul devine mai puternic, iar Nadia se simte cu adevărat apreciată."
+                "consequence": "Proiectul devine mai puternic, iar Emma se simte cu adevărat apreciată."
               },
               {
                 "key": "combine-ideas",
@@ -5481,7 +5481,7 @@
               {
                 "key": "stick-with-your-idea",
                 "label": "Rămâi la planul tău inițial.",
-                "consequence": "Proiectul merge înainte conform planului, dar Nadia se întreabă dacă ideile ei chiar sunt binevenite."
+                "consequence": "Proiectul merge înainte conform planului, dar Emma se întreabă dacă ideile ei chiar sunt binevenite."
               },
               {
                 "key": "ask-the-team-to-vote",
@@ -5505,11 +5505,11 @@
             "text": "Nu e corect — cred doar că vedem lucrurile diferit."
           }
         ],
-        "spotScenario": "Citește ce își spun Priya și Theo. Care părți înrăutățesc lucrurile, nu le îmbunătățesc?",
+        "spotScenario": "Citește ce își spun Mia și Sam. Care părți înrăutățesc lucrurile, nu le îmbunătățesc?",
         "outro": "Ai observat ce înrăutățește lucrurile. Acum e timpul să intervii.",
         "events": {
           "team-conflict-choice": {
-            "situation": "Priya și Theo tot nu se înțeleg. Ce faci?",
+            "situation": "Mia și Sam tot nu se înțeleg. Ce faci?",
             "choices": [
               {
                 "key": "hear-both-sides",
@@ -5620,7 +5620,7 @@
         "dialogue": [
           {
             "character": "priya",
-            "text": "Clientul tocmai și-a schimbat cerințele. Și Oren nu e aici azi. Și — s-a stricat și chestia aia acum?"
+            "text": "Clientul tocmai și-a schimbat cerințele. Și Ben nu e aici azi. Și — s-a stricat și chestia aia acum?"
           }
         ],
         "buckets": {
@@ -5775,7 +5775,7 @@
       },
       "uh-oh-teammate-absent": {
         "title": "Unul dintre coechipierii tăi lipsește azi.",
-        "situation": "Oren nu e prezent azi, iar el avea o sarcină importantă pe listă.",
+        "situation": "Ben nu e prezent azi, iar el avea o sarcină importantă pe listă.",
         "choices": [
           {
             "key": "share-out-their-tasks",
@@ -5784,12 +5784,12 @@
           },
           {
             "key": "wait-until-they-are-back",
-            "label": "Așteaptă până se întoarce Oren ca să continuați acea parte.",
+            "label": "Așteaptă până se întoarce Ben ca să continuați acea parte.",
             "consequence": "Acea parte a proiectului e pusă pe pauză deocamdată."
           },
           {
             "key": "do-their-work-yourself",
-            "label": "Fă tu partea lui Oren, pe lângă a ta.",
+            "label": "Fă tu partea lui Ben, pe lângă a ta.",
             "consequence": "Se termină, dar e mult de dus singur."
           }
         ]

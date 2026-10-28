@@ -119,6 +119,7 @@ export function useLocalProgress() {
     (activityId: string, wasCorrect: boolean, xpReward: number, coinRewardMinorUnits: number) => {
       const result = applyActivityCompletion(state, activityId, wasCorrect, xpReward, coinRewardMinorUnits);
       persist(result.state);
+      if(result.coinsAwarded>0 && typeof window!=="undefined")window.dispatchEvent(new CustomEvent("moneyquest-coin-award",{detail:{amount:result.coinsAwarded,currency:state.currencyCode}}));
       return result;
     },
     [state, persist]

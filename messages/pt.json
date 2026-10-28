@@ -1455,7 +1455,7 @@
     },
     "characters": {
       "nadia": {
-        "name": "Nadia",
+        "name": "Emma",
         "personality": "Cheia de ideias e sempre a pensar três passos à frente.",
         "strength": "Tem ideias criativas em que mais ninguém tinha pensado.",
         "challenge": "Fica tão entusiasmada com as ideias que às vezes interrompe as pessoas.",
@@ -1463,7 +1463,7 @@
         "communicationStyle": "Rápida, entusiasmada, e sempre com um \"e se tentássemos...\""
       },
       "oren": {
-        "name": "Oren",
+        "name": "Ben",
         "personality": "Cuidadoso e preciso - repara em detalhes que mais ninguém vê.",
         "strength": "Excelente a construir e a arranjar coisas como deve ser.",
         "challenge": "Muitas vezes tem ótimas ideias, mas não fala num grupo grande.",
@@ -1471,7 +1471,7 @@
         "communicationStyle": "Calado em grupo, mas abre-se se lhe perguntares diretamente."
       },
       "priya": {
-        "name": "Priya",
+        "name": "Mia",
         "personality": "Calorosa, expressiva, e ótima a falar com toda a gente.",
         "strength": "Consegue explicar as coisas com clareza e faz as pessoas sentirem-se à vontade.",
         "challenge": "Entusiasma-se com a ideia seguinte antes de terminar a anterior.",
@@ -1479,7 +1479,7 @@
         "communicationStyle": "Fala muito, com energia - às vezes precisa de um lembrete simpático para terminar."
       },
       "theo": {
-        "name": "Theo",
+        "name": "Sam",
         "personality": "Estável, organizado, e mantém sempre o controlo do plano.",
         "strength": "Mantém a equipa dentro do prazo e lembra-se de cada detalhe.",
         "challenge": "Fica stressado com mudanças repentinas no plano.",
@@ -1498,7 +1498,7 @@
           },
           {
             "character": "oren",
-            "text": "...Olá. Sou o Oren. Só quero mesmo é começar."
+            "text": "...Olá. Sou o Ben. Só quero mesmo é começar."
           },
           {
             "character": "priya",
@@ -1579,12 +1579,12 @@
         ],
         "events": {
           "everyone-has-an-idea-choice": {
-            "situation": "A Nadia e o Oren sentem-se ambos muito ligados à sua própria ideia. Estão à espera que decidas.",
+            "situation": "A Emma e o Ben sentem-se ambos muito ligados à sua própria ideia. Estão à espera que decidas.",
             "choices": [
               {
                 "key": "pick-one-idea",
-                "label": "Escolher a ideia da Nadia - é a mais emocionante.",
-                "consequence": "A Nadia fica radiante. O Oren fica calado e quase não fala pelo resto do dia."
+                "label": "Escolher a ideia da Emma - é a mais emocionante.",
+                "consequence": "A Emma fica radiante. O Ben fica calado e quase não fala pelo resto do dia."
               },
               {
                 "key": "combine-both-ideas",
@@ -1593,7 +1593,7 @@
               },
               {
                 "key": "let-them-decide-together",
-                "label": "Pedir à Nadia e ao Oren para conversarem entre eles.",
+                "label": "Pedir à Emma e ao Ben para conversarem entre eles.",
                 "consequence": "Eles conversam sozinhos - e voltam com um plano de que ambos gostam mesmo."
               },
               {
@@ -1611,7 +1611,7 @@
         "dialogue": [
           {
             "character": "theo",
-            "text": "Devíamos estar prontos até amanhã. A parte do Oren ainda não está feita."
+            "text": "Devíamos estar prontos até amanhã. A parte do Ben ainda não está feita."
           },
           {
             "character": "priya",
@@ -1620,9 +1620,9 @@
         ],
         "investigateLabel": "Descobre o que se passa antes de decidires.",
         "investigate": {
-          "ask-the-teammate": "Perguntas diretamente ao Oren. Ele diz que não tinha a certeza de como começar, e não queria admitir isso.",
-          "check-the-shared-plan": "Verificas o plano partilhado. A parte do Oren nunca lhe foi explicada com clareza.",
-          "ask-another-teammate": "A Priya menciona que o Oren parecia confuso mais cedo essa semana, mas ela não disse nada."
+          "ask-the-teammate": "Perguntas diretamente ao Ben. Ele diz que não tinha a certeza de como começar, e não queria admitir isso.",
+          "check-the-shared-plan": "Verificas o plano partilhado. A parte do Ben nunca lhe foi explicada com clareza.",
+          "ask-another-teammate": "A Mia menciona que o Ben parecia confuso mais cedo essa semana, mas ela não disse nada."
         },
         "events": {
           "missing-task-choice": {
@@ -1630,18 +1630,18 @@
             "choices": [
               {
                 "key": "ask-what-happened",
-                "label": "Falar com o Oren, e ajudá-lo a perceber o que é preciso.",
-                "consequence": "O Oren termina a tarefa com a tua ajuda, e sente-se mais à vontade para perguntar da próxima vez."
+                "label": "Falar com o Ben, e ajudá-lo a perceber o que é preciso.",
+                "consequence": "O Ben termina a tarefa com a tua ajuda, e sente-se mais à vontade para perguntar da próxima vez."
               },
               {
                 "key": "do-it-yourself-quietly",
                 "label": "Terminar a tarefa tu mesmo, sem grande alarido.",
-                "consequence": "A tarefa fica pronta depressa, mas o Oren nunca descobre o que lhe faltou - nem tem a oportunidade de corrigir."
+                "consequence": "A tarefa fica pronta depressa, mas o Ben nunca descobre o que lhe faltou - nem tem a oportunidade de corrigir."
               },
               {
                 "key": "remind-them-firmly",
-                "label": "Lembrar o Oren, com firmeza, que o prazo é amanhã.",
-                "consequence": "A tarefa começa a avançar, mas o Oren continua sem saber bem o que correu mal da primeira vez."
+                "label": "Lembrar o Ben, com firmeza, que o prazo é amanhã.",
+                "consequence": "A tarefa começa a avançar, mas o Ben continua sem saber bem o que correu mal da primeira vez."
               },
               {
                 "key": "wait-and-see",
@@ -1667,22 +1667,22 @@
         ],
         "events": {
           "big-mistake-choice": {
-            "situation": "A Priya cometeu um erro a sério, e toda a gente está a ver o que vais fazer.",
+            "situation": "A Mia cometeu um erro a sério, e toda a gente está a ver o que vais fazer.",
             "choices": [
               {
                 "key": "blame-publicly",
                 "label": "Apontar o erro à frente de todos.",
-                "consequence": "A equipa corrige-o depressa - mas a Priya fica envergonhada, e parece nervosa para voltar a falar."
+                "consequence": "A equipa corrige-o depressa - mas a Mia fica envergonhada, e parece nervosa para voltar a falar."
               },
               {
                 "key": "fix-it-yourself",
                 "label": "Corrigir tu mesmo, discretamente, e seguir em frente.",
-                "consequence": "Fica resolvido depressa, mas a Priya nunca chega a perceber o que correu mal."
+                "consequence": "Fica resolvido depressa, mas a Mia nunca chega a perceber o que correu mal."
               },
               {
                 "key": "talk-privately",
-                "label": "Falar com a Priya em privado e perceber o que aconteceu.",
-                "consequence": "Demora um pouco mais, mas a Priya sente-se apoiada - e é mais cuidadosa da próxima vez."
+                "label": "Falar com a Mia em privado e perceber o que aconteceu.",
+                "consequence": "Demora um pouco mais, mas a Mia sente-se apoiada - e é mais cuidadosa da próxima vez."
               },
               {
                 "key": "ignore-it",
@@ -1723,8 +1723,8 @@
               },
               {
                 "key": "let-a-teammate-handle-it",
-                "label": "Deixar a Priya, que é ótima com pessoas, tratar da chamada.",
-                "consequence": "A Priya acalma o cliente, e a equipa vê que confias neles também nos momentos difíceis."
+                "label": "Deixar a Mia, que é ótima com pessoas, tratar da chamada.",
+                "consequence": "A Mia acalma o cliente, e a equipa vê que confias neles também nos momentos difíceis."
               }
             ]
           }
@@ -1741,12 +1741,12 @@
         ],
         "events": {
           "better-idea-choice": {
-            "situation": "A ideia da Nadia é mesmo melhor do que aquela que tinhas planeado inicialmente.",
+            "situation": "A ideia da Emma é mesmo melhor do que aquela que tinhas planeado inicialmente.",
             "choices": [
               {
                 "key": "use-their-idea",
-                "label": "Seguir a ideia da Nadia em vez da tua.",
-                "consequence": "O projeto fica mais forte, e a Nadia sente-se genuinamente valorizada."
+                "label": "Seguir a ideia da Emma em vez da tua.",
+                "consequence": "O projeto fica mais forte, e a Emma sente-se genuinamente valorizada."
               },
               {
                 "key": "combine-ideas",
@@ -1756,7 +1756,7 @@
               {
                 "key": "stick-with-your-idea",
                 "label": "Manter o teu plano original.",
-                "consequence": "O projeto avança como planeado, mas a Nadia fica a pensar se as ideias dela são mesmo bem-vindas."
+                "consequence": "O projeto avança como planeado, mas a Emma fica a pensar se as ideias dela são mesmo bem-vindas."
               },
               {
                 "key": "ask-the-team-to-vote",
@@ -1780,11 +1780,11 @@
             "text": "Isso não é justo - eu só acho que vemos isto de maneira diferente."
           }
         ],
-        "spotScenario": "Lê o que a Priya e o Theo estão a dizer. Que partes estão a piorar as coisas, em vez de as melhorar?",
+        "spotScenario": "Lê o que a Mia e o Sam estão a dizer. Que partes estão a piorar as coisas, em vez de as melhorar?",
         "outro": "Já identificaste o que está a piorar as coisas. Agora é altura de intervir.",
         "events": {
           "team-conflict-choice": {
-            "situation": "A Priya e o Theo continuam sem estar de acordo. O que fazes?",
+            "situation": "A Mia e o Sam continuam sem estar de acordo. O que fazes?",
             "choices": [
               {
                 "key": "hear-both-sides",
@@ -1895,7 +1895,7 @@
         "dialogue": [
           {
             "character": "priya",
-            "text": "O cliente acabou de mudar o que quer. Além disso, o Oren não veio hoje. E já agora - aquilo também avariou?"
+            "text": "O cliente acabou de mudar o que quer. Além disso, o Ben não veio hoje. E já agora - aquilo também avariou?"
           }
         ],
         "buckets": {
@@ -2050,7 +2050,7 @@
       },
       "uh-oh-teammate-absent": {
         "title": "Um dos teus colegas de equipa está ausente hoje.",
-        "situation": "O Oren não veio hoje, e ele tinha uma tarefa importante na sua lista.",
+        "situation": "O Ben não veio hoje, e ele tinha uma tarefa importante na sua lista.",
         "choices": [
           {
             "key": "share-out-their-tasks",
@@ -2059,12 +2059,12 @@
           },
           {
             "key": "wait-until-they-are-back",
-            "label": "Esperar que o Oren volte para continuar essa parte.",
+            "label": "Esperar que o Ben volte para continuar essa parte.",
             "consequence": "Essa parte do projeto fica em pausa por agora."
           },
           {
             "key": "do-their-work-yourself",
-            "label": "Fazer a parte do Oren além da tua própria.",
+            "label": "Fazer a parte do Ben além da tua própria.",
             "consequence": "Fica feito, mas é muita coisa para assumires sozinho."
           }
         ]
@@ -2628,7 +2628,7 @@
       "title": "O dinheiro como ferramenta, não como objetivo",
       "learningObjective": "Compreender o dinheiro como um sistema partilhado que só funciona porque as pessoas concordam em confiar nele, e reconhecer que diferentes países usam diferentes moedas para este sistema.",
       "shortIntroduction": "O dinheiro só \"funciona\" porque milhões de estranhos concordam em confiar na mesma ideia. É genuinamente estranho quando pensas nisso.",
-      "story": "A Priya está a ajudar a planear uma angariação de fundos escolar e repara em algo: as moedas no seu bolso não valem nada fora do seu próprio país. Uma amiga que visita do estrangeiro entrega-lhe uma nota de casa, e nenhuma das duas a pode usar aqui. A Priya percebe que o dinheiro não é algo fixo e universal - é um sistema que funciona porque um grupo específico de pessoas concorda que funciona.",
+      "story": "A Mia está a ajudar a planear uma angariação de fundos escolar e repara em algo: as moedas no seu bolso não valem nada fora do seu próprio país. Uma amiga que visita do estrangeiro entrega-lhe uma nota de casa, e nenhuma das duas a pode usar aqui. A Mia percebe que o dinheiro não é algo fixo e universal - é um sistema que funciona porque um grupo específico de pessoas concorda que funciona.",
       "keyConcept": "O dinheiro é um sistema partilhado de confiança, não um objeto universal fixo - diferentes países usam diferentes moedas, e o valor de uma moeda vem do facto de as pessoas concordarem em usá-la e confiar nela.",
       "vocabulary": [
         {
@@ -2871,7 +2871,7 @@
       "title": "Poupar vs. Gastar: O verdadeiro compromisso",
       "learningObjective": "Avaliar decisões de poupança pesando o prazer a curto prazo contra objetivos de mais longo prazo, e compreender que o dinheiro poupado por vezes pode crescer ao longo do tempo.",
       "shortIntroduction": "Algum dinheiro poupado pode realmente crescer sozinho ao longo do tempo. Eis a versão honesta de como - e porque não é magia.",
-      "story": "O Theo tem duas opções para dinheiro de que não precisa agora mesmo: gastá-lo, ou colocá-lo algures onde possa crescer lentamente ao longo do tempo, ganhando uma pequena quantia extra, por vezes chamada juro. Percebe que isto só interessa mesmo se deixar o dinheiro em paz durante algum tempo - retirá-lo rapidamente quase não faz diferença.",
+      "story": "O Sam tem duas opções para dinheiro de que não precisa agora mesmo: gastá-lo, ou colocá-lo algures onde possa crescer lentamente ao longo do tempo, ganhando uma pequena quantia extra, por vezes chamada juro. Percebe que isto só interessa mesmo se deixar o dinheiro em paz durante algum tempo - retirá-lo rapidamente quase não faz diferença.",
       "keyConcept": "O dinheiro poupado durante um período mais longo pode por vezes crescer através de juros, mas o compromisso entre desfrutar do dinheiro agora e ter mais depois é a verdadeira decisão por trás de cada escolha de poupança.",
       "vocabulary": [
         {
@@ -3490,7 +3490,7 @@
       "title": "Segurança e atenção com o dinheiro digital",
       "learningObjective": "Aplicar hábitos práticos para gerir os gastos digitais com segurança e sentido crítico, incluindo verificar mensagens de pagamento e acompanhar os gastos, e reconhecer por que o dinheiro digital pode parecer menos «real» do que o dinheiro físico.",
       "shortIntroduction": "O dinheiro digital é prático - e é exatamente por isso que precisa de um pouco mais de atenção consciente do que o dinheiro físico.",
-      "story": "A Priya repara que gastou mais este mês do que esperava, mesmo não se lembrando de nenhuma compra grande. Ao rever o histórico da sua carteira digital, vê vários pagamentos pequenos que mal tinha notado ao fazê-los - cada um pareceu pequeno demais para pensar nele no momento.",
+      "story": "A Mia repara que gastou mais este mês do que esperava, mesmo não se lembrando de nenhuma compra grande. Ao rever o histórico da sua carteira digital, vê vários pagamentos pequenos que mal tinha notado ao fazê-los - cada um pareceu pequeno demais para pensar nele no momento.",
       "keyConcept": "Como os pagamentos digitais não implicam entregar nada fisicamente, podem parecer menos «reais» no momento - o que torna verificar deliberadamente o que se gasta e confirmar os pagamentos hábitos realmente úteis.",
       "vocabulary": [
         {
@@ -3523,7 +3523,7 @@
       },
       "feedback": {
         "success": "Exato - reparar nisso é o primeiro passo para manter o controlo dos gastos digitais. 📱",
-        "retry": "Pensa em por que os gastos da Priya subiram sem nenhuma compra grande."
+        "retry": "Pensa em por que os gastos da Mia subiram sem nenhuma compra grande."
       },
       "rewardMessage": "Moedas ganhas por pensares com cuidado sobre a atenção ao dinheiro digital!",
       "parentNote": "Esta lição não é sobre restringir pagamentos digitais, mas sobre criar consciência atenta - a mesma competência que os adultos também têm de praticar. Se o teu filho ou filha adolescente tiver acesso a um cartão ou carteira digital, rever juntos o histórico de gastos de vez em quando (sem julgamento) é um hábito partilhado realmente útil, não apenas uma verificação.",
@@ -5360,8 +5360,8 @@
             {
               "id": "forgot-to-plan",
               "mechanic": "multiple-choice",
-              "prompt": "A Priya esqueceu-se de que o aniversário da amiga estava a chegar e já tinha gasto a mesada em jogos. O que poderia ajudar a Priya a evitar isto da próxima vez?",
-              "hint": "Pensa no que a Priya poderia fazer mais cedo, antes de o dinheiro já estar gasto.",
+              "prompt": "A Mia esqueceu-se de que o aniversário da amiga estava a chegar e já tinha gasto a mesada em jogos. O que poderia ajudar a Mia a evitar isto da próxima vez?",
+              "hint": "Pensa no que a Mia poderia fazer mais cedo, antes de o dinheiro já estar gasto.",
               "explanation": "Planear com antecedência para custos que já sabes que vêm aí - como um aniversário que já conheces com antecedência - ajuda a evitar ficar sem dinheiro mais tarde.",
               "options": [
                 "Planear com antecedência para custos que já conhece",

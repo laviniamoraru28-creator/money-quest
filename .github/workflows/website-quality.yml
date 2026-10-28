@@ -3,7 +3,7 @@ on:
   push:
     branches: [feature/website-completion-20261027]
   pull_request:
-    branches: [feature/website-completion-20261027]
+    branches: [feature/website-completion-20261027, review/website-completion-20261027]
   workflow_dispatch: {}
 permissions:
   contents: read
@@ -19,6 +19,9 @@ jobs:
     env:
       NEXT_PUBLIC_SITE_URL: https://moneyquesteducation.com
       NEXT_TELEMETRY_DISABLED: 1
+      # Isolated test storage and non-production moderation fixture only.
+      MONEYQUEST_REVIEW_STORE_PATH: /tmp/moneyquest-ci-reviews.json
+      MONEYQUEST_REVIEW_MODERATION_KEY: moneyquest-e2e-moderation-fixture-only
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

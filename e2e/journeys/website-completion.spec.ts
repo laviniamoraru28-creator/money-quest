@@ -1,6 +1,7 @@
 import {test,expect} from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import {museumRooms,libraryBooks} from "../../src/content/discovery";
+import {labTaskAtLevel} from "../../src/content/lab-age-variants";
 import {learningLabs} from "../../src/content/learning-labs";
 const pages=["/en","/en/play","/en/museum","/en/library","/en/brain-lab","/en/mind-lab","/en/future-skills","/en/inclusive-learning","/en/play/simulator","/en/play/investing-lab","/en/play/goals","/en/play/money-personality","/en/entrepreneur-quest","/en/leadership-quest","/en/real-life-quests"];
 for(const path of pages) test(`page, images, hydration and accessibility: ${path}`,async({page})=>{
@@ -30,7 +31,7 @@ for(const lab of learningLabs) test(`${lab.title} covers every task and three ch
  for(let i=0;i<lab.tasks.length;i++){
   const item=lab.tasks[i]!;await expect(page.getByRole("heading",{name:item.title,exact:true})).toBeVisible();
   for(const [level,index] of [["Explorer",0],["Builder",1],["Strategist",2]] as const){await page.getByRole("button",{name:level,exact:true}).click();await expect(page.getByText(item.tryIt[index],{exact:true})).toBeVisible()}
-  await page.getByRole("button",{name:item.choices[item.correct]!,exact:true}).click();await expect(page.getByRole("status").filter({hasText:"That fits."})).toBeVisible();
+  await page.getByRole("button",{name:labTaskAtLevel(lab.slug,item,2).choices[item.correct]!,exact:true}).click();await expect(page.getByRole("status").filter({hasText:"That fits."})).toBeVisible();
   if(i<lab.tasks.length-1)await page.getByRole("button",{name:"Next",exact:true}).click();
  }
 });
