@@ -2,6 +2,8 @@ name: Website completion quality
 on:
   push:
     branches: [feature/website-completion-20261027]
+  pull_request:
+    branches: [feature/website-completion-20261027]
   workflow_dispatch: {}
 permissions:
   contents: read
