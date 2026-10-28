@@ -87,10 +87,10 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
             <p className="mt-2xs text-base text-ink/70">Practise useful skills with short activities and challenges at three levels.</p>
             <div className="mt-md grid gap-sm sm:grid-cols-2 lg:grid-cols-4">
               {[
-                { name: "Brain Lab", image: "/images/future-skills/brain-lab.svg", alt: "A smiling brain with bright ideas" },
-                { name: "Mind Lab", image: "/images/future-skills/mind-lab.svg", alt: "A friendly heart and cheerful emotion bubbles" },
-                { name: "Future Skills", image: "/images/future-skills/future-skills.svg", alt: "A cheerful light bulb for creative thinking" },
-                { name: "Inclusive Learning", image: "/images/future-skills/inclusive-learning.svg", alt: "A welcoming rainbow for different ways of learning" },
+                { name: "Brain Lab" },
+                { name: "Mind Lab" },
+                { name: "Future Skills" },
+                { name: "Inclusive Learning" },
               ].map((lab) => (
                 <Link href={`/${lab.name.toLowerCase().replaceAll(" ", "-")}`} key={lab.name} className="overflow-hidden rounded-xl border border-ink/10 bg-white shadow-resting">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
