@@ -1,4 +1,24 @@
 {
+  "laboratoryInterfaceDrafts": {
+    "locales": [
+      "en",
+      "ro",
+      "es",
+      "fr",
+      "de",
+      "it",
+      "pt",
+      "nl",
+      "pl"
+    ],
+    "stringsPerLocale": 30,
+    "translatedStrings": 240,
+    "contentSource": "src/content/laboratory-copy.json",
+    "sourceFingerprintManifest": "src/content/translations/laboratory-copy.sources.json",
+    "integration": "Three lab routes consume public-gated locale presentations; explicit EN/RO draft assembly and actual component SSR checked; other seven authored lab translations still missing",
+    "editorialStatus": "AI multilingual editorial drafts; no native-editor certification",
+    "remaining": "Non-English browser layout, interaction and real narration quality; global shared UI, metadata and PDFs"
+  },
   "generated": "2026-10-29",
   "scope": "Eight authored-content groups only. Canonical bibliography and external published book titles are excluded from counts and retained in their published language. This inventory does not certify linguistic quality or cover all hardcoded UI, SEO, commerce policies or privately stored printable manuscripts.",
   "activeLocales": [
@@ -48,7 +68,7 @@
     {
       "locale": "ro",
       "messageKeys": "validated separately; key parity does not prove authored-content translation",
-      "newContent": "All eight tracked authored-content groups have Romanian drafts, including 3 laboratories with age readings and 12 external-book introductions; UI, SEO, PDFs and rendered integration still pending",
+      "newContent": "All eight tracked authored-content groups have Romanian drafts, including 3 laboratories with age readings and 12 external-book introductions; laboratory UI and EN/RO component SSR prepared; remaining UI, SEO, PDFs and browser-language integration still pending",
       "publicActivation": "blocked pending complete content and review"
     },
     {

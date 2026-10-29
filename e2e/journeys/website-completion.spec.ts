@@ -35,6 +35,25 @@ for(const lab of learningLabs) test(`${lab.title} covers every task and three ch
   if(i<lab.tasks.length-1)await page.getByRole("button",{name:"Next",exact:true}).click();
  }
 });
+for(const lab of learningLabs)test(`${lab.title} keeps draft language gated and guide narration in English`,async({page})=>{
+ await page.addInitScript(()=>{
+  const calls:{text:string;lang:string}[]=[];
+  (window as unknown as {labSpeech:typeof calls}).labSpeech=calls;
+  Object.defineProperty(window,"speechSynthesis",{configurable:true,value:{cancel(){},speak(utterance:{text:string;lang:string;onstart?:()=>void}){calls.push({text:utterance.text,lang:utterance.lang});utterance.onstart?.();}}});
+  Object.defineProperty(window,"SpeechSynthesisUtterance",{configurable:true,value:class{text:string;lang="";constructor(text:string){this.text=text;}}});
+ });
+ await page.goto(`/ro/${lab.slug}`);
+ await expect(page).toHaveURL(new RegExp(`/en/${lab.slug}$`));
+ await expect(page.getByRole("heading",{level:1,name:lab.title,exact:true})).toBeVisible();
+ const guide=page.getByRole("complementary",{name:"Your learning guides",exact:true});
+ await guide.getByRole("button",{name:"Hide guide",exact:true}).click();await expect(guide).toHaveCount(0);
+ const show=page.getByRole("button",{name:"Show guide",exact:true});await show.focus();await page.keyboard.press("Enter");await expect(guide).toBeVisible();
+ await guide.getByRole("button",{name:"Listen",exact:true}).click();
+ await expect.poll(()=>page.evaluate(()=>(window as unknown as {labSpeech:{lang:string}[]}).labSpeech.map(call=>call.lang))).toEqual(["en-GB"]);
+ await guide.getByRole("button",{name:"Stop",exact:true}).click();
+ await page.getByRole("button",{name:"Builder",exact:true}).click();
+ await expect(page.getByText(lab.tasks[0]!.idea,{exact:true})).toBeVisible();
+});
 test("money examples separate cash, account money and payment tools",async({page})=>{
  await page.goto("/en/inclusive-learning");await page.getByRole("button",{name:"Payment card",exact:true}).click();await expect(page.getByRole("status").filter({hasText:"A card is a payment tool"})).toBeVisible();
  await page.getByRole("button",{name:"A £1 coin",exact:true}).click();await expect(page.getByRole("status").filter({hasText:"A coin is cash"})).toBeVisible();await page.getByRole("button",{name:"A payment card",exact:true}).click();await expect(page.getByRole("status").filter({hasText:"Yes. A card helps"})).toBeVisible();

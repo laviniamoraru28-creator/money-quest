@@ -1,0 +1,18 @@
+{
+  "status": "draft",
+  "recorded": "2026-10-29",
+  "sourceHash": "7dcfc96da9262c629faf00f0a55e614bbd7c19a3c693774d36b94ada7c6c4511",
+  "scope": "30 laboratory UI and guide fragments per locale; 240 translated fragments, distinct from the eight authored-content inventory domains",
+  "locales": [
+    "en",
+    "ro",
+    "es",
+    "fr",
+    "de",
+    "it",
+    "pt",
+    "nl",
+    "pl"
+  ],
+  "review": "AI multilingual editorial pass; no native-editor certification; only EN public, EN/RO component SSR checks; non-English browser and narration quality review pending"
+}
