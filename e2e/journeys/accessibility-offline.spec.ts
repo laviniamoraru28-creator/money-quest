@@ -48,9 +48,13 @@ test("offline download covers unvisited books and leadership, with removable loc
   await page.getByRole("button",{name:"Download for offline use",exact:true}).click();
   await expect(page.getByRole("status").filter({hasText:"Offline download complete:"})).toBeVisible({timeout:180000});
   await context.setOffline(true);
-  for(const path of ["/en/library/the-little-compass-and-the-money-choices","/en/leadership-quest","/en/mind-lab"]){
+  for(const path of ["/en/library/the-little-compass-and-the-money-choices","/en/leadership-quest","/en/mind-lab","/en/quiet-corner"]){
     await page.goto(path);await expect(page.locator("main h1")).toBeVisible();
     await expect(page.getByText("Reconnect to download Money Quest for offline use.",{exact:true})).toHaveCount(0);
+  }
+  for(const scene of ["Rest with Max","Ocean","Garden"]){
+    await page.getByRole("button",{name:scene,exact:true}).click();
+    await expect.poll(()=>page.locator("main img").evaluate((image:HTMLImageElement)=>image.complete&&image.naturalWidth===1200)).toBe(true);
   }
   await page.getByText("Use without internet",{exact:true}).click();await page.getByRole("button",{name:"Remove offline copy",exact:true}).click();
   await expect(page.getByRole("status").filter({hasText:"Offline copies removed"})).toBeVisible();await context.setOffline(false);

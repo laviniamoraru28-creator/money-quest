@@ -1,7 +1,10 @@
 import {test, expect} from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 
-test("quiet corner starts still and silent, has working pictures and accessible mobile layout", async ({page}) => {
+test("quiet corner starts still and silent, has working pictures and accessible mobile layout", async ({page}, testInfo) => {
+  await page.goto("/en/quiet-corner");
+  await expect.poll(() => page.locator("main img").evaluate((el:HTMLImageElement) => el.complete && el.naturalWidth === 1200)).toBe(true);
+  await page.screenshot({path:testInfo.outputPath("quiet-corner-default.png"),fullPage:true});
   await page.setViewportSize({width:320,height:900});
   await page.goto("/en/quiet-corner");
   await expect(page.getByRole("heading", {name:"Quiet corner",exact:true})).toBeVisible();
@@ -16,6 +19,10 @@ test("quiet corner starts still and silent, has working pictures and accessible 
   const result = await new AxeBuilder({page}).withTags(["wcag2a","wcag2aa","wcag21aa"]).analyze();
   expect(result.violations).toEqual([]);
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href",/\/en\/quiet-corner$/);
+  await page.screenshot({path:testInfo.outputPath("quiet-corner-320px.png"),fullPage:true});
+  await page.getByRole("button",{name:"Night view",exact:true}).click();
+  await expect(page.locator("html")).toHaveAttribute("data-night-view","true");
+  expect((await new AxeBuilder({page}).withTags(["wcag2a","wcag2aa","wcag21aa"]).analyze()).violations).toEqual([]);
 });
 
 test("movement is optional and reduced motion cancels it", async ({page}) => {
