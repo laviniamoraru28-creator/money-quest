@@ -29,6 +29,7 @@ export function useReadAloud(uiLocale: string) {
     (text: string) => {
       if (!isSupported) return;
       try {
+        window.dispatchEvent(new Event("moneyquest-stop-audio"));
         const session = ++speechSession;
         window.speechSynthesis.cancel();
         const chunks = speechChunks(text);
@@ -66,6 +67,11 @@ export function useReadAloud(uiLocale: string) {
     }
     setIsSpeaking(false);
   }, [isSupported]);
+
+  useEffect(() => {
+    window.addEventListener("moneyquest-stop-speech", stop);
+    return () => window.removeEventListener("moneyquest-stop-speech", stop);
+  }, [stop]);
 
   return { isSupported, isSpeaking, speak, stop };
 }

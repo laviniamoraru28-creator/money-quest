@@ -1,5 +1,5 @@
 {
-  "original_scenes": 24,
+  "original_scenes": 27,
   "files": [
     {
       "path": "public/images/money-quest/guides/girl-and-puppy-thumb.webp",
@@ -301,7 +301,28 @@
       "width": 637,
       "height": 900,
       "sha256": "8189820a0251b083f42a1553e9993699cf4bc929ed3d2339c747219ae271a0e3"
+    },
+    {
+      "path": "public/images/money-quest/quiet/max-v1.webp",
+      "bytes": 112434,
+      "width": 1200,
+      "height": 675,
+      "sha256": "d0085cd174e27b05db12a46113d9855de42f39e76a72b53fc927267a08365d47"
+    },
+    {
+      "path": "public/images/money-quest/quiet/ocean-v1.webp",
+      "bytes": 83958,
+      "width": 1200,
+      "height": 675,
+      "sha256": "e0042037d57630c5f97c2784b657ec3bbaf486d6bd8c9b166f98c398aedfa439"
+    },
+    {
+      "path": "public/images/money-quest/quiet/garden-v1.webp",
+      "bytes": 241466,
+      "width": 1200,
+      "height": 675,
+      "sha256": "5d83df0b556316d4d25a3f6c04ad55ed12a836e5568b89a78fe89efb538f7c13"
     }
   ],
-  "total_bytes": 2347670
+  "total_bytes": 2785528
 }

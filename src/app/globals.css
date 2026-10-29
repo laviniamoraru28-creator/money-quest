@@ -117,3 +117,7 @@ html[data-night-view="true"] .investment-phone-screen { background: #000; }
 @keyframes book-page-arrive { from { opacity:.6; transform:translateX(5px); } to { opacity:1; transform:translateX(0); } }
 html[data-night-view="true"] .book-paper { background:#080808; color:#fff; }
 @media(max-width:700px) { .book-spread{grid-template-columns:minmax(0,1fr);} .book-illustration{border-right:0;border-bottom:1px solid #d3cbb5;} .book-illustration img{max-height:260px;object-fit:contain;} }
+
+/* Optional movement of a still picture; never starts automatically. */
+.quiet-picture-moving { animation: quiet-picture-drift 36s ease-in-out infinite alternate; }
+@keyframes quiet-picture-drift { from { transform: scale(1); } to { transform: scale(1.035); } }
