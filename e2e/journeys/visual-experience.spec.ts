@@ -8,6 +8,7 @@ test("illustrated shelf covers open and close books with keyboard and reduced mo
  await page.goto("/en/library");
  const shelf=page.locator("#money-quest-books");
  await expect(shelf.locator(".library-cover")).toHaveCount(10);
+ await page.screenshot({path:test.info().outputPath("illustrated-library-shelves.png"),fullPage:true});
  await shelf.locator(".library-cover").first().focus();await page.keyboard.press("Enter");
  await expect(page.getByRole("button",{name:"Open book",exact:true})).toBeVisible();
  await page.getByRole("button",{name:"Open book",exact:true}).click();
@@ -45,6 +46,7 @@ test("three picture activities support examples, optional answers and no saved r
  const titles=["What is money?","Choose and pay","Save for a goal"];
  for(let lesson=0;lesson<3;lesson++){
   await expect(page.getByRole("heading",{name:titles[lesson],level:2,exact:true})).toBeVisible();
+  expect((await new AxeBuilder({page}).withTags(["wcag2a","wcag2aa","wcag21aa"]).analyze()).violations).toEqual([]);
   await page.getByRole("button",{name:"☝ Choose a picture",exact:true}).click();
   const choices=page.locator('button[aria-pressed]').filter({has:page.locator('svg')});
   await expect(choices).toHaveCount(2);

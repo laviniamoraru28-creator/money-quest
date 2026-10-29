@@ -28,6 +28,7 @@ export function LibraryShelves() {
           <Image unoptimized src={book.cover} alt="" width={576} height={384} className="aspect-square w-full object-cover"/>
           <h3 className="p-4 text-lg font-bold leading-snug">{book.title}</h3>
         </Link>
+        <div className="library-shelf-board" aria-hidden="true"/>
         <details className="mt-3 rounded-xl bg-white p-3"><summary className="min-h-12 cursor-pointer py-3 font-semibold text-teal-text">{t.about}</summary><p className="text-sm">Money Quest original · {book.chapters.length} chapters</p><p className="mt-2 text-sm">{book.audience}</p><p className="mt-2">{book.description}</p></details>
       </article>)}</div>
     </section>

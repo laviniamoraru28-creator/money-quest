@@ -124,7 +124,9 @@ html[data-night-view="true"] .book-paper { background:#080808; color:#fff; }
 
 /* Illustrated covers remain keyboard links; shelving never requires dragging. */
 .library-shelves {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem 1.25rem;padding:1.5rem 1rem;background:#f2e7d6;border-radius:1.5rem;}
-.library-shelf-slot {min-width:0;border-bottom:14px solid #805b3b;padding-bottom:1rem;box-shadow:0 7px 0 -2px #59402d;}
+.library-shelf-slot {display:flex;flex-direction:column;min-width:0;padding-bottom:1rem;}
+.library-shelf-slot .library-cover {flex:1;}
+.library-shelf-board {height:14px;flex-shrink:0;margin:8px -.625rem 0;background:#805b3b;box-shadow:0 6px 0 -2px #59402d;}
 .library-cover {display:block;overflow:hidden;border-radius:4px 14px 14px 4px;border-left:9px solid #315d60;background:#e2f0e9;color:#182c2b;box-shadow:5px 5px 0 #d0c6ac,8px 10px 14px #352c2626;transition:transform .18s ease;}
 .library-cover:hover {transform:translateY(-4px);}
 .library-cover-1 {background:#fff0c8;border-left-color:#805923;}
