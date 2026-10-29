@@ -1,6 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import {useLocale} from "next-intl";
+import {experienceCopy} from "@/content/experience-copy";
+import {isSupportedLocale} from "@/i18n/config";
 import { useEffect, useRef, useState } from "react";
 import type { OriginalBook } from "@/content/original-books";
 import { Link } from "@/i18n/navigation";
@@ -9,7 +12,11 @@ import { useReadAloud } from "@/lib/accessibility/use-read-aloud";
 
 const STORE = "money-quest-discovery-v1";
 export default function OriginalBookReader({ book }: { book: OriginalBook }) {
+  const locale=useLocale();
+  const t=experienceCopy[isSupportedLocale(locale)?locale:"en"];
   const [page, setPage] = useState(0);
+  const [opened, setOpened] = useState(false);
+  const coverButton = useRef<HTMLButtonElement>(null);
   const perPage=book.audience.startsWith("Explorer")?1:2;
   const spreads = book.chapters.flatMap((item, chapterIndex) => Array.from({length:Math.ceil(item.paragraphs.length/perPage)}, (_, part) => ({chapterIndex,paragraphs:item.paragraphs.slice(part*perPage,part*perPage+perPage)})));
   const spread = spreads[page]!;
@@ -28,14 +35,14 @@ export default function OriginalBookReader({ book }: { book: OriginalBook }) {
   const readText = `${current.title}. ${spread.paragraphs.join("\n\n")} Key idea. ${current.idea}. Try it. ${current.activity}`;
   useEffect(() => {
     if (previousPage.current !== page) { title.current?.focus(); previousPage.current = page; }
-  }, [page]);
+  }, [page, opened]);
   useEffect(() => {
     try {
       const value: unknown = JSON.parse(localStorage.getItem(STORE) || "[]");
       setSaved(Array.isArray(value) && value.includes(`library:${book.slug}`));
     } catch { setSaveMessage("Saving is unavailable. You can still read every chapter and try every activity."); }
   }, [book.slug]);
-  const move = (index: number) => { if (index < 0 || index >= book.chapters.length) return; stop(); setPage(spreads.findIndex(item=>item.chapterIndex===index)); };
+  const move = (index: number) => { if (index < 0 || index >= book.chapters.length) return; stop(); setOpened(true); setPage(spreads.findIndex(item=>item.chapterIndex===index)); };
   const turnPage = (index:number) => { if(index<0||index>=spreads.length)return;stop();setPage(index); };
   const useBookCover = chapter === 0 || !["the-little-compass-and-the-money-choices", "the-garden-everyone-could-enter", "the-market-town-notebook"].includes(book.slug);
   const art = useBookCover ? book.cover : `/images/money-quest/worlds/${book.slug==="the-little-compass-and-the-money-choices"?["coin-cove","sky-exchange","market-town","market-town","golden-vault","guardian-gate","kindness-grove","coin-cove"][chapter]:book.slug==="the-garden-everyone-could-enter"?"kindness-grove":book.slug==="the-market-town-notebook"?"market-town":""}.webp`;
@@ -53,7 +60,11 @@ export default function OriginalBookReader({ book }: { book: OriginalBook }) {
       <p className="font-semibold text-teal-text">Money Quest original book</p><h1 className="mt-3 text-3xl md:text-4xl">{book.title}</h1><p className="mt-3 text-lg">{book.subtitle}</p><p className="mt-2">{book.audience}</p>
       <p className="mt-4 max-w-3xl">This original fictional story has {book.chapters.length} chapters. Stop whenever you wish. Questions are optional; you can revisit any chapter without answering.</p>
       <details className="mt-5 rounded-xl border border-ink/20 bg-white p-4"><summary className="min-h-12 cursor-pointer py-3 font-bold">Contents: choose any chapter</summary><ol className="mt-2 list-decimal pl-6">{book.chapters.map((item, index) => <li key={item.title}><button type="button" aria-current={chapter === index ? "step" : undefined} onClick={() => move(index)} className="min-h-12 py-3 text-left font-semibold text-teal-text underline">{item.title}</button></li>)}</ol></details>
-      <article className="mt-6 rounded-3xl border border-ink/15 bg-white p-5 md:p-9">
+      {!opened && <button ref={coverButton} type="button" aria-label={t.openBook} onClick={() => {setOpened(true); requestAnimationFrame(() => title.current?.focus());}} className="library-cover library-cover-0 mx-auto mt-7 block max-w-sm text-left">
+        <Image unoptimized src={book.cover} alt={book.coverAlt} width={576} height={384} className="aspect-square w-full object-cover"/><span className="block p-5 text-xl font-bold">{book.title}</span><span className="block px-5 pb-5 font-semibold">{t.openBook} →</span>
+      </button>}
+      {opened && <article className="book-opening mt-6 rounded-3xl border border-ink/15 bg-white p-5 md:p-9">
+        <button type="button" onClick={() => {stop(); setOpened(false); requestAnimationFrame(() => coverButton.current?.focus());}} className="mb-4 min-h-12 rounded-xl border border-teal px-4 py-3 font-semibold text-teal-text">{t.closeBook}</button>
         <p className="font-semibold text-teal-text">Chapter {chapter + 1} of {book.chapters.length}</p><h2 ref={title} tabIndex={-1} className="mt-3 text-2xl">{current.title}</h2>
         <div className="mt-5 flex flex-wrap gap-3">{isSupported && <button type="button" onClick={() => isSpeaking ? stop() : speak(readText)} className="min-h-12 rounded-xl border border-teal/40 px-4 py-3 font-semibold text-teal-text">{isSpeaking ? "Stop" : "Listen"}</button>}<button type="button" aria-pressed={large} onClick={() => setLarge(!large)} className="min-h-12 rounded-xl border border-ink/30 px-4 py-3">{large ? "Standard text" : "Larger text"}</button></div>
         <div className="book-spread mt-6" role="region" aria-label="Illustrated book pages" tabIndex={0} onKeyDown={event=>{if(event.target!==event.currentTarget)return;if(event.key==="ArrowRight"){event.preventDefault();turnPage(page+1);}if(event.key==="ArrowLeft"){event.preventDefault();turnPage(page-1);}}}>
@@ -67,7 +78,7 @@ export default function OriginalBookReader({ book }: { book: OriginalBook }) {
         <nav aria-label="Chapter controls" className="mt-7 flex flex-wrap gap-3"><button type="button" disabled={chapter === 0} onClick={() => move(chapter - 1)} className="min-h-12 rounded-xl border border-ink/30 px-5 py-3 disabled:opacity-50">Previous chapter</button><button type="button" disabled={chapter === book.chapters.length - 1} onClick={() => move(chapter + 1)} className="min-h-12 rounded-xl bg-teal px-5 py-3 font-semibold text-white disabled:opacity-50">Next chapter</button></nav>
         {chapter === book.chapters.length - 1 && <section className="mt-8 border-t border-ink/15 pt-6"><h3 className="text-xl">Your ending</h3><p className="mt-2">Think about one idea you would keep or question. There is no score to beat.</p><button type="button" onClick={markFinished} className="mt-4 min-h-12 rounded-xl border border-teal px-5 py-3 font-semibold text-teal-text">{saved ? "Marked as read on this device" : "Mark book as read"}</button></section>}
         <p role="status" className="mt-3 text-sm">{saveMessage}</p>
-      </article>
+      </article>}
       <details className="mt-6 rounded-xl border border-ink/20 bg-white p-5"><summary className="min-h-12 cursor-pointer py-3 font-bold">Words to explore</summary><dl className="mt-3 space-y-4">{book.glossary.map(item => <div key={item.term}><dt className="font-bold">{item.term}</dt><dd className="mt-1">{item.meaning}</dd></div>)}</dl></details>
       <p className="mt-6 text-sm leading-relaxed">An original Money Quest story, created with AI assistance and awaiting the project owner’s editorial review. Fictional examples support discussion; they do not assess a child’s ability. No account is required. Only the optional read-completion marker is saved on this device; chapter answers are not stored.</p>
       <Link href="/library" className="mt-5 inline-block min-h-12 py-3 font-semibold text-teal-text underline">Return to all Library shelves</Link>

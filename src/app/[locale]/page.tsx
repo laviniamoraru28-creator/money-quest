@@ -1,4 +1,7 @@
 import Image from "next/image";
+import {WelcomeMessage} from "@/components/WelcomeMessage";
+import {experienceCopy} from "@/content/experience-copy";
+import {isSupportedLocale} from "@/i18n/config";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { Card } from "@/components/ui/Card";
@@ -57,6 +60,7 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
                 <Link href="/play" className="inline-flex min-h-12 items-center justify-center rounded-xl px-5 py-3 font-medium bg-teal text-white hover:bg-teal/90">{t("landing.ctaGetStartedFree")}</Link>
                 <Link href="/#how-it-works" className="inline-flex min-h-12 items-center justify-center rounded-xl px-5 py-3 font-medium border border-teal text-teal-text hover:bg-teal/5">{t("landing.ctaSeeHowItWorks")}</Link>
               </div>
+              <Link href="/explorer" className="mt-4 block min-h-12 rounded-xl border-2 border-teal bg-white px-4 py-3 font-bold text-teal-text">{experienceCopy[isSupportedLocale(locale)?locale:"en"].visual} →</Link>
               <Link href="/parent-info" className="mt-sm inline-block text-sm text-teal-text hover:underline">
                 {t("nav.forParents")}
               </Link>
@@ -68,6 +72,7 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
                   alt={t("landing.heroImageAlt")} width={1536} height={1024} priority
                   className="h-auto w-full object-cover" />
               </picture>
+              <WelcomeMessage/>
             </div>
           </div>
         </section>
@@ -153,7 +158,8 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
               <li>✓ {t("landing.trust4")}</li>
             </ul>
             <Link href="/parents/resources" className="mt-6 mr-5 inline-flex min-h-12 items-center rounded-xl bg-parent-action px-5 py-3 font-bold text-white">{t("landing.parentResourcesLink")}</Link>
-            <Link href="/parent-info" className="mt-sm inline-block text-teal-text hover:underline">
+            <Link href="/explorer" className="mt-4 block min-h-12 rounded-xl border-2 border-teal bg-white px-4 py-3 font-bold text-teal-text">{experienceCopy[isSupportedLocale(locale)?locale:"en"].visual} →</Link>
+              <Link href="/parent-info" className="mt-sm inline-block text-teal-text hover:underline">
               {t("landing.readFullParentInfoLink")}
             </Link>
           </div>

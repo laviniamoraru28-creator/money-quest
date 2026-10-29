@@ -1,6 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import {useLocale} from "next-intl";
+import {experienceCopy} from "@/content/experience-copy";
+import {isSupportedLocale} from "@/i18n/config";
 import { useState } from "react";
 import { Link } from "@/i18n/navigation";
 import { originalBooks } from "@/content/library";
@@ -8,6 +11,8 @@ import {libraryPeople} from "@/content/people";
 import { authorBooks } from "@/content/author-books";
 
 export function LibraryShelves() {
+  const locale=useLocale();
+  const t=experienceCopy[isSupportedLocale(locale)?locale:"en"];
   const [topic, setTopic] = useState("All topics");
   const topics = Array.from(new Set(authorBooks.flatMap(book => book.topics))).sort();
   const shown = authorBooks.filter(book => topic === "All topics" || book.topics.includes(topic));
@@ -18,9 +23,12 @@ export function LibraryShelves() {
     <section id="money-quest-books" aria-labelledby="original-shelf-title" className="mt-8 scroll-mt-8">
       <h2 id="original-shelf-title" className="text-2xl">Money Quest original books</h2>
       <p className="mt-2">Read all 10 full stories here for free. Choose any chapter, listen if you wish, and explore the activities at your own pace.</p>
-      <div className="mt-5 grid gap-5 md:grid-cols-3">{originalBooks.map(book => <article key={book.slug} className="overflow-hidden rounded-2xl border border-ink/20 bg-white">
-        <Image unoptimized data-learning-decoration src={book.cover} alt="" width={576} height={384} className="aspect-[3/2] w-full object-cover"/>
-        <div className="p-5"><p className="text-sm font-bold text-teal-text">Money Quest original · {book.chapters.length} chapters</p><h3 className="mt-2 text-xl"><Link href={`/library/${book.slug}`} className="inline-block min-h-12 py-2 text-teal-text underline">{book.title}</Link></h3><p className="mt-2 text-sm">{book.audience}</p><p className="mt-3">{book.description}</p></div>
+      <div className="library-shelves mt-5">{originalBooks.map((book, index) => <article key={book.slug} className="library-shelf-slot">
+        <Link href={`/library/${book.slug}`} aria-label={book.title} className={`library-cover library-cover-${index % 4}`}>
+          <Image unoptimized src={book.cover} alt="" width={576} height={384} className="aspect-square w-full object-cover"/>
+          <h3 className="p-4 text-lg font-bold leading-snug">{book.title}</h3>
+        </Link>
+        <details className="mt-3 rounded-xl bg-white p-3"><summary className="min-h-12 cursor-pointer py-3 font-semibold text-teal-text">{t.about}</summary><p className="text-sm">Money Quest original · {book.chapters.length} chapters</p><p className="mt-2 text-sm">{book.audience}</p><p className="mt-2">{book.description}</p></details>
       </article>)}</div>
     </section>
     <section id="people-and-ideas" aria-labelledby="people-shelf-title" className="mt-10 scroll-mt-8">

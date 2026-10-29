@@ -569,7 +569,7 @@ export const familyOriginalBooks: OriginalBook[] = [
     "subtitle": "An original Money Quest story to read and explore together",
     "audience": "Explorer · ages 6–8 · Shared reading and optional activities",
     "description": "Emma discovers that borrowing, repairing and buying are different possible choices.",
-    "cover": "/images/money-quest/worlds/market-town.webp",
+    "cover": "/images/money-quest/books/repair-table-cover-v1.webp",
     "coverAlt": "Emma and Max in a Money Quest setting connected with this story.",
     "chapters": [
       {
@@ -1130,7 +1130,7 @@ export const familyOriginalBooks: OriginalBook[] = [
     "subtitle": "An original Money Quest story to read and explore together",
     "audience": "Explorer · ages 6–8 · Shared reading and optional activities",
     "description": "Emma and her friends plan a small community project where everyone can choose how to join.",
-    "cover": "/images/money-quest/worlds/kindness-grove.webp",
+    "cover": "/images/money-quest/books/kindness-club-cover-v1.webp",
     "coverAlt": "Emma and Max in a Money Quest setting connected with this story.",
     "chapters": [
       {

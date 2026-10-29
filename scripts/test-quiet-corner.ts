@@ -33,6 +33,13 @@ async function main() {
     };
     return {context, changes, notes, voices, audioContext: context as unknown as AudioContext};
   }
+  for(const sound of ["waves","forest"] as const) {
+    const breeze=fake();const controller=new QuietAudio(()=>breeze.audioContext);
+    assert.equal(await controller.start(sound,20),true);
+    assert.equal(breeze.context.started,2,"One noise source plus one slow envelope oscillator");
+    assert(breeze.notes[0]!.frequency>0&&breeze.notes[0]!.frequency<0.2);
+    controller.stop();assert.equal(breeze.context.closed,1);
+  }
   const first = fake(); const audio = new QuietAudio(() => first.audioContext);
   assert.equal(first.context.started, 0, "Construction must stay silent");
   assert.equal(await audio.start("rain", 20), true);

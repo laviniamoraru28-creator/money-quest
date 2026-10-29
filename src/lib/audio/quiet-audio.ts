@@ -1,6 +1,6 @@
 /** Original browser-generated ambience. No recordings, trackers or remote requests. */
 import {QUIET_MUSIC_SECONDS, scheduleQuietMusic} from "./quiet-music";
-export type QuietSound = "rain" | "notes";
+export type QuietSound = "rain" | "notes" | "waves" | "forest";
 type RepeatScheduler = (tick: () => void) => () => void;
 const repeatEverySecond: RepeatScheduler = tick => {
   const timer = setInterval(tick, 1000);
@@ -41,18 +41,26 @@ export class QuietAudio {
       gain.gain.value = 0;
       gain.connect(context.destination);
       this.gain = gain;
-      if (sound === "rain") {
+      if (sound !== "notes") {
         const buffer = context.createBuffer(1, context.sampleRate * 4, context.sampleRate);
         const samples = buffer.getChannelData(0);
         for (let i = 0; i < samples.length; i++) samples[i] = Math.random() * 2 - 1;
         const source = context.createBufferSource();
         const filter = context.createBiquadFilter();
         filter.type = "lowpass";
-        filter.frequency.value = 1200;
+        filter.frequency.value = sound === "forest" ? 650 : sound === "waves" ? 900 : 1200;
         source.buffer = buffer;
         source.loop = true;
         source.connect(filter);
-        filter.connect(gain);
+        if (sound === "rain") filter.connect(gain);
+        else {
+          // Gentle noise envelope, not a recording. No sudden bird calls or peaks.
+          const swell = context.createGain(); swell.gain.value = 0.45;
+          const motion = context.createOscillator(); motion.type = "sine";
+          motion.frequency.value = sound === "waves" ? 0.12 : 0.055;
+          const depth = context.createGain(); depth.gain.value = sound === "waves" ? 0.3 : 0.12;
+          motion.connect(depth); depth.connect(swell.gain); filter.connect(swell); swell.connect(gain); motion.start();
+        }
         source.start();
       } else {
         let nextCycle = context.currentTime + 0.1;

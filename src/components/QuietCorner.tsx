@@ -49,6 +49,7 @@ export default function QuietCorner({locale}: {locale: Locale}) {
     try { window.speechSynthesis?.cancel(); } catch {}
     window.dispatchEvent(new Event("moneyquest-stop-speech"));
     window.dispatchEvent(new Event("moneyquest-stop-quiet-video"));
+    window.dispatchEvent(new Event("moneyquest-background-stop"));
   }, [stopAudio]);
   useEffect(() => {
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -59,6 +60,7 @@ export default function QuietCorner({locale}: {locale: Locale}) {
     document.addEventListener("visibilitychange", hide);
     window.addEventListener("pagehide", pagehide);
     window.addEventListener("moneyquest-stop-audio", stopAudio);
+    window.addEventListener("moneyquest-background-start", stopAudio);
     const stopMovement = () => setMoving(false);
     window.addEventListener("moneyquest-stop-picture-movement", stopMovement);
     return () => {
@@ -67,6 +69,7 @@ export default function QuietCorner({locale}: {locale: Locale}) {
       document.removeEventListener("visibilitychange", hide);
       window.removeEventListener("pagehide", pagehide);
       window.removeEventListener("moneyquest-stop-audio", stopAudio);
+      window.removeEventListener("moneyquest-background-start", stopAudio);
       window.removeEventListener("moneyquest-stop-picture-movement", stopMovement);
     };
   }, [stopAudio]);
@@ -74,6 +77,7 @@ export default function QuietCorner({locale}: {locale: Locale}) {
   useEffect(() => { if (card !== null) closeCard.current?.focus(); }, [card]);
   const play = async () => {
     stopAudio(); setMessage("");
+    window.dispatchEvent(new Event("moneyquest-background-stop"));
     window.dispatchEvent(new Event("moneyquest-stop-speech"));
     audio.current ??= new QuietAudio();
     const id = request.current;

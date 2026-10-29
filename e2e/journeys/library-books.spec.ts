@@ -25,6 +25,7 @@ for (const book of originalBooks) test(`original book: all chapters, feedback, c
   const errors: string[] = []; page.on("pageerror", error => errors.push(error.message));
   await page.goto(`/en/library/${book.slug}`);
   await expect(page.getByRole("heading", { name: book.title, level: 1, exact: true })).toBeVisible();
+  await page.getByRole("button", {name: "Open book", exact: true}).click();
   const image = page.locator("main img").first(); await image.scrollIntoViewIfNeeded();
   await expect.poll(() => image.evaluate((element: HTMLImageElement) => element.complete && element.naturalWidth > 0)).toBe(true);
   await page.getByRole("button", { name: "Larger text", exact: true }).click();
