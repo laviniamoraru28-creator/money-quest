@@ -48,12 +48,13 @@ test("three picture activities support examples, optional answers and no saved r
   await expect(page.getByRole("heading",{name:titles[lesson],level:2,exact:true})).toBeVisible();
   expect((await new AxeBuilder({page}).withTags(["wcag2a","wcag2aa","wcag21aa"]).analyze()).violations).toEqual([]);
   await page.getByRole("button",{name:"☝ Choose a picture",exact:true}).click();
-  const choices=page.locator('button[aria-pressed]').filter({has:page.locator('svg')});
+  const choices=page.locator('main button[aria-pressed]').filter({has:page.locator('svg')});
   await expect(choices).toHaveCount(2);
   await choices.nth(lesson===2?0:1).click();await expect(page.getByRole("status").filter({hasText:"Try another picture"})).toBeVisible();
   await page.getByRole("button",{name:"↻ Show me",exact:true}).click();
   await page.getByRole("button",{name:"☝ Choose a picture",exact:true}).click();
   await choices.nth(lesson===2?1:0).click();await expect(page.getByRole("status").filter({hasText:"That fits."})).toBeVisible();
+  await expect(page.getByRole("status").filter({hasText:"That fits."}).locator("[aria-hidden=true]")).toHaveText("✓");
   expect(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)).toBe(false);
   expect((await new AxeBuilder({page}).withTags(["wcag2a","wcag2aa","wcag21aa"]).analyze()).violations).toEqual([]);
   await page.screenshot({path:test.info().outputPath(`visual-activity-${lesson+1}.png`),fullPage:true});
@@ -79,7 +80,7 @@ test("background audio stays silent initially, persists between pages and stops 
  await page.getByText("Background sound",{exact:true}).first().click();
  await page.getByRole("button",{name:"Play sound",exact:true}).click();
  await expect.poll(states).toEqual(["running"]);
- await page.getByRole("link",{name:"Open the Library →",exact:true}).click();
+ await page.getByRole("link").filter({has:page.getByRole("heading",{name:"The Library",exact:true})}).click();
  await expect(page.getByRole("heading",{name:"Money Quest Library",exact:true})).toBeVisible();
  expect(await states()).toEqual(["running"]);
  await page.getByRole("button",{name:"Listen",exact:true}).first().click();
