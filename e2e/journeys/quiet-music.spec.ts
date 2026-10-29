@@ -1,6 +1,6 @@
 import {test,expect} from "@playwright/test";
 
-test("original melody is silent until requested, produces sound and obeys volume and stop",async({page})=>{
+test("original melody plays offline only when requested and obeys volume and stop",async({page,context})=>{
   await page.addInitScript(()=>{
     const Base=window.AudioContext;
     let analyser:AnalyserNode|null=null;
@@ -18,6 +18,7 @@ test("original melody is silent until requested, produces sound and obeys volume
     };
   });
   await page.goto("/en/quiet-corner");
+  await context.setOffline(true);
   const stats=()=>page.evaluate(()=>{const data=(window as unknown as {quietMusicStats:{created:number;closed:number;notes:{frequency:number;time:number}[];rms:()=>number}}).quietMusicStats;return {created:data.created,closed:data.closed,notes:data.notes,rms:data.rms()};});
   await page.getByRole("button",{name:"Slow melody",exact:true}).click();expect((await stats()).created).toBe(0);
   await page.getByRole("button",{name:"Play sound",exact:true}).click();
@@ -26,6 +27,7 @@ test("original melody is silent until requested, produces sound and obeys volume
   const playing=await stats();expect(playing.created).toBe(1);expect(new Set(playing.notes.map(note=>note.frequency)).size).toBeGreaterThan(3);
   expect(Math.max(...playing.notes.map(note=>note.time))-Math.min(...playing.notes.map(note=>note.time))).toBeGreaterThan(30);
   const volume=page.getByRole("slider",{name:"Sound volume",exact:true});await volume.focus();await volume.press("Home");await expect(volume).toHaveValue("0");
+  await expect(volume).toHaveAttribute("aria-valuetext","0%");
   await expect.poll(async()=>(await stats()).rms).toBeLessThan(0.000005);
   await page.getByRole("button",{name:"Stop sound",exact:true}).click();await expect.poll(async()=>(await stats()).closed).toBe(1);
   await expect(page.getByRole("button",{name:"Play sound",exact:true})).toBeVisible();
