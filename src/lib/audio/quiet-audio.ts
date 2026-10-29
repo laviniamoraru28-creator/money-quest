@@ -4,6 +4,7 @@ export class QuietAudio {
   private context: AudioContext | null = null;
   private gain: GainNode | null = null;
   private generation = 0;
+  private volume = 20;
   constructor(private createContext: () => AudioContext = () => new AudioContext()) {}
   stop() {
     ++this.generation;
@@ -13,11 +14,13 @@ export class QuietAudio {
     if (context) { try { void context.close().catch(() => {}); } catch {} }
   }
   setVolume(value: number) {
+    this.volume = Math.max(0, Math.min(100, value));
     if (!this.context || !this.gain) return;
-    this.gain.gain.setTargetAtTime(Math.max(0, Math.min(100, value)) / 100 * 0.08, this.context.currentTime, 0.12);
+    this.gain.gain.setTargetAtTime(this.volume / 100 * 0.08, this.context.currentTime, 0.12);
   }
   async start(sound: QuietSound, volume: number): Promise<boolean> {
     this.stop();
+    this.setVolume(volume);
     const generation = this.generation;
     try {
       const context = this.createContext();
@@ -51,7 +54,7 @@ export class QuietAudio {
           oscillator.start();
         }
       }
-      this.setVolume(volume);
+      this.setVolume(this.volume);
       return true;
     } catch {
       if (generation === this.generation) this.stop();

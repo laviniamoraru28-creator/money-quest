@@ -44,6 +44,14 @@ async function main() {
   assert.equal(slow.context.closed, 1); assert.equal(next.context.started, 3);
   assert.equal(next.context.closed, 0, "An old start must not close newer audio");
   racing.stop(); assert.equal(next.context.closed, 1);
+  let resumeVolume!: () => void;
+  const waitingVolume = fake(() => new Promise<void>(resolve => {resumeVolume = resolve;}));
+  const adjustable = new QuietAudio(() => waitingVolume.audioContext);
+  const startingVolume = adjustable.start("notes", 20);
+  adjustable.setVolume(0);
+  resumeVolume(); assert.equal(await startingVolume, true);
+  assert.equal(waitingVolume.changes.at(-1), 0, "Mute selected during startup must take effect before sound begins");
+  adjustable.stop();
   const blocked = fake(async () => {throw new Error("blocked");});
   assert.equal(await new QuietAudio(() => blocked.audioContext).start("rain", 20), false);
   assert.equal(blocked.context.closed, 1);
