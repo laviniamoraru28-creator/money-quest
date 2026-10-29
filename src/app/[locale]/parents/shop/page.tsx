@@ -1,3 +1,4 @@
+import {shopFlowPresentation,publicParentLocale} from "@/lib/i18n/parent-presentation";
 import Image from "next/image";
 import {Link} from "@/i18n/navigation";
 import {shopProducts,priceLabel} from "@/content/shop";
@@ -8,7 +9,8 @@ import {safeJsonLd} from "@/lib/seo/safe-json-ld";
 import {getSiteUrl} from "@/lib/seo/site-url";
 export const dynamic="force-dynamic";
 export const metadata=learningMetadata("Printable money activities and journal for families","Preview original illustrated money activities and a 12-week print-at-home journal. Free samples, flexible response methods and parent guidance.","/parents/shop","sections/library.webp");
-export default async function Page(){
+export default async function Page({params}:{params:Promise<{locale:string}>}){
+ const {locale}=await params;const flow=shopFlowPresentation(publicParentLocale(locale));
  const available=await Promise.all(shopProducts.map(canCheckout));
  const schema={"@context":"https://schema.org","@type":"CollectionPage",name:"Money Quest parent printables",url:`${getSiteUrl()}/en/parents/shop`,description:"Original printable educational resources for families, with free samples. Paid editions are in preparation."};
  return <div className="min-h-screen bg-fog text-ink"><script type="application/ld+json" dangerouslySetInnerHTML={{__html:safeJsonLd(schema)}}/>
@@ -21,7 +23,7 @@ export default async function Page(){
     <div className="p-6"><h3 className="text-2xl">{product.title}</h3><p className="mt-3 leading-relaxed">{product.description}</p><p className="mt-3 font-bold text-teal-text">{product.pages}</p><ul className="mt-4 list-disc space-y-2 pl-5">{product.includes.map(item=><li key={item}>{item}</li>)}</ul>
      <p className="mt-5 text-2xl font-bold">{priceLabel(product.price)} <span className="text-sm font-normal">proposed, one payment</span></p><p className="mt-2 text-sm">Digital PDF in a ZIP file. A4, single-sided printing. One-household licence. No subscription.</p>
      <a href={product.sample} className="mt-5 inline-flex min-h-12 w-full items-center justify-center rounded-xl border-2 border-teal px-4 py-3 text-center font-bold text-teal-text">Download the free {product.id==="family-adventure-pack"?"3-activity sample":"first-week journal sample"} (PDF, English)</a>
-     <ShopCheckout productId={product.id} enabled={available[index]??false}/>
+     <ShopCheckout productId={product.id} enabled={available[index]??false} {...flow}/>
     </div>
    </article>)}</div></section>
    <section aria-labelledby="included-title" className="mt-10 rounded-3xl border border-ink/15 bg-white p-6"><h2 id="included-title" className="text-2xl">Designed for different ways of joining in</h2><div className="mt-5 grid gap-6 md:grid-cols-3"><div><h3 className="font-bold">Pictures with a purpose</h3><p className="mt-2">Labels, pretend counters and clear choices support the activity. Reduced-distraction versions remove decorative scene artwork and coloured card fills.</p></div><div><h3 className="font-bold">No handwriting requirement</h3><p className="mt-2">Point, draw, type, use AAC, speak or ask an adult to write. Choose Explorer, Builder or Strategist tasks to suit understanding and support.</p></div><div><h3 className="font-bold">Guidance for grown-ups</h3><p className="mt-2">Worked explanations, practical support and further questions help you explore the ideas together. No timed tests or household financial disclosure.</p></div></div><p className="mt-6 text-sm">Informed by CAST UDL Guidelines 3.0, EEF inclusive-teaching guidance and MoneyHelper parent resources. This is not certification, clinical validation or evidence of guaranteed learning outcomes. Suitability varies by child.</p><Link href="/parents/resources" className="mt-3 inline-block min-h-12 py-3 font-semibold text-teal-text underline">Read the parent guide and evidence sources</Link></section>

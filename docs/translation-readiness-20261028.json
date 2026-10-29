@@ -1,4 +1,23 @@
 {
+  "parentFlowDrafts": {
+    "locales": [
+      "en",
+      "ro",
+      "es",
+      "fr",
+      "de",
+      "it",
+      "pt",
+      "nl",
+      "pl"
+    ],
+    "stringsPerLocale": 60,
+    "translatedStrings": 480,
+    "sourceFingerprintManifest": "src/content/translations/parent-flow.sources.json",
+    "integration": "Complete parent resource guide and selected-locale checkout/order/recovery controls; 45 actual component SSR renders; public EN and sandbox-only gates unchanged",
+    "editorialStatus": "AI multilingual editorial drafts, not native-editor/legal certification",
+    "remaining": "Product catalogue/terms/privacy/general parent pages, receipt contents/native download errors, PDFs, remaining authored content, SEO and non-English browser/linguistic/legal review"
+  },
   "commonControlsDrafts": {
     "locales": [
       "en",

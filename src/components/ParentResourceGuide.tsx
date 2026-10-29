@@ -1,0 +1,15 @@
+import {Link} from "@/i18n/navigation";
+import {formatLocalizedText} from "@/lib/i18n/format-text";
+import {librarySourceDate} from "@/content/reader-copy";
+import {PARENT_GUIDE_SOURCES,PARENT_GUIDE_CHECKED,type ParentGuideCopy} from "@/content/parent-guide-copy";
+import type {Locale} from "@/i18n/config";
+
+export function ParentResourceGuide({locale,copy}:{locale:Locale;copy:ParentGuideCopy}){
+ return <div className="min-h-screen bg-fog text-ink"><main id="main-content" tabIndex={-1} className="mx-auto max-w-4xl px-5 py-9"><Link href="/" className="inline-block min-h-12 py-3 font-semibold text-teal-text underline">{copy.home}</Link><p className="mt-5 font-bold text-teal-text">{copy.eyebrow}</p><h1 className="mt-3 text-3xl">{copy.title}</h1><p className="mt-5 text-lg leading-relaxed">{copy.intro}</p>
+ <section className="mt-8 rounded-3xl border border-ink/15 bg-white p-6"><h2 className="text-2xl">{copy.startHeading}</h2><ol className="mt-4 list-decimal space-y-3 pl-6">{[copy.step1,copy.step2,copy.step3,copy.step4,copy.step5].map(text=><li key={text}>{text}</li>)}</ol></section>
+ <section className="mt-8"><h2 className="text-2xl">{copy.levelsHeading}</h2><p className="mt-3 leading-relaxed">{copy.levelsBody}</p><p className="mt-3 leading-relaxed">{copy.sendBody}</p></section>
+ <section className="mt-8 rounded-3xl border border-teal/25 bg-white p-6"><h2 className="text-2xl">{copy.sampleHeading}</h2><p className="mt-3">{copy.sampleBody}</p><div className="mt-5 flex flex-wrap gap-4"><a href="/resources/samples/free-family-sample-en.pdf" className="min-h-12 rounded-xl bg-teal px-5 py-3 font-bold text-white">{copy.activitySample}</a><a href="/resources/samples/free-journal-week-one-en.pdf" className="min-h-12 rounded-xl border border-teal px-5 py-3 font-bold text-teal-text">{copy.journalSample}</a></div><p className="mt-4 text-sm">{copy.printNote}</p><Link href="/parents/shop" className="mt-5 inline-block min-h-12 rounded-xl bg-parent-action px-5 py-3 font-bold text-white">{copy.shop}</Link></section>
+ <section className="mt-8"><h2 className="text-2xl">{copy.evidenceHeading}</h2><p className="mt-3">{copy.evidenceBody}</p><ul className="mt-4 list-disc space-y-4 pl-5">{PARENT_GUIDE_SOURCES.map(source=><li key={source.id}><a href={source.url} rel="noreferrer" className="text-teal-text underline">{source.title}</a>. {copy[source.id]}</li>)}</ul><p className="mt-5 text-sm">{formatLocalizedText(copy.sourceNote,locale,{date:librarySourceDate(locale,PARENT_GUIDE_CHECKED)})}</p></section>
+ <section className="mt-8"><h2 className="text-2xl">{copy.freeHeading}</h2><p className="mt-3">{copy.freeBody}</p><div className="mt-4 flex flex-wrap gap-5"><Link href="/library" className="min-h-12 py-3 font-semibold text-teal-text underline">{copy.library}</Link><Link href="/play" className="min-h-12 py-3 font-semibold text-teal-text underline">{copy.worlds}</Link><Link href="/parent-info" className="min-h-12 py-3 font-semibold text-teal-text underline">{copy.privacy}</Link></div></section>
+ </main></div>;
+}
