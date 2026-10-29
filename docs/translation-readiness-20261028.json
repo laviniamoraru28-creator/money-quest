@@ -1,6 +1,6 @@
 {
   "generated": "2026-10-29",
-  "scope": "Eight authored-content groups only. Canonical bibliography titles are excluded from counts and retained in their published language. This inventory does not certify linguistic quality or cover all hardcoded UI, SEO, commerce policies or privately stored printable manuscripts.",
+  "scope": "Eight authored-content groups only. Canonical bibliography and external published book titles are excluded from counts and retained in their published language. This inventory does not certify linguistic quality or cover all hardcoded UI, SEO, commerce policies or privately stored printable manuscripts.",
   "activeLocales": [
     "en"
   ],
@@ -34,8 +34,8 @@
       "sourceHash": "6cbf0f6e8c775f3d6439b217e2e57dc48c0bf28a8a11c0ad3e60576b37aab613"
     },
     "externalBookIntroductions": {
-      "sourceStrings": 123,
-      "sourceHash": "e44cd1461d97d116702dea5dbcde8b7a38ad0cf501f78e4a9d631cca4ceb237b"
+      "sourceStrings": 111,
+      "sourceHash": "38b2716eeb40d680ff681e3d94dd7b5ed57d27d56e569ad1e172dfa935277dce"
     }
   },
   "locales": [
@@ -48,7 +48,7 @@
     {
       "locale": "ro",
       "messageKeys": "validated separately; key parity does not prove authored-content translation",
-      "newContent": "10 biography drafts, 10 book drafts, 10 Museum room drafts and 8 short-read drafts with age challenges; other domains pending",
+      "newContent": "All eight tracked authored-content groups have Romanian drafts, including 3 laboratories with age readings and 12 external-book introductions; UI, SEO, PDFs and rendered integration still pending",
       "publicActivation": "blocked pending complete content and review"
     },
     {
@@ -220,7 +220,20 @@
     }
   ],
   "museumSourceFingerprintManifest": "src/content/translations/museum.sources.json",
-  "countingNote": "The initial inventory included 12 canonical source titles in discoveryNotes. The current count excludes them; their text has not been removed or changed.",
+  "countingNote": "The initial inventory included 12 canonical source titles in discoveryNotes; a later projection also removes 12 external published book titles from translatable counts. All 24 original titles are preserved in source metadata, not deleted or presented as unverified localized editions.",
+  "romanianLaboratories": {
+    "entries": 3,
+    "tasks": 22,
+    "translatedStrings": 490,
+    "editorialStatus": "AI bilingual editorial pass; not native-editor certified or rendered-language verified",
+    "sourceFingerprintManifest": "src/content/translations/laboratories.sources.json"
+  },
+  "romanianExternalBooks": {
+    "entries": 12,
+    "translatedStrings": 111,
+    "editorialStatus": "AI bilingual editorial pass; not native-editor certified or rendered-language verified",
+    "sourceFingerprintManifest": "src/content/translations/author-books.sources.json"
+  },
   "romanianBooks": {
     "entries": 10,
     "chapters": 62,

@@ -1,0 +1,878 @@
+{
+  "brain-lab": {
+    "title": "Laboratorul gândirii",
+    "description": "Explorează memoria, atenția, percepția, gândirea, învățarea și luarea deciziilor. Încearcă strategii utile în ritmul tău.",
+    "tasks": [
+      {
+        "title": "Ține minte o listă scurtă",
+        "idea": "Gruparea lucrurilor te poate ajuta să ții minte o listă.",
+        "situation": "Ai nevoie de mere, pere, șosete și o pălărie. Ce te-ar putea ajuta să le ții minte?",
+        "choices": [
+          "Citește o dată și speră că îți amintești",
+          "Grupează fructele și hainele",
+          "Adaugă și alte lucruri"
+        ],
+        "correct": 1,
+        "explanation": "Două grupuri cu înțeles te pot ajuta să organizezi mai ușor această listă. Și o listă scrisă este un instrument util.",
+        "tryIt": [
+          "Arată două lucruri care se potrivesc în același grup.",
+          "Împarte o listă de șase lucruri în două grupuri. Acoperă lista și spune sau arată ce îți amintești.",
+          "Compară gruparea lucrurilor cu folosirea unei liste scrise. Ce te-a ajutat la această activitate și de ce?"
+        ],
+        "readings": [
+          {
+            "idea": "Pune în același grup lucrurile care se potrivesc.",
+            "situation": "Ține minte un măr, o pară, o șosetă și o pălărie. Ce te-ar putea ajuta?",
+            "choices": [
+              "Privește în altă parte și ghicește",
+              "Fă un grup cu fructe și unul cu haine",
+              "Adaugă multe alte lucruri"
+            ],
+            "explanation": "Mărul și para sunt fructe. Șoseta și pălăria sunt haine. Cele două grupuri te pot ajuta să îți amintești. Poate fi utilă și o listă cu imagini."
+          },
+          {
+            "idea": "O strategie de memorare trebuie să se potrivească sarcinii, iar utilitatea ei poate fi verificată.",
+            "situation": "Trebuie să îți amintești mâine o listă cu lucruri din categorii diferite. Cum poți verifica dacă gruparea te ajută?",
+            "choices": [
+              "Presupune că, dacă ai încredere în tine, îți vei aminti corect",
+              "Compară ce îți amintești după grupare cu ce îți amintești după recitire",
+              "Lungește lista fără să verifici rezultatul"
+            ],
+            "explanation": "Compară ce îți amintești efectiv, nu doar cât de ușoară ți se pare strategia. Când este important să îți amintești exact, o notiță poate fi cea mai bună soluție. O singură încercare nu dovedește că o metodă funcționează în orice situație."
+          }
+        ]
+      },
+      {
+        "title": "Un singur lucru pe rând",
+        "idea": "Poți schimba ce se întâmplă în jurul tău ca să îți fie mai ușor să fii atent.",
+        "situation": "Un videoclip îți tot distrage atenția când citești instrucțiunile. Ce ai putea încerca?",
+        "choices": [
+          "Pune videoclipul pe pauză",
+          "Dă sonorul mai tare",
+          "Pornește încă un videoclip"
+        ],
+        "correct": 0,
+        "explanation": "Mai puține lucruri care îți cer atenția în același timp te pot ajuta să te concentrezi. Poți să iei și o pauză.",
+        "tryIt": [
+          "Alege un loc mai liniștit sau oprește un sunet.",
+          "Citește o instrucțiune după ce ai îndepărtat lucrurile care te distrag. Observă ce te ajută.",
+          "Planifică un spațiu de învățare. Explică ce surse de distragere ai reduce și ce sprijin ai păstra."
+        ],
+        "readings": [
+          {
+            "idea": "Prea multe sunete pot face o activitate mai grea.",
+            "situation": "Un videoclip rulează în timp ce încerci să citești un pas. Ce te-ar putea ajuta?",
+            "choices": [
+              "Pune videoclipul pe pauză",
+              "Dă sonorul mai tare",
+              "Pornește alt videoclip"
+            ],
+            "explanation": "Încearcă un pas cu videoclipul pus pe pauză. Poți cere ajutor sau o pauză. Oameni diferiți au nevoie de forme diferite de sprijin."
+          },
+          {
+            "idea": "Pentru a susține atenția, poți reduce lucrurile care concurează pentru ea și păstra sprijinul util.",
+            "situation": "Mesajele îți întrerup recapitularea, dar o listă vizuală te ajută. Ce schimbare merită încercată?",
+            "choices": [
+              "Oprește alertele mesajelor și păstrează lista",
+              "Renunță la orice sprijin, inclusiv la listă",
+              "Adaugă aplicații ca să exersezi ignorarea lor"
+            ],
+            "explanation": "Schimbă sursa de distragere pe care ai identificat-o și păstrează un sprijin care te ajută în activitate. Compară ce reușești să termini și să înțelegi. O strategie utilă azi poate avea nevoie de adaptări mâine."
+          }
+        ]
+      },
+      {
+        "title": "Privește încă o dată",
+        "idea": "La prima vedere, poți să nu observi unele detalii.",
+        "situation": "Două pachete par de aceeași mărime. Cum poți verifica în care este o cantitate mai mare?",
+        "choices": [
+          "Alege pachetul cu ambalajul mai viu colorat",
+          "Ghicește după imagine",
+          "Compară greutățile de pe etichete"
+        ],
+        "correct": 2,
+        "explanation": "Un ambalaj poate părea mai mare, deși conține mai puțin. Compară valorile de pe etichete folosind aceleași unități de măsură.",
+        "tryIt": [
+          "Arată numărul mai mare de pe două etichete imaginare.",
+          "Compară două pachete etichetate cu 100 g și 150 g.",
+          "Compară un pachet de 200 g la 2 £ cu unul de 300 g la 2,40 £. Calculează prețul pentru 100 g."
+        ],
+        "readings": [
+          {
+            "idea": "Un pachet care pare mare nu conține neapărat mai mult.",
+            "situation": "Pe un pachet imaginar scrie 2 obiecte, iar pe altul, 3 obiecte. Cum verifici care are mai multe?",
+            "choices": [
+              "Alege culoarea mai vie",
+              "Ghicește după imagine",
+              "Compară 2 cu 3"
+            ],
+            "explanation": "Trei este mai mult decât doi. O etichetă clară te poate ajuta să verifici ce ai crezut la început."
+          },
+          {
+            "idea": "Aspectul ambalajului și raportul dintre preț și cantitate sunt lucruri diferite.",
+            "situation": "Un pachet are 200 g și costă 2 £. Altul are 300 g și costă 2,40 £. Cum compari ce primești pentru banii plătiți?",
+            "choices": [
+              "Alege cutia care pare mai înaltă",
+              "Presupune că prețul total mai mare înseamnă o alegere mai puțin avantajoasă",
+              "Calculează și compară prețul fiecărui pachet pentru 100 g"
+            ],
+            "explanation": "Primul costă 1 £ pentru 100 g. Al doilea costă 80 de pence pentru 100 g. Prețul pe unitate ajută la comparație, dar o cantitate mai mare este utilă doar dacă ai nevoie de ea și îți permiți prețul total."
+          }
+        ]
+      },
+      {
+        "title": "Caută și altă explicație",
+        "idea": "Un indiciu poate avea mai multe explicații.",
+        "situation": "Un prieten nu îți răspunde la salut. Ce gând te-ar putea ajuta?",
+        "choices": [
+          "Sigur nu mă place",
+          "Poate nu m-a văzut",
+          "Știu exact ce gândește"
+        ],
+        "correct": 1,
+        "explanation": "Nu poți ști ce gândește cineva dintr-o singură acțiune. Poți întreba cu bunăvoință mai târziu.",
+        "tryIt": [
+          "Alege o explicație posibilă sau arată o imagine.",
+          "Găsește două explicații posibile pentru același lucru întâmplat.",
+          "Separă ce ai observat de concluzia pe care ai tras-o. Ce dovezi te-ar ajuta?"
+        ],
+        "readings": [
+          {
+            "idea": "Nu putem citi gândurile altcuiva.",
+            "situation": "Un prieten nu îți răspunde la salut. Ce ar putea fi adevărat?",
+            "choices": [
+              "Sigur nu te place",
+              "Poate nu te-a văzut",
+              "Știi tot ce gândește"
+            ],
+            "explanation": "Poate că prietenul tău nu te-a văzut. Pot exista și alte explicații. Îl poți întreba cu bunăvoință mai târziu."
+          },
+          {
+            "idea": "O observație poate avea mai multe explicații posibile.",
+            "situation": "Ai văzut un prieten trecând fără să te salute. Care concluzie recunoaște că încă nu știi totul?",
+            "choices": [
+              "Intenția lui este acum dovedită",
+              "Poate nu m-a observat; ar ajuta mai multe informații",
+              "O singură acțiune arată tot ce crede despre tine"
+            ],
+            "explanation": "Faptul că nu a salutat este observația. Presupunerea că nu te place este o interpretare. Ia în calcul și alte explicații înainte să întrebi cu respect. Nu trebuie să tragi imediat o concluzie."
+          }
+        ]
+      },
+      {
+        "title": "Verifică ce îți amintești",
+        "idea": "Când încerci să îți amintești, poți observa ce mai ai de exersat.",
+        "situation": "Ai citit o lecție scurtă. Cum ai putea verifica ce ai învățat?",
+        "choices": [
+          "Răspunde la o întrebare, apoi verifică",
+          "Numără doar paginile",
+          "Treci peste toate explicațiile de după răspunsuri"
+        ],
+        "correct": 0,
+        "explanation": "Când îți amintești o idee și verifici explicațiile, poți observa ce îți lipsește. Poți reveni la explicația lecției.",
+        "tryIt": [
+          "Arată un lucru pe care ți-l amintești.",
+          "Închide lecția și explică o idee. Apoi verifică.",
+          "Revino la idee în altă zi și folosește-o într-un exemplu nou. Observă ce mai ai nevoie să exersezi."
+        ],
+        "readings": [
+          {
+            "idea": "Încearcă să îți amintești o idee, apoi verifică.",
+            "situation": "Ai citit o poveste scurtă. Cum poți vedea ce îți amintești?",
+            "choices": [
+              "Alege un răspuns și verifică",
+              "Numără doar paginile",
+              "Nu te mai uita niciodată înapoi"
+            ],
+            "explanation": "O întrebare poate arăta ce îți amintești. Dacă îți lipsește o idee, privește din nou sau cere ajutor. O greșeală îți dă o informație utilă."
+          },
+          {
+            "idea": "Încercarea de a-ți aminti și verificarea explicațiilor pot scoate la iveală o lacună pe care simpla recitire o ascunde.",
+            "situation": "După ce ai studiat o idee, cum poți verifica dacă o poți folosi?",
+            "choices": [
+              "Explic-o fără să te uiți, apoi compară cu sursa",
+              "Judecă învățarea doar după timpul petrecut citind",
+              "Evită orice întrebare care ar putea arăta o greșeală"
+            ],
+            "explanation": "Încearcă să îți amintești și să aplici ideea, verifică explicațiile și revino asupra lucrurilor care lipsesc. Repetă mai târziu dacă este util. Un răspuns corect la o întrebare cunoscută nu dovedește înțelegerea în orice situație."
+          }
+        ]
+      },
+      {
+        "title": "Fă o pauză înainte să alegi",
+        "idea": "O scurtă pauză îți dă timp să compari opțiunile.",
+        "situation": "O reclamă spune că oferta pentru o jucărie se termină curând. Ce poți face?",
+        "choices": [
+          "Cumpără înainte să te gândești",
+          "Lasă reclama să aleagă",
+          "Verifică bugetul și scopul tău"
+        ],
+        "correct": 2,
+        "explanation": "Graba poate influența o alegere. Verificarea costului și a priorităților tale te ajută să decizi.",
+        "tryIt": [
+          "Arată dacă alegi să aștepți sau să cumperi. Ia-ți timp să decizi.",
+          "Compară jucăria cu scopul pentru care economisești.",
+          "Scrie la ce ai renunța și ce dovezi ai despre ofertă. Decide dacă ar ajuta să aștepți."
+        ],
+        "readings": [
+          {
+            "idea": "Te poți opri să te gândești înainte să cumperi.",
+            "situation": "Pe o reclamă la jucării scrie „Grăbește-te!”. Ce ai putea face?",
+            "choices": [
+              "Cumpără fără să verifici",
+              "Lasă reclama să decidă",
+              "Verifică ce bani ai și ce îți dorești"
+            ],
+            "explanation": "O reclamă nu poate alege în locul tău. Poți verifica prețul, întreba un adult și decide să aștepți."
+          },
+          {
+            "idea": "Graba poate face o opțiune să pară mai importantă decât arată dovezile.",
+            "situation": "O reclamă numără timpul rămas până la sfârșitul unei reduceri pentru un produs pe care nu plănuiai să îl cumperi. Ce reacție te ajută să alegi tu?",
+            "choices": [
+              "Consideră numărătoarea inversă o dovadă că merită cumpărat",
+              "Cumpără ca să nu mai compari",
+              "Verifică prețul total, prioritățile tale și la ce ai renunța"
+            ],
+            "explanation": "Costul de oportunitate este o altă utilizare a acelorași bani la care renunți când alegi. Verifică oferta reală și prioritățile tale. Poate fi înțelept să aștepți chiar dacă reducerea este reală."
+          }
+        ]
+      }
+    ]
+  },
+  "mind-lab": {
+    "title": "Laboratorul emoțiilor",
+    "description": "Exersează recunoașterea emoțiilor, cererea de ajutor, adaptarea planurilor și colaborarea. Poți sări peste orice activitate.",
+    "tasks": [
+      {
+        "title": "Observă o emoție",
+        "idea": "Oamenii pot simți lucruri diferite în aceeași situație.",
+        "situation": "Un joc te frustrează. Ce ai putea face mai întâi?",
+        "choices": [
+          "Observă ce simți și fă o pauză",
+          "Continuă până când îți face rău",
+          "Ascunde orice emoție"
+        ],
+        "correct": 0,
+        "explanation": "Când observi ce simți, îți poate fi mai ușor să alegi ce faci în continuare. Nu există emoții greșite.",
+        "tryIt": [
+          "Arată un cuvânt care numește o emoție, deseneaz-o sau alege să nu răspunzi.",
+          "Numește un semn pe care îl observi în corp când simți frustrare. Îl poți păstra pentru tine.",
+          "Compară o emoție, un gând și o acțiune. Planifică un răspuns prin care ai grijă de tine."
+        ],
+        "readings": [
+          {
+            "idea": "Poți observa o emoție și poți cere o pauză.",
+            "situation": "Un joc te supără. Ce poți face mai întâi?",
+            "choices": [
+              "Observă cum te simți și fă o pauză",
+              "Joacă în continuare, chiar dacă vrei să te oprești",
+              "Prefă-te că emoțiile sunt interzise"
+            ],
+            "explanation": "Poți arăta o emoție, poți folosi o imagine sau poți cere ajutor. Nu trebuie să spui cu voce tare ce simți."
+          },
+          {
+            "idea": "Emoțiile, interpretările și acțiunile au legătură între ele, dar sunt lucruri diferite.",
+            "situation": "După un eșec simți rușine și îți spui „Nu reușesc niciodată”. Care ar fi un prim pas util?",
+            "choices": [
+              "Observă emoția, fă o pauză și examinează concluzia",
+              "Consideră emoția o dovadă că acea concluzie este adevărată",
+              "Obligă-te să continui, oricât de greu îți este"
+            ],
+            "explanation": "O emoție neplăcută este reală, dar nu dovedește o concluzie atât de generală. Poți alege să păstrezi pentru tine ce simți, să iei o pauză sau să ceri sprijin unei persoane de încredere, cât timp decizi ce faci mai departe."
+          }
+        ]
+      },
+      {
+        "title": "Descoperă ce te ajută",
+        "idea": "Oameni diferiți găsesc utile forme diferite de sprijin.",
+        "situation": "Instrucțiunile sunt greu de urmărit. Ce ai putea cere?",
+        "choices": [
+          "Mai multe sarcini deodată",
+          "O imagine sau câte un pas pe rând",
+          "Să nu primești niciodată ajutor"
+        ],
+        "correct": 1,
+        "explanation": "Alegerea sprijinului potrivit este o abilitate. Imaginile, demonstrațiile și pașii scurți pot ajuta.",
+        "tryIt": [
+          "Alege o imagine, o instrucțiune spusă sau o demonstrație.",
+          "Încearcă două moduri de a primi o instrucțiune. Care te ajută azi?",
+          "Explică de ce sprijinul pe care îl alegi s-ar putea schimba în funcție de activitate sau de loc."
+        ],
+        "readings": [
+          {
+            "idea": "Poți alege un mod de învățare care te ajută.",
+            "situation": "O instrucțiune lungă este grea. Ce ai putea cere?",
+            "choices": [
+              "Mai mulți pași deodată",
+              "O imagine sau un singur pas mic",
+              "Să nu primești deloc ajutor"
+            ],
+            "explanation": "Imaginile, o demonstrație sau un singur pas pot ajuta. Ai voie să ceri sprijin."
+          },
+          {
+            "idea": "Sprijinul util depinde de persoană, de activitate și de împrejurări.",
+            "situation": "Instrucțiunile scrise te ajută la o activitate, dar nu la o sarcină practică într-un loc zgomotos. Ce ai putea cere?",
+            "choices": [
+              "Același format, indiferent de problemă",
+              "O demonstrație sau pași mai scurți, apoi verificarea a ceea ce funcționează",
+              "Eliminarea oricărui sprijin, ca să dovedești că te descurci singur"
+            ],
+            "explanation": "Independența poate însemna și să alegi un sprijin eficient. Încearcă o adaptare potrivită și explică ce s-a schimbat, fără să fie nevoie să dezvălui un diagnostic sau informații private."
+          }
+        ]
+      },
+      {
+        "title": "Încearcă altă strategie",
+        "idea": "Învățarea poate însemna să schimbi metoda, să te odihnești sau să ceri ajutor.",
+        "situation": "Podul tău din cuburi cade de două ori. Ce ar putea ajuta?",
+        "choices": [
+          "Folosește mereu același plan",
+          "Dă vina pe tine",
+          "Încearcă o bază mai lată sau cere ajutor"
+        ],
+        "correct": 2,
+        "explanation": "O strategie diferită sau o sugestie utilă te poate ajuta. Și o pauză este o alegere potrivită.",
+        "tryIt": [
+          "Alege să încerci din nou, să ceri ajutor sau să iei o pauză.",
+          "Schimbă o parte a unui pod din cuburi și vezi ce se întâmplă.",
+          "Notează o schimbare, rezultatul ei și ce ai testa în continuare."
+        ],
+        "readings": [
+          {
+            "idea": "La o nouă încercare poți folosi alt plan.",
+            "situation": "Podul tău din cuburi cade. Ce ar putea ajuta?",
+            "choices": [
+              "Păstrează mereu fiecare cub în același loc",
+              "Spune că nu te pricepi la nimic",
+              "Încearcă o bază mai lată sau cere ajutor"
+            ],
+            "explanation": "Poți schimba o parte, cere ajutor sau lua o pauză. Nu trebuie să continui când ai nevoie să te oprești."
+          },
+          {
+            "idea": "Perseverența este utilă când ține cont de informații și de limite și permite schimbarea strategiei.",
+            "situation": "Un proiect nu trece de două ori același test. Care pas folosește informațiile obținute?",
+            "choices": [
+              "Repetă la nesfârșit planul neschimbat",
+              "Dă vina pe abilitățile tale fără să examinezi proiectul",
+              "Analizează ce nu a mers, schimbă o parte sau cere un sfat"
+            ],
+            "explanation": "Precizează ce nu a funcționat, alege o schimbare pe care o poți testa și compară rezultatele. Poate fi rezonabil și să te odihnești, să ceri sprijin sau să decizi să te oprești. Reziliența nu înseamnă să suporți ceva care îți face rău."
+          }
+        ]
+      },
+      {
+        "title": "Pregătește un al doilea plan",
+        "idea": "Poți adapta un plan când se schimbă ceva.",
+        "situation": "Ploaia îți anulează activitatea în aer liber. Ce ai putea face?",
+        "choices": [
+          "Alege o alternativă în interior",
+          "Presupune că toată ziua este stricată",
+          "Ignoră vremea"
+        ],
+        "correct": 0,
+        "explanation": "Un al doilea plan poate păstra o parte din scopul tău. Poți simți dezamăgire și totuși să alegi altă activitate.",
+        "tryIt": [
+          "Alege între două activități în interior.",
+          "Pregătește un plan pentru afară și o alternativă în interior.",
+          "Păstrează același scop, dar schimbă metoda. Explică avantajele și lucrurile la care renunți."
+        ],
+        "readings": [
+          {
+            "idea": "Un plan se poate schimba.",
+            "situation": "Ploaia îți oprește picnicul. Ce ai putea face?",
+            "choices": [
+              "Alege un picnic în interior, într-un loc sigur",
+              "Spune că nu se mai poate întâmpla nimic bun",
+              "Ieși fără să verifici dacă este sigur"
+            ],
+            "explanation": "Poți fi trist din cauza ploii și totuși să încerci altă activitate. Un adult te poate ajuta să alegi."
+          },
+          {
+            "idea": "Un plan alternativ poate păstra scopul, schimbând metoda.",
+            "situation": "Vremea duce la anularea unui eveniment al comunității în aer liber. Ce reacție ține cont de această limitare?",
+            "choices": [
+              "Compară opțiuni sigure în interior cu scopul principal al evenimentului",
+              "Presupune că schimbarea metodei face scopul inutil",
+              "Ignoră vremea și continuă fără să verifici"
+            ],
+            "explanation": "Identifică scopul, condițiile de siguranță și resursele înainte să compari alternativele. Un eveniment în interior poate păstra unele obiective, schimbând spațiul sau numărul de participanți. Arată ce avantaje și compromisuri implică."
+          }
+        ]
+      },
+      {
+        "title": "Începe cu un singur pas",
+        "idea": "Un pas mai mic te poate ajuta să începi rezolvarea unei probleme.",
+        "situation": "Biroul tău este prea aglomerat ca să îl folosești. De unde ai putea începe?",
+        "choices": [
+          "Mută totul pe podea",
+          "Pune creioanele într-un suport",
+          "Cumpără imediat un birou nou"
+        ],
+        "correct": 1,
+        "explanation": "Este mai ușor să faci un prim pas clar. După aceea poți alege pasul următor.",
+        "tryIt": [
+          "Arată un lucru pe care îl poți pune la loc.",
+          "Alege și parcurge trei pași mici.",
+          "Definește problema, compară două soluții și testeaz-o pe cea cu un cost mai mic."
+        ],
+        "readings": [
+          {
+            "idea": "Începe cu o sarcină mică.",
+            "situation": "Nu ai loc pe birou să desenezi. De unde ai putea începe?",
+            "choices": [
+              "Împinge totul pe podea",
+              "Pune creioanele într-un suport",
+              "Cere imediat un birou nou"
+            ],
+            "explanation": "Dacă pui creioanele la loc, eliberezi puțin spațiu. Apoi poți alege pasul următor sau poți cere ajutor."
+          },
+          {
+            "idea": "Definește problema înainte să alegi o soluție costisitoare.",
+            "situation": "Un spațiu de lucru aglomerat încetinește o activitate comună. Ce prim test ar fi potrivit?",
+            "choices": [
+              "Mută dezordinea în spațiul altcuiva",
+              "Organizează o categorie de lucruri și verifică dacă accesul se îmbunătățește",
+              "Înlocuiește tot mobilierul fără să cercetezi problema"
+            ],
+            "explanation": "Un test cu un cost mic, la care poți renunța ușor, oferă informații. Observă dacă schimbarea îi ajută pe cei care folosesc spațiul, apoi decide dacă este necesară una mai mare."
+          }
+        ]
+      },
+      {
+        "title": "Ascultă și verifică",
+        "idea": "Oamenii își pot dori lucruri diferite. Întreabă, în loc să presupui.",
+        "situation": "Doi prieteni vor jocuri diferite. Ce ar putea ajuta?",
+        "choices": [
+          "Lasă persoana care vorbește mai tare să decidă",
+          "Nu mai asculta",
+          "Întreabă fiecare persoană și stabiliți un plan corect pentru amândoi"
+        ],
+        "correct": 2,
+        "explanation": "Faptul că vă ascultați și faceți lucrurile pe rând vă poate ajuta să găsiți un plan. Fiecare persoană poate spune nu.",
+        "tryIt": [
+          "Arată ce alegi sau folosește instrumentul tău de comunicare.",
+          "Exersează cum întrebi un prieten ce ar prefera.",
+          "Compară trei opțiuni: faceți pe rând, combinați ideile sau alegeți altă activitate. Explică ce se potrivește."
+        ],
+        "readings": [
+          {
+            "idea": "Oamenii pot alege lucruri diferite.",
+            "situation": "Tu și un prieten vreți jocuri diferite. Ce ar putea ajuta?",
+            "choices": [
+              "Să decidă doar persoana care vorbește mai tare",
+              "Nu îți mai asculta prietenul",
+              "Întrebați-vă unul pe altul și faceți un plan corect pentru amândoi"
+            ],
+            "explanation": "Poți arăta, folosi imagini sau vorbi. O opțiune este să faceți pe rând, iar fiecare persoană poate spune nu."
+          },
+          {
+            "idea": "O decizie corectă pentru grup permite fiecăruia să contribuie într-un mod accesibil și respectă limitele personale.",
+            "situation": "Doi prieteni preferă activități diferite, iar unul nu vrea să vorbească. Cum îl includeți?",
+            "choices": [
+              "Lasă persoana care vorbește cu încredere să decidă pentru toți",
+              "Consideră tăcerea un acord",
+              "Oferă alt mod de răspuns și comparați opțiuni corecte pentru amândoi"
+            ],
+            "explanation": "Verificați preferințele fără să obligați pe cineva să vorbească. Puteți face pe rând, combina ideile sau alege altă activitate, în funcție de situație. Acordul nu are sens dacă cineva nu poate răspunde sau refuza."
+          }
+        ]
+      },
+      {
+        "title": "Întreabă înainte să distribui",
+        "idea": "Poți spune ce accepți și poți respecta limitele altcuiva.",
+        "situation": "Un prieten vrea să publice fotografia ta. Tu nu vrei. Ce poți spune?",
+        "choices": [
+          "Nu, te rog să nu o distribui",
+          "Acceptă, pentru că ești obligat",
+          "Distribuie în schimb fotografia lui"
+        ],
+        "correct": 0,
+        "explanation": "Poți refuza. Prietenii ar trebui să îți respecte alegerea. Cere ajutorul unui adult de încredere dacă ai nevoie.",
+        "tryIt": [
+          "Arată da, nu sau ajutor.",
+          "Exersează o propoziție scurtă prin care exprimi o limită personală.",
+          "Planifică ce faci dacă cineva îți ignoră limita. Include și un adult de încredere."
+        ],
+        "readings": [
+          {
+            "idea": "Poți spune nu distribuirii fotografiei tale.",
+            "situation": "Un prieten vrea să distribuie fotografia ta. Tu nu vrei. Ce poți spune?",
+            "choices": [
+              "Nu, te rog să nu o distribui",
+              "Trebuie să spun da",
+              "Voi distribui eu fotografia ta"
+            ],
+            "explanation": "Alegerea ta contează. Poți arăta nu sau poți cere ajutorul unui adult de încredere."
+          },
+          {
+            "idea": "Acordul pentru distribuire trebuie dat liber și pentru situația respectivă.",
+            "situation": "Un prieten vrea să publice o fotografie pe care tu nu vrei să o distribui. Care răspuns exprimă limita ta?",
+            "choices": [
+              "Nu sunt de acord să publici această fotografie; te rog să o păstrezi privată",
+              "Trebuie să accept ca să păstrez prietenia",
+              "Mă voi răzbuna publicând fotografia lui"
+            ],
+            "explanation": "Poți refuza fără să dovedești că imaginea îți face rău. Dacă limita este ignorată, cere eliminarea imaginii și sprijinul unui adult de încredere. Nu te răzbuna dezvăluind informațiile altcuiva."
+          }
+        ]
+      },
+      {
+        "title": "Alege o pauză",
+        "idea": "O pauză te poate ajuta când o activitate devine prea greu de suportat.",
+        "situation": "O cameră aglomerată te copleșește. Ce alegere ar fi rezonabilă?",
+        "choices": [
+          "Rămâi, pentru că pauzele sunt interzise",
+          "Cere un spațiu mai liniștit",
+          "Adaugă și mai mult zgomot"
+        ],
+        "correct": 1,
+        "explanation": "Poți cere o pauză sau sprijin. Ceea ce ajută la liniștire diferă de la o persoană la alta.",
+        "tryIt": [
+          "Alege liniște, mișcare, ajutor sau să nu participi.",
+          "Fă pentru tine o listă cu două forme de sprijin pe care le poți cere.",
+          "Planifică un mod de a cere o pauză și de a reveni când simți că ești pregătit."
+        ],
+        "readings": [
+          {
+            "idea": "Poți cere o pauză.",
+            "situation": "O cameră este prea zgomotoasă pentru tine. Ce ai putea încerca?",
+            "choices": [
+              "Rămâi, pentru că nu ai voie să iei pauze",
+              "Cere un loc mai liniștit",
+              "Fă și mai mult zgomot"
+            ],
+            "explanation": "Un loc liniștit, mișcarea sau ajutorul ți s-ar putea potrivi. Alege împreună cu un adult de încredere. Poți să nu participi la această activitate."
+          },
+          {
+            "idea": "Un plan pentru pauze trebuie să susțină comunicarea, siguranța și alegerea personală.",
+            "situation": "Un loc aglomerat începe să te copleșească. Care plan îți respectă nevoile?",
+            "choices": [
+              "Rămâi până când nu mai poți face față",
+              "Folosește un semnal stabilit pentru pauză și mergi într-un spațiu potrivit",
+              "Presupune că aceeași activitate de liniștire trebuie să ajute pe toată lumea"
+            ],
+            "explanation": "Planifică un mod de a cere sprijin fără să fie nevoie de o explicație rostită. Nevoi senzoriale diferite cer adaptări diferite. Revenirea ar trebui să depindă de cât de pregătit te simți și de situație, nu de cerința de a-ți ascunde disconfortul."
+          }
+        ]
+      }
+    ]
+  },
+  "future-skills": {
+    "title": "Abilități pentru viitor",
+    "description": "Alege cu grijă cum folosești informațiile, ideile și tehnologia și cum abordezi sarcinile de zi cu zi. Tehnologia este un instrument. Tu decizi cum o folosești.",
+    "tasks": [
+      {
+        "title": "Verifică o afirmație",
+        "idea": "Chiar și o afirmație făcută cu multă încredere are nevoie de dovezi.",
+        "situation": "Un videoclip spune că o băutură îi face pe toți mai deștepți. Ce ar trebui să verifici?",
+        "choices": [
+          "Cât de antrenantă este muzica",
+          "Dacă persoana care prezintă zâmbește",
+          "Cine a făcut afirmația și ce dovezi o susțin"
+        ],
+        "correct": 2,
+        "explanation": "Popularitatea și tonul sigur nu dovedesc o afirmație. Caută dovezi solide și cere ajutorul unui adult de încredere.",
+        "tryIt": [
+          "Alege să verifici sau să crezi imediat.",
+          "Găsește autorul și data unei afirmații imaginare.",
+          "Compară o reclamă cu dovezi independente. Arată ce rămâne nesigur."
+        ],
+        "readings": [
+          {
+            "idea": "Un videoclip poate spune ceva neadevărat.",
+            "situation": "Un videoclip spune că o băutură îi face deștepți pe toți copiii. Ce ar trebui să verifici?",
+            "choices": [
+              "Doar muzica",
+              "Dacă persoana zâmbește",
+              "Cine spune asta și ce arată că este adevărat"
+            ],
+            "explanation": "O voce veselă nu este o dovadă. Un adult de încredere te poate ajuta să verifici afirmația."
+          },
+          {
+            "idea": "O afirmație are nevoie de dovezi care să susțină într-adevăr concluzia.",
+            "situation": "O persoană care creează conținut vinde o băutură și susține că aceasta îmbunătățește rezultatele fiecărui elev. Care verificare este cea mai solidă?",
+            "choices": [
+              "Consideră numărul de aprecieri o dovadă științifică",
+              "Bazează-te pe încrederea cu care vorbește persoana",
+              "Verifică dovezile independente, limitele lor și interesul vânzătorului"
+            ],
+            "explanation": "Caută cine are de câștigat, cât de bune sunt dovezile și dacă susțin exact afirmația făcută. O mărturie personală sau popularitatea nu dovedește un efect universal."
+          }
+        ]
+      },
+      {
+        "title": "Găsește mai multe idei",
+        "idea": "Ideile se pot îmbunătăți când testezi posibilități diferite.",
+        "situation": "Vrei să refolosești o cutie de carton. Care ar fi un prim pas util?",
+        "choices": [
+          "Gândește-te la mai multe utilizări",
+          "Presupune că există o singură utilizare",
+          "Copiază fără să te gândești"
+        ],
+        "correct": 0,
+        "explanation": "Când găsești alternative, ai de unde alege. Apoi testează ce se potrivește scopului tău.",
+        "tryIt": [
+          "Desenează sau arată o utilizare pentru o cutie.",
+          "Găsește trei idei și alege una pe care să o încerci.",
+          "Stabilește limite, precum costul și materialele disponibile. Compară ideile ținând cont de ele, apoi îmbunătățește una."
+        ],
+        "readings": [
+          {
+            "idea": "Un obiect poate avea utilizări diferite.",
+            "situation": "Ai o cutie de carton goală. Ce poți face mai întâi?",
+            "choices": [
+              "Gândește-te la câteva moduri de a o folosi",
+              "Spune că are o singură utilizare",
+              "Copiază fără să alegi"
+            ],
+            "explanation": "Desenează, arată sau construiește o idee. Poți încerca alta dacă prima nu se potrivește."
+          },
+          {
+            "idea": "Găsirea alternativelor și evaluarea limitelor sunt etape diferite ale creației.",
+            "situation": "O echipă trebuie să refolosească o cutie fără materiale noi. Care prim pas deschide mai multe posibilități utile?",
+            "choices": [
+              "Găsiți mai multe idei, apoi comparați-le cu limita stabilită",
+              "Respingeți fiecare idee înainte să o explorați",
+              "Copiați primul model fără să verificați dacă se potrivește"
+            ],
+            "explanation": "Separă găsirea ideilor de evaluarea lor. Testează o opțiune promițătoare în raport cu scopul, materialele și accesibilitatea, apoi folosește observațiile primite ca să o îmbunătățești."
+          }
+        ]
+      },
+      {
+        "title": "Testează o idee mică",
+        "idea": "O afacere trebuie să rezolve o problemă și să țină cont de costuri.",
+        "situation": "Vrei să vinzi semne de carte. Ce ai putea face înainte să produci 100?",
+        "choices": [
+          "Cumpără imediat toate materialele",
+          "Realizează un model și cere păreri",
+          "Presupune că toată lumea va cumpăra"
+        ],
+        "correct": 1,
+        "explanation": "Un test mic te ajută să înveți înainte să cheltuiești mai mult. Întreabă un adult înainte să vinzi sau să distribui informații.",
+        "tryIt": [
+          "Alege un model pentru un singur exemplar.",
+          "Notează materialele și costul unui semn de carte.",
+          "Estimează costul, prețul și profitul pentru o serie mică. Explică cum ar putea părerile primite să schimbe planul."
+        ],
+        "readings": [
+          {
+            "idea": "Încearcă o idee mică înainte să faci multe exemplare.",
+            "situation": "Vrei să faci semne de carte pentru un magazin imaginar. Ce ai putea face mai întâi?",
+            "choices": [
+              "Cumpără o grămadă uriașă de materiale",
+              "Fă un model și întreabă ce ar fi util",
+              "Presupune că toată lumea vrea unul"
+            ],
+            "explanation": "Un model te ajută să înveți înainte să folosești mai multe materiale. Întreabă un adult înainte de orice vânzare reală."
+          },
+          {
+            "idea": "Un proiect-pilot mic poate testa o presupunere despre afacere, limitând resursele puse în joc.",
+            "situation": "Te gândești să realizezi 100 de semne de carte într-un proiect supravegheat. Care prim pas oferă informații utile?",
+            "choices": [
+              "Cheltuiește tot bugetul înainte să verifici cererea",
+              "Testează un model, estimează costurile și cere păreri relevante",
+              "Consideră orice interes exprimat o vânzare garantată"
+            ],
+            "explanation": "Stabilește ce vrei să afli și costul maxim al testului. Părerile primite pot schimba modelul sau decizia de a continua. Încasările din vânzări nu sunt profit înainte de scăderea costurilor relevante."
+          }
+        ]
+      },
+      {
+        "title": "Fă loc și celorlalți",
+        "idea": "Un lider poate asculta și poate împărți responsabilitățile.",
+        "situation": "Echipa ta trebuie să facă un afiș. Cum ați putea începe?",
+        "choices": [
+          "Fă singur fiecare parte",
+          "Dă ordine fără să întrebi",
+          "Cere idei și stabiliți rolurile împreună"
+        ],
+        "correct": 2,
+        "explanation": "Rolurile clare, stabilite împreună, și ascultarea ajută echipa să folosească punctele forte ale fiecăruia.",
+        "tryIt": [
+          "Alege o sarcină pe care ai vrea să o încerci.",
+          "Stabiliți două roluri împreună cu un partener.",
+          "Planifică rolurile, un moment de verificare și un mod corect de a rezolva o neînțelegere."
+        ],
+        "readings": [
+          {
+            "idea": "Un lider îi poate ajuta pe ceilalți să participe.",
+            "situation": "Grupul tău vrea să facă un afiș. Cum puteți începe?",
+            "choices": [
+              "Fă totul fără să întrebi",
+              "Dă ordine imediat",
+              "Cereți idei și alegeți sarcinile împreună"
+            ],
+            "explanation": "Oamenii pot arăta, desena sau vorbi. Împărțiți sarcinile utile și faceți loc ideilor diferite."
+          },
+          {
+            "idea": "Conducerea unei echipe înseamnă și participare accesibilă, roluri clare și asumarea responsabilității.",
+            "situation": "O echipă are un termen de predare și membri cu puncte forte diferite. Care ar fi o decizie inițială utilă?",
+            "choices": [
+              "Concentrează toate sarcinile la o singură persoană",
+              "Împarte rolurile fără să verifici ce poate face fiecare",
+              "Stabiliți scopul, invitați contribuțiile și împărțiți roluri pe care le poate îndeplini fiecare"
+            ],
+            "explanation": "Verificați dacă fiecare înțelege scopul și poate contribui într-un mod potrivit. Stabiliți un moment de verificare și un mod corect de a rezolva neînțelegerile. Împărțiți atât recunoașterea contribuțiilor, cât și responsabilitățile."
+          }
+        ]
+      },
+      {
+        "title": "Verifică un răspuns dat de AI",
+        "idea": "Inteligența artificială (AI) poate oferi sugestii utile, dar și informații greșite.",
+        "situation": "Un instrument AI oferă o informație surprinzătoare fără să indice sursa. Ce ar trebui să faci?",
+        "choices": [
+          "Verifică folosind o sursă de încredere",
+          "Crede răspunsul, pentru că sună sigur",
+          "Distribuie imediat"
+        ],
+        "correct": 0,
+        "explanation": "Un răspuns dat de AI nu este o dovadă. Verifică informațiile importante. Un adult de încredere te poate ajuta să folosești instrumente potrivite vârstei tale.",
+        "tryIt": [
+          "Alege să verifici sau să distribui imediat.",
+          "Compară o afirmație imaginară a unui instrument AI cu o sursă de încredere.",
+          "Verifică dacă o sursă citată există și susține afirmația. Explică ce încă nu poți verifica."
+        ],
+        "readings": [
+          {
+            "idea": "Un răspuns dat de calculator poate fi greșit.",
+            "situation": "Un instrument AI oferă o informație surprinzătoare. Ce ar trebui să faci?",
+            "choices": [
+              "Verifică folosind o sursă de încredere și cu ajutorul unui adult",
+              "Crede orice răspuns al calculatorului",
+              "Distribuie fără să verifici"
+            ],
+            "explanation": "AI, adică inteligența artificială, poate greși. Verificarea unui răspuns te ajută. Nu ai nevoie să îți faci un cont AI pentru această activitate."
+          },
+          {
+            "idea": "Un răspuns fluent al unui instrument AI nu dovedește că o afirmație sau o trimitere bibliografică este corectă.",
+            "situation": "Un răspuns AI menționează un studiu surprinzător. Ce trebuie verificat înainte să te bazezi pe el?",
+            "choices": [
+              "Verifică dacă sursa există și susține afirmația exactă",
+              "Consideră tonul sigur o verificare",
+              "Repetă răspunsul până când îți pare familiar"
+            ],
+            "explanation": "Verifică sursa originală, autorul, contextul și ce rămâne nesigur. Chiar și o trimitere reală poate să nu susțină concluzia. Respectă regulile de vârstă și de confidențialitate pentru orice instrument real."
+          }
+        ]
+      },
+      {
+        "title": "Protejează informațiile private",
+        "idea": "Parolele și datele personale nu trebuie introduse în instrumente publice.",
+        "situation": "Un mesaj dintr-un joc îți cere parola ca să îți ofere un premiu. Ce ar trebui să faci?",
+        "choices": [
+          "Trimite-o într-un mesaj privat",
+          "Nu o dezvălui; spune-i unui adult de încredere",
+          "Încearcă parola altcuiva"
+        ],
+        "correct": 1,
+        "explanation": "Un premiu nu justifică dezvăluirea unei parole. Închide solicitarea și cere ajutor.",
+        "tryIt": [
+          "Arată stop sau ajutor.",
+          "Cu îndrumarea unui adult, grupează informații imaginare în private și potrivite pentru distribuire.",
+          "Descrie cum ai raporta un mesaj suspect fără să îi deschizi linkurile."
+        ],
+        "readings": [
+          {
+            "idea": "Păstrează parolele private.",
+            "situation": "Un mesaj dintr-un joc îți cere parola ca să îți ofere un premiu. Ce poți face?",
+            "choices": [
+              "Trimite parola",
+              "Nu o trimite; întreabă un adult de încredere",
+              "Încearcă parola unui prieten"
+            ],
+            "explanation": "Un premiu nu este un motiv să dezvălui o parolă. Oprește-te și cere ajutor fără să deschizi linkurile din mesaj."
+          },
+          {
+            "idea": "O recompensă poate fi folosită pentru a presa pe cineva să dezvăluie date de acces.",
+            "situation": "Un mesaj neașteptat susține că trebuie să dai parola ca să primești un premiu. Care răspuns este potrivit?",
+            "choices": [
+              "Trimite-o printr-un mesaj privat",
+              "Refuză, folosește opțiuni de raportare de încredere și spune-i unui adult de încredere",
+              "Testează solicitarea cu datele de acces ale altcuiva"
+            ],
+            "explanation": "Nu deschide linkuri suspecte și nu trimite date de acces. Verifică printr-o cale de încredere, găsită independent de mesaj. Faptul că un mesaj este privat nu face solicitarea sigură."
+          }
+        ]
+      },
+      {
+        "title": "Planifică o sarcină de zi cu zi",
+        "idea": "O listă scurtă de verificare te poate ajuta să te descurci singur.",
+        "situation": "Trebuie să îți pregătești ghiozdanul pentru școală. Ce ar putea ajuta?",
+        "choices": [
+          "Așteaptă până când pleci",
+          "Pune lucruri la întâmplare",
+          "Folosește o listă scurtă de verificare"
+        ],
+        "correct": 2,
+        "explanation": "O listă de verificare ajută la planificare. Imaginile sau o demonstrație pot înlocui cuvintele scrise.",
+        "tryIt": [
+          "Arată un lucru pe care trebuie să îl pui în ghiozdan.",
+          "Fă o listă cu trei lucruri, folosind imagini sau cuvinte.",
+          "Fă o listă de verificare, testeaz-o o săptămână și elimină pașii care nu te ajută."
+        ],
+        "readings": [
+          {
+            "idea": "O listă cu imagini te poate ajuta să pregătești ghiozdanul.",
+            "situation": "Trebuie să îți pregătești ghiozdanul. Ce ar putea ajuta?",
+            "choices": [
+              "Așteaptă până când pleci",
+              "Alege lucruri la întâmplare",
+              "Folosește o listă scurtă cu imagini sau cuvinte"
+            ],
+            "explanation": "Arată fiecare lucru pe măsură ce îl pui în ghiozdan. Cere ajutor dacă lipsește ceva."
+          },
+          {
+            "idea": "O listă de verificare este utilă când pașii se potrivesc sarcinii și pot fi revizuiți.",
+            "situation": "Uiți în mod repetat un lucru când te pregătești pentru o activitate. Ce metodă poți testa?",
+            "choices": [
+              "Bazează-te pe graba din ultimul moment",
+              "Lungește lista fără să verifici dacă fiecare lucru este necesar",
+              "Folosește o listă scurtă, observă ce omiți și revizuiește-o"
+            ],
+            "explanation": "Include acțiunile necesare, testează lista în practică și elimină pașii inutili. Independența poate include ajutoare pentru a-ți aminti și formate accesibile."
+          }
+        ]
+      },
+      {
+        "title": "Alege ținând cont de buget",
+        "idea": "Alegerea ta are un cost și poate influența un alt scop.",
+        "situation": "Ai 5 £. Un caiet costă 3 £, iar o jucărie costă 4 £. Ce poți cumpăra fără să împrumuți bani?",
+        "choices": [
+          "Un singur obiect, cu bani rămași",
+          "Ambele obiecte pentru 5 £",
+          "Ambele obiecte, fără bani rămași"
+        ],
+        "correct": 0,
+        "explanation": "3 £ + 4 £ = 7 £. Poți alege acum un singur obiect, poți aștepta sau poți economisi mai mult. Există mai multe alegeri rezonabile.",
+        "tryIt": [
+          "Arată obiectul pe care îl alegi.",
+          "Calculează câți bani rămân după fiecare alegere.",
+          "Explică la ce renunți în fiecare variantă și decide ce se potrivește priorităților tale."
+        ],
+        "readings": [
+          {
+            "idea": "Verifică banii înainte să alegi.",
+            "situation": "Ai 5 £. Un caiet costă 3 £, iar o jucărie costă 4 £. Ce îți poți permite acum?",
+            "choices": [
+              "Un singur obiect, cu bani rămași",
+              "Ambele obiecte pentru 5 £",
+              "Ambele obiecte, fără niciun ban rămas"
+            ],
+            "explanation": "Trei plus patru fac șapte, adică mai mult decât cinci. Poți alege un obiect, poți aștepta sau poți să nu alegi niciunul."
+          },
+          {
+            "idea": "Un buget arată compromisurile fără să îți stabilească prioritățile în locul tău.",
+            "situation": "Cu 5 £ disponibile, nu poți cumpăra și un caiet de 3 £, și o jucărie de 4 £ fără bani în plus. Care afirmație este corectă?",
+            "choices": [
+              "Îți permiți fiecare obiect separat; cealaltă utilizare a banilor reprezintă un cost de oportunitate",
+              "Îți permiți ambele obiecte pentru că fiecare costă mai puțin de 5 £",
+              "Împrumutul elimină costul alegerii"
+            ],
+            "explanation": "Prețul total este de 7 £. Alegerea unui obiect lasă o sumă diferită și amână o altă utilizare a banilor. Și așteptarea sau alegerea niciunuia se pot potrivi priorităților tale."
+          }
+        ]
+      }
+    ]
+  }
+}

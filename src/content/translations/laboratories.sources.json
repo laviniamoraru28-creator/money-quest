@@ -1,0 +1,22 @@
+{
+  "status": "draft",
+  "recorded": "2026-10-29",
+  "locales": [
+    "ro"
+  ],
+  "regionalTargets": {
+    "ro": "ro-RO"
+  },
+  "sources": {
+    "brain-lab": "f726acfb76e8a17763505fc80beb9f4e119620d512f1bb22ff9cad01d6bd1e74",
+    "mind-lab": "5f1b1eead4ae431e1314aa9e255d3cc9f241ffacc83e1ab35932e3db2eea9a3c",
+    "future-skills": "bca6ec832958ebb6e6ec714b39e944763ea4bbeb5b785e5e939cbe1187c74b54"
+  },
+  "review": {
+    "ro": {
+      "status": "AI bilingual editorial pass; rendered-language review and full-site activation pending",
+      "scope": "All three labs, 22 tasks, three age levels, questions, choices, explanations and 66 practical challenges",
+      "accreditation": "Not a native-speaker or professional-editor certification"
+    }
+  }
+}

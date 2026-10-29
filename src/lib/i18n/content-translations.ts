@@ -64,3 +64,37 @@ export function draftTranslatedShortRead(book:Book,note:DiscoveryNote,translatio
  const copy=translation as ReturnType<typeof shortReadTranslationSource>;
  return {book:{...book,...copy.book},note:{...note,...copy.note}};
 }
+
+/** Lab translations include Builder text and both authored age readings. */
+export function laboratoryTranslationSource(lab: import("@/content/learning-labs").Lab, variants: typeof import("@/content/lab-age-variants").labAgeVariants) {
+ return {
+  title:lab.title,description:lab.description,
+  tasks:lab.tasks.map(({id,...text})=>{
+   const readings=variants[`${lab.slug}:${id}`];
+   if(!readings)throw new Error(`Missing source age readings: ${lab.slug}/${id}`);
+   return {...text,readings};
+  })
+ };
+}
+export function draftTranslatedLaboratory(lab:import("@/content/learning-labs").Lab,variants:typeof import("@/content/lab-age-variants").labAgeVariants,translation:unknown,expectedSourceHash:string) {
+ const source=laboratoryTranslationSource(lab,variants);
+ if(sourceFingerprint(source)!==expectedSourceHash)throw new Error(`Stale translation: laboratories/${lab.slug}`);
+ assertTranslationShape(source,translation,lab.slug);
+ const copy=translation as ReturnType<typeof laboratoryTranslationSource>;
+ return {
+  lab:{...lab,title:copy.title,description:copy.description,tasks:copy.tasks.map(({readings,...task},index)=>{void readings;return {...task,id:lab.tasks[index]!.id};})},
+  variants:Object.fromEntries(copy.tasks.map((task,index)=>[`${lab.slug}:${lab.tasks[index]!.id}`,task.readings])) as typeof variants
+ };
+}
+
+/** Keep the actual published title and author/publisher metadata searchable. */
+type ExternalBook=typeof import("@/content/author-books").authorBooks[number];
+export function externalBookTranslationSource(book:ExternalBook){
+ return {age:book.age,topics:book.topics,description:book.description,ideas:book.ideas,discussion:book.discussion,access:book.access};
+}
+export function draftTranslatedExternalBook(book:ExternalBook,translation:unknown,expectedSourceHash:string):ExternalBook{
+ const source=externalBookTranslationSource(book);
+ if(sourceFingerprint(source)!==expectedSourceHash)throw new Error(`Stale translation: author-books/${book.id}`);
+ assertTranslationShape(source,translation,book.id);
+ return {...book,...translation as ReturnType<typeof externalBookTranslationSource>};
+}

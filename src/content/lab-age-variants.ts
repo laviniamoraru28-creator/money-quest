@@ -94,8 +94,8 @@ export const labAgeVariants:Record<string,[Reading,Reading]>={
     v("A budget makes trade-offs visible without deciding your priorities for you.","With £5 available, a £3 notebook and £4 toy cannot both be bought without extra money. Which statement fits?",["Either item is affordable alone; the alternative use is an opportunity cost","Both are affordable because each costs less than £5","Borrowing removes the cost of the choice"],"The combined price is £7. Choosing one leaves a different balance and delays another use of the money. Waiting or choosing neither may also fit your priorities.")
   ]
 };
-export function labTaskAtLevel(labSlug:string,task:LabTask,level:number):LabTask {
-  const variants=labAgeVariants[`${labSlug}:${task.id}`];
+export function labTaskAtLevel(labSlug:string,task:LabTask,level:number,readings:typeof labAgeVariants=labAgeVariants):LabTask {
+  const variants=readings[`${labSlug}:${task.id}`];
   if(!variants||level===1)return task;
   return {...task,...variants[level===0?0:1]};
 }
