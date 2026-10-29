@@ -48,52 +48,119 @@
     {
       "locale": "ro",
       "messageKeys": "validated separately; key parity does not prove authored-content translation",
-      "newContent": "10 biography drafts, 10 book drafts and 10 Museum room/age-challenge drafts; other domains pending",
+      "newContent": "10 biography drafts, 10 book drafts, 10 Museum room drafts and 8 short-read drafts with age challenges; other domains pending",
       "publicActivation": "blocked pending complete content and review"
     },
     {
       "locale": "es",
       "messageKeys": "validated separately; key parity does not prove authored-content translation",
-      "newContent": "10 Museum room/age-challenge drafts; other domains pending",
+      "newContent": "10 Museum room drafts and 8 short-read drafts with age challenges; other domains pending",
       "publicActivation": "blocked pending complete content and review"
     },
     {
       "locale": "fr",
       "messageKeys": "validated separately; key parity does not prove authored-content translation",
-      "newContent": "10 Museum room/age-challenge drafts; other domains pending",
+      "newContent": "10 Museum room drafts and 8 short-read drafts with age challenges; other domains pending",
       "publicActivation": "blocked pending complete content and review"
     },
     {
       "locale": "de",
       "messageKeys": "validated separately; key parity does not prove authored-content translation",
-      "newContent": "10 Museum room/age-challenge drafts; other domains pending",
+      "newContent": "10 Museum room drafts and 8 short-read drafts with age challenges; other domains pending",
       "publicActivation": "blocked pending complete content and review"
     },
     {
       "locale": "it",
       "messageKeys": "validated separately; key parity does not prove authored-content translation",
-      "newContent": "10 Museum room/age-challenge drafts; other domains pending",
+      "newContent": "10 Museum room drafts and 8 short-read drafts with age challenges; other domains pending",
       "publicActivation": "blocked pending complete content and review"
     },
     {
       "locale": "pt",
       "messageKeys": "validated separately; key parity does not prove authored-content translation",
-      "newContent": "10 Museum room/age-challenge drafts; other domains pending",
+      "newContent": "10 Museum room drafts and 8 short-read drafts with age challenges; other domains pending",
       "publicActivation": "blocked pending complete content and review"
     },
     {
       "locale": "nl",
       "messageKeys": "validated separately; key parity does not prove authored-content translation",
-      "newContent": "10 Museum room/age-challenge drafts; other domains pending",
+      "newContent": "10 Museum room drafts and 8 short-read drafts with age challenges; other domains pending",
       "publicActivation": "blocked pending complete content and review"
     },
     {
       "locale": "pl",
       "messageKeys": "validated separately; key parity does not prove authored-content translation",
-      "newContent": "10 Museum room/age-challenge drafts; other domains pending",
+      "newContent": "10 Museum room drafts and 8 short-read drafts with age challenges; other domains pending",
       "publicActivation": "blocked pending complete content and review"
     }
   ],
+  "shortReadDrafts": [
+    {
+      "locale": "ro",
+      "entries": 8,
+      "pages": 24,
+      "translatedStrings": 128,
+      "editorialStatus": "draft, not native-editor reviewed",
+      "publicActivation": "blocked pending complete site locale"
+    },
+    {
+      "locale": "es",
+      "entries": 8,
+      "pages": 24,
+      "translatedStrings": 128,
+      "editorialStatus": "draft, not native-editor reviewed",
+      "publicActivation": "blocked pending complete site locale"
+    },
+    {
+      "locale": "fr",
+      "entries": 8,
+      "pages": 24,
+      "translatedStrings": 128,
+      "editorialStatus": "draft, not native-editor reviewed",
+      "publicActivation": "blocked pending complete site locale"
+    },
+    {
+      "locale": "de",
+      "entries": 8,
+      "pages": 24,
+      "translatedStrings": 128,
+      "editorialStatus": "draft, not native-editor reviewed",
+      "publicActivation": "blocked pending complete site locale"
+    },
+    {
+      "locale": "it",
+      "entries": 8,
+      "pages": 24,
+      "translatedStrings": 128,
+      "editorialStatus": "draft, not native-editor reviewed",
+      "publicActivation": "blocked pending complete site locale"
+    },
+    {
+      "locale": "pt",
+      "entries": 8,
+      "pages": 24,
+      "translatedStrings": 128,
+      "editorialStatus": "draft, not native-editor reviewed",
+      "publicActivation": "blocked pending complete site locale"
+    },
+    {
+      "locale": "nl",
+      "entries": 8,
+      "pages": 24,
+      "translatedStrings": 128,
+      "editorialStatus": "draft, not native-editor reviewed",
+      "publicActivation": "blocked pending complete site locale"
+    },
+    {
+      "locale": "pl",
+      "entries": 8,
+      "pages": 24,
+      "translatedStrings": 128,
+      "editorialStatus": "draft, not native-editor reviewed",
+      "publicActivation": "blocked pending complete site locale"
+    }
+  ],
+  "shortReadSourceFingerprintManifest": "src/content/translations/short-reads.sources.json",
   "museumDrafts": [
     {
       "locale": "ro",

@@ -1,0 +1,298 @@
+{
+  "the-saving-seed": {
+    "book": {
+      "title": "Het spaarzaadje",
+      "topic": "Sparen en geduld",
+      "pages": [
+        {
+          "title": "Een kleine wens",
+          "text": "Mia ziet een vlieger in een winkel. Hij kost acht munten van één pond. Ze heeft er drie. Ze wil hem vandaag kopen, maar telt opnieuw en ziet dat ze er nog vijf nodig heeft. Ze besluit een plan te maken."
+        },
+        {
+          "title": "Een eenvoudig plan",
+          "text": "Mia tekent acht rondjes op een vel papier. Ze kleurt er drie voor het geld dat ze al heeft. Als ze nog een pond kan sparen, kleurt ze een volgend rondje. Sommige weken spaart ze niets. Ze kan toch verdergaan met haar plan."
+        },
+        {
+          "title": "De winderige dag",
+          "text": "Na vijf pond extra sparen heeft Mia acht pond. Voor ze de vlieger koopt, controleert ze de prijs met een vertrouwde volwassene. In het park ziet ze hem opstijgen. Haar tekening hielp haar een groot doel als meerdere kleine stappen te zien."
+        }
+      ],
+      "quiz": {
+        "question": "Wat hielp Mia om haar doel te bereiken?",
+        "answers": [
+          "Beetje bij beetje sparen",
+          "Elke dag snoep kopen",
+          "De prijs vergeten"
+        ],
+        "correct": 0
+      }
+    },
+    "note": {
+      "feedback": "Mia had een duidelijk doel en spaarde vijf munten extra. Elke stap bracht haar dichter bij acht.",
+      "challenges": [
+        "Teken acht rondjes en kleur er drie in.",
+        "Bereken hoeveel munten Mia nog nodig heeft.",
+        "Maak een spaarplan met een bedrag per week en een mogelijke prijsverandering."
+      ]
+    }
+  },
+  "the-want-monster": {
+    "book": {
+      "title": "Het wensmonster",
+      "topic": "Behoeften, wensen en zelfbeheersing",
+      "pages": [
+        {
+          "title": "Kijk eens!",
+          "text": "Sam ziet een glimmende robot in een speelgoedwinkel. Een opvallend bord maakt hem aantrekkelijk. Sam stelt zich voor dat hij hem meteen mee naar huis neemt. Hij wil hem heel graag, maar denkt eraan dat een gevoel niet hoeft te bepalen wat hij koopt."
+        },
+        {
+          "title": "De pauze",
+          "text": "Sam pauzeert. Hij vraagt wat de robot kost en bekijkt zijn spaargeld. Dan denkt hij aan zijn fietsdoel. Als hij de robot koopt, blijft er minder over voor de fiets. Hij kan ervan genieten naar iets te kijken zonder het te kopen."
+        },
+        {
+          "title": "Mijn keuze",
+          "text": "Sam besluit tot morgen te wachten voor hij kiest. Hij bespreekt beide mogelijkheden met een vertrouwde volwassene. Misschien kiest hij later alsnog de robot, of spaart hij verder voor de fiets. De nuttige vaardigheid is de tijd nemen om met voldoende informatie zelf te kiezen."
+        }
+      ],
+      "quiz": {
+        "question": "Wat helpt als je iets heel graag wilt?",
+        "answers": [
+          "Meteen kopen",
+          "Pauzeren en nadenken",
+          "Een reclame laten beslissen"
+        ],
+        "correct": 1
+      }
+    },
+    "note": {
+      "feedback": "De pauze gaf Sam tijd om de robot met zijn bestaande doel te vergelijken. Een speelgoedwens is niet verkeerd.",
+      "challenges": [
+        "Wijs aan of je wilt wachten of nu wilt kiezen.",
+        "Noem twee vragen die Sam zichzelf zou kunnen stellen.",
+        "Leg de opofferingskosten uit als Sam de robot vandaag koopt."
+      ]
+    }
+  },
+  "the-lemonade-test": {
+    "book": {
+      "title": "De limonadetest",
+      "topic": "Ondernemen en reacties",
+      "pages": [
+        {
+          "title": "Een eerste idee",
+          "text": "Lily bedenkt met een vertrouwde volwassene een limonadekraam om mee te spelen. Ze maakt een bord, maar weinig mensen stoppen. Ze is teleurgesteld. In plaats van meteen meer spullen te kopen, wil ze eerst weten wat mensen opvalt."
+        },
+        {
+          "title": "Een betere vraag",
+          "text": "Lily vraagt vertrouwde bezoekers wat hen zou helpen beslissen. Samen met die volwassene biedt ze een klein proefje aan en maakt ze het bord duidelijker. Ze verandert één ding tegelijk om het effect te zien. Meer mensen stoppen om naar het drankje te vragen."
+        },
+        {
+          "title": "Opnieuw proberen",
+          "text": "Lily schrijft de ontvangen bedragen en de kosten van ingrediënten en bekers op. Proefjes kosten ook geld. Ze berekent of de verkoop die kosten heeft gedekt voordat ze het resultaat winst noemt. Haar eerste idee gaf informatie voor een betere volgende test."
+        }
+      ],
+      "quiz": {
+        "question": "Wat deed Lily toen haar plan niet werkte?",
+        "answers": [
+          "Ze gaf op",
+          "Ze negeerde klanten",
+          "Ze stelde vragen en testte een idee"
+        ],
+        "correct": 2
+      }
+    },
+    "note": {
+      "feedback": "Lily vroeg om reacties, testte een verandering en controleerde haar kosten. Alleen meer bezoekers bewijzen nog geen winst.",
+      "challenges": [
+        "Kies een voorbeeldontwerp.",
+        "Noem twee kosten voor een speelkraam.",
+        "Bereken de winst bij 10 bekers van £1 per stuk en £6 totale kosten. Wat als sommige bekers gratis proefjes zijn?"
+      ]
+    }
+  },
+  "the-team-bridge": {
+    "book": {
+      "title": "De teambrug",
+      "topic": "Leiderschap en samenwerken",
+      "pages": [
+        {
+          "title": "De uitdaging",
+          "text": "Vier vrienden hebben een doos blokken en een uitdaging: een brug bouwen die een klein speelgoedje draagt. Ze pakken allemaal tegelijk blokken. Emma merkt dat sommige ideeën niet worden gehoord. Ze stelt een korte pauze voor."
+        },
+        {
+          "title": "Eerst luisteren",
+          "text": "Emma vraagt elke vriend een idee te delen. Een vriend wijst naar een tekening in plaats van te praten. Ze kiezen een brede basis, een stevig midden en taken die iedereen wil proberen. Als het midden instort, bekijken ze het samen."
+        },
+        {
+          "title": "Samen sterker",
+          "text": "Het team voegt een steun toe en test de brug opnieuw. Hij draagt het speelgoedje. Emma bedankt iedereen voor de ideeën en het werk. Ze hielp de groep zich te organiseren, maar het resultaat kwam door luisteren, testen en de taak delen."
+        }
+      ],
+      "quiz": {
+        "question": "Hoe gaf Emma leiding?",
+        "answers": [
+          "Ze luisterde",
+          "Ze negeerde iedereen",
+          "Ze werkte alleen"
+        ],
+        "correct": 0
+      }
+    },
+    "note": {
+      "feedback": "Emma luisterde en hielp iedereen een bijdrage te leveren. Leidinggeven kan ook samen beslissen betekenen.",
+      "challenges": [
+        "Wijs de rol aan die je graag wilt.",
+        "Bouw met een partner en kies om de beurt een blok.",
+        "Vergelijk een gezamenlijke beslissing met een snelle beslissing door één persoon. Wanneer kan elk passend zijn?"
+      ]
+    }
+  },
+  "the-brave-mistake": {
+    "book": {
+      "title": "De moedige fout",
+      "topic": "Leren van fouten",
+      "pages": [
+        {
+          "title": "Oeps!",
+          "text": "Noah vouwt met een volwassene een papieren vliegtuigje. Bij de eerste vlucht valt het bijna recht naar beneden. Noah is gefrustreerd en legt het even op tafel. Een korte pauze helpt hem opnieuw te kijken."
+        },
+        {
+          "title": "Goed kijken",
+          "text": "Noah ziet dat één vleugel omlaag gebogen is. Hij maakt die recht en laat de andere delen hetzelfde. Hij gooit vanaf dezelfde plek. Door maar één ding te veranderen kan hij makkelijker zien wat geholpen zou kunnen hebben."
+        },
+        {
+          "title": "Een nieuwe vlucht",
+          "text": "Bij de volgende vlucht zweeft het vliegtuigje verder. Noah probeert het nog enkele keren en noteert de resultaten. Niet elke vlucht is hetzelfde. Hij heeft nuttige informatie voor een volgende test, geen bewijs dat één ontwerp altijd werkt."
+        }
+      ],
+      "quiz": {
+        "question": "Wat hielp Noah om te verbeteren?",
+        "answers": [
+          "Een vriend de schuld geven",
+          "Opletten en opnieuw proberen",
+          "Het vliegtuigje verstoppen"
+        ],
+        "correct": 1
+      }
+    },
+    "note": {
+      "feedback": "Noah merkte een specifiek probleem op en testte een verandering. Hij gebruikte informatie over wat er gebeurde.",
+      "challenges": [
+        "Wijs de gebogen vleugel op een tekening aan.",
+        "Test met een volwassene één verandering aan een papieren vliegtuigje.",
+        "Houd de startplek gelijk en vergelijk meerdere vluchten. Wat kun je concluderen?"
+      ]
+    }
+  },
+  "the-digital-coin": {
+    "book": {
+      "title": "De digitale munt",
+      "topic": "Digitaal geld en veiligheid",
+      "pages": [
+        {
+          "title": "Waar is het geld?",
+          "text": "Lucy ziet haar ouder in een winkel met een kaart tegen het betaalapparaat tikken. Er worden geen munten gegeven. Ze vraagt waar het geld is gebleven. Haar ouder legt uit dat geld elektronisch op een bankrekening kan staan en ook als contant geld kan bestaan."
+        },
+        {
+          "title": "Achter het tikken",
+          "text": "Een debetkaart kan opdracht geven om geld van een rekening af te halen. Een creditcard gebruikt geleend geld dat je moet terugbetalen. Een telefoonwallet kan op een andere manier een betaalopdracht sturen. De plastic kaart en de telefoon zijn hulpmiddelen, niet het geld zelf."
+        },
+        {
+          "title": "Controleer vóór het tikken",
+          "text": "Lucy en haar ouder controleren het bedrag voordat ze betalen. Daarna vergelijken ze de kassabon met de betaalregistratie. Digitaal uitgeven gaat nog steeds om echt of geleend geld. Snel tikken is een reden om te blijven controleren, geen manier om dingen gratis te krijgen."
+        }
+      ],
+      "quiz": {
+        "question": "Wat moet je controleren voordat je betaalt?",
+        "answers": [
+          "De kleur van de kaart",
+          "Het weer",
+          "Het bedrag"
+        ],
+        "correct": 2
+      }
+    },
+    "note": {
+      "feedback": "Controleer het bedrag voordat je betaalt. Digitale uitgaven gaan om echt of geleend geld.",
+      "challenges": [
+        "Wijs het bedrag op een speelbon aan.",
+        "Trek een betaling van £3 af van een saldo van £10.",
+        "Vergelijk betalen met een debetkaart en met een creditcard. Leg uit wat terugbetaald moet worden."
+      ]
+    }
+  },
+  "ada-and-the-machine": {
+    "book": {
+      "title": "Ada en de machine",
+      "topic": "Biografie: Ada Lovelace",
+      "pages": [
+        {
+          "title": "Een nieuwsgierige denker",
+          "text": "Ada Lovelace werd in 1815 in Londen geboren. Ze studeerde wiskunde en raakte geïnteresseerd in Charles Babbages voorgestelde Analytical Engine. Dat was een plan voor een programmeerbare mechanische rekenmachine, geen moderne elektronische computer."
+        },
+        {
+          "title": "Een bijzonder idee",
+          "text": "In 1843 vertaalde Ada een artikel over de voorgestelde machine en voegde uitgebreide aantekeningen toe. Daarin stond een methode met Bernoulli-getallen. De volledige Analytical Engine werd tijdens haar leven niet gebouwd. Deze ideeën waren dus niet hetzelfde als een programma uitvoeren op een voltooide machine."
+        },
+        {
+          "title": "Verder dan getallen",
+          "text": "Ada dacht na over hoe symbolen meer dan gewone getallen konden voorstellen. Ze stelde zich mogelijkheden met muziek voor. Haar werk laat zien hoe wiskundige kennis en verbeelding helpen om nieuwe vragen over een techniek te stellen. Later ontwikkelde de informatica zich door bijdragen van veel mensen."
+        }
+      ],
+      "quiz": {
+        "question": "Wat maakte Ada’s ideeën bijzonder?",
+        "answers": [
+          "Ze bedacht nieuwe toepassingen voor machines",
+          "Ze bouwde een smartphone",
+          "Ze vond laptops uit"
+        ],
+        "correct": 0
+      }
+    },
+    "note": {
+      "feedback": "Ada dacht aan toepassingen van een voorgestelde machine die verder gingen dan rekenen. De volledige Analytical Engine werd tijdens haar leven niet gebouwd.",
+      "challenges": [
+        "Teken iets dat een machine je zou kunnen helpen maken.",
+        "Beschrijf het verschil tussen een idee en een voltooide uitvinding.",
+        "Leg uit hoe een machine muziek met symbolen of getallen zou kunnen voorstellen."
+      ]
+    }
+  },
+  "george-and-the-invention": {
+    "book": {
+      "title": "George en de uitvinding",
+      "topic": "Biografie: George Stephenson",
+      "pages": [
+        {
+          "title": "Leren door te doen",
+          "text": "George Stephenson werd in 1781 in Northumberland geboren. Hij leerde techniek door praktisch werk en hielp vroege spoorwegen en locomotieven ontwikkelen. Veel mensen in zijn tijd testten manieren om goederen en reizigers te vervoeren."
+        },
+        {
+          "title": "Een spoorwegidee",
+          "text": "In 1829 werden bij de proeven van Rainhill locomotieven vergeleken voor de spoorweg tussen Liverpool en Manchester. Rocket, ontworpen door Robert Stephenson en gebouwd door zijn bedrijf, won. George was Roberts vader en een belangrijke spoorwegingenieur. De prestatie bouwde op een team en eerdere ideeën."
+        },
+        {
+          "title": "Voortbouwen op ideeën",
+          "text": "Rocket bracht verschillende nuttige technische ontwikkelingen samen. Hij werd opnieuw veranderd toen de techniek vooruitging. Spoorweggeschiedenis gaat niet over één persoon die alles tegelijk uitvond. Ingenieurs leren van tests, van het werk van anderen en van de behoeften van mensen die een systeem gebruiken."
+        }
+      ],
+      "quiz": {
+        "question": "Wat hielp spoorwegtechniek verbeteren?",
+        "answers": [
+          "Magie",
+          "Testen en techniek",
+          "Ontwerpen nooit veranderen"
+        ],
+        "correct": 1
+      }
+    },
+    "note": {
+      "feedback": "Spoorwegtechniek ontwikkelde zich door het werk van veel mensen. Rocket werd ontworpen door Robert Stephenson en gebouwd door zijn bedrijf.",
+      "challenges": [
+        "Teken een wiel of een brug.",
+        "Noem twee dingen die ingenieurs aan een voertuig zouden kunnen testen.",
+        "Leg uit waarom het nauwkeuriger is om meerdere bijdragers te noemen dan één persoon de uitvinder van alle spoorwegen te noemen."
+      ]
+    }
+  }
+}

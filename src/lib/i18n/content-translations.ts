@@ -1,7 +1,7 @@
 import {createHash} from "node:crypto";
 import type {OriginalBook} from "@/content/original-books";
 import type {Biography} from "@/content/people";
-import type {Room} from "@/content/discovery";
+import type {Room,Book} from "@/content/discovery";
 import type {DiscoveryNote} from "@/content/discovery-notes";
 const FIELDS=["title","topic","ages","alt","playful","sections","takeaways","illustrationNote"] as const;
 export function biographyTranslationSource(person:Biography){
@@ -53,4 +53,14 @@ export function draftTranslatedMuseum(room:Room,note:DiscoveryNote,translation:u
  assertTranslationShape(source,translation,room.slug);
  const copy=translation as ReturnType<typeof museumTranslationSource>;
  return {room:{...room,...copy.room},note:{...note,...copy.note}};
+}
+export function shortReadTranslationSource(book:Book,note:DiscoveryNote){
+ return {book:{title:book.title,topic:book.topic,pages:book.pages,quiz:book.quiz},note:{feedback:note.feedback,challenges:note.challenges}};
+}
+export function draftTranslatedShortRead(book:Book,note:DiscoveryNote,translation:unknown,expectedSourceHash:string):{book:Book;note:DiscoveryNote}{
+ const source=shortReadTranslationSource(book,note);
+ if(sourceFingerprint(source)!==expectedSourceHash)throw new Error(`Stale translation: short-read/${book.slug}`);
+ assertTranslationShape(source,translation,book.slug);
+ const copy=translation as ReturnType<typeof shortReadTranslationSource>;
+ return {book:{...book,...copy.book},note:{...note,...copy.note}};
 }

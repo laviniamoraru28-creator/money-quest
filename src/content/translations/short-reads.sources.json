@@ -1,0 +1,24 @@
+{
+  "status": "draft",
+  "recorded": "2026-10-29",
+  "locales": [
+    "ro",
+    "es",
+    "fr",
+    "de",
+    "it",
+    "pt",
+    "nl",
+    "pl"
+  ],
+  "sources": {
+    "the-saving-seed": "d2431c74ea3a5d6ed121bc4b53868f40a74d46cd8b8e8438a8cde2d9f39ab37e",
+    "the-want-monster": "758f1fc367b60a1f7975a8b10734613d574bd502aa99d19f43c6074a9f03ffee",
+    "the-lemonade-test": "34470e21ed35956ba2564975c749f9b87dcb1a6836aebe7cc5be9a847e64a242",
+    "the-team-bridge": "13f89b4eb3944eb7c37dd629c015e1b2b4fb3234068cc4503be58f3a0c305b94",
+    "the-brave-mistake": "9e3c8b7ea619eda4b8b704ac75f2896c143929de57869c54207a80a8b8a67b2c",
+    "the-digital-coin": "845942ab17580cc923eefeb8e398b6d076051506ff01504dd3a2f749ccfcdeae",
+    "ada-and-the-machine": "ccee954614edd15ba5db777ef467afdc0f5fc3860ebd5d67a4f768e144616691",
+    "george-and-the-invention": "c08e89676ff6970c5bc4297418214a81602e7a9b2b609bbef60a1233d6ff7604"
+  }
+}

@@ -11,7 +11,7 @@ This checkpoint:
 - Adds a source fingerprint per biography. Changed English copy makes the Romanian draft stale until reviewed. Structural validation rejects missing text, changed arrays or attempts to replace metadata.
 - Does not activate Romanian routes or substitute partial Romanian content into an English interface. `ACTIVE_LOCALES` remains English until the whole locale is complete and reviewed.
 
-Still required: remaining reading domains in Romanian (short reads, laboratories and external-book introductions); remaining non-Museum reading domains in Spanish/French/German/Italian/Portuguese/Dutch/Polish; all hardcoded interface and SEO text; parent commercial/privacy/recovery copy; all 20 printable activities, guides, answers and journal pages in each language; editorial and real-layout checks. Narration requires a separately verified voice per supported language.
+Still required: remaining reading domains in Romanian (laboratories and external-book introductions); remaining original-book, biography, laboratory and external-book domains in Spanish/French/German/Italian/Portuguese/Dutch/Polish; all hardcoded interface and SEO text; parent commercial/privacy/recovery copy; all 20 printable activities, guides, answers and journal pages in each language; editorial and real-layout checks. Narration requires a separately verified voice per supported language.
 
 The translation drafts and tests check coverage/structure/source synchronisation, not native-editor approval or learning quality. The English source and existing message files are preserved.
 
@@ -29,3 +29,12 @@ All ten Museum room readings, quizzes, explanations and activities now have comp
 The source inventory now excludes twelve canonical bibliography titles that the initial count included despite its stated scope. This changes the count of source text fragments from 1,938 to 1,926 without deleting content. It is a counting correction, not a reduction in translation work. The initial checkpoint above remains a historical record.
 
 These are content drafts and tested adapters, not an activated multilingual Museum. The existing public Museum interface still uses English. Localized navigation, feedback prompts, metadata, read-aloud locale, rendering integration and actual per-language layout/child/native-editor review remain required before rollout. Other content groups, parent products/PDFs, shop and the rest of the website remain incomplete. `ACTIVE_LOCALES` stays English, with no new hreflang or mixed-language public pages.
+
+
+## Short-read translation follow-up, 29 October 2026
+
+The eight existing three-page short reads now also have complete text drafts in all eight non-English languages. Each edition includes 24 pages, topics, questions, answer choices, feedback and 24 distinct practical challenges across the three age levels. That is another 128 text fragments per language, 1,024 translated fragments in total. These eight short reads remain separate from the ten original chapter books and ten mini-biographies.
+
+A typed short-read projection and adapter preserve slugs, icons, source titles/URLs, page structure and correct-answer positions. The regression checks every locale/entry, dates, numeric quantities, GBP examples, three distinct answers/age challenges, stale English prose or feedback and rejected extra fields. English source copy is unchanged. The translations retain qualified historical claims, including the unbuilt complete Analytical Engine and Robert Stephenson’s design of Rocket, and distinguish debit from borrowing on credit.
+
+Museum and short-read content drafts added on 29 October total 2,064 translated fragments across eight languages. Neither group is wired into public non-English routes yet. Discovery navigation, prompts, metadata, voice locale, localized rendering and per-language layout/editorial review remain pending. Existing message-key parity is not evidence that these integrations or the rest of the website/PDFs are complete.
