@@ -67,6 +67,12 @@ test("offline download covers unvisited books and leadership, with removable loc
     await expect.poll(()=>page.locator("video").evaluate((video:HTMLVideoElement)=>video.currentTime>2.1&&!video.paused)).toBe(true);
     await page.getByRole("button",{name:"Close video",exact:true}).click();
   }
+  await page.goto("/en/not-in-the-offline-copy");
+  await expect(page.getByRole("heading",{name:"You are offline",exact:true,level:1})).toBeVisible();
+  await expect(page.locator("html")).toHaveAttribute("lang","en");
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content","noindex,nofollow");
+  await page.getByRole("link",{name:"Go to Money Quest home",exact:true}).click();
+  await expect(page.locator("main h1")).toBeVisible();
   await page.getByText("Use without internet",{exact:true}).click();await page.getByRole("button",{name:"Remove offline copy",exact:true}).click();
   await expect(page.getByRole("status").filter({hasText:"Offline copies removed"})).toBeVisible();await context.setOffline(false);
 });

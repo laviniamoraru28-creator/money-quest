@@ -1,4 +1,23 @@
 {
+  "commonControlsDrafts": {
+    "locales": [
+      "en",
+      "ro",
+      "es",
+      "fr",
+      "de",
+      "it",
+      "pt",
+      "nl",
+      "pl"
+    ],
+    "stringsPerLocale": 35,
+    "translatedStrings": 280,
+    "sourceFingerprintManifest": "src/content/translations/site-controls.sources.json",
+    "integration": "Selected-locale server copy for common narration/offline controls, structured and legacy worker errors, and active-only generated fallback pages; nine-locale toolbar SSR/fallback markup checks",
+    "editorialStatus": "AI multilingual editorial drafts, not native-editor certified",
+    "remaining": "Other page/consumer content and authored editions, SEO/metadata, PDFs, real non-English browser/voice review, final linguistic review and cold/legacy/cross-version multilingual offline review"
+  },
   "discoveryInterfaceDrafts": {
     "locales": [
       "en",
@@ -16,7 +35,7 @@
     "sourceFingerprintManifest": "src/content/translations/discovery-interface.sources.json",
     "integration": "Server-assembled Museum and short-read drafts in all nine locales; 173 successful actual component SSR checks; public English-only gate. Full Library hub drafts only EN/RO until original content is translated",
     "editorialStatus": "AI multilingual editorial drafts, not native-editor certified",
-    "remaining": "Global layout/navigation/read-aloud/offline UI, remaining authored languages, metadata/SEO, commerce text, PDFs and non-English browser/real voice review"
+    "remaining": "Other global/page content, remaining authored languages, metadata/SEO, commerce text, PDFs and non-English browser/real voice review"
   },
   "libraryInterfaceDrafts": {
     "locales": [

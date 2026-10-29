@@ -1,12 +1,17 @@
 "use client";
 
 import {useEffect,useRef,useState} from "react";
+import type {Locale} from "@/i18n/config";
+import type {SiteControlsCopy} from "@/content/site-controls-copy";
+import {offlineExceptionCode,offlineStatusText,parseOfflineWorkerMessage,type OfflineStatus} from "@/lib/offline/messages";
 const PREFIX="moneyquest-offline-";
-export function OfflineDownload({locale}:{locale:string}) {
-  const [supported,setSupported]=useState(false),[busy,setBusy]=useState(false),[message,setMessage]=useState("");
+export function OfflineDownload({locale,copy}:{locale:Locale;copy:SiteControlsCopy}) {
+  const language=locale;
+  const [supported,setSupported]=useState(false),[checked,setChecked]=useState(false),[busy,setBusy]=useState(false),[status,setStatus]=useState<OfflineStatus|null>(null);
   const channel=useRef<MessageChannel|null>(null);
   useEffect(()=>{
     setSupported("serviceWorker" in navigator && "caches" in window && window.isSecureContext);
+    setChecked(true);
     const followOffline=(event:MouseEvent)=>{
       if(navigator.onLine || event.defaultPrevented || event.button!==0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey)return;
       const link=(event.target as Element)?.closest("a");if(!link||link.target||link.hasAttribute("download"))return;
@@ -17,28 +22,27 @@ export function OfflineDownload({locale}:{locale:string}) {
     return()=>{document.removeEventListener("click",followOffline,true);channel.current?.port1.close();};
   },[]);
   const download=async()=>{
-    if(busy)return;setBusy(true);setMessage("Preparing the offline download. Keep this page open.");
+    if(busy)return;setBusy(true);setStatus({type:"preparing"});
     try {
       await navigator.serviceWorker.register("/moneyquest-sw.js",{scope:"/",updateViaCache:"none"});
       const registration=await navigator.serviceWorker.ready;
-      const worker=registration.active;if(!worker)throw new Error("Offline setup is not ready. Try again while connected.");
+      const worker=registration.active;if(!worker){setBusy(false);setStatus({type:"error",code:"setup_not_ready"});return;}
       const messages=new MessageChannel();channel.current?.port1.close();channel.current=messages;
       messages.port1.onmessage=event=>{
-        const result=event.data;
-        if(result.type==="progress")setMessage(`Downloading ${result.done} of ${result.total} files and pages. Keep this page open.`);
-        if(result.type==="ready"){setMessage(`Offline download complete: ${result.count} files and pages saved on this device. External books, purchases and feedback submission still need internet.`);setBusy(false);messages.port1.close();}
-        if(result.type==="error"){setMessage(`Download not completed. ${result.message}`);setBusy(false);messages.port1.close();}
+        const result=parseOfflineWorkerMessage(event.data);if(!result)return;
+        setStatus(result);
+        if(result.type!=="progress"){setBusy(false);messages.port1.close();}
       };
-      worker.postMessage({type:"download",locale},[messages.port2]);
-    }catch(error){setBusy(false);setMessage(`Download not completed. ${error instanceof Error?error.message:"Check your browser, connection and free storage."}`);}
+      worker.postMessage({type:"download",locale:language},[messages.port2]);
+    }catch(error){setBusy(false);setStatus({type:"error",code:offlineExceptionCode(error)});}
   };
   const remove=async()=>{
     try {
       for(const name of await caches.keys())if(name.startsWith(PREFIX))await caches.delete(name);
       const registration=await navigator.serviceWorker.getRegistration("/");
       if(registration?.active?.scriptURL.endsWith("/moneyquest-sw.js"))await registration.unregister();
-      setMessage("Offline copies removed. Your learning progress and accessibility preferences were kept.");
-    }catch{setMessage("Could not remove offline files. Your browser’s site-storage settings can remove them.");}
+      setStatus({type:"removed"});
+    }catch{setStatus({type:"removeFailed"});}
   };
-  return <details className="max-w-full"><summary className="min-h-12 cursor-pointer py-3 font-semibold text-teal-text">Use without internet</summary><div className="max-w-2xl py-3"><p>With a grown-up, download this language’s learning pages, pictures and worksheets. This uses device storage and can use tens of megabytes of data. Keep the page open until it says complete.</p><p className="mt-2 text-sm">Your browser may remove saved files when storage is low. Voice playback depends on installed voices. External books and websites are not downloaded.</p><div className="mt-3 flex flex-wrap gap-3"><button type="button" disabled={!supported||busy} onClick={download} className="min-h-12 rounded-xl border border-teal/40 bg-white px-4 py-3 font-semibold text-teal-text disabled:opacity-60">{busy?"Downloading…":"Download for offline use"}</button><button type="button" disabled={!supported||busy} onClick={remove} className="min-h-12 rounded-xl border border-ink/30 px-4 py-3 disabled:opacity-60">Remove offline copy</button></div><p role="status" className="mt-3 text-sm">{message}</p></div></details>;
+  return <details className="max-w-full"><summary className="min-h-12 cursor-pointer py-3 font-semibold text-teal-text">{copy.offlineSummary}</summary><div className="max-w-2xl py-3"><p>{copy.instructions}</p><p className="mt-2 text-sm">{copy.limitations}</p><div className="mt-3 flex flex-wrap gap-3"><button type="button" disabled={!supported||busy} onClick={download} className="min-h-12 rounded-xl border border-teal/40 bg-white px-4 py-3 font-semibold text-teal-text disabled:opacity-60">{busy?copy.downloading:copy.download}</button><button type="button" disabled={!supported||busy} onClick={remove} className="min-h-12 rounded-xl border border-ink/30 px-4 py-3 disabled:opacity-60">{copy.remove}</button></div><p role="status" className="mt-3 text-sm">{offlineStatusText(language,status,copy)||(checked&&!supported?copy.unsupported:"")}</p></div></details>;
 }

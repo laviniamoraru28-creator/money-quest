@@ -1,3 +1,4 @@
+import {siteControlsCopy} from "@/content/site-controls-copy";
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { notFound } from "next/navigation";
@@ -138,7 +139,7 @@ export default async function LocaleLayout({
             regardless of the URL. */}
         <NextIntlClientProvider locale={locale} messages={messages}>
           <a href="#main-content" className="sr-only z-50 rounded-lg bg-white p-4 font-bold text-teal-text focus:not-sr-only focus:absolute focus:left-4 focus:top-4">Skip to content</a>
-          <PageReadAloud locale={locale}/>
+          <PageReadAloud locale={locale} copy={siteControlsCopy[locale]}/>
           {children}
           <CoinRewardEffect/>
         </NextIntlClientProvider>
