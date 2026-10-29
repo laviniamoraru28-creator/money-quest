@@ -19,6 +19,32 @@ async function savedCache() {
   }
   return null;
 }
+// Browsers request small byte ranges when playing/seeking local MP4 files.
+// Offline cache stores the complete file, then serves the requested slice.
+async function mediaRange(response, range) {
+  if (!range) return response;
+  const bytes = await response.arrayBuffer();
+  const size = bytes.byteLength;
+  const match = /^bytes=(\d*)-(\d*)$/.exec(range);
+  const invalid = () => new Response(null,{status:416,headers:{"Content-Range":`bytes */${size}`,"Accept-Ranges":"bytes"}});
+  if (!match || !size || !match[1] && !match[2]) return invalid();
+  let start, end;
+  if (!match[1]) {
+    const suffix=Number(match[2]);
+    if (!Number.isSafeInteger(suffix) || suffix<=0) return invalid();
+    start=Math.max(0,size-suffix);end=size-1;
+  } else {
+    start=Number(match[1]);end=match[2]?Number(match[2]):size-1;
+    if (!Number.isSafeInteger(start)||!Number.isSafeInteger(end)||start>=size||end<start) return invalid();
+    end=Math.min(end,size-1);
+  }
+  const headers=new Headers(response.headers);
+  headers.delete("Content-Encoding");
+  headers.set("Content-Range",`bytes ${start}-${end}/${size}`);
+  headers.set("Content-Length",String(end-start+1));
+  headers.set("Accept-Ranges","bytes");
+  return new Response(bytes.slice(start,end+1),{status:206,headers});
+}
 async function download(locale, send) {
   const response = await fetch("/offline-manifest.json", {cache:"no-store",credentials:"omit"});
   if (!response.ok) throw new Error("The offline download list is unavailable. Reconnect and try again.");
@@ -72,7 +98,12 @@ self.addEventListener("fetch", event => {
       const cache=await savedCache();
       return await cache?.match(cacheKey(url.pathname==="/"?"/en":url.pathname)) || await cache?.match("/offline.html") || new Response("Reconnect to download Money Quest for offline use.",{status:503,headers:{"Content-Type":"text/plain; charset=utf-8"}});
     })());
-  } else if(url.pathname.startsWith("/_next/static/")||/\.(webp|png|jpg|jpeg|svg|avif|pdf|woff2?|webmanifest)$/.test(url.pathname)) {
-    event.respondWith((async()=>{const cache=await savedCache();return await cache?.match(cacheKey(url.pathname))||fetch(event.request);})());
+  } else if(url.pathname.startsWith("/_next/static/")||/\.(webp|png|jpg|jpeg|svg|avif|pdf|mp4|woff2?|webmanifest)$/.test(url.pathname)) {
+    event.respondWith((async()=>{
+      const cache=await savedCache();
+      const saved=await cache?.match(cacheKey(url.pathname));
+      if(!saved)return fetch(event.request);
+      return url.pathname.endsWith(".mp4")?mediaRange(saved,event.request.headers.get("Range")):saved;
+    })());
   }
 });

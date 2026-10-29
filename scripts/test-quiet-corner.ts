@@ -1,12 +1,15 @@
 import assert from "node:assert/strict";
 import {QuietAudio} from "../src/lib/audio/quiet-audio";
 import {quietCopy} from "../src/content/quiet-corner";
+import {quietVideoCopy} from "../src/content/quiet-videos";
 import {LOCALES} from "../src/i18n/config";
 
 async function main() {
   for (const locale of LOCALES) {
     assert.deepEqual(Object.keys(quietCopy[locale]).sort(), Object.keys(quietCopy.en).sort());
     assert(Object.values(quietCopy[locale]).every(text => typeof text === "string" && text.trim().length > 0));
+    assert.deepEqual(Object.keys(quietVideoCopy[locale]).sort(),Object.keys(quietVideoCopy.en).sort());
+    assert(Object.values(quietVideoCopy[locale]).every(text => text.trim().length>0));
   }
   function fake(resume: () => Promise<void> = async () => {}) {
     const changes: number[] = [];

@@ -56,6 +56,17 @@ test("offline download covers unvisited books and leadership, with removable loc
     await page.getByRole("button",{name:scene,exact:true}).click();
     await expect.poll(()=>page.locator("main img").evaluate((image:HTMLImageElement)=>image.complete&&image.naturalWidth===1200)).toBe(true);
   }
+  await page.emulateMedia({reducedMotion:"no-preference"});
+  await page.getByText("Real nature videos",{exact:true}).click();
+  for(const [name,id] of [["Ocean water","ocean"],["Rain on a window","rain"],["Aquarium fish","aquarium"]]){
+    const range=await page.evaluate(async path=>{const response=await fetch(path,{headers:{Range:"bytes=0-15"}});return {status:response.status,length:(await response.arrayBuffer()).byteLength,range:response.headers.get("Content-Range")};},`/media/quiet/${id}-v1.mp4`);
+    expect(range.status).toBe(206);expect(range.length).toBe(16);expect(range.range).toMatch(/^bytes 0-15\//);
+    await page.getByRole("button",{name:name!,exact:true}).click();await page.getByRole("button",{name:"Watch video",exact:true}).click();
+    await expect.poll(()=>page.locator("video").evaluate((video:HTMLVideoElement)=>video.currentTime>0.1&&!video.paused)).toBe(true);
+    await page.locator("video").evaluate((video:HTMLVideoElement)=>{video.currentTime=2;});
+    await expect.poll(()=>page.locator("video").evaluate((video:HTMLVideoElement)=>video.currentTime>2.1&&!video.paused)).toBe(true);
+    await page.getByRole("button",{name:"Close video",exact:true}).click();
+  }
   await page.getByText("Use without internet",{exact:true}).click();await page.getByRole("button",{name:"Remove offline copy",exact:true}).click();
   await expect(page.getByRole("status").filter({hasText:"Offline copies removed"})).toBeVisible();await context.setOffline(false);
 });

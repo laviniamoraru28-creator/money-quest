@@ -7,6 +7,7 @@ import {quietCopy} from "@/content/quiet-corner";
 import type {Locale} from "@/i18n/config";
 import {QuietAudio, type QuietSound} from "@/lib/audio/quiet-audio";
 import {useAccessibilityPrefs} from "@/lib/accessibility/use-accessibility-preferences";
+import QuietVideos from "@/components/QuietVideos";
 
 const button = "min-h-12 rounded-2xl border-2 border-teal/40 bg-white px-5 py-3 font-bold text-teal-text focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-teal";
 const stopButton = button.replace("bg-white", "bg-teal").replace("text-teal-text", "text-white");
@@ -47,6 +48,7 @@ export default function QuietCorner({locale}: {locale: Locale}) {
     setMoving(false);
     try { window.speechSynthesis?.cancel(); } catch {}
     window.dispatchEvent(new Event("moneyquest-stop-speech"));
+    window.dispatchEvent(new Event("moneyquest-stop-quiet-video"));
   }, [stopAudio]);
   useEffect(() => {
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -57,12 +59,15 @@ export default function QuietCorner({locale}: {locale: Locale}) {
     document.addEventListener("visibilitychange", hide);
     window.addEventListener("pagehide", pagehide);
     window.addEventListener("moneyquest-stop-audio", stopAudio);
+    const stopMovement = () => setMoving(false);
+    window.addEventListener("moneyquest-stop-picture-movement", stopMovement);
     return () => {
       stopAudio();
       media.removeEventListener("change", sync);
       document.removeEventListener("visibilitychange", hide);
       window.removeEventListener("pagehide", pagehide);
       window.removeEventListener("moneyquest-stop-audio", stopAudio);
+      window.removeEventListener("moneyquest-stop-picture-movement", stopMovement);
     };
   }, [stopAudio]);
   useEffect(() => { if (reducedMotion) setMoving(false); }, [reducedMotion]);
@@ -97,6 +102,7 @@ export default function QuietCorner({locale}: {locale: Locale}) {
         <div className="mt-4 flex flex-wrap items-center gap-4"><button type="button" className={button} onClick={() => {if (playing || starting) stopAudio(); else void play();}}>{playing || starting ? t.stop : t.play}</button><label className="flex min-h-12 flex-wrap items-center gap-3" htmlFor="quiet-volume">{t.volume}<input id="quiet-volume" className="h-12 w-40 accent-teal" type="range" min="0" max="100" step="1" value={volume} onChange={event => {const next = Number(event.target.value); setVolume(next); audio.current?.setVolume(next);}}/><output htmlFor="quiet-volume">{volume}%</output></label></div>
         <p role="status" className="mt-3 text-sm">{starting ? t.starting : message}</p>
       </section>
+      <QuietVideos locale={locale}/>
       <section aria-labelledby="quiet-cards" className="mt-5 rounded-3xl border border-teal/20 bg-white p-4 sm:p-6"><h2 id="quiet-cards" className="text-xl">{t.cards}</h2><p className="mt-2 text-sm">{t.cardHint}</p><div className="mt-4 grid gap-3 sm:grid-cols-3">{cardText.map((text, index) => <button key={text} type="button" ref={el => {cardTriggers.current[index] = el;}} className={`${button} flex flex-col items-center gap-3 py-6 text-lg`} onClick={() => {stopEverything(); setCard(index);}}><CardSymbol index={index}/>{text}</button>)}</div></section>
       {card !== null && <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-ink/80 p-5" role="dialog" aria-modal="true" aria-labelledby="quiet-card-title" onKeyDown={event => {if (event.key === "Escape") dismissCard(); if (event.key === "Tab") {event.preventDefault(); closeCard.current?.focus();}}}><div className="flex max-w-lg flex-col items-center gap-6 rounded-3xl bg-white p-8 text-center text-ink"><CardSymbol index={card}/><h2 id="quiet-card-title" className="text-3xl">{cardText[card]}</h2><button type="button" ref={closeCard} className={button} onClick={dismissCard}>{t.close}</button></div></div>}
     </main>

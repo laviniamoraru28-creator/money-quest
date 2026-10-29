@@ -322,7 +322,28 @@
       "width": 1200,
       "height": 675,
       "sha256": "5d83df0b556316d4d25a3f6c04ad55ed12a836e5568b89a78fe89efb538f7c13"
+    },
+    {
+      "path": "public/images/money-quest/quiet/ocean-video-poster-v1.webp",
+      "bytes": 15002,
+      "width": 960,
+      "height": 540,
+      "sha256": "6fbfecdb6b9ea086445e2b5b559a0e8229afc9ac61b92ae2b5045748e1989df9"
+    },
+    {
+      "path": "public/images/money-quest/quiet/rain-video-poster-v1.webp",
+      "bytes": 12672,
+      "width": 960,
+      "height": 540,
+      "sha256": "970be7b690ee2a12a6e2d4924c6c5f3c3992a08278625cb8b5170adf4c3aad77"
+    },
+    {
+      "path": "public/images/money-quest/quiet/aquarium-video-poster-v1.webp",
+      "bytes": 33344,
+      "width": 960,
+      "height": 540,
+      "sha256": "82611892f369f3aebd89e1ff7ec09ff327704a4fdaa78acbf467cc5106fc6713"
     }
   ],
-  "total_bytes": 2785528
+  "total_bytes": 2846546
 }

@@ -20,7 +20,7 @@ Node 24.22.1: 27/27 unit suites passed, including audio disposal/cancellation/fa
 
 ## Remaining
 
-Actual licensed videos and optional recorded nature/music tracks still need individual selection, license/provenance records, editing, compression and mobile review. No video has been sourced or integrated yet. The generated ambience is not a recording or finished music library. Broader book/biography/site/PDF translation and live commerce work remain pending. No promise is made to restore an unfinished lesson answer after navigating away; completed progress follows the existing device-only storage.
+Three real silent Pexels videos are now integrated in an optional, initially closed video panel: ocean water, rain on a window and aquarium fish. Source/author/licence URLs, original and processed hashes, duration/codec and transformations are recorded in `docs/quiet-media-manifest.json`. Together they add 1,984,251 bytes. Optional recorded nature/music tracks remain pending. The generated ambience is not a recording or finished music library. Broader book/biography/site/PDF translation and live commerce work remain pending. No promise is made to restore an unfinished lesson answer after navigating away; completed progress follows the existing device-only storage.
 
 ## Artwork provenance
 
@@ -29,3 +29,10 @@ Built-in image generation, 29 October 2026. Final optimized assets are stored in
 Prompt briefs: photorealistic natural pet photography of a golden retriever puppy sleeping on an oatmeal blanket by a rainy window; realistic small coastal waves on an empty sandy beach; a realistic green garden with a grassy clearing and soft daylight. All requested no people, text, logos, watermarks, illustration or CGI. No existing character artwork was replaced.
 
 Design references reviewed: W3C Pause Stop Hide https://www.w3.org/WAI/WCAG22/Understanding/pause-stop-hide ; Audio Control https://www.w3.org/WAI/WCAG21/Understanding/audio-control ; National Autistic Society sensory differences https://www.autism.org.uk/advice-and-guidance/about-autism/sensory-processing . These inform user choice and controls, not therapeutic efficacy.
+
+
+## Real video follow-up
+
+The three videos are served from the application origin, with no remote player, tracking embed or runtime Pexels requests. They load only after Watch video. Native playback/seek controls remain available; repeat is unchecked by default. Reduced motion keeps the preview still and disables playback. Stop-all, cards, speech, closing the panel, backgrounding and navigation stop video; changing settings does not restart it. Each silent clip has a translated visual description. Video controls, descriptions and credits have complete feature copy in all nine languages, without activating incomplete site locales.
+
+MP4 paths bypass locale redirection. The opt-in offline manifest now includes the local MP4s, and the service worker supports single byte ranges (including suffix and open-ended requests) for cached playback and seeking. Unit tests exercise the actual service worker and reject invalid ranges. Browser regression coverage includes all three clips, no initial media requests, no external requests, reduced motion, repeat, failed media, offline playback and byte-range responses. Local lint, TypeScript and all 27 unit suites passed. The video follow-up still requires its exact CI browser result before being called browser-verified.

@@ -37,7 +37,7 @@ for(const mission of LQ_MISSIONS)pages.add(`/en/leadership-quest/missions/${miss
 for(const mission of RLQ_MISSIONS)pages.add(`/en/real-life-quests/missions/${mission.id}`);
 for(const id of EQ_CHALLENGE_IDS)pages.add(`/en/entrepreneur-quest/challenges/${id}`);
 for(const id of EQ_BUSINESS_PROBLEM_IDS)pages.add(`/en/entrepreneur-quest/run/problems/${id}`);
-const publicAssets=files("public").filter(file=>/\.(webp|png|jpg|jpeg|svg|avif|pdf|woff2?|webmanifest|html)$/.test(file)).map(file=>`/${file.replace(/^public\//,"")}`);
+const publicAssets=files("public").filter(file=>/\.(webp|png|jpg|jpeg|svg|avif|pdf|mp4|woff2?|webmanifest|html)$/.test(file)).map(file=>`/${file.replace(/^public\//,"")}`);
 const nextAssets=files(".next/static").filter(file=>!file.endsWith(".map")).map(file=>file.replace(/^\.next/,"/_next"));
 const manifest={version:readFileSync(".next/BUILD_ID","utf8").trim(),pages:Object.fromEntries(ACTIVE_LOCALES.map(locale=>[locale,[...pages].sort().map(route=>route.replace(/^\/en(?=\/|$)/,`/${locale}`))])),assets:[...new Set([...publicAssets,...nextAssets])].sort()};
 writeFileSync("public/offline-manifest.json",JSON.stringify(manifest));
