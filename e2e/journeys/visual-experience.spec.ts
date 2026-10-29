@@ -41,6 +41,7 @@ test("every Museum room has a representative image and generation disclosure",as
 });
 
 test("three picture activities support examples, optional answers and no saved responses",async({page})=>{
+ if(test.info().project.name==="mobile-chrome")await page.setViewportSize({width:320,height:800});
  await page.goto("/en/explorer");
  const before=await page.evaluate(()=>JSON.stringify(localStorage));
  const titles=["What is money?","Choose and pay","Save for a goal"];
@@ -50,6 +51,9 @@ test("three picture activities support examples, optional answers and no saved r
   await page.getByRole("button",{name:"☝ Choose a picture",exact:true}).click();
   const choices=page.locator('main button[aria-pressed]').filter({has:page.locator('svg')});
   await expect(choices).toHaveCount(2);
+  const boxes=await choices.evaluateAll(elements=>elements.map(el=>({top:el.getBoundingClientRect().top,left:el.getBoundingClientRect().left})));
+  expect(Math.abs(boxes[0]!.top-boxes[1]!.top)).toBeLessThan(2);
+  expect(boxes[1]!.left).toBeGreaterThan(boxes[0]!.left);
   await choices.nth(lesson===2?0:1).click();await expect(page.getByRole("status").filter({hasText:"Try another picture"})).toBeVisible();
   await page.getByRole("button",{name:"↻ Show me",exact:true}).click();
   await page.getByRole("button",{name:"☝ Choose a picture",exact:true}).click();
