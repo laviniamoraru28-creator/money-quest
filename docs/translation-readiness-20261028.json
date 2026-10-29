@@ -1,6 +1,6 @@
 {
-  "generated": "2026-10-28",
-  "scope": "New authored content only. This inventory does not certify linguistic quality or cover all hardcoded UI, SEO, commerce policies or privately stored printable manuscripts.",
+  "generated": "2026-10-29",
+  "scope": "Eight authored-content groups only. Canonical bibliography titles are excluded from counts and retained in their published language. This inventory does not certify linguistic quality or cover all hardcoded UI, SEO, commerce policies or privately stored printable manuscripts.",
   "activeLocales": [
     "en"
   ],
@@ -30,7 +30,7 @@
       "sourceHash": "dd813c5994e01609e30f173ad7f9b9e28e63a2e23b8e137eb2e8741c86caff31"
     },
     "discoveryNotes": {
-      "sourceStrings": 84,
+      "sourceStrings": 72,
       "sourceHash": "6cbf0f6e8c775f3d6439b217e2e57dc48c0bf28a8a11c0ad3e60576b37aab613"
     },
     "externalBookIntroductions": {
@@ -48,52 +48,112 @@
     {
       "locale": "ro",
       "messageKeys": "validated separately; key parity does not prove authored-content translation",
-      "newContent": "10 biography drafts and 10 book drafts; other domains pending",
+      "newContent": "10 biography drafts, 10 book drafts and 10 Museum room/age-challenge drafts; other domains pending",
       "publicActivation": "blocked pending complete content and review"
     },
     {
       "locale": "es",
       "messageKeys": "validated separately; key parity does not prove authored-content translation",
-      "newContent": "pending",
+      "newContent": "10 Museum room/age-challenge drafts; other domains pending",
       "publicActivation": "blocked pending complete content and review"
     },
     {
       "locale": "fr",
       "messageKeys": "validated separately; key parity does not prove authored-content translation",
-      "newContent": "pending",
+      "newContent": "10 Museum room/age-challenge drafts; other domains pending",
       "publicActivation": "blocked pending complete content and review"
     },
     {
       "locale": "de",
       "messageKeys": "validated separately; key parity does not prove authored-content translation",
-      "newContent": "pending",
+      "newContent": "10 Museum room/age-challenge drafts; other domains pending",
       "publicActivation": "blocked pending complete content and review"
     },
     {
       "locale": "it",
       "messageKeys": "validated separately; key parity does not prove authored-content translation",
-      "newContent": "pending",
+      "newContent": "10 Museum room/age-challenge drafts; other domains pending",
       "publicActivation": "blocked pending complete content and review"
     },
     {
       "locale": "pt",
       "messageKeys": "validated separately; key parity does not prove authored-content translation",
-      "newContent": "pending",
+      "newContent": "10 Museum room/age-challenge drafts; other domains pending",
       "publicActivation": "blocked pending complete content and review"
     },
     {
       "locale": "nl",
       "messageKeys": "validated separately; key parity does not prove authored-content translation",
-      "newContent": "pending",
+      "newContent": "10 Museum room/age-challenge drafts; other domains pending",
       "publicActivation": "blocked pending complete content and review"
     },
     {
       "locale": "pl",
       "messageKeys": "validated separately; key parity does not prove authored-content translation",
-      "newContent": "pending",
+      "newContent": "10 Museum room/age-challenge drafts; other domains pending",
       "publicActivation": "blocked pending complete content and review"
     }
   ],
+  "museumDrafts": [
+    {
+      "locale": "ro",
+      "entries": 10,
+      "translatedStrings": 130,
+      "editorialStatus": "draft, not native-editor reviewed",
+      "publicActivation": "blocked pending complete site locale"
+    },
+    {
+      "locale": "es",
+      "entries": 10,
+      "translatedStrings": 130,
+      "editorialStatus": "draft, not native-editor reviewed",
+      "publicActivation": "blocked pending complete site locale"
+    },
+    {
+      "locale": "fr",
+      "entries": 10,
+      "translatedStrings": 130,
+      "editorialStatus": "draft, not native-editor reviewed",
+      "publicActivation": "blocked pending complete site locale"
+    },
+    {
+      "locale": "de",
+      "entries": 10,
+      "translatedStrings": 130,
+      "editorialStatus": "draft, not native-editor reviewed",
+      "publicActivation": "blocked pending complete site locale"
+    },
+    {
+      "locale": "it",
+      "entries": 10,
+      "translatedStrings": 130,
+      "editorialStatus": "draft, not native-editor reviewed",
+      "publicActivation": "blocked pending complete site locale"
+    },
+    {
+      "locale": "pt",
+      "entries": 10,
+      "translatedStrings": 130,
+      "editorialStatus": "draft, not native-editor reviewed",
+      "publicActivation": "blocked pending complete site locale"
+    },
+    {
+      "locale": "nl",
+      "entries": 10,
+      "translatedStrings": 130,
+      "editorialStatus": "draft, not native-editor reviewed",
+      "publicActivation": "blocked pending complete site locale"
+    },
+    {
+      "locale": "pl",
+      "entries": 10,
+      "translatedStrings": 130,
+      "editorialStatus": "draft, not native-editor reviewed",
+      "publicActivation": "blocked pending complete site locale"
+    }
+  ],
+  "museumSourceFingerprintManifest": "src/content/translations/museum.sources.json",
+  "countingNote": "The initial inventory included 12 canonical source titles in discoveryNotes. The current count excludes them; their text has not been removed or changed.",
   "romanianBooks": {
     "entries": 10,
     "chapters": 62,

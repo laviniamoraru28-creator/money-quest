@@ -1,0 +1,262 @@
+{
+  "before-money": {
+    "room": {
+      "title": "Prima del denaro",
+      "intro": "Le persone hanno scambiato beni e servizi in molti modi.",
+      "story": "Un contadino ha delle mele. Un fornaio ha del pane. Possono scambiarli se entrambi sono d’accordo. Questo si chiama baratto. Si sono usati anche doni, promesse e credito. Il denaro non è comparso ovunque nello stesso modo.",
+      "quiz": {
+        "question": "Perché può essere difficile fare uno scambio?",
+        "answers": [
+          "Entrambe le persone devono volere lo scambio",
+          "Tutto ha lo stesso valore",
+          "Nessuno ha bisogno di niente"
+        ],
+        "correct": 0
+      },
+      "explanation": "Per scambiare, devi trovare qualcuno che desideri ciò che offri.",
+      "activity": "Inventa uno scambio equo con un amico o un’amica."
+    },
+    "note": {
+      "feedback": "Entrambe le persone devono accettare lo scambio. Il baratto era un modo di scambiare beni, non una fase universale precedente al denaro.",
+      "challenges": [
+        "Indica due cose che le persone potrebbero scambiare.",
+        "Mettete in scena uno scambio. Che cosa succede se una persona non vuole l’offerta?",
+        "Spiega perché denaro, baratto e credito possono esistere insieme."
+      ]
+    }
+  },
+  "first-coins": {
+    "room": {
+      "title": "Le prime monete",
+      "intro": "Le monete coniate resero più facili molti scambi.",
+      "story": "Alcune delle prime monete coniate furono prodotte in Lidia, nell’attuale Turchia, più di 2.500 anni fa. Tra queste c’erano monete di elettro, una miscela di oro e argento. Le monete si svilupparono in luoghi diversi e gli storici ne studiano ancora le origini.",
+      "quiz": {
+        "question": "Che cosa aiutava a mostrare il marchio su una moneta?",
+        "answers": [
+          "Il prezzo esatto di ogni oggetto",
+          "Chi aveva emesso la moneta",
+          "Quante persone l’avevano posseduta"
+        ],
+        "correct": 1
+      },
+      "explanation": "Le persone dovevano comunque fidarsi della moneta.",
+      "activity": "Disegna una moneta con un simbolo significativo."
+    },
+    "note": {
+      "feedback": "Il marchio identificava un emittente o un’autorità. Contavano anche la fiducia, il peso e il metallo.",
+      "challenges": [
+        "Disegna un simbolo per una moneta da gioco.",
+        "Spiega che cosa potrebbe dire quel simbolo a una persona.",
+        "Confronta il marchio di una moneta con una caratteristica di sicurezza moderna. Che cosa aiuta a controllare ciascuno?"
+      ]
+    }
+  },
+  "strange-money": {
+    "room": {
+      "title": "Denaro insolito",
+      "intro": "Il denaro ha avuto molte forme.",
+      "story": "Comunità diverse hanno usato conchiglie, perline e dischi di pietra come denaro.",
+      "quiz": {
+        "question": "Che cosa conta di più perché qualcosa funzioni come denaro?",
+        "answers": [
+          "Deve essere d’oro",
+          "Deve essere minuscolo",
+          "Le persone accettano di usarlo"
+        ],
+        "correct": 2
+      },
+      "explanation": "La fiducia condivisa e l’accordo sono essenziali.",
+      "activity": "Scegli degli oggetti come moneta di una città immaginaria."
+    },
+    "note": {
+      "feedback": "Perché qualcosa funzioni come denaro in una comunità, le persone devono accettarlo come pagamento.",
+      "challenges": [
+        "Scegli un oggetto come denaro da gioco.",
+        "Spiega perché le persone accetterebbero la tua scelta.",
+        "Confronta due possibili monete: quanto durano, quanto è facile trasportarle e se la comunità le accetta."
+      ]
+    }
+  },
+  "money-through-time": {
+    "room": {
+      "title": "Il denaro nel tempo",
+      "intro": "I modi di pagare cambiano.",
+      "story": "Si sono usate monete, banconote, conti e pagamenti elettronici. Alcuni metodi più antichi si usano ancora.",
+      "quiz": {
+        "question": "Che cosa è comparso prima?",
+        "answers": [
+          "Le monete",
+          "Le carte bancarie",
+          "I pagamenti con il telefono"
+        ],
+        "correct": 0
+      },
+      "explanation": "Le monete sono più antiche delle carte di pagamento di migliaia di anni.",
+      "activity": "Chiedi a un adulto come pagava da bambino."
+    },
+    "note": {
+      "feedback": "Le monete si usavano molto prima delle carte e degli strumenti per pagare con il telefono.",
+      "challenges": [
+        "Scegli che cosa è comparso prima: una moneta o un pagamento con il telefono.",
+        "Metti monete, banconote e pagamenti con il telefono su una linea del tempo.",
+        "Spiega perché introdurre un nuovo metodo di pagamento non fa scomparire quelli più antichi."
+      ]
+    }
+  },
+  "banknote-lab": {
+    "room": {
+      "title": "Il laboratorio delle banconote",
+      "intro": "Le banconote hanno caratteristiche di sicurezza.",
+      "story": "Le banconote britanniche moderne sono di polimero e hanno caratteristiche che aiutano a riconoscere quelle autentiche.",
+      "quiz": {
+        "question": "Perché le banconote hanno caratteristiche di sicurezza?",
+        "answers": [
+          "Per dare a tutte le banconote lo stesso colore",
+          "Per renderle più difficili da copiare",
+          "Per decidere i prezzi dei negozi"
+        ],
+        "correct": 1
+      },
+      "explanation": "Le caratteristiche di sicurezza aiutano a proteggere dalla falsificazione.",
+      "activity": "Disegna una banconota da gioco con un motivo inventato da te."
+    },
+    "note": {
+      "feedback": "Le caratteristiche di sicurezza rendono le banconote autentiche più facili da riconoscere e più difficili da copiare.",
+      "challenges": [
+        "Trova la forma di una finestra nell’immagine di una banconota.",
+        "Disegna una banconota che sia chiaramente da gioco. Non copiarne una vera.",
+        "Spiega perché dovresti consultare le indicazioni ufficiali invece di giudicare una banconota solo dal colore."
+      ]
+    }
+  },
+  "gold-vault": {
+    "room": {
+      "title": "Il caveau dell’oro",
+      "intro": "Il denaro non è la stessa cosa dell’oro.",
+      "story": "L’oro è stato usato per monete e gioielli. Le sterline britanniche moderne non possono essere convertite in una quantità fissa d’oro.",
+      "quiz": {
+        "question": "Una moneta da una sterlina è d’oro puro?",
+        "answers": [
+          "Sì, il suo colore lo dimostra",
+          "Solo le vecchie monete da una sterlina sono d’oro puro",
+          "No"
+        ],
+        "correct": 2
+      },
+      "explanation": "Il denaro funziona perché le persone lo accettano come pagamento.",
+      "activity": "Confronta una moneta da gioco con una vera."
+    },
+    "note": {
+      "feedback": "Le monete britanniche moderne non sono d’oro puro. Una sterlina non è una promessa di scambiarla con una quantità fissa d’oro.",
+      "challenges": [
+        "Confronta i colori di due monete con un adulto.",
+        "Spiega perché un oggetto color oro non deve necessariamente essere d’oro.",
+        "Confronta il valore del metallo con il valore indicato su una moneta."
+      ]
+    }
+  },
+  "around-the-world": {
+    "room": {
+      "title": "Il denaro nel mondo",
+      "intro": "In luoghi diversi si usano valute diverse.",
+      "story": "Il Regno Unito usa la sterlina, il Giappone lo yen e molti paesi europei l’euro.",
+      "quiz": {
+        "question": "Quale valuta usa il Giappone?",
+        "answers": [
+          "Yen",
+          "Sterline",
+          "Euro"
+        ],
+        "correct": 0
+      },
+      "explanation": "I tassi di cambio tra valute cambiano.",
+      "activity": "Trova le valute di diversi paesi su una mappa."
+    },
+    "note": {
+      "feedback": "Il Giappone usa lo yen. Il valore delle valute può cambiare l’una rispetto all’altra.",
+      "challenges": [
+        "Indica il Giappone su una mappa, con aiuto.",
+        "Abbina il Regno Unito, il Giappone e un paese dell’area euro alle loro valute.",
+        "Se un tasso di cambio inventato passa da £1 = 150 yen a £1 = 160 yen, calcola quanti yen riceveresti per £5 con ciascun tasso."
+      ]
+    }
+  },
+  "business-invention": {
+    "room": {
+      "title": "Imprese e invenzioni",
+      "intro": "Le idee possono risolvere problemi reali.",
+      "story": "Chi avvia un’impresa può provare una piccola idea e chiedere alle persone se le aiuta.",
+      "quiz": {
+        "question": "Che cosa dovresti fare prima di realizzare 100 prodotti?",
+        "answers": [
+          "Ignorare i commenti",
+          "Provare una piccola idea",
+          "Comprare 100 scatole"
+        ],
+        "correct": 1
+      },
+      "explanation": "Fare prove presto può far risparmiare tempo e denaro.",
+      "activity": "Inventa qualcosa di utile per la tua casa."
+    },
+    "note": {
+      "feedback": "Una piccola prova dà informazioni prima di investire più tempo e denaro.",
+      "challenges": [
+        "Disegna qualcosa che potrebbe aiutare qualcuno.",
+        "Chiedi a una persona fidata che cosa migliorerebbe nella tua idea.",
+        "Scegli una prova, fissa un piccolo budget e decidi quali risultati ti farebbero cambiare idea."
+      ]
+    }
+  },
+  "museum-of-mistakes": {
+    "room": {
+      "title": "Il museo degli errori",
+      "intro": "I commenti aiutano a migliorare.",
+      "story": "Nel 1985 Coca-Cola cambiò la ricetta della sua bevanda alla cola negli Stati Uniti. Dopo le proteste, l’azienda ripropose la formula originale.",
+      "quiz": {
+        "question": "Che cosa possono imparare le imprese dai commenti?",
+        "answers": [
+          "A nascondere gli errori",
+          "A non cambiare mai",
+          "Ad ascoltare e migliorare"
+        ],
+        "correct": 2
+      },
+      "explanation": "Imparare significa notare che cosa è successo e adattarsi.",
+      "activity": "Descrivi qualcosa che hai migliorato dopo un errore."
+    },
+    "note": {
+      "feedback": "I commenti dei clienti possono rivelare problemi che un’impresa deve affrontare. Questo non significa che debba seguire ogni suggerimento.",
+      "challenges": [
+        "Scegli una modifica da provare su un progetto immaginario.",
+        "Chiedi un parere a due persone. Nota se non sono d’accordo.",
+        "Confronta i pareri dei clienti con vendite e costi prima di decidere quale modifica provare."
+      ]
+    }
+  },
+  "future-money": {
+    "room": {
+      "title": "Il laboratorio del denaro futuro",
+      "intro": "I pagamenti digitali usano comunque denaro reale.",
+      "story": "Carte e telefoni possono inviare istruzioni per trasferire denaro o addebitare un conto. La carta in sé non è il saldo del conto.",
+      "quiz": {
+        "question": "Avvicinare una carta al lettore crea denaro gratis?",
+        "answers": [
+          "No",
+          "Sì, il lettore aggiunge denaro",
+          "Sì, se paghi con il telefono"
+        ],
+        "correct": 0
+      },
+      "explanation": "Controlla l’importo prima di pagare.",
+      "activity": "Simula un pagamento con carta e annotalo in un budget."
+    },
+    "note": {
+      "feedback": "Una carta o un telefono invia istruzioni di pagamento. Non crea denaro gratis.",
+      "challenges": [
+        "Indica una carta e una moneta. Quale delle due è denaro contante?",
+        "Immagina di spendere £2 da un saldo di £5. Annota il nuovo saldo.",
+        "Confronta una carta di debito, una carta di credito e un portafoglio sul telefono. Spiega da dove proviene il denaro usato per pagare."
+      ]
+    }
+  }
+}

@@ -11,10 +11,21 @@ This checkpoint:
 - Adds a source fingerprint per biography. Changed English copy makes the Romanian draft stale until reviewed. Structural validation rejects missing text, changed arrays or attempts to replace metadata.
 - Does not activate Romanian routes or substitute partial Romanian content into an English interface. `ACTIVE_LOCALES` remains English until the whole locale is complete and reviewed.
 
-Still required: remaining reading domains in Romanian (short reads, Museum, laboratory variants and external-book introductions); all new reading domains in Spanish/French/German/Italian/Portuguese/Dutch/Polish; all hardcoded interface and SEO text; parent commercial/privacy/recovery copy; all 20 printable activities, guides, answers and journal pages in each language; editorial and real-layout checks. Narration requires a separately verified voice per supported language.
+Still required: remaining reading domains in Romanian (short reads, laboratories and external-book introductions); remaining non-Museum reading domains in Spanish/French/German/Italian/Portuguese/Dutch/Polish; all hardcoded interface and SEO text; parent commercial/privacy/recovery copy; all 20 printable activities, guides, answers and journal pages in each language; editorial and real-layout checks. Narration requires a separately verified voice per supported language.
 
 The translation drafts and tests check coverage/structure/source synchronisation, not native-editor approval or learning quality. The English source and existing message files are preserved.
 
 ## Book translation follow-up
 
 All ten original books now also have complete Romanian text drafts: 62 chapters and 908 translated fragments. This includes the three original reading levels, seven Explorer shared-reading stories, chapter questions, feedback, activities and glossaries. Existing English manuscripts, cover paths, slugs, chapter/paragraph counts and correct-answer positions are preserved. Tests additionally check GBP amounts and detect changed answer flags and stale source copy. These are editorial drafts, not proof of native-editor approval, child usability or finished Romanian pages. Romanian UI, other authored domains, PDFs, SEO and narration remain pending.
+
+
+## Museum translation follow-up, 29 October 2026
+
+All ten Museum room readings, quizzes, explanations and activities now have complete content drafts in Romanian, Spanish, French, German, Italian, Portuguese, Dutch and Polish. Each edition also includes the ten feedback texts and all thirty distinct Explorer/Builder/Strategist practical challenges. That is 130 text fragments per language, 1,040 translated fragments in total. English source copy is unchanged.
+
+`museumTranslationSource` projects only translatable room text and age challenges. `draftTranslatedMuseum` rejects changed source fingerprints, incomplete arrays, changed correct-answer indices and extra fields. Slugs, icons, source URLs and canonical bibliography titles stay on the source records. Tests verify every locale/room, three distinct answers and age challenges, numeric quantities/dates/GBP examples, source changes and invalid translation attempts.
+
+The source inventory now excludes twelve canonical bibliography titles that the initial count included despite its stated scope. This changes the count of source text fragments from 1,938 to 1,926 without deleting content. It is a counting correction, not a reduction in translation work. The initial checkpoint above remains a historical record.
+
+These are content drafts and tested adapters, not an activated multilingual Museum. The existing public Museum interface still uses English. Localized navigation, feedback prompts, metadata, read-aloud locale, rendering integration and actual per-language layout/child/native-editor review remain required before rollout. Other content groups, parent products/PDFs, shop and the rest of the website remain incomplete. `ACTIVE_LOCALES` stays English, with no new hreflang or mixed-language public pages.

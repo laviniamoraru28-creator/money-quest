@@ -1,6 +1,8 @@
 import {createHash} from "node:crypto";
 import type {OriginalBook} from "@/content/original-books";
 import type {Biography} from "@/content/people";
+import type {Room} from "@/content/discovery";
+import type {DiscoveryNote} from "@/content/discovery-notes";
 const FIELDS=["title","topic","ages","alt","playful","sections","takeaways","illustrationNote"] as const;
 export function biographyTranslationSource(person:Biography){
  return Object.fromEntries(FIELDS.filter(key=>person[key]!==undefined).map(key=>[key,person[key]]));
@@ -39,4 +41,16 @@ export function draftTranslatedBook(book:OriginalBook,translation:unknown,expect
  if(sourceFingerprint(source)!==expectedSourceHash)throw new Error(`Stale translation: ${book.slug}`);
  assertTranslationShape(source,translation,book.slug);
  return {...book,...translation as ReturnType<typeof bookTranslationSource>} as OriginalBook;
+}
+
+/** Text projection excludes identifiers, artwork, source URLs and bibliography titles. */
+export function museumTranslationSource(room:Room,note:DiscoveryNote){
+ return {room:{title:room.title,intro:room.intro,story:room.story,quiz:room.quiz,explanation:room.explanation,activity:room.activity},note:{feedback:note.feedback,challenges:note.challenges}};
+}
+export function draftTranslatedMuseum(room:Room,note:DiscoveryNote,translation:unknown,expectedSourceHash:string):{room:Room;note:DiscoveryNote}{
+ const source=museumTranslationSource(room,note);
+ if(sourceFingerprint(source)!==expectedSourceHash)throw new Error(`Stale translation: museum/${room.slug}`);
+ assertTranslationShape(source,translation,room.slug);
+ const copy=translation as ReturnType<typeof museumTranslationSource>;
+ return {room:{...room,...copy.room},note:{...note,...copy.note}};
 }

@@ -1,8 +1,8 @@
 type Source={title:string;url:string};
-type Note={feedback:string;challenges:[string,string,string];sources?:Source[]};
+export type DiscoveryNote={feedback:string;challenges:[string,string,string];sources?:Source[]};
 const money:Source={title:"Bank of England: What is money?",url:"https://www.bankofengland.co.uk/explainers/what-is-money"};
 const history:Source={title:"Bank of England: How has money changed over time?",url:"https://www.bankofengland.co.uk/explainers/how-has-money-changed-over-time"};
-export const discoveryNotes:Record<string,Note>={
+export const discoveryNotes:Record<string,DiscoveryNote>={
 "before-money":{feedback:"Both people need to agree to an exchange. Barter was one way to exchange goods, not a single universal stage before money.",challenges:["Point to two things people could swap.","Act out a swap. What if one person does not want the offer?","Explain why money, barter and credit can exist alongside each other."],sources:[history]},
 "first-coins":{feedback:"A stamp identified an issuer or authority. Trust, weight and metal also mattered.",challenges:["Draw a symbol for a pretend coin.","Explain what the symbol could tell a person.","Compare a coin stamp with a modern security feature. What does each help someone check?"],sources:[{title:"British Museum: Money gallery guide",url:"https://www.britishmuseum.org/sites/default/files/2021-05/Money_Gallery_LPG_2020_Room_68.pdf"}]},
 "strange-money":{feedback:"People need to accept something as payment for it to function as money in their community.",challenges:["Choose an object for pretend money.","Explain why people would accept your choice.","Compare durability, portability and shared acceptance for two possible currencies."],sources:[history]},

@@ -1,0 +1,262 @@
+{
+  "before-money": {
+    "room": {
+      "title": "Avant la monnaie",
+      "intro": "Les personnes ont échangé des biens et des services de nombreuses façons.",
+      "story": "Une personne qui cultive a des pommes. Une personne qui fait du pain a du pain. Elles peuvent échanger si elles sont toutes les deux d’accord. Cela s’appelle le troc. On a aussi utilisé des cadeaux, des promesses et du crédit. La monnaie n’est pas apparue partout de la même façon.",
+      "quiz": {
+        "question": "Pourquoi peut-il être difficile de faire un échange ?",
+        "answers": [
+          "Les deux personnes doivent vouloir cet échange",
+          "Tout a la même valeur",
+          "Personne n’a besoin de rien"
+        ],
+        "correct": 0
+      },
+      "explanation": "Pour échanger, il faut trouver quelqu’un qui veut ce que tu proposes.",
+      "activity": "Imagine un échange équitable avec un ami ou une amie."
+    },
+    "note": {
+      "feedback": "Les deux personnes doivent accepter l’échange. Le troc était une façon d’échanger des biens, pas une étape universelle avant la monnaie.",
+      "challenges": [
+        "Montre deux choses que des personnes pourraient échanger.",
+        "Jouez un échange. Que se passe-t-il si une personne ne veut pas de l’offre ?",
+        "Explique pourquoi la monnaie, le troc et le crédit peuvent exister en même temps."
+      ]
+    }
+  },
+  "first-coins": {
+    "room": {
+      "title": "Les premières pièces",
+      "intro": "Les pièces frappées ont facilité de nombreux échanges.",
+      "story": "Certaines des plus anciennes pièces frappées ont été fabriquées en Lydie, dans l’actuelle Turquie, il y a plus de 2 500 ans. Parmi elles figuraient des pièces en électrum, un mélange d’or et d’argent. Les pièces se sont développées dans différents endroits et les historiens étudient encore leurs débuts.",
+      "quiz": {
+        "question": "Qu’aidait à montrer la marque sur une pièce ?",
+        "answers": [
+          "Le prix exact de chaque objet",
+          "Qui avait émis la pièce",
+          "Combien de personnes l’avaient possédée"
+        ],
+        "correct": 1
+      },
+      "explanation": "Il fallait toujours avoir confiance dans la pièce.",
+      "activity": "Dessine une pièce avec un symbole qui a du sens."
+    },
+    "note": {
+      "feedback": "La marque identifiait un émetteur ou une autorité. La confiance, le poids et le métal comptaient aussi.",
+      "challenges": [
+        "Dessine un symbole pour une pièce de jeu.",
+        "Explique ce que le symbole pourrait indiquer à une personne.",
+        "Compare la marque d’une pièce à un élément de sécurité moderne. Que permet de vérifier chacun ?"
+      ]
+    }
+  },
+  "strange-money": {
+    "room": {
+      "title": "Des monnaies inhabituelles",
+      "intro": "La monnaie a pris de nombreuses formes.",
+      "story": "Des communautés différentes ont utilisé des coquillages, des perles et des disques de pierre comme monnaie.",
+      "quiz": {
+        "question": "Qu’est-ce qui compte le plus pour qu’une chose serve de monnaie ?",
+        "answers": [
+          "Elle doit être en or",
+          "Elle doit être minuscule",
+          "Les personnes acceptent de l’utiliser"
+        ],
+        "correct": 2
+      },
+      "explanation": "La confiance partagée et l’accord sont essentiels.",
+      "activity": "Choisis des objets qui serviront de monnaie dans une ville imaginaire."
+    },
+    "note": {
+      "feedback": "Pour qu’une chose serve de monnaie dans une communauté, les personnes doivent l’accepter comme paiement.",
+      "challenges": [
+        "Choisis un objet comme monnaie de jeu.",
+        "Explique pourquoi les personnes accepteraient ton choix.",
+        "Compare deux monnaies possibles : leur solidité, leur facilité de transport et leur acceptation par la communauté."
+      ]
+    }
+  },
+  "money-through-time": {
+    "room": {
+      "title": "La monnaie au fil du temps",
+      "intro": "Les moyens de paiement changent.",
+      "story": "On a utilisé des pièces, des billets, des comptes et des paiements électroniques. Certaines méthodes anciennes sont encore utilisées.",
+      "quiz": {
+        "question": "Qu’est-ce qui est apparu en premier ?",
+        "answers": [
+          "Les pièces",
+          "Les cartes bancaires",
+          "Les paiements par téléphone"
+        ],
+        "correct": 0
+      },
+      "explanation": "Les pièces sont plus anciennes que les cartes de paiement de plusieurs milliers d’années.",
+      "activity": "Demande à un adulte comment il payait quand il était enfant."
+    },
+    "note": {
+      "feedback": "On utilisait les pièces bien avant les cartes et les outils de paiement par téléphone.",
+      "challenges": [
+        "Choisis ce qui est apparu en premier : une pièce ou un paiement par téléphone.",
+        "Place les pièces, les billets et les paiements par téléphone sur une frise chronologique.",
+        "Explique pourquoi l’arrivée d’un nouveau moyen de paiement ne fait pas disparaître les anciens."
+      ]
+    }
+  },
+  "banknote-lab": {
+    "room": {
+      "title": "Le laboratoire des billets",
+      "intro": "Les billets ont des éléments de sécurité.",
+      "story": "Les billets britanniques modernes sont en polymère et possèdent des éléments qui aident à reconnaître les billets authentiques.",
+      "quiz": {
+        "question": "Pourquoi les billets ont-ils des éléments de sécurité ?",
+        "answers": [
+          "Pour donner la même couleur à tous les billets",
+          "Pour rendre leur copie plus difficile",
+          "Pour fixer les prix des magasins"
+        ],
+        "correct": 1
+      },
+      "explanation": "Les éléments de sécurité aident à lutter contre la contrefaçon.",
+      "activity": "Dessine un billet de jeu avec ton propre motif."
+    },
+    "note": {
+      "feedback": "Les éléments de sécurité facilitent la reconnaissance des vrais billets et rendent leur copie plus difficile.",
+      "challenges": [
+        "Trouve une forme de fenêtre sur l’image d’un billet.",
+        "Dessine un billet qui soit clairement un billet de jeu. Ne copie pas un vrai billet.",
+        "Explique pourquoi il faut consulter les conseils officiels plutôt que juger un billet seulement à sa couleur."
+      ]
+    }
+  },
+  "gold-vault": {
+    "room": {
+      "title": "Le coffre d’or",
+      "intro": "La monnaie n’est pas la même chose que l’or.",
+      "story": "L’or a servi à fabriquer des pièces et des bijoux. Les livres sterling modernes ne peuvent pas être échangées contre une quantité fixe d’or.",
+      "quiz": {
+        "question": "Une pièce d’une livre est-elle en or pur ?",
+        "answers": [
+          "Oui, sa couleur le prouve",
+          "Seules les anciennes pièces d’une livre sont en or pur",
+          "Non"
+        ],
+        "correct": 2
+      },
+      "explanation": "L’argent fonctionne parce que les personnes l’acceptent comme paiement.",
+      "activity": "Compare une pièce de jeu à une vraie pièce."
+    },
+    "note": {
+      "feedback": "Les pièces britanniques modernes ne sont pas en or pur. Une livre n’est pas une promesse de l’échanger contre une quantité fixe d’or.",
+      "challenges": [
+        "Compare les couleurs de deux pièces avec un adulte.",
+        "Explique pourquoi un objet de couleur dorée n’est pas forcément en or.",
+        "Compare la valeur du métal à la valeur indiquée sur une pièce."
+      ]
+    }
+  },
+  "around-the-world": {
+    "room": {
+      "title": "Les monnaies du monde",
+      "intro": "On utilise des monnaies différentes selon les endroits.",
+      "story": "Le Royaume-Uni utilise la livre sterling, le Japon le yen et de nombreux pays européens l’euro.",
+      "quiz": {
+        "question": "Quelle monnaie utilise le Japon ?",
+        "answers": [
+          "Le yen",
+          "La livre",
+          "L’euro"
+        ],
+        "correct": 0
+      },
+      "explanation": "Les taux de change entre les monnaies varient.",
+      "activity": "Repère les monnaies de différents pays sur une carte."
+    },
+    "note": {
+      "feedback": "Le Japon utilise le yen. La valeur des monnaies peut changer les unes par rapport aux autres.",
+      "challenges": [
+        "Montre le Japon sur une carte avec de l’aide.",
+        "Associe le Royaume-Uni, le Japon et un pays de la zone euro à leurs monnaies.",
+        "Si un taux imaginaire passe de £1 = 150 yens à £1 = 160 yens, calcule combien de yens tu recevrais pour £5 à chaque taux."
+      ]
+    }
+  },
+  "business-invention": {
+    "room": {
+      "title": "Entreprises et inventions",
+      "intro": "Les idées peuvent résoudre de vrais problèmes.",
+      "story": "Les personnes qui créent une entreprise peuvent tester une petite idée et demander aux gens si elle les aide.",
+      "quiz": {
+        "question": "Que devrais-tu faire avant de fabriquer 100 produits ?",
+        "answers": [
+          "Ignorer les avis",
+          "Tester une petite idée",
+          "Acheter 100 boîtes"
+        ],
+        "correct": 1
+      },
+      "explanation": "Tester tôt peut économiser du temps et de l’argent.",
+      "activity": "Invente quelque chose d’utile pour ta maison."
+    },
+    "note": {
+      "feedback": "Un petit test donne des informations avant d’investir davantage de temps et d’argent.",
+      "challenges": [
+        "Dessine une chose qui pourrait aider quelqu’un.",
+        "Demande à une personne de confiance comment améliorer ton idée.",
+        "Choisis un test, fixe un petit budget et décide quels éléments te feraient changer d’idée."
+      ]
+    }
+  },
+  "museum-of-mistakes": {
+    "room": {
+      "title": "Le musée des erreurs",
+      "intro": "Les avis aident à s’améliorer.",
+      "story": "En 1985, Coca-Cola a changé la recette de sa boisson au cola aux États-Unis. Après des plaintes, l’entreprise a rétabli la formule originale.",
+      "quiz": {
+        "question": "Que peuvent apprendre les entreprises grâce aux avis ?",
+        "answers": [
+          "À cacher les erreurs",
+          "À ne jamais changer",
+          "À écouter et à s’améliorer"
+        ],
+        "correct": 2
+      },
+      "explanation": "Apprendre, c’est observer ce qui s’est passé et s’adapter.",
+      "activity": "Décris quelque chose que tu as amélioré après une erreur."
+    },
+    "note": {
+      "feedback": "Les avis des clients peuvent révéler des problèmes qu’une entreprise doit résoudre. Cela ne veut pas dire qu’il faut suivre chaque suggestion.",
+      "challenges": [
+        "Choisis une modification à tester sur une création imaginaire.",
+        "Demande l’avis de deux personnes. Remarque si elles ne sont pas d’accord.",
+        "Compare les avis des clients avec les ventes et les coûts avant de choisir la modification à tester."
+      ]
+    }
+  },
+  "future-money": {
+    "room": {
+      "title": "Le laboratoire de l’argent du futur",
+      "intro": "Les paiements numériques utilisent aussi de l’argent réel.",
+      "story": "Les cartes et les téléphones peuvent envoyer des instructions pour transférer de l’argent ou débiter un compte. La carte elle-même n’est pas le solde du compte.",
+      "quiz": {
+        "question": "Approcher une carte du terminal crée-t-il de l’argent gratuit ?",
+        "answers": [
+          "Non",
+          "Oui, le terminal ajoute de l’argent",
+          "Oui, si on paie avec un téléphone"
+        ],
+        "correct": 0
+      },
+      "explanation": "Vérifie le montant avant de payer.",
+      "activity": "Simule un paiement par carte et inscris-le dans un budget."
+    },
+    "note": {
+      "feedback": "Une carte ou un téléphone envoie des instructions de paiement. Cela ne crée pas d’argent gratuit.",
+      "challenges": [
+        "Montre une carte et une pièce. Laquelle est de l’argent liquide ?",
+        "Imagine que tu dépenses £2 sur un solde de £5. Note le nouveau solde.",
+        "Compare une carte de débit, une carte de crédit et un portefeuille sur téléphone. Explique d’où vient l’argent utilisé pour payer."
+      ]
+    }
+  }
+}

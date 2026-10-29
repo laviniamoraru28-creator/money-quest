@@ -1,0 +1,262 @@
+{
+  "before-money": {
+    "room": {
+      "title": "Antes del dinero",
+      "intro": "Las personas han intercambiado bienes y servicios de muchas maneras.",
+      "story": "Una persona que cultiva tiene manzanas. Una que hace pan tiene pan. Pueden intercambiarlos si ambas están de acuerdo. Esto se llama trueque. También se han usado regalos, promesas y crédito. El dinero no apareció de una única forma en todos los lugares.",
+      "quiz": {
+        "question": "¿Por qué puede ser difícil intercambiar cosas?",
+        "answers": [
+          "Ambas personas deben querer el intercambio",
+          "Todo tiene el mismo valor",
+          "Nadie necesita nada"
+        ],
+        "correct": 0
+      },
+      "explanation": "Para intercambiar, necesitas encontrar a alguien que quiera lo que ofreces.",
+      "activity": "Inventa un intercambio justo con un amigo o una amiga."
+    },
+    "note": {
+      "feedback": "Ambas personas deben aceptar el intercambio. El trueque fue una manera de intercambiar bienes, no una etapa universal anterior al dinero.",
+      "challenges": [
+        "Señala dos cosas que las personas podrían intercambiar.",
+        "Representa un intercambio. ¿Qué pasa si alguien no quiere la oferta?",
+        "Explica por qué el dinero, el trueque y el crédito pueden existir a la vez."
+      ]
+    }
+  },
+  "first-coins": {
+    "room": {
+      "title": "Las primeras monedas",
+      "intro": "Las monedas acuñadas facilitaron muchos intercambios.",
+      "story": "Algunas de las primeras monedas acuñadas se hicieron en Lidia, en la actual Turquía, hace más de 2.500 años. Entre ellas había monedas de electro, una mezcla de oro y plata. Las monedas se desarrollaron en distintos lugares y los historiadores siguen estudiando sus orígenes.",
+      "quiz": {
+        "question": "¿Qué ayudaba a mostrar la marca de una moneda?",
+        "answers": [
+          "El precio exacto de cada producto",
+          "Quién emitió la moneda",
+          "Cuántas personas la habían tenido"
+        ],
+        "correct": 1
+      },
+      "explanation": "La gente seguía necesitando confiar en la moneda.",
+      "activity": "Diseña una moneda con un símbolo que tenga significado."
+    },
+    "note": {
+      "feedback": "La marca identificaba a una entidad emisora o autoridad. También importaban la confianza, el peso y el metal.",
+      "challenges": [
+        "Dibuja un símbolo para una moneda de juguete.",
+        "Explica qué podría indicar ese símbolo a una persona.",
+        "Compara la marca de una moneda con una medida de seguridad moderna. ¿Qué ayuda a comprobar cada una?"
+      ]
+    }
+  },
+  "strange-money": {
+    "room": {
+      "title": "Dinero poco habitual",
+      "intro": "El dinero ha tenido muchas formas.",
+      "story": "Distintas comunidades han usado conchas, cuentas y discos de piedra como dinero.",
+      "quiz": {
+        "question": "¿Qué es lo más importante para que algo funcione como dinero?",
+        "answers": [
+          "Debe ser de oro",
+          "Debe ser diminuto",
+          "La gente acepta usarlo"
+        ],
+        "correct": 2
+      },
+      "explanation": "La confianza compartida y el acuerdo son esenciales.",
+      "activity": "Elige objetos para la moneda de un pueblo imaginario."
+    },
+    "note": {
+      "feedback": "Para que algo funcione como dinero en una comunidad, la gente debe aceptarlo como pago.",
+      "challenges": [
+        "Elige un objeto para usarlo como dinero de juguete.",
+        "Explica por qué la gente aceptaría tu elección.",
+        "Compara dos posibles monedas: su duración, facilidad de transporte y aceptación por la comunidad."
+      ]
+    }
+  },
+  "money-through-time": {
+    "room": {
+      "title": "El dinero a lo largo del tiempo",
+      "intro": "Las formas de pagar cambian.",
+      "story": "Se han usado monedas, billetes, cuentas y pagos electrónicos. Algunas formas antiguas siguen utilizándose.",
+      "quiz": {
+        "question": "¿Qué apareció antes?",
+        "answers": [
+          "Las monedas",
+          "Las tarjetas bancarias",
+          "Los pagos con el móvil"
+        ],
+        "correct": 0
+      },
+      "explanation": "Las monedas son miles de años anteriores a las tarjetas de pago.",
+      "activity": "Pregunta a una persona adulta cómo pagaba cuando era pequeña."
+    },
+    "note": {
+      "feedback": "Las monedas se usaban mucho antes que las tarjetas y las herramientas de pago móvil.",
+      "challenges": [
+        "Elige qué apareció primero: una moneda o un pago con el móvil.",
+        "Coloca monedas, billetes y pagos móviles en una línea del tiempo.",
+        "Explica por qué introducir una forma nueva de pago no hace desaparecer las anteriores."
+      ]
+    }
+  },
+  "banknote-lab": {
+    "room": {
+      "title": "Laboratorio de billetes",
+      "intro": "Los billetes tienen medidas de seguridad.",
+      "story": "Los billetes modernos del Reino Unido son de polímero y tienen elementos que ayudan a reconocer los auténticos.",
+      "quiz": {
+        "question": "¿Por qué tienen medidas de seguridad los billetes?",
+        "answers": [
+          "Para que todos tengan el mismo color",
+          "Para dificultar su copia",
+          "Para decidir los precios de las tiendas"
+        ],
+        "correct": 1
+      },
+      "explanation": "Las medidas de seguridad ayudan a proteger frente a las falsificaciones.",
+      "activity": "Diseña un billete de juguete con tu propio dibujo."
+    },
+    "note": {
+      "feedback": "Las medidas de seguridad facilitan reconocer los billetes auténticos y dificultan copiarlos.",
+      "challenges": [
+        "Busca la forma de una ventana en la imagen de un billete.",
+        "Diseña un billete que sea claramente de juguete. No copies uno real.",
+        "Explica por qué conviene consultar las indicaciones oficiales en vez de juzgar un billete solo por su color."
+      ]
+    }
+  },
+  "gold-vault": {
+    "room": {
+      "title": "La cámara del oro",
+      "intro": "El dinero no es lo mismo que el oro.",
+      "story": "El oro se ha usado para monedas y joyas. Las libras británicas actuales no se pueden canjear por una cantidad fija de oro.",
+      "quiz": {
+        "question": "¿Una moneda de una libra es de oro puro?",
+        "answers": [
+          "Sí, su color lo demuestra",
+          "Solo las monedas antiguas de una libra son de oro puro",
+          "No"
+        ],
+        "correct": 2
+      },
+      "explanation": "El dinero funciona porque las personas lo aceptan como pago.",
+      "activity": "Compara una moneda de juguete con una real."
+    },
+    "note": {
+      "feedback": "Las monedas británicas modernas no son de oro puro. Una libra no es una promesa de cambiarla por una cantidad fija de oro.",
+      "challenges": [
+        "Compara los colores de dos monedas con una persona adulta.",
+        "Explica por qué un objeto de color dorado no tiene por qué ser de oro.",
+        "Compara el valor del metal con el valor indicado en una moneda."
+      ]
+    }
+  },
+  "around-the-world": {
+    "room": {
+      "title": "El dinero por el mundo",
+      "intro": "En distintos lugares se usan distintas monedas.",
+      "story": "El Reino Unido usa libras esterlinas, Japón usa yenes y muchos países europeos usan euros.",
+      "quiz": {
+        "question": "¿Qué moneda usa Japón?",
+        "answers": [
+          "Yenes",
+          "Libras",
+          "Euros"
+        ],
+        "correct": 0
+      },
+      "explanation": "Los tipos de cambio entre monedas varían.",
+      "activity": "Busca las monedas de distintos países en un mapa."
+    },
+    "note": {
+      "feedback": "Japón usa yenes. El valor de las monedas puede cambiar de unas respecto a otras.",
+      "challenges": [
+        "Señala Japón en un mapa con ayuda.",
+        "Relaciona el Reino Unido, Japón y un país de la zona euro con sus monedas.",
+        "Si un tipo de cambio inventado pasa de £1 = 150 yenes a £1 = 160 yenes, calcula cuántos yenes recibirías por £5 con cada tipo."
+      ]
+    }
+  },
+  "business-invention": {
+    "room": {
+      "title": "Negocios e inventos",
+      "intro": "Las ideas pueden resolver problemas reales.",
+      "story": "Quien emprende puede probar una idea a pequeña escala y preguntar a las personas si les ayuda.",
+      "quiz": {
+        "question": "¿Qué deberías hacer antes de fabricar 100 productos?",
+        "answers": [
+          "Ignorar las opiniones",
+          "Probar una idea a pequeña escala",
+          "Comprar 100 cajas"
+        ],
+        "correct": 1
+      },
+      "explanation": "Probar pronto puede ahorrar tiempo y dinero.",
+      "activity": "Inventa algo útil para tu hogar."
+    },
+    "note": {
+      "feedback": "Una prueba pequeña aporta información antes de invertir más tiempo y dinero.",
+      "challenges": [
+        "Dibuja algo que pueda ayudar a alguien.",
+        "Pregunta a una persona de confianza cómo mejoraría tu idea.",
+        "Elige una prueba, fija un presupuesto pequeño y decide qué pruebas te harían cambiar la idea."
+      ]
+    }
+  },
+  "museum-of-mistakes": {
+    "room": {
+      "title": "Museo de los errores",
+      "intro": "Las opiniones ayudan a mejorar.",
+      "story": "En 1985 Coca-Cola cambió la receta de su refresco de cola en Estados Unidos. Tras las quejas, la empresa recuperó la fórmula original.",
+      "quiz": {
+        "question": "¿Qué pueden aprender los negocios de las opiniones?",
+        "answers": [
+          "A ocultar los errores",
+          "A no cambiar nunca",
+          "A escuchar y mejorar"
+        ],
+        "correct": 2
+      },
+      "explanation": "Aprender implica observar lo ocurrido y adaptarse.",
+      "activity": "Describe algo que mejoraste después de un error."
+    },
+    "note": {
+      "feedback": "Las opiniones de clientes pueden revelar problemas que un negocio debe resolver. Eso no significa que deba seguir todas las sugerencias.",
+      "challenges": [
+        "Elige un cambio que podrías probar en un diseño de juego.",
+        "Pide la opinión de dos personas. Observa si no están de acuerdo.",
+        "Compara las opiniones de clientes con las ventas y los costes antes de decidir qué cambio probar."
+      ]
+    }
+  },
+  "future-money": {
+    "room": {
+      "title": "Laboratorio del dinero del futuro",
+      "intro": "Los pagos digitales también usan dinero real.",
+      "story": "Las tarjetas y los teléfonos pueden enviar instrucciones para transferir dinero o cargar un pago en una cuenta. La tarjeta en sí no es el saldo de la cuenta.",
+      "quiz": {
+        "question": "¿Acercar una tarjeta al terminal crea dinero gratis?",
+        "answers": [
+          "No",
+          "Sí, el terminal añade dinero",
+          "Sí, si pagas con el móvil"
+        ],
+        "correct": 0
+      },
+      "explanation": "Comprueba el importe antes de pagar.",
+      "activity": "Simula un pago con tarjeta y anótalo en un presupuesto."
+    },
+    "note": {
+      "feedback": "Una tarjeta o un teléfono envía instrucciones de pago. No crea dinero gratis.",
+      "challenges": [
+        "Señala una tarjeta y una moneda. ¿Cuál es dinero en efectivo?",
+        "Imagina que gastas £2 de un saldo de £5. Anota el nuevo saldo.",
+        "Compara una tarjeta de débito, una de crédito y una cartera del móvil. Explica de dónde viene el dinero del pago."
+      ]
+    }
+  }
+}
