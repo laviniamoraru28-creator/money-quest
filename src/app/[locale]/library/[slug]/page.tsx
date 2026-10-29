@@ -1,3 +1,4 @@
+import {publicDiscoveryPresentation} from "@/lib/i18n/discovery-presentation";
 import {publicLibraryLocale,draftReaderPresentation,draftBiographyPresentation} from "@/lib/i18n/library-presentation";
 import {learningMetadata} from "@/lib/seo/learning-metadata";
 import DiscoveryExperience from "@/components/DiscoveryExperience";
@@ -16,7 +17,7 @@ export default async function Page({params}:Props){
   const original=originalBooks.find(book=>book.slug===slug);
   if(original)return <OriginalBookReader key={slug} {...draftReaderPresentation(original,locale)}/>;
   if(!libraryBooks.some(entry=>entry.slug===slug))notFound();
-  return <DiscoveryExperience kind="library" slug={slug}/>;
+  return <DiscoveryExperience presentation={publicDiscoveryPresentation("library",requestedLocale,slug)}/>;
 }
 export function generateStaticParams(){return [...libraryBooks,...originalBooks,...libraryPeople].map(entry=>({slug:entry.slug}))}
 export async function generateMetadata({params}:Props){

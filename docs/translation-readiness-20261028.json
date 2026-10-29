@@ -1,4 +1,23 @@
 {
+  "discoveryInterfaceDrafts": {
+    "locales": [
+      "en",
+      "ro",
+      "es",
+      "fr",
+      "de",
+      "it",
+      "pt",
+      "nl",
+      "pl"
+    ],
+    "stringsPerLocale": 39,
+    "translatedStrings": 312,
+    "sourceFingerprintManifest": "src/content/translations/discovery-interface.sources.json",
+    "integration": "Server-assembled Museum and short-read drafts in all nine locales; 173 successful actual component SSR checks; public English-only gate. Full Library hub drafts only EN/RO until original content is translated",
+    "editorialStatus": "AI multilingual editorial drafts, not native-editor certified",
+    "remaining": "Global layout/navigation/read-aloud/offline UI, remaining authored languages, metadata/SEO, commerce text, PDFs and non-English browser/real voice review"
+  },
   "libraryInterfaceDrafts": {
     "locales": [
       "en",
@@ -16,7 +35,7 @@
     "sourceFingerprintManifest": "src/content/translations/library-interface.sources.json",
     "integration": "Public-gated original-reader, biography and shelf presentations; explicit EN/RO draft assembly with source hashes and actual component SSR checks",
     "editorialStatus": "AI multilingual editorial drafts; not native-editor certified",
-    "remaining": "DiscoveryExperience hub/short-read controls, global shared UI, metadata, other seven authored-content sets, non-English browser/real speech review and PDFs"
+    "remaining": "Global shared UI, metadata, other seven authored-content sets, non-English browser/real speech review and PDFs"
   },
   "laboratoryInterfaceDrafts": {
     "locales": [
@@ -87,49 +106,49 @@
     {
       "locale": "ro",
       "messageKeys": "validated separately; key parity does not prove authored-content translation",
-      "newContent": "All eight tracked authored-content groups have Romanian drafts, including 3 laboratories with age readings and 12 external-book introductions; laboratory, original-reader, biography and shelf UI with EN/RO component SSR prepared; remaining shared UI, SEO, PDFs and browser-language integration still pending",
+      "newContent": "All eight tracked authored-content groups have Romanian drafts, including 3 laboratories with age readings and 12 external-book introductions; laboratory, original-reader, biography, shelf and discovery UI with component SSR prepared; remaining global UI, SEO, PDFs and browser-language integration still pending",
       "publicActivation": "blocked pending complete content and review"
     },
     {
       "locale": "es",
       "messageKeys": "validated separately; key parity does not prove authored-content translation",
-      "newContent": "10 Museum room drafts and 8 short-read drafts with age challenges; other domains pending",
+      "newContent": "10 Museum room drafts and 8 short-read drafts with age challenges, shared discovery UI and component SSR prepared; original books, biographies, labs, external-book introductions and global UI remain incomplete",
       "publicActivation": "blocked pending complete content and review"
     },
     {
       "locale": "fr",
       "messageKeys": "validated separately; key parity does not prove authored-content translation",
-      "newContent": "10 Museum room drafts and 8 short-read drafts with age challenges; other domains pending",
+      "newContent": "10 Museum room drafts and 8 short-read drafts with age challenges, shared discovery UI and component SSR prepared; original books, biographies, labs, external-book introductions and global UI remain incomplete",
       "publicActivation": "blocked pending complete content and review"
     },
     {
       "locale": "de",
       "messageKeys": "validated separately; key parity does not prove authored-content translation",
-      "newContent": "10 Museum room drafts and 8 short-read drafts with age challenges; other domains pending",
+      "newContent": "10 Museum room drafts and 8 short-read drafts with age challenges, shared discovery UI and component SSR prepared; original books, biographies, labs, external-book introductions and global UI remain incomplete",
       "publicActivation": "blocked pending complete content and review"
     },
     {
       "locale": "it",
       "messageKeys": "validated separately; key parity does not prove authored-content translation",
-      "newContent": "10 Museum room drafts and 8 short-read drafts with age challenges; other domains pending",
+      "newContent": "10 Museum room drafts and 8 short-read drafts with age challenges, shared discovery UI and component SSR prepared; original books, biographies, labs, external-book introductions and global UI remain incomplete",
       "publicActivation": "blocked pending complete content and review"
     },
     {
       "locale": "pt",
       "messageKeys": "validated separately; key parity does not prove authored-content translation",
-      "newContent": "10 Museum room drafts and 8 short-read drafts with age challenges; other domains pending",
+      "newContent": "10 Museum room drafts and 8 short-read drafts with age challenges, shared discovery UI and component SSR prepared; original books, biographies, labs, external-book introductions and global UI remain incomplete",
       "publicActivation": "blocked pending complete content and review"
     },
     {
       "locale": "nl",
       "messageKeys": "validated separately; key parity does not prove authored-content translation",
-      "newContent": "10 Museum room drafts and 8 short-read drafts with age challenges; other domains pending",
+      "newContent": "10 Museum room drafts and 8 short-read drafts with age challenges, shared discovery UI and component SSR prepared; original books, biographies, labs, external-book introductions and global UI remain incomplete",
       "publicActivation": "blocked pending complete content and review"
     },
     {
       "locale": "pl",
       "messageKeys": "validated separately; key parity does not prove authored-content translation",
-      "newContent": "10 Museum room drafts and 8 short-read drafts with age challenges; other domains pending",
+      "newContent": "10 Museum room drafts and 8 short-read drafts with age challenges, shared discovery UI and component SSR prepared; original books, biographies, labs, external-book introductions and global UI remain incomplete",
       "publicActivation": "blocked pending complete content and review"
     }
   ],

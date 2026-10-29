@@ -6,7 +6,6 @@ import {readFileSync} from "node:fs";
 import OriginalBookReader from "../src/components/OriginalBookReader";
 import BiographyProfile from "../src/components/BiographyProfile";
 import {LibraryShelves} from "../src/components/LibraryShelves";
-import DiscoveryExperience from "../src/components/DiscoveryExperience";
 import {originalBooks} from "../src/content/library";
 import {libraryPeople} from "../src/content/people";
 import {authorBooks} from "../src/content/author-books";
@@ -96,5 +95,4 @@ for(const locale of LOCALES.filter(locale=>locale!=="en"&&locale!=="ro")){
  assert.throws(()=>draftBiographyPresentation(libraryPeople[0]!,locale),/not ready/);
  assert.throws(()=>draftShelfPresentation(locale),/not ready/);
 }
-assert.throws(()=>render("en",React.createElement(DiscoveryExperience,{kind:"library"})),/complete shelf presentation/);
 console.log("PASS: 675 reader/biography/shelf UI strings across nine locales, EN/RO component SSR for 10 books, 10 biographies and both shelf editions, canonical metadata, pagination and answer preservation, calendar dates, stale-source refusal and English-only activation. Open Romanian reader interaction and real voice quality remain unverified.");

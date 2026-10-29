@@ -1,0 +1,20 @@
+{
+  "status": "draft",
+  "recorded": "2026-10-29",
+  "sourceHash": "79d69ba618005aa091b010056f381738f7db221c529ee6da052c627d77f46f69",
+  "locales": [
+    "en",
+    "ro",
+    "es",
+    "fr",
+    "de",
+    "it",
+    "pt",
+    "nl",
+    "pl"
+  ],
+  "stringsPerLocale": 39,
+  "translatedStrings": 312,
+  "review": "AI multilingual editorial drafts, not native-editor certified. EN is the only active public locale. Localized SSR, source/shape/answer and public-gate checks are separate from browser interaction, global-layout translation and real voice quality.",
+  "scope": "Museum and short-read shared interface, hubs, guide messages, quiz/progress feedback and navigation. Existing media alt/disclosures, guide controls and shared reader labels are reused rather than recounted."
+}
