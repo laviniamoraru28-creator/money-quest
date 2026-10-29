@@ -8,6 +8,12 @@
 export const LOCALES = ["en", "ro", "es", "fr", "de", "it", "pt", "nl", "pl"] as const;
 export type Locale = (typeof LOCALES)[number];
 
+/** Regional conventions shared by optional narration, dates and number formatting. */
+export const REGIONAL_LOCALES: Record<Locale,string> = {
+  en:"en-GB",ro:"ro-RO",es:"es-ES",fr:"fr-FR",de:"de-DE",
+  it:"it-IT",pt:"pt-PT",nl:"nl-NL",pl:"pl-PL"
+};
+
 export const DEFAULT_LOCALE = "en" as const;
 
 /**

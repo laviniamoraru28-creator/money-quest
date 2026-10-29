@@ -1,3 +1,4 @@
+import {publicLibraryLocale,draftReaderPresentation,draftBiographyPresentation} from "@/lib/i18n/library-presentation";
 import {learningMetadata} from "@/lib/seo/learning-metadata";
 import DiscoveryExperience from "@/components/DiscoveryExperience";
 import {libraryPeople} from "@/content/people";
@@ -6,13 +7,14 @@ import OriginalBookReader from "@/components/OriginalBookReader";
 import {notFound} from "next/navigation";
 import {libraryBooks} from "@/content/discovery";
 import {originalBooks} from "@/content/library";
-type Props={params:Promise<{slug:string}>};
+type Props={params:Promise<{slug:string;locale:string}>};
 export default async function Page({params}:Props){
-  const {slug}=await params;
+  const {slug,locale:requestedLocale}=await params;
+  const locale=publicLibraryLocale(requestedLocale);
   const person=libraryPeople.find(item=>item.slug===slug);
-  if(person)return <BiographyProfile person={person}/>;
+  if(person)return <BiographyProfile {...draftBiographyPresentation(person,locale)}/>;
   const original=originalBooks.find(book=>book.slug===slug);
-  if(original)return <OriginalBookReader key={slug} book={original}/>;
+  if(original)return <OriginalBookReader key={slug} {...draftReaderPresentation(original,locale)}/>;
   if(!libraryBooks.some(entry=>entry.slug===slug))notFound();
   return <DiscoveryExperience kind="library" slug={slug}/>;
 }

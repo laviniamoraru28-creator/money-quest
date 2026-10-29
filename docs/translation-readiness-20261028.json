@@ -1,4 +1,23 @@
 {
+  "libraryInterfaceDrafts": {
+    "locales": [
+      "en",
+      "ro",
+      "es",
+      "fr",
+      "de",
+      "it",
+      "pt",
+      "nl",
+      "pl"
+    ],
+    "stringsPerLocale": 75,
+    "translatedStrings": 600,
+    "sourceFingerprintManifest": "src/content/translations/library-interface.sources.json",
+    "integration": "Public-gated original-reader, biography and shelf presentations; explicit EN/RO draft assembly with source hashes and actual component SSR checks",
+    "editorialStatus": "AI multilingual editorial drafts; not native-editor certified",
+    "remaining": "DiscoveryExperience hub/short-read controls, global shared UI, metadata, other seven authored-content sets, non-English browser/real speech review and PDFs"
+  },
   "laboratoryInterfaceDrafts": {
     "locales": [
       "en",
@@ -68,7 +87,7 @@
     {
       "locale": "ro",
       "messageKeys": "validated separately; key parity does not prove authored-content translation",
-      "newContent": "All eight tracked authored-content groups have Romanian drafts, including 3 laboratories with age readings and 12 external-book introductions; laboratory UI and EN/RO component SSR prepared; remaining UI, SEO, PDFs and browser-language integration still pending",
+      "newContent": "All eight tracked authored-content groups have Romanian drafts, including 3 laboratories with age readings and 12 external-book introductions; laboratory, original-reader, biography and shelf UI with EN/RO component SSR prepared; remaining shared UI, SEO, PDFs and browser-language integration still pending",
       "publicActivation": "blocked pending complete content and review"
     },
     {
