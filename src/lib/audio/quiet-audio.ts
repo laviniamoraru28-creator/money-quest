@@ -1,13 +1,22 @@
 /** Original browser-generated ambience. No recordings, trackers or remote requests. */
+import {QUIET_MUSIC_SECONDS, scheduleQuietMusic} from "./quiet-music";
 export type QuietSound = "rain" | "notes";
+type RepeatScheduler = (tick: () => void) => () => void;
+const repeatEverySecond: RepeatScheduler = tick => {
+  const timer = setInterval(tick, 1000);
+  return () => clearInterval(timer);
+};
 export class QuietAudio {
   private context: AudioContext | null = null;
   private gain: GainNode | null = null;
   private generation = 0;
   private volume = 20;
-  constructor(private createContext: () => AudioContext = () => new AudioContext()) {}
+  private cancelRepeat: (() => void) | null = null;
+  constructor(private createContext: () => AudioContext = () => new AudioContext(), private repeat: RepeatScheduler = repeatEverySecond) {}
   stop() {
     ++this.generation;
+    this.cancelRepeat?.();
+    this.cancelRepeat = null;
     const context = this.context;
     this.context = null;
     this.gain = null;
@@ -46,13 +55,18 @@ export class QuietAudio {
         filter.connect(gain);
         source.start();
       } else {
-        for (const frequency of [174.61, 220, 261.63]) {
-          const oscillator = context.createOscillator();
-          oscillator.type = "sine";
-          oscillator.frequency.value = frequency;
-          oscillator.connect(gain);
-          oscillator.start();
-        }
+        let nextCycle = context.currentTime + 0.1;
+        scheduleQuietMusic(context, gain, nextCycle);
+        nextCycle += QUIET_MUSIC_SECONDS;
+        this.cancelRepeat = this.repeat(() => {
+          if (generation !== this.generation || context.state !== "running" || nextCycle > context.currentTime + 1.5) return;
+          try {
+            // After a delayed timer, skip the gap instead of playing missed notes in a burst.
+            nextCycle = Math.max(nextCycle, context.currentTime + 0.1);
+            scheduleQuietMusic(context, gain, nextCycle);
+            nextCycle += QUIET_MUSIC_SECONDS;
+          } catch {this.stop();}
+        });
       }
       this.setVolume(this.volume);
       return true;

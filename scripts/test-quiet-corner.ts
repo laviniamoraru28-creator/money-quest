@@ -3,6 +3,7 @@ import {QuietAudio} from "../src/lib/audio/quiet-audio";
 import {quietCopy} from "../src/content/quiet-corner";
 import {quietVideoCopy} from "../src/content/quiet-videos";
 import {LOCALES} from "../src/i18n/config";
+import {QUIET_MUSIC_NOTES, QUIET_MUSIC_SECONDS} from "../src/lib/audio/quiet-music";
 
 async function main() {
   for (const locale of LOCALES) {
@@ -13,17 +14,24 @@ async function main() {
   }
   function fake(resume: () => Promise<void> = async () => {}) {
     const changes: number[] = [];
+    const notes: {frequency:number;start:number;end?:number}[] = [];
+    const voices: {onended:(()=>void)|null}[] = [];
     const context = {
-      state: "running", currentTime: 0, sampleRate: 100, destination: {}, closed: 0, started: 0,
+      state: "running", currentTime: 0, sampleRate: 100, destination: {}, closed: 0, started: 0, disconnectedGains:0,
       resume,
       close: async () => {context.closed++;},
-      createGain: () => ({gain: {value: 0, setTargetAtTime: (value: number) => changes.push(value)}, connect() {}}),
+      createGain: () => ({gain: {value: 0, setValueAtTime() {}, linearRampToValueAtTime() {}, setTargetAtTime: (value: number) => changes.push(value)}, connect() {}, disconnect() {context.disconnectedGains++;}}),
       createBuffer: () => ({getChannelData: () => new Float32Array(400)}),
       createBufferSource: () => ({connect() {}, start() {context.started++;}}),
       createBiquadFilter: () => ({frequency: {value: 0}, connect() {}}),
-      createOscillator: () => ({frequency: {value: 0}, connect() {}, start() {context.started++;}})
+      createOscillator: () => {
+        let record: {frequency:number;start:number;end?:number};
+        const oscillator={frequency:{value:0},onended:null as (()=>void)|null,connect(){},disconnect(){},start(start=0){context.started++;record={frequency:oscillator.frequency.value,start};notes.push(record);},stop(end:number){record.end=end;}};
+        voices.push(oscillator);
+        return oscillator;
+      }
     };
-    return {context, changes, audioContext: context as unknown as AudioContext};
+    return {context, changes, notes, voices, audioContext: context as unknown as AudioContext};
   }
   const first = fake(); const audio = new QuietAudio(() => first.audioContext);
   assert.equal(first.context.started, 0, "Construction must stay silent");
@@ -41,7 +49,11 @@ async function main() {
   assert.equal(await racing.start("notes", 20), true);
   release(); assert.equal(await pending, false);
   assert.equal(slow.context.started, 0, "A cancelled pending start must not later play");
-  assert.equal(slow.context.closed, 1); assert.equal(next.context.started, 3);
+  assert.equal(slow.context.closed, 1); assert(next.context.started>3);
+  assert(new Set(next.notes.map(note=>note.frequency)).size>3,"The melody must change pitch");
+  assert(next.notes.every(note=>note.start>=0 && note.end!>note.start));
+  next.voices[0]!.onended!();assert.equal(next.context.disconnectedGains,1);
+  next.voices[1]!.onended!();assert.equal(next.context.disconnectedGains,3,"A finished note must release its colour gains and shared envelope");
   assert.equal(next.context.closed, 0, "An old start must not close newer audio");
   racing.stop(); assert.equal(next.context.closed, 1);
   let resumeVolume!: () => void;
@@ -52,6 +64,20 @@ async function main() {
   resumeVolume(); assert.equal(await startingVolume, true);
   assert.equal(waitingVolume.changes.at(-1), 0, "Mute selected during startup must take effect before sound begins");
   adjustable.stop();
+  let tick!: () => void; let cancelled = 0;
+  const cycling = fake();
+  const looping = new QuietAudio(()=>cycling.audioContext,callback=>{tick=callback;return()=>{cancelled++;};});
+  assert.equal(await looping.start("notes",20),true);
+  const firstCycleNotes = cycling.notes.length;
+  tick(); assert.equal(cycling.notes.length,firstCycleNotes,"Do not queue duplicate cycles on every timer tick");
+  cycling.context.currentTime = QUIET_MUSIC_SECONDS;
+  tick(); assert.equal(cycling.notes.length,firstCycleNotes*2);
+  cycling.context.currentTime = QUIET_MUSIC_SECONDS*10;
+  tick(); assert(cycling.notes.slice(firstCycleNotes*2).every(note=>note.start>=cycling.context.currentTime),"Delayed ticks must not burst missed notes");
+  looping.stop(); assert.equal(cancelled,1);
+  const stoppedNotes=cycling.notes.length;tick();assert.equal(cycling.notes.length,stoppedNotes,"A queued timer cannot restart stopped music");
+  assert.equal(await looping.start("rain",20),true);assert.equal(cancelled,1);looping.stop();
+  assert(QUIET_MUSIC_NOTES.every(note=>note.start>=0&&note.start+note.duration<QUIET_MUSIC_SECONDS&&note.attack>0&&note.attack<note.duration&&note.strength>0&&note.strength<1));
   const blocked = fake(async () => {throw new Error("blocked");});
   assert.equal(await new QuietAudio(() => blocked.audioContext).start("rain", 20), false);
   assert.equal(blocked.context.closed, 1);
