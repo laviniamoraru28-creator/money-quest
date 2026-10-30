@@ -26,7 +26,20 @@ export async function POST(request:Request){
   contract={id:randomBytes(16).toString("hex"),mode:"live",accountId:r.accountId,productId:product.id,title:product.title,description:product.description,pages:product.pages,includes:[...product.includes],amount:product.price,currency:"gbp",priceId:process.env[product.priceEnv]!,termsVersion:r.terms.version,termsText:r.terms.text,merchant:r.merchant,privacy:r.privacy,taxStatement:r.taxStatement,archive:{file:archiveName(product,asset.sha256),...asset},created:Date.now()};
   await saveContract(config.orders,contract);
  }
- const session=await stripeClient().checkout.sessions.create({mode:"payment",adaptive_pricing:{enabled:false},line_items:[{price:process.env[product.priceEnv]!,quantity:1}],success_url:`${config.origin}/en/parents/shop/success?session_id={CHECKOUT_SESSION_ID}&checkout=${tag}`,cancel_url:`${config.origin}/en/parents/shop?cancelled=1`,client_reference_id:tag,integration_identifier:`moneyquest_parent_shop_${letters}`,locale:"en-GB",customer_creation:"if_required",metadata:{app:APP_ID,product_id:product.id,locale:"en",instant_supply:"yes",cancellation_ack:"yes",terms_version:config.termsVersion,...(contract?{contract_id:contract.id,account_id:contract.accountId,terms_accepted:"yes"}:{}),browser_hash:createHash("sha256").update(nonce).digest("hex")},custom_text:{submit:{message:`${config.mode==="live"?"English digital PDF. No physical item.":"Sandbox test only. Digital PDF, no physical item."} You requested immediate access and acknowledged loss of the change-of-mind cancellation right once supply begins. Statutory rights for faulty or misdescribed content remain.`}}},{idempotencyKey:`mq-checkout-${tag}-${nonce}`});
+ const session=await stripeClient().checkout.sessions.create({
+  ui_mode:"hosted_page",
+  mode:"payment",
+  billing_address_collection:"auto",
+  phone_number_collection:{enabled:false},
+  automatic_tax:{enabled:false},
+  allow_promotion_codes:false,
+  submit_type:"auto",
+  integration_identifier:"hosted_web_0001",
+  origin_context:"web",
+  line_items:[{price:process.env[product.priceEnv]!,quantity:1}],
+  success_url:`${config.origin}/en/parents/shop/success?session_id={CHECKOUT_SESSION_ID}&checkout=${tag}`,
+  cancel_url:`${config.origin}/en/parents/shop?cancelled=1`
+ },{idempotencyKey:`mq-checkout-${tag}-${nonce}`});
  const checkoutUrl=validatedCheckoutUrl(session.url);
  if(session.livemode!==(config.mode==="live"))throw new Error("Checkout environment mismatch");
  const response=NextResponse.json({url:checkoutUrl},{headers:{"Cache-Control":"no-store"}});response.cookies.set(`mq_checkout_${tag}`,nonce,{httpOnly:true,secure:config.origin.startsWith("https:"),sameSite:"lax",maxAge:86400,path:"/api/shop"});return response;
