@@ -22,7 +22,7 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
           describe the site as a whole, so they belong on the homepage
           rather than repeated on every page. Both built from real,
           already-displayed facts (the site's own name and URL, plus the
-          same description used in seo.defaultDescription) — nothing
+          platform description used by its structured-data helper) — nothing
           fabricated. */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(orgSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(webSiteSchema) }} />

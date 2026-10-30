@@ -1,6 +1,6 @@
 # Money Quest: Namecheap deployment runbook
 
-Updated 29 October 2026 from the current website source. This replaces the obsolete account/Supabase runbook. The active website has no child accounts or Supabase dependency. Learning progress is stored on the device. Optional public reviews use server-side JSON storage; sandbox shop records and paid files require separate private storage.
+Updated 29 October 2026 from the current website source. This replaces the obsolete account/Supabase runbook. The active website has no child accounts or Supabase dependency. Learning progress is stored on the device. Optional public reviews use server-side JSON storage; shop order records and paid files require separate private storage.
 
 ## Release order
 
@@ -12,7 +12,7 @@ Work stays on the website feature/review branches. There is no need to push main
 
 The current application uses Next.js 15.5.28 and package.json requires Node >=24 <25. Use Node 24 for build, clean-install testing and the hosting application. The existing custom startup file is server.js; production start is npm run start.
 
-Build on a suitable local or CI runner rather than relying on a shared-host build. Use the committed package-lock.json with npm ci. Run lint, TypeScript, unit/content checks and a production build, then the relevant browser, language, accessibility and offline checks. Set NEXT_PUBLIC_SITE_URL=https://moneyquesteducation.com when building and also in the runtime configuration so server-side URL and origin checks agree. Keep NODE_ENV=production and MONEYQUEST_COMMERCE_MODE=off for the free release unless a separately completed commerce implementation explicitly changes that scope.
+Build on a suitable local or CI runner rather than relying on a shared-host build. Use the committed package-lock.json with npm ci. Run lint, TypeScript, unit/content checks and a production build, then the relevant browser, language, accessibility and offline checks. Set NEXT_PUBLIC_SITE_URL=https://moneyquesteducation.com when building and also in the runtime configuration so server-side URL and origin checks agree. Keep NODE_ENV=production. MONEYQUEST_COMMERCE_MODE defaults to off; the owner authorized live implementation on 30 October 2026, but actual activation needs the verified merchant/release/SMTP configuration and completed checks in docs/live-commerce-readiness-20261030.md.
 
 The current build-for-namecheap workflow assembles .next/, public/, messages/, src/i18n/, server.js, package.json, package-lock.json and next.config.mjs. Before calling its output upload-ready, verify it by extracting into a clean directory, installing locked dependencies and starting that extracted package with server.js on Node 24. Exercise runtime imports as well as static pages. If additional source/config is required by the final runtime, include it and repeat the extracted-package test.
 
@@ -30,7 +30,7 @@ In Namecheap's Setup Node.js App, use the existing site's application root, Node
 
 Provide runtime configuration through the hosting environment. Optional reviews need MONEYQUEST_REVIEW_STORE_PATH pointing to an absolute persistent JSON file and MONEYQUEST_REVIEW_MODERATION_KEY of at least 24 characters. Keep the data path outside public/application release files and back it up before replacing code. Missing review configuration produces a service-unavailable response while learning remains available.
 
-Keep shop mode off for the free release. Current commerce code accepts sandbox test keys only and deliberately rejects live mode. .env.commerce.example documents test-only settings. Private order/download directories must be absolute and outside the app directory. Do not include them or their secrets in a public archive. Hosting configuration is not permission to enable live payments.
+Shop modes are off, sandbox and live. The owner authorized real-payment implementation on 30 October 2026. Code now supports a restricted live key, verified inclusive GBP prices, private immutable release/contract snapshots and automatic SMTP confirmation. This does not mean the connected account, host or product files are ready. .env.commerce.example and docs/live-commerce-readiness-20261030.md describe configuration and remaining launch evidence. Private order/download directories and the release file must be outside both the application and declared document root. Never include orders, release manifests containing seller data, credentials or paid archives in a public release ZIP. Run npm run shop:check on the host; configure the bounded pending-confirmation retry command in the host scheduler. Keep mode off until the actual launch prerequisites are met. No main merge or deployment has been performed.
 
 ## Extracted-package and hosted checks
 

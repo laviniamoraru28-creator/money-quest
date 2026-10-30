@@ -7,7 +7,7 @@ name: Build Money Quest for Namecheap
 # runtime files this deployment needs — .next, messages, server.js,
 # package.json, next.config.mjs, src/i18n (see the step below for why
 # src/i18n specifically is kept even though the rest of src/ isn't
-# needed at runtime). Includes public/ artwork and worksheets — with everything already at
+# needed by the web server; private commerce admin commands also carry their source subset). Includes public/ artwork and worksheets — with everything already at
 # the archive root, no outer wrapper folder.
 #
 # To use: push this repository to GitHub (a free private repo is
@@ -79,6 +79,13 @@ jobs:
           # read again at runtime.
           mkdir -p deploy/src
           cp -r src/i18n deploy/src/
+          # Private commerce administration commands use the same pinned Node/TS runtime.
+          # No merchant release manifest, credentials, order data or paid archives are copied.
+          cp tsconfig.json deploy/
+          mkdir -p deploy/src/lib deploy/src/content deploy/scripts
+          cp -r src/lib/commerce deploy/src/lib/
+          cp src/content/shop.ts deploy/src/content/
+          cp scripts/shop-preflight.ts scripts/shop-deliver-pending.ts deploy/scripts/
 
       - name: Zip the package with files at the archive root
         run: |

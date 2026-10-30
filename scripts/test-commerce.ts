@@ -34,7 +34,7 @@ async function main(){
  const validate=(value:unknown)=>validatePaidSession(value as Stripe.Checkout.Session);
  assert.equal(validate(fixture).id,"family-adventure-pack");
  for(const changes of [{livemode:true},{payment_status:"unpaid"},{status:"open"},{amount_total:1},{currency:"usd"},{payment_intent:{status:"processing",latest_charge:{}}},{payment_intent:{status:"succeeded",latest_charge:{refunded:true,amount_refunded:599,disputed:false}}},{payment_intent:{status:"succeeded",latest_charge:{refunded:false,amount_refunded:0,disputed:true}}},{line_items:{data:[{quantity:2,price:{id:"price_fixture_family"}}],has_more:false}},{metadata:{...fixture.metadata,instant_supply:"no"}},{metadata:{...fixture.metadata,cancellation_ack:"no"}}])assert.throws(()=>validate({...fixture,...changes}));
- const client=new Stripe("rk_test_fixture_only",{apiVersion:"2026-08-26.dahlia"});
+ const client=new Stripe("rk_test_fixture_only",{});
  const payload=JSON.stringify({id:"evt_fixture",object:"event",type:"checkout.session.completed",data:{object:fixture}});
  const webhookSecret="whsec_fixture_only";
  const signature=client.webhooks.generateTestHeaderString({payload,secret:webhookSecret});

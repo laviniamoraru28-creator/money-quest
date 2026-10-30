@@ -35,3 +35,7 @@ The existing free worksheets, Library, Museum, three learning levels, Godot file
 Local Node 24.22.1: clean npm ci with existing package versions preserved, lint, TypeScript, all 25 unit/content suites and production build passed. All generated PDF text glyphs were checked against page safety bounds, with zero out-of-bounds glyphs. Representative worksheet, cover and journal spread images were visually inspected; the initial cover overlap was corrected before delivery. Free PDFs were recompressed using JPEG scene images without changing text or page geometry (approximately 172 KB and 248 KB). Full-page/browser accessibility and actual checkout execution for the new shop still require recorded execution; a passing unit signature test is not a completed card purchase.
 
 The preceding offline correction passed all 180 browser checks in Node 24 CI run 40751529034. That run predates this shop/hero checkpoint and must not be used as evidence for its new pages.
+
+## Live implementation authorization, 30 October 2026
+
+The owner explicitly authorized implementing real payments without further routine approvals. The earlier sandbox-only implementation/approval notes above are historical. See docs/live-commerce-readiness-20261030.md for the current dual-mode implementation, actual technical evidence and external prerequisites. Only the sandbox account was connected at inspection; no live key, charge, hosting change or deployment was made.

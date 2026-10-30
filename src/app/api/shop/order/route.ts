@@ -9,7 +9,7 @@ export const runtime="nodejs";export const dynamic="force-dynamic";
 export async function POST(request:Request){
  try{
   const config=commerceConfig();if(request.headers.get("origin")!==config.origin)return NextResponse.json({code:"order_use_site",message:"Use Money Quest to retrieve your order"},{status:403});
-  const {sessionId,checkout}=JSON.parse(await limitedBody(request,1500));if(typeof sessionId!=="string"||!validSessionId(sessionId)||typeof checkout!=="string"||!/^[a-f0-9]{8}$/.test(checkout))throw new Error();
+  const {sessionId,checkout}=JSON.parse(await limitedBody(request,1500));if(typeof sessionId!=="string"||!validSessionId(sessionId,config.mode)||typeof checkout!=="string"||!/^[a-f0-9]{8}$/.test(checkout))throw new Error();
   const nonce=(await cookies()).get(`mq_checkout_${checkout}`)?.value;if(!nonce)throw new Error();
   const session=await paidSession(sessionId);const expected=session.metadata?.browser_hash;if(!expected||!/^[a-f0-9]{64}$/.test(expected)||session.client_reference_id!==checkout)throw new Error();
   const hash=createHash("sha256").update(nonce).digest();if(!timingSafeEqual(hash,Buffer.from(expected,"hex")))throw new Error();

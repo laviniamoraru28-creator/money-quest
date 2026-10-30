@@ -12,7 +12,9 @@
     "lint": "eslint src --ext .ts,.tsx --max-warnings=0",
     "typecheck": "tsc --noEmit",
     "test:unit": "node --import tsx scripts/run-all-unit-tests.ts",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "shop:check": "node --import tsx scripts/shop-preflight.ts",
+    "shop:deliver": "node --import tsx scripts/shop-deliver-pending.ts"
   },
   "dependencies": {
     "@types/node": "^20.14.0",
@@ -23,18 +25,22 @@
     "eslint-config-next": "^15.5.28",
     "next": "^15.5.28",
     "next-intl": "^4.14.9",
+    "nodemailer": "10.3.1",
     "postcss": "^8.5.23",
+    "proper-lockfile": "4.1.2",
     "react": "^18.3.0",
     "react-dom": "^18.3.0",
     "server-only": "^0.0.1",
-    "stripe": "22.6.0",
+    "stripe": "23.1.0",
     "tailwindcss": "^3.4.0",
+    "tsx": "4.23.15",
     "typescript": "^5.5.0"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.10.2",
     "@playwright/test": "^1.47.0",
-    "tsx": "^4.19.0"
+    "@types/nodemailer": "8.0.2",
+    "@types/proper-lockfile": "4.1.4"
   },
   "overrides": {
     "next": {

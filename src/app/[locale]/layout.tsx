@@ -1,3 +1,4 @@
+import {siteDescriptions} from "@/content/seo-descriptions";
 import {siteControlsCopy} from "@/content/site-controls-copy";
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
@@ -71,7 +72,7 @@ export async function generateMetadata({
     metadataBase: new URL(siteUrl),
     manifest: "/site.webmanifest",
     title: { default: t("defaultTitle"), template: `%s - Money Quest` },
-    description: t("defaultDescription"),
+    description: siteDescriptions[locale],
     // hreflang alternates (brief requirement 14) — one entry per
     // supported locale, pointing at the same page in each language, so
     // search engines know these pages are translations of each other
@@ -85,7 +86,7 @@ export async function generateMetadata({
     },
     openGraph: {
       title: t("defaultTitle"),
-      description: t("defaultDescription"),
+      description: siteDescriptions[locale],
       url: `${siteUrl}/${locale}`,
       type: "website",
       siteName: "Money Quest",
@@ -103,7 +104,7 @@ export async function generateMetadata({
     twitter: {
       card: "summary_large_image",
       title: t("defaultTitle"),
-      description: t("defaultDescription"),
+      description: siteDescriptions[locale],
     },
   };
 }

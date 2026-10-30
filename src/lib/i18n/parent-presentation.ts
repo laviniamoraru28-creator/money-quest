@@ -9,5 +9,5 @@ export function publicParentLocale(requested:string):Locale {
  return isSupportedLocale(requested)&&active.includes(requested)?requested:"en";
 }
 export function parentGuidePresentation(locale:Locale){return {locale,copy:parentGuideCopy[locale]};}
-export function shopFlowPresentation(locale:Locale){return {copy:shopFlowCopy[locale]};}
+export function shopFlowPresentation(locale:Locale){return {locale,copy:shopFlowCopy[locale]};}
 export function shopTermsPresentation(locale:Locale){return {copy:shopTermsCopy[locale],version:SHOP_TERMS_VERSION};}
