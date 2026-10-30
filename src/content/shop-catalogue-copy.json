@@ -20,7 +20,7 @@
       "picturesTitle": "Pictures with a purpose",
       "picturesBody": "Labels, pretend counters and clear choices support the activity. Reduced-distraction versions remove decorative scene artwork and coloured card fills.",
       "responseTitle": "No handwriting requirement",
-      "responseBody": "Point, draw, type, use augmentative and alternative communication (AAC), speak or ask an adult to write. Choose Explorer, Builder or Strategist tasks to suit understanding and support.",
+      "responseBody": "Point, draw, type, use augmentative and alternative communication (AAC), speak or ask an adult to write. Choose Preschool, supported/SEND or older-child materials. The older journal offers Explorer, Builder and Strategist starting points. Choose support and conceptual challenge separately.",
       "supportTitle": "Guidance for grown-ups",
       "supportBody": "Worked explanations, practical support and further questions help you explore the ideas together. No timed tests or household financial disclosure.",
       "evidence": "Informed by CAST UDL Guidelines 3.0, EEF inclusive-teaching guidance and MoneyHelper parent resources. This is not certification, clinical validation or evidence of guaranteed learning outcomes. Suitability varies by child.",
@@ -39,13 +39,13 @@
     "products": {
       "family-adventure-pack": {
         "title": "Family Adventure Pack",
-        "description": "20 original illustrated activities for money choices, planning, digital safety and thinking together.",
-        "pages": "20 activities in each of two visual versions",
+        "description": "20 illustrated money activities per edition: Preschool, supported/SEND and older children.",
+        "pages": "20 activities per edition, in three editions and two visual versions",
         "includes": [
-          "Colour and reduced-distraction PDFs",
-          "40 individual activity PDFs",
-          "Four-page parent and carer guide",
-          "Five-page answers and discussion guide"
+          "Three editions, each in colour and reduced-distraction PDFs",
+          "40 individual older-child activity PDFs",
+          "7-page grown-up guide for each edition",
+          "Money picture cards, cut-and-stick pages and lesson map"
         ],
         "imageAlt": "Real preview page from Family Adventure Pack (English edition)",
         "sampleLabel": "Download the free 3-activity sample (PDF, English)"
@@ -53,12 +53,12 @@
       "adventure-journal": {
         "title": "My Money Quest Adventure Journal",
         "description": "12 undated weeks of stories, activities and reflection, with space to draw or respond your way.",
-        "pages": "39 A4 pages in each of two visual versions",
+        "pages": "39 A4 pages per journal, in three editions and two visual versions",
         "includes": [
           "Colour and reduced-distraction journals",
           "Clear 25 mm left margin for hole punching",
           "12 weeks, each with Discover, Try and Reflect pages",
-          "Parent and carer guide"
+          "7-page grown-up guide for each edition"
         ],
         "imageAlt": "Real preview page from My Money Quest Adventure Journal (English edition)",
         "sampleLabel": "Download the free first-week journal sample (PDF, English)"
@@ -105,13 +105,13 @@
     "products": {
       "family-adventure-pack": {
         "title": "Pachetul de aventuri în familie",
-        "description": "20 de activități originale ilustrate despre alegeri financiare, planificare, siguranță digitală și reflecție împreună.",
-        "pages": "20 de activități în fiecare dintre cele două variante vizuale",
+        "description": "20 de activități ilustrate despre bani în fiecare ediție: preșcolari, sprijin/SEND și copii mai mari.",
+        "pages": "20 de activități pe ediție, în trei ediții și două versiuni vizuale",
         "includes": [
-          "PDF-uri color și cu mai puțini stimuli vizuali",
-          "40 de PDF-uri cu activități individuale",
-          "Ghid de 4 pagini pentru părinți și îngrijitori",
-          "Ghid de 5 pagini cu răspunsuri și întrebări pentru discuții"
+          "Trei ediții, fiecare în PDF color și cu mai puțini stimuli vizuali",
+          "40 de PDF-uri individuale pentru copiii mai mari",
+          "Ghid de 7 pagini pentru adulți, pentru fiecare ediție",
+          "Carduri despre bani, pagini de decupat și lipit și harta lecțiilor"
         ],
         "imageAlt": "Pagină reală de previzualizare din Pachetul de aventuri în familie, ediția în engleză",
         "sampleLabel": "Descarcă mostra gratuită cu 3 activități (PDF, engleză)"
@@ -119,12 +119,12 @@
       "adventure-journal": {
         "title": "Jurnalul meu de aventuri Money Quest",
         "description": "12 săptămâni fără date prestabilite, cu povești, activități și reflecție, plus spațiu pentru desen sau răspuns în felul tău.",
-        "pages": "39 de pagini A4 în fiecare dintre cele două variante vizuale",
+        "pages": "39 de pagini A4 per jurnal, în trei ediții și două versiuni vizuale",
         "includes": [
           "Jurnale color și cu mai puțini stimuli vizuali",
           "Margine liberă de 25 mm în stânga pentru perforare",
           "12 săptămâni, fiecare cu pagini Descoperă, Încearcă și Reflectează",
-          "Ghid pentru părinți și îngrijitori"
+          "Ghid de 7 pagini pentru adulți, pentru fiecare ediție"
         ],
         "imageAlt": "Pagină reală de previzualizare din Jurnalul meu de aventuri Money Quest, ediția în engleză",
         "sampleLabel": "Descarcă gratuit prima săptămână din jurnal (PDF, engleză)"
@@ -171,13 +171,13 @@
     "products": {
       "family-adventure-pack": {
         "title": "Pack de aventuras en familia",
-        "description": "20 actividades originales ilustradas sobre decisiones económicas, planificación, seguridad digital y reflexión en familia.",
-        "pages": "20 actividades en cada una de las dos versiones visuales",
+        "description": "20 actividades ilustradas sobre dinero por edición: preescolar, apoyo/SEND y niños mayores.",
+        "pages": "20 actividades por edición, en tres ediciones y dos versiones visuales",
         "includes": [
-          "PDF en color y con menos distracciones",
-          "40 PDF de actividades individuales",
-          "Guía de 4 páginas para familias y personas cuidadoras",
-          "Guía de 5 páginas con respuestas y temas de conversación"
+          "Tres ediciones, cada una en PDF a color y con menos distracciones",
+          "40 PDF de actividades individuales para niños mayores",
+          "Guía de 7 páginas para adultos en cada edición",
+          "Tarjetas de dinero, páginas para recortar y pegar y mapa de lecciones"
         ],
         "imageAlt": "Página real de muestra del Pack de aventuras en familia, edición en inglés",
         "sampleLabel": "Descarga la muestra gratuita de 3 actividades (PDF, inglés)"
@@ -185,12 +185,12 @@
       "adventure-journal": {
         "title": "Mi diario de aventuras Money Quest",
         "description": "12 semanas sin fechas fijas con historias, actividades y reflexión, y espacio para dibujar o responder a tu manera.",
-        "pages": "39 páginas A4 en cada una de las dos versiones visuales",
+        "pages": "39 páginas A4 por diario, en tres ediciones y dos versiones visuales",
         "includes": [
           "Diarios en color y con menos distracciones",
           "Margen izquierdo libre de 25 mm para perforar",
           "12 semanas, cada una con páginas Descubre, Prueba y Reflexiona",
-          "Guía para familias y personas cuidadoras"
+          "Guía de 7 páginas para adultos en cada edición"
         ],
         "imageAlt": "Página real de muestra de Mi diario de aventuras Money Quest, edición en inglés",
         "sampleLabel": "Descarga gratis la primera semana del diario (PDF, inglés)"
@@ -237,13 +237,13 @@
     "products": {
       "family-adventure-pack": {
         "title": "Pack d’aventures en famille",
-        "description": "20 activités originales illustrées sur les choix financiers, la planification, la sécurité numérique et la réflexion en famille.",
-        "pages": "20 activités dans chacune des deux versions visuelles",
+        "description": "20 activités illustrées sur l’argent par édition : maternelle, accompagnement/SEND et enfants plus âgés.",
+        "pages": "20 activités par édition, en trois éditions et deux versions visuelles",
         "includes": [
-          "PDF en couleur et avec moins de distractions",
-          "40 PDF d’activités individuelles",
-          "Guide de 4 pages pour les parents et les personnes accompagnantes",
-          "Guide de 5 pages avec réponses et pistes de discussion"
+          "Trois éditions, chacune en PDF couleur et avec moins de distractions",
+          "40 PDF d’activités individuelles pour les enfants plus âgés",
+          "Guide de 7 pages pour les adultes dans chaque édition",
+          "Cartes sur l’argent, pages à découper et coller et carte des leçons"
         ],
         "imageAlt": "Véritable page de présentation du Pack d’aventures en famille, édition anglaise",
         "sampleLabel": "Téléchargez l’échantillon gratuit de 3 activités (PDF, anglais)"
@@ -251,12 +251,12 @@
       "adventure-journal": {
         "title": "Mon journal d’aventures Money Quest",
         "description": "12 semaines sans dates imposées avec des histoires, des activités et des moments de réflexion, et de la place pour dessiner ou répondre à sa façon.",
-        "pages": "39 pages A4 dans chacune des deux versions visuelles",
+        "pages": "39 pages A4 par journal, en trois éditions et deux versions visuelles",
         "includes": [
           "Journaux en couleur et avec moins de distractions",
           "Marge gauche libre de 25 mm pour la perforation",
           "12 semaines comprenant chacune des pages Découvrir, Essayer et Réfléchir",
-          "Guide pour les parents et les personnes accompagnantes"
+          "Guide de 7 pages pour les adultes dans chaque édition"
         ],
         "imageAlt": "Véritable page de présentation de Mon journal d’aventures Money Quest, édition anglaise",
         "sampleLabel": "Téléchargez gratuitement la première semaine du journal (PDF, anglais)"
@@ -303,13 +303,13 @@
     "products": {
       "family-adventure-pack": {
         "title": "Familien-Abenteuerpaket",
-        "description": "20 eigene illustrierte Aktivitäten zu Geldentscheidungen, Planung, digitaler Sicherheit und gemeinsamem Nachdenken.",
-        "pages": "20 Aktivitäten in jeder der beiden visuellen Versionen",
+        "description": "20 illustrierte Geldaktivitäten je Ausgabe: Vorschule, Unterstützung/SEND und ältere Kinder.",
+        "pages": "20 Aktivitäten je Ausgabe, in drei Ausgaben und zwei visuellen Versionen",
         "includes": [
-          "PDFs in Farbe und mit weniger Ablenkung",
-          "40 einzelne Aktivitäts-PDFs",
-          "4-seitiger Ratgeber für Eltern und Betreuungspersonen",
-          "5-seitiger Leitfaden mit Antworten und Gesprächsanregungen"
+          "Drei Ausgaben, jeweils als Farb-PDF und ablenkungsarme Version",
+          "40 einzelne Aktivitäts-PDFs für ältere Kinder",
+          "7-seitiger Leitfaden für Erwachsene je Ausgabe",
+          "Geld-Bildkarten, Ausschneide- und Klebeseiten sowie Lektionsübersicht"
         ],
         "imageAlt": "Tatsächliche Vorschauseite aus dem Familien-Abenteuerpaket, englische Ausgabe",
         "sampleLabel": "Kostenloses Muster mit 3 Aktivitäten herunterladen (PDF, Englisch)"
@@ -317,12 +317,12 @@
       "adventure-journal": {
         "title": "Mein Money-Quest-Abenteuerjournal",
         "description": "12 Wochen ohne vorgegebene Daten mit Geschichten, Aktivitäten und Reflexion, mit Platz zum Zeichnen oder für eigene Antwortformen.",
-        "pages": "39 A4-Seiten in jeder der beiden visuellen Versionen",
+        "pages": "39 A4-Seiten je Journal, in drei Ausgaben und zwei visuellen Versionen",
         "includes": [
           "Journale in Farbe und mit weniger Ablenkung",
           "Freier linker Rand von 25 mm zum Lochen",
           "12 Wochen mit jeweils Entdecken-, Ausprobieren- und Nachdenken-Seiten",
-          "Ratgeber für Eltern und Betreuungspersonen"
+          "7-seitiger Leitfaden für Erwachsene je Ausgabe"
         ],
         "imageAlt": "Tatsächliche Vorschauseite aus dem Abenteuerjournal von Money Quest, englische Ausgabe",
         "sampleLabel": "Kostenloses Muster der ersten Journalwoche herunterladen (PDF, Englisch)"
@@ -369,13 +369,13 @@
     "products": {
       "family-adventure-pack": {
         "title": "Pacchetto di avventure in famiglia",
-        "description": "20 attività originali illustrate su scelte economiche, pianificazione, sicurezza digitale e riflessione in famiglia.",
-        "pages": "20 attività in ciascuna delle due versioni visive",
+        "description": "20 attività illustrate sul denaro per edizione: prescolare, supporto/SEND e bambini più grandi.",
+        "pages": "20 attività per edizione, in tre edizioni e due versioni visive",
         "includes": [
-          "PDF a colori e con meno distrazioni",
-          "40 PDF di attività individuali",
-          "Guida di 4 pagine per genitori e persone che si prendono cura dei bambini",
-          "Guida di 5 pagine con risposte e spunti di discussione"
+          "Tre edizioni, ciascuna in PDF a colori e con meno distrazioni",
+          "40 PDF di attività individuali per bambini più grandi",
+          "Guida di 7 pagine per adulti in ogni edizione",
+          "Carte sul denaro, pagine da ritagliare e incollare e mappa delle lezioni"
         ],
         "imageAlt": "Pagina reale di anteprima del Pacchetto di avventure in famiglia, edizione inglese",
         "sampleLabel": "Scarica il campione gratuito con 3 attività (PDF, inglese)"
@@ -383,12 +383,12 @@
       "adventure-journal": {
         "title": "Il mio diario di avventure Money Quest",
         "description": "12 settimane senza date prestabilite, con storie, attività e riflessioni, e spazio per disegnare o rispondere a modo tuo.",
-        "pages": "39 pagine A4 in ciascuna delle due versioni visive",
+        "pages": "39 pagine A4 per diario, in tre edizioni e due versioni visive",
         "includes": [
           "Diari a colori e con meno distrazioni",
           "Margine sinistro libero di 25 mm per la foratura",
           "12 settimane, ciascuna con pagine Scopri, Prova e Rifletti",
-          "Guida per genitori e persone che si prendono cura dei bambini"
+          "Guida di 7 pagine per adulti in ogni edizione"
         ],
         "imageAlt": "Pagina reale di anteprima de Il mio diario di avventure Money Quest, edizione inglese",
         "sampleLabel": "Scarica gratis la prima settimana del diario (PDF, inglese)"
@@ -435,13 +435,13 @@
     "products": {
       "family-adventure-pack": {
         "title": "Pack de aventuras em família",
-        "description": "20 atividades originais ilustradas sobre escolhas financeiras, planeamento, segurança digital e reflexão em conjunto.",
-        "pages": "20 atividades em cada uma das duas versões visuais",
+        "description": "20 atividades ilustradas sobre dinheiro por edição: pré-escolar, apoio/SEND e crianças mais velhas.",
+        "pages": "20 atividades por edição, em três edições e duas versões visuais",
         "includes": [
-          "PDFs a cores e com menos distrações",
-          "40 PDFs de atividades individuais",
-          "Guia de 4 páginas para pais e cuidadores",
-          "Guia de 5 páginas com respostas e temas para conversar"
+          "Três edições, cada uma em PDF a cores e com menos distrações",
+          "40 PDF de atividades individuais para crianças mais velhas",
+          "Guia de 7 páginas para adultos em cada edição",
+          "Cartões sobre dinheiro, páginas para recortar e colar e mapa das lições"
         ],
         "imageAlt": "Página real de demonstração do Pack de aventuras em família, edição em inglês",
         "sampleLabel": "Descarregue a amostra gratuita com 3 atividades (PDF, inglês)"
@@ -449,12 +449,12 @@
       "adventure-journal": {
         "title": "O meu diário de aventuras Money Quest",
         "description": "12 semanas sem datas predefinidas, com histórias, atividades e reflexão, e espaço para desenhar ou responder à sua maneira.",
-        "pages": "39 páginas A4 em cada uma das duas versões visuais",
+        "pages": "39 páginas A4 por diário, em três edições e duas versões visuais",
         "includes": [
           "Diários a cores e com menos distrações",
           "Margem esquerda livre de 25 mm para perfuração",
           "12 semanas, cada uma com páginas Descobrir, Experimentar e Refletir",
-          "Guia para pais e cuidadores"
+          "Guia de 7 páginas para adultos em cada edição"
         ],
         "imageAlt": "Página real de demonstração de O meu diário de aventuras Money Quest, edição em inglês",
         "sampleLabel": "Descarregue gratuitamente a primeira semana do diário (PDF, inglês)"
@@ -501,13 +501,13 @@
     "products": {
       "family-adventure-pack": {
         "title": "Familie-avonturenpakket",
-        "description": "20 originele geïllustreerde activiteiten over geldkeuzes, plannen, digitale veiligheid en samen nadenken.",
-        "pages": "20 activiteiten in elk van de twee visuele versies",
+        "description": "20 geïllustreerde geldactiviteiten per editie: kleuters, ondersteuning/SEND en oudere kinderen.",
+        "pages": "20 activiteiten per editie, in drie edities en twee visuele versies",
         "includes": [
-          "PDF’s in kleur en met minder afleiding",
-          "40 afzonderlijke activiteiten-PDF’s",
-          "Gids van 4 pagina’s voor ouders en verzorgers",
-          "Gids van 5 pagina’s met antwoorden en gespreksvragen"
+          "Drie edities, elk als kleuren-PDF en prikkelarme versie",
+          "40 afzonderlijke activiteiten-PDF’s voor oudere kinderen",
+          "Gids van 7 pagina’s voor volwassenen bij elke editie",
+          "Geldkaarten, knip-en-plakpagina’s en lesoverzicht"
         ],
         "imageAlt": "Echte voorbeeldpagina uit het Familie-avonturenpakket, Engelse editie",
         "sampleLabel": "Download het gratis voorbeeld met 3 activiteiten (PDF, Engels)"
@@ -515,12 +515,12 @@
       "adventure-journal": {
         "title": "Mijn Money Quest-avonturendagboek",
         "description": "12 weken zonder vaste datums met verhalen, activiteiten en reflectie, met ruimte om te tekenen of op je eigen manier te antwoorden.",
-        "pages": "39 A4-pagina’s in elk van de twee visuele versies",
+        "pages": "39 A4-pagina’s per dagboek, in drie edities en twee visuele versies",
         "includes": [
           "Dagboeken in kleur en met minder afleiding",
           "Vrije linkermarge van 25 mm om gaatjes te maken",
           "12 weken, elk met pagina’s Ontdek, Probeer en Denk na",
-          "Gids voor ouders en verzorgers"
+          "Gids van 7 pagina’s voor volwassenen bij elke editie"
         ],
         "imageAlt": "Echte voorbeeldpagina uit Mijn Money Quest-avonturendagboek, Engelse editie",
         "sampleLabel": "Download gratis de eerste week van het dagboek (PDF, Engels)"
@@ -567,13 +567,13 @@
     "products": {
       "family-adventure-pack": {
         "title": "Rodzinny pakiet przygód",
-        "description": "20 oryginalnych ilustrowanych zadań o wyborach finansowych, planowaniu, bezpieczeństwie cyfrowym i wspólnym myśleniu.",
-        "pages": "20 zadań w każdej z dwóch wersji graficznych",
+        "description": "20 ilustrowanych ćwiczeń o pieniądzach w każdej edycji: przedszkolnej, ze wsparciem/SEND i dla starszych dzieci.",
+        "pages": "20 ćwiczeń na edycję, w trzech edycjach i dwóch wersjach wizualnych",
         "includes": [
-          "PDF-y kolorowe i z mniejszą liczbą rozpraszających elementów",
-          "40 osobnych plików PDF z zadaniami",
-          "4-stronicowy poradnik dla rodziców i opiekunów",
-          "5-stronicowy poradnik z odpowiedziami i tematami do rozmowy"
+          "Trzy edycje, każda w kolorowych PDF i wersji z mniejszą liczbą bodźców",
+          "40 osobnych PDF z ćwiczeniami dla starszych dzieci",
+          "7-stronicowy przewodnik dla dorosłych w każdej edycji",
+          "Karty o pieniądzach, strony do wycinania i wklejania oraz mapa lekcji"
         ],
         "imageAlt": "Rzeczywista strona podglądu Rodzinnego pakietu przygód, wydanie angielskie",
         "sampleLabel": "Pobierz bezpłatną próbkę z 3 zadaniami (PDF, angielski)"
@@ -581,12 +581,12 @@
       "adventure-journal": {
         "title": "Mój dziennik przygód Money Quest",
         "description": "12 tygodni bez ustalonych dat, z historiami, zadaniami i refleksją oraz miejscem na rysowanie lub odpowiadanie po swojemu.",
-        "pages": "39 stron A4 w każdej z dwóch wersji graficznych",
+        "pages": "39 stron A4 na dziennik, w trzech edycjach i dwóch wersjach wizualnych",
         "includes": [
           "Dzienniki kolorowe i z mniejszą liczbą rozpraszających elementów",
           "Wolny lewy margines o szerokości 25 mm do dziurkowania",
           "12 tygodni, każdy ze stronami Odkryj, Spróbuj i Zastanów się",
-          "Poradnik dla rodziców i opiekunów"
+          "7-stronicowy przewodnik dla dorosłych w każdej edycji"
         ],
         "imageAlt": "Rzeczywista strona podglądu Mojego dziennika przygód Money Quest, wydanie angielskie",
         "sampleLabel": "Pobierz bezpłatnie pierwszy tydzień dziennika (PDF, angielski)"

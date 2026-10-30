@@ -12,13 +12,13 @@
     "nl",
     "pl"
   ],
-  "sourceHash": "52121a890e5e2c3e571b5763758b4800ca3dc02841529a0417f40c3b56be19a6",
+  "sourceHash": "034442a8e30f2934201f2a8ff677e28efb9510b4e86a1a44ba77ab7c4c883c77",
   "products": {
-    "family-adventure-pack": "9797d38c8654b435d518f288f4eee37a598cd3a208c5d08bc22401128438dd70",
-    "adventure-journal": "455c8582456698454900d06b2bc875eae340edf4619a134a0b4d606b29a8e948"
+    "family-adventure-pack": "cb4bcf32e53991a090a2f15ce155f718ba3f68298d39e0fd9ffe52623d1d9ba2",
+    "adventure-journal": "069ebfcaed0884a3fc249569eda332a97d9aeb513826aee5ad49cfa6400dc626"
   },
   "stringsPerLocale": 52,
   "translatedStrings": 416,
-  "scope": "Full parent shop catalogue, product display copy, image descriptions, sample labels, FAQs and regional GBP display. Canonical commerce product/price/filenames and English-only files remain unchanged.",
+  "scope": "Catalogue product facts aligned to three curriculum-linked English editions and matching illustrated samples. Existing non-English catalogue drafts updated for product quantities only; translated PDFs remain unavailable.",
   "review": "AI multilingual editorial drafts, not native-editor or product/legal certification. No public locale, translated file edition or live sales activation. SEO metadata, receipts, native errors and actual printable manuscripts remain separate work."
 }
