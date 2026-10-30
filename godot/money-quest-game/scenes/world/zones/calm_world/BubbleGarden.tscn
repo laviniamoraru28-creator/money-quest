@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bubblegarden01"]
+[gd_scene load_steps=18 format=3 uid="uid://bubblegarden01"]
 
 [ext_resource type="Script" path="res://scenes/world/zones/calm_world/BubbleGarden.gd" id="1"]
 [ext_resource type="PackedScene" path="res://scenes/player/Player.tscn" id="2"]
@@ -6,6 +6,9 @@
 [ext_resource type="Script" path="res://scripts/world/PortalInteraction.gd" id="4"]
 [ext_resource type="Script" path="res://scripts/world/PoppableBubble.gd" id="5"]
 [ext_resource type="PackedScene" path="res://scenes/characters/NPC.tscn" id="6"]
+[ext_resource type="Script" path="res://scripts/world/decor/cozy/CozySlotLayer.gd" id="7"]
+[ext_resource type="Script" path="res://scripts/world/decor/cozy/CozySlot.gd" id="8"]
+[ext_resource type="Script" path="res://scripts/world/decor/cozy/CozyPaths.gd" id="9"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ground"]
 size = Vector3(30, 1, 24)
@@ -168,7 +171,7 @@ outline_size = 6
 text = ""
 
 [node name="Bubble6" type="Area3D" parent="Bubbles"]
-transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 2.4, -5)
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 1.8, -5)
 script = ExtResource("5")
 prompt_text_key = "zone.calm_world_hub.bubble.pop_prompt"
 
@@ -375,3 +378,51 @@ no_depth_test = true
 font_size = 48
 outline_size = 8
 text = ""
+
+[node name="CozyPaths" type="Node3D" parent="."]
+script = ExtResource("9")
+paths = Array[PackedVector3Array]([PackedVector3Array(0, 0, 9.8, 0, 0, -7.4), PackedVector3Array(-8.6, 0, -5, -5.7, 0, -6.2, -2.9, 0, -7, 0, 0, -7.4, 2.9, 0, -7, 5.7, 0, -6.2, 8.6, 0, -5, 10.2, 0, -3.4)])
+widths = PackedFloat32Array(3.2, 3)
+
+[node name="CozySlots" type="Node3D" parent="."]
+script = ExtResource("7")
+
+[node name="Pavilion" type="Marker3D" parent="CozySlots"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -8.3, 0, 3.5)
+script = ExtResource("8")
+kind = "pavilion"
+
+[node name="Pond" type="Marker3D" parent="CozySlots"]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 8.5, 0, 3)
+script = ExtResource("8")
+kind = "pond"
+
+[node name="Signpost" type="Marker3D" parent="CozySlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, 6.5)
+script = ExtResource("8")
+kind = "signpost"
+
+[node name="Boulder" type="Marker3D" parent="CozySlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 6.5)
+script = ExtResource("8")
+kind = "boulder"
+
+[node name="TreeWest" type="Marker3D" parent="CozySlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0, -4)
+script = ExtResource("8")
+kind = "tree_hero"
+
+[node name="TreeEast" type="Marker3D" parent="CozySlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 4)
+script = ExtResource("8")
+kind = "tree_light"
+
+[node name="TreeSouthWest" type="Marker3D" parent="CozySlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0, 9)
+script = ExtResource("8")
+kind = "tree_light"
+
+[node name="TreeSouthEast" type="Marker3D" parent="CozySlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 9.5)
+script = ExtResource("8")
+kind = "tree_hero"
