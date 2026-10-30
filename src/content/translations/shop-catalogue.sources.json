@@ -12,13 +12,13 @@
     "nl",
     "pl"
   ],
-  "sourceHash": "034442a8e30f2934201f2a8ff677e28efb9510b4e86a1a44ba77ab7c4c883c77",
+  "sourceHash": "00141a566e558d9ec74fce59157fe1be8e9b7f6a32746c8fda9a6cf9ca72e10b",
   "products": {
-    "family-adventure-pack": "cb4bcf32e53991a090a2f15ce155f718ba3f68298d39e0fd9ffe52623d1d9ba2",
-    "adventure-journal": "069ebfcaed0884a3fc249569eda332a97d9aeb513826aee5ad49cfa6400dc626"
+    "family-adventure-pack": "1be2a8e1040cca3032f310f97e14f4bccedd1fa67123597ac4685601d5559e3b",
+    "adventure-journal": "908ecb88e20584bbae758d7d434ba9c11ecd291ae0d89c8e3415ef9e1deb8642"
   },
   "stringsPerLocale": 52,
   "translatedStrings": 416,
-  "scope": "Catalogue product facts aligned to three curriculum-linked English editions and matching illustrated samples. Existing non-English catalogue drafts updated for product quantities only; translated PDFs remain unavailable.",
+  "scope": "Nine-language private printable bundles; public samples and transaction UI remain English. Three editions and both visual versions per language.",
   "review": "AI multilingual editorial drafts, not native-editor or product/legal certification. No public locale, translated file edition or live sales activation. SEO metadata, receipts, native errors and actual printable manuscripts remain separate work."
 }

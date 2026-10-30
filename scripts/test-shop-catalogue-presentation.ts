@@ -71,4 +71,4 @@ try{Object.defineProperty(draft,"price",{value:1,enumerable:true,configurable:tr
 const missing=draft.includes.pop()!;
 try{assert.throws(()=>shopCataloguePresentation("ro"),/array structure/);}finally{draft.includes.push(missing);}
 assert.deepEqual(ACTIVE_LOCALES,["en"]);assert(shopProducts.every(p=>!p.releaseReady));assert.deepEqual(shopProducts.map(p=>p.price),[599,799]);assert.equal(SHOP_TERMS_VERSION,"2026-10-28-draft-v1");
-console.log("PASS: 468 catalogue strings and 18 actual SSR renders across nine locales; source-staleness/shape/extra-commerce-field refusal, canonical product fields, quantities, regional GBP display, sample links, FAQ, image alt, closed/sandbox controls and public gates. Non-English browser/editorial review and translated PDFs remain pending.");
+console.log("PASS: 468 catalogue strings and 18 actual SSR renders across nine locales; source-staleness/shape/extra-commerce-field refusal, canonical product fields, quantities, regional GBP display, sample links, FAQ, image alt, closed/sandbox controls and public gates. Translated product editions supplied separately; non-English browser/editorial certification remains pending.");

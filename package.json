@@ -13,8 +13,8 @@
     "typecheck": "tsc --noEmit",
     "test:unit": "node --import tsx scripts/run-all-unit-tests.ts",
     "test:e2e": "playwright test",
-    "shop:check": "node --import tsx scripts/shop-preflight.ts",
-    "shop:deliver": "node --import tsx scripts/shop-deliver-pending.ts"
+    "shop:check": "node --require ./host-env.cjs --import tsx scripts/shop-preflight.ts",
+    "shop:deliver": "node --require ./host-env.cjs --import tsx scripts/shop-deliver-pending.ts"
   },
   "dependencies": {
     "@types/node": "^20.14.0",
