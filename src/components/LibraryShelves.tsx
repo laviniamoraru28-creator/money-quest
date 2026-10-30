@@ -1,4 +1,5 @@
 "use client";
+import {REGIONAL_LOCALES} from "@/i18n/config";
 
 import Image from "next/image";
 import {experienceCopy} from "@/content/experience-copy";
@@ -12,7 +13,7 @@ export function LibraryShelves({presentation}:{presentation:ShelfPresentation}) 
   const {locale,books,people,published}=presentation;
   const t=experienceCopy[locale],copy=libraryShelfCopy[locale];
   const [topic, setTopic] = useState("All topics");
-  const topics = Array.from(new Set(published.flatMap(book => book.topics))).sort();
+  const topics = Array.from(new Set(published.flatMap(book => book.topics))).sort((a,b)=>a.localeCompare(b,REGIONAL_LOCALES[locale]));
   const shown = published.filter(book => topic === "All topics" || book.topics.includes(topic));
   return <>
     <nav aria-label={copy.nav} className="mt-6 flex flex-wrap gap-3">

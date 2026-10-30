@@ -1,11 +1,25 @@
 {
   "status": "draft",
-  "recorded": "2026-10-29",
+  "recorded": "2026-10-30",
   "locales": [
-    "ro"
+    "ro",
+    "es",
+    "fr",
+    "de",
+    "it",
+    "pt",
+    "nl",
+    "pl"
   ],
   "regionalTargets": {
-    "ro": "ro-RO"
+    "ro": "ro-RO",
+    "es": "es-ES",
+    "fr": "fr-FR",
+    "de": "de-DE",
+    "it": "it-IT",
+    "pt": "pt-PT",
+    "nl": "nl-NL",
+    "pl": "pl-PL"
   },
   "sources": {
     "money-for-beginners": "4eff58587c35fcdd2f6ae1c01bd55d3ce141135bf6781df2d7f3870f610cb025",
@@ -26,6 +40,42 @@
       "status": "AI bilingual editorial pass; rendered-language review pending",
       "scope": "Twelve editorial introductions, age guidance, themes, ideas, discussion prompts and external-link labels",
       "preserved": "Original published titles, author/illustrator/publisher names, source URLs and check dates. No claim of Romanian editions or availability."
+    },
+    "es": {
+      "status": "AI multilingual editorial draft; actual rendered review pending CI",
+      "scope": "Twelve editorial introductions, attributed age guidance, themes, ideas, discussion prompts and external-link labels",
+      "preserved": "Original published titles, author/illustrator/publisher names, source URLs and check dates. No claim of translated editions or availability."
+    },
+    "fr": {
+      "status": "AI multilingual editorial draft; actual rendered review pending CI",
+      "scope": "Twelve editorial introductions, attributed age guidance, themes, ideas, discussion prompts and external-link labels",
+      "preserved": "Original published titles, author/illustrator/publisher names, source URLs and check dates. No claim of translated editions or availability."
+    },
+    "de": {
+      "status": "AI multilingual editorial draft; actual rendered review pending CI",
+      "scope": "Twelve editorial introductions, attributed age guidance, themes, ideas, discussion prompts and external-link labels",
+      "preserved": "Original published titles, author/illustrator/publisher names, source URLs and check dates. No claim of translated editions or availability."
+    },
+    "it": {
+      "status": "AI multilingual editorial draft; actual rendered review pending CI",
+      "scope": "Twelve editorial introductions, attributed age guidance, themes, ideas, discussion prompts and external-link labels",
+      "preserved": "Original published titles, author/illustrator/publisher names, source URLs and check dates. No claim of translated editions or availability."
+    },
+    "pt": {
+      "status": "AI multilingual editorial draft; actual rendered review pending CI",
+      "scope": "Twelve editorial introductions, attributed age guidance, themes, ideas, discussion prompts and external-link labels",
+      "preserved": "Original published titles, author/illustrator/publisher names, source URLs and check dates. No claim of translated editions or availability."
+    },
+    "nl": {
+      "status": "AI multilingual editorial draft; actual rendered review pending CI",
+      "scope": "Twelve editorial introductions, attributed age guidance, themes, ideas, discussion prompts and external-link labels",
+      "preserved": "Original published titles, author/illustrator/publisher names, source URLs and check dates. No claim of translated editions or availability."
+    },
+    "pl": {
+      "status": "AI multilingual editorial draft; actual rendered review pending CI",
+      "scope": "Twelve editorial introductions, attributed age guidance, themes, ideas, discussion prompts and external-link labels",
+      "preserved": "Original published titles, author/illustrator/publisher names, source URLs and check dates. No claim of translated editions or availability."
     }
-  }
+  },
+  "stringsPerLocale": 111
 }

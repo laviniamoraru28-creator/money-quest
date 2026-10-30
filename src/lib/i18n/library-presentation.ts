@@ -19,6 +19,14 @@ import {libraryPeople} from "@/content/people";
 import {authorBooks} from "@/content/author-books";
 import externalBooks from "@/content/translations/author-books.ro.json";
 import externalManifest from "@/content/translations/author-books.sources.json";
+import externalES from "@/content/translations/author-books.es.json";
+import externalFR from "@/content/translations/author-books.fr.json";
+import externalDE from "@/content/translations/author-books.de.json";
+import externalIT from "@/content/translations/author-books.it.json";
+import externalPT from "@/content/translations/author-books.pt.json";
+import externalNL from "@/content/translations/author-books.nl.json";
+import externalPL from "@/content/translations/author-books.pl.json";
+const externalDrafts:Partial<Record<Locale,Record<string,unknown>>>={ro:externalBooks,es:externalES,fr:externalFR,de:externalDE,it:externalIT,pt:externalPT,nl:externalNL,pl:externalPL};
 
 const biographyDrafts:Partial<Record<Locale,Record<string,unknown>>>={ro:people,es:peopleEs,fr:peopleFr,de:peopleDe,it:peopleIt,pt:peoplePt,nl:peopleNl,pl:peoplePl};
 export type ReaderPresentation={book:OriginalBook;locale:Locale;paragraphsPerPage:1|2};
@@ -44,16 +52,18 @@ export function draftBiographyPresentation(person:LibraryPerson,locale:Locale):B
  if(!draft[slug]||!peopleManifest.sources[slug])throw new Error(`Missing biography translation: ${person.slug}`);
  return {person:draftTranslatedBiography(person,draft[slug],peopleManifest.sources[slug]),locale};
 }
+export function draftPublishedBook(book:typeof authorBooks[number],locale:Locale):typeof authorBooks[number]{
+ if(locale==="en")return book;
+ const draft=externalDrafts[locale];if(!draft)throw new Error(`Published-book introduction not ready: ${locale}`);
+ const id=book.id as keyof typeof externalManifest.sources;
+ if(!draft[id]||!externalManifest.sources[id])throw new Error(`Missing published-book introduction: ${book.id}`);
+ return draftTranslatedExternalBook(book,draft[id],externalManifest.sources[id]);
+}
 export function draftShelfPresentation(locale:Locale):ShelfPresentation {
  if(locale!=="en"&&locale!=="ro")throw new Error(`Library shelf content not ready: ${locale}`);
  return {
   locale,books:originalBooks.map(book=>draftReaderPresentation(book,locale).book),
   people:libraryPeople.map(person=>draftBiographyPresentation(person,locale).person),
-  published:authorBooks.map(book=>{
-   if(locale==="en")return book;
-   const id=book.id as keyof typeof externalBooks;
-   if(!externalBooks[id]||!externalManifest.sources[id])throw new Error(`Missing external-book translation: ${book.id}`);
-   return draftTranslatedExternalBook(book,externalBooks[id],externalManifest.sources[id]);
-  })
+  published:authorBooks.map(book=>draftPublishedBook(book,locale))
  };
 }
