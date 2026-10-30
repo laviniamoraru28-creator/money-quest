@@ -14,7 +14,8 @@
     "test:unit": "node --import tsx scripts/run-all-unit-tests.ts",
     "test:e2e": "playwright test",
     "shop:check": "node --require ./host-env.cjs --import tsx scripts/shop-preflight.ts",
-    "shop:deliver": "node --require ./host-env.cjs --import tsx scripts/shop-deliver-pending.ts"
+    "shop:deliver": "node --require ./host-env.cjs --import tsx scripts/shop-deliver-pending.ts",
+    "check:multilingual": "node --import tsx scripts/check-multilingual-release.ts"
   },
   "dependencies": {
     "@types/node": "^20.14.0",

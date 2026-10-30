@@ -35,7 +35,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
   const discoveryPaths = ["/museum", ...museumRooms.map((room) => `/museum/${room.slug}`), "/library", ...[...libraryBooks,...originalBooks,...libraryPeople].map((book) => `/library/${book.slug}`)];
   for (const path of discoveryPaths) {
-    entries.push({url: `${siteUrl}/en${path}`, changeFrequency: "monthly", priority: 0.7});
+   for (const locale of ACTIVE_LOCALES) {
+    entries.push({url: `${siteUrl}/${locale}${path}`, changeFrequency: "monthly", priority: 0.7, alternates:{languages:Object.fromEntries(ACTIVE_LOCALES.map(language=>[language,`${siteUrl}/${language}${path}`]))}});
+   }
   }
 
   for (const path of allPaths) {
