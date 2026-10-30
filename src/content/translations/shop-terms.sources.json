@@ -1,0 +1,21 @@
+{
+  "status": "draft",
+  "recorded": "2026-10-30",
+  "locales": [
+    "en",
+    "ro",
+    "es",
+    "fr",
+    "de",
+    "it",
+    "pt",
+    "nl",
+    "pl"
+  ],
+  "sourceHash": "890586e42969093e88bcfb6305ab14c901c28bab1f332eb779fa583bc8c66e72",
+  "consentVersion": "2026-10-28-draft-v1",
+  "stringsPerLocale": 16,
+  "translatedStrings": 128,
+  "scope": "Display-only digital-download terms in nine languages. No activation of translated PDFs, public locales or live sales. UK source terms translated without representing local legal adaptation.",
+  "review": "AI multilingual editorial drafts; not native-editor or legal certification. English consent and stored acceptance version unchanged. Catalogue, receipt, native error responses and actual paid manuscripts remain separate work."
+}

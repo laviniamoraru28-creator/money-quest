@@ -123,3 +123,13 @@ Primary references used for the spot-check:
 - https://www.legislation.gov.uk/uksi/2013/3134/regulation/37
 
 No main merge, deployment, live charge, hosting change, Godot modification or final Namecheap ZIP.
+
+## Digital-download terms checkpoint, 30 October 2026
+
+The download-terms page now uses a server-selected presentation with 16 fragments per locale in nine languages, adding 128 translated fragments. The six sections retain format and home-printing/binding responsibilities, the proposed household licence, immediate-supply and cancellation meaning, Stripe/private-order storage disclosures, 90-day test download validity and the explicit unfinished live-launch requirements. English heading/body text and the draft status notice were compared against the previous committed page and are unchanged. The accepted English consent and SHOP_TERMS_VERSION remain unchanged; these are display translations of the existing draft, not localized legal contracts.
+
+The presentation is integrated behind the existing public English-only gate. Its component contains no purchase form and does not activate product editions, public locales or live payments. Canonical English metadata remains unchanged. The source-fingerprint manifest separately records the English copy and consent-version baseline; the translation inventory counts these UI drafts separately from authored learning content. The catalogue, receipt text, native download/receipt errors, general parent/privacy pages and all translated printable editions still require work. Seller details and final contract/durable confirmation review also remain prerequisites for live sales.
+
+Local Node 24.22.1 lint, TypeScript and 39/39 suites pass. New checks render the actual terms component in nine locale providers, verify all 144 strings, six headings/sections, locale links, version substitution, source hash, placeholders, PDF/ZIP/90-day references and unchanged release gates. The browser journey verifies inactive Romanian routing to English, every English terms section, version notice and navigation links. Existing desktop/mobile accessibility checks continue to cover the page. Production-build and browser results are recorded in PR #4 after CI completion. No claim of native-editor review, country-specific legal adaptation or non-English browser certification is made.
+
+No main merge, deployment, hosting change, live charge, Godot modification or final Namecheap ZIP.

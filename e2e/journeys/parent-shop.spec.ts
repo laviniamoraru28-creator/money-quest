@@ -2,6 +2,18 @@ import {test,expect} from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import {PARENT_GUIDE_SOURCES} from "../../src/content/parent-guide-copy";
 import {shopFlowCopy} from "../../src/content/shop-flow-copy";
+import {shopTermsCopy} from "../../src/content/shop-terms-copy";
+import {SHOP_TERMS_VERSION} from "../../src/content/shop";
+test("download terms preserve English disclosures and inactive-language redirect",async({page})=>{
+ await page.goto("/ro/parents/shop/terms");await expect(page).toHaveURL(/\/en\/parents\/shop\/terms$/);
+ const main=page.locator("main");
+ await expect(main.getByRole("heading",{level:1})).toHaveText(shopTermsCopy.en.title);
+ await expect(main.getByText(shopTermsCopy.en.status.replace("{version}",SHOP_TERMS_VERSION),{exact:true})).toBeVisible();
+ for(const i of [1,2,3,4,5,6] as const){await expect(main.getByRole("heading",{name:shopTermsCopy.en[`heading${i}`],exact:true})).toBeVisible();await expect(main.getByText(shopTermsCopy.en[`body${i}`],{exact:true})).toBeVisible();}
+ await expect(main.getByRole("link",{name:shopTermsCopy.en.back,exact:true})).toHaveAttribute("href","/en/parents/shop");
+ await expect(main.getByRole("link",{name:shopTermsCopy.en.privacy,exact:true})).toHaveAttribute("href","/en/privacy");
+ await expect(main.locator("form,input")).toHaveCount(0);
+});
 for(const path of ["/en/parents/resources","/en/parents/shop","/en/parents/shop/terms"]){
  test(`parent resource page, samples and accessibility: ${path}`,async({page})=>{
   await page.goto(path);await expect(page.locator("main h1")).toBeVisible();

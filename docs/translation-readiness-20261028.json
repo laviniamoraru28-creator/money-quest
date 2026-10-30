@@ -1,4 +1,23 @@
 {
+  "shopTermsDrafts": {
+    "locales": [
+      "en",
+      "ro",
+      "es",
+      "fr",
+      "de",
+      "it",
+      "pt",
+      "nl",
+      "pl"
+    ],
+    "stringsPerLocale": 16,
+    "translatedStrings": 128,
+    "sourceFingerprintManifest": "src/content/translations/shop-terms.sources.json",
+    "integration": "Display-only terms presentation with nine actual component SSR renders; public English, consent version and sandbox gates unchanged",
+    "editorialStatus": "AI multilingual editorial drafts, not native-editor certification or local legal adaptation",
+    "remaining": "Catalogue, receipts, native download/receipt errors, PDFs, seller details and final consumer-contract review before public sales"
+  },
   "parentFlowDrafts": {
     "locales": [
       "en",
@@ -16,7 +35,7 @@
     "sourceFingerprintManifest": "src/content/translations/parent-flow.sources.json",
     "integration": "Complete parent resource guide and selected-locale checkout/order/recovery controls; 45 actual component SSR renders; public EN and sandbox-only gates unchanged",
     "editorialStatus": "AI multilingual editorial drafts, not native-editor/legal certification",
-    "remaining": "Product catalogue/terms/privacy/general parent pages, receipt contents/native download errors, PDFs, remaining authored content, SEO and non-English browser/linguistic/legal review"
+    "remaining": "Product catalogue/privacy/general parent pages, receipt contents/native download errors, PDFs, remaining authored content, SEO and non-English browser/linguistic/legal review"
   },
   "commonControlsDrafts": {
     "locales": [
@@ -95,7 +114,7 @@
     "editorialStatus": "AI multilingual editorial drafts; no native-editor certification",
     "remaining": "Non-English browser layout, interaction and real narration quality; global shared UI, metadata and PDFs"
   },
-  "generated": "2026-10-29",
+  "generated": "2026-10-30",
   "scope": "Eight authored-content groups only. Canonical bibliography and external published book titles are excluded from counts and retained in their published language. This inventory does not certify linguistic quality or cover all hardcoded UI, SEO, commerce policies or privately stored printable manuscripts.",
   "activeLocales": [
     "en"
