@@ -29,7 +29,7 @@
     "successTitle": "Your digital order",
     "recoveryTitle": "Recover your digital download",
     "back": "Return to parent resources",
-    "englishFiles": "The files currently supplied are in English. Translated editions are still in preparation."
+    "englishFiles": "Your full bundle contains English, Romanian, Spanish, French, German, Italian, Portuguese, Dutch and Polish PDFs. Choose a language folder. The free samples are in English."
   },
   "ro": {
     "testOnly": "Doar plată de test. Nu se retrag bani reali.",
@@ -61,7 +61,7 @@
     "successTitle": "Comanda ta digitală",
     "recoveryTitle": "Recuperează descărcarea digitală",
     "back": "Înapoi la resursele pentru părinți",
-    "englishFiles": "Fișierele furnizate în prezent sunt în engleză. Edițiile traduse sunt încă în pregătire."
+    "englishFiles": "Pachetul complet conține PDF-uri în engleză, română, spaniolă, franceză, germană, italiană, portugheză, neerlandeză și polonă. Alege folderul limbii. Mostrele gratuite sunt în engleză."
   },
   "es": {
     "testOnly": "Solo pago de prueba. No se cobrará dinero real.",
@@ -93,7 +93,7 @@
     "successTitle": "Tu pedido digital",
     "recoveryTitle": "Recupera tu descarga digital",
     "back": "Volver a los recursos para familias",
-    "englishFiles": "Los archivos disponibles actualmente están en inglés. Las ediciones traducidas siguen en preparación."
+    "englishFiles": "El paquete completo contiene PDF en inglés, rumano, español, francés, alemán, italiano, portugués, neerlandés y polaco. Elige la carpeta del idioma. Las muestras gratuitas están en inglés."
   },
   "fr": {
     "testOnly": "Paiement de test uniquement. Aucun argent réel ne sera prélevé.",
@@ -125,7 +125,7 @@
     "successTitle": "Ta commande numérique",
     "recoveryTitle": "Récupère ton téléchargement numérique",
     "back": "Retour aux ressources pour les parents",
-    "englishFiles": "Les fichiers actuellement fournis sont en anglais. Les éditions traduites sont encore en préparation."
+    "englishFiles": "Le pack complet contient des PDF en anglais, roumain, espagnol, français, allemand, italien, portugais, néerlandais et polonais. Choisis un dossier de langue. Les extraits gratuits sont en anglais."
   },
   "de": {
     "testOnly": "Nur Testzahlung. Es wird kein echtes Geld abgebucht.",
@@ -157,7 +157,7 @@
     "successTitle": "Deine digitale Bestellung",
     "recoveryTitle": "Deinen digitalen Download wiederherstellen",
     "back": "Zurück zu den Elternressourcen",
-    "englishFiles": "Die derzeit bereitgestellten Dateien sind auf Englisch. Übersetzte Ausgaben sind noch in Vorbereitung."
+    "englishFiles": "Das vollständige Paket enthält PDFs auf Englisch, Rumänisch, Spanisch, Französisch, Deutsch, Italienisch, Portugiesisch, Niederländisch und Polnisch. Wähle einen Sprachordner. Kostenlose Beispiele sind auf Englisch."
   },
   "it": {
     "testOnly": "Solo pagamento di prova. Non verrà addebitato denaro reale.",
@@ -189,7 +189,7 @@
     "successTitle": "Il tuo ordine digitale",
     "recoveryTitle": "Recupera il tuo download digitale",
     "back": "Torna alle risorse per i genitori",
-    "englishFiles": "I file attualmente forniti sono in inglese. Le edizioni tradotte sono ancora in preparazione."
+    "englishFiles": "Il pacchetto completo contiene PDF in inglese, rumeno, spagnolo, francese, tedesco, italiano, portoghese, neerlandese e polacco. Scegli la cartella della lingua. Gli esempi gratuiti sono in inglese."
   },
   "pt": {
     "testOnly": "Apenas pagamento de teste. Não será cobrado dinheiro real.",
@@ -221,7 +221,7 @@
     "successTitle": "A tua encomenda digital",
     "recoveryTitle": "Recupera a tua transferência digital",
     "back": "Voltar aos recursos para pais",
-    "englishFiles": "Os ficheiros atualmente fornecidos estão em inglês. As edições traduzidas ainda estão em preparação."
+    "englishFiles": "O pacote completo contém PDF em inglês, romeno, espanhol, francês, alemão, italiano, português, neerlandês e polaco. Escolhe a pasta da língua. As amostras gratuitas estão em inglês."
   },
   "nl": {
     "testOnly": "Alleen een testbetaling. Er wordt geen echt geld afgeschreven.",
@@ -253,7 +253,7 @@
     "successTitle": "Je digitale bestelling",
     "recoveryTitle": "Herstel je digitale download",
     "back": "Terug naar de ouderbronnen",
-    "englishFiles": "De momenteel geleverde bestanden zijn in het Engels. Vertaalde uitgaven zijn nog in voorbereiding."
+    "englishFiles": "Het volledige pakket bevat PDF’s in Engels, Roemeens, Spaans, Frans, Duits, Italiaans, Portugees, Nederlands en Pools. Kies een taalmap. De gratis voorbeelden zijn Engels."
   },
   "pl": {
     "testOnly": "Tylko płatność testowa. Prawdziwe pieniądze nie zostaną pobrane.",
@@ -285,6 +285,6 @@
     "successTitle": "Twoje zamówienie cyfrowe",
     "recoveryTitle": "Odzyskaj pobrane pliki cyfrowe",
     "back": "Wróć do zasobów dla rodziców",
-    "englishFiles": "Obecnie udostępniane pliki są po angielsku. Tłumaczone wydania są nadal w przygotowaniu."
+    "englishFiles": "Pełny pakiet zawiera PDF po angielsku, rumuńsku, hiszpańsku, francusku, niemiecku, włosku, portugalsku, niderlandzku i polsku. Wybierz folder języka. Darmowe przykłady są po angielsku."
   }
 }
