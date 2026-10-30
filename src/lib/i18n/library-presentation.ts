@@ -4,7 +4,10 @@ import {ACTIVE_LOCALES,isSupportedLocale,type Locale} from "@/i18n/config";
 import books from "@/content/translations/books.ro.json";
 import bookManifest from "@/content/translations/books.ro.sources.json";
 import people from "@/content/translations/people.ro.json";
-import peopleManifest from "@/content/translations/people.ro.sources.json";
+import peopleManifest from "@/content/translations/people.sources.json";
+import peopleEs from "@/content/translations/people.es.json";
+import peopleFr from "@/content/translations/people.fr.json";
+import peopleDe from "@/content/translations/people.de.json";
 import {draftTranslatedBook,draftTranslatedBiography} from "./content-translations";
 import {draftTranslatedExternalBook} from "./content-translations";
 import {originalBooks} from "@/content/library";
@@ -13,6 +16,7 @@ import {authorBooks} from "@/content/author-books";
 import externalBooks from "@/content/translations/author-books.ro.json";
 import externalManifest from "@/content/translations/author-books.sources.json";
 
+const biographyDrafts:Partial<Record<Locale,Record<string,unknown>>>={ro:people,es:peopleEs,fr:peopleFr,de:peopleDe};
 export type ReaderPresentation={book:OriginalBook;locale:Locale;paragraphsPerPage:1|2};
 export type BiographyPresentation={person:LibraryPerson;locale:Locale};
 export type ShelfPresentation={locale:Locale;books:OriginalBook[];people:LibraryPerson[];published:typeof authorBooks};
@@ -31,10 +35,10 @@ export function draftReaderPresentation(book:OriginalBook,locale:Locale):ReaderP
 }
 export function draftBiographyPresentation(person:LibraryPerson,locale:Locale):BiographyPresentation {
  if(locale==="en")return {person,locale};
- if(locale!=="ro")throw new Error(`Biography translation not ready: ${locale}`);
- const slug=person.slug as keyof typeof people;
- if(!people[slug]||!peopleManifest.sources[slug])throw new Error(`Missing biography translation: ${person.slug}`);
- return {person:draftTranslatedBiography(person,people[slug],peopleManifest.sources[slug]),locale};
+ const draft=biographyDrafts[locale];if(!draft)throw new Error(`Biography translation not ready: ${locale}`);
+ const slug=person.slug as keyof typeof peopleManifest.sources;
+ if(!draft[slug]||!peopleManifest.sources[slug])throw new Error(`Missing biography translation: ${person.slug}`);
+ return {person:draftTranslatedBiography(person,draft[slug],peopleManifest.sources[slug]),locale};
 }
 export function draftShelfPresentation(locale:Locale):ShelfPresentation {
  if(locale!=="en"&&locale!=="ro")throw new Error(`Library shelf content not ready: ${locale}`);

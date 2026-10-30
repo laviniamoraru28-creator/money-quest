@@ -92,7 +92,7 @@ for(const locale of ["en","ro"] as const){
 }
 for(const locale of LOCALES.filter(locale=>locale!=="en"&&locale!=="ro")){
  assert.throws(()=>draftReaderPresentation(originalBooks[0]!,locale),/not ready/);
- assert.throws(()=>draftBiographyPresentation(libraryPeople[0]!,locale),/not ready/);
+ if(!["es","fr","de"].includes(locale))assert.throws(()=>draftBiographyPresentation(libraryPeople[0]!,locale),/not ready/);
  assert.throws(()=>draftShelfPresentation(locale),/not ready/);
 }
 console.log("PASS: 675 reader/biography/shelf UI strings across nine locales, EN/RO component SSR for 10 books, 10 biographies and both shelf editions, canonical metadata, pagination and answer preservation, calendar dates, stale-source refusal and English-only activation. Open Romanian reader interaction and real voice quality remain unverified.");
