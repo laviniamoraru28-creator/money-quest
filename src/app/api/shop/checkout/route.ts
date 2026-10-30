@@ -16,7 +16,7 @@ export async function POST(request:Request){
  const product=findProduct(String(value.productId));
  if(!product||value.instantSupply!==true||value.cancellationAcknowledged!==true||value.adultPurchaser!==true||(config.mode==="live"&&value.termsAccepted!==true))return NextResponse.json({code:"checkout_adult",message:"An adult must confirm both digital-download choices."},{status:400});
  if(!await canCheckout(product))return NextResponse.json({code:"product_unavailable",message:"This download is not available for purchase yet."},{status:503});
- const nonce=randomBytes(32).toString("hex"),tag=randomBytes(4).toString("hex"),letters=Array.from(randomBytes(8),n=>String.fromCharCode(97+n%26)).join("");
+ const nonce=randomBytes(32).toString("hex"),tag=randomBytes(4).toString("hex");
  try{
  await verifyLiveStripeConfiguration(config,product.id);
  if(config.mode==="live")await verifyConfirmationTransport();
@@ -36,6 +36,10 @@ export async function POST(request:Request){
   submit_type:"auto",
   integration_identifier:"hosted_web_0001",
   origin_context:"web",
+  adaptive_pricing:{enabled:false},
+  client_reference_id:tag,
+  // Fulfilment validates these server-owned fields before releasing an archive.
+  metadata:{app:APP_ID,product_id:product.id,locale:"en",instant_supply:"yes",cancellation_ack:"yes",terms_version:config.termsVersion,...(contract?{contract_id:contract.id,account_id:contract.accountId,terms_accepted:"yes"}:{}),browser_hash:createHash("sha256").update(nonce).digest("hex")},
   line_items:[{price:process.env[product.priceEnv]!,quantity:1}],
   success_url:`${config.origin}/en/parents/shop/success?session_id={CHECKOUT_SESSION_ID}&checkout=${tag}`,
   cancel_url:`${config.origin}/en/parents/shop?cancelled=1`
