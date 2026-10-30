@@ -1,22 +1,11 @@
 import path from "node:path";
-import {realpathSync} from "node:fs";
+import {privateDirectory} from "./private-path";
+export {privateDirectory} from "./private-path";
 import {access} from "node:fs/promises";
 import type {ShopProduct} from "@/content/shop";
 import {SHOP_TERMS_VERSION} from "@/content/shop";
 import {readRelease,archiveName,verifyArchive,validEmail} from "./release";
-export function privateDirectory(value:string|undefined):string{
- if(!value||!path.isAbsolute(value))throw new Error("An absolute private storage directory is required");
- const resolved=path.resolve(value),project=path.resolve(process.cwd());
- if(resolved===project||resolved.startsWith(project+path.sep))throw new Error("Paid downloads and orders must be outside the application directory");
- const publicRoot=process.env.MONEYQUEST_DOCUMENT_ROOT;
- if(publicRoot){
-  if(!path.isAbsolute(publicRoot))throw new Error("Absolute document root required");
-  const roots=[path.resolve(publicRoot)];try{roots.push(realpathSync(publicRoot));}catch(error){if((error as NodeJS.ErrnoException).code!=="ENOENT")throw error;}
-  if(roots.some(root=>resolved===root||resolved.startsWith(root+path.sep)))throw new Error("Private commerce storage cannot be under the document root");
- }
- try{const actual=realpathSync(resolved);if(actual!==resolved)privateDirectory(actual);}catch(error){if((error as NodeJS.ErrnoException).code!=="ENOENT")throw error;}
- return resolved;
-}
+
 export function smtpConfig(){
  const host=process.env.MONEYQUEST_SMTP_HOST,port=Number(process.env.MONEYQUEST_SMTP_PORT),user=process.env.MONEYQUEST_SMTP_USER,pass=process.env.MONEYQUEST_SMTP_PASSWORD,from=process.env.MONEYQUEST_SMTP_FROM;
  if(!host||!/^[A-Za-z0-9.-]+$/.test(host)||![465,587].includes(port)||!user||!pass||!validEmail(from))throw new Error("Verified TLS confirmation mailbox configuration required");
@@ -34,7 +23,7 @@ export function commerceConfig(){
  const url=new URL(process.env.NEXT_PUBLIC_SITE_URL??"https://moneyquesteducation.com");
  if(url.username||url.password||url.search||url.hash||url.pathname!=="/"||(url.protocol!=="https:"&&url.hostname!=="localhost")||(mode==="live"&&(url.protocol!=="https:"||url.hostname==="localhost")))throw new Error("Checkout needs a clean HTTPS site origin");
  const base=privateDirectory(process.env.MONEYQUEST_ORDER_DIRECTORY),assets=privateDirectory(process.env.MONEYQUEST_DOWNLOAD_DIRECTORY);
- const orders=mode==="live"?path.join(base,"live"):base;
+ const orders=privateDirectory(mode==="live"?path.join(base,"live"):base);
  let release:ReturnType<typeof readRelease>|undefined;
  if(mode==="live"){
   if(!process.env.MONEYQUEST_DOCUMENT_ROOT)throw new Error("Live hosting document root must be declared");

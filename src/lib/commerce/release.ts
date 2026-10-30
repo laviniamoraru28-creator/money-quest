@@ -1,6 +1,7 @@
 import {readFileSync,createReadStream} from "node:fs";
 import {readFile,stat,mkdir,writeFile} from "node:fs/promises";
 import path from "node:path";
+import {privateDirectory} from "./private-path";
 import {createHash} from "node:crypto";
 import {shopProducts,type ShopProduct} from "@/content/shop";
 export type Release={schema:1;accountId:string;merchant:{name:string;address:string;email:string};terms:{version:string;text:string};privacy:string;taxStatement:string;products:Record<ShopProduct["id"],{sha256:string;bytes:number}>};
@@ -23,7 +24,7 @@ export function verifyArchive(directory:string,file:string,expected:{sha256:stri
 export function verifyArchive(directory:string,file:string,expected:{sha256:string;bytes:number},includeBytes:false):Promise<void>;
 export async function verifyArchive(directory:string,file:string,expected:{sha256:string;bytes:number},includeBytes=true):Promise<Buffer|void>{
  if(path.basename(file)!==file||!file.endsWith(".zip"))throw new Error("Invalid private archive path");
- const target=path.join(directory,file),size=(await stat(target)).size;if(size!==expected.bytes||size>100*1024*1024)throw new Error("Private archive size mismatch");
+ const target=privateDirectory(path.join(directory,file)),size=(await stat(target)).size;if(size!==expected.bytes||size>100*1024*1024)throw new Error("Private archive size mismatch");
  if(includeBytes){
   const bytes=await readFile(target);
   if(bytes.length!==expected.bytes||!bytes.subarray(0,4).equals(Buffer.from([0x50,0x4b,0x03,0x04]))||createHash("sha256").update(bytes).digest("hex")!==expected.sha256)throw new Error("Private product failed integrity verification");
