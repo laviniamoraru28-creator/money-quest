@@ -1,3 +1,5 @@
+import {publicNavigationCopy} from "@/content/public-navigation-copy";
+import {discoveryCopy} from "@/content/discovery-copy";
 import Image from "next/image";
 import {WelcomeMessage} from "@/components/WelcomeMessage";
 import {experienceCopy} from "@/content/experience-copy";
@@ -12,6 +14,7 @@ import { getSiteUrl } from "@/lib/seo/site-url";
 export default async function LandingPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const t = await getTranslations();
+  const language=isSupportedLocale(locale)?locale:"en",copy=publicNavigationCopy[language],discovery=discoveryCopy[language];
   const siteUrl = getSiteUrl();
   const orgSchema = buildOrganizationSchema(siteUrl);
   const webSiteSchema = buildWebSiteSchema(siteUrl, locale);
@@ -31,8 +34,8 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
         <div className="mx-auto flex max-w-[1200px] flex-wrap items-center justify-between gap-3 px-sm py-xs">
           <span className="font-display text-lg font-bold text-teal-text">{t("common.moneyQuest")}</span>
           <nav className="hidden gap-md text-base md:flex" aria-label={t("a11y.mainNavigationLabel")}>
-            <Link href="/library" className="hover:text-teal-text">Library</Link>
-            <Link href="/museum" className="hover:text-teal-text">Museum</Link>
+            <Link href="/library" className="hover:text-teal-text">{discovery.library}</Link>
+            <Link href="/museum" className="hover:text-teal-text">{discovery.museum}</Link>
             <Link href="/learn" className="hover:text-teal-text">{t("nav.learn")}</Link>
             <Link href="/#how-it-works" className="hover:text-teal-text">{t("nav.howItWorks")}</Link>
             <Link href="/parent-info" className="hover:text-teal-text">{t("nav.forParents")}</Link>
@@ -78,23 +81,23 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
         </section>
 
         {/* Authored, interactive learning spaces. */}
-        {locale === "en" && (
+        {(
           <section aria-labelledby="future-labs-heading" className="mx-auto max-w-[1200px] px-sm py-2xl">
-            <h2 id="future-labs-heading" className="font-display text-2xl font-bold">Choose your next discovery</h2>
-            <p className="mt-2xs text-base text-ink/70">Practise useful skills with short activities and challenges at three levels.</p>
+            <h2 id="future-labs-heading" className="font-display text-2xl font-bold">{copy.discover}</h2>
+            <p className="mt-2xs text-base text-ink/70">{copy.discoverIntro}</p>
             <div className="mt-md grid gap-sm sm:grid-cols-2 lg:grid-cols-4">
               {[
-                { name: "Brain Lab" },
-                { name: "Mind Lab" },
-                { name: "Future Skills" },
-                { name: "Inclusive Learning" },
+                { slug:"brain-lab",name:copy.brain },
+                { slug:"mind-lab",name:copy.mind },
+                { slug:"future-skills",name:copy.future },
+                { slug:"inclusive-learning",name:copy.inclusive },
               ].map((lab) => (
-                <Link href={`/${lab.name.toLowerCase().replaceAll(" ", "-")}`} key={lab.name} className="overflow-hidden rounded-xl border border-ink/10 bg-white shadow-resting">
+                <Link href={`/${lab.slug}`} key={lab.slug} className="overflow-hidden rounded-xl border border-ink/10 bg-white shadow-resting">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <Image unoptimized src={`/images/money-quest/sections/${lab.name === "Brain Lab" ? "brain-lab-v2" : lab.name.toLowerCase().replaceAll(" ", "-")}-thumb.webp`} alt="" width={320} height={320} loading="lazy" className="h-auto w-full" />
+                  <Image unoptimized src={`/images/money-quest/sections/${lab.slug === "brain-lab" ? "brain-lab-v2" : lab.slug}-thumb.webp`} alt="" width={320} height={320} loading="lazy" className="h-auto w-full" />
                   <div className="p-sm">
                     <h3 className="font-display text-lg font-bold">{lab.name}</h3>
-                    <p className="mt-2xs text-sm text-teal-text">Explore activities →</p>
+                    <p className="mt-2xs text-sm text-teal-text">{copy.explore} →</p>
                   </div>
                 </Link>
               ))}
@@ -104,18 +107,18 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
 
         {/* Independent discovery experiences, no Godot required */}
         <section className="mx-auto max-w-[1200px] px-sm py-xl" aria-labelledby="discovery-heading">
-          <h2 id="discovery-heading" className="font-display text-2xl font-bold">Explore the Money Quest Library and Museum</h2>
-          <p className="mt-xs text-ink/70">Discover stories, biographies and the history of money without playing a game.</p>
+          <h2 id="discovery-heading" className="font-display text-2xl font-bold">{copy.discoveryTitle}</h2>
+          <p className="mt-xs text-ink/70">{copy.discoveryIntro}</p>
           <div className="mt-md grid gap-md md:grid-cols-2">
             <Link href="/library" className="rounded-2xl border border-ink/10 bg-white p-lg hover:border-teal focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal">
-              <Image unoptimized src="/images/money-quest/sections/library-thumb.webp" alt="" width={320} height={320} loading="lazy" className="mb-4 h-44 w-full rounded-xl object-contain"/><h3 className="mt-xs font-display text-xl font-bold">The Library</h3>
-              <p className="mt-xs">Read 10 original books, meet 10 people through mini-biographies and explore eight short reads, with optional read-aloud support.</p>
-              <span className="mt-sm inline-block font-bold text-teal-text">Open the Library →</span>
+              <Image unoptimized src="/images/money-quest/sections/library-thumb.webp" alt="" width={320} height={320} loading="lazy" className="mb-4 h-44 w-full rounded-xl object-contain"/><h3 className="mt-xs font-display text-xl font-bold">{discovery.libraryTitle}</h3>
+              <p className="mt-xs">{copy.libraryBody}</p>
+              <span className="mt-sm inline-block font-bold text-teal-text">{discovery.visitLibrary} →</span>
             </Link>
             <Link href="/museum" className="rounded-2xl border border-ink/10 bg-white p-lg hover:border-teal focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal">
-              <Image unoptimized src="/images/money-quest/sections/museum-thumb.webp" alt="" width={320} height={320} loading="lazy" className="mb-4 h-44 w-full rounded-xl object-contain"/><h3 className="mt-xs font-display text-xl font-bold">The Museum</h3>
-              <p className="mt-xs">Visit ten rooms about money, inventions and learning from mistakes.</p>
-              <span className="mt-sm inline-block font-bold text-teal-text">Enter the Museum →</span>
+              <Image unoptimized src="/images/money-quest/sections/museum-thumb.webp" alt="" width={320} height={320} loading="lazy" className="mb-4 h-44 w-full rounded-xl object-contain"/><h3 className="mt-xs font-display text-xl font-bold">{discovery.museumTitle}</h3>
+              <p className="mt-xs">{copy.museumBody}</p>
+              <span className="mt-sm inline-block font-bold text-teal-text">{discovery.visitMuseum} →</span>
             </Link>
           </div>
         </section>

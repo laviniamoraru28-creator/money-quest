@@ -58,5 +58,10 @@ export function isSupportedLocale(value: string): value is Locale {
   return (LOCALES as readonly string[]).includes(value);
 }
 
-/** Launch language. Translation files remain available for a later release. */
+/** The next public release must offer all nine languages, per the owner's decision.
+ * Keep the current installation gate until check:multilingual confirms readiness.
+ * A selector alone must not activate routes whose authored content would throw.
+ */
+export const PLANNED_LAUNCH_LOCALES = LOCALES;
+/** Current released installation. New multilingual packaging is blocked until ready. */
 export const ACTIVE_LOCALES = ["en"] as const;

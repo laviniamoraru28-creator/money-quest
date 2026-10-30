@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import {LanguageSwitcher} from "./LanguageSwitcher";
 import {BackgroundSound} from "./BackgroundSound";
 import {ActionIcon} from "./ActionIcon";
 import {Link} from "@/i18n/navigation";
@@ -53,6 +54,6 @@ export function PageReadAloud({locale,copy}:{locale:Locale;copy:SiteControlsCopy
     setMessage(null); speak(text);
   };
   return <aside aria-label={copy.region} data-read-aloud-ignore className="border-b border-teal/20 bg-cream px-5 py-2 text-ink">
-    <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-3"><button type="button" disabled={!isSupported} onClick={listen} className="inline-flex min-h-12 items-center gap-2 rounded-xl border border-teal/40 bg-white px-4 py-3 font-semibold text-teal-text disabled:opacity-60"><ActionIcon name="sound"/>{isSpeaking ? copy.stop : copy.listen}</button><button type="button" disabled={!isLoaded} aria-pressed={nightView} onClick={toggleNightView} className="min-h-12 rounded-xl border border-teal/40 bg-white px-4 py-3 font-semibold text-teal-text"><ActionIcon name="night"/>{copy.night}</button><Link href="/reviews" className="min-h-12 px-3 py-3 font-semibold text-teal-text underline">{copy.reviews}</Link><OfflineDownload locale={language} copy={copy}/>{!pathname.endsWith("/quiet-corner") && <Link href="/quiet-corner" className="min-h-12 rounded-xl border-2 border-teal bg-white px-4 py-3 font-bold text-teal-text">{quiet.entry}</Link>}<BackgroundSound locale={language}/><span className="text-sm">{copy.optional}</span><p role="status" className="text-sm">{message?copy[message]:""}</p></div>
+    <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-3"><LanguageSwitcher/><button type="button" disabled={!isSupported} onClick={listen} className="inline-flex min-h-12 items-center gap-2 rounded-xl border border-teal/40 bg-white px-4 py-3 font-semibold text-teal-text disabled:opacity-60"><ActionIcon name="sound"/>{isSpeaking ? copy.stop : copy.listen}</button><button type="button" disabled={!isLoaded} aria-pressed={nightView} onClick={toggleNightView} className="min-h-12 rounded-xl border border-teal/40 bg-white px-4 py-3 font-semibold text-teal-text"><ActionIcon name="night"/>{copy.night}</button><Link href="/reviews" className="min-h-12 px-3 py-3 font-semibold text-teal-text underline">{copy.reviews}</Link><OfflineDownload locale={language} copy={copy}/>{!pathname.endsWith("/quiet-corner") && <Link href="/quiet-corner" className="min-h-12 rounded-xl border-2 border-teal bg-white px-4 py-3 font-bold text-teal-text">{quiet.entry}</Link>}<BackgroundSound locale={language}/><span className="text-sm">{copy.optional}</span><p role="status" className="text-sm">{message?copy[message]:""}</p></div>
   </aside>;
 }
