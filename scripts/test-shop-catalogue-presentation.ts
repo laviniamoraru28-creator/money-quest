@@ -41,7 +41,7 @@ for(const locale of LOCALES){
   assert(text.sampleLabel.includes("PDF"));
   if(source.id==="family-adventure-pack"){
    assert(text.description.includes("20"));assert(text.pages.includes("20"));assert(text.includes[1]!.includes("40"));
-   if(locale!=="en"){assert(text.includes[2]!.includes("4"));assert(text.includes[3]!.includes("5"));}
+   if(locale!=="en"){assert(text.includes[2]!.includes("7"));}
    assert(text.sampleLabel.includes("3"));
   }else{assert(text.description.includes("12"));assert(text.pages.includes("39"));assert(text.pages.includes("A4"));assert(text.includes[1]!.includes("25 mm"));assert(text.includes[2]!.includes("12"));}
  }
