@@ -12,6 +12,7 @@ const config: Config = {
       colors: {
         teal: "#0F7A6B",
         "teal-text": "#0B6559",
+        "parent-action": "#5B3D85",
         "success-text": "#28692D",
         "warning-text": "#89500D",
         "error-text": "#A8352D",

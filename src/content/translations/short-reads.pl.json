@@ -1,0 +1,298 @@
+{
+  "the-saving-seed": {
+    "book": {
+      "title": "Ziarenko oszczędzania",
+      "topic": "Oszczędzanie i cierpliwość",
+      "pages": [
+        {
+          "title": "Małe marzenie",
+          "text": "Mia widzi latawiec w sklepie. Kosztuje osiem monet po jednym funcie. Ma trzy. Chce go kupić dzisiaj, ale liczy jeszcze raz i widzi, że potrzebuje pięciu kolejnych. Postanawia ułożyć plan."
+        },
+        {
+          "title": "Prosty plan",
+          "text": "Mia rysuje na kartce osiem kółek. Koloruje trzy za pieniądze, które już ma. Gdy może odłożyć kolejnego funta, koloruje następne kółko. W niektórych tygodniach niczego nie odkłada. Nadal może wrócić do planu."
+        },
+        {
+          "title": "Wietrzny dzień",
+          "text": "Po odłożeniu kolejnych pięciu funtów Mia ma osiem. Przed kupnem latawca sprawdza cenę z dorosłym opiekunem. W parku patrzy, jak latawiec się wznosi. Rysunek pomógł jej zobaczyć duży cel jako kilka mniejszych kroków."
+        }
+      ],
+      "quiz": {
+        "question": "Co pomogło Mii osiągnąć cel?",
+        "answers": [
+          "Oszczędzanie małymi krokami",
+          "Codzienne kupowanie słodyczy",
+          "Zapomnienie ceny"
+        ],
+        "correct": 0
+      }
+    },
+    "note": {
+      "feedback": "Mia miała jasny cel i odłożyła pięć kolejnych monet. Każdy krok przybliżał ją do ośmiu.",
+      "challenges": [
+        "Narysuj osiem kółek i pokoloruj trzy.",
+        "Oblicz, ilu monet jeszcze potrzebuje Mia.",
+        "Ułóż plan oszczędzania z kwotą tygodniową i możliwą zmianą ceny."
+      ]
+    }
+  },
+  "the-want-monster": {
+    "book": {
+      "title": "Potwór zachcianek",
+      "topic": "Potrzeby, zachcianki i samokontrola",
+      "pages": [
+        {
+          "title": "Spójrz na to!",
+          "text": "Sam widzi błyszczącego robota w sklepie z zabawkami. Przyciągający wzrok napis sprawia, że robot wygląda zachęcająco. Sam wyobraża sobie, że od razu zabiera go do domu. Bardzo go chce, ale pamięta, że uczucie nie musi decydować o zakupie."
+        },
+        {
+          "title": "Przerwa",
+          "text": "Sam robi przerwę. Pyta o cenę robota i sprawdza oszczędności. Potem przypomina sobie swój cel: rower. Kupno robota oznaczałoby mniej pieniędzy na rower. Może cieszyć się oglądaniem czegoś bez kupowania."
+        },
+        {
+          "title": "Mój wybór",
+          "text": "Sam postanawia poczekać z wyborem do jutra. Opowiada dorosłemu opiekunowi o obu możliwościach. Być może później wybierze robota albo dalej będzie odkładać na rower. Przydatną umiejętnością jest danie sobie czasu na własny, świadomy wybór."
+        }
+      ],
+      "quiz": {
+        "question": "Co pomaga, gdy bardzo czegoś chcesz?",
+        "answers": [
+          "Kupić od razu",
+          "Zrobić przerwę i pomyśleć",
+          "Pozwolić reklamie zdecydować"
+        ],
+        "correct": 1
+      }
+    },
+    "note": {
+      "feedback": "Przerwa dała Samowi czas na porównanie robota z wcześniejszym celem. Pragnienie zabawki nie jest niczym złym.",
+      "challenges": [
+        "Wskaż, czy chcesz poczekać, czy wybrać teraz.",
+        "Podaj dwa pytania, które Sam mógłby sobie zadać.",
+        "Wyjaśnij koszt alternatywny kupienia robota dzisiaj."
+      ]
+    }
+  },
+  "the-lemonade-test": {
+    "book": {
+      "title": "Próba z lemoniadą",
+      "topic": "Przedsiębiorczość i opinie",
+      "pages": [
+        {
+          "title": "Pierwszy pomysł",
+          "text": "Lily planuje stoisko z lemoniadą na niby z dorosłym opiekunem. Robi szyld, ale niewiele osób się zatrzymuje. Jest rozczarowana. Zamiast od razu kupować więcej materiałów, chce sprawdzić, co ludzie zauważają."
+        },
+        {
+          "title": "Lepsze pytanie",
+          "text": "Lily pyta zaufanych gości, co pomogłoby im zdecydować. Razem z osobą dorosłą proponuje małą próbkę i poprawia czytelność szyldu. Zmienia jedną rzecz naraz, żeby zobaczyć, co się stanie. Więcej osób zatrzymuje się, by zapytać o napój."
+        },
+        {
+          "title": "Spróbuj ponownie",
+          "text": "Lily zapisuje otrzymane pieniądze i koszty składników oraz kubków. Próbki też kosztują. Oblicza, czy sprzedaż pokryła te koszty, zanim nazwie wynik zyskiem. Pierwszy pomysł dał jej informacje do lepszej kolejnej próby."
+        }
+      ],
+      "quiz": {
+        "question": "Co zrobiła Lily, gdy plan nie zadziałał?",
+        "answers": [
+          "Poddała się",
+          "Zignorowała klientów",
+          "Zapytała i przetestowała pomysł"
+        ],
+        "correct": 2
+      }
+    },
+    "note": {
+      "feedback": "Lily poprosiła o opinie, wypróbowała zmianę i sprawdziła koszty. Sama większa liczba gości nie dowodzi zysku.",
+      "challenges": [
+        "Wybierz przykładowy projekt.",
+        "Wymień dwa koszty stoiska na niby.",
+        "Oblicz zysk ze sprzedaży 10 kubków po £1 przy £6 łącznych kosztów. A jeśli część kubków to darmowe próbki?"
+      ]
+    }
+  },
+  "the-team-bridge": {
+    "book": {
+      "title": "Most zespołu",
+      "topic": "Przywództwo i praca zespołowa",
+      "pages": [
+        {
+          "title": "Wyzwanie",
+          "text": "Czworo przyjaciół ma pudełko klocków i wyzwanie: zbudować most, który utrzyma małą zabawkę. Wszyscy sięgają po klocki jednocześnie. Emma zauważa, że niektóre pomysły nie są słyszane. Proponuje krótką przerwę."
+        },
+        {
+          "title": "Najpierw słuchamy",
+          "text": "Emma prosi każdego o podzielenie się pomysłem. Jedna osoba wskazuje rysunek zamiast mówić. Uzgadniają szeroką podstawę, mocny środek i zadania, których każdy chce spróbować. Gdy środek się zapada, oglądają go razem."
+        },
+        {
+          "title": "Razem silniejsi",
+          "text": "Zespół dodaje kolejną podporę i znów testuje most. Most utrzymuje zabawkę. Emma dziękuje wszystkim za pomysły i pracę. Pomogła zorganizować grupę, ale rezultat wynikał ze słuchania, testowania i dzielenia się zadaniem."
+        }
+      ],
+      "quiz": {
+        "question": "Jak Emma przewodziła grupie?",
+        "answers": [
+          "Słuchała",
+          "Wszystkich ignorowała",
+          "Pracowała sama"
+        ],
+        "correct": 0
+      }
+    },
+    "note": {
+      "feedback": "Emma słuchała i pomagała każdemu wnieść swój wkład. Przywództwo może obejmować wspólne podejmowanie decyzji.",
+      "challenges": [
+        "Wskaż rolę, którą chcesz pełnić.",
+        "Buduj z drugą osobą i wybierajcie klocki na zmianę.",
+        "Porównaj wspólną decyzję z szybką decyzją jednej osoby. Kiedy każda z nich może być odpowiednia?"
+      ]
+    }
+  },
+  "the-brave-mistake": {
+    "book": {
+      "title": "Odważny błąd",
+      "topic": "Uczenie się na błędach",
+      "pages": [
+        {
+          "title": "Oj!",
+          "text": "Noah składa papierowy samolot z osobą dorosłą. Przy pierwszym locie samolot spada prawie pionowo. Noah jest sfrustrowany i odkłada go na chwilę na stół. Krótka przerwa pomaga mu przyjrzeć się jeszcze raz."
+        },
+        {
+          "title": "Przyjrzyj się uważnie",
+          "text": "Noah zauważa, że jedno skrzydło jest zagięte w dół. Prostuje je i nie zmienia innych części. Startuje z tego samego miejsca. Zmiana jednej rzeczy ułatwia zauważenie, co mogło pomóc."
+        },
+        {
+          "title": "Nowy lot",
+          "text": "Przy kolejnym locie samolot szybuje dalej. Noah próbuje jeszcze kilka razy i zapisuje wyniki. Nie każdy lot jest taki sam. Ma przydatne informacje do kolejnego testu, a nie dowód, że jeden projekt działa zawsze."
+        }
+      ],
+      "quiz": {
+        "question": "Co pomogło Noahowi coś poprawić?",
+        "answers": [
+          "Obwinianie kolegi",
+          "Obserwowanie i ponowna próba",
+          "Schowanie samolotu"
+        ],
+        "correct": 1
+      }
+    },
+    "note": {
+      "feedback": "Noah zauważył konkretny problem i przetestował zmianę. Wykorzystał informacje o tym, co się wydarzyło.",
+      "challenges": [
+        "Wskaż zagięte skrzydło na rysunku.",
+        "Przetestuj jedną zmianę w papierowym samolocie z osobą dorosłą.",
+        "Zachowaj to samo miejsce startu i porównaj kilka lotów. Co możesz wywnioskować?"
+      ]
+    }
+  },
+  "the-digital-coin": {
+    "book": {
+      "title": "Cyfrowa moneta",
+      "topic": "Pieniądze cyfrowe i bezpieczeństwo",
+      "pages": [
+        {
+          "title": "Gdzie są pieniądze?",
+          "text": "Lucy patrzy, jak jej rodzic przykłada kartę do terminala w sklepie. Żadne monety nie przechodzą z rąk do rąk. Pyta, gdzie trafiły pieniądze. Rodzic wyjaśnia, że pieniądze mogą być zapisane elektronicznie na koncie bankowym, a także istnieć jako gotówka."
+        },
+        {
+          "title": "Co kryje się za zbliżeniem karty",
+          "text": "Karta debetowa może wysyłać polecenia pobrania pieniędzy z konta. Karta kredytowa wykorzystuje pożyczone pieniądze, które trzeba oddać. Portfel w telefonie może inaczej wysyłać polecenia płatności. Plastikowa karta i telefon to narzędzia, a nie same pieniądze."
+        },
+        {
+          "title": "Sprawdź przed zapłatą",
+          "text": "Lucy i jej rodzic sprawdzają kwotę przed zapłatą. Potem porównują paragon z zapisem płatności. Cyfrowe wydatki nadal dotyczą prawdziwych lub pożyczonych pieniędzy. Szybkie przyłożenie karty jest powodem, by nadal sprawdzać, a nie sposobem na darmowe rzeczy."
+        }
+      ],
+      "quiz": {
+        "question": "Co trzeba sprawdzić przed zapłatą?",
+        "answers": [
+          "Kolor karty",
+          "Pogodę",
+          "Kwotę"
+        ],
+        "correct": 2
+      }
+    },
+    "note": {
+      "feedback": "Sprawdź kwotę przed zapłatą. Cyfrowe wydatki dotyczą prawdziwych lub pożyczonych pieniędzy.",
+      "challenges": [
+        "Wskaż kwotę na paragonie do zabawy.",
+        "Odejmij płatność £3 od salda £10.",
+        "Porównaj płatność kartą debetową i kredytową. Wyjaśnij, co trzeba oddać."
+      ]
+    }
+  },
+  "ada-and-the-machine": {
+    "book": {
+      "title": "Ada i maszyna",
+      "topic": "Biografia: Ada Lovelace",
+      "pages": [
+        {
+          "title": "Ciekawa świata myślicielka",
+          "text": "Ada Lovelace urodziła się w Londynie w 1815 roku. Studiowała matematykę i zainteresowała się proponowaną przez Charlesa Babbage’a Maszyną Analityczną. Był to projekt programowalnego kalkulatora mechanicznego, a nie współczesny komputer elektroniczny."
+        },
+        {
+          "title": "Niezwykły pomysł",
+          "text": "W 1843 roku Ada przetłumaczyła artykuł o proponowanej maszynie i dodała obszerne notatki. Zawierały metodę z użyciem liczb Bernoulliego. Pełna Maszyna Analityczna nie powstała za jej życia. Pomysły te nie były więc tym samym co uruchomienie programu na gotowej maszynie."
+        },
+        {
+          "title": "Więcej niż liczby",
+          "text": "Ada zastanawiała się, jak symbole mogą przedstawiać coś więcej niż zwykłe liczby. Wyobrażała sobie możliwości związane z muzyką. Jej praca pokazuje, jak wiedza matematyczna i wyobraźnia pomagają zadawać nowe pytania o technologię. Później informatyka rozwijała się dzięki wkładowi wielu osób."
+        }
+      ],
+      "quiz": {
+        "question": "Co wyróżniało pomysły Ady?",
+        "answers": [
+          "Wyobrażała sobie nowe zastosowania maszyn",
+          "Zbudowała smartfon",
+          "Wynalazła laptopy"
+        ],
+        "correct": 0
+      }
+    },
+    "note": {
+      "feedback": "Ada rozważała zastosowania proponowanej maszyny wykraczające poza arytmetykę. Pełna Maszyna Analityczna nie powstała za jej życia.",
+      "challenges": [
+        "Narysuj coś, co maszyna mogłaby pomóc ci stworzyć.",
+        "Opisz różnicę między pomysłem a gotowym wynalazkiem.",
+        "Wyjaśnij, jak maszyna mogłaby przedstawiać muzykę za pomocą symboli lub liczb."
+      ]
+    }
+  },
+  "george-and-the-invention": {
+    "book": {
+      "title": "George i wynalazek",
+      "topic": "Biografia: George Stephenson",
+      "pages": [
+        {
+          "title": "Nauka przez działanie",
+          "text": "George Stephenson urodził się w Northumberland w 1781 roku. Uczył się inżynierii przez praktyczną pracę i pomagał rozwijać pierwsze koleje i lokomotywy. Żył w czasach, gdy wiele osób testowało sposoby przewożenia towarów i pasażerów."
+        },
+        {
+          "title": "Pomysł na kolej",
+          "text": "W 1829 roku próby w Rainhill porównywały lokomotywy dla linii kolejowej między Liverpoolem a Manchesterem. Wygrała Rocket, zaprojektowana przez Roberta Stephensona i zbudowana przez jego firmę. George był ojcem Roberta i ważnym inżynierem kolejnictwa. Osiągnięcie opierało się na zespole i wcześniejszych pomysłach."
+        },
+        {
+          "title": "Rozwijanie pomysłów",
+          "text": "Rocket łączyła kilka przydatnych osiągnięć inżynierii. Później znów ją zmieniano wraz z postępem techniki. Historia kolei nie jest historią jednej osoby, która wynalazła wszystko naraz. Inżynierowie uczą się z testów, z pracy innych i z potrzeb ludzi korzystających z systemu."
+        }
+      ],
+      "quiz": {
+        "question": "Co pomogło ulepszać technikę kolejową?",
+        "answers": [
+          "Magia",
+          "Testy i inżynieria",
+          "Nigdy nie zmieniać projektów"
+        ],
+        "correct": 1
+      }
+    },
+    "note": {
+      "feedback": "Inżynieria kolejowa rozwijała się dzięki pracy wielu osób. Rocket zaprojektował Robert Stephenson, a zbudowała jego firma.",
+      "challenges": [
+        "Narysuj koło lub most.",
+        "Wymień dwie rzeczy, które inżynierowie mogą testować w pojeździe.",
+        "Wyjaśnij, dlaczego docenienie kilku twórców jest dokładniejsze niż nazwanie jednej osoby wynalazcą wszystkich kolei."
+      ]
+    }
+  }
+}

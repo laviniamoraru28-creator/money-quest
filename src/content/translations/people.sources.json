@@ -1,0 +1,28 @@
+{
+  "status": "draft",
+  "recorded": "2026-10-30",
+  "locales": [
+    "ro",
+    "es",
+    "fr",
+    "de",
+    "it",
+    "pt",
+    "nl",
+    "pl"
+  ],
+  "stringsPerLocale": 147,
+  "sources": {
+    "mark-zuckerberg-ideas-and-responsibility": "5cd1899c213bed2fb854b892817760aadafc56bbd26884331d040d5235d8a291",
+    "ada-lovelace-beyond-number-crunching": "776a43e69a1231b2e0e30c729afb3f09c91be8a5f56adb37ae12de8f1c3468f9",
+    "madam-cj-walker-a-business-and-a-network": "14fd8f24f48d947f806be57d4678eb0e61da644d18f44933e34894b078c28069",
+    "katherine-johnson-checking-the-numbers": "300ab9f80f4e95d101a8473efe75de10ff7a0e1442605504cd1fdac08ffcd018",
+    "mae-jemison-more-than-one-interest": "29ad29ebeae2ba2d83c6747ea672706a1c1b76ac63277356da12c5ce36a7936a",
+    "tim-berners-lee-sharing-information": "8f04061fdb9721d93e6897a20603125b2aed6e6961e1e0b242e3e903fe58bbb4",
+    "wangari-maathai-trees-and-community": "3dbec5e839a06710f37447287a77c52295de724f41e43a5a8a6edd9137c2b717",
+    "louis-braille-designing-for-touch": "742bed66ee309ace9fc82abd0333810b75b6d8eadd65b33bc44123a97656bec8",
+    "jane-goodall-looking-before-concluding": "e87f0df8dc7531bb3f2b4a652b5b4e9af6b699427b7cae95d6cbc54c7b692a29",
+    "beatrix-potter-drawing-writing-and-making": "52c5cff6eb8dfbc1db06092828fd3da5a2f64e6b5adaaa2abd9b405e76384e35"
+  },
+  "review": "AI multilingual editorial drafts, not native-editor certification. Canonical metadata and original bibliography remain unchanged. Public activation, complete other domains, browser/voice/language review remain pending."
+}

@@ -2,6 +2,8 @@ import type { MetadataRoute } from "next";
 import { getSiteUrl } from "@/lib/seo/site-url";
 import { ARTICLE_STRUCTURES } from "@/content/articles";
 import { ACTIVE_LOCALES } from "@/i18n/config";
+import {libraryPeople} from "@/content/people";
+import {originalBooks} from "@/content/library";
 import { museumRooms, libraryBooks } from "@/content/discovery";
 
 /**
@@ -26,12 +28,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // with no unique indexable content (see feedback/layout.tsx's own
   // noindex), not an oversight — listing a noindexed URL in the
   // sitemap would just send Google a contradictory signal.
-  const staticPaths = ["/brain-lab", "/mind-lab", "/future-skills", "/inclusive-learning", "", "/learn", "/privacy", "/contact", "/parent-info"];
+  const staticPaths = ["/explorer", "/quiet-corner", "/parents/resources", "/parents/shop", "/parents/shop/terms", "/reviews", "/brain-lab", "/mind-lab", "/future-skills", "/inclusive-learning", "", "/learn", "/privacy", "/contact", "/parent-info"];
   const articlePaths = ARTICLE_STRUCTURES.map((a) => `/learn/${a.slug}`);
   const allPaths = [...staticPaths, ...articlePaths];
 
   const entries: MetadataRoute.Sitemap = [];
-  const discoveryPaths = ["/museum", ...museumRooms.map((room) => `/museum/${room.slug}`), "/library", ...libraryBooks.map((book) => `/library/${book.slug}`)];
+  const discoveryPaths = ["/museum", ...museumRooms.map((room) => `/museum/${room.slug}`), "/library", ...[...libraryBooks,...originalBooks,...libraryPeople].map((book) => `/library/${book.slug}`)];
   for (const path of discoveryPaths) {
     entries.push({url: `${siteUrl}/en${path}`, changeFrequency: "monthly", priority: 0.7});
   }

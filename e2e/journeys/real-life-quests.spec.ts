@@ -76,15 +76,15 @@ test.describe("Real Life Quests mission page - variant selector", () => {
 test.describe("Real Life Quests mission page - read-aloud", () => {
   test("a read-aloud control is present near the top of the mission content and does not crash when toggled", async ({ page }) => {
     await page.goto("/en/real-life-quests/missions/save-for-something-you-love");
-    const readAloud = page.getByRole("button", { name: /Listen to the lesson/i });
+    const readAloud = page.locator("main").getByRole("button", { name: "Listen", exact: true }).first();
     // Renders nothing when the browser has no speech-synthesis support,
     // so only assert presence/behavior when it did render.
     if (await readAloud.isVisible().catch(() => false)) {
       await readAloud.click();
       // Button must remain present and keep a stable accessible name
-      // (either "Listen to the lesson" or "Stop reading") after toggling -
+      // (either "Listen" or "Stop") after toggling -
       // it should never disappear or throw.
-      await expect(readAloud.or(page.getByRole("button", { name: /Stop reading/i }))).toBeVisible();
+      await expect(readAloud.or(page.locator("main").getByRole("button", { name: "Stop", exact: true }).first())).toBeVisible();
     }
   });
 });

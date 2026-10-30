@@ -1,0 +1,11 @@
+import assert from "node:assert/strict";
+import { speechChunks } from "../src/lib/accessibility/speech-chunks";
+assert.deepEqual(speechChunks("  "), []);
+const text = Array.from({length: 900}, (_, index) => `word${index}`).join(" ");
+const chunks = speechChunks(text);
+assert.ok(chunks.length > 1);
+assert.ok(chunks.every(chunk => chunk.length <= 1100));
+assert.equal(chunks.join(" "), text, "Long read-aloud must not silently truncate or reorder words");
+assert.deepEqual(speechChunks("Hello.\n\nNext sentence."), ["Hello. Next sentence."]);
+assert.throws(() => speechChunks("Hello", 0));
+console.log("PASS: read-aloud chunks preserve full text and word order.");

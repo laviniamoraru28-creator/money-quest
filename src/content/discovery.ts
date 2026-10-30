@@ -221,15 +221,15 @@ export const libraryBooks:Book[]=[
     "pages": [
       {
         "title": "Look at That!",
-        "text": "Theo sees a shiny robot in a toy shop. A bright sign makes it look exciting. He imagines taking it home right now. Wanting it feels strong, but he remembers that a feeling does not have to decide what he buys."
+        "text": "Sam sees a shiny robot in a toy shop. A bright sign makes it look exciting. He imagines taking it home right now. Wanting it feels strong, but he remembers that a feeling does not have to decide what he buys."
       },
       {
         "title": "The Pause",
-        "text": "Theo pauses. He asks what the robot costs and checks the money he has saved. Then he remembers his bicycle goal. Buying the robot would leave less for the bicycle. He can enjoy looking at something without buying it."
+        "text": "Sam pauses. He asks what the robot costs and checks the money he has saved. Then he remembers his bicycle goal. Buying the robot would leave less for the bicycle. He can enjoy looking at something without buying it."
       },
       {
         "title": "My Choice",
-        "text": "Theo decides to wait until tomorrow before choosing. He tells his grown-up about both options. He may still choose the robot later, or keep saving for the bicycle. The useful skill is taking time to make his own informed choice."
+        "text": "Sam decides to wait until tomorrow before choosing. He tells his grown-up about both options. He may still choose the robot later, or keep saving for the bicycle. The useful skill is taking time to make his own informed choice."
       }
     ],
     "quiz": {
@@ -250,19 +250,19 @@ export const libraryBooks:Book[]=[
     "pages": [
       {
         "title": "A First Idea",
-        "text": "Ruby plans a pretend lemonade stall with her grown-up. She makes a sign, but few people stop. She feels disappointed. Instead of buying more supplies straight away, she decides to find out what people notice."
+        "text": "Lily plans a pretend lemonade stall with her grown-up. She makes a sign, but few people stop. She feels disappointed. Instead of buying more supplies straight away, she decides to find out what people notice."
       },
       {
         "title": "A Better Question",
-        "text": "Ruby asks trusted visitors what would help them decide. With her grown-up, she offers a small sample and makes the sign clearer. She changes one thing at a time so she can notice what happens. More people stop to ask about the drink."
+        "text": "Lily asks trusted visitors what would help them decide. With her grown-up, she offers a small sample and makes the sign clearer. She changes one thing at a time so she can notice what happens. More people stop to ask about the drink."
       },
       {
         "title": "Try Again",
-        "text": "Ruby records the money received and the cost of ingredients and cups. Samples cost money too. She works out whether sales covered those costs before calling the result a profit. Her first idea gave her information for a better next test."
+        "text": "Lily records the money received and the cost of ingredients and cups. Samples cost money too. She works out whether sales covered those costs before calling the result a profit. Her first idea gave her information for a better next test."
       }
     ],
     "quiz": {
-      "question": "What did Ruby do when her plan failed?",
+      "question": "What did Lily do when her plan failed?",
       "answers": [
         "Gave up",
         "Ignored customers",
@@ -279,19 +279,19 @@ export const libraryBooks:Book[]=[
     "pages": [
       {
         "title": "The Challenge",
-        "text": "Four friends have a box of blocks and a challenge: make a bridge that holds a small toy. They all reach for the blocks at once. Ava notices that some ideas are not getting heard. She suggests a short pause."
+        "text": "Four friends have a box of blocks and a challenge: make a bridge that holds a small toy. They all reach for the blocks at once. Emma notices that some ideas are not getting heard. She suggests a short pause."
       },
       {
         "title": "Listening First",
-        "text": "Ava asks each friend to share an idea. One friend points to a drawing instead of speaking. They agree on a wide base, a strong middle and jobs that everyone wants to try. When the middle falls, they look at it together."
+        "text": "Emma asks each friend to share an idea. One friend points to a drawing instead of speaking. They agree on a wide base, a strong middle and jobs that everyone wants to try. When the middle falls, they look at it together."
       },
       {
         "title": "Stronger Together",
-        "text": "The team adds another support and tests the bridge again. It holds the toy. Ava thanks everyone for their ideas and work. She helped the group organise, but the result came from listening, testing and sharing the task."
+        "text": "The team adds another support and tests the bridge again. It holds the toy. Emma thanks everyone for their ideas and work. She helped the group organise, but the result came from listening, testing and sharing the task."
       }
     ],
     "quiz": {
-      "question": "How did Ava lead?",
+      "question": "How did Emma lead?",
       "answers": [
         "She listened",
         "She ignored everyone",
@@ -337,7 +337,7 @@ export const libraryBooks:Book[]=[
     "pages": [
       {
         "title": "Where Is the Money?",
-        "text": "Leah watches her parent tap a card at a shop. No coins change hands. She asks where the money went. Her parent explains that money can be recorded electronically in a bank account as well as held as cash."
+        "text": "Lucy watches her parent tap a card at a shop. No coins change hands. She asks where the money went. Her parent explains that money can be recorded electronically in a bank account as well as held as cash."
       },
       {
         "title": "Behind the Tap",
@@ -345,7 +345,7 @@ export const libraryBooks:Book[]=[
       },
       {
         "title": "Check Before You Tap",
-        "text": "Leah and her parent check the amount before paying. Afterwards they compare the receipt with the payment record. Spending digitally still affects real money or borrowing. A quick tap is a reason to keep checking, not a way to get things free."
+        "text": "Lucy and her parent check the amount before paying. Afterwards they compare the receipt with the payment record. Spending digitally still affects real money or borrowing. A quick tap is a reason to keep checking, not a way to get things free."
       }
     ],
     "quiz": {

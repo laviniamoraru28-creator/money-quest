@@ -52,6 +52,9 @@ export default async function ContactPage({ params }: PageProps) {
         <main id="main-content" tabIndex={-1}>
           <h1 className="mt-sm font-display text-2xl font-bold">{t("contact.title")}</h1>
           <p className="mt-sm text-base text-ink/80">{t("contact.intro")}</p>
+          <a href="mailto:moneyquesteducation@gmail.com" className="mt-sm inline-flex min-h-12 max-w-full items-center break-all rounded-md px-sm py-sm text-base font-bold text-teal-text underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">
+            moneyquesteducation@gmail.com
+          </a>
 
           <div className="mt-md rounded-md border border-ink/10 bg-white p-md">
             <h2 className="font-display text-lg font-bold">{t("contact.safetyTitle")}</h2>

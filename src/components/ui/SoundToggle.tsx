@@ -1,5 +1,6 @@
 "use client";
 
+import {ActionIcon} from "./ActionIcon";
 import { useTranslations } from "next-intl";
 import { useSound } from "@/lib/audio/use-sound";
 
@@ -27,7 +28,7 @@ export function SoundToggle() {
       className="grid h-touch-min-child w-touch-min-child place-items-center rounded-full border border-ink/10 bg-white text-lg shadow-resting hover:bg-fog"
       title={isMuted ? t("play.soundOffLabel") : t("play.soundOnLabel")}
     >
-      <span aria-hidden="true">{isMuted ? "🔇" : "🔊"}</span>
+      <ActionIcon name="sound" style={{opacity:isMuted?.45:1}}/>
     </button>
   );
 }

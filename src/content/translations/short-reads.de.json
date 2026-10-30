@@ -1,0 +1,298 @@
+{
+  "the-saving-seed": {
+    "book": {
+      "title": "Der Samen des Sparens",
+      "topic": "Sparen und Geduld",
+      "pages": [
+        {
+          "title": "Ein kleiner Wunsch",
+          "text": "Mia sieht einen Drachen in einem Geschäft. Er kostet acht Ein-Pfund-Münzen. Sie hat drei. Sie möchte ihn heute kaufen, zählt aber noch einmal und merkt, dass sie fünf weitere braucht. Sie beschließt, einen Plan zu machen."
+        },
+        {
+          "title": "Ein einfacher Plan",
+          "text": "Mia zeichnet acht Kreise auf ein Blatt. Drei malt sie für das Geld aus, das sie schon hat. Wenn sie ein weiteres Pfund sparen kann, malt sie noch einen Kreis aus. In manchen Wochen spart sie nichts. Sie kann trotzdem zu ihrem Plan zurückkehren."
+        },
+        {
+          "title": "Der windige Tag",
+          "text": "Nachdem Mia fünf weitere Pfund gespart hat, hat sie acht. Vor dem Kauf prüft sie mit ihrer erwachsenen Begleitperson den Preis. Im Park sieht sie den Drachen steigen. Ihre Zeichnung half ihr, ein großes Ziel als mehrere kleine Schritte zu sehen."
+        }
+      ],
+      "quiz": {
+        "question": "Was half Mia, ihr Ziel zu erreichen?",
+        "answers": [
+          "Nach und nach sparen",
+          "Täglich Süßigkeiten kaufen",
+          "Den Preis vergessen"
+        ],
+        "correct": 0
+      }
+    },
+    "note": {
+      "feedback": "Mia hatte ein klares Ziel und sparte fünf weitere Münzen. Jeder Schritt brachte sie den acht Münzen näher.",
+      "challenges": [
+        "Zeichne acht Kreise und male drei aus.",
+        "Berechne, wie viele Münzen Mia noch braucht.",
+        "Mache einen Sparplan mit einem wöchentlichen Betrag und einer möglichen Preisänderung."
+      ]
+    }
+  },
+  "the-want-monster": {
+    "book": {
+      "title": "Das Wunschmonster",
+      "topic": "Bedürfnisse, Wünsche und Selbstkontrolle",
+      "pages": [
+        {
+          "title": "Schau mal!",
+          "text": "Sam sieht einen glänzenden Roboter im Spielzeugladen. Ein auffälliges Schild lässt ihn spannend wirken. Sam stellt sich vor, ihn sofort mit nach Hause zu nehmen. Er wünscht ihn sich sehr, erinnert sich aber daran, dass ein Gefühl nicht über seine Einkäufe entscheiden muss."
+        },
+        {
+          "title": "Die Pause",
+          "text": "Sam macht eine Pause. Er fragt nach dem Preis des Roboters und prüft sein gespartes Geld. Dann denkt er an sein Fahrradziel. Wenn er den Roboter kauft, bleibt weniger für das Fahrrad übrig. Er kann etwas gern anschauen, ohne es zu kaufen."
+        },
+        {
+          "title": "Meine Entscheidung",
+          "text": "Sam beschließt, bis morgen mit seiner Entscheidung zu warten. Er spricht mit seiner erwachsenen Begleitperson über beide Möglichkeiten. Vielleicht entscheidet er sich später für den Roboter oder spart weiter für das Fahrrad. Die nützliche Fähigkeit ist, sich Zeit für eine eigene, gut informierte Entscheidung zu nehmen."
+        }
+      ],
+      "quiz": {
+        "question": "Was hilft, wenn du dir etwas sehr wünschst?",
+        "answers": [
+          "Sofort kaufen",
+          "Eine Pause machen und nachdenken",
+          "Eine Werbung entscheiden lassen"
+        ],
+        "correct": 1
+      }
+    },
+    "note": {
+      "feedback": "Die Pause gab Sam Zeit, den Roboter mit seinem bisherigen Ziel zu vergleichen. Sich ein Spielzeug zu wünschen ist nicht falsch.",
+      "challenges": [
+        "Zeige, ob du warten oder jetzt entscheiden möchtest.",
+        "Nenne zwei Fragen, die Sam sich stellen könnte.",
+        "Erkläre die Opportunitätskosten, wenn Sam den Roboter heute kauft."
+      ]
+    }
+  },
+  "the-lemonade-test": {
+    "book": {
+      "title": "Der Limonadentest",
+      "topic": "Unternehmertum und Rückmeldungen",
+      "pages": [
+        {
+          "title": "Eine erste Idee",
+          "text": "Lily plant mit ihrer erwachsenen Begleitperson einen Limonadenstand zum Spielen. Sie macht ein Schild, aber nur wenige bleiben stehen. Sie ist enttäuscht. Statt sofort mehr Material zu kaufen, will sie herausfinden, was die Menschen wahrnehmen."
+        },
+        {
+          "title": "Eine bessere Frage",
+          "text": "Lily fragt vertraute Besucher, was ihnen bei der Entscheidung helfen würde. Mit ihrer Begleitperson bietet sie eine kleine Kostprobe an und gestaltet das Schild klarer. Sie ändert jeweils nur eine Sache, um die Wirkung zu beobachten. Mehr Menschen bleiben stehen und fragen nach dem Getränk."
+        },
+        {
+          "title": "Noch einmal versuchen",
+          "text": "Lily notiert die Einnahmen und die Kosten für Zutaten und Becher. Auch Kostproben kosten Geld. Bevor sie von Gewinn spricht, berechnet sie, ob die Verkäufe diese Kosten gedeckt haben. Ihre erste Idee lieferte Informationen für einen besseren nächsten Test."
+        }
+      ],
+      "quiz": {
+        "question": "Was tat Lily, als ihr Plan nicht funktionierte?",
+        "answers": [
+          "Sie gab auf",
+          "Sie ignorierte die Kunden",
+          "Sie fragte nach und testete eine Idee"
+        ],
+        "correct": 2
+      }
+    },
+    "note": {
+      "feedback": "Lily bat um Rückmeldungen, testete eine Änderung und prüfte ihre Kosten. Mehr Besucher allein beweisen keinen Gewinn.",
+      "challenges": [
+        "Wähle einen Musterentwurf.",
+        "Nenne zwei Kosten für einen Spielstand.",
+        "Berechne den Gewinn bei 10 verkauften Bechern für je £1 und Gesamtkosten von £6. Was ist, wenn manche Becher kostenlose Kostproben sind?"
+      ]
+    }
+  },
+  "the-team-bridge": {
+    "book": {
+      "title": "Die Teambrücke",
+      "topic": "Führung und Teamarbeit",
+      "pages": [
+        {
+          "title": "Die Aufgabe",
+          "text": "Vier Freunde haben eine Kiste Bausteine und eine Aufgabe: eine Brücke bauen, die ein kleines Spielzeug trägt. Alle greifen gleichzeitig nach den Steinen. Emma bemerkt, dass manche Ideen nicht gehört werden. Sie schlägt eine kurze Pause vor."
+        },
+        {
+          "title": "Zuerst zuhören",
+          "text": "Emma bittet jeden Freund, eine Idee zu teilen. Ein Freund zeigt auf eine Zeichnung, statt zu sprechen. Sie einigen sich auf eine breite Basis, eine stabile Mitte und Aufgaben, die alle gern ausprobieren möchten. Als die Mitte einstürzt, sehen sie sie sich gemeinsam an."
+        },
+        {
+          "title": "Gemeinsam stärker",
+          "text": "Das Team fügt eine weitere Stütze hinzu und testet die Brücke erneut. Sie trägt das Spielzeug. Emma bedankt sich für die Ideen und die Arbeit. Sie half der Gruppe, sich zu organisieren. Das Ergebnis entstand aber durch Zuhören, Testen und das Teilen der Aufgabe."
+        }
+      ],
+      "quiz": {
+        "question": "Wie führte Emma das Team?",
+        "answers": [
+          "Sie hörte zu",
+          "Sie ignorierte alle",
+          "Sie arbeitete allein"
+        ],
+        "correct": 0
+      }
+    },
+    "note": {
+      "feedback": "Emma hörte zu und half allen, etwas beizutragen. Führung kann auch bedeuten, Entscheidungen zu teilen.",
+      "challenges": [
+        "Zeige auf die Rolle, die du gern hättest.",
+        "Baue mit einer anderen Person und wählt abwechselnd einen Baustein.",
+        "Vergleiche eine gemeinsame Entscheidung mit einer schnellen Entscheidung durch eine Person. Wann könnte welche passend sein?"
+      ]
+    }
+  },
+  "the-brave-mistake": {
+    "book": {
+      "title": "Mut zum Fehler",
+      "topic": "Aus Fehlern lernen",
+      "pages": [
+        {
+          "title": "Hoppla!",
+          "text": "Noah faltet mit einem Erwachsenen einen Papierflieger. Beim ersten Flug fällt der Flieger fast gerade nach unten. Noah ist frustriert und legt ihn kurz auf den Tisch. Eine kleine Pause hilft ihm, noch einmal hinzuschauen."
+        },
+        {
+          "title": "Genau hinsehen",
+          "text": "Noah bemerkt, dass ein Flügel nach unten gebogen ist. Er richtet ihn und lässt die anderen Teile gleich. Er startet vom selben Ort. Wenn er nur eine Sache ändert, kann er leichter erkennen, was geholfen haben könnte."
+        },
+        {
+          "title": "Ein neuer Flug",
+          "text": "Beim nächsten Flug gleitet der Flieger weiter. Noah testet noch einige Male und notiert die Ergebnisse. Nicht jeder Flug ist gleich. Er hat nützliche Informationen für einen weiteren Test, aber keinen Beweis, dass ein Entwurf immer funktioniert."
+        }
+      ],
+      "quiz": {
+        "question": "Was half Noah, etwas zu verbessern?",
+        "answers": [
+          "Einem Freund die Schuld geben",
+          "Beobachten und erneut versuchen",
+          "Den Flieger verstecken"
+        ],
+        "correct": 1
+      }
+    },
+    "note": {
+      "feedback": "Noah bemerkte ein bestimmtes Problem und testete eine Änderung. Er nutzte Informationen darüber, was passiert war.",
+      "challenges": [
+        "Zeige den verbogenen Flügel auf einer Zeichnung.",
+        "Teste mit einem Erwachsenen eine Änderung an einem Papierflieger.",
+        "Behalte denselben Startpunkt bei und vergleiche mehrere Flüge. Was kannst du daraus schließen?"
+      ]
+    }
+  },
+  "the-digital-coin": {
+    "book": {
+      "title": "Die digitale Münze",
+      "topic": "Digitales Geld und Sicherheit",
+      "pages": [
+        {
+          "title": "Wo ist das Geld?",
+          "text": "Lucy sieht, wie ihr Elternteil im Geschäft eine Karte an das Lesegerät hält. Es werden keine Münzen übergeben. Sie fragt, wohin das Geld ging. Ihr Elternteil erklärt, dass Geld elektronisch auf einem Bankkonto erfasst sein kann und auch als Bargeld existiert."
+        },
+        {
+          "title": "Hinter dem Antippen",
+          "text": "Eine Debitkarte kann Anweisungen geben, Geld von einem Konto abzubuchen. Eine Kreditkarte verwendet geliehenes Geld, das zurückgezahlt werden muss. Eine Handy-Wallet kann Zahlungsanweisungen auf andere Weise senden. Plastikkarte und Handy sind Werkzeuge, nicht das Geld selbst."
+        },
+        {
+          "title": "Vor dem Antippen prüfen",
+          "text": "Lucy und ihr Elternteil prüfen vor dem Bezahlen den Betrag. Danach vergleichen sie den Beleg mit dem Zahlungseintrag. Auch digitale Ausgaben betreffen echtes oder geliehenes Geld. Ein schneller Tipp ist ein Grund, weiter genau zu prüfen, keine Möglichkeit, Dinge kostenlos zu bekommen."
+        }
+      ],
+      "quiz": {
+        "question": "Was solltest du vor dem Bezahlen prüfen?",
+        "answers": [
+          "Die Kartenfarbe",
+          "Das Wetter",
+          "Den Betrag"
+        ],
+        "correct": 2
+      }
+    },
+    "note": {
+      "feedback": "Prüfe vor dem Bezahlen den Betrag. Digitale Ausgaben betreffen echtes oder geliehenes Geld.",
+      "challenges": [
+        "Zeige den Betrag auf einem Spielbeleg.",
+        "Ziehe eine Zahlung von £3 von einem Guthaben von £10 ab.",
+        "Vergleiche das Bezahlen mit Debitkarte und Kreditkarte. Erkläre, was zurückgezahlt werden muss."
+      ]
+    }
+  },
+  "ada-and-the-machine": {
+    "book": {
+      "title": "Ada und die Maschine",
+      "topic": "Biografie: Ada Lovelace",
+      "pages": [
+        {
+          "title": "Eine neugierige Denkerin",
+          "text": "Ada Lovelace wurde 1815 in London geboren. Sie studierte Mathematik und interessierte sich für Charles Babbages geplante Analytical Engine. Diese war der Entwurf einer programmierbaren mechanischen Rechenmaschine, kein moderner elektronischer Computer."
+        },
+        {
+          "title": "Eine erstaunliche Idee",
+          "text": "1843 übersetzte Ada einen Artikel über die geplante Maschine und ergänzte umfangreiche Anmerkungen. Darin stand eine Methode mit Bernoulli-Zahlen. Die vollständige Analytical Engine wurde zu ihren Lebzeiten nicht gebaut. Diese Ideen waren deshalb nicht dasselbe wie ein laufendes Programm auf einer fertigen Maschine."
+        },
+        {
+          "title": "Mehr als Zahlen",
+          "text": "Ada überlegte, wie Symbole mehr als gewöhnliche Zahlen darstellen könnten. Sie stellte sich Möglichkeiten mit Musik vor. Ihre Arbeit zeigt, wie mathematisches Wissen und Fantasie helfen, neue Fragen zu einer Technik zu stellen. Später entwickelte sich die Computertechnik durch die Beiträge vieler Menschen."
+        }
+      ],
+      "quiz": {
+        "question": "Was machte Adas Ideen besonders?",
+        "answers": [
+          "Sie stellte sich neue Anwendungen für Maschinen vor",
+          "Sie baute ein Smartphone",
+          "Sie erfand Laptops"
+        ],
+        "correct": 0
+      }
+    },
+    "note": {
+      "feedback": "Ada dachte über Anwendungen einer geplanten Maschine nach, die über das Rechnen hinausgingen. Die vollständige Analytical Engine wurde zu ihren Lebzeiten nicht gebaut.",
+      "challenges": [
+        "Zeichne etwas, das eine Maschine dir beim Herstellen helfen könnte.",
+        "Beschreibe den Unterschied zwischen einer Idee und einer fertigen Erfindung.",
+        "Erkläre, wie eine Maschine Musik mit Symbolen oder Zahlen darstellen könnte."
+      ]
+    }
+  },
+  "george-and-the-invention": {
+    "book": {
+      "title": "George und die Erfindung",
+      "topic": "Biografie: George Stephenson",
+      "pages": [
+        {
+          "title": "Durch Handeln lernen",
+          "text": "George Stephenson wurde 1781 in Northumberland geboren. Er lernte Ingenieurwesen durch praktische Arbeit und half bei der Entwicklung früher Eisenbahnen und Lokomotiven. Viele Menschen seiner Zeit erprobten neue Wege, Waren und Fahrgäste zu befördern."
+        },
+        {
+          "title": "Eine Eisenbahnidee",
+          "text": "Bei den Versuchen von Rainhill wurden 1829 Lokomotiven für die Eisenbahn zwischen Liverpool und Manchester verglichen. Rocket, von Robert Stephenson entworfen und von dessen Unternehmen gebaut, gewann. George war Roberts Vater und ein wichtiger Eisenbahningenieur. Der Erfolg beruhte auf Teamarbeit und früheren Ideen."
+        },
+        {
+          "title": "Auf Ideen aufbauen",
+          "text": "Rocket vereinte mehrere nützliche technische Entwicklungen. Mit dem technischen Fortschritt wurde sie erneut verändert. Die Eisenbahngeschichte handelt nicht von einer Person, die alles auf einmal erfunden hat. Ingenieure lernen aus Tests, aus der Arbeit anderer und aus den Bedürfnissen der Menschen, die ein System nutzen."
+        }
+      ],
+      "quiz": {
+        "question": "Was half der Eisenbahntechnik, besser zu werden?",
+        "answers": [
+          "Magie",
+          "Tests und Ingenieurarbeit",
+          "Entwürfe niemals verändern"
+        ],
+        "correct": 1
+      }
+    },
+    "note": {
+      "feedback": "Die Eisenbahntechnik entwickelte sich durch die Arbeit vieler Menschen. Rocket wurde von Robert Stephenson entworfen und von seinem Unternehmen gebaut.",
+      "challenges": [
+        "Zeichne ein Rad oder eine Brücke.",
+        "Nenne zwei Dinge, die Ingenieure an einem Fahrzeug testen könnten.",
+        "Erkläre, warum es genauer ist, mehrere Beteiligte zu würdigen, statt eine Person als Erfinder aller Eisenbahnen zu bezeichnen."
+      ]
+    }
+  }
+}

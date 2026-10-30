@@ -1,0 +1,23 @@
+{
+  "status": "draft",
+  "recorded": "2026-10-29",
+  "locales": [
+    "en",
+    "ro",
+    "es",
+    "fr",
+    "de",
+    "it",
+    "pt",
+    "nl",
+    "pl"
+  ],
+  "sourceHashes": {
+    "guide": "7bb3c76e24b0f2275baa2923a0438fed5f7a69e144945c3cbd0d72c4fc8ab587",
+    "flow": "a8449cca1d02598a066ce783cfd5b0d0b1faef1308e6c26da9848c3c5bc8431b"
+  },
+  "stringsPerLocale": 60,
+  "translatedStrings": 480,
+  "scope": "Full parent resource guide and checkout/order/recovery interface controls. Product catalogue/terms/receipt contents/download errors, PDFs and other parent pages are separate remaining work.",
+  "review": "AI multilingual editorial pass, not native-editor or legal certification. Public English-only gate and sandbox-only commerce remain. Guide source titles/URLs and checked date preserved; source/UK-guidance spot-check on 29 October 2026 does not validate product outcomes or a live sales contract."
+}

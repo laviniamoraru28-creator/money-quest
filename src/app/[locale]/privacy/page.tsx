@@ -6,6 +6,9 @@ import { safeJsonLd } from "@/lib/seo/safe-json-ld";
 import { getSiteUrl, DEFAULT_OG_IMAGE } from "@/lib/seo/site-url";
 import { ACTIVE_LOCALES } from "@/i18n/config";
 
+import {publicCommerce} from "@/lib/commerce/storefront";
+import {LiveShopPrivacy} from "@/components/ShopMerchant";
+export const dynamic="force-dynamic";
 interface PageProps {
   params: Promise<{ locale: string }>;
 }
@@ -17,14 +20,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const path = "/privacy";
   return {
     title: t("title"),
-    description: t("metaDescription"),
+    description: locale==="en"?"How Money Quest handles learning progress, adult purchases, reviews and hosting data.":t("metaDescription"),
     alternates: {
       canonical: `${siteUrl}/${locale}${path}`,
       languages: Object.fromEntries(ACTIVE_LOCALES.map((l) => [l, `${siteUrl}/${l}${path}`])),
     },
     openGraph: {
       title: t("title"),
-      description: t("metaDescription"),
+      description: locale==="en"?"How Money Quest handles learning progress, adult purchases, reviews and hosting data.":t("metaDescription"),
       url: `${siteUrl}/${locale}${path}`,
       type: "website",
       locale,
@@ -44,6 +47,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
  */
 export default async function PrivacyPage({ params }: PageProps) {
   const { locale } = await params;
+  const config=publicCommerce();if(config?.mode==="live"&&config.release)return <LiveShopPrivacy release={config.release}/>;
   const t = await getTranslations();
   const siteUrl = getSiteUrl();
   const breadcrumbSchema = buildBreadcrumbSchema([

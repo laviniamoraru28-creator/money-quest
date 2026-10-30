@@ -1,0 +1,78 @@
+import {test,expect} from "@playwright/test";
+import AxeBuilder from "@axe-core/playwright";
+import {learningLabs} from "../../src/content/learning-labs";
+import {labTaskAtLevel} from "../../src/content/lab-age-variants";
+
+test("Listen is present in Leadership and reads visible content without form values",async({page})=>{
+  await page.addInitScript(()=>{
+    const calls:string[]=[];(window as unknown as {speechCalls:string[]}).speechCalls=calls;
+    Object.defineProperty(window,"speechSynthesis",{configurable:true,value:{cancel(){},speak(utterance:{text:string;onstart?:()=>void}){calls.push(utterance.text);utterance.onstart?.();}}});
+    Object.defineProperty(window,"SpeechSynthesisUtterance",{configurable:true,value:class{ text:string;constructor(text:string){this.text=text;} }});
+  });
+  await page.goto("/en/leadership-quest");
+  const controls=page.getByRole("complementary",{name:"Page read-aloud",exact:true});
+  await controls.getByRole("button",{name:"Listen",exact:true}).click();
+  await expect(controls.getByRole("button",{name:"Stop",exact:true})).toBeVisible();
+  expect((await page.evaluate(()=>(window as unknown as {speechCalls:string[]}).speechCalls)).join(" ")).toMatch(/leadership/i);
+  await controls.getByRole("button",{name:"Stop",exact:true}).click();
+  await expect(controls.getByRole("button",{name:"Listen",exact:true})).toBeVisible();
+});
+
+for(const path of ["/en","/en/library","/en/brain-lab","/en/mind-lab","/en/leadership-quest","/en/play/investing-lab"])test(`night view contrast and persistence: ${path}`,async({page})=>{
+  await page.goto(path);await page.getByRole("button",{name:"Night view",exact:true}).click();
+  await expect(page.locator("html")).toHaveAttribute("data-night-view","true");
+  const result=await new AxeBuilder({page}).withTags(["wcag2a","wcag2aa","wcag21aa"]).analyze();expect(result.violations).toEqual([]);
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)).toBe(false);
+  await page.reload();await expect(page.locator("html")).toHaveAttribute("data-night-view","true");
+  await page.getByRole("button",{name:"Night view",exact:true}).click();await expect(page.locator("html")).toHaveAttribute("data-night-view","false");
+});
+
+for(const lab of learningLabs)test(`actual age-specific lab wording: ${lab.slug}`,async({page})=>{
+  await page.goto(`/en/${lab.slug}`);
+  for(let taskIndex=0;taskIndex<lab.tasks.length;taskIndex++){
+    const task=lab.tasks[taskIndex]!;
+    for(const [level,label] of ["Explorer","Builder","Strategist"].entries()){
+      await page.getByRole("button",{name:label,exact:true}).click();const reading=labTaskAtLevel(lab.slug,task,level);
+      await expect(page.getByText(reading.idea,{exact:true})).toBeVisible();
+      await expect(page.getByRole("group",{name:reading.situation,exact:true})).toBeVisible();
+      await page.getByRole("button",{name:reading.choices[reading.correct]!,exact:true}).click();
+      await expect(page.getByRole("status").filter({hasText:reading.explanation})).toBeVisible();
+    }
+    if(taskIndex<lab.tasks.length-1)await page.getByRole("button",{name:"Next",exact:true}).click();
+  }
+});
+
+test("offline download covers unvisited books and leadership, with removable local copy",async({page,context})=>{
+  test.setTimeout(240000);
+  await page.goto("/en");await page.getByText("Use without internet",{exact:true}).click();
+  await page.getByRole("button",{name:"Download for offline use",exact:true}).click();
+  await expect(page.getByRole("status").filter({hasText:"Offline download complete:"})).toBeVisible({timeout:180000});
+  await context.setOffline(true);
+  for(const path of ["/en/library/the-little-compass-and-the-money-choices","/en/leadership-quest","/en/mind-lab","/en/quiet-corner"]){
+    await page.goto(path);await expect(page.locator("main h1")).toBeVisible();
+    await expect(page.getByText("Reconnect to download Money Quest for offline use.",{exact:true})).toHaveCount(0);
+  }
+  for(const scene of ["Rest with Max","Ocean","Garden"]){
+    await page.getByRole("button",{name:scene,exact:true}).click();
+    await expect.poll(()=>page.locator("main img").evaluate((image:HTMLImageElement)=>image.complete&&image.naturalWidth===1200)).toBe(true);
+  }
+  await page.emulateMedia({reducedMotion:"no-preference"});
+  await page.getByText("Real nature videos",{exact:true}).click();
+  for(const [name,id] of [["Ocean water","ocean"],["Rain on a window","rain"],["Aquarium fish","aquarium"]]){
+    const range=await page.evaluate(async path=>{const response=await fetch(path,{headers:{Range:"bytes=0-15"}});return {status:response.status,length:(await response.arrayBuffer()).byteLength,range:response.headers.get("Content-Range")};},`/media/quiet/${id}-v1.mp4`);
+    expect(range.status).toBe(206);expect(range.length).toBe(16);expect(range.range).toMatch(/^bytes 0-15\//);
+    await page.getByRole("button",{name:name!,exact:true}).click();await page.getByRole("button",{name:"Watch video",exact:true}).click();
+    await expect.poll(()=>page.locator("video").evaluate((video:HTMLVideoElement)=>video.currentTime>0.1&&!video.paused)).toBe(true);
+    await page.locator("video").evaluate((video:HTMLVideoElement)=>{video.currentTime=2;});
+    await expect.poll(()=>page.locator("video").evaluate((video:HTMLVideoElement)=>video.currentTime>2.1&&!video.paused)).toBe(true);
+    await page.getByRole("button",{name:"Close video",exact:true}).click();
+  }
+  await page.goto("/en/not-in-the-offline-copy");
+  await expect(page.getByRole("heading",{name:"You are offline",exact:true,level:1})).toBeVisible();
+  await expect(page.locator("html")).toHaveAttribute("lang","en");
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content","noindex,nofollow");
+  await page.getByRole("link",{name:"Go to Money Quest home",exact:true}).click();
+  await expect(page.locator("main h1")).toBeVisible();
+  await page.getByText("Use without internet",{exact:true}).click();await page.getByRole("button",{name:"Remove offline copy",exact:true}).click();
+  await expect(page.getByRole("status").filter({hasText:"Offline copies removed"})).toBeVisible();await context.setOffline(false);
+});

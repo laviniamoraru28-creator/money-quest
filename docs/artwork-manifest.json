@@ -1,5 +1,5 @@
 {
-  "original_scenes": 18,
+  "original_scenes": 27,
   "files": [
     {
       "path": "public/images/money-quest/guides/girl-and-puppy-thumb.webp",
@@ -224,7 +224,126 @@
       "width": 640,
       "height": 640,
       "sha256": "ed2eaaf022828032bfa1476460582190e0dfd99fb1a7ac53ff3ee0c4bf273961"
+    },
+    {
+      "path": "public/images/money-quest/books/little-compass-cover.webp",
+      "bytes": 137664,
+      "width": 1152,
+      "height": 768,
+      "sha256": "db6d697a1cb3063bf32125cd126ea9045bab482fe5d8f1a1042ee761dea700d4"
+    },
+    {
+      "path": "public/images/money-quest/people/mark-zuckerberg.webp",
+      "bytes": 37498,
+      "width": 768,
+      "height": 768,
+      "sha256": "6e35c2fc2517cf51e0eb57fee049ee924aa91729b386eadc38af54575f71e47c"
+    },
+    {
+      "path": "public/images/money-quest/people/ada-lovelace.webp",
+      "bytes": 63946,
+      "width": 768,
+      "height": 768,
+      "sha256": "d671cbea7582accc90cf366a68ffb3deba3f98791723de58f92cc921a7c90a6d"
+    },
+    {
+      "path": "public/images/money-quest/people/madam-cj-walker.webp",
+      "bytes": 77358,
+      "width": 768,
+      "height": 768,
+      "sha256": "caabb0a4f5fbfe55e90a3be090a33b72b78c3d527b8e2c8f5b14cede79103c1b"
+    },
+    {
+      "path": "public/images/money-quest/sections/brain-lab-v2.webp",
+      "bytes": 54378,
+      "width": 640,
+      "height": 640,
+      "sha256": "0b7d470477571527f71a11da15393038deb02752aa5a829c764d448a843849b1"
+    },
+    {
+      "path": "public/images/money-quest/sections/brain-lab-v2-thumb.webp",
+      "bytes": 20572,
+      "width": 320,
+      "height": 320,
+      "sha256": "bb56c44359ec22bc05b25f9ed40399701e11d9f4c47706e5a11e637d722d4e3b"
+    },
+    {
+      "path": "public/images/money-quest/homepage-family-v2.webp",
+      "bytes": 133864,
+      "width": 1536,
+      "height": 1024,
+      "sha256": "6ee7e16d5f71d2fb0b9357b333b75bcbb63380090416af17b3d1e9247e5ba7b4"
+    },
+    {
+      "path": "public/images/money-quest/homepage-family-v2-mobile.webp",
+      "bytes": 69996,
+      "width": 830,
+      "height": 768,
+      "sha256": "094cf60cc30fe71242980e99b64e4810fd4aaa33287825e75b956133a3105b6c"
+    },
+    {
+      "path": "public/images/money-quest/products/journal-preview.webp",
+      "bytes": 54188,
+      "width": 637,
+      "height": 900,
+      "sha256": "be2b71be4fbf56d57721f6f8854574b4f0339347565a93658fc71cb2652d5729"
+    },
+    {
+      "path": "public/images/money-quest/products/journal-inside-preview.webp",
+      "bytes": 23266,
+      "width": 637,
+      "height": 900,
+      "sha256": "5965c859c70d892c22a39cb367d78e629c566a9f06d7c34673e4bf6b3e578628"
+    },
+    {
+      "path": "public/images/money-quest/products/family-pack-preview.webp",
+      "bytes": 28228,
+      "width": 637,
+      "height": 900,
+      "sha256": "8189820a0251b083f42a1553e9993699cf4bc929ed3d2339c747219ae271a0e3"
+    },
+    {
+      "path": "public/images/money-quest/quiet/max-v1.webp",
+      "bytes": 112434,
+      "width": 1200,
+      "height": 675,
+      "sha256": "d0085cd174e27b05db12a46113d9855de42f39e76a72b53fc927267a08365d47"
+    },
+    {
+      "path": "public/images/money-quest/quiet/ocean-v1.webp",
+      "bytes": 83958,
+      "width": 1200,
+      "height": 675,
+      "sha256": "e0042037d57630c5f97c2784b657ec3bbaf486d6bd8c9b166f98c398aedfa439"
+    },
+    {
+      "path": "public/images/money-quest/quiet/garden-v1.webp",
+      "bytes": 241466,
+      "width": 1200,
+      "height": 675,
+      "sha256": "5d83df0b556316d4d25a3f6c04ad55ed12a836e5568b89a78fe89efb538f7c13"
+    },
+    {
+      "path": "public/images/money-quest/quiet/ocean-video-poster-v1.webp",
+      "bytes": 15002,
+      "width": 960,
+      "height": 540,
+      "sha256": "6fbfecdb6b9ea086445e2b5b559a0e8229afc9ac61b92ae2b5045748e1989df9"
+    },
+    {
+      "path": "public/images/money-quest/quiet/rain-video-poster-v1.webp",
+      "bytes": 12672,
+      "width": 960,
+      "height": 540,
+      "sha256": "970be7b690ee2a12a6e2d4924c6c5f3c3992a08278625cb8b5170adf4c3aad77"
+    },
+    {
+      "path": "public/images/money-quest/quiet/aquarium-video-poster-v1.webp",
+      "bytes": 33344,
+      "width": 960,
+      "height": 540,
+      "sha256": "82611892f369f3aebd89e1ff7ec09ff327704a4fdaa78acbf467cc5106fc6713"
     }
   ],
-  "total_bytes": 1646712
+  "total_bytes": 2846546
 }

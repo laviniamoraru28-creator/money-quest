@@ -6,6 +6,9 @@ import { safeJsonLd } from "@/lib/seo/safe-json-ld";
 import { getSiteUrl, DEFAULT_OG_IMAGE } from "@/lib/seo/site-url";
 import { ACTIVE_LOCALES } from "@/i18n/config";
 
+import {publicCommerce} from "@/lib/commerce/storefront";
+import {ShopMerchant} from "@/components/ShopMerchant";
+export const dynamic="force-dynamic";
 interface PageProps {
   params: Promise<{ locale: string }>;
 }
@@ -17,14 +20,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const path = "/parent-info";
   return {
     title: t("title"),
-    description: t("metaDescription"),
+    description: locale==="en"?"Parent information about Money Quest learning, accessibility, privacy and optional digital resources.":t("metaDescription"),
     alternates: {
       canonical: `${siteUrl}/${locale}${path}`,
       languages: Object.fromEntries(ACTIVE_LOCALES.map((l) => [l, `${siteUrl}/${l}${path}`])),
     },
     openGraph: {
       title: t("title"),
-      description: t("metaDescription"),
+      description: locale==="en"?"Parent information about Money Quest learning, accessibility, privacy and optional digital resources.":t("metaDescription"),
       url: `${siteUrl}/${locale}${path}`,
       type: "website",
       locale,
@@ -45,6 +48,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
  */
 export default async function ParentInfoPage({ params }: PageProps) {
   const { locale } = await params;
+  const config=publicCommerce();
   const t = await getTranslations();
   const siteUrl = getSiteUrl();
   const breadcrumbSchema = buildBreadcrumbSchema([
@@ -94,6 +98,7 @@ export default async function ParentInfoPage({ params }: PageProps) {
           </section>
         </div>
 
+        {config?.mode==="live"&&config.release&&<div className="mt-lg"><p className="mb-4">The learning privacy information below concerns children’s free learning. Optional adult purchases use Stripe and transactional email. See the purchase privacy policy and seller details.</p><ShopMerchant release={config.release}/></div>}
         <h2 className="mt-lg font-display text-xl font-bold text-teal-text">{t("parentInfo.privacySectionTitle")}</h2>
         <div className="mt-md grid gap-md">
           <section>

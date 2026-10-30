@@ -1,0 +1,298 @@
+{
+  "the-saving-seed": {
+    "book": {
+      "title": "La graine de l’épargne",
+      "topic": "Épargne et patience",
+      "pages": [
+        {
+          "title": "Une petite envie",
+          "text": "Mia voit un cerf-volant dans un magasin. Il coûte huit pièces d’une livre. Elle en a trois. Elle veut l’acheter aujourd’hui, mais recompte et voit qu’il lui en manque cinq. Elle décide de faire un plan."
+        },
+        {
+          "title": "Un plan simple",
+          "text": "Mia dessine huit cercles sur une feuille. Elle en colorie trois pour l’argent qu’elle possède déjà. Quand elle peut économiser une livre de plus, elle colorie un autre cercle. Certaines semaines, elle n’économise rien. Elle peut quand même reprendre son plan."
+        },
+        {
+          "title": "Le jour de vent",
+          "text": "Après avoir économisé cinq livres de plus, Mia en a huit. Elle vérifie le prix avec son adulte avant d’acheter le cerf-volant. Au parc, elle le regarde monter. Son dessin l’a aidée à voir un grand objectif comme plusieurs petites étapes."
+        }
+      ],
+      "quiz": {
+        "question": "Qu’est-ce qui a aidé Mia à atteindre son objectif ?",
+        "answers": [
+          "Économiser petit à petit",
+          "Acheter des bonbons chaque jour",
+          "Oublier le prix"
+        ],
+        "correct": 0
+      }
+    },
+    "note": {
+      "feedback": "Mia avait un objectif clair et a économisé cinq pièces de plus. Chaque étape la rapprochait des huit pièces.",
+      "challenges": [
+        "Dessine huit cercles et colorie-en trois.",
+        "Calcule combien de pièces il manque à Mia.",
+        "Prépare un plan d’épargne avec un montant par semaine et un possible changement de prix."
+      ]
+    }
+  },
+  "the-want-monster": {
+    "book": {
+      "title": "Le monstre des envies",
+      "topic": "Besoins, envies et maîtrise de soi",
+      "pages": [
+        {
+          "title": "Regarde ça !",
+          "text": "Sam voit un robot brillant dans un magasin de jouets. Une affiche voyante le rend attirant. Il s’imagine le rapporter tout de suite à la maison. Il en a très envie, mais se rappelle qu’un sentiment n’a pas à décider de ses achats."
+        },
+        {
+          "title": "La pause",
+          "text": "Sam fait une pause. Il demande le prix du robot et vérifie ses économies. Puis il se rappelle son objectif : un vélo. Acheter le robot lui laisserait moins d’argent pour le vélo. Il peut apprécier de regarder quelque chose sans l’acheter."
+        },
+        {
+          "title": "Mon choix",
+          "text": "Sam décide d’attendre demain avant de choisir. Il parle des deux possibilités à son adulte. Il choisira peut-être le robot plus tard, ou continuera à économiser pour le vélo. La compétence utile est de prendre le temps de faire son propre choix avec les informations nécessaires."
+        }
+      ],
+      "quiz": {
+        "question": "Qu’est-ce qui aide quand on a très envie de quelque chose ?",
+        "answers": [
+          "Acheter immédiatement",
+          "Faire une pause et réfléchir",
+          "Laisser une publicité décider"
+        ],
+        "correct": 1
+      }
+    },
+    "note": {
+      "feedback": "La pause a donné à Sam le temps de comparer le robot à son objectif. Il n’y a rien de mal à vouloir un jouet.",
+      "challenges": [
+        "Montre si tu choisis d’attendre ou de décider maintenant.",
+        "Donne deux questions que Sam pourrait se poser.",
+        "Explique le coût d’opportunité de l’achat du robot aujourd’hui."
+      ]
+    }
+  },
+  "the-lemonade-test": {
+    "book": {
+      "title": "Le test de la limonade",
+      "topic": "Entrepreneuriat et avis",
+      "pages": [
+        {
+          "title": "Une première idée",
+          "text": "Lily prépare un stand de limonade pour jouer avec son adulte. Elle fait une affiche, mais peu de gens s’arrêtent. Elle est déçue. Au lieu d’acheter tout de suite plus de fournitures, elle décide de découvrir ce que les gens remarquent."
+        },
+        {
+          "title": "Une meilleure question",
+          "text": "Lily demande à des visiteurs de confiance ce qui les aiderait à décider. Avec son adulte, elle propose une petite dégustation et rend l’affiche plus claire. Elle change une seule chose à la fois pour observer le résultat. Plus de gens s’arrêtent pour poser des questions sur la boisson."
+        },
+        {
+          "title": "Essayer encore",
+          "text": "Lily note l’argent reçu et le coût des ingrédients et des gobelets. Les dégustations coûtent aussi de l’argent. Elle calcule si les ventes ont couvert ces coûts avant de parler de bénéfice. Sa première idée lui a donné des informations pour un meilleur test."
+        }
+      ],
+      "quiz": {
+        "question": "Qu’a fait Lily quand son plan n’a pas fonctionné ?",
+        "answers": [
+          "Elle a abandonné",
+          "Elle a ignoré les clients",
+          "Elle a posé des questions et testé une idée"
+        ],
+        "correct": 2
+      }
+    },
+    "note": {
+      "feedback": "Lily a demandé des avis, testé un changement et vérifié ses coûts. Davantage de visiteurs ne suffisent pas à prouver un bénéfice.",
+      "challenges": [
+        "Choisis un exemple de présentation.",
+        "Liste deux coûts pour un stand de jeu.",
+        "Calcule le bénéfice pour 10 gobelets vendus £1 chacun et £6 de coûts au total. Et si certains gobelets sont des dégustations gratuites ?"
+      ]
+    }
+  },
+  "the-team-bridge": {
+    "book": {
+      "title": "Le pont de l’équipe",
+      "topic": "Leadership et travail d’équipe",
+      "pages": [
+        {
+          "title": "Le défi",
+          "text": "Quatre amis ont une boîte de cubes et un défi : construire un pont qui porte un petit jouet. Tous attrapent les cubes en même temps. Emma remarque que certaines idées ne sont pas entendues. Elle propose une courte pause."
+        },
+        {
+          "title": "Écouter d’abord",
+          "text": "Emma demande à chaque ami de partager une idée. Un ami montre un dessin au lieu de parler. Ils choisissent une base large, un milieu solide et des tâches que chacun a envie d’essayer. Quand le milieu tombe, ils l’examinent ensemble."
+        },
+        {
+          "title": "Plus forts ensemble",
+          "text": "L’équipe ajoute un support et teste à nouveau le pont. Il porte le jouet. Emma remercie tout le monde pour les idées et le travail. Elle a aidé à organiser le groupe, mais le résultat vient de l’écoute, des tests et du partage de la tâche."
+        }
+      ],
+      "quiz": {
+        "question": "Comment Emma a-t-elle guidé le groupe ?",
+        "answers": [
+          "Elle a écouté",
+          "Elle a ignoré tout le monde",
+          "Elle a travaillé seule"
+        ],
+        "correct": 0
+      }
+    },
+    "note": {
+      "feedback": "Emma a écouté et aidé chacun à participer. Guider un groupe peut aussi vouloir dire partager les décisions.",
+      "challenges": [
+        "Montre le rôle que tu aimerais avoir.",
+        "Construis avec un partenaire et choisissez un cube chacun à votre tour.",
+        "Compare une décision commune à une décision rapide prise par une seule personne. Quand chacune peut-elle convenir ?"
+      ]
+    }
+  },
+  "the-brave-mistake": {
+    "book": {
+      "title": "L’erreur courageuse",
+      "topic": "Apprendre de ses erreurs",
+      "pages": [
+        {
+          "title": "Oups !",
+          "text": "Noah plie un avion en papier avec un adulte. Au premier vol, l’avion tombe presque tout droit. Noah est frustré et le pose un moment sur la table. Une courte pause l’aide à le regarder à nouveau."
+        },
+        {
+          "title": "Regarder de près",
+          "text": "Noah voit qu’une aile est pliée vers le bas. Il la redresse et laisse les autres parties identiques. Il lance l’avion du même endroit. Changer une seule chose permet de mieux observer ce qui a pu aider."
+        },
+        {
+          "title": "Un nouveau vol",
+          "text": "Au vol suivant, l’avion plane plus loin. Noah le teste encore plusieurs fois et note les résultats. Les vols ne sont pas tous identiques. Il a des informations utiles pour un autre test, pas la preuve qu’un modèle fonctionne toujours."
+        }
+      ],
+      "quiz": {
+        "question": "Qu’est-ce qui a aidé Noah à s’améliorer ?",
+        "answers": [
+          "Accuser un ami",
+          "Observer et essayer à nouveau",
+          "Cacher l’avion"
+        ],
+        "correct": 1
+      }
+    },
+    "note": {
+      "feedback": "Noah a remarqué un problème précis et testé un changement. Il a utilisé les informations tirées de ce qui s’était passé.",
+      "challenges": [
+        "Montre l’aile pliée sur un dessin.",
+        "Teste un seul changement sur un avion en papier avec un adulte.",
+        "Garde le même point de départ et compare plusieurs vols. Que peux-tu en conclure ?"
+      ]
+    }
+  },
+  "the-digital-coin": {
+    "book": {
+      "title": "La pièce numérique",
+      "topic": "Argent numérique et sécurité",
+      "pages": [
+        {
+          "title": "Où est l’argent ?",
+          "text": "Lucy regarde son parent approcher une carte du terminal d’un magasin. Aucune pièce n’est échangée. Elle demande où est allé l’argent. Son parent explique que l’argent peut être enregistré électroniquement sur un compte bancaire, mais aussi exister en espèces."
+        },
+        {
+          "title": "Derrière le geste",
+          "text": "Une carte de débit peut donner l’instruction de retirer de l’argent d’un compte. Une carte de crédit utilise de l’argent emprunté qu’il faut rembourser. Un portefeuille sur téléphone peut envoyer une instruction de paiement autrement. La carte en plastique et le téléphone sont des outils, pas l’argent lui-même."
+        },
+        {
+          "title": "Vérifier avant de payer",
+          "text": "Lucy et son parent vérifient le montant avant de payer. Ensuite, ils comparent le reçu à l’enregistrement du paiement. Les dépenses numériques concernent toujours de l’argent réel ou emprunté. Un geste rapide donne une raison de continuer à vérifier, pas un moyen d’obtenir des choses gratuitement."
+        }
+      ],
+      "quiz": {
+        "question": "Que faut-il vérifier avant de payer ?",
+        "answers": [
+          "La couleur de la carte",
+          "La météo",
+          "Le montant"
+        ],
+        "correct": 2
+      }
+    },
+    "note": {
+      "feedback": "Vérifie le montant avant de payer. Les dépenses numériques concernent de l’argent réel ou emprunté.",
+      "challenges": [
+        "Montre le montant sur un reçu de jeu.",
+        "Retire un paiement de £3 d’un solde de £10.",
+        "Compare le paiement par carte de débit et par carte de crédit. Explique ce qu’il faut rembourser."
+      ]
+    }
+  },
+  "ada-and-the-machine": {
+    "book": {
+      "title": "Ada et la machine",
+      "topic": "Biographie : Ada Lovelace",
+      "pages": [
+        {
+          "title": "Une penseuse curieuse",
+          "text": "Ada Lovelace est née à Londres en 1815. Elle a étudié les mathématiques et s’est intéressée au projet de machine analytique de Charles Babbage. Il s’agissait d’un projet de calculatrice mécanique programmable, pas d’un ordinateur électronique moderne."
+        },
+        {
+          "title": "Une idée étonnante",
+          "text": "En 1843, Ada a traduit un article sur ce projet de machine et ajouté de nombreuses notes. Elles comprenaient une méthode utilisant les nombres de Bernoulli. La machine analytique complète n’a pas été construite de son vivant. Ces idées n’étaient donc pas la même chose qu’exécuter un programme sur une machine terminée."
+        },
+        {
+          "title": "Au-delà des nombres",
+          "text": "Ada a réfléchi à la façon dont des symboles pourraient représenter autre chose que des nombres ordinaires. Elle a imaginé des possibilités liées à la musique. Son travail montre comment les mathématiques et l’imagination aident à poser de nouvelles questions sur une technologie. L’informatique s’est ensuite développée grâce aux contributions de nombreuses personnes."
+        }
+      ],
+      "quiz": {
+        "question": "Qu’est-ce qui rendait les idées d’Ada particulières ?",
+        "answers": [
+          "Elle imaginait de nouveaux usages des machines",
+          "Elle a construit un smartphone",
+          "Elle a inventé les ordinateurs portables"
+        ],
+        "correct": 0
+      }
+    },
+    "note": {
+      "feedback": "Ada a envisagé des usages d’un projet de machine au-delà de l’arithmétique. La machine analytique complète n’a pas été construite de son vivant.",
+      "challenges": [
+        "Dessine quelque chose qu’une machine pourrait t’aider à créer.",
+        "Décris la différence entre une idée et une invention terminée.",
+        "Explique comment une machine pourrait représenter la musique avec des symboles ou des nombres."
+      ]
+    }
+  },
+  "george-and-the-invention": {
+    "book": {
+      "title": "George et l’invention",
+      "topic": "Biographie : George Stephenson",
+      "pages": [
+        {
+          "title": "Apprendre en faisant",
+          "text": "George Stephenson est né dans le Northumberland en 1781. Il a appris l’ingénierie par la pratique et aidé à développer les premières voies ferrées et locomotives. À son époque, de nombreuses personnes testaient des moyens de transporter des marchandises et des voyageurs."
+        },
+        {
+          "title": "Une idée ferroviaire",
+          "text": "En 1829, les essais de Rainhill ont comparé des locomotives pour le chemin de fer de Liverpool à Manchester. Rocket, conçue par Robert Stephenson et construite par son entreprise, a gagné. George était le père de Robert et un important ingénieur ferroviaire. Cette réussite reposait sur une équipe et des idées antérieures."
+        },
+        {
+          "title": "Construire sur les idées",
+          "text": "Rocket réunissait plusieurs avancées utiles de l’ingénierie. Elle a encore été modifiée avec les progrès techniques. L’histoire du chemin de fer n’est pas celle d’une personne qui aurait tout inventé d’un coup. Les ingénieurs apprennent des tests, du travail des autres et des besoins des personnes qui utilisent un système."
+        }
+      ],
+      "quiz": {
+        "question": "Qu’est-ce qui a amélioré la technologie ferroviaire ?",
+        "answers": [
+          "La magie",
+          "Les essais et l’ingénierie",
+          "Ne jamais changer les modèles"
+        ],
+        "correct": 1
+      }
+    },
+    "note": {
+      "feedback": "L’ingénierie ferroviaire s’est développée grâce au travail de nombreuses personnes. Rocket a été conçue par Robert Stephenson et construite par son entreprise.",
+      "challenges": [
+        "Dessine une roue ou un pont.",
+        "Nomme deux choses que des ingénieurs pourraient tester sur un véhicule.",
+        "Explique pourquoi reconnaître plusieurs contributions est plus juste que désigner une seule personne comme l’inventeur de tous les chemins de fer."
+      ]
+    }
+  }
+}

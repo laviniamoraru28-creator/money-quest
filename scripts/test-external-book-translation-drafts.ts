@@ -1,0 +1,30 @@
+import assert from "node:assert/strict";
+import {readFileSync} from "node:fs";
+import {authorBooks} from "../src/content/author-books";
+import {externalBookTranslationSource,draftTranslatedExternalBook,assertTranslationShape} from "../src/lib/i18n/content-translations";
+import {ACTIVE_LOCALES,LOCALES} from "../src/i18n/config";
+const manifest=JSON.parse(readFileSync("src/content/translations/author-books.sources.json","utf8"));
+const copies=JSON.parse(readFileSync("src/content/translations/author-books.ro.json","utf8"));
+assert.deepEqual(manifest.locales,LOCALES.filter(locale=>locale!=="en"));assert.equal(manifest.regionalTargets.ro,"ro-RO");
+assert.deepEqual(Object.keys(copies).sort(),authorBooks.map(book=>book.id).sort());
+assert.deepEqual(Object.keys(manifest.sources).sort(),Object.keys(copies).sort());
+let strings=0;
+for(const book of authorBooks){
+ const source=externalBookTranslationSource(book),copy=copies[book.id];
+ strings+=assertTranslationShape(source,copy,book.id);
+ const translated=draftTranslatedExternalBook(book,copy,manifest.sources[book.id]);
+ for(const key of ["id","title","authors","illustrator","publisher","url","checked"] as const)assert.equal(translated[key],book[key],`${book.id}: preserve bibliographic metadata`);
+ assert.deepEqual(translated.age.match(/\d+/g),book.age.match(/\d+/g),"Age guidance stays the same");
+ assert.notEqual(translated.description,book.description);
+ assert.notEqual(translated.discussion,book.discussion);
+ assert.equal(translated.ideas.length,3);assert.equal(new Set(translated.ideas).size,3);
+ assert.equal(translated.topics.length,book.topics.length);assert.equal(new Set(translated.topics).size,book.topics.length);
+ const text=JSON.stringify(copy);assert.equal(text,text.normalize("NFC"));assert(!/[\uFFFDŞşŢţ]/u.test(text));
+ assert(!/\b(?:Publisher guidance|Author guidance|buying options|practical skills|critical thinking)\b/.test(text));
+ assert.throws(()=>draftTranslatedExternalBook({...book,description:book.description+" changed"},copy,manifest.sources[book.id]));
+ assert.throws(()=>draftTranslatedExternalBook(book,{...copy,url:"https://wrong.example"},manifest.sources[book.id]));
+ assert.throws(()=>draftTranslatedExternalBook(book,{...copy,title:"Invented Romanian edition"},manifest.sources[book.id]));
+ const missing=structuredClone(copy);missing.ideas.pop();assert.throws(()=>draftTranslatedExternalBook(book,missing,manifest.sources[book.id]));
+}
+assert.equal(strings,111);assert.deepEqual(ACTIVE_LOCALES,["en"]);
+console.log("PASS: twelve Romanian external-book introduction drafts (111 strings), preserved published titles/metadata/URLs/age guidance, complete ideas and source guards; no locale activation.");

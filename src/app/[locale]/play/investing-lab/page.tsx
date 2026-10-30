@@ -61,7 +61,7 @@ export default function InvestingLabPage() {
 
   return (
     <div className="min-h-screen bg-fog px-sm py-lg">
-      <main id="main-content" tabIndex={-1} className="mx-auto max-w-[700px]">
+      <main id="main-content" tabIndex={-1} className="mx-auto max-w-[1100px]">
         <div className="flex flex-wrap gap-2xs">
           <Link
             href="/"
@@ -85,7 +85,7 @@ export default function InvestingLabPage() {
 
         <p className="mt-sm text-sm text-ink/70">{t("investingLab.guardrailIntro")}</p>
 
-        <Card variant="data" className="mt-md">
+        <div className="investment-phone mx-auto mt-md max-w-[580px]" aria-label="Fictional investing app simulator"><div className="investment-phone-notch" aria-hidden="true"/><div className="investment-phone-screen"><p className="mb-4 text-center text-sm font-bold uppercase tracking-wide text-teal-text">Money Quest · Simulation · Pretend money</p><Card variant="data">
           <div className="grid grid-cols-2 gap-sm">
             <div>
               <p className="text-xs uppercase tracking-wide text-ink/70">{t("investingLab.cashLabel")}</p>
@@ -132,6 +132,8 @@ export default function InvestingLabPage() {
             </Card>
           )}
         </section>
+
+        </div></div>
 
         <section className="mt-md">
           <h2 className="font-display text-lg font-bold">{t("investingLab.holdingsTitle")}</h2>

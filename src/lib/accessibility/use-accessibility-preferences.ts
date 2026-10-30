@@ -15,9 +15,10 @@ const PREFS_STORAGE_KEY = "moneyquest_accessibility_prefs_v1";
 interface AccessibilityPrefs {
   reducedMotion: boolean;
   focusMode: boolean;
+  nightView: boolean;
 }
 
-const DEFAULT_PREFS: AccessibilityPrefs = { reducedMotion: false, focusMode: false };
+const DEFAULT_PREFS: AccessibilityPrefs = { reducedMotion: false, focusMode: false, nightView: false };
 
 function readPrefsFromStorage(): AccessibilityPrefs {
   if (typeof window === "undefined") return DEFAULT_PREFS;
@@ -28,6 +29,7 @@ function readPrefsFromStorage(): AccessibilityPrefs {
     return {
       reducedMotion: Boolean(parsed.reducedMotion),
       focusMode: Boolean(parsed.focusMode),
+      nightView: Boolean(parsed.nightView),
     };
   } catch {
     return DEFAULT_PREFS;
@@ -72,7 +74,8 @@ export function useAccessibilityPrefs() {
     if (typeof document === "undefined" || !isLoaded) return;
     document.documentElement.setAttribute("data-reduced-motion", prefs.reducedMotion ? "true" : "false");
     document.documentElement.setAttribute("data-focus-mode", prefs.focusMode ? "true" : "false");
-  }, [prefs.reducedMotion, prefs.focusMode, isLoaded]);
+    document.documentElement.setAttribute("data-night-view", prefs.nightView ? "true" : "false");
+  }, [prefs.reducedMotion, prefs.focusMode, prefs.nightView, isLoaded]);
 
   const update = useCallback((key: keyof AccessibilityPrefs) => {
     const next = { ...prefs, [key]: !prefs[key] };
@@ -82,5 +85,6 @@ export function useAccessibilityPrefs() {
   }, [prefs]);
   const toggleReducedMotion = useCallback(() => update("reducedMotion"), [update]);
   const toggleFocusMode = useCallback(() => update("focusMode"), [update]);
-  return { ...prefs, isLoaded, toggleReducedMotion, toggleFocusMode };
+  const toggleNightView = useCallback(() => update("nightView"), [update]);
+  return { ...prefs, isLoaded, toggleReducedMotion, toggleFocusMode, toggleNightView };
 }

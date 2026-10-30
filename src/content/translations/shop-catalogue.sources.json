@@ -1,0 +1,24 @@
+{
+  "status": "draft",
+  "recorded": "2026-10-30",
+  "locales": [
+    "en",
+    "ro",
+    "es",
+    "fr",
+    "de",
+    "it",
+    "pt",
+    "nl",
+    "pl"
+  ],
+  "sourceHash": "00141a566e558d9ec74fce59157fe1be8e9b7f6a32746c8fda9a6cf9ca72e10b",
+  "products": {
+    "family-adventure-pack": "1be2a8e1040cca3032f310f97e14f4bccedd1fa67123597ac4685601d5559e3b",
+    "adventure-journal": "908ecb88e20584bbae758d7d434ba9c11ecd291ae0d89c8e3415ef9e1deb8642"
+  },
+  "stringsPerLocale": 52,
+  "translatedStrings": 416,
+  "scope": "Nine-language private printable bundles; public samples and transaction UI remain English. Three editions and both visual versions per language.",
+  "review": "AI multilingual editorial drafts, not native-editor or product/legal certification. No public locale, translated file edition or live sales activation. SEO metadata, receipts, native errors and actual printable manuscripts remain separate work."
+}

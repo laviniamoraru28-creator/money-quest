@@ -1,3 +1,4 @@
+require('./host-env.cjs');
 /**
  * Custom server required for deploying to Namecheap's cPanel "Setup
  * Node.js App" (see their own guide: "How to deploy React.js,

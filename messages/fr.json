@@ -11,6 +11,7 @@
     "moneyQuest": "Money Quest"
   },
   "nav": {
+    "parentShop": "Boutique parents · PDF",
     "howItWorks": "Comment ça marche",
     "forParents": "Pour les parents",
     "safety": "Sécurité",
@@ -25,12 +26,13 @@
     "changeLanguage": "Changer de langue"
   },
   "landing": {
+    "parentResourcesLink": "Ressources pour les parents et boutique de fichiers à imprimer",
     "heroTitle": "Apprends l'argent en jouant, en explorant et en prenant des décisions.",
     "heroSubtitle": "Money Quest est un monde gratuit d'éducation financière pour les enfants de 6 à 14 ans - des quêtes, un portefeuille fictif et de vraies compétences. Aucun compte nécessaire.",
-    "heroImageAlt": "Un enfant souriant tenant un téléphone qui affiche l'application Money Quest, à côté du logo Money Quest et du texte Skills for Life.",
+    "heroImageAlt": "Image générée par IA : un enfant souriant tient un téléphone affichant le site Money Quest.",
     "ctaGetStartedFree": "Commence ta Money Quest",
     "ctaSeeHowItWorks": "Voir comment ça marche",
-    "whyFree": "Money Quest est gratuit pour les familles, financé par une publicité respectueuse de la vie privée affichée uniquement sur les pages destinées aux parents - jamais dans l'expérience de ton enfant. Aucun achat pour enfants, jamais.",
+    "whyFree": "Les activités essentielles de Money Quest restent gratuites. Les ressources facultatives à imprimer pour les parents sont vendues séparément. Aucun achat n’est nécessaire dans les activités pour enfants.",
     "howItWorksTitle": "Comment ça marche",
     "step1Title": "1. Choisis un niveau",
     "step1Body": "Choisis un niveau d'apprentissage - sans inscription, sans compte, enregistré uniquement sur cet appareil.",
@@ -42,7 +44,7 @@
     "trust1": "Aucune fonction sociale, aucune messagerie entre enfants, aucun profil public",
     "trust2": "Aucune publicité personnalisée destinée aux enfants, jamais",
     "trust3": "Tout l'argent dans l'expérience de l'enfant est entièrement fictif",
-    "trust4": "Aucun compte, aucune inscription, et aucune information personnelle jamais collectée",
+    "trust4": "Les activités pour enfants ne demandent ni compte, ni inscription, ni données personnelles.",
     "readFullParentInfoLink": "Lis toute notre page d'Informations pour les Parents →",
     "safetyTitle": "La sécurité avant tout",
     "safetyBody": "Nous ne demandons jamais à ton enfant son vrai nom, son adresse, son école ou toute information financière. Chaque jeu, histoire et défi est vérifié selon de véritables cadres d'éducation financière de l'OCDE, de la CFPB et du UK Money and Pensions Service.",
@@ -283,12 +285,12 @@
     "gameProgressLabel": "Progression du jeu",
     "breadcrumbLabel": "Fil d'Ariane",
     "readAloudLabel": "Lire ceci à voix haute",
-    "stopReadingLabel": "Arrêter la lecture",
+    "stopReadingLabel": "Arrêter",
     "accessibilityMenuLabel": "Paramètres d'accessibilité",
     "reducedMotionLabel": "Réduire les animations",
     "focusModeLabel": "Mode concentration",
     "focusModeHint": "Masque les détails supplémentaires pour ne montrer que l'activité principale.",
-    "listenToLessonLabel": "Écouter la leçon",
+    "listenToLessonLabel": "Écouter",
     "mainNavigationLabel": "Principal",
     "categoryMayNeedAdjusting": "- cette catégorie pourrait nécessiter un ajustement",
     "answerCorrectAnnouncement": "Bonne réponse",
@@ -525,7 +527,7 @@
       "title": "L'argent comme outil, pas comme but",
       "learningObjective": "Comprendre l'argent comme un système partagé qui ne fonctionne que parce que les gens acceptent de lui faire confiance, et reconnaître que différents pays utilisent différentes devises pour ce système.",
       "shortIntroduction": "L'argent ne « fonctionne » que parce que des millions d'inconnus acceptent de faire confiance à la même idée. C'est vraiment étrange quand on y pense.",
-      "story": "Priya aide à organiser une collecte de fonds scolaire et remarque quelque chose : les pièces dans sa poche ne valent rien en dehors de son pays. Une amie en visite de l'étranger lui tend un billet de chez elle, et aucune des deux ne peut l'utiliser ici. Priya se rend compte que l'argent n'est pas une chose fixe et universelle - c'est un système qui fonctionne parce qu'un groupe précis de gens est d'accord qu'il fonctionne.",
+      "story": "Mia aide à organiser une collecte de fonds scolaire et remarque quelque chose : les pièces dans sa poche ne valent rien en dehors de son pays. Une amie en visite de l'étranger lui tend un billet de chez elle, et aucune des deux ne peut l'utiliser ici. Mia se rend compte que l'argent n'est pas une chose fixe et universelle - c'est un système qui fonctionne parce qu'un groupe précis de gens est d'accord qu'il fonctionne.",
       "keyConcept": "L'argent est un système partagé de confiance, pas un objet universel fixe - différents pays utilisent différentes devises, et la valeur d'une devise vient du fait que les gens acceptent de l'utiliser et de lui faire confiance.",
       "vocabulary": [
         {
@@ -1387,7 +1389,7 @@
       "title": "Rester en sécurité et attentif avec l'argent numérique",
       "learningObjective": "Appliquer des habitudes pratiques pour gérer les dépenses numériques de façon sûre et critique, y compris vérifier les messages de paiement et suivre ses dépenses, et reconnaître pourquoi l'argent numérique peut sembler moins « réel » que les espèces.",
       "shortIntroduction": "L'argent numérique est pratique - et c'est justement pour ça qu'il mérite un peu plus d'attention consciente que les espèces.",
-      "story": "Priya remarque qu'elle a dépensé plus ce mois-ci que prévu, même si elle ne se souvient d'aucun gros achat. En regardant l'historique de son portefeuille numérique, elle voit plusieurs petits paiements qu'elle avait à peine remarqués en les faisant - chacun semblait trop petit pour y penser sur le moment.",
+      "story": "Mia remarque qu'elle a dépensé plus ce mois-ci que prévu, même si elle ne se souvient d'aucun gros achat. En regardant l'historique de son portefeuille numérique, elle voit plusieurs petits paiements qu'elle avait à peine remarqués en les faisant - chacun semblait trop petit pour y penser sur le moment.",
       "keyConcept": "Comme les paiements numériques n'impliquent rien à donner physiquement, ils peuvent sembler moins « réels » sur le moment - ce qui fait que vérifier délibérément ses dépenses et confirmer les paiements sont des habitudes vraiment utiles.",
       "vocabulary": [
         {
@@ -1420,7 +1422,7 @@
       },
       "feedback": {
         "success": "Exactement - le remarquer est le premier pas pour garder le contrôle des dépenses numériques. 📱",
-        "retry": "Repense à pourquoi les dépenses de Priya ont augmenté sans aucun gros achat unique."
+        "retry": "Repense à pourquoi les dépenses de Mia ont augmenté sans aucun gros achat unique."
       },
       "rewardMessage": "Pièces gagnées pour avoir réfléchi sérieusement à l'attention avec l'argent numérique !",
       "parentNote": "Cette leçon ne cherche pas à restreindre les paiements numériques, mais à construire une attention consciente - la même compétence que les adultes doivent aussi pratiquer. Si ton adolescent a accès à une carte ou à un portefeuille numérique, revoir ensemble un historique de dépenses de temps en temps (sans jugement) est une habitude partagée vraiment utile, pas juste un contrôle.",
@@ -3257,8 +3259,8 @@
             {
               "id": "forgot-to-plan",
               "mechanic": "multiple-choice",
-              "prompt": "Priya a oublié que l'anniversaire de son amie approchait et avait déjà dépensé son argent de poche en jeux vidéo. Qu'est-ce qui pourrait aider Priya à éviter ça la prochaine fois ?",
-              "hint": "Réfléchis à ce que Priya pourrait faire plus tôt, avant que l'argent ne soit déjà dépensé.",
+              "prompt": "Mia a oublié que l'anniversaire de son amie approchait et avait déjà dépensé son argent de poche en jeux vidéo. Qu'est-ce qui pourrait aider Mia à éviter ça la prochaine fois ?",
+              "hint": "Réfléchis à ce que Mia pourrait faire plus tôt, avant que l'argent ne soit déjà dépensé.",
               "explanation": "Planifier à l'avance les dépenses que tu sais déjà arriver - comme un anniversaire que tu connais d'avance - aide à éviter de se retrouver à court plus tard.",
               "options": [
                 "Planifier à l'avance les dépenses qu'elle connaît déjà",
@@ -5180,7 +5182,7 @@
     },
     "characters": {
       "nadia": {
-        "name": "Nadia",
+        "name": "Emma",
         "personality": "Pleine d'idées et toujours en train de penser trois coups à l'avance.",
         "strength": "Trouve des idées créatives auxquelles personne d'autre n'aurait pensé.",
         "challenge": "S'enthousiasme tellement pour ses idées qu'elle coupe parfois la parole aux autres.",
@@ -5188,7 +5190,7 @@
         "communicationStyle": "Rapide, enthousiaste, et toujours prête à dire \"et si on essayait...\""
       },
       "oren": {
-        "name": "Oren",
+        "name": "Ben",
         "personality": "Minutieux et précis — il remarque des détails que les autres ratent.",
         "strength": "Excellent pour construire et réparer les choses correctement.",
         "challenge": "A souvent de bonnes idées, mais ne les partage pas facilement en grand groupe.",
@@ -5196,7 +5198,7 @@
         "communicationStyle": "Discret en groupe, mais s'ouvre si tu lui demandes directement."
       },
       "priya": {
-        "name": "Priya",
+        "name": "Mia",
         "personality": "Chaleureuse, expressive, et douée pour parler à n'importe qui.",
         "strength": "Sait expliquer les choses clairement et met les gens à l'aise.",
         "challenge": "S'emballe pour la prochaine idée avant même d'avoir terminé la précédente.",
@@ -5204,7 +5206,7 @@
         "communicationStyle": "Parle beaucoup, avec énergie — a parfois besoin d'un petit rappel pour conclure."
       },
       "theo": {
-        "name": "Theo",
+        "name": "Sam",
         "personality": "Stable, organisé, et toujours au fait du plan.",
         "strength": "Garde l'équipe dans les temps et se souvient de chaque détail.",
         "challenge": "Les changements soudains de plan le stressent.",
@@ -5218,7 +5220,7 @@
         "alertText": "",
         "dialogue": [
           { "character": "nadia", "text": "Salut ! Je suis TELLEMENT contente que tu sois là — j'ai déjà à peu près dix idées pour notre premier projet !" },
-          { "character": "oren", "text": "...Salut. Je m'appelle Oren. J'ai surtout envie de commencer." },
+          { "character": "oren", "text": "...Salut. Je m'appelle Ben. J'ai surtout envie de commencer." },
           { "character": "priya", "text": "Bienvenue ! Honnêtement, je pense que cette équipe va être géniale avec toi comme leader." },
           { "character": "theo", "text": "Bonjour. J'ai préparé un petit programme pour aujourd'hui, si ça peut aider." }
         ],
@@ -5265,11 +5267,11 @@
         ],
         "events": {
           "everyone-has-an-idea-choice": {
-            "situation": "Nadia et Oren tiennent tous les deux fermement à leur idée. Ils attendent que tu décides.",
+            "situation": "Emma et Ben tiennent tous les deux fermement à leur idée. Ils attendent que tu décides.",
             "choices": [
-              { "key": "pick-one-idea", "label": "Choisir l'idée de Nadia — elle est plus excitante.", "consequence": "Nadia est ravie. Oren devient silencieux et ne dit presque rien pour le reste de la journée." },
+              { "key": "pick-one-idea", "label": "Choisir l'idée de Emma — elle est plus excitante.", "consequence": "Emma est ravie. Ben devient silencieux et ne dit presque rien pour le reste de la journée." },
               { "key": "combine-both-ideas", "label": "Trouver un moyen de combiner les deux idées.", "consequence": "Ça prend un peu plus de temps à mettre au point, mais tous les deux se sentent écoutés." },
-              { "key": "let-them-decide-together", "label": "Demander à Nadia et Oren d'en discuter ensemble.", "consequence": "Ils en discutent eux-mêmes — et reviennent avec un plan qu'ils aiment vraiment tous les deux." },
+              { "key": "let-them-decide-together", "label": "Demander à Emma et Ben d'en discuter ensemble.", "consequence": "Ils en discutent eux-mêmes — et reviennent avec un plan qu'ils aiment vraiment tous les deux." },
               { "key": "go-with-your-own-idea", "label": "Proposer une idée complètement différente, à toi.", "consequence": "Ça règle le désaccord, mais aucun des deux ne sent que son idée a compté." }
             ]
           }
@@ -5279,22 +5281,22 @@
         "title": "La Tâche Manquante",
         "alertText": "🚨 Une tâche n'est toujours pas terminée — et la date limite approche.",
         "dialogue": [
-          { "character": "theo", "text": "On est censés être prêts pour demain. La partie d'Oren n'est pas encore terminée." },
+          { "character": "theo", "text": "On est censés être prêts pour demain. La partie d'Ben n'est pas encore terminée." },
           { "character": "priya", "text": "Il s'est peut-être passé quelque chose ? Je ne suis pas sûre." }
         ],
         "investigateLabel": "Découvre ce qui se passe avant de décider.",
         "investigate": {
-          "ask-the-teammate": "Tu demandes directement à Oren. Il dit qu'il ne savait pas trop comment commencer, et qu'il ne voulait pas l'admettre.",
-          "check-the-shared-plan": "Tu vérifies le plan partagé. La partie d'Oren ne lui avait jamais été bien expliquée.",
-          "ask-another-teammate": "Priya mentionne qu'Oren semblait confus plus tôt dans la semaine, mais elle n'a rien dit."
+          "ask-the-teammate": "Tu demandes directement à Ben. Il dit qu'il ne savait pas trop comment commencer, et qu'il ne voulait pas l'admettre.",
+          "check-the-shared-plan": "Tu vérifies le plan partagé. La partie d'Ben ne lui avait jamais été bien expliquée.",
+          "ask-another-teammate": "Mia mentionne qu'Ben semblait confus plus tôt dans la semaine, mais elle n'a rien dit."
         },
         "events": {
           "missing-task-choice": {
             "situation": "Tu en sais maintenant un peu plus sur ce qui s'est passé. Que fais-tu ?",
             "choices": [
-              { "key": "ask-what-happened", "label": "Parler à Oren, et l'aider à comprendre ce qu'il faut faire.", "consequence": "Oren termine la tâche avec ton aide, et se sent plus à l'aise pour demander de l'aide la prochaine fois." },
-              { "key": "do-it-yourself-quietly", "label": "Terminer la tâche toi-même, sans rien dire.", "consequence": "La tâche est terminée rapidement, mais Oren ne découvre jamais ce qu'il a raté — ni n'a l'occasion de le corriger." },
-              { "key": "remind-them-firmly", "label": "Rappeler fermement à Oren que la date limite est demain.", "consequence": "La tâche avance, mais Oren ne sait toujours pas ce qui a mal tourné la première fois." },
+              { "key": "ask-what-happened", "label": "Parler à Ben, et l'aider à comprendre ce qu'il faut faire.", "consequence": "Ben termine la tâche avec ton aide, et se sent plus à l'aise pour demander de l'aide la prochaine fois." },
+              { "key": "do-it-yourself-quietly", "label": "Terminer la tâche toi-même, sans rien dire.", "consequence": "La tâche est terminée rapidement, mais Ben ne découvre jamais ce qu'il a raté — ni n'a l'occasion de le corriger." },
+              { "key": "remind-them-firmly", "label": "Rappeler fermement à Ben que la date limite est demain.", "consequence": "La tâche avance, mais Ben ne sait toujours pas ce qui a mal tourné la première fois." },
               { "key": "wait-and-see", "label": "Attendre pour voir si ça se termine tout seul.", "consequence": "La date limite se rapproche, et rien ne change." }
             ]
           }
@@ -5309,11 +5311,11 @@
         ],
         "events": {
           "big-mistake-choice": {
-            "situation": "Priya a fait une vraie erreur, et tout le monde attend de voir ce que tu vas faire.",
+            "situation": "Mia a fait une vraie erreur, et tout le monde attend de voir ce que tu vas faire.",
             "choices": [
-              { "key": "blame-publicly", "label": "Souligner l'erreur devant tout le monde.", "consequence": "L'équipe la corrige rapidement — mais Priya se sent gênée, et semble nerveuse à l'idée de reprendre la parole." },
-              { "key": "fix-it-yourself", "label": "La corriger toi-même discrètement et passer à autre chose.", "consequence": "C'est réglé rapidement, mais Priya ne comprend jamais ce qui s'est mal passé." },
-              { "key": "talk-privately", "label": "Parler à Priya en privé et comprendre ce qui s'est passé.", "consequence": "Ça prend un peu plus de temps, mais Priya se sent soutenue — et fait plus attention la fois suivante." },
+              { "key": "blame-publicly", "label": "Souligner l'erreur devant tout le monde.", "consequence": "L'équipe la corrige rapidement — mais Mia se sent gênée, et semble nerveuse à l'idée de reprendre la parole." },
+              { "key": "fix-it-yourself", "label": "La corriger toi-même discrètement et passer à autre chose.", "consequence": "C'est réglé rapidement, mais Mia ne comprend jamais ce qui s'est mal passé." },
+              { "key": "talk-privately", "label": "Parler à Mia en privé et comprendre ce qui s'est passé.", "consequence": "Ça prend un peu plus de temps, mais Mia se sent soutenue — et fait plus attention la fois suivante." },
               { "key": "ignore-it", "label": "Décider que ce n'est pas grave et l'ignorer.", "consequence": "L'erreur reste non corrigée, et le client s'en rend compte." }
             ]
           }
@@ -5332,7 +5334,7 @@
               { "key": "listen-first", "label": "Écouter attentivement ce qui n'a pas été avant de répondre.", "consequence": "Le client se sent écouté, et tu comprends plus clairement ce qui s'est réellement passé." },
               { "key": "apologise-and-fix-it", "label": "S'excuser et proposer de régler ça tout de suite.", "consequence": "Le client est soulagé, et le problème se règle rapidement." },
               { "key": "explain-why-you-were-right", "label": "Expliquer pourquoi le choix de ton équipe était en fait le bon.", "consequence": "Le client ne se sent pas mieux, et n'est toujours pas sûr que tu aies compris le problème." },
-              { "key": "let-a-teammate-handle-it", "label": "Laisser Priya, qui est douée avec les gens, s'occuper de l'appel.", "consequence": "Priya calme le client, et l'équipe voit que tu leur fais confiance aussi pour les moments difficiles." }
+              { "key": "let-a-teammate-handle-it", "label": "Laisser Mia, qui est douée avec les gens, s'occuper de l'appel.", "consequence": "Mia calme le client, et l'équipe voit que tu leur fais confiance aussi pour les moments difficiles." }
             ]
           }
         }
@@ -5345,11 +5347,11 @@
         ],
         "events": {
           "better-idea-choice": {
-            "situation": "L'idée de Nadia est vraiment meilleure que celle que tu avais prévue au départ.",
+            "situation": "L'idée de Emma est vraiment meilleure que celle que tu avais prévue au départ.",
             "choices": [
-              { "key": "use-their-idea", "label": "Choisir l'idée de Nadia plutôt que la tienne.", "consequence": "Le projet devient plus solide, et Nadia se sent vraiment valorisée." },
+              { "key": "use-their-idea", "label": "Choisir l'idée de Emma plutôt que la tienne.", "consequence": "Le projet devient plus solide, et Emma se sent vraiment valorisée." },
               { "key": "combine-ideas", "label": "Combiner le meilleur des deux idées.", "consequence": "Ça demande un peu plus de travail, mais le résultat est encore meilleur." },
-              { "key": "stick-with-your-idea", "label": "Garder ton plan original.", "consequence": "Le projet avance comme prévu, mais Nadia se demande si ses idées sont vraiment les bienvenues." },
+              { "key": "stick-with-your-idea", "label": "Garder ton plan original.", "consequence": "Le projet avance comme prévu, mais Emma se demande si ses idées sont vraiment les bienvenues." },
               { "key": "ask-the-team-to-vote", "label": "Demander à toute l'équipe quelle idée elle préfère.", "consequence": "L'équipe se sent impliquée dans la décision, quelle que soit l'idée retenue." }
             ]
           }
@@ -5362,11 +5364,11 @@
           { "character": "priya", "text": "Tu ne m'écoutes jamais !" },
           { "character": "theo", "text": "Ce n'est pas juste — je pense juste qu'on voit les choses différemment." }
         ],
-        "spotScenario": "Lis ce que se disent Priya et Theo. Quelles parties aggravent la situation, au lieu de l'améliorer ?",
+        "spotScenario": "Lis ce que se disent Mia et Sam. Quelles parties aggravent la situation, au lieu de l'améliorer ?",
         "outro": "Tu as repéré ce qui aggrave la situation. Il est temps d'intervenir.",
         "events": {
           "team-conflict-choice": {
-            "situation": "Priya et Theo ne sont toujours pas d'accord. Que fais-tu ?",
+            "situation": "Mia et Sam ne sont toujours pas d'accord. Que fais-tu ?",
             "choices": [
               { "key": "hear-both-sides", "label": "Demander à chacun d'expliquer son point de vue, l'un après l'autre.", "consequence": "Ils se sentent tous les deux écoutés, et commencent à comprendre le point de vue de l'autre." },
               { "key": "pick-a-side", "label": "Décider qui a raison et dire à l'autre de laisser tomber.", "consequence": "La dispute s'arrête, mais celui qui a \"perdu\" se sent traité injustement." },
@@ -5425,7 +5427,7 @@
         "title": "L'Épreuve de Pression",
         "alertText": "🚨 Tout arrive en même temps.",
         "dialogue": [
-          { "character": "priya", "text": "Le client vient de changer ce qu'il veut. En plus, Oren n'est pas là aujourd'hui. Et en plus — c'est aussi cassé maintenant ?" }
+          { "character": "priya", "text": "Le client vient de changer ce qu'il veut. En plus, Ben n'est pas là aujourd'hui. Et en plus — c'est aussi cassé maintenant ?" }
         ],
         "buckets": {
           "deal-with-first": "À gérer en premier",
@@ -5522,11 +5524,11 @@
       },
       "uh-oh-teammate-absent": {
         "title": "Un de tes coéquipiers est absent aujourd'hui.",
-        "situation": "Oren n'est pas là aujourd'hui, et il avait une tâche importante sur sa liste.",
+        "situation": "Ben n'est pas là aujourd'hui, et il avait une tâche importante sur sa liste.",
         "choices": [
           { "key": "share-out-their-tasks", "label": "Répartir ses tâches entre le reste de l'équipe.", "consequence": "C'est fait, et l'équipe se sent bien en donnant un coup de main." },
-          { "key": "wait-until-they-are-back", "label": "Attendre le retour d'Oren pour continuer cette partie.", "consequence": "Cette partie du projet est mise en pause pour le moment." },
-          { "key": "do-their-work-yourself", "label": "Faire la partie d'Oren en plus de la tienne.", "consequence": "C'est fait, mais c'est beaucoup à prendre en charge tout seul." }
+          { "key": "wait-until-they-are-back", "label": "Attendre le retour d'Ben pour continuer cette partie.", "consequence": "Cette partie du projet est mise en pause pour le moment." },
+          { "key": "do-their-work-yourself", "label": "Faire la partie d'Ben en plus de la tienne.", "consequence": "C'est fait, mais c'est beaucoup à prendre en charge tout seul." }
         ]
       },
       "uh-oh-customer-changed-mind": {
@@ -5714,9 +5716,9 @@
     "metaDescription": "Contacte l'équipe de Money Quest - questions des parents et des enseignants, problèmes de sécurité et assistance générale.",
     "intro": "Nous serions ravis d'avoir de tes nouvelles - que tu sois un parent avec une question, un enseignant curieux du plan pour la classe, ou que tu veuilles signaler un problème de sécurité.",
     "safetyTitle": "Problèmes de sécurité",
-    "safetyBody": "Nous préparons une adresse de contact dédiée aux questions de sécurité, qui n'est pas encore publiée ici. Reviens bientôt.",
+    "safetyBody": "Pour signaler un problème de sécurité concernant Money Quest, écris-nous à l’adresse e-mail ci-dessus.",
     "everythingElseTitle": "Tout le reste",
-    "everythingElseBody": "Nous préparons une adresse de contact générale pour les questions et les retours, qui n'est pas encore publiée ici. Reviens bientôt."
+    "everythingElseBody": "Pour toute question, remarque ou demande d’aide, écris-nous à l’adresse e-mail ci-dessus."
   },
   "articles": {
     "saving-money-for-kids": {

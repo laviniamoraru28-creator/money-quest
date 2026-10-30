@@ -1,3 +1,5 @@
+import {siteDescriptions} from "@/content/seo-descriptions";
+import {siteControlsCopy} from "@/content/site-controls-copy";
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { notFound } from "next/navigation";
@@ -6,6 +8,8 @@ import { getMessages, getTranslations } from "next-intl/server";
 import { Space_Grotesk, Atkinson_Hyperlegible } from "next/font/google";
 import { ACTIVE_LOCALES, getTextDirection, isSupportedLocale, type Locale } from "@/i18n/config";
 import { getSiteUrl, DEFAULT_OG_IMAGE } from "@/lib/seo/site-url";
+import {CoinRewardEffect} from "@/components/ui/CoinRewardEffect";
+import {PageReadAloud} from "@/components/ui/PageReadAloud";
 import "../globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -66,8 +70,9 @@ export async function generateMetadata({
     // explicitly anyway (see getSiteUrl() call sites), so this is a
     // safety net, not the primary mechanism.
     metadataBase: new URL(siteUrl),
+    manifest: "/site.webmanifest",
     title: { default: t("defaultTitle"), template: `%s - Money Quest` },
-    description: t("defaultDescription"),
+    description: siteDescriptions[locale],
     // hreflang alternates (brief requirement 14) — one entry per
     // supported locale, pointing at the same page in each language, so
     // search engines know these pages are translations of each other
@@ -81,7 +86,7 @@ export async function generateMetadata({
     },
     openGraph: {
       title: t("defaultTitle"),
-      description: t("defaultDescription"),
+      description: siteDescriptions[locale],
       url: `${siteUrl}/${locale}`,
       type: "website",
       siteName: "Money Quest",
@@ -99,7 +104,7 @@ export async function generateMetadata({
     twitter: {
       card: "summary_large_image",
       title: t("defaultTitle"),
-      description: t("defaultDescription"),
+      description: siteDescriptions[locale],
     },
   };
 }
@@ -135,7 +140,9 @@ export default async function LocaleLayout({
             regardless of the URL. */}
         <NextIntlClientProvider locale={locale} messages={messages}>
           <a href="#main-content" className="sr-only z-50 rounded-lg bg-white p-4 font-bold text-teal-text focus:not-sr-only focus:absolute focus:left-4 focus:top-4">Skip to content</a>
+          <PageReadAloud locale={locale} copy={siteControlsCopy[locale]}/>
           {children}
+          <CoinRewardEffect/>
         </NextIntlClientProvider>
       </body>
     </html>

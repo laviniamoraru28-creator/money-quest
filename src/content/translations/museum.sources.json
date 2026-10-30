@@ -1,0 +1,26 @@
+{
+  "status": "draft",
+  "recorded": "2026-10-29",
+  "locales": [
+    "ro",
+    "es",
+    "fr",
+    "de",
+    "it",
+    "pt",
+    "nl",
+    "pl"
+  ],
+  "sources": {
+    "before-money": "09709fa68584a0756b98d31150f121d41db3abe0a222ea6afb61e2eae67254f3",
+    "first-coins": "a9a35312389e1753f485cf8f934b55969a34f47dec5b3bc6ba4773298e2a5145",
+    "strange-money": "b8200d133fc2ba4a5db37b255324bad86d41a55afc654b0406a3015bbbcfc08d",
+    "money-through-time": "c206a79c9fab42a7586825b83c5eaede00d3c251b19038a5194c7a7752f86cf0",
+    "banknote-lab": "5f4208bc244d9c71a5ba294807d2b1d74b6f4661e2f16c6a576e51b859b70466",
+    "gold-vault": "086ba4f0fc51961e50170f78efc9112177ead6b3db3c1d2d39e1e90dff4a89e7",
+    "around-the-world": "f1706ea0dc7321fa04fd131ae4618a930fdf4b1f092b62065992dbe18512da5a",
+    "business-invention": "e47f9b3477c9863dbd3db6b2de4840323af3ed0841ea8049c2a231344fcf522c",
+    "museum-of-mistakes": "1fe286cb6df2abdcbb56ebbde76102262e488af757dc10b135f3c770faa95143",
+    "future-money": "d5dc5149ed32a4773cf6eba62ba3f61fbc4d7fa487cf9ae9d32ae88fc6d4db15"
+  }
+}

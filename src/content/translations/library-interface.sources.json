@@ -1,0 +1,23 @@
+{
+  "status": "draft",
+  "recorded": "2026-10-29",
+  "sourceHashes": {
+    "reader": "86ee280d1341fecebaf5836a36d75316f33201899b089cbdf3827c884bf14ae9",
+    "shelves": "f18f493cc289c70d68958f7f76a28ef21b1461015b96c3083df7f2d391254294"
+  },
+  "locales": [
+    "en",
+    "ro",
+    "es",
+    "fr",
+    "de",
+    "it",
+    "pt",
+    "nl",
+    "pl"
+  ],
+  "stringsPerLocale": 75,
+  "translatedStrings": 600,
+  "review": "AI multilingual editorial pass, not native-editor certified. EN public only. EN/RO component SSR checks do not certify non-English browser interaction, typography or real narration quality.",
+  "scope": "Original book reader, biography profiles and LibraryShelves; DiscoveryExperience hub/short-read controls, shared global UI and metadata are separate remaining work."
+}

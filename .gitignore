@@ -39,3 +39,9 @@ yarn-error.log*
 # Deployment build artifacts produced locally by the Namecheap workflow
 /deploy/
 moneyquest-namecheap-built.zip
+
+# Generated from the actual production build
+/public/offline-manifest.json
+
+# Localized fallback HTML generated only for active release locales
+/public/offline-pages/*.html

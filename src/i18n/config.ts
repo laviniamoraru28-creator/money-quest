@@ -8,19 +8,20 @@
 export const LOCALES = ["en", "ro", "es", "fr", "de", "it", "pt", "nl", "pl"] as const;
 export type Locale = (typeof LOCALES)[number];
 
+/** Regional conventions shared by optional narration, dates and number formatting. */
+export const REGIONAL_LOCALES: Record<Locale,string> = {
+  en:"en-GB",ro:"ro-RO",es:"es-ES",fr:"fr-FR",de:"de-DE",
+  it:"it-IT",pt:"pt-PT",nl:"nl-NL",pl:"pl-PL"
+};
+
 export const DEFAULT_LOCALE = "en" as const;
 
 /**
- * Every supported language is now first-class and fully translated —
- * found during a translation audit that the previous partial-coverage
- * fallback list (only en, ro) was masking a deeper problem: most of
- * the actual play experience (lessons, games, the Simulator) never
- * called useTranslations() at all, so no language — including
- * Romanian — actually translated it. Both issues are fixed: every
- * component is wired to the translation system, and all 9 languages
- * carry a complete, professionally-reviewed key set (184/184 keys
- * each, verified by scripts/validate-translations.ts and
- * scripts/test-no-english-fallback.ts).
+ * Legacy name: these locales require complete messages/*.json key coverage.
+ * This is not a declaration that all website content is translated or that
+ * prose has received linguistic, native-speaker or professional review.
+ * New authored content, hardcoded UI, SEO and PDFs are tracked separately.
+ * ACTIVE_LOCALES below remains the public activation gate.
  */
 export const FULLY_TRANSLATED_LOCALES: Locale[] = ["en", "ro", "es", "fr", "de", "it", "pt", "nl", "pl"];
 

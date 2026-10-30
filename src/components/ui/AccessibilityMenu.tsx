@@ -1,5 +1,6 @@
 "use client";
 
+import {ActionIcon} from "./ActionIcon";
 import { useState, useRef, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { useAccessibilityPrefs } from "@/lib/accessibility/use-accessibility-preferences";
@@ -15,7 +16,7 @@ import { useAccessibilityPrefs } from "@/lib/accessibility/use-accessibility-pre
  */
 export function AccessibilityMenu() {
   const t = useTranslations();
-  const { reducedMotion, focusMode, isLoaded, toggleReducedMotion, toggleFocusMode } = useAccessibilityPrefs();
+  const { reducedMotion, focusMode, nightView, isLoaded, toggleReducedMotion, toggleFocusMode, toggleNightView } = useAccessibilityPrefs();
   const [isOpen, setIsOpen] = useState(false);
 
   const root = useRef<HTMLDivElement>(null);
@@ -38,9 +39,9 @@ export function AccessibilityMenu() {
         aria-expanded={isOpen}
         aria-label={t("a11y.accessibilityMenuLabel")}
         title={t("a11y.accessibilityMenuLabel")}
-        className="grid h-touch-min-child w-touch-min-child place-items-center rounded-full border border-ink/10 bg-white text-lg shadow-resting hover:bg-fog"
+        className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-teal/30 bg-white px-3 py-2 text-sm font-semibold text-teal-text shadow-resting hover:bg-fog"
       >
-        <span aria-hidden="true">⚙️</span>
+        <ActionIcon name="settings"/><span>Settings</span>
       </button>
 
       {isOpen && (
@@ -65,6 +66,7 @@ export function AccessibilityMenu() {
               aria-label={t("a11y.focusModeLabel")}
             />
           </label>
+          <label className="mt-2xs flex min-h-touch-min-child items-center justify-between gap-sm"><span className="text-sm">Night view</span><input type="checkbox" checked={nightView} onChange={toggleNightView} className="h-6 w-6" aria-label="Night view"/></label>
           <p className="mt-2xs text-xs text-ink/70">{t("a11y.focusModeHint")}</p>
         </div>
       )}

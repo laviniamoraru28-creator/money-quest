@@ -11,6 +11,7 @@
     "moneyQuest": "Money Quest"
   },
   "nav": {
+    "parentShop": "Eltern-Shop · PDF",
     "howItWorks": "So funktioniert's",
     "forParents": "Für Eltern",
     "safety": "Sicherheit",
@@ -25,12 +26,13 @@
     "changeLanguage": "Sprache ändern"
   },
   "landing": {
+    "parentResourcesLink": "Elternmaterialien und Shop für Druckvorlagen",
     "heroTitle": "Lerne über Geld, indem du spielst, erkundest und Entscheidungen triffst.",
     "heroSubtitle": "Money Quest ist eine kostenlose Welt der finanziellen Bildung für Kinder von 6 bis 14 Jahren - Quests, eine fiktive Geldbörse und echte Fähigkeiten. Kein Konto nötig.",
-    "heroImageAlt": "Ein lächelndes Kind hält ein Handy mit der Money-Quest-App hoch, daneben das Money-Quest-Logo und der Schriftzug Skills for Life.",
+    "heroImageAlt": "KI-generiertes Bild eines lächelnden Kindes mit einem Smartphone, das die Money-Quest-Website zeigt.",
     "ctaGetStartedFree": "Starte deine Money Quest",
     "ctaSeeHowItWorks": "So funktioniert's ansehen",
-    "whyFree": "Money Quest ist für Familien kostenlos, finanziert durch datenschutzfreundliche Werbung, die nur auf Eltern-Seiten angezeigt wird - niemals innerhalb der Erfahrung deines Kindes. Dein Kind kann bei uns nie etwas kaufen.",
+    "whyFree": "Die grundlegenden Lernangebote von Money Quest bleiben kostenlos. Optionale Druckmaterialien für Eltern werden separat verkauft. In den Lernaktivitäten für Kinder sind keine Käufe erforderlich.",
     "howItWorksTitle": "So funktioniert's",
     "step1Title": "1. Wähle ein Level",
     "step1Body": "Wähle ein Lernlevel - ohne Registrierung, ohne Konto, nur auf diesem Gerät gespeichert.",
@@ -42,7 +44,7 @@
     "trust1": "Keine sozialen Funktionen, keine Nachrichten zwischen Kindern, keine öffentlichen Profile",
     "trust2": "Niemals personalisierte Werbung für Kinder",
     "trust3": "Alles Geld in der Erfahrung des Kindes ist vollständig fiktiv",
-    "trust4": "Keine Konten, keine Registrierung und niemals gesammelte persönliche Informationen",
+    "trust4": "Kinder lernen ohne Konto, Anmeldung oder persönliche Angaben.",
     "readFullParentInfoLink": "Lies unsere ausführlichen Informationen für Eltern →",
     "safetyTitle": "Sicherheit steht an erster Stelle",
     "safetyBody": "Wir fragen dein Kind niemals nach seinem echten Namen, seiner Adresse, Schule oder finanziellen Informationen. Jedes Spiel, jede Geschichte und jede Herausforderung wird anhand echter Rahmenwerke für finanzielle Bildung der OECD, der CFPB und des UK Money and Pensions Service überprüft.",
@@ -283,12 +285,12 @@
     "gameProgressLabel": "Spielfortschritt",
     "breadcrumbLabel": "Brotkrümelnavigation",
     "readAloudLabel": "Dies vorlesen",
-    "stopReadingLabel": "Vorlesen stoppen",
+    "stopReadingLabel": "Stoppen",
     "accessibilityMenuLabel": "Barrierefreiheitseinstellungen",
     "reducedMotionLabel": "Animationen reduzieren",
     "focusModeLabel": "Fokusmodus",
     "focusModeHint": "Blendet zusätzliche Details aus, sodass nur die Hauptaktivität angezeigt wird.",
-    "listenToLessonLabel": "Lektion anhören",
+    "listenToLessonLabel": "Anhören",
     "mainNavigationLabel": "Hauptnavigation",
     "categoryMayNeedAdjusting": "- diese Kategorie muss eventuell angepasst werden",
     "answerCorrectAnnouncement": "Richtige Antwort",
@@ -525,7 +527,7 @@
       "title": "Geld als Werkzeug, nicht als Ziel",
       "learningObjective": "Geld als gemeinsames System verstehen, das nur funktioniert, weil Menschen sich einig sind, ihm zu vertrauen, und erkennen, dass verschiedene Länder unterschiedliche Währungen für dieses System verwenden.",
       "shortIntroduction": "Geld „funktioniert” nur, weil Millionen von Fremden sich einig sind, derselben Idee zu vertrauen. Das ist wirklich seltsam, wenn man darüber nachdenkt.",
-      "story": "Priya hilft bei der Planung einer Schul-Spendenaktion und bemerkt etwas: Die Münzen in ihrer Tasche sind außerhalb ihres eigenen Landes wertlos. Eine Freundin, die aus dem Ausland zu Besuch ist, gibt ihr einen Schein von zu Hause, und keine von beiden kann ihn hier benutzen. Priya erkennt, dass Geld keine feste, universelle Sache ist - es ist ein System, das funktioniert, weil eine bestimmte Gruppe von Menschen sich darauf einigt.",
+      "story": "Mia hilft bei der Planung einer Schul-Spendenaktion und bemerkt etwas: Die Münzen in ihrer Tasche sind außerhalb ihres eigenen Landes wertlos. Eine Freundin, die aus dem Ausland zu Besuch ist, gibt ihr einen Schein von zu Hause, und keine von beiden kann ihn hier benutzen. Mia erkennt, dass Geld keine feste, universelle Sache ist - es ist ein System, das funktioniert, weil eine bestimmte Gruppe von Menschen sich darauf einigt.",
       "keyConcept": "Geld ist ein gemeinsames Vertrauenssystem, kein festes universelles Objekt - verschiedene Länder verwenden unterschiedliche Währungen, und der Wert einer Währung kommt daher, dass Menschen sich einig sind, sie zu benutzen und ihr zu vertrauen.",
       "vocabulary": [
         {
@@ -768,7 +770,7 @@
       "title": "Sparen vs. Ausgeben: Der echte Kompromiss",
       "learningObjective": "Sparentscheidungen bewerten, indem man kurzfristigen Genuss gegen längerfristige Ziele abwägt, und verstehen, dass gespartes Geld manchmal mit der Zeit wachsen kann.",
       "shortIntroduction": "Manches gesparte Geld kann tatsächlich von selbst mit der Zeit wachsen. Hier ist die ehrliche Version davon, wie - und warum es keine Magie ist.",
-      "story": "Theo hat zwei Optionen für Geld, das er gerade nicht braucht: es ausgeben, oder es irgendwo hinlegen, wo es langsam mit der Zeit wachsen könnte, indem es einen kleinen zusätzlichen Betrag verdient, manchmal Zinsen genannt. Er erkennt, dass das nur wirklich wichtig ist, wenn er das Geld eine Weile in Ruhe lässt - es schnell wieder herauszunehmen, macht kaum einen Unterschied.",
+      "story": "Sam hat zwei Optionen für Geld, das er gerade nicht braucht: es ausgeben, oder es irgendwo hinlegen, wo es langsam mit der Zeit wachsen könnte, indem es einen kleinen zusätzlichen Betrag verdient, manchmal Zinsen genannt. Er erkennt, dass das nur wirklich wichtig ist, wenn er das Geld eine Weile in Ruhe lässt - es schnell wieder herauszunehmen, macht kaum einen Unterschied.",
       "keyConcept": "Über einen längeren Zeitraum gespartes Geld kann manchmal durch Zinsen wachsen, aber der Kompromiss zwischen Geld jetzt genießen und später mehr davon haben ist die echte Entscheidung hinter jeder Sparwahl.",
       "vocabulary": [
         {
@@ -1387,7 +1389,7 @@
       "title": "Sicher und aufmerksam mit digitalem Geld",
       "learningObjective": "Praktische Gewohnheiten für den sicheren und kritischen Umgang mit digitalen Ausgaben anwenden, einschließlich der Prüfung von Zahlungsnachrichten und der Nachverfolgung von Ausgaben, und erkennen, warum digitales Geld sich weniger „echt“ anfühlen kann als Bargeld.",
       "shortIntroduction": "Digitales Geld ist praktisch - und genau deshalb braucht es etwas mehr bewusste Aufmerksamkeit als Bargeld.",
-      "story": "Priya bemerkt, dass sie diesen Monat mehr ausgegeben hat als erwartet, obwohl sie sich an keinen einzelnen großen Kauf erinnert. Als sie den Verlauf ihrer digitalen Geldbörse durchsieht, sieht sie mehrere kleine Zahlungen, die sie kaum bemerkt hatte - jede fühlte sich in dem Moment zu klein an, um darüber nachzudenken.",
+      "story": "Mia bemerkt, dass sie diesen Monat mehr ausgegeben hat als erwartet, obwohl sie sich an keinen einzelnen großen Kauf erinnert. Als sie den Verlauf ihrer digitalen Geldbörse durchsieht, sieht sie mehrere kleine Zahlungen, die sie kaum bemerkt hatte - jede fühlte sich in dem Moment zu klein an, um darüber nachzudenken.",
       "keyConcept": "Weil digitale Zahlungen nichts physisch Übergebenes beinhalten, können sie sich in dem Moment weniger „echt“ anfühlen - deshalb sind bewusstes Prüfen der eigenen Ausgaben und das Bestätigen von Zahlungen wirklich lohnende Gewohnheiten.",
       "vocabulary": [
         {
@@ -3257,8 +3259,8 @@
             {
               "id": "forgot-to-plan",
               "mechanic": "multiple-choice",
-              "prompt": "Priya hat vergessen, dass der Geburtstag ihrer Freundin bevorstand, und hatte ihr Taschengeld schon für Spiele ausgegeben. Was könnte Priya helfen, das nächstes Mal zu vermeiden?",
-              "hint": "Denk darüber nach, was Priya früher hätte tun können, bevor das Geld schon ausgegeben ist.",
+              "prompt": "Mia hat vergessen, dass der Geburtstag ihrer Freundin bevorstand, und hatte ihr Taschengeld schon für Spiele ausgegeben. Was könnte Mia helfen, das nächstes Mal zu vermeiden?",
+              "hint": "Denk darüber nach, was Mia früher hätte tun können, bevor das Geld schon ausgegeben ist.",
               "explanation": "Im Voraus für Kosten zu planen, von denen man schon weiß, dass sie kommen - wie ein Geburtstag, den man im Voraus kennt - hilft zu vermeiden, später knapp bei Kasse zu sein.",
               "options": [
                 "Im Voraus für Kosten planen, die sie schon kennt",
@@ -5180,7 +5182,7 @@
     },
     "characters": {
       "nadia": {
-        "name": "Nadia",
+        "name": "Emma",
         "personality": "Voller Ideen und immer drei Schritte voraus.",
         "strength": "Hat kreative Ideen, auf die sonst niemand kommt.",
         "challenge": "Wird von ihren Ideen manchmal so mitgerissen, dass sie anderen ins Wort fällt.",
@@ -5188,7 +5190,7 @@
         "communicationStyle": "Schnell, begeistert und voller \"Was wäre, wenn wir mal ...\""
       },
       "oren": {
-        "name": "Oren",
+        "name": "Ben",
         "personality": "Sorgfältig und genau – er bemerkt Details, die anderen entgehen.",
         "strength": "Richtig gut darin, Dinge ordentlich zu bauen und zu reparieren.",
         "challenge": "Hat oft tolle Ideen, sagt sie aber in großen Gruppen selten laut.",
@@ -5196,7 +5198,7 @@
         "communicationStyle": "Ruhig in der Gruppe, aber gesprächig, wenn man ihn direkt fragt."
       },
       "priya": {
-        "name": "Priya",
+        "name": "Mia",
         "personality": "Warmherzig, ausdrucksstark und kann mit jedem reden.",
         "strength": "Kann Dinge klar erklären und sorgt dafür, dass sich Menschen wohlfühlen.",
         "challenge": "Ist schon von der nächsten Idee begeistert, bevor die letzte fertig ist.",
@@ -5204,7 +5206,7 @@
         "communicationStyle": "Redet viel und mit Energie – braucht manchmal eine sanfte Erinnerung, zum Schluss zu kommen."
       },
       "theo": {
-        "name": "Theo",
+        "name": "Sam",
         "personality": "Ruhig, organisiert und behält immer den Plan im Blick.",
         "strength": "Hält das Team im Zeitplan und merkt sich jedes Detail.",
         "challenge": "Findet plötzliche Planänderungen stressig.",
@@ -5223,7 +5225,7 @@
           },
           {
             "character": "oren",
-            "text": "... Hi. Ich bin Oren. Ich will eigentlich nur loslegen."
+            "text": "... Hi. Ich bin Ben. Ich will eigentlich nur loslegen."
           },
           {
             "character": "priya",
@@ -5304,12 +5306,12 @@
         ],
         "events": {
           "everyone-has-an-idea-choice": {
-            "situation": "Nadia und Oren stehen beide voll hinter ihrer eigenen Idee. Sie warten darauf, dass du entscheidest.",
+            "situation": "Emma und Ben stehen beide voll hinter ihrer eigenen Idee. Sie warten darauf, dass du entscheidest.",
             "choices": [
               {
                 "key": "pick-one-idea",
                 "label": "Nadias Idee nehmen – sie ist die spannendere.",
-                "consequence": "Nadia ist begeistert. Oren wird still und sagt den Rest des Tages kaum noch etwas."
+                "consequence": "Emma ist begeistert. Ben wird still und sagt den Rest des Tages kaum noch etwas."
               },
               {
                 "key": "combine-both-ideas",
@@ -5318,7 +5320,7 @@
               },
               {
                 "key": "let-them-decide-together",
-                "label": "Nadia und Oren bitten, es gemeinsam zu besprechen.",
+                "label": "Emma und Ben bitten, es gemeinsam zu besprechen.",
                 "consequence": "Sie klären es selbst – und kommen mit einem Plan zurück, den beide wirklich gut finden."
               },
               {
@@ -5345,9 +5347,9 @@
         ],
         "investigateLabel": "Finde heraus, was los ist, bevor du entscheidest.",
         "investigate": {
-          "ask-the-teammate": "Du fragst Oren direkt. Er sagt, er wusste nicht, wie er anfangen sollte, und wollte das nicht zugeben.",
-          "check-the-shared-plan": "Du schaust in den gemeinsamen Plan. Oren wurde sein Teil nie richtig erklärt.",
-          "ask-another-teammate": "Priya erwähnt, dass Oren schon früher in der Woche verwirrt wirkte, aber sie hat nichts gesagt."
+          "ask-the-teammate": "Du fragst Ben direkt. Er sagt, er wusste nicht, wie er anfangen sollte, und wollte das nicht zugeben.",
+          "check-the-shared-plan": "Du schaust in den gemeinsamen Plan. Ben wurde sein Teil nie richtig erklärt.",
+          "ask-another-teammate": "Mia erwähnt, dass Ben schon früher in der Woche verwirrt wirkte, aber sie hat nichts gesagt."
         },
         "events": {
           "missing-task-choice": {
@@ -5355,18 +5357,18 @@
             "choices": [
               {
                 "key": "ask-what-happened",
-                "label": "Mit Oren reden und ihm helfen herauszufinden, was zu tun ist.",
-                "consequence": "Oren wird die Aufgabe mit deiner Hilfe fertig und fühlt sich beim nächsten Mal wohler damit, zu fragen."
+                "label": "Mit Ben reden und ihm helfen herauszufinden, was zu tun ist.",
+                "consequence": "Ben wird die Aufgabe mit deiner Hilfe fertig und fühlt sich beim nächsten Mal wohler damit, zu fragen."
               },
               {
                 "key": "do-it-yourself-quietly",
                 "label": "Die Aufgabe still selbst fertigmachen.",
-                "consequence": "Die Aufgabe wird schnell erledigt, aber Oren erfährt nie, was er verpasst hat – oder bekommt die Chance, es zu ändern."
+                "consequence": "Die Aufgabe wird schnell erledigt, aber Ben erfährt nie, was er verpasst hat – oder bekommt die Chance, es zu ändern."
               },
               {
                 "key": "remind-them-firmly",
-                "label": "Oren bestimmt daran erinnern, dass die Frist morgen ist.",
-                "consequence": "Die Aufgabe kommt in Bewegung, aber Oren weiß immer noch nicht, was beim ersten Mal schiefgelaufen ist."
+                "label": "Ben bestimmt daran erinnern, dass die Frist morgen ist.",
+                "consequence": "Die Aufgabe kommt in Bewegung, aber Ben weiß immer noch nicht, was beim ersten Mal schiefgelaufen ist."
               },
               {
                 "key": "wait-and-see",
@@ -5392,22 +5394,22 @@
         ],
         "events": {
           "big-mistake-choice": {
-            "situation": "Priya hat einen echten Fehler gemacht, und alle beobachten, was du jetzt tust.",
+            "situation": "Mia hat einen echten Fehler gemacht, und alle beobachten, was du jetzt tust.",
             "choices": [
               {
                 "key": "blame-publicly",
                 "label": "Den Fehler vor allen ansprechen.",
-                "consequence": "Das Team behebt es schnell – aber Priya wirkt beschämt und scheint danach nervös, sich noch mal zu Wort zu melden."
+                "consequence": "Das Team behebt es schnell – aber Mia wirkt beschämt und scheint danach nervös, sich noch mal zu Wort zu melden."
               },
               {
                 "key": "fix-it-yourself",
                 "label": "Es still selbst reparieren und weitermachen.",
-                "consequence": "Es ist schnell erledigt, aber Priya bekommt nie die Chance zu verstehen, was schiefgelaufen ist."
+                "consequence": "Es ist schnell erledigt, aber Mia bekommt nie die Chance zu verstehen, was schiefgelaufen ist."
               },
               {
                 "key": "talk-privately",
-                "label": "Mit Priya unter vier Augen reden und herausfinden, was passiert ist.",
-                "consequence": "Es dauert etwas länger, aber Priya fühlt sich unterstützt – und ist beim nächsten Mal vorsichtiger."
+                "label": "Mit Mia unter vier Augen reden und herausfinden, was passiert ist.",
+                "consequence": "Es dauert etwas länger, aber Mia fühlt sich unterstützt – und ist beim nächsten Mal vorsichtiger."
               },
               {
                 "key": "ignore-it",
@@ -5448,8 +5450,8 @@
               },
               {
                 "key": "let-a-teammate-handle-it",
-                "label": "Priya, die sehr gut mit Menschen umgehen kann, den Anruf übernehmen lassen.",
-                "consequence": "Priya beruhigt den Kunden, und das Team sieht, dass du ihnen auch schwierige Momente zutraust."
+                "label": "Mia, die sehr gut mit Menschen umgehen kann, den Anruf übernehmen lassen.",
+                "consequence": "Mia beruhigt den Kunden, und das Team sieht, dass du ihnen auch schwierige Momente zutraust."
               }
             ]
           }
@@ -5471,7 +5473,7 @@
               {
                 "key": "use-their-idea",
                 "label": "Nadias Idee statt deiner eigenen nehmen.",
-                "consequence": "Das Projekt wird dadurch stärker, und Nadia fühlt sich wirklich wertgeschätzt."
+                "consequence": "Das Projekt wird dadurch stärker, und Emma fühlt sich wirklich wertgeschätzt."
               },
               {
                 "key": "combine-ideas",
@@ -5481,7 +5483,7 @@
               {
                 "key": "stick-with-your-idea",
                 "label": "Bei deinem ursprünglichen Plan bleiben.",
-                "consequence": "Das Projekt läuft wie geplant weiter, aber Nadia fragt sich, ob ihre Ideen wirklich willkommen sind."
+                "consequence": "Das Projekt läuft wie geplant weiter, aber Emma fragt sich, ob ihre Ideen wirklich willkommen sind."
               },
               {
                 "key": "ask-the-team-to-vote",
@@ -5505,11 +5507,11 @@
             "text": "Das ist nicht fair – ich glaube nur, wir sehen das einfach unterschiedlich."
           }
         ],
-        "spotScenario": "Lies, was zwischen Priya und Theo gesagt wird. Welche Teile machen die Sache schlimmer statt besser?",
+        "spotScenario": "Lies, was zwischen Mia und Sam gesagt wird. Welche Teile machen die Sache schlimmer statt besser?",
         "outro": "Du hast erkannt, was die Sache schlimmer macht. Jetzt ist es Zeit einzugreifen.",
         "events": {
           "team-conflict-choice": {
-            "situation": "Priya und Theo sind sich immer noch nicht einig. Was machst du?",
+            "situation": "Mia und Sam sind sich immer noch nicht einig. Was machst du?",
             "choices": [
               {
                 "key": "hear-both-sides",
@@ -5620,7 +5622,7 @@
         "dialogue": [
           {
             "character": "priya",
-            "text": "Der Kunde hat sich gerade anders entschieden. Außerdem ist Oren heute nicht da. Und – ist das Ding da jetzt auch kaputt?"
+            "text": "Der Kunde hat sich gerade anders entschieden. Außerdem ist Ben heute nicht da. Und – ist das Ding da jetzt auch kaputt?"
           }
         ],
         "buckets": {
@@ -5775,7 +5777,7 @@
       },
       "uh-oh-teammate-absent": {
         "title": "Eines deiner Teammitglieder ist heute nicht da.",
-        "situation": "Oren ist heute nicht da, und er hatte eine wichtige Aufgabe auf seiner Liste.",
+        "situation": "Ben ist heute nicht da, und er hatte eine wichtige Aufgabe auf seiner Liste.",
         "choices": [
           {
             "key": "share-out-their-tasks",
@@ -5784,7 +5786,7 @@
           },
           {
             "key": "wait-until-they-are-back",
-            "label": "Warten, bis Oren zurück ist, um diesen Teil fortzusetzen.",
+            "label": "Warten, bis Ben zurück ist, um diesen Teil fortzusetzen.",
             "consequence": "Dieser Teil des Projekts liegt vorerst auf Eis."
           },
           {
@@ -6105,9 +6107,9 @@
     "metaDescription": "Nimm Kontakt mit dem Money-Quest-Team auf - Fragen von Eltern und Lehrkräften, Sicherheitsanliegen und allgemeiner Support.",
     "intro": "Wir würden uns freuen, von dir zu hören - egal ob du ein Elternteil mit einer Frage bist, eine Lehrkraft, die neugierig auf den Plan für den Unterricht ist, oder ein Sicherheitsanliegen melden möchtest.",
     "safetyTitle": "Sicherheitsanliegen",
-    "safetyBody": "Wir richten gerade eine eigene Kontaktadresse für Sicherheitsanliegen ein - sie ist hier noch nicht veröffentlicht. Schau bald wieder vorbei.",
+    "safetyBody": "Wenn du ein Sicherheitsproblem bei Money Quest melden möchtest, schreibe uns an die E-Mail-Adresse oben.",
     "everythingElseTitle": "Alles andere",
-    "everythingElseBody": "Wir richten gerade eine allgemeine Kontaktadresse für Fragen und Feedback ein - sie ist hier noch nicht veröffentlicht. Schau bald wieder vorbei."
+    "everythingElseBody": "Bei Fragen, Feedback oder wenn du Hilfe brauchst, schreibe uns an die E-Mail-Adresse oben."
   },
   "articles": {
     "saving-money-for-kids": {
