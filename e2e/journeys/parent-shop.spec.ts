@@ -4,6 +4,25 @@ import {PARENT_GUIDE_SOURCES} from "../../src/content/parent-guide-copy";
 import {shopFlowCopy} from "../../src/content/shop-flow-copy";
 import {shopTermsCopy} from "../../src/content/shop-terms-copy";
 import {SHOP_TERMS_VERSION} from "../../src/content/shop";
+import {shopCatalogueCopy} from "../../src/content/shop-catalogue-copy";
+import {shopProducts} from "../../src/content/shop";
+test("shop catalogue keeps English file disclosures, real previews and canonical free samples",async({page})=>{
+ await page.setViewportSize({width:320,height:900});await page.goto("/ro/parents/shop");await expect(page).toHaveURL(/\/en\/parents\/shop$/);
+ const copy=shopCatalogueCopy.en.copy;await expect(page.getByText(copy.previewBody,{exact:true})).toBeVisible();
+ await expect(page.getByText(copy.digital,{exact:true})).toBeVisible();await expect(page.getByText(copy.responseBody,{exact:true})).toBeVisible();
+ await page.getByRole("link",{name:copy.sampleCta,exact:true}).click();await expect(page).toHaveURL(/#free-preview$/);
+ for(const product of shopProducts){
+  const text=shopCatalogueCopy.en.products[product.id],card=page.locator(`article#${product.id}`);
+  await expect(card.getByRole("heading",{name:text.title,exact:true})).toBeVisible();
+  const image=card.getByRole("img",{name:text.imageAlt,exact:true});await image.scrollIntoViewIfNeeded();await expect.poll(()=>image.evaluate((el:HTMLImageElement)=>el.complete&&el.naturalWidth>0)).toBe(true);
+  await expect(card.getByRole("link",{name:text.sampleLabel,exact:true})).toHaveAttribute("href",product.sample);
+  await expect(card.getByRole("button",{name:shopFlowCopy.en.closedButton,exact:true})).toBeDisabled();
+ }
+ for(const i of [1,2,3,4] as const){await page.getByText(copy[`q${i}`],{exact:true}).click();await expect(page.getByText(copy[`a${i}`],{exact:true})).toBeVisible();}
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)).toBe(false);
+ const schema=await page.locator('script[type="application/ld+json"]').allTextContents();const collection=schema.map(text=>JSON.parse(text)).find(item=>item["@type"]==="CollectionPage");
+ expect(collection.url).toBe("https://moneyquesteducation.com/en/parents/shop");expect(collection.offers).toBeUndefined();
+});
 test("download terms preserve English disclosures and inactive-language redirect",async({page})=>{
  await page.goto("/ro/parents/shop/terms");await expect(page).toHaveURL(/\/en\/parents\/shop\/terms$/);
  const main=page.locator("main");

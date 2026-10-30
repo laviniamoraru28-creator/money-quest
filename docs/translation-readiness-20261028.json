@@ -1,4 +1,23 @@
 {
+  "shopCatalogueDrafts": {
+    "locales": [
+      "en",
+      "ro",
+      "es",
+      "fr",
+      "de",
+      "it",
+      "pt",
+      "nl",
+      "pl"
+    ],
+    "stringsPerLocale": 52,
+    "translatedStrings": 416,
+    "sourceFingerprintManifest": "src/content/translations/shop-catalogue.sources.json",
+    "integration": "Full server-selected shop catalogue, two product displays, localized GBP, English-file sample/preview disclosure and FAQ; 18 actual component SSR renders; public English and sandbox gates unchanged",
+    "editorialStatus": "AI multilingual editorial drafts, not native-editor/legal certification or translated product editions",
+    "remaining": "Receipt contents, native download/receipt errors, other parent/privacy pages, actual printable manuscripts and final consumer/language/browser review"
+  },
   "shopTermsDrafts": {
     "locales": [
       "en",
@@ -16,7 +35,7 @@
     "sourceFingerprintManifest": "src/content/translations/shop-terms.sources.json",
     "integration": "Display-only terms presentation with nine actual component SSR renders; public English, consent version and sandbox gates unchanged",
     "editorialStatus": "AI multilingual editorial drafts, not native-editor certification or local legal adaptation",
-    "remaining": "Catalogue, receipts, native download/receipt errors, PDFs, seller details and final consumer-contract review before public sales"
+    "remaining": "Receipts, native download/receipt errors, PDFs, seller details and final consumer-contract review before public sales"
   },
   "parentFlowDrafts": {
     "locales": [
@@ -35,7 +54,7 @@
     "sourceFingerprintManifest": "src/content/translations/parent-flow.sources.json",
     "integration": "Complete parent resource guide and selected-locale checkout/order/recovery controls; 45 actual component SSR renders; public EN and sandbox-only gates unchanged",
     "editorialStatus": "AI multilingual editorial drafts, not native-editor/legal certification",
-    "remaining": "Product catalogue/privacy/general parent pages, receipt contents/native download errors, PDFs, remaining authored content, SEO and non-English browser/linguistic/legal review"
+    "remaining": "Privacy/general parent pages, receipt contents/native download errors, PDFs, remaining authored content, SEO and non-English browser/linguistic/legal review"
   },
   "commonControlsDrafts": {
     "locales": [

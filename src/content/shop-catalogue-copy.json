@@ -1,0 +1,596 @@
+{
+  "en": {
+    "copy": {
+      "nav": "Parent shop navigation",
+      "home": "Money Quest home",
+      "guides": "Parent guides and free samples",
+      "privacy": "About children’s privacy",
+      "audience": "FOR PARENTS AND CARERS",
+      "title": "Bring Money Quest learning to your kitchen table",
+      "intro": "Stories, pictures and practical choices to explore together. Print one activity, choose a way to respond and go at your child’s pace.",
+      "digital": "These are digital PDF downloads. You print and bind them at home. No printed product is supplied or posted. Printing and binding costs are not included.",
+      "sampleCta": "Try a free sample first",
+      "freeNote": "No email or account needed for samples. The website’s core learning stays free.",
+      "previewTitle": "Preview editions",
+      "previewBody": "The samples and current printable files are in English. The other eight language editions are still being prepared. Prices below are proposed one-time prices; paid downloads are not open to the public.",
+      "productsTitle": "Choose a resource to explore",
+      "priceNote": "proposed, one payment",
+      "format": "Digital PDF in a ZIP file. A4, single-sided printing. One-household licence. No subscription.",
+      "includedTitle": "Designed for different ways of joining in",
+      "picturesTitle": "Pictures with a purpose",
+      "picturesBody": "Labels, pretend counters and clear choices support the activity. Reduced-distraction versions remove decorative scene artwork and coloured card fills.",
+      "responseTitle": "No handwriting requirement",
+      "responseBody": "Point, draw, type, use augmentative and alternative communication (AAC), speak or ask an adult to write. Choose Explorer, Builder or Strategist tasks to suit understanding and support.",
+      "supportTitle": "Guidance for grown-ups",
+      "supportBody": "Worked explanations, practical support and further questions help you explore the ideas together. No timed tests or household financial disclosure.",
+      "evidence": "Informed by CAST UDL Guidelines 3.0, EEF inclusive-teaching guidance and MoneyHelper parent resources. This is not certification, clinical validation or evidence of guaranteed learning outcomes. Suitability varies by child.",
+      "evidenceLink": "Read the parent guide and evidence sources",
+      "faqTitle": "Questions before choosing",
+      "q1": "Is this a printed book?",
+      "a1": "No. These are digital downloads. You need a PDF reader and access to a printer if you want paper copies. A ZIP archive contains the complete files. No postage or binding is included.",
+      "q2": "Will this suit my child’s SEND needs?",
+      "a2": "The materials offer different response methods, small steps and a reduced-distraction version. No single design suits every child. Try the complete sample and adapt with your child and their usual support.",
+      "q3": "Do I need to buy anything to use Money Quest?",
+      "a3": "No. Core website learning, original books and sample activities remain free. These printable products are optional.",
+      "q4": "Can I print this for a whole class?",
+      "a4": "The proposed licence is for one household. A classroom product and licence would be a separate edition; they are not included here.",
+      "terms": "Digital download terms and preview status"
+    },
+    "products": {
+      "family-adventure-pack": {
+        "title": "Family Adventure Pack",
+        "description": "20 original illustrated activities for money choices, planning, digital safety and thinking together.",
+        "pages": "20 activities in each of two visual versions",
+        "includes": [
+          "Colour and reduced-distraction PDFs",
+          "40 individual activity PDFs",
+          "Four-page parent and carer guide",
+          "Five-page answers and discussion guide"
+        ],
+        "imageAlt": "Real preview page from Family Adventure Pack (English edition)",
+        "sampleLabel": "Download the free 3-activity sample (PDF, English)"
+      },
+      "adventure-journal": {
+        "title": "My Money Quest Adventure Journal",
+        "description": "12 undated weeks of stories, activities and reflection, with space to draw or respond your way.",
+        "pages": "39 A4 pages in each of two visual versions",
+        "includes": [
+          "Colour and reduced-distraction journals",
+          "Clear 25 mm left margin for hole punching",
+          "12 weeks, each with Discover, Try and Reflect pages",
+          "Parent and carer guide"
+        ],
+        "imageAlt": "Real preview page from My Money Quest Adventure Journal (English edition)",
+        "sampleLabel": "Download the free first-week journal sample (PDF, English)"
+      }
+    }
+  },
+  "ro": {
+    "copy": {
+      "nav": "Navigare în magazinul pentru părinți",
+      "home": "Pagina principală Money Quest",
+      "guides": "Ghiduri pentru părinți și mostre gratuite",
+      "privacy": "Despre confidențialitatea copiilor",
+      "audience": "PENTRU PĂRINȚI ȘI ÎNGRIJITORI",
+      "title": "Descoperă Money Quest și la masa de acasă",
+      "intro": "Povești, imagini și alegeri practice de explorat împreună. Imprimă o activitate, alegeți cum răspundeți și urmați ritmul copilului tău.",
+      "digital": "Acestea sunt fișiere PDF digitale de descărcat. Tu le imprimi și le legi acasă. Nu furnizăm și nu expediem produse tipărite. Costurile de imprimare și legare nu sunt incluse.",
+      "sampleCta": "Încearcă mai întâi o mostră gratuită",
+      "freeNote": "Nu ai nevoie de e-mail sau de cont pentru mostre. Activitățile de bază de pe website rămân gratuite.",
+      "previewTitle": "Ediții de previzualizare",
+      "previewBody": "Mostrele și fișierele printabile actuale sunt în engleză. Edițiile în celelalte opt limbi sunt încă în pregătire. Prețurile de mai jos sunt propuse pentru o singură plată; descărcările contra cost nu sunt deschise publicului.",
+      "productsTitle": "Alege un material de explorat",
+      "priceNote": "preț propus, o singură plată",
+      "format": "PDF digital într-o arhivă ZIP. Format A4, imprimare pe o singură față. Licență pentru o singură familie. Fără abonament.",
+      "includedTitle": "Mai multe moduri de a participa",
+      "picturesTitle": "Imagini care sprijină activitatea",
+      "picturesBody": "Etichetele, jetoanele de joc și alegerile clare sprijină activitatea. Versiunile cu mai puțini stimuli vizuali nu conțin ilustrații decorative de fundal sau fundaluri colorate pe carduri.",
+      "responseTitle": "Nu este necesar scrisul de mână",
+      "responseBody": "Copilul poate arăta, desena, tasta, folosi comunicarea augmentativă și alternativă (CAA), vorbi sau ruga un adult să scrie. Alege sarcini Explorer, Builder sau Strategist în funcție de nivelul de înțelegere și de sprijinul necesar.",
+      "supportTitle": "Îndrumări pentru adulți",
+      "supportBody": "Explicațiile cu exemple, sprijinul practic și întrebările suplimentare vă ajută să explorați ideile împreună. Nu există teste contra cronometru și nu trebuie să dezvăluiți situația financiară a familiei.",
+      "evidence": "Materialele se bazează pe liniile directoare CAST UDL 3.0, îndrumările EEF pentru predare incluzivă și resursele MoneyHelper pentru părinți. Aceasta nu reprezintă certificare, validare clinică sau dovada unor rezultate garantate ale învățării. Potrivirea depinde de fiecare copil.",
+      "evidenceLink": "Citește ghidul pentru părinți și sursele de specialitate",
+      "faqTitle": "Întrebări înainte să alegi",
+      "q1": "Este o carte tipărită?",
+      "a1": "Nu. Acestea sunt materiale digitale de descărcat. Ai nevoie de un cititor PDF și de acces la o imprimantă dacă dorești exemplare pe hârtie. O arhivă ZIP conține fișierele complete. Expedierea și legarea nu sunt incluse.",
+      "q2": "Sunt potrivite pentru nevoile educaționale speciale ale copilului meu?",
+      "a2": "Materialele oferă mai multe moduri de răspuns, pași mici și o versiune cu mai puțini stimuli vizuali. Nicio variantă nu se potrivește tuturor copiilor. Încearcă mostra completă și adapteaz-o împreună cu copilul și cu persoanele care îl sprijină de obicei.",
+      "q3": "Trebuie să cumpăr ceva ca să folosesc Money Quest?",
+      "a3": "Nu. Activitățile de bază de pe website, cărțile originale și mostrele de activități rămân gratuite. Aceste produse printabile sunt opționale.",
+      "q4": "Pot imprima materialele pentru o clasă întreagă?",
+      "a4": "Licența propusă este pentru o singură familie. Un produs și o licență pentru clasă ar constitui o ediție separată; acestea nu sunt incluse aici.",
+      "terms": "Termeni pentru descărcările digitale și stadiul edițiilor de previzualizare"
+    },
+    "products": {
+      "family-adventure-pack": {
+        "title": "Pachetul de aventuri în familie",
+        "description": "20 de activități originale ilustrate despre alegeri financiare, planificare, siguranță digitală și reflecție împreună.",
+        "pages": "20 de activități în fiecare dintre cele două variante vizuale",
+        "includes": [
+          "PDF-uri color și cu mai puțini stimuli vizuali",
+          "40 de PDF-uri cu activități individuale",
+          "Ghid de 4 pagini pentru părinți și îngrijitori",
+          "Ghid de 5 pagini cu răspunsuri și întrebări pentru discuții"
+        ],
+        "imageAlt": "Pagină reală de previzualizare din Pachetul de aventuri în familie, ediția în engleză",
+        "sampleLabel": "Descarcă mostra gratuită cu 3 activități (PDF, engleză)"
+      },
+      "adventure-journal": {
+        "title": "Jurnalul meu de aventuri Money Quest",
+        "description": "12 săptămâni fără date prestabilite, cu povești, activități și reflecție, plus spațiu pentru desen sau răspuns în felul tău.",
+        "pages": "39 de pagini A4 în fiecare dintre cele două variante vizuale",
+        "includes": [
+          "Jurnale color și cu mai puțini stimuli vizuali",
+          "Margine liberă de 25 mm în stânga pentru perforare",
+          "12 săptămâni, fiecare cu pagini Descoperă, Încearcă și Reflectează",
+          "Ghid pentru părinți și îngrijitori"
+        ],
+        "imageAlt": "Pagină reală de previzualizare din Jurnalul meu de aventuri Money Quest, ediția în engleză",
+        "sampleLabel": "Descarcă gratuit prima săptămână din jurnal (PDF, engleză)"
+      }
+    }
+  },
+  "es": {
+    "copy": {
+      "nav": "Navegación de la tienda para familias",
+      "home": "Inicio de Money Quest",
+      "guides": "Guías para familias y muestras gratuitas",
+      "privacy": "Sobre la privacidad de los menores",
+      "audience": "PARA MADRES, PADRES Y PERSONAS CUIDADORAS",
+      "title": "Explora Money Quest también en casa",
+      "intro": "Historias, imágenes y decisiones prácticas para explorar en familia. Imprime una actividad, elegid cómo responder y avanzad al ritmo de tu hijo o hija.",
+      "digital": "Son archivos PDF digitales para descargar. Tú los imprimes y encuadernas en casa. No se suministra ni se envía ningún producto impreso. Los gastos de impresión y encuadernación no están incluidos.",
+      "sampleCta": "Prueba primero una muestra gratuita",
+      "freeNote": "No necesitas correo electrónico ni cuenta para las muestras. Las actividades básicas del sitio web siguen siendo gratuitas.",
+      "previewTitle": "Ediciones de muestra",
+      "previewBody": "Las muestras y los archivos imprimibles actuales están en inglés. Las ediciones en los otros ocho idiomas siguen en preparación. Los precios siguientes son propuestas de pago único; las descargas de pago no están abiertas al público.",
+      "productsTitle": "Elige un recurso para explorar",
+      "priceNote": "precio propuesto, un solo pago",
+      "format": "PDF digital en un archivo ZIP. A4, impresión por una sola cara. Licencia para un solo hogar. Sin suscripción.",
+      "includedTitle": "Diferentes formas de participar",
+      "picturesTitle": "Imágenes que apoyan la actividad",
+      "picturesBody": "Las etiquetas, las fichas de juego y las opciones claras apoyan la actividad. Las versiones con menos distracciones eliminan las ilustraciones decorativas de fondo y los fondos de color de las tarjetas.",
+      "responseTitle": "No hace falta escribir a mano",
+      "responseBody": "Tu hijo o hija puede señalar, dibujar, teclear, utilizar comunicación aumentativa y alternativa (CAA), hablar o pedir a una persona adulta que escriba. Elige tareas Explorer, Builder o Strategist según su comprensión y el apoyo que necesite.",
+      "supportTitle": "Orientación para personas adultas",
+      "supportBody": "Las explicaciones con ejemplos, el apoyo práctico y las preguntas adicionales os ayudan a explorar las ideas juntos. No hay pruebas cronometradas ni se pide revelar la situación económica del hogar.",
+      "evidence": "Basado en las pautas CAST UDL 3.0, las orientaciones de EEF sobre enseñanza inclusiva y los recursos de MoneyHelper para familias. Esto no supone una certificación, una validación clínica ni pruebas de resultados de aprendizaje garantizados. La idoneidad depende de cada menor.",
+      "evidenceLink": "Lee la guía para familias y las fuentes de referencia",
+      "faqTitle": "Preguntas antes de elegir",
+      "q1": "¿Es un libro impreso?",
+      "a1": "No. Son descargas digitales. Necesitas un lector de PDF y acceso a una impresora si quieres copias en papel. Un archivo ZIP contiene todos los archivos. No se incluyen envío ni encuadernación.",
+      "q2": "¿Se adaptará a las necesidades educativas especiales o la discapacidad de mi hijo o hija?",
+      "a2": "Los materiales ofrecen distintas formas de responder, pasos pequeños y una versión con menos distracciones. Ningún diseño se adapta a todos los menores. Prueba la muestra completa y adáptala con tu hijo o hija y con quienes le prestan apoyo habitualmente.",
+      "q3": "¿Tengo que comprar algo para usar Money Quest?",
+      "a3": "No. Las actividades básicas del sitio web, los libros originales y las muestras de actividades siguen siendo gratuitos. Estos productos imprimibles son opcionales.",
+      "q4": "¿Puedo imprimirlos para toda una clase?",
+      "a4": "La licencia propuesta es para un solo hogar. Un producto y una licencia para el aula serían una edición independiente; no están incluidos aquí.",
+      "terms": "Condiciones de las descargas digitales y estado de las ediciones de muestra"
+    },
+    "products": {
+      "family-adventure-pack": {
+        "title": "Pack de aventuras en familia",
+        "description": "20 actividades originales ilustradas sobre decisiones económicas, planificación, seguridad digital y reflexión en familia.",
+        "pages": "20 actividades en cada una de las dos versiones visuales",
+        "includes": [
+          "PDF en color y con menos distracciones",
+          "40 PDF de actividades individuales",
+          "Guía de 4 páginas para familias y personas cuidadoras",
+          "Guía de 5 páginas con respuestas y temas de conversación"
+        ],
+        "imageAlt": "Página real de muestra del Pack de aventuras en familia, edición en inglés",
+        "sampleLabel": "Descarga la muestra gratuita de 3 actividades (PDF, inglés)"
+      },
+      "adventure-journal": {
+        "title": "Mi diario de aventuras Money Quest",
+        "description": "12 semanas sin fechas fijas con historias, actividades y reflexión, y espacio para dibujar o responder a tu manera.",
+        "pages": "39 páginas A4 en cada una de las dos versiones visuales",
+        "includes": [
+          "Diarios en color y con menos distracciones",
+          "Margen izquierdo libre de 25 mm para perforar",
+          "12 semanas, cada una con páginas Descubre, Prueba y Reflexiona",
+          "Guía para familias y personas cuidadoras"
+        ],
+        "imageAlt": "Página real de muestra de Mi diario de aventuras Money Quest, edición en inglés",
+        "sampleLabel": "Descarga gratis la primera semana del diario (PDF, inglés)"
+      }
+    }
+  },
+  "fr": {
+    "copy": {
+      "nav": "Navigation de la boutique pour les familles",
+      "home": "Accueil Money Quest",
+      "guides": "Guides pour les familles et échantillons gratuits",
+      "privacy": "À propos de la confidentialité des enfants",
+      "audience": "POUR LES PARENTS ET LES PERSONNES ACCOMPAGNANTES",
+      "title": "Explorez Money Quest aussi à la maison",
+      "intro": "Des histoires, des images et des choix pratiques à explorer ensemble. Imprimez une activité, choisissez une façon de répondre et avancez au rythme de votre enfant.",
+      "digital": "Il s’agit de fichiers PDF numériques à télécharger. Vous les imprimez et les reliez chez vous. Aucun produit imprimé n’est fourni ni expédié. Les frais d’impression et de reliure ne sont pas inclus.",
+      "sampleCta": "Essayez d’abord un échantillon gratuit",
+      "freeNote": "Les échantillons ne nécessitent ni e-mail ni compte. Les activités de base du site restent gratuites.",
+      "previewTitle": "Éditions de présentation",
+      "previewBody": "Les échantillons et les fichiers à imprimer actuels sont en anglais. Les éditions dans les huit autres langues sont encore en préparation. Les prix ci-dessous sont des propositions de paiement unique ; les téléchargements payants ne sont pas ouverts au public.",
+      "productsTitle": "Choisissez une ressource à explorer",
+      "priceNote": "prix proposé, paiement unique",
+      "format": "PDF numérique dans une archive ZIP. A4, impression recto uniquement. Licence pour un seul foyer. Sans abonnement.",
+      "includedTitle": "Plusieurs façons de participer",
+      "picturesTitle": "Des images utiles à l’activité",
+      "picturesBody": "Les étiquettes, les jetons de jeu et les choix clairs soutiennent l’activité. Les versions avec moins de distractions retirent les illustrations décoratives de fond et les fonds colorés des cartes.",
+      "responseTitle": "Pas besoin d’écrire à la main",
+      "responseBody": "Votre enfant peut montrer, dessiner, taper au clavier, utiliser la communication alternative et améliorée (CAA), parler ou demander à un adulte d’écrire. Choisissez les tâches Explorer, Builder ou Strategist selon sa compréhension et l’accompagnement nécessaire.",
+      "supportTitle": "Des conseils pour les adultes",
+      "supportBody": "Les explications avec exemples, les conseils pratiques et les questions complémentaires vous aident à explorer les idées ensemble. Il n’y a ni tests chronométrés ni demande de divulgation des finances du foyer.",
+      "evidence": "Ces ressources s’appuient sur les lignes directrices CAST UDL 3.0, les recommandations d’EEF pour un enseignement inclusif et les ressources de MoneyHelper pour les parents. Cela ne constitue ni une certification, ni une validation clinique, ni une preuve de résultats d’apprentissage garantis. L’adéquation dépend de chaque enfant.",
+      "evidenceLink": "Consultez le guide pour les familles et les sources de référence",
+      "faqTitle": "Questions avant de choisir",
+      "q1": "Est-ce un livre imprimé ?",
+      "a1": "Non. Ce sont des téléchargements numériques. Vous avez besoin d’un lecteur PDF et d’un accès à une imprimante si vous souhaitez des exemplaires sur papier. Une archive ZIP contient l’ensemble des fichiers. Ni l’envoi ni la reliure ne sont inclus.",
+      "q2": "Ces ressources conviennent-elles aux besoins éducatifs particuliers ou au handicap de mon enfant ?",
+      "a2": "Les ressources proposent plusieurs façons de répondre, de petites étapes et une version avec moins de distractions. Aucun modèle ne convient à tous les enfants. Essayez l’échantillon complet et adaptez-le avec votre enfant et les personnes qui l’accompagnent habituellement.",
+      "q3": "Faut-il acheter quelque chose pour utiliser Money Quest ?",
+      "a3": "Non. Les activités de base du site, les livres originaux et les échantillons d’activités restent gratuits. Ces produits à imprimer sont facultatifs.",
+      "q4": "Puis-je les imprimer pour toute une classe ?",
+      "a4": "La licence proposée concerne un seul foyer. Un produit et une licence pour la classe constitueraient une édition distincte ; ils ne sont pas inclus ici.",
+      "terms": "Conditions des téléchargements numériques et état des éditions de présentation"
+    },
+    "products": {
+      "family-adventure-pack": {
+        "title": "Pack d’aventures en famille",
+        "description": "20 activités originales illustrées sur les choix financiers, la planification, la sécurité numérique et la réflexion en famille.",
+        "pages": "20 activités dans chacune des deux versions visuelles",
+        "includes": [
+          "PDF en couleur et avec moins de distractions",
+          "40 PDF d’activités individuelles",
+          "Guide de 4 pages pour les parents et les personnes accompagnantes",
+          "Guide de 5 pages avec réponses et pistes de discussion"
+        ],
+        "imageAlt": "Véritable page de présentation du Pack d’aventures en famille, édition anglaise",
+        "sampleLabel": "Téléchargez l’échantillon gratuit de 3 activités (PDF, anglais)"
+      },
+      "adventure-journal": {
+        "title": "Mon journal d’aventures Money Quest",
+        "description": "12 semaines sans dates imposées avec des histoires, des activités et des moments de réflexion, et de la place pour dessiner ou répondre à sa façon.",
+        "pages": "39 pages A4 dans chacune des deux versions visuelles",
+        "includes": [
+          "Journaux en couleur et avec moins de distractions",
+          "Marge gauche libre de 25 mm pour la perforation",
+          "12 semaines comprenant chacune des pages Découvrir, Essayer et Réfléchir",
+          "Guide pour les parents et les personnes accompagnantes"
+        ],
+        "imageAlt": "Véritable page de présentation de Mon journal d’aventures Money Quest, édition anglaise",
+        "sampleLabel": "Téléchargez gratuitement la première semaine du journal (PDF, anglais)"
+      }
+    }
+  },
+  "de": {
+    "copy": {
+      "nav": "Navigation im Shop für Eltern",
+      "home": "Money-Quest-Startseite",
+      "guides": "Elternratgeber und kostenlose Muster",
+      "privacy": "Zum Datenschutz von Kindern",
+      "audience": "FÜR ELTERN UND BETREUUNGSPERSONEN",
+      "title": "Money Quest auch zu Hause gemeinsam entdecken",
+      "intro": "Geschichten, Bilder und praktische Entscheidungen zum gemeinsamen Entdecken. Drucken Sie eine Aktivität aus, wählen Sie eine Antwortmöglichkeit und gehen Sie im Tempo Ihres Kindes vor.",
+      "digital": "Dies sind digitale PDF-Downloads. Sie drucken und binden sie zu Hause selbst. Es wird kein gedrucktes Produkt geliefert oder versandt. Druck- und Bindekosten sind nicht enthalten.",
+      "sampleCta": "Probieren Sie zuerst ein kostenloses Muster aus",
+      "freeNote": "Für die Muster sind weder E-Mail-Adresse noch Konto erforderlich. Die grundlegenden Lernangebote der Website bleiben kostenlos.",
+      "previewTitle": "Vorschauausgaben",
+      "previewBody": "Die Muster und die derzeitigen Druckdateien sind auf Englisch. Die Ausgaben in den acht anderen Sprachen werden noch vorbereitet. Die folgenden Preise sind vorgeschlagene Einmalpreise; kostenpflichtige Downloads sind noch nicht öffentlich erhältlich.",
+      "productsTitle": "Wählen Sie ein Material zum Entdecken",
+      "priceNote": "vorgeschlagener Preis, einmalige Zahlung",
+      "format": "Digitale PDF-Dateien in einem ZIP-Archiv. A4, einseitiger Druck. Lizenz für einen Haushalt. Kein Abonnement.",
+      "includedTitle": "Verschiedene Wege zum Mitmachen",
+      "picturesTitle": "Bilder, die die Aktivität unterstützen",
+      "picturesBody": "Beschriftungen, Spielplättchen und klare Auswahlmöglichkeiten unterstützen die Aktivität. Die ablenkungsärmeren Versionen verzichten auf dekorative Hintergrundbilder und farbige Kartenhintergründe.",
+      "responseTitle": "Handschrift ist nicht erforderlich",
+      "responseBody": "Ihr Kind kann zeigen, zeichnen, tippen, Unterstützte Kommunikation (UK) nutzen, sprechen oder einen Erwachsenen bitten, zu schreiben. Wählen Sie Explorer-, Builder- oder Strategist-Aufgaben passend zum Verständnis und Unterstützungsbedarf.",
+      "supportTitle": "Hinweise für Erwachsene",
+      "supportBody": "Erklärte Beispiele, praktische Hilfen und weiterführende Fragen helfen Ihnen, die Ideen gemeinsam zu erkunden. Es gibt keine Tests unter Zeitdruck und keine Aufforderung, die Haushaltsfinanzen offenzulegen.",
+      "evidence": "Die Materialien orientieren sich an den CAST UDL Guidelines 3.0, den EEF-Hinweisen für inklusiven Unterricht und den MoneyHelper-Elternmaterialien. Dies ist keine Zertifizierung, klinische Validierung oder ein Nachweis garantierter Lernergebnisse. Die Eignung hängt vom jeweiligen Kind ab.",
+      "evidenceLink": "Elternratgeber und fachliche Quellen lesen",
+      "faqTitle": "Fragen vor der Auswahl",
+      "q1": "Ist das ein gedrucktes Buch?",
+      "a1": "Nein. Es handelt sich um digitale Downloads. Sie benötigen ein PDF-Leseprogramm und Zugang zu einem Drucker, wenn Sie Papierexemplare möchten. Ein ZIP-Archiv enthält alle Dateien. Versand und Bindung sind nicht enthalten.",
+      "q2": "Passen die Materialien zum besonderen Förderbedarf oder zur Behinderung meines Kindes?",
+      "a2": "Die Materialien bieten verschiedene Antwortmöglichkeiten, kleine Schritte und eine ablenkungsärmere Version. Keine Gestaltung passt zu jedem Kind. Probieren Sie das vollständige Muster aus und passen Sie es gemeinsam mit Ihrem Kind und seinen üblichen Unterstützungspersonen an.",
+      "q3": "Muss ich etwas kaufen, um Money Quest zu nutzen?",
+      "a3": "Nein. Die grundlegenden Lernangebote der Website, die Originalbücher und die Beispielaktivitäten bleiben kostenlos. Diese Druckmaterialien sind optional.",
+      "q4": "Darf ich die Materialien für eine ganze Klasse ausdrucken?",
+      "a4": "Die vorgeschlagene Lizenz gilt für einen Haushalt. Ein Produkt und eine Lizenz für Schulklassen wären eine separate Ausgabe; sie sind hier nicht enthalten.",
+      "terms": "Bedingungen für digitale Downloads und Stand der Vorschauausgaben"
+    },
+    "products": {
+      "family-adventure-pack": {
+        "title": "Familien-Abenteuerpaket",
+        "description": "20 eigene illustrierte Aktivitäten zu Geldentscheidungen, Planung, digitaler Sicherheit und gemeinsamem Nachdenken.",
+        "pages": "20 Aktivitäten in jeder der beiden visuellen Versionen",
+        "includes": [
+          "PDFs in Farbe und mit weniger Ablenkung",
+          "40 einzelne Aktivitäts-PDFs",
+          "4-seitiger Ratgeber für Eltern und Betreuungspersonen",
+          "5-seitiger Leitfaden mit Antworten und Gesprächsanregungen"
+        ],
+        "imageAlt": "Tatsächliche Vorschauseite aus dem Familien-Abenteuerpaket, englische Ausgabe",
+        "sampleLabel": "Kostenloses Muster mit 3 Aktivitäten herunterladen (PDF, Englisch)"
+      },
+      "adventure-journal": {
+        "title": "Mein Money-Quest-Abenteuerjournal",
+        "description": "12 Wochen ohne vorgegebene Daten mit Geschichten, Aktivitäten und Reflexion, mit Platz zum Zeichnen oder für eigene Antwortformen.",
+        "pages": "39 A4-Seiten in jeder der beiden visuellen Versionen",
+        "includes": [
+          "Journale in Farbe und mit weniger Ablenkung",
+          "Freier linker Rand von 25 mm zum Lochen",
+          "12 Wochen mit jeweils Entdecken-, Ausprobieren- und Nachdenken-Seiten",
+          "Ratgeber für Eltern und Betreuungspersonen"
+        ],
+        "imageAlt": "Tatsächliche Vorschauseite aus Mein Money-Quest-Abenteuerjournal, englische Ausgabe",
+        "sampleLabel": "Kostenloses Muster der ersten Journalwoche herunterladen (PDF, Englisch)"
+      }
+    }
+  },
+  "it": {
+    "copy": {
+      "nav": "Navigazione del negozio per le famiglie",
+      "home": "Home di Money Quest",
+      "guides": "Guide per famiglie e campioni gratuiti",
+      "privacy": "Informazioni sulla privacy dei bambini",
+      "audience": "PER GENITORI E PERSONE CHE SI PRENDONO CURA DEI BAMBINI",
+      "title": "Esplora Money Quest anche a casa",
+      "intro": "Storie, immagini e scelte pratiche da esplorare insieme. Stampa un’attività, scegliete come rispondere e seguite il ritmo del tuo bambino o della tua bambina.",
+      "digital": "Sono file PDF digitali da scaricare. Li stampi e li rileghi a casa. Non viene fornito né spedito alcun prodotto stampato. I costi di stampa e rilegatura non sono inclusi.",
+      "sampleCta": "Prova prima un campione gratuito",
+      "freeNote": "Per i campioni non servono e-mail o account. Le attività di base del sito restano gratuite.",
+      "previewTitle": "Edizioni in anteprima",
+      "previewBody": "I campioni e gli attuali file da stampare sono in inglese. Le edizioni nelle altre otto lingue sono ancora in preparazione. I prezzi qui sotto sono proposte per un pagamento unico; i download a pagamento non sono aperti al pubblico.",
+      "productsTitle": "Scegli una risorsa da esplorare",
+      "priceNote": "prezzo proposto, pagamento unico",
+      "format": "PDF digitale in un archivio ZIP. A4, stampa su un solo lato. Licenza per un solo nucleo familiare. Nessun abbonamento.",
+      "includedTitle": "Diversi modi di partecipare",
+      "picturesTitle": "Immagini che aiutano nell’attività",
+      "picturesBody": "Etichette, gettoni di gioco e scelte chiare sostengono l’attività. Le versioni con meno distrazioni eliminano le illustrazioni decorative di sfondo e gli sfondi colorati delle schede.",
+      "responseTitle": "Non occorre scrivere a mano",
+      "responseBody": "Il tuo bambino o la tua bambina può indicare, disegnare, digitare, usare la comunicazione aumentativa e alternativa (CAA), parlare o chiedere a un adulto di scrivere. Scegli attività Explorer, Builder o Strategist in base alla comprensione e al sostegno necessario.",
+      "supportTitle": "Indicazioni per gli adulti",
+      "supportBody": "Spiegazioni con esempi, suggerimenti pratici e ulteriori domande vi aiutano a esplorare le idee insieme. Non ci sono prove a tempo né richieste di rivelare la situazione economica familiare.",
+      "evidence": "Le risorse si basano sulle linee guida CAST UDL 3.0, sulle indicazioni EEF per una didattica inclusiva e sui materiali MoneyHelper per genitori. Questo non costituisce una certificazione, una validazione clinica o una prova di risultati di apprendimento garantiti. L’adeguatezza varia da bambino a bambino.",
+      "evidenceLink": "Leggi la guida per le famiglie e le fonti di riferimento",
+      "faqTitle": "Domande prima di scegliere",
+      "q1": "È un libro stampato?",
+      "a1": "No. Sono download digitali. Servono un lettore PDF e l’accesso a una stampante se desideri copie cartacee. Un archivio ZIP contiene tutti i file. Spedizione e rilegatura non sono incluse.",
+      "q2": "È adatto ai bisogni educativi speciali o alla disabilità di mio figlio o mia figlia?",
+      "a2": "I materiali offrono vari modi di rispondere, piccoli passi e una versione con meno distrazioni. Nessuna soluzione è adatta a tutti i bambini. Prova il campione completo e adattalo insieme a tuo figlio o tua figlia e alle persone che gli offrono sostegno abitualmente.",
+      "q3": "Devo comprare qualcosa per usare Money Quest?",
+      "a3": "No. Le attività di base del sito, i libri originali e i campioni di attività restano gratuiti. Questi prodotti da stampare sono facoltativi.",
+      "q4": "Posso stamparli per un’intera classe?",
+      "a4": "La licenza proposta è per un solo nucleo familiare. Un prodotto e una licenza per la classe costituirebbero un’edizione separata; non sono inclusi qui.",
+      "terms": "Condizioni dei download digitali e stato delle edizioni in anteprima"
+    },
+    "products": {
+      "family-adventure-pack": {
+        "title": "Pacchetto di avventure in famiglia",
+        "description": "20 attività originali illustrate su scelte economiche, pianificazione, sicurezza digitale e riflessione in famiglia.",
+        "pages": "20 attività in ciascuna delle due versioni visive",
+        "includes": [
+          "PDF a colori e con meno distrazioni",
+          "40 PDF di attività individuali",
+          "Guida di 4 pagine per genitori e persone che si prendono cura dei bambini",
+          "Guida di 5 pagine con risposte e spunti di discussione"
+        ],
+        "imageAlt": "Pagina reale di anteprima del Pacchetto di avventure in famiglia, edizione inglese",
+        "sampleLabel": "Scarica il campione gratuito con 3 attività (PDF, inglese)"
+      },
+      "adventure-journal": {
+        "title": "Il mio diario di avventure Money Quest",
+        "description": "12 settimane senza date prestabilite, con storie, attività e riflessioni, e spazio per disegnare o rispondere a modo tuo.",
+        "pages": "39 pagine A4 in ciascuna delle due versioni visive",
+        "includes": [
+          "Diari a colori e con meno distrazioni",
+          "Margine sinistro libero di 25 mm per la foratura",
+          "12 settimane, ciascuna con pagine Scopri, Prova e Rifletti",
+          "Guida per genitori e persone che si prendono cura dei bambini"
+        ],
+        "imageAlt": "Pagina reale di anteprima de Il mio diario di avventure Money Quest, edizione inglese",
+        "sampleLabel": "Scarica gratis la prima settimana del diario (PDF, inglese)"
+      }
+    }
+  },
+  "pt": {
+    "copy": {
+      "nav": "Navegação da loja para famílias",
+      "home": "Página inicial do Money Quest",
+      "guides": "Guias para famílias e amostras gratuitas",
+      "privacy": "Sobre a privacidade das crianças",
+      "audience": "PARA PAIS E CUIDADORES",
+      "title": "Explore o Money Quest também em casa",
+      "intro": "Histórias, imagens e escolhas práticas para explorar em conjunto. Imprima uma atividade, escolham como responder e avancem ao ritmo da sua criança.",
+      "digital": "São ficheiros PDF digitais para download. Imprime-os e encaderna-os em casa. Não é fornecido nem enviado qualquer produto impresso. Os custos de impressão e encadernação não estão incluídos.",
+      "sampleCta": "Experimente primeiro uma amostra gratuita",
+      "freeNote": "Não precisa de e-mail nem de conta para as amostras. As atividades de aprendizagem de base do website continuam gratuitas.",
+      "previewTitle": "Edições de demonstração",
+      "previewBody": "As amostras e os atuais ficheiros para imprimir estão em inglês. As edições nas outras oito línguas ainda estão em preparação. Os preços abaixo são propostas de pagamento único; os downloads pagos não estão abertos ao público.",
+      "productsTitle": "Escolha um recurso para explorar",
+      "priceNote": "preço proposto, pagamento único",
+      "format": "PDF digital num arquivo ZIP. A4, impressão de um só lado. Licença para um único agregado familiar. Sem subscrição.",
+      "includedTitle": "Várias formas de participar",
+      "picturesTitle": "Imagens que apoiam a atividade",
+      "picturesBody": "As legendas, as fichas de jogo e as escolhas claras apoiam a atividade. As versões com menos distrações retiram as ilustrações decorativas de fundo e os fundos coloridos dos cartões.",
+      "responseTitle": "Não é preciso escrever à mão",
+      "responseBody": "A sua criança pode apontar, desenhar, escrever no teclado, usar comunicação aumentativa e alternativa (CAA), falar ou pedir a um adulto que escreva. Escolha tarefas Explorer, Builder ou Strategist de acordo com a compreensão e o apoio necessário.",
+      "supportTitle": "Orientações para adultos",
+      "supportBody": "As explicações com exemplos, o apoio prático e as perguntas adicionais ajudam a explorar as ideias em conjunto. Não há testes cronometrados nem pedidos de divulgação das finanças do agregado familiar.",
+      "evidence": "Os materiais baseiam-se nas orientações CAST UDL 3.0, nas recomendações EEF para o ensino inclusivo e nos recursos MoneyHelper para pais. Isto não constitui certificação, validação clínica ou prova de resultados de aprendizagem garantidos. A adequação varia de criança para criança.",
+      "evidenceLink": "Leia o guia para famílias e as fontes de referência",
+      "faqTitle": "Perguntas antes de escolher",
+      "q1": "É um livro impresso?",
+      "a1": "Não. São downloads digitais. Precisa de um leitor de PDF e de acesso a uma impressora se quiser cópias em papel. Um arquivo ZIP contém todos os ficheiros. O envio e a encadernação não estão incluídos.",
+      "q2": "É adequado às necessidades educativas especiais ou à deficiência da minha criança?",
+      "a2": "Os materiais oferecem diferentes formas de responder, pequenos passos e uma versão com menos distrações. Nenhum modelo serve todas as crianças. Experimente a amostra completa e adapte-a com a sua criança e com quem habitualmente lhe dá apoio.",
+      "q3": "Preciso de comprar alguma coisa para usar o Money Quest?",
+      "a3": "Não. As atividades de base do website, os livros originais e as amostras de atividades continuam gratuitos. Estes produtos para imprimir são opcionais.",
+      "q4": "Posso imprimir os materiais para uma turma inteira?",
+      "a4": "A licença proposta destina-se a um único agregado familiar. Um produto e uma licença para a sala de aula seriam uma edição separada; não estão incluídos aqui.",
+      "terms": "Condições dos downloads digitais e estado das edições de demonstração"
+    },
+    "products": {
+      "family-adventure-pack": {
+        "title": "Pack de aventuras em família",
+        "description": "20 atividades originais ilustradas sobre escolhas financeiras, planeamento, segurança digital e reflexão em conjunto.",
+        "pages": "20 atividades em cada uma das duas versões visuais",
+        "includes": [
+          "PDFs a cores e com menos distrações",
+          "40 PDFs de atividades individuais",
+          "Guia de 4 páginas para pais e cuidadores",
+          "Guia de 5 páginas com respostas e temas para conversar"
+        ],
+        "imageAlt": "Página real de demonstração do Pack de aventuras em família, edição em inglês",
+        "sampleLabel": "Descarregue a amostra gratuita com 3 atividades (PDF, inglês)"
+      },
+      "adventure-journal": {
+        "title": "O meu diário de aventuras Money Quest",
+        "description": "12 semanas sem datas predefinidas, com histórias, atividades e reflexão, e espaço para desenhar ou responder à sua maneira.",
+        "pages": "39 páginas A4 em cada uma das duas versões visuais",
+        "includes": [
+          "Diários a cores e com menos distrações",
+          "Margem esquerda livre de 25 mm para perfuração",
+          "12 semanas, cada uma com páginas Descobrir, Experimentar e Refletir",
+          "Guia para pais e cuidadores"
+        ],
+        "imageAlt": "Página real de demonstração de O meu diário de aventuras Money Quest, edição em inglês",
+        "sampleLabel": "Descarregue gratuitamente a primeira semana do diário (PDF, inglês)"
+      }
+    }
+  },
+  "nl": {
+    "copy": {
+      "nav": "Navigatie van de winkel voor ouders",
+      "home": "Money Quest-startpagina",
+      "guides": "Oudergidsen en gratis voorbeelden",
+      "privacy": "Over de privacy van kinderen",
+      "audience": "VOOR OUDERS EN VERZORGERS",
+      "title": "Ontdek Money Quest ook aan de keukentafel",
+      "intro": "Verhalen, beelden en praktische keuzes om samen te ontdekken. Print één activiteit, kies een manier om te antwoorden en volg het tempo van je kind.",
+      "digital": "Dit zijn digitale PDF-downloads. Je print en bindt ze thuis zelf in. Er wordt geen gedrukt product geleverd of verzonden. Afdruk- en inbindkosten zijn niet inbegrepen.",
+      "sampleCta": "Probeer eerst een gratis voorbeeld",
+      "freeNote": "Voor de voorbeelden heb je geen e-mailadres of account nodig. De basisactiviteiten op de website blijven gratis.",
+      "previewTitle": "Voorbeeldedities",
+      "previewBody": "De voorbeelden en de huidige printbestanden zijn in het Engels. De edities in de andere acht talen worden nog voorbereid. De onderstaande prijzen zijn voorgestelde eenmalige prijzen; de betaalde downloads zijn nog niet openbaar beschikbaar.",
+      "productsTitle": "Kies een materiaal om te ontdekken",
+      "priceNote": "voorgestelde prijs, eenmalige betaling",
+      "format": "Digitale PDF in een ZIP-bestand. A4, enkelzijdig afdrukken. Licentie voor één huishouden. Geen abonnement.",
+      "includedTitle": "Verschillende manieren om mee te doen",
+      "picturesTitle": "Beelden die de activiteit ondersteunen",
+      "picturesBody": "Labels, speelfiches en duidelijke keuzes ondersteunen de activiteit. De versies met minder afleiding bevatten geen decoratieve achtergrondillustraties of gekleurde kaartachtergronden.",
+      "responseTitle": "Schrijven met de hand is niet nodig",
+      "responseBody": "Je kind kan aanwijzen, tekenen, typen, ondersteunde communicatie (OC) gebruiken, praten of een volwassene vragen om te schrijven. Kies Explorer-, Builder- of Strategist-opdrachten die passen bij het begrip en de benodigde ondersteuning.",
+      "supportTitle": "Hulp voor volwassenen",
+      "supportBody": "Uitgewerkte voorbeelden, praktische hulp en extra vragen helpen jullie om de ideeën samen te onderzoeken. Er zijn geen toetsen met tijdsdruk en je hoeft geen informatie over de financiën van je huishouden te delen.",
+      "evidence": "De materialen zijn gebaseerd op CAST UDL Guidelines 3.0, EEF-richtlijnen voor inclusief onderwijs en MoneyHelper-materialen voor ouders. Dit is geen certificering, klinische validatie of bewijs van gegarandeerde leerresultaten. De geschiktheid verschilt per kind.",
+      "evidenceLink": "Lees de oudergids en de onderbouwende bronnen",
+      "faqTitle": "Vragen voordat je kiest",
+      "q1": "Is dit een gedrukt boek?",
+      "a1": "Nee. Dit zijn digitale downloads. Je hebt een PDF-lezer en toegang tot een printer nodig als je papieren exemplaren wilt. Een ZIP-bestand bevat alle bestanden. Verzending en inbinden zijn niet inbegrepen.",
+      "q2": "Past dit bij de speciale onderwijsbehoeften of beperking van mijn kind?",
+      "a2": "De materialen bieden verschillende manieren om te antwoorden, kleine stappen en een versie met minder afleiding. Geen enkel ontwerp past bij ieder kind. Probeer het volledige voorbeeld en pas het aan met je kind en de mensen die gewoonlijk ondersteuning bieden.",
+      "q3": "Moet ik iets kopen om Money Quest te gebruiken?",
+      "a3": "Nee. De basisactiviteiten op de website, de originele boeken en de voorbeeldactiviteiten blijven gratis. Deze printproducten zijn optioneel.",
+      "q4": "Mag ik dit voor een hele klas afdrukken?",
+      "a4": "De voorgestelde licentie geldt voor één huishouden. Een product en licentie voor een klas zouden een aparte editie zijn; die zijn hier niet inbegrepen.",
+      "terms": "Voorwaarden voor digitale downloads en status van de voorbeeldedities"
+    },
+    "products": {
+      "family-adventure-pack": {
+        "title": "Familie-avonturenpakket",
+        "description": "20 originele geïllustreerde activiteiten over geldkeuzes, plannen, digitale veiligheid en samen nadenken.",
+        "pages": "20 activiteiten in elk van de twee visuele versies",
+        "includes": [
+          "PDF’s in kleur en met minder afleiding",
+          "40 afzonderlijke activiteiten-PDF’s",
+          "Gids van 4 pagina’s voor ouders en verzorgers",
+          "Gids van 5 pagina’s met antwoorden en gespreksvragen"
+        ],
+        "imageAlt": "Echte voorbeeldpagina uit het Familie-avonturenpakket, Engelse editie",
+        "sampleLabel": "Download het gratis voorbeeld met 3 activiteiten (PDF, Engels)"
+      },
+      "adventure-journal": {
+        "title": "Mijn Money Quest-avonturendagboek",
+        "description": "12 weken zonder vaste datums met verhalen, activiteiten en reflectie, met ruimte om te tekenen of op je eigen manier te antwoorden.",
+        "pages": "39 A4-pagina’s in elk van de twee visuele versies",
+        "includes": [
+          "Dagboeken in kleur en met minder afleiding",
+          "Vrije linkermarge van 25 mm om gaatjes te maken",
+          "12 weken, elk met pagina’s Ontdek, Probeer en Denk na",
+          "Gids voor ouders en verzorgers"
+        ],
+        "imageAlt": "Echte voorbeeldpagina uit Mijn Money Quest-avonturendagboek, Engelse editie",
+        "sampleLabel": "Download gratis de eerste week van het dagboek (PDF, Engels)"
+      }
+    }
+  },
+  "pl": {
+    "copy": {
+      "nav": "Nawigacja sklepu dla rodziców",
+      "home": "Strona główna Money Quest",
+      "guides": "Poradniki dla rodziców i bezpłatne próbki",
+      "privacy": "O prywatności dzieci",
+      "audience": "DLA RODZICÓW I OPIEKUNÓW",
+      "title": "Odkrywaj Money Quest także przy domowym stole",
+      "intro": "Historie, ilustracje i praktyczne wybory do wspólnego odkrywania. Wydrukuj jedno zadanie, wybierzcie sposób odpowiedzi i pracujcie w tempie Twojego dziecka.",
+      "digital": "To cyfrowe pliki PDF do pobrania. Samodzielnie drukujesz je i oprawiasz w domu. Nie dostarczamy ani nie wysyłamy produktów drukowanych. Koszty drukowania i oprawy nie są wliczone.",
+      "sampleCta": "Najpierw wypróbuj bezpłatną próbkę",
+      "freeNote": "Próbki nie wymagają adresu e-mail ani konta. Podstawowe materiały do nauki w witrynie pozostają bezpłatne.",
+      "previewTitle": "Wydania pokazowe",
+      "previewBody": "Próbki i obecne pliki do druku są w języku angielskim. Wydania w pozostałych ośmiu językach są nadal przygotowywane. Poniższe ceny to propozycje jednorazowej opłaty; płatne pliki nie są jeszcze dostępne publicznie.",
+      "productsTitle": "Wybierz materiał do poznania",
+      "priceNote": "proponowana cena, jednorazowa płatność",
+      "format": "Cyfrowy PDF w archiwum ZIP. A4, druk jednostronny. Licencja dla jednego gospodarstwa domowego. Bez subskrypcji.",
+      "includedTitle": "Różne sposoby uczestnictwa",
+      "picturesTitle": "Ilustracje, które pomagają w zadaniu",
+      "picturesBody": "Podpisy, żetony do zabawy i jasne opcje wyboru wspierają wykonanie zadania. Wersje z mniejszą liczbą rozpraszających elementów nie zawierają ozdobnych ilustracji tła ani kolorowego wypełnienia kart.",
+      "responseTitle": "Nie trzeba pisać odręcznie",
+      "responseBody": "Dziecko może wskazywać, rysować, pisać na klawiaturze, korzystać z komunikacji wspomagającej i alternatywnej (AAC), mówić albo poprosić dorosłego o zapisanie odpowiedzi. Wybierz zadania Explorer, Builder lub Strategist stosownie do rozumienia i potrzebnego wsparcia.",
+      "supportTitle": "Wskazówki dla dorosłych",
+      "supportBody": "Objaśnione przykłady, praktyczne wskazówki i dodatkowe pytania pomagają wspólnie poznawać pomysły. Nie ma testów na czas ani wymogu ujawniania finansów gospodarstwa domowego.",
+      "evidence": "Materiały opierają się na wytycznych CAST UDL 3.0, wskazówkach EEF dotyczących nauczania włączającego i zasobach MoneyHelper dla rodziców. Nie oznacza to certyfikacji, walidacji klinicznej ani dowodu na gwarantowane efekty uczenia się. Przydatność zależy od konkretnego dziecka.",
+      "evidenceLink": "Przeczytaj poradnik dla rodziców i źródła merytoryczne",
+      "faqTitle": "Pytania przed wyborem",
+      "q1": "Czy to drukowana książka?",
+      "a1": "Nie. To materiały cyfrowe do pobrania. Potrzebujesz czytnika PDF i dostępu do drukarki, jeśli chcesz mieć egzemplarze papierowe. Archiwum ZIP zawiera wszystkie pliki. Wysyłka i oprawa nie są wliczone.",
+      "q2": "Czy materiały odpowiadają specjalnym potrzebom edukacyjnym lub niepełnosprawności mojego dziecka?",
+      "a2": "Materiały oferują różne sposoby odpowiedzi, małe kroki i wersję z mniejszą liczbą rozpraszających elementów. Żaden projekt nie pasuje do każdego dziecka. Wypróbuj pełną próbkę i dostosuj ją wspólnie z dzieckiem oraz osobami, które zwykle je wspierają.",
+      "q3": "Czy muszę coś kupić, aby korzystać z Money Quest?",
+      "a3": "Nie. Podstawowe materiały do nauki w witrynie, oryginalne książki i przykładowe zadania pozostają bezpłatne. Te produkty do druku są opcjonalne.",
+      "q4": "Czy mogę wydrukować materiały dla całej klasy?",
+      "a4": "Proponowana licencja dotyczy jednego gospodarstwa domowego. Produkt i licencja dla klasy stanowiłyby osobne wydanie; nie są tu uwzględnione.",
+      "terms": "Warunki pobierania materiałów cyfrowych i status wydań pokazowych"
+    },
+    "products": {
+      "family-adventure-pack": {
+        "title": "Rodzinny pakiet przygód",
+        "description": "20 oryginalnych ilustrowanych zadań o wyborach finansowych, planowaniu, bezpieczeństwie cyfrowym i wspólnym myśleniu.",
+        "pages": "20 zadań w każdej z dwóch wersji graficznych",
+        "includes": [
+          "PDF-y kolorowe i z mniejszą liczbą rozpraszających elementów",
+          "40 osobnych plików PDF z zadaniami",
+          "4-stronicowy poradnik dla rodziców i opiekunów",
+          "5-stronicowy poradnik z odpowiedziami i tematami do rozmowy"
+        ],
+        "imageAlt": "Rzeczywista strona podglądu Rodzinnego pakietu przygód, wydanie angielskie",
+        "sampleLabel": "Pobierz bezpłatną próbkę z 3 zadaniami (PDF, angielski)"
+      },
+      "adventure-journal": {
+        "title": "Mój dziennik przygód Money Quest",
+        "description": "12 tygodni bez ustalonych dat, z historiami, zadaniami i refleksją oraz miejscem na rysowanie lub odpowiadanie po swojemu.",
+        "pages": "39 stron A4 w każdej z dwóch wersji graficznych",
+        "includes": [
+          "Dzienniki kolorowe i z mniejszą liczbą rozpraszających elementów",
+          "Wolny lewy margines o szerokości 25 mm do dziurkowania",
+          "12 tygodni, każdy ze stronami Odkryj, Spróbuj i Zastanów się",
+          "Poradnik dla rodziców i opiekunów"
+        ],
+        "imageAlt": "Rzeczywista strona podglądu Mojego dziennika przygód Money Quest, wydanie angielskie",
+        "sampleLabel": "Pobierz bezpłatnie pierwszy tydzień dziennika (PDF, angielski)"
+      }
+    }
+  }
+}
