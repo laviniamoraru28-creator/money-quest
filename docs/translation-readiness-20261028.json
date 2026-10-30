@@ -35,6 +35,42 @@
       "integration": "Complete biography detail draft assembly and actual component SSR",
       "editorialStatus": "AI multilingual editorial drafts, not native-editor certification",
       "publicActivation": "blocked pending complete locale and browser/voice/editorial review"
+    },
+    {
+      "locale": "it",
+      "entries": 10,
+      "translatedStrings": 147,
+      "sourceFingerprintManifest": "src/content/translations/people.sources.json",
+      "integration": "Complete biography detail draft assembly and actual component SSR",
+      "editorialStatus": "AI multilingual editorial drafts, not native-editor certification",
+      "publicActivation": "blocked pending complete locale and browser/voice/editorial review"
+    },
+    {
+      "locale": "pt",
+      "entries": 10,
+      "translatedStrings": 147,
+      "sourceFingerprintManifest": "src/content/translations/people.sources.json",
+      "integration": "Complete biography detail draft assembly and actual component SSR",
+      "editorialStatus": "AI multilingual editorial drafts, not native-editor certification",
+      "publicActivation": "blocked pending complete locale and browser/voice/editorial review"
+    },
+    {
+      "locale": "nl",
+      "entries": 10,
+      "translatedStrings": 147,
+      "sourceFingerprintManifest": "src/content/translations/people.sources.json",
+      "integration": "Complete biography detail draft assembly and actual component SSR",
+      "editorialStatus": "AI multilingual editorial drafts, not native-editor certification",
+      "publicActivation": "blocked pending complete locale and browser/voice/editorial review"
+    },
+    {
+      "locale": "pl",
+      "entries": 10,
+      "translatedStrings": 147,
+      "sourceFingerprintManifest": "src/content/translations/people.sources.json",
+      "integration": "Complete biography detail draft assembly and actual component SSR",
+      "editorialStatus": "AI multilingual editorial drafts, not native-editor certification",
+      "publicActivation": "blocked pending complete locale and browser/voice/editorial review"
     }
   ],
   "nativeOrderErrorDrafts": {
@@ -261,25 +297,25 @@
     {
       "locale": "it",
       "messageKeys": "validated separately; key parity does not prove authored-content translation",
-      "newContent": "10 Museum room drafts and 8 short-read drafts with age challenges, shared discovery UI and component SSR prepared; original books, biographies, labs, external-book introductions and global UI remain incomplete",
+      "newContent": "10 biographies, 10 Museum rooms and 8 short reads have content drafts and detail component SSR; original books, labs, external-book introductions and the complete site remain unfinished",
       "publicActivation": "blocked pending complete content and review"
     },
     {
       "locale": "pt",
       "messageKeys": "validated separately; key parity does not prove authored-content translation",
-      "newContent": "10 Museum room drafts and 8 short-read drafts with age challenges, shared discovery UI and component SSR prepared; original books, biographies, labs, external-book introductions and global UI remain incomplete",
+      "newContent": "10 biographies, 10 Museum rooms and 8 short reads have content drafts and detail component SSR; original books, labs, external-book introductions and the complete site remain unfinished",
       "publicActivation": "blocked pending complete content and review"
     },
     {
       "locale": "nl",
       "messageKeys": "validated separately; key parity does not prove authored-content translation",
-      "newContent": "10 Museum room drafts and 8 short-read drafts with age challenges, shared discovery UI and component SSR prepared; original books, biographies, labs, external-book introductions and global UI remain incomplete",
+      "newContent": "10 biographies, 10 Museum rooms and 8 short reads have content drafts and detail component SSR; original books, labs, external-book introductions and the complete site remain unfinished",
       "publicActivation": "blocked pending complete content and review"
     },
     {
       "locale": "pl",
       "messageKeys": "validated separately; key parity does not prove authored-content translation",
-      "newContent": "10 Museum room drafts and 8 short-read drafts with age challenges, shared discovery UI and component SSR prepared; original books, biographies, labs, external-book introductions and global UI remain incomplete",
+      "newContent": "10 biographies, 10 Museum rooms and 8 short reads have content drafts and detail component SSR; original books, labs, external-book introductions and the complete site remain unfinished",
       "publicActivation": "blocked pending complete content and review"
     }
   ],
