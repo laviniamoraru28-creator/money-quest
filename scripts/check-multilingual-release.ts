@@ -39,8 +39,7 @@ for(const locale of LOCALES)if(!currentLocaleSet.includes(locale))blockers.push(
 /** Explicit remaining integration blockers. Remove only with localized code and verification. */
 const integrationBlockers=[
  "Live storefront accepts only English, including checkout consent and order communication",
- "Parent/privacy message summaries still contain legacy absolute no-data claims requiring multilingual factual review",
- "Several learning pages still export English-only metadata",
+ "Existing visual Explorer, parent shop/resources/terms and review/reward components still need complete localized UI and metadata",
  "Complete nine-language browser journeys, overflow, keyboard and narration checks are pending",
  "Free legacy website worksheets and samples remain English; multilingual paid bundles are separate"
 ];

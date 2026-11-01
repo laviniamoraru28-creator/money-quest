@@ -20,14 +20,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const path = "/privacy";
   return {
     title: t("title"),
-    description: locale==="en"?"How Money Quest handles learning progress, adult purchases, reviews and hosting data.":t("metaDescription"),
+    description: t("metaDescription"),
     alternates: {
       canonical: `${siteUrl}/${locale}${path}`,
       languages: Object.fromEntries(ACTIVE_LOCALES.map((l) => [l, `${siteUrl}/${l}${path}`])),
     },
     openGraph: {
       title: t("title"),
-      description: locale==="en"?"How Money Quest handles learning progress, adult purchases, reviews and hosting data.":t("metaDescription"),
+      description: t("metaDescription"),
       url: `${siteUrl}/${locale}${path}`,
       type: "website",
       locale,

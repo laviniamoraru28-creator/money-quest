@@ -15,33 +15,34 @@
     "test:e2e": "playwright test",
     "shop:check": "node --require ./host-env.cjs --import tsx scripts/shop-preflight.ts",
     "shop:deliver": "node --require ./host-env.cjs --import tsx scripts/shop-deliver-pending.ts",
-    "check:multilingual": "node --import tsx scripts/check-multilingual-release.ts"
+    "check:multilingual": "node --import tsx scripts/check-multilingual-release.ts",
+    "package:namecheap": "node scripts/package-namecheap.mjs"
   },
   "dependencies": {
+    "next": "^15.5.28",
+    "next-intl": "^4.14.9",
+    "nodemailer": "10.3.1",
+    "proper-lockfile": "4.1.2",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
+    "server-only": "^0.0.1",
+    "stripe": "23.1.0",
+    "tsx": "4.23.15"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.10.2",
+    "@playwright/test": "^1.47.0",
+    "@types/nodemailer": "8.0.2",
+    "@types/proper-lockfile": "4.1.4",
     "@types/node": "^20.14.0",
     "@types/react": "^18.3.0",
     "@types/react-dom": "^18.3.0",
     "autoprefixer": "^10.4.0",
     "eslint": "^8.57.0",
     "eslint-config-next": "^15.5.28",
-    "next": "^15.5.28",
-    "next-intl": "^4.14.9",
-    "nodemailer": "10.3.1",
     "postcss": "^8.5.23",
-    "proper-lockfile": "4.1.2",
-    "react": "^18.3.0",
-    "react-dom": "^18.3.0",
-    "server-only": "^0.0.1",
-    "stripe": "23.1.0",
     "tailwindcss": "^3.4.0",
-    "tsx": "4.23.15",
     "typescript": "^5.5.0"
-  },
-  "devDependencies": {
-    "@axe-core/playwright": "4.10.2",
-    "@playwright/test": "^1.47.0",
-    "@types/nodemailer": "8.0.2",
-    "@types/proper-lockfile": "4.1.4"
   },
   "overrides": {
     "next": {

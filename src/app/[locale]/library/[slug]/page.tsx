@@ -21,12 +21,15 @@ export default async function Page({params}:Props){
 }
 export function generateStaticParams(){return [...libraryBooks,...originalBooks,...libraryPeople].map(entry=>({slug:entry.slug}))}
 export async function generateMetadata({params}:Props){
-  const {slug}=await params;
-  const person=libraryPeople.find(item=>item.slug===slug);
-  if(person)return learningMetadata(person.title,person.topic,`/library/${slug}`,person.image.replace("/images/money-quest/",""));
-  const original=originalBooks.find(book=>book.slug===slug);
-  if(original)return learningMetadata(original.title,original.description,`/library/${slug}`,original.cover.replace("/images/money-quest/",""));
-  const entry=libraryBooks.find(item=>item.slug===slug);
-  if(!entry)notFound();
-  return learningMetadata(entry.title,entry.topic,`/library/${slug}`,"sections/library.webp");
+ const {slug,locale:requestedLocale}=await params;
+ const locale=publicLibraryLocale(requestedLocale);
+ const person=libraryPeople.find(item=>item.slug===slug);
+ if(person){const {person:entry}=draftBiographyPresentation(person,locale);return learningMetadata(entry.title,entry.topic,`/library/${slug}`,entry.image.replace("/images/money-quest/",""),locale);}
+ const original=originalBooks.find(book=>book.slug===slug);
+ if(original){const {book:entry}=draftReaderPresentation(original,locale);return learningMetadata(entry.title,entry.description,`/library/${slug}`,entry.cover.replace("/images/money-quest/",""),locale);}
+ if(!libraryBooks.some(entry=>entry.slug===slug))notFound();
+ const presentation=publicDiscoveryPresentation("library",locale,slug);
+ if(presentation.kind!=="library"||!presentation.item)notFound();
+ const entry=presentation.item;
+ return learningMetadata(entry.title,entry.topic,`/library/${slug}`,"sections/library.webp",locale);
 }

@@ -39,7 +39,9 @@ app
         const parsedUrl = parse(req.url, true);
         await handle(req, res, parsedUrl);
       } catch (err) {
-        console.error("Error occurred handling", req.url, err);
+        // Query strings may contain signed download tokens. Never log request URLs
+        // or exception details that could repeat payment or customer data.
+        console.error("Request failed");
         res.statusCode = 500;
         res.end("internal server error");
       }

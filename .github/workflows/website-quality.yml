@@ -1,9 +1,9 @@
 name: Website completion quality
 on:
   push:
-    branches: [feature/website-completion-20261027]
+    branches: [feature/website-completion-20261027, "release/**"]
   pull_request:
-    branches: [feature/website-completion-20261027, review/website-completion-20261027]
+    branches: [feature/website-completion-20261027, review/website-completion-20261027, feature/library-first-original-book, feature/public-multilingual-launch]
   workflow_dispatch: {}
 permissions:
   contents: read
@@ -13,7 +13,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node: [24]
+        node: [24.22.1]
     runs-on: ubuntu-latest
     timeout-minutes: 30
     env:

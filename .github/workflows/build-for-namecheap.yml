@@ -35,7 +35,7 @@ jobs:
           # Node.js App screen — keeping these in sync matters because
           # a build produced under a different major Node version can
           # behave differently at runtime.
-          node-version: "24"
+          node-version: "24.22.1"
 
       - name: Install dependencies
         run: npm ci
@@ -58,42 +58,8 @@ jobs:
           fi
           echo "Build verified: .next/BUILD_ID = $(cat .next/BUILD_ID)"
 
-      - name: Assemble the Namecheap deployment package
-        run: |
-          mkdir -p deploy
-          cp -r .next deploy/
-          cp -r messages deploy/
-          cp server.js deploy/
-          cp package.json deploy/
-          cp package-lock.json deploy/
-          cp next.config.mjs deploy/
-          # All local artwork and printable worksheets are runtime assets.
-          cp -r public deploy/
-          # src/i18n is kept (not all of src/) because next-intl's
-          # build plugin wires the request-config module path in at
-          # build time; keeping the original source removes any risk
-          # of that reference breaking at server startup, at the cost
-          # of a few small files — see the chat conversation this
-          # workflow came from for the full reasoning. Everything
-          # else in src/ is already compiled into .next and isn't
-          # read again at runtime.
-          mkdir -p deploy/src
-          cp -r src/i18n deploy/src/
-          # Private commerce administration commands use the same pinned Node/TS runtime.
-          # No merchant release manifest, credentials, order data or paid archives are copied.
-          cp tsconfig.json deploy/
-          mkdir -p deploy/src/lib deploy/src/content deploy/scripts
-          cp -r src/lib/commerce deploy/src/lib/
-          cp src/content/shop.ts deploy/src/content/
-          cp scripts/shop-preflight.ts scripts/shop-deliver-pending.ts deploy/scripts/
-
-      - name: Zip the package with files at the archive root
-        run: |
-          cd deploy
-          zip -rq ../moneyquest-namecheap-built.zip . -x "node_modules/*"
-          cd ..
-          echo "--- Archive root contents ---"
-          unzip -l moneyquest-namecheap-built.zip | head -20
+      - name: Assemble guarded Namecheap candidate
+        run: npm run package:namecheap -- --candidate --output=moneyquest-namecheap-built.zip
 
       - uses: actions/upload-artifact@v4
         with:
