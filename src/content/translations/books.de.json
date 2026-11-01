@@ -1,0 +1,187 @@
+{
+  "the-repair-table": {
+    "title": "Der Reparaturtisch",
+    "subtitle": "Eine eigene Money-Quest-Geschichte zum gemeinsamen Lesen und Entdecken",
+    "audience": "Explorer · 6–8 Jahre · Gemeinsam lesen, Aktivitäten nach Wunsch",
+    "description": "Emma entdeckt: Ausleihen, Reparieren und Kaufen sind verschiedene mögliche Entscheidungen.",
+    "coverAlt": "Emma und Max an einem Money-Quest-Ort, der zu dieser Geschichte gehört.",
+    "chapters": [
+      {
+        "title": "Ein Rad wird locker",
+        "paragraphs": [
+          "Emmas Spielzeugwagen verliert ein Rad. Enttäuscht bittet sie um einen neuen Wagen. Ihr Erwachsener legt das kaputte Spielzeug auf den Tisch, außer Reichweite von Max. Zuerst prüfen sie das Problem. Vielleicht lässt es sich sicher reparieren.",
+          "Das Rad ist locker. Der Rest des Wagens sieht noch brauchbar aus. Genau hinzusehen verspricht keine Reparatur. Es liefert Informationen, bevor sie Geld ausgeben. Emma zeigt auf das Problem. Der Erwachsene übernimmt die kleinen Teile."
+        ],
+        "idea": "Prüfe das Problem, bevor du über Ersatz entscheidest.",
+        "question": "Was kommt vor dem Einkauf?",
+        "choices": [
+          {
+            "text": "Das Problem sicher ansehen",
+            "feedback": "Das passt. Prüfe das Problem, bevor du über Ersatz entscheidest.",
+            "correct": true
+          },
+          {
+            "text": "Alle Teile wegwerfen",
+            "feedback": "Schau noch einmal in die Geschichte. Prüfe das Problem, bevor du über Ersatz entscheidest.",
+            "correct": false
+          },
+          {
+            "text": "Den ersten neuen Wagen kaufen",
+            "feedback": "Denke an dieses Kapitel. Prüfe das Problem, bevor du über Ersatz entscheidest.",
+            "correct": false
+          }
+        ],
+        "activity": "Male einen erfundenen kaputten Gegenstand. Markiere das Teil, das geprüft werden muss. Du kannst zeigen, malen, tippen, Unterstützte Kommunikation nutzen, sprechen oder einen Erwachsenen deine Idee aufschreiben lassen."
+      },
+      {
+        "title": "Der Erwachsene prüft",
+        "paragraphs": [
+          "Am Wagen gibt es eine kleine Befestigung. Emmas Erwachsener prüft, ob sie sich mit geeignetem Werkzeug reparieren lässt. Emma schaut von einem freien Platz zu. Sie benutzt weder allein scharfe Werkzeuge noch prüft sie ein beschädigtes Elektrogerät. Hier geht es um eine Spielzeugreparatur, die ein Erwachsener beurteilen kann.",
+          "Die Befestigung lässt sich ersetzen. Der Erwachsene erklärt: Manche Reparaturen sind unsicher, ungeeignet oder zu teuer. Reparieren ist eine Möglichkeit zum Prüfen. Es ist keine Regel für jeden Gegenstand. Emma kann auch durch Beobachten und Fragen lernen."
+        ],
+        "idea": "Ein geeigneter Erwachsener sollte die Sicherheit prüfen und Werkzeuge sowie kleine Teile übernehmen.",
+        "question": "Wer prüft diese Reparatur?",
+        "choices": [
+          {
+            "text": "Max mit seinen Pfoten",
+            "feedback": "Schau noch einmal in die Geschichte. Ein geeigneter Erwachsener sollte die Sicherheit prüfen und Werkzeuge sowie kleine Teile übernehmen.",
+            "correct": false
+          },
+          {
+            "text": "Emma allein mit scharfen Werkzeugen",
+            "feedback": "Denke an dieses Kapitel. Ein geeigneter Erwachsener sollte die Sicherheit prüfen und Werkzeuge sowie kleine Teile übernehmen.",
+            "correct": false
+          },
+          {
+            "text": "Ein geeigneter Erwachsener",
+            "feedback": "Das passt. Ein geeigneter Erwachsener sollte die Sicherheit prüfen und Werkzeuge sowie kleine Teile übernehmen.",
+            "correct": true
+          }
+        ],
+        "activity": "Zeige, welche erfundenen Aufgaben zu Erwachsenen gehören: Werkzeuge, kleine Teile oder einen Plan zeichnen. Du kannst zeigen, malen, tippen, Unterstützte Kommunikation nutzen, sprechen oder einen Erwachsenen deine Idee aufschreiben lassen."
+      },
+      {
+        "title": "Für einen Nachmittag ausleihen",
+        "paragraphs": [
+          "Während der Wagen wartet, braucht Emma einen Eimer für einen Spielladen. Mit Zustimmung ihres Erwachsenen leiht ein Nachbar ihr einen. Emma fragt nach Rückgabe und Aufbewahrung. Durch das Ausleihen wird es nicht ihr eigener Eimer.",
+          "Nach der Aktivität geben sie ihn sauber zurück. Für einen Nachmittag muss niemand einen weiteren Eimer kaufen. Ausleihen klappt nur mit Erlaubnis des Eigentümers und bei sicherer Nutzung. Der Nachbar darf auch Nein sagen. Ist nichts verfügbar, kann Emma eine andere Aktivität wählen."
+        ],
+        "idea": "Ausleihen braucht Erlaubnis, Sorgfalt und eine vereinbarte Rückgabe.",
+        "question": "Was sollten sie vereinbaren?",
+        "choices": [
+          {
+            "text": "Dass der Nachbar Ja sagen muss",
+            "feedback": "Denke an dieses Kapitel. Ausleihen braucht Erlaubnis, Sorgfalt und eine vereinbarte Rückgabe.",
+            "correct": false
+          },
+          {
+            "text": "Wann sie den Eimer zurückgeben",
+            "feedback": "Das passt. Ausleihen braucht Erlaubnis, Sorgfalt und eine vereinbarte Rückgabe.",
+            "correct": true
+          },
+          {
+            "text": "Dass Ausleihen Eigentum bedeutet",
+            "feedback": "Schau noch einmal in die Geschichte. Ausleihen braucht Erlaubnis, Sorgfalt und eine vereinbarte Rückgabe.",
+            "correct": false
+          }
+        ],
+        "activity": "Gestalte eine Bilderinnerung für die Rückgabe eines erfundenen geliehenen Gegenstands. Du kannst zeigen, malen, tippen, Unterstützte Kommunikation nutzen, sprechen oder einen Erwachsenen deine Idee aufschreiben lassen."
+      },
+      {
+        "title": "Zwei Preisschilder",
+        "paragraphs": [
+          "Der Erwachsene findet in der Geschichte ein passendes Teil für ein Spiel-Pfund. Ein Ersatzwagen kostet fünf Spiel-Pfund. Sie vergleichen beide Möglichkeiten. Dazu gehört auch, ob die Reparatur funktioniert. Ein niedriger Preis hilft nicht, wenn das Teil falsch ist.",
+          "Emma vergleicht eins und fünf mit Spielsteinen. Für den neuen Wagen bräuchte sie vier Steine mehr. Sie wählen die geeignete Reparatur. Die Preise sind fürs Lernen erfunden. Sie versprechen keine echten Ladenpreise. Bei einem anderen Gegenstand könnte die Wahl anders ausfallen."
+        ],
+        "idea": "Vergleiche Eignung und Preis. Ein billigeres falsches Teil hilft nicht.",
+        "question": "Welcher Vergleich zählt?",
+        "choices": [
+          {
+            "text": "Kosten und ob das Teil passt",
+            "feedback": "Das passt. Vergleiche Eignung und Preis. Ein billigeres falsches Teil hilft nicht.",
+            "correct": true
+          },
+          {
+            "text": "Nur die bunteste Verpackung",
+            "feedback": "Schau noch einmal in die Geschichte. Vergleiche Eignung und Preis. Ein billigeres falsches Teil hilft nicht.",
+            "correct": false
+          },
+          {
+            "text": "Immer den billigsten Gegenstand kaufen",
+            "feedback": "Denke an dieses Kapitel. Vergleiche Eignung und Preis. Ein billigeres falsches Teil hilft nicht.",
+            "correct": false
+          }
+        ],
+        "activity": "Vergleiche mit fünf Spielsteinen eine erfundene Ein-Pfund-Reparatur mit einem Ersatz für fünf Pfund. Du kannst zeigen, malen, tippen, Unterstützte Kommunikation nutzen, sprechen oder einen Erwachsenen deine Idee aufschreiben lassen."
+      },
+      {
+        "title": "Eine neue Aufgabe für einen Karton",
+        "paragraphs": [
+          "Der Lieferkarton ist leer. Emma möchte daraus eine Garage für den reparierten Wagen machen. Ihr Erwachsener prüft, ob der Karton sauber und sicher ist. Emma malt außen Türen auf. Schere und kleine Stücke bleiben außer Reichweite von Max.",
+          "Der Karton hat nun einen weiteren Zweck. Er musste kein Spielzeug werden. Nicht jede Verpackung eignet sich dafür. Wiederverwendung kann manchmal einen weiteren Kauf vermeiden oder das Wegwerfen aufschieben. Emma wählt, was für dieses Projekt passt. Sie muss keine vielen Gegenstände sammeln, um Fürsorge zu zeigen."
+        ],
+        "idea": "Wiederverwendung kann helfen, wenn ein Gegenstand sicher ist und einen sinnvollen Zweck erfüllt.",
+        "question": "Warum ist dieser Karton nützlich?",
+        "choices": [
+          {
+            "text": "Jede alte Verpackung ist sicher",
+            "feedback": "Schau noch einmal in die Geschichte. Wiederverwendung kann helfen, wenn ein Gegenstand sicher ist und einen sinnvollen Zweck erfüllt.",
+            "correct": false
+          },
+          {
+            "text": "Alles aufzubewahren ist Pflicht",
+            "feedback": "Denke an dieses Kapitel. Wiederverwendung kann helfen, wenn ein Gegenstand sicher ist und einen sinnvollen Zweck erfüllt.",
+            "correct": false
+          },
+          {
+            "text": "Er passt sicher zum Projekt",
+            "feedback": "Das passt. Wiederverwendung kann helfen, wenn ein Gegenstand sicher ist und einen sinnvollen Zweck erfüllt.",
+            "correct": true
+          }
+        ],
+        "activity": "Entwirf eine sichere erfundene neue Nutzung für einen sauberen Pappkarton. Du kannst zeigen, malen, tippen, Unterstützte Kommunikation nutzen, sprechen oder einen Erwachsenen deine Idee aufschreiben lassen."
+      },
+      {
+        "title": "Der Wagen kommt zurück",
+        "paragraphs": [
+          "Der Erwachsene prüft das reparierte Rad, bevor Emma den Wagen benutzt. Er rollt über den Boden. Emma legt ihre Spielwaren hinein und parkt ihn in der Pappgarage. Max bleibt beim Erwachsenen, während die kleinen Teile weggeräumt werden.",
+          "Emma erinnert sich an drei Fragen: Können wir nutzen, was wir haben? Können wir etwas mit Erlaubnis ausleihen? Muss etwas ersetzt werden? Keine Antwort passt zu jedem Gegenstand. Sie darf einen Erwachsenen fragen und die Möglichkeiten in dieser Situation vergleichen."
+        ],
+        "idea": "Nutzen, Ausleihen, Reparieren und Ersetzen sind Möglichkeiten, die zur Situation passen müssen.",
+        "question": "Welche Frage hilft beim nächsten Mal?",
+        "choices": [
+          {
+            "text": "Sollen wir kaufen, bevor wir prüfen?",
+            "feedback": "Denke an dieses Kapitel. Nutzen, Ausleihen, Reparieren und Ersetzen sind Möglichkeiten, die zur Situation passen müssen.",
+            "correct": false
+          },
+          {
+            "text": "Welche Möglichkeiten sind sicher und nützlich?",
+            "feedback": "Das passt. Nutzen, Ausleihen, Reparieren und Ersetzen sind Möglichkeiten, die zur Situation passen müssen.",
+            "correct": true
+          },
+          {
+            "text": "Muss jeder Gegenstand repariert werden?",
+            "feedback": "Schau noch einmal in die Geschichte. Nutzen, Ausleihen, Reparieren und Ersetzen sind Möglichkeiten, die zur Situation passen müssen.",
+            "correct": false
+          }
+        ],
+        "activity": "Male drei Möglichkeiten für einen erfundenen Gegenstand. Wähle eine, die du mit einem Erwachsenen prüfen würdest. Du kannst zeigen, malen, tippen, Unterstützte Kommunikation nutzen, sprechen oder einen Erwachsenen deine Idee aufschreiben lassen."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Reparieren",
+        "meaning": "Etwas wieder so herrichten, dass es nutzbar ist."
+      },
+      {
+        "term": "Ausleihen",
+        "meaning": "Etwas mit Erlaubnis benutzen und zurückgeben."
+      },
+      {
+        "term": "Wiederverwenden",
+        "meaning": "Einen Gegenstand erneut für einen passenden Zweck nutzen."
+      }
+    ]
+  }
+}
