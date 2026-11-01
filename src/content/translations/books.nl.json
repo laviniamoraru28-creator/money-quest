@@ -1045,5 +1045,930 @@
         "meaning": "Informatie waarmee een claim of besluit wordt beoordeeld."
       }
     ]
+  },
+  "the-message-max-could-not-send": {
+    "title": "Het bericht dat Max niet kon sturen",
+    "subtitle": "Een oorspronkelijk Money Quest-verhaal om samen te lezen en ontdekken",
+    "audience": "Explorer · 6–8 jaar · Samen lezen en activiteiten naar keuze",
+    "description": "Een verzonnen spelbericht helpt Emma hulp vragen en informatie privé houden.",
+    "coverAlt": "Emma en Max in een Money Quest-omgeving die bij dit verhaal past.",
+    "chapters": [
+      {
+        "title": "Een verrassend bericht",
+        "paragraphs": [
+          "Emma speelt naast haar volwassene een spel. Er komt een bericht. Ze zou een puppypak hebben gewonnen, maar moet snel reageren. Max slaapt op zijn deken. Hij heeft niemand een bericht gestuurd.",
+          "Emma wil op de felle knop drukken. Toch laat ze eerst haar volwassene kijken. Een spannend bericht is niet vanzelf betrouwbaar. Ze kunnen het sluiten en via het gewone spelmenu controleren. Een onverwacht bericht vraagt geen direct antwoord."
+        ],
+        "idea": "Onverwachte haast is een reden om te pauzeren en een vertrouwde volwassene te vragen.",
+        "question": "Wat moet ze eerst doen?",
+        "choices": [
+          {
+            "text": "Het aan een vertrouwde volwassene tonen",
+            "feedback": "Dat klopt. Onverwachte haast is een reden om te pauzeren en een vertrouwde volwassene te vragen.",
+            "correct": true
+          },
+          {
+            "text": "Snel op de knop drukken",
+            "feedback": "Kijk nog eens in het verhaal. Onverwachte haast is een reden om te pauzeren en een vertrouwde volwassene te vragen.",
+            "correct": false
+          },
+          {
+            "text": "Met een geheim antwoorden",
+            "feedback": "Denk aan wat er in dit hoofdstuk gebeurde. Onverwachte haast is een reden om te pauzeren en een vertrouwde volwassene te vragen.",
+            "correct": false
+          }
+        ],
+        "activity": "Wijs een pauze-en-vraagkaart aan voor een verzonnen bericht. Je mag wijzen, tekenen, typen, ondersteunde communicatie gebruiken, spreken of een volwassene vragen je idee op te schrijven."
+      },
+      {
+        "title": "Het geheim blijft privé",
+        "paragraphs": [
+          "Het bericht vraagt een wachtwoord. Emma weet dat een wachtwoord een account beschermt. Ze typt het niet in het bericht. Haar volwassene legt uit dat een vriendelijk puppyplaatje niet bewijst wie de vraag stelt.",
+          "Ze sluiten het bericht. Emma heeft niets verkeerd gedaan door het te ontvangen. Als ze al had geklikt, kon ze nog hulp vragen. Het probleem geheim houden maakt helpen moeilijker. Ook na een vergissing is hulp beschikbaar."
+        ],
+        "idea": "Stuur geen wachtwoord als antwoord op een onverwacht bericht. Vraag ook na een vergissing hulp.",
+        "question": "Wat mag niet in het antwoord?",
+        "choices": [
+          {
+            "text": "Een verzonnen boomtekening",
+            "feedback": "Kijk nog eens in het verhaal. Stuur geen wachtwoord als antwoord op een onverwacht bericht. Vraag ook na een vergissing hulp.",
+            "correct": false
+          },
+          {
+            "text": "Een vraag aan een vertrouwde volwassene",
+            "feedback": "Denk aan wat er in dit hoofdstuk gebeurde. Stuur geen wachtwoord als antwoord op een onverwacht bericht. Vraag ook na een vergissing hulp.",
+            "correct": false
+          },
+          {
+            "text": "Een wachtwoord",
+            "feedback": "Dat klopt. Stuur geen wachtwoord als antwoord op een onverwacht bericht. Vraag ook na een vergissing hulp.",
+            "correct": true
+          }
+        ],
+        "activity": "Kies welke oefenkaart privé zegt: wachtwoord, verhaaltitel of lievelingskleur van een verzonnen figuur. Je mag wijzen, tekenen, typen, ondersteunde communicatie gebruiken, spreken of een volwassene vragen je idee op te schrijven."
+      },
+      {
+        "title": "Een pak heeft een prijs",
+        "paragraphs": [
+          "In het gewone spelmenu staat een prijs bij een ander pak. Emma vraagt of spelmunten hetzelfde zijn als echte ponden. Haar volwassene controleert het scherm. Deze aankoop gebruikt echt geld via het account van de volwassene.",
+          "Emma drukt niet op kopen. Samen lezen ze wat erbij zit en of de betaling terugkomt. Een digitaal ding kan echt geld kosten zonder dat er een pakket komt. Eerst vragen helpt de volwassene beslissen. Max heeft al een gewone halsband."
+        ],
+        "idea": "Controleer of een spelaankoop echt geld kost en of de betaling terugkomt.",
+        "question": "Wie moet deze aankoop controleren?",
+        "choices": [
+          {
+            "text": "Max terwijl hij slaapt",
+            "feedback": "Denk aan wat er in dit hoofdstuk gebeurde. Controleer of een spelaankoop echt geld kost en of de betaling terugkomt.",
+            "correct": false
+          },
+          {
+            "text": "De volwassene die verantwoordelijk is voor het account",
+            "feedback": "Dat klopt. Controleer of een spelaankoop echt geld kost en of de betaling terugkomt.",
+            "correct": true
+          },
+          {
+            "text": "De afzender van een onverwacht bericht",
+            "feedback": "Kijk nog eens in het verhaal. Controleer of een spelaankoop echt geld kost en of de betaling terugkomt.",
+            "correct": false
+          }
+        ],
+        "activity": "Teken een verzonnen aankooplabel met een prijs en een eerst-vragen-symbool. Je mag wijzen, tekenen, typen, ondersteunde communicatie gebruiken, spreken of een volwassene vragen je idee op te schrijven."
+      },
+      {
+        "title": "Het plaatje van het huis",
+        "paragraphs": [
+          "Een spel vraagt Emma een foto te uploaden. Op haar foto staan haar huis en een schooltas met haar naam. Ze pauzeert. Haar volwassene legt uit dat een foto privégegevens kan tonen, ook met weinig tekst erbij.",
+          "Ze uploaden de foto niet. Emma kan op papier een verzonnen huis tekenen. Ze hoeft haar echte adres, school of gezicht niet te delen voor deze activiteit. Niet elk verzoek om een foto hoeft een foto terug te krijgen."
+        ],
+        "idea": "Foto’s kunnen privégegevens tonen. Niet uploaden mag ook.",
+        "question": "Wat is veiliger bij deze activiteit?",
+        "choices": [
+          {
+            "text": "Een verzonnen huis op papier tekenen",
+            "feedback": "Dat klopt. Foto’s kunnen privégegevens tonen. Niet uploaden mag ook.",
+            "correct": true
+          },
+          {
+            "text": "Een woonadres uploaden",
+            "feedback": "Kijk nog eens in het verhaal. Foto’s kunnen privégegevens tonen. Niet uploaden mag ook.",
+            "correct": false
+          },
+          {
+            "text": "Een schoolnaam openbaar delen",
+            "feedback": "Denk aan wat er in dit hoofdstuk gebeurde. Foto’s kunnen privégegevens tonen. Niet uploaden mag ook.",
+            "correct": false
+          }
+        ],
+        "activity": "Vergelijk twee verzonnen plaatjes en wijs een detail aan dat privé moet blijven. Je mag wijzen, tekenen, typen, ondersteunde communicatie gebruiken, spreken of een volwassene vragen je idee op te schrijven."
+      },
+      {
+        "title": "Iemand zegt een vriend te zijn",
+        "paragraphs": [
+          "Een nieuwe speler zegt Emma van school te kennen. De schermnaam klinkt bekend. Alleen de naam vertelt niet wie erachter zit. Emma spreekt niet af en gaat niet naar een privéchat.",
+          "Ze toont het aan haar volwassene, die de veiligheidsinstellingen kan gebruiken. Vriendelijk praten controleert geen identiteit. Met hulp mag Emma stoppen of contact blokkeren. Ze hoeft een onbekende geen gesprek te geven vanwege aardige woorden of een virtueel cadeau."
+        ],
+        "idea": "Een schermnaam bewijst geen identiteit. Vraag steun aan een vertrouwde volwassene.",
+        "question": "Wat bewijst wie de speler is?",
+        "choices": [
+          {
+            "text": "Een gratis virtueel cadeau",
+            "feedback": "Kijk nog eens in het verhaal. Een schermnaam bewijst geen identiteit. Vraag steun aan een vertrouwde volwassene.",
+            "correct": false
+          },
+          {
+            "text": "Een vriendelijke zin",
+            "feedback": "Denk aan wat er in dit hoofdstuk gebeurde. Een schermnaam bewijst geen identiteit. Vraag steun aan een vertrouwde volwassene.",
+            "correct": false
+          },
+          {
+            "text": "De naam alleen bewijst niets",
+            "feedback": "Dat klopt. Een schermnaam bewijst geen identiteit. Vraag steun aan een vertrouwde volwassene.",
+            "correct": true
+          }
+        ],
+        "activity": "Kies een veilige stap bij verzonnen onverwacht contact: stoppen, hulp vragen of privé doorgaan. Je mag wijzen, tekenen, typen, ondersteunde communicatie gebruiken, spreken of een volwassene vragen je idee op te schrijven."
+      },
+      {
+        "title": "Hulp vragen na een vergissing",
+        "paragraphs": [
+          "Op een middag drukt Emma op een onbekende link voordat ze nadenkt. Ze vertelt het meteen. Ze voeren geen informatie meer in en controleren wat gebeurde. De volwassene regelt herstel van account en apparaat. Emma hoeft niet alles zelf te herstellen.",
+          "Samen maken ze een herinnering: pauzeren, vragen, controleren. Dat helpt, maar belooft niet dat er nooit meer een vergissing komt. Max rekt zich uit. Emma keert terug naar een bekende activiteit wanneer haar volwassene dat goed vindt. Hulp vragen was nuttig."
+        ],
+        "idea": "Vertel het snel aan een vertrouwde volwassene. Volwassenen regelen herstel van accounts en apparaten.",
+        "question": "Wat helpt na een onverwachte klik?",
+        "choices": [
+          {
+            "text": "Meer privégegevens typen",
+            "feedback": "Denk aan wat er in dit hoofdstuk gebeurde. Vertel het snel aan een vertrouwde volwassene. Volwassenen regelen herstel van accounts en apparaten.",
+            "correct": false
+          },
+          {
+            "text": "Het aan een vertrouwde volwassene vertellen",
+            "feedback": "Dat klopt. Vertel het snel aan een vertrouwde volwassene. Volwassenen regelen herstel van accounts en apparaten.",
+            "correct": true
+          },
+          {
+            "text": "Het verbergen uit schaamte",
+            "feedback": "Kijk nog eens in het verhaal. Vertel het snel aan een vertrouwde volwassene. Volwassenen regelen herstel van accounts en apparaten.",
+            "correct": false
+          }
+        ],
+        "activity": "Leg drie kaarten op volgorde voor een verzonnen vergissing: stoppen, vertellen en een volwassene laten controleren. Je mag wijzen, tekenen, typen, ondersteunde communicatie gebruiken, spreken of een volwassene vragen je idee op te schrijven."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Privé",
+        "meaning": "Informatie die je niet zomaar deelt."
+      },
+      {
+        "term": "Wachtwoord",
+        "meaning": "Een geheim dat toegang helpt beschermen."
+      },
+      {
+        "term": "Aankoop",
+        "meaning": "Iets kopen, ook een digitaal product."
+      }
+    ]
+  },
+  "the-repair-table": {
+    "title": "De reparatietafel",
+    "subtitle": "Een oorspronkelijk Money Quest-verhaal om samen te lezen en ontdekken",
+    "audience": "Explorer · 6–8 jaar · Samen lezen en activiteiten naar keuze",
+    "description": "Emma ontdekt dat lenen, repareren en kopen verschillende keuzes zijn.",
+    "coverAlt": "Emma en Max in een Money Quest-omgeving die bij dit verhaal past.",
+    "chapters": [
+      {
+        "title": "Een wiel raakt los",
+        "paragraphs": [
+          "Emma’s speelgoedkar verliest een wiel. Ze is teleurgesteld en vraagt een nieuwe kar. Haar volwassene zet het kapotte speelgoed op tafel, weg van Max. Eerst bekijken ze het probleem en of veilig repareren kan.",
+          "Het wiel zit los. De rest lijkt bruikbaar. Goed kijken belooft geen reparatie. Het geeft informatie voordat ze geld uitgeven. Emma kan het probleem aanwijzen. De volwassene pakt de kleine onderdelen."
+        ],
+        "idea": "Bekijk het probleem voordat je beslist of vervanging nodig is.",
+        "question": "Wat komt vóór winkelen?",
+        "choices": [
+          {
+            "text": "Het probleem veilig bekijken",
+            "feedback": "Dat klopt. Bekijk het probleem voordat je beslist of vervanging nodig is.",
+            "correct": true
+          },
+          {
+            "text": "Alle onderdelen weggooien",
+            "feedback": "Kijk nog eens in het verhaal. Bekijk het probleem voordat je beslist of vervanging nodig is.",
+            "correct": false
+          },
+          {
+            "text": "De eerste nieuwe kar kopen",
+            "feedback": "Denk aan wat er in dit hoofdstuk gebeurde. Bekijk het probleem voordat je beslist of vervanging nodig is.",
+            "correct": false
+          }
+        ],
+        "activity": "Teken een verzonnen kapot voorwerp en markeer welk deel gecontroleerd moet worden. Je mag wijzen, tekenen, typen, ondersteunde communicatie gebruiken, spreken of een volwassene vragen je idee op te schrijven."
+      },
+      {
+        "title": "De volwassene controleert",
+        "paragraphs": [
+          "De kar heeft een klein bevestigingsstuk. Emma’s volwassene bekijkt of repareren met passend gereedschap kan. Emma kijkt vanaf een vrije plek. Ze gebruikt geen scherp gereedschap en test geen kapot elektrisch apparaat. Een volwassene beoordeelt deze speelgoedreparatie.",
+          "Het bevestigingsstuk kan vervangen worden. Sommige reparaties zijn onveilig, ongeschikt of te duur, legt de volwassene uit. Repareren is een mogelijkheid om te onderzoeken, geen regel voor alles. Emma leert ook door te kijken en te vragen."
+        ],
+        "idea": "Een geschikte volwassene beoordeelt veiligheid en gebruikt gereedschap en kleine onderdelen.",
+        "question": "Wie controleert deze reparatie?",
+        "choices": [
+          {
+            "text": "Max met zijn poten",
+            "feedback": "Kijk nog eens in het verhaal. Een geschikte volwassene beoordeelt veiligheid en gebruikt gereedschap en kleine onderdelen.",
+            "correct": false
+          },
+          {
+            "text": "Emma alleen met scherp gereedschap",
+            "feedback": "Denk aan wat er in dit hoofdstuk gebeurde. Een geschikte volwassene beoordeelt veiligheid en gebruikt gereedschap en kleine onderdelen.",
+            "correct": false
+          },
+          {
+            "text": "Een geschikte volwassene",
+            "feedback": "Dat klopt. Een geschikte volwassene beoordeelt veiligheid en gebruikt gereedschap en kleine onderdelen.",
+            "correct": true
+          }
+        ],
+        "activity": "Wijs aan welke oefentaken bij een volwassene horen: gereedschap, kleine onderdelen of een plan tekenen. Je mag wijzen, tekenen, typen, ondersteunde communicatie gebruiken, spreken of een volwassene vragen je idee op te schrijven."
+      },
+      {
+        "title": "Lenen voor één middag",
+        "paragraphs": [
+          "Terwijl de kar wacht, heeft Emma een emmer nodig voor een speelwinkel. Met toestemming van haar volwassene biedt een buur er één te leen aan. Emma vraagt wanneer hij terug moet en waar ze hem bewaart. Lenen maakt de emmer niet van haar.",
+          "Na het spelen brengen ze hem schoon terug. Voor één middag hoeft niemand een nieuwe emmer te kopen. Lenen werkt alleen met toestemming en veilig gebruik. De buur mag ook nee zeggen. Als niets beschikbaar is, kan Emma iets anders doen."
+        ],
+        "idea": "Lenen vraagt toestemming, zorg en een afspraak over terugbrengen.",
+        "question": "Wat moeten ze afspreken?",
+        "choices": [
+          {
+            "text": "Dat de buur ja moet zeggen",
+            "feedback": "Denk aan wat er in dit hoofdstuk gebeurde. Lenen vraagt toestemming, zorg en een afspraak over terugbrengen.",
+            "correct": false
+          },
+          {
+            "text": "Wanneer de emmer terugkomt",
+            "feedback": "Dat klopt. Lenen vraagt toestemming, zorg en een afspraak over terugbrengen.",
+            "correct": true
+          },
+          {
+            "text": "Dat lenen hetzelfde is als bezitten",
+            "feedback": "Kijk nog eens in het verhaal. Lenen vraagt toestemming, zorg en een afspraak over terugbrengen.",
+            "correct": false
+          }
+        ],
+        "activity": "Maak een plaatjesherinnering voor het terugbrengen van een verzonnen geleend voorwerp. Je mag wijzen, tekenen, typen, ondersteunde communicatie gebruiken, spreken of een volwassene vragen je idee op te schrijven."
+      },
+      {
+        "title": "Twee prijskaartjes",
+        "paragraphs": [
+          "In het verhaal vindt de volwassene een passend onderdeel voor één speelpond. Een nieuwe kar kost vijf speelponden. Ze vergelijken alle kanten, ook of de reparatie werkt. Een lage prijs helpt niet als het onderdeel verkeerd is.",
+          "Emma vergelijkt één en vijf met fiches. Voor de nieuwe kar zijn vier extra fiches nodig. Ze kiezen de passende reparatie. Dit zijn verzonnen leerprijzen, geen belofte over echte winkels. Bij een ander voorwerp kan de keuze anders zijn."
+        ],
+        "idea": "Vergelijk geschiktheid én kosten. Een goedkoop verkeerd onderdeel helpt niet.",
+        "question": "Welke vergelijking telt?",
+        "choices": [
+          {
+            "text": "De prijs en of het onderdeel past",
+            "feedback": "Dat klopt. Vergelijk geschiktheid én kosten. Een goedkoop verkeerd onderdeel helpt niet.",
+            "correct": true
+          },
+          {
+            "text": "Alleen de opvallendste verpakking",
+            "feedback": "Kijk nog eens in het verhaal. Vergelijk geschiktheid én kosten. Een goedkoop verkeerd onderdeel helpt niet.",
+            "correct": false
+          },
+          {
+            "text": "Altijd het goedkoopste voorwerp kopen",
+            "feedback": "Denk aan wat er in dit hoofdstuk gebeurde. Vergelijk geschiktheid én kosten. Een goedkoop verkeerd onderdeel helpt niet.",
+            "correct": false
+          }
+        ],
+        "activity": "Vergelijk met vijf fiches een verzonnen reparatie van één pond met vervanging voor vijf pond. Je mag wijzen, tekenen, typen, ondersteunde communicatie gebruiken, spreken of een volwassene vragen je idee op te schrijven."
+      },
+      {
+        "title": "Een nieuw doel voor een doos",
+        "paragraphs": [
+          "De bezorgdoos is leeg. Emma wil een garage voor de kar. Haar volwassene controleert of de doos schoon en veilig is. Emma tekent deuren. Ze houden scharen en kleine stukjes weg van Max.",
+          "De doos krijgt een nieuw doel. Hij hoefde geen speelgoed te worden en niet elke verpakking is geschikt. Hergebruik kan soms een aankoop of weggooien uitstellen. Emma kiest wat voor dit project werkt. Ze hoeft geen spullen te verzamelen om te tonen dat ze om het milieu geeft."
+        ],
+        "idea": "Hergebruik kan helpen als iets veilig is en een nuttig doel heeft.",
+        "question": "Wat maakt deze doos bruikbaar?",
+        "choices": [
+          {
+            "text": "Elke oude verpakking is veilig",
+            "feedback": "Kijk nog eens in het verhaal. Hergebruik kan helpen als iets veilig is en een nuttig doel heeft.",
+            "correct": false
+          },
+          {
+            "text": "Je moet alles bewaren",
+            "feedback": "Denk aan wat er in dit hoofdstuk gebeurde. Hergebruik kan helpen als iets veilig is en een nuttig doel heeft.",
+            "correct": false
+          },
+          {
+            "text": "Hij past veilig bij het project",
+            "feedback": "Dat klopt. Hergebruik kan helpen als iets veilig is en een nuttig doel heeft.",
+            "correct": true
+          }
+        ],
+        "activity": "Bedenk één veilig nieuw oefengebruik voor een schone kartonnen doos. Je mag wijzen, tekenen, typen, ondersteunde communicatie gebruiken, spreken of een volwassene vragen je idee op te schrijven."
+      },
+      {
+        "title": "De kar is terug",
+        "paragraphs": [
+          "De volwassene controleert het gerepareerde wiel voordat Emma de kar gebruikt. Hij rijdt over de vloer. Emma legt speelwinkelspullen erin en parkeert in de kartonnen garage. Max blijft bij de volwassene terwijl kleine stukjes worden opgeruimd.",
+          "Emma onthoudt drie vragen: kunnen we gebruiken wat we hebben? Kunnen we met toestemming lenen? Moet iets vervangen worden? Niet elk voorwerp vraagt hetzelfde antwoord. Ze kan een volwassene vragen en de beschikbare keuzes vergelijken."
+        ],
+        "idea": "Gebruiken, lenen, repareren en vervangen zijn mogelijkheden om per situatie te bekijken.",
+        "question": "Welke vraag helpt een volgende keer?",
+        "choices": [
+          {
+            "text": "Moeten we kopen vóór het controleren?",
+            "feedback": "Denk aan wat er in dit hoofdstuk gebeurde. Gebruiken, lenen, repareren en vervangen zijn mogelijkheden om per situatie te bekijken.",
+            "correct": false
+          },
+          {
+            "text": "Welke keuzes zijn veilig en nuttig?",
+            "feedback": "Dat klopt. Gebruiken, lenen, repareren en vervangen zijn mogelijkheden om per situatie te bekijken.",
+            "correct": true
+          },
+          {
+            "text": "Moet elk voorwerp gerepareerd worden?",
+            "feedback": "Kijk nog eens in het verhaal. Gebruiken, lenen, repareren en vervangen zijn mogelijkheden om per situatie te bekijken.",
+            "correct": false
+          }
+        ],
+        "activity": "Teken drie mogelijkheden voor een verzonnen voorwerp. Kies er één om met een volwassene te onderzoeken. Je mag wijzen, tekenen, typen, ondersteunde communicatie gebruiken, spreken of een volwassene vragen je idee op te schrijven."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Repareren",
+        "meaning": "Iets herstellen zodat het weer bruikbaar is."
+      },
+      {
+        "term": "Lenen",
+        "meaning": "Iets met toestemming gebruiken en terugbrengen."
+      },
+      {
+        "term": "Hergebruiken",
+        "meaning": "Iets opnieuw gebruiken voor een geschikt doel."
+      }
+    ]
+  },
+  "the-robot-with-the-wrong-answer": {
+    "title": "De robot met het verkeerde antwoord",
+    "subtitle": "Een oorspronkelijk Money Quest-verhaal om samen te lezen en ontdekken",
+    "audience": "Explorer · 6–8 jaar · Samen lezen en activiteiten naar keuze",
+    "description": "Een verzonnen AI-hulp leert Emma waarom zekere antwoorden toch controle nodig hebben.",
+    "coverAlt": "Emma en Max in een Money Quest-omgeving die bij dit verhaal past.",
+    "chapters": [
+      {
+        "title": "Het pratende scherm",
+        "paragraphs": [
+          "Bij een leertafel onder toezicht probeert Emma een oefenrobot. Hij antwoordt in hele zinnen. Omdat hij zo zeker klinkt, denkt Emma dat hij alles weet. Haar volwassene vraagt of zeker klinken hetzelfde is als gelijk hebben.",
+          "Ze laten hem de vier geschilderde boten op een plaatje tellen. Hij zegt vijf. Emma wijst elke boot aan en telt. Het zijn er vier. Het hulpmiddel kan ongelijk hebben, ook met een vriendelijke, volledige en zelfverzekerde zin."
+        ],
+        "idea": "Een zeker antwoord kan fout zijn. Controleer het met bewijs.",
+        "question": "Hoeveel geschilderde boten zijn er?",
+        "choices": [
+          {
+            "text": "Vier, na het plaatje controleren",
+            "feedback": "Dat klopt. Een zeker antwoord kan fout zijn. Controleer het met bewijs.",
+            "correct": true
+          },
+          {
+            "text": "Vijf, omdat het hulpmiddel dat zegt",
+            "feedback": "Kijk nog eens in het verhaal. Een zeker antwoord kan fout zijn. Controleer het met bewijs.",
+            "correct": false
+          },
+          {
+            "text": "Zoveel als het zeker zegt",
+            "feedback": "Denk aan wat er in dit hoofdstuk gebeurde. Een zeker antwoord kan fout zijn. Controleer het met bewijs.",
+            "correct": false
+          }
+        ],
+        "activity": "Teken vier eenvoudige voorwerpen en controleer een expres fout oefenantwoord. Je mag wijzen, tekenen, typen, ondersteunde communicatie gebruiken, spreken of een volwassene vragen je idee op te schrijven."
+      },
+      {
+        "title": "Wat het hulpmiddel doet",
+        "paragraphs": [
+          "Emma vraagt of de robot gevoelens heeft zoals Max. Haar volwassene legt uit dat dit een computerhulpmiddel is dat op basis van patronen reageert. Het is geen dier of mens. Een vriendelijke zin betekent niet dat hij Emma begrijpt zoals een vriend dat doet.",
+          "Ze gebruiken een verzonnen naam en voeren geen persoonlijke informatie in. Voor zorg of hulp kan Emma een echt persoon vragen. Het hulpmiddel kan bij sommige taken helpen. Het vervangt geen vertrouwde volwassene en beslist niet wat goed voor haar is."
+        ],
+        "idea": "Een computerantwoord is geen vriendschap en vervangt geen menselijke zorg.",
+        "question": "Wie kan echte persoonlijke steun geven?",
+        "choices": [
+          {
+            "text": "Een hulpmiddel omdat het zegt om je te geven",
+            "feedback": "Kijk nog eens in het verhaal. Een computerantwoord is geen vriendschap en vervangt geen menselijke zorg.",
+            "correct": false
+          },
+          {
+            "text": "Elk scherm met een gezicht",
+            "feedback": "Denk aan wat er in dit hoofdstuk gebeurde. Een computerantwoord is geen vriendschap en vervangt geen menselijke zorg.",
+            "correct": false
+          },
+          {
+            "text": "Een vertrouwde volwassene",
+            "feedback": "Dat klopt. Een computerantwoord is geen vriendschap en vervangt geen menselijke zorg.",
+            "correct": true
+          }
+        ],
+        "activity": "Sorteer oefenkaarten in computerhulpmiddel, dier en vertrouwde volwassene. Je mag wijzen, tekenen, typen, ondersteunde communicatie gebruiken, spreken of een volwassene vragen je idee op te schrijven."
+      },
+      {
+        "title": "Een bron zoeken",
+        "paragraphs": [
+          "De oefenhulp zegt dat elke vogel kan vliegen. Emma herinnert zich een pinguïn uit een bibliotheekboek. Samen met haar volwassene zoekt ze een passende natuurbron. Sommige vogels vliegen niet. De uitspraak was te breed.",
+          "Emma zet een vraagteken bij het antwoord. Ze hoeft niet elke vogel te kennen om een tegenvoorbeeld te zien. Een bron helpt de uitspraak controleren. Hetzelfde hulpmiddel laten herhalen is geen onafhankelijke controle."
+        ],
+        "idea": "Controleer een feitelijke uitspraak met een passende onafhankelijke bron.",
+        "question": "Wat helpt de vogeluitspraak controleren?",
+        "choices": [
+          {
+            "text": "Hoe kleurrijk het scherm is",
+            "feedback": "Denk aan wat er in dit hoofdstuk gebeurde. Controleer een feitelijke uitspraak met een passende onafhankelijke bron.",
+            "correct": false
+          },
+          {
+            "text": "Een passende natuurbron",
+            "feedback": "Dat klopt. Controleer een feitelijke uitspraak met een passende onafhankelijke bron.",
+            "correct": true
+          },
+          {
+            "text": "Hetzelfde antwoord, harder herhaald",
+            "feedback": "Kijk nog eens in het verhaal. Controleer een feitelijke uitspraak met een passende onafhankelijke bron.",
+            "correct": false
+          }
+        ],
+        "activity": "Controleer met een volwassene en een natuurplaatje of boek één verzonnen dierenuitspraak. Je mag wijzen, tekenen, typen, ondersteunde communicatie gebruiken, spreken of een volwassene vragen je idee op te schrijven."
+      },
+      {
+        "title": "Een idee heeft een maker",
+        "paragraphs": [
+          "Het hulpmiddel stelt voor een tekening van een klasgenoot als boekomslag te gebruiken. Emma weet wie de maker is. Ze noemt de tekening niet van zichzelf. Haar volwassene helpt een eigen plaatje met eigen vormen en kleuren bedenken.",
+          "Een computervoorstel bepaalt niet of iets eerlijk of toegestaan is. Emma kan vragen wie iets maakte en welke toestemming nodig is. Ze tekent een andere boot met gestreept zeil. Inspiratie krijgen is iets anders dan andermans werk opeisen."
+        ],
+        "idea": "Controleer maker en toestemming. Een computervoorstel maakt kopiëren niet vanzelf goed.",
+        "question": "Wat kan Emma maken?",
+        "choices": [
+          {
+            "text": "Haar eigen tekening",
+            "feedback": "Dat klopt. Controleer maker en toestemming. Een computervoorstel maakt kopiëren niet vanzelf goed.",
+            "correct": true
+          },
+          {
+            "text": "Werk van een klasgenoot met haar naam erop",
+            "feedback": "Kijk nog eens in het verhaal. Controleer maker en toestemming. Een computervoorstel maakt kopiëren niet vanzelf goed.",
+            "correct": false
+          },
+          {
+            "text": "Alles wat het scherm eist",
+            "feedback": "Denk aan wat er in dit hoofdstuk gebeurde. Controleer maker en toestemming. Een computervoorstel maakt kopiëren niet vanzelf goed.",
+            "correct": false
+          }
+        ],
+        "activity": "Bedenk een eenvoudig eigen omslagplaatje en noem de maker. Je mag wijzen, tekenen, typen, ondersteunde communicatie gebruiken, spreken of een volwassene vragen je idee op te schrijven."
+      },
+      {
+        "title": "Een kleine nuttige taak",
+        "paragraphs": [
+          "Emma zoekt drie namen voor een verzonnen maantuin. Met haar volwassene vraagt ze de oefenhulp ideeën. Ze lezen samen. Eén naam is lastig te zeggen, één is al een bekende boektitel en één brengt Emma op een nieuw idee.",
+          "Ze verandert de laatste naam tot iets dat ze leuk vindt. Het hulpmiddel hielp brainstormen. Het schreef geen feitenverslag en controleerde niet of een titel beschikbaar is voor publicatie. Emma kiest en legt uit. De oefentuin blijft privé op papier."
+        ],
+        "idea": "Een hulpmiddel kan ideeën geven. Mensen blijven verantwoordelijk voor controleren en kiezen.",
+        "question": "Wie maakt de laatste keuze?",
+        "choices": [
+          {
+            "text": "Automatisch het eerste voorstel",
+            "feedback": "Kijk nog eens in het verhaal. Een hulpmiddel kan ideeën geven. Mensen blijven verantwoordelijk voor controleren en kiezen.",
+            "correct": false
+          },
+          {
+            "text": "Het hulpmiddel zonder controle",
+            "feedback": "Denk aan wat er in dit hoofdstuk gebeurde. Een hulpmiddel kan ideeën geven. Mensen blijven verantwoordelijk voor controleren en kiezen.",
+            "correct": false
+          },
+          {
+            "text": "Emma met passende hulp",
+            "feedback": "Dat klopt. Een hulpmiddel kan ideeën geven. Mensen blijven verantwoordelijk voor controleren en kiezen.",
+            "correct": true
+          }
+        ],
+        "activity": "Bedenk drie namen voor een verzonnen tuin. Een online hulpmiddel is niet nodig. Je mag wijzen, tekenen, typen, ondersteunde communicatie gebruiken, spreken of een volwassene vragen je idee op te schrijven."
+      },
+      {
+        "title": "De controlekaart",
+        "paragraphs": [
+          "Emma maakt een kaart voor volgende computertaken. Daarop staan een vraagteken, een boek en een volwassene. Ze betekenen: vraag wat de claim is, zoek een passende bron en vraag menselijke hulp waar nodig. De kaart ligt bij de begeleide tafel.",
+          "Emma mag het hulpmiddel ook niet gebruiken. Tekenen en praten blijven mogelijk. Max duwt zijn gewone bal naar de volwassene. Emma lacht: voor de bal is geen slim antwoord nodig. Alleen een veilig spel met iemand die erbij is."
+        ],
+        "idea": "Kies een hulpmiddel voor een doel, controleer de uitkomst en houd niet-digitale keuzes beschikbaar.",
+        "question": "Wat hoort op een controlekaart?",
+        "choices": [
+          {
+            "text": "Een verzoek om privégegevens",
+            "feedback": "Denk aan wat er in dit hoofdstuk gebeurde. Kies een hulpmiddel voor een doel, controleer de uitkomst en houd niet-digitale keuzes beschikbaar.",
+            "correct": false
+          },
+          {
+            "text": "Een vraag, een bron en menselijke hulp",
+            "feedback": "Dat klopt. Kies een hulpmiddel voor een doel, controleer de uitkomst en houd niet-digitale keuzes beschikbaar.",
+            "correct": true
+          },
+          {
+            "text": "Een regel om elk antwoord te geloven",
+            "feedback": "Kijk nog eens in het verhaal. Kies een hulpmiddel voor een doel, controleer de uitkomst en houd niet-digitale keuzes beschikbaar.",
+            "correct": false
+          }
+        ],
+        "activity": "Ontwerp een controlekaart met drie plaatjes voor een verzonnen computertaak. Je mag wijzen, tekenen, typen, ondersteunde communicatie gebruiken, spreken of een volwassene vragen je idee op te schrijven."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "AI-hulpmiddel",
+        "meaning": "Een computersysteem dat uit patronen antwoorden kan maken."
+      },
+      {
+        "term": "Bewijs",
+        "meaning": "Informatie die helpt een idee te controleren."
+      },
+      {
+        "term": "Bron",
+        "meaning": "Waar informatie vandaan komt."
+      }
+    ]
+  },
+  "the-picnic-with-eight-tokens": {
+    "title": "De picknick met acht fiches",
+    "subtitle": "Een oorspronkelijk Money Quest-verhaal om samen te lezen en ontdekken",
+    "audience": "Explorer · 6–8 jaar · Samen lezen en activiteiten naar keuze",
+    "description": "Een oefenpicknick helpt Emma plannen, tellen en ruimte voor verandering maken.",
+    "coverAlt": "Emma en Max in een Money Quest-omgeving die bij dit verhaal past.",
+    "chapters": [
+      {
+        "title": "Acht fiches op tafel",
+        "paragraphs": [
+          "Emma’s groep plant een verzonnen picknick in een plaatjesspel. De volwassene geeft acht fiches. Elk fiche is één speelpond. Ze gebruiken geen gezinsgeld. Max kijkt terwijl Emma de fiches op een rij legt.",
+          "Op de kaarten staan eten, water en versiering. Met acht fiches kan de groep niet alles kiezen. Ze bekijken wat voor deze picknick belangrijk is. Met speelbedragen oefenen hoeft niemand te vertellen wat diens gezin verdient of uitgeeft."
+        ],
+        "idea": "Een oefenbudget is een grens voor een verzonnen activiteit, geen oordeel over een gezin.",
+        "question": "Hoeveel fiches zijn beschikbaar?",
+        "choices": [
+          {
+            "text": "Acht",
+            "feedback": "Dat klopt. Een oefenbudget is een grens voor een verzonnen activiteit, geen oordeel over een gezin.",
+            "correct": true
+          },
+          {
+            "text": "Elk fiche dat ze wensen",
+            "feedback": "Kijk nog eens in het verhaal. Een oefenbudget is een grens voor een verzonnen activiteit, geen oordeel over een gezin.",
+            "correct": false
+          },
+          {
+            "text": "Helemaal geen grens",
+            "feedback": "Denk aan wat er in dit hoofdstuk gebeurde. Een oefenbudget is een grens voor een verzonnen activiteit, geen oordeel over een gezin.",
+            "correct": false
+          }
+        ],
+        "activity": "Leg acht fiches of tekens bij een verzonnen picknickplan. Je mag wijzen, tekenen, typen, ondersteunde communicatie gebruiken, spreken of een volwassene vragen je idee op te schrijven."
+      },
+      {
+        "title": "De eerste twee kaarten",
+        "paragraphs": [
+          "De eetkaart kost drie fiches en de waterkaart één. De volwassene legt uit dat de personages dit voor deze picknick nodig hebben. In het echt controleert een volwassene ook dieetbehoeften, toegang tot water en veiligheid.",
+          "Emma legt vier fiches bij de kaarten. Vier blijven over. Eerst iets nuttigs kiezen maakt duidelijk wat voor later beschikbaar is. De lijst maakt geen extra geld. Hij helpt zien wat gekozen is en wat overblijft."
+        ],
+        "idea": "Drie plus één gebruikt vier fiches. Van de eerste acht blijven er vier over.",
+        "question": "Hoeveel blijven over na eten en water?",
+        "choices": [
+          {
+            "text": "Acht",
+            "feedback": "Kijk nog eens in het verhaal. Drie plus één gebruikt vier fiches. Van de eerste acht blijven er vier over.",
+            "correct": false
+          },
+          {
+            "text": "Twaalf",
+            "feedback": "Denk aan wat er in dit hoofdstuk gebeurde. Drie plus één gebruikt vier fiches. Van de eerste acht blijven er vier over.",
+            "correct": false
+          },
+          {
+            "text": "Vier",
+            "feedback": "Dat klopt. Drie plus één gebruikt vier fiches. Van de eerste acht blijven er vier over.",
+            "correct": true
+          }
+        ],
+        "activity": "Verplaats drie fiches en daarna één van een groep van acht. Laat zien wat overblijft. Je mag wijzen, tekenen, typen, ondersteunde communicatie gebruiken, spreken of een volwassene vragen je idee op te schrijven."
+      },
+      {
+        "title": "Versiering kan wachten",
+        "paragraphs": [
+          "Een lintkaart kost drie fiches. Een dekenkaart kost twee. De groep heeft nog vier. Beide kopen kan niet, want drie plus twee is vijf. Emma legt de kaarten naast de overgebleven fiches.",
+          "De personages hebben in dit spel al een geschikte zitplek. Ze kunnen versiering kiezen, fiches bewaren of het plan wijzigen. Iets graag willen is niet slecht. Bekijk het samen met behoeften en grenzen. Niet kopen mag ook."
+        ],
+        "idea": "Een leuk extraatje mag een keuze zijn. Het totaal moet wel binnen het beschikbare bedrag passen.",
+        "question": "Kunnen ze beide extra’s met vier fiches kopen?",
+        "choices": [
+          {
+            "text": "Ja, een lijst voegt een fiche toe",
+            "feedback": "Denk aan wat er in dit hoofdstuk gebeurde. Een leuk extraatje mag een keuze zijn. Het totaal moet wel binnen het beschikbare bedrag passen.",
+            "correct": false
+          },
+          {
+            "text": "Nee, samen kosten ze vijf",
+            "feedback": "Dat klopt. Een leuk extraatje mag een keuze zijn. Het totaal moet wel binnen het beschikbare bedrag passen.",
+            "correct": true
+          },
+          {
+            "text": "Ja, want beide zijn leuk",
+            "feedback": "Kijk nog eens in het verhaal. Een leuk extraatje mag een keuze zijn. Het totaal moet wel binnen het beschikbare bedrag passen.",
+            "correct": false
+          }
+        ],
+        "activity": "Vergelijk twee verzonnen extra’s van drie en twee met vier beschikbare tekens. Je mag wijzen, tekenen, typen, ondersteunde communicatie gebruiken, spreken of een volwassene vragen je idee op te schrijven."
+      },
+      {
+        "title": "Ander weer",
+        "paragraphs": [
+          "Het verhaalplaatje verandert naar regen. De volwassene biedt een binnenpicknick met dezelfde eetkaarten aan. Emma verplaatst het plan naar dat plaatje. De groep hoeft niet buiten te blijven omdat dat het eerste idee was.",
+          "Ze kijken wat nog helpt. Het lint is naar keuze en het eten blijft bruikbaar. Een plan mag veranderen bij nieuwe informatie. Niemand verliest een beloning door aan te passen. Max vindt de echte binnenactiviteit fijn: zijn deken is warm en droog."
+        ],
+        "idea": "Nieuwe informatie kan een reden zijn om een plan te veranderen.",
+        "question": "Wat kan de groep aanpassen?",
+        "choices": [
+          {
+            "text": "De plek na het bekijken van de regen",
+            "feedback": "Dat klopt. Nieuwe informatie kan een reden zijn om een plan te veranderen.",
+            "correct": true
+          },
+          {
+            "text": "Niets zodra er een plan is",
+            "feedback": "Kijk nog eens in het verhaal. Nieuwe informatie kan een reden zijn om een plan te veranderen.",
+            "correct": false
+          },
+          {
+            "text": "Het weer door fiches uit te geven",
+            "feedback": "Denk aan wat er in dit hoofdstuk gebeurde. Nieuwe informatie kan een reden zijn om een plan te veranderen.",
+            "correct": false
+          }
+        ],
+        "activity": "Laat voor een verzonnen activiteit een binnen- en buitenoptie zien. Kies bij een regenplaatje. Je mag wijzen, tekenen, typen, ondersteunde communicatie gebruiken, spreken of een volwassene vragen je idee op te schrijven."
+      },
+      {
+        "title": "Het overgebleven fiche",
+        "paragraphs": [
+          "De groep gebruikt drie van de vier resterende fiches voor versiering. Eén blijft apart. De volwassene legt uit dat iets bewaren ruimte voor een latere keuze maakt. Dat garandeert niet dat elke verrassing betaalbaar wordt.",
+          "Ze noteren gebruikt en ongebruikt. Van de acht zijn zeven fiches gebruikt. Eén blijft over. Ze kunnen het plan met wijzen uitleggen. Een lange som opschrijven is niet nodig om te tonen dat ze het spel begrijpen."
+        ],
+        "idea": "Acht fiches min zeven gebruikte geeft één. Onuitgegeven geld blijft beschikbaar.",
+        "question": "Hoeveel fiches zijn niet uitgegeven?",
+        "choices": [
+          {
+            "text": "Zeven",
+            "feedback": "Kijk nog eens in het verhaal. Acht fiches min zeven gebruikte geeft één. Onuitgegeven geld blijft beschikbaar.",
+            "correct": false
+          },
+          {
+            "text": "Negen",
+            "feedback": "Denk aan wat er in dit hoofdstuk gebeurde. Acht fiches min zeven gebruikte geeft één. Onuitgegeven geld blijft beschikbaar.",
+            "correct": false
+          },
+          {
+            "text": "Eén",
+            "feedback": "Dat klopt. Acht fiches min zeven gebruikte geeft één. Onuitgegeven geld blijft beschikbaar.",
+            "correct": true
+          }
+        ],
+        "activity": "Teken acht cirkels. Markeer zeven als gebruikt. Wijs de overgebleven cirkel aan. Je mag wijzen, tekenen, typen, ondersteunde communicatie gebruiken, spreken of een volwassene vragen je idee op te schrijven."
+      },
+      {
+        "title": "Een plan dat iedereen kan begrijpen",
+        "paragraphs": [
+          "In de laatste ronde liggen kaarten en fiches bereikbaar of zichtbaar voor iedereen. Een kind wijst de waterkaart aan om de plaats in het plan te controleren. Emma geeft ruimte aan de vraag in plaats van te haasten.",
+          "Ze sluiten af met: wat was beschikbaar, wat is gekozen en wat bleef over? Een andere groep kan binnen dezelfde grens anders kiezen. Het leren zit in controleren en luisteren, niet in het mooiste picknickplaatje vinden."
+        ],
+        "idea": "Een plan moet begrijpelijk zijn voor de gebruikers, met toegankelijke manieren om vragen te stellen.",
+        "question": "Wat is nuttig om terug te bekijken?",
+        "choices": [
+          {
+            "text": "Wie het snelst klaar was",
+            "feedback": "Denk aan wat er in dit hoofdstuk gebeurde. Een plan moet begrijpelijk zijn voor de gebruikers, met toegankelijke manieren om vragen te stellen.",
+            "correct": false
+          },
+          {
+            "text": "Beschikbare, gebruikte en overgebleven bedragen",
+            "feedback": "Dat klopt. Een plan moet begrijpelijk zijn voor de gebruikers, met toegankelijke manieren om vragen te stellen.",
+            "correct": true
+          },
+          {
+            "text": "Wiens picknick het duurst lijkt",
+            "feedback": "Kijk nog eens in het verhaal. Een plan moet begrijpelijk zijn voor de gebruikers, met toegankelijke manieren om vragen te stellen.",
+            "correct": false
+          }
+        ],
+        "activity": "Vertel een verzonnen picknickbudget met kaarten, tekeningen of aantekeningen van een volwassene. Je mag wijzen, tekenen, typen, ondersteunde communicatie gebruiken, spreken of een volwassene vragen je idee op te schrijven."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Budget",
+        "meaning": "Een plan voor het gebruiken van een beschikbaar bedrag."
+      },
+      {
+        "term": "Totaal",
+        "meaning": "Het bedrag als je alles samen telt."
+      },
+      {
+        "term": "Overgebleven",
+        "meaning": "Wat er nog is nadat een deel gebruikt is."
+      }
+    ]
+  },
+  "the-kindness-club": {
+    "title": "De aardig-zijn-club",
+    "subtitle": "Een oorspronkelijk Money Quest-verhaal om samen te lezen en ontdekken",
+    "audience": "Explorer · 6–8 jaar · Samen lezen en activiteiten naar keuze",
+    "description": "Emma en haar vrienden plannen een klein buurtproject waarin iedereen kan kiezen hoe die meedoet.",
+    "coverAlt": "Emma en Max in een Money Quest-omgeving die bij dit verhaal past.",
+    "chapters": [
+      {
+        "title": "Een uitnodiging met keuzes",
+        "paragraphs": [
+          "Emma wil tijdens een begeleide buurtactiviteit een aardig-zijn-club beginnen. Op haar bord vraagt ze iedereen een verhaal hardop te vertellen. Dan bedenkt ze dat sommige kinderen niet voor een groep willen spreken. Max ligt naast de stoel van de volwassene.",
+          "Emma voegt tekenen, plaatjes aanwijzen en verhaalkaarten ordenen toe. Een kind mag eerst kijken. Een uitnodiging helpt beter als die keuzes uitlegt, in plaats van aan te nemen dat iedereen op dezelfde manier meedoet."
+        ],
+        "idea": "Bied zinvolle manieren om mee te doen, ook kijken of nee zeggen.",
+        "question": "Wat maakt de uitnodiging beter?",
+        "choices": [
+          {
+            "text": "Verschillende manieren om mee te doen",
+            "feedback": "Dat klopt. Bied zinvolle manieren om mee te doen, ook kijken of nee zeggen.",
+            "correct": true
+          },
+          {
+            "text": "Eén verplichte toespraak",
+            "feedback": "Kijk nog eens in het verhaal. Bied zinvolle manieren om mee te doen, ook kijken of nee zeggen.",
+            "correct": false
+          },
+          {
+            "text": "Een verbod op kijken",
+            "feedback": "Denk aan wat er in dit hoofdstuk gebeurde. Bied zinvolle manieren om mee te doen, ook kijken of nee zeggen.",
+            "correct": false
+          }
+        ],
+        "activity": "Maak een uitnodiging met twee antwoordkeuzes voor een verzonnen club. Je mag wijzen, tekenen, typen, ondersteunde communicatie gebruiken, spreken of een volwassene vragen je idee op te schrijven."
+      },
+      {
+        "title": "Helpen begint met vragen",
+        "paragraphs": [
+          "De groep wil een buur helpen. Emma wil ongevraagd de tas dragen. De volwassene legt uit dat helpen met een vraag begint. Iemand wil misschien hulp, andere hulp of zelf de taak doen.",
+          "Emma tekent een kaart met ‘Wil je hulp?’ De buur in het verhaal zegt nee, dank je. De club aanvaardt dat. Iemands keuze respecteren is ook aardig. Goede bedoelingen geven geen toestemming om spullen over te nemen."
+        ],
+        "idea": "Vraag voordat je helpt en aanvaard het antwoord.",
+        "question": "Wat moet de club eerst doen?",
+        "choices": [
+          {
+            "text": "De tas zonder vragen pakken",
+            "feedback": "Kijk nog eens in het verhaal. Vraag voordat je helpt en aanvaard het antwoord.",
+            "correct": false
+          },
+          {
+            "text": "Toch blijven aandringen",
+            "feedback": "Denk aan wat er in dit hoofdstuk gebeurde. Vraag voordat je helpt en aanvaard het antwoord.",
+            "correct": false
+          },
+          {
+            "text": "Vragen of hulp gewenst is",
+            "feedback": "Dat klopt. Vraag voordat je helpt en aanvaard het antwoord.",
+            "correct": true
+          }
+        ],
+        "activity": "Kies een respectvolle vraag of een vraagplaatje voor een verzonnen situatie. Je mag wijzen, tekenen, typen, ondersteunde communicatie gebruiken, spreken of een volwassene vragen je idee op te schrijven."
+      },
+      {
+        "title": "Een taak zonder aankoop",
+        "paragraphs": [
+          "De club heeft geen cadeaugeld. Emma denkt dat het project daarom stopt. De volwassene vraagt welke aardige dingen geen aankoop nodig hebben. De kinderen noemen luisteren, gedeelde spullen terugleggen en plaats maken aan tafel. Max heeft geen koopideeën.",
+          "Met toestemming ordenen ze de gezamenlijke plaatjeskaarten. Dat helpt en kost niets. Geld geven is geen test van vriendelijkheid. Gezinnen hebben andere middelen. Niemand hoeft gezinsfinanciën uit te leggen om erbij te horen."
+        ],
+        "idea": "Tijd, zorg en nuttige handelingen kunnen bijdragen zonder aankoop.",
+        "question": "Welke handeling kost geen geld?",
+        "choices": [
+          {
+            "text": "Privérekeninggegevens vragen",
+            "feedback": "Denk aan wat er in dit hoofdstuk gebeurde. Tijd, zorg en nuttige handelingen kunnen bijdragen zonder aankoop.",
+            "correct": false
+          },
+          {
+            "text": "Gedeelde kaarten met toestemming opruimen",
+            "feedback": "Dat klopt. Tijd, zorg en nuttige handelingen kunnen bijdragen zonder aankoop.",
+            "correct": true
+          },
+          {
+            "text": "Voor iedereen een cadeau kopen",
+            "feedback": "Kijk nog eens in het verhaal. Tijd, zorg en nuttige handelingen kunnen bijdragen zonder aankoop.",
+            "correct": false
+          }
+        ],
+        "activity": "Teken een veilige, gratis manier waarop een verzonnen club kan bijdragen. Je mag wijzen, tekenen, typen, ondersteunde communicatie gebruiken, spreken of een volwassene vragen je idee op te schrijven."
+      },
+      {
+        "title": "Niet iedereen wil een knuffel",
+        "paragraphs": [
+          "Emma wil een vriend met een knuffel bedanken. De vriend stapt terug. Emma stopt. De volwassene stelt zwaaien, een bedankkaart of dank je zeggen voor. De vriend kiest zwaaien. Emma zwaait terug.",
+          "Niemand hoeft aanraking te aanvaarden om vriendschap te tonen. Een begroeting kan per persoon en dag verschillen. Vragen en luisteren helpen respectvol zijn. Emma voegt een zwaaiplaatje aan het bord toe. Bezoekers kiezen zonder hun reden voor iedereen uit te leggen."
+        ],
+        "idea": "Respecteer persoonlijke grenzen en bied begroetingen zonder aanraking aan.",
+        "question": "Wat kan Emma doen?",
+        "choices": [
+          {
+            "text": "Stoppen en zwaaien aanbieden",
+            "feedback": "Dat klopt. Respecteer persoonlijke grenzen en bied begroetingen zonder aanraking aan.",
+            "correct": true
+          },
+          {
+            "text": "Knuffelen nadat de vriend terugstapt",
+            "feedback": "Kijk nog eens in het verhaal. Respecteer persoonlijke grenzen en bied begroetingen zonder aanraking aan.",
+            "correct": false
+          },
+          {
+            "text": "Een uitleg eisen",
+            "feedback": "Denk aan wat er in dit hoofdstuk gebeurde. Respecteer persoonlijke grenzen en bied begroetingen zonder aanraking aan.",
+            "correct": false
+          }
+        ],
+        "activity": "Kies een begroeting zonder aanraking voor een verzonnen welkomstbord. Je mag wijzen, tekenen, typen, ondersteunde communicatie gebruiken, spreken of een volwassene vragen je idee op te schrijven."
+      },
+      {
+        "title": "De waardering delen",
+        "paragraphs": [
+          "De kaarten zijn gesorteerd. Emma maakte de uitnodiging. Een kind controleerde de groepen. Een ander droeg met een volwassene het lege dienblad. Een bezoeker bedankt alleen Emma. Ze wijst de anderen aan en vertelt wat ieder deed.",
+          "De volwassene bedankt voor concrete bijdragen. Rustig werk telt ook. Het project lukte niet doordat één kind het belangrijkst was, maar doordat mensen passende taken deden. Max bleef buiten de werkplek, naast zijn deken."
+        ],
+        "idea": "Benoem concrete bijdragen, ook van mensen wier werk minder zichtbaar was.",
+        "question": "Wie verdient waardering?",
+        "choices": [
+          {
+            "text": "Alleen de luidste spreker",
+            "feedback": "Kijk nog eens in het verhaal. Benoem concrete bijdragen, ook van mensen wier werk minder zichtbaar was.",
+            "correct": false
+          },
+          {
+            "text": "Alleen degene met het bord",
+            "feedback": "Denk aan wat er in dit hoofdstuk gebeurde. Benoem concrete bijdragen, ook van mensen wier werk minder zichtbaar was.",
+            "correct": false
+          },
+          {
+            "text": "Iedereen die heeft bijgedragen",
+            "feedback": "Dat klopt. Benoem concrete bijdragen, ook van mensen wier werk minder zichtbaar was.",
+            "correct": true
+          }
+        ],
+        "activity": "Toon drie taken in een verzonnen project en benoem ieders bijdrage. Je mag wijzen, tekenen, typen, ondersteunde communicatie gebruiken, spreken of een volwassene vragen je idee op te schrijven."
+      },
+      {
+        "title": "Een club die mag veranderen",
+        "paragraphs": [
+          "Bij de volgende bijeenkomst vindt een kind de tafel te druk. Emma luistert en vraagt de volwassene om een rustigere plek om mee te doen. Ze verplaatsen kaarten en maken ruimte. Alleen kijken blijft ook mogelijk.",
+          "Aanpassen betekent niet dat de eerste club mislukt was. Feedback kan een gemiste drempel laten zien. Emma bewaart een kaart ‘Ik heb iets anders nodig’. De club blijft vragen wat helpt. Volwassenen controleren veiligheid en steun. Aardig zijn betekent ook reageren op een antwoord."
+        ],
+        "idea": "Gebruik feedback om drempels weg te nemen. Blijf controleren wat nodig is om mee te doen.",
+        "question": "Wat moet de club met nuttige feedback doen?",
+        "choices": [
+          {
+            "text": "Iedereen dezelfde opstelling laten verdragen",
+            "feedback": "Denk aan wat er in dit hoofdstuk gebeurde. Gebruik feedback om drempels weg te nemen. Blijf controleren wat nodig is om mee te doen.",
+            "correct": false
+          },
+          {
+            "text": "Een praktische verandering overwegen",
+            "feedback": "Dat klopt. Gebruik feedback om drempels weg te nemen. Blijf controleren wat nodig is om mee te doen.",
+            "correct": true
+          },
+          {
+            "text": "Feedback na de opening negeren",
+            "feedback": "Kijk nog eens in het verhaal. Gebruik feedback om drempels weg te nemen. Blijf controleren wat nodig is om mee te doen.",
+            "correct": false
+          }
+        ],
+        "activity": "Teken een verandering die het makkelijker maakt aan een verzonnen groepsactiviteit mee te doen. Je mag wijzen, tekenen, typen, ondersteunde communicatie gebruiken, spreken of een volwassene vragen je idee op te schrijven."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Toestemming",
+        "meaning": "Afspreken dat een handeling mag gebeuren."
+      },
+      {
+        "term": "Grens",
+        "meaning": "Een limiet voor wat iemand prettig vindt."
+      },
+      {
+        "term": "Bijdrage",
+        "meaning": "Wat iemand toevoegt aan een gezamenlijke activiteit."
+      }
+    ]
   }
 }
