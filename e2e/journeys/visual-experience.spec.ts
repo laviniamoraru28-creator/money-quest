@@ -84,7 +84,7 @@ test("background audio stays silent initially, persists between pages and stops 
  await page.getByText("Background sound",{exact:true}).first().click();
  await page.getByRole("button",{name:"Play sound",exact:true}).click();
  await expect.poll(states).toEqual(["running"]);
- await page.getByRole("link").filter({has:page.getByRole("heading",{name:"The Library",exact:true})}).click();
+ await page.getByRole("link").filter({has:page.getByRole("heading",{name:"Money Quest Library",exact:true})}).click();
  await expect(page.getByRole("heading",{name:"Money Quest Library",exact:true})).toBeVisible();
  expect(await states()).toEqual(["running"]);
  await page.getByRole("button",{name:"Listen",exact:true}).first().click();
