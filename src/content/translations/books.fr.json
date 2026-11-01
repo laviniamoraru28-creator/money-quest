@@ -265,5 +265,415 @@
         "meaning": "Un message conçu pour susciter de l’intérêt pour un produit ou un service."
       }
     ]
+  },
+  "the-garden-everyone-could-enter": {
+    "title": "Le jardin où chacun pouvait entrer",
+    "subtitle": "Une histoire Money Quest sur l’écoute, la coopération et la place de chacun",
+    "audience": "Builder · 9–11 ans · Six chapitres à lire à ton rythme",
+    "description": "Un projet de jardin s’arrête lorsque l’équipe découvre que son idée enthousiasmante a laissé quelqu’un de côté.",
+    "coverAlt": "La fille de Money Quest et son chiot dans un jardin accueillant et coloré.",
+    "chapters": [
+      {
+        "title": "L’idée la plus bruyante",
+        "paragraphs": [
+          "Le jardin partagé avait un coin vide. À la réunion du samedi, trois enfants ont proposé un espace de lecture. Notre jeune guide a offert son aide pour l’organiser. Son chiot s’est installé sous la table pendant que le groupe étalait des feuilles sur le bois.",
+          "« Une grande plateforme ! » a lancé un enfant. « Une échelle secrète ! » a proposé un autre. La guide a commencé à dessiner. Tous ceux qui parlaient semblaient enthousiastes. Elle croyait que le groupe était d’accord, puis a remarqué un enfant silencieux au bout de la table.",
+          "L’enfant a montré l’échelle, puis secoué la tête. Un tableau de communication était posé près de lui. La guide a arrêté de dessiner. La conversation animée n’avait pas permis à chacun de participer. Elle a placé la feuille à la vue de tous et a demandé si des images ou plus de temps pour réfléchir aideraient.",
+          "Le groupe avait commencé, mais n’avait pas encore de projet commun. La guide a posé son crayon. Sa première décision utile pour guider l’équipe a été de laisser une place à une autre réponse."
+        ],
+        "idea": "Pour se mettre d’accord, chacun doit disposer d’un moyen accessible de participer. Le silence ne veut pas forcément dire oui.",
+        "question": "Que devrait faire la guide avant de considérer le projet comme accepté ?",
+        "choices": [
+          {
+            "text": "Vérifier que chacun peut répondre",
+            "feedback": "Oui. Montrer, écrire, utiliser des images et avoir du temps pour réfléchir peuvent permettre de participer.",
+            "correct": true
+          },
+          {
+            "text": "Ne compter que les propositions les plus bruyantes",
+            "feedback": "Parler fort ne dit pas quels besoins comptent. Le groupe doit aussi recevoir les autres contributions.",
+            "correct": false
+          },
+          {
+            "text": "Supposer que le silence signifie l’accord",
+            "feedback": "Une personne peut avoir besoin d’un autre moyen de répondre. Demande sans l’obliger à parler.",
+            "correct": false
+          }
+        ],
+        "activity": "Crée trois cartes de réponse : oui, non et j’ai besoin de plus de temps. Tu peux les utiliser pour une réunion d’équipe imaginaire."
+      },
+      {
+        "title": "Le chemin vers le siège",
+        "paragraphs": [
+          "La réunion suivante a commencé par une visite du coin vide. Un bénévole du jardin les accompagnait. Au lieu de demander quel dessin paraissait le plus amusant, la guide a demandé comment une personne entrerait, s’assiérait et ressortirait.",
+          "L’échelle semblait soudain moins utile. Un grand-parent qui utilise une aide à la marche pourrait avoir du mal. Un enfant qui cherche un endroit calme n’aurait peut-être pas envie de grimper. Une personne pourrait apprécier le lieu debout, ou avoir besoin d’espace près d’un siège.",
+          "Un enfant a dessiné un large chemin. Un autre a proposé un siège au niveau du sol. L’enfant avec le tableau de communication a montré un symbole de calme, puis un arbre. Le bénévole a expliqué que des adultes devraient vérifier l’accès, les matériaux et la sécurité avant toute construction.",
+          "La guide a noté des questions au lieu de promettre qu’un dessin résoudrait tout. Ils pourraient demander aux futurs utilisateurs ce qui leur convenait. Pour rendre le jardin accueillant, une pancarte disant que tout le monde était le bienvenu ne suffirait pas."
+        ],
+        "idea": "Demande comment les personnes utiliseront réellement un espace partagé. Ne déduis pas les besoins de tout le monde de l’expérience d’une personne.",
+        "question": "Comment l’équipe peut-elle améliorer son projet ?",
+        "choices": [
+          {
+            "text": "Choisir le projet le plus haut parce qu’il impressionne",
+            "feedback": "Une image impressionnante ne montre pas si les personnes peuvent utiliser l’espace.",
+            "correct": false
+          },
+          {
+            "text": "Interroger les utilisateurs et faire vérifier l’accès et la sécurité par un adulte",
+            "feedback": "Oui. Les utilisateurs et les vérifications adaptées peuvent révéler des obstacles oubliés par l’équipe.",
+            "correct": true
+          },
+          {
+            "text": "Promettre qu’un seul siège conviendra à tout le monde",
+            "feedback": "Les besoins diffèrent. Teste l’idée et continue d’écouter au lieu de promettre une solution universelle.",
+            "correct": false
+          }
+        ],
+        "activity": "Dessine un coin de lecture imaginaire. Montre un accès, un endroit où se reposer et une option calme. Note une question à poser à une personne qui pourrait l’utiliser."
+      },
+      {
+        "title": "Deux bonnes idées",
+        "paragraphs": [
+          "L’équipe avait deux projets possibles. L’un utilisait des coussins colorés. L’autre proposait des sièges simples en bois. Les enfants qui les avaient suggérés espéraient chacun que leur idée serait choisie. La conversation s’est tendue.",
+          "« Tu n’écoutes jamais », a dit un enfant. La guide a senti ses épaules se crisper. Elle voulait arrêter la dispute, mais choisir vite son idée préférée n’expliquerait pas la décision. Elle a proposé une pause. Personne n’avait à répondre immédiatement.",
+          "Au retour du groupe, elle a invité chaque enfant à expliquer l’utilité de son projet. Les coussins apportaient du confort. Les sièges en bois pouvaient être plus faciles à garder secs. C’étaient des raisons à comparer, pas des preuves qu’un enfant valait mieux qu’un autre.",
+          "Le bénévole a suggéré de tester un petit aménagement avant de choisir définitivement. Le groupe découvrirait quels matériaux convenaient à l’extérieur. Un désaccord n’obligeait pas à abandonner le projet. Il pouvait aider à repérer ce qu’il fallait vérifier."
+        ],
+        "idea": "Compare les raisons et les critères communs. Un désaccord sur une idée n’est pas un jugement sur une personne.",
+        "question": "Quelle question aide le groupe à comparer équitablement les projets ?",
+        "choices": [
+          {
+            "text": "Qui est le plus populaire ?",
+            "feedback": "La popularité ne dit pas si un siège est pratique ou confortable.",
+            "correct": false
+          },
+          {
+            "text": "Qui a parlé en premier ?",
+            "feedback": "Parler en premier ne prouve pas qu’un projet répond aux besoins du groupe.",
+            "correct": false
+          },
+          {
+            "text": "Comment chaque projet répond-il aux besoins convenus ?",
+            "feedback": "Oui. Des critères communs gardent l’attention sur la tâche, plutôt que sur le statut des personnes.",
+            "correct": true
+          }
+        ],
+        "activity": "Compare deux projets imaginaires avec les mêmes questions : sont-ils utilisables, confortables et adaptés à l’extérieur ? Tu peux noter tes choix avec des marques ou des images."
+      },
+      {
+        "title": "Des tâches à choisir",
+        "paragraphs": [
+          "Il restait beaucoup à faire avant l’essai. La guide a commencé à distribuer les tâches, puis s’est arrêtée. Elle avait invité les autres à participer, sans leur demander ce qu’ils souhaitaient apporter.",
+          "Elle a créé un petit tableau : dessiner les panneaux, compter les matériaux, tester l’aménagement, noter les avis. Le bénévole gardait les tâches d’adulte, comme vérifier les outils et superviser les travaux. Les enfants pouvaient choisir un rôle adapté, travailler à deux ou faire une pause.",
+          "Un enfant voulait écrire, mais pas lire à voix haute. Un autre préférait placer des étiquettes illustrées. Une personne restée discrète à la réunion a repéré une erreur dans le nombre de matériaux. La guide l’a remerciée et a corrigé la liste.",
+          "Elle continuait à suivre le projet. Guider ne voulait pas dire tout faire ou décider des capacités des autres. Il fallait rendre l’étape suivante claire et vérifier que l’équipe avait ce qu’il lui fallait. Le chiot restait près de son adulte pendant l’activité dans la zone de travail."
+        ],
+        "idea": "Propose de vrais choix et des responsabilités claires. Les tâches de sécurité reviennent aux adultes compétents.",
+        "question": "Un enfant veut aider, mais ne souhaite pas parler au groupe. Que proposer ?",
+        "choices": [
+          {
+            "text": "Un rôle utile de dessin ou de prise de notes",
+            "feedback": "Oui. Une contribution peut compter sans devoir parler devant les autres.",
+            "correct": true
+          },
+          {
+            "text": "Lui dire qu’il ne peut pas être dans l’équipe",
+            "feedback": "Écarter quelqu’un parce qu’il ne parle pas prive le groupe d’autres contributions utiles.",
+            "correct": false
+          },
+          {
+            "text": "Le faire parler pour prouver son assurance",
+            "feedback": "Participer ne devrait pas dépendre d’une prise de parole imposée. Demande quel soutien ou quel rôle lui convient.",
+            "correct": false
+          }
+        ],
+        "activity": "Crée un tableau des tâches pour un groupe imaginaire. Prévois un rôle calme, un rôle à partager et un moyen clair de demander de l’aide."
+      },
+      {
+        "title": "Le panneau que personne ne pouvait lire",
+        "paragraphs": [
+          "Le coin d’essai était prêt. L’équipe avait beaucoup travaillé sur un panneau peint. Des lettres bouclées entouraient des feuilles peintes. De près, c’était beau. Depuis le chemin, les mots étaient difficiles à lire.",
+          "La guide a d’abord pensé qu’ils avaient perdu un après-midi. Puis un visiteur a demandé où était le coin de lecture. L’équipe avait une observation utile : pour ce visiteur, le panneau ne remplissait pas son rôle. Il n’était pas nécessaire de blâmer l’enfant qui l’avait peint.",
+          "Ensemble, ils ont essayé des lettres plus grandes et plus claires, avec un simple dessin de livre. Ils ont placé le nouveau panneau à un endroit visible, sans bloquer le chemin. Les visiteurs pouvaient aussi demander leur direction à un bénévole.",
+          "Les feuilles peintes du premier panneau sont devenues une bordure ailleurs. L’enfant qui les avait peintes a aidé à choisir la nouvelle disposition. Modifier un travail n’effaçait pas le soin qu’on y avait mis. L’équipe découvrait les besoins du lieu, un essai après l’autre."
+        ],
+        "idea": "Les retours peuvent aider à améliorer un projet. Décris le problème sans humilier la personne qui l’a créé.",
+        "question": "Quel retour est utile ?",
+        "choices": [
+          {
+            "text": "Tu es nul pour faire des panneaux",
+            "feedback": "Cela étiquette une personne sans donner d’étape utile pour avancer.",
+            "correct": false
+          },
+          {
+            "text": "Les lettres sont difficiles à lire du chemin ; essayons-en de plus grandes",
+            "feedback": "Oui. Cela décrit un obstacle observable et un changement à tester.",
+            "correct": true
+          },
+          {
+            "text": "Ne jamais modifier un travail terminé",
+            "feedback": "Un essai peut révéler des problèmes. Modifier un projet peut le rendre plus utile.",
+            "correct": false
+          }
+        ],
+        "activity": "Dessine un panneau imaginaire. Regarde-le de plus loin. Qu’est-ce qui rendrait le message plus facile à comprendre ?"
+      },
+      {
+        "title": "Un coin qui continuait de changer",
+        "paragraphs": [
+          "Le jour de l’ouverture, un visiteur s’est assis pour lire au calme. Un autre est resté debout près de l’étagère. Une famille a demandé si un siège à l’ombre pourrait être ajouté plus tard. La guide l’a noté sur la page des avis.",
+          "Le coin ne répondait pas à toutes les préférences en même temps. Le groupe avait un point de départ pratique, et les adultes continueraient à vérifier l’accès et la sécurité. Une boîte de cartes illustrées permettait aussi de proposer une idée. Personne n’avait besoin de donner son nom.",
+          "À la dernière réunion, la guide a remercié l’équipe pour des contributions précises : repérer le problème du chemin, tester le panneau et vérifier la liste. Le projet avait changé parce que chacun avait remarqué des choses différentes. Partager les félicitations permettait de raconter fidèlement ce travail.",
+          "En partant, la fille a touché son badge en forme de boussole. Au départ, elle voulait diriger un projet. À la fin, elle avait de meilleures questions : Qui n’a pas encore pu répondre ? Que supposons-nous ? Que devons-nous tester ensuite ? Le jardin continuerait de grandir. La capacité d’écoute de l’équipe aussi."
+        ],
+        "idea": "Guider une équipe, c’est aussi écouter, reconnaître les contributions et revenir aux questions sans réponse.",
+        "question": "Après l’ouverture du coin de lecture, quelle suite est utile ?",
+        "choices": [
+          {
+            "text": "Ignorer les avis puisque le projet est fini",
+            "feedback": "Un espace peut demander des ajustements à l’usage. Les retours restent utiles.",
+            "correct": false
+          },
+          {
+            "text": "Laisser seulement l’organisatrice proposer des idées",
+            "feedback": "Les utilisateurs peuvent remarquer des choses qui échappent à l’organisatrice.",
+            "correct": false
+          },
+          {
+            "text": "Continuer à recueillir des avis accessibles et à réexaminer l’espace",
+            "feedback": "Oui. Une première version utilisable peut s’améliorer grâce à l’écoute et aux vérifications adaptées.",
+            "correct": true
+          }
+        ],
+        "activity": "Choisis une question de coopération du dernier chapitre. Montre comment une équipe imaginaire pourrait l’utiliser. Tu peux écrire, dessiner, montrer ou parler."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Leadership",
+        "meaning": "Aider un groupe à avancer vers un objectif commun."
+      },
+      {
+        "term": "Accès",
+        "meaning": "La possibilité d’atteindre, de comprendre et d’utiliser quelque chose."
+      },
+      {
+        "term": "Retour",
+        "meaning": "Des informations sur ce qui fonctionne et ce qui pourrait changer."
+      },
+      {
+        "term": "Critères",
+        "meaning": "Des points convenus pour comparer les choix."
+      }
+    ]
+  },
+  "the-market-town-notebook": {
+    "title": "Le carnet de Market Town",
+    "subtitle": "Une histoire Money Quest sur l’entrepreneuriat, les preuves et les décisions honnêtes",
+    "audience": "Strategist · 12–14 ans · Six chapitres avec un exemple chiffré de petite entreprise",
+    "description": "Un petit projet de marque-pages montre pourquoi ventes, bénéfice, équité et preuves sont des aspects différents d’une décision commerciale.",
+    "coverAlt": "La fille de Money Quest et son chiot explorent une ville marchande colorée.",
+    "chapters": [
+      {
+        "title": "Une idée est un point de départ",
+        "paragraphs": [
+          "À une fête associative encadrée à Market Town, l’équipe de la jeune guide voulait essayer un petit projet : des marque-pages faits main. Une personne aimait dessiner. Une autre aimait les chiffres. Une troisième a interrompu leur enthousiasme : « Est-ce que quelqu’un en veut vraiment ? »",
+          "Ils avaient tellement admiré leurs créations qu’ils tenaient l’intérêt des autres pour acquis. Avec l’autorisation d’un organisateur adulte, ils ont présenté deux modèles à la réunion préparatoire. Ils ont demandé aux personnes leur préférence et ce qui rendrait un marque-page utile. Ils ont noté des traits de comptage anonymes, sans nom ni coordonnées.",
+          "Plusieurs personnes aimaient les couleurs vives. Une lectrice souhaitait un format plus petit, adapté à un livre de poche. Une autre utilisait déjà un morceau de papier. L’équipe a noté les réponses positives comme négatives.",
+          "Le carnet contenait des observations, pas une garantie. Dire « ça me plaît » à une réunion n’était pas la même chose que payer plus tard. Ils commenceraient par un petit essai encadré par un adulte, plutôt qu’une grosse commande fondée sur leur enthousiasme."
+        ],
+        "idea": "Interroger les clients peut remettre en question les suppositions. L’intérêt ne garantit pas une vente.",
+        "question": "Quelle conclusion correspond aux retours reçus ?",
+        "choices": [
+          {
+            "text": "Toute personne qui aime un modèle l’achètera",
+            "feedback": "Une réponse positive n’est pas un engagement d’achat. Garde une place à l’incertitude.",
+            "correct": false
+          },
+          {
+            "text": "Les commentaires aident à préparer un petit essai",
+            "feedback": "Oui. Les retours peuvent guider un test sans prouver la demande future.",
+            "correct": true
+          },
+          {
+            "text": "Il faut supprimer les réponses négatives",
+            "feedback": "Supprimer les réponses gênantes rendrait les observations moins utiles.",
+            "correct": false
+          }
+        ],
+        "activity": "Invente deux modèles de marque-pages. Note une question qui ne pousse pas la personne à les complimenter ou à les acheter. Ne recueille pas de données personnelles."
+      },
+      {
+        "title": "Le coût avant la vente",
+        "paragraphs": [
+          "L’organisateur proposait une table gratuite pour l’essai. Un adulte a fixé un budget maximal. L’équipe n’a ni emprunté, ni ouvert de compte de vente, ni contacté de clients en privé. Elle préparait son projet dans le cadre de l’événement encadré.",
+          "Les matériaux pour dix marque-pages coûteraient quatre livres. Un panneau de présentation coûterait une livre. Les dépenses monétaires seraient donc de cinq livres. L’équipe a inscrit chaque coût sur une ligne distincte pour ne pas le perdre dans un total trop optimiste.",
+          "« Si nous en vendons dix à une livre chacun, nous recevons dix livres », a dit l’amateur de chiffres. « Mais ce n’est pas tout du bénéfice, a répondu la fille. Nous avons dépensé cinq livres pour l’essai. » Dans cet exemple simplifié, dix livres de recettes moins cinq livres de dépenses laisseraient cinq livres.",
+          "Leur temps n’était pas inclus dans ce calcul monétaire. Une activité durable devrait aussi considérer le temps et les autres coûts pertinents. L’équipe a signalé cette limite au lieu de présenter un petit projet de fête comme un modèle complet d’entreprise."
+        ],
+        "idea": "Les recettes sont l’argent des ventes. Dans cet exemple monétaire simplifié, le bénéfice correspond aux recettes moins toutes les dépenses indiquées.",
+        "question": "Les recettes sont de £10 et les dépenses totales de l’essai de £5. Que reste-t-il ?",
+        "choices": [
+          {
+            "text": "£5",
+            "feedback": "Oui. Dix moins cinq laisse cinq livres dans cet exemple simplifié, avant tout coût non indiqué.",
+            "correct": true
+          },
+          {
+            "text": "£10",
+            "feedback": "Dix livres représentent les recettes. Retire les cinq livres dépensées pour l’essai.",
+            "correct": false
+          },
+          {
+            "text": "£15",
+            "feedback": "Ajouter les coûts aux recettes ne calcule pas le bénéfice. Il faut soustraire les coûts.",
+            "correct": false
+          }
+        ],
+        "activity": "Dessine trois lignes : recettes £10, dépenses indiquées £5, somme restante £5. Ajoute une note sur un coût qu’une plus grande entreprise devrait peut-être aussi considérer."
+      },
+      {
+        "title": "Quand le total était plus petit",
+        "paragraphs": [
+          "L’équipe a envisagé une possibilité moins agréable. Et si seuls quatre marque-pages se vendaient ? Quatre ventes à une livre rapporteraient quatre livres. L’équipe aurait tout de même dépensé cinq livres pour l’essai.",
+          "La fille a tracé un trait sous le calcul. Quatre moins cinq donnait moins un. Selon les dépenses indiquées, l’essai ferait une perte d’une livre. Six marque-pages resteraient invendus. Ils pourraient servir plus tard, mais ils n’étaient pas de l’argent reçu d’un client.",
+          "Ils ont calculé que cinq ventes à une livre couvriraient les cinq livres de dépenses indiquées. C’était leur seuil de rentabilité simplifié. Il n’incluait ni rémunération du temps ni coût oublié.",
+          "Au lieu de cacher la perte possible, l’équipe l’a comparée au budget convenu avec l’adulte. Elle pouvait réduire l’essai, modifier un coût ou renoncer. Arrêter pouvait être raisonnable. Le carnet devait révéler les conséquences, pas prouver que toute idée méritait de devenir une entreprise."
+        ],
+        "idea": "Le stock invendu n’est pas une recette. Un essai peut perdre de l’argent même si le produit est bon.",
+        "question": "Quatre ventes à £1 rapportent £4 après £5 de dépenses. Quel est le résultat ?",
+        "choices": [
+          {
+            "text": "Un bénéfice de £4",
+            "feedback": "Quatre livres sont les recettes. Il faut encore compter les dépenses.",
+            "correct": false
+          },
+          {
+            "text": "Aucune perte puisqu’il reste des marque-pages",
+            "feedback": "Les marque-pages invendus sont du stock, pas des recettes. Le résultat monétaire simplifié reste une perte.",
+            "correct": false
+          },
+          {
+            "text": "Une perte de £1 dans cet exemple",
+            "feedback": "Oui. Des recettes de quatre moins des coûts de cinq donnent une perte d’une livre.",
+            "correct": true
+          }
+        ],
+        "activity": "Utilise des jetons pour représenter quatre, cinq puis dix ventes. Garde les dépenses fixes à cinq livres. Compare la perte, l’équilibre et le bénéfice."
+      },
+      {
+        "title": "Le message de présentation",
+        "paragraphs": [
+          "Une personne de l’équipe a proposé : « Les meilleurs marque-pages du monde ! » Une autre voulait écrire que chaque acheteur lirait plus vite. La guide a demandé les preuves de ces affirmations. Personne n’avait mesuré la vitesse de lecture, et « meilleur » dépendait du lecteur.",
+          "Ils ont essayé une description plus exacte : marque-pages en carton faits main, deux modèles, une livre chacun. Ils ont ajouté les dimensions pour juger la taille. Ils ont vérifié que les dessins étaient leurs créations, sans copier les personnages ou les œuvres d’un autre artiste.",
+          "Quelqu’un a proposé de les déclarer parfaits pour l’environnement. L’équipe ne pouvait pas justifier cette promesse. Elle pouvait décrire un matériau précis vérifié, mais cela ne prouverait pas l’absence d’impact environnemental du produit entier.",
+          "La présentation finale était moins spectaculaire, mais plus utile. Un lecteur pouvait comprendre l’offre, son prix et son adaptation à ses besoins. Des informations honnêtes ne garantissaient pas une vente. Elles donnaient une base plus claire pour décider."
+        ],
+        "idea": "Une affirmation publicitaire doit être étayée. Des informations précises et exactes sont plus utiles qu’une garantie inventée.",
+        "question": "Quelle affirmation l’équipe peut-elle justifier avec son projet réel ?",
+        "choices": [
+          {
+            "text": "Chaque lecteur lira deux fois plus vite",
+            "feedback": "L’équipe n’a aucune preuve sur la vitesse de lecture.",
+            "correct": false
+          },
+          {
+            "text": "Marque-pages en carton faits main, £1 chacun",
+            "feedback": "Oui. Cela décrit le produit et le prix prévu sans inventer un résultat.",
+            "correct": true
+          },
+          {
+            "text": "Ce produit n’a aucun impact environnemental",
+            "feedback": "Les informations disponibles ne démontrent pas cette affirmation générale.",
+            "correct": false
+          }
+        ],
+        "activity": "Écris une description factuelle de deux lignes pour un produit imaginaire. Souligne toute affirmation qui demanderait des preuves avant publication."
+      },
+      {
+        "title": "Une façon équitable de travailler",
+        "paragraphs": [
+          "Avant la fête, un enfant avait fabriqué la plupart des marque-pages. Un autre avait conçu la présentation. Un troisième serait absent au premier créneau de vente. Répartir le même nombre de tâches ne répartirait pas forcément l’effort ou les responsabilités équitablement.",
+          "L’équipe a revu les tâches avec l’organisateur. Elle a demandé ce que chacun pouvait faire, prévu des pauses et noté les rôles. Personne n’avait à révéler des raisons privées pour demander un autre rôle. L’organisateur restait responsable de l’argent, du règlement et des problèmes impliquant des visiteurs.",
+          "Ils ont décidé de l’usage de l’argent restant après les dépenses indiquées. Ils ont choisi un but approuvé par l’adulte responsable avant les ventes. Ils ne promettraient un don aux clients que si les modalités étaient exactes et claires.",
+          "Cette discussion a pris du temps qui aurait pu servir à fabriquer un autre marque-page. Elle a évité que chacun arrive à la fête avec des suppositions différentes. Même un petit projet impliquait confiance, responsabilité et consentement. Le calcul financier n’était qu’une partie du travail."
+        ],
+        "idea": "Mets-toi d’accord à l’avance sur les responsabilités et l’usage de l’argent. L’équité tient compte des situations, pas seulement des totaux.",
+        "question": "Quand décider de l’usage de l’argent restant après les dépenses ?",
+        "choices": [
+          {
+            "text": "Avant les ventes, avec l’adulte responsable",
+            "feedback": "Oui. Des modalités claires réduisent les malentendus et facilitent la vérification des promesses publiques.",
+            "correct": true
+          },
+          {
+            "text": "Seulement quand quelqu’un l’a emporté chez lui",
+            "feedback": "Les autres pourraient être surpris ou exclus. Il faut d’abord se mettre d’accord.",
+            "correct": false
+          },
+          {
+            "text": "Laisser la personne la plus bruyante décider en secret",
+            "feedback": "Une décision secrète ne permettrait ni compréhension commune ni consentement du groupe.",
+            "correct": false
+          }
+        ],
+        "activity": "Rédige un accord de projet imaginaire : un rôle, des pauses, une responsabilité d’adulte et un usage convenu de l’argent éventuellement restant."
+      },
+      {
+        "title": "Ce que le carnet pouvait leur apprendre",
+        "paragraphs": [
+          "À la fête, sept marque-pages se sont vendus à une livre chacun. L’équipe a noté sept livres de recettes. Les dépenses indiquées restaient de cinq livres : le résultat monétaire simplifié était un bénéfice de deux livres. Trois marque-pages restaient invendus.",
+          "La fille a vérifié chaque chiffre avec l’organisateur. L’équipe a comparé le résultat aux scénarios précédents. C’était mieux que quatre ventes et moins que dix. Cela ne prouvait pas qu’une autre fête donnerait le même résultat. Visiteurs, modèles, prix et coûts pouvaient changer.",
+          "Ils ont noté qu’un format était plus facile à manipuler, que la présentation était lisible et que les pauses aidaient à travailler au calme. Ils ont rappelé qu’un après-midi était un petit essai. Ils n’avaient ni mesuré tous les coûts ni découvert de règle universelle sur les clients.",
+          "Le carnet proposait trois suites : refaire un petit essai encadré, modifier le modèle ou arrêter et utiliser l’expérience ailleurs. Entreprendre n’exigeait pas de grandir sans fin. Il fallait une décision adaptée aux observations, aux personnes et aux ressources. La fille a fermé le carnet et emmené le chiot se promener au calme."
+        ],
+        "idea": "Examine les résultats et leurs limites. Les observations peuvent justifier de poursuivre, de modifier ou d’arrêter un projet.",
+        "question": "Sept ventes à £1 moins £5 de dépenses indiquées donnent quel résultat ?",
+        "choices": [
+          {
+            "text": "£7 de bénéfice et une entreprise au succès garanti",
+            "feedback": "Sept est le montant des recettes, et un petit essai ne garantit pas les résultats futurs.",
+            "correct": false
+          },
+          {
+            "text": "£3 de bénéfice parce qu’il reste trois marque-pages",
+            "feedback": "Trois est la quantité invendue. Le bénéfice utilise ici les recettes moins les dépenses indiquées.",
+            "correct": false
+          },
+          {
+            "text": "£2 de bénéfice dans cet essai simplifié",
+            "feedback": "Oui. Sept moins cinq laisse deux livres. Ce résultat n’inclut aucun coût non indiqué et ne prédit pas les ventes futures.",
+            "correct": true
+          }
+        ],
+        "activity": "Rédige un bilan en trois parties de cet essai imaginaire : un résultat, une limite et une suite raisonnable. Aucune vente réelle ni aucun compte ne sont nécessaires."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Recettes",
+        "meaning": "L’argent des ventes avant de soustraire les coûts."
+      },
+      {
+        "term": "Bénéfice",
+        "meaning": "Les recettes restantes après déduction des coûts pertinents."
+      },
+      {
+        "term": "Perte",
+        "meaning": "La somme de dépassement des coûts par rapport aux recettes."
+      },
+      {
+        "term": "Stock",
+        "meaning": "Les produits destinés à la vente, y compris les invendus."
+      },
+      {
+        "term": "Seuil de rentabilité",
+        "meaning": "Le point où les recettes couvrent les coûts inclus dans un calcul."
+      },
+      {
+        "term": "Preuves",
+        "meaning": "Les informations utilisées pour évaluer une affirmation ou une décision."
+      }
+    ]
   }
 }
