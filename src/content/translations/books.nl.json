@@ -1,0 +1,639 @@
+{
+  "emma-and-the-picture-plan": {
+    "title": "Emma en het plaatjesplan",
+    "subtitle": "Een oorspronkelijk Money Quest-verhaal om samen te lezen en ontdekken",
+    "audience": "Explorer · 6–8 jaar · Samen lezen en activiteiten naar keuze",
+    "description": "Emma ontdekt hoe ze een taak kan onthouden, oefenen en handige hulp vragen.",
+    "coverAlt": "Emma en Max in een Money Quest-omgeving die bij dit verhaal past.",
+    "chapters": [
+      {
+        "title": "Te veel taken tegelijk",
+        "paragraphs": [
+          "Emma wil een papieren stad maken. Ze moet papier kiezen, gebouwen tekenen, lijm zoeken en werkruimte maken. Ze begint aan drie taken en vergeet waar haar tekening ligt. Max wacht naast zijn deken.",
+          "Haar volwassene stelt voor één volgende stap te kiezen. Emma wijst naar een papierplaatje. Ze zoekt eerst het papier. De hele stad is nog niet af. Maar ze weet nu welk klein werkje ze doet."
+        ],
+        "idea": "Een duidelijke volgende stap kan helpen een grote taak te beginnen.",
+        "question": "Wat helpt Emma beginnen?",
+        "choices": [
+          {
+            "text": "Eén volgende stap kiezen",
+            "feedback": "Dat klopt. Een duidelijke volgende stap kan helpen een grote taak te beginnen.",
+            "correct": true
+          },
+          {
+            "text": "Alle taken tegelijk doen",
+            "feedback": "Kijk nog eens in het verhaal. Een duidelijke volgende stap kan helpen een grote taak te beginnen.",
+            "correct": false
+          },
+          {
+            "text": "Het papier verstoppen",
+            "feedback": "Denk aan wat er in dit hoofdstuk gebeurde. Een duidelijke volgende stap kan helpen een grote taak te beginnen.",
+            "correct": false
+          }
+        ],
+        "activity": "Teken het eerste stapje van een verzonnen papieren-stadproject. Je mag wijzen, tekenen, typen, ondersteunde communicatie gebruiken, spreken of een volwassene vragen je idee op te schrijven."
+      },
+      {
+        "title": "Een lijst die ze kan zien",
+        "paragraphs": [
+          "Emma tekent drie plaatjes: papier, gebouw en lijm. Ze legt ze op een rij. Een volwassene leest de volgorde met haar. Emma kan wijzen in plaats van de hele lijst te onthouden.",
+          "Als het papier klaar ligt, legt ze een fiche op dat plaatje. Het volgende plaatje toont het gebouw. Ze begint te tekenen. Vandaag helpen plaatjes. Een andere keer kan ze woorden, een gesproken herinnering of andere hulp kiezen."
+        ],
+        "idea": "Een plaatjesplan is één soort hulp. Je mag ook iets anders kiezen.",
+        "question": "Wat laat het fiche zien?",
+        "choices": [
+          {
+            "text": "Het hele project is mislukt",
+            "feedback": "Kijk nog eens in het verhaal. Een plaatjesplan is één soort hulp. Je mag ook iets anders kiezen.",
+            "correct": false
+          },
+          {
+            "text": "Iedereen moet plaatjes gebruiken",
+            "feedback": "Denk aan wat er in dit hoofdstuk gebeurde. Een plaatjesplan is één soort hulp. Je mag ook iets anders kiezen.",
+            "correct": false
+          },
+          {
+            "text": "Een stap is klaar",
+            "feedback": "Dat klopt. Een plaatjesplan is één soort hulp. Je mag ook iets anders kiezen.",
+            "correct": true
+          }
+        ],
+        "activity": "Leg drie verzonnen taakkaarten in een volgorde die je kunt volgen. Je mag wijzen, tekenen, typen, ondersteunde communicatie gebruiken, spreken of een volwassene vragen je idee op te schrijven."
+      },
+      {
+        "title": "Het dak dat viel",
+        "paragraphs": [
+          "Emma vouwt een papieren dak. Het glijdt van het huisje. Ze fronst. Eerst denkt ze dat ze niets kan bouwen. Haar volwassene vraagt wat er echt gebeurde. Eén dak gleed weg. Dat betekent niet dat elk volgend dak zal vallen.",
+          "Samen bekijken ze de vouw. Emma probeert een breder plaklipje. Dit dak blijft zitten. Max kijkt op bij het gejuich. Opnieuw proberen hielp doordat Emma iets veranderde. Ze deed niet alsof de eerste poging werkte."
+        ],
+        "idea": "Kijk eerst welk probleem er is. Kies daarna een verandering om te testen.",
+        "question": "Wat kan Emma veranderen?",
+        "choices": [
+          {
+            "text": "Doen alsof het dak bleef zitten",
+            "feedback": "Denk aan wat er in dit hoofdstuk gebeurde. Kijk eerst welk probleem er is. Kies daarna een verandering om te testen.",
+            "correct": false
+          },
+          {
+            "text": "Een breder plaklipje proberen",
+            "feedback": "Dat klopt. Kijk eerst welk probleem er is. Kies daarna een verandering om te testen.",
+            "correct": true
+          },
+          {
+            "text": "Besluiten dat ze nooit kan leren",
+            "feedback": "Kijk nog eens in het verhaal. Kijk eerst welk probleem er is. Kies daarna een verandering om te testen.",
+            "correct": false
+          }
+        ],
+        "activity": "Laat één verandering zien die een papieren oefendak zou kunnen helpen blijven zitten. Je mag wijzen, tekenen, typen, ondersteunde communicatie gebruiken, spreken of een volwassene vragen je idee op te schrijven."
+      },
+      {
+        "title": "Een rustiger plek",
+        "paragraphs": [
+          "Het wordt druk aan tafel. Iemand speelt muziek. Emma leest dezelfde opdracht twee keer, maar raakt steeds de weg kwijt. Ze vraagt of haar papier naar een rustigere hoek mag. Haar volwassene maakt ruimte.",
+          "Emma probeert de hoek. Daar kan ze de volgende stap makkelijker volgen. Misschien heeft ze nog hulp nodig. Rust helpt haar bij deze taak. Iemand anders kan iets anders nodig hebben. Eén middag vertelt niet wat iedereen nodig heeft."
+        ],
+        "idea": "Vraag wat bij deze taak helpt. Raad niet wat voor iedereen werkt.",
+        "question": "Wat probeert Emma?",
+        "choices": [
+          {
+            "text": "Een rustigere plek voor deze taak",
+            "feedback": "Dat klopt. Vraag wat bij deze taak helpt. Raad niet wat voor iedereen werkt.",
+            "correct": true
+          },
+          {
+            "text": "Een regel dat iedereen stilte nodig heeft",
+            "feedback": "Kijk nog eens in het verhaal. Vraag wat bij deze taak helpt. Raad niet wat voor iedereen werkt.",
+            "correct": false
+          },
+          {
+            "text": "Met elke activiteit stoppen",
+            "feedback": "Denk aan wat er in dit hoofdstuk gebeurde. Vraag wat bij deze taak helpt. Raad niet wat voor iedereen werkt.",
+            "correct": false
+          }
+        ],
+        "activity": "Wijs twee mogelijke werkplekken aan. Kies er één voor een verzonnen leerling. Je mag wijzen, tekenen, typen, ondersteunde communicatie gebruiken, spreken of een volwassene vragen je idee op te schrijven."
+      },
+      {
+        "title": "Een pauze hoort bij het plan",
+        "paragraphs": [
+          "Emma heeft aan drie huizen gewerkt. Haar handen zijn moe en ze let minder goed op. Ze vraagt om pauze. De volwassene zet de onafgemaakte stad op een dienblad. Zo is die later makkelijk te vinden.",
+          "Na het rusten kijkt Emma naar haar plaatjesplan. Ze kan doorgaan, hulp vragen of stoppen voor vandaag. Ze hoeft geen rust te verdienen door alles af te maken. Max rust al. Emma bewaart één gebouw voor later en vindt dat goed."
+        ],
+        "idea": "Pauzes en hulp mogen bij een haalbaar plan horen.",
+        "question": "Wat kan ze doen als ze moe is?",
+        "choices": [
+          {
+            "text": "Doorgaan totdat ze overstuur raakt",
+            "feedback": "Kijk nog eens in het verhaal. Pauzes en hulp mogen bij een haalbaar plan horen.",
+            "correct": false
+          },
+          {
+            "text": "Toestemming om te rusten verdienen",
+            "feedback": "Denk aan wat er in dit hoofdstuk gebeurde. Pauzes en hulp mogen bij een haalbaar plan horen.",
+            "correct": false
+          },
+          {
+            "text": "Pauzeren en terugkomen als ze wil",
+            "feedback": "Dat klopt. Pauzes en hulp mogen bij een haalbaar plan horen.",
+            "correct": true
+          }
+        ],
+        "activity": "Voeg een pauzekeuze toe aan je verzonnen taakplan. Je mag wijzen, tekenen, typen, ondersteunde communicatie gebruiken, spreken of een volwassene vragen je idee op te schrijven."
+      },
+      {
+        "title": "Laten zien wat ze leerde",
+        "paragraphs": [
+          "Aan het einde van de week laat Emma de stad aan een vriend zien. Ze wijst naar het plaatjesplan en het bredere daklipje. Haar vriend vraagt hoe ze het maakte. Emma kan het met het model uitleggen. Ze hoeft geen lang verslag te schrijven.",
+          "De volwassene ziet wat Emma leerde: een volgende stap kiezen, iets veranderen en een andere werkplek vragen. Sommige muren staan scheef. Toch laat de stad zien wat ze leerde. Een perfect model was niet het enige nuttige resultaat."
+        ],
+        "idea": "Je kunt laten zien wat je leerde met een model, plaatjes, woorden of andere communicatie.",
+        "question": "Wat laat nuttig leren zien?",
+        "choices": [
+          {
+            "text": "Vergelijken wiens werk het mooist is",
+            "feedback": "Denk aan wat er in dit hoofdstuk gebeurde. Je kunt laten zien wat je leerde met een model, plaatjes, woorden of andere communicatie.",
+            "correct": false
+          },
+          {
+            "text": "Een verandering aanwijzen die hielp",
+            "feedback": "Dat klopt. Je kunt laten zien wat je leerde met een model, plaatjes, woorden of andere communicatie.",
+            "correct": true
+          },
+          {
+            "text": "Elke scheve muur verstoppen",
+            "feedback": "Kijk nog eens in het verhaal. Je kunt laten zien wat je leerde met een model, plaatjes, woorden of andere communicatie.",
+            "correct": false
+          }
+        ],
+        "activity": "Kies één deel van een verzonnen project en laat zien hoe het veranderde. Je mag wijzen, tekenen, typen, ondersteunde communicatie gebruiken, spreken of een volwassene vragen je idee op te schrijven."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Plan",
+        "meaning": "Een manier om mogelijke volgende stappen te ordenen."
+      },
+      {
+        "term": "Oefenen",
+        "meaning": "Een vaardigheid opnieuw proberen met aandacht en passende hulp."
+      },
+      {
+        "term": "Ondersteuning",
+        "meaning": "Hulp die een taak beter haalbaar maakt."
+      }
+    ]
+  },
+  "the-pause-before-the-choice": {
+    "title": "De pauze vóór de keuze",
+    "subtitle": "Een oorspronkelijk Money Quest-verhaal om samen te lezen en ontdekken",
+    "audience": "Explorer · 6–8 jaar · Samen lezen en activiteiten naar keuze",
+    "description": "Een spannende etalage helpt Emma gevoelens, wachten en steun vragen te ontdekken.",
+    "coverAlt": "Emma en Max in een Money Quest-omgeving die bij dit verhaal past.",
+    "chapters": [
+      {
+        "title": "Nieuw, vrolijk speelgoed",
+        "paragraphs": [
+          "Emma ziet een speelgoedtrein in een etalage. Die heeft felrode wielen. Ze wil hem nu. Max snuffelt aan de stoep. Haar volwassene bekijkt het boodschappenlijstje. De trein staat er niet op.",
+          "Emma merkt dat ze haar portemonnee stevig vastknijpt. Ze kan benoemen dat ze de trein wil. Dat gevoel vertelt niet de prijs. Het beslist ook niet of kopen vandaag past. Ze kan eerst een vraag stellen."
+        ],
+        "idea": "Een gevoel vertelt hoe we ons voelen. Het geeft niet alle informatie die we voor een aankoop nodig hebben.",
+        "question": "Wat moet ze controleren?",
+        "choices": [
+          {
+            "text": "De prijs en het plan voor vandaag",
+            "feedback": "Dat klopt. Een gevoel vertelt hoe we ons voelen. Het geeft niet alle informatie die we voor een aankoop nodig hebben.",
+            "correct": true
+          },
+          {
+            "text": "Alleen hoe enthousiast ze is",
+            "feedback": "Kijk nog eens in het verhaal. Een gevoel vertelt hoe we ons voelen. Het geeft niet alle informatie die we voor een aankoop nodig hebben.",
+            "correct": false
+          },
+          {
+            "text": "Of de trein rood is",
+            "feedback": "Denk aan wat er in dit hoofdstuk gebeurde. Een gevoel vertelt hoe we ons voelen. Het geeft niet alle informatie die we voor een aankoop nodig hebben.",
+            "correct": false
+          }
+        ],
+        "activity": "Teken verzonnen speelgoed en voeg één nuttige vraag toe. Je mag wijzen, tekenen, typen, ondersteunde communicatie gebruiken, spreken of een volwassene vragen je idee op te schrijven."
+      },
+      {
+        "title": "Een woord vinden",
+        "paragraphs": [
+          "Emma zegt dat ze boos is omdat ze de trein niet kopen. Haar volwassene luistert. Die noemt haar niet stout vanwege haar gevoel. Ze gaan bij de drukke deur vandaan om elkaar beter te horen.",
+          "Emma wijst naar een teleurgesteld gezicht op een kaart. Dat woord past ook. Mensen mogen meerdere gevoelswoorden gebruiken, of geen woord. Een plaatje, gebaar of communicatiehulpmiddel kan duidelijk maken wat iemand nodig heeft. Een toespraak is niet nodig."
+        ],
+        "idea": "Je kunt gevoelens op verschillende manieren delen zonder iemand te veroordelen.",
+        "question": "Hoe kan Emma reageren?",
+        "choices": [
+          {
+            "text": "Bewijzen dat ze een toespraak kan houden",
+            "feedback": "Kijk nog eens in het verhaal. Je kunt gevoelens op verschillende manieren delen zonder iemand te veroordelen.",
+            "correct": false
+          },
+          {
+            "text": "Doen alsof er geen gevoel is",
+            "feedback": "Denk aan wat er in dit hoofdstuk gebeurde. Je kunt gevoelens op verschillende manieren delen zonder iemand te veroordelen.",
+            "correct": false
+          },
+          {
+            "text": "Een gevoelsplaatje aanwijzen",
+            "feedback": "Dat klopt. Je kunt gevoelens op verschillende manieren delen zonder iemand te veroordelen.",
+            "correct": true
+          }
+        ],
+        "activity": "Kies een gevoelsplaatje voor een verzonnen personage. Je hoeft geen eigen verhaal te vertellen. Je mag wijzen, tekenen, typen, ondersteunde communicatie gebruiken, spreken of een volwassene vragen je idee op te schrijven."
+      },
+      {
+        "title": "Ruimte om te wachten",
+        "paragraphs": [
+          "Emma wil meteen kiezen. Haar volwassene stelt voor een andere dag weer te kijken. Emma tekent de trein op een klein verlanglijstje. De tekening bewaart het idee. Het is geen koopbelofte.",
+          "Ze gaan naar de bibliotheek. Emma vindt de trein nog steeds leuk. De pauze heeft haar gevoel niet weggehaald. Ze heeft wel tijd om over een andere keuze na te denken. Ze kan van een boek genieten terwijl de trein op het lijstje blijft. Wachten hoeft niet nietsdoen te zijn."
+        ],
+        "idea": "Een verlanglijstje bewaart een idee zonder een aankoop te beloven.",
+        "question": "Wat betekent het lijstje?",
+        "choices": [
+          {
+            "text": "Het geld is al uitgegeven",
+            "feedback": "Denk aan wat er in dit hoofdstuk gebeurde. Een verlanglijstje bewaart een idee zonder een aankoop te beloven.",
+            "correct": false
+          },
+          {
+            "text": "Een idee om later opnieuw te bekijken",
+            "feedback": "Dat klopt. Een verlanglijstje bewaart een idee zonder een aankoop te beloven.",
+            "correct": true
+          },
+          {
+            "text": "Een belofte om alles te kopen",
+            "feedback": "Kijk nog eens in het verhaal. Een verlanglijstje bewaart een idee zonder een aankoop te beloven.",
+            "correct": false
+          }
+        ],
+        "activity": "Maak een verlanglijstje met één ding voor een verzonnen personage. Je mag wijzen, tekenen, typen, ondersteunde communicatie gebruiken, spreken of een volwassene vragen je idee op te schrijven."
+      },
+      {
+        "title": "Verschillende manieren om tot rust te komen",
+        "paragraphs": [
+          "In de bibliotheek wil Emma een rustigere plek. Haar volwassene biedt een stoel bij het raam of een korte wandeling buiten aan. Emma kiest de stoel. Ze bekijkt een bekend prentenboek. Max wacht bij de andere volwassene.",
+          "Een vriend zou misschien bewegen of gezelschap kiezen. Geen kalmerende activiteit werkt voor iedereen. Emma mag zeggen dat iets niet helpt. Haar volwassene blijft dichtbij en geeft steun. Ze hoeft niet eerst vrolijk te zijn voordat iemand luistert."
+        ],
+        "idea": "Bied keuzes en luister als een vorm van steun niet helpt.",
+        "question": "Wat mag ze kiezen?",
+        "choices": [
+          {
+            "text": "Steun die nuttig voelt",
+            "feedback": "Dat klopt. Bied keuzes en luister als een vorm van steun niet helpt.",
+            "correct": true
+          },
+          {
+            "text": "Eén methode die iedereen moet gebruiken",
+            "feedback": "Kijk nog eens in het verhaal. Bied keuzes en luister als een vorm van steun niet helpt.",
+            "correct": false
+          },
+          {
+            "text": "Doen alsof ze vrolijk is",
+            "feedback": "Denk aan wat er in dit hoofdstuk gebeurde. Bied keuzes en luister als een vorm van steun niet helpt.",
+            "correct": false
+          }
+        ],
+        "activity": "Teken twee steunkeuzes die een verzonnen volwassene zou kunnen aanbieden. Je mag wijzen, tekenen, typen, ondersteunde communicatie gebruiken, spreken of een volwassene vragen je idee op te schrijven."
+      },
+      {
+        "title": "Als een vriend iets anders wil",
+        "paragraphs": [
+          "Een vriend zegt dat de blauwe trein beter is dan de rode. Emma ergert zich. Zij vindt de rode leuk. Haar volwassene legt uit dat mensen andere kleuren en speelgoed mogen kiezen. Geen van die voorkeuren bepaalt de prijs.",
+          "De vrienden tekenen hun treinen op aparte bladzijden. Ze kunnen fijn praten zonder het over alles eens te zijn. Emma hoeft geen speelgoed te kopen om vrienden te blijven. In een fijne vriendschap passen verschillende interesses, geldgrenzen en antwoorden op een uitnodiging."
+        ],
+        "idea": "Bij verschillende voorkeuren hoef je geen geld uit te geven om vriendschap te bewijzen.",
+        "question": "Wat kunnen goede vrienden aanvaarden?",
+        "choices": [
+          {
+            "text": "Een aankoop als bewijs van vriendschap",
+            "feedback": "Kijk nog eens in het verhaal. Bij verschillende voorkeuren hoef je geen geld uit te geven om vriendschap te bewijzen.",
+            "correct": false
+          },
+          {
+            "text": "Slechts één lievelingskleur",
+            "feedback": "Denk aan wat er in dit hoofdstuk gebeurde. Bij verschillende voorkeuren hoef je geen geld uit te geven om vriendschap te bewijzen.",
+            "correct": false
+          },
+          {
+            "text": "Verschillende keuzes en grenzen",
+            "feedback": "Dat klopt. Bij verschillende voorkeuren hoef je geen geld uit te geven om vriendschap te bewijzen.",
+            "correct": true
+          }
+        ],
+        "activity": "Laat twee personages verschillende gratis activiteiten kiezen. Je mag wijzen, tekenen, typen, ondersteunde communicatie gebruiken, spreken of een volwassene vragen je idee op te schrijven."
+      },
+      {
+        "title": "Een keuze die ze kan uitleggen",
+        "paragraphs": [
+          "Bij een volgend bezoek bekijkt Emma de trein. Haar volwassene helpt de prijs en het beschikbare speelgoedgeld controleren. Emma bewaart het idee voor later. Iemand anders kan met diens eigen volwassene een andere toegestane keuze maken.",
+          "Emma legt het uit door naar haar verlanglijstje en een bibliotheektekening te wijzen. Ze heeft een gevoel benoemd, hulp gevraagd en informatie gecontroleerd. Soms zal ze nog teleurgesteld zijn. Leren kiezen betekent niet dat lastige gevoelens verdwijnen."
+        ],
+        "idea": "Bij een doordachte keuze mogen gevoelens, informatie en hulp horen.",
+        "question": "Wat hielp haar kiezen?",
+        "choices": [
+          {
+            "text": "De aankoop van een vriend nadoen",
+            "feedback": "Denk aan wat er in dit hoofdstuk gebeurde. Bij een doordachte keuze mogen gevoelens, informatie en hulp horen.",
+            "correct": false
+          },
+          {
+            "text": "Informatie controleren en hulp vragen",
+            "feedback": "Dat klopt. Bij een doordachte keuze mogen gevoelens, informatie en hulp horen.",
+            "correct": true
+          },
+          {
+            "text": "Nooit teleurgesteld zijn",
+            "feedback": "Kijk nog eens in het verhaal. Bij een doordachte keuze mogen gevoelens, informatie en hulp horen.",
+            "correct": false
+          }
+        ],
+        "activity": "Vertel de keuze met drie plaatjes: gevoel, vraag en mogelijke actie. Je mag wijzen, tekenen, typen, ondersteunde communicatie gebruiken, spreken of een volwassene vragen je idee op te schrijven."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Gevoel",
+        "meaning": "Een ervaring zoals enthousiasme, teleurstelling of zorgen."
+      },
+      {
+        "term": "Pauze",
+        "meaning": "Een korte stop voor de volgende actie."
+      },
+      {
+        "term": "Voorkeur",
+        "meaning": "Iets wat iemand graag heeft of kiest."
+      }
+    ]
+  },
+  "the-little-compass-and-the-money-choices": {
+    "title": "Het kleine kompas en de geldkeuzes",
+    "subtitle": "Een verhaal uit Coin Cove over uitgeven, sparen en zorgen voor elkaar",
+    "audience": "Explorer · 6–8 jaar · Lees zelf of samen met een volwassene",
+    "description": "Ga acht hoofdstukken mee met onze gids en haar puppy. Ontdek een modelboot, een verleidelijke markt en een plan dat mag veranderen.",
+    "coverAlt": "Onze jonge gids en haar bruin-witte puppy bekijken een houten modelboot bij een zonnige marktkraam in Coin Cove.",
+    "chapters": [
+      {
+        "title": "Een boot in de etalage",
+        "paragraphs": [
+          "Emma en haar puppy Max stoppen bij een winkel. Ze zien een kleine houten boot. Die heeft een paars zeil.",
+          "‘Die boot wil ik graag’, zegt Emma. ‘Hij kost zes pond’, zegt de winkelier. Emma opent haar portemonneetje.",
+          "Thuis helpt een volwassene tellen. Emma heeft vier munten van één pond. De boot kost zes pond. Ze heeft nog twee pond nodig.",
+          "Emma is teleurgesteld. Ze tekent de boot. ‘Ik kan wachten, ander speelgoed kiezen of mijn geld bewaren’, zegt ze. Ze hoeft niet te haasten."
+        ],
+        "idea": "Een prijs vertelt hoeveel iets kost. Als je iets wilt, hoef je het niet meteen te kopen.",
+        "question": "De boot kost £6. Het meisje heeft £4. Wat kan ze doen?",
+        "choices": [
+          {
+            "text": "De boot meenemen zonder te betalen",
+            "feedback": "De verkoper moet met een verkoop instemmen. Ze kan de boot laten staan en een plan maken.",
+            "correct": false
+          },
+          {
+            "text": "Wachten en een plan maken",
+            "feedback": "Ja. Wachten geeft haar denktijd. Ze mag ook een ander doel kiezen.",
+            "correct": true
+          },
+          {
+            "text": "Doen alsof vier pond zes pond is",
+            "feedback": "Andere woorden veranderen het bedrag niet. Ze heeft £4 en heeft nog £2 nodig.",
+            "correct": false
+          }
+        ],
+        "activity": "Teken iets dat een verzonnen personage graag wil. Je mag ook een voorwerp aanwijzen. Kiest het personage nu kopen, wachten of iets anders?"
+      },
+      {
+        "title": "Geld en manieren om te betalen",
+        "paragraphs": [
+          "Emma gaat met haar volwassene naar de bakker. Ze hebben brood voor de lunch nodig. Iemand betaalt met munten. Een ander houdt een pas bij het apparaat.",
+          "‘Maakt die pas geld?’ vraagt Emma. ‘Nee’, zegt haar volwassene. ‘Mijn betaalpas helpt mij betalen met geld op mijn bankrekening.’",
+          "Munten en bankbiljetten zijn contant geld. Een rekening houdt geld bij een bank bij. Een pas of telefoon helpt iemand betalen. Het is een hulpmiddel.",
+          "‘Ook contactloos betalen is uitgeven’, zegt de volwassene. Ze controleren eerst de prijs. Max snuffelt aan de boodschappentas. Hij vindt het brood interessanter!"
+        ],
+        "idea": "Munten en bankbiljetten zijn contant geld. Met een betaalpas of betaaltelefoon gebruik je rekeninggeld. Met een creditcard leen je geld dat je moet terugbetalen.",
+        "question": "Wat gebeurt er als een volwassene met een betaalpas betaalt?",
+        "choices": [
+          {
+            "text": "De pas maakt nieuw geld",
+            "feedback": "Een pas maakt geen geld. Hij helpt een betaling regelen.",
+            "correct": false
+          },
+          {
+            "text": "De boodschappen worden gratis",
+            "feedback": "De prijs moet betaald worden, ook als niemand munten geeft.",
+            "correct": false
+          },
+          {
+            "text": "Er wordt geld uit de rekening betaald",
+            "feedback": "Ja. De betaalpas helpt betalen vanuit een rekening. Het bedrag blijft belangrijk.",
+            "correct": true
+          }
+        ],
+        "activity": "Zoek plaatjes van een munt, bankbiljet, pas en telefoon in Coin Cove. Wijs contant geld aan, daarna een betaalmiddel. Gebruik plaatjes, geen echte passen of rekeninggegevens."
+      },
+      {
+        "title": "Het lijstje voor de markt",
+        "paragraphs": [
+          "Voor het winkelen helpt Emma een lijst maken. Ze hebben vandaag brood, groenten en zeep nodig. Max wacht bij de deur. Hij wil wandelen.",
+          "‘We plannen eerst voor wat we nodig hebben’, zegt de volwassene. Eten voedt het gezin. Met zeep kunnen ze zich wassen. De modelboot kan wachten.",
+          "Emma ziet een paraplu. ‘Is die nodig?’ vraagt ze. ‘Dat hangt ervan af’, zegt haar volwassene. ‘Iemand kan hem nodig hebben om droog te blijven.’",
+          "Emma zet de boot op haar lijstje ‘kan wachten’. Ze vindt hem nog steeds leuk. Speelgoed willen mag. Thuis krijgt Max zijn wandeling."
+        ],
+        "idea": "Wat we nodig hebben helpt ons leven en gezond blijven. Wat we graag willen kan plezier geven. Behoeften hangen af van de situatie.",
+        "question": "Wat hoort in dit verhaal eerst op de boodschappenlijst?",
+        "choices": [
+          {
+            "text": "Eten dat nodig is voor de lunch",
+            "feedback": "Ja. Het gezin heeft vandaag eten nodig. De boot kan wachten.",
+            "correct": true
+          },
+          {
+            "text": "Al het speelgoed op de markt",
+            "feedback": "Speelgoed is leuk. Maar na alles kopen blijft minder geld over voor de behoeften van het gezin.",
+            "correct": false
+          },
+          {
+            "text": "Alleen dingen met een opvallende verpakking",
+            "feedback": "Een verpakking trekt aandacht. Ze vertelt niet wat het gezin nodig heeft.",
+            "correct": false
+          }
+        ],
+        "activity": "Gebruik verzonnen plaatjeskaarten voor een personage op een regenachtige dag. Wat is vandaag belangrijk? Wat kan wachten? Je hoeft niet over het geld van je eigen gezin te vertellen."
+      },
+      {
+        "title": "De glimmende tol",
+        "paragraphs": [
+          "Op de markt ziet Emma een groene tol. Hij draait rond en rond. ‘Die kost twee pond’, zegt de winkelier.",
+          "Emma heeft vier pond. Na twee pond uitgeven aan de tol houdt ze twee pond over. De boot kost nog zes pond.",
+          "‘Ik vind ze allebei leuk’, zegt Emma. ‘Je mag kiezen wat vandaag telt’, zegt haar volwassene. ‘Je kunt hetzelfde geld niet twee keer uitgeven.’",
+          "Ze zitten met Max op een bankje. Emma denkt rustig na. ‘Vandaag spaar ik verder voor de boot’, zegt ze. Later mag ze opnieuw kiezen."
+        ],
+        "idea": "Geld dat je aan één ding uitgeeft kun je niet meer voor iets anders gebruiken. Een pauze helpt bij kiezen.",
+        "question": "Ze heeft £4 en geeft £2 uit aan de tol. Hoeveel blijft over?",
+        "choices": [
+          {
+            "text": "£6",
+            "feedback": "Uitgeven vermindert je geld. Haal twee fiches weg uit vier.",
+            "correct": false
+          },
+          {
+            "text": "£2",
+            "feedback": "Ja. Vier pond min twee pond is twee pond. Ze kan dat met haar doel vergelijken.",
+            "correct": true
+          },
+          {
+            "text": "£4",
+            "feedback": "Ze begon met £4, maar £2 gaat naar de verkoper. Tel wat overblijft.",
+            "correct": false
+          }
+        ],
+        "activity": "Gebruik vier fiches als speelponden. Verplaats twee naar een speelwinkel. Tel wat overblijft. Je mag wijzen, tekenen of een communicatiehulpmiddel gebruiken."
+      },
+      {
+        "title": "Een plan dat mag veranderen",
+        "paragraphs": [
+          "Emma tekent zes cirkels in haar schrift. Elke cirkel staat voor één pond. Ze kleurt vier cirkels voor haar vier pond.",
+          "Twee cirkels zijn leeg. Als er nog een pond beschikbaar komt om te sparen, kleurt ze er één. Dan is nog één pond nodig.",
+          "‘We weten niet wanneer meer geld beschikbaar komt’, zegt haar volwassene. Niet elk gezin geeft zakgeld. Een plan mag veranderen.",
+          "Emma maakt intussen een papieren boot. Max kijkt vanaf zijn deken. Dat is ook leuk. Je kunt plezier hebben zonder iets te kopen."
+        ],
+        "idea": "Een spaardoel heeft een doelbedrag en een beginbedrag. Plannen mogen veranderen. Geld sparen is niet altijd mogelijk.",
+        "question": "Het doel is £6 en ze heeft £4. Hoeveel heeft ze nog nodig?",
+        "choices": [
+          {
+            "text": "£10",
+            "feedback": "Doel en beginbedrag optellen geeft tien. We zoeken het verschil.",
+            "correct": false
+          },
+          {
+            "text": "£1",
+            "feedback": "Met één pond erbij heeft ze vijf. De boot kost zes. Tel verder.",
+            "correct": false
+          },
+          {
+            "text": "£2",
+            "feedback": "Ja. Vier plus twee is zes. Wanneer dat lukt hangt af van beschikbaar geld.",
+            "correct": true
+          }
+        ],
+        "activity": "Teken zes cirkels voor het verzonnen bootdoel. Kleur vier. Tel de twee lege. Echt geld of persoonlijke informatie is niet nodig."
+      },
+      {
+        "title": "Het bord dat zei: snel!",
+        "paragraphs": [
+          "Een speelgoedposter zegt ‘Snel!’ Emma wordt enthousiast. Het schip lijkt enorm. Ze pakt haar portemonnee, maar stopt dan.",
+          "‘Reclame probeert ons iets te laten kopen’, zegt haar volwassene. ‘We kunnen de prijs en de inhoud van de doos controleren.’",
+          "Het speelgoed is kleiner dan het plaatje. Emma vraagt of batterijen nodig zijn. Haar volwassene helpt de doos lezen. Vragen helpen bij kiezen.",
+          "Emma doet met Max een stap terug. ‘Ik denk eerst na’, zegt ze. Ze kan later of niets kopen. Het bord beslist niet voor haar."
+        ],
+        "idea": "Reclame moedigt kopen aan. Controleer de prijs en nuttige details. Je mag pauzeren of een vertrouwde volwassene vragen.",
+        "question": "Een reclame zegt ‘Snel!’ Wat kan het meisje doen?",
+        "choices": [
+          {
+            "text": "Pauzeren en de details controleren",
+            "feedback": "Ja. Vraag naar prijs, grootte en extra kosten voordat je kiest.",
+            "correct": true
+          },
+          {
+            "text": "Kopen voordat ze de prijs bekijkt",
+            "feedback": "Enthousiasme vertelt niet wat iets kost. Ze kan eerst controleren.",
+            "correct": false
+          },
+          {
+            "text": "Denken dat het plaatje bewijst dat iedereen het nodig heeft",
+            "feedback": "Mensen hebben verschillende behoeften. Een vrolijk plaatje bewijst niet dat iedereen moet kopen.",
+            "correct": false
+          }
+        ],
+        "activity": "Bedenk een poster voor verzonnen speelgoed. Wijs drie controlevragen aan: prijs, wat erbij zit en of het past bij wat de koper nodig heeft."
+      },
+      {
+        "title": "Iets aardigs dat niets kostte",
+        "paragraphs": [
+          "Bij de haven waait schoon picknickpapier van een buur weg. Emma vraagt haar volwassene of ze mogen helpen. Samen rapen ze het papier dichtbij op.",
+          "‘Dank je wel’, zegt de buur. Emma glimlacht. Helpen kostte geen geld. Later tekent ze iets voor een vriend die zich alleen voelt.",
+          "‘Zorgen kan door helpen, luisteren of om de beurt gaan’, zegt de volwassene. ‘Geld geven is een keuze. Je hoeft geen geld te geven dat je zelf nodig hebt.’",
+          "Emma heeft nog haar bootdoel. Dat mag belangrijk zijn, net als anderen. Ze leest naast Max. Sommige fijne momenten kosten niets."
+        ],
+        "idea": "Vriendelijkheid kan tijd, aandacht of hulp zijn. Geld doneren is een keuze, geen test van hoe goed iemand is.",
+        "question": "Hoe kun je aardig zijn zonder geld uit te geven?",
+        "choices": [
+          {
+            "text": "Een onbekende je rekeninggegevens geven",
+            "feedback": "Die gegevens zijn privé. Vraag een vertrouwde volwassene hulp bij verzoeken om geld of persoonlijke informatie.",
+            "correct": false
+          },
+          {
+            "text": "Luisteren naar een vriend die gezelschap wil",
+            "feedback": "Ja. Luisteren en samenzijn kunnen zorg tonen zonder een aankoop.",
+            "correct": true
+          },
+          {
+            "text": "Elke pond uitgeven zodat niemand teleurgesteld is",
+            "feedback": "Je hoeft geen geld uit te geven om zorg te bewijzen. Jouw behoeften en grenzen tellen ook.",
+            "correct": false
+          }
+        ],
+        "activity": "Kies iets aardigs voor een verzonnen personage: luisteren, om de beurt gaan of helpen met een veilige taak. Je mag je keuze aanwijzen."
+      },
+      {
+        "title": "De keuze bij de haven",
+        "paragraphs": [
+          "Later heeft Emma zes pond beschikbaar voor haar bootdoel. Haar volwassene vindt speelgoed kopen goed. Ze gaan terug naar de winkel.",
+          "De boot kost zes pond. Emma controleert het zeil. De winkelier legt veilig gebruik uit. ‘Ik kies nog deze boot’, zegt Emma.",
+          "Ze betaalt zes pond. Er is geen wisselgeld: ze betaalt precies de prijs. Het geld is uitgegeven. Ze kan er niets anders meer mee kopen.",
+          "Thuis drijft de boot in een ondiepe bak. Max kijkt vanaf de droge kant. Emma had ook verder mogen sparen. Nadenken en kiezen telden vooral."
+        ],
+        "idea": "Controleer de prijs, denk na over wat telt en kies. Een spaardoel bereiken betekent niet dat je moet kopen.",
+        "question": "Moet ze de boot kopen als ze genoeg heeft gespaard?",
+        "choices": [
+          {
+            "text": "Ja, een spaarplan mag nooit veranderen",
+            "feedback": "Een plan is een hulpmiddel. Het mag veranderen met je situatie of voorkeur.",
+            "correct": false
+          },
+          {
+            "text": "Ja, anders was het sparen voor niets",
+            "feedback": "Bewaard geld blijft beschikbaar voor een ander toegestaan doel. Ze mag opnieuw nadenken.",
+            "correct": false
+          },
+          {
+            "text": "Nee, ze mag controleren en opnieuw kiezen",
+            "feedback": "Ja. Met haar volwassene mag ze kopen, verder sparen of een ander doel kiezen.",
+            "correct": true
+          }
+        ],
+        "activity": "Kies je eigen einde. Teken het meisje dat de boot koopt, geld bewaart of nog een papieren boot maakt. Leg uit met wijzen, tekenen, typen of spreken."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Prijs",
+        "meaning": "Hoeveel iets kost."
+      },
+      {
+        "term": "Contant geld",
+        "meaning": "Geld in de vorm van munten en bankbiljetten."
+      },
+      {
+        "term": "Rekening",
+        "meaning": "Een overzicht van geld bij een bank of vergelijkbare aanbieder."
+      },
+      {
+        "term": "Budget",
+        "meaning": "Een plan voor beschikbaar geld en het gebruik ervan."
+      },
+      {
+        "term": "Sparen",
+        "meaning": "Geld bewaren voor later in plaats van het nu uitgeven."
+      },
+      {
+        "term": "Reclame",
+        "meaning": "Een boodschap om interesse in een product of dienst te wekken."
+      }
+    ]
+  }
+}
