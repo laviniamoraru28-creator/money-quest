@@ -1,0 +1,1974 @@
+{
+  "the-little-compass-and-the-money-choices": {
+    "title": "A pequena bússola e as escolhas com dinheiro",
+    "subtitle": "Uma história de Coin Cove sobre gastar, poupar e cuidar",
+    "audience": "Explorer · 6–8 anos · Lê sozinho ou com um adulto",
+    "description": "Acompanha a nossa guia e o seu cachorro em oito capítulos sobre um barco de brincar, um mercado tentador e um plano que pode mudar.",
+    "coverAlt": "A nossa guia e o seu cachorro castanho e branco observam um barco de madeira numa banca soalheira de Coin Cove.",
+    "chapters": [
+      {
+        "title": "Um barco na montra",
+        "paragraphs": [
+          "Emma e o seu cachorro Max param numa loja. Veem um pequeno barco de madeira. Tem uma vela roxa.",
+          "«Gostava de ter aquele barco», diz Emma. «Custa seis libras», responde o vendedor. Emma abre a sua pequena carteira.",
+          "Em casa, um adulto ajuda-a a contar. Emma tem quatro moedas de uma libra. O barco custa seis libras. Faltam duas libras.",
+          "Emma fica desiludida. Desenha o barco. «Posso esperar, escolher outro brinquedo ou guardar o dinheiro», diz. Não precisa de se apressar."
+        ],
+        "idea": "O preço indica quanto custa uma coisa. Desejá-la não significa que tenhamos de a comprar já.",
+        "question": "O barco custa £6. A menina tem £4. O que pode fazer?",
+        "choices": [
+          {
+            "text": "Levar o barco sem pagar",
+            "feedback": "O vendedor tem de concordar com a venda. Ela pode deixar o barco e fazer um plano.",
+            "correct": false
+          },
+          {
+            "text": "Esperar e fazer um plano",
+            "feedback": "Sim. Esperar dá-lhe tempo para pensar. Também pode escolher outro objetivo.",
+            "correct": true
+          },
+          {
+            "text": "Fingir que quatro libras são seis libras",
+            "feedback": "Mudar as palavras não muda a quantia. Tem £4 e precisa de mais £2 para este barco.",
+            "correct": false
+          }
+        ],
+        "activity": "Desenha algo que uma personagem gostaria de ter. Também podes apontar para um objeto. Decide se compraria agora, esperaria ou escolheria outra coisa."
+      },
+      {
+        "title": "Dinheiro e formas de pagar",
+        "paragraphs": [
+          "Emma vai à padaria com o seu adulto. Precisam de pão para o almoço. Uma pessoa paga com moedas. Outra aproxima um cartão.",
+          "«O cartão faz dinheiro?», pergunta Emma. «Não», responde o adulto. «O meu cartão de débito ajuda-me a pagar com o dinheiro da minha conta bancária.»",
+          "As moedas e as notas são numerário. Uma conta regista dinheiro num banco. Um cartão ou telemóvel pode ajudar a pagar. É uma ferramenta.",
+          "«Aproximar o cartão também é gastar», diz o adulto. Verificam o preço antes de pagar. Max cheira o saco das compras. Parece mais interessado no pão!"
+        ],
+        "idea": "Moedas e notas são numerário. Um cartão de débito ou telemóvel de pagamento ajuda a usar dinheiro da conta. Um cartão de crédito envolve um empréstimo que é preciso devolver.",
+        "question": "O que acontece quando um adulto paga com um cartão de débito?",
+        "choices": [
+          {
+            "text": "O cartão cria dinheiro novo",
+            "feedback": "Um cartão não cria dinheiro. É uma ferramenta que permite realizar um pagamento.",
+            "correct": false
+          },
+          {
+            "text": "As compras ficam gratuitas",
+            "feedback": "É preciso pagar o preço, mesmo que não se entreguem moedas.",
+            "correct": false
+          },
+          {
+            "text": "O dinheiro é pago a partir da conta",
+            "feedback": "Sim. O cartão de débito ajuda a pagar a partir de uma conta. A quantia continua a contar.",
+            "correct": true
+          }
+        ],
+        "activity": "Procura as imagens de moeda, nota, cartão e telemóvel em Coin Cove. Aponta para o numerário e depois para uma ferramenta de pagamento. Usa imagens, não cartões reais nem dados de contas."
+      },
+      {
+        "title": "A lista antes do mercado",
+        "paragraphs": [
+          "Antes das compras, Emma ajuda a fazer uma lista. Hoje precisam de pão, legumes e sabonete. Max espera à porta. Gostava de passear.",
+          "«Planeamos primeiro o que precisamos», diz o adulto. A comida alimenta a família. O sabonete ajuda na higiene. O barco pode esperar.",
+          "Emma vê um guarda-chuva. «É uma necessidade?», pergunta. «Depende», diz o adulto. «Alguém pode precisar dele para se manter seco.»",
+          "Emma põe o barco na lista de coisas que podem esperar. Continua a gostar dele. Não há mal em querer um brinquedo. Ao chegarem a casa, Max vai passear."
+        ],
+        "idea": "As necessidades ajudam-nos a viver e a estar bem. Os desejos podem trazer prazer. As necessidades dependem da situação de cada pessoa.",
+        "question": "Nesta história, o que deve vir primeiro na lista de compras da família?",
+        "choices": [
+          {
+            "text": "A comida necessária para o almoço",
+            "feedback": "Sim. A família precisa de comida hoje. O barco pode esperar.",
+            "correct": true
+          },
+          {
+            "text": "Todos os brinquedos do mercado",
+            "feedback": "Os brinquedos podem ser divertidos, mas comprar todos deixaria menos dinheiro para as necessidades da família.",
+            "correct": false
+          },
+          {
+            "text": "Só coisas com embalagens vistosas",
+            "feedback": "As embalagens podem chamar a atenção. Não indicam aquilo de que a família precisa.",
+            "correct": false
+          }
+        ],
+        "activity": "Usa cartões com imagens inventadas para uma personagem num dia de chuva. O que é importante hoje? O que pode esperar? Não precisas de falar sobre o dinheiro da tua família."
+      },
+      {
+        "title": "O pião brilhante",
+        "paragraphs": [
+          "No mercado, um pião verde chama a atenção de Emma. Gira sem parar. «Custa duas libras», diz o vendedor.",
+          "Emma tem quatro libras. Se comprar o pião por duas libras, ficam duas. O barco continua a custar seis libras.",
+          "«Gosto dos dois», diz Emma. «Podes escolher o que é importante hoje», responde o adulto. «Não podes gastar o mesmo dinheiro duas vezes.»",
+          "Sentam-se num banco com Max. Emma pensa com calma. «Hoje vou continuar a poupar para o barco», diz. Mais tarde pode voltar a escolher."
+        ],
+        "idea": "O dinheiro gasto numa coisa deixa de estar disponível para outra. Uma pausa pode ajudar-nos a escolher.",
+        "question": "Ela tem £4 e gasta £2 no pião. Quanto sobra?",
+        "choices": [
+          {
+            "text": "£6",
+            "feedback": "Gastar reduz o dinheiro disponível. Experimenta retirar duas fichas de um grupo de quatro.",
+            "correct": false
+          },
+          {
+            "text": "£2",
+            "feedback": "Sim. Quatro libras menos duas deixam duas libras. Pode comparar essa escolha com o seu objetivo.",
+            "correct": true
+          },
+          {
+            "text": "£4",
+            "feedback": "Começou com £4, mas entregaria £2 ao vendedor. Conta o que sobra.",
+            "correct": false
+          }
+        ],
+        "activity": "Usa quatro fichas como libras de brincar. Move duas para uma loja imaginária. Conta o que sobra. Podes apontar, desenhar ou usar uma ferramenta de comunicação."
+      },
+      {
+        "title": "Um plano que pode mudar",
+        "paragraphs": [
+          "Emma desenha seis círculos no caderno. Cada círculo representa uma libra. Pinta quatro pelas quatro libras que tem.",
+          "Dois círculos estão vazios. Se ficar disponível mais uma libra para poupar, pode pintar outro. Depois faltaria uma libra.",
+          "«Não sabemos quando haverá mais dinheiro disponível», diz o adulto. Nem todas as famílias dão mesada. Um plano pode mudar.",
+          "Enquanto espera, Emma faz um barco de papel. Max observa da manta. Um barco de papel também é divertido. Ela pode divertir-se sem comprar nada."
+        ],
+        "idea": "Um objetivo de poupança tem uma meta e uma quantia inicial. Os planos podem mudar. Nem sempre é possível ter dinheiro para poupar.",
+        "question": "A meta é £6 e ela tem £4. Quanto falta?",
+        "choices": [
+          {
+            "text": "£10",
+            "feedback": "Somar a meta e a quantia inicial dá dez, mas queremos a diferença entre elas.",
+            "correct": false
+          },
+          {
+            "text": "£1",
+            "feedback": "Mais uma libra daria cinco. O barco custa seis. Experimenta contar mais uma.",
+            "correct": false
+          },
+          {
+            "text": "£2",
+            "feedback": "Sim. Quatro mais dois são seis. O tempo necessário depende de haver mais dinheiro disponível.",
+            "correct": true
+          }
+        ],
+        "activity": "Desenha seis círculos para o objetivo do barco imaginário. Pinta quatro. Conta os dois círculos vazios. Não é preciso dinheiro real nem dados pessoais."
+      },
+      {
+        "title": "O anúncio que dizia depressa",
+        "paragraphs": [
+          "Um cartaz de brinquedos diz «Depressa!». Emma fica entusiasmada. O navio da imagem parece enorme. Estende a mão para a carteira e para.",
+          "«Um anúncio tenta fazer-nos querer comprar», diz o adulto. «Podemos verificar o preço e o que vem na caixa.»",
+          "O brinquedo verdadeiro é mais pequeno do que na imagem. Emma pergunta se precisa de pilhas. O adulto ajuda a ler a caixa. As perguntas ajudam a escolher.",
+          "Emma afasta-se com Max. «Vou pensar primeiro», diz. Pode comprar noutro dia ou não comprar nada. Um anúncio não tem de decidir por ela."
+        ],
+        "idea": "Os anúncios procuram incentivar a compra. Verifica o preço e os pormenores úteis. Podes fazer uma pausa ou pedir ajuda a um adulto de confiança.",
+        "question": "Um anúncio diz «Depressa!». O que pode fazer a menina?",
+        "choices": [
+          {
+            "text": "Parar e verificar os pormenores",
+            "feedback": "Sim. Pode perguntar o preço, o tamanho e os custos adicionais antes de escolher.",
+            "correct": true
+          },
+          {
+            "text": "Comprar antes de ver o preço",
+            "feedback": "O entusiasmo não revela o custo. Pode parar e verificar primeiro.",
+            "correct": false
+          },
+          {
+            "text": "Achar que a imagem prova que todos precisam daquilo",
+            "feedback": "As pessoas têm necessidades diferentes. Uma imagem alegre não prova que todos devam comprar uma coisa.",
+            "correct": false
+          }
+        ],
+        "activity": "Inventa um cartaz para um brinquedo imaginário. Depois aponta três coisas que um comprador deveria verificar: preço, o que está incluído e se corresponde às suas necessidades."
+      },
+      {
+        "title": "Uma gentileza que não custou dinheiro",
+        "paragraphs": [
+          "No porto, o papel limpo do piquenique de um vizinho voa com o vento. Emma pergunta ao adulto se podem ajudar. Juntos apanham o papel ali perto.",
+          "«Obrigado», diz o vizinho. Emma sorri. Ajudou sem gastar dinheiro. Mais tarde, faz um desenho para um amigo que se sente sozinho.",
+          "«Podes cuidar ao ajudar, ouvir ou esperar pela tua vez», diz o adulto. «Dar dinheiro é uma escolha. Não tens de dar dinheiro de que precisas.»",
+          "Emma mantém o objetivo do barco. Pode dar importância a isso e às outras pessoas. Lê ao lado de Max. Algumas partes felizes do dia não custam nada."
+        ],
+        "idea": "A gentileza pode envolver tempo, atenção ou ajuda. Doar dinheiro é uma escolha, não um teste à bondade de alguém.",
+        "question": "Como se pode mostrar gentileza sem gastar dinheiro?",
+        "choices": [
+          {
+            "text": "Dar os dados da conta a um desconhecido",
+            "feedback": "Os dados da conta são privados. Pede ajuda a um adulto de confiança perante pedidos de dinheiro ou dados pessoais.",
+            "correct": false
+          },
+          {
+            "text": "Ouvir um amigo que quer companhia",
+            "feedback": "Sim. Ouvir e passar tempo juntos pode mostrar cuidado sem comprar nada.",
+            "correct": true
+          },
+          {
+            "text": "Gastar todas as libras para ninguém ficar desiludido",
+            "feedback": "Não precisas de gastar para provar que te importas. As tuas necessidades e os teus limites também contam.",
+            "correct": false
+          }
+        ],
+        "activity": "Escolhe uma gentileza para uma personagem: ouvir, esperar pela vez ou ajudar numa tarefa segura. Podes apontar em vez de falar."
+      },
+      {
+        "title": "A escolha no porto",
+        "paragraphs": [
+          "Mais tarde, Emma tem seis libras disponíveis para o barco. O adulto concorda que pode usá-las num brinquedo. Voltam à loja.",
+          "O barco ainda custa seis libras. Emma verifica a vela. O vendedor explica como usá-lo em segurança. «Continuo a escolher este barco», diz Emma.",
+          "Paga seis libras. Não recebe troco porque paga o preço exato. Esse dinheiro foi gasto. Não o pode usar para comprar outra coisa.",
+          "Em casa, o barco flutua num tabuleiro pouco fundo. Max observa do lado seco. Emma também podia ter continuado a poupar. O importante foi pensar e escolher."
+        ],
+        "idea": "Verifica o preço, pensa no que importa e escolhe. Atingir uma meta de poupança não te obriga a comprar.",
+        "question": "Depois de poupar o suficiente, tem de comprar o barco?",
+        "choices": [
+          {
+            "text": "Sim, um plano de poupança nunca pode mudar",
+            "feedback": "Um plano é uma ferramenta. Pode mudar com as circunstâncias ou preferências.",
+            "correct": false
+          },
+          {
+            "text": "Sim, caso contrário poupou em vão",
+            "feedback": "O dinheiro guardado continua disponível para outra finalidade permitida. Ela pode reconsiderar.",
+            "correct": false
+          },
+          {
+            "text": "Não, pode verificar e escolher novamente",
+            "feedback": "Sim. Pode comprar, continuar a poupar ou escolher outra meta com a ajuda do adulto.",
+            "correct": true
+          }
+        ],
+        "activity": "Escolhe o teu final. Desenha a menina a comprar o barco, a guardar o dinheiro ou a fazer outro barco de papel. Explica apontando, desenhando, escrevendo ou falando."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Preço",
+        "meaning": "Quanto custa uma coisa."
+      },
+      {
+        "term": "Numerário",
+        "meaning": "Dinheiro em moedas e notas."
+      },
+      {
+        "term": "Conta",
+        "meaning": "Um registo de dinheiro guardado num banco ou entidade semelhante."
+      },
+      {
+        "term": "Orçamento",
+        "meaning": "Um plano para o dinheiro disponível e a sua utilização."
+      },
+      {
+        "term": "Poupar",
+        "meaning": "Guardar dinheiro para mais tarde, em vez de o gastar agora."
+      },
+      {
+        "term": "Anúncio",
+        "meaning": "Uma mensagem feita para despertar interesse num produto ou serviço."
+      }
+    ]
+  },
+  "the-garden-everyone-could-enter": {
+    "title": "O jardim onde todos podiam entrar",
+    "subtitle": "Uma história Money Quest sobre ouvir, liderar e pertencer",
+    "audience": "Builder · 9–11 anos · Seis capítulos para leres ao teu ritmo",
+    "description": "Um projeto de jardim fica parado quando a equipa descobre que o seu plano entusiasmante deixou alguém de fora.",
+    "coverAlt": "A menina Money Quest e o seu cachorro num jardim acolhedor e colorido.",
+    "chapters": [
+      {
+        "title": "O plano mais barulhento",
+        "paragraphs": [
+          "O jardim comunitário tinha um canto vazio. Na reunião de sábado, três crianças sugeriram um espaço de leitura. A nossa guia ofereceu-se para ajudar a organizá-lo. O cachorro deitou-se debaixo da mesa enquanto o grupo espalhava folhas sobre a madeira.",
+          "«Uma plataforma alta!», disse uma criança. «Uma escada secreta!», disse outra. A guia começou a desenhar. Todas as pessoas que falavam pareciam entusiasmadas. Pensou que havia acordo, até reparar numa criança ao fundo da mesa que não tinha falado.",
+          "A criança apontou para a escada e abanou a cabeça. Ao lado tinha uma prancha de comunicação. A guia parou de desenhar. A conversa animada não tinha dado a todos uma forma de participar. Pôs o papel à vista de todos e perguntou se imagens ou mais tempo para pensar ajudariam.",
+          "O grupo tinha começado, mas ainda não tinha um plano partilhado. A guia pousou o lápis. A sua primeira decisão útil como líder foi abrir espaço para outra resposta."
+        ],
+        "idea": "O acordo exige formas acessíveis de contribuir. O silêncio não significa automaticamente sim.",
+        "question": "O que deve fazer a guia antes de considerar o plano aprovado?",
+        "choices": [
+          {
+            "text": "Confirmar que todos têm uma forma de responder",
+            "feedback": "Sim. Apontar, escrever, usar imagens e ter tempo para pensar podem permitir a participação.",
+            "correct": true
+          },
+          {
+            "text": "Contar só as sugestões ditas mais alto",
+            "feedback": "O volume da voz não indica quais as necessidades que importam. O grupo também precisa de ouvir outras contribuições.",
+            "correct": false
+          },
+          {
+            "text": "Presumir que o silêncio significa acordo",
+            "feedback": "Uma pessoa pode precisar de outra forma de responder. Pergunta sem a pressionar a falar.",
+            "correct": false
+          }
+        ],
+        "activity": "Cria três cartões de resposta: sim, não e preciso de mais tempo. Podes usá-los numa reunião de equipa imaginária."
+      },
+      {
+        "title": "O caminho até ao banco",
+        "paragraphs": [
+          "A reunião seguinte começou com uma visita ao canto vazio. Foi também um voluntário do jardim. Em vez de perguntar qual o desenho mais entusiasmante, a guia perguntou como se entraria, sentaria e sairia do espaço.",
+          "A escada já parecia menos útil. Um avô que usasse um apoio para andar poderia ter dificuldades. Uma criança que procurasse sossego talvez não quisesse subir. Alguém poderia gostar de ficar de pé ou precisar de espaço junto ao banco.",
+          "Uma criança desenhou um caminho largo. Outra sugeriu um banco ao nível do chão. A criança com a prancha de comunicação apontou para um símbolo de silêncio e depois para uma árvore. O voluntário explicou que os adultos teriam de verificar acesso, materiais e segurança antes de construir.",
+          "A guia anotou perguntas em vez de prometer que um desenho resolveria todos os problemas. Podiam perguntar aos futuros utilizadores o que lhes servia. Um jardim acolhedor precisava de mais do que uma placa a dizer que todos eram bem-vindos."
+        ],
+        "idea": "Pergunta como as pessoas vão realmente usar um espaço comum. Não deduzas as necessidades de todos a partir da experiência de uma pessoa.",
+        "question": "Como pode a equipa melhorar o projeto?",
+        "choices": [
+          {
+            "text": "Escolher o desenho mais alto porque impressiona",
+            "feedback": "Uma imagem impressionante não mostra se as pessoas conseguem usar o espaço.",
+            "correct": false
+          },
+          {
+            "text": "Ouvir os utilizadores e pedir a um adulto uma avaliação da segurança e do acesso",
+            "feedback": "Sim. Os utilizadores e as verificações adequadas podem revelar barreiras que a equipa não viu.",
+            "correct": true
+          },
+          {
+            "text": "Prometer que um banco serve para todas as pessoas",
+            "feedback": "As necessidades variam. Testa a ideia e continua a ouvir, em vez de prometer uma solução universal.",
+            "correct": false
+          }
+        ],
+        "activity": "Desenha um canto de leitura imaginário. Mostra uma entrada, um lugar de descanso e uma opção sossegada. Anota uma pergunta para um possível utilizador."
+      },
+      {
+        "title": "Duas boas ideias",
+        "paragraphs": [
+          "A equipa tinha agora dois projetos possíveis. Um usava almofadas coloridas. O outro tinha bancos de madeira simples. As crianças que os sugeriram esperavam que a sua ideia ganhasse. A conversa tornou-se tensa.",
+          "«Nunca ouves», disse uma criança. A guia sentiu os ombros tensos. Queria acabar a discussão, mas escolher rapidamente o seu favorito não explicaria a decisão. Pediu uma pausa. Ninguém tinha de responder logo.",
+          "Quando voltaram, convidou cada criança a explicar o que o seu projeto ajudaria as pessoas a fazer. As almofadas davam conforto. Os bancos de madeira podiam ser mais fáceis de manter secos. Eram razões comparáveis, não provas de que uma criança era melhor do que outra.",
+          "O voluntário sugeriu testar uma pequena disposição antes da escolha final. O grupo podia descobrir os materiais adequados ao exterior. Discordar não tinha de acabar com o projeto. Podia ajudar a perceber o que faltava verificar."
+        ],
+        "idea": "Compara razões e critérios comuns. Discordar de uma ideia não é julgar a pessoa.",
+        "question": "Que pergunta ajuda o grupo a comparar os projetos de forma justa?",
+        "choices": [
+          {
+            "text": "Quem é mais popular?",
+            "feedback": "A popularidade não revela se um banco é prático ou confortável.",
+            "correct": false
+          },
+          {
+            "text": "Quem falou primeiro?",
+            "feedback": "Falar primeiro não explica como um projeto responde às necessidades do grupo.",
+            "correct": false
+          },
+          {
+            "text": "Como responde cada projeto às necessidades que acordámos?",
+            "feedback": "Sim. Os critérios comuns centram a atenção na tarefa, não no estatuto das pessoas.",
+            "correct": true
+          }
+        ],
+        "activity": "Compara dois projetos imaginários com as mesmas perguntas: é utilizável, confortável e adequado ao exterior? Podes registar as escolhas com marcas ou imagens."
+      },
+      {
+        "title": "Tarefas que se podiam escolher",
+        "paragraphs": [
+          "Havia muito a fazer antes do teste. A guia começou a distribuir tarefas e parou. Tinha convidado as pessoas para o projeto, mas não tinha perguntado como queriam contribuir.",
+          "Fez um pequeno quadro de tarefas: desenhar placas, contar materiais, testar a disposição e registar opiniões. O voluntário ficou com as tarefas dos adultos, incluindo verificar ferramentas e supervisionar a construção. As crianças podiam escolher um papel adequado, trabalhar com outra pessoa ou fazer uma pausa.",
+          "Uma criança queria escrever, mas não ler em voz alta. Outra preferia organizar etiquetas com imagens. Alguém que estivera calado na reunião encontrou um erro na contagem dos materiais. A guia agradeceu e corrigiu a lista.",
+          "Ela continuou a acompanhar o projeto. Liderar não era fazer todas as tarefas nem decidir a capacidade dos outros. Era esclarecer o próximo passo e verificar se a equipa tinha o necessário. A contribuição do cachorro foi ficar junto do seu adulto enquanto havia movimento na zona de trabalho."
+        ],
+        "idea": "Oferece escolhas com significado e responsabilidades claras. As tarefas de segurança cabem aos adultos adequados.",
+        "question": "Uma criança quer ajudar, mas não quer falar perante o grupo. O que faz sentido?",
+        "choices": [
+          {
+            "text": "Oferecer uma tarefa útil de desenho ou registo",
+            "feedback": "Sim. Uma contribuição não precisa de uma apresentação oral para ter valor.",
+            "correct": true
+          },
+          {
+            "text": "Dizer que não pode pertencer à equipa",
+            "feedback": "Excluir alguém por não falar elimina formas úteis de essa pessoa contribuir.",
+            "correct": false
+          },
+          {
+            "text": "Obrigá-la a falar para provar confiança",
+            "feedback": "A participação não deve depender de falar à força. Pergunta que apoio ou papel funciona para ela.",
+            "correct": false
+          }
+        ],
+        "activity": "Faz um quadro de tarefas para um projeto imaginário. Inclui uma tarefa sossegada, uma partilhada e uma forma clara de pedir ajuda."
+      },
+      {
+        "title": "A placa que ninguém conseguia ler",
+        "paragraphs": [
+          "O canto de teste estava pronto. A equipa tinha trabalhado numa placa pintada. Letras ornamentadas rodeavam folhas desenhadas. De perto, era bonita. Do caminho, as palavras eram difíceis de ler.",
+          "A guia pensou primeiro que tinham desperdiçado uma tarde. Depois, um visitante perguntou onde ficava o canto de leitura. Era uma informação útil: a placa não cumpria a sua função para aquele visitante. Não era preciso culpar quem a pintara.",
+          "Juntos testaram letras maiores e mais claras e uma imagem simples de um livro. Colocaram a nova placa à vista sem bloquear o caminho. Os visitantes também podiam pedir indicações a um voluntário.",
+          "As folhas pintadas originais passaram a decorar outra margem. A criança que as pintara ajudou a escolher a nova disposição. Mudar um trabalho não apagava o cuidado que tinha recebido. A equipa descobria as necessidades do espaço, um teste de cada vez."
+        ],
+        "idea": "As opiniões ajudam a melhorar um projeto. Descreve o problema sem envergonhar a pessoa que o fez.",
+        "question": "Que comentário é útil?",
+        "choices": [
+          {
+            "text": "És mau a fazer placas",
+            "feedback": "Isso rotula uma pessoa e não dá um próximo passo útil.",
+            "correct": false
+          },
+          {
+            "text": "As letras são difíceis de ler do caminho; vamos testar letras maiores",
+            "feedback": "Sim. Descreve uma barreira observável e uma alteração que o grupo pode experimentar.",
+            "correct": true
+          },
+          {
+            "text": "Nunca alteres um trabalho depois de o fazer",
+            "feedback": "Os testes podem revelar problemas. Alterar um projeto pode torná-lo mais útil.",
+            "correct": false
+          }
+        ],
+        "activity": "Desenha uma placa imaginária. Observa-a de mais longe. O que poderia facilitar a compreensão da mensagem?"
+      },
+      {
+        "title": "Um canto que continuava a mudar",
+        "paragraphs": [
+          "No dia da abertura, um visitante sentou-se a ler em silêncio. Outro ficou de pé junto à estante. Uma família perguntou se mais tarde podiam acrescentar um banco à sombra. A guia anotou a sugestão.",
+          "O canto não satisfazia todas as preferências ao mesmo tempo. O grupo tinha um ponto de partida prático, e os adultos continuariam a verificar acesso e segurança. Uma caixa de cartões com imagens permitia deixar sugestões de outra forma. Ninguém precisava de dar o nome.",
+          "Na reunião final, a guia agradeceu contribuições concretas: detetar o problema do caminho, testar a placa e conferir a lista. O projeto mudara porque as pessoas repararam em coisas diferentes. Partilhar o mérito contava a história com rigor.",
+          "Ao sair, a menina tocou no emblema da bússola. Começara por querer liderar um projeto. Acabou com perguntas melhores: Quem ainda não pôde responder? O que estamos a presumir? O que devemos testar a seguir? O jardim continuaria a crescer. A capacidade de ouvir da equipa também."
+        ],
+        "idea": "Liderar inclui ouvir, partilhar o mérito e voltar às perguntas sem resposta.",
+        "question": "Qual é um próximo passo útil após abrir o canto de leitura?",
+        "choices": [
+          {
+            "text": "Ignorar as opiniões porque o projeto acabou",
+            "feedback": "Um espaço pode precisar de ajustes durante a utilização. As opiniões continuam a ser úteis.",
+            "correct": false
+          },
+          {
+            "text": "Deixar só o organizador sugerir mudanças",
+            "feedback": "Os utilizadores podem reparar em coisas que escapam ao organizador.",
+            "correct": false
+          },
+          {
+            "text": "Continuar a recolher opiniões de forma acessível e a rever o espaço",
+            "feedback": "Sim. Uma primeira versão utilizável pode melhorar com escuta e verificações adequadas.",
+            "correct": true
+          }
+        ],
+        "activity": "Escolhe uma pergunta de liderança do último capítulo. Mostra como uma equipa imaginária a usaria. Podes escrever, desenhar, apontar ou falar."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Liderança",
+        "meaning": "Ajudar um grupo a trabalhar para um objetivo comum."
+      },
+      {
+        "term": "Acesso",
+        "meaning": "Conseguir chegar a algo, compreendê-lo e utilizá-lo."
+      },
+      {
+        "term": "Opiniões",
+        "meaning": "Informação sobre o que funciona e o que pode mudar."
+      },
+      {
+        "term": "Critérios",
+        "meaning": "Pontos acordados para comparar escolhas."
+      }
+    ]
+  },
+  "the-market-town-notebook": {
+    "title": "O caderno de Market Town",
+    "subtitle": "Uma história Money Quest sobre empreendedorismo, provas e decisões honestas",
+    "audience": "Strategist · 12–14 anos · Seis capítulos com um exemplo de negócio resolvido",
+    "description": "Um pequeno projeto de marcadores mostra que vendas, lucro, justiça e provas são partes diferentes de uma decisão de negócio.",
+    "coverAlt": "A menina Money Quest e o seu cachorro exploram uma vila com um mercado colorido.",
+    "chapters": [
+      {
+        "title": "Uma ideia é um ponto de partida",
+        "paragraphs": [
+          "Numa feira comunitária supervisionada em Market Town, a equipa da guia quis experimentar um pequeno projeto: marcadores feitos à mão. Uma pessoa adorava desenhar. Outra gostava de números. Uma terceira interrompeu o entusiasmo: «Será que alguém quer realmente isto?»",
+          "Gostavam tanto dos seus desenhos que tinham dado o interesse como certo. Com autorização de um organizador adulto, mostraram dois modelos na reunião de preparação. Perguntaram qual preferiam e o que tornaria um marcador útil. Registaram contagens anónimas, não nomes nem contactos.",
+          "Várias pessoas gostaram das cores vivas. Uma leitora queria um formato menor que coubesse num livro de bolso. Outra disse que já usava um pedaço de papel. A equipa anotou respostas positivas e negativas.",
+          "O caderno tinha agora informação, mas não uma garantia. Dizer «gosto» numa reunião não era pagar por um marcador mais tarde. Começariam com um pequeno teste supervisionado, não com uma grande encomenda baseada no entusiasmo."
+        ],
+        "idea": "Pesquisar os clientes pode pôr suposições à prova. O interesse não garante uma venda.",
+        "question": "Que conclusão corresponde às opiniões recolhidas?",
+        "choices": [
+          {
+            "text": "Todos os que gostam do desenho vão comprá-lo",
+            "feedback": "Uma resposta positiva não é um compromisso de compra. Mantém a incerteza no plano.",
+            "correct": false
+          },
+          {
+            "text": "Os comentários ajudam a preparar um pequeno teste",
+            "feedback": "Sim. As opiniões orientam um teste sem provar a procura futura.",
+            "correct": true
+          },
+          {
+            "text": "As respostas negativas devem ser apagadas",
+            "feedback": "Eliminar respostas inconvenientes tornaria a informação menos útil.",
+            "correct": false
+          }
+        ],
+        "activity": "Inventa dois modelos de marcador. Escreve uma pergunta que não pressione a elogiar ou comprar. Não recolhas dados pessoais."
+      },
+      {
+        "title": "O custo antes da venda",
+        "paragraphs": [
+          "O organizador ofereceu uma mesa gratuita para o teste. Um adulto aprovou um orçamento máximo. A equipa não pediu empréstimos, não abriu contas de venda nem contactou clientes em privado. Planeou tudo dentro do evento supervisionado.",
+          "Os materiais para dez marcadores custariam quatro libras. Um cartão de exposição custaria uma libra. Os custos monetários totais do teste seriam cinco libras. Registaram cada custo numa linha para não desaparecer num total otimista.",
+          "«Se vendermos dez por uma libra cada, recebemos dez libras», disse quem gostava de números. «Mas não é tudo lucro», respondeu a menina. «Gastámos cinco libras no teste.» Neste exemplo simplificado, dez libras de receita menos cinco de custos monetários deixariam cinco libras.",
+          "O tempo não entrava nesse cálculo monetário. Um negócio contínuo precisaria também de considerar o tempo e outros custos relevantes. A equipa identificou claramente a simplificação, em vez de apresentar uma feira pequena como um modelo de negócio completo."
+        ],
+        "idea": "A receita é o dinheiro das vendas. Neste exemplo monetário simplificado, o lucro é a receita menos todos os custos monetários indicados.",
+        "question": "A receita é £10 e os custos monetários totais são £5. Quanto sobra?",
+        "choices": [
+          {
+            "text": "£5",
+            "feedback": "Sim. Dez menos cinco deixam cinco libras neste exemplo simplificado, sem considerar custos não indicados.",
+            "correct": true
+          },
+          {
+            "text": "£10",
+            "feedback": "Dez libras são a receita. Subtrai as cinco libras gastas no teste.",
+            "correct": false
+          },
+          {
+            "text": "£15",
+            "feedback": "Somar custos à receita não calcula o lucro. É preciso subtrair os custos.",
+            "correct": false
+          }
+        ],
+        "activity": "Desenha três linhas: receita £10, custos monetários indicados £5 e restante £5. Acrescenta um custo que um negócio maior talvez tivesse de considerar."
+      },
+      {
+        "title": "Quando o total foi menor",
+        "paragraphs": [
+          "A equipa discutiu uma possibilidade menos confortável. E se só vendesse quatro marcadores? Quatro vendas a uma libra dariam quatro libras de receita. Continuariam a ter gasto cinco libras no teste.",
+          "A menina traçou uma linha sob a conta. Quatro menos cinco dava menos um. Com os custos indicados, o teste teria um prejuízo de uma libra. Sobrariam seis marcadores. Poderiam ser úteis mais tarde, mas não eram dinheiro recebido de um cliente.",
+          "Calcularam também que cinco vendas a uma libra cobririam as cinco libras de custos monetários. Era o ponto de equilíbrio simplificado. Não incluía remuneração pelo tempo nem novos custos esquecidos.",
+          "Em vez de ocultar o possível prejuízo, compararam-no com o orçamento aprovado pelo adulto. Podiam reduzir o teste, alterar um custo ou não avançar. Parar também podia ser sensato. O caderno servia para revelar consequências, não para provar que toda a ideia devia tornar-se um negócio."
+        ],
+        "idea": "O stock por vender não é receita de vendas. Um teste pode perder dinheiro mesmo que o produto seja bom.",
+        "question": "Quatro vendas a £1 dão £4 de receita após £5 de custos monetários. Qual é o resultado?",
+        "choices": [
+          {
+            "text": "Um lucro de £4",
+            "feedback": "Quatro libras são a receita. Os custos ainda precisam de ser contabilizados.",
+            "correct": false
+          },
+          {
+            "text": "Não há prejuízo porque sobram marcadores",
+            "feedback": "Os marcadores por vender são stock, não dinheiro de vendas. O resultado monetário simplificado continua a ser um prejuízo.",
+            "correct": false
+          },
+          {
+            "text": "Um prejuízo de £1 neste exemplo monetário",
+            "feedback": "Sim. Quatro de receita menos cinco de custos dão um prejuízo de uma libra.",
+            "correct": true
+          }
+        ],
+        "activity": "Usa fichas para simular quatro, cinco e dez vendas. Mantém o custo de cinco libras. Compara prejuízo, equilíbrio e lucro."
+      },
+      {
+        "title": "A mensagem na exposição",
+        "paragraphs": [
+          "Alguém sugeriu: «Os melhores marcadores do mundo!» Outra pessoa queria prometer que todos leriam mais depressa. A guia perguntou que provas tinham. Ninguém medira a velocidade de leitura, e o «melhor» dependia do leitor.",
+          "Experimentaram uma descrição mais rigorosa: marcadores de cartolina feitos à mão, dois modelos, uma libra cada. Acrescentaram as medidas para as pessoas avaliarem o tamanho. Confirmaram que os desenhos eram seus e não copiavam personagens ou obras de outros criadores.",
+          "Alguém sugeriu dizer que os marcadores eram ambientalmente perfeitos. Também não podiam sustentar essa promessa. Podiam descrever um material concreto que tinham verificado, mas isso não provava que todo o produto fosse isento de impacto ambiental.",
+          "A exposição final era menos dramática e mais útil. Um leitor percebia a oferta, o custo e se lhe servia. A informação honesta não garantia uma venda, mas dava aos clientes uma base mais clara para decidir."
+        ],
+        "idea": "Uma afirmação publicitária precisa de fundamento. Informação concreta e rigorosa é mais útil do que uma garantia inventada.",
+        "question": "Que afirmação pode a equipa sustentar com o plano real?",
+        "choices": [
+          {
+            "text": "Todos os leitores vão ler duas vezes mais depressa",
+            "feedback": "A equipa não tem provas sobre a velocidade de leitura.",
+            "correct": false
+          },
+          {
+            "text": "Marcadores de cartolina feitos à mão, £1 cada",
+            "feedback": "Sim. Descreve o produto e o preço previsto sem inventar resultados.",
+            "correct": true
+          },
+          {
+            "text": "Este produto não tem impacto ambiental",
+            "feedback": "A informação disponível não demonstra uma afirmação tão ampla.",
+            "correct": false
+          }
+        ],
+        "activity": "Escreve uma descrição factual de duas linhas para um produto imaginário. Sublinha as afirmações que precisariam de provas antes de publicar."
+      },
+      {
+        "title": "Uma forma justa de trabalhar",
+        "paragraphs": [
+          "Antes da feira, uma criança fizera a maioria dos marcadores. Outra criara a exposição. Uma terceira estaria ausente no primeiro turno de venda. Dividir o número de tarefas igualmente não seria necessariamente dividir esforço e responsabilidade de forma justa.",
+          "A equipa reviu as tarefas com o organizador. Perguntaram o que cada pessoa conseguia fazer, combinaram pausas e registaram responsabilidades. Ninguém precisava de revelar motivos privados para preferir outro papel. O organizador manteve a responsabilidade pelo dinheiro, pelas regras e por preocupações com visitantes.",
+          "Também acordaram o destino do dinheiro que sobrasse após os custos indicados. Escolheram uma finalidade aprovada pelo adulto antes das vendas. Não prometeriam um donativo aos clientes sem que as condições fossem exatas e claras.",
+          "Esta conversa levou tempo que podiam ter usado para fazer outro marcador. Também evitou que chegassem à feira com ideias diferentes sobre o combinado. Mesmo um pequeno projeto envolvia confiança, responsabilidade e consentimento. As contas eram apenas parte do trabalho."
+        ],
+        "idea": "Acorda previamente as responsabilidades e o destino do dinheiro. A justiça considera as circunstâncias, além dos totais.",
+        "question": "Quando deve a equipa acordar o destino do dinheiro restante após os custos?",
+        "choices": [
+          {
+            "text": "Antes das vendas, com o adulto responsável",
+            "feedback": "Sim. Acordos claros reduzem mal-entendidos e facilitam verificar promessas públicas.",
+            "correct": true
+          },
+          {
+            "text": "Só depois de alguém o levar para casa",
+            "feedback": "Isso pode surpreender ou excluir outras pessoas. Combina primeiro.",
+            "correct": false
+          },
+          {
+            "text": "Deixar a pessoa que fala mais alto decidir em segredo",
+            "feedback": "Uma decisão secreta não permite entendimento nem consentimento partilhados.",
+            "correct": false
+          }
+        ],
+        "activity": "Escreve um acordo de projeto imaginário com uma função, pausas, uma responsabilidade adulta e um destino acordado para o dinheiro restante."
+      },
+      {
+        "title": "O que o caderno podia revelar",
+        "paragraphs": [
+          "Na feira, venderam sete marcadores por uma libra cada. Registaram sete libras de receita. Os custos monetários indicados continuavam a ser cinco, pelo que o resultado simplificado foi um lucro de duas libras. Sobraram três marcadores.",
+          "A menina conferiu cada número com o organizador. Compararam depois o resultado com os cenários anteriores. Era superior a quatro vendas e inferior a dez. Não provava que outra feira teria o mesmo resultado. Visitantes, desenhos, preços e custos podiam mudar.",
+          "Anotaram observações úteis: um tamanho era mais fácil de manusear, a exposição lia-se bem e as pausas ajudavam a trabalhar com calma. Também registaram que uma tarde era um teste pequeno. Não tinham medido todos os custos nem descoberto uma regra universal sobre clientes.",
+          "O caderno terminou com três hipóteses: repetir um pequeno teste supervisionado, alterar o desenho ou parar e aplicar a experiência noutro contexto. Empreender não exigia crescimento sem fim. Exigia uma decisão adequada às provas, às pessoas e aos recursos. A menina fechou o caderno e levou o cachorro a passear sossegadamente."
+        ],
+        "idea": "Revê os resultados e as suas limitações. As provas podem apoiar continuar, mudar ou parar um projeto.",
+        "question": "Sete vendas a £1 menos £5 de custos monetários indicados dão que resultado?",
+        "choices": [
+          {
+            "text": "£7 de lucro e um negócio de sucesso garantido",
+            "feedback": "Sete são a receita, e um teste pequeno não garante resultados futuros.",
+            "correct": false
+          },
+          {
+            "text": "£3 de lucro porque sobram três marcadores",
+            "feedback": "Três é a quantidade por vender. Neste exemplo, o lucro resulta da receita menos os custos indicados.",
+            "correct": false
+          },
+          {
+            "text": "£2 de lucro neste teste simplificado",
+            "feedback": "Sim. Sete menos cinco deixam duas libras. O resultado não inclui custos não indicados nem prevê vendas futuras.",
+            "correct": true
+          }
+        ],
+        "activity": "Escreve uma avaliação em três partes do teste imaginário: um resultado, uma limitação e um próximo passo razoável. Não são precisas vendas reais nem uma conta."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Receita",
+        "meaning": "Dinheiro recebido pelas vendas antes de subtrair custos."
+      },
+      {
+        "term": "Lucro",
+        "meaning": "Receita que sobra depois de deduzir os custos relevantes."
+      },
+      {
+        "term": "Prejuízo",
+        "meaning": "A quantia pela qual os custos ultrapassam a receita."
+      },
+      {
+        "term": "Stock",
+        "meaning": "Produtos disponíveis para venda, incluindo os que ainda não foram vendidos."
+      },
+      {
+        "term": "Ponto de equilíbrio",
+        "meaning": "O ponto em que a receita cobre os custos incluídos numa conta."
+      },
+      {
+        "term": "Provas",
+        "meaning": "Informação usada para avaliar uma afirmação ou decisão."
+      }
+    ]
+  },
+  "emma-and-the-picture-plan": {
+    "title": "Emma e o plano com imagens",
+    "subtitle": "Uma história original Money Quest para ler e explorar em conjunto",
+    "audience": "Explorer · 6–8 anos · Leitura partilhada e atividades opcionais",
+    "description": "Emma descobre formas de se lembrar de uma tarefa, praticar e pedir ajuda útil.",
+    "coverAlt": "Emma e Max num cenário Money Quest ligado a esta história.",
+    "chapters": [
+      {
+        "title": "Demasiadas tarefas ao mesmo tempo",
+        "paragraphs": [
+          "Emma quer fazer uma vila de papel. Tem de escolher papel, desenhar edifícios, procurar cola e libertar espaço. Começa três tarefas e esquece-se de onde pôs o desenho. Max espera junto da manta.",
+          "O adulto sugere escolher um próximo passo. Emma aponta para uma imagem de papel. Procura primeiro o papel. A vila ainda não está pronta, mas ela já sabe que pequena tarefa está a fazer."
+        ],
+        "idea": "Um próximo passo claro pode facilitar o início de uma tarefa grande.",
+        "question": "O que ajuda Emma a começar?",
+        "choices": [
+          {
+            "text": "Escolher um próximo passo",
+            "feedback": "Faz sentido. Um próximo passo claro pode facilitar o início de uma tarefa grande.",
+            "correct": true
+          },
+          {
+            "text": "Fazer tudo ao mesmo tempo",
+            "feedback": "Volta a ver a história. Um próximo passo claro pode facilitar o início de uma tarefa grande.",
+            "correct": false
+          },
+          {
+            "text": "Esconder o papel",
+            "feedback": "Pensa no que aconteceu neste capítulo. Um próximo passo claro pode facilitar o início de uma tarefa grande.",
+            "correct": false
+          }
+        ],
+        "activity": "Desenha o primeiro passo para uma vila de papel imaginária. Podes apontar, desenhar, escrever, usar comunicação aumentativa e alternativa, falar ou pedir a um adulto que registe a tua ideia."
+      },
+      {
+        "title": "Uma lista que consegue ver",
+        "paragraphs": [
+          "Emma desenha três imagens: papel, edifício e cola. Coloca-as em fila. O adulto lê a ordem com ela. Emma pode apontar para uma imagem em vez de guardar toda a lista na cabeça.",
+          "Quando o papel está pronto, tapa essa imagem com uma ficha. A imagem seguinte mostra o edifício. Começa a desenhar. Hoje as imagens ajudam. Noutro dia pode escolher palavras, lembretes falados ou outro apoio."
+        ],
+        "idea": "Um plano visual é uma possibilidade de apoio. Cada pessoa pode escolher outra.",
+        "question": "O que mostra a ficha?",
+        "choices": [
+          {
+            "text": "Todo o projeto falhou",
+            "feedback": "Volta a ver a história. Um plano visual é uma possibilidade de apoio. Cada pessoa pode escolher outra.",
+            "correct": false
+          },
+          {
+            "text": "Todos têm de usar imagens",
+            "feedback": "Pensa no que aconteceu neste capítulo. Um plano visual é uma possibilidade de apoio. Cada pessoa pode escolher outra.",
+            "correct": false
+          },
+          {
+            "text": "Um passo está terminado",
+            "feedback": "Faz sentido. Um plano visual é uma possibilidade de apoio. Cada pessoa pode escolher outra.",
+            "correct": true
+          }
+        ],
+        "activity": "Ordena três cartões de tarefas inventadas de uma forma que consigas seguir. Podes apontar, desenhar, escrever, usar comunicação aumentativa e alternativa, falar ou pedir a um adulto que registe a tua ideia."
+      },
+      {
+        "title": "O telhado que caiu",
+        "paragraphs": [
+          "Emma dobra um telhado de papel. Ele escorrega da casinha. Emma franze a testa. Pensa logo que não sabe construir nada. O adulto pergunta o que aconteceu de facto. Um telhado caiu. Isso não significa que todos os telhados futuros vão cair.",
+          "Observam a dobra. Emma experimenta uma aba mais larga. Este telhado fica no sítio. Max levanta a cabeça ao ouvir a alegria. Tentar de novo ajudou porque Emma alterou algo concreto, não porque fingiu que a primeira tentativa funcionou."
+        ],
+        "idea": "Repara no problema concreto antes de escolher uma alteração para testar.",
+        "question": "O que pode Emma alterar?",
+        "choices": [
+          {
+            "text": "Fingir que o telhado não caiu",
+            "feedback": "Pensa no que aconteceu neste capítulo. Repara no problema concreto antes de escolher uma alteração para testar.",
+            "correct": false
+          },
+          {
+            "text": "Experimentar uma aba mais larga no telhado",
+            "feedback": "Faz sentido. Repara no problema concreto antes de escolher uma alteração para testar.",
+            "correct": true
+          },
+          {
+            "text": "Decidir que nunca poderá aprender",
+            "feedback": "Volta a ver a história. Repara no problema concreto antes de escolher uma alteração para testar.",
+            "correct": false
+          }
+        ],
+        "activity": "Mostra uma alteração que possa segurar um telhado de papel imaginário. Podes apontar, desenhar, escrever, usar comunicação aumentativa e alternativa, falar ou pedir a um adulto que registe a tua ideia."
+      },
+      {
+        "title": "Um lugar mais sossegado",
+        "paragraphs": [
+          "A mesa enche-se de coisas. Alguém põe música por perto. Emma lê a mesma instrução duas vezes e perde-se. Pergunta se pode levar o papel para um canto mais sossegado. O adulto ajuda a abrir espaço.",
+          "Emma experimenta o canto e consegue seguir melhor o próximo passo. Pode continuar a precisar de ajuda. O sossego ajuda-a nesta tarefa; outra pessoa pode precisar de algo diferente. Uma tarde não diz o que todos precisam."
+        ],
+        "idea": "Pergunta o que ajuda nesta tarefa, em vez de adivinhar o que ajuda todas as pessoas.",
+        "question": "O que experimenta Emma?",
+        "choices": [
+          {
+            "text": "Um lugar mais sossegado para esta tarefa",
+            "feedback": "Faz sentido. Pergunta o que ajuda nesta tarefa, em vez de adivinhar o que ajuda todas as pessoas.",
+            "correct": true
+          },
+          {
+            "text": "Uma regra de que todos precisam de silêncio",
+            "feedback": "Volta a ver a história. Pergunta o que ajuda nesta tarefa, em vez de adivinhar o que ajuda todas as pessoas.",
+            "correct": false
+          },
+          {
+            "text": "Desistir de todas as atividades",
+            "feedback": "Pensa no que aconteceu neste capítulo. Pergunta o que ajuda nesta tarefa, em vez de adivinhar o que ajuda todas as pessoas.",
+            "correct": false
+          }
+        ],
+        "activity": "Aponta para dois espaços de trabalho e escolhe um para uma personagem que aprende. Podes apontar, desenhar, escrever, usar comunicação aumentativa e alternativa, falar ou pedir a um adulto que registe a tua ideia."
+      },
+      {
+        "title": "Uma pausa também faz parte do plano",
+        "paragraphs": [
+          "Emma já trabalhou em três casas. Tem as mãos cansadas e perde a atenção. Pede uma pausa. O adulto guarda a vila inacabada num tabuleiro para a encontrarem facilmente depois.",
+          "Depois de descansar, Emma olha para o plano com imagens. Pode continuar, pedir ajuda ou parar por hoje. Descansar não é um prémio que tenha de ganhar acabando tudo. Max já descansa. Emma deixa um edifício para outro dia e sente-se bem com essa escolha."
+        ],
+        "idea": "As pausas e a ajuda podem fazer parte de um plano que funciona.",
+        "question": "O que pode fazer quando está cansada?",
+        "choices": [
+          {
+            "text": "Continuar até ficar perturbada",
+            "feedback": "Volta a ver a história. As pausas e a ajuda podem fazer parte de um plano que funciona.",
+            "correct": false
+          },
+          {
+            "text": "Ter de merecer autorização para descansar",
+            "feedback": "Pensa no que aconteceu neste capítulo. As pausas e a ajuda podem fazer parte de um plano que funciona.",
+            "correct": false
+          },
+          {
+            "text": "Fazer uma pausa e voltar se quiser",
+            "feedback": "Faz sentido. As pausas e a ajuda podem fazer parte de um plano que funciona.",
+            "correct": true
+          }
+        ],
+        "activity": "Acrescenta uma pausa ao plano da tua tarefa imaginária. Podes apontar, desenhar, escrever, usar comunicação aumentativa e alternativa, falar ou pedir a um adulto que registe a tua ideia."
+      },
+      {
+        "title": "Mostrar o que aprendeu",
+        "paragraphs": [
+          "No fim da semana, Emma mostra a vila a um amigo. Aponta para o plano com imagens e para o telhado de aba larga. O amigo pergunta como o fez. Emma pode explicar com a maquete em vez de escrever um relatório comprido.",
+          "O adulto nota aprendizagens concretas: Emma escolheu um passo, testou uma alteração e pediu outro espaço. A vila tem paredes tortas. Mesmo assim mostra o que aprendeu. Uma maquete perfeita nunca foi o único resultado útil."
+        ],
+        "idea": "Podes mostrar o que aprendeste com uma maquete, imagens, palavras ou outra comunicação.",
+        "question": "O que mostra uma aprendizagem útil?",
+        "choices": [
+          {
+            "text": "Comparar qual trabalho é mais bonito",
+            "feedback": "Pensa no que aconteceu neste capítulo. Podes mostrar o que aprendeste com uma maquete, imagens, palavras ou outra comunicação.",
+            "correct": false
+          },
+          {
+            "text": "Apontar uma alteração que ajudou",
+            "feedback": "Faz sentido. Podes mostrar o que aprendeste com uma maquete, imagens, palavras ou outra comunicação.",
+            "correct": true
+          },
+          {
+            "text": "Esconder todas as paredes tortas",
+            "feedback": "Volta a ver a história. Podes mostrar o que aprendeste com uma maquete, imagens, palavras ou outra comunicação.",
+            "correct": false
+          }
+        ],
+        "activity": "Escolhe uma parte de um projeto imaginário e mostra como mudou. Podes apontar, desenhar, escrever, usar comunicação aumentativa e alternativa, falar ou pedir a um adulto que registe a tua ideia."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Plano",
+        "meaning": "Uma forma de organizar possíveis próximos passos."
+      },
+      {
+        "term": "Prática",
+        "meaning": "Experimentar uma competência de novo, com atenção e apoio útil."
+      },
+      {
+        "term": "Apoio",
+        "meaning": "Ajuda que torna uma tarefa mais fácil de gerir."
+      }
+    ]
+  },
+  "the-pause-before-the-choice": {
+    "title": "A pausa antes da escolha",
+    "subtitle": "Uma história original Money Quest para ler e explorar em conjunto",
+    "audience": "Explorer · 6–8 anos · Leitura partilhada e atividades opcionais",
+    "description": "Uma montra tentadora ajuda Emma a explorar emoções, esperar e pedir apoio.",
+    "coverAlt": "Emma e Max num cenário Money Quest ligado a esta história.",
+    "chapters": [
+      {
+        "title": "Um brinquedo novo e vistoso",
+        "paragraphs": [
+          "Emma vê um comboio de brincar numa montra. Tem rodas vermelhas vivas. Quer tê-lo já. Max para para cheirar o passeio enquanto o adulto verifica a lista de compras. O comboio não está na lista.",
+          "Emma nota que aperta a carteira com as mãos. Querer o comboio é um sentimento que consegue identificar. Não revela o preço nem decide se a compra cabe no plano de hoje. Pode fazer uma pergunta antes de escolher o próximo passo."
+        ],
+        "idea": "Uma emoção diz-nos como nos sentimos, mas não todos os factos necessários para comprar.",
+        "question": "O que deve verificar?",
+        "choices": [
+          {
+            "text": "O preço e o plano de hoje",
+            "feedback": "Faz sentido. Uma emoção diz-nos como nos sentimos, mas não todos os factos necessários para comprar.",
+            "correct": true
+          },
+          {
+            "text": "Só o seu entusiasmo",
+            "feedback": "Volta a ver a história. Uma emoção diz-nos como nos sentimos, mas não todos os factos necessários para comprar.",
+            "correct": false
+          },
+          {
+            "text": "Se o comboio é vermelho",
+            "feedback": "Pensa no que aconteceu neste capítulo. Uma emoção diz-nos como nos sentimos, mas não todos os factos necessários para comprar.",
+            "correct": false
+          }
+        ],
+        "activity": "Desenha um brinquedo imaginário e acrescenta uma pergunta útil. Podes apontar, desenhar, escrever, usar comunicação aumentativa e alternativa, falar ou pedir a um adulto que registe a tua ideia."
+      },
+      {
+        "title": "Encontrar a palavra",
+        "paragraphs": [
+          "Emma diz que está zangada porque não vão comprar o comboio. O adulto ouve. Não lhe chama malcomportada por sentir isso. Afastam-se da entrada movimentada para conversar onde se consigam ouvir.",
+          "Emma aponta para uma cara desiludida num cartão. Essa palavra também serve. Podemos usar várias palavras para emoções, ou nenhuma. Uma imagem, gesto ou ferramenta de comunicação ajuda a explicar necessidades sem fazer um discurso."
+        ],
+        "idea": "Podemos comunicar emoções de várias formas sem julgar a pessoa.",
+        "question": "Como pode Emma responder?",
+        "choices": [
+          {
+            "text": "Provar que consegue fazer um discurso",
+            "feedback": "Volta a ver a história. Podemos comunicar emoções de várias formas sem julgar a pessoa.",
+            "correct": false
+          },
+          {
+            "text": "Fingir que não sente nada",
+            "feedback": "Pensa no que aconteceu neste capítulo. Podemos comunicar emoções de várias formas sem julgar a pessoa.",
+            "correct": false
+          },
+          {
+            "text": "Apontar para uma imagem de uma emoção",
+            "feedback": "Faz sentido. Podemos comunicar emoções de várias formas sem julgar a pessoa.",
+            "correct": true
+          }
+        ],
+        "activity": "Escolhe uma imagem de uma emoção para uma personagem; não precisas de contar uma história pessoal. Podes apontar, desenhar, escrever, usar comunicação aumentativa e alternativa, falar ou pedir a um adulto que registe a tua ideia."
+      },
+      {
+        "title": "Espaço para esperar",
+        "paragraphs": [
+          "Emma quer decidir já. O adulto sugere voltarem a ver o comboio noutro dia. Emma desenha-o numa pequena lista de desejos. O desenho guarda a ideia sem prometer uma compra.",
+          "Vão antes à biblioteca. Emma continua a gostar do comboio. A pausa não apagou o sentimento. Deu-lhe tempo para pensar noutra escolha. Pode desfrutar de um livro enquanto o brinquedo fica na lista. Esperar não tem de ser não fazer nada."
+        ],
+        "idea": "Uma lista de desejos pode guardar uma ideia sem prometer uma compra.",
+        "question": "O que significa a lista?",
+        "choices": [
+          {
+            "text": "O dinheiro já foi gasto",
+            "feedback": "Pensa no que aconteceu neste capítulo. Uma lista de desejos pode guardar uma ideia sem prometer uma compra.",
+            "correct": false
+          },
+          {
+            "text": "Uma ideia para voltar a pensar mais tarde",
+            "feedback": "Faz sentido. Uma lista de desejos pode guardar uma ideia sem prometer uma compra.",
+            "correct": true
+          },
+          {
+            "text": "Uma promessa de comprar tudo",
+            "feedback": "Volta a ver a história. Uma lista de desejos pode guardar uma ideia sem prometer uma compra.",
+            "correct": false
+          }
+        ],
+        "activity": "Cria uma lista de desejos com um objeto para uma personagem. Podes apontar, desenhar, escrever, usar comunicação aumentativa e alternativa, falar ou pedir a um adulto que registe a tua ideia."
+      },
+      {
+        "title": "Várias formas de acalmar",
+        "paragraphs": [
+          "Na biblioteca, Emma quer um lugar mais sossegado. O adulto oferece um lugar à janela ou um pequeno passeio lá fora. Emma escolhe sentar-se. Vê um livro de imagens conhecido enquanto Max fica com o outro adulto.",
+          "Um amigo poderia preferir movimento ou companhia. Nenhuma atividade acalma todas as pessoas. Emma pode dizer que uma ideia não ajuda. O adulto fica por perto e dá apoio. Ela não tem de ficar alegre para ser ouvida."
+        ],
+        "idea": "Oferece escolhas e ouve quando um apoio não ajuda.",
+        "question": "O que pode escolher?",
+        "choices": [
+          {
+            "text": "Um apoio que lhe pareça útil",
+            "feedback": "Faz sentido. Oferece escolhas e ouve quando um apoio não ajuda.",
+            "correct": true
+          },
+          {
+            "text": "Um método obrigatório para todos",
+            "feedback": "Volta a ver a história. Oferece escolhas e ouve quando um apoio não ajuda.",
+            "correct": false
+          },
+          {
+            "text": "Fingir que está alegre",
+            "feedback": "Pensa no que aconteceu neste capítulo. Oferece escolhas e ouve quando um apoio não ajuda.",
+            "correct": false
+          }
+        ],
+        "activity": "Desenha duas opções de apoio que um adulto imaginário possa oferecer. Podes apontar, desenhar, escrever, usar comunicação aumentativa e alternativa, falar ou pedir a um adulto que registe a tua ideia."
+      },
+      {
+        "title": "Quando um amigo quer outra coisa",
+        "paragraphs": [
+          "Um amigo diz a Emma que o comboio azul é melhor do que o vermelho. Emma fica irritada. Gosta do vermelho. O adulto lembra que as pessoas podem preferir cores e brinquedos diferentes. Nenhuma preferência define o preço.",
+          "Os amigos desenham os comboios em folhas diferentes. Podem gostar de conversar sem concordar em todas as escolhas. Emma não precisa de comprar um brinquedo para manter a amizade. Uma amizade cuidadosa respeita interesses, limites de gastos e respostas a convites diferentes."
+        ],
+        "idea": "Preferências diferentes não exigem gastar dinheiro para provar amizade.",
+        "question": "O que podem bons amigos aceitar?",
+        "choices": [
+          {
+            "text": "Uma compra como prova de amizade",
+            "feedback": "Volta a ver a história. Preferências diferentes não exigem gastar dinheiro para provar amizade.",
+            "correct": false
+          },
+          {
+            "text": "Uma única cor favorita",
+            "feedback": "Pensa no que aconteceu neste capítulo. Preferências diferentes não exigem gastar dinheiro para provar amizade.",
+            "correct": false
+          },
+          {
+            "text": "Escolhas e limites diferentes",
+            "feedback": "Faz sentido. Preferências diferentes não exigem gastar dinheiro para provar amizade.",
+            "correct": true
+          }
+        ],
+        "activity": "Mostra duas personagens a escolher atividades gratuitas diferentes. Podes apontar, desenhar, escrever, usar comunicação aumentativa e alternativa, falar ou pedir a um adulto que registe a tua ideia."
+      },
+      {
+        "title": "Uma escolha que sabe explicar",
+        "paragraphs": [
+          "Noutra visita, Emma olha para o comboio. O adulto ajuda-a a verificar o preço e o dinheiro disponível para brinquedos. Emma decide guardar a ideia para mais tarde. Outra pessoa poderia fazer uma escolha permitida diferente com o seu adulto.",
+          "Emma explica apontando para a lista de desejos e um desenho da biblioteca. Identificou uma emoção, pediu ajuda e verificou informação. Pode ainda sentir desilusão por vezes. Aprender a escolher não significa nunca ter emoções difíceis."
+        ],
+        "idea": "Uma escolha ponderada pode incluir emoções, informação e apoio.",
+        "question": "O que a ajudou a escolher?",
+        "choices": [
+          {
+            "text": "Copiar a compra de um amigo",
+            "feedback": "Pensa no que aconteceu neste capítulo. Uma escolha ponderada pode incluir emoções, informação e apoio.",
+            "correct": false
+          },
+          {
+            "text": "Verificar informação e pedir ajuda",
+            "feedback": "Faz sentido. Uma escolha ponderada pode incluir emoções, informação e apoio.",
+            "correct": true
+          },
+          {
+            "text": "Nunca sentir desilusão",
+            "feedback": "Volta a ver a história. Uma escolha ponderada pode incluir emoções, informação e apoio.",
+            "correct": false
+          }
+        ],
+        "activity": "Conta a escolha com três imagens: emoção, pergunta e ação possível. Podes apontar, desenhar, escrever, usar comunicação aumentativa e alternativa, falar ou pedir a um adulto que registe a tua ideia."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Emoção",
+        "meaning": "Uma experiência como entusiasmo, desilusão ou preocupação."
+      },
+      {
+        "term": "Pausa",
+        "meaning": "Uma pequena paragem antes da próxima ação."
+      },
+      {
+        "term": "Preferência",
+        "meaning": "Algo de que uma pessoa gosta ou que escolhe."
+      }
+    ]
+  },
+  "the-message-max-could-not-send": {
+    "title": "A mensagem que Max não podia enviar",
+    "subtitle": "Uma história original Money Quest para ler e explorar em conjunto",
+    "audience": "Explorer · 6–8 anos · Leitura partilhada e atividades opcionais",
+    "description": "Uma mensagem de jogo imaginária ajuda Emma a pedir ajuda e a proteger informação privada.",
+    "coverAlt": "Emma e Max num cenário Money Quest ligado a esta história.",
+    "chapters": [
+      {
+        "title": "Uma mensagem inesperada",
+        "paragraphs": [
+          "Emma joga ao lado do adulto. Surge uma mensagem no ecrã. Diz que ganhou um fato de cachorro, mas tem de agir depressa. Max dorme na manta. Não enviou mensagens a ninguém.",
+          "Emma quer carregar no botão vistoso. Em vez disso, mostra-o ao adulto. Uma mensagem pode ser entusiasmante sem ser de confiança. Podem fechá-la e verificar no menu habitual do jogo. Uma surpresa não exige resposta imediata."
+        ],
+        "idea": "Uma urgência inesperada é motivo para parar e verificar com um adulto de confiança.",
+        "question": "O que deve fazer primeiro?",
+        "choices": [
+          {
+            "text": "Mostrar a um adulto de confiança",
+            "feedback": "Faz sentido. Uma urgência inesperada é motivo para parar e verificar com um adulto de confiança.",
+            "correct": true
+          },
+          {
+            "text": "Carregar depressa no botão",
+            "feedback": "Volta a ver a história. Uma urgência inesperada é motivo para parar e verificar com um adulto de confiança.",
+            "correct": false
+          },
+          {
+            "text": "Responder com um segredo",
+            "feedback": "Pensa no que aconteceu neste capítulo. Uma urgência inesperada é motivo para parar e verificar com um adulto de confiança.",
+            "correct": false
+          }
+        ],
+        "activity": "Aponta para um cartão parar e perguntar perante uma mensagem inventada. Podes apontar, desenhar, escrever, usar comunicação aumentativa e alternativa, falar ou pedir a um adulto que registe a tua ideia."
+      },
+      {
+        "title": "O segredo continua privado",
+        "paragraphs": [
+          "A mensagem pede uma palavra-passe. Emma sabe que ela ajuda a proteger uma conta. Não a escreve na mensagem. O adulto explica que a imagem de um cachorro simpático não prova quem está a perguntar.",
+          "Fecham a mensagem. Emma não fez nada de errado ao recebê-la. Se já tivesse carregado em algo, ainda podia pedir ajuda. Esconder o problema dificultaria o apoio do adulto. Também há ajuda depois de um erro."
+        ],
+        "idea": "Não envies uma palavra-passe em resposta a uma mensagem inesperada. Pede ajuda mesmo depois de um erro.",
+        "question": "O que não deve entrar na resposta?",
+        "choices": [
+          {
+            "text": "Um desenho imaginário de uma árvore",
+            "feedback": "Volta a ver a história. Não envies uma palavra-passe em resposta a uma mensagem inesperada. Pede ajuda mesmo depois de um erro.",
+            "correct": false
+          },
+          {
+            "text": "Uma pergunta a um adulto de confiança",
+            "feedback": "Pensa no que aconteceu neste capítulo. Não envies uma palavra-passe em resposta a uma mensagem inesperada. Pede ajuda mesmo depois de um erro.",
+            "correct": false
+          },
+          {
+            "text": "Uma palavra-passe",
+            "feedback": "Faz sentido. Não envies uma palavra-passe em resposta a uma mensagem inesperada. Pede ajuda mesmo depois de um erro.",
+            "correct": true
+          }
+        ],
+        "activity": "Escolhe o cartão inventado que diz algo privado: palavra-passe, título de história ou cor favorita imaginária. Podes apontar, desenhar, escrever, usar comunicação aumentativa e alternativa, falar ou pedir a um adulto que registe a tua ideia."
+      },
+      {
+        "title": "Um fato tem um custo",
+        "paragraphs": [
+          "No menu normal do jogo, outro fato tem um preço. Emma pergunta se as moedas do jogo e as libras reais são iguais. O adulto verifica o ecrã. Esta compra usaria dinheiro real da conta do adulto.",
+          "Emma não carrega em comprar. Leem o que está incluído e se a cobrança se repete. Um objeto digital pode custar dinheiro real mesmo sem chegar numa encomenda. Perguntar primeiro permite ao adulto decidir o gasto. Max já tem uma coleira perfeitamente normal."
+        ],
+        "idea": "Verifica se uma compra no jogo usa dinheiro real e se a cobrança se repete.",
+        "question": "Quem deve verificar esta compra?",
+        "choices": [
+          {
+            "text": "Max enquanto dorme",
+            "feedback": "Pensa no que aconteceu neste capítulo. Verifica se uma compra no jogo usa dinheiro real e se a cobrança se repete.",
+            "correct": false
+          },
+          {
+            "text": "O adulto responsável pela conta",
+            "feedback": "Faz sentido. Verifica se uma compra no jogo usa dinheiro real e se a cobrança se repete.",
+            "correct": true
+          },
+          {
+            "text": "Quem enviou uma mensagem inesperada",
+            "feedback": "Volta a ver a história. Verifica se uma compra no jogo usa dinheiro real e se a cobrança se repete.",
+            "correct": false
+          }
+        ],
+        "activity": "Desenha uma etiqueta de compra imaginária com preço e símbolo de perguntar primeiro. Podes apontar, desenhar, escrever, usar comunicação aumentativa e alternativa, falar ou pedir a um adulto que registe a tua ideia."
+      },
+      {
+        "title": "A fotografia da casa",
+        "paragraphs": [
+          "Um jogo pede a Emma uma fotografia. A imagem mostra a entrada de casa e uma mochila com o nome dela. Emma para. O adulto explica que as fotografias podem revelar informação privada mesmo com poucas palavras na legenda.",
+          "Decidem não enviar a fotografia. Emma pode antes desenhar uma casa inventada em papel. Não precisa de partilhar morada, escola ou rosto reais para esta atividade. Nem todos os pedidos de fotografias precisam de receber uma fotografia."
+        ],
+        "idea": "As imagens podem revelar pormenores privados. Escolher não enviar é uma opção válida.",
+        "question": "O que é mais seguro nesta atividade?",
+        "choices": [
+          {
+            "text": "Desenhar uma casa inventada em papel",
+            "feedback": "Faz sentido. As imagens podem revelar pormenores privados. Escolher não enviar é uma opção válida.",
+            "correct": true
+          },
+          {
+            "text": "Publicar a morada de casa",
+            "feedback": "Volta a ver a história. As imagens podem revelar pormenores privados. Escolher não enviar é uma opção válida.",
+            "correct": false
+          },
+          {
+            "text": "Partilhar publicamente o nome da escola",
+            "feedback": "Pensa no que aconteceu neste capítulo. As imagens podem revelar pormenores privados. Escolher não enviar é uma opção válida.",
+            "correct": false
+          }
+        ],
+        "activity": "Compara duas imagens inventadas e aponta um pormenor que deve ficar privado. Podes apontar, desenhar, escrever, usar comunicação aumentativa e alternativa, falar ou pedir a um adulto que registe a tua ideia."
+      },
+      {
+        "title": "Alguém diz ser um amigo",
+        "paragraphs": [
+          "Um novo jogador diz que conhece Emma da escola. O nome no ecrã parece conhecido. Emma não sabe quem está por trás da conta só pelo nome. Não aceita encontrar-se nem mudar para uma conversa privada.",
+          "Mostra a mensagem ao adulto, que pode usar os controlos de segurança do jogo. Um tom simpático não confirma a identidade. Emma pode parar de jogar ou bloquear o contacto com apoio. Não deve conversa a um desconhecido só porque enviou palavras simpáticas ou um presente virtual."
+        ],
+        "idea": "Um nome no ecrã não confirma a identidade. Pede apoio a um adulto de confiança.",
+        "question": "O que prova quem é o jogador?",
+        "choices": [
+          {
+            "text": "Um presente virtual gratuito",
+            "feedback": "Volta a ver a história. Um nome no ecrã não confirma a identidade. Pede apoio a um adulto de confiança.",
+            "correct": false
+          },
+          {
+            "text": "Uma frase simpática",
+            "feedback": "Pensa no que aconteceu neste capítulo. Um nome no ecrã não confirma a identidade. Pede apoio a um adulto de confiança.",
+            "correct": false
+          },
+          {
+            "text": "O nome, por si só, não prova nada",
+            "feedback": "Faz sentido. Um nome no ecrã não confirma a identidade. Pede apoio a um adulto de confiança.",
+            "correct": true
+          }
+        ],
+        "activity": "Escolhe o próximo passo seguro para um contacto inesperado imaginário: parar, perguntar ou continuar em privado. Podes apontar, desenhar, escrever, usar comunicação aumentativa e alternativa, falar ou pedir a um adulto que registe a tua ideia."
+      },
+      {
+        "title": "Pedir ajuda depois de um erro",
+        "paragraphs": [
+          "Uma tarde, Emma carrega numa ligação desconhecida sem pensar. Conta logo ao adulto. Param de introduzir informação e verificam o que aconteceu. O adulto trata das medidas para a conta e o dispositivo. Emma não tem de resolver tudo sozinha.",
+          "Fazem um lembrete: parar, perguntar, verificar. É um apoio, não uma promessa de que nunca mais haverá erros. Max espreguiça-se junto à mesa. Emma volta a uma atividade conhecida quando o adulto considera adequado. Pedir ajuda foi uma ação útil."
+        ],
+        "idea": "Conta prontamente a um adulto de confiança. Os adultos tratam da recuperação da conta e do dispositivo.",
+        "question": "O que ajuda depois de um clique inesperado?",
+        "choices": [
+          {
+            "text": "Escrever mais dados privados",
+            "feedback": "Pensa no que aconteceu neste capítulo. Conta prontamente a um adulto de confiança. Os adultos tratam da recuperação da conta e do dispositivo.",
+            "correct": false
+          },
+          {
+            "text": "Contar a um adulto de confiança",
+            "feedback": "Faz sentido. Conta prontamente a um adulto de confiança. Os adultos tratam da recuperação da conta e do dispositivo.",
+            "correct": true
+          },
+          {
+            "text": "Esconder para evitar vergonha",
+            "feedback": "Volta a ver a história. Conta prontamente a um adulto de confiança. Os adultos tratam da recuperação da conta e do dispositivo.",
+            "correct": false
+          }
+        ],
+        "activity": "Ordena três cartões para um erro imaginário: parar, contar e deixar um adulto verificar. Podes apontar, desenhar, escrever, usar comunicação aumentativa e alternativa, falar ou pedir a um adulto que registe a tua ideia."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Privado",
+        "meaning": "Informação que não deve ser partilhada livremente."
+      },
+      {
+        "term": "Palavra-passe",
+        "meaning": "Um segredo que ajuda a proteger o acesso."
+      },
+      {
+        "term": "Compra",
+        "meaning": "Adquirir algo a troco de dinheiro, incluindo um objeto digital."
+      }
+    ]
+  },
+  "the-repair-table": {
+    "title": "A mesa das reparações",
+    "subtitle": "Uma história original Money Quest para ler e explorar em conjunto",
+    "audience": "Explorer · 6–8 anos · Leitura partilhada e atividades opcionais",
+    "description": "Emma descobre que pedir emprestado, reparar e comprar são escolhas possíveis diferentes.",
+    "coverAlt": "Emma e Max num cenário Money Quest ligado a esta história.",
+    "chapters": [
+      {
+        "title": "Uma roda solta-se",
+        "paragraphs": [
+          "O carrinho de Emma perde uma roda. Ela fica desiludida e pede outro. O adulto põe o brinquedo partido na mesa, longe de Max. Primeiro vão descobrir o problema e se é possível repará-lo em segurança.",
+          "A roda está solta, mas o resto parece utilizável. Observar com atenção não garante uma reparação. Dá informação antes de gastar dinheiro. Emma pode apontar o problema enquanto o adulto trata das peças pequenas."
+        ],
+        "idea": "Verifica o problema antes de decidir se é preciso substituir.",
+        "question": "O que vem antes das compras?",
+        "choices": [
+          {
+            "text": "Observar o problema em segurança",
+            "feedback": "Faz sentido. Verifica o problema antes de decidir se é preciso substituir.",
+            "correct": true
+          },
+          {
+            "text": "Deitar todas as peças fora",
+            "feedback": "Volta a ver a história. Verifica o problema antes de decidir se é preciso substituir.",
+            "correct": false
+          },
+          {
+            "text": "Comprar o primeiro carrinho novo",
+            "feedback": "Pensa no que aconteceu neste capítulo. Verifica o problema antes de decidir se é preciso substituir.",
+            "correct": false
+          }
+        ],
+        "activity": "Desenha um objeto avariado imaginário e assinala a parte que precisa de ser verificada. Podes apontar, desenhar, escrever, usar comunicação aumentativa e alternativa, falar ou pedir a um adulto que registe a tua ideia."
+      },
+      {
+        "title": "O adulto verifica",
+        "paragraphs": [
+          "O carrinho tem uma pequena fixação. O adulto verifica se é possível repará-la com ferramentas adequadas. Emma observa de um espaço livre. Não usa ferramentas afiadas nem testa aparelhos elétricos avariados. É uma reparação de brinquedo que um adulto pode avaliar.",
+          "É possível substituir a fixação. O adulto explica que algumas reparações são perigosas, inadequadas ou demasiado caras. Reparar é uma opção a verificar, não uma regra para todos os objetos. Emma pode aprender a observar e a perguntar."
+        ],
+        "idea": "Um adulto adequado deve avaliar a segurança e manusear ferramentas e peças pequenas.",
+        "question": "Quem verifica esta reparação?",
+        "choices": [
+          {
+            "text": "Max com as patas",
+            "feedback": "Volta a ver a história. Um adulto adequado deve avaliar a segurança e manusear ferramentas e peças pequenas.",
+            "correct": false
+          },
+          {
+            "text": "Emma sozinha com ferramentas afiadas",
+            "feedback": "Pensa no que aconteceu neste capítulo. Um adulto adequado deve avaliar a segurança e manusear ferramentas e peças pequenas.",
+            "correct": false
+          },
+          {
+            "text": "Um adulto adequado",
+            "feedback": "Faz sentido. Um adulto adequado deve avaliar a segurança e manusear ferramentas e peças pequenas.",
+            "correct": true
+          }
+        ],
+        "activity": "Aponta quais destas tarefas imaginárias cabem a um adulto: ferramentas, peças pequenas ou desenhar um plano. Podes apontar, desenhar, escrever, usar comunicação aumentativa e alternativa, falar ou pedir a um adulto que registe a tua ideia."
+      },
+      {
+        "title": "Pedir emprestado por uma tarde",
+        "paragraphs": [
+          "Enquanto o carrinho espera, Emma precisa de um balde para uma loja imaginária. Um vizinho oferece-se para emprestar um, com acordo do adulto. Emma pergunta quando deve devolvê-lo e onde o guardar. Pedir emprestado não torna o balde seu.",
+          "Devolvem-no limpo depois da atividade. Ninguém precisa de comprar outro balde só para uma tarde. Um empréstimo exige o acordo do dono e uma utilização segura. O vizinho também pode recusar. Emma pode escolher outra atividade se não houver um balde disponível."
+        ],
+        "idea": "Pedir emprestado exige autorização, cuidado e devolução combinada.",
+        "question": "O que devem combinar?",
+        "choices": [
+          {
+            "text": "Que o vizinho é obrigado a aceitar",
+            "feedback": "Pensa no que aconteceu neste capítulo. Pedir emprestado exige autorização, cuidado e devolução combinada.",
+            "correct": false
+          },
+          {
+            "text": "Quando devolver o balde",
+            "feedback": "Faz sentido. Pedir emprestado exige autorização, cuidado e devolução combinada.",
+            "correct": true
+          },
+          {
+            "text": "Que pedir emprestado é ser dono",
+            "feedback": "Volta a ver a história. Pedir emprestado exige autorização, cuidado e devolução combinada.",
+            "correct": false
+          }
+        ],
+        "activity": "Faz um lembrete com imagens para devolver um objeto emprestado imaginário. Podes apontar, desenhar, escrever, usar comunicação aumentativa e alternativa, falar ou pedir a um adulto que registe a tua ideia."
+      },
+      {
+        "title": "Duas etiquetas de preço",
+        "paragraphs": [
+          "O adulto encontra uma peça adequada que, na história, custa uma libra de brincar. Um carrinho novo custa cinco. Comparam as opções completas, incluindo se a reparação vai funcionar. Um preço baixo não ajuda se a peça for errada.",
+          "Emma usa fichas para comparar um e cinco. Seriam necessárias mais quatro fichas para o carrinho novo. Escolhem a reparação adequada. São preços inventados para aprender, não promessas sobre lojas reais. Outro objeto poderia levar a outra decisão."
+        ],
+        "idea": "Compara a adequação e o custo. Uma peça errada mais barata não é útil.",
+        "question": "Que comparação importa?",
+        "choices": [
+          {
+            "text": "O custo e se a peça serve",
+            "feedback": "Faz sentido. Compara a adequação e o custo. Uma peça errada mais barata não é útil.",
+            "correct": true
+          },
+          {
+            "text": "Só a embalagem mais vistosa",
+            "feedback": "Volta a ver a história. Compara a adequação e o custo. Uma peça errada mais barata não é útil.",
+            "correct": false
+          },
+          {
+            "text": "Comprar sempre o objeto mais barato",
+            "feedback": "Pensa no que aconteceu neste capítulo. Compara a adequação e o custo. Uma peça errada mais barata não é útil.",
+            "correct": false
+          }
+        ],
+        "activity": "Usa cinco fichas para comparar uma reparação imaginária de uma libra com uma substituição de cinco libras. Podes apontar, desenhar, escrever, usar comunicação aumentativa e alternativa, falar ou pedir a um adulto que registe a tua ideia."
+      },
+      {
+        "title": "Uma nova utilização para uma caixa",
+        "paragraphs": [
+          "A caixa da encomenda está vazia. Emma quer uma garagem para o carrinho reparado. O adulto verifica se a caixa está limpa e é segura. Emma desenha portas por fora. Mantêm as tesouras e peças pequenas longe de Max.",
+          "A caixa tem agora outra utilização. Não precisava de se tornar um brinquedo, e nem todas as embalagens servem. Reutilizar pode evitar uma compra ou adiar o lixo. Emma escolhe o que funciona neste projeto. Não precisa de acumular objetos para mostrar que se importa."
+        ],
+        "idea": "Reutilizar pode ajudar quando um objeto é seguro e útil para uma finalidade concreta.",
+        "question": "O que torna esta caixa útil?",
+        "choices": [
+          {
+            "text": "Todas as embalagens antigas são seguras",
+            "feedback": "Volta a ver a história. Reutilizar pode ajudar quando um objeto é seguro e útil para uma finalidade concreta.",
+            "correct": false
+          },
+          {
+            "text": "É obrigatório guardar tudo",
+            "feedback": "Pensa no que aconteceu neste capítulo. Reutilizar pode ajudar quando um objeto é seguro e útil para uma finalidade concreta.",
+            "correct": false
+          },
+          {
+            "text": "Serve para o projeto em segurança",
+            "feedback": "Faz sentido. Reutilizar pode ajudar quando um objeto é seguro e útil para uma finalidade concreta.",
+            "correct": true
+          }
+        ],
+        "activity": "Inventa uma nova utilização segura para uma caixa de cartão limpa. Podes apontar, desenhar, escrever, usar comunicação aumentativa e alternativa, falar ou pedir a um adulto que registe a tua ideia."
+      },
+      {
+        "title": "O carrinho volta",
+        "paragraphs": [
+          "O adulto verifica a roda reparada antes de Emma usar o carrinho. Ele rola pelo chão. Emma põe lá as mercadorias da loja imaginária e estaciona-o na garagem de cartão. Max fica junto do adulto enquanto arrumam as peças pequenas.",
+          "Emma lembra-se de três perguntas: Podemos usar o que temos? Podemos pedir emprestado com autorização? É preciso substituir algo? Não há uma resposta para todos os objetos. Pode perguntar a um adulto e comparar as opções desta situação."
+        ],
+        "idea": "Usar, pedir emprestado, reparar e substituir são opções a avaliar em cada situação.",
+        "question": "Que pergunta ajuda na próxima vez?",
+        "choices": [
+          {
+            "text": "Devemos comprar antes de verificar?",
+            "feedback": "Pensa no que aconteceu neste capítulo. Usar, pedir emprestado, reparar e substituir são opções a avaliar em cada situação.",
+            "correct": false
+          },
+          {
+            "text": "Que opções são seguras e úteis?",
+            "feedback": "Faz sentido. Usar, pedir emprestado, reparar e substituir são opções a avaliar em cada situação.",
+            "correct": true
+          },
+          {
+            "text": "É obrigatório reparar todos os objetos?",
+            "feedback": "Volta a ver a história. Usar, pedir emprestado, reparar e substituir são opções a avaliar em cada situação.",
+            "correct": false
+          }
+        ],
+        "activity": "Desenha três opções para um objeto imaginário e escolhe uma para investigar com um adulto. Podes apontar, desenhar, escrever, usar comunicação aumentativa e alternativa, falar ou pedir a um adulto que registe a tua ideia."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Reparar",
+        "meaning": "Arranjar algo para voltar a poder ser usado."
+      },
+      {
+        "term": "Pedir emprestado",
+        "meaning": "Usar algo com autorização e devolvê-lo."
+      },
+      {
+        "term": "Reutilizar",
+        "meaning": "Voltar a usar um objeto para uma finalidade adequada."
+      }
+    ]
+  },
+  "the-robot-with-the-wrong-answer": {
+    "title": "O robô com a resposta errada",
+    "subtitle": "Uma história original Money Quest para ler e explorar em conjunto",
+    "audience": "Explorer · 6–8 anos · Leitura partilhada e atividades opcionais",
+    "description": "Um ajudante de IA imaginário ensina Emma a verificar respostas, mesmo quando parecem certas.",
+    "coverAlt": "Emma e Max num cenário Money Quest ligado a esta história.",
+    "chapters": [
+      {
+        "title": "O ecrã que fala",
+        "paragraphs": [
+          "Numa mesa de aprendizagem supervisionada, Emma experimenta um ajudante robô imaginário. Responde com frases completas. Emma acha que deve saber tudo, pois fala com tanta certeza. O adulto pergunta se parecer certo é o mesmo que estar correto.",
+          "Pedem-lhe que conte os quatro barcos pintados numa imagem. Responde cinco. Emma aponta para cada barco e conta. São quatro. A ferramenta pode errar mesmo quando a frase é simpática, completa e confiante."
+        ],
+        "idea": "Uma resposta confiante pode estar errada. Compara-a com provas.",
+        "question": "Quantos barcos pintados há?",
+        "choices": [
+          {
+            "text": "Quatro, depois de verificar a imagem",
+            "feedback": "Faz sentido. Uma resposta confiante pode estar errada. Compara-a com provas.",
+            "correct": true
+          },
+          {
+            "text": "Cinco porque a ferramenta diz",
+            "feedback": "Volta a ver a história. Uma resposta confiante pode estar errada. Compara-a com provas.",
+            "correct": false
+          },
+          {
+            "text": "Tantos quantos a ferramenta disser com certeza",
+            "feedback": "Pensa no que aconteceu neste capítulo. Uma resposta confiante pode estar errada. Compara-a com provas.",
+            "correct": false
+          }
+        ],
+        "activity": "Desenha quatro objetos simples e verifica uma resposta imaginária propositadamente errada. Podes apontar, desenhar, escrever, usar comunicação aumentativa e alternativa, falar ou pedir a um adulto que registe a tua ideia."
+      },
+      {
+        "title": "O que faz a ferramenta",
+        "paragraphs": [
+          "Emma pergunta se o robô tem sentimentos como Max. O adulto explica que é uma ferramenta informática que cria respostas a partir de padrões. Não é um animal nem uma pessoa. Uma frase simpática não significa que compreende Emma como um amigo.",
+          "Usam um nome inventado e não introduzem dados pessoais. Emma pode procurar uma pessoa real quando precisa de cuidado ou ajuda. A ferramenta pode apoiar certas tarefas, mas não substitui um adulto de confiança nem decide o que é certo para ela."
+        ],
+        "idea": "Uma resposta informática não é uma amizade nem substitui o cuidado humano.",
+        "question": "Quem pode dar apoio pessoal real?",
+        "choices": [
+          {
+            "text": "Uma ferramenta porque diz que se importa",
+            "feedback": "Volta a ver a história. Uma resposta informática não é uma amizade nem substitui o cuidado humano.",
+            "correct": false
+          },
+          {
+            "text": "Qualquer ecrã com um rosto",
+            "feedback": "Pensa no que aconteceu neste capítulo. Uma resposta informática não é uma amizade nem substitui o cuidado humano.",
+            "correct": false
+          },
+          {
+            "text": "Um adulto de confiança",
+            "feedback": "Faz sentido. Uma resposta informática não é uma amizade nem substitui o cuidado humano.",
+            "correct": true
+          }
+        ],
+        "activity": "Separa cartões inventados em ferramenta informática, animal e adulto de confiança. Podes apontar, desenhar, escrever, usar comunicação aumentativa e alternativa, falar ou pedir a um adulto que registe a tua ideia."
+      },
+      {
+        "title": "Uma fonte que vale a pena procurar",
+        "paragraphs": [
+          "O ajudante imaginário diz que todas as aves voam. Emma lembra-se de um pinguim num livro da biblioteca. Ela e o adulto procuram uma fonte adequada sobre a natureza. Algumas aves não voam. A afirmação era demasiado ampla.",
+          "Emma põe um ponto de interrogação junto da resposta. Não precisa de conhecer todas as aves para encontrar um contraexemplo. Procurar uma fonte ajuda a verificar o significado da frase. Pedir à mesma ferramenta para repetir não seria uma verificação independente."
+        ],
+        "idea": "Usa uma fonte independente adequada para verificar uma afirmação factual.",
+        "question": "O que ajuda a verificar a afirmação sobre aves?",
+        "choices": [
+          {
+            "text": "As cores do ecrã",
+            "feedback": "Pensa no que aconteceu neste capítulo. Usa uma fonte independente adequada para verificar uma afirmação factual.",
+            "correct": false
+          },
+          {
+            "text": "Uma fonte adequada sobre a natureza",
+            "feedback": "Faz sentido. Usa uma fonte independente adequada para verificar uma afirmação factual.",
+            "correct": true
+          },
+          {
+            "text": "A mesma resposta repetida mais alto",
+            "feedback": "Volta a ver a história. Usa uma fonte independente adequada para verificar uma afirmação factual.",
+            "correct": false
+          }
+        ],
+        "activity": "Usa uma imagem da natureza ou um livro com um adulto para verificar uma afirmação inventada sobre animais. Podes apontar, desenhar, escrever, usar comunicação aumentativa e alternativa, falar ou pedir a um adulto que registe a tua ideia."
+      },
+      {
+        "title": "Uma ideia pertence a alguém",
+        "paragraphs": [
+          "A ferramenta sugere copiar o desenho de um colega para a capa de uma história. Emma sabe que o colega o fez. Não o apresenta como seu. O adulto ajuda-a a planear uma imagem original com as suas formas e cores.",
+          "Uma sugestão informática não decide se uma ação é justa ou permitida. Emma pode perguntar quem criou algo e que autorização é necessária. Desenha outro barco com vela às riscas. Receber uma ideia não é apropriar-se do trabalho de outra pessoa."
+        ],
+        "idea": "Verifica a autoria e a autorização. Uma sugestão da ferramenta não torna a cópia aceitável.",
+        "question": "O que deve Emma fazer?",
+        "choices": [
+          {
+            "text": "O seu próprio desenho",
+            "feedback": "Faz sentido. Verifica a autoria e a autorização. Uma sugestão da ferramenta não torna a cópia aceitável.",
+            "correct": true
+          },
+          {
+            "text": "O trabalho de um colega com o nome dela",
+            "feedback": "Volta a ver a história. Verifica a autoria e a autorização. Uma sugestão da ferramenta não torna a cópia aceitável.",
+            "correct": false
+          },
+          {
+            "text": "Tudo o que o ecrã exigir",
+            "feedback": "Pensa no que aconteceu neste capítulo. Verifica a autoria e a autorização. Uma sugestão da ferramenta não torna a cópia aceitável.",
+            "correct": false
+          }
+        ],
+        "activity": "Inventa uma imagem simples para uma capa e indica quem a criou. Podes apontar, desenhar, escrever, usar comunicação aumentativa e alternativa, falar ou pedir a um adulto que registe a tua ideia."
+      },
+      {
+        "title": "Uma pequena tarefa útil",
+        "paragraphs": [
+          "Emma precisa de três nomes possíveis para um jardim lunar imaginário. Com o adulto, pede ideias ao ajudante. Leem as sugestões juntos. Uma é difícil de dizer, outra já é o nome de um livro conhecido e a terceira dá-lhe uma ideia nova.",
+          "Ela muda a última sugestão para um nome de que gosta. A ferramenta ajudou a gerar ideias. Não escreveu um relatório factual nem verificou se o título está disponível para publicar. Emma continua a escolher e a explicar a escolha. Mantêm o jardim imaginário em privado, no papel."
+        ],
+        "idea": "Uma ferramenta pode sugerir ideias. As pessoas continuam responsáveis por verificar e escolher.",
+        "question": "Quem faz a escolha final?",
+        "choices": [
+          {
+            "text": "A primeira sugestão automaticamente",
+            "feedback": "Volta a ver a história. Uma ferramenta pode sugerir ideias. As pessoas continuam responsáveis por verificar e escolher.",
+            "correct": false
+          },
+          {
+            "text": "A ferramenta sem verificação",
+            "feedback": "Pensa no que aconteceu neste capítulo. Uma ferramenta pode sugerir ideias. As pessoas continuam responsáveis por verificar e escolher.",
+            "correct": false
+          },
+          {
+            "text": "Emma com apoio adequado",
+            "feedback": "Faz sentido. Uma ferramenta pode sugerir ideias. As pessoas continuam responsáveis por verificar e escolher.",
+            "correct": true
+          }
+        ],
+        "activity": "Inventa três nomes para um jardim imaginário sem precisar de uma ferramenta online. Podes apontar, desenhar, escrever, usar comunicação aumentativa e alternativa, falar ou pedir a um adulto que registe a tua ideia."
+      },
+      {
+        "title": "O cartão de verificação",
+        "paragraphs": [
+          "Emma cria um cartão com imagens para futuras atividades com ferramentas. Mostra um ponto de interrogação, um livro e um adulto. Os lembretes significam perguntar qual é a afirmação, verificar uma fonte adequada e pedir ajuda humana quando necessário. Coloca-o na mesa supervisionada.",
+          "Também pode escolher não usar a ferramenta. Pode continuar a desenhar e conversar. Max empurra a bola normal para o adulto. Emma ri-se da diferença: a bola não precisa de respostas inteligentes, só de uma brincadeira segura com alguém presente."
+        ],
+        "idea": "Escolhe uma ferramenta para uma finalidade, verifica as respostas e mantém opções sem tecnologia.",
+        "question": "O que deve ter um cartão de verificação?",
+        "choices": [
+          {
+            "text": "Um pedido de informação privada",
+            "feedback": "Pensa no que aconteceu neste capítulo. Escolhe uma ferramenta para uma finalidade, verifica as respostas e mantém opções sem tecnologia.",
+            "correct": false
+          },
+          {
+            "text": "Uma pergunta, uma fonte e ajuda humana",
+            "feedback": "Faz sentido. Escolhe uma ferramenta para uma finalidade, verifica as respostas e mantém opções sem tecnologia.",
+            "correct": true
+          },
+          {
+            "text": "Uma regra de confiar em todas as respostas",
+            "feedback": "Volta a ver a história. Escolhe uma ferramenta para uma finalidade, verifica as respostas e mantém opções sem tecnologia.",
+            "correct": false
+          }
+        ],
+        "activity": "Cria um cartão com três imagens para verificar uma atividade informática imaginária. Podes apontar, desenhar, escrever, usar comunicação aumentativa e alternativa, falar ou pedir a um adulto que registe a tua ideia."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Ferramenta de IA",
+        "meaning": "Um sistema informático que pode produzir respostas a partir de padrões."
+      },
+      {
+        "term": "Provas",
+        "meaning": "Informação que ajuda a verificar uma ideia."
+      },
+      {
+        "term": "Fonte",
+        "meaning": "A origem da informação."
+      }
+    ]
+  },
+  "the-picnic-with-eight-tokens": {
+    "title": "O piquenique com oito fichas",
+    "subtitle": "Uma história original Money Quest para ler e explorar em conjunto",
+    "audience": "Explorer · 6–8 anos · Leitura partilhada e atividades opcionais",
+    "description": "Um piquenique imaginário dá a Emma um motivo prático para planear, contar e deixar espaço para mudanças.",
+    "coverAlt": "Emma e Max num cenário Money Quest ligado a esta história.",
+    "chapters": [
+      {
+        "title": "Oito fichas na mesa",
+        "paragraphs": [
+          "O grupo de Emma planeia um piquenique imaginário num jogo de imagens. O adulto dá-lhes oito fichas. Cada uma representa uma libra fictícia. Não usam dinheiro da família. Max observa enquanto Emma põe as fichas em fila.",
+          "Os cartões mostram comida, água e decorações. Com oito fichas, o grupo não pode escolher tudo. Tem de verificar o que importa neste piquenique imaginário. As quantias de brincar permitem praticar sem pedir que alguém explique quanto a sua família ganha ou gasta."
+        ],
+        "idea": "Um orçamento de brincar é um limite para uma atividade imaginária, não uma avaliação de uma família.",
+        "question": "Quantas fichas estão disponíveis?",
+        "choices": [
+          {
+            "text": "Oito",
+            "feedback": "Faz sentido. Um orçamento de brincar é um limite para uma atividade imaginária, não uma avaliação de uma família.",
+            "correct": true
+          },
+          {
+            "text": "Todas as fichas que desejarem",
+            "feedback": "Volta a ver a história. Um orçamento de brincar é um limite para uma atividade imaginária, não uma avaliação de uma família.",
+            "correct": false
+          },
+          {
+            "text": "Não há limite",
+            "feedback": "Pensa no que aconteceu neste capítulo. Um orçamento de brincar é um limite para uma atividade imaginária, não uma avaliação de uma família.",
+            "correct": false
+          }
+        ],
+        "activity": "Coloca oito marcas ou fichas junto de um plano de piquenique imaginário. Podes apontar, desenhar, escrever, usar comunicação aumentativa e alternativa, falar ou pedir a um adulto que registe a tua ideia."
+      },
+      {
+        "title": "Os primeiros dois cartões",
+        "paragraphs": [
+          "O cartão de comida da história custa três fichas e o de água custa uma. O adulto explica que as personagens precisam destes produtos neste piquenique. Na vida real, um adulto verificaria também necessidades alimentares, acesso à água e segurança.",
+          "Emma põe quatro fichas junto dos dois cartões. Sobram quatro. Escolher primeiro algo útil deixa uma quantia clara para outras escolhas. Fazer uma lista não criou dinheiro. A lista ajuda a ver o que decidiram e o que sobra."
+        ],
+        "idea": "Três mais uma usam quatro fichas. Das oito iniciais, sobram quatro.",
+        "question": "Quantas sobram depois da comida e da água?",
+        "choices": [
+          {
+            "text": "Oito",
+            "feedback": "Volta a ver a história. Três mais uma usam quatro fichas. Das oito iniciais, sobram quatro.",
+            "correct": false
+          },
+          {
+            "text": "Doze",
+            "feedback": "Pensa no que aconteceu neste capítulo. Três mais uma usam quatro fichas. Das oito iniciais, sobram quatro.",
+            "correct": false
+          },
+          {
+            "text": "Quatro",
+            "feedback": "Faz sentido. Três mais uma usam quatro fichas. Das oito iniciais, sobram quatro.",
+            "correct": true
+          }
+        ],
+        "activity": "Retira três fichas e depois uma de um grupo de oito. Mostra o que sobra. Podes apontar, desenhar, escrever, usar comunicação aumentativa e alternativa, falar ou pedir a um adulto que registe a tua ideia."
+      },
+      {
+        "title": "Uma decoração pode esperar",
+        "paragraphs": [
+          "Um cartão de fita custa três fichas. Um cartão de manta custa duas. O grupo tem quatro fichas. Não pode comprar os dois, pois três mais duas são cinco. Emma põe os cartões junto das fichas restantes para comparar.",
+          "Neste jogo inventado, as personagens já têm um sítio adequado para se sentar. Podem escolher uma decoração, guardar as fichas ou mudar o plano. Um desejo não é mau. Pode ser considerado depois das necessidades e dos limites. Não comprar também é uma decisão possível."
+        ],
+        "idea": "Um extra divertido pode ser uma escolha, mas o total tem de caber na quantia disponível.",
+        "question": "Podem comprar os dois extras com quatro fichas?",
+        "choices": [
+          {
+            "text": "Sim, uma lista acrescenta uma ficha",
+            "feedback": "Pensa no que aconteceu neste capítulo. Um extra divertido pode ser uma escolha, mas o total tem de caber na quantia disponível.",
+            "correct": false
+          },
+          {
+            "text": "Não, juntos custam cinco",
+            "feedback": "Faz sentido. Um extra divertido pode ser uma escolha, mas o total tem de caber na quantia disponível.",
+            "correct": true
+          },
+          {
+            "text": "Sim, porque os dois são agradáveis",
+            "feedback": "Volta a ver a história. Um extra divertido pode ser uma escolha, mas o total tem de caber na quantia disponível.",
+            "correct": false
+          }
+        ],
+        "activity": "Compara dois extras inventados que custam três e duas, usando quatro marcas disponíveis. Podes apontar, desenhar, escrever, usar comunicação aumentativa e alternativa, falar ou pedir a um adulto que registe a tua ideia."
+      },
+      {
+        "title": "Uma mudança no tempo",
+        "paragraphs": [
+          "A imagem da história muda para um dia de chuva. O adulto oferece uma cena de piquenique dentro de casa com os mesmos cartões de comida. Emma muda o plano para a nova imagem. O grupo não precisa de manter a primeira ideia só porque surgiu antes.",
+          "Verificam as escolhas que continuam a ajudar. A fita é opcional e a comida continua útil. O plano pode mudar com nova informação. Ninguém perde uma recompensa por se adaptar. Max gosta que a atividade real continue dentro de casa, onde a manta está quente e seca."
+        ],
+        "idea": "Uma mudança na informação pode ser motivo para rever um plano.",
+        "question": "O que pode o grupo rever?",
+        "choices": [
+          {
+            "text": "O local depois de verificar a chuva",
+            "feedback": "Faz sentido. Uma mudança na informação pode ser motivo para rever um plano.",
+            "correct": true
+          },
+          {
+            "text": "Nada depois de existir um plano",
+            "feedback": "Volta a ver a história. Uma mudança na informação pode ser motivo para rever um plano.",
+            "correct": false
+          },
+          {
+            "text": "O tempo meteorológico gastando fichas",
+            "feedback": "Pensa no que aconteceu neste capítulo. Uma mudança na informação pode ser motivo para rever um plano.",
+            "correct": false
+          }
+        ],
+        "activity": "Mostra uma opção interior e uma exterior para um evento imaginário. Escolhe depois para uma imagem de chuva. Podes apontar, desenhar, escrever, usar comunicação aumentativa e alternativa, falar ou pedir a um adulto que registe a tua ideia."
+      },
+      {
+        "title": "A ficha que sobra",
+        "paragraphs": [
+          "O grupo decide usar três das quatro fichas restantes numa decoração. Guarda uma ficha. O adulto explica que deixar algo por gastar permite escolhas futuras. Isso não garante dinheiro suficiente para todas as surpresas.",
+          "O grupo regista o que usou e o que não usou. Das oito fichas, gastou sete. Sobra uma. Podem explicar apontando. Ninguém precisa de escrever uma conta comprida para mostrar que compreendeu o jogo."
+        ],
+        "idea": "Oito fichas menos sete usadas deixam uma. O dinheiro não gasto continua disponível.",
+        "question": "Quantas fichas não foram gastas?",
+        "choices": [
+          {
+            "text": "Sete",
+            "feedback": "Volta a ver a história. Oito fichas menos sete usadas deixam uma. O dinheiro não gasto continua disponível.",
+            "correct": false
+          },
+          {
+            "text": "Nove",
+            "feedback": "Pensa no que aconteceu neste capítulo. Oito fichas menos sete usadas deixam uma. O dinheiro não gasto continua disponível.",
+            "correct": false
+          },
+          {
+            "text": "Uma",
+            "feedback": "Faz sentido. Oito fichas menos sete usadas deixam uma. O dinheiro não gasto continua disponível.",
+            "correct": true
+          }
+        ],
+        "activity": "Desenha oito círculos, marca sete como usados e aponta para o círculo não gasto. Podes apontar, desenhar, escrever, usar comunicação aumentativa e alternativa, falar ou pedir a um adulto que registe a tua ideia."
+      },
+      {
+        "title": "Um plano que todos conseguem compreender",
+        "paragraphs": [
+          "Na última ronda, o grupo coloca os cartões e as fichas onde todos lhes chegam ou os veem. Uma criança aponta para a água para verificar o seu lugar no plano. Emma dá espaço à pergunta, em vez de se apressar a acabar.",
+          "O jogo termina com uma revisão breve: o que havia, o que escolheram e o que sobrou. Outro grupo poderia escolher de forma diferente dentro do limite. O importante é verificar o plano e ouvir as pessoas, não encontrar o piquenique mais vistoso."
+        ],
+        "idea": "Um plano deve ser compreensível para quem o usa, com formas acessíveis de fazer perguntas.",
+        "question": "O que vale a pena rever?",
+        "choices": [
+          {
+            "text": "Quem terminou mais depressa",
+            "feedback": "Pensa no que aconteceu neste capítulo. Um plano deve ser compreensível para quem o usa, com formas acessíveis de fazer perguntas.",
+            "correct": false
+          },
+          {
+            "text": "As quantias disponíveis, usadas e restantes",
+            "feedback": "Faz sentido. Um plano deve ser compreensível para quem o usa, com formas acessíveis de fazer perguntas.",
+            "correct": true
+          },
+          {
+            "text": "Qual piquenique parece mais caro",
+            "feedback": "Volta a ver a história. Um plano deve ser compreensível para quem o usa, com formas acessíveis de fazer perguntas.",
+            "correct": false
+          }
+        ],
+        "activity": "Conta um orçamento de piquenique imaginário com cartões, desenhos ou notas de um adulto. Podes apontar, desenhar, escrever, usar comunicação aumentativa e alternativa, falar ou pedir a um adulto que registe a tua ideia."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Orçamento",
+        "meaning": "Um plano para utilizar uma quantia disponível."
+      },
+      {
+        "term": "Total",
+        "meaning": "A quantia obtida ao contar os elementos em conjunto."
+      },
+      {
+        "term": "Restante",
+        "meaning": "O que sobra depois de usar uma parte."
+      }
+    ]
+  },
+  "the-kindness-club": {
+    "title": "O clube da gentileza",
+    "subtitle": "Uma história original Money Quest para ler e explorar em conjunto",
+    "audience": "Explorer · 6–8 anos · Leitura partilhada e atividades opcionais",
+    "description": "Emma e os amigos planeiam um pequeno projeto comunitário onde cada pessoa pode escolher como participar.",
+    "coverAlt": "Emma e Max num cenário Money Quest ligado a esta história.",
+    "chapters": [
+      {
+        "title": "Um convite com escolhas",
+        "paragraphs": [
+          "Emma quer criar um clube da gentileza numa sessão comunitária supervisionada. Desenha um anúncio que pede a todos uma história em voz alta. Depois lembra-se de que algumas crianças podem não querer falar em grupo. Max descansa junto da cadeira do adulto.",
+          "Emma acrescenta outras formas de participar: desenhar, apontar imagens ou ordenar cartões de histórias. Uma criança também pode observar antes de decidir. Um convite é mais útil quando explica as escolhas disponíveis, em vez de presumir que todos participam da mesma maneira."
+        ],
+        "idea": "Oferece formas significativas de participar, incluindo observar ou recusar.",
+        "question": "O que melhora o convite?",
+        "choices": [
+          {
+            "text": "Várias formas de participar",
+            "feedback": "Faz sentido. Oferece formas significativas de participar, incluindo observar ou recusar.",
+            "correct": true
+          },
+          {
+            "text": "Um discurso obrigatório",
+            "feedback": "Volta a ver a história. Oferece formas significativas de participar, incluindo observar ou recusar.",
+            "correct": false
+          },
+          {
+            "text": "Uma regra que proíbe observar",
+            "feedback": "Pensa no que aconteceu neste capítulo. Oferece formas significativas de participar, incluindo observar ou recusar.",
+            "correct": false
+          }
+        ],
+        "activity": "Cria um convite com duas formas de resposta para um clube imaginário. Podes apontar, desenhar, escrever, usar comunicação aumentativa e alternativa, falar ou pedir a um adulto que registe a tua ideia."
+      },
+      {
+        "title": "Ajudar começa por perguntar",
+        "paragraphs": [
+          "O grupo quer ajudar um vizinho. Emma sugere levar-lhe o saco sem perguntar. O adulto explica que ajudar deve começar com uma pergunta. A pessoa pode querer apoio, preferir outro tipo de ajuda ou querer fazer a tarefa sozinha.",
+          "Emma desenha um cartão: Queres ajuda? O vizinho da história responde não, obrigado. O clube aceita. Respeitar a escolha faz parte da gentileza. Uma boa intenção não dá autorização para assumir o controlo dos pertences de outra pessoa."
+        ],
+        "idea": "Pergunta antes de ajudar e aceita a resposta.",
+        "question": "O que deve o clube fazer primeiro?",
+        "choices": [
+          {
+            "text": "Pegar no saco sem perguntar",
+            "feedback": "Volta a ver a história. Pergunta antes de ajudar e aceita a resposta.",
+            "correct": false
+          },
+          {
+            "text": "Insistir em ajudar na mesma",
+            "feedback": "Pensa no que aconteceu neste capítulo. Pergunta antes de ajudar e aceita a resposta.",
+            "correct": false
+          },
+          {
+            "text": "Perguntar se a pessoa quer ajuda",
+            "feedback": "Faz sentido. Pergunta antes de ajudar e aceita a resposta.",
+            "correct": true
+          }
+        ],
+        "activity": "Escolhe uma frase ou imagem respeitosa para perguntar primeiro numa situação imaginária. Podes apontar, desenhar, escrever, usar comunicação aumentativa e alternativa, falar ou pedir a um adulto que registe a tua ideia."
+      },
+      {
+        "title": "Uma tarefa sem compras",
+        "paragraphs": [
+          "O clube não tem dinheiro para presentes. Emma receia que o projeto tenha de acabar. O adulto pergunta que gestos gentis dispensam compras. As crianças sugerem ouvir, devolver materiais comuns e dar espaço à mesa. Max não tem sugestões de compras.",
+          "Escolhem organizar os cartões comunitários com autorização. É uma tarefa útil e não custa dinheiro. Dar dinheiro não é um teste à gentileza. As famílias têm recursos diferentes, e ninguém precisa de explicar as finanças da sua casa para pertencer ao clube."
+        ],
+        "idea": "O tempo, o cuidado e as ações úteis permitem contribuir sem comprar nada.",
+        "question": "Que ação não custa dinheiro?",
+        "choices": [
+          {
+            "text": "Pedir dados bancários privados",
+            "feedback": "Pensa no que aconteceu neste capítulo. O tempo, o cuidado e as ações úteis permitem contribuir sem comprar nada.",
+            "correct": false
+          },
+          {
+            "text": "Arrumar cartões comuns com autorização",
+            "feedback": "Faz sentido. O tempo, o cuidado e as ações úteis permitem contribuir sem comprar nada.",
+            "correct": true
+          },
+          {
+            "text": "Comprar um presente para todos",
+            "feedback": "Volta a ver a história. O tempo, o cuidado e as ações úteis permitem contribuir sem comprar nada.",
+            "correct": false
+          }
+        ],
+        "activity": "Desenha uma forma segura e gratuita de um clube imaginário contribuir. Podes apontar, desenhar, escrever, usar comunicação aumentativa e alternativa, falar ou pedir a um adulto que registe a tua ideia."
+      },
+      {
+        "title": "Nem todos querem um abraço",
+        "paragraphs": [
+          "Emma quer agradecer a um amigo com um abraço. O amigo afasta-se. Emma para. O adulto oferece alternativas: acenar, um cartão de agradecimento ou dizer obrigado. O amigo escolhe acenar, e Emma retribui.",
+          "Ninguém tem de aceitar contacto físico para mostrar amizade. As pessoas podem preferir cumprimentos diferentes em dias diferentes. Perguntar e ouvir ajuda a respeitar cada pessoa. Emma acrescenta uma imagem de acenar ao quadro para escolherem um cumprimento confortável sem explicar motivos em público."
+        ],
+        "idea": "Respeita os limites pessoais e oferece cumprimentos sem contacto físico.",
+        "question": "O que pode Emma fazer?",
+        "choices": [
+          {
+            "text": "Parar e oferecer um aceno",
+            "feedback": "Faz sentido. Respeita os limites pessoais e oferece cumprimentos sem contacto físico.",
+            "correct": true
+          },
+          {
+            "text": "Abraçar depois de o amigo se afastar",
+            "feedback": "Volta a ver a história. Respeita os limites pessoais e oferece cumprimentos sem contacto físico.",
+            "correct": false
+          },
+          {
+            "text": "Exigir uma explicação",
+            "feedback": "Pensa no que aconteceu neste capítulo. Respeita os limites pessoais e oferece cumprimentos sem contacto físico.",
+            "correct": false
+          }
+        ],
+        "activity": "Escolhe um cumprimento sem contacto para o quadro de boas-vindas de um clube imaginário. Podes apontar, desenhar, escrever, usar comunicação aumentativa e alternativa, falar ou pedir a um adulto que registe a tua ideia."
+      },
+      {
+        "title": "Partilhar o mérito",
+        "paragraphs": [
+          "O clube termina de ordenar os cartões. Emma fez o convite, uma criança verificou os grupos e outra levou o tabuleiro vazio com um adulto. Um visitante agradece só a Emma. Ela aponta os outros e explica o que cada um fez.",
+          "O adulto agradece contribuições concretas ao grupo. O trabalho sossegado também conta. O projeto não aconteceu porque uma criança era a mais importante. Aconteceu porque várias pessoas tiveram papéis adequados. O papel de Max era ficar fora da zona de trabalho, o que conseguiu junto da manta."
+        ],
+        "idea": "Descreve contribuições concretas e inclui quem fez trabalho menos visível.",
+        "question": "Quem merece reconhecimento?",
+        "choices": [
+          {
+            "text": "Só quem fala mais alto",
+            "feedback": "Volta a ver a história. Descreve contribuições concretas e inclui quem fez trabalho menos visível.",
+            "correct": false
+          },
+          {
+            "text": "Só quem segura o anúncio",
+            "feedback": "Pensa no que aconteceu neste capítulo. Descreve contribuições concretas e inclui quem fez trabalho menos visível.",
+            "correct": false
+          },
+          {
+            "text": "Todas as pessoas que contribuíram",
+            "feedback": "Faz sentido. Descreve contribuições concretas e inclui quem fez trabalho menos visível.",
+            "correct": true
+          }
+        ],
+        "activity": "Mostra três papéis diferentes num projeto imaginário e diz como cada um contribui. Podes apontar, desenhar, escrever, usar comunicação aumentativa e alternativa, falar ou pedir a um adulto que registe a tua ideia."
+      },
+      {
+        "title": "Um clube que pode mudar",
+        "paragraphs": [
+          "Na sessão seguinte, uma criança acha a mesa demasiado agitada. Emma ouve e pergunta ao adulto se pode haver um lugar mais sossegado para participar. Mudam alguns cartões e deixam mais espaço. Mantêm também a possibilidade de observar.",
+          "A mudança não significa que o primeiro clube falhou. As opiniões podem revelar barreiras que os organizadores não viram. Emma guarda um cartão que diz Preciso de algo diferente. O clube pode continuar a perguntar o que ajuda, enquanto os adultos verificam segurança e apoio. Ser gentil inclui responder ao que se ouviu."
+        ],
+        "idea": "Usa as opiniões para remover barreiras e continua a verificar o que a participação exige.",
+        "question": "O que deve fazer o clube com uma opinião útil?",
+        "choices": [
+          {
+            "text": "Pedir a todos que tolerem a mesma organização",
+            "feedback": "Pensa no que aconteceu neste capítulo. Usa as opiniões para remover barreiras e continua a verificar o que a participação exige.",
+            "correct": false
+          },
+          {
+            "text": "Considerar uma mudança prática",
+            "feedback": "Faz sentido. Usa as opiniões para remover barreiras e continua a verificar o que a participação exige.",
+            "correct": true
+          },
+          {
+            "text": "Ignorá-la depois da abertura",
+            "feedback": "Volta a ver a história. Usa as opiniões para remover barreiras e continua a verificar o que a participação exige.",
+            "correct": false
+          }
+        ],
+        "activity": "Desenha uma alteração que facilite participar numa atividade de grupo imaginária. Podes apontar, desenhar, escrever, usar comunicação aumentativa e alternativa, falar ou pedir a um adulto que registe a tua ideia."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Autorização",
+        "meaning": "Acordo que permite que uma ação aconteça."
+      },
+      {
+        "term": "Limite",
+        "meaning": "Uma fronteira sobre aquilo com que alguém se sente confortável."
+      },
+      {
+        "term": "Contribuição",
+        "meaning": "Algo que uma pessoa acrescenta a uma atividade partilhada."
+      }
+    ]
+  }
+}
