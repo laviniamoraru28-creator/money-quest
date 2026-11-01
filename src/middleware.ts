@@ -1,6 +1,6 @@
 import createIntlMiddleware from "next-intl/middleware";
 import { NextRequest, NextResponse } from "next/server";
-import { LOCALES } from "@/i18n/config";
+import { LOCALES,ACTIVE_LOCALES,DEFAULT_LOCALE } from "@/i18n/config";
 import { routing } from "@/i18n/navigation";
 
 /**
@@ -16,9 +16,9 @@ import { routing } from "@/i18n/navigation";
 const intlMiddleware = createIntlMiddleware(routing);
 export default function middleware(request: NextRequest) {
   const segment = request.nextUrl.pathname.split("/")[1];
-  if (segment !== "en" && LOCALES.some(locale => locale === segment)) {
+  if (!(ACTIVE_LOCALES as readonly string[]).includes(segment) && LOCALES.some(locale => locale === segment)) {
     const url = request.nextUrl.clone();
-    url.pathname = url.pathname.replace(`/${segment}`, "/en");
+    url.pathname = url.pathname.replace(`/${segment}`, `/${DEFAULT_LOCALE}`);
     return NextResponse.redirect(url, 307);
   }
   return intlMiddleware(request);

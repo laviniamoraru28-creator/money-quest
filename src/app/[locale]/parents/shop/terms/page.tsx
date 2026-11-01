@@ -1,7 +1,7 @@
 import {ShopTerms} from "@/components/ShopTerms";
 import {publicParentLocale,shopTermsPresentation} from "@/lib/i18n/parent-presentation";
 import {learningMetadata} from "@/lib/seo/learning-metadata";
-export const metadata=learningMetadata("Digital download terms and preview status","Read the format, household licence and preview status of Money Quest printable PDF resources.","/parents/shop/terms");
+export async function generateMetadata({params}:{params:Promise<{locale:string}>}){const {locale}=await params;const language=publicParentLocale(locale),copy=shopTermsPresentation(language).copy;return learningMetadata(copy.title,copy.status,"/parents/shop/terms",undefined,language);}
 import {publicCommerce} from "@/lib/commerce/storefront";
 import {LiveShopTerms} from "@/components/ShopMerchant";
 export const dynamic="force-dynamic";

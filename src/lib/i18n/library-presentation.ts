@@ -26,6 +26,14 @@ import externalIT from "@/content/translations/author-books.it.json";
 import externalPT from "@/content/translations/author-books.pt.json";
 import externalNL from "@/content/translations/author-books.nl.json";
 import externalPL from "@/content/translations/author-books.pl.json";
+import booksES from "@/content/translations/books.es.json";
+import booksFR from "@/content/translations/books.fr.json";
+import booksDE from "@/content/translations/books.de.json";
+import booksIT from "@/content/translations/books.it.json";
+import booksPT from "@/content/translations/books.pt.json";
+import booksNL from "@/content/translations/books.nl.json";
+import booksPL from "@/content/translations/books.pl.json";
+const bookDrafts:Partial<Record<Locale,Record<string,unknown>>>={ro:books,es:booksES,fr:booksFR,de:booksDE,it:booksIT,pt:booksPT,nl:booksNL,pl:booksPL};
 const externalDrafts:Partial<Record<Locale,Record<string,unknown>>>={ro:externalBooks,es:externalES,fr:externalFR,de:externalDE,it:externalIT,pt:externalPT,nl:externalNL,pl:externalPL};
 
 const biographyDrafts:Partial<Record<Locale,Record<string,unknown>>>={ro:people,es:peopleEs,fr:peopleFr,de:peopleDe,it:peopleIt,pt:peoplePt,nl:peopleNl,pl:peoplePl};
@@ -40,10 +48,10 @@ export function draftReaderPresentation(book:OriginalBook,locale:Locale):ReaderP
  // Layout comes from the canonical edition, never a translated audience label.
  const paragraphsPerPage=book.audience.startsWith("Explorer")?1:2;
  if(locale==="en")return {book,locale,paragraphsPerPage};
- if(locale!=="ro")throw new Error(`Original-book translation not ready: ${locale}`);
+ const draft=bookDrafts[locale];if(!draft)throw new Error(`Original-book translation not ready: ${locale}`);
  const slug=book.slug as keyof typeof books;
- if(!books[slug]||!bookManifest.sources[slug])throw new Error(`Missing original-book translation: ${book.slug}`);
- return {book:draftTranslatedBook(book,books[slug],bookManifest.sources[slug]),locale,paragraphsPerPage};
+ if(!draft[slug]||!bookManifest.sources[slug])throw new Error(`Missing original-book translation: ${book.slug}`);
+ return {book:draftTranslatedBook(book,draft[slug],bookManifest.sources[slug]),locale,paragraphsPerPage};
 }
 export function draftBiographyPresentation(person:LibraryPerson,locale:Locale):BiographyPresentation {
  if(locale==="en")return {person,locale};
@@ -60,7 +68,7 @@ export function draftPublishedBook(book:typeof authorBooks[number],locale:Locale
  return draftTranslatedExternalBook(book,draft[id],externalManifest.sources[id]);
 }
 export function draftShelfPresentation(locale:Locale):ShelfPresentation {
- if(locale!=="en"&&locale!=="ro")throw new Error(`Library shelf content not ready: ${locale}`);
+
  return {
   locale,books:originalBooks.map(book=>draftReaderPresentation(book,locale).book),
   people:libraryPeople.map(person=>draftBiographyPresentation(person,locale).person),
