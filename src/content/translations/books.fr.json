@@ -1,0 +1,269 @@
+{
+  "the-little-compass-and-the-money-choices": {
+    "title": "La petite boussole et les choix d’argent",
+    "subtitle": "Une histoire de Coin Cove pour dépenser, économiser et prendre soin des autres",
+    "audience": "Explorer · 6–8 ans · À lire seul ou avec un adulte",
+    "description": "Accompagne notre jeune guide et son chiot dans huit chapitres autour d’un petit bateau, d’un marché tentant et d’un projet qui peut changer.",
+    "coverAlt": "Notre jeune guide et son chiot marron et blanc regardent un bateau en bois sur un étal ensoleillé du marché de Coin Cove.",
+    "chapters": [
+      {
+        "title": "Un bateau dans la vitrine",
+        "paragraphs": [
+          "Emma et son chiot, Max, s’arrêtent devant une boutique. Ils voient un petit bateau en bois. Sa voile est violette.",
+          "« J’aimerais ce bateau », dit Emma. « Il coûte six livres », répond le commerçant. Emma ouvre son petit porte-monnaie.",
+          "À la maison, un adulte l’aide à compter. Emma a quatre pièces d’une livre. Le bateau coûte six livres. Il lui manque deux livres.",
+          "Emma est déçue. Elle dessine le bateau. « Je peux attendre, choisir un autre jouet ou garder mon argent », dit-elle. Elle n’a pas besoin de se presser."
+        ],
+        "idea": "Le prix indique combien coûte une chose. Avoir envie de quelque chose ne veut pas dire qu’il faut l’acheter maintenant.",
+        "question": "Le bateau coûte £6. La fille a £4. Que pourrait-elle faire ?",
+        "choices": [
+          {
+            "text": "Prendre le bateau sans payer",
+            "feedback": "Le vendeur doit accepter la vente. Elle peut laisser le bateau et préparer un projet.",
+            "correct": false
+          },
+          {
+            "text": "Attendre et préparer un projet",
+            "feedback": "Oui. Attendre lui donne du temps pour réfléchir. Elle peut aussi choisir un autre objectif.",
+            "correct": true
+          },
+          {
+            "text": "Faire comme si quatre livres en valaient six",
+            "feedback": "Changer les mots ne change pas la somme. Elle a £4 et il lui manque £2 pour ce bateau.",
+            "correct": false
+          }
+        ],
+        "activity": "Dessine une chose qu’un personnage imaginaire aimerait avoir. Tu peux aussi montrer un objet. Choisis si le personnage achèterait maintenant, attendrait ou choisirait autre chose."
+      },
+      {
+        "title": "L’argent et les moyens de payer",
+        "paragraphs": [
+          "Emma va à la boulangerie avec son adulte. Il leur faut du pain pour le déjeuner. Une personne paie avec des pièces. Une autre approche sa carte du terminal.",
+          "« La carte fabrique de l’argent ? » demande Emma. « Non, répond son adulte. Ma carte de débit m’aide à payer avec l’argent de mon compte bancaire. »",
+          "Les pièces et les billets sont des espèces. Un compte garde la trace de l’argent à la banque. Une carte ou un téléphone peut aider à payer. C’est un outil.",
+          "« Payer sans contact, c’est quand même dépenser », dit l’adulte. Ils vérifient le prix avant de payer. Max renifle le sac de courses. Le pain semble surtout l’intéresser !"
+        ],
+        "idea": "Les pièces et les billets sont des espèces. Une carte de débit ou un téléphone utilisé pour payer aide à utiliser l’argent d’un compte. Une carte de crédit permet d’emprunter de l’argent qu’il faudra rembourser.",
+        "question": "Que se passe-t-il quand un adulte paie avec une carte de débit ?",
+        "choices": [
+          {
+            "text": "La carte fabrique de l’argent neuf",
+            "feedback": "Une carte ne fabrique pas d’argent. C’est un outil qui sert à effectuer un paiement.",
+            "correct": false
+          },
+          {
+            "text": "Les courses deviennent gratuites",
+            "feedback": "Il faut toujours payer le prix, même si aucune pièce ne change de main.",
+            "correct": false
+          },
+          {
+            "text": "L’argent est payé depuis son compte",
+            "feedback": "Oui. La carte de débit aide à payer depuis un compte. Le montant compte toujours.",
+            "correct": true
+          }
+        ],
+        "activity": "Trouve les images de pièce, de billet, de carte et de téléphone à Coin Cove. Montre les espèces, puis un moyen de paiement. Utilise des images, pas de vraies cartes ni des coordonnées bancaires."
+      },
+      {
+        "title": "La liste avant le marché",
+        "paragraphs": [
+          "Avant les courses, Emma aide à faire une liste. Il leur faut du pain, des légumes et du savon aujourd’hui. Max attend près de la porte. Il aimerait se promener.",
+          "« Nous prévoyons d’abord ce dont nous avons besoin », dit l’adulte. La nourriture permet à la famille de manger. Le savon permet de se laver. Le petit bateau peut attendre.",
+          "Emma voit un parapluie. « C’est un besoin ? » demande-t-elle. « Ça dépend, répond son adulte. Une personne peut en avoir besoin pour rester au sec. »",
+          "Emma met le bateau sur sa liste « ça peut attendre ». Il lui plaît toujours. On a le droit d’avoir envie d’un jouet. De retour à la maison, Max a sa promenade."
+        ],
+        "idea": "Les besoins nous aident à vivre et à rester en bonne santé. Les envies peuvent faire plaisir. Les besoins d’une personne dépendent de sa situation.",
+        "question": "Dans cette histoire, que faut-il mettre en premier sur la liste de courses de la famille ?",
+        "choices": [
+          {
+            "text": "La nourriture nécessaire au déjeuner",
+            "feedback": "Oui. La famille a besoin de nourriture aujourd’hui. Le bateau peut attendre.",
+            "correct": true
+          },
+          {
+            "text": "Tous les jouets du marché",
+            "feedback": "Les jouets peuvent faire plaisir, mais tous les acheter laisserait moins d’argent pour les besoins de la famille.",
+            "correct": false
+          },
+          {
+            "text": "Seulement les produits aux emballages brillants",
+            "feedback": "Un emballage peut attirer notre regard. Il ne dit pas ce dont la famille a besoin.",
+            "correct": false
+          }
+        ],
+        "activity": "Utilise des cartes illustrées inventées pour un personnage un jour de pluie. Qu’est-ce qui compte aujourd’hui ? Qu’est-ce qui peut attendre ? Tu n’as pas besoin de parler de l’argent de ta famille."
+      },
+      {
+        "title": "La toupie brillante",
+        "paragraphs": [
+          "Au marché, une toupie verte attire le regard d’Emma. Elle tourne, tourne ! « Elle coûte deux livres », dit le commerçant.",
+          "Emma a quatre livres. Si elle achète la toupie pour deux livres, il lui restera deux livres. Le bateau coûtera toujours six livres.",
+          "« Les deux me plaisent », dit Emma. « Tu peux choisir ce qui compte aujourd’hui, répond son adulte. Tu ne peux pas dépenser deux fois le même argent. »",
+          "Ils s’asseyent sur un banc avec Max. Emma prend le temps de réfléchir. « Aujourd’hui, je continue à économiser pour le bateau », dit-elle. Elle pourra choisir à nouveau plus tard."
+        ],
+        "idea": "L’argent dépensé pour une chose n’est plus disponible pour une autre. Faire une pause peut aider à choisir.",
+        "question": "Elle a £4 et dépense £2 pour la toupie. Combien lui reste-t-il ?",
+        "choices": [
+          {
+            "text": "£6",
+            "feedback": "Dépenser réduit la somme disponible. Essaie d’enlever deux jetons d’un groupe de quatre.",
+            "correct": false
+          },
+          {
+            "text": "£2",
+            "feedback": "Oui. Quatre livres moins deux livres, cela fait deux livres. Elle peut comparer ce choix à son objectif.",
+            "correct": true
+          },
+          {
+            "text": "£4",
+            "feedback": "Elle avait £4 au départ, mais £2 iraient au vendeur. Compte ce qui reste.",
+            "correct": false
+          }
+        ],
+        "activity": "Prends quatre jetons pour représenter des livres imaginaires. Donne-en deux à une boutique imaginaire. Compte ce qui reste. Tu peux montrer, dessiner ou utiliser un outil de communication."
+      },
+      {
+        "title": "Un projet qui peut changer",
+        "paragraphs": [
+          "Emma dessine six cercles dans son carnet. Chaque cercle représente une livre. Elle en colorie quatre pour les quatre livres qu’elle possède.",
+          "Deux cercles restent vides. Si elle peut mettre une autre livre de côté, elle pourra colorier un cercle de plus. Il lui manquera alors une livre.",
+          "« Nous ne savons pas quand il y aura plus d’argent disponible », dit son adulte. Toutes les familles ne donnent pas d’argent de poche. Un projet peut changer.",
+          "Pendant qu’elle attend, Emma fabrique un bateau en papier. Max la regarde depuis sa couverture. Un bateau en papier, c’est amusant aussi. On peut s’amuser sans acheter."
+        ],
+        "idea": "Un objectif d’épargne a une somme à atteindre et une somme de départ. Les projets peuvent changer. Il n’est pas toujours possible de mettre de l’argent de côté.",
+        "question": "L’objectif est de £6 et elle a £4. Combien lui manque-t-il ?",
+        "choices": [
+          {
+            "text": "£10",
+            "feedback": "Ajouter l’objectif et la somme de départ donne dix, mais nous cherchons l’écart entre les deux.",
+            "correct": false
+          },
+          {
+            "text": "£1",
+            "feedback": "Une livre de plus ferait cinq. Le bateau en coûte six. Essaie de compter encore une fois.",
+            "correct": false
+          },
+          {
+            "text": "£2",
+            "feedback": "Oui. Quatre plus deux font six. Le temps nécessaire dépend de l’argent qu’elle pourra mettre de côté.",
+            "correct": true
+          }
+        ],
+        "activity": "Dessine six cercles pour l’objectif du bateau imaginaire. Colorie-en quatre. Compte les deux cercles vides. Tu n’as besoin ni d’argent réel ni de données personnelles."
+      },
+      {
+        "title": "L’affiche qui disait de se dépêcher",
+        "paragraphs": [
+          "Une affiche de jouet colorée dit « Vite ! ». Emma est enthousiaste. Le navire sur l’image semble énorme. Elle tend la main vers son porte-monnaie, puis s’arrête.",
+          "« Une publicité essaie de nous donner envie d’acheter, dit son adulte. Nous pouvons vérifier le prix et ce qu’il y a dans la boîte. »",
+          "Le vrai jouet est plus petit que sur l’image. Emma demande s’il lui faut des piles. Son adulte l’aide à lire la boîte. Poser des questions peut l’aider à choisir.",
+          "Emma recule avec Max. « Je vais d’abord réfléchir », dit-elle. Elle pourra acheter un autre jour, ou ne rien acheter. Une affiche n’a pas à décider à sa place."
+        ],
+        "idea": "Les publicités cherchent à encourager l’achat. Vérifie le prix et les détails utiles. Tu peux faire une pause ou demander à un adulte de confiance.",
+        "question": "Une publicité dit « Vite ! ». Que peut faire la fille ?",
+        "choices": [
+          {
+            "text": "Faire une pause et vérifier les détails",
+            "feedback": "Oui. Elle peut demander le prix, la taille et les éventuels frais supplémentaires avant de choisir.",
+            "correct": true
+          },
+          {
+            "text": "Acheter avant de regarder le prix",
+            "feedback": "L’enthousiasme ne lui indique pas le prix. Elle peut s’arrêter et vérifier d’abord.",
+            "correct": false
+          },
+          {
+            "text": "Penser que l’image prouve que tout le monde en a besoin",
+            "feedback": "Les besoins varient. Une image joyeuse ne prouve pas que tout le monde devrait acheter une chose.",
+            "correct": false
+          }
+        ],
+        "activity": "Invente une affiche pour un jouet imaginaire. Puis montre trois éléments à vérifier avant d’acheter : le prix, ce qui est inclus et l’adaptation aux besoins."
+      },
+      {
+        "title": "Un geste gentil qui ne coûtait rien",
+        "paragraphs": [
+          "Au port, les papiers propres du pique-nique d’un voisin s’envolent. Emma demande à son adulte s’ils peuvent aider. Ensemble, ils ramassent les papiers tout près.",
+          "« Merci », dit le voisin. Emma sourit. Elle a aidé sans dépenser d’argent. Plus tard, elle fait un dessin pour une amie qui se sent seule.",
+          "« Tu peux prendre soin des autres en aidant, en écoutant ou en attendant ton tour, dit l’adulte. Donner de l’argent est un choix. Tu n’as pas à donner l’argent dont tu as besoin. »",
+          "Emma a toujours son objectif de bateau. Elle peut tenir à son projet et aux autres aussi. Elle lit près de Max. Certains moments heureux de la journée ne coûtent rien."
+        ],
+        "idea": "La gentillesse peut prendre la forme de temps, d’attention ou d’aide. Donner de l’argent est un choix, pas une épreuve qui mesure la valeur d’une personne.",
+        "question": "Comment montrer de la gentillesse sans dépenser d’argent ?",
+        "choices": [
+          {
+            "text": "Donner ses coordonnées bancaires à un inconnu",
+            "feedback": "Les coordonnées bancaires sont privées. Demande à un adulte de confiance si on réclame de l’argent ou des données personnelles.",
+            "correct": false
+          },
+          {
+            "text": "Écouter un ami qui veut de la compagnie",
+            "feedback": "Oui. Écouter et passer du temps ensemble peut montrer qu’on tient à quelqu’un sans rien acheter.",
+            "correct": true
+          },
+          {
+            "text": "Dépenser toutes ses livres pour ne décevoir personne",
+            "feedback": "Tu n’as pas besoin de dépenser pour prouver ton affection. Tes besoins et tes limites comptent aussi.",
+            "correct": false
+          }
+        ],
+        "activity": "Choisis un geste gentil pour un personnage imaginaire : écouter, attendre son tour ou aider à faire une tâche sans danger. Tu peux montrer ton choix au lieu de le dire."
+      },
+      {
+        "title": "Le choix au port",
+        "paragraphs": [
+          "Plus tard, Emma dispose de six livres pour son objectif. Son adulte accepte qu’elle les utilise pour un jouet. Ils retournent à la boutique.",
+          "Le bateau coûte toujours six livres. Emma vérifie la voile. Le commerçant explique comment l’utiliser sans danger. « Je choisis toujours ce bateau », dit Emma.",
+          "Elle paie six livres. Il n’y a pas de monnaie à rendre puisqu’elle paie le prix exact. Cet argent est maintenant dépensé. Elle ne peut plus l’utiliser pour autre chose.",
+          "À la maison, le bateau flotte dans un bac peu profond. Max regarde depuis le côté sec. Emma aurait aussi pu continuer à économiser. L’important était de réfléchir et de choisir."
+        ],
+        "idea": "Vérifie le prix, réfléchis à ce qui compte et choisis. Atteindre ton objectif d’épargne ne t’oblige pas à acheter.",
+        "question": "Après avoir assez économisé, doit-elle acheter le bateau ?",
+        "choices": [
+          {
+            "text": "Oui, un projet d’épargne ne peut jamais changer",
+            "feedback": "Un projet est un outil. Il peut changer si la situation ou les préférences changent.",
+            "correct": false
+          },
+          {
+            "text": "Oui, sinon elle a économisé pour rien",
+            "feedback": "L’argent gardé reste disponible pour un autre usage autorisé. Elle peut y réfléchir à nouveau.",
+            "correct": false
+          },
+          {
+            "text": "Non, elle peut vérifier et choisir à nouveau",
+            "feedback": "Oui. Elle peut acheter, continuer à économiser ou choisir un autre objectif avec l’aide de son adulte.",
+            "correct": true
+          }
+        ],
+        "activity": "Choisis ta propre fin. Dessine la fille qui achète le bateau, garde son argent ou fabrique un autre bateau en papier. Explique en montrant, dessinant, écrivant ou parlant."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Prix",
+        "meaning": "La somme qu’une chose coûte."
+      },
+      {
+        "term": "Espèces",
+        "meaning": "L’argent sous forme de pièces et de billets."
+      },
+      {
+        "term": "Compte",
+        "meaning": "Un relevé de l’argent conservé auprès d’une banque ou d’un organisme similaire."
+      },
+      {
+        "term": "Budget",
+        "meaning": "Un projet pour l’argent disponible et son utilisation."
+      },
+      {
+        "term": "Épargne",
+        "meaning": "L’argent gardé pour plus tard au lieu d’être dépensé maintenant."
+      },
+      {
+        "term": "Publicité",
+        "meaning": "Un message conçu pour susciter de l’intérêt pour un produit ou un service."
+      }
+    ]
+  }
+}
