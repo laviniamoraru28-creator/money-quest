@@ -635,5 +635,415 @@
         "meaning": "Een boodschap om interesse in een product of dienst te wekken."
       }
     ]
+  },
+  "the-garden-everyone-could-enter": {
+    "title": "De tuin waar iedereen naar binnen kon",
+    "subtitle": "Een Money Quest-verhaal over luisteren, leidinggeven en erbij horen",
+    "audience": "Builder · 9–11 jaar · Zes hoofdstukken om in je eigen tempo te lezen",
+    "description": "Een tuinproject loopt vast wanneer het team ontdekt dat hun spannende plan iemand buitensluit.",
+    "coverAlt": "Het Money Quest-meisje en haar puppy in een uitnodigende, kleurrijke tuin.",
+    "chapters": [
+      {
+        "title": "Het luidste plan",
+        "paragraphs": [
+          "De buurttuin had een lege hoek. Tijdens het zaterdagoverleg stelden drie kinderen een leesplek voor. Onze gids hielp organiseren. Haar puppy lag onder de tafel terwijl de groep papier uitspreidde.",
+          "‘Een hoog platform!’ zei een kind. ‘Een geheime ladder!’ zei een ander. De gids begon te tekenen. De sprekers klonken enthousiast. Ze dacht dat iedereen akkoord was, tot ze een stil kind aan het tafeleinde zag.",
+          "Het kind wees naar de ladder en schudde het hoofd. Ernaast lag een communicatiebord. De gids stopte. Het luide gesprek bood niet iedereen een manier om mee te doen. Ze legde het papier zichtbaar voor iedereen en vroeg of plaatjes of meer denktijd hielpen.",
+          "Er was een begin, nog geen gezamenlijk plan. De gids legde haar potlood neer. Haar eerste nuttige leiderschapskeuze was ruimte voor een ander antwoord maken."
+        ],
+        "idea": "Samen beslissen vraagt toegankelijke manieren om bij te dragen. Stilte betekent niet automatisch ja.",
+        "question": "Wat moet de gids doen voordat ze het plan als gezamenlijk besluit behandelt?",
+        "choices": [
+          {
+            "text": "Controleren of iedereen kan reageren",
+            "feedback": "Ja. Wijzen, schrijven, plaatjes en denktijd kunnen deelname mogelijk maken.",
+            "correct": true
+          },
+          {
+            "text": "Alleen de luidste voorstellen meetellen",
+            "feedback": "Volume bepaalt niet wiens behoeften tellen. Ook andere bijdragen zijn nodig.",
+            "correct": false
+          },
+          {
+            "text": "Aannemen dat stilte instemming betekent",
+            "feedback": "Iemand kan een andere antwoordvorm nodig hebben. Vraag zonder spreekdruk.",
+            "correct": false
+          }
+        ],
+        "activity": "Maak antwoordkaarten voor ja, nee en ik heb meer tijd nodig. Gebruik ze bij een verzonnen teamoverleg."
+      },
+      {
+        "title": "Het pad naar de zitplek",
+        "paragraphs": [
+          "Het volgende overleg begon met een wandeling rond de hoek, samen met een tuinvrijwilliger. De gids vroeg niet naar het spannendste ontwerp, maar hoe iemand naar binnen ging, ging zitten en vertrok.",
+          "De ladder leek minder handig. Een grootouder met een loophulpmiddel kon moeite hebben. Een kind dat rust zocht wilde misschien niet klimmen. Iemand kon liever staan of ruimte naast een zitplaats nodig hebben.",
+          "Een kind tekende een breed pad. Een ander bedacht een lage zitplaats. Het kind met het communicatiebord wees naar rust en een boom. De vrijwilliger zei dat volwassenen toegang, materiaal en veiligheid vóór het bouwen moesten controleren.",
+          "De gids noteerde vragen, zonder te beloven dat één tekening alles oploste. Ze konden toekomstige gebruikers vragen wat werkte. Gastvrijheid vroeg meer dan een bord ‘iedereen welkom’."
+        ],
+        "idea": "Vraag hoe mensen een gedeelde plek echt gebruiken. Leid niet ieders behoeften af uit één ervaring.",
+        "question": "Hoe kan het team zijn ontwerp verbeteren?",
+        "choices": [
+          {
+            "text": "Het hoogste ontwerp kiezen omdat het indrukwekkend lijkt",
+            "feedback": "Een indrukwekkend plaatje bewijst niet dat mensen de plek kunnen gebruiken.",
+            "correct": false
+          },
+          {
+            "text": "Gebruikers vragen en volwassenen veiligheid en toegankelijkheid laten controleren",
+            "feedback": "Ja. Gebruikers en passende controles kunnen gemiste drempels tonen.",
+            "correct": true
+          },
+          {
+            "text": "Beloven dat één zitplaats voor iedereen geschikt is",
+            "feedback": "Behoeften verschillen. Test en luister, in plaats van één universele oplossing te beloven.",
+            "correct": false
+          }
+        ],
+        "activity": "Schets een verzonnen leeshoek met een ingang, rustplek en rustige optie. Noteer één vraag voor een mogelijke gebruiker."
+      },
+      {
+        "title": "Twee goede ideeën",
+        "paragraphs": [
+          "Het team had twee ontwerpen: vrolijke kussens of eenvoudige houten zitplaatsen. Beide bedenkers hoopten te winnen. Het gesprek werd fel.",
+          "‘Jij luistert nooit’, zei een kind. De gids voelde spanning in haar schouders. Ze wilde de ruzie stoppen, maar haar eigen favoriet kiezen zou niets uitleggen. Ze vroeg om een pauze. Niemand hoefde direct te antwoorden.",
+          "Daarna vroeg ze wat ieder ontwerp gebruikers hielp doen. Kussens boden comfort. Hout was wellicht makkelijker droog te houden. Dit waren vergelijkbare redenen, geen bewijs dat iemand beter was.",
+          "De vrijwilliger stelde een kleine proefopstelling voor. Zo konden ze geschikte buitenmaterialen ontdekken. Een meningsverschil hoefde het project niet te stoppen; het kon laten zien wat onderzocht moest worden."
+        ],
+        "idea": "Vergelijk redenen met gedeelde criteria. Een meningsverschil over een idee is geen oordeel over iemand.",
+        "question": "Welke vraag helpt de groep eerlijk vergelijken?",
+        "choices": [
+          {
+            "text": "Wie is het populairst?",
+            "feedback": "Populariteit zegt niets over praktisch gebruik of comfort.",
+            "correct": false
+          },
+          {
+            "text": "Wie sprak het eerst?",
+            "feedback": "Als eerste spreken bewijst niet dat een ontwerp bij behoeften past.",
+            "correct": false
+          },
+          {
+            "text": "Hoe voldoet elk ontwerp aan onze afgesproken behoeften?",
+            "feedback": "Ja. Gedeelde criteria richten aandacht op de taak, niet op persoonlijke status.",
+            "correct": true
+          }
+        ],
+        "activity": "Vergelijk twee verzonnen ontwerpen op bruikbaarheid, comfort en geschiktheid voor buiten. Gebruik tekens of plaatjes."
+      },
+      {
+        "title": "Taken die mensen konden kiezen",
+        "paragraphs": [
+          "Er moest veel gebeuren voor de proef. De gids begon taken uit te delen en stopte zichzelf. Ze had mensen uitgenodigd, maar niet gevraagd wat ze wilden bijdragen.",
+          "Ze maakte een takenbord: borden tekenen, materiaal tellen, de opstelling testen en reacties vastleggen. De vrijwilliger behield volwassenentaken zoals gereedschap controleren en bouwtoezicht. Kinderen konden een haalbare taak kiezen, samenwerken of pauzeren.",
+          "Een kind wilde schrijven maar niet voorlezen. Een ander ordende plaatjeslabels. Een stil teamlid zag een telfout. De gids bedankte het kind en verbeterde de lijst.",
+          "Ze hielp de voortgang volgen. Leidinggeven betekende niet alles zelf doen of andermans mogelijkheden bepalen. Ze maakte de volgende stap duidelijk en controleerde wat nodig was. De puppy bleef bij zijn volwassene tijdens de drukke werkzaamheden."
+        ],
+        "idea": "Bied zinvolle keuzes en duidelijke verantwoordelijkheden. Passende volwassenen dragen veiligheidstaken.",
+        "question": "Een kind wil helpen maar niet tegen de groep spreken. Wat past?",
+        "choices": [
+          {
+            "text": "Een nuttige teken- of registratietaak aanbieden",
+            "feedback": "Ja. Een bijdrage hoeft niet uitgesproken te worden om te tellen.",
+            "correct": true
+          },
+          {
+            "text": "Zeggen dat het kind niet in het team mag",
+            "feedback": "Uitsluiten vanwege niet spreken verwijdert nuttige bijdragen.",
+            "correct": false
+          },
+          {
+            "text": "Het kind laten spreken om zelfvertrouwen te bewijzen",
+            "feedback": "Meedoen mag niet afhangen van verplicht spreken. Vraag welke steun of taak past.",
+            "correct": false
+          }
+        ],
+        "activity": "Maak een takenbord voor een verzonnen project, met een rustige taak, een gedeelde taak en een duidelijke hulpvraagmogelijkheid."
+      },
+      {
+        "title": "Het bord dat niemand kon lezen",
+        "paragraphs": [
+          "De proefhoek was klaar. Het team had een bord beschilderd met krulletters tussen bladeren. Van dichtbij was het mooi. Vanaf het pad waren de woorden lastig leesbaar.",
+          "Eerst dacht de gids dat hun middag verspild was. Toen vroeg een bezoeker de weg. Dat was nuttig bewijs: voor die bezoeker werkte het bord niet. De schilder hoefde geen schuld te krijgen.",
+          "Samen probeerden ze grotere, duidelijkere letters en een eenvoudig boekplaatje. Het bord stond zichtbaar zonder het pad te blokkeren. Bezoekers konden ook de vrijwilliger de weg vragen.",
+          "De bladeren werden elders een rand. De oorspronkelijke schilder hielp het nieuwe ontwerp kiezen. Veranderen wiste de eerdere zorg niet uit. Met elke proef leerde het team wat nodig was."
+        ],
+        "idea": "Feedback helpt een ontwerp verbeteren. Beschrijf het probleem zonder de maker te beschamen.",
+        "question": "Welke feedback is nuttig?",
+        "choices": [
+          {
+            "text": "Jij bent slecht in borden maken",
+            "feedback": "Dit geeft iemand een etiket, zonder nuttige volgende stap.",
+            "correct": false
+          },
+          {
+            "text": "Vanaf het pad zijn de letters lastig leesbaar; laten we grotere testen",
+            "feedback": "Ja. Dit benoemt een zichtbare drempel en een testbare aanpassing.",
+            "correct": true
+          },
+          {
+            "text": "Verander nooit iets dat al af is",
+            "feedback": "Testen kan problemen tonen. Aanpassen kan een ontwerp bruikbaarder maken.",
+            "correct": false
+          }
+        ],
+        "activity": "Teken een oefenbord. Bekijk het van verder weg. Hoe wordt de boodschap duidelijker?"
+      },
+      {
+        "title": "Een hoek die bleef veranderen",
+        "paragraphs": [
+          "Op de openingsdag las iemand zittend. Een ander stond bij de kast. Een gezin vroeg om later een schaduwzitplaats toe te voegen. De gids noteerde de suggestie.",
+          "De hoek paste niet meteen bij elke voorkeur. Het was een werkbaar begin. Volwassenen bleven toegang en veiligheid controleren. Met plaatjeskaarten konden mensen ook een suggestie geven. Namen waren niet nodig.",
+          "In het laatste overleg bedankte de gids het team voor concrete bijdragen: het padprobleem zien, het bord testen en de lijst controleren. Verschillende waarnemingen veranderden het project. Gedeelde waardering vertelde het eerlijke verhaal.",
+          "Bij vertrek raakte ze haar kompasbadge aan. Eerst wilde ze leiden. Nu stelde ze betere vragen: wie heeft nog niet gereageerd? Wat nemen we aan? Wat testen we hierna? De tuin bleef groeien, net als hun vermogen te luisteren."
+        ],
+        "idea": "Leidinggeven betekent luisteren, waardering delen en terugkomen op open vragen.",
+        "question": "Wat is een nuttige volgende stap na de opening?",
+        "choices": [
+          {
+            "text": "Feedback negeren omdat het project klaar is",
+            "feedback": "Gebruik kan nieuwe aanpassingen nodig maken. Feedback blijft nuttig.",
+            "correct": false
+          },
+          {
+            "text": "Alleen de organisator suggesties laten geven",
+            "feedback": "Gebruikers zien wellicht dingen die de organisator mist.",
+            "correct": false
+          },
+          {
+            "text": "Toegankelijke feedback blijven verzamelen en de plek opnieuw bekijken",
+            "feedback": "Ja. Luisteren en passende controles verbeteren een bruikbare eerste versie.",
+            "correct": true
+          }
+        ],
+        "activity": "Kies een leiderschapsvraag uit dit hoofdstuk. Toon hoe een verzonnen team die kan gebruiken. Schrijf, teken, wijs of spreek."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Leiderschap",
+        "meaning": "Een groep helpen aan een gezamenlijk doel te werken."
+      },
+      {
+        "term": "Toegankelijkheid",
+        "meaning": "Iets kunnen bereiken, begrijpen en gebruiken."
+      },
+      {
+        "term": "Feedback",
+        "meaning": "Informatie over wat werkt en wat kan veranderen."
+      },
+      {
+        "term": "Criteria",
+        "meaning": "Afgesproken punten om keuzes te vergelijken."
+      }
+    ]
+  },
+  "the-market-town-notebook": {
+    "title": "Het schrift van Market Town",
+    "subtitle": "Een Money Quest-verhaal over ondernemen, bewijs en eerlijke beslissingen",
+    "audience": "Strategist · 12–14 jaar · Zes hoofdstukken met een uitgewerkt bedrijfsvoorbeeld",
+    "description": "Een boekenleggerproject toont waarom verkoop, winst, eerlijkheid en bewijs verschillende kanten van een bedrijfsbeslissing zijn.",
+    "coverAlt": "Het Money Quest-meisje en haar puppy verkennen een kleurrijke marktstad.",
+    "chapters": [
+      {
+        "title": "Een idee is een beginpunt",
+        "paragraphs": [
+          "Op een buurtmarkt onder toezicht in Market Town wilde het team handgemaakte boekenleggers proberen te verkopen. Een kind tekende graag, een ander hield van cijfers. Een derde vroeg: ‘Wil iemand deze eigenlijk wel?’",
+          "Ze bewonderden hun ontwerpen en namen belangstelling als zeker aan. Met toestemming van de volwassen organisator toonden ze twee voorbeelden tijdens de voorbereiding. Ze vroegen naar voorkeuren en bruikbaarheid. Ze noteerden anonieme turfstreepjes, geen namen of contactgegevens.",
+          "Mensen prezen de kleuren. Een lezer vroeg een kleiner formaat voor een paperback. Een ander gebruikte al een papiertje. Het team noteerde positieve én negatieve reacties.",
+          "De informatie gaf aanwijzingen, geen garantie. Iets mooi vinden tijdens een overleg is geen latere betaling. Ze kozen een kleine begeleide proef, geen grote bestelling op enthousiasme."
+        ],
+        "idea": "Klantonderzoek kan aannames bijstellen. Belangstelling garandeert geen verkoop.",
+        "question": "Welke conclusie past bij de reacties?",
+        "choices": [
+          {
+            "text": "Iedereen die een ontwerp mooi vindt zal het kopen",
+            "feedback": "Een positieve reactie is geen koopbelofte. Houd onzekerheid in het plan.",
+            "correct": false
+          },
+          {
+            "text": "De opmerkingen helpen een kleine proef vormgeven",
+            "feedback": "Ja. Feedback stuurt een proef zonder toekomstige vraag te bewijzen.",
+            "correct": true
+          },
+          {
+            "text": "Negatieve reacties moeten verwijderd worden",
+            "feedback": "Onwelkome antwoorden schrappen maakt de informatie minder bruikbaar.",
+            "correct": false
+          }
+        ],
+        "activity": "Bedenk twee boekenleggers en een vraag die niemand onder druk zet om te prijzen of kopen. Verzamel geen persoonlijke gegevens."
+      },
+      {
+        "title": "De kosten vóór de verkoop",
+        "paragraphs": [
+          "De organisator bood een gratis proeftafel. Een volwassene sprak een maximumbudget af. Het team leende niets, opende geen verkoopaccounts en benaderde klanten niet privé. Het plan bleef binnen het begeleide evenement.",
+          "Materiaal voor tien boekenleggers kostte vier pond. Een presentatiekaart kostte één pond. De totale geldkosten waren dus vijf pond. Elke kostenpost kreeg een eigen regel, zodat die niet in een optimistisch totaal verdween.",
+          "‘Tien verkopen van één pond leveren tien pond op’, zei de cijferliefhebber. ‘Dat is niet allemaal winst’, antwoordde het meisje. ‘De proef kost vijf pond.’ In dit vereenvoudigde voorbeeld bleef van tien pond omzet min vijf pond geldkosten vijf pond over.",
+          "Hun tijd zat niet in de geldberekening. Een blijvend bedrijf moet tijd en andere relevante kosten meenemen. Het team vermeldde die beperking: een kleine marktproef was geen compleet bedrijfsmodel."
+        ],
+        "idea": "Omzet is verkoopinkomen. In dit vereenvoudigde voorbeeld is winst de omzet min alle genoemde geldkosten.",
+        "question": "De omzet is £10 en de totale geldkosten zijn £5. Wat blijft over?",
+        "choices": [
+          {
+            "text": "£5",
+            "feedback": "Ja. Tien min vijf geeft vijf pond, voordat eventuele niet-genoemde kosten worden meegenomen.",
+            "correct": true
+          },
+          {
+            "text": "£10",
+            "feedback": "Tien pond is omzet. Trek de vijf pond kosten af.",
+            "correct": false
+          },
+          {
+            "text": "£15",
+            "feedback": "Kosten bij omzet optellen berekent geen winst. Kosten moeten eraf.",
+            "correct": false
+          }
+        ],
+        "activity": "Maak drie regels: omzet £10, genoemde geldkosten £5, over £5. Noem een extra kostenpost die een groter bedrijf moet overwegen."
+      },
+      {
+        "title": "Wanneer het totaal kleiner was",
+        "paragraphs": [
+          "Wat als er maar vier boekenleggers verkocht werden? Vier verkopen van één pond leverden vier pond omzet op. De proef kostte nog steeds vijf pond.",
+          "Het meisje rekende vier min vijf: min één. De proef maakte één pond verlies op de genoemde geldkosten. Zes boekenleggers bleven over. Misschien waren ze later bruikbaar, maar ze waren geen ontvangen klantgeld.",
+          "Vijf verkopen van één pond zouden de vijf pond geldkosten dekken. Dat was het vereenvoudigde break-evenpunt. Betaling voor tijd en vergeten nieuwe kosten waren niet inbegrepen.",
+          "Ze verborgen het risico niet, maar vergeleken het met het afgesproken budget. Ze konden de proef verkleinen, kosten aanpassen of stoppen. Het schrift maakte gevolgen zichtbaar, niet elk idee automatisch geschikt als bedrijf."
+        ],
+        "idea": "Onverkochte voorraad is geen verkoopinkomen. Een proef kan ook met een goed product verlies maken.",
+        "question": "Vier verkopen van £1 leveren £4 op bij £5 geldkosten. Wat is het resultaat?",
+        "choices": [
+          {
+            "text": "£4 winst",
+            "feedback": "Vier pond is omzet. De kosten moeten nog worden afgetrokken.",
+            "correct": false
+          },
+          {
+            "text": "Geen verlies, want er zijn boekenleggers over",
+            "feedback": "Boekenleggers zijn voorraad, geen verkoopgeld. Het vereenvoudigde geldresultaat blijft verlies.",
+            "correct": false
+          },
+          {
+            "text": "£1 verlies in dit geldvoorbeeld",
+            "feedback": "Ja. Vier pond omzet min vijf pond kosten is één pond verlies.",
+            "correct": true
+          }
+        ],
+        "activity": "Gebruik speelfiches voor vier, vijf en tien verkopen. Houd vijf pond kosten gelijk. Vergelijk verlies, break-even en winst."
+      },
+      {
+        "title": "De boodschap op het bord",
+        "paragraphs": [
+          "Een teamlid wilde ‘De beste boekenleggers ter wereld!’ schrijven. Een ander beloofde sneller lezen. De gids vroeg welk bewijs ze hadden. Niemand had leessnelheid gemeten. ‘Beste’ hing van de lezer af.",
+          "Ze beschreven het nauwkeuriger: handgemaakte kartonnen boekenleggers, twee ontwerpen, één pond per stuk. Afmetingen hielpen lezers kiezen. Ze controleerden dat hun tekeningen origineel waren, zonder andermans personages of kunst te kopiëren.",
+          "Ook ‘milieuvriendelijk perfect’ konden ze niet onderbouwen. Een specifiek gecontroleerd materiaal beschrijven bewees niet dat het hele product geen milieugevolgen had.",
+          "Hun bord was minder spectaculair en nuttiger. Lezers zagen aanbod, prijs en geschiktheid. Eerlijke informatie garandeerde geen verkoop, maar gaf een duidelijkere beslisbasis."
+        ],
+        "idea": "Een reclameclaim vraagt onderbouwing. Concrete juiste informatie helpt meer dan een verzonnen garantie.",
+        "question": "Welke uitspraak kan het team met zijn plan ondersteunen?",
+        "choices": [
+          {
+            "text": "Elke lezer zal twee keer zo snel lezen",
+            "feedback": "Er is geen bewijs voor een uitspraak over leessnelheid.",
+            "correct": false
+          },
+          {
+            "text": "Handgemaakte kartonnen boekenleggers, £1 per stuk",
+            "feedback": "Ja. Dit beschrijft product en prijs zonder een resultaat te verzinnen.",
+            "correct": true
+          },
+          {
+            "text": "Dit product heeft geen invloed op het milieu",
+            "feedback": "De beschikbare gegevens bewijzen die brede uitspraak niet.",
+            "correct": false
+          }
+        ],
+        "activity": "Schrijf twee feitelijke regels over een verzonnen product. Onderstreep elke claim die vóór publicatie bewijs nodig heeft."
+      },
+      {
+        "title": "Een eerlijke manier van werken",
+        "paragraphs": [
+          "Een kind maakte de meeste boekenleggers. Een ander ontwierp het bord. Een derde miste de eerste verkoopronde. Evenveel taken betekende niet automatisch evenveel inspanning of verantwoordelijkheid.",
+          "Met de organisator bespraken ze wat ieder aankon, spraken pauzes af en noteerden taken. Niemand hoefde privéredenen voor een andere rol te delen. De organisator beheerde geld, evenementregels en zorgen rond bezoekers.",
+          "Ze spraken vóór de verkoop af wat er met overgebleven geld gebeurde. De begeleidende volwassene keurde het doel goed. Ze beloofden klanten alleen een donatie wanneer de afspraken juist en duidelijk waren.",
+          "Het gesprek kostte productietijd, maar voorkwam botsende verwachtingen. Ook een klein project vraagt vertrouwen, verantwoordelijkheid en instemming. De geldsom was maar één onderdeel."
+        ],
+        "idea": "Spreek taken en geldgebruik vooraf af. Eerlijkheid gaat over omstandigheden én aantallen.",
+        "question": "Wanneer spreken ze af wat er met geld na de kosten gebeurt?",
+        "choices": [
+          {
+            "text": "Vóór de verkoop, met de begeleidende volwassene",
+            "feedback": "Ja. Duidelijkheid verkleint misverstanden en maakt openbare beloften controleerbaar.",
+            "correct": true
+          },
+          {
+            "text": "Pas nadat iemand het geld mee naar huis neemt",
+            "feedback": "Anderen kunnen dan verrast of buitengesloten zijn. Spreek het eerst af.",
+            "correct": false
+          },
+          {
+            "text": "De luidste persoon in het geheim laten kiezen",
+            "feedback": "Een geheim besluit geeft geen gezamenlijk begrip of instemming.",
+            "correct": false
+          }
+        ],
+        "activity": "Maak een verzonnen projectafspraak met een taak, pauzeregeling, volwassen verantwoordelijkheid en doel voor overgebleven geld."
+      },
+      {
+        "title": "Wat het schrift hun vertelde",
+        "paragraphs": [
+          "Zeven boekenleggers werden voor één pond verkocht. De omzet was zeven pond. De genoemde geldkosten bleven vijf pond. Het vereenvoudigde resultaat was twee pond winst. Drie boekenleggers bleven onverkocht.",
+          "Het meisje controleerde de cijfers met de organisator. Het resultaat lag tussen vier en tien verkopen. Het voorspelde geen herhaling: bezoekersaantal, ontwerp, prijzen en kosten konden veranderen.",
+          "Ze noteerden dat één formaat handiger was, het bord leesbaar en pauzes nuttig voor rustig werken. Eén middag bleef een kleine test. Niet alle mogelijke kosten waren gemeten en er was geen universele klantenregel gevonden.",
+          "Er waren drie volgende stappen: opnieuw een kleine begeleide proef, aanpassen of stoppen en de ervaring elders gebruiken. Ondernemen vroeg geen eindeloze groei, maar een passende beslissing op basis van bewijs, mensen en middelen. Ze sloot het schrift en wandelde rustig met de puppy."
+        ],
+        "idea": "Bekijk resultaten én beperkingen. Bewijs kan doorgaan, aanpassen of stoppen ondersteunen.",
+        "question": "Zeven verkopen van £1 min £5 genoemde geldkosten geeft wat?",
+        "choices": [
+          {
+            "text": "£7 winst en gegarandeerd een succesvol bedrijf",
+            "feedback": "Zeven is omzet. Een kleine proef garandeert geen toekomstige resultaten.",
+            "correct": false
+          },
+          {
+            "text": "£3 winst omdat drie boekenleggers overblijven",
+            "feedback": "Drie is de onverkochte hoeveelheid. Winst is hier omzet min genoemde geldkosten.",
+            "correct": false
+          },
+          {
+            "text": "£2 winst in deze vereenvoudigde proef",
+            "feedback": "Ja. Zeven min vijf is twee pond. Niet-genoemde kosten en toekomstige verkoop vallen buiten deze uitkomst.",
+            "correct": true
+          }
+        ],
+        "activity": "Schrijf over de verzonnen proef één resultaat, één beperking en één redelijke volgende stap. Echt verkopen of een account is niet nodig."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Omzet",
+        "meaning": "Geld uit verkoop vóór aftrek van kosten."
+      },
+      {
+        "term": "Winst",
+        "meaning": "Omzet die overblijft na aftrek van relevante kosten."
+      },
+      {
+        "term": "Verlies",
+        "meaning": "Het bedrag waarmee kosten de omzet overstijgen."
+      },
+      {
+        "term": "Voorraad",
+        "meaning": "Producten voor verkoop, ook onverkochte artikelen."
+      },
+      {
+        "term": "Break-even",
+        "meaning": "Het punt waarop omzet de kosten van de berekening dekt."
+      },
+      {
+        "term": "Bewijs",
+        "meaning": "Informatie waarmee een claim of besluit wordt beoordeeld."
+      }
+    ]
   }
 }
