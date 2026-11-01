@@ -1045,5 +1045,375 @@
         "meaning": "Une chose qu’une personne aime ou choisit."
       }
     ]
+  },
+  "the-message-max-could-not-send": {
+    "title": "Le message que Max ne pouvait pas envoyer",
+    "subtitle": "Une histoire originale Money Quest à lire et à explorer ensemble",
+    "audience": "Explorer · 6–8 ans · Lecture partagée et activités au choix",
+    "description": "Un message de jeu imaginaire aide Emma à demander de l’aide et à protéger les informations privées.",
+    "coverAlt": "Emma et Max dans un décor Money Quest lié à cette histoire.",
+    "chapters": [
+      {
+        "title": "Un message surprenant",
+        "paragraphs": [
+          "Emma joue à côté de son adulte. Un message apparaît à l’écran. Il annonce qu’elle a gagné un costume de chiot, mais qu’il faut faire vite. Max dort sur sa couverture. Il n’a envoyé de message à personne.",
+          "Emma a envie d’appuyer sur le bouton coloré. À la place, elle le montre à l’adulte. Un message peut être tentant sans être fiable. Ils peuvent le fermer et vérifier dans le menu habituel du jeu. Un message surprise n’exige pas une réponse immédiate."
+        ],
+        "idea": "Une demande urgente et inattendue est une raison de faire une pause et de vérifier avec un adulte de confiance.",
+        "question": "Que devrait-elle faire d’abord ?",
+        "choices": [
+          {
+            "text": "Montrer le message à un adulte de confiance",
+            "feedback": "C’est cela. Une demande urgente et inattendue est une raison de faire une pause et de vérifier avec un adulte de confiance.",
+            "correct": true
+          },
+          {
+            "text": "Appuyer vite sur le bouton",
+            "feedback": "Regarde encore l’histoire. Une demande urgente et inattendue est une raison de faire une pause et de vérifier avec un adulte de confiance.",
+            "correct": false
+          },
+          {
+            "text": "Répondre avec un secret",
+            "feedback": "Pense à ce qui s’est passé dans ce chapitre. Une demande urgente et inattendue est une raison de faire une pause et de vérifier avec un adulte de confiance.",
+            "correct": false
+          }
+        ],
+        "activity": "Montre une carte « pause et demande de l’aide » pour un message inventé. Tu peux montrer, dessiner, écrire, utiliser la CAA, parler ou demander à un adulte de noter ton idée."
+      },
+      {
+        "title": "Le secret reste privé",
+        "paragraphs": [
+          "Le message demande un mot de passe. Emma sait qu’un mot de passe aide à protéger un compte. Elle ne le tape pas dans le message. Son adulte explique qu’une image de chiot sympathique ne prouve pas qui fait la demande.",
+          "Ils ferment le message. Emma n’a rien fait de mal en le recevant. Même si elle avait déjà appuyé sur un bouton, elle pourrait encore demander de l’aide. Garder le problème secret empêcherait l’adulte de bien l’aider. On peut aussi recevoir de l’aide après une erreur."
+        ],
+        "idea": "N’envoie pas de mot de passe en réponse à un message inattendu. Demande de l’aide, même après une erreur.",
+        "question": "Que ne faut-il pas mettre dans la réponse ?",
+        "choices": [
+          {
+            "text": "Un dessin imaginaire d’arbre",
+            "feedback": "Regarde encore l’histoire. N’envoie pas de mot de passe en réponse à un message inattendu. Demande de l’aide, même après une erreur.",
+            "correct": false
+          },
+          {
+            "text": "Une question à un adulte de confiance",
+            "feedback": "Pense à ce qui s’est passé dans ce chapitre. N’envoie pas de mot de passe en réponse à un message inattendu. Demande de l’aide, même après une erreur.",
+            "correct": false
+          },
+          {
+            "text": "Un mot de passe",
+            "feedback": "C’est cela. N’envoie pas de mot de passe en réponse à un message inattendu. Demande de l’aide, même après une erreur.",
+            "correct": true
+          }
+        ],
+        "activity": "Choisis la carte inventée qui indique une information privée : mot de passe, titre d’histoire ou couleur imaginaire préférée. Tu peux montrer, dessiner, écrire, utiliser la CAA, parler ou demander à un adulte de noter ton idée."
+      },
+      {
+        "title": "Un costume a un prix",
+        "paragraphs": [
+          "Dans le menu habituel du jeu, un autre costume affiche un prix. Emma demande si les pièces du jeu et les vraies livres sont identiques. Son adulte vérifie l’écran. Cet achat utiliserait de l’argent réel par le compte de l’adulte.",
+          "Emma n’appuie pas sur acheter. Ils lisent ce qui est inclus et vérifient si le paiement se répète. Un objet numérique peut coûter de l’argent réel, même sans colis à recevoir. Demander d’abord permet à l’adulte de décider de la dépense. Max a déjà un collier tout ordinaire."
+        ],
+        "idea": "Vérifie si un achat de jeu utilise de l’argent réel et si le paiement se répète.",
+        "question": "Qui devrait vérifier cet achat ?",
+        "choices": [
+          {
+            "text": "Max pendant son sommeil",
+            "feedback": "Pense à ce qui s’est passé dans ce chapitre. Vérifie si un achat de jeu utilise de l’argent réel et si le paiement se répète.",
+            "correct": false
+          },
+          {
+            "text": "L’adulte responsable du compte",
+            "feedback": "C’est cela. Vérifie si un achat de jeu utilise de l’argent réel et si le paiement se répète.",
+            "correct": true
+          },
+          {
+            "text": "L’expéditeur d’un message inattendu",
+            "feedback": "Regarde encore l’histoire. Vérifie si un achat de jeu utilise de l’argent réel et si le paiement se répète.",
+            "correct": false
+          }
+        ],
+        "activity": "Dessine une étiquette d’achat imaginaire avec un prix et un symbole « demander d’abord ». Tu peux montrer, dessiner, écrire, utiliser la CAA, parler ou demander à un adulte de noter ton idée."
+      },
+      {
+        "title": "L’image de la maison",
+        "paragraphs": [
+          "Un jeu demande à Emma d’envoyer une photo. Sa photo montre l’entrée de sa maison et un cartable avec son prénom. Elle fait une pause. Son adulte explique qu’une photo peut montrer des informations privées, même si sa légende dit très peu de choses.",
+          "Ils choisissent de ne pas envoyer la photo. Emma peut plutôt dessiner une maison inventée sur du papier. Elle n’a pas besoin de partager sa vraie adresse, son école ou son visage pour faire cette activité. Une demande de photo n’oblige pas à en envoyer une."
+        ],
+        "idea": "Une image peut révéler des informations privées. Choisir de ne pas l’envoyer est une option valable.",
+        "question": "Qu’est-ce qui est plus sûr pour cette activité ?",
+        "choices": [
+          {
+            "text": "Dessiner une maison inventée sur du papier",
+            "feedback": "C’est cela. Une image peut révéler des informations privées. Choisir de ne pas l’envoyer est une option valable.",
+            "correct": true
+          },
+          {
+            "text": "Envoyer une adresse personnelle",
+            "feedback": "Regarde encore l’histoire. Une image peut révéler des informations privées. Choisir de ne pas l’envoyer est une option valable.",
+            "correct": false
+          },
+          {
+            "text": "Publier le nom de son école",
+            "feedback": "Pense à ce qui s’est passé dans ce chapitre. Une image peut révéler des informations privées. Choisir de ne pas l’envoyer est une option valable.",
+            "correct": false
+          }
+        ],
+        "activity": "Compare deux images inventées et montre un détail qui devrait rester privé. Tu peux montrer, dessiner, écrire, utiliser la CAA, parler ou demander à un adulte de noter ton idée."
+      },
+      {
+        "title": "Quelqu’un dit être un ami",
+        "paragraphs": [
+          "Un nouveau joueur dit connaître Emma à l’école. Son pseudo lui rappelle quelqu’un. Emma ne peut pas savoir qui utilise le compte avec le pseudo seul. Elle n’accepte ni rencontre ni conversation privée.",
+          "Elle le montre à son adulte, qui peut utiliser les outils de sécurité du jeu. Un ton amical ne vérifie pas une identité. Emma peut arrêter de jouer ou bloquer le contact avec de l’aide. Elle ne doit pas continuer à parler à un inconnu parce qu’il a envoyé des mots gentils ou un cadeau virtuel."
+        ],
+        "idea": "Un pseudo seul ne prouve pas une identité. Demande l’aide d’un adulte de confiance.",
+        "question": "Qu’est-ce qui prouve l’identité du joueur ?",
+        "choices": [
+          {
+            "text": "Un cadeau virtuel gratuit",
+            "feedback": "Regarde encore l’histoire. Un pseudo seul ne prouve pas une identité. Demande l’aide d’un adulte de confiance.",
+            "correct": false
+          },
+          {
+            "text": "Une phrase amicale",
+            "feedback": "Pense à ce qui s’est passé dans ce chapitre. Un pseudo seul ne prouve pas une identité. Demande l’aide d’un adulte de confiance.",
+            "correct": false
+          },
+          {
+            "text": "Le pseudo seul ne prouve rien",
+            "feedback": "C’est cela. Un pseudo seul ne prouve pas une identité. Demande l’aide d’un adulte de confiance.",
+            "correct": true
+          }
+        ],
+        "activity": "Choisis une suite sûre pour un contact imaginaire inattendu : arrêter, demander de l’aide ou continuer en privé. Tu peux montrer, dessiner, écrire, utiliser la CAA, parler ou demander à un adulte de noter ton idée."
+      },
+      {
+        "title": "Demander après une erreur",
+        "paragraphs": [
+          "Un après-midi, Emma appuie sans réfléchir sur un lien inconnu. Elle le dit tout de suite à son adulte. Ils arrêtent de saisir des informations et vérifient ce qui s’est passé. L’adulte s’occupe du compte et de l’appareil. Emma n’a pas à tout réparer seule.",
+          "Ensemble, ils créent un petit rappel : pause, demande, vérifie. C’est une aide. Ce n’est pas la promesse que personne ne fera plus jamais d’erreur. Max s’étire près de la table. Emma revient à une activité connue quand son adulte le juge adapté. Demander de l’aide était une action utile."
+        ],
+        "idea": "Préviens rapidement un adulte de confiance. Les adultes s’occupent de récupérer les comptes et de vérifier les appareils.",
+        "question": "Qu’est-ce qui aide après un clic inattendu ?",
+        "choices": [
+          {
+            "text": "Taper plus d’informations privées",
+            "feedback": "Pense à ce qui s’est passé dans ce chapitre. Préviens rapidement un adulte de confiance. Les adultes s’occupent de récupérer les comptes et de vérifier les appareils.",
+            "correct": false
+          },
+          {
+            "text": "Prévenir un adulte de confiance",
+            "feedback": "C’est cela. Préviens rapidement un adulte de confiance. Les adultes s’occupent de récupérer les comptes et de vérifier les appareils.",
+            "correct": true
+          },
+          {
+            "text": "Le cacher pour éviter d’être gênée",
+            "feedback": "Regarde encore l’histoire. Préviens rapidement un adulte de confiance. Les adultes s’occupent de récupérer les comptes et de vérifier les appareils.",
+            "correct": false
+          }
+        ],
+        "activity": "Place trois cartes de réponse pour une erreur imaginaire : arrêter, prévenir et laisser un adulte vérifier. Tu peux montrer, dessiner, écrire, utiliser la CAA, parler ou demander à un adulte de noter ton idée."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Privé",
+        "meaning": "Une information qu’on ne doit pas partager librement."
+      },
+      {
+        "term": "Mot de passe",
+        "meaning": "Un secret qui aide à protéger un accès."
+      },
+      {
+        "term": "Achat",
+        "meaning": "Le fait d’acheter une chose, y compris un objet numérique."
+      }
+    ]
+  },
+  "the-repair-table": {
+    "title": "La table de réparation",
+    "subtitle": "Une histoire originale Money Quest à lire et à explorer ensemble",
+    "audience": "Explorer · 6–8 ans · Lecture partagée et activités au choix",
+    "description": "Emma découvre qu’emprunter, réparer et acheter sont des choix possibles différents.",
+    "coverAlt": "Emma et Max dans un décor Money Quest lié à cette histoire.",
+    "chapters": [
+      {
+        "title": "Une roue se détache",
+        "paragraphs": [
+          "Le chariot-jouet d’Emma perd une roue. Elle est déçue et demande un nouveau chariot. Son adulte pose le jouet cassé sur la table, loin de Max. Ils vont d’abord chercher le problème et voir si une réparation sans danger est possible.",
+          "La roue est mal fixée, mais le reste du chariot semble utilisable. Regarder de près ne promet pas une réparation. Cela donne des informations avant de dépenser. Emma peut montrer le problème pendant que l’adulte manipule les petites pièces."
+        ],
+        "idea": "Examine le problème avant de décider s’il faut remplacer l’objet.",
+        "question": "Que faire avant les courses ?",
+        "choices": [
+          {
+            "text": "Regarder le problème sans danger",
+            "feedback": "C’est cela. Examine le problème avant de décider s’il faut remplacer l’objet.",
+            "correct": true
+          },
+          {
+            "text": "Jeter toutes les pièces",
+            "feedback": "Regarde encore l’histoire. Examine le problème avant de décider s’il faut remplacer l’objet.",
+            "correct": false
+          },
+          {
+            "text": "Acheter le premier chariot neuf",
+            "feedback": "Pense à ce qui s’est passé dans ce chapitre. Examine le problème avant de décider s’il faut remplacer l’objet.",
+            "correct": false
+          }
+        ],
+        "activity": "Dessine un objet cassé imaginaire et marque la partie à vérifier. Tu peux montrer, dessiner, écrire, utiliser la CAA, parler ou demander à un adulte de noter ton idée."
+      },
+      {
+        "title": "L’adulte vérifie",
+        "paragraphs": [
+          "Le chariot a une petite attache. L’adulte d’Emma vérifie si des outils adaptés permettent de le réparer. Emma regarde depuis un espace dégagé. Elle n’utilise pas d’outils coupants et ne teste pas d’appareil électrique abîmé. C’est une réparation de jouet qu’un adulte peut évaluer.",
+          "L’attache peut être remplacée. L’adulte explique que certaines réparations sont dangereuses, inadaptées ou trop chères. Réparer est une option à examiner, pas une règle pour tous les objets. Emma peut apprendre en regardant et en posant une question."
+        ],
+        "idea": "Un adulte compétent doit vérifier la sécurité et manipuler les outils et les petites pièces.",
+        "question": "Qui vérifie cette réparation ?",
+        "choices": [
+          {
+            "text": "Max avec ses pattes",
+            "feedback": "Regarde encore l’histoire. Un adulte compétent doit vérifier la sécurité et manipuler les outils et les petites pièces.",
+            "correct": false
+          },
+          {
+            "text": "Emma seule avec des outils coupants",
+            "feedback": "Pense à ce qui s’est passé dans ce chapitre. Un adulte compétent doit vérifier la sécurité et manipuler les outils et les petites pièces.",
+            "correct": false
+          },
+          {
+            "text": "Un adulte compétent",
+            "feedback": "C’est cela. Un adulte compétent doit vérifier la sécurité et manipuler les outils et les petites pièces.",
+            "correct": true
+          }
+        ],
+        "activity": "Montre quelles tâches imaginaires reviennent à un adulte : utiliser les outils, manipuler les petites pièces ou dessiner un plan. Tu peux montrer, dessiner, écrire, utiliser la CAA, parler ou demander à un adulte de noter ton idée."
+      },
+      {
+        "title": "Emprunter pour un après-midi",
+        "paragraphs": [
+          "Pendant que le chariot attend, Emma veut un seau pour sa boutique imaginaire. Un voisin propose d’en prêter un avec l’accord de l’adulte. Emma demande quand le rendre et où le garder. Emprunter ne fait pas de ce seau le sien.",
+          "Ils le rendent propre après l’activité. Personne n’a besoin d’acheter un autre seau pour un après-midi. Emprunter fonctionne si le propriétaire accepte et si l’objet peut être utilisé sans danger. Le voisin peut aussi dire non. Emma peut choisir une autre activité si rien n’est disponible."
+        ],
+        "idea": "Pour emprunter, il faut une autorisation, du soin et un retour convenu.",
+        "question": "De quoi doivent-ils convenir ?",
+        "choices": [
+          {
+            "text": "Le voisin doit forcément dire oui",
+            "feedback": "Pense à ce qui s’est passé dans ce chapitre. Pour emprunter, il faut une autorisation, du soin et un retour convenu.",
+            "correct": false
+          },
+          {
+            "text": "Quand rendre le seau",
+            "feedback": "C’est cela. Pour emprunter, il faut une autorisation, du soin et un retour convenu.",
+            "correct": true
+          },
+          {
+            "text": "Emprunter signifie devenir propriétaire",
+            "feedback": "Regarde encore l’histoire. Pour emprunter, il faut une autorisation, du soin et un retour convenu.",
+            "correct": false
+          }
+        ],
+        "activity": "Crée un rappel en images pour rendre un objet emprunté imaginaire. Tu peux montrer, dessiner, écrire, utiliser la CAA, parler ou demander à un adulte de noter ton idée."
+      },
+      {
+        "title": "Deux étiquettes de prix",
+        "paragraphs": [
+          "Dans l’histoire, l’adulte trouve une pièce adaptée à une livre imaginaire. Un chariot de remplacement coûte cinq livres imaginaires. Ils comparent toutes les options, notamment si la réparation fonctionnera. Un petit prix n’est pas utile si la pièce ne convient pas.",
+          "Emma utilise des jetons pour comparer un et cinq. Il faudrait quatre jetons de plus pour le chariot neuf. Ils choisissent la réparation adaptée. Ces prix sont inventés pour apprendre. Ils ne promettent pas les prix des vraies boutiques. Un autre objet pourrait mener à un autre choix."
+        ],
+        "idea": "Compare l’utilité et le prix. Une pièce moins chère qui ne convient pas n’aide pas.",
+        "question": "Quelle comparaison compte ?",
+        "choices": [
+          {
+            "text": "Le prix et l’adaptation de la pièce",
+            "feedback": "C’est cela. Compare l’utilité et le prix. Une pièce moins chère qui ne convient pas n’aide pas.",
+            "correct": true
+          },
+          {
+            "text": "Seulement l’emballage le plus coloré",
+            "feedback": "Regarde encore l’histoire. Compare l’utilité et le prix. Une pièce moins chère qui ne convient pas n’aide pas.",
+            "correct": false
+          },
+          {
+            "text": "Toujours acheter l’objet le moins cher",
+            "feedback": "Pense à ce qui s’est passé dans ce chapitre. Compare l’utilité et le prix. Une pièce moins chère qui ne convient pas n’aide pas.",
+            "correct": false
+          }
+        ],
+        "activity": "Avec cinq jetons, compare une réparation imaginaire à une livre et un remplacement à cinq livres. Tu peux montrer, dessiner, écrire, utiliser la CAA, parler ou demander à un adulte de noter ton idée."
+      },
+      {
+        "title": "Une nouvelle utilité pour une boîte",
+        "paragraphs": [
+          "Le carton de livraison est vide. Emma veut un garage pour le chariot réparé. Son adulte vérifie que la boîte est propre et sans danger. Emma dessine des portes à l’extérieur. Ils gardent les ciseaux et les petits morceaux loin de Max.",
+          "La boîte a une autre utilité. Elle n’était pas obligée de devenir un jouet. Tous les emballages ne conviennent pas. Réutiliser peut parfois éviter un achat ou retarder le moment de jeter. Emma choisit ce qui fonctionne pour son projet. Elle n’a pas besoin d’accumuler des objets pour montrer qu’elle fait attention."
+        ],
+        "idea": "Réutiliser peut aider si l’objet est sûr et sert à quelque chose d’utile.",
+        "question": "Qu’est-ce qui rend cette boîte utile ?",
+        "choices": [
+          {
+            "text": "Tous les vieux emballages sont sans danger",
+            "feedback": "Regarde encore l’histoire. Réutiliser peut aider si l’objet est sûr et sert à quelque chose d’utile.",
+            "correct": false
+          },
+          {
+            "text": "Il faut tout garder",
+            "feedback": "Pense à ce qui s’est passé dans ce chapitre. Réutiliser peut aider si l’objet est sûr et sert à quelque chose d’utile.",
+            "correct": false
+          },
+          {
+            "text": "Elle convient au projet sans danger",
+            "feedback": "C’est cela. Réutiliser peut aider si l’objet est sûr et sert à quelque chose d’utile.",
+            "correct": true
+          }
+        ],
+        "activity": "Imagine une nouvelle utilisation sans danger d’une boîte en carton propre. Tu peux montrer, dessiner, écrire, utiliser la CAA, parler ou demander à un adulte de noter ton idée."
+      },
+      {
+        "title": "Le chariot revient",
+        "paragraphs": [
+          "L’adulte vérifie la roue réparée avant qu’Emma utilise le chariot. Il roule sur le sol. Emma y met les produits de sa boutique imaginaire, puis le gare dans le garage en carton. Max reste près de l’adulte pendant le rangement des petites pièces.",
+          "Emma retient trois questions : Peut-on utiliser ce qu’on a ? Peut-on emprunter avec une autorisation ? Faut-il remplacer quelque chose ? Aucune réponse ne convient à tous les objets. Elle peut demander à un adulte et comparer les options disponibles dans cette situation."
+        ],
+        "idea": "Utiliser, emprunter, réparer et remplacer sont des options à examiner selon la situation.",
+        "question": "Quelle question aidera la prochaine fois ?",
+        "choices": [
+          {
+            "text": "Faut-il acheter avant de vérifier ?",
+            "feedback": "Pense à ce qui s’est passé dans ce chapitre. Utiliser, emprunter, réparer et remplacer sont des options à examiner selon la situation.",
+            "correct": false
+          },
+          {
+            "text": "Quelles options sont sûres et utiles ?",
+            "feedback": "C’est cela. Utiliser, emprunter, réparer et remplacer sont des options à examiner selon la situation.",
+            "correct": true
+          },
+          {
+            "text": "Faut-il réparer tous les objets ?",
+            "feedback": "Regarde encore l’histoire. Utiliser, emprunter, réparer et remplacer sont des options à examiner selon la situation.",
+            "correct": false
+          }
+        ],
+        "activity": "Dessine trois options pour un objet imaginaire. Choisis-en une à examiner avec un adulte. Tu peux montrer, dessiner, écrire, utiliser la CAA, parler ou demander à un adulte de noter ton idée."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Réparer",
+        "meaning": "Remettre une chose en état pour pouvoir l’utiliser à nouveau."
+      },
+      {
+        "term": "Emprunter",
+        "meaning": "Utiliser une chose avec une autorisation, puis la rendre."
+      },
+      {
+        "term": "Réutiliser",
+        "meaning": "Utiliser encore un objet pour un usage adapté."
+      }
+    ]
   }
 }
