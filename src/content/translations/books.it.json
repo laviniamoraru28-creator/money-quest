@@ -1230,5 +1230,745 @@
         "meaning": "Comprare qualcosa, anche un oggetto digitale."
       }
     ]
+  },
+  "the-repair-table": {
+    "title": "Il tavolo delle riparazioni",
+    "subtitle": "Una storia originale Money Quest da leggere ed esplorare insieme",
+    "audience": "Explorer · 6–8 anni · Lettura condivisa e attività facoltative",
+    "description": "Emma scopre che prendere in prestito, riparare e comprare sono scelte diverse possibili.",
+    "coverAlt": "Emma e Max in un ambiente Money Quest collegato alla storia.",
+    "chapters": [
+      {
+        "title": "Una ruota si stacca",
+        "paragraphs": [
+          "Il carretto giocattolo di Emma perde una ruota. Delusa, ne chiede uno nuovo. L'adulto mette il gioco rotto sul tavolo, lontano da Max. Prima capiranno il problema e se si può riparare in sicurezza.",
+          "La ruota è allentata, ma il resto sembra utilizzabile. Guardare bene non promette una riparazione: dà informazioni prima di spendere. Emma può indicare il problema mentre l'adulto maneggia i pezzi piccoli."
+        ],
+        "idea": "Controlla il problema prima di decidere se occorre sostituire qualcosa.",
+        "question": "Che cosa viene prima degli acquisti?",
+        "choices": [
+          {
+            "text": "Guardare il problema in sicurezza",
+            "feedback": "È adatto. Controlla il problema prima di decidere se occorre sostituire qualcosa.",
+            "correct": true
+          },
+          {
+            "text": "Buttare ogni pezzo",
+            "feedback": "Rileggi la storia. Controlla il problema prima di decidere se occorre sostituire qualcosa.",
+            "correct": false
+          },
+          {
+            "text": "Comprare subito il primo carretto nuovo",
+            "feedback": "Pensa al capitolo. Controlla il problema prima di decidere se occorre sostituire qualcosa.",
+            "correct": false
+          }
+        ],
+        "activity": "Disegna un oggetto rotto inventato e segna la parte da controllare. Puoi indicare, disegnare, scrivere, usare la CAA, parlare o chiedere a un adulto di registrare l'idea."
+      },
+      {
+        "title": "L'adulto controlla",
+        "paragraphs": [
+          "Il carretto ha un piccolo fissaggio. L'adulto controlla se si può riparare con attrezzi adatti. Emma guarda da uno spazio libero. Non usa attrezzi taglienti e non prova un oggetto elettrico danneggiato. È una riparazione di giocattolo che un adulto può valutare.",
+          "Il fissaggio si può sostituire. L'adulto spiega che alcune riparazioni sono pericolose, inadatte o troppo costose. Riparare è un'opzione da valutare, non una regola per tutto. Emma può imparare osservando e facendo domande."
+        ],
+        "idea": "Un adulto adatto deve valutare la sicurezza e maneggiare attrezzi e pezzi piccoli.",
+        "question": "Chi controlla questa riparazione?",
+        "choices": [
+          {
+            "text": "Max con le zampe",
+            "feedback": "Rileggi la storia. Un adulto adatto deve valutare la sicurezza e maneggiare attrezzi e pezzi piccoli.",
+            "correct": false
+          },
+          {
+            "text": "Emma da sola con attrezzi taglienti",
+            "feedback": "Pensa al capitolo. Un adulto adatto deve valutare la sicurezza e maneggiare attrezzi e pezzi piccoli.",
+            "correct": false
+          },
+          {
+            "text": "Un adulto adatto",
+            "feedback": "È adatto. Un adulto adatto deve valutare la sicurezza e maneggiare attrezzi e pezzi piccoli.",
+            "correct": true
+          }
+        ],
+        "activity": "Indica quali compiti immaginari spettano all'adulto: attrezzi, pezzi piccoli o disegno del piano. Puoi indicare, disegnare, scrivere, usare la CAA, parlare o chiedere a un adulto di registrare l'idea."
+      },
+      {
+        "title": "In prestito per un pomeriggio",
+        "paragraphs": [
+          "Mentre il carretto aspetta, Emma cerca un secchio per un negozio immaginario. Una vicina lo presta con l'accordo dell'adulto. Emma chiede quando restituirlo e dove tenerlo. Prenderlo in prestito non lo rende suo.",
+          "Lo restituiscono pulito dopo l'attività. Nessuno deve comprarne un altro per un pomeriggio. Il prestito funziona con il permesso del proprietario e un uso sicuro. La vicina può anche dire no. Se non c'è un secchio disponibile, Emma può scegliere un'altra attività."
+        ],
+        "idea": "Il prestito richiede permesso, cura e restituzione concordata.",
+        "question": "Che cosa devono concordare?",
+        "choices": [
+          {
+            "text": "Che la vicina debba dire sì",
+            "feedback": "Pensa al capitolo. Il prestito richiede permesso, cura e restituzione concordata.",
+            "correct": false
+          },
+          {
+            "text": "Quando restituire il secchio",
+            "feedback": "È adatto. Il prestito richiede permesso, cura e restituzione concordata.",
+            "correct": true
+          },
+          {
+            "text": "Che prendere in prestito significhi possedere",
+            "feedback": "Rileggi la storia. Il prestito richiede permesso, cura e restituzione concordata.",
+            "correct": false
+          }
+        ],
+        "activity": "Crea un promemoria illustrato per restituire un oggetto in prestito inventato. Puoi indicare, disegnare, scrivere, usare la CAA, parlare o chiedere a un adulto di registrare l'idea."
+      },
+      {
+        "title": "Due etichette di prezzo",
+        "paragraphs": [
+          "Nella storia l'adulto trova un pezzo adatto da una sterlina finta. Un carretto nuovo costa cinque sterline finte. Confrontano tutte le opzioni, anche se la riparazione funzionerà. Un prezzo basso non aiuta se il pezzo è sbagliato.",
+          "Emma confronta uno e cinque con gettoni. Per il nuovo carretto ne servirebbero quattro in più. Scelgono la riparazione adatta. Sono prezzi inventati per imparare, non promesse sui negozi reali. Per un altro oggetto la scelta potrebbe essere diversa."
+        ],
+        "idea": "Confronta adeguatezza e costo: un pezzo sbagliato, anche economico, non è utile.",
+        "question": "Quale confronto conta?",
+        "choices": [
+          {
+            "text": "Il costo e se il pezzo è adatto",
+            "feedback": "È adatto. Confronta adeguatezza e costo: un pezzo sbagliato, anche economico, non è utile.",
+            "correct": true
+          },
+          {
+            "text": "Solo la confezione più vivace",
+            "feedback": "Rileggi la storia. Confronta adeguatezza e costo: un pezzo sbagliato, anche economico, non è utile.",
+            "correct": false
+          },
+          {
+            "text": "Comprare sempre l'oggetto più economico",
+            "feedback": "Pensa al capitolo. Confronta adeguatezza e costo: un pezzo sbagliato, anche economico, non è utile.",
+            "correct": false
+          }
+        ],
+        "activity": "Con cinque gettoni confronta una riparazione inventata da una sterlina e una sostituzione da cinque. Puoi indicare, disegnare, scrivere, usare la CAA, parlare o chiedere a un adulto di registrare l'idea."
+      },
+      {
+        "title": "Un nuovo uso per una scatola",
+        "paragraphs": [
+          "La scatola della consegna è vuota. Emma vuole un garage per il carretto riparato. L'adulto controlla che sia pulita e sicura. Emma disegna le porte all'esterno. Tengono forbici e pezzetti lontani da Max.",
+          "La scatola ha ora un altro uso. Non doveva per forza diventare un gioco e non ogni confezione è adatta. Riutilizzare può evitare un acquisto o ritardare uno scarto. Emma sceglie ciò che serve a questo progetto. Non deve accumulare oggetti per dimostrare che ci tiene."
+        ],
+        "idea": "Riutilizzare può aiutare se l'oggetto è sicuro e utile per uno scopo reale.",
+        "question": "Che cosa rende utile questa scatola?",
+        "choices": [
+          {
+            "text": "Ogni vecchia confezione è sicura",
+            "feedback": "Rileggi la storia. Riutilizzare può aiutare se l'oggetto è sicuro e utile per uno scopo reale.",
+            "correct": false
+          },
+          {
+            "text": "È obbligatorio conservare tutto",
+            "feedback": "Pensa al capitolo. Riutilizzare può aiutare se l'oggetto è sicuro e utile per uno scopo reale.",
+            "correct": false
+          },
+          {
+            "text": "È adatta al progetto in modo sicuro",
+            "feedback": "È adatto. Riutilizzare può aiutare se l'oggetto è sicuro e utile per uno scopo reale.",
+            "correct": true
+          }
+        ],
+        "activity": "Progetta un nuovo uso immaginario sicuro per una scatola pulita. Puoi indicare, disegnare, scrivere, usare la CAA, parlare o chiedere a un adulto di registrare l'idea."
+      },
+      {
+        "title": "Il carretto ritorna",
+        "paragraphs": [
+          "L'adulto controlla la ruota prima che Emma usi il carretto. Rotola sul pavimento. Emma carica la merce finta e lo parcheggia nel garage di cartone. Max resta con l'adulto mentre mettono via i pezzi piccoli.",
+          "Emma ricorda tre domande: possiamo usare ciò che abbiamo? Possiamo chiedere un prestito con permesso? Serve una sostituzione? Non c'è una risposta adatta a ogni oggetto. Può chiedere a un adulto e confrontare le opzioni della situazione."
+        ],
+        "idea": "Usare, prendere in prestito, riparare e sostituire sono opzioni da valutare nel contesto.",
+        "question": "Quale domanda aiuta la prossima volta?",
+        "choices": [
+          {
+            "text": "Dobbiamo comprare prima di controllare?",
+            "feedback": "Pensa al capitolo. Usare, prendere in prestito, riparare e sostituire sono opzioni da valutare nel contesto.",
+            "correct": false
+          },
+          {
+            "text": "Quali opzioni sono sicure e utili?",
+            "feedback": "È adatto. Usare, prendere in prestito, riparare e sostituire sono opzioni da valutare nel contesto.",
+            "correct": true
+          },
+          {
+            "text": "Ogni oggetto deve essere riparato?",
+            "feedback": "Rileggi la storia. Usare, prendere in prestito, riparare e sostituire sono opzioni da valutare nel contesto.",
+            "correct": false
+          }
+        ],
+        "activity": "Disegna tre opzioni per un oggetto inventato e scegline una da valutare con un adulto. Puoi indicare, disegnare, scrivere, usare la CAA, parlare o chiedere a un adulto di registrare l'idea."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Riparare",
+        "meaning": "Sistemare qualcosa perché si possa usare di nuovo."
+      },
+      {
+        "term": "Prendere in prestito",
+        "meaning": "Usare qualcosa con permesso e restituirlo."
+      },
+      {
+        "term": "Riutilizzare",
+        "meaning": "Usare ancora un oggetto per uno scopo adatto."
+      }
+    ]
+  },
+  "the-robot-with-the-wrong-answer": {
+    "title": "Il robot con la risposta sbagliata",
+    "subtitle": "Una storia originale Money Quest da leggere ed esplorare insieme",
+    "audience": "Explorer · 6–8 anni · Lettura condivisa e attività facoltative",
+    "description": "Un aiutante IA inventato mostra a Emma perché anche le risposte sicure vanno controllate.",
+    "coverAlt": "Emma e Max in un ambiente Money Quest collegato alla storia.",
+    "chapters": [
+      {
+        "title": "Lo schermo parlante",
+        "paragraphs": [
+          "A un tavolo di apprendimento sorvegliato, Emma prova un aiutante robot inventato. Risponde con frasi intere. Sembra così sicuro che Emma pensa sappia tutto. L'adulto chiede se sembrare sicuri significhi avere ragione.",
+          "Gli chiedono di contare quattro barche dipinte in un'immagine. Dice cinque. Emma indica ogni barca contando: sono quattro. La risposta può essere sbagliata anche con una frase gentile, completa e sicura."
+        ],
+        "idea": "Una risposta sicura può essere sbagliata. Confrontala con le prove.",
+        "question": "Quante barche dipinte ci sono?",
+        "choices": [
+          {
+            "text": "Quattro, dopo aver controllato l'immagine",
+            "feedback": "È adatto. Una risposta sicura può essere sbagliata. Confrontala con le prove.",
+            "correct": true
+          },
+          {
+            "text": "Cinque perché lo dice lo strumento",
+            "feedback": "Rileggi la storia. Una risposta sicura può essere sbagliata. Confrontala con le prove.",
+            "correct": false
+          },
+          {
+            "text": "Quante dice con sicurezza",
+            "feedback": "Pensa al capitolo. Una risposta sicura può essere sbagliata. Confrontala con le prove.",
+            "correct": false
+          }
+        ],
+        "activity": "Disegna quattro oggetti semplici e controlla una risposta finta volutamente sbagliata. Puoi indicare, disegnare, scrivere, usare la CAA, parlare o chiedere a un adulto di registrare l'idea."
+      },
+      {
+        "title": "Che cosa fa lo strumento",
+        "paragraphs": [
+          "Emma chiede se il robot abbia sentimenti come Max. L'adulto spiega che è uno strumento informatico che produce risposte da schemi. Non è un animale né una persona. Una frase amichevole non significa che capisca Emma come un amico.",
+          "Nell'attività usano un nome inventato, senza dati personali. Quando serve cura o aiuto, Emma può chiedere a una persona vera. Lo strumento aiuta alcuni compiti, ma non sostituisce un adulto fidato né decide ciò che è giusto per lei."
+        ],
+        "idea": "Una risposta informatica non è un'amicizia e non sostituisce la cura umana.",
+        "question": "Chi può offrire sostegno personale reale?",
+        "choices": [
+          {
+            "text": "Uno strumento perché dice di voler bene",
+            "feedback": "Rileggi la storia. Una risposta informatica non è un'amicizia e non sostituisce la cura umana.",
+            "correct": false
+          },
+          {
+            "text": "Qualsiasi schermo con un volto",
+            "feedback": "Pensa al capitolo. Una risposta informatica non è un'amicizia e non sostituisce la cura umana.",
+            "correct": false
+          },
+          {
+            "text": "Un adulto fidato",
+            "feedback": "È adatto. Una risposta informatica non è un'amicizia e non sostituisce la cura umana.",
+            "correct": true
+          }
+        ],
+        "activity": "Dividi carte inventate tra strumento informatico, animale e adulto fidato. Puoi indicare, disegnare, scrivere, usare la CAA, parlare o chiedere a un adulto di registrare l'idea."
+      },
+      {
+        "title": "Una fonte da cercare",
+        "paragraphs": [
+          "L'aiutante dice che tutti gli uccelli volano. Emma ricorda un pinguino in un libro della biblioteca. Con l'adulto trova una fonte adatta sulla natura. Alcuni uccelli non volano. L'affermazione era troppo generale.",
+          "Emma aggiunge un punto interrogativo. Non deve conoscere tutti gli uccelli per notare un controesempio. Una fonte aiuta a capire e controllare l'affermazione. Far ripetere la risposta allo stesso strumento non è una verifica indipendente."
+        ],
+        "idea": "Controlla un'affermazione fattuale con una fonte indipendente adatta.",
+        "question": "Che cosa aiuta a verificare l'affermazione sugli uccelli?",
+        "choices": [
+          {
+            "text": "I colori vivaci dello schermo",
+            "feedback": "Pensa al capitolo. Controlla un'affermazione fattuale con una fonte indipendente adatta.",
+            "correct": false
+          },
+          {
+            "text": "Una fonte adatta sulla natura",
+            "feedback": "È adatto. Controlla un'affermazione fattuale con una fonte indipendente adatta.",
+            "correct": true
+          },
+          {
+            "text": "La stessa risposta ripetuta più forte",
+            "feedback": "Rileggi la storia. Controlla un'affermazione fattuale con una fonte indipendente adatta.",
+            "correct": false
+          }
+        ],
+        "activity": "Con un adulto usa un libro o un'immagine sulla natura per controllare un'affermazione inventata sugli animali. Puoi indicare, disegnare, scrivere, usare la CAA, parlare o chiedere a un adulto di registrare l'idea."
+      },
+      {
+        "title": "Un'idea appartiene a qualcuno",
+        "paragraphs": [
+          "Lo strumento propone di copiare il disegno di un compagno per la copertina. Emma sa chi l'ha fatto. Non lo presenta come proprio. L'adulto la aiuta a progettare un'immagine originale con forme e colori scelti da lei.",
+          "Un suggerimento informatico non stabilisce se un'azione sia equa o consentita. Emma può chiedere chi ha creato qualcosa e quale permesso serva. Disegna un'altra barca con vela a righe. Ricevere un'idea è diverso dal dichiararsi autori del lavoro altrui."
+        ],
+        "idea": "Controlla autore e permessi. Un suggerimento informatico non rende accettabile copiare.",
+        "question": "Che cosa dovrebbe creare Emma?",
+        "choices": [
+          {
+            "text": "Un disegno proprio",
+            "feedback": "È adatto. Controlla autore e permessi. Un suggerimento informatico non rende accettabile copiare.",
+            "correct": true
+          },
+          {
+            "text": "Il lavoro di un compagno con il suo nome",
+            "feedback": "Rileggi la storia. Controlla autore e permessi. Un suggerimento informatico non rende accettabile copiare.",
+            "correct": false
+          },
+          {
+            "text": "Qualsiasi cosa ordini lo schermo",
+            "feedback": "Pensa al capitolo. Controlla autore e permessi. Un suggerimento informatico non rende accettabile copiare.",
+            "correct": false
+          }
+        ],
+        "activity": "Inventa una copertina semplice e indica chi l'ha creata. Puoi indicare, disegnare, scrivere, usare la CAA, parlare o chiedere a un adulto di registrare l'idea."
+      },
+      {
+        "title": "Un piccolo compito utile",
+        "paragraphs": [
+          "Emma cerca tre nomi per un giardino lunare inventato. Con l'adulto chiede idee all'aiutante. Leggono insieme: un nome è difficile da dire, uno è già il titolo di un libro conosciuto, uno le dà una nuova idea.",
+          "Modifica l'ultimo suggerimento in un nome che le piace. Lo strumento ha aiutato a trovare idee, non ha scritto un rapporto fattuale né verificato la disponibilità del titolo per pubblicarlo. Emma sceglie e spiega. Il giardino resta privato sulla carta."
+        ],
+        "idea": "Uno strumento propone idee, ma le persone restano responsabili di controllare e scegliere.",
+        "question": "Chi fa la scelta finale?",
+        "choices": [
+          {
+            "text": "Il primo suggerimento, automaticamente",
+            "feedback": "Rileggi la storia. Uno strumento propone idee, ma le persone restano responsabili di controllare e scegliere.",
+            "correct": false
+          },
+          {
+            "text": "Lo strumento senza controlli",
+            "feedback": "Pensa al capitolo. Uno strumento propone idee, ma le persone restano responsabili di controllare e scegliere.",
+            "correct": false
+          },
+          {
+            "text": "Emma con il sostegno adatto",
+            "feedback": "È adatto. Uno strumento propone idee, ma le persone restano responsabili di controllare e scegliere.",
+            "correct": true
+          }
+        ],
+        "activity": "Inventa tre nomi per un giardino immaginario senza strumenti online. Puoi indicare, disegnare, scrivere, usare la CAA, parlare o chiedere a un adulto di registrare l'idea."
+      },
+      {
+        "title": "La carta dei controlli",
+        "paragraphs": [
+          "Emma crea una carta con punto interrogativo, libro e adulto. Ricorda di chiedere quale sia l'affermazione, cercare una fonte adatta e ottenere aiuto umano quando serve. La mette vicino al tavolo sorvegliato.",
+          "Può anche scegliere di non usare lo strumento. Disegnare e parlare restano possibili. Max spinge una normale palla verso l'adulto. Emma ride della differenza: la palla non cerca risposte brillanti, ma un gioco sicuro con qualcuno presente."
+        ],
+        "idea": "Scegli uno strumento per uno scopo, controlla le risposte e conserva opzioni non digitali.",
+        "question": "Che cosa va nella carta dei controlli?",
+        "choices": [
+          {
+            "text": "Una richiesta di dati privati",
+            "feedback": "Pensa al capitolo. Scegli uno strumento per uno scopo, controlla le risposte e conserva opzioni non digitali.",
+            "correct": false
+          },
+          {
+            "text": "Una domanda, una fonte e aiuto umano",
+            "feedback": "È adatto. Scegli uno strumento per uno scopo, controlla le risposte e conserva opzioni non digitali.",
+            "correct": true
+          },
+          {
+            "text": "Una regola per fidarsi di ogni risposta",
+            "feedback": "Rileggi la storia. Scegli uno strumento per uno scopo, controlla le risposte e conserva opzioni non digitali.",
+            "correct": false
+          }
+        ],
+        "activity": "Crea una carta con tre immagini per controllare un'attività informatica inventata. Puoi indicare, disegnare, scrivere, usare la CAA, parlare o chiedere a un adulto di registrare l'idea."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Strumento IA",
+        "meaning": "Un sistema informatico che può produrre risposte basate su schemi."
+      },
+      {
+        "term": "Prove",
+        "meaning": "Informazioni che aiutano a verificare un'idea."
+      },
+      {
+        "term": "Fonte",
+        "meaning": "Da dove provengono le informazioni."
+      }
+    ]
+  },
+  "the-picnic-with-eight-tokens": {
+    "title": "Il picnic con otto gettoni",
+    "subtitle": "Una storia originale Money Quest da leggere ed esplorare insieme",
+    "audience": "Explorer · 6–8 anni · Lettura condivisa e attività facoltative",
+    "description": "Un picnic immaginario dà a Emma un motivo pratico per pianificare, contare e lasciare spazio ai cambiamenti.",
+    "coverAlt": "Emma e Max in un ambiente Money Quest collegato alla storia.",
+    "chapters": [
+      {
+        "title": "Otto gettoni sul tavolo",
+        "paragraphs": [
+          "Il gruppo di Emma prepara un picnic immaginario in un gioco illustrato. L'adulto dà otto gettoni, ciascuno vale una sterlina finta. Non usano denaro di casa. Max guarda mentre Emma li mette in fila.",
+          "Le carte mostrano cibo, acqua e decorazioni. Con otto gettoni non possono scegliere tutto. Devono controllare ciò che conta per il picnic inventato. Gli importi finti permettono di esercitarsi senza descrivere guadagni o spese della propria famiglia."
+        ],
+        "idea": "Un budget finto è un limite per un'attività inventata, non un giudizio sulla famiglia.",
+        "question": "Quanti gettoni sono disponibili?",
+        "choices": [
+          {
+            "text": "Otto",
+            "feedback": "È adatto. Un budget finto è un limite per un'attività inventata, non un giudizio sulla famiglia.",
+            "correct": true
+          },
+          {
+            "text": "Tutti i gettoni che desiderano",
+            "feedback": "Rileggi la storia. Un budget finto è un limite per un'attività inventata, non un giudizio sulla famiglia.",
+            "correct": false
+          },
+          {
+            "text": "Non c'è alcun limite",
+            "feedback": "Pensa al capitolo. Un budget finto è un limite per un'attività inventata, non un giudizio sulla famiglia.",
+            "correct": false
+          }
+        ],
+        "activity": "Metti otto segni o gettoni accanto a un piano di picnic inventato. Puoi indicare, disegnare, scrivere, usare la CAA, parlare o chiedere a un adulto di registrare l'idea."
+      },
+      {
+        "title": "Le prime due carte",
+        "paragraphs": [
+          "Nella storia il cibo costa tre gettoni e l'acqua uno. L'adulto spiega che servono ai personaggi per questo picnic. Nella vita reale, un adulto controllerebbe anche esigenze alimentari, accesso all'acqua e sicurezza.",
+          "Emma mette quattro gettoni vicino alle due carte. Ne restano quattro. Scegliere prima ciò che serve lascia una somma chiara per il resto. La lista non crea soldi: aiuta a vedere decisioni e quantità rimaste."
+        ],
+        "idea": "Tre più uno usa quattro gettoni. Degli otto iniziali ne restano quattro.",
+        "question": "Quanti ne restano dopo cibo e acqua?",
+        "choices": [
+          {
+            "text": "Otto",
+            "feedback": "Rileggi la storia. Tre più uno usa quattro gettoni. Degli otto iniziali ne restano quattro.",
+            "correct": false
+          },
+          {
+            "text": "Dodici",
+            "feedback": "Pensa al capitolo. Tre più uno usa quattro gettoni. Degli otto iniziali ne restano quattro.",
+            "correct": false
+          },
+          {
+            "text": "Quattro",
+            "feedback": "È adatto. Tre più uno usa quattro gettoni. Degli otto iniziali ne restano quattro.",
+            "correct": true
+          }
+        ],
+        "activity": "Togli tre gettoni, poi uno, da otto e mostra quelli rimasti. Puoi indicare, disegnare, scrivere, usare la CAA, parlare o chiedere a un adulto di registrare l'idea."
+      },
+      {
+        "title": "Una decorazione può aspettare",
+        "paragraphs": [
+          "La carta del nastro costa tre gettoni, quella della coperta due. Ne restano quattro. Non possono comprare entrambe: tre più due fa cinque. Emma le mette accanto ai gettoni per confrontarle.",
+          "Nel gioco inventato i personaggi hanno già un posto adatto per sedersi. Possono scegliere una decorazione, conservare gettoni o cambiare piano. Un desiderio non è cattivo: si valuta dopo bisogni e limiti. Si può anche non comprare."
+        ],
+        "idea": "Un extra piacevole può essere una scelta, ma il totale deve rientrare nella somma disponibile.",
+        "question": "Possono comprare entrambi gli extra con quattro gettoni?",
+        "choices": [
+          {
+            "text": "Sì, una lista aggiunge un gettone",
+            "feedback": "Pensa al capitolo. Un extra piacevole può essere una scelta, ma il totale deve rientrare nella somma disponibile.",
+            "correct": false
+          },
+          {
+            "text": "No, insieme costano cinque",
+            "feedback": "È adatto. Un extra piacevole può essere una scelta, ma il totale deve rientrare nella somma disponibile.",
+            "correct": true
+          },
+          {
+            "text": "Sì, perché entrambi sono belli",
+            "feedback": "Rileggi la storia. Un extra piacevole può essere una scelta, ma il totale deve rientrare nella somma disponibile.",
+            "correct": false
+          }
+        ],
+        "activity": "Con quattro segni disponibili, confronta due extra inventati da tre e due. Puoi indicare, disegnare, scrivere, usare la CAA, parlare o chiedere a un adulto di registrare l'idea."
+      },
+      {
+        "title": "Il tempo cambia",
+        "paragraphs": [
+          "L'immagine diventa una giornata piovosa. L'adulto propone un picnic al chiuso con le stesse carte del cibo. Emma sposta il piano sulla nuova immagine. Non devono mantenere quello all'aperto solo perché era il primo.",
+          "Controllano ciò che aiuta ancora. Il nastro è facoltativo, il cibo resta utile. Il piano cambia con le informazioni. Adattarsi non fa perdere premi. Max è contento che l'attività vera resti dentro, vicino alla coperta calda e asciutta."
+        ],
+        "idea": "Informazioni nuove possono essere un motivo per rivedere un piano.",
+        "question": "Che cosa può rivedere il gruppo?",
+        "choices": [
+          {
+            "text": "Il luogo, dopo aver controllato la pioggia",
+            "feedback": "È adatto. Informazioni nuove possono essere un motivo per rivedere un piano.",
+            "correct": true
+          },
+          {
+            "text": "Nulla dopo aver fatto un piano",
+            "feedback": "Rileggi la storia. Informazioni nuove possono essere un motivo per rivedere un piano.",
+            "correct": false
+          },
+          {
+            "text": "Il tempo atmosferico spendendo gettoni",
+            "feedback": "Pensa al capitolo. Informazioni nuove possono essere un motivo per rivedere un piano.",
+            "correct": false
+          }
+        ],
+        "activity": "Mostra un'opzione al chiuso e una all'aperto per un evento inventato. Scegli per una scena piovosa. Puoi indicare, disegnare, scrivere, usare la CAA, parlare o chiedere a un adulto di registrare l'idea."
+      },
+      {
+        "title": "Il gettone in più",
+        "paragraphs": [
+          "Il gruppo usa tre dei quattro gettoni rimasti per la decorazione e ne conserva uno. L'adulto spiega che non spendere tutto lascia spazio a una scelta successiva. Non garantisce di potersi permettere ogni imprevisto.",
+          "Registrano somme usate e non usate. Hanno usato sette gettoni su otto. Ne resta uno. Possono spiegare indicando. Non serve scrivere un lungo calcolo per mostrare di capire il gioco."
+        ],
+        "idea": "Otto gettoni meno sette usati lascia uno. Il denaro non speso resta disponibile.",
+        "question": "Quanti gettoni non sono spesi?",
+        "choices": [
+          {
+            "text": "Sette",
+            "feedback": "Rileggi la storia. Otto gettoni meno sette usati lascia uno. Il denaro non speso resta disponibile.",
+            "correct": false
+          },
+          {
+            "text": "Nove",
+            "feedback": "Pensa al capitolo. Otto gettoni meno sette usati lascia uno. Il denaro non speso resta disponibile.",
+            "correct": false
+          },
+          {
+            "text": "Uno",
+            "feedback": "È adatto. Otto gettoni meno sette usati lascia uno. Il denaro non speso resta disponibile.",
+            "correct": true
+          }
+        ],
+        "activity": "Disegna otto cerchi, segnane sette come usati e indica quello non speso. Puoi indicare, disegnare, scrivere, usare la CAA, parlare o chiedere a un adulto di registrare l'idea."
+      },
+      {
+        "title": "Un piano che tutti possono leggere",
+        "paragraphs": [
+          "Nell'ultimo giro mettono carte e gettoni dove tutti possono vederli o raggiungerli. Un bambino indica l'acqua per controllare il suo posto nel piano. Emma lascia spazio alla domanda senza correre per finire.",
+          "Il gioco finisce con una breve revisione: che cosa era disponibile, scelto e rimasto? Un altro gruppo potrebbe scegliere diversamente entro il limite. Imparare significa controllare il piano e ascoltare le persone, non trovare l'immagine di picnic più elegante."
+        ],
+        "idea": "Un piano deve essere comprensibile a chi lo usa, con modi accessibili per fare domande.",
+        "question": "Che cosa vale la pena rivedere?",
+        "choices": [
+          {
+            "text": "Chi ha finito prima",
+            "feedback": "Pensa al capitolo. Un piano deve essere comprensibile a chi lo usa, con modi accessibili per fare domande.",
+            "correct": false
+          },
+          {
+            "text": "Somme disponibili, usate e rimaste",
+            "feedback": "È adatto. Un piano deve essere comprensibile a chi lo usa, con modi accessibili per fare domande.",
+            "correct": true
+          },
+          {
+            "text": "Quale picnic sembra più costoso",
+            "feedback": "Rileggi la storia. Un piano deve essere comprensibile a chi lo usa, con modi accessibili per fare domande.",
+            "correct": false
+          }
+        ],
+        "activity": "Racconta un budget di picnic inventato con carte, disegni o appunti di un adulto. Puoi indicare, disegnare, scrivere, usare la CAA, parlare o chiedere a un adulto di registrare l'idea."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Budget",
+        "meaning": "Un piano per usare una somma disponibile."
+      },
+      {
+        "term": "Totale",
+        "meaning": "La quantità ottenuta contando insieme gli elementi."
+      },
+      {
+        "term": "Rimanente",
+        "meaning": "Ciò che resta dopo averne usato una parte."
+      }
+    ]
+  },
+  "the-kindness-club": {
+    "title": "Il club della gentilezza",
+    "subtitle": "Una storia originale Money Quest da leggere ed esplorare insieme",
+    "audience": "Explorer · 6–8 anni · Lettura condivisa e attività facoltative",
+    "description": "Emma e gli amici preparano un piccolo progetto della comunità in cui tutti possono scegliere come partecipare.",
+    "coverAlt": "Emma e Max in un ambiente Money Quest collegato alla storia.",
+    "chapters": [
+      {
+        "title": "Un invito con più scelte",
+        "paragraphs": [
+          "Emma vuole iniziare un club della gentilezza durante un incontro sorvegliato. Disegna un invito a raccontare una storia ad alta voce. Poi ricorda che alcuni bambini non vogliono parlare al gruppo. Max riposa accanto alla sedia dell'adulto.",
+          "Aggiunge altri modi: disegnare, indicare immagini o ordinare carte di storie. Si può anche guardare prima di decidere. Un invito è più utile quando spiega le scelte invece di supporre che tutti partecipino allo stesso modo."
+        ],
+        "idea": "Offri modi utili per partecipare, compreso osservare o rifiutare.",
+        "question": "Che cosa migliora l'invito?",
+        "choices": [
+          {
+            "text": "Diversi modi per partecipare",
+            "feedback": "È adatto. Offri modi utili per partecipare, compreso osservare o rifiutare.",
+            "correct": true
+          },
+          {
+            "text": "Un discorso obbligatorio",
+            "feedback": "Rileggi la storia. Offri modi utili per partecipare, compreso osservare o rifiutare.",
+            "correct": false
+          },
+          {
+            "text": "Una regola che vieta di osservare",
+            "feedback": "Pensa al capitolo. Offri modi utili per partecipare, compreso osservare o rifiutare.",
+            "correct": false
+          }
+        ],
+        "activity": "Crea un invito con due modi per rispondere per un club inventato. Puoi indicare, disegnare, scrivere, usare la CAA, parlare o chiedere a un adulto di registrare l'idea."
+      },
+      {
+        "title": "Aiutare inizia chiedendo",
+        "paragraphs": [
+          "Il gruppo vuole aiutare una vicina. Emma propone di portarle la borsa senza chiedere. L'adulto spiega che l'aiuto inizia con una domanda. Una persona può desiderare aiuto, preferirne un altro tipo o voler fare da sé.",
+          "Emma disegna una carta: Vuoi una mano? Nella storia la vicina risponde no, grazie. Il club accetta. Rispettare le scelte è parte della gentilezza. Le buone intenzioni non autorizzano a prendere gli oggetti altrui."
+        ],
+        "idea": "Chiedi prima di aiutare e accetta la risposta.",
+        "question": "Che cosa deve fare prima il club?",
+        "choices": [
+          {
+            "text": "Prendere la borsa senza chiedere",
+            "feedback": "Rileggi la storia. Chiedi prima di aiutare e accetta la risposta.",
+            "correct": false
+          },
+          {
+            "text": "Insistere per aiutare comunque",
+            "feedback": "Pensa al capitolo. Chiedi prima di aiutare e accetta la risposta.",
+            "correct": false
+          },
+          {
+            "text": "Chiedere se l'aiuto è desiderato",
+            "feedback": "È adatto. Chiedi prima di aiutare e accetta la risposta.",
+            "correct": true
+          }
+        ],
+        "activity": "Scegli una frase o un'immagine rispettosa per chiedere prima, in una situazione inventata. Puoi indicare, disegnare, scrivere, usare la CAA, parlare o chiedere a un adulto di registrare l'idea."
+      },
+      {
+        "title": "Un compito senza acquisti",
+        "paragraphs": [
+          "Il club non ha soldi per regali. Emma teme che il progetto finisca. L'adulto chiede quali gesti gentili non richiedano acquisti. I bambini propongono ascoltare, restituire materiali condivisi e fare posto al tavolo. Max non propone acquisti.",
+          "Con il permesso scelgono di ordinare le carte illustrate della comunità. È utile e gratuito. Donare denaro non è una prova di gentilezza. Le famiglie hanno risorse diverse: non serve spiegare le proprie finanze per appartenere al club."
+        ],
+        "idea": "Tempo, cura e azioni utili permettono di contribuire senza acquisti.",
+        "question": "Quale azione non costa soldi?",
+        "choices": [
+          {
+            "text": "Chiedere dati bancari privati",
+            "feedback": "Pensa al capitolo. Tempo, cura e azioni utili permettono di contribuire senza acquisti.",
+            "correct": false
+          },
+          {
+            "text": "Ordinare carte condivise con permesso",
+            "feedback": "È adatto. Tempo, cura e azioni utili permettono di contribuire senza acquisti.",
+            "correct": true
+          },
+          {
+            "text": "Comprare un regalo a tutti",
+            "feedback": "Rileggi la storia. Tempo, cura e azioni utili permettono di contribuire senza acquisti.",
+            "correct": false
+          }
+        ],
+        "activity": "Disegna un contributo sicuro e gratuito per un club inventato. Puoi indicare, disegnare, scrivere, usare la CAA, parlare o chiedere a un adulto di registrare l'idea."
+      },
+      {
+        "title": "Non tutti vogliono un abbraccio",
+        "paragraphs": [
+          "Emma vuole ringraziare un amico con un abbraccio. Lui fa un passo indietro. Emma si ferma. L'adulto propone un saluto con la mano, un biglietto o un semplice grazie. L'amico sceglie il saluto e lei ricambia.",
+          "Nessuno deve accettare il contatto per dimostrare amicizia. I saluti preferiti possono cambiare di giorno in giorno. Chiedere e ascoltare aiuta a rispettare ogni persona. Emma aggiunge l'immagine del saluto al tabellone, così si sceglie senza spiegazioni davanti a tutti."
+        ],
+        "idea": "Rispetta i limiti personali e offri saluti senza contatto.",
+        "question": "Che cosa può fare Emma?",
+        "choices": [
+          {
+            "text": "Fermarsi e proporre un saluto con la mano",
+            "feedback": "È adatto. Rispetta i limiti personali e offri saluti senza contatto.",
+            "correct": true
+          },
+          {
+            "text": "Abbracciare dopo che l'amico si allontana",
+            "feedback": "Rileggi la storia. Rispetta i limiti personali e offri saluti senza contatto.",
+            "correct": false
+          },
+          {
+            "text": "Pretendere una spiegazione",
+            "feedback": "Pensa al capitolo. Rispetta i limiti personali e offri saluti senza contatto.",
+            "correct": false
+          }
+        ],
+        "activity": "Scegli un saluto senza contatto per il tabellone di un club inventato. Puoi indicare, disegnare, scrivere, usare la CAA, parlare o chiedere a un adulto di registrare l'idea."
+      },
+      {
+        "title": "Condividere il merito",
+        "paragraphs": [
+          "Finiscono di ordinare le carte. Emma ha creato l'invito, un bambino controllato i gruppi, un altro portato il vassoio vuoto con un adulto. Un visitatore ringrazia solo Emma. Lei indica gli altri e spiega che cosa ha fatto ciascuno.",
+          "L'adulto ringrazia per contributi precisi. Conta anche il lavoro silenzioso. Il progetto non dipendeva da un bambino più importante, ma da persone con ruoli adatti. Il ruolo di Max era stare fuori dall'area di lavoro, e ci riusciva vicino alla coperta."
+        ],
+        "idea": "Descrivi contributi precisi e includi chi ha svolto lavori meno visibili.",
+        "question": "Chi merita riconoscimento?",
+        "choices": [
+          {
+            "text": "Solo chi parla più forte",
+            "feedback": "Rileggi la storia. Descrivi contributi precisi e includi chi ha svolto lavori meno visibili.",
+            "correct": false
+          },
+          {
+            "text": "Solo chi tiene il cartello",
+            "feedback": "Pensa al capitolo. Descrivi contributi precisi e includi chi ha svolto lavori meno visibili.",
+            "correct": false
+          },
+          {
+            "text": "Tutti quelli che hanno contribuito",
+            "feedback": "È adatto. Descrivi contributi precisi e includi chi ha svolto lavori meno visibili.",
+            "correct": true
+          }
+        ],
+        "activity": "Mostra tre ruoli di un progetto inventato e il loro contributo. Puoi indicare, disegnare, scrivere, usare la CAA, parlare o chiedere a un adulto di registrare l'idea."
+      },
+      {
+        "title": "Un club che può cambiare",
+        "paragraphs": [
+          "All'incontro successivo un bambino trova il tavolo troppo affollato. Emma ascolta e chiede all'adulto un posto più tranquillo per partecipare. Spostano carte, lasciano più spazio e mantengono la possibilità di osservare.",
+          "Cambiare non significa che il primo club sia fallito. Le osservazioni possono rivelare ostacoli non notati. Emma conserva una carta: Ho bisogno di qualcosa di diverso. Il club può continuare a chiedere che cosa aiuta, mentre gli adulti verificano sicurezza e sostegno. Essere gentili comprende rispondere alle risposte ricevute."
+        ],
+        "idea": "Usa le osservazioni per togliere ostacoli e continuare a verificare che cosa serve per partecipare.",
+        "question": "Che cosa deve fare il club con osservazioni utili?",
+        "choices": [
+          {
+            "text": "Chiedere a tutti di tollerare la stessa sistemazione",
+            "feedback": "Pensa al capitolo. Usa le osservazioni per togliere ostacoli e continuare a verificare che cosa serve per partecipare.",
+            "correct": false
+          },
+          {
+            "text": "Considerare una modifica pratica",
+            "feedback": "È adatto. Usa le osservazioni per togliere ostacoli e continuare a verificare che cosa serve per partecipare.",
+            "correct": true
+          },
+          {
+            "text": "Ignorarle dopo l'apertura",
+            "feedback": "Rileggi la storia. Usa le osservazioni per togliere ostacoli e continuare a verificare che cosa serve per partecipare.",
+            "correct": false
+          }
+        ],
+        "activity": "Disegna una modifica che renda più facile partecipare a un'attività di gruppo inventata. Puoi indicare, disegnare, scrivere, usare la CAA, parlare o chiedere a un adulto di registrare l'idea."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Permesso",
+        "meaning": "L'accordo che un'azione possa avvenire."
+      },
+      {
+        "term": "Limite personale",
+        "meaning": "Un confine riguardo a ciò che fa sentire una persona a proprio agio."
+      },
+      {
+        "term": "Contributo",
+        "meaning": "Qualcosa che una persona aggiunge a un'attività condivisa."
+      }
+    ]
   }
 }
