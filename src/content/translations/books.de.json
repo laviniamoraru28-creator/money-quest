@@ -183,5 +183,560 @@
         "meaning": "Einen Gegenstand erneut für einen passenden Zweck nutzen."
       }
     ]
+  },
+  "the-robot-with-the-wrong-answer": {
+    "title": "Der Roboter mit der falschen Antwort",
+    "subtitle": "Eine eigene Money-Quest-Geschichte zum gemeinsamen Lesen und Entdecken",
+    "audience": "Explorer · 6–8 Jahre · Gemeinsam lesen, Aktivitäten nach Wunsch",
+    "description": "Ein erfundener KI-Helfer zeigt Emma, warum auch sichere Antworten geprüft werden müssen.",
+    "coverAlt": "Emma und Max an einem Money-Quest-Ort, der zu dieser Geschichte gehört.",
+    "chapters": [
+      {
+        "title": "Der sprechende Bildschirm",
+        "paragraphs": [
+          "An einem betreuten Lerntisch probiert Emma einen erfundenen Roboterhelfer aus. Er antwortet in ganzen Sätzen. Weil er so sicher klingt, glaubt Emma, dass er alles weiß. Ihr Erwachsener fragt: Ist sicher klingen dasselbe wie richtig sein?",
+          "Sie lassen ihn vier gemalte Boote auf einem Bild zählen. Er sagt fünf. Emma zeigt beim Zählen auf jedes Boot. Es sind vier. Auch ein freundlicher, vollständiger und sicher klingender Satz kann eine falsche Antwort enthalten."
+        ],
+        "idea": "Auch eine sichere Antwort kann falsch sein. Prüfe sie anhand von Belegen.",
+        "question": "Wie viele gemalte Boote sind es?",
+        "choices": [
+          {
+            "text": "Vier, nachdem das Bild geprüft wurde",
+            "feedback": "Das passt. Auch eine sichere Antwort kann falsch sein. Prüfe sie anhand von Belegen.",
+            "correct": true
+          },
+          {
+            "text": "Fünf, weil das Werkzeug es sagt",
+            "feedback": "Schau noch einmal in die Geschichte. Auch eine sichere Antwort kann falsch sein. Prüfe sie anhand von Belegen.",
+            "correct": false
+          },
+          {
+            "text": "So viele, wie es sicher behauptet",
+            "feedback": "Denke an dieses Kapitel. Auch eine sichere Antwort kann falsch sein. Prüfe sie anhand von Belegen.",
+            "correct": false
+          }
+        ],
+        "activity": "Male vier einfache Gegenstände. Prüfe dazu eine absichtlich falsche erfundene Antwort. Du kannst zeigen, malen, tippen, Unterstützte Kommunikation nutzen, sprechen oder einen Erwachsenen deine Idee aufschreiben lassen."
+      },
+      {
+        "title": "Was das Werkzeug macht",
+        "paragraphs": [
+          "Emma fragt, ob der Roboter Gefühle wie Max hat. Ihr Erwachsener erklärt: Dieses Computerwerkzeug erzeugt Antworten aus Mustern. Es ist kein Tier und kein Mensch. Ein freundlicher Satz bedeutet nicht, dass es Emma wie ein Freund versteht.",
+          "Für die Aktivität verwenden sie einen erfundenen Namen. Sie geben keine persönlichen Informationen ein. Braucht Emma Fürsorge oder Hilfe, darf sie einen echten Menschen fragen. Das Werkzeug kann bei manchen Aufgaben helfen. Es ersetzt keinen vertrauten Erwachsenen und entscheidet nicht, was für sie richtig ist."
+        ],
+        "idea": "Eine Computerantwort ist keine Freundschaft und ersetzt keine menschliche Fürsorge.",
+        "question": "Wer kann echte persönliche Unterstützung geben?",
+        "choices": [
+          {
+            "text": "Ein Werkzeug, weil es sagt, dass es sich kümmert",
+            "feedback": "Schau noch einmal in die Geschichte. Eine Computerantwort ist keine Freundschaft und ersetzt keine menschliche Fürsorge.",
+            "correct": false
+          },
+          {
+            "text": "Jeder Bildschirm mit einem Gesicht",
+            "feedback": "Denke an dieses Kapitel. Eine Computerantwort ist keine Freundschaft und ersetzt keine menschliche Fürsorge.",
+            "correct": false
+          },
+          {
+            "text": "Ein vertrauter Erwachsener",
+            "feedback": "Das passt. Eine Computerantwort ist keine Freundschaft und ersetzt keine menschliche Fürsorge.",
+            "correct": true
+          }
+        ],
+        "activity": "Ordne erfundene Karten den Gruppen Computerwerkzeug, Tier und vertrauter Erwachsener zu. Du kannst zeigen, malen, tippen, Unterstützte Kommunikation nutzen, sprechen oder einen Erwachsenen deine Idee aufschreiben lassen."
+      },
+      {
+        "title": "Eine passende Quelle finden",
+        "paragraphs": [
+          "Der erfundene Helfer sagt, alle Vögel könnten fliegen. Emma erinnert sich an einen Pinguin in einem Büchereibuch. Mit ihrem Erwachsenen sucht sie eine geeignete Naturquelle. Manche Vögel können nicht fliegen. Die Aussage war zu allgemein.",
+          "Emma malt ein Fragezeichen neben die Antwort. Sie muss nicht jeden Vogel kennen, um ein Gegenbeispiel zu finden. Eine Quelle hilft beim Prüfen der Aussage. Dasselbe Werkzeug um Wiederholung zu bitten wäre keine unabhängige Prüfung seiner Behauptung."
+        ],
+        "idea": "Prüfe eine Tatsachenbehauptung mit einer geeigneten unabhängigen Quelle.",
+        "question": "Was hilft beim Prüfen der Vogelaussage?",
+        "choices": [
+          {
+            "text": "Wie bunt der Bildschirm aussieht",
+            "feedback": "Denke an dieses Kapitel. Prüfe eine Tatsachenbehauptung mit einer geeigneten unabhängigen Quelle.",
+            "correct": false
+          },
+          {
+            "text": "Eine passende Naturquelle",
+            "feedback": "Das passt. Prüfe eine Tatsachenbehauptung mit einer geeigneten unabhängigen Quelle.",
+            "correct": true
+          },
+          {
+            "text": "Dieselbe Antwort, lauter wiederholt",
+            "feedback": "Schau noch einmal in die Geschichte. Prüfe eine Tatsachenbehauptung mit einer geeigneten unabhängigen Quelle.",
+            "correct": false
+          }
+        ],
+        "activity": "Prüfe mit einem Erwachsenen und einem Naturbild oder Buch eine erfundene Tierbehauptung. Du kannst zeigen, malen, tippen, Unterstützte Kommunikation nutzen, sprechen oder einen Erwachsenen deine Idee aufschreiben lassen."
+      },
+      {
+        "title": "Eine Idee gehört jemandem",
+        "paragraphs": [
+          "Das Werkzeug schlägt vor, die Zeichnung eines Klassenkindes als Geschichtenumschlag zu kopieren. Emma weiß, wer sie gemacht hat. Sie gibt die Zeichnung nicht als ihre eigene aus. Ihr Erwachsener hilft ihr, ein eigenes Bild mit eigenen Formen und Farben zu planen.",
+          "Ein Computervorschlag entscheidet nicht, ob etwas fair oder erlaubt ist. Emma kann fragen, wer etwas gestaltet hat und welche Erlaubnis nötig ist. Sie malt ein anderes Boot mit gestreiftem Segel. Eine Idee zu bekommen ist etwas anderes, als fremde Arbeit als eigene auszugeben."
+        ],
+        "idea": "Prüfe Urheberschaft und Erlaubnis. Ein Werkzeugvorschlag macht Kopieren nicht automatisch richtig.",
+        "question": "Was sollte Emma gestalten?",
+        "choices": [
+          {
+            "text": "Ihre eigene Zeichnung",
+            "feedback": "Das passt. Prüfe Urheberschaft und Erlaubnis. Ein Werkzeugvorschlag macht Kopieren nicht automatisch richtig.",
+            "correct": true
+          },
+          {
+            "text": "Die Arbeit eines Klassenkindes mit ihrem Namen",
+            "feedback": "Schau noch einmal in die Geschichte. Prüfe Urheberschaft und Erlaubnis. Ein Werkzeugvorschlag macht Kopieren nicht automatisch richtig.",
+            "correct": false
+          },
+          {
+            "text": "Alles, was der Bildschirm verlangt",
+            "feedback": "Denke an dieses Kapitel. Prüfe Urheberschaft und Erlaubnis. Ein Werkzeugvorschlag macht Kopieren nicht automatisch richtig.",
+            "correct": false
+          }
+        ],
+        "activity": "Erfinde dein eigenes einfaches Umschlagbild und benenne, wer es gestaltet hat. Du kannst zeigen, malen, tippen, Unterstützte Kommunikation nutzen, sprechen oder einen Erwachsenen deine Idee aufschreiben lassen."
+      },
+      {
+        "title": "Eine hilfreiche kleine Aufgabe",
+        "paragraphs": [
+          "Emma sucht drei Namen für einen erfundenen Mondgarten. Mit ihrem Erwachsenen bittet sie den erfundenen Helfer um Ideen. Sie lesen die Vorschläge zusammen. Einer ist schwer auszusprechen. Einer ist schon der Titel eines bekannten Buches. Einer bringt Emma auf eine neue Idee.",
+          "Sie verändert den letzten Vorschlag zu einem Namen, der ihr gefällt. Das Werkzeug hat beim Ideensammeln geholfen. Es hat keinen Tatsachenbericht geschrieben und nicht geprüft, ob der Titel zur Veröffentlichung verfügbar ist. Emma wählt selbst und erklärt ihre Wahl. Der erfundene Garten bleibt privat auf Papier."
+        ],
+        "idea": "Ein Werkzeug kann Ideen vorschlagen. Menschen bleiben fürs Prüfen und Entscheiden verantwortlich.",
+        "question": "Wer trifft die endgültige Wahl?",
+        "choices": [
+          {
+            "text": "Automatisch der erste Vorschlag",
+            "feedback": "Schau noch einmal in die Geschichte. Ein Werkzeug kann Ideen vorschlagen. Menschen bleiben fürs Prüfen und Entscheiden verantwortlich.",
+            "correct": false
+          },
+          {
+            "text": "Das Werkzeug ohne Prüfung",
+            "feedback": "Denke an dieses Kapitel. Ein Werkzeug kann Ideen vorschlagen. Menschen bleiben fürs Prüfen und Entscheiden verantwortlich.",
+            "correct": false
+          },
+          {
+            "text": "Emma mit geeigneter Unterstützung",
+            "feedback": "Das passt. Ein Werkzeug kann Ideen vorschlagen. Menschen bleiben fürs Prüfen und Entscheiden verantwortlich.",
+            "correct": true
+          }
+        ],
+        "activity": "Erfinde drei Namen für einen ausgedachten Garten. Du brauchst kein Onlinewerkzeug. Du kannst zeigen, malen, tippen, Unterstützte Kommunikation nutzen, sprechen oder einen Erwachsenen deine Idee aufschreiben lassen."
+      },
+      {
+        "title": "Die Prüfkarte",
+        "paragraphs": [
+          "Emma macht eine Bildkarte für spätere Werkzeugaufgaben. Darauf sind ein Fragezeichen, ein Buch und ein Erwachsener. Sie erinnern sie: Was wird behauptet? Welche passende Quelle kann es prüfen? Brauche ich menschliche Hilfe? Sie legt die Karte neben den betreuten Tisch.",
+          "Sie darf das Werkzeug auch nicht verwenden. Malen und Gespräche bleiben möglich. Max schiebt seinen gewöhnlichen Ball zum Erwachsenen. Emma lacht über den Unterschied: Der Ball braucht keine kluge Antwort. Nur ein sicheres Spiel mit jemandem, der da ist."
+        ],
+        "idea": "Wähle ein Werkzeug für einen Zweck. Prüfe sein Ergebnis und behalte nichtdigitale Möglichkeiten.",
+        "question": "Was gehört auf eine Prüfkarte?",
+        "choices": [
+          {
+            "text": "Eine Bitte um persönliche Informationen",
+            "feedback": "Denke an dieses Kapitel. Wähle ein Werkzeug für einen Zweck. Prüfe sein Ergebnis und behalte nichtdigitale Möglichkeiten.",
+            "correct": false
+          },
+          {
+            "text": "Eine Frage, eine Quelle und menschliche Hilfe",
+            "feedback": "Das passt. Wähle ein Werkzeug für einen Zweck. Prüfe sein Ergebnis und behalte nichtdigitale Möglichkeiten.",
+            "correct": true
+          },
+          {
+            "text": "Eine Regel, jeder Antwort zu vertrauen",
+            "feedback": "Schau noch einmal in die Geschichte. Wähle ein Werkzeug für einen Zweck. Prüfe sein Ergebnis und behalte nichtdigitale Möglichkeiten.",
+            "correct": false
+          }
+        ],
+        "activity": "Gestalte eine Prüfkarte mit drei Bildern für eine erfundene Computeraufgabe. Du kannst zeigen, malen, tippen, Unterstützte Kommunikation nutzen, sprechen oder einen Erwachsenen deine Idee aufschreiben lassen."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "KI-Werkzeug",
+        "meaning": "Ein Computersystem, das aus Mustern Antworten erzeugen kann."
+      },
+      {
+        "term": "Belege",
+        "meaning": "Informationen, die beim Prüfen einer Idee helfen."
+      },
+      {
+        "term": "Quelle",
+        "meaning": "Woher Informationen stammen."
+      }
+    ]
+  },
+  "the-picnic-with-eight-tokens": {
+    "title": "Das Picknick mit acht Spielsteinen",
+    "subtitle": "Eine eigene Money-Quest-Geschichte zum gemeinsamen Lesen und Entdecken",
+    "audience": "Explorer · 6–8 Jahre · Gemeinsam lesen, Aktivitäten nach Wunsch",
+    "description": "Ein erfundenes Picknick gibt Emma einen praktischen Anlass zum Planen, Zählen und Anpassen.",
+    "coverAlt": "Emma und Max an einem Money-Quest-Ort, der zu dieser Geschichte gehört.",
+    "chapters": [
+      {
+        "title": "Acht Spielsteine auf dem Tisch",
+        "paragraphs": [
+          "Emmas Gruppe plant in einem Bilderspiel ein erfundenes Picknick. Der Erwachsene gibt ihnen acht Spielsteine. Jeder steht für ein erfundenes Pfund. Sie verwenden kein Haushaltsgeld. Max schaut zu, wie Emma die Steine nebeneinanderlegt.",
+          "Die Bildkarten zeigen Essen, Wasser und Dekoration. Mit acht Steinen kann die Gruppe nicht alles wählen. Sie muss prüfen, was für ihr erfundenes Picknick wichtig ist. Mit Spielbeträgen können sie üben. Niemand muss erzählen, was die eigene Familie verdient oder ausgibt."
+        ],
+        "idea": "Ein Spielbudget ist eine Grenze für eine erfundene Aktivität. Es bewertet keine Familie.",
+        "question": "Wie viele Spielsteine stehen bereit?",
+        "choices": [
+          {
+            "text": "Acht",
+            "feedback": "Das passt. Ein Spielbudget ist eine Grenze für eine erfundene Aktivität. Es bewertet keine Familie.",
+            "correct": true
+          },
+          {
+            "text": "Alle, die sie sich wünschen",
+            "feedback": "Schau noch einmal in die Geschichte. Ein Spielbudget ist eine Grenze für eine erfundene Aktivität. Es bewertet keine Familie.",
+            "correct": false
+          },
+          {
+            "text": "Es gibt gar keine Grenze",
+            "feedback": "Denke an dieses Kapitel. Ein Spielbudget ist eine Grenze für eine erfundene Aktivität. Es bewertet keine Familie.",
+            "correct": false
+          }
+        ],
+        "activity": "Lege acht Zeichen oder Spielsteine neben einen erfundenen Picknickplan. Du kannst zeigen, malen, tippen, Unterstützte Kommunikation nutzen, sprechen oder einen Erwachsenen deine Idee aufschreiben lassen."
+      },
+      {
+        "title": "Die ersten zwei Karten",
+        "paragraphs": [
+          "Die Essenskarte kostet in der Geschichte drei Steine. Die Wasserkarte kostet einen. Der Erwachsene erklärt: Die Figuren brauchen beides für dieses Picknick. Im echten Leben würde ein Erwachsener auch Ernährungsbedürfnisse, Trinkwasserversorgung und Sicherheit prüfen.",
+          "Emma legt vier Steine zu den beiden Karten. Vier bleiben übrig. Wenn sie zuerst Nützliches wählen, ist der Rest für weitere Entscheidungen klar. Die Liste hat kein Geld geschaffen. Sie zeigt der Gruppe nur ihre Entscheidungen und den Restbetrag."
+        ],
+        "idea": "Drei plus eins verbraucht vier Steine. Von den ersten acht bleiben vier übrig.",
+        "question": "Wie viele bleiben nach Essen und Wasser?",
+        "choices": [
+          {
+            "text": "Acht",
+            "feedback": "Schau noch einmal in die Geschichte. Drei plus eins verbraucht vier Steine. Von den ersten acht bleiben vier übrig.",
+            "correct": false
+          },
+          {
+            "text": "Zwölf",
+            "feedback": "Denke an dieses Kapitel. Drei plus eins verbraucht vier Steine. Von den ersten acht bleiben vier übrig.",
+            "correct": false
+          },
+          {
+            "text": "Vier",
+            "feedback": "Das passt. Drei plus eins verbraucht vier Steine. Von den ersten acht bleiben vier übrig.",
+            "correct": true
+          }
+        ],
+        "activity": "Nimm von acht Steinen erst drei und dann einen weg. Zeige den Rest. Du kannst zeigen, malen, tippen, Unterstützte Kommunikation nutzen, sprechen oder einen Erwachsenen deine Idee aufschreiben lassen."
+      },
+      {
+        "title": "Dekoration kann warten",
+        "paragraphs": [
+          "Eine Schleifenkarte kostet drei Steine. Eine Deckenkarte kostet zwei. Die Gruppe hat noch vier Steine. Beide Karten kann sie nicht kaufen. Drei plus zwei sind fünf. Emma legt die Karten zum Vergleichen neben die übrigen Steine.",
+          "In diesem erfundenen Spiel haben die Figuren bereits einen passenden Sitzplatz. Sie können eine Dekoration wählen, die Steine behalten oder den Plan ändern. Ein Wunsch ist nicht schlecht. Er wird nach Bedürfnissen und Grenzen betrachtet. Auch nicht zu kaufen ist eine Möglichkeit."
+        ],
+        "idea": "Ein schönes Extra darf eine Wahl sein. Die Gesamtsumme muss aber zum verfügbaren Betrag passen.",
+        "question": "Können sie beide Extras mit vier Steinen kaufen?",
+        "choices": [
+          {
+            "text": "Ja, eine Liste fügt einen Stein hinzu",
+            "feedback": "Denke an dieses Kapitel. Ein schönes Extra darf eine Wahl sein. Die Gesamtsumme muss aber zum verfügbaren Betrag passen.",
+            "correct": false
+          },
+          {
+            "text": "Nein, zusammen kosten sie fünf",
+            "feedback": "Das passt. Ein schönes Extra darf eine Wahl sein. Die Gesamtsumme muss aber zum verfügbaren Betrag passen.",
+            "correct": true
+          },
+          {
+            "text": "Ja, weil beide schön sind",
+            "feedback": "Schau noch einmal in die Geschichte. Ein schönes Extra darf eine Wahl sein. Die Gesamtsumme muss aber zum verfügbaren Betrag passen.",
+            "correct": false
+          }
+        ],
+        "activity": "Vergleiche zwei erfundene Extras für drei und zwei mit vier verfügbaren Zeichen. Du kannst zeigen, malen, tippen, Unterstützte Kommunikation nutzen, sprechen oder einen Erwachsenen deine Idee aufschreiben lassen."
+      },
+      {
+        "title": "Das Wetter ändert sich",
+        "paragraphs": [
+          "Auf dem Geschichtenbild regnet es nun. Der Erwachsene bietet eine Picknickszene drinnen mit denselben Essenskarten an. Emma verschiebt den Plan auf das neue Bild. Die Gruppe muss nicht am ersten Plan draußen festhalten.",
+          "Sie prüfen, welche Entscheidungen noch helfen. Die Schleife ist freiwillig. Das Essen bleibt nützlich. Neue Informationen dürfen einen Plan verändern. Niemand verliert eine Belohnung fürs Anpassen. Max freut sich, dass die echte Aktivität drinnen bleibt. Dort ist seine Decke warm und trocken."
+        ],
+        "idea": "Neue Informationen können ein Grund sein, einen Plan zu überarbeiten.",
+        "question": "Was kann die Gruppe verändern?",
+        "choices": [
+          {
+            "text": "Nach der Regenprüfung den Ort",
+            "feedback": "Das passt. Neue Informationen können ein Grund sein, einen Plan zu überarbeiten.",
+            "correct": true
+          },
+          {
+            "text": "Nichts, sobald ein Plan besteht",
+            "feedback": "Schau noch einmal in die Geschichte. Neue Informationen können ein Grund sein, einen Plan zu überarbeiten.",
+            "correct": false
+          },
+          {
+            "text": "Mit Spielsteinen das Wetter",
+            "feedback": "Denke an dieses Kapitel. Neue Informationen können ein Grund sein, einen Plan zu überarbeiten.",
+            "correct": false
+          }
+        ],
+        "activity": "Zeige eine Möglichkeit drinnen und eine draußen für eine erfundene Veranstaltung. Wähle dann passend zu einem Regenbild. Du kannst zeigen, malen, tippen, Unterstützte Kommunikation nutzen, sprechen oder einen Erwachsenen deine Idee aufschreiben lassen."
+      },
+      {
+        "title": "Der übrige Stein",
+        "paragraphs": [
+          "Emmas Gruppe wählt mit drei der übrigen vier Steine eine Dekorationskarte. Einen Stein legt sie zur Seite. Der Erwachsene erklärt: Nicht alles auszugeben kann Raum für eine spätere Wahl lassen. Es garantiert aber nicht, dass jede Überraschung bezahlbar ist.",
+          "Die Gruppe hält verbrauchte und übrige Beträge fest. Von acht Steinen wurden sieben verwendet. Einer bleibt. Sie können den Plan durch Zeigen erklären. Niemand muss eine lange Rechnung schreiben, um das Spiel zu verstehen."
+        ],
+        "idea": "Von acht Steinen bleibt nach Verwendung von sieben noch einer übrig. Nicht ausgegebenes Geld bleibt verfügbar.",
+        "question": "Wie viele Steine wurden nicht ausgegeben?",
+        "choices": [
+          {
+            "text": "Sieben",
+            "feedback": "Schau noch einmal in die Geschichte. Von acht Steinen bleibt nach Verwendung von sieben noch einer übrig. Nicht ausgegebenes Geld bleibt verfügbar.",
+            "correct": false
+          },
+          {
+            "text": "Neun",
+            "feedback": "Denke an dieses Kapitel. Von acht Steinen bleibt nach Verwendung von sieben noch einer übrig. Nicht ausgegebenes Geld bleibt verfügbar.",
+            "correct": false
+          },
+          {
+            "text": "Einer",
+            "feedback": "Das passt. Von acht Steinen bleibt nach Verwendung von sieben noch einer übrig. Nicht ausgegebenes Geld bleibt verfügbar.",
+            "correct": true
+          }
+        ],
+        "activity": "Male acht Kreise. Markiere sieben als verwendet. Zeige auf den übrigen Kreis. Du kannst zeigen, malen, tippen, Unterstützte Kommunikation nutzen, sprechen oder einen Erwachsenen deine Idee aufschreiben lassen."
+      },
+      {
+        "title": "Ein Plan, den alle lesen können",
+        "paragraphs": [
+          "In der letzten Runde legt die Gruppe Bilder und Steine für alle erreichbar oder sichtbar hin. Ein Kind zeigt auf die Wasserkarte und prüft ihren Platz im Plan. Emma lässt Raum für die Frage, statt schnell fertig werden zu wollen.",
+          "Das Picknickspiel endet mit einem kurzen Rückblick: Was war verfügbar? Was wurde gewählt? Was blieb übrig? Eine andere Gruppe könnte innerhalb ihrer Grenze anders wählen. Hilfreich sind das Prüfen des Plans und das Zuhören. Es geht nicht um das schickste Picknickbild."
+        ],
+        "idea": "Ein Plan sollte für seine Nutzer verständlich sein. Sie brauchen zugängliche Möglichkeiten für Fragen.",
+        "question": "Was lohnt sich zu prüfen?",
+        "choices": [
+          {
+            "text": "Wer am schnellsten fertig war",
+            "feedback": "Denke an dieses Kapitel. Ein Plan sollte für seine Nutzer verständlich sein. Sie brauchen zugängliche Möglichkeiten für Fragen.",
+            "correct": false
+          },
+          {
+            "text": "Verfügbare, verwendete und übrige Beträge",
+            "feedback": "Das passt. Ein Plan sollte für seine Nutzer verständlich sein. Sie brauchen zugängliche Möglichkeiten für Fragen.",
+            "correct": true
+          },
+          {
+            "text": "Wessen Picknick am teuersten aussieht",
+            "feedback": "Schau noch einmal in die Geschichte. Ein Plan sollte für seine Nutzer verständlich sein. Sie brauchen zugängliche Möglichkeiten für Fragen.",
+            "correct": false
+          }
+        ],
+        "activity": "Erzähle ein erfundenes Picknickbudget mit Karten, Zeichnungen oder Notizen eines Erwachsenen nach. Du kannst zeigen, malen, tippen, Unterstützte Kommunikation nutzen, sprechen oder einen Erwachsenen deine Idee aufschreiben lassen."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Budget",
+        "meaning": "Ein Plan zur Verwendung eines verfügbaren Betrags."
+      },
+      {
+        "term": "Gesamtsumme",
+        "meaning": "Der Betrag, wenn Dinge zusammengezählt werden."
+      },
+      {
+        "term": "Übrig",
+        "meaning": "Was nach einer Verwendung noch da ist."
+      }
+    ]
+  },
+  "the-kindness-club": {
+    "title": "Der Freundlichkeitsclub",
+    "subtitle": "Eine eigene Money-Quest-Geschichte zum gemeinsamen Lesen und Entdecken",
+    "audience": "Explorer · 6–8 Jahre · Gemeinsam lesen, Aktivitäten nach Wunsch",
+    "description": "Emma und ihre Freunde planen ein kleines Gemeinschaftsprojekt. Alle können wählen, wie sie mitmachen.",
+    "coverAlt": "Emma und Max an einem Money-Quest-Ort, der zu dieser Geschichte gehört.",
+    "chapters": [
+      {
+        "title": "Eine Einladung mit Auswahl",
+        "paragraphs": [
+          "Emma möchte bei einer betreuten Gemeinschaftsstunde einen Freundlichkeitsclub gründen. Sie malt ein Schild: Alle sollen eine Geschichte laut erzählen. Dann denkt sie daran, dass manche Kinder nicht vor einer Gruppe sprechen möchten. Max ruht neben dem Erwachsenenstuhl.",
+          "Emma ergänzt andere Möglichkeiten: malen, auf Bilder zeigen oder Geschichtenkarten ordnen. Ein Kind darf auch erst zuschauen und später entscheiden. Eine Einladung hilft mehr, wenn sie Möglichkeiten erklärt. Sie sollte nicht voraussetzen, dass alle gleich mitmachen."
+        ],
+        "idea": "Biete sinnvolle Möglichkeiten zum Mitmachen an, auch Zuschauen und Ablehnen.",
+        "question": "Was verbessert die Einladung?",
+        "choices": [
+          {
+            "text": "Verschiedene Möglichkeiten zum Mitmachen",
+            "feedback": "Das passt. Biete sinnvolle Möglichkeiten zum Mitmachen an, auch Zuschauen und Ablehnen.",
+            "correct": true
+          },
+          {
+            "text": "Eine Rede als Pflicht",
+            "feedback": "Schau noch einmal in die Geschichte. Biete sinnvolle Möglichkeiten zum Mitmachen an, auch Zuschauen und Ablehnen.",
+            "correct": false
+          },
+          {
+            "text": "Eine Regel gegen das Zuschauen",
+            "feedback": "Denke an dieses Kapitel. Biete sinnvolle Möglichkeiten zum Mitmachen an, auch Zuschauen und Ablehnen.",
+            "correct": false
+          }
+        ],
+        "activity": "Gestalte für einen erfundenen Club eine Einladung mit zwei Antwortmöglichkeiten. Du kannst zeigen, malen, tippen, Unterstützte Kommunikation nutzen, sprechen oder einen Erwachsenen deine Idee aufschreiben lassen."
+      },
+      {
+        "title": "Helfen beginnt mit Fragen",
+        "paragraphs": [
+          "Die Gruppe möchte einem Nachbarn helfen. Emma will seine Tasche tragen, ohne zu fragen. Der Erwachsene erklärt: Hilfe beginnt mit einer Frage. Eine Person möchte vielleicht Unterstützung, eine andere Art von Hilfe oder die Aufgabe selbst erledigen.",
+          "Emma malt eine Karte: Möchtest du Hilfe? Der Nachbar in der Geschichte sagt: Nein, danke. Der Club nimmt die Antwort an. Zur Freundlichkeit gehört, andere entscheiden zu lassen. Eine gute Absicht erlaubt dem Club nicht, einfach fremde Sachen zu übernehmen."
+        ],
+        "idea": "Frage vor dem Helfen und akzeptiere die Antwort.",
+        "question": "Was sollte der Club zuerst tun?",
+        "choices": [
+          {
+            "text": "Die Tasche ohne Frage nehmen",
+            "feedback": "Schau noch einmal in die Geschichte. Frage vor dem Helfen und akzeptiere die Antwort.",
+            "correct": false
+          },
+          {
+            "text": "Trotzdem auf Hilfe bestehen",
+            "feedback": "Denke an dieses Kapitel. Frage vor dem Helfen und akzeptiere die Antwort.",
+            "correct": false
+          },
+          {
+            "text": "Fragen, ob Hilfe gewünscht ist",
+            "feedback": "Das passt. Frage vor dem Helfen und akzeptiere die Antwort.",
+            "correct": true
+          }
+        ],
+        "activity": "Wähle für eine erfundene Situation einen respektvollen Satz oder ein Bild zum vorherigen Fragen. Du kannst zeigen, malen, tippen, Unterstützte Kommunikation nutzen, sprechen oder einen Erwachsenen deine Idee aufschreiben lassen."
+      },
+      {
+        "title": "Eine Aufgabe ohne Einkauf",
+        "paragraphs": [
+          "Der Club hat kein Geld für Geschenke. Emma fürchtet, dass das Projekt aufhören muss. Ein Erwachsener fragt nach freundlichen Handlungen ohne Einkauf. Die Kinder schlagen Zuhören, Zurückgeben gemeinsamer Materialien und Platzmachen am Tisch vor. Max hat gar keine Einkaufsvorschläge.",
+          "Mit Erlaubnis ordnen sie die gemeinsamen Bildkarten. Das ist nützlich und kostenlos. Geld zu geben ist kein Freundlichkeitstest. Familien haben unterschiedliche Mittel. Niemand muss die Finanzen zu Hause erklären, um zum Club zu gehören."
+        ],
+        "idea": "Zeit, Fürsorge und hilfreiche Handlungen können ohne Einkauf beitragen.",
+        "question": "Welche Handlung kostet kein Geld?",
+        "choices": [
+          {
+            "text": "Nach privaten Bankdaten fragen",
+            "feedback": "Denke an dieses Kapitel. Zeit, Fürsorge und hilfreiche Handlungen können ohne Einkauf beitragen.",
+            "correct": false
+          },
+          {
+            "text": "Gemeinsame Karten mit Erlaubnis aufräumen",
+            "feedback": "Das passt. Zeit, Fürsorge und hilfreiche Handlungen können ohne Einkauf beitragen.",
+            "correct": true
+          },
+          {
+            "text": "Allen ein Geschenk kaufen",
+            "feedback": "Schau noch einmal in die Geschichte. Zeit, Fürsorge und hilfreiche Handlungen können ohne Einkauf beitragen.",
+            "correct": false
+          }
+        ],
+        "activity": "Male eine sichere, kostenlose Möglichkeit, wie ein erfundener Club helfen könnte. Du kannst zeigen, malen, tippen, Unterstützte Kommunikation nutzen, sprechen oder einen Erwachsenen deine Idee aufschreiben lassen."
+      },
+      {
+        "title": "Nicht alle möchten eine Umarmung",
+        "paragraphs": [
+          "Emma möchte einem Freund mit einer Umarmung danken. Der Freund geht zurück. Emma hält an. Der Erwachsene bietet Möglichkeiten an: winken, eine Dankeskarte oder einfach Danke sagen. Der Freund wählt Winken. Emma winkt zurück.",
+          "Niemand muss Berührung zulassen, um Freundschaft zu zeigen. An verschiedenen Tagen passen vielleicht andere Grüße. Fragen und Zuhören helfen, alle zu respektieren. Emma ergänzt die Einladungstafel um ein Winkbild. Besucher können einen angenehmen Gruß wählen, ohne vor allen einen Grund zu nennen."
+        ],
+        "idea": "Respektiere persönliche Grenzen und biete Grüße ohne Berührung an.",
+        "question": "Was kann Emma tun?",
+        "choices": [
+          {
+            "text": "Anhalten und Winken anbieten",
+            "feedback": "Das passt. Respektiere persönliche Grenzen und biete Grüße ohne Berührung an.",
+            "correct": true
+          },
+          {
+            "text": "Umarmen, nachdem der Freund zurückweicht",
+            "feedback": "Schau noch einmal in die Geschichte. Respektiere persönliche Grenzen und biete Grüße ohne Berührung an.",
+            "correct": false
+          },
+          {
+            "text": "Eine Erklärung verlangen",
+            "feedback": "Denke an dieses Kapitel. Respektiere persönliche Grenzen und biete Grüße ohne Berührung an.",
+            "correct": false
+          }
+        ],
+        "activity": "Wähle einen Gruß ohne Berührung für die Willkommenstafel eines erfundenen Clubs. Du kannst zeigen, malen, tippen, Unterstützte Kommunikation nutzen, sprechen oder einen Erwachsenen deine Idee aufschreiben lassen."
+      },
+      {
+        "title": "Anerkennung teilen",
+        "paragraphs": [
+          "Der Club ist mit den Karten fertig. Emma hat die Einladung gemacht. Ein Kind hat die Gruppen geprüft. Ein anderes hat mit einem Erwachsenen das leere Tablett getragen. Ein Besucher dankt nur Emma. Sie zeigt auf die anderen und erklärt ihre Beiträge.",
+          "Der Erwachsene dankt der Gruppe für bestimmte Beiträge. Auch stille Arbeit zählt. Das Projekt gelang nicht, weil ein Kind am wichtigsten war. Mehrere Menschen hatten passende Rollen. Max blieb außerhalb des Arbeitsbereichs. Das schaffte er neben seiner Decke."
+        ],
+        "idea": "Beschreibe konkrete Beiträge. Beziehe Menschen ein, deren Arbeit weniger sichtbar war.",
+        "question": "Wer verdient Anerkennung?",
+        "choices": [
+          {
+            "text": "Nur die lauteste Person",
+            "feedback": "Schau noch einmal in die Geschichte. Beschreibe konkrete Beiträge. Beziehe Menschen ein, deren Arbeit weniger sichtbar war.",
+            "correct": false
+          },
+          {
+            "text": "Nur die Person mit dem Schild",
+            "feedback": "Denke an dieses Kapitel. Beschreibe konkrete Beiträge. Beziehe Menschen ein, deren Arbeit weniger sichtbar war.",
+            "correct": false
+          },
+          {
+            "text": "Alle, die etwas beigetragen haben",
+            "feedback": "Das passt. Beschreibe konkrete Beiträge. Beziehe Menschen ein, deren Arbeit weniger sichtbar war.",
+            "correct": true
+          }
+        ],
+        "activity": "Zeige drei verschiedene Rollen in einem erfundenen Projekt. Benenne, was jede beiträgt. Du kannst zeigen, malen, tippen, Unterstützte Kommunikation nutzen, sprechen oder einen Erwachsenen deine Idee aufschreiben lassen."
+      },
+      {
+        "title": "Ein Club darf sich ändern",
+        "paragraphs": [
+          "Beim nächsten Treffen ist einem Kind am Clubtisch zu viel los. Emma hört zu. Sie fragt den Erwachsenen nach einem ruhigeren Platz zum Mitmachen. Sie verschieben einige Karten und lassen mehr Platz. Zuschauen bleibt ebenfalls möglich.",
+          "Die Änderung bedeutet nicht, dass der erste Club gescheitert ist. Eine Rückmeldung kann ein übersehenes Hindernis zeigen. Emma behält eine Bildkarte für Ich brauche etwas anderes. Der Club kann weiter fragen, was hilft. Erwachsene prüfen Sicherheit und Unterstützung. Freundlichkeit heißt auch, auf eine Antwort einzugehen."
+        ],
+        "idea": "Nutze Rückmeldungen zum Abbau von Hindernissen. Prüfe weiter, was fürs Mitmachen nötig ist.",
+        "question": "Was sollte der Club mit einer hilfreichen Rückmeldung tun?",
+        "choices": [
+          {
+            "text": "Von allen verlangen, denselben Aufbau auszuhalten",
+            "feedback": "Denke an dieses Kapitel. Nutze Rückmeldungen zum Abbau von Hindernissen. Prüfe weiter, was fürs Mitmachen nötig ist.",
+            "correct": false
+          },
+          {
+            "text": "Eine praktische Änderung erwägen",
+            "feedback": "Das passt. Nutze Rückmeldungen zum Abbau von Hindernissen. Prüfe weiter, was fürs Mitmachen nötig ist.",
+            "correct": true
+          },
+          {
+            "text": "Sie nach der Eröffnung ignorieren",
+            "feedback": "Schau noch einmal in die Geschichte. Nutze Rückmeldungen zum Abbau von Hindernissen. Prüfe weiter, was fürs Mitmachen nötig ist.",
+            "correct": false
+          }
+        ],
+        "activity": "Male eine Änderung, die das Mitmachen bei einer erfundenen Gruppenaktivität erleichtern könnte. Du kannst zeigen, malen, tippen, Unterstützte Kommunikation nutzen, sprechen oder einen Erwachsenen deine Idee aufschreiben lassen."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Erlaubnis",
+        "meaning": "Zustimmung dazu, dass eine Handlung stattfinden darf."
+      },
+      {
+        "term": "Grenze",
+        "meaning": "Eine Grenze dafür, womit sich jemand wohlfühlt."
+      },
+      {
+        "term": "Beitrag",
+        "meaning": "Etwas, das eine Person zu einer gemeinsamen Aktivität beisteuert."
+      }
+    ]
   }
 }
