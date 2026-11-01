@@ -41,7 +41,7 @@ async function main(){
   assert.equal(config.mode,"live");assert.equal(config.orders,path.join(orders,"live"));
   assert.throws(()=>validateRelease({...release,merchant:{...release.merchant,email:"seller@example.invalid"}}));assert.throws(()=>validateRelease({...release,terms:{...release.terms,version:"draft-v1"}}));
   assert.throws(()=>validateRelease({...release,products:{}}));assert.throws(()=>privateDirectory(path.join(publicRoot,"paid")));
-  const link=path.join(root,"public-link");await symlink(publicRoot,link);assert.throws(()=>privateDirectory(link));
+  const link=path.join(root,"public-link");await symlink(publicRoot,link);assert.throws(()=>privateDirectory(link));assert.throws(()=>privateDirectory(path.join(link,"not-yet-created","orders")),"A missing child beneath a public symlink must stay private");const dangling=path.join(root,"dangling-public-link");await symlink(path.join(publicRoot,"missing"),dangling);assert.throws(()=>privateDirectory(path.join(dangling,"orders")),"Dangling public symlink must stay private");
   await symlink(publicRoot,path.join(orders,"live"));assert.throws(()=>commerceConfig());await rm(path.join(orders,"live"));
   const publicArchive=path.join(publicRoot,"public-fixture.zip");await writeFile(publicArchive,bytes);const archiveLink=path.join(assets,archiveName(product,hash));await symlink(publicArchive,archiveLink);assert.equal(await canCheckout(product),false);await rm(archiveLink);
   for(const key of ["sk_live_fake","rk_test_fake"]){process.env.MONEYQUEST_STRIPE_KEY=key;assert.throws(()=>commerceConfig());}process.env.MONEYQUEST_STRIPE_KEY="rk_live_fixtureonly";
