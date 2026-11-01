@@ -1,0 +1,242 @@
+{
+  "brain-lab": {
+    "title": "Denklabor",
+    "description": "Entdecke Gedächtnis, Aufmerksamkeit, Wahrnehmung, Denken, Lernen und Entscheidungen. Übe hilfreiche Strategien in deinem Tempo.",
+    "tasks": [
+      {
+        "title": "Eine kurze Liste merken",
+        "idea": "Gruppieren kann dir helfen, eine Liste zu behalten.",
+        "situation": "Du brauchst Äpfel, Birnen, Socken und einen Hut. Welcher Plan könnte beim Merken helfen?",
+        "choices": [
+          "Einmal lesen und hoffen",
+          "Obst und Kleidung gruppieren",
+          "Weitere Dinge hinzufügen"
+        ],
+        "correct": 1,
+        "explanation": "Zwei sinnvolle Gruppen können diese Liste leichter ordnen. Auch eine schriftliche Liste ist ein hilfreiches Werkzeug.",
+        "tryIt": [
+          "Zeige auf zwei Dinge, die zusammengehören.",
+          "Bilde für eine Liste mit sechs Dingen zwei Gruppen. Decke sie ab und erinnere dich an möglichst viel.",
+          "Vergleiche Gruppieren mit einer schriftlichen Liste. Was half bei dieser Aufgabe, und warum?"
+        ],
+        "readings": [
+          {
+            "idea": "Lege Dinge, die zusammengehören, in eine Gruppe.",
+            "situation": "Merke dir einen Apfel, eine Birne, eine Socke und einen Hut. Was könnte helfen?",
+            "choices": [
+              "Wegsehen und raten",
+              "Eine Obstgruppe und eine Kleidungsgruppe bilden",
+              "Viele weitere Dinge hinzufügen"
+            ],
+            "explanation": "Apfel und Birne sind Obst. Socke und Hut sind Kleidung. Zwei Gruppen helfen dir vielleicht beim Merken. Auch eine Bilderliste kann helfen."
+          },
+          {
+            "idea": "Eine Gedächtnisstrategie sollte zur Aufgabe passen. Ihr Nutzen lässt sich testen.",
+            "situation": "Du musst dir bis morgen eine gemischte Liste merken. Welcher Plan prüft, ob Gruppieren dir hilft?",
+            "choices": [
+              "Annehmen, dass ein sicheres Gefühl richtiges Erinnern beweist",
+              "Das Erinnern nach Gruppieren mit dem Erinnern nach erneutem Lesen vergleichen",
+              "Die Liste ohne Prüfung verlängern"
+            ],
+            "explanation": "Vergleiche, woran du dich tatsächlich erinnerst, nicht nur, wie leicht sich die Strategie anfühlt. Wenn genaues Erinnern zählt, kann eine schriftliche Erinnerung am besten helfen. Ein Versuch beweist kein allgemeingültiges Ergebnis."
+          }
+        ]
+      },
+      {
+        "title": "Eine Sache nach der anderen",
+        "idea": "Du kannst deine Umgebung so ändern, dass sie Aufmerksamkeit unterstützt.",
+        "situation": "Ein Video lenkt dich beim Lesen einer Anleitung immer wieder ab. Was könntest du versuchen?",
+        "choices": [
+          "Das Video pausieren",
+          "Das Video lauter stellen",
+          "Ein weiteres Video öffnen"
+        ],
+        "correct": 0,
+        "explanation": "Weniger gleichzeitig konkurrierende Informationen können beim Konzentrieren helfen. Du darfst auch eine Pause machen.",
+        "tryIt": [
+          "Wähle einen ruhigeren Platz oder pausiere einen Ton.",
+          "Lies eine Anweisung ohne die Ablenkungen. Beobachte, was hilft.",
+          "Plane einen Lernplatz. Erkläre, welche Ablenkungen du verringern und welche Hilfen du behalten würdest."
+        ],
+        "readings": [
+          {
+            "idea": "Zu viele Geräusche können eine Aufgabe erschweren.",
+            "situation": "Ein Video läuft, während du einen Schritt lesen möchtest. Was könnte helfen?",
+            "choices": [
+              "Das Video pausieren",
+              "Es lauter machen",
+              "Ein weiteres Video starten"
+            ],
+            "explanation": "Versuche einen Schritt bei pausiertem Video. Du darfst Hilfe holen oder eine Pause machen. Unterschiedliche Menschen brauchen unterschiedliche Unterstützung."
+          },
+          {
+            "idea": "Aufmerksamkeit zu unterstützen bedeutet, konkurrierende Anforderungen zu senken und hilfreiche Unterstützung zu behalten.",
+            "situation": "Nachrichten unterbrechen dein Wiederholen. Eine Bildercheckliste hilft dir aber. Welche Änderung lohnt einen Test?",
+            "choices": [
+              "Nachrichten stummschalten und die Checkliste behalten",
+              "Jede Hilfe entfernen, auch die Checkliste",
+              "Mehr Apps hinzufügen, um das Ignorieren zu üben"
+            ],
+            "explanation": "Ändere die erkannte Ablenkung und behalte eine Hilfe für die Aufgabe. Vergleiche, was du schaffst und verstehst. Eine Strategie, die heute hilft, braucht morgen vielleicht eine Anpassung."
+          }
+        ]
+      },
+      {
+        "title": "Noch einmal hinsehen",
+        "idea": "Beim ersten Eindruck können Einzelheiten fehlen.",
+        "situation": "Zwei Packungen wirken gleich groß. Wie prüfst du, welche mehr enthält?",
+        "choices": [
+          "Die buntere Packung wählen",
+          "Nach dem Bild raten",
+          "Die Gewichtsangaben vergleichen"
+        ],
+        "correct": 2,
+        "explanation": "Eine Packung kann größer aussehen und weniger enthalten. Vergleiche dieselben Einheiten auf den Etiketten.",
+        "tryIt": [
+          "Zeige auf die größere Zahl auf zwei erfundenen Etiketten.",
+          "Vergleiche zwei Packungen mit 100 g und 150 g.",
+          "Vergleiche 200 g für £2 mit 300 g für £2.40. Berechne den Preis je 100 g."
+        ],
+        "readings": [
+          {
+            "idea": "Eine groß aussehende Packung muss nicht mehr enthalten.",
+            "situation": "Auf einer erfundenen Packung steht 2 Stück, auf einer anderen 3 Stück. Wie prüfst du, welche mehr enthält?",
+            "choices": [
+              "Die bunte Farbe wählen",
+              "Nach dem Bild raten",
+              "2 und 3 vergleichen"
+            ],
+            "explanation": "Drei sind mehr als zwei. Ein deutliches Etikett kann dir helfen, deine erste Vermutung zu prüfen."
+          },
+          {
+            "idea": "Das Aussehen einer Packung und das Preis-Leistungs-Verhältnis sind unterschiedliche Fragen.",
+            "situation": "Eine Packung enthält 200 g für £2. Eine andere 300 g für £2.40. Was hilft beim Preisvergleich?",
+            "choices": [
+              "Die höher aussehende Schachtel nehmen",
+              "Annehmen, dass der höhere Gesamtpreis das schlechtere Angebot ist",
+              "Den jeweiligen Preis je 100 g berechnen und vergleichen"
+            ],
+            "explanation": "Die erste kostet £1 je 100 g. Die zweite kostet 80p je 100 g. Grundpreise helfen beim Vergleich. Mehr zu kaufen ist aber nur sinnvoll, wenn du es brauchst und den Gesamtbetrag bezahlen kannst."
+          }
+        ]
+      },
+      {
+        "title": "Eine andere Erklärung finden",
+        "idea": "Ein Hinweis kann mehr als eine Erklärung haben.",
+        "situation": "Ein Freund winkt nicht zurück. Welcher nächste Gedanke hilft?",
+        "choices": [
+          "Er mag mich bestimmt nicht",
+          "Vielleicht hat er mich nicht gesehen",
+          "Ich weiß genau, was er denkt"
+        ],
+        "correct": 1,
+        "explanation": "Aus einer Handlung kennst du nicht die Gedanken einer anderen Person. Du kannst später freundlich nachfragen.",
+        "tryIt": [
+          "Wähle einen möglichen Grund oder zeige auf ein Bild.",
+          "Nenne zwei mögliche Gründe für dasselbe Ereignis.",
+          "Trenne deine Beobachtung von deiner Schlussfolgerung. Welche Belege würden helfen?"
+        ],
+        "readings": [
+          {
+            "idea": "Wir können die Gedanken anderer nicht lesen.",
+            "situation": "Ein Freund winkt nicht zurück. Was könnte stimmen?",
+            "choices": [
+              "Er mag dich bestimmt nicht",
+              "Vielleicht hat er dich nicht gesehen",
+              "Du kennst alle seine Gedanken"
+            ],
+            "explanation": "Vielleicht hat dein Freund dich nicht gesehen. Andere Gründe sind ebenfalls möglich. Du kannst später freundlich nachfragen."
+          },
+          {
+            "idea": "Eine Beobachtung kann mehrere Erklärungen zulassen.",
+            "situation": "Du hast gesehen, wie ein Freund ohne Winken vorbeiging. Welche Schlussfolgerung lässt Unsicherheit sichtbar?",
+            "choices": [
+              "Seine Absicht ist jetzt bewiesen",
+              "Vielleicht hat er dich nicht bemerkt; weitere Informationen würden helfen",
+              "Eine Handlung zeigt seine gesamte Meinung über dich"
+            ],
+            "explanation": "Nicht zu winken ist die Beobachtung. Jemanden nicht zu mögen ist eine Deutung. Prüfe andere Erklärungen, bevor du respektvoll nachfragst. Du musst nicht sofort entscheiden."
+          }
+        ]
+      },
+      {
+        "title": "Deine Erinnerung prüfen",
+        "idea": "Ausprobieren, woran du dich erinnerst, kann weiteren Übungsbedarf zeigen.",
+        "situation": "Du hast eine kurze Lektion gelesen. Was könnte dir beim Prüfen des Gelernten helfen?",
+        "choices": [
+          "Eine Frage beantworten und dann prüfen",
+          "Nur die Seiten zählen",
+          "Jede Rückmeldung überspringen"
+        ],
+        "correct": 0,
+        "explanation": "Eine Idee abzurufen und die Rückmeldung zu prüfen hilft dir, Lücken zu erkennen. Du kannst die Erklärung erneut ansehen.",
+        "tryIt": [
+          "Zeige auf etwas, woran du dich erinnerst.",
+          "Schließe die Lektion und erkläre eine Idee. Prüfe sie danach.",
+          "Greife die Idee an einem anderen Tag auf und nutze sie in einem neuen Beispiel. Beobachte, was du noch üben musst."
+        ],
+        "readings": [
+          {
+            "idea": "Erinnere dich an eine Idee und prüfe sie dann.",
+            "situation": "Du hast eine kurze Geschichte gelesen. Wie kannst du sehen, woran du dich erinnerst?",
+            "choices": [
+              "Eine Antwort wählen und prüfen",
+              "Nur die Seiten zählen",
+              "Niemals zurückschauen"
+            ],
+            "explanation": "Eine Frage kann zeigen, woran du dich erinnerst. Fehlt eine Idee, schau zurück oder bitte um Hilfe. Ein Fehler ist eine hilfreiche Information."
+          },
+          {
+            "idea": "Abrufen und Rückmeldung können eine Lücke zeigen, die reines Wiederlesen verdeckt.",
+            "situation": "Nach dem Lernen einer Idee: Welche Prüfung zeigt, ob du sie verwenden kannst?",
+            "choices": [
+              "Sie ohne Nachschauen erklären und dann mit der Quelle vergleichen",
+              "Das Lernen nur nach Lesezeit bewerten",
+              "Jede Frage meiden, die einen Fehler aufdecken könnte"
+            ],
+            "explanation": "Versuche, die Idee abzurufen und anzuwenden. Prüfe Rückmeldungen und bearbeite Lücken. Wiederhole es später, wenn es hilft. Eine bekannte Frage richtig zu lösen beweist kein Verständnis für jede Situation."
+          }
+        ]
+      },
+      {
+        "title": "Vor dem Entscheiden pausieren",
+        "idea": "Eine kurze Pause gibt dir Zeit, Möglichkeiten zu vergleichen.",
+        "situation": "Eine Ladenwerbung sagt, ein Spielzeugangebot ende bald. Was kannst du tun?",
+        "choices": [
+          "Vor dem Nachdenken kaufen",
+          "Die Werbung entscheiden lassen",
+          "Dein Budget und dein Ziel prüfen"
+        ],
+        "correct": 2,
+        "explanation": "Zeitdruck kann eine Wahl beeinflussen. Kosten und eigene Prioritäten zu prüfen hilft beim Entscheiden.",
+        "tryIt": [
+          "Zeige auf Warten oder Kaufen. Nimm dir Zeit.",
+          "Vergleiche das Spielzeug mit deinem Sparziel.",
+          "Notiere die entgangene Alternative und Belege zum Angebot. Entscheide, ob Warten helfen würde."
+        ],
+        "readings": [
+          {
+            "idea": "Du darfst vor einem Kauf anhalten und nachdenken.",
+            "situation": "Auf einem Spielzeugschild steht „Schnell!“. Was könntest du tun?",
+            "choices": [
+              "Ohne Prüfung kaufen",
+              "Das Schild entscheiden lassen",
+              "Dein Geld und deine Wünsche prüfen"
+            ],
+            "explanation": "Ein Schild kann nicht für dich wählen. Du kannst den Preis prüfen, einen Erwachsenen fragen und warten."
+          },
+          {
+            "idea": "Zeitdruck kann eine Möglichkeit wichtiger erscheinen lassen, als die Belege rechtfertigen.",
+            "situation": "Eine Werbung zählt einen Rabatt für etwas herunter, das du nicht kaufen wolltest. Welche Reaktion schützt deine Entscheidung?",
+            "choices": [
+              "Den Countdown als Beweis für einen guten Kauf betrachten",
+              "Kaufen, um nicht vergleichen zu müssen",
+              "Gesamtkosten, Prioritäten und das prüfen, worauf du verzichten würdest"
+            ],
+            "explanation": "Die entgangene Alternative ist die andere Verwendung desselben Geldes. Prüfe das tatsächliche Angebot und deine Prioritäten. Warten kann sinnvoll sein, selbst wenn der Rabatt echt ist."
+          }
+        ]
+      }
+    ]
+  }
+}
