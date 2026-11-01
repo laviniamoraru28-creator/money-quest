@@ -675,5 +675,375 @@
         "meaning": "Les informations utilisées pour évaluer une affirmation ou une décision."
       }
     ]
+  },
+  "emma-and-the-picture-plan": {
+    "title": "Emma et le plan en images",
+    "subtitle": "Une histoire originale Money Quest à lire et à explorer ensemble",
+    "audience": "Explorer · 6–8 ans · Lecture partagée et activités au choix",
+    "description": "Emma découvre comment se rappeler une tâche, s’exercer et demander une aide utile.",
+    "coverAlt": "Emma et Max dans un décor Money Quest lié à cette histoire.",
+    "chapters": [
+      {
+        "title": "Trop de tâches à la fois",
+        "paragraphs": [
+          "Emma veut fabriquer une ville en papier. Il faut choisir le papier, dessiner les bâtiments, trouver la colle et faire de la place. Elle commence trois tâches et ne retrouve plus son dessin. Max attend près de sa couverture.",
+          "Son adulte propose de choisir une seule étape. Emma montre une image de papier. Elle trouve d’abord le papier. La ville n’est pas prête. Mais elle sait quelle petite tâche elle fait."
+        ],
+        "idea": "Une étape suivante claire peut aider à commencer une grande tâche.",
+        "question": "Qu’est-ce qui aide Emma à commencer ?",
+        "choices": [
+          {
+            "text": "Choisir une seule étape suivante",
+            "feedback": "C’est cela. Une étape suivante claire peut aider à commencer une grande tâche.",
+            "correct": true
+          },
+          {
+            "text": "Faire toutes les tâches à la fois",
+            "feedback": "Regarde encore l’histoire. Une étape suivante claire peut aider à commencer une grande tâche.",
+            "correct": false
+          },
+          {
+            "text": "Cacher le papier",
+            "feedback": "Pense à ce qui s’est passé dans ce chapitre. Une étape suivante claire peut aider à commencer une grande tâche.",
+            "correct": false
+          }
+        ],
+        "activity": "Dessine une image de première étape pour une ville en papier imaginaire. Tu peux montrer, dessiner, écrire, utiliser la CAA, parler ou demander à un adulte de noter ton idée."
+      },
+      {
+        "title": "Une liste qu’elle peut voir",
+        "paragraphs": [
+          "Emma dessine trois images : du papier, un bâtiment et de la colle. Elle les met dans une rangée. Un adulte lit l’ordre avec elle. Emma peut montrer une image. Elle n’a pas à garder toute la liste dans sa tête.",
+          "Quand le papier est prêt, elle couvre cette image avec un jeton. L’image suivante montre le bâtiment. Elle commence à dessiner. Les images l’aident aujourd’hui. Un autre jour, elle pourra choisir des mots, des rappels parlés ou une autre aide."
+        ],
+        "idea": "Un plan en images est une aide possible. On peut en choisir une autre.",
+        "question": "Que montre le jeton ?",
+        "choices": [
+          {
+            "text": "Tout le projet a raté",
+            "feedback": "Regarde encore l’histoire. Un plan en images est une aide possible. On peut en choisir une autre.",
+            "correct": false
+          },
+          {
+            "text": "Tout le monde doit utiliser des images",
+            "feedback": "Pense à ce qui s’est passé dans ce chapitre. Un plan en images est une aide possible. On peut en choisir une autre.",
+            "correct": false
+          },
+          {
+            "text": "Une étape est terminée",
+            "feedback": "C’est cela. Un plan en images est une aide possible. On peut en choisir une autre.",
+            "correct": true
+          }
+        ],
+        "activity": "Mets trois cartes de tâches inventées dans un ordre que tu pourrais suivre. Tu peux montrer, dessiner, écrire, utiliser la CAA, parler ou demander à un adulte de noter ton idée."
+      },
+      {
+        "title": "Le toit qui est tombé",
+        "paragraphs": [
+          "Emma plie un toit en papier. Il glisse de la petite maison. Elle fronce les sourcils. D’abord, elle se dit qu’elle ne sait rien construire. Son adulte lui demande ce qui s’est vraiment passé. Un toit a glissé. Cela ne veut pas dire que tous ses futurs toits tomberont.",
+          "Ils regardent le pli ensemble. Emma essaie une languette plus large. Ce toit tient. Max lève la tête quand elle pousse un petit cri de joie. Réessayer a aidé parce qu’Emma a changé un détail précis. Elle n’a pas fait semblant que le premier essai marchait."
+        ],
+        "idea": "Repère le problème précis avant de choisir un changement à essayer.",
+        "question": "Que peut modifier Emma ?",
+        "choices": [
+          {
+            "text": "Faire comme si le toit avait tenu",
+            "feedback": "Pense à ce qui s’est passé dans ce chapitre. Repère le problème précis avant de choisir un changement à essayer.",
+            "correct": false
+          },
+          {
+            "text": "Essayer une languette de toit plus large",
+            "feedback": "C’est cela. Repère le problème précis avant de choisir un changement à essayer.",
+            "correct": true
+          },
+          {
+            "text": "Décider qu’elle ne pourra jamais apprendre",
+            "feedback": "Regarde encore l’histoire. Repère le problème précis avant de choisir un changement à essayer.",
+            "correct": false
+          }
+        ],
+        "activity": "Montre un changement qui pourrait faire tenir un toit en papier imaginaire. Tu peux montrer, dessiner, écrire, utiliser la CAA, parler ou demander à un adulte de noter ton idée."
+      },
+      {
+        "title": "Un endroit plus calme",
+        "paragraphs": [
+          "Il y a beaucoup d’agitation à la table. Quelqu’un met de la musique à côté. Emma lit deux fois la même consigne et perd encore sa place. Elle demande à déplacer son papier dans un coin plus calme. Son adulte l’aide à faire de la place.",
+          "Emma essaie ce coin. Il lui est plus facile de suivre l’étape suivante. Elle peut encore avoir besoin d’aide. Le calme l’aide pour cette tâche. Une autre personne pourrait avoir besoin d’autre chose. Un après-midi ne dit pas ce qu’il faut à tout le monde."
+        ],
+        "idea": "Demande ce qui aide pour cette tâche. Ne devine pas ce qui aide tout le monde.",
+        "question": "Qu’essaie Emma ?",
+        "choices": [
+          {
+            "text": "Un endroit plus calme pour cette tâche",
+            "feedback": "C’est cela. Demande ce qui aide pour cette tâche. Ne devine pas ce qui aide tout le monde.",
+            "correct": true
+          },
+          {
+            "text": "Une règle imposant le silence à tout le monde",
+            "feedback": "Regarde encore l’histoire. Demande ce qui aide pour cette tâche. Ne devine pas ce qui aide tout le monde.",
+            "correct": false
+          },
+          {
+            "text": "Abandonner toutes les activités",
+            "feedback": "Pense à ce qui s’est passé dans ce chapitre. Demande ce qui aide pour cette tâche. Ne devine pas ce qui aide tout le monde.",
+            "correct": false
+          }
+        ],
+        "activity": "Montre deux lieux de travail possibles et choisis-en un pour un élève imaginaire. Tu peux montrer, dessiner, écrire, utiliser la CAA, parler ou demander à un adulte de noter ton idée."
+      },
+      {
+        "title": "Une pause a sa place dans le plan",
+        "paragraphs": [
+          "Emma a travaillé sur trois maisons. Ses mains sont fatiguées. Elle se concentre moins. Elle demande une pause. L’adulte garde la ville inachevée sur un plateau. Elle sera facile à retrouver.",
+          "Après du repos, Emma regarde son plan en images. Elle peut continuer, demander de l’aide ou arrêter pour aujourd’hui. Une pause n’est pas une récompense à gagner en finissant tout. Max se repose déjà. Emma garde un bâtiment pour un autre jour. Ce choix lui convient."
+        ],
+        "idea": "Les pauses et l’aide peuvent faire partie d’un plan qui fonctionne.",
+        "question": "Que peut-elle faire quand elle est fatiguée ?",
+        "choices": [
+          {
+            "text": "Travailler jusqu’à se sentir mal",
+            "feedback": "Regarde encore l’histoire. Les pauses et l’aide peuvent faire partie d’un plan qui fonctionne.",
+            "correct": false
+          },
+          {
+            "text": "Mériter le droit de se reposer",
+            "feedback": "Pense à ce qui s’est passé dans ce chapitre. Les pauses et l’aide peuvent faire partie d’un plan qui fonctionne.",
+            "correct": false
+          },
+          {
+            "text": "Faire une pause et revenir si elle le souhaite",
+            "feedback": "C’est cela. Les pauses et l’aide peuvent faire partie d’un plan qui fonctionne.",
+            "correct": true
+          }
+        ],
+        "activity": "Ajoute une option de pause au plan de ta tâche imaginaire. Tu peux montrer, dessiner, écrire, utiliser la CAA, parler ou demander à un adulte de noter ton idée."
+      },
+      {
+        "title": "Montrer ce qu’elle a appris",
+        "paragraphs": [
+          "À la fin de la semaine, Emma montre la ville à un ami. Elle montre le plan en images et le toit à languette plus large. Son ami lui demande comment elle a fait. Emma peut expliquer avec la maquette. Elle n’a pas à écrire un long compte rendu.",
+          "L’adulte remarque des apprentissages précis : Emma a choisi une étape, testé un changement et demandé un autre lieu de travail. Certains murs ne sont pas droits. La ville montre quand même ce qu’elle a appris. Une maquette parfaite n’était pas le seul résultat utile."
+        ],
+        "idea": "Tu peux montrer ce que tu as appris avec une maquette, des images, des mots ou un autre moyen de communication.",
+        "question": "Qu’est-ce qui montre un apprentissage utile ?",
+        "choices": [
+          {
+            "text": "Comparer qui a fait le plus beau travail",
+            "feedback": "Pense à ce qui s’est passé dans ce chapitre. Tu peux montrer ce que tu as appris avec une maquette, des images, des mots ou un autre moyen de communication.",
+            "correct": false
+          },
+          {
+            "text": "Montrer un changement qui a aidé",
+            "feedback": "C’est cela. Tu peux montrer ce que tu as appris avec une maquette, des images, des mots ou un autre moyen de communication.",
+            "correct": true
+          },
+          {
+            "text": "Cacher tous les murs de travers",
+            "feedback": "Regarde encore l’histoire. Tu peux montrer ce que tu as appris avec une maquette, des images, des mots ou un autre moyen de communication.",
+            "correct": false
+          }
+        ],
+        "activity": "Choisis une partie d’un projet imaginaire et montre comment elle a changé. Tu peux montrer, dessiner, écrire, utiliser la CAA, parler ou demander à un adulte de noter ton idée."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Plan",
+        "meaning": "Une façon d’organiser les prochaines étapes possibles."
+      },
+      {
+        "term": "Entraînement",
+        "meaning": "Essayer à nouveau une compétence avec attention et une aide utile."
+      },
+      {
+        "term": "Soutien",
+        "meaning": "Une aide qui rend une tâche plus facile à gérer."
+      }
+    ]
+  },
+  "the-pause-before-the-choice": {
+    "title": "La pause avant le choix",
+    "subtitle": "Une histoire originale Money Quest à lire et à explorer ensemble",
+    "audience": "Explorer · 6–8 ans · Lecture partagée et activités au choix",
+    "description": "Une vitrine attirante aide Emma à découvrir les émotions, l’attente et la demande d’aide.",
+    "coverAlt": "Emma et Max dans un décor Money Quest lié à cette histoire.",
+    "chapters": [
+      {
+        "title": "Un jouet neuf et coloré",
+        "paragraphs": [
+          "Emma voit un petit train dans une vitrine. Ses roues sont rouge vif. Elle le veut tout de suite. Max s’arrête pour renifler le trottoir. Son adulte regarde la liste de courses. Le train n’est pas sur la liste.",
+          "Emma sent ses mains serrer son porte-monnaie. Avoir envie du train est un sentiment qu’elle peut nommer. Ce sentiment ne lui donne pas le prix. Il ne décide pas si l’achat convient aujourd’hui. Elle peut poser une question avant de choisir la suite."
+        ],
+        "idea": "Une émotion nous renseigne sur ce que nous ressentons. Elle ne donne pas tous les faits utiles pour acheter.",
+        "question": "Que devrait-elle vérifier ?",
+        "choices": [
+          {
+            "text": "Le prix et le programme du jour",
+            "feedback": "C’est cela. Une émotion nous renseigne sur ce que nous ressentons. Elle ne donne pas tous les faits utiles pour acheter.",
+            "correct": true
+          },
+          {
+            "text": "Seulement son enthousiasme",
+            "feedback": "Regarde encore l’histoire. Une émotion nous renseigne sur ce que nous ressentons. Elle ne donne pas tous les faits utiles pour acheter.",
+            "correct": false
+          },
+          {
+            "text": "Si le train est rouge",
+            "feedback": "Pense à ce qui s’est passé dans ce chapitre. Une émotion nous renseigne sur ce que nous ressentons. Elle ne donne pas tous les faits utiles pour acheter.",
+            "correct": false
+          }
+        ],
+        "activity": "Dessine un jouet imaginaire et ajoute une question utile à son sujet. Tu peux montrer, dessiner, écrire, utiliser la CAA, parler ou demander à un adulte de noter ton idée."
+      },
+      {
+        "title": "Trouver le mot",
+        "paragraphs": [
+          "Emma dit qu’elle est en colère parce qu’ils n’achètent pas le train. Son adulte l’écoute. Il ne la traite pas de méchante à cause de son émotion. Ils quittent l’entrée encombrée pour parler à un endroit où ils s’entendent.",
+          "Emma montre un visage déçu sur une carte. Ce mot lui convient aussi. On peut utiliser plusieurs mots pour ses émotions, ou aucun. Une image, un geste ou un outil de communication peut aider à expliquer ses besoins sans faire un discours."
+        ],
+        "idea": "On peut exprimer les émotions de différentes façons, sans juger la personne.",
+        "question": "Comment Emma pourrait-elle répondre ?",
+        "choices": [
+          {
+            "text": "Prouver qu’elle sait faire un discours",
+            "feedback": "Regarde encore l’histoire. On peut exprimer les émotions de différentes façons, sans juger la personne.",
+            "correct": false
+          },
+          {
+            "text": "Faire semblant de ne rien ressentir",
+            "feedback": "Pense à ce qui s’est passé dans ce chapitre. On peut exprimer les émotions de différentes façons, sans juger la personne.",
+            "correct": false
+          },
+          {
+            "text": "Montrer une image d’émotion",
+            "feedback": "C’est cela. On peut exprimer les émotions de différentes façons, sans juger la personne.",
+            "correct": true
+          }
+        ],
+        "activity": "Choisis une image d’émotion pour un personnage imaginaire. Tu n’as pas besoin de raconter une histoire personnelle. Tu peux montrer, dessiner, écrire, utiliser la CAA, parler ou demander à un adulte de noter ton idée."
+      },
+      {
+        "title": "Du temps pour attendre",
+        "paragraphs": [
+          "Emma veut décider tout de suite. Son adulte propose de revoir le train un autre jour. Emma le dessine sur une petite liste d’envies. Le dessin garde l’idée. Il ne promet pas qu’ils achèteront le train.",
+          "Ils vont plutôt à la bibliothèque. Emma aime toujours le train. La pause n’a pas effacé son envie. Elle lui donne du temps pour réfléchir à un autre choix. Elle peut apprécier un livre pendant que le jouet reste sur la liste. Attendre ne veut pas forcément dire ne rien faire."
+        ],
+        "idea": "Une liste d’envies peut garder une idée sans promettre un achat.",
+        "question": "Que signifie la liste ?",
+        "choices": [
+          {
+            "text": "L’argent a déjà été dépensé",
+            "feedback": "Pense à ce qui s’est passé dans ce chapitre. Une liste d’envies peut garder une idée sans promettre un achat.",
+            "correct": false
+          },
+          {
+            "text": "Une idée à revoir plus tard",
+            "feedback": "C’est cela. Une liste d’envies peut garder une idée sans promettre un achat.",
+            "correct": true
+          },
+          {
+            "text": "La promesse de tout acheter",
+            "feedback": "Regarde encore l’histoire. Une liste d’envies peut garder une idée sans promettre un achat.",
+            "correct": false
+          }
+        ],
+        "activity": "Crée une liste avec une seule envie pour un personnage imaginaire. Tu peux montrer, dessiner, écrire, utiliser la CAA, parler ou demander à un adulte de noter ton idée."
+      },
+      {
+        "title": "Différentes façons de s’apaiser",
+        "paragraphs": [
+          "À la bibliothèque, Emma souhaite un endroit plus calme. Son adulte lui propose une place près de la fenêtre ou une courte promenade dehors. Emma choisit la place. Elle regarde un album connu. Max attend avec l’autre adulte.",
+          "Un ami pourrait préférer bouger ou avoir de la compagnie. Aucune activité apaisante ne convient à tout le monde. Emma peut dire qu’une idée ne l’aide pas. L’adulte reste près d’elle et la soutient. Elle n’a pas besoin de sourire pour qu’on l’écoute."
+        ],
+        "idea": "Propose des choix. Écoute quand une aide ne convient pas.",
+        "question": "Que peut-elle choisir ?",
+        "choices": [
+          {
+            "text": "Une aide qui lui semble utile",
+            "feedback": "C’est cela. Propose des choix. Écoute quand une aide ne convient pas.",
+            "correct": true
+          },
+          {
+            "text": "Une méthode que tout le monde doit utiliser",
+            "feedback": "Regarde encore l’histoire. Propose des choix. Écoute quand une aide ne convient pas.",
+            "correct": false
+          },
+          {
+            "text": "Faire semblant d’être joyeuse",
+            "feedback": "Pense à ce qui s’est passé dans ce chapitre. Propose des choix. Écoute quand une aide ne convient pas.",
+            "correct": false
+          }
+        ],
+        "activity": "Dessine deux aides qu’un adulte imaginaire pourrait proposer. Tu peux montrer, dessiner, écrire, utiliser la CAA, parler ou demander à un adulte de noter ton idée."
+      },
+      {
+        "title": "Quand un ami préfère autre chose",
+        "paragraphs": [
+          "Un ami dit à Emma que le train bleu est mieux que le rouge. Emma est agacée. Elle aime le rouge. Son adulte leur rappelle qu’on peut préférer des couleurs et des jouets différents. Aucune préférence ne fixe le prix.",
+          "Les amis dessinent leurs trains sur des feuilles séparées. Ils peuvent aimer parler ensemble sans être d’accord sur tout. Emma n’a pas besoin d’acheter un jouet pour garder son ami. Une amitié bienveillante laisse une place aux intérêts différents, aux limites de dépenses et aux réponses aux invitations."
+        ],
+        "idea": "Avoir des préférences différentes n’oblige pas à dépenser pour prouver son amitié.",
+        "question": "Que peuvent accepter de bons amis ?",
+        "choices": [
+          {
+            "text": "Un achat comme preuve d’amitié",
+            "feedback": "Regarde encore l’histoire. Avoir des préférences différentes n’oblige pas à dépenser pour prouver son amitié.",
+            "correct": false
+          },
+          {
+            "text": "Une seule couleur préférée",
+            "feedback": "Pense à ce qui s’est passé dans ce chapitre. Avoir des préférences différentes n’oblige pas à dépenser pour prouver son amitié.",
+            "correct": false
+          },
+          {
+            "text": "Des choix et des limites différents",
+            "feedback": "C’est cela. Avoir des préférences différentes n’oblige pas à dépenser pour prouver son amitié.",
+            "correct": true
+          }
+        ],
+        "activity": "Montre deux personnages qui choisissent des activités gratuites différentes. Tu peux montrer, dessiner, écrire, utiliser la CAA, parler ou demander à un adulte de noter ton idée."
+      },
+      {
+        "title": "Un choix qu’elle peut expliquer",
+        "paragraphs": [
+          "Lors d’une autre visite, Emma regarde le train. Son adulte l’aide à vérifier le prix et la somme disponible pour les jouets. Emma garde l’idée pour plus tard. Une autre personne pourrait faire un autre choix autorisé avec son adulte.",
+          "Emma explique en montrant sa liste d’envies et un dessin de la bibliothèque. Elle a nommé une émotion, demandé de l’aide et vérifié des informations. Elle pourra encore être déçue parfois. Apprendre à choisir ne veut pas dire ne plus jamais ressentir d’émotions difficiles."
+        ],
+        "idea": "Un choix réfléchi peut tenir compte des émotions, des informations et de l’aide.",
+        "question": "Qu’est-ce qui l’a aidée à choisir ?",
+        "choices": [
+          {
+            "text": "Copier l’achat d’un ami",
+            "feedback": "Pense à ce qui s’est passé dans ce chapitre. Un choix réfléchi peut tenir compte des émotions, des informations et de l’aide.",
+            "correct": false
+          },
+          {
+            "text": "Vérifier des informations et demander de l’aide",
+            "feedback": "C’est cela. Un choix réfléchi peut tenir compte des émotions, des informations et de l’aide.",
+            "correct": true
+          },
+          {
+            "text": "Ne jamais se sentir déçue",
+            "feedback": "Regarde encore l’histoire. Un choix réfléchi peut tenir compte des émotions, des informations et de l’aide.",
+            "correct": false
+          }
+        ],
+        "activity": "Raconte le choix avec trois images : une émotion, une question et une action possible. Tu peux montrer, dessiner, écrire, utiliser la CAA, parler ou demander à un adulte de noter ton idée."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Émotion",
+        "meaning": "Un ressenti comme l’enthousiasme, la déception ou l’inquiétude."
+      },
+      {
+        "term": "Pause",
+        "meaning": "Un court arrêt avant l’action suivante."
+      },
+      {
+        "term": "Préférence",
+        "meaning": "Une chose qu’une personne aime ou choisit."
+      }
+    ]
   }
 }
