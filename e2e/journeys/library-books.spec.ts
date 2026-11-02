@@ -69,7 +69,7 @@ test("optional chapter question never blocks navigation and blocked storage stay
   await expect(page.getByRole("heading", { name: book.chapters.at(-2)!.title, level: 2, exact: true })).toBeFocused();
 });
 
-test("English reader preserves English narration, typography controls and cover descriptions",async({page})=>{
+test("English reader preserves narration, typography and page-specific illustration descriptions",async({page})=>{
  await page.addInitScript(()=>{
   const calls:{lang:string;text:string}[]=[];(window as unknown as {readerSpeech:typeof calls}).readerSpeech=calls;
   Object.defineProperty(window,"speechSynthesis",{configurable:true,value:{cancel(){},speak(utterance:{lang:string;text:string;onstart?:()=>void}){calls.push({lang:utterance.lang,text:utterance.text});utterance.onstart?.();}}});
@@ -85,8 +85,12 @@ test("English reader preserves English narration, typography controls and cover 
  expect((await page.evaluate(()=>(window as unknown as {readerSpeech:{text:string}[]}).readerSpeech))[0]!.text).toContain(chapter.title);
  await article.getByRole("button",{name:"Larger text",exact:true}).click();await expect(article.getByRole("button",{name:"Standard text",exact:true})).toHaveAttribute("aria-pressed","true");
  await article.getByRole("button",{name:"Next chapter",exact:true}).click();
- // This book keeps its own cover on later chapters, so its actual cover alt must remain.
- await expect(article.getByRole("img",{name:book.coverAlt,exact:true})).toBeVisible();
+ // The next chapter now has dedicated artwork rather than a repeated cover.
+ const expectedAlt=book.chapters[1]!.paragraphs[0]!.split(/(?<=[.!?])\s+/u)[0]!;
+ const illustration=article.getByRole("img",{name:expectedAlt,exact:true});
+ await expect(illustration).toBeVisible();
+ await expect(illustration).toHaveAttribute("src",`/images/money-quest/books/pages/${book.slug}-c2-p1-v1.webp`);
+ await expect.poll(()=>illustration.evaluate((image:HTMLImageElement)=>image.complete&&image.naturalWidth>0)).toBe(true);
 });
 
 test("English biography retains canonical source and a British calendar date",async({page})=>{
