@@ -47,11 +47,16 @@ test("search filters to real existing routes only, with no invented results",asy
  const dialog=page.getByRole("dialog",{name:"Explore Money Quest"});
  const search=dialog.getByPlaceholder("Search for a lesson or activity…");
  await search.fill("lab");
- for(const name of ["Brain Lab","Mind Lab","Investing Lab"])await expect(dialog.getByRole("link",{name,exact:true})).toBeVisible();
+ // Search-result links include their section as extra context in the
+ // accessible name ("Brain Lab Explore & Discover"), unlike the plain
+ // section-browsing view - so match by substring here, not exact:true.
+ for(const name of ["Brain Lab","Mind Lab","Investing Lab"])await expect(dialog.getByRole("link",{name:new RegExp(`^${name}\\b`)})).toBeVisible();
  await expect(dialog.getByRole("button",{name:"Explore & Discover",exact:true})).toBeHidden();
  await search.fill("zzz-nonexistent-xyz");
  await expect(dialog.getByText("No matches found.")).toBeVisible();
- await expect(dialog.getByRole("link")).toHaveCount(0);
+ // Home remains (it's a permanent shortcut, not a search result) -
+ // only the results list itself must be empty.
+ await expect(dialog.locator("ul li")).toHaveCount(0);
 });
 
 test("keyboard-only: tab stays trapped inside the open menu",async({page})=>{
