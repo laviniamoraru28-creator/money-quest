@@ -44,7 +44,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     for (const locale of ACTIVE_LOCALES) {
       entries.push({
         url: `${siteUrl}/${locale}${path}`,
-        lastModified: getLastModifiedForPath(path),
+        ...(path.startsWith("/learn/") ? {lastModified: getLastModifiedForPath(path)} : {}),
         changeFrequency: path.startsWith("/learn/") ? "monthly" : "weekly",
         priority: path === "" ? 1.0 : path === "/learn" ? 0.9 : path.startsWith("/learn/") ? 0.8 : 0.5,
         alternates: {
@@ -63,5 +63,5 @@ function getLastModifiedForPath(path: string): string {
     const article = ARTICLE_STRUCTURES.find((a) => a.slug === slug);
     if (article) return article.updatedDate;
   }
-  return new Date().toISOString().slice(0, 10);
+  // Static pages have no tracked editorial modification date. Omit lastmod rather than\n  // telling crawlers that unchanged pages were updated on every sitemap request.\n  return "";
 }
