@@ -3893,7 +3893,7 @@
     "challengeLabel": "La tua sfida Money Quest:",
     "questions": [
       {
-        "prompt": "Ricevi 10 monete da un parente. Qual è il tuo primo istinto?",
+        "prompt": "Un parente ti regala una banconota da 10 sterline. Che cosa fai per prima cosa?",
         "options": [
           "Metterle da qualche parte al sicuro per dopo",
           "Pensare di dividerle tra un paio di cose",
@@ -3913,7 +3913,7 @@
         ]
       },
       {
-        "prompt": "A un amico mancano un po' di monete per qualcosa. Tu:",
+        "prompt": "A un amico mancano i soldi per comprare qualcosa. Che cosa fai?",
         "options": [
           "Ti dispiace per lui, ma tieni da parte le tue monete",
           "Pensi se potresti aiutare senza rovinare il tuo piano",
