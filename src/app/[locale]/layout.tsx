@@ -11,6 +11,7 @@ import { ACTIVE_LOCALES, getTextDirection, isSupportedLocale, type Locale } from
 import { getSiteUrl, DEFAULT_OG_IMAGE } from "@/lib/seo/site-url";
 import {CoinRewardEffect} from "@/components/ui/CoinRewardEffect";
 import {PageReadAloud} from "@/components/ui/PageReadAloud";
+import {NavMenu} from "@/components/ui/NavMenu";
 import "../globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -141,6 +142,7 @@ export default async function LocaleLayout({
             regardless of the URL. */}
         <NextIntlClientProvider locale={locale} messages={messages}>
           <a href="#main-content" className="sr-only z-50 rounded-lg bg-white p-4 font-bold text-teal-text focus:not-sr-only focus:absolute focus:left-4 focus:top-4">{publicNavigationCopy[locale].skip}</a>
+          <div className="fixed right-4 top-4 z-50"><NavMenu/></div>
           <PageReadAloud locale={locale} copy={siteControlsCopy[locale]}/>
           {children}
           <CoinRewardEffect/>
