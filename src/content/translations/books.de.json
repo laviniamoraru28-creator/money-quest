@@ -738,5 +738,560 @@
         "meaning": "Etwas, das eine Person zu einer gemeinsamen Aktivität beisteuert."
       }
     ]
+  },
+  "emma-and-the-picture-plan": {
+    "title": "Emma und der Bilderplan",
+    "subtitle": "Eine eigene Money-Quest-Geschichte zum gemeinsamen Lesen und Entdecken",
+    "audience": "Explorer · 6–8 Jahre · Gemeinsam lesen, Aktivitäten nach Wunsch",
+    "description": "Emma findet Wege, sich an eine Aufgabe zu erinnern, sie zu üben und um passende Hilfe zu bitten.",
+    "coverAlt": "Emma und Max an einem Money-Quest-Ort, der zu dieser Geschichte gehört.",
+    "chapters": [
+      {
+        "title": "Zu viele Aufgaben auf einmal",
+        "paragraphs": [
+          "Emma möchte eine Papierstadt bauen. Sie muss Papier auswählen, Häuser malen, Kleber suchen und Platz schaffen. Sie beginnt drei Aufgaben. Dann weiß sie nicht mehr, wo ihre Zeichnung liegt. Max wartet neben seiner Decke.",
+          "Ihr Erwachsener schlägt einen nächsten Schritt vor. Emma zeigt auf ein Papierbild. Zuerst sucht sie das Papier. Die Stadt ist noch nicht fertig. Aber sie weiß nun, welche kleine Aufgabe sie gerade macht."
+        ],
+        "idea": "Ein klarer nächster Schritt kann den Anfang einer großen Aufgabe erleichtern.",
+        "question": "Was hilft Emma beim Anfangen?",
+        "choices": [
+          {
+            "text": "Einen nächsten Schritt wählen",
+            "feedback": "Das passt. Ein klarer nächster Schritt kann den Anfang einer großen Aufgabe erleichtern.",
+            "correct": true
+          },
+          {
+            "text": "Alles gleichzeitig machen",
+            "feedback": "Schau noch einmal in die Geschichte. Ein klarer nächster Schritt kann den Anfang einer großen Aufgabe erleichtern.",
+            "correct": false
+          },
+          {
+            "text": "Das Papier verstecken",
+            "feedback": "Denke an dieses Kapitel. Ein klarer nächster Schritt kann den Anfang einer großen Aufgabe erleichtern.",
+            "correct": false
+          }
+        ],
+        "activity": "Male ein Bild für den ersten Schritt eines erfundenen Papierstadtprojekts. Du kannst zeigen, malen, tippen, Unterstützte Kommunikation nutzen, sprechen oder einen Erwachsenen deine Idee aufschreiben lassen."
+      },
+      {
+        "title": "Eine Liste zum Ansehen",
+        "paragraphs": [
+          "Emma malt drei Bilder: Papier, Haus und Kleber. Sie legt sie nebeneinander. Ein Erwachsener liest mit ihr die Reihenfolge. Emma kann auf ein Bild zeigen. Sie muss nicht die ganze Liste im Kopf behalten.",
+          "Als das Papier bereitliegt, deckt sie das Bild mit einem Spielstein ab. Das nächste Bild zeigt das Haus. Sie beginnt zu malen. Heute helfen die Bilder. An einem anderen Tag wählt sie vielleicht Wörter, gesprochene Erinnerungen oder eine andere Hilfe."
+        ],
+        "idea": "Ein Bilderplan ist eine mögliche Hilfe. Menschen dürfen eine andere wählen.",
+        "question": "Was zeigt der Spielstein?",
+        "choices": [
+          {
+            "text": "Das ganze Projekt ist gescheitert",
+            "feedback": "Schau noch einmal in die Geschichte. Ein Bilderplan ist eine mögliche Hilfe. Menschen dürfen eine andere wählen.",
+            "correct": false
+          },
+          {
+            "text": "Alle müssen Bilder verwenden",
+            "feedback": "Denke an dieses Kapitel. Ein Bilderplan ist eine mögliche Hilfe. Menschen dürfen eine andere wählen.",
+            "correct": false
+          },
+          {
+            "text": "Ein Schritt ist fertig",
+            "feedback": "Das passt. Ein Bilderplan ist eine mögliche Hilfe. Menschen dürfen eine andere wählen.",
+            "correct": true
+          }
+        ],
+        "activity": "Lege drei erfundene Aufgabenkarten in eine passende Reihenfolge. Du kannst zeigen, malen, tippen, Unterstützte Kommunikation nutzen, sprechen oder einen Erwachsenen deine Idee aufschreiben lassen."
+      },
+      {
+        "title": "Das Dach fiel herunter",
+        "paragraphs": [
+          "Emma faltet ein Papierdach. Es rutscht vom kleinen Haus. Sie runzelt die Stirn. Zuerst denkt sie, dass sie gar nichts bauen kann. Ihr Erwachsener fragt, was genau passiert ist. Ein Dach ist gerutscht. Das heißt nicht, dass jedes künftige Dach scheitert.",
+          "Gemeinsam sehen sie sich die Faltung an. Emma probiert eine breitere Lasche. Dieses Dach bleibt liegen. Bei ihrem kleinen Jubel hebt Max den Kopf. Der neue Versuch half, weil Emma etwas Bestimmtes änderte. Sie tat nicht so, als hätte der erste Versuch geklappt."
+        ],
+        "idea": "Erkenne das genaue Problem. Wähle dann eine Änderung zum Ausprobieren.",
+        "question": "Was kann Emma verändern?",
+        "choices": [
+          {
+            "text": "So tun, als sei das Dach liegen geblieben",
+            "feedback": "Denke an dieses Kapitel. Erkenne das genaue Problem. Wähle dann eine Änderung zum Ausprobieren.",
+            "correct": false
+          },
+          {
+            "text": "Eine breitere Dachlasche ausprobieren",
+            "feedback": "Das passt. Erkenne das genaue Problem. Wähle dann eine Änderung zum Ausprobieren.",
+            "correct": true
+          },
+          {
+            "text": "Entscheiden, dass sie niemals lernen kann",
+            "feedback": "Schau noch einmal in die Geschichte. Erkenne das genaue Problem. Wähle dann eine Änderung zum Ausprobieren.",
+            "correct": false
+          }
+        ],
+        "activity": "Zeige eine Änderung, die einem erfundenen Papierdach Halt geben könnte. Du kannst zeigen, malen, tippen, Unterstützte Kommunikation nutzen, sprechen oder einen Erwachsenen deine Idee aufschreiben lassen."
+      },
+      {
+        "title": "Ein ruhigerer Platz",
+        "paragraphs": [
+          "Am Tisch wird es unruhig. In der Nähe spielt jemand Musik. Emma liest dieselbe Anleitung zweimal. Trotzdem verliert sie die Stelle. Sie fragt, ob sie ihr Papier in eine ruhigere Ecke legen darf. Ihr Erwachsener schafft Platz.",
+          "Emma probiert die Ecke aus. Der nächste Schritt fällt ihr dort leichter. Vielleicht braucht sie trotzdem Hilfe. Bei dieser Aufgabe hilft ihr Ruhe. Jemand anderes braucht vielleicht etwas anderes. Ein Nachmittag zeigt nicht, was alle brauchen."
+        ],
+        "idea": "Frage, was bei dieser Aufgabe hilft. Rate nicht, was allen hilft.",
+        "question": "Was probiert Emma aus?",
+        "choices": [
+          {
+            "text": "Einen ruhigeren Platz für diese Aufgabe",
+            "feedback": "Das passt. Frage, was bei dieser Aufgabe hilft. Rate nicht, was allen hilft.",
+            "correct": true
+          },
+          {
+            "text": "Die Regel, dass alle Stille brauchen",
+            "feedback": "Schau noch einmal in die Geschichte. Frage, was bei dieser Aufgabe hilft. Rate nicht, was allen hilft.",
+            "correct": false
+          },
+          {
+            "text": "Jede Aktivität aufgeben",
+            "feedback": "Denke an dieses Kapitel. Frage, was bei dieser Aufgabe hilft. Rate nicht, was allen hilft.",
+            "correct": false
+          }
+        ],
+        "activity": "Zeige zwei mögliche Arbeitsplätze. Wähle einen für eine erfundene lernende Person. Du kannst zeigen, malen, tippen, Unterstützte Kommunikation nutzen, sprechen oder einen Erwachsenen deine Idee aufschreiben lassen."
+      },
+      {
+        "title": "Eine Pause gehört zum Plan",
+        "paragraphs": [
+          "Emma hat an drei Häusern gearbeitet. Ihre Hände sind müde. Ihre Gedanken wandern ab. Sie bittet um eine Pause. Der Erwachsene stellt die unfertige Stadt auf ein Tablett. So findet sie sie später wieder.",
+          "Nach der Pause schaut Emma auf ihren Bilderplan. Sie kann weitermachen, Hilfe holen oder für heute aufhören. Eine Pause ist kein Preis, den sie erst mit fertiger Arbeit verdienen muss. Max ruht schon. Emma lässt ein Haus für einen anderen Tag stehen. Mit dieser Wahl fühlt sie sich wohl."
+        ],
+        "idea": "Pausen und Hilfe dürfen zu einem machbaren Plan gehören.",
+        "question": "Was kann sie tun, wenn sie müde ist?",
+        "choices": [
+          {
+            "text": "Weiterarbeiten, bis sie verzweifelt ist",
+            "feedback": "Schau noch einmal in die Geschichte. Pausen und Hilfe dürfen zu einem machbaren Plan gehören.",
+            "correct": false
+          },
+          {
+            "text": "Sich die Erlaubnis zum Ausruhen verdienen",
+            "feedback": "Denke an dieses Kapitel. Pausen und Hilfe dürfen zu einem machbaren Plan gehören.",
+            "correct": false
+          },
+          {
+            "text": "Eine Pause machen und auf Wunsch zurückkommen",
+            "feedback": "Das passt. Pausen und Hilfe dürfen zu einem machbaren Plan gehören.",
+            "correct": true
+          }
+        ],
+        "activity": "Ergänze deinen erfundenen Aufgabenplan um eine Pause. Du kannst zeigen, malen, tippen, Unterstützte Kommunikation nutzen, sprechen oder einen Erwachsenen deine Idee aufschreiben lassen."
+      },
+      {
+        "title": "Zeigen, was sie gelernt hat",
+        "paragraphs": [
+          "Am Ende der Woche zeigt Emma einem Freund die Stadt. Sie zeigt auf den Bilderplan und auf das Dach mit der breiteren Lasche. Ihr Freund fragt, wie sie es gebaut hat. Emma kann es am Modell erklären. Sie braucht keinen langen Bericht.",
+          "Der Erwachsene bemerkt genau, was Emma gelernt hat: einen nächsten Schritt wählen, eine Änderung testen und um einen anderen Arbeitsplatz bitten. Manche Wände sind schief. Die Stadt kann trotzdem zeigen, was Emma gelernt hat. Ein perfektes Modell war nie das einzige hilfreiche Ergebnis."
+        ],
+        "idea": "Du kannst Gelerntes mit einem Modell, Bildern, Wörtern oder anderen Kommunikationswegen zeigen.",
+        "question": "Was zeigt hilfreiches Lernen?",
+        "choices": [
+          {
+            "text": "Vergleichen, wessen Arbeit am schönsten aussieht",
+            "feedback": "Denke an dieses Kapitel. Du kannst Gelerntes mit einem Modell, Bildern, Wörtern oder anderen Kommunikationswegen zeigen.",
+            "correct": false
+          },
+          {
+            "text": "Auf eine hilfreiche Änderung zeigen",
+            "feedback": "Das passt. Du kannst Gelerntes mit einem Modell, Bildern, Wörtern oder anderen Kommunikationswegen zeigen.",
+            "correct": true
+          },
+          {
+            "text": "Jede schiefe Wand verstecken",
+            "feedback": "Schau noch einmal in die Geschichte. Du kannst Gelerntes mit einem Modell, Bildern, Wörtern oder anderen Kommunikationswegen zeigen.",
+            "correct": false
+          }
+        ],
+        "activity": "Wähle einen Teil eines erfundenen Projekts. Zeige, wie er sich verändert hat. Du kannst zeigen, malen, tippen, Unterstützte Kommunikation nutzen, sprechen oder einen Erwachsenen deine Idee aufschreiben lassen."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Plan",
+        "meaning": "Eine Möglichkeit, nächste Schritte zu ordnen."
+      },
+      {
+        "term": "Üben",
+        "meaning": "Eine Fähigkeit erneut ausprobieren, mit Aufmerksamkeit und passender Hilfe."
+      },
+      {
+        "term": "Unterstützung",
+        "meaning": "Hilfe, die eine Aufgabe leichter machbar macht."
+      }
+    ]
+  },
+  "the-pause-before-the-choice": {
+    "title": "Die Pause vor der Entscheidung",
+    "subtitle": "Eine eigene Money-Quest-Geschichte zum gemeinsamen Lesen und Entdecken",
+    "audience": "Explorer · 6–8 Jahre · Gemeinsam lesen, Aktivitäten nach Wunsch",
+    "description": "Ein spannendes Schaufenster hilft Emma, Gefühle, Warten und hilfreiche Unterstützung zu erkunden.",
+    "coverAlt": "Emma und Max an einem Money-Quest-Ort, der zu dieser Geschichte gehört.",
+    "chapters": [
+      {
+        "title": "Ein buntes neues Spielzeug",
+        "paragraphs": [
+          "Emma sieht eine kleine Spielzeugeisenbahn im Schaufenster. Sie hat leuchtend rote Räder. Emma möchte sie sofort haben. Max schnuppert am Gehweg. Ihr Erwachsener prüft die Einkaufsliste. Die Eisenbahn steht nicht darauf.",
+          "Emma merkt, wie fest ihre Hände den Geldbeutel halten. Sie kann das Gefühl benennen: Sie möchte die Eisenbahn. Das Gefühl verrät ihr aber nicht den Preis. Es entscheidet auch nicht, ob der Kauf heute passt. Vor der Wahl kann sie eine Frage stellen."
+        ],
+        "idea": "Ein Gefühl zeigt, wie wir uns fühlen. Es liefert nicht alle nötigen Informationen für einen Kauf.",
+        "question": "Was sollte sie prüfen?",
+        "choices": [
+          {
+            "text": "Den Preis und den heutigen Plan",
+            "feedback": "Das passt. Ein Gefühl zeigt, wie wir uns fühlen. Es liefert nicht alle nötigen Informationen für einen Kauf.",
+            "correct": true
+          },
+          {
+            "text": "Nur, wie aufgeregt sie ist",
+            "feedback": "Schau noch einmal in die Geschichte. Ein Gefühl zeigt, wie wir uns fühlen. Es liefert nicht alle nötigen Informationen für einen Kauf.",
+            "correct": false
+          },
+          {
+            "text": "Ob die Eisenbahn rot ist",
+            "feedback": "Denke an dieses Kapitel. Ein Gefühl zeigt, wie wir uns fühlen. Es liefert nicht alle nötigen Informationen für einen Kauf.",
+            "correct": false
+          }
+        ],
+        "activity": "Male ein erfundenes Spielzeug und ergänze eine hilfreiche Frage dazu. Du kannst zeigen, malen, tippen, Unterstützte Kommunikation nutzen, sprechen oder einen Erwachsenen deine Idee aufschreiben lassen."
+      },
+      {
+        "title": "Das passende Wort finden",
+        "paragraphs": [
+          "Emma sagt, sie sei wütend, weil sie die Eisenbahn nicht kaufen. Ihr Erwachsener hört zu. Niemand nennt sie wegen des Gefühls unartig. Sie gehen vom belebten Eingang weg. An einem anderen Platz können sie sich besser hören.",
+          "Emma zeigt auf ein enttäuschtes Gesicht auf einer Bildkarte. Dieses Wort passt auch. Menschen können mehrere Gefühlswörter verwenden oder gar keines. Ein Bild, eine Geste oder eine Kommunikationshilfe kann Bedürfnisse zeigen. Niemand muss dafür eine Rede halten."
+        ],
+        "idea": "Gefühle lassen sich unterschiedlich mitteilen, ohne den Menschen zu verurteilen.",
+        "question": "Wie könnte Emma antworten?",
+        "choices": [
+          {
+            "text": "Beweisen, dass sie eine Rede halten kann",
+            "feedback": "Schau noch einmal in die Geschichte. Gefühle lassen sich unterschiedlich mitteilen, ohne den Menschen zu verurteilen.",
+            "correct": false
+          },
+          {
+            "text": "So tun, als gäbe es kein Gefühl",
+            "feedback": "Denke an dieses Kapitel. Gefühle lassen sich unterschiedlich mitteilen, ohne den Menschen zu verurteilen.",
+            "correct": false
+          },
+          {
+            "text": "Auf ein Gefühlsbild zeigen",
+            "feedback": "Das passt. Gefühle lassen sich unterschiedlich mitteilen, ohne den Menschen zu verurteilen.",
+            "correct": true
+          }
+        ],
+        "activity": "Wähle für eine erfundene Figur ein Gefühlsbild. Eine persönliche Geschichte brauchst du nicht. Du kannst zeigen, malen, tippen, Unterstützte Kommunikation nutzen, sprechen oder einen Erwachsenen deine Idee aufschreiben lassen."
+      },
+      {
+        "title": "Zeit zum Warten",
+        "paragraphs": [
+          "Emma möchte sofort entscheiden. Ihr Erwachsener schlägt vor, die Eisenbahn an einem anderen Tag wieder anzusehen. Emma malt sie auf einen kleinen Wunschzettel. Das Bild hält die Idee fest. Es ist kein Kaufversprechen.",
+          "Stattdessen gehen sie in die Bücherei. Emma mag die Eisenbahn noch immer. Die Pause hat das Gefühl nicht gelöscht. Sie hat Emma Zeit gegeben, über eine andere Wahl nachzudenken. Sie kann ein Büchereibuch genießen. Die Eisenbahn bleibt auf der Liste. Warten muss nicht heißen, nichts zu tun."
+        ],
+        "idea": "Ein Wunschzettel kann eine Idee festhalten, ohne einen Kauf zu versprechen.",
+        "question": "Was bedeutet die Liste?",
+        "choices": [
+          {
+            "text": "Das Geld wurde schon ausgegeben",
+            "feedback": "Denke an dieses Kapitel. Ein Wunschzettel kann eine Idee festhalten, ohne einen Kauf zu versprechen.",
+            "correct": false
+          },
+          {
+            "text": "Eine Idee zum späteren Überdenken",
+            "feedback": "Das passt. Ein Wunschzettel kann eine Idee festhalten, ohne einen Kauf zu versprechen.",
+            "correct": true
+          },
+          {
+            "text": "Ein Versprechen, alles zu kaufen",
+            "feedback": "Schau noch einmal in die Geschichte. Ein Wunschzettel kann eine Idee festhalten, ohne einen Kauf zu versprechen.",
+            "correct": false
+          }
+        ],
+        "activity": "Gestalte einen Wunschzettel mit einer Sache für eine erfundene Figur. Du kannst zeigen, malen, tippen, Unterstützte Kommunikation nutzen, sprechen oder einen Erwachsenen deine Idee aufschreiben lassen."
+      },
+      {
+        "title": "Verschiedene Wege zur Ruhe",
+        "paragraphs": [
+          "In der Bücherei wünscht Emma einen ruhigeren Platz. Ihr Erwachsener bietet einen Fensterplatz oder einen kurzen Spaziergang draußen an. Emma wählt den Sitz. Sie sieht ein vertrautes Bilderbuch an. Max wartet beim anderen Erwachsenen.",
+          "Ein Freund würde vielleicht Bewegung oder Gesellschaft wählen. Keine Beruhigungsaktivität hilft allen. Emma darf sagen, wenn eine Idee nicht hilft. Der Erwachsene bleibt in der Nähe und unterstützt sie. Sie muss nicht erst fröhlich werden, damit jemand ihr zuhört."
+        ],
+        "idea": "Biete Wahlmöglichkeiten an. Höre zu, wenn eine Hilfe nicht hilft.",
+        "question": "Was darf sie wählen?",
+        "choices": [
+          {
+            "text": "Eine Unterstützung, die sich hilfreich anfühlt",
+            "feedback": "Das passt. Biete Wahlmöglichkeiten an. Höre zu, wenn eine Hilfe nicht hilft.",
+            "correct": true
+          },
+          {
+            "text": "Eine Methode, die alle verwenden müssen",
+            "feedback": "Schau noch einmal in die Geschichte. Biete Wahlmöglichkeiten an. Höre zu, wenn eine Hilfe nicht hilft.",
+            "correct": false
+          },
+          {
+            "text": "So tun, als wäre sie fröhlich",
+            "feedback": "Denke an dieses Kapitel. Biete Wahlmöglichkeiten an. Höre zu, wenn eine Hilfe nicht hilft.",
+            "correct": false
+          }
+        ],
+        "activity": "Male zwei Hilfsangebote, die ein erfundener Erwachsener machen könnte. Du kannst zeigen, malen, tippen, Unterstützte Kommunikation nutzen, sprechen oder einen Erwachsenen deine Idee aufschreiben lassen."
+      },
+      {
+        "title": "Wenn ein Freund etwas anderes möchte",
+        "paragraphs": [
+          "Ein Freund sagt Emma, die blaue Eisenbahn sei besser als die rote. Emma ärgert sich. Sie mag die rote. Ihr Erwachsener erinnert beide daran: Menschen dürfen andere Farben und Spielzeuge mögen. Keine Vorliebe bestimmt den Preis.",
+          "Die Freunde malen ihre Eisenbahnen auf getrennte Seiten. Sie können ein schönes Gespräch führen. Sie müssen nicht bei jeder Wahl übereinstimmen. Emma muss kein Spielzeug kaufen, um befreundet zu bleiben. Eine freundliche Freundschaft lässt Raum für andere Interessen, Geldgrenzen und Antworten auf Einladungen."
+        ],
+        "idea": "Bei unterschiedlichen Vorlieben musst du kein Geld ausgeben, um Freundschaft zu beweisen.",
+        "question": "Was können gute Freunde akzeptieren?",
+        "choices": [
+          {
+            "text": "Einen Kauf als Beweis für Freundschaft",
+            "feedback": "Schau noch einmal in die Geschichte. Bei unterschiedlichen Vorlieben musst du kein Geld ausgeben, um Freundschaft zu beweisen.",
+            "correct": false
+          },
+          {
+            "text": "Nur eine einzige Lieblingsfarbe",
+            "feedback": "Denke an dieses Kapitel. Bei unterschiedlichen Vorlieben musst du kein Geld ausgeben, um Freundschaft zu beweisen.",
+            "correct": false
+          },
+          {
+            "text": "Unterschiedliche Entscheidungen und Grenzen",
+            "feedback": "Das passt. Bei unterschiedlichen Vorlieben musst du kein Geld ausgeben, um Freundschaft zu beweisen.",
+            "correct": true
+          }
+        ],
+        "activity": "Zeige zwei Figuren, die verschiedene kostenlose Aktivitäten wählen. Du kannst zeigen, malen, tippen, Unterstützte Kommunikation nutzen, sprechen oder einen Erwachsenen deine Idee aufschreiben lassen."
+      },
+      {
+        "title": "Eine Wahl, die sie erklären kann",
+        "paragraphs": [
+          "Bei einem anderen Besuch sieht Emma die Eisenbahn wieder an. Ihr Erwachsener hilft ihr, den Preis und das verfügbare Spielzeuggeld zu prüfen. Emma hebt die Idee für später auf. Jemand anderes könnte mit seinem Erwachsenen eine andere erlaubte Wahl treffen.",
+          "Emma erklärt ihre Wahl mit dem Wunschzettel und einem Bild der Bücherei. Sie hat ein Gefühl benannt, um Hilfe gebeten und Informationen geprüft. Manchmal wird sie trotzdem enttäuscht sein. Entscheiden zu lernen heißt nicht, nie schwierige Gefühle zu haben."
+        ],
+        "idea": "Zu einer überlegten Entscheidung dürfen Gefühle, Informationen und Unterstützung gehören.",
+        "question": "Was half ihr beim Entscheiden?",
+        "choices": [
+          {
+            "text": "Den Einkauf eines Freundes nachmachen",
+            "feedback": "Denke an dieses Kapitel. Zu einer überlegten Entscheidung dürfen Gefühle, Informationen und Unterstützung gehören.",
+            "correct": false
+          },
+          {
+            "text": "Informationen prüfen und um Hilfe bitten",
+            "feedback": "Das passt. Zu einer überlegten Entscheidung dürfen Gefühle, Informationen und Unterstützung gehören.",
+            "correct": true
+          },
+          {
+            "text": "Niemals enttäuscht sein",
+            "feedback": "Schau noch einmal in die Geschichte. Zu einer überlegten Entscheidung dürfen Gefühle, Informationen und Unterstützung gehören.",
+            "correct": false
+          }
+        ],
+        "activity": "Erzähle die Entscheidung mit drei Bildern: Gefühl, Frage und mögliche Handlung. Du kannst zeigen, malen, tippen, Unterstützte Kommunikation nutzen, sprechen oder einen Erwachsenen deine Idee aufschreiben lassen."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Gefühl",
+        "meaning": "Ein Erleben wie Aufregung, Enttäuschung oder Sorge."
+      },
+      {
+        "term": "Pause",
+        "meaning": "Ein kurzes Anhalten vor der nächsten Handlung."
+      },
+      {
+        "term": "Vorliebe",
+        "meaning": "Etwas, das eine Person mag oder auswählt."
+      }
+    ]
+  },
+  "the-message-max-could-not-send": {
+    "title": "Die Nachricht, die Max nicht senden konnte",
+    "subtitle": "Eine eigene Money-Quest-Geschichte zum gemeinsamen Lesen und Entdecken",
+    "audience": "Explorer · 6–8 Jahre · Gemeinsam lesen, Aktivitäten nach Wunsch",
+    "description": "Eine erfundene Spielnachricht hilft Emma, das Bitten um Hilfe und den Schutz privater Informationen zu üben.",
+    "coverAlt": "Emma und Max an einem Money-Quest-Ort, der zu dieser Geschichte gehört.",
+    "chapters": [
+      {
+        "title": "Eine überraschende Nachricht",
+        "paragraphs": [
+          "Emma spielt neben ihrem Erwachsenen ein Spiel. Auf dem Bildschirm erscheint eine Nachricht. Sie hat angeblich ein Welpenkostüm gewonnen. Sie soll aber schnell handeln. Max schläft auf seiner Decke. Er hat niemandem eine Nachricht geschickt.",
+          "Emma möchte den bunten Knopf drücken. Stattdessen zeigt sie ihn dem Erwachsenen. Eine Nachricht kann spannend klingen und trotzdem unzuverlässig sein. Sie können sie schließen und im normalen Spielmenü nachsehen. Eine überraschende Nachricht braucht keine sofortige Antwort."
+        ],
+        "idea": "Unerwarteter Zeitdruck ist ein Grund, innezuhalten und mit einem vertrauten Erwachsenen nachzusehen.",
+        "question": "Was sollte sie zuerst tun?",
+        "choices": [
+          {
+            "text": "Einen vertrauten Erwachsenen fragen",
+            "feedback": "Das passt. Unerwarteter Zeitdruck ist ein Grund, innezuhalten und mit einem vertrauten Erwachsenen nachzusehen.",
+            "correct": true
+          },
+          {
+            "text": "Den Knopf schnell drücken",
+            "feedback": "Schau noch einmal in die Geschichte. Unerwarteter Zeitdruck ist ein Grund, innezuhalten und mit einem vertrauten Erwachsenen nachzusehen.",
+            "correct": false
+          },
+          {
+            "text": "Mit einem Geheimnis antworten",
+            "feedback": "Denke an dieses Kapitel. Unerwarteter Zeitdruck ist ein Grund, innezuhalten und mit einem vertrauten Erwachsenen nachzusehen.",
+            "correct": false
+          }
+        ],
+        "activity": "Zeige bei einer erfundenen Nachricht auf eine Karte mit Pause und Nachfragen. Du kannst zeigen, malen, tippen, Unterstützte Kommunikation nutzen, sprechen oder einen Erwachsenen deine Idee aufschreiben lassen."
+      },
+      {
+        "title": "Das Geheimnis bleibt privat",
+        "paragraphs": [
+          "Die Nachricht verlangt ein Passwort. Emma weiß, dass ein Passwort ein Konto schützt. Sie tippt es nicht in die Nachricht. Ihr Erwachsener erklärt: Ein freundliches Welpenbild beweist nicht, wer die Frage stellt.",
+          "Sie schließen die Nachricht. Emma hat nichts falsch gemacht, weil sie sie erhalten hat. Hätte sie schon etwas gedrückt, dürfte sie trotzdem Hilfe holen. Ein verheimlichtes Problem würde die Unterstützung erschweren. Auch nach einem Fehler gibt es Hilfe."
+        ],
+        "idea": "Sende kein Passwort als Antwort auf eine unerwartete Nachricht. Bitte auch nach einem Fehler um Hilfe.",
+        "question": "Was gehört nicht in die Antwort?",
+        "choices": [
+          {
+            "text": "Eine erfundene Baumzeichnung",
+            "feedback": "Schau noch einmal in die Geschichte. Sende kein Passwort als Antwort auf eine unerwartete Nachricht. Bitte auch nach einem Fehler um Hilfe.",
+            "correct": false
+          },
+          {
+            "text": "Eine Frage an einen vertrauten Erwachsenen",
+            "feedback": "Denke an dieses Kapitel. Sende kein Passwort als Antwort auf eine unerwartete Nachricht. Bitte auch nach einem Fehler um Hilfe.",
+            "correct": false
+          },
+          {
+            "text": "Ein Passwort",
+            "feedback": "Das passt. Sende kein Passwort als Antwort auf eine unerwartete Nachricht. Bitte auch nach einem Fehler um Hilfe.",
+            "correct": true
+          }
+        ],
+        "activity": "Welche erfundene Karte ist privat: Passwort, Geschichtentitel oder erfundene Lieblingsfarbe? Du kannst zeigen, malen, tippen, Unterstützte Kommunikation nutzen, sprechen oder einen Erwachsenen deine Idee aufschreiben lassen."
+      },
+      {
+        "title": "Ein Kostüm kostet Geld",
+        "paragraphs": [
+          "Im normalen Spielmenü steht neben einem anderen Kostüm ein Preis. Emma fragt, ob Spielmünzen und echte Pfund dasselbe sind. Ihr Erwachsener prüft den Bildschirm. Dieser Kauf würde echtes Geld vom Konto des Erwachsenen verwenden.",
+          "Emma drückt nicht auf Kaufen. Sie lesen, was enthalten ist und ob die Zahlung wiederkehrt. Ein digitaler Gegenstand kann echtes Geld kosten, auch wenn kein Paket kommt. Vorher zu fragen hilft dem Erwachsenen bei der Geldentscheidung. Max hat bereits ein ganz gewöhnliches Halsband."
+        ],
+        "idea": "Prüfe, ob ein Spielkauf echtes Geld kostet und ob die Zahlung wiederkehrt.",
+        "question": "Wer sollte diesen Kauf prüfen?",
+        "choices": [
+          {
+            "text": "Max im Schlaf",
+            "feedback": "Denke an dieses Kapitel. Prüfe, ob ein Spielkauf echtes Geld kostet und ob die Zahlung wiederkehrt.",
+            "correct": false
+          },
+          {
+            "text": "Der für das Konto verantwortliche Erwachsene",
+            "feedback": "Das passt. Prüfe, ob ein Spielkauf echtes Geld kostet und ob die Zahlung wiederkehrt.",
+            "correct": true
+          },
+          {
+            "text": "Der Absender einer unerwarteten Nachricht",
+            "feedback": "Schau noch einmal in die Geschichte. Prüfe, ob ein Spielkauf echtes Geld kostet und ob die Zahlung wiederkehrt.",
+            "correct": false
+          }
+        ],
+        "activity": "Male ein erfundenes Kaufetikett mit einem Preis und einem Symbol für Vorher fragen. Du kannst zeigen, malen, tippen, Unterstützte Kommunikation nutzen, sprechen oder einen Erwachsenen deine Idee aufschreiben lassen."
+      },
+      {
+        "title": "Das Bild vom Haus",
+        "paragraphs": [
+          "Ein Spiel bittet Emma, ein Foto hochzuladen. Ihr Bild zeigt ihr Zuhause von vorn und eine Schultasche mit ihrem Namen. Sie hält inne. Ihr Erwachsener erklärt: Bilder können Privates verraten, auch wenn die Bildunterschrift wenig sagt.",
+          "Sie laden das Foto nicht hoch. Emma kann stattdessen ein erfundenes Haus auf Papier malen. Für diese Aufgabe muss sie weder ihre echte Adresse noch ihre Schule oder ihr Gesicht teilen. Nicht jede Bitte um ein Bild braucht ein Bild als Antwort."
+        ],
+        "idea": "Bilder können Privates verraten. Nicht hochzuladen ist eine gültige Wahl.",
+        "question": "Was ist bei dieser Aufgabe sicherer?",
+        "choices": [
+          {
+            "text": "Ein erfundenes Haus auf Papier malen",
+            "feedback": "Das passt. Bilder können Privates verraten. Nicht hochzuladen ist eine gültige Wahl.",
+            "correct": true
+          },
+          {
+            "text": "Eine Wohnadresse hochladen",
+            "feedback": "Schau noch einmal in die Geschichte. Bilder können Privates verraten. Nicht hochzuladen ist eine gültige Wahl.",
+            "correct": false
+          },
+          {
+            "text": "Einen Schulnamen öffentlich teilen",
+            "feedback": "Denke an dieses Kapitel. Bilder können Privates verraten. Nicht hochzuladen ist eine gültige Wahl.",
+            "correct": false
+          }
+        ],
+        "activity": "Vergleiche zwei erfundene Bilder. Zeige auf etwas, das privat bleiben sollte. Du kannst zeigen, malen, tippen, Unterstützte Kommunikation nutzen, sprechen oder einen Erwachsenen deine Idee aufschreiben lassen."
+      },
+      {
+        "title": "Jemand nennt sich Freund",
+        "paragraphs": [
+          "Ein neuer Spieler sagt, er kenne Emma aus der Schule. Sein Bildschirmname klingt vertraut. Nur am Namen kann Emma nicht erkennen, wer hinter dem Konto steckt. Sie verabredet sich nicht mit ihm und wechselt nicht in einen privaten Chat.",
+          "Sie zeigt es ihrem Erwachsenen. Er kann die Sicherheitsfunktionen des Spiels nutzen. Ein freundlicher Ton ist keine Identitätsprüfung. Mit Hilfe darf Emma aufhören oder den Kontakt blockieren. Sie schuldet Fremden kein weiteres Gespräch, nur weil sie nette Worte oder ein virtuelles Geschenk geschickt haben."
+        ],
+        "idea": "Ein Bildschirmname allein beweist keine Identität. Bitte einen vertrauten Erwachsenen um Unterstützung.",
+        "question": "Was beweist, wer der Spieler ist?",
+        "choices": [
+          {
+            "text": "Ein kostenloses virtuelles Geschenk",
+            "feedback": "Schau noch einmal in die Geschichte. Ein Bildschirmname allein beweist keine Identität. Bitte einen vertrauten Erwachsenen um Unterstützung.",
+            "correct": false
+          },
+          {
+            "text": "Ein freundlicher Satz",
+            "feedback": "Denke an dieses Kapitel. Ein Bildschirmname allein beweist keine Identität. Bitte einen vertrauten Erwachsenen um Unterstützung.",
+            "correct": false
+          },
+          {
+            "text": "Der Name allein beweist nichts",
+            "feedback": "Das passt. Ein Bildschirmname allein beweist keine Identität. Bitte einen vertrauten Erwachsenen um Unterstützung.",
+            "correct": true
+          }
+        ],
+        "activity": "Wähle bei einem erfundenen unerwarteten Kontakt einen sicheren nächsten Schritt: aufhören, nachfragen oder privat weitersprechen. Du kannst zeigen, malen, tippen, Unterstützte Kommunikation nutzen, sprechen oder einen Erwachsenen deine Idee aufschreiben lassen."
+      },
+      {
+        "title": "Nach einem Fehler um Hilfe bitten",
+        "paragraphs": [
+          "Eines Nachmittags drückt Emma unüberlegt auf einen unbekannten Link. Sie sagt es ihrem Erwachsenen sofort. Sie geben nichts weiter ein und prüfen, was passiert ist. Der Erwachsene kümmert sich um Konto und Gerät. Emma muss nicht alles selbst reparieren.",
+          "Gemeinsam machen sie eine kleine Erinnerung: Pause, fragen, prüfen. Sie ist eine Hilfe. Sie verspricht nicht, dass nie wieder ein Fehler passiert. Max streckt sich neben dem Tisch. Emma kehrt zu einer vertrauten Aktivität zurück, sobald ihr Erwachsener es passend findet. Um Hilfe zu bitten war hilfreich."
+        ],
+        "idea": "Sag einem vertrauten Erwachsenen bald Bescheid. Erwachsene kümmern sich um die Wiederherstellung von Konto und Gerät.",
+        "question": "Was hilft nach einem unerwarteten Klick?",
+        "choices": [
+          {
+            "text": "Noch mehr private Angaben eingeben",
+            "feedback": "Denke an dieses Kapitel. Sag einem vertrauten Erwachsenen bald Bescheid. Erwachsene kümmern sich um die Wiederherstellung von Konto und Gerät.",
+            "correct": false
+          },
+          {
+            "text": "Einem vertrauten Erwachsenen Bescheid sagen",
+            "feedback": "Das passt. Sag einem vertrauten Erwachsenen bald Bescheid. Erwachsene kümmern sich um die Wiederherstellung von Konto und Gerät.",
+            "correct": true
+          },
+          {
+            "text": "Es aus Scham verheimlichen",
+            "feedback": "Schau noch einmal in die Geschichte. Sag einem vertrauten Erwachsenen bald Bescheid. Erwachsene kümmern sich um die Wiederherstellung von Konto und Gerät.",
+            "correct": false
+          }
+        ],
+        "activity": "Ordne drei Antwortkarten für einen erfundenen Fehler: aufhören, erzählen und einen Erwachsenen prüfen lassen. Du kannst zeigen, malen, tippen, Unterstützte Kommunikation nutzen, sprechen oder einen Erwachsenen deine Idee aufschreiben lassen."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Privat",
+        "meaning": "Informationen, die nicht frei weitergegeben werden sollten."
+      },
+      {
+        "term": "Passwort",
+        "meaning": "Ein Geheimnis, das den Zugang schützen hilft."
+      },
+      {
+        "term": "Kauf",
+        "meaning": "Etwas kaufen, auch einen digitalen Gegenstand."
+      }
+    ]
   }
 }
