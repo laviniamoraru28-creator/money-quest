@@ -15,7 +15,7 @@ import { routing } from "@/i18n/navigation";
  */
 const intlMiddleware = createIntlMiddleware(routing);
 export default function middleware(request: NextRequest) {
-  const segment = request.nextUrl.pathname.split("/")[1];
+  const segment = request.nextUrl.pathname.split("/")[1] ?? "";
   if (!(ACTIVE_LOCALES as readonly string[]).includes(segment) && LOCALES.some(locale => locale === segment)) {
     const url = request.nextUrl.clone();
     url.pathname = url.pathname.replace(`/${segment}`, `/${DEFAULT_LOCALE}`);
