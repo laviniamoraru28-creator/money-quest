@@ -3893,7 +3893,7 @@
     "challengeLabel": "Deine Money-Quest-Herausforderung:",
     "questions": [
       {
-        "prompt": "Du bekommst 10 Münzen von einem Verwandten. Was ist dein erster Instinkt?",
+        "prompt": "Ein Verwandter schenkt dir einen 10-Pfund-Schein. Was machst du zuerst?",
         "options": [
           "Sie irgendwo sicher für später aufbewahren",
           "Überlegen, sie auf ein paar Dinge aufzuteilen",
@@ -3913,7 +3913,7 @@
         ]
       },
       {
-        "prompt": "Einem Freund fehlen ein paar Münzen für etwas. Du:",
+        "prompt": "Ein Freund hat nicht genug Geld, um etwas zu kaufen. Was machst du?",
         "options": [
           "Es tut dir leid für ihn, aber du behältst deine eigenen Münzen",
           "Überlegst, ob du helfen könntest, ohne deinen eigenen Plan durcheinanderzubringen",
