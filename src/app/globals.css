@@ -140,4 +140,5 @@ html[data-night-view="true"] .book-paper { background:#080808; color:#fff; }
 @media(prefers-reduced-motion:reduce) {.book-opening {animation:none;}.library-cover {transition:none;}.library-cover:hover {transform:none;}}
 [data-reduced-motion="true"] .library-cover:hover {transform:none;}
 html[data-night-view="true"] :where(.library-cover,.library-shelves) {background:#111 !important;}
-html[data-night-view="true"] .library-cover {color:#fff;}
+html[data-night-view="true"] .library-cover,
+html[data-night-view="true"] .library-cover * {color:#fff !important;}

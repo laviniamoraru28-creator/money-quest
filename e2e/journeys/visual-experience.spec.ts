@@ -23,6 +23,9 @@ test("illustrated shelf covers open and close books with keyboard and reduced mo
  await page.screenshot({path:test.info().outputPath("open-illustrated-book.png"),fullPage:true});
  await page.getByRole("button",{name:"Close book",exact:true}).click();
  await page.getByRole("button",{name:"Night view",exact:true}).click();
+ await expect(page.locator("html")).toHaveAttribute("data-night-view","true");
+ await expect(page.locator(".library-cover > span").first()).toHaveCSS("color","rgb(255, 255, 255)");
+ await page.screenshot({path:test.info().outputPath("closed-book-night-view.png"),fullPage:true});
  expect((await new AxeBuilder({page}).withTags(["wcag2a","wcag2aa","wcag21aa"]).analyze()).violations).toEqual([]);
  await expect(page.getByRole("button",{name:"Open book",exact:true})).toBeVisible();
 });
