@@ -82,6 +82,13 @@ jobs:
           # Private commerce administration commands use the same pinned Node/TS runtime.
           # No merchant release manifest, credentials, order data or paid archives are copied.
           cp tsconfig.json deploy/
+          # host-env.cjs is loaded via `node --require ./host-env.cjs` by
+          # both shop:check and shop:deliver (see package.json) — without
+          # it, those host admin commands fail to start on the deployed
+          # host with a missing-module error. It does not itself contain
+          # any secret; it only loads a private, absolute, outside-the-app
+          # env file path the host operator points it at.
+          cp host-env.cjs deploy/
           mkdir -p deploy/src/lib deploy/src/content deploy/scripts
           cp -r src/lib/commerce deploy/src/lib/
           cp src/content/shop.ts deploy/src/content/

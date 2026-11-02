@@ -1,7 +1,7 @@
 {
   "seo": {
     "defaultTitle": "Money Quest - Ucz się o pieniądzach, bawiąc się",
-    "defaultDescription": "Bezpłatna platforma edukacji finansowej dla dzieci w wieku 6–14 lat. Żadnych kont, żadnego zbierania danych osobowych, nigdy."
+    "defaultDescription": "Bezpłatna platforma edukacji finansowej dla dzieci w wieku 6–14 lat. Żadnych kont, żadnego zbierania danych osobowych dzieci, nigdy."
   },
   "common": {
     "back": "Wstecz",
@@ -2086,7 +2086,7 @@
   },
   "parentInfo": {
     "title": "Informacje dla Rodziców",
-    "metaDescription": "Odpowiedzi w prostym języku dla rodziców o tym, jak działa Money Quest, jakie dane zbiera (żadnych) i jak dba o bezpieczeństwo dzieci.",
+    "metaDescription": "Odpowiedzi w prostym języku dla rodziców o tym, jak działa Money Quest, jakie dane zbiera od dzieci (żadnych) i jak dba o bezpieczeństwo dzieci.",
     "intro": "Odpowiedzi w prostym języku na pytania, na które chcielibyśmy uzyskać odpowiedź, zanim pozwolimy dziecku korzystać z takiej strony internetowej.",
     "q1Title": "Co robi ta strona internetowa?",
     "q1Body": "Money Quest uczy dzieci edukacji finansowej poprzez lekcje, quizy i gry - potrzeby kontra zachcianki, oszczędzanie, wydawanie, budżetowanie, zarabianie, ochronę przed oszustwami i więcej. Wszystkie pieniądze w aplikacji są fikcyjne.",
@@ -2130,10 +2130,10 @@
   },
   "privacyPage": {
     "title": "Prywatność",
-    "metaDescription": "Jak Money Quest podchodzi do prywatności: żadnych kont, żadnego zbierania danych osobowych i żadnego śledzenia - zaprojektowane od podstaw tak, by było bezpieczne dla dzieci.",
+    "metaDescription": "Jak Money Quest podchodzi do prywatności: żadnych kont, żadnego zbierania danych osobowych dzieci i żadnego śledzenia - zaprojektowane od podstaw tak, by było bezpieczne dla dzieci.",
     "subtitle": "Zaprojektowane tak, aby minimalizować zbieranie danych osobowych - zobacz poniżej, co dokładnie to oznacza.",
     "section1Title": "Brak konta, brak danych osobowych",
-    "section1Body": "Nigdzie na tej stronie nie ma rejestracji, logowania ani hasła. Nigdy nie pytamy twojego dziecka (ani ciebie) o prawdziwe imię i nazwisko, adres, numer telefonu, e-mail, szkołę ani lokalizację.",
+    "section1Body": "Nigdzie na tej stronie nie ma rejestracji, logowania ani hasła. Nigdy nie pytamy twojego dziecka o prawdziwe imię i nazwisko, adres, numer telefonu, e-mail, szkołę ani lokalizację. Bezpłatna nauka też nie prosi o te dane od ciebie; opcjonalny zakup pakietu do druku jest obsługiwany osobno przez Stripe i podlega własnym warunkom, a nie tej bezpłatnej nauce.",
     "section2Title": "Jedyny wybór, który zapamiętujemy",
     "section2Body": "Poziom nauki (Początkujący, Podstawowy lub Zaawansowany) i preferencja walutowa - zapisywane tylko w lokalnej pamięci tej przeglądarki. Nigdy nie opuszcza twojego urządzenia.",
     "section3Title": "Postęp w nauce",

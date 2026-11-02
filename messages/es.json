@@ -1,7 +1,7 @@
 {
   "seo": {
     "defaultTitle": "Money Quest - Aprende sobre el dinero jugando",
-    "defaultDescription": "Una plataforma gratuita de educación financiera para niños de 6 a 14 años. Sin cuentas, sin recopilación de datos personales, nunca."
+    "defaultDescription": "Una plataforma gratuita de educación financiera para niños de 6 a 14 años. Sin cuentas, sin recopilación de datos personales de los niños, nunca."
   },
   "common": {
     "back": "Atrás",
@@ -374,7 +374,7 @@
   },
   "parentInfo": {
     "title": "Información para Padres",
-    "metaDescription": "Respuestas en lenguaje sencillo para padres sobre cómo funciona Money Quest, qué datos recopila (ninguno) y cómo mantiene a los niños seguros.",
+    "metaDescription": "Respuestas en lenguaje sencillo para padres sobre cómo funciona Money Quest, qué datos recopila de los niños (ninguno) y cómo mantiene a los niños seguros.",
     "intro": "Respuestas en lenguaje sencillo a las preguntas que nos gustaría ver respondidas antes de dejar que un niño use un sitio web como este.",
     "q1Title": "¿Qué hace este sitio web?",
     "q1Body": "Money Quest enseña a los niños educación financiera a través de lecciones, cuestionarios y juegos - necesidades vs. deseos, ahorro, gasto, presupuesto, ganancias, protección contra estafas y más. Todo el dinero en la aplicación es ficticio.",
@@ -418,10 +418,10 @@
   },
   "privacyPage": {
     "title": "Privacidad",
-    "metaDescription": "Cómo gestiona Money Quest la privacidad: sin cuentas, sin recopilación de datos personales y sin seguimiento - diseñado desde el principio para ser seguro para los niños.",
+    "metaDescription": "Cómo gestiona Money Quest la privacidad: sin cuentas, sin recopilación de datos personales de los niños y sin seguimiento - diseñado desde el principio para ser seguro para los niños.",
     "subtitle": "Diseñado para minimizar la recopilación de datos personales - mira abajo exactamente qué significa eso.",
     "section1Title": "Sin cuenta, sin información personal",
-    "section1Body": "No hay registro, inicio de sesión ni contraseña en ningún lugar de este sitio web. Nunca pedimos a tu hijo (ni a ti) un nombre real, dirección, número de teléfono, correo electrónico, escuela o ubicación.",
+    "section1Body": "No hay registro, inicio de sesión ni contraseña en ningún lugar de este sitio web. Nunca pedimos a tu hijo un nombre real, dirección, número de teléfono, correo electrónico, escuela o ubicación. La experiencia de aprendizaje gratuita tampoco te pide estos datos a ti; una compra opcional de un paquete para imprimir se gestiona por separado mediante Stripe y se rige por sus propios términos, no por esta experiencia de aprendizaje gratuita.",
     "section2Title": "La única elección que recordamos",
     "section2Body": "Un nivel de aprendizaje (Principiante, Primaria o Avanzado) y una preferencia de moneda - guardados solo en el almacenamiento local de este navegador. Nunca sale de tu dispositivo.",
     "section3Title": "Progreso de aprendizaje",

@@ -1,7 +1,7 @@
 {
   "seo": {
     "defaultTitle": "Money Quest - Leer over geld door te spelen",
-    "defaultDescription": "Een gratis financieel geletterdheidsplatform voor kinderen van 6 tot 14 jaar. Geen accounts, nooit persoonlijke gegevens verzameld."
+    "defaultDescription": "Een gratis financieel geletterdheidsplatform voor kinderen van 6 tot 14 jaar. Geen accounts, nooit persoonlijke gegevens van kinderen verzameld."
   },
   "common": {
     "back": "Terug",
@@ -2477,7 +2477,7 @@
   },
   "parentInfo": {
     "title": "Informatie voor Ouders",
-    "metaDescription": "Antwoorden in eenvoudige taal voor ouders over hoe Money Quest werkt, welke gegevens het verzamelt (geen) en hoe het kinderen veilig houdt.",
+    "metaDescription": "Antwoorden in eenvoudige taal voor ouders over hoe Money Quest werkt, welke gegevens het van kinderen verzamelt (geen) en hoe het kinderen veilig houdt.",
     "intro": "Antwoorden in eenvoudige taal op de vragen waarvan we zouden willen dat ze beantwoord zijn voordat een kind een website als deze gebruikt.",
     "q1Title": "Wat doet deze website?",
     "q1Body": "Money Quest leert kinderen financiële geletterdheid via lessen, quizzen en spellen - behoeften versus wensen, sparen, uitgeven, budgetteren, verdienen, veilig blijven tegen oplichting en meer. Al het geld in de app is fictief.",
@@ -2521,10 +2521,10 @@
   },
   "privacyPage": {
     "title": "Privacy",
-    "metaDescription": "Hoe Money Quest omgaat met privacy: geen accounts, geen verzameling van persoonlijke gegevens en geen tracking - vanaf het begin ontworpen om veilig te zijn voor kinderen.",
+    "metaDescription": "Hoe Money Quest omgaat met privacy: geen accounts, geen verzameling van persoonlijke gegevens van kinderen en geen tracking - vanaf het begin ontworpen om veilig te zijn voor kinderen.",
     "subtitle": "Ontworpen om het verzamelen van persoonlijke gegevens te minimaliseren - zie hieronder precies wat dat betekent.",
     "section1Title": "Geen account, geen persoonlijke informatie",
-    "section1Body": "Er is nergens op deze website registratie, inloggen of een wachtwoord. We vragen je kind (of jou) nooit om een echte naam, adres, telefoonnummer, e-mail, school of locatie.",
+    "section1Body": "Er is nergens op deze website registratie, inloggen of een wachtwoord. We vragen je kind nooit om een echte naam, adres, telefoonnummer, e-mail, school of locatie. Ook het gratis leeraanbod vraagt dit niet aan jou; een optionele aankoop van een afdrukbaar pakket wordt apart via Stripe afgehandeld en valt onder eigen voorwaarden, niet onder dit gratis leeraanbod.",
     "section2Title": "De enige keuze die we onthouden",
     "section2Body": "Een leerniveau (Beginner, Basis of Gevorderd) en een valutavoorkeur - alleen opgeslagen in de lokale opslag van deze browser. Het verlaat nooit je apparaat.",
     "section3Title": "Leervoortgang",

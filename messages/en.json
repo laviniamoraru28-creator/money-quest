@@ -1,7 +1,7 @@
 {
   "seo": {
     "defaultTitle": "Money Quest - Learn about money by playing",
-    "defaultDescription": "A free financial literacy platform for children 6–14. No accounts, no personal data collected, ever."
+    "defaultDescription": "A free financial literacy platform for children 6–14. No accounts, no personal data from children, ever."
   },
   "common": {
     "back": "Back",
@@ -374,7 +374,7 @@
   },
   "parentInfo": {
     "title": "Parent Information",
-    "metaDescription": "Plain-language answers for parents about how Money Quest works, what data it collects (none), and how it keeps children safe.",
+    "metaDescription": "Plain-language answers for parents about how Money Quest works, what data it collects from children (none), and how it keeps children safe.",
     "intro": "Plain-language answers to the questions we'd want answered before letting a child use a website like this one.",
     "q1Title": "What does this website do?",
     "q1Body": "Money Quest teaches children financial literacy through lessons, quizzes, and games - needs vs. wants, saving, spending, budgeting, earning, staying safe from scams, and more. All money in the app is fictional.",
@@ -418,10 +418,10 @@
   },
   "privacyPage": {
     "title": "Privacy",
-    "metaDescription": "How Money Quest handles privacy: no accounts, no personal data collection, and no tracking - designed from the ground up to be safe for children.",
+    "metaDescription": "How Money Quest handles privacy: no accounts, no personal data collection from children, and no tracking - designed from the ground up to be safe for children.",
     "subtitle": "Designed to minimise personal data collection - see below for exactly what that means.",
     "section1Title": "No account, no personal information",
-    "section1Body": "There is no sign-up, no login, and no password anywhere on this website. We never ask your child (or you) for a real name, address, phone number, email, school, or location.",
+    "section1Body": "There is no sign-up, no login, and no password anywhere on this website. We never ask your child for a real name, address, phone number, email, school, or location. The free learning experience never asks you for these either; an optional printable-pack purchase is handled separately by Stripe and is covered by its own terms, not by this free learning experience.",
     "section2Title": "The one choice we remember",
     "section2Body": "A learning level (Early Learner, Primary, or Older Learner) and a currency preference - saved only in this browser's local storage. It never leaves your device.",
     "section3Title": "Learning progress",

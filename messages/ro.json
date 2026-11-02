@@ -1,7 +1,7 @@
 {
   "seo": {
     "defaultTitle": "Money Quest - Învață despre bani jucându-te",
-    "defaultDescription": "O platformă gratuită de educație financiară pentru copii de 6–14 ani. Fără conturi, fără colectare de date personale, niciodată."
+    "defaultDescription": "O platformă gratuită de educație financiară pentru copii de 6–14 ani. Fără conturi, fără colectarea datelor personale de la copii, niciodată."
   },
   "common": {
     "back": "Înapoi",
@@ -374,7 +374,7 @@
   },
   "parentInfo": {
     "title": "Informații pentru Părinți",
-    "metaDescription": "Răspunsuri în limbaj simplu pentru părinți despre cum funcționează Money Quest, ce date colectează (niciunele) și cum ține copiii în siguranță.",
+    "metaDescription": "Răspunsuri în limbaj simplu pentru părinți despre cum funcționează Money Quest, ce date colectează de la copii (niciunele) și cum ține copiii în siguranță.",
     "intro": "Răspunsuri în limbaj simplu la întrebările pe care am vrea să le vedem clarificate înainte de a lăsa un copil să folosească un site ca acesta.",
     "q1Title": "Ce face acest site?",
     "q1Body": "Money Quest îi învață pe copii educație financiară prin lecții, teste și jocuri - nevoi vs. dorințe, economisire, cheltuieli, bugetare, câștig, siguranță împotriva fraudelor și multe altele. Toți banii din aplicație sunt ficțiune.",
@@ -418,10 +418,10 @@
   },
   "privacyPage": {
     "title": "Confidențialitate",
-    "metaDescription": "Cum gestionează Money Quest confidențialitatea: fără conturi, fără colectare de date personale și fără urmărire - gândit de la zero pentru a fi sigur pentru copii.",
+    "metaDescription": "Cum gestionează Money Quest confidențialitatea: fără conturi, fără colectare de date personale de la copii și fără urmărire - gândit de la zero pentru a fi sigur pentru copii.",
     "subtitle": "Proiectat pentru a minimiza colectarea datelor personale - vezi mai jos exact ce înseamnă asta.",
     "section1Title": "Fără cont, fără informații personale",
-    "section1Body": "Nu există înregistrare, autentificare sau parolă nicăieri pe acest site. Nu cerem niciodată copilului tău (sau ție) un nume real, adresă, număr de telefon, email, școală sau locație.",
+    "section1Body": "Nu există înregistrare, autentificare sau parolă nicăieri pe acest site. Nu cerem niciodată copilului tău un nume real, adresă, număr de telefon, email, școală sau locație. Nici experiența gratuită de învățare nu îți cere aceste date ție; o eventuală achiziție opțională a unui pachet de tipărit este gestionată separat de Stripe și este reglementată de propriii termeni, nu de această experiență gratuită de învățare.",
     "section2Title": "Singura alegere pe care o reținem",
     "section2Body": "Un nivel de învățare (Începător, Primar sau Avansat) și o preferință de monedă - salvate doar în stocarea locală a acestui browser. Nu părăsește niciodată dispozitivul tău.",
     "section3Title": "Progresul învățării",
