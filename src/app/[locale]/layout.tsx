@@ -1,11 +1,16 @@
+import {publicNavigationCopy} from "@/content/public-navigation-copy";
+import {siteDescriptions} from "@/content/seo-descriptions";
+import {siteControlsCopy} from "@/content/site-controls-copy";
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { Space_Grotesk, Atkinson_Hyperlegible } from "next/font/google";
-import { LOCALES, getTextDirection, isSupportedLocale, type Locale } from "@/i18n/config";
+import { ACTIVE_LOCALES, getTextDirection, isSupportedLocale, type Locale } from "@/i18n/config";
 import { getSiteUrl, DEFAULT_OG_IMAGE } from "@/lib/seo/site-url";
+import {CoinRewardEffect} from "@/components/ui/CoinRewardEffect";
+import {PageReadAloud} from "@/components/ui/PageReadAloud";
 import "../globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -26,7 +31,7 @@ const atkinsonHyperlegible = Atkinson_Hyperlegible({
 // /en/, /ro/, /es/ ... URL structure genuinely crawlable (brief
 // requirement 14), not just technically reachable.
 export function generateStaticParams() {
-  return LOCALES.map((locale) => ({ locale }));
+  return ACTIVE_LOCALES.map((locale) => ({ locale }));
 }
 
 /**
@@ -47,10 +52,11 @@ export const viewport: Viewport = {
 };
 
 export async function generateMetadata({
-  params: { locale },
+  params,
 }: {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
+  const { locale } = await params;
   if (!isSupportedLocale(locale)) notFound();
   const t = await getTranslations({ locale, namespace: "seo" });
   const siteUrl = getSiteUrl();
@@ -65,8 +71,9 @@ export async function generateMetadata({
     // explicitly anyway (see getSiteUrl() call sites), so this is a
     // safety net, not the primary mechanism.
     metadataBase: new URL(siteUrl),
+    manifest: "/site.webmanifest",
     title: { default: t("defaultTitle"), template: `%s - Money Quest` },
-    description: t("defaultDescription"),
+    description: siteDescriptions[locale],
     // hreflang alternates (brief requirement 14) — one entry per
     // supported locale, pointing at the same page in each language, so
     // search engines know these pages are translations of each other
@@ -76,16 +83,16 @@ export async function generateMetadata({
     // left as a path-only string.
     alternates: {
       canonical: `${siteUrl}/${locale}`,
-      languages: Object.fromEntries(LOCALES.map((l) => [l, `${siteUrl}/${l}`])),
+      languages: Object.fromEntries(ACTIVE_LOCALES.map((l) => [l, `${siteUrl}/${l}`])),
     },
     openGraph: {
       title: t("defaultTitle"),
-      description: t("defaultDescription"),
+      description: siteDescriptions[locale],
       url: `${siteUrl}/${locale}`,
       type: "website",
       siteName: "Money Quest",
       locale,
-      alternateLocale: LOCALES.filter((l) => l !== locale),
+      alternateLocale: ACTIVE_LOCALES.filter((l) => l !== locale),
       // The site's one existing lightweight photo, reused as the
       // default social-share image for every page that doesn't set its
       // own — better than no preview image at all. Square (800x800)
@@ -98,18 +105,20 @@ export async function generateMetadata({
     twitter: {
       card: "summary_large_image",
       title: t("defaultTitle"),
-      description: t("defaultDescription"),
+      description: siteDescriptions[locale],
     },
   };
 }
 
 export default async function LocaleLayout({
   children,
-  params: { locale },
+  params,
 }: {
   children: ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
+  const { locale } = await params;
+
   if (!isSupportedLocale(locale)) {
     notFound();
   }
@@ -131,7 +140,10 @@ export default async function LocaleLayout({
             switch away from), was reading an unreliable/default locale
             regardless of the URL. */}
         <NextIntlClientProvider locale={locale} messages={messages}>
+          <a href="#main-content" className="sr-only z-50 rounded-lg bg-white p-4 font-bold text-teal-text focus:not-sr-only focus:absolute focus:left-4 focus:top-4">{publicNavigationCopy[locale].skip}</a>
+          <PageReadAloud locale={locale} copy={siteControlsCopy[locale]}/>
           {children}
+          <CoinRewardEffect/>
         </NextIntlClientProvider>
       </body>
     </html>

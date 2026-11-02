@@ -51,7 +51,7 @@ export function AllocateMechanic({ round, currencyCode, uiLocale, usesCurrency, 
       <p className="text-sm text-ink/70">
         {t.rich("game.allocateInstructions", {
           amount: fmt(round.totalMinorUnits),
-          bold: (chunks) => <span className="font-bold text-teal">{chunks}</span>,
+          bold: (chunks) => <span className="font-bold text-teal-text">{chunks}</span>,
         })}
       </p>
 
@@ -74,7 +74,7 @@ export function AllocateMechanic({ round, currencyCode, uiLocale, usesCurrency, 
                 >
                   −
                 </button>
-                <span className={["min-w-[5rem] text-center font-bold tabular-nums", checked && !withinTolerance ? "text-error" : ""].join(" ")}>
+                <span className={["min-w-[5rem] text-center font-bold tabular-nums", checked && !withinTolerance ? "text-error-text" : ""].join(" ")}>
                   {fmt(value)}
                 </span>
                 {checked && !withinTolerance && (
@@ -97,7 +97,7 @@ export function AllocateMechanic({ round, currencyCode, uiLocale, usesCurrency, 
 
       <p className="mt-sm text-sm font-medium" aria-live="polite">
         {remaining === 0 ? (
-          <span className="text-success">{t("game.everyCoinPlanned")}</span>
+          <span className="text-success-text">{t("game.everyCoinPlanned")}</span>
         ) : (
           <span className="text-ink/70">{t("game.coinsLeftToPlan", { amount: fmt(remaining) })}</span>
         )}

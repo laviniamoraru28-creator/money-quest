@@ -5,11 +5,15 @@ import { useTranslations } from "next-intl";
 import type { MechanicProps } from "../registry";
 import type { CompareRound } from "../types";
 import { formatCurrency } from "@/lib/currency/format";
+import { useAnswerOrder } from "@/lib/answer-order";
 
 export function CompareMechanic({ round, currencyCode, uiLocale, usesCurrency, onAnswer, isResolved }: MechanicProps<CompareRound>) {
   const t = useTranslations();
   const [selected, setSelected] = useState<string | null>(null);
   const [checked, setChecked] = useState(false);
+  // Display order only — correctness below always compares option.key
+  // against round.correctOptionKey, never a position.
+  const options = useAnswerOrder(round.options);
 
   function submit() {
     if (!selected) return;
@@ -20,7 +24,7 @@ export function CompareMechanic({ round, currencyCode, uiLocale, usesCurrency, o
   return (
     <div>
       <div className="grid gap-sm sm:grid-cols-2">
-        {round.options.map((option) => {
+        {options.map((option) => {
           const isSelected = selected === option.key;
           const isCorrectOption = option.key === round.correctOptionKey;
           const showResult = checked;
@@ -45,12 +49,12 @@ export function CompareMechanic({ round, currencyCode, uiLocale, usesCurrency, o
               </p>
               {option.detail && <p className="text-sm text-ink/70">{option.detail}</p>}
               {showResult && isCorrectOption && (
-                <p className="mt-2xs text-sm font-medium text-success">
+                <p className="mt-2xs text-sm font-medium text-success-text">
                   <span aria-hidden="true">✓</span> {t("game.bestChoice")}
                 </p>
               )}
               {showResult && isSelected && !isCorrectOption && (
-                <p className="mt-2xs text-sm font-medium text-error">
+                <p className="mt-2xs text-sm font-medium text-error-text">
                   <span aria-hidden="true">✗</span> {t("game.notBestValue")}
                 </p>
               )}

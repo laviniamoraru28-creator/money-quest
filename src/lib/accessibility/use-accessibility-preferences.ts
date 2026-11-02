@@ -15,9 +15,10 @@ const PREFS_STORAGE_KEY = "moneyquest_accessibility_prefs_v1";
 interface AccessibilityPrefs {
   reducedMotion: boolean;
   focusMode: boolean;
+  nightView: boolean;
 }
 
-const DEFAULT_PREFS: AccessibilityPrefs = { reducedMotion: false, focusMode: false };
+const DEFAULT_PREFS: AccessibilityPrefs = { reducedMotion: false, focusMode: false, nightView: false };
 
 function readPrefsFromStorage(): AccessibilityPrefs {
   if (typeof window === "undefined") return DEFAULT_PREFS;
@@ -28,6 +29,7 @@ function readPrefsFromStorage(): AccessibilityPrefs {
     return {
       reducedMotion: Boolean(parsed.reducedMotion),
       focusMode: Boolean(parsed.focusMode),
+      nightView: Boolean(parsed.nightView),
     };
   } catch {
     return DEFAULT_PREFS;
@@ -62,28 +64,27 @@ export function useAccessibilityPrefs() {
     const loaded = readPrefsFromStorage();
     setPrefs(loaded);
     setIsLoaded(true);
+    const sync = (event: Event) => setPrefs(event instanceof CustomEvent ? event.detail : readPrefsFromStorage());
+    window.addEventListener("moneyquest-prefs", sync);
+    window.addEventListener("storage", sync);
+    return () => { window.removeEventListener("moneyquest-prefs", sync); window.removeEventListener("storage", sync); };
   }, []);
 
   useEffect(() => {
-    if (typeof document === "undefined") return;
+    if (typeof document === "undefined" || !isLoaded) return;
     document.documentElement.setAttribute("data-reduced-motion", prefs.reducedMotion ? "true" : "false");
-  }, [prefs.reducedMotion]);
+    document.documentElement.setAttribute("data-focus-mode", prefs.focusMode ? "true" : "false");
+    document.documentElement.setAttribute("data-night-view", prefs.nightView ? "true" : "false");
+  }, [prefs.reducedMotion, prefs.focusMode, prefs.nightView, isLoaded]);
 
-  const toggleReducedMotion = useCallback(() => {
-    setPrefs((prev) => {
-      const next = { ...prev, reducedMotion: !prev.reducedMotion };
-      writePrefsToStorage(next);
-      return next;
-    });
-  }, []);
-
-  const toggleFocusMode = useCallback(() => {
-    setPrefs((prev) => {
-      const next = { ...prev, focusMode: !prev.focusMode };
-      writePrefsToStorage(next);
-      return next;
-    });
-  }, []);
-
-  return { ...prefs, isLoaded, toggleReducedMotion, toggleFocusMode };
+  const update = useCallback((key: keyof AccessibilityPrefs) => {
+    const next = { ...prefs, [key]: !prefs[key] };
+    setPrefs(next);
+    writePrefsToStorage(next);
+    window.dispatchEvent(new CustomEvent("moneyquest-prefs", {detail: next}));
+  }, [prefs]);
+  const toggleReducedMotion = useCallback(() => update("reducedMotion"), [update]);
+  const toggleFocusMode = useCallback(() => update("focusMode"), [update]);
+  const toggleNightView = useCallback(() => update("nightView"), [update]);
+  return { ...prefs, isLoaded, toggleReducedMotion, toggleFocusMode, toggleNightView };
 }

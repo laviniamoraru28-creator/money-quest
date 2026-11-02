@@ -32,7 +32,7 @@ export function DiversificationPanel({ allocation, companies }: DiversificationP
   const nonZero = allocation.filter((a) => a.valueMinorUnits > 0);
 
   if (nonZero.length <= 1) {
-    return <p className="text-sm text-ink/60">{t("investingLab.diversificationAllCashHint")}</p>;
+    return <p className="text-sm text-ink/70">{t("investingLab.diversificationAllCashHint")}</p>;
   }
 
   return (
@@ -58,7 +58,7 @@ export function DiversificationPanel({ allocation, companies }: DiversificationP
           );
         })}
       </ul>
-      <p className="mt-2xs text-xs text-ink/50">{t("investingLab.diversificationExplainer")}</p>
+      <p className="mt-2xs text-xs text-ink/70">{t("investingLab.diversificationExplainer")}</p>
     </div>
   );
 }

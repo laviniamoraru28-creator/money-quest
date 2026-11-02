@@ -10,9 +10,9 @@ import type { DisplayCompany } from "../localized-types";
 import type { PricePoint, TimePeriod } from "../types";
 
 const RISK_COLOR: Record<DisplayCompany["riskProfile"], string> = {
-  lower: "#39813D",
-  medium: "#AC6615",
-  higher: "#C6433A",
+  lower: "#28692D",
+  medium: "#89500D",
+  higher: "#A8352D",
 };
 
 interface CompanyDetailProps {
@@ -51,7 +51,7 @@ export function CompanyDetail({ company, series, period, onPeriodChange, cashMin
     <div>
       <div className="flex items-start justify-between gap-xs">
         <div>
-          <p className="text-xs uppercase tracking-wide text-ink/50">
+          <p className="text-xs uppercase tracking-wide text-ink/70">
             {company.symbol} · {t(`investingLab.sector.${company.sector}`)}
           </p>
           <h3 className="font-display text-lg font-bold">{company.name}</h3>
@@ -60,7 +60,7 @@ export function CompanyDetail({ company, series, period, onPeriodChange, cashMin
           type="button"
           onClick={onToggleWatch}
           aria-pressed={isWatched}
-          className="min-h-touch-min-child shrink-0 rounded-sm border border-ink/15 px-2xs py-3xs text-xs font-medium text-ink/70 hover:border-teal hover:text-teal"
+          className="min-h-touch-min-child shrink-0 rounded-sm border border-ink/15 px-2xs py-3xs text-xs font-medium text-ink/70 hover:border-teal hover:text-teal-text"
         >
           {isWatched ? t("investingLab.removeFromWatchlist") : t("investingLab.addToWatchlist")}
         </button>
@@ -74,7 +74,7 @@ export function CompanyDetail({ company, series, period, onPeriodChange, cashMin
 
       <div className="mt-sm flex items-baseline gap-xs">
         <span className="font-display text-2xl font-bold">{formatCurrency(currentPrice, currencyCode, uiLocale)}</span>
-        <span className={["text-sm font-medium", isUp ? "text-success" : "text-error"].join(" ")}>
+        <span className={["text-sm font-medium", isUp ? "text-success-text" : "text-error-text"].join(" ")}>
           {isUp ? "▲" : "▼"} {Math.abs(changePercent).toFixed(1)}%
         </span>
       </div>
@@ -83,7 +83,7 @@ export function CompanyDetail({ company, series, period, onPeriodChange, cashMin
 
       {company.events.length > 0 && (
         <div className="mt-sm">
-          <p className="text-xs font-medium uppercase tracking-wide text-ink/50">{t("investingLab.companyNewsTitle")}</p>
+          <p className="text-xs font-medium uppercase tracking-wide text-ink/70">{t("investingLab.companyNewsTitle")}</p>
           <ul className="mt-3xs grid gap-3xs">
             {company.events.map((event) => (
               <li key={event.id} className="flex items-start gap-2xs text-xs text-ink/70">
@@ -131,7 +131,7 @@ export function CompanyDetail({ company, series, period, onPeriodChange, cashMin
             {t("investingLab.buyButton")}
           </button>
         </div>
-        <p className="mt-3xs text-xs text-ink/50">{t("investingLab.maxAffordableHint", { shares: maxAffordable })}</p>
+        <p className="mt-3xs text-xs text-ink/70">{t("investingLab.maxAffordableHint", { shares: maxAffordable })}</p>
         <p className="mt-2xs text-sm" aria-live="polite">
           {feedback}
         </p>

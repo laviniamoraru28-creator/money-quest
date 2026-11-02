@@ -16,19 +16,19 @@ export default function LessonPage() {
   const t = useTranslations();
   const { state, isLoaded, completeActivity } = useLocalProgress();
 
-  if (!isLoaded) return <div className="grid min-h-screen place-items-center bg-fog text-ink/60">{t("common.loading")}</div>;
+  if (!isLoaded) return <div className="grid min-h-screen place-items-center bg-fog text-ink/70">{t("common.loading")}</div>;
 
   const structure = getLessonStructureById(params.activityId);
   if (!structure || !state.ageBand) {
     return (
-      <div className="grid min-h-screen place-items-center bg-fog px-sm text-center">
+      <main id="main-content" tabIndex={-1} className="grid min-h-screen place-items-center bg-fog px-sm text-center">
         <div>
           <p className="text-base text-ink/70">{t("play.lessonNotAvailable")}</p>
-          <Link href={`/play/world/${params.worldId}`} className="mt-sm inline-block text-teal hover:underline">
+          <Link href={`/play/world/${params.worldId}`} className="mt-sm inline-block text-teal-text hover:underline">
             {t("play.backToTheWorld")}
           </Link>
         </div>
-      </div>
+      </main>
     );
   }
 
@@ -47,11 +47,11 @@ export default function LessonPage() {
 
   return (
     <div className="min-h-screen bg-fog px-sm py-lg">
-      <main className="mx-auto max-w-[700px]">
-        <p className="text-xs font-medium uppercase tracking-wide text-ink/50">
+      <main id="main-content" tabIndex={-1} className="mx-auto max-w-[700px]">
+        <p className="text-xs font-medium uppercase tracking-wide text-ink/70">
           {t("play.yourLevelLabel", { level: t(getLevelLabelKey(state.ageBand)) })}
         </p>
-        <LessonPlayer
+        <LessonPlayer key={params.activityId}
           activity={activity}
           backToWorldHref={`/play/world/${params.worldId}`}
           nextActivityHref={nextActivityHref}
@@ -65,7 +65,7 @@ export default function LessonPage() {
         {getWorksheetFilename(structure.id) && (
           <Link
             href={`/play/world/${params.worldId}/lesson/${structure.id}/worksheet`}
-            className="mt-sm inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal transition-colors duration-quick hover:bg-teal/5"
+            className="mt-sm inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal-text transition-colors duration-quick hover:bg-teal/5"
           >
             <span aria-hidden="true">🖨️</span> {t("lesson.printableWorksheetButton")}
           </Link>

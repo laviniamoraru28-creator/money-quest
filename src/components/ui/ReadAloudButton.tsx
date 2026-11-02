@@ -1,5 +1,7 @@
 "use client";
 
+import {ActionIcon} from "./ActionIcon";
+import {useEffect} from "react";
 import { useTranslations } from "next-intl";
 import { useReadAloud } from "@/lib/accessibility/use-read-aloud";
 
@@ -11,7 +13,7 @@ import { useReadAloud } from "@/lib/accessibility/use-read-aloud";
  * rather than a disabled/broken-looking button — an unsupported
  * feature should simply not appear, not appear and fail.
  *
- * Shows real visible text ("Listen to the lesson" / "Stop"), not just
+ * Shows real visible text ("Listen" / "Stop"), not just
  * an icon with a hidden aria-label — the redesign brief specifically
  * asked for child-friendly *visible* wording here, and an icon-only
  * speaker button doesn't give a child who can't yet reliably parse
@@ -21,6 +23,7 @@ export function ReadAloudButton({ text, uiLocale }: { text: string; uiLocale: st
   const t = useTranslations();
   const { isSupported, isSpeaking, speak, stop } = useReadAloud(uiLocale);
 
+  useEffect(() => { stop(); }, [text, stop]);
   if (!isSupported) return null;
 
   return (
@@ -29,9 +32,9 @@ export function ReadAloudButton({ text, uiLocale }: { text: string; uiLocale: st
       onClick={() => (isSpeaking ? stop() : speak(text))}
       aria-label={isSpeaking ? t("a11y.stopReadingLabel") : t("a11y.listenToLessonLabel")}
       title={isSpeaking ? t("a11y.stopReadingLabel") : t("a11y.listenToLessonLabel")}
-      className="inline-flex h-touch-min shrink-0 items-center gap-3xs rounded-full border border-teal/30 bg-teal/10 px-2xs text-sm font-medium text-teal hover:bg-teal/20"
+      className="inline-flex h-touch-min shrink-0 items-center gap-3xs rounded-full border border-teal/30 bg-white px-2xs text-sm font-medium text-teal-text hover:bg-cream"
     >
-      <span aria-hidden="true">{isSpeaking ? "⏸️" : "🔊"}</span>
+      <ActionIcon name="sound"/>
       <span>{isSpeaking ? t("a11y.stopReadingLabel") : t("a11y.listenToLessonLabel")}</span>
     </button>
   );

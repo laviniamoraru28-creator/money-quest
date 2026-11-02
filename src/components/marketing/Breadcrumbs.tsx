@@ -26,7 +26,7 @@ export function Breadcrumbs({ items, ariaLabel = "Breadcrumb" }: { items: Breadc
           <li key={i} className="flex items-center gap-2xs">
             {i > 0 && <span aria-hidden="true">/</span>}
             {item.href ? (
-              <Link href={item.href} className="hover:text-teal">
+              <Link href={item.href} className="hover:text-teal-text">
                 {item.label}
               </Link>
             ) : (

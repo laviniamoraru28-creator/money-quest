@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "accountId": "acct_REPLACE_WITH_ACTUAL_LIVE_ACCOUNT",
+  "merchant": {
+    "name": "REPLACE with the actual legal seller",
+    "address": "REPLACE with the geographic business address",
+    "email": "seller@example.invalid"
+  },
+  "terms": {
+    "version": "draft-DO-NOT-PUBLISH",
+    "text": "REPLACE with the final full consumer contract, not just a link. Include seller details, product functionality/compatibility and English language, inclusive prices, payment and delivery, household licence, immediate supply and cancellation, statutory remedies, support/recovery and applicable complaints information."
+  },
+  "privacy": "REPLACE with the reviewed adult-purchase privacy information: controller/contact, purpose and lawful basis, payment/email/hosting processors, what is stored, retention periods, rights and recovery. No child billing or response data is requested.",
+  "taxStatement": "UNCONFIRMED. Provide the actual inclusive-price tax/VAT statement for this seller and the markets served. This code does not enable or register Stripe Tax.",
+  "products": {
+    "family-adventure-pack": {
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "bytes": 0
+    },
+    "adventure-journal": {
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "bytes": 0
+    }
+  }
+}

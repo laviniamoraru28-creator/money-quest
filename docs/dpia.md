@@ -1,76 +1,68 @@
-> Not a legal certification of compliance. Written from the actual implementation, verified by reading code and running tests. A DPIA is meant to be a living document a qualified privacy professional reviews and updates — this is a real, working draft of one, not a substitute for that review.
+> Not a legal certification of compliance. Rewritten during the 2026 launch-readiness audit: an earlier version of this DPIA described a parent-account, Supabase-backed architecture that has since been fully removed from this website (see `docs/final-architecture-report.md` for the privacy-first redesign this reflects). Statements marked **[LEGAL REVIEW NEEDED]** below are this audit's good-faith position, not a substitute for a qualified UK privacy professional's review.
 
 # Money Quest — Data Protection Impact Assessment (DPIA)
 
 ## 1. Description of processing
 
-Money Quest is a financial-literacy web app for children aged 6-14, used under parental account ownership. A parent creates an account and one or more child profiles; children complete lessons, games, and interactive activities within their own profile. **V1 has no conversational AI feature of any kind** — see §10.
+Money Quest is a financial-literacy website for children aged 6-14. There is no account of any kind — no sign-up, no login, no parent or child profile held on any server. A visitor chooses a learning level and plays; their progress is written only to their own browser's local storage. The website's only other function relevant to this assessment is serving static educational content (the same content to every visitor, before any personalisation) and, where configured, receiving an anonymous client/server error report (see `src/lib/monitoring/report-error.ts`) containing no personal data.
 
 ## 2. Necessity and proportionality
 
-Every field collected is tied to a specific, necessary product function (see the Data Inventory, §4). No field exists "in case it's useful later" — the one exception found (`birth_year`) was removed this session precisely because it failed this test.
+The website asks for nothing from a visitor. Nothing is collected "in case it's useful later." There is no form field anywhere in the child- or parent-facing interface that submits personal data to a server.
 
 ## 3. Data flow map
 
 ```
-Parent's browser
+Child's/parent's browser
    |
-   |  email + password (signup)              --> Supabase Auth (auth.users)
-   |  child nickname, age band, country       --> Supabase Postgres (public.children)
-   |  learning progress, XP, coins, badges     --> Supabase Postgres (child-scoped tables,
-   |                                                RLS-protected)
+   |  learning-level choice, currency preference,   --> stays in this browser's
+   |  in-app progress (lessons, XP, badges)              own localStorage.
+   |                                                     Never sent anywhere.
    |
-   |  anonymous page views (public site only)  --> Supabase Postgres
-   |                                                (public.anonymous_events -- no identifier
-   |                                                 of any kind, structurally incapable of
-   |                                                 being linked back to a child or family)
+   |  (optional, if configured) an error report,    --> ERROR_REPORTING_WEBHOOK_URL,
+   |  containing an error message/stack trace            if set (see .env.local.example) —
+   |  and the page path, no personal data               contains no personal data by
+   |                                                     design; see that file's env docs.
    |
-   +- No data flows to any advertising network, any analytics SDK, any
-      AI/LLM provider, or any third party beyond Supabase -- verified by
-      inspecting every client-bundle import and every server-side
-      outbound call in the codebase.
+   +- No server-side database of any kind exists in this architecture.
+      No accounts, no login, no AI/LLM provider, no advertising network,
+      no third-party analytics that identifies an individual visitor —
+      verified by inspecting the current codebase's imports and outbound
+      calls during this audit.
 ```
 
 ## 4. Data inventory
 
-| Data category | Collected from | Purpose | Lawful basis (UK GDPR, indicative -- see 8) | Retention | Storage | Who can access | Deletion mechanism |
-|---|---|---|---|---|---|---|---|
-| Parent email | Parent, at signup | Account access, login | Contract (necessary to provide the service) | Until account deletion | Supabase (`auth.users`, `parents.email`) | The parent themselves; Supabase as processor | Account deletion (`deleteAccount()`) -- immediate |
-| Parent password | Parent, at signup | Authentication | Contract | Until account deletion | Supabase Auth (hashed, never in this app's own tables) | Nobody in plaintext -- hashed by Supabase Auth | Account deletion |
-| Parent region (coarse) | Parent, optional, at signup | Suggest a default currency | Consent (optional field) | Until account deletion or cleared | `parents.region` | The parent; Supabase | Editable/clearable by the parent; deleted on account deletion |
-| Child nickname | Parent, during onboarding, on the child's behalf | Personalising the child's experience | Contract (necessary to provide a per-child profile) | Until child/account deletion | `children.display_name` | The parent (view/correct); RLS-scoped, no other family can read it | Corrected via `updateChildDetailsAction`; deleted on child/account removal |
-| Child age band | Parent, during onboarding | Age-appropriate content selection | Contract | Until child/account deletion | `children.age_band` | Same as above | Same as above |
-| Child country/currency | Parent, during onboarding | Displaying amounts in a familiar currency | Contract | Until child/account deletion | `children.country_code`, `currency_code` | Same as above | Same as above |
-| Child avatar config | Child, built from a closed set of options | Personalisation only -- never a real photo | Contract | Until child/account deletion | `children.avatar_config` (jsonb) | Same as above | Same as above |
-| Learning progress, XP, badges | Generated by the child's own use of the app | The core educational function | Contract | Until child/account deletion | Multiple child-scoped tables, all RLS-protected | Same as above | Cascade-deleted on child/account removal |
-| Login attempt log (email + success/fail) | Generated automatically on every login attempt | Brute-force protection | Legitimate interest (security) | Rolling 7 days, then automatically deleted | `login_attempts` | Nobody via the app UI -- service-role only, security purpose only | Automatic 7-day retention function; also purged immediately on account deletion |
-| Anonymous business/usage analytics | Generated from page views on public/parent-facing pages only | Understanding product usage in aggregate | Legitimate interest | Indefinite (contains no identifier to delete against) | `anonymous_events` | Nobody at an individual level -- the table structurally cannot identify anyone | N/A -- not personal data (see 6) |
+| Data category | Collected from | Purpose | Where it actually lives | Retention | Deletion mechanism |
+|---|---|---|---|---|---|
+| Learning-level choice, currency preference | The child/parent, on first use | Showing age-appropriate content and familiar currency | Browser `localStorage` only (`src/lib/local-progress/`) | Until cleared | "Reset Progress" in the app, or clearing the browser's site data — both immediate, both entirely on the visitor's own device |
+| Learning progress, XP, badges | Generated by the child's own use of the app | The core educational function | Same as above | Same as above | Same as above |
+| Error reports (optional) | Generated automatically if a client/server error occurs | Debugging | The configured `ERROR_REPORTING_WEBHOOK_URL` endpoint only, if set | Governed by whatever service receives the webhook, outside this codebase | Outside this codebase's control — **[LEGAL REVIEW NEEDED: if `ERROR_REPORTING_WEBHOOK_URL` is configured in production, confirm the receiving service's own retention policy is documented somewhere a parent could find it, since this document cannot assess a third-party service it doesn't control.]** |
 
 ## 5. What is never collected
 
-Real name, exact date of birth, home address, school, phone number, precise location, photographs, payment/financial account information, or biometric data -- from a child, under any circumstance in the current implementation. Verified by reading every form field and every database column in the schema, not assumed.
+Real name, date of birth, home address, school, phone number, precise location, photographs, payment/financial information, biometric data, or any server-side account credential — from a child or a parent, under any circumstance in the current implementation. Verified by reading the current form/interaction surface across the app during this audit, not assumed from an earlier version.
 
-## 6. Is `anonymous_events` personal data?
+## 6. Does this website process personal data at all, in the UK GDPR sense?
 
-Genuinely no identifier of any kind exists in this table (no cookie ID, no session ID, no account ID -- verified structurally by `test-analytics-child-firewall.ts`). Under UK GDPR, data that cannot reasonably be linked back to an identified or identifiable person falls outside the definition of personal data. This assessment states that reasoning rather than simply asserting "not personal data" -- a lawyer reviewing this DPIA should confirm this conclusion for your specific deployment and traffic patterns.
+The learning-level/progress data above identifies a browser profile on one device, not a person, and never leaves that device. **[LEGAL REVIEW NEEDED: this document's own good-faith reading is that, because nothing is transmitted to or held by the website operator at all, there is very little or no personal data processing by the operator to assess under UK GDPR in the first place — but that conclusion, and whether a DPIA is still advisable as a matter of good practice even so, needs confirmation from a qualified reviewer rather than resting on this document's own assessment.]**
 
 ## 7. Risk assessment
 
 | Risk | Likelihood (as implemented) | Severity if realised | Mitigation |
 |---|---|---|---|
-| One family accessing another's data (IDOR) | Low -- RLS enforced on every table via a single, consistently-applied `owns_child()` check | High | RLS + `e2e/journeys/07-cross-family-access.spec.ts` (structural test); re-verified this session |
-| Grown-up Mode PIN brute-forced by a child | Was Medium before this session (no rate limiting on a 4-digit PIN) | Medium | Now Low -- lockout after 5 attempts, 15-minute window, implemented and tested this session |
-| A child's data outliving its purpose | Low | Medium | Automatic retention/deletion functions for the time-bound log; cascade delete for everything else |
-| Third-party data sharing beyond what's disclosed | Low | High | Verified zero third-party trackers/SDKs, and zero AI/LLM providers, in the codebase this session |
+| A central data breach exposing many children's data | None identified — there is no central store of personal data to breach, by architecture | N/A under the current design | The absence of a server-side account/database is itself the mitigation; re-verify this remains true before any future architecture change |
+| A child's on-device data being read by someone else using the same device | Low–Medium, inherent to any shared-device/family-computer scenario | Low (no sensitive data stored — see §5) | Outside this website's control; a shared-device risk exists for any browser-based app, not specific to Money Quest |
+| An optional error-reporting webhook leaking more than intended if misconfigured | Low | Depends entirely on what's sent — currently no personal data by design | Re-verify the error-reporting payload before enabling `ERROR_REPORTING_WEBHOOK_URL` in any new production deployment |
 
-## 10. AI Coach — removed from V1
+## 8. AI — none in this version
 
-A conversational AI tutor feature ("AI Coach") existed in an earlier version of this application and has been **removed entirely** as part of a V1 simplification pass: the feature, its database table, its retention function, its API route, and every reference to it in application code have been deleted (see `0022_remove_ai_coach.sql`). This DPIA reflects the current, AI-free implementation. There is no AI API key, no AI provider integration, and no AI-related data processing of any kind in this version.
+No conversational AI/chatbot/LLM feature exists anywhere in the current website. An earlier version of this application had one ("AI Coach"); it was removed in full, including its data, before the current architecture existed.
 
-## 8. Lawful basis -- stated plainly, not asserted as certain
+## 9. Lawful basis — stated plainly, not asserted as certain
 
-This DPIA describes the most likely applicable lawful basis per processing activity based on the nature of the data (4) -- this is not a legal conclusion. Under UK GDPR, processing a child's personal data to provide a service the parent has contracted for generally relies on the "contract" basis (necessary to perform the contract with the parent, acting on the child's behalf) rather than consent, since a child cannot meaningfully consent in the way GDPR requires for younger ages, and the parent is the account holder. A lawyer should confirm this basis is correctly applied and correctly documented for your specific jurisdiction(s) of operation.
+**[LEGAL REVIEW NEEDED.]** Since no personal data is transmitted to or held by the website operator, the lawful-basis analysis that would normally apply to a data controller's processing largely does not arise in the way it would for an account-based service. Whether any residual processing (e.g. the optional error-reporting path in §4) still requires a stated lawful basis, and under what UK GDPR role (controller/processor) the operator sits for that narrow case, needs a qualified reviewer's confirmation — this document deliberately does not assert a specific basis for something it cannot fully characterise on its own.
 
-## 9. Consultation
+## 10. Consultation
 
-This DPIA has not been reviewed by a Data Protection Officer or external privacy counsel. That review is listed explicitly in `legal-and-privacy-readiness-report.md`'s RED category -- it is a genuine prerequisite this document cannot substitute for.
+This DPIA has not been reviewed by a Data Protection Officer or external privacy counsel. That review remains a genuine prerequisite this document cannot substitute for, and is more straightforward to complete now than it was under the previous account-based architecture, precisely because there is markedly less processing to review.

@@ -140,7 +140,7 @@ export function SimulatorShell({ scenario, currencyCode, simulationActivityId, b
 
       <div className="rounded-md border border-ink/10 bg-white p-sm text-center">
         <p className="text-sm text-ink/70">{t("simulator.youReceiveThisWeek")}</p>
-        <p className="font-display text-3xl font-bold text-teal">{formatCurrency(week.incomeMinorUnits, currencyCode, uiLocale)}</p>
+        <p className="font-display text-3xl font-bold text-teal-text">{formatCurrency(week.incomeMinorUnits, currencyCode, uiLocale)}</p>
         {week.event?.type === "windfall" && (
           <p className="mt-2xs text-sm font-medium text-gold-text">
             {t("simulator.bonusThisWeek", { amount: formatCurrency(week.event.bonusMinorUnits ?? 0, currencyCode, uiLocale) })}

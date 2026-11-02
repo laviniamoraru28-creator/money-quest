@@ -1,0 +1,262 @@
+{
+  "before-money": {
+    "room": {
+      "title": "Înainte de bani",
+      "intro": "Oamenii au schimbat bunuri și servicii în multe feluri.",
+      "story": "Un agricultor are mere. Un brutar are pâine. Pot face schimb dacă amândoi sunt de acord. Acest schimb se numește troc. Oamenii au folosit și daruri, promisiuni și credit. Banii nu au apărut peste tot într-un singur fel.",
+      "quiz": {
+        "question": "De ce poate fi dificil să faci schimb?",
+        "answers": [
+          "Ambele persoane trebuie să dorească schimbul",
+          "Toate lucrurile au aceeași valoare",
+          "Nimeni nu are nevoie de nimic"
+        ],
+        "correct": 0
+      },
+      "explanation": "Pentru un schimb, trebuie să găsești pe cineva care dorește ceea ce oferi.",
+      "activity": "Imaginează un schimb echitabil cu un prieten."
+    },
+    "note": {
+      "feedback": "Ambele persoane trebuie să fie de acord cu schimbul. Trocul a fost un mod de a schimba bunuri, nu o etapă universală prin care au trecut toate comunitățile înainte de bani.",
+      "challenges": [
+        "Arată două lucruri pe care oamenii le-ar putea schimba.",
+        "Jucați un schimb. Ce se întâmplă dacă o persoană nu dorește oferta?",
+        "Explică de ce banii, trocul și creditul pot exista în același timp."
+      ]
+    }
+  },
+  "first-coins": {
+    "room": {
+      "title": "Primele monede",
+      "intro": "Monedele ștanțate au făcut multe schimburi mai ușoare.",
+      "story": "Unele dintre cele mai vechi monede ștanțate au fost făcute în Lidia, pe teritoriul Turciei de astăzi, acum mai bine de 2.500 de ani. Printre ele se aflau monede din electrum, un amestec de aur și argint. Monedele s-au dezvoltat în locuri diferite, iar istoricii încă le studiază începuturile.",
+      "quiz": {
+        "question": "Ce ajuta să arate ștanța unei monede?",
+        "answers": [
+          "Prețul exact al fiecărui produs",
+          "Cine a emis moneda",
+          "Câte persoane au deținut-o"
+        ],
+        "correct": 1
+      },
+      "explanation": "Oamenii trebuiau în continuare să aibă încredere în monedă.",
+      "activity": "Desenează o monedă cu un simbol care înseamnă ceva pentru tine."
+    },
+    "note": {
+      "feedback": "Ștanța identifica un emitent sau o autoritate. Contau și încrederea, greutatea și metalul.",
+      "challenges": [
+        "Desenează un simbol pentru o monedă de joacă.",
+        "Explică ce i-ar putea spune simbolul unei persoane.",
+        "Compară ștanța unei monede cu un element modern de siguranță. Ce ajută fiecare să verifici?"
+      ]
+    }
+  },
+  "strange-money": {
+    "room": {
+      "title": "Bani neobișnuiți",
+      "intro": "Banii au avut multe forme.",
+      "story": "Scoici, mărgele și discuri de piatră au fost folosite ca bani în comunități diferite.",
+      "quiz": {
+        "question": "Ce contează cel mai mult pentru ca un lucru să funcționeze ca bani?",
+        "answers": [
+          "Trebuie să fie din aur",
+          "Trebuie să fie foarte mic",
+          "Oamenii sunt de acord să îl accepte"
+        ],
+        "correct": 2
+      },
+      "explanation": "Încrederea și acordul oamenilor sunt esențiale.",
+      "activity": "Alege obiecte care să fie moneda unui oraș imaginar."
+    },
+    "note": {
+      "feedback": "Pentru ca un lucru să funcționeze ca bani într-o comunitate, oamenii trebuie să îl accepte ca plată.",
+      "challenges": [
+        "Alege un obiect pe care să îl folosești ca bani de joacă.",
+        "Explică de ce oamenii ar accepta alegerea ta.",
+        "Compară două posibile monede: cât rezistă, cât de ușor se transportă și dacă oamenii le acceptă."
+      ]
+    }
+  },
+  "money-through-time": {
+    "room": {
+      "title": "Banii de-a lungul timpului",
+      "intro": "Modurile de plată se schimbă.",
+      "story": "Oamenii au folosit monede, bancnote, conturi și plăți electronice. Unele metode mai vechi se folosesc și astăzi.",
+      "quiz": {
+        "question": "Ce a apărut mai întâi?",
+        "answers": [
+          "Monedele",
+          "Cardurile bancare",
+          "Plățile cu telefonul"
+        ],
+        "correct": 0
+      },
+      "explanation": "Monedele sunt cu mii de ani mai vechi decât cardurile de plată.",
+      "activity": "Întreabă un adult cum plătea când era copil."
+    },
+    "note": {
+      "feedback": "Oamenii foloseau monede cu mult înainte de carduri și de instrumentele de plată cu telefonul.",
+      "challenges": [
+        "Alege ce a apărut mai întâi: moneda sau plata cu telefonul.",
+        "Pune monedele, bancnotele și plățile cu telefonul pe o axă a timpului.",
+        "Explică de ce apariția unei metode noi de plată nu le face pe cele vechi să dispară."
+      ]
+    }
+  },
+  "banknote-lab": {
+    "room": {
+      "title": "Laboratorul bancnotelor",
+      "intro": "Bancnotele au elemente de siguranță.",
+      "story": "Bancnotele britanice moderne sunt din polimer și au elemente care îi ajută pe oameni să recunoască bancnotele autentice.",
+      "quiz": {
+        "question": "De ce au bancnotele elemente de siguranță?",
+        "answers": [
+          "Ca toate bancnotele să aibă aceeași culoare",
+          "Ca să fie mai greu de copiat",
+          "Ca să stabilească prețurile magazinelor"
+        ],
+        "correct": 1
+      },
+      "explanation": "Elementele de siguranță ajută la protejarea împotriva falsificării.",
+      "activity": "Desenează o bancnotă de joacă, cu un model inventat de tine."
+    },
+    "note": {
+      "feedback": "Elementele de siguranță fac bancnotele autentice mai ușor de recunoscut și mai greu de copiat.",
+      "challenges": [
+        "Găsește o formă de fereastră într-o imagine cu o bancnotă.",
+        "Desenează o bancnotă care să fie clar de joacă. Nu copia una reală.",
+        "Explică de ce trebuie să consulți îndrumările oficiale, în loc să judeci o bancnotă doar după culoare."
+      ]
+    }
+  },
+  "gold-vault": {
+    "room": {
+      "title": "Seiful cu aur",
+      "intro": "Banii nu sunt același lucru cu aurul.",
+      "story": "Aurul a fost folosit pentru monede și bijuterii. Lirele britanice moderne nu pot fi preschimbate la cerere într-o cantitate fixă de aur.",
+      "quiz": {
+        "question": "O monedă de o liră este din aur pur?",
+        "answers": [
+          "Da, culoarea ei dovedește asta",
+          "Doar monedele vechi de o liră sunt din aur pur",
+          "Nu"
+        ],
+        "correct": 2
+      },
+      "explanation": "Banii funcționează pentru că oamenii îi acceptă ca plată.",
+      "activity": "Compară o monedă de joacă cu una reală."
+    },
+    "note": {
+      "feedback": "Monedele britanice moderne nu sunt din aur pur. O liră nu reprezintă o promisiune de a o schimba pe o cantitate fixă de aur.",
+      "challenges": [
+        "Compară culorile a două monede împreună cu un adult.",
+        "Explică de ce un obiect de culoare aurie nu trebuie să fie din aur.",
+        "Compară valoarea metalului cu valoarea înscrisă pe o monedă."
+      ]
+    }
+  },
+  "around-the-world": {
+    "room": {
+      "title": "Banii în jurul lumii",
+      "intro": "În locuri diferite se folosesc monede diferite.",
+      "story": "Regatul Unit folosește lire sterline, Japonia folosește yeni, iar multe țări europene folosesc euro.",
+      "quiz": {
+        "question": "Ce monedă folosește Japonia?",
+        "answers": [
+          "Yenul",
+          "Lira",
+          "Euro"
+        ],
+        "correct": 0
+      },
+      "explanation": "Cursurile de schimb dintre monede se modifică.",
+      "activity": "Găsește monedele diferitelor țări pe o hartă."
+    },
+    "note": {
+      "feedback": "Japonia folosește yeni. Valorile monedelor se pot schimba una față de alta.",
+      "challenges": [
+        "Arată Japonia pe o hartă, cu ajutor.",
+        "Potrivește Regatul Unit, Japonia și o țară din zona euro cu monedele lor.",
+        "Dacă un curs imaginar se schimbă de la £1 = 150 de yeni la £1 = 160 de yeni, calculează câți yeni ai primi pentru £5 la fiecare curs."
+      ]
+    }
+  },
+  "business-invention": {
+    "room": {
+      "title": "Afaceri și invenții",
+      "intro": "Ideile pot rezolva probleme reale.",
+      "story": "Antreprenorii pot testa o idee la scară mică și pot întreba oamenii dacă îi ajută.",
+      "quiz": {
+        "question": "Ce ar trebui să faci înainte de a produce 100 de produse?",
+        "answers": [
+          "Să ignori părerile primite",
+          "Să testezi o idee la scară mică",
+          "Să cumperi 100 de cutii"
+        ],
+        "correct": 1
+      },
+      "explanation": "Testarea de la început poate economisi timp și bani.",
+      "activity": "Inventează ceva folositor pentru casa ta."
+    },
+    "note": {
+      "feedback": "Un test mic îți oferă informații înainte să investești mai mult timp și mai mulți bani.",
+      "challenges": [
+        "Desenează un lucru care ar putea ajuta pe cineva.",
+        "Întreabă o persoană de încredere ce ar îmbunătăți la ideea ta.",
+        "Alege un test, stabilește un buget mic și decide ce dovezi te-ar face să schimbi ideea."
+      ]
+    }
+  },
+  "museum-of-mistakes": {
+    "room": {
+      "title": "Muzeul greșelilor",
+      "intro": "Părerile primite îi ajută pe oameni să îmbunătățească lucrurile.",
+      "story": "În 1985, Coca-Cola a schimbat rețeta băuturii sale cola în Statele Unite. După ce clienții s-au plâns, compania a adus înapoi formula originală.",
+      "quiz": {
+        "question": "Ce pot învăța afacerile din părerile primite?",
+        "answers": [
+          "Să ascundă greșelile",
+          "Să nu schimbe nimic niciodată",
+          "Să asculte și să îmbunătățească"
+        ],
+        "correct": 2
+      },
+      "explanation": "Învățarea înseamnă să observi ce s-a întâmplat și să te adaptezi.",
+      "activity": "Descrie un lucru pe care l-ai îmbunătățit după o greșeală."
+    },
+    "note": {
+      "feedback": "Părerile clienților pot arăta probleme pe care o afacere trebuie să le rezolve. Asta nu înseamnă că trebuie urmată fiecare sugestie.",
+      "challenges": [
+        "Alege o schimbare pe care ai putea să o încerci la un proiect de joacă.",
+        "Cere părerea a două persoane. Observă dacă nu sunt de acord.",
+        "Compară părerile clienților cu vânzările și costurile înainte să decizi ce schimbare să testezi."
+      ]
+    }
+  },
+  "future-money": {
+    "room": {
+      "title": "Laboratorul banilor viitorului",
+      "intro": "Plățile digitale folosesc tot bani reali.",
+      "story": "Cardurile și telefoanele pot trimite instrucțiuni pentru a transfera bani sau a înregistra o plată într-un cont. Cardul în sine nu este soldul contului.",
+      "quiz": {
+        "question": "Dacă apropii un card de terminal, creezi bani gratis?",
+        "answers": [
+          "Nu",
+          "Da, terminalul adaugă bani",
+          "Da, dacă plătești cu telefonul"
+        ],
+        "correct": 0
+      },
+      "explanation": "Verifică suma înainte să plătești.",
+      "activity": "Simulează o plată cu cardul și noteaz-o într-un buget."
+    },
+    "note": {
+      "feedback": "Un card sau un telefon trimite instrucțiuni de plată. Nu creează bani gratis.",
+      "challenges": [
+        "Arată un card și o monedă. Care dintre ele este numerar?",
+        "Imaginează-ți că plătești £2 dintr-un sold de £5. Notează noul sold.",
+        "Compară un card de debit, un card de credit și un portofel pe telefon. Explică de unde provin banii folosiți la plată."
+      ]
+    }
+  }
+}

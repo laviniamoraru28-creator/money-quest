@@ -34,15 +34,14 @@ export function SortMechanic({ round, onAnswer, isResolved }: MechanicProps<Sort
 
   return (
     <div>
-      <div className="flex flex-wrap gap-2xs" role="list" aria-label={t("game.itemsToSort")}>
+      <div className="flex flex-wrap gap-2xs" role="group" aria-label={t("game.itemsToSort")}>
         {round.items.map((item) => {
           const isPlaced = Boolean(placements[item.id]);
           return (
             <button
               key={item.id}
               type="button"
-              role="listitem"
-              disabled={isResolved || (isPlaced && checked)}
+                disabled={isResolved || (isPlaced && checked)}
               aria-pressed={selectedItemId === item.id}
               onClick={() => setSelectedItemId(item.id)}
               className={[
@@ -75,7 +74,7 @@ export function SortMechanic({ round, onAnswer, isResolved }: MechanicProps<Sort
             type="button"
             disabled={isResolved}
             onClick={() => placeInBucket(bucket.key)}
-            className="min-h-touch-min-child rounded-lg border-2 border-dashed border-teal/50 bg-teal/5 px-sm py-md font-medium text-teal"
+            className="min-h-touch-min-child rounded-lg border-2 border-dashed border-teal/50 bg-teal/5 px-sm py-md font-medium text-teal-text"
           >
             {bucket.label}
           </button>

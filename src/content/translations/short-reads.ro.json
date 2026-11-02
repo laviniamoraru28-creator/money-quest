@@ -1,0 +1,298 @@
+{
+  "the-saving-seed": {
+    "book": {
+      "title": "Sămânța economisirii",
+      "topic": "Economisire și răbdare",
+      "pages": [
+        {
+          "title": "O dorință mică",
+          "text": "Mia vede un zmeu într-un magazin. Costă opt monede de câte o liră. Ea are trei. Ar vrea să îl cumpere astăzi, dar numără din nou și observă că îi mai trebuie cinci. Hotărăște să facă un plan."
+        },
+        {
+          "title": "Un plan simplu",
+          "text": "Mia desenează opt cercuri pe o foaie. Colorează trei pentru banii pe care îi are deja. Când poate economisi încă o liră, colorează încă un cerc. În unele săptămâni nu economisește nimic. Poate reveni oricând la plan."
+        },
+        {
+          "title": "Ziua cu vânt",
+          "text": "După ce mai economisește cinci lire, Mia are opt. Verifică prețul împreună cu adultul ei înainte să cumpere zmeul. În parc, îl privește cum se înalță. Desenul a ajutat-o să vadă un obiectiv mare ca pe mai mulți pași mici."
+        }
+      ],
+      "quiz": {
+        "question": "Ce a ajutat-o pe Mia să își atingă obiectivul?",
+        "answers": [
+          "A economisit puțin câte puțin",
+          "A cumpărat dulciuri zilnic",
+          "A uitat prețul"
+        ],
+        "correct": 0
+      }
+    },
+    "note": {
+      "feedback": "Mia a folosit un obiectiv clar și a mai economisit cinci monede. Fiecare pas a apropiat-o de cele opt monede.",
+      "challenges": [
+        "Desenează opt cercuri și colorează trei.",
+        "Calculează de câte monede mai are nevoie Mia.",
+        "Fă un plan de economisire cu o sumă săptămânală și o posibilă schimbare de preț."
+      ]
+    }
+  },
+  "the-want-monster": {
+    "book": {
+      "title": "Monstrul dorințelor",
+      "topic": "Nevoi, dorințe și autocontrol",
+      "pages": [
+        {
+          "title": "Privește!",
+          "text": "Sam vede un robot strălucitor într-un magazin de jucării. Un afiș viu colorat îl face să pară interesant. Își imaginează cum îl ia acasă chiar acum. Îl dorește foarte mult, dar își amintește că un sentiment nu trebuie să hotărască ce cumpără."
+        },
+        {
+          "title": "Pauza",
+          "text": "Sam face o pauză. Întreabă cât costă robotul și verifică banii economisiți. Apoi își amintește că strânge bani pentru o bicicletă. Dacă ar cumpăra robotul, i-ar rămâne mai puțin pentru bicicletă. Se poate bucura să privească un lucru fără să îl cumpere."
+        },
+        {
+          "title": "Alegerea mea",
+          "text": "Sam decide să aștepte până mâine înainte să aleagă. Îi povestește adultului său despre ambele opțiuni. Poate alege robotul mai târziu sau poate continua să economisească pentru bicicletă. Abilitatea utilă este să își ia timp pentru propria alegere informată."
+        }
+      ],
+      "quiz": {
+        "question": "Ce te ajută când îți dorești foarte mult ceva?",
+        "answers": [
+          "Să cumperi imediat",
+          "Să faci o pauză și să te gândești",
+          "Să lași o reclamă să decidă"
+        ],
+        "correct": 1
+      }
+    },
+    "note": {
+      "feedback": "Pauza i-a dat lui Sam timp să compare robotul cu obiectivul pe care îl avea deja. Nu este greșit să îți dorești o jucărie.",
+      "challenges": [
+        "Arată dacă alegi să aștepți sau să hotărăști acum.",
+        "Numește două întrebări pe care Sam și le-ar putea pune.",
+        "Explică ce ar trebui să lase deoparte Sam dacă ar cumpăra robotul astăzi, adică ce cost de oportunitate ar avea."
+      ]
+    }
+  },
+  "the-lemonade-test": {
+    "book": {
+      "title": "Testul limonadei",
+      "topic": "Antreprenoriat și păreri primite",
+      "pages": [
+        {
+          "title": "Prima idee",
+          "text": "Lily pregătește un stand de limonadă de joacă împreună cu adultul ei. Face un afiș, dar puține persoane se opresc. Se simte dezamăgită. În loc să cumpere imediat mai multe materiale, hotărăște să afle ce observă oamenii."
+        },
+        {
+          "title": "O întrebare mai bună",
+          "text": "Lily întreabă vizitatori de încredere ce i-ar ajuta să decidă. Împreună cu adultul ei, oferă o mostră mică și face afișul mai clar. Schimbă câte un lucru, ca să poată observa ce se întâmplă. Mai multe persoane se opresc să întrebe despre băutură."
+        },
+        {
+          "title": "Încearcă din nou",
+          "text": "Lily notează banii primiți și costul ingredientelor și paharelor. Și mostrele costă bani. Calculează dacă vânzările au acoperit costurile înainte să numească rezultatul profit. Prima idee i-a oferit informații pentru un test mai bun."
+        }
+      ],
+      "quiz": {
+        "question": "Ce a făcut Lily când planul ei nu a mers?",
+        "answers": [
+          "A renunțat",
+          "A ignorat clienții",
+          "A întrebat și a testat o idee"
+        ],
+        "correct": 2
+      }
+    },
+    "note": {
+      "feedback": "Lily a cerut păreri, a testat o schimbare și și-a verificat costurile. Mai mulți vizitatori nu dovedesc, singuri, că există profit.",
+      "challenges": [
+        "Alege un model pentru o mostră.",
+        "Scrie două costuri pentru un stand de joacă.",
+        "Pentru 10 pahare vândute cu £1 fiecare și costuri totale de £6, calculează profitul. Ce se schimbă dacă unele pahare sunt mostre gratuite?"
+      ]
+    }
+  },
+  "the-team-bridge": {
+    "book": {
+      "title": "Podul echipei",
+      "topic": "Leadership și lucru în echipă",
+      "pages": [
+        {
+          "title": "Provocarea",
+          "text": "Patru prieteni au o cutie cu cuburi și o provocare: să construiască un pod care susține o jucărie mică. Toți întind mâinile spre cuburi în același timp. Emma observă că unele idei nu sunt auzite. Propune o pauză scurtă."
+        },
+        {
+          "title": "Mai întâi ascultăm",
+          "text": "Emma îi roagă pe fiecare dintre prieteni să își arate ideea. Un prieten arată spre un desen în loc să vorbească. Aleg împreună o bază lată, un mijloc rezistent și sarcini pe care fiecare dorește să le încerce. Când mijlocul cade, îl examinează împreună."
+        },
+        {
+          "title": "Mai puternici împreună",
+          "text": "Echipa adaugă încă un sprijin și testează din nou podul. Acum susține jucăria. Emma le mulțumește tuturor pentru idei și muncă. Ea a ajutat grupul să se organizeze, dar rezultatul a venit din ascultare, testare și împărțirea sarcinii."
+        }
+      ],
+      "quiz": {
+        "question": "Cum a condus Emma echipa?",
+        "answers": [
+          "A ascultat",
+          "I-a ignorat pe toți",
+          "A lucrat singură"
+        ],
+        "correct": 0
+      }
+    },
+    "note": {
+      "feedback": "Emma a ascultat și i-a ajutat pe toți să contribuie. A conduce o echipă poate însemna și să luați decizii împreună.",
+      "challenges": [
+        "Arată rolul pe care ai vrea să îl ai.",
+        "Construiește cu un partener și alegeți pe rând câte un cub.",
+        "Compară o decizie luată împreună cu una luată repede de o singură persoană. Când ar putea fi potrivită fiecare?"
+      ]
+    }
+  },
+  "the-brave-mistake": {
+    "book": {
+      "title": "Curajul de a greși",
+      "topic": "Învățăm din greșeli",
+      "pages": [
+        {
+          "title": "Ups!",
+          "text": "Noah împăturește un avion de hârtie împreună cu un adult. La primul zbor, cade aproape drept în jos. Noah se simte frustrat și îl pune puțin pe masă. O pauză scurtă îl ajută să îl privească din nou."
+        },
+        {
+          "title": "Privește cu atenție",
+          "text": "Noah observă că o aripă este îndoită în jos. O îndreaptă și lasă celelalte părți la fel. Lansează avionul din același loc. Dacă schimbă un singur lucru, îi este mai ușor să observe ce ar fi putut ajuta."
+        },
+        {
+          "title": "Un zbor nou",
+          "text": "La următorul zbor, avionul planează mai departe. Noah îl mai încearcă de câteva ori și notează rezultatele. Nu toate zborurile sunt la fel. Are informații utile pentru alt test, nu dovada că un model funcționează mereu."
+        }
+      ],
+      "quiz": {
+        "question": "Ce l-a ajutat pe Noah să îmbunătățească avionul?",
+        "answers": [
+          "Să dea vina pe un prieten",
+          "Să observe și să încerce din nou",
+          "Să ascundă avionul"
+        ],
+        "correct": 1
+      }
+    },
+    "note": {
+      "feedback": "Noah a observat o problemă precisă și a testat o schimbare. A folosit informațiile din ceea ce s-a întâmplat.",
+      "challenges": [
+        "Arată aripa îndoită într-un desen.",
+        "Testează o singură schimbare la un avion de hârtie, cu un adult.",
+        "Păstrează același loc de lansare și compară mai multe zboruri. Ce poți concluziona?"
+      ]
+    }
+  },
+  "the-digital-coin": {
+    "book": {
+      "title": "Moneda digitală",
+      "topic": "Bani digitali și siguranță",
+      "pages": [
+        {
+          "title": "Unde sunt banii?",
+          "text": "Lucy își privește părintele apropiind un card de terminalul din magazin. Nu se dau monede din mână în mână. Întreabă unde s-au dus banii. Părintele îi explică faptul că banii pot fi înregistrați electronic într-un cont bancar, dar pot exista și ca numerar."
+        },
+        {
+          "title": "Ce se întâmplă când apropii cardul",
+          "text": "Un card de debit poate trimite instrucțiuni pentru a lua bani dintr-un cont. Un card de credit folosește bani împrumutați, care trebuie înapoiați. Un portofel pe telefon poate fi un alt mod de a trimite instrucțiuni de plată. Cardul de plastic și telefonul sunt instrumente, nu banii în sine."
+        },
+        {
+          "title": "Verifică înainte să plătești",
+          "text": "Lucy și părintele ei verifică suma înainte să plătească. Apoi compară bonul cu înregistrarea plății. Cheltuielile digitale folosesc tot bani reali sau bani împrumutați. Plata rapidă este un motiv să verifici în continuare, nu un mod de a primi lucruri gratis."
+        }
+      ],
+      "quiz": {
+        "question": "Ce trebuie să verifici înainte să plătești?",
+        "answers": [
+          "Culoarea cardului",
+          "Vremea",
+          "Suma"
+        ],
+        "correct": 2
+      }
+    },
+    "note": {
+      "feedback": "Verifică suma înainte să plătești. Cheltuielile digitale folosesc bani reali sau bani împrumutați.",
+      "challenges": [
+        "Arată suma pe un bon de joacă.",
+        "Scade o plată de £3 dintr-un sold de £10.",
+        "Compară plata cu un card de debit cu plata cu un card de credit. Explică ce bani trebuie înapoiați."
+      ]
+    }
+  },
+  "ada-and-the-machine": {
+    "book": {
+      "title": "Ada și mașina",
+      "topic": "Biografie: Ada Lovelace",
+      "pages": [
+        {
+          "title": "O gânditoare curioasă",
+          "text": "Ada Lovelace s-a născut la Londra în 1815. A studiat matematica și a devenit interesată de Mașina Analitică propusă de Charles Babbage. Aceasta era un proiect de calculator mecanic programabil. Nu era un calculator electronic modern."
+        },
+        {
+          "title": "O idee uimitoare",
+          "text": "În 1843, Ada a tradus un articol despre mașina propusă și a adăugat note ample. Notele includeau o metodă care folosea numerele Bernoulli. Mașina Analitică completă nu a fost construită în timpul vieții sale. De aceea, ideile nu însemnau același lucru cu rularea unui program pe o mașină finalizată."
+        },
+        {
+          "title": "Dincolo de numere",
+          "text": "Ada s-a gândit cum ar putea simbolurile să reprezinte mai mult decât numere obișnuite. Și-a imaginat posibilități legate de muzică. Munca ei arată cum matematica și imaginația pot ajuta pe cineva să pună întrebări noi despre o tehnologie. Mai târziu, calculatoarele s-au dezvoltat prin contribuțiile multor oameni."
+        }
+      ],
+      "quiz": {
+        "question": "Ce aveau special ideile Adei?",
+        "answers": [
+          "Își imagina utilizări noi pentru mașini",
+          "A construit un smartphone",
+          "A inventat laptopurile"
+        ],
+        "correct": 0
+      }
+    },
+    "note": {
+      "feedback": "Ada s-a gândit la utilizări ale unei mașini propuse care depășeau calculele aritmetice. Mașina Analitică completă nu a fost construită în timpul vieții sale.",
+      "challenges": [
+        "Desenează un lucru pe care o mașină te-ar putea ajuta să îl creezi.",
+        "Descrie diferența dintre o idee și o invenție finalizată.",
+        "Explică cum ar putea o mașină să reprezinte muzica folosind simboluri sau numere."
+      ]
+    }
+  },
+  "george-and-the-invention": {
+    "book": {
+      "title": "George și invenția",
+      "topic": "Biografie: George Stephenson",
+      "pages": [
+        {
+          "title": "Învățăm prin practică",
+          "text": "George Stephenson s-a născut în Northumberland în 1781. A învățat inginerie prin muncă practică și a contribuit la dezvoltarea primelor căi ferate și locomotive. Trăia într-o lume în care mulți oameni testau moduri de a transporta mărfuri și pasageri."
+        },
+        {
+          "title": "O idee pentru calea ferată",
+          "text": "În 1829, probele de la Rainhill au comparat locomotive pentru calea ferată dintre Liverpool și Manchester. A câștigat Rocket, proiectată de Robert Stephenson și construită de compania sa. George era tatăl lui Robert și un inginer feroviar important. Reușita s-a bazat pe o echipă și pe idei anterioare."
+        },
+        {
+          "title": "Construim pe baza ideilor",
+          "text": "Rocket a reunit mai multe îmbunătățiri inginerești utile. A fost modificată din nou pe măsură ce tehnologia a avansat. Istoria căilor ferate nu înseamnă că o singură persoană a inventat totul deodată. Inginerii învață din teste, din munca altora și din nevoile celor care folosesc un sistem."
+        }
+      ],
+      "quiz": {
+        "question": "Ce a ajutat tehnologia feroviară să se îmbunătățească?",
+        "answers": [
+          "Magia",
+          "Testarea și ingineria",
+          "Păstrarea modelelor mereu neschimbate"
+        ],
+        "correct": 1
+      }
+    },
+    "note": {
+      "feedback": "Ingineria feroviară s-a dezvoltat prin munca multor oameni. Rocket a fost proiectată de Robert Stephenson și construită de compania sa.",
+      "challenges": [
+        "Desenează o roată sau un pod.",
+        "Numește două lucruri pe care inginerii le-ar putea testa la un vehicul.",
+        "Explică de ce este mai corect să recunoști contribuția mai multor oameni decât să numești o singură persoană inventatorul tuturor căilor ferate."
+      ]
+    }
+  }
+}

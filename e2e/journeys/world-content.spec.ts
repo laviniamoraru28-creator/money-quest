@@ -1,0 +1,41 @@
+import {test,expect} from "@playwright/test";
+import AxeBuilder from "@axe-core/playwright";
+import {WORLDS} from "../../src/content/worlds";
+import {getWorldCatalog} from "../../src/content/catalog";
+for(const ageBand of ["explorer","builder","strategist"] as const) test(`all worlds, lessons and games render for ${ageBand}`,async({page})=>{
+ test.setTimeout(180000);
+ await page.addInitScript(band=>localStorage.setItem("moneyquest_local_progress_v1",JSON.stringify({ageBand:band,currencyCode:"GBP",xpTotal:0,walletBalanceMinorUnits:0,completedActivityIds:[],goals:[],earnedBadgeIds:[]})),ageBand);
+ const accessibilityFailures:{activity:string;violations:unknown[]}[]=[];
+ const errors:string[]=[];page.on("pageerror",error=>errors.push(error.message));
+ for(const world of WORLDS){
+  await page.goto(`/en/play/world/${world.id}`);await expect(page.locator("main")).toBeVisible();
+  await expect(page.locator(`img[src="/images/money-quest/worlds/${world.id}.webp"]`)).toBeVisible();
+  if(ageBand === "explorer") await page.screenshot({path:test.info().outputPath(`${world.id}.png`),fullPage:true});
+  const catalog=getWorldCatalog(world.id,ageBand,key=>key);
+  for(const entry of catalog){
+   const type=entry.activityType==="lesson"?"lesson":"game";
+   const response=await page.goto(`/en/play/world/${world.id}/${type}/${entry.id}`);expect(response?.status()).toBe(200);await expect(page.locator("main")).toBeVisible();
+   await expect(page.getByText(/isn't available|Choose your learning level first/i)).toHaveCount(0);
+   await expect(page.locator("main button").first()).toBeVisible();
+   const accessibility=await new AxeBuilder({page}).withTags(["wcag2a","wcag2aa","wcag21aa"]).analyze();
+   if(accessibility.violations.length)accessibilityFailures.push({activity:entry.id,violations:accessibility.violations.map(({id,nodes})=>({id,nodes:nodes.map(node=>({html:node.html,failure:node.failureSummary}))}))});
+   expect(await page.evaluate(()=>document.documentElement.scrollWidth>window.innerWidth),entry.id).toBe(false);
+  }
+ }
+ expect(errors).toEqual([]);
+ expect(accessibilityFailures).toEqual([]);
+});
+test("core lessons remain usable when storage is blocked",async({page})=>{
+ await page.addInitScript(()=>{Storage.prototype.getItem=()=>{throw new DOMException("Blocked","SecurityError")};Storage.prototype.setItem=()=>{throw new DOMException("Blocked","SecurityError")}});
+ await page.goto("/en/play");await page.getByRole("button",{name:/Explorer.*6-8/i}).click();
+ await page.locator('a[href="/en/play/world/coin-cove"]').click();await expect(page.getByRole("heading",{name:"Meet money and ways to pay",exact:true})).toBeVisible();
+ await page.locator('a[href*="/lesson/"]').first().click();await expect(page.getByRole("button",{name:"Check my answer",exact:true})).toBeVisible();
+});
+
+test("reset progress updates the world map immediately",async({page})=>{
+ await page.addInitScript(()=>{for(const key of ["money-quest-discovery-v1","moneyquest_labs_v1","moneyquest_entrepreneur_quest_v1","moneyquest_leadership_quest_v1","moneyquest_real_life_quests_v1"])localStorage.setItem(key,"[]");localStorage.setItem("moneyquest_accessibility_prefs_v1",JSON.stringify({reducedMotion:true,focusMode:false}))});
+ await page.goto("/en/play");await page.getByRole("button",{name:/Explorer.*6-8/i}).click();
+ await expect(page.getByRole("heading",{name:"Your World Map",exact:true})).toBeVisible();page.on("dialog",dialog=>dialog.accept());await page.getByRole("button",{name:"Reset Progress",exact:true}).click();await expect(page.getByRole("heading",{name:"Choose your learning level",exact:true})).toBeVisible();
+ for(const key of ["money-quest-discovery-v1","moneyquest_labs_v1","moneyquest_entrepreneur_quest_v1","moneyquest_leadership_quest_v1","moneyquest_real_life_quests_v1"])expect(await page.evaluate(key=>localStorage.getItem(key),key)).toBeNull();
+ expect(await page.evaluate(()=>localStorage.getItem("moneyquest_accessibility_prefs_v1"))).not.toBeNull();
+});

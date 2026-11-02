@@ -1,0 +1,20 @@
+{
+  "status": "draft",
+  "recorded": "2026-10-29",
+  "locales": [
+    "en",
+    "ro",
+    "es",
+    "fr",
+    "de",
+    "it",
+    "pt",
+    "nl",
+    "pl"
+  ],
+  "sourceHash": "7881bea7ceec32664aebb1ba369654986665644fc960ed07784dbf5d1628939e",
+  "stringsPerLocale": 35,
+  "translatedStrings": 280,
+  "review": "AI multilingual editorial drafts; not native-editor certified. Only English is publicly active. Fallback HTML is generated for active locales only. Browser interaction and actual voice quality in other languages remain pending.",
+  "scope": "Page-read-aloud toolbar/statuses, night-view/review labels, offline instructions/progress/completion/errors/removal/capability and standalone offline fallback copy."
+}

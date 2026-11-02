@@ -1,0 +1,367 @@
+{
+  "generated": "2026-10-30T18:11:20.449Z",
+  "plannedLocales": [
+    "en",
+    "ro",
+    "es",
+    "fr",
+    "de",
+    "it",
+    "pt",
+    "nl",
+    "pl"
+  ],
+  "activeLocales": [
+    "en"
+  ],
+  "releaseReady": false,
+  "editorialReview": "AI draft review; no independent native-editor certification",
+  "scope": "Six authored content groups, route activation and explicit remaining integration work. Message key parity, browser layout and legal text require separate validation.",
+  "matrix": {
+    "en": {
+      "originalBooks": {
+        "status": "source",
+        "entries": 10
+      },
+      "laboratories": {
+        "status": "source",
+        "entries": 3
+      },
+      "biographies": {
+        "status": "source",
+        "entries": 10
+      },
+      "museumRooms": {
+        "status": "source",
+        "entries": 10
+      },
+      "shortReads": {
+        "status": "source",
+        "entries": 8
+      },
+      "externalBookIntroductions": {
+        "status": "source",
+        "entries": 12
+      }
+    },
+    "ro": {
+      "originalBooks": {
+        "status": "shape-checked",
+        "entries": 10,
+        "strings": 908,
+        "sourceHash": "4cc13cf4588d67c9067e27e66a55e00a3748ee850ec5cda249e576210812c578"
+      },
+      "laboratories": {
+        "status": "shape-checked",
+        "entries": 3,
+        "strings": 490,
+        "sourceHash": "0b76b495fb2e0287d20ef27566bba2ab9341f0fa89e2cd3eb340e6afa206cf2f"
+      },
+      "biographies": {
+        "status": "shape-checked",
+        "entries": 10,
+        "strings": 147,
+        "sourceHash": "60b85b557a1cc4e602132bd1fe50917141a281f0b64ab70167d5d43355b00de3"
+      },
+      "museumRooms": {
+        "status": "shape-checked",
+        "entries": 10,
+        "strings": 130,
+        "sourceHash": "027eb555ac170d8cfd8afcff7644d43dae73165e4439e5f7f9746bef3076f8b0"
+      },
+      "shortReads": {
+        "status": "shape-checked",
+        "entries": 8,
+        "strings": 128,
+        "sourceHash": "6d5c8a487aa151287f94d92912ad2a26bd70af024c8ab0fdb27642468a83808c"
+      },
+      "externalBookIntroductions": {
+        "status": "shape-checked",
+        "entries": 12,
+        "strings": 111,
+        "sourceHash": "ed06b038bb765b50a13a78da91bc65c8e9a6fc003b94c607b1c3736d4305ff7c"
+      }
+    },
+    "es": {
+      "originalBooks": {
+        "status": "missing",
+        "file": "src/content/translations/books.es.json",
+        "entries": 10
+      },
+      "laboratories": {
+        "status": "missing",
+        "file": "src/content/translations/laboratories.es.json",
+        "entries": 3
+      },
+      "biographies": {
+        "status": "shape-checked",
+        "entries": 10,
+        "strings": 147,
+        "sourceHash": "60b85b557a1cc4e602132bd1fe50917141a281f0b64ab70167d5d43355b00de3"
+      },
+      "museumRooms": {
+        "status": "shape-checked",
+        "entries": 10,
+        "strings": 130,
+        "sourceHash": "027eb555ac170d8cfd8afcff7644d43dae73165e4439e5f7f9746bef3076f8b0"
+      },
+      "shortReads": {
+        "status": "shape-checked",
+        "entries": 8,
+        "strings": 128,
+        "sourceHash": "6d5c8a487aa151287f94d92912ad2a26bd70af024c8ab0fdb27642468a83808c"
+      },
+      "externalBookIntroductions": {
+        "status": "shape-checked",
+        "entries": 12,
+        "strings": 111,
+        "sourceHash": "ed06b038bb765b50a13a78da91bc65c8e9a6fc003b94c607b1c3736d4305ff7c"
+      }
+    },
+    "fr": {
+      "originalBooks": {
+        "status": "missing",
+        "file": "src/content/translations/books.fr.json",
+        "entries": 10
+      },
+      "laboratories": {
+        "status": "missing",
+        "file": "src/content/translations/laboratories.fr.json",
+        "entries": 3
+      },
+      "biographies": {
+        "status": "shape-checked",
+        "entries": 10,
+        "strings": 147,
+        "sourceHash": "60b85b557a1cc4e602132bd1fe50917141a281f0b64ab70167d5d43355b00de3"
+      },
+      "museumRooms": {
+        "status": "shape-checked",
+        "entries": 10,
+        "strings": 130,
+        "sourceHash": "027eb555ac170d8cfd8afcff7644d43dae73165e4439e5f7f9746bef3076f8b0"
+      },
+      "shortReads": {
+        "status": "shape-checked",
+        "entries": 8,
+        "strings": 128,
+        "sourceHash": "6d5c8a487aa151287f94d92912ad2a26bd70af024c8ab0fdb27642468a83808c"
+      },
+      "externalBookIntroductions": {
+        "status": "shape-checked",
+        "entries": 12,
+        "strings": 111,
+        "sourceHash": "ed06b038bb765b50a13a78da91bc65c8e9a6fc003b94c607b1c3736d4305ff7c"
+      }
+    },
+    "de": {
+      "originalBooks": {
+        "status": "missing",
+        "file": "src/content/translations/books.de.json",
+        "entries": 10
+      },
+      "laboratories": {
+        "status": "missing",
+        "file": "src/content/translations/laboratories.de.json",
+        "entries": 3
+      },
+      "biographies": {
+        "status": "shape-checked",
+        "entries": 10,
+        "strings": 147,
+        "sourceHash": "60b85b557a1cc4e602132bd1fe50917141a281f0b64ab70167d5d43355b00de3"
+      },
+      "museumRooms": {
+        "status": "shape-checked",
+        "entries": 10,
+        "strings": 130,
+        "sourceHash": "027eb555ac170d8cfd8afcff7644d43dae73165e4439e5f7f9746bef3076f8b0"
+      },
+      "shortReads": {
+        "status": "shape-checked",
+        "entries": 8,
+        "strings": 128,
+        "sourceHash": "6d5c8a487aa151287f94d92912ad2a26bd70af024c8ab0fdb27642468a83808c"
+      },
+      "externalBookIntroductions": {
+        "status": "shape-checked",
+        "entries": 12,
+        "strings": 111,
+        "sourceHash": "ed06b038bb765b50a13a78da91bc65c8e9a6fc003b94c607b1c3736d4305ff7c"
+      }
+    },
+    "it": {
+      "originalBooks": {
+        "status": "missing",
+        "file": "src/content/translations/books.it.json",
+        "entries": 10
+      },
+      "laboratories": {
+        "status": "missing",
+        "file": "src/content/translations/laboratories.it.json",
+        "entries": 3
+      },
+      "biographies": {
+        "status": "shape-checked",
+        "entries": 10,
+        "strings": 147,
+        "sourceHash": "60b85b557a1cc4e602132bd1fe50917141a281f0b64ab70167d5d43355b00de3"
+      },
+      "museumRooms": {
+        "status": "shape-checked",
+        "entries": 10,
+        "strings": 130,
+        "sourceHash": "027eb555ac170d8cfd8afcff7644d43dae73165e4439e5f7f9746bef3076f8b0"
+      },
+      "shortReads": {
+        "status": "shape-checked",
+        "entries": 8,
+        "strings": 128,
+        "sourceHash": "6d5c8a487aa151287f94d92912ad2a26bd70af024c8ab0fdb27642468a83808c"
+      },
+      "externalBookIntroductions": {
+        "status": "shape-checked",
+        "entries": 12,
+        "strings": 111,
+        "sourceHash": "ed06b038bb765b50a13a78da91bc65c8e9a6fc003b94c607b1c3736d4305ff7c"
+      }
+    },
+    "pt": {
+      "originalBooks": {
+        "status": "missing",
+        "file": "src/content/translations/books.pt.json",
+        "entries": 10
+      },
+      "laboratories": {
+        "status": "missing",
+        "file": "src/content/translations/laboratories.pt.json",
+        "entries": 3
+      },
+      "biographies": {
+        "status": "shape-checked",
+        "entries": 10,
+        "strings": 147,
+        "sourceHash": "60b85b557a1cc4e602132bd1fe50917141a281f0b64ab70167d5d43355b00de3"
+      },
+      "museumRooms": {
+        "status": "shape-checked",
+        "entries": 10,
+        "strings": 130,
+        "sourceHash": "027eb555ac170d8cfd8afcff7644d43dae73165e4439e5f7f9746bef3076f8b0"
+      },
+      "shortReads": {
+        "status": "shape-checked",
+        "entries": 8,
+        "strings": 128,
+        "sourceHash": "6d5c8a487aa151287f94d92912ad2a26bd70af024c8ab0fdb27642468a83808c"
+      },
+      "externalBookIntroductions": {
+        "status": "shape-checked",
+        "entries": 12,
+        "strings": 111,
+        "sourceHash": "ed06b038bb765b50a13a78da91bc65c8e9a6fc003b94c607b1c3736d4305ff7c"
+      }
+    },
+    "nl": {
+      "originalBooks": {
+        "status": "missing",
+        "file": "src/content/translations/books.nl.json",
+        "entries": 10
+      },
+      "laboratories": {
+        "status": "missing",
+        "file": "src/content/translations/laboratories.nl.json",
+        "entries": 3
+      },
+      "biographies": {
+        "status": "shape-checked",
+        "entries": 10,
+        "strings": 147,
+        "sourceHash": "60b85b557a1cc4e602132bd1fe50917141a281f0b64ab70167d5d43355b00de3"
+      },
+      "museumRooms": {
+        "status": "shape-checked",
+        "entries": 10,
+        "strings": 130,
+        "sourceHash": "027eb555ac170d8cfd8afcff7644d43dae73165e4439e5f7f9746bef3076f8b0"
+      },
+      "shortReads": {
+        "status": "shape-checked",
+        "entries": 8,
+        "strings": 128,
+        "sourceHash": "6d5c8a487aa151287f94d92912ad2a26bd70af024c8ab0fdb27642468a83808c"
+      },
+      "externalBookIntroductions": {
+        "status": "shape-checked",
+        "entries": 12,
+        "strings": 111,
+        "sourceHash": "ed06b038bb765b50a13a78da91bc65c8e9a6fc003b94c607b1c3736d4305ff7c"
+      }
+    },
+    "pl": {
+      "originalBooks": {
+        "status": "missing",
+        "file": "src/content/translations/books.pl.json",
+        "entries": 10
+      },
+      "laboratories": {
+        "status": "missing",
+        "file": "src/content/translations/laboratories.pl.json",
+        "entries": 3
+      },
+      "biographies": {
+        "status": "shape-checked",
+        "entries": 10,
+        "strings": 147,
+        "sourceHash": "60b85b557a1cc4e602132bd1fe50917141a281f0b64ab70167d5d43355b00de3"
+      },
+      "museumRooms": {
+        "status": "shape-checked",
+        "entries": 10,
+        "strings": 130,
+        "sourceHash": "027eb555ac170d8cfd8afcff7644d43dae73165e4439e5f7f9746bef3076f8b0"
+      },
+      "shortReads": {
+        "status": "shape-checked",
+        "entries": 8,
+        "strings": 128,
+        "sourceHash": "6d5c8a487aa151287f94d92912ad2a26bd70af024c8ab0fdb27642468a83808c"
+      },
+      "externalBookIntroductions": {
+        "status": "shape-checked",
+        "entries": 12,
+        "strings": 111,
+        "sourceHash": "ed06b038bb765b50a13a78da91bc65c8e9a6fc003b94c607b1c3736d4305ff7c"
+      }
+    }
+  },
+  "blockers": [
+    "es: missing originalBooks",
+    "es: missing laboratories",
+    "fr: missing originalBooks",
+    "fr: missing laboratories",
+    "de: missing originalBooks",
+    "de: missing laboratories",
+    "it: missing originalBooks",
+    "it: missing laboratories",
+    "pt: missing originalBooks",
+    "pt: missing laboratories",
+    "nl: missing originalBooks",
+    "nl: missing laboratories",
+    "pl: missing originalBooks",
+    "pl: missing laboratories",
+    "ro: public route not activated",
+    "es: public route not activated",
+    "fr: public route not activated",
+    "de: public route not activated",
+    "it: public route not activated",
+    "pt: public route not activated",
+    "nl: public route not activated",
+    "pl: public route not activated",
+    "Live storefront accepts only English, including checkout consent and order communication",
+    "Parent/privacy message summaries still contain legacy absolute no-data claims requiring multilingual factual review",
+    "Several learning pages still export English-only metadata",
+    "Complete nine-language browser journeys, overflow, keyboard and narration checks are pending",
+    "Free legacy website worksheets and samples remain English; multilingual paid bundles are separate"
+  ]
+}

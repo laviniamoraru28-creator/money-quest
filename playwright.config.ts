@@ -1,23 +1,11 @@
 import { defineConfig, devices } from "@playwright/test";
 
-/**
- * Honest status, stated here rather than only in
- * money-quest-testing-strategy.md: these specs are written to run
- * against a real, deployed (or locally-running `next dev`/`next
- * start`) instance of this app, with a real Supabase project behind
- * it. This sandbox has neither a browser runtime nor a live server, so
- * none of these have been executed — they are real, complete,
- * structurally-correct Playwright specs, checked against this
- * codebase's actual component markup (form field `name`s, button
- * text, ARIA labels — grepped from the real source, not invented),
- * ready to run in CI the moment a target `baseURL` exists. Treat a
- * fresh `npx playwright test` run against a real environment as a
- * required step before trusting these as passing — this file does not
- * claim they already do.
+/** Production journeys. Local browser installation may be restricted.
+ * Results belong to each recorded CI run; this configuration is not a pass claim.
  */
 export default defineConfig({
   testDir: "./e2e/journeys",
-  fullyParallel: false, // each journey creates its own account; parallel runs are safe in principle (isolated fixtures) but sequential is the safer default until that's proven against a real environment
+  fullyParallel: false, // isolated local progress per test context
   retries: 0,
   workers: 1,
   reporter: [["list"]],

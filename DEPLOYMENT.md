@@ -1,60 +1,11 @@
-# Deploying Money Quest — Step by Step
+# Deploying Money Quest to Namecheap
 
-These instructions assume you don't want to use Command Prompt, Terminal, or any command-line tool. Everything below is done by clicking through websites and regular applications.
+The current deployment instructions are in [docs/deployment-runbook.md](docs/deployment-runbook.md). The owner's final release requirements and work order are recorded in [docs/final-website-requirements-20261029.md](docs/final-website-requirements-20261029.md).
 
-You'll do this in two stages: first put the project on GitHub, then connect GitHub to Vercel (the hosting service). Vercel builds and hosts the site for you — you never install or run anything on your own computer.
+Use Node 24, the existing server.js startup file, the real production domain and a production build made on a suitable runner. The website is a Next.js Node application, not a static HTML upload. It does not require Supabase or child accounts.
 
-## What you need
+Do not push main just to generate an archive. Once the requested website work, all-language editorial checks and final SEO are complete, package the exact tested website ref and rehearse the extracted archive before delivery. The Namecheap workflow can be selected manually for that ref; its green build alone does not establish release readiness.
 
-- A web browser
-- A GitHub account (free) — sign up at github.com if you don't have one
-- A Vercel account (free) — you can sign up using your GitHub account, so no separate password to remember
+The upload package must include matching .next output, public assets and offline manifest, required runtime/configuration files, a checksum and clear upload/rollback instructions. Keep credentials, private review/order data and full paid product files out of the public application archive. Install dependencies in the hosting app's Node environment and restart using the existing account configuration.
 
-## Stage 1: Put the project on GitHub
-
-**Option A — drag and drop in your browser (try this first)**
-
-1. Unzip the project folder on your computer, if you haven't already.
-2. Go to github.com and log in.
-3. Click the **+** icon in the top right → **New repository**.
-4. Give it a name (e.g. `money-quest`), leave the other settings as they are, and click **Create repository**.
-5. On the new, empty repository page, look for a link that says **"uploading an existing file"** and click it.
-6. Drag the entire unzipped project folder's contents into the browser window.
-7. Scroll down and click **Commit changes**.
-
-**Option B — GitHub Desktop (if Option A struggles with the number of files)**
-
-1. Download and install **GitHub Desktop** from desktop.github.com — this is a normal application with a window and buttons, not a command line.
-2. Sign in with your GitHub account.
-3. Choose **File → Add Local Repository**, and point it at your unzipped project folder.
-4. If it offers to create a repository for the folder, accept.
-5. Click **Publish repository** in the top bar.
-
-Either way, you should end up with your project visible on github.com under your account.
-
-## Stage 2: Connect GitHub to Vercel
-
-1. Go to vercel.com and click **Sign Up**.
-2. Choose **Continue with GitHub**, and approve the connection when GitHub asks.
-3. On your Vercel dashboard, click **Add New** → **Project**.
-4. Find the repository you created in Stage 1 in the list, and click **Import** next to it.
-5. Vercel will detect this is a Next.js project automatically. You don't need to change any of the settings it shows you.
-6. Click **Deploy**.
-7. Wait a minute or two while Vercel builds the site. When it finishes, you'll see a **"Congratulations"** screen with a **Visit** button.
-8. Click **Visit** — this opens your live site. The URL will look like `https://money-quest-yourname.vercel.app`.
-
-That URL works from any device — open it on your phone and your computer to test both.
-
-## After deploying (optional, not required)
-
-The site works correctly with no further setup. If you'd like search engines and social media previews to show your actual Vercel URL instead of a placeholder, you can optionally set one environment variable:
-
-1. In your Vercel project, go to **Settings → Environment Variables**.
-2. Add `NEXT_PUBLIC_SITE_URL` with your live URL as the value (e.g. `https://money-quest-yourname.vercel.app`).
-3. Redeploy (Vercel's **Deployments** tab → **⋯** on the latest deployment → **Redeploy**) for the change to take effect.
-
-Nothing about the app's functionality depends on this — it only affects metadata shown to search engines and link previews.
-
-## If you make changes later
-
-Any time you push new changes to the GitHub repository (through the same drag-and-drop upload, or GitHub Desktop's **Commit** and **Push** buttons), Vercel automatically rebuilds and redeploys the site within a minute or two. There's nothing extra to do on the Vercel side.
+This documentation update does not create an archive, deploy or merge main. The owner has requested the final archive after the completion criteria are met. Packaging instructions do not enable live payments. See the full runbook for the precise file list, optional review storage, disabled shop configuration and verification steps.

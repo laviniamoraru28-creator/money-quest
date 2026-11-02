@@ -1,7 +1,10 @@
 import type { MetadataRoute } from "next";
 import { getSiteUrl } from "@/lib/seo/site-url";
 import { ARTICLE_STRUCTURES } from "@/content/articles";
-import { LOCALES } from "@/i18n/config";
+import { ACTIVE_LOCALES } from "@/i18n/config";
+import {libraryPeople} from "@/content/people";
+import {originalBooks} from "@/content/library";
+import { museumRooms, libraryBooks } from "@/content/discovery";
 
 /**
  * Covers every genuinely public, indexable page — the landing page,
@@ -25,21 +28,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // with no unique indexable content (see feedback/layout.tsx's own
   // noindex), not an oversight — listing a noindexed URL in the
   // sitemap would just send Google a contradictory signal.
-  const staticPaths = ["", "/learn", "/privacy", "/contact", "/parent-info"];
+  const staticPaths = ["/explorer", "/quiet-corner", "/parents/resources", "/parents/shop", "/parents/shop/terms", "/reviews", "/brain-lab", "/mind-lab", "/future-skills", "/inclusive-learning", "", "/learn", "/privacy", "/contact", "/parent-info"];
   const articlePaths = ARTICLE_STRUCTURES.map((a) => `/learn/${a.slug}`);
   const allPaths = [...staticPaths, ...articlePaths];
 
   const entries: MetadataRoute.Sitemap = [];
+  const discoveryPaths = ["/museum", ...museumRooms.map((room) => `/museum/${room.slug}`), "/library", ...[...libraryBooks,...originalBooks,...libraryPeople].map((book) => `/library/${book.slug}`)];
+  for (const path of discoveryPaths) {
+   for (const locale of ACTIVE_LOCALES) {
+    entries.push({url: `${siteUrl}/${locale}${path}`, changeFrequency: "monthly", priority: 0.7, alternates:{languages:Object.fromEntries(ACTIVE_LOCALES.map(language=>[language,`${siteUrl}/${language}${path}`]))}});
+   }
+  }
 
   for (const path of allPaths) {
-    for (const locale of LOCALES) {
+    for (const locale of ACTIVE_LOCALES) {
       entries.push({
         url: `${siteUrl}/${locale}${path}`,
         lastModified: getLastModifiedForPath(path),
         changeFrequency: path.startsWith("/learn/") ? "monthly" : "weekly",
         priority: path === "" ? 1.0 : path === "/learn" ? 0.9 : path.startsWith("/learn/") ? 0.8 : 0.5,
         alternates: {
-          languages: Object.fromEntries(LOCALES.map((l) => [l, `${siteUrl}/${l}${path}`])),
+          languages: Object.fromEntries(ACTIVE_LOCALES.map((l) => [l, `${siteUrl}/${l}${path}`])),
         },
       });
     }

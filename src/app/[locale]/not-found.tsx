@@ -22,7 +22,7 @@ import { Link } from "@/i18n/navigation";
 export default async function NotFound() {
   const t = await getTranslations();
   return (
-    <div className="grid min-h-screen place-items-center bg-fog px-sm text-center">
+    <main id="main-content" tabIndex={-1} className="grid min-h-screen place-items-center bg-fog px-sm text-center">
       <div className="max-w-sm">
         <span className="text-5xl" aria-hidden="true">
           🧭
@@ -36,6 +36,6 @@ export default async function NotFound() {
           {t("notFound.homeLink")}
         </Link>
       </div>
-    </div>
+    </main>
   );
 }

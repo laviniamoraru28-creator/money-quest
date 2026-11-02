@@ -1,6 +1,6 @@
 import { createNavigation } from "next-intl/navigation";
 import { defineRouting } from "next-intl/routing";
-import { LOCALES, DEFAULT_LOCALE } from "./config";
+import { ACTIVE_LOCALES, DEFAULT_LOCALE } from "./config";
 
 /**
  * `localePrefix: "always"` — every route, including the authenticated
@@ -13,9 +13,10 @@ import { LOCALES, DEFAULT_LOCALE } from "./config";
  * prefixing — see src/app/[locale]/dashboard/page.tsx.
  */
 export const routing = defineRouting({
-  locales: LOCALES,
+  locales: ACTIVE_LOCALES,
   defaultLocale: DEFAULT_LOCALE,
   localePrefix: "always",
+  localeDetection: false,
 });
 
 /**

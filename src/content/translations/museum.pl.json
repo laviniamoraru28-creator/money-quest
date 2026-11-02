@@ -1,0 +1,262 @@
+{
+  "before-money": {
+    "room": {
+      "title": "Zanim pojawiły się pieniądze",
+      "intro": "Ludzie wymieniali towary i usługi na wiele sposobów.",
+      "story": "Rolnik ma jabłka. Piekarz ma chleb. Mogą się wymienić, jeśli obaj się zgodzą. Taka wymiana nazywa się barterem. Ludzie korzystali też z darów, obietnic i kredytu. Pieniądze nie powstały wszędzie w jeden sposób.",
+      "quiz": {
+        "question": "Dlaczego wymiana może być trudna?",
+        "answers": [
+          "Obie osoby muszą chcieć tej wymiany",
+          "Wszystko ma taką samą wartość",
+          "Nikt niczego nie potrzebuje"
+        ],
+        "correct": 0
+      },
+      "explanation": "Aby dokonać wymiany, trzeba znaleźć kogoś, kto chce tego, co oferujesz.",
+      "activity": "Wymyśl uczciwą wymianę z kolegą lub koleżanką."
+    },
+    "note": {
+      "feedback": "Obie osoby muszą zgodzić się na wymianę. Barter był jednym ze sposobów wymiany towarów, a nie powszechnym etapem poprzedzającym pieniądze.",
+      "challenges": [
+        "Wskaż dwie rzeczy, którymi ludzie mogliby się wymienić.",
+        "Odegrajcie wymianę. Co się stanie, jeśli jedna osoba nie chce przyjąć oferty?",
+        "Wyjaśnij, dlaczego pieniądze, barter i kredyt mogą istnieć obok siebie."
+      ]
+    }
+  },
+  "first-coins": {
+    "room": {
+      "title": "Pierwsze monety",
+      "intro": "Bite monety ułatwiły wiele wymian.",
+      "story": "Niektóre z najwcześniejszych bitych monet powstały w Lidii, na terenie dzisiejszej Turcji, ponad 2 500 lat temu. Były wśród nich monety z elektrum, czyli mieszaniny złota i srebra. Monety rozwijały się w różnych miejscach, a historycy nadal badają ich początki.",
+      "quiz": {
+        "question": "Co pomagał pokazać znak wybity na monecie?",
+        "answers": [
+          "Dokładną cenę każdego przedmiotu",
+          "Kto wyemitował monetę",
+          "Ile osób ją posiadało"
+        ],
+        "correct": 1
+      },
+      "explanation": "Ludzie nadal musieli ufać monecie.",
+      "activity": "Zaprojektuj monetę z symbolem, który ma znaczenie."
+    },
+    "note": {
+      "feedback": "Znak wskazywał emitenta lub odpowiednią władzę. Ważne były też zaufanie, masa i metal.",
+      "challenges": [
+        "Narysuj symbol na wymyślonej monecie do zabawy.",
+        "Wyjaśnij, co ten symbol mógłby powiedzieć innej osobie.",
+        "Porównaj znak na monecie ze współczesnym zabezpieczeniem. Co pozwala sprawdzić każde z nich?"
+      ]
+    }
+  },
+  "strange-money": {
+    "room": {
+      "title": "Nietypowe pieniądze",
+      "intro": "Pieniądze przybierały wiele form.",
+      "story": "Różne społeczności używały muszli, koralików i kamiennych krążków jako pieniędzy.",
+      "quiz": {
+        "question": "Co jest najważniejsze, aby coś mogło służyć jako pieniądze?",
+        "answers": [
+          "Musi być ze złota",
+          "Musi być maleńkie",
+          "Ludzie zgadzają się to przyjmować"
+        ],
+        "correct": 2
+      },
+      "explanation": "Wspólne zaufanie i zgoda są niezbędne.",
+      "activity": "Wybierz przedmioty, które będą walutą w wymyślonym mieście."
+    },
+    "note": {
+      "feedback": "Aby coś służyło jako pieniądze w danej społeczności, ludzie muszą przyjmować to jako zapłatę.",
+      "challenges": [
+        "Wybierz przedmiot, który będzie pieniądzem do zabawy.",
+        "Wyjaśnij, dlaczego ludzie przyjęliby twój wybór.",
+        "Porównaj dwie możliwe waluty pod względem trwałości, łatwości przenoszenia i akceptacji przez społeczność."
+      ]
+    }
+  },
+  "money-through-time": {
+    "room": {
+      "title": "Pieniądze na przestrzeni czasu",
+      "intro": "Sposoby płacenia się zmieniają.",
+      "story": "Ludzie używali monet, banknotów, kont i płatności elektronicznych. Niektóre starsze metody nadal są w użyciu.",
+      "quiz": {
+        "question": "Co pojawiło się wcześniej?",
+        "answers": [
+          "Monety",
+          "Karty bankowe",
+          "Płatności telefonem"
+        ],
+        "correct": 0
+      },
+      "explanation": "Monety są o tysiące lat starsze od kart płatniczych.",
+      "activity": "Zapytaj osobę dorosłą, jak płaciła w dzieciństwie."
+    },
+    "note": {
+      "feedback": "Monet używano na długo przed kartami i narzędziami do płatności telefonem.",
+      "challenges": [
+        "Wybierz, co było pierwsze: moneta czy płatność telefonem.",
+        "Umieść monety, banknoty i płatności telefonem na osi czasu.",
+        "Wyjaśnij, dlaczego wprowadzenie nowej metody płatności nie sprawia, że starsze metody znikają."
+      ]
+    }
+  },
+  "banknote-lab": {
+    "room": {
+      "title": "Laboratorium banknotów",
+      "intro": "Banknoty mają zabezpieczenia.",
+      "story": "Współczesne brytyjskie banknoty są z polimeru i mają elementy pomagające rozpoznać prawdziwe banknoty.",
+      "quiz": {
+        "question": "Dlaczego banknoty mają zabezpieczenia?",
+        "answers": [
+          "Aby wszystkie miały ten sam kolor",
+          "Aby trudniej było je kopiować",
+          "Aby ustalać ceny w sklepach"
+        ],
+        "correct": 1
+      },
+      "explanation": "Zabezpieczenia pomagają chronić przed fałszowaniem.",
+      "activity": "Zaprojektuj banknot do zabawy z własnym wzorem."
+    },
+    "note": {
+      "feedback": "Zabezpieczenia ułatwiają rozpoznawanie prawdziwych banknotów i utrudniają ich kopiowanie.",
+      "challenges": [
+        "Znajdź kształt okienka na obrazku banknotu.",
+        "Zaprojektuj banknot, który wyraźnie służy do zabawy. Nie kopiuj prawdziwego.",
+        "Wyjaśnij, dlaczego warto sprawdzać oficjalne wskazówki, zamiast oceniać banknot tylko po kolorze."
+      ]
+    }
+  },
+  "gold-vault": {
+    "room": {
+      "title": "Skarbiec złota",
+      "intro": "Pieniądze to nie to samo co złoto.",
+      "story": "Złoto wykorzystywano do wyrobu monet i biżuterii. Współczesnych funtów brytyjskich nie można wymienić na stałą ilość złota.",
+      "quiz": {
+        "question": "Czy moneta o wartości jednego funta jest z czystego złota?",
+        "answers": [
+          "Tak, dowodzi tego jej kolor",
+          "Tylko starsze monety jednofuntowe są z czystego złota",
+          "Nie"
+        ],
+        "correct": 2
+      },
+      "explanation": "Pieniądze działają, ponieważ ludzie przyjmują je jako zapłatę.",
+      "activity": "Porównaj monetę do zabawy z prawdziwą monetą."
+    },
+    "note": {
+      "feedback": "Współczesne brytyjskie monety nie są z czystego złota. Funt nie jest obietnicą wymiany na stałą ilość złota.",
+      "challenges": [
+        "Porównaj kolory dwóch monet z osobą dorosłą.",
+        "Wyjaśnij, dlaczego przedmiot w złotym kolorze nie musi być ze złota.",
+        "Porównaj wartość metalu z wartością podaną na monecie."
+      ]
+    }
+  },
+  "around-the-world": {
+    "room": {
+      "title": "Pieniądze na świecie",
+      "intro": "W różnych miejscach używa się różnych walut.",
+      "story": "Zjednoczone Królestwo używa funtów szterlingów, Japonia jenów, a wiele krajów europejskich euro.",
+      "quiz": {
+        "question": "Jakiej waluty używa Japonia?",
+        "answers": [
+          "Jenów",
+          "Funtów",
+          "Euro"
+        ],
+        "correct": 0
+      },
+      "explanation": "Kursy wymiany walut się zmieniają.",
+      "activity": "Znajdź waluty różnych krajów na mapie."
+    },
+    "note": {
+      "feedback": "Japonia używa jenów. Wartości walut mogą zmieniać się względem siebie.",
+      "challenges": [
+        "Z pomocą wskaż Japonię na mapie.",
+        "Dopasuj Zjednoczone Królestwo, Japonię i kraj ze strefy euro do ich walut.",
+        "Jeśli wymyślony kurs zmieni się z £1 = 150 jenów na £1 = 160 jenów, oblicz, ile jenów otrzymasz za £5 przy każdym kursie."
+      ]
+    }
+  },
+  "business-invention": {
+    "room": {
+      "title": "Biznes i wynalazki",
+      "intro": "Pomysły mogą rozwiązywać prawdziwe problemy.",
+      "story": "Przedsiębiorcy mogą przetestować mały pomysł i zapytać ludzi, czy im pomaga.",
+      "quiz": {
+        "question": "Co warto zrobić przed wyprodukowaniem 100 produktów?",
+        "answers": [
+          "Zignorować opinie",
+          "Przetestować mały pomysł",
+          "Kupić 100 pudełek"
+        ],
+        "correct": 1
+      },
+      "explanation": "Wczesne testowanie może oszczędzić czas i pieniądze.",
+      "activity": "Wymyśl coś przydatnego w twoim domu."
+    },
+    "note": {
+      "feedback": "Mały test daje informacje, zanim poświęcisz więcej czasu i pieniędzy.",
+      "challenges": [
+        "Narysuj coś, co mogłoby komuś pomóc.",
+        "Zapytaj zaufaną osobę, co poprawiłoby twój pomysł.",
+        "Wybierz test, ustal mały budżet i zdecyduj, jakie dowody skłoniłyby cię do zmiany pomysłu."
+      ]
+    }
+  },
+  "museum-of-mistakes": {
+    "room": {
+      "title": "Muzeum błędów",
+      "intro": "Opinie pomagają ludziom coś ulepszać.",
+      "story": "W 1985 roku Coca-Cola zmieniła recepturę swojego napoju typu cola w Stanach Zjednoczonych. Po skargach firma przywróciła oryginalną recepturę.",
+      "quiz": {
+        "question": "Czego firmy mogą nauczyć się z opinii?",
+        "answers": [
+          "Ukrywania błędów",
+          "Tego, by nigdy niczego nie zmieniać",
+          "Słuchania i ulepszania"
+        ],
+        "correct": 2
+      },
+      "explanation": "Uczenie się oznacza zauważanie, co się wydarzyło, i dostosowywanie działania.",
+      "activity": "Opisz coś, co udało ci się ulepszyć po błędzie."
+    },
+    "note": {
+      "feedback": "Opinie klientów mogą ujawnić problemy, które firma musi rozwiązać. Nie oznacza to, że trzeba zastosować każdą sugestię.",
+      "challenges": [
+        "Wybierz jedną zmianę, którą można wypróbować w wymyślonym projekcie.",
+        "Poproś dwie osoby o opinię. Zauważ, czy się nie zgadzają.",
+        "Porównaj opinie klientów ze sprzedażą i kosztami, zanim wybierzesz zmianę do przetestowania."
+      ]
+    }
+  },
+  "future-money": {
+    "room": {
+      "title": "Laboratorium pieniędzy przyszłości",
+      "intro": "Płatności cyfrowe nadal wykorzystują prawdziwe pieniądze.",
+      "story": "Karty i telefony mogą wysyłać polecenia przelewu pieniędzy lub obciążenia konta. Sama karta nie jest saldem konta.",
+      "quiz": {
+        "question": "Czy przyłożenie karty do terminala tworzy darmowe pieniądze?",
+        "answers": [
+          "Nie",
+          "Tak, terminal dodaje pieniądze",
+          "Tak, jeśli płacisz telefonem"
+        ],
+        "correct": 0
+      },
+      "explanation": "Sprawdź kwotę przed zapłaceniem.",
+      "activity": "Odegraj płatność kartą i zapisz ją w budżecie."
+    },
+    "note": {
+      "feedback": "Karta lub telefon wysyła polecenia płatności. Nie tworzy darmowych pieniędzy.",
+      "challenges": [
+        "Wskaż kartę i monetę. Co z tego jest gotówką?",
+        "Udawaj, że wydajesz £2 z salda £5. Zapisz nowe saldo.",
+        "Porównaj kartę debetową, kartę kredytową i portfel w telefonie. Wyjaśnij, skąd pochodzą pieniądze na płatność."
+      ]
+    }
+  }
+}

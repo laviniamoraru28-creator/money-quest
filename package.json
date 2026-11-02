@@ -3,34 +3,52 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": ">=20.0.0"
+    "node": ">=24 <25"
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "python3 scripts/generate-localized-worksheets.py && next build && node --import tsx scripts/build-offline-manifest.ts",
     "start": "NODE_ENV=production node server.js",
-    "lint": "next lint",
+    "lint": "eslint src --ext .ts,.tsx --max-warnings=0",
     "typecheck": "tsc --noEmit",
-    "test:unit": "tsx scripts/run-all-unit-tests.ts",
-    "test:e2e": "playwright test"
+    "test:unit": "node --import tsx scripts/run-all-unit-tests.ts",
+    "test:e2e": "playwright test",
+    "shop:check": "node --require ./host-env.cjs --import tsx scripts/shop-preflight.ts",
+    "shop:deliver": "node --require ./host-env.cjs --import tsx scripts/shop-deliver-pending.ts",
+    "check:multilingual": "node --import tsx scripts/check-multilingual-release.ts",
+    "package:namecheap": "node scripts/package-namecheap.mjs",
+    "printables:build": "python3 scripts/generate-localized-worksheets.py"
   },
   "dependencies": {
-    "next": "^14.2.0",
+    "next": "^15.5.28",
+    "next-intl": "^4.14.9",
+    "nodemailer": "10.3.1",
+    "proper-lockfile": "4.1.2",
     "react": "^18.3.0",
     "react-dom": "^18.3.0",
-    "next-intl": "^3.19.0",
     "server-only": "^0.0.1",
-    "typescript": "^5.5.0",
+    "stripe": "23.1.0",
+    "tsx": "4.23.15"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.10.2",
+    "@playwright/test": "^1.47.0",
+    "@types/nodemailer": "8.0.2",
+    "@types/proper-lockfile": "4.1.4",
     "@types/node": "^20.14.0",
     "@types/react": "^18.3.0",
     "@types/react-dom": "^18.3.0",
-    "tailwindcss": "^3.4.0",
-    "postcss": "^8.4.0",
     "autoprefixer": "^10.4.0",
     "eslint": "^8.57.0",
-    "eslint-config-next": "^14.2.0"
+    "eslint-config-next": "^15.5.28",
+    "postcss": "^8.5.23",
+    "tailwindcss": "^3.4.0",
+    "typescript": "^5.5.0"
   },
-  "devDependencies": {
-    "@playwright/test": "^1.47.0"
+  "overrides": {
+    "next": {
+      "postcss": "^8.5.23"
+    },
+    "postcss-selector-parser": "^7.1.6"
   }
 }

@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import {ActionIcon} from "./ActionIcon";
+import { useState, useRef, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { useAccessibilityPrefs } from "@/lib/accessibility/use-accessibility-preferences";
 
@@ -15,26 +16,36 @@ import { useAccessibilityPrefs } from "@/lib/accessibility/use-accessibility-pre
  */
 export function AccessibilityMenu() {
   const t = useTranslations();
-  const { reducedMotion, focusMode, isLoaded, toggleReducedMotion, toggleFocusMode } = useAccessibilityPrefs();
+  const { reducedMotion, focusMode, nightView, isLoaded, toggleReducedMotion, toggleFocusMode, toggleNightView } = useAccessibilityPrefs();
   const [isOpen, setIsOpen] = useState(false);
 
+  const root = useRef<HTMLDivElement>(null);
+  const trigger = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    if (!isOpen) return;
+    const close = (event: KeyboardEvent) => { if (event.key === "Escape") {setIsOpen(false);trigger.current?.focus();} };
+    const outside = (event: PointerEvent) => {if (!root.current?.contains(event.target as Node)) setIsOpen(false)};
+    document.addEventListener("keydown", close);
+    document.addEventListener("pointerdown", outside);
+    return () => {document.removeEventListener("keydown",close);document.removeEventListener("pointerdown",outside)};
+  },[isOpen]);
   if (!isLoaded) return null;
 
   return (
-    <div className="relative">
-      <button
+    <div ref={root} className="relative ml-auto">
+      <button ref={trigger}
         type="button"
         onClick={() => setIsOpen((open) => !open)}
         aria-expanded={isOpen}
         aria-label={t("a11y.accessibilityMenuLabel")}
         title={t("a11y.accessibilityMenuLabel")}
-        className="grid h-touch-min-child w-touch-min-child place-items-center rounded-full border border-ink/10 bg-white text-lg shadow-resting hover:bg-fog"
+        className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-teal/30 bg-white px-3 py-2 text-sm font-semibold text-teal-text shadow-resting hover:bg-fog"
       >
-        <span aria-hidden="true">⚙️</span>
+        <ActionIcon name="settings"/><span>Settings</span>
       </button>
 
       {isOpen && (
-        <div className="absolute bottom-full right-0 mb-2xs w-64 rounded-lg border border-ink/10 bg-white p-sm shadow-floating">
+        <div className="absolute top-full right-0 z-50 mt-2xs w-64 max-w-[calc(100vw-2rem)] rounded-lg border border-ink/10 bg-white p-sm shadow-floating">
           <label className="flex min-h-touch-min-child items-center justify-between gap-sm">
             <span className="text-sm">{t("a11y.reducedMotionLabel")}</span>
             <input
@@ -55,7 +66,8 @@ export function AccessibilityMenu() {
               aria-label={t("a11y.focusModeLabel")}
             />
           </label>
-          <p className="mt-2xs text-xs text-ink/50">{t("a11y.focusModeHint")}</p>
+          <label className="mt-2xs flex min-h-touch-min-child items-center justify-between gap-sm"><span className="text-sm">Night view</span><input type="checkbox" checked={nightView} onChange={toggleNightView} className="h-6 w-6" aria-label="Night view"/></label>
+          <p className="mt-2xs text-xs text-ink/70">{t("a11y.focusModeHint")}</p>
         </div>
       )}
     </div>

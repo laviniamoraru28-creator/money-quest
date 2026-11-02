@@ -71,9 +71,9 @@ export function FinalReportCard({ state, scenario, currencyCode, uiLocale, award
 
       {award && (award.xp > 0 || award.coins > 0) && (
         <div className="mt-md flex items-center gap-md rounded-sm border border-gold/40 bg-gold/10 p-sm">
-          <span className="font-bold text-teal">{t("lesson.xpEarned", { xp: award.xp })}</span>
+          <span className="font-bold text-teal-text">{t("lesson.xpEarned", { xp: award.xp })}</span>
           <span className="flex flex-col items-start">
-            <span className="text-xs font-normal text-ink/60">{t("lesson.virtualCoinsLabel")}</span>
+            <span className="text-xs font-normal text-ink/70">{t("lesson.virtualCoinsLabel")}</span>
             <span className="font-bold text-ink">+{fmt(award.coins)}</span>
           </span>
         </div>
@@ -94,7 +94,7 @@ function Stat({ label, value, highlight = false }: { label: string; value: strin
   return (
     <div className={["rounded-sm border p-xs", highlight ? "border-teal bg-teal/5" : "border-ink/10"].join(" ")}>
       <p className="text-sm text-ink/70">{label}</p>
-      <p className={["mt-3xs font-bold tabular-nums", highlight ? "text-teal" : "text-ink"].join(" ")}>{value}</p>
+      <p className={["mt-3xs font-bold tabular-nums", highlight ? "text-teal-text" : "text-ink"].join(" ")}>{value}</p>
     </div>
   );
 }

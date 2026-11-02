@@ -1,0 +1,298 @@
+{
+  "the-saving-seed": {
+    "book": {
+      "title": "A semente da poupança",
+      "topic": "Poupança e paciência",
+      "pages": [
+        {
+          "title": "Um pequeno desejo",
+          "text": "A Mia vê um papagaio de papel numa loja. Custa oito moedas de uma libra. Ela tem três. Quer comprá-lo hoje, mas conta outra vez e percebe que precisa de mais cinco. Decide fazer um plano."
+        },
+        {
+          "title": "Um plano simples",
+          "text": "A Mia desenha oito círculos numa folha. Pinta três pelo dinheiro que já tem. Quando consegue poupar mais uma libra, pinta outro círculo. Em algumas semanas não poupa nada. Pode, mesmo assim, voltar ao seu plano."
+        },
+        {
+          "title": "O dia de vento",
+          "text": "Depois de poupar mais cinco libras, a Mia tem oito. Confirma o preço com o seu adulto antes de comprar o papagaio. No parque, vê-o subir. O desenho ajudou-a a ver um grande objetivo como vários passos pequenos."
+        }
+      ],
+      "quiz": {
+        "question": "O que ajudou a Mia a atingir o objetivo?",
+        "answers": [
+          "Poupar pouco a pouco",
+          "Comprar doces todos os dias",
+          "Esquecer o preço"
+        ],
+        "correct": 0
+      }
+    },
+    "note": {
+      "feedback": "A Mia tinha um objetivo claro e poupou mais cinco moedas. Cada passo aproximou-a das oito moedas.",
+      "challenges": [
+        "Desenha oito círculos e pinta três.",
+        "Calcula de quantas moedas a Mia ainda precisa.",
+        "Faz um plano de poupança com um valor semanal e uma possível mudança de preço."
+      ]
+    }
+  },
+  "the-want-monster": {
+    "book": {
+      "title": "O monstro dos desejos",
+      "topic": "Necessidades, desejos e autocontrolo",
+      "pages": [
+        {
+          "title": "Olha para aquilo!",
+          "text": "O Sam vê um robô brilhante numa loja de brinquedos. Um cartaz chamativo faz com que pareça entusiasmante. Imagina levá-lo já para casa. Deseja-o muito, mas lembra-se de que um sentimento não tem de decidir o que compra."
+        },
+        {
+          "title": "A pausa",
+          "text": "O Sam faz uma pausa. Pergunta quanto custa o robô e verifica o dinheiro poupado. Depois lembra-se do seu objetivo: uma bicicleta. Comprar o robô deixaria menos dinheiro para a bicicleta. Pode gostar de olhar para uma coisa sem a comprar."
+        },
+        {
+          "title": "A minha escolha",
+          "text": "O Sam decide esperar até amanhã antes de escolher. Fala com o seu adulto sobre as duas opções. Pode escolher o robô mais tarde ou continuar a poupar para a bicicleta. A capacidade útil é dar tempo a si próprio para fazer uma escolha informada."
+        }
+      ],
+      "quiz": {
+        "question": "O que ajuda quando queres muito uma coisa?",
+        "answers": [
+          "Comprar logo",
+          "Parar e pensar",
+          "Deixar um anúncio decidir"
+        ],
+        "correct": 1
+      }
+    },
+    "note": {
+      "feedback": "A pausa deu ao Sam tempo para comparar o robô com o objetivo que já tinha. Não é errado querer um brinquedo.",
+      "challenges": [
+        "Aponta para esperar ou escolher agora.",
+        "Diz duas perguntas que o Sam poderia fazer a si próprio.",
+        "Explica o custo de oportunidade de comprar o robô hoje."
+      ]
+    }
+  },
+  "the-lemonade-test": {
+    "book": {
+      "title": "O teste da limonada",
+      "topic": "Empreendedorismo e opiniões",
+      "pages": [
+        {
+          "title": "Uma primeira ideia",
+          "text": "A Lily prepara uma banca de limonada de brincar com o seu adulto. Faz um cartaz, mas poucas pessoas param. Fica desiludida. Em vez de comprar logo mais materiais, decide descobrir em que reparam as pessoas."
+        },
+        {
+          "title": "Uma pergunta melhor",
+          "text": "A Lily pergunta a visitantes de confiança o que os ajudaria a decidir. Com o seu adulto, oferece uma pequena prova e torna o cartaz mais claro. Muda uma coisa de cada vez para observar o resultado. Mais pessoas param para perguntar pela bebida."
+        },
+        {
+          "title": "Tentar outra vez",
+          "text": "A Lily regista o dinheiro recebido e o custo dos ingredientes e copos. As provas também custam dinheiro. Calcula se as vendas cobriram os custos antes de chamar lucro ao resultado. A primeira ideia deu-lhe informação para um teste melhor."
+        }
+      ],
+      "quiz": {
+        "question": "O que fez a Lily quando o plano não funcionou?",
+        "answers": [
+          "Desistiu",
+          "Ignorou os clientes",
+          "Fez perguntas e testou uma ideia"
+        ],
+        "correct": 2
+      }
+    },
+    "note": {
+      "feedback": "A Lily pediu opiniões, testou uma mudança e verificou os custos. Mais visitantes, por si só, não provam que houve lucro.",
+      "challenges": [
+        "Escolhe um modelo de exemplo.",
+        "Lista dois custos de uma banca de brincar.",
+        "Calcula o lucro de 10 copos vendidos a £1 cada, com £6 de custos totais. E se alguns copos forem provas gratuitas?"
+      ]
+    }
+  },
+  "the-team-bridge": {
+    "book": {
+      "title": "A ponte da equipa",
+      "topic": "Liderança e trabalho em equipa",
+      "pages": [
+        {
+          "title": "O desafio",
+          "text": "Quatro amigos têm uma caixa de blocos e um desafio: construir uma ponte que aguente um brinquedo pequeno. Todos pegam nos blocos ao mesmo tempo. A Emma repara que algumas ideias não estão a ser ouvidas. Sugere uma pausa curta."
+        },
+        {
+          "title": "Ouvir primeiro",
+          "text": "A Emma pede a cada amigo que partilhe uma ideia. Um amigo aponta para um desenho em vez de falar. Acordam numa base larga, num meio resistente e em tarefas que todos queiram experimentar. Quando o meio cai, observam-no juntos."
+        },
+        {
+          "title": "Mais fortes juntos",
+          "text": "A equipa acrescenta outro apoio e volta a testar a ponte. Aguenta o brinquedo. A Emma agradece as ideias e o trabalho de todos. Ajudou o grupo a organizar-se, mas o resultado veio de ouvir, testar e partilhar a tarefa."
+        }
+      ],
+      "quiz": {
+        "question": "Como liderou a Emma?",
+        "answers": [
+          "Ouviu",
+          "Ignorou todos",
+          "Trabalhou sozinha"
+        ],
+        "correct": 0
+      }
+    },
+    "note": {
+      "feedback": "A Emma ouviu e ajudou todos a contribuir. Liderar também pode incluir partilhar decisões.",
+      "challenges": [
+        "Aponta para o papel que gostarias de ter.",
+        "Constrói com outra pessoa e escolham um bloco à vez.",
+        "Compara uma decisão partilhada com uma decisão rápida de uma só pessoa. Quando pode cada uma ser adequada?"
+      ]
+    }
+  },
+  "the-brave-mistake": {
+    "book": {
+      "title": "O erro corajoso",
+      "topic": "Aprender com os erros",
+      "pages": [
+        {
+          "title": "Ups!",
+          "text": "O Noah dobra um avião de papel com um adulto. No primeiro voo, o avião cai quase a direito. O Noah fica frustrado e pousa-o na mesa por um momento. Uma pequena pausa ajuda-o a voltar a observar."
+        },
+        {
+          "title": "Observar com atenção",
+          "text": "O Noah repara que uma asa está dobrada para baixo. Endireita-a e mantém as outras partes iguais. Lança do mesmo sítio. Mudar uma só coisa torna mais fácil perceber o que pode ter ajudado."
+        },
+        {
+          "title": "Um novo voo",
+          "text": "No voo seguinte, o avião plana mais longe. O Noah experimenta mais algumas vezes e regista os resultados. Os voos não são todos iguais. Tem informação útil para outro teste, não a prova de que um modelo funciona sempre."
+        }
+      ],
+      "quiz": {
+        "question": "O que ajudou o Noah a melhorar?",
+        "answers": [
+          "Culpar um amigo",
+          "Observar e tentar outra vez",
+          "Esconder o avião"
+        ],
+        "correct": 1
+      }
+    },
+    "note": {
+      "feedback": "O Noah reparou num problema específico e testou uma mudança. Usou informação sobre o que tinha acontecido.",
+      "challenges": [
+        "Aponta para a asa dobrada num desenho.",
+        "Testa uma mudança num avião de papel com um adulto.",
+        "Mantém o mesmo ponto de partida e compara vários voos. O que podes concluir?"
+      ]
+    }
+  },
+  "the-digital-coin": {
+    "book": {
+      "title": "A moeda digital",
+      "topic": "Dinheiro digital e segurança",
+      "pages": [
+        {
+          "title": "Onde está o dinheiro?",
+          "text": "A Lucy vê o pai ou a mãe aproximar um cartão do terminal numa loja. Não são entregues moedas. Pergunta para onde foi o dinheiro. O pai ou a mãe explica que o dinheiro pode estar registado eletronicamente numa conta bancária, além de existir em notas e moedas."
+        },
+        {
+          "title": "Por trás do gesto",
+          "text": "Um cartão de débito pode dar instruções para retirar dinheiro de uma conta. Um cartão de crédito usa dinheiro emprestado que tem de ser devolvido. Uma carteira no telemóvel pode enviar instruções de pagamento de outra forma. O cartão de plástico e o telemóvel são ferramentas, não o dinheiro em si."
+        },
+        {
+          "title": "Confere antes de pagar",
+          "text": "A Lucy e o pai ou a mãe conferem o valor antes de pagar. Depois comparam o recibo com o registo do pagamento. Gastar digitalmente continua a afetar dinheiro real ou emprestado. Um gesto rápido é uma razão para continuar a verificar, não uma forma de obter coisas grátis."
+        }
+      ],
+      "quiz": {
+        "question": "O que deves conferir antes de pagar?",
+        "answers": [
+          "A cor do cartão",
+          "O estado do tempo",
+          "O valor"
+        ],
+        "correct": 2
+      }
+    },
+    "note": {
+      "feedback": "Confere o valor antes de pagar. As despesas digitais afetam dinheiro real ou emprestado.",
+      "challenges": [
+        "Aponta para o valor num recibo de brincar.",
+        "Subtrai um pagamento de £3 de um saldo de £10.",
+        "Compara pagar com um cartão de débito e um de crédito. Explica o que tem de ser devolvido."
+      ]
+    }
+  },
+  "ada-and-the-machine": {
+    "book": {
+      "title": "A Ada e a máquina",
+      "topic": "Biografia: Ada Lovelace",
+      "pages": [
+        {
+          "title": "Uma pensadora curiosa",
+          "text": "A Ada Lovelace nasceu em Londres em 1815. Estudou matemática e interessou-se pela Máquina Analítica proposta por Charles Babbage. Era um projeto de calculadora mecânica programável, não um computador eletrónico moderno."
+        },
+        {
+          "title": "Uma ideia espantosa",
+          "text": "Em 1843, a Ada traduziu um artigo sobre a máquina proposta e acrescentou notas extensas. Incluíam um método com números de Bernoulli. A Máquina Analítica completa não foi construída durante a sua vida. Por isso, as ideias não eram o mesmo que executar um programa numa máquina terminada."
+        },
+        {
+          "title": "Para lá dos números",
+          "text": "A Ada pensou em como os símbolos poderiam representar mais do que números comuns. Imaginou possibilidades ligadas à música. O seu trabalho mostra como o conhecimento matemático e a imaginação ajudam a fazer novas perguntas sobre uma tecnologia. Mais tarde, a computação desenvolveu-se com os contributos de muitas pessoas."
+        }
+      ],
+      "quiz": {
+        "question": "O que tornava especiais as ideias da Ada?",
+        "answers": [
+          "Imaginava novos usos para máquinas",
+          "Construiu um smartphone",
+          "Inventou os computadores portáteis"
+        ],
+        "correct": 0
+      }
+    },
+    "note": {
+      "feedback": "A Ada pensou em usos de uma máquina proposta que iam além da aritmética. A Máquina Analítica completa não foi construída durante a sua vida.",
+      "challenges": [
+        "Desenha algo que uma máquina poderia ajudar-te a criar.",
+        "Descreve a diferença entre uma ideia e uma invenção terminada.",
+        "Explica como uma máquina poderia representar música com símbolos ou números."
+      ]
+    }
+  },
+  "george-and-the-invention": {
+    "book": {
+      "title": "O George e a invenção",
+      "topic": "Biografia: George Stephenson",
+      "pages": [
+        {
+          "title": "Aprender fazendo",
+          "text": "O George Stephenson nasceu em Northumberland em 1781. Aprendeu engenharia através do trabalho prático e ajudou a desenvolver os primeiros caminhos de ferro e locomotivas. Vivia numa época em que muitas pessoas testavam formas de transportar mercadorias e passageiros."
+        },
+        {
+          "title": "Uma ideia ferroviária",
+          "text": "Em 1829, as provas de Rainhill compararam locomotivas para o caminho de ferro entre Liverpool e Manchester. Venceu a Rocket, concebida por Robert Stephenson e construída pela sua empresa. O George era o pai do Robert e um importante engenheiro ferroviário. A conquista envolveu uma equipa e ideias anteriores."
+        },
+        {
+          "title": "Construir sobre ideias",
+          "text": "A Rocket reuniu vários desenvolvimentos úteis de engenharia. Foi novamente alterada à medida que a tecnologia avançava. A história ferroviária não é a de uma pessoa que inventou tudo de uma vez. Os engenheiros aprendem com testes, com o trabalho de outras pessoas e com as necessidades de quem usa um sistema."
+        }
+      ],
+      "quiz": {
+        "question": "O que ajudou a melhorar a tecnologia ferroviária?",
+        "answers": [
+          "Magia",
+          "Testes e engenharia",
+          "Nunca alterar os projetos"
+        ],
+        "correct": 1
+      }
+    },
+    "note": {
+      "feedback": "A engenharia ferroviária desenvolveu-se com o trabalho de muitas pessoas. A Rocket foi concebida por Robert Stephenson e construída pela sua empresa.",
+      "challenges": [
+        "Desenha uma roda ou uma ponte.",
+        "Diz duas coisas que os engenheiros poderiam testar num veículo.",
+        "Explica porque reconhecer várias contribuições é mais rigoroso do que chamar a uma pessoa o inventor de todos os caminhos de ferro."
+      ]
+    }
+  }
+}

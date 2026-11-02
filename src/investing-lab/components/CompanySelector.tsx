@@ -23,7 +23,7 @@ export function CompanySelector({ companies, seriesByCompany, selectedCompanyId,
   const uiLocale = useLocale();
 
   return (
-    <div role="list" aria-label={t("investingLab.companyListLabel")} className="grid grid-cols-2 gap-2xs sm:grid-cols-3">
+    <div role="group" aria-label={t("investingLab.companyListLabel")} className="grid grid-cols-2 gap-2xs sm:grid-cols-3">
       {companies.map((company) => {
         const series = seriesByCompany[company.id] ?? [];
         const price = getCurrentPrice(series);
@@ -32,7 +32,6 @@ export function CompanySelector({ companies, seriesByCompany, selectedCompanyId,
           <button
             key={company.id}
             type="button"
-            role="listitem"
             aria-pressed={isSelected}
             onClick={() => onSelect(company.id)}
             className={[
@@ -40,7 +39,7 @@ export function CompanySelector({ companies, seriesByCompany, selectedCompanyId,
               isSelected ? "border-teal bg-teal/5" : "border-ink/15 hover:border-teal/50",
             ].join(" ")}
           >
-            <span className="block text-xs uppercase tracking-wide text-ink/50">{company.symbol}</span>
+            <span className="block text-xs uppercase tracking-wide text-ink/70">{company.symbol}</span>
             <span className="block truncate text-sm font-medium">{company.name}</span>
             <span className="block text-sm font-bold text-ink">{formatCurrency(price, currencyCode, uiLocale)}</span>
           </button>

@@ -26,7 +26,7 @@ export function HoldingsPanel({ holdings, companies, priceLookup, currencyCode, 
   const uiLocale = useLocale();
 
   if (holdings.length === 0) {
-    return <p className="text-sm text-ink/60">{t("investingLab.noHoldingsYet")}</p>;
+    return <p className="text-sm text-ink/70">{t("investingLab.noHoldingsYet")}</p>;
   }
 
   return (
@@ -97,28 +97,28 @@ function HoldingRow({
     <div className="rounded-md border border-ink/10 bg-cream p-sm">
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-xs uppercase tracking-wide text-ink/50">{symbol}</p>
+          <p className="text-xs uppercase tracking-wide text-ink/70">{symbol}</p>
           <p className="font-medium">{companyName}</p>
         </div>
-        <span className={["text-sm font-medium", isUp ? "text-success" : "text-error"].join(" ")}>
+        <span className={["text-sm font-medium", isUp ? "text-success-text" : "text-error-text"].join(" ")}>
           {isUp ? "▲" : "▼"} {formatCurrency(Math.abs(gainLossAbsolute), currencyCode, uiLocale)} ({Math.abs(gainLossPercent).toFixed(1)}%)
         </span>
       </div>
       <dl className="mt-2xs grid grid-cols-2 gap-x-sm gap-y-3xs text-sm text-ink/70 sm:grid-cols-4">
         <div>
-          <dt className="text-xs text-ink/50">{t("investingLab.sharesLabel")}</dt>
+          <dt className="text-xs text-ink/70">{t("investingLab.sharesLabel")}</dt>
           <dd>{shares}</dd>
         </div>
         <div>
-          <dt className="text-xs text-ink/50">{t("investingLab.averagePriceLabel")}</dt>
+          <dt className="text-xs text-ink/70">{t("investingLab.averagePriceLabel")}</dt>
           <dd>{formatCurrency(averagePrice, currencyCode, uiLocale)}</dd>
         </div>
         <div>
-          <dt className="text-xs text-ink/50">{t("investingLab.currentPriceLabel")}</dt>
+          <dt className="text-xs text-ink/70">{t("investingLab.currentPriceLabel")}</dt>
           <dd>{formatCurrency(currentPrice, currencyCode, uiLocale)}</dd>
         </div>
         <div>
-          <dt className="text-xs text-ink/50">{t("investingLab.currentValueLabel")}</dt>
+          <dt className="text-xs text-ink/70">{t("investingLab.currentValueLabel")}</dt>
           <dd className="font-medium text-ink">{formatCurrency(currentValue, currencyCode, uiLocale)}</dd>
         </div>
       </dl>
@@ -150,7 +150,7 @@ function HoldingRow({
               setSellInput("");
             }
           }}
-          className="min-h-touch-min-child rounded-sm border-2 border-ink/20 px-sm py-2xs text-sm font-medium text-ink/70 hover:border-error hover:text-error"
+          className="min-h-touch-min-child rounded-sm border-2 border-ink/20 px-sm py-2xs text-sm font-medium text-ink/70 hover:border-error hover:text-error-text"
         >
           {t("investingLab.sellButton")}
         </button>

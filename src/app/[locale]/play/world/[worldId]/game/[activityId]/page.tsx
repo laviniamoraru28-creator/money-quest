@@ -13,21 +13,21 @@ export default function GamePage() {
   const t = useTranslations();
   const { state, isLoaded, completeActivity } = useLocalProgress();
 
-  if (!isLoaded) return <div className="grid min-h-screen place-items-center bg-fog text-ink/60">{t("common.loading")}</div>;
+  if (!isLoaded) return <div className="grid min-h-screen place-items-center bg-fog text-ink/70">{t("common.loading")}</div>;
 
   const parsed = parseGameActivityId(params.activityId);
   const config = parsed ? getGameByKey(parsed.key, t) : undefined;
 
   if (!config || !parsed || !state.ageBand) {
     return (
-      <div className="grid min-h-screen place-items-center bg-fog px-sm text-center">
+      <main id="main-content" tabIndex={-1} className="grid min-h-screen place-items-center bg-fog px-sm text-center">
         <div>
           <p className="text-base text-ink/70">{t("play.gameNotAvailable")}</p>
-          <Link href={`/play/world/${params.worldId}`} className="mt-sm inline-block text-teal hover:underline">
+          <Link href={`/play/world/${params.worldId}`} className="mt-sm inline-block text-teal-text hover:underline">
             {t("play.backToTheWorld")}
           </Link>
         </div>
-      </div>
+      </main>
     );
   }
 
@@ -39,11 +39,11 @@ export default function GamePage() {
 
   return (
     <div className="min-h-screen bg-fog px-sm py-lg">
-      <main className="mx-auto max-w-[700px]">
-        <p className="text-xs font-medium uppercase tracking-wide text-ink/50">
+      <main id="main-content" tabIndex={-1} className="mx-auto max-w-[700px]">
+        <p className="text-xs font-medium uppercase tracking-wide text-ink/70">
           {t("play.yourLevelLabel", { level: t(getLevelLabelKey(state.ageBand)) })}
         </p>
-        <GameShell
+        <GameShell key={params.activityId}
           config={config}
           ageBand={parsed.ageBand}
           currencyCode={state.currencyCode}

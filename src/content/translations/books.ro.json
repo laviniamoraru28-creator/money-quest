@@ -1,0 +1,1974 @@
+{
+  "the-little-compass-and-the-money-choices": {
+    "title": "Mica busolă și alegerile legate de bani",
+    "subtitle": "O poveste din Coin Cove despre cheltuieli, economisire și grijă față de ceilalți",
+    "audience": "Explorer · 6-8 ani · Citește singur sau împreună cu un adult",
+    "description": "Însoțește-o pe ghida noastră și pe cățelul ei în opt capitole despre o bărcuță, o piață plină de tentații și un plan care se poate schimba.",
+    "coverAlt": "Fetița care ne ghidează și cățelul ei alb cu maro privesc o bărcuță din lemn la o tarabă însorită din Coin Cove.",
+    "chapters": [
+      {
+        "title": "O bărcuță în vitrină",
+        "paragraphs": [
+          "Emma și cățelul ei, Max, se opresc la un magazin. Văd o bărcuță din lemn. Are o pânză mov.",
+          "„Mi-ar plăcea bărcuța aceea”, spune Emma. „Costă șase lire sterline”, spune vânzătorul. Emma își deschide poșetuța.",
+          "Acasă, un adult o ajută să numere. Emma are patru monede de câte o liră. Bărcuța costă șase lire. Îi mai trebuie două lire.",
+          "Emma este dezamăgită. Desenează bărcuța. „Pot să aștept, să aleg altă jucărie sau să îmi păstrez banii”, spune ea. Nu trebuie să se grăbească."
+        ],
+        "idea": "Prețul arată cât costă un lucru. Faptul că ne dorim ceva nu înseamnă că trebuie să îl cumpărăm acum.",
+        "question": "Bărcuța costă £6. Fetița are £4. Ce ar putea face?",
+        "choices": [
+          {
+            "text": "Să ia bărcuța fără să plătească",
+            "feedback": "Vânzătorul trebuie să fie de acord cu vânzarea. Ea poate lăsa bărcuța acolo și poate face un plan.",
+            "correct": false
+          },
+          {
+            "text": "Să aștepte și să facă un plan",
+            "feedback": "Da. Așteptarea îi oferă timp să se gândească. Poate și să își aleagă un alt obiectiv.",
+            "correct": true
+          },
+          {
+            "text": "Să se prefacă că patru lire înseamnă șase lire",
+            "feedback": "Schimbarea cuvintelor nu schimbă suma. Are £4 și îi mai trebuie £2 pentru această bărcuță.",
+            "correct": false
+          }
+        ],
+        "activity": "Desenează un lucru pe care și l-ar dori un personaj imaginar. Poți și să arăți spre un obiect. Decide dacă personajul ar cumpăra acum, ar aștepta sau ar alege altceva."
+      },
+      {
+        "title": "Bani și moduri de a plăti",
+        "paragraphs": [
+          "Emma merge la brutărie cu adultul care o însoțește. Au nevoie de pâine pentru prânz. Cineva plătește cu monede. Altcineva apropie un card de aparat.",
+          "„Cardul face bani?”, întreabă Emma. „Nu”, spune adultul. „Cardul meu de debit mă ajută să plătesc din banii aflați în contul meu bancar.”",
+          "Monedele și bancnotele sunt numerar. Un cont ține evidența banilor la bancă. Un card sau un telefon poate ajuta pe cineva să plătească. Este un mijloc de plată.",
+          "„Și când apropiem cardul de aparat tot cheltuim bani”, spune adultul. Verifică prețul înainte să plătească. Max adulmecă sacoșa. Pare mai interesat de pâine!"
+        ],
+        "idea": "Monedele și bancnotele sunt numerar. Un card de debit sau un telefon folosit la plată ne ajută să folosim bani din cont. Un card de credit implică bani împrumutați, care trebuie dați înapoi.",
+        "question": "Ce se întâmplă când un adult plătește cu un card de debit?",
+        "choices": [
+          {
+            "text": "Cardul creează bani noi",
+            "feedback": "Un card nu creează bani. Este un mijloc folosit pentru a face o plată.",
+            "correct": false
+          },
+          {
+            "text": "Cumpărăturile devin gratuite",
+            "feedback": "Prețul trebuie plătit chiar dacă nu se dau monede din mână în mână.",
+            "correct": false
+          },
+          {
+            "text": "Se plătesc bani din contul său",
+            "feedback": "Da. Cardul de debit ajută la plata dintr-un cont. Suma contează în continuare.",
+            "correct": true
+          }
+        ],
+        "activity": "Găsește imaginile cu o monedă, o bancnotă, un card și un telefon în Coin Cove. Arată numerarul, apoi un mijloc de plată. Folosește imagini, nu carduri reale sau date de cont."
+      },
+      {
+        "title": "Lista făcută înainte de piață",
+        "paragraphs": [
+          "Înainte de cumpărături, Emma ajută la pregătirea unei liste. Astăzi au nevoie de pâine, legume și săpun. Max așteaptă lângă ușă. Și-ar dori o plimbare.",
+          "„Mai întâi planificăm lucrurile de care avem nevoie”, spune adultul. Mâncarea ajută familia să se hrănească. Săpunul îi ajută să se spele. Bărcuța poate aștepta.",
+          "Emma vede o umbrelă. „Este o nevoie?”, întreabă ea. „Depinde”, spune adultul. „Cineva poate avea nevoie de ea ca să nu se ude.”",
+          "Emma trece bărcuța pe lista lucrurilor care pot aștepta. Încă îi place. Este în regulă să îți dorești o jucărie. Când ajung acasă, Max primește plimbarea dorită."
+        ],
+        "idea": "Nevoile ne ajută să trăim și să fim bine. Dorințele pot aduce bucurie. Lucrurile de care are nevoie cineva depind de situația sa.",
+        "question": "În această poveste, ce are prioritate pe lista de cumpărături a familiei?",
+        "choices": [
+          {
+            "text": "Mâncarea necesară pentru prânz",
+            "feedback": "Da. Familia are nevoie de mâncare astăzi. Bărcuța poate aștepta.",
+            "correct": true
+          },
+          {
+            "text": "Toate jucăriile din piață",
+            "feedback": "Jucăriile pot fi plăcute, dar cumpărarea tuturor ar lăsa mai puțini bani pentru nevoile familiei.",
+            "correct": false
+          },
+          {
+            "text": "Doar lucrurile cu ambalaje colorate",
+            "feedback": "Ambalajul ne poate atrage atenția. Nu ne spune de ce are nevoie familia.",
+            "correct": false
+          }
+        ],
+        "activity": "Folosește cartonașe inventate pentru un personaj într-o zi ploioasă. Ce lucruri sunt importante astăzi? Ce ar putea aștepta? Nu trebuie să discuți despre banii familiei tale."
+      },
+      {
+        "title": "Titirezul strălucitor",
+        "paragraphs": [
+          "În piață, un titirez verde îi atrage atenția Emmei. Se învârte fără oprire. „Costă două lire”, spune vânzătorul.",
+          "Emma are patru lire. Dacă dă două lire pe titirez, îi mai rămân două lire. Bărcuța va costa în continuare șase lire.",
+          "„Îmi plac amândouă”, spune Emma. „Poți alege ce contează astăzi”, spune adultul. „Nu poți cheltui aceiași bani de două ori.”",
+          "Se așază pe o bancă împreună cu Max. Emma își ia timp să se gândească. „Astăzi voi păstra banii pentru bărcuță”, spune ea. Poate alege din nou altădată."
+        ],
+        "idea": "Banii cheltuiți pe un lucru nu mai sunt disponibili pentru altul. O pauză ne poate ajuta să alegem.",
+        "question": "Are £4 și cheltuiește £2 pe titirez. Cât îi rămâne?",
+        "choices": [
+          {
+            "text": "£6",
+            "feedback": "Când cheltuiește, suma pe care o are scade. Încearcă să muți două jetoane dintr-un grup de patru.",
+            "correct": false
+          },
+          {
+            "text": "£2",
+            "feedback": "Da. Din patru lire scădem două și rămân două lire. Poate compara această alegere cu obiectivul său.",
+            "correct": true
+          },
+          {
+            "text": "£4",
+            "feedback": "La început avea £4, dar £2 ar merge la vânzător. Numără cât rămâne.",
+            "correct": false
+          }
+        ],
+        "activity": "Folosește patru jetoane ca lire imaginare. Mută două la un magazin de jucărie. Numără ce rămâne. Poți arăta, desena sau folosi un mijloc de comunicare."
+      },
+      {
+        "title": "Un plan care se poate schimba",
+        "paragraphs": [
+          "Emma desenează șase cercuri în caiet. Fiecare cerc reprezintă o liră. Colorează patru cercuri pentru cele patru lire pe care le are.",
+          "Două cercuri sunt goale. Dacă mai devine disponibilă o liră pentru economisire, poate colora încă un cerc. Atunci i-ar mai trebui o liră.",
+          "„Nu știm când vor mai fi bani disponibili”, spune adultul. Nu toate familiile oferă bani de buzunar. Un plan se poate schimba.",
+          "Cât așteaptă, Emma face o bărcuță din hârtie. Max o privește de pe păturica sa. Și o bărcuță din hârtie poate fi distractivă. Se poate bucura de ceva fără să cumpere."
+        ],
+        "idea": "Un obiectiv de economisire are o sumă-țintă și o sumă de pornire. Planurile se pot schimba. Nu este mereu posibil să ai bani de pus deoparte.",
+        "question": "Ținta este £6 și ea are £4. Cât mai trebuie?",
+        "choices": [
+          {
+            "text": "£10",
+            "feedback": "Dacă adunăm ținta cu suma de pornire obținem zece, dar noi căutăm diferența dintre ele.",
+            "correct": false
+          },
+          {
+            "text": "£1",
+            "feedback": "Cu încă o liră ar avea cinci. Bărcuța costă șase. Mai numără un pas.",
+            "correct": false
+          },
+          {
+            "text": "£2",
+            "feedback": "Da. Patru plus două fac șase. Momentul depinde de disponibilitatea altor bani.",
+            "correct": true
+          }
+        ],
+        "activity": "Desenează șase cercuri pentru obiectivul imaginar al bărcuței. Colorează patru. Numără cele două cercuri goale. Nu ai nevoie de bani reali sau de informații personale."
+      },
+      {
+        "title": "Afișul care spunea să te grăbești",
+        "paragraphs": [
+          "Un afiș colorat cu jucării spune „Grăbește-te!” Emma este încântată. Vaporul din imagine pare uriaș. Întinde mâna spre poșetuță, apoi se oprește.",
+          "„O reclamă încearcă să ne facă să vrem să cumpărăm”, spune adultul. „Putem verifica prețul și ce se află în cutie.”",
+          "Jucăria reală este mai mică decât în imagine. Emma întreabă dacă are nevoie de baterii. Adultul o ajută să citească informațiile de pe cutie. Întrebările o pot ajuta să aleagă.",
+          "Emma face un pas înapoi cu Max. „Mai întâi mă voi gândi”, spune ea. Poate cumpăra în altă zi sau poate să nu cumpere nimic. Afișul nu trebuie să decidă în locul ei."
+        ],
+        "idea": "Reclamele încearcă să încurajeze cumpărarea. Verifică prețul și detaliile utile. Poți lua o pauză sau poți întreba un adult de încredere.",
+        "question": "O reclamă spune „Grăbește-te!” Ce poate face fetița?",
+        "choices": [
+          {
+            "text": "Să se oprească și să verifice detaliile",
+            "feedback": "Da. Poate întreba despre preț, mărime și costuri suplimentare înainte să aleagă.",
+            "correct": true
+          },
+          {
+            "text": "Să cumpere înainte să vadă prețul",
+            "feedback": "Entuziasmul nu îi spune cât costă. Se poate opri să verifice mai întâi.",
+            "correct": false
+          },
+          {
+            "text": "Să creadă că imaginea dovedește că toată lumea are nevoie de jucărie",
+            "feedback": "Oamenii au nevoi diferite. O imagine veselă nu dovedește că toată lumea ar trebui să cumpere ceva.",
+            "correct": false
+          }
+        ],
+        "activity": "Inventează un afiș pentru o jucărie imaginară. Apoi arată trei lucruri pe care cumpărătorul ar trebui să le verifice: prețul, ce este inclus și dacă se potrivește nevoilor sale."
+      },
+      {
+        "title": "Un gest bun care nu a costat nimic",
+        "paragraphs": [
+          "În port, vântul împrăștie hârtiile curate de picnic ale unui vecin. Emma întreabă adultul dacă pot ajuta. Împreună strâng hârtiile din apropiere.",
+          "„Mulțumesc”, spune vecinul. Emma zâmbește. A ajutat fără să cheltuiască bani. Mai târziu desenează ceva pentru un prieten care se simte singur.",
+          "„Poți arăta că îți pasă ajutând, ascultând sau lăsând și pe altcineva să participe”, spune adultul. „A da bani este o alegere. Nu trebuie să dai banii de care ai nevoie.”",
+          "Emma își dorește în continuare bărcuța. Poate avea grijă de acest obiectiv și de ceilalți oameni. Citește lângă Max. Unele momente frumoase ale zilei nu costă nimic."
+        ],
+        "idea": "Bunătatea poate însemna timp, atenție sau ajutor. Donarea banilor este o alegere, nu un test al bunătății cuiva.",
+        "question": "Cum poți arăta bunătate fără să cheltuiești bani?",
+        "choices": [
+          {
+            "text": "Dând unui străin datele contului tău",
+            "feedback": "Datele contului sunt private. Cere ajutorul unui adult de încredere când cineva solicită bani sau informații personale.",
+            "correct": false
+          },
+          {
+            "text": "Ascultând un prieten care își dorește companie",
+            "feedback": "Da. Ascultarea și timpul petrecut împreună pot arăta grijă fără să cumperi ceva.",
+            "correct": true
+          },
+          {
+            "text": "Cheltuind fiecare liră ca să nu dezamăgești pe nimeni",
+            "feedback": "Nu trebuie să cheltuiești bani ca să dovedești că îți pasă. Contează și nevoile și limitele tale.",
+            "correct": false
+          }
+        ],
+        "activity": "Alege un gest bun pentru un personaj imaginar: să asculte, să lase și pe altcineva să participe sau să ajute la o sarcină sigură. Poți arăta alegerea în loc să o spui."
+      },
+      {
+        "title": "Alegerea din port",
+        "paragraphs": [
+          "Mai târziu, Emma are șase lire disponibile pentru bărcuță. Adultul este de acord să le folosească pentru o jucărie. Se întorc la magazin.",
+          "Bărcuța costă tot șase lire. Emma verifică pânza. Vânzătorul îi explică cum să o folosească în siguranță. „Tot această bărcuță o aleg”, spune Emma.",
+          "Plătește șase lire. Nu trebuie să primească rest, fiindcă dă exact prețul cerut. Acei bani sunt acum cheltuiți. Nu îi poate folosi ca să cumpere altceva.",
+          "Acasă, bărcuța plutește într-o tavă puțin adâncă. Max privește de pe marginea uscată. Emma ar fi putut și să păstreze banii. Important a fost să se gândească și să aleagă."
+        ],
+        "idea": "Verifică prețul, gândește-te la ce contează și alege. Dacă ai economisit suma dorită, nu înseamnă că trebuie să cumperi.",
+        "question": "După ce economisește suficient, este obligată să cumpere bărcuța?",
+        "choices": [
+          {
+            "text": "Da, un plan de economisire nu se poate schimba",
+            "feedback": "Un plan este un sprijin. Se poate schimba când situația sau preferințele se schimbă.",
+            "correct": false
+          },
+          {
+            "text": "Da, altfel economisirea nu a avut rost",
+            "feedback": "Banii păstrați sunt încă disponibili pentru alt scop permis. Se poate răzgândi.",
+            "correct": false
+          },
+          {
+            "text": "Nu, poate verifica și alege din nou",
+            "feedback": "Da. Poate cumpăra, poate păstra banii sau poate alege alt obiectiv cu ajutorul adultului.",
+            "correct": true
+          }
+        ],
+        "activity": "Alege propriul final. Deseneaz-o pe fetiță cumpărând bărcuța, păstrând banii sau făcând încă o bărcuță din hârtie. Explică arătând, desenând, tastând sau vorbind."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Preț",
+        "meaning": "Cât costă un lucru."
+      },
+      {
+        "term": "Numerar",
+        "meaning": "Bani sub formă de monede și bancnote."
+      },
+      {
+        "term": "Cont",
+        "meaning": "O evidență a banilor ținuți la o bancă sau la un furnizor asemănător."
+      },
+      {
+        "term": "Buget",
+        "meaning": "Un plan pentru banii disponibili și felul în care vor fi folosiți."
+      },
+      {
+        "term": "Economisire",
+        "meaning": "Păstrarea banilor pentru mai târziu, în loc să îi cheltuiești acum."
+      },
+      {
+        "term": "Reclamă",
+        "meaning": "Un mesaj creat pentru a atrage interesul pentru un produs sau un serviciu."
+      }
+    ]
+  },
+  "the-garden-everyone-could-enter": {
+    "title": "Grădina deschisă tuturor",
+    "subtitle": "O poveste Money Quest despre ascultare, coordonare și apartenență",
+    "audience": "Builder · 9-11 ani · Șase capitole de citit în ritmul tău",
+    "description": "Un proiect de grădină se oprește când echipa descoperă că planul ei entuziasmant a lăsat pe cineva pe dinafară.",
+    "coverAlt": "Fetița Money Quest și cățelul ei într-o grădină colorată și primitoare.",
+    "chapters": [
+      {
+        "title": "Planul celor mai puternice voci",
+        "paragraphs": [
+          "Grădina comunității avea un colț nefolosit. La întâlnirea de sâmbătă, trei copii au propus un spațiu pentru citit. Fetița care ne ghidează s-a oferit să ajute la organizare. Cățelul ei s-a așezat sub masă, iar grupul a întins hârtie pe blatul din lemn.",
+          "„O platformă înaltă!”, a spus un copil. „O scară secretă!”, a spus altul. Ghida a început să deseneze. Toți cei care vorbeau păreau încântați. A crezut că grupul ajunsese la un acord, până când a observat un copil de la capătul mesei care nu vorbise.",
+          "Copilul a arătat spre scară, apoi a dat din cap că nu. Lângă el se afla o tablă de comunicare. Ghida s-a oprit din desenat. O discuție zgomotoasă nu le oferise tuturor o modalitate de a participa. A mutat foaia unde toți o puteau vedea și a întrebat dacă ar ajuta imaginile sau mai mult timp de gândire.",
+          "Grupul făcuse un început, dar încă nu avea un plan comun. Ghida a lăsat creionul jos. Prima sa decizie utilă de coordonare a fost să facă loc unui alt mod de a răspunde."
+        ],
+        "idea": "Pentru a ajunge la un acord, oamenii au nevoie de moduri accesibile de a contribui. Tăcerea nu înseamnă automat da.",
+        "question": "Ce ar trebui să facă ghida înainte să considere planul aprobat?",
+        "choices": [
+          {
+            "text": "Să verifice dacă toți au un mod de a răspunde",
+            "feedback": "Da. Arătatul, scrisul, imaginile și timpul de gândire pot face participarea posibilă.",
+            "correct": true
+          },
+          {
+            "text": "Să ia în calcul doar propunerile spuse cel mai tare",
+            "feedback": "Volumul vocii nu arată ale cui nevoi contează. Grupul trebuie să afle și celelalte contribuții.",
+            "correct": false
+          },
+          {
+            "text": "Să presupună că tăcerea înseamnă acord",
+            "feedback": "O persoană poate avea nevoie de alt mod de a răspunde. Întreabă fără să o presezi să vorbească.",
+            "correct": false
+          }
+        ],
+        "activity": "Creează trei cartonașe pentru răspuns: da, nu și am nevoie de mai mult timp. Le poți folosi la o întâlnire imaginară a unei echipe."
+      },
+      {
+        "title": "Aleea până la locul de odihnă",
+        "paragraphs": [
+          "Următoarea întâlnire a început cu o plimbare în jurul colțului nefolosit. A venit și un voluntar al grădinii. În loc să întrebe ce proiect părea cel mai interesant, ghida a întrebat cum ar putea cineva să intre, să se așeze și să iasă din nou.",
+          "Scara a părut brusc mai puțin utilă. Un bunic care folosea un dispozitiv de sprijin pentru mers ar putea întâmpina dificultăți. Un copil care își dorea un loc liniștit poate nu ar fi vrut să urce. Altcineva s-ar putea bucura de spațiu stând în picioare sau ar avea nevoie de loc lângă un scaun.",
+          "Un copil a desenat o alee lată pe foaie. Altul a propus un loc de șezut la nivelul solului. Copilul cu tabla de comunicare a arătat un simbol pentru liniște, apoi un copac. Voluntarul a explicat că adulții trebuiau să verifice accesul, materialele și siguranța înainte să construiască ceva.",
+          "Ghida a notat întrebări, în loc să promită că un desen va rezolva toate problemele. Îi puteau întreba pe viitorii utilizatori ce li se potrivea. O grădină primitoare avea nevoie de mai mult decât un afiș care spunea că toți sunt bineveniți."
+        ],
+        "idea": "Întreabă cum vor folosi oamenii un spațiu comun. Nu presupune nevoile tuturor pornind de la experiența unei singure persoane.",
+        "question": "Cum își poate îmbunătăți echipa proiectul?",
+        "choices": [
+          {
+            "text": "Alegând cel mai înalt proiect, fiindcă arată impresionant",
+            "feedback": "Un desen impresionant nu arată dacă oamenii pot folosi spațiul.",
+            "correct": false
+          },
+          {
+            "text": "Întrebând utilizatorii și cerând unui adult să verifice siguranța și accesul",
+            "feedback": "Da. Utilizatorii reali și verificările potrivite pot scoate la iveală bariere pe care echipa nu le-a observat.",
+            "correct": true
+          },
+          {
+            "text": "Promițând că același scaun se va potrivi tuturor",
+            "feedback": "Nevoile oamenilor diferă. Testează ideea și continuă să asculți, în loc să promiți o soluție universală.",
+            "correct": false
+          }
+        ],
+        "activity": "Schițează un colț de citit imaginar. Arată un traseu de intrare, un loc de odihnă și o variantă liniștită. Notează o întrebare pentru cineva care l-ar putea folosi."
+      },
+      {
+        "title": "Două idei bune",
+        "paragraphs": [
+          "Echipa avea acum două proiecte posibile. Unul folosea perne colorate. Celălalt avea locuri de șezut simple, din lemn. Copiii care le propuseseră sperau fiecare că ideea sa va fi aleasă. Discuția s-a încordat.",
+          "„Tu nu asculți niciodată”, a spus un copil. Ghida a simțit că i se încordează și ei umerii. Voia să oprească cearta, dar alegerea rapidă a variantei sale preferate nu ar fi explicat decizia. A cerut o pauză. Nimeni nu trebuia să răspundă imediat.",
+          "Când grupul s-a întors, a invitat fiecare copil să explice ce i-ar ajuta proiectul său pe oameni să facă. Pernele ofereau confort. Lemnul putea fi mai ușor de păstrat uscat. Acestea erau motive pe care le puteau compara, nu dovezi că un copil era mai bun decât altul.",
+          "Voluntarul a propus testarea unui aranjament mic înainte de alegerea finală. Grupul putea afla ce materiale se potriveau spațiului exterior. Un dezacord nu trebuia să oprească proiectul. Îi putea ajuta să observe ce aveau de verificat."
+        ],
+        "idea": "Compară motivele și criteriile comune. Un dezacord despre o idee nu este o judecată asupra unei persoane.",
+        "question": "Ce întrebare ajută grupul să compare corect proiectele?",
+        "choices": [
+          {
+            "text": "Cine este cel mai popular?",
+            "feedback": "Popularitatea nu arată dacă un scaun este practic sau confortabil.",
+            "correct": false
+          },
+          {
+            "text": "Cine a vorbit primul?",
+            "feedback": "Faptul că cineva a vorbit primul nu arată dacă proiectul răspunde nevoilor grupului.",
+            "correct": false
+          },
+          {
+            "text": "Cum răspunde fiecare proiect nevoilor asupra cărora am căzut de acord?",
+            "feedback": "Da. Criteriile comune păstrează atenția asupra sarcinii, nu asupra statutului unei persoane.",
+            "correct": true
+          }
+        ],
+        "activity": "Compară două proiecte imaginare folosind aceleași întrebări: se poate folosi, este confortabil și se potrivește afară? Îți poți nota alegerile prin semne sau imagini."
+      },
+      {
+        "title": "Sarcini pe care oamenii le puteau alege",
+        "paragraphs": [
+          "Erau multe de făcut înainte de probă. Ghida a început să împartă sarcini, apoi s-a oprit. Îi invitase pe oameni în proiect, dar nu îi întrebase cu ce voiau să contribuie.",
+          "A făcut un mic panou cu sarcini: desenează indicatoare, numără materiale, testează aranjamentul, notează feedbackul. Voluntarul grădinii a păstrat sarcinile adulților, inclusiv verificarea uneltelor și supravegherea construcției. Copiii puteau alege un rol potrivit, puteau lucra împreună cu cineva sau puteau lua o pauză.",
+          "Un copil voia să scrie, dar nu să citească în fața grupului. Altul prefera să aranjeze etichete cu imagini. Cineva care fusese tăcut în timpul întâlnirii a observat o greșeală în numărul materialelor. Ghida i-a mulțumit și a corectat lista.",
+          "Ea ajuta în continuare la urmărirea proiectului. Coordonarea nu însemna să facă fiecare sarcină sau să decidă cât de capabili sunt ceilalți. Însemna să clarifice pasul următor și să verifice dacă echipa avea ce îi trebuia. Contribuția cățelului a fost să stea lângă adultul său cât timp zona de lucru era aglomerată."
+        ],
+        "idea": "Oferă alegeri care contează și responsabilități clare. Sarcinile de siguranță revin adulților potriviți.",
+        "question": "Un copil vrea să ajute, dar nu vrea să vorbească în fața grupului. Ce se potrivește?",
+        "choices": [
+          {
+            "text": "Oferă-i un rol util de desenare sau notare",
+            "feedback": "Da. O contribuție poate conta fără să implice vorbitul în public.",
+            "correct": true
+          },
+          {
+            "text": "Spune-i că nu poate face parte din echipă",
+            "feedback": "Excluderea cuiva fiindcă nu vorbește elimină moduri utile prin care ar putea contribui.",
+            "correct": false
+          },
+          {
+            "text": "Obligă-l să vorbească pentru a demonstra că are încredere",
+            "feedback": "Participarea nu ar trebui să depindă de vorbitul impus. Întreabă ce sprijin sau ce rol i se potrivește.",
+            "correct": false
+          }
+        ],
+        "activity": "Creează un panou cu sarcini pentru un proiect imaginar de grup. Include un rol liniștit, un rol împărțit cu cineva și o modalitate clară de a cere ajutor."
+      },
+      {
+        "title": "Indicatorul pe care nimeni nu îl putea citi",
+        "paragraphs": [
+          "Colțul de probă era gata. Echipa muncise mult la un indicator pictat. Literele ondulate se încolăceau printre frunze desenate. De aproape arăta frumos. De pe alee, cuvintele erau greu de citit.",
+          "Primul gând al ghidei a fost că irosiseră o după-amiază. Apoi un vizitator a întrebat unde era colțul de citit. Echipa avea o dovadă utilă: indicatorul nu își făcea treaba pentru acel vizitator. Nu trebuiau să dea vina pe copilul care îl pictase.",
+          "Împreună au încercat litere mai mari și mai clare și o imagine simplă cu o carte. Au pus noul indicator într-un loc vizibil, fără să blocheze aleea. Vizitatorii puteau și să ceară unui voluntar indicații.",
+          "Frunzele pictate inițial au devenit un chenar în altă parte. Copilul care le pictase a ajutat la alegerea noului aranjament. Schimbarea unei lucrări nu ștergea grija investită în ea. Echipa învăța de ce avea nevoie spațiul, prin câte o probă pe rând."
+        ],
+        "idea": "Feedbackul poate ajuta la îmbunătățirea unui proiect. Descrie problema fără să umilești persoana care a realizat lucrarea.",
+        "question": "Care feedback este util?",
+        "choices": [
+          {
+            "text": "Nu te pricepi să faci indicatoare",
+            "feedback": "Această formulare etichetează persoana și nu oferă un pas următor util.",
+            "correct": false
+          },
+          {
+            "text": "Literele se citesc greu de pe alee; hai să încercăm unele mai mari",
+            "feedback": "Da. Aceasta descrie o barieră observabilă și o schimbare pe care grupul o poate încerca.",
+            "correct": true
+          },
+          {
+            "text": "Nu schimba niciodată o lucrare după ce ai făcut-o",
+            "feedback": "Testarea poate arăta probleme. Schimbarea unui proiect poate face parte din transformarea lui într-un lucru util.",
+            "correct": false
+          }
+        ],
+        "activity": "Desenează un indicator imaginar. Privește-l de mai departe. Ce ar putea face mesajul mai ușor de înțeles?"
+      },
+      {
+        "title": "Un colț care continua să se schimbe",
+        "paragraphs": [
+          "În ziua deschiderii, un vizitator s-a așezat și a citit în liniște. Altul a stat în picioare lângă raft. O familie a întrebat dacă ar putea fi adăugat mai târziu un loc la umbră. Ghida a notat propunerea pe foaia de feedback.",
+          "Colțul nu îndeplinea toate preferințele deodată. Grupul avea un punct practic de pornire, iar adulții urmau să verifice în continuare accesul și siguranța. O cutie cu imagini oferea alt mod de a lăsa o propunere. Nimeni nu trebuia să își spună numele.",
+          "La ultima întâlnire, ghida a mulțumit echipei pentru contribuții concrete: observarea problemei cu aleea, testarea indicatorului și verificarea listei. Proiectul se schimbase fiindcă oamenii observaseră lucruri diferite. Recunoașterea tuturor contribuțiilor ajuta la prezentarea corectă a poveștii.",
+          "La plecare, fetița și-a atins insigna cu busolă. La început își dorise să conducă un proiect. La final avea întrebări mai bune: Cine nu a avut ocazia să răspundă? Ce presupunem? Ce ar trebui să testăm în continuare? Grădina avea să crească în continuare. La fel și capacitatea echipei de a asculta."
+        ],
+        "idea": "Coordonarea include ascultarea, recunoașterea contribuțiilor și revenirea la întrebările fără răspuns.",
+        "question": "Care este un pas util după deschiderea colțului de citit?",
+        "choices": [
+          {
+            "text": "Să ignori feedbackul fiindcă proiectul s-a încheiat",
+            "feedback": "Un spațiu poate avea nevoie de ajustări pe măsură ce oamenii îl folosesc. Feedbackul rămâne util.",
+            "correct": false
+          },
+          {
+            "text": "Să îi permiți doar organizatorului să facă propuneri",
+            "feedback": "Cei care folosesc spațiul pot observa lucruri pe care organizatorul nu le vede.",
+            "correct": false
+          },
+          {
+            "text": "Să continui să aduni feedback accesibil și să verifici spațiul",
+            "feedback": "Da. O primă versiune utilizabilă se poate îmbunătăți prin ascultare și verificări potrivite.",
+            "correct": true
+          }
+        ],
+        "activity": "Alege o întrebare despre coordonare din ultimul capitol. Arată cum ar putea să o folosească o echipă imaginară. Poți scrie, desena, arăta sau vorbi."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Coordonare",
+        "meaning": "Sprijinirea unui grup pentru a lucra către un scop comun."
+      },
+      {
+        "term": "Acces",
+        "meaning": "Posibilitatea de a ajunge la ceva, de a-l înțelege și de a-l folosi."
+      },
+      {
+        "term": "Feedback",
+        "meaning": "Informații despre ce funcționează și ce s-ar putea schimba."
+      },
+      {
+        "term": "Criterii",
+        "meaning": "Puncte convenite împreună, folosite la compararea alegerilor."
+      }
+    ]
+  },
+  "the-market-town-notebook": {
+    "title": "Caietul din Market Town",
+    "subtitle": "O poveste Money Quest despre antreprenoriat, dovezi și decizii oneste",
+    "audience": "Strategist · 12-14 ani · Șase capitole cu un exemplu de afacere explicat pas cu pas",
+    "description": "Un mic proiect cu semne de carte arată de ce vânzările, profitul, corectitudinea și dovezile sunt părți diferite ale unei decizii de afaceri.",
+    "coverAlt": "Fetița Money Quest și cățelul ei explorează un oraș comercial colorat.",
+    "chapters": [
+      {
+        "title": "O idee este un punct de pornire",
+        "paragraphs": [
+          "La un târg comunitar supravegheat din Market Town, echipa ghidei voia să încerce un mic proiect: semne de carte lucrate manual. Un membru al echipei iubea desenul. Altuia îi plăceau numerele. Un al treilea a pus întrebarea care le-a întrerupt entuziasmul: „Oare le vrea cineva cu adevărat?”",
+          "Își admirau atât de mult propriile modele, încât consideraseră interesul celorlalți sigur. Cu permisiunea unui organizator adult, au arătat două modele de probă la întâlnirea de pregătire. Au întrebat oamenii ce preferau și ce ar face un semn de carte util. Au înregistrat răspunsurile prin liniuțe anonime, fără nume sau date de contact.",
+          "Mai multor oameni le-au plăcut culorile vii. Un cititor voia o formă mai mică, potrivită pentru o carte de buzunar. Altul a spus că folosea deja o bucată de hârtie rămasă. Echipa a notat atât răspunsurile pozitive, cât și pe cele negative.",
+          "Caietul conținea acum dovezi, dar nu o garanție. A spune „Îmi place” la o întâlnire nu însemna același lucru cu a plăti mai târziu pentru un semn de carte. Aveau să înceapă cu o probă mică, supravegheată de un adult, în loc de o comandă mare bazată pe entuziasm."
+        ],
+        "idea": "Cercetarea nevoilor clienților poate pune sub semnul întrebării presupunerile. Interesul nu garantează o vânzare.",
+        "question": "Ce concluzie se potrivește feedbackului primit de echipă?",
+        "choices": [
+          {
+            "text": "Toți cei cărora le place un model îl vor cumpăra",
+            "feedback": "Un răspuns pozitiv nu este un angajament de cumpărare. Păstrează loc pentru incertitudine în plan.",
+            "correct": false
+          },
+          {
+            "text": "Comentariile ajută la pregătirea unei probe mici",
+            "feedback": "Da. Feedbackul poate orienta o probă fără să dovedească cererea viitoare.",
+            "correct": true
+          },
+          {
+            "text": "Răspunsurile negative ar trebui șterse",
+            "feedback": "Eliminarea răspunsurilor incomode ar face dovezile mai puțin utile.",
+            "correct": false
+          }
+        ],
+        "activity": "Inventează două modele de semn de carte. Notează o întrebare care nu presează o persoană să le laude sau să le cumpere. Nu colecta date personale."
+      },
+      {
+        "title": "Costul de dinaintea vânzării",
+        "paragraphs": [
+          "Organizatorul a oferit o masă gratuită pentru probă. Un adult a aprobat un buget maxim al proiectului. Echipa nu a împrumutat bani, nu a deschis conturi de vânzare și nu a contactat clienți în privat. Și-a făcut planul în cadrul evenimentului supravegheat.",
+          "Materialele pentru zece semne de carte ar fi costat patru lire. Un carton de prezentare ar fi costat o liră. Costurile bănești totale pentru probă ar fi fost, așadar, cinci lire. Echipa a trecut fiecare cost pe un rând separat, ca să nu dispară într-un total prea optimist.",
+          "„Dacă vindem zece bucăți cu o liră fiecare, încasăm zece lire”, a spus copilul pasionat de numere. „Dar nu toți banii sunt profit”, a răspuns fetița. „Am folosit cinci lire pentru această probă.” În exemplul simplificat, zece lire încasate din vânzări minus cinci lire de costuri bănești ar lăsa cinci lire.",
+          "Timpul lor nu era inclus în acel calcul bănesc. O afacere care continuă ar trebui să ia în considerare și timpul, și alte costuri relevante. Echipa a marcat clar exemplul, în loc să prezinte un mic proiect de târg drept un model complet de afacere."
+        ],
+        "idea": "Încasările din vânzări sunt banii primiți de la clienți. În acest exemplu bănesc simplificat, profitul este suma încasată minus toate costurile bănești enumerate.",
+        "question": "Încasările sunt £10, iar costurile bănești totale ale probei sunt £5. Cât rămâne?",
+        "choices": [
+          {
+            "text": "£5",
+            "feedback": "Da. Zece minus cinci lasă cinci lire în acest exemplu simplificat, înainte de a lua în calcul eventuale costuri neenumerate.",
+            "correct": true
+          },
+          {
+            "text": "£10",
+            "feedback": "Zece lire reprezintă încasările din vânzări. Scade cele cinci lire cheltuite pentru probă.",
+            "correct": false
+          },
+          {
+            "text": "£15",
+            "feedback": "Adunarea costurilor cu încasările nu calculează profitul. Costurile trebuie scăzute.",
+            "correct": false
+          }
+        ],
+        "activity": "Desenează trei rânduri: încasări £10, costuri bănești enumerate £5, sumă rămasă £5. Adaugă o notă cu un cost pe care o afacere mai mare ar putea avea nevoie să îl ia în calcul."
+      },
+      {
+        "title": "Când totalul era mai mic",
+        "paragraphs": [
+          "Echipa a discutat o posibilitate mai puțin plăcută. Dar dacă s-ar vinde doar patru semne de carte? Patru vânzări la o liră fiecare ar aduce încasări de patru lire. Ei ar fi cheltuit tot cinci lire pentru probă.",
+          "Fetița a tras o linie sub calcul. Patru minus cinci însemna minus unu. Pe baza costurilor bănești enumerate, proba ar produce o pierdere de o liră. Ar rămâne șase semne de carte nevândute. Aceste obiecte ar putea fi utile mai târziu, dar nu erau bani primiți de la un client.",
+          "Au calculat și că cinci vânzări la o liră ar acoperi cele cinci lire de costuri bănești enumerate. Acesta era pragul lor simplificat de rentabilitate. Nu includea plata timpului sau vreun cost nou pe care îl uitaseră.",
+          "În loc să ascundă pierderea posibilă, echipa a comparat-o cu bugetul aprobat de adult. Puteau micșora proba, schimba un cost sau decide să nu continue. O decizie chibzuită putea fi oprirea. Caietul exista pentru a arăta consecințele, nu pentru a dovedi că fiecare idee trebuia să devină o afacere."
+        ],
+        "idea": "Stocul nevândut nu reprezintă încasări din vânzări. O probă poate pierde bani chiar dacă produsul este bun.",
+        "question": "Patru vânzări de £1 aduc £4, după costuri bănești de £5. Care este rezultatul?",
+        "choices": [
+          {
+            "text": "Un profit de £4",
+            "feedback": "Patru lire reprezintă încasările. Costurile trebuie totuși luate în calcul.",
+            "correct": false
+          },
+          {
+            "text": "Nicio pierdere, fiindcă au rămas semne de carte",
+            "feedback": "Semnele de carte nevândute sunt stoc, nu bani din vânzări. Rezultatul bănesc simplificat este tot o pierdere.",
+            "correct": false
+          },
+          {
+            "text": "O pierdere de £1 în acest exemplu bănesc",
+            "feedback": "Da. Încasări de patru lire minus costuri de cinci înseamnă o pierdere de o liră.",
+            "correct": true
+          }
+        ],
+        "activity": "Folosește jetoane pentru a reprezenta patru, cinci și zece vânzări. Păstrează costul bănesc fix de cinci lire. Compară pierderea, acoperirea costurilor și profitul."
+      },
+      {
+        "title": "Mesajul de pe afiș",
+        "paragraphs": [
+          "Un membru al echipei a propus un mesaj pentru afiș: „Cele mai bune semne de carte din lume!” Altul voia să scrie că fiecare cumpărător va citi mai repede. Ghida a întrebat ce dovezi aveau pentru aceste afirmații. Nimeni nu măsurase viteza de citire, iar „cel mai bun” depindea de cititor.",
+          "Au încercat o descriere mai exactă: semne de carte din carton lucrate manual, două modele, o liră fiecare. Au adăugat dimensiunile, ca cititorii să poată aprecia mărimea. Au verificat că desenele le aparțineau și nu copiau personaje sau lucrări de la alt creator.",
+          "Cineva a propus să spună că semnele de carte erau perfecte pentru mediu. Echipa nu putea susține nici această promisiune. Puteau descrie un anumit material pe care îl verificaseră, dar asta nu dovedea că întregul produs nu avea niciun impact asupra mediului.",
+          "Afișul final era mai puțin spectaculos și mai util. Un cititor putea înțelege ce se oferea, cât costa și dacă i se potrivea. Informațiile oneste nu garantau o vânzare. Îi ofereau însă clientului o bază mai clară pentru a decide."
+        ],
+        "idea": "O afirmație de marketing are nevoie de susținere. Informațiile concrete și exacte sunt mai utile decât o garanție inventată.",
+        "question": "Ce mesaj poate susține echipa pe baza planului său real?",
+        "choices": [
+          {
+            "text": "Fiecare cititor va citi de două ori mai repede",
+            "feedback": "Echipa nu are dovezi pentru o afirmație despre viteza de citire.",
+            "correct": false
+          },
+          {
+            "text": "Semne de carte din carton lucrate manual, £1 fiecare",
+            "feedback": "Da. Aceasta descrie produsul și prețul planificat fără să inventeze un rezultat.",
+            "correct": true
+          },
+          {
+            "text": "Acest produs nu are niciun impact asupra mediului",
+            "feedback": "Această afirmație amplă nu a fost demonstrată de informațiile disponibile.",
+            "correct": false
+          }
+        ],
+        "activity": "Scrie o descriere exactă, în două rânduri, a unui produs imaginar. Subliniază orice afirmație care ar avea nevoie de dovezi înainte de publicare."
+      },
+      {
+        "title": "Un mod corect de a lucra",
+        "paragraphs": [
+          "Înainte de târg, un copil făcuse majoritatea semnelor de carte. Altul proiectase afișul. Un al treilea avea să lipsească în primul interval de vânzare. Împărțirea unui număr egal de sarcini nu ar fi împărțit neapărat corect efortul sau responsabilitatea.",
+          "Echipa a discutat sarcinile cu organizatorul. Au întrebat ce putea face fiecare, au stabilit pauze și au notat cine avea să facă fiecare lucru. Nimeni nu trebuia să explice motive personale pentru care avea nevoie de alt rol. Organizatorul a păstrat responsabilitatea pentru gestionarea banilor, regulile evenimentului și orice problemă legată de vizitatori.",
+          "Au stabilit și ce se va întâmpla cu banii rămași după costurile enumerate. Au ales un scop aprobat de adultul care îi supraveghea, înainte să înceapă vânzările. Nu le-ar fi promis clienților o donație dacă aranjamentele nu erau exacte și clare.",
+          "Această discuție a luat timp în care ar fi putut face încă un semn de carte. Tot ea a împiedicat participanții să vină la târg cu presupuneri diferite. Chiar și un proiect mic implica încredere, responsabilitate și acord. Calculul financiar era doar o parte a muncii."
+        ],
+        "idea": "Stabiliți dinainte responsabilitățile și folosirea banilor. Corectitudinea ține și de împrejurări, nu doar de totaluri.",
+        "question": "Când ar trebui echipa să stabilească ce se întâmplă cu banii rămași după costuri?",
+        "choices": [
+          {
+            "text": "Înainte de vânzări, împreună cu adultul care supraveghează",
+            "feedback": "Da. Aranjamentele clare reduc neînțelegerile și fac promisiunile publice mai ușor de verificat.",
+            "correct": true
+          },
+          {
+            "text": "Abia după ce cineva ia banii acasă",
+            "feedback": "Asta i-ar putea surprinde sau exclude pe ceilalți. Stabiliți aranjamentul mai întâi.",
+            "correct": false
+          },
+          {
+            "text": "Să decidă în secret persoana care vorbește cel mai tare",
+            "feedback": "O decizie secretă nu ar oferi grupului o înțelegere comună sau posibilitatea de a-și da acordul.",
+            "correct": false
+          }
+        ],
+        "activity": "Scrie un acord pentru un proiect imaginar, cu un rol, un aranjament pentru pauze, o responsabilitate a adultului și o folosire convenită a eventualilor bani rămași."
+      },
+      {
+        "title": "Ce le putea spune caietul",
+        "paragraphs": [
+          "La târg s-au vândut șapte semne de carte, cu o liră fiecare. Echipa a înregistrat încasări de șapte lire. Costurile bănești enumerate erau tot cinci lire, așa că rezultatul bănesc simplificat era un profit de două lire. Trei semne de carte rămăseseră nevândute.",
+          "Fetița a verificat fiecare număr cu organizatorul. Apoi echipa a comparat rezultatul cu scenariile anterioare. Era mai bun decât patru vânzări și mai mic decât zece. Nu dovedea că alt târg ar aduce același rezultat. Numărul vizitatorilor, modelele, prețurile și costurile se puteau schimba.",
+          "Au notat observații utile: una dintre mărimi era mai ușor de manevrat, afișul putea fi citit, iar pauzele ajutaseră echipa să lucreze liniștit. Au notat și că o singură după-amiază reprezenta o probă mică. Nu măsuraseră toate costurile posibile și nu descoperiseră o regulă universală despre clienți.",
+          "Caietul s-a încheiat cu trei pași posibili: repetarea unei probe mici supravegheate, schimbarea modelului sau oprirea și folosirea experienței în altă parte. Antreprenoriatul nu cerea creștere fără sfârșit. Cerea o decizie potrivită dovezilor, oamenilor și resurselor disponibile. Fetița a închis caietul și a scos cățelul la o plimbare liniștită."
+        ],
+        "idea": "Analizează atât rezultatele, cât și limitele. Dovezile pot susține continuarea, schimbarea sau oprirea unui proiect.",
+        "question": "Șapte vânzări de £1 minus £5 de costuri bănești enumerate dau ce rezultat?",
+        "choices": [
+          {
+            "text": "Profit de £7 și o afacere de succes garantată",
+            "feedback": "Șapte reprezintă încasările, iar o singură probă mică nu poate garanta rezultate viitoare.",
+            "correct": false
+          },
+          {
+            "text": "Profit de £3, fiindcă rămân trei semne de carte",
+            "feedback": "Trei reprezintă cantitatea nevândută. Profitul din exemplu se calculează scăzând costurile bănești enumerate din încasări.",
+            "correct": false
+          },
+          {
+            "text": "Profit de £2 în această probă simplificată",
+            "feedback": "Da. Șapte minus cinci lasă două lire. Rezultatul nu include costuri neenumerate și nu prezice vânzările viitoare.",
+            "correct": true
+          }
+        ],
+        "activity": "Scrie o analiză în trei părți a probei imaginare: un rezultat, o limită și un pas următor rezonabil. Nu este nevoie să vinzi în realitate sau să ai un cont."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Încasări din vânzări",
+        "meaning": "Bani primiți din vânzări, înainte de scăderea costurilor."
+      },
+      {
+        "term": "Profit",
+        "meaning": "Suma rămasă din încasări după scăderea costurilor relevante."
+      },
+      {
+        "term": "Pierdere",
+        "meaning": "Suma cu care costurile depășesc încasările."
+      },
+      {
+        "term": "Stoc",
+        "meaning": "Produse păstrate pentru vânzare, inclusiv cele nevândute."
+      },
+      {
+        "term": "Prag de rentabilitate",
+        "meaning": "Punctul în care încasările acoperă costurile incluse într-un calcul."
+      },
+      {
+        "term": "Dovezi",
+        "meaning": "Informații folosite pentru a evalua o afirmație sau o decizie."
+      }
+    ]
+  },
+  "emma-and-the-picture-plan": {
+    "title": "Emma și planul în imagini",
+    "subtitle": "O poveste originală Money Quest, de citit și explorat împreună",
+    "audience": "Explorer · 6-8 ani · Lectură împreună și activități opționale",
+    "description": "Emma descoperă moduri de a-și aminti o sarcină, de a exersa și de a cere ajutor util.",
+    "coverAlt": "Emma și Max într-un loc din Money Quest legat de această poveste.",
+    "chapters": [
+      {
+        "title": "Prea multe sarcini deodată",
+        "paragraphs": [
+          "Emma vrea să facă un oraș din hârtie. Trebuie să aleagă hârtia, să deseneze clădiri, să găsească lipici și să elibereze un loc de lucru. Începe trei sarcini și uită unde a pus desenul. Max așteaptă lângă păturica lui.",
+          "Adultul îi propune să aleagă un singur pas următor. Emma arată o imagine cu hârtie. Mai întâi găsește hârtia. Orașul întreg nu este gata, dar acum știe ce sarcină mică face."
+        ],
+        "idea": "Un pas următor clar poate face o sarcină mare mai ușor de început.",
+        "question": "Ce o ajută pe Emma să înceapă?",
+        "choices": [
+          {
+            "text": "Să aleagă un singur pas următor",
+            "feedback": "Se potrivește. Un pas următor clar poate face o sarcină mare mai ușor de început.",
+            "correct": true
+          },
+          {
+            "text": "Să facă toate sarcinile deodată",
+            "feedback": "Verifică din nou povestea. Un pas următor clar poate face o sarcină mare mai ușor de început.",
+            "correct": false
+          },
+          {
+            "text": "Să ascundă hârtia",
+            "feedback": "Gândește-te la ce s-a întâmplat în acest capitol. Un pas următor clar poate face o sarcină mare mai ușor de început.",
+            "correct": false
+          }
+        ],
+        "activity": "Desenează o imagine pentru primul pas al unui proiect imaginar de oraș din hârtie. Poți arăta, desena, tasta, folosi comunicarea augmentativă și alternativă, vorbi sau ruga un adult să îți noteze ideea."
+      },
+      {
+        "title": "O listă pe care o poate vedea",
+        "paragraphs": [
+          "Emma desenează trei imagini: hârtie, clădire și lipici. Le pune pe un rând. Un adult citește ordinea împreună cu ea. Emma poate arăta o imagine în loc să țină minte întreaga listă.",
+          "Când hârtia este pregătită, acoperă imaginea respectivă cu un jeton. Următoarea imagine arată clădirea. Începe să deseneze. Imaginile o ajută astăzi. În altă zi poate alege cuvinte, amintiri spuse cu voce tare sau alt fel de sprijin."
+        ],
+        "idea": "Un plan vizual este un posibil sprijin, iar oamenii pot alege și altul.",
+        "question": "Ce arată jetonul?",
+        "choices": [
+          {
+            "text": "Întregul proiect a eșuat",
+            "feedback": "Verifică din nou povestea. Un plan vizual este un posibil sprijin, iar oamenii pot alege și altul.",
+            "correct": false
+          },
+          {
+            "text": "Toată lumea trebuie să folosească imagini",
+            "feedback": "Gândește-te la ce s-a întâmplat în acest capitol. Un plan vizual este un posibil sprijin, iar oamenii pot alege și altul.",
+            "correct": false
+          },
+          {
+            "text": "Un pas s-a încheiat",
+            "feedback": "Se potrivește. Un plan vizual este un posibil sprijin, iar oamenii pot alege și altul.",
+            "correct": true
+          }
+        ],
+        "activity": "Așază trei cartonașe cu sarcini inventate într-o ordine pe care ai putea-o urma. Poți arăta, desena, tasta, folosi comunicarea augmentativă și alternativă, vorbi sau ruga un adult să îți noteze ideea."
+      },
+      {
+        "title": "Acoperișul care a căzut",
+        "paragraphs": [
+          "Emma îndoaie un acoperiș din hârtie. El alunecă de pe căsuță. Ea se încruntă. Primul ei gând este că nu poate construi nimic. Adultul întreabă ce s-a întâmplat de fapt. Un acoperiș a alunecat. Asta nu înseamnă că toate acoperișurile viitoare vor cădea.",
+          "Privesc împreună îndoitura. Emma încearcă o parte de prindere mai lată. Acest acoperiș rămâne la locul lui. Max ridică capul când aude bucuria lor. Noua încercare a ajutat fiindcă Emma a schimbat ceva concret, nu fiindcă s-a prefăcut că prima încercare reușise."
+        ],
+        "idea": "Observă problema concretă înainte să alegi o schimbare de testat.",
+        "question": "Ce poate schimba Emma?",
+        "choices": [
+          {
+            "text": "Să se prefacă că acoperișul a rămas la loc",
+            "feedback": "Gândește-te la ce s-a întâmplat în acest capitol. Observă problema concretă înainte să alegi o schimbare de testat.",
+            "correct": false
+          },
+          {
+            "text": "Să încerce o parte de prindere mai lată",
+            "feedback": "Se potrivește. Observă problema concretă înainte să alegi o schimbare de testat.",
+            "correct": true
+          },
+          {
+            "text": "Să decidă că nu poate învăța niciodată",
+            "feedback": "Verifică din nou povestea. Observă problema concretă înainte să alegi o schimbare de testat.",
+            "correct": false
+          }
+        ],
+        "activity": "Arată o schimbare care ar putea ajuta un acoperiș imaginar din hârtie să stea la locul lui. Poți arăta, desena, tasta, folosi comunicarea augmentativă și alternativă, vorbi sau ruga un adult să îți noteze ideea."
+      },
+      {
+        "title": "Un loc mai liniștit",
+        "paragraphs": [
+          "Masa devine aglomerată. Cineva pune muzică în apropiere. Emma citește aceeași instrucțiune de două ori și tot pierde rândul. Întreabă dacă își poate muta hârtia într-un colț mai liniștit. Adultul o ajută să facă loc.",
+          "Emma încearcă acel colț și îi este mai ușor să urmeze pasul următor. Poate avea în continuare nevoie de ajutor. Liniștea îi este utilă la această sarcină; altcineva poate avea nevoie de un aranjament diferit. Nu decid nevoile tuturor pe baza unei singure după-amiezi."
+        ],
+        "idea": "Întreabă ce ajută la această sarcină, în loc să presupui ce îi ajută pe toți.",
+        "question": "Ce încearcă Emma?",
+        "choices": [
+          {
+            "text": "Un loc mai liniștit pentru această sarcină",
+            "feedback": "Se potrivește. Întreabă ce ajută la această sarcină, în loc să presupui ce îi ajută pe toți.",
+            "correct": true
+          },
+          {
+            "text": "O regulă că toți au nevoie de liniște",
+            "feedback": "Verifică din nou povestea. Întreabă ce ajută la această sarcină, în loc să presupui ce îi ajută pe toți.",
+            "correct": false
+          },
+          {
+            "text": "Să renunțe la toate activitățile",
+            "feedback": "Gândește-te la ce s-a întâmplat în acest capitol. Întreabă ce ajută la această sarcină, în loc să presupui ce îi ajută pe toți.",
+            "correct": false
+          }
+        ],
+        "activity": "Arată două posibile locuri de lucru și alege unul pentru un personaj care învață. Poți arăta, desena, tasta, folosi comunicarea augmentativă și alternativă, vorbi sau ruga un adult să îți noteze ideea."
+      },
+      {
+        "title": "Și pauza face parte din plan",
+        "paragraphs": [
+          "Emma a lucrat la trei case. Mâinile îi sunt obosite și atenția îi zboară. Cere o pauză. Adultul păstrează orașul neterminat pe o tavă, ca să îl găsească ușor mai târziu.",
+          "După odihnă, Emma privește planul în imagini. Poate continua, poate cere ajutor sau se poate opri pentru astăzi. Pauza nu este un premiu pe care trebuie să îl câștige terminând totul. Max se odihnește deja. Emma lasă o clădire pentru altă zi și este împăcată cu alegerea."
+        ],
+        "idea": "Pauzele și ajutorul pot face parte dintr-un plan realizabil.",
+        "question": "Ce poate face când este obosită?",
+        "choices": [
+          {
+            "text": "Să continue până se supără",
+            "feedback": "Verifică din nou povestea. Pauzele și ajutorul pot face parte dintr-un plan realizabil.",
+            "correct": false
+          },
+          {
+            "text": "Să câștige dreptul de a se odihni",
+            "feedback": "Gândește-te la ce s-a întâmplat în acest capitol. Pauzele și ajutorul pot face parte dintr-un plan realizabil.",
+            "correct": false
+          },
+          {
+            "text": "Să ia o pauză și să revină dacă dorește",
+            "feedback": "Se potrivește. Pauzele și ajutorul pot face parte dintr-un plan realizabil.",
+            "correct": true
+          }
+        ],
+        "activity": "Adaugă opțiunea de pauză la planul unei sarcini imaginare. Poți arăta, desena, tasta, folosi comunicarea augmentativă și alternativă, vorbi sau ruga un adult să îți noteze ideea."
+      },
+      {
+        "title": "Arată ce a învățat",
+        "paragraphs": [
+          "La sfârșitul săptămânii, Emma îi arată orașul unui prieten. Arată planul în imagini și acoperișul cu partea de prindere mai lată. Prietenul întreabă cum l-a făcut. Emma poate explica folosind macheta, fără să scrie un raport lung.",
+          "Adultul observă lucruri concrete învățate: Emma a ales un pas următor, a testat o schimbare și a cerut alt loc de lucru. Orașul are câțiva pereți strâmbi. Poate arăta totuși ce a învățat. O machetă perfectă nu a fost niciodată singurul rezultat util."
+        ],
+        "idea": "Poți arăta ce ai învățat printr-o machetă, imagini, cuvinte sau alt mod de comunicare.",
+        "question": "Ce arată o învățare utilă?",
+        "choices": [
+          {
+            "text": "Să compare a cui lucrare arată cel mai bine",
+            "feedback": "Gândește-te la ce s-a întâmplat în acest capitol. Poți arăta ce ai învățat printr-o machetă, imagini, cuvinte sau alt mod de comunicare.",
+            "correct": false
+          },
+          {
+            "text": "Să arate o schimbare care a ajutat",
+            "feedback": "Se potrivește. Poți arăta ce ai învățat printr-o machetă, imagini, cuvinte sau alt mod de comunicare.",
+            "correct": true
+          },
+          {
+            "text": "Să ascundă fiecare perete strâmb",
+            "feedback": "Verifică din nou povestea. Poți arăta ce ai învățat printr-o machetă, imagini, cuvinte sau alt mod de comunicare.",
+            "correct": false
+          }
+        ],
+        "activity": "Alege o parte a unui proiect imaginar și arată cum s-a schimbat. Poți arăta, desena, tasta, folosi comunicarea augmentativă și alternativă, vorbi sau ruga un adult să îți noteze ideea."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Plan",
+        "meaning": "Un mod de a organiza pașii următori posibili."
+      },
+      {
+        "term": "Exersare",
+        "meaning": "Încercarea repetată a unei abilități, cu atenție și sprijin util."
+      },
+      {
+        "term": "Sprijin",
+        "meaning": "Ajutor care face o sarcină mai ușor de realizat."
+      }
+    ]
+  },
+  "the-pause-before-the-choice": {
+    "title": "Pauza de dinaintea alegerii",
+    "subtitle": "O poveste originală Money Quest, de citit și explorat împreună",
+    "audience": "Explorer · 6-8 ani · Lectură împreună și activități opționale",
+    "description": "O vitrină atrăgătoare o ajută pe Emma să exploreze emoțiile, așteptarea și cererea de sprijin.",
+    "coverAlt": "Emma și Max într-un loc din Money Quest legat de această poveste.",
+    "chapters": [
+      {
+        "title": "O jucărie nouă și colorată",
+        "paragraphs": [
+          "Emma vede un trenuleț într-o vitrină. Are roți roșii. Îl vrea acum. Max se oprește să adulmece trotuarul, iar adultul verifică lista de cumpărături. Trenulețul nu este pe listă.",
+          "Emma observă că strânge tare poșetuța în mâini. Poate numi dorința de a avea trenulețul. Această emoție nu îi spune prețul și nu decide dacă achiziția se potrivește zilei de astăzi. Poate pune o întrebare înainte să aleagă ce face mai departe."
+        ],
+        "idea": "O emoție ne spune cum ne simțim, dar nu oferă toate informațiile necesare pentru o cumpărătură.",
+        "question": "Ce ar trebui să verifice?",
+        "choices": [
+          {
+            "text": "Prețul și planul de astăzi",
+            "feedback": "Se potrivește. O emoție ne spune cum ne simțim, dar nu oferă toate informațiile necesare pentru o cumpărătură.",
+            "correct": true
+          },
+          {
+            "text": "Doar cât de încântată este",
+            "feedback": "Verifică din nou povestea. O emoție ne spune cum ne simțim, dar nu oferă toate informațiile necesare pentru o cumpărătură.",
+            "correct": false
+          },
+          {
+            "text": "Dacă trenulețul este roșu",
+            "feedback": "Gândește-te la ce s-a întâmplat în acest capitol. O emoție ne spune cum ne simțim, dar nu oferă toate informațiile necesare pentru o cumpărătură.",
+            "correct": false
+          }
+        ],
+        "activity": "Desenează o jucărie imaginară și adaugă o întrebare utilă despre ea. Poți arăta, desena, tasta, folosi comunicarea augmentativă și alternativă, vorbi sau ruga un adult să îți noteze ideea."
+      },
+      {
+        "title": "Găsirea cuvântului",
+        "paragraphs": [
+          "Emma spune că este furioasă fiindcă nu cumpără trenulețul. Adultul o ascultă. Nu o numește obraznică pentru că are această emoție. Se îndepărtează de intrarea aglomerată, ca să se poată auzi.",
+          "Emma arată o față dezamăgită pe un cartonaș. Și acel cuvânt se potrivește. Oamenii pot folosi mai multe cuvinte pentru emoții sau niciunul. O imagine, un gest sau un mijloc de comunicare poate ajuta pe cineva să explice de ce are nevoie fără să țină un discurs."
+        ],
+        "idea": "Emoțiile pot fi comunicate în moduri diferite, fără să judecăm persoana.",
+        "question": "Cum ar putea răspunde Emma?",
+        "choices": [
+          {
+            "text": "Demonstrând că poate ține un discurs",
+            "feedback": "Verifică din nou povestea. Emoțiile pot fi comunicate în moduri diferite, fără să judecăm persoana.",
+            "correct": false
+          },
+          {
+            "text": "Prefăcându-se că nu simte nimic",
+            "feedback": "Gândește-te la ce s-a întâmplat în acest capitol. Emoțiile pot fi comunicate în moduri diferite, fără să judecăm persoana.",
+            "correct": false
+          },
+          {
+            "text": "Arătând o imagine cu o emoție",
+            "feedback": "Se potrivește. Emoțiile pot fi comunicate în moduri diferite, fără să judecăm persoana.",
+            "correct": true
+          }
+        ],
+        "activity": "Alege o imagine cu o emoție pentru un personaj imaginar; nu trebuie să spui o poveste personală. Poți arăta, desena, tasta, folosi comunicarea augmentativă și alternativă, vorbi sau ruga un adult să îți noteze ideea."
+      },
+      {
+        "title": "Loc pentru așteptare",
+        "paragraphs": [
+          "Emma vrea să decidă imediat. Adultul propune să se uite din nou la trenuleț în altă zi. Emma îl desenează pe o mică listă de dorințe. Desenul păstrează ideea fără să promită că îl vor cumpăra.",
+          "Merg în schimb la bibliotecă. Emmei încă îi place trenulețul. Pauza nu a șters acea emoție. I-a oferit timp să se gândească la altă alegere. Se poate bucura de o carte de la bibliotecă, iar jucăria poate rămâne pe listă. Așteptarea nu înseamnă că nu poate face nimic."
+        ],
+        "idea": "O listă de dorințe poate păstra o idee fără să promită o cumpărătură.",
+        "question": "Ce înseamnă lista?",
+        "choices": [
+          {
+            "text": "Că banii au fost deja cheltuiți",
+            "feedback": "Gândește-te la ce s-a întâmplat în acest capitol. O listă de dorințe poate păstra o idee fără să promită o cumpărătură.",
+            "correct": false
+          },
+          {
+            "text": "O idee de reanalizat mai târziu",
+            "feedback": "Se potrivește. O listă de dorințe poate păstra o idee fără să promită o cumpărătură.",
+            "correct": true
+          },
+          {
+            "text": "O promisiune de a cumpăra tot",
+            "feedback": "Verifică din nou povestea. O listă de dorințe poate păstra o idee fără să promită o cumpărătură.",
+            "correct": false
+          }
+        ],
+        "activity": "Creează o listă cu o singură dorință pentru un personaj imaginar. Poți arăta, desena, tasta, folosi comunicarea augmentativă și alternativă, vorbi sau ruga un adult să îți noteze ideea."
+      },
+      {
+        "title": "Moduri diferite de a se liniști",
+        "paragraphs": [
+          "La bibliotecă, Emma își dorește un loc mai liniștit. Adultul îi oferă un loc lângă fereastră sau o scurtă plimbare afară. Emma alege locul de la fereastră. Privește o carte cu imagini pe care o cunoaște, iar Max așteaptă cu celălalt adult.",
+          "Un prieten ar putea alege mișcarea sau compania cuiva. Nicio activitate de liniștire nu funcționează pentru toată lumea. Emma poate spune când o idee nu ajută. Adultul rămâne aproape și oferă sprijin. Nu trebuie să devină veselă pentru ca cineva să o asculte."
+        ],
+        "idea": "Oferă alegeri și ascultă când un tip de sprijin nu ajută.",
+        "question": "Ce poate alege?",
+        "choices": [
+          {
+            "text": "Un sprijin care îi este util",
+            "feedback": "Se potrivește. Oferă alegeri și ascultă când un tip de sprijin nu ajută.",
+            "correct": true
+          },
+          {
+            "text": "O metodă pe care toți trebuie să o folosească",
+            "feedback": "Verifică din nou povestea. Oferă alegeri și ascultă când un tip de sprijin nu ajută.",
+            "correct": false
+          },
+          {
+            "text": "Să se prefacă veselă",
+            "feedback": "Gândește-te la ce s-a întâmplat în acest capitol. Oferă alegeri și ascultă când un tip de sprijin nu ajută.",
+            "correct": false
+          }
+        ],
+        "activity": "Desenează două opțiuni de sprijin pe care le-ar putea oferi un adult imaginar. Poți arăta, desena, tasta, folosi comunicarea augmentativă și alternativă, vorbi sau ruga un adult să îți noteze ideea."
+      },
+      {
+        "title": "Când un prieten vrea altceva",
+        "paragraphs": [
+          "Un prieten îi spune Emmei că trenulețul albastru este mai bun decât cel roșu. Emma se simte iritată. Ei îi place cel roșu. Adultul le amintește că oamenii pot prefera culori și jucării diferite. Niciuna dintre preferințe nu stabilește prețul.",
+          "Prietenii își desenează trenulețele pe foi separate. Se pot bucura de discuție fără să fie de acord asupra fiecărei alegeri. Emma nu trebuie să cumpere o jucărie ca să rămână prieteni. O prietenie respectuoasă lasă loc intereselor diferite, limitelor de cheltuieli și răspunsurilor diferite la o invitație."
+        ],
+        "idea": "Preferințele diferite nu cer cheltuirea banilor pentru a demonstra prietenia.",
+        "question": "Ce pot accepta prietenii buni?",
+        "choices": [
+          {
+            "text": "O cumpărătură ca dovadă de prietenie",
+            "feedback": "Verifică din nou povestea. Preferințele diferite nu cer cheltuirea banilor pentru a demonstra prietenia.",
+            "correct": false
+          },
+          {
+            "text": "O singură culoare preferată",
+            "feedback": "Gândește-te la ce s-a întâmplat în acest capitol. Preferințele diferite nu cer cheltuirea banilor pentru a demonstra prietenia.",
+            "correct": false
+          },
+          {
+            "text": "Alegeri și limite diferite",
+            "feedback": "Se potrivește. Preferințele diferite nu cer cheltuirea banilor pentru a demonstra prietenia.",
+            "correct": true
+          }
+        ],
+        "activity": "Arată două personaje care aleg activități gratuite diferite. Poți arăta, desena, tasta, folosi comunicarea augmentativă și alternativă, vorbi sau ruga un adult să îți noteze ideea."
+      },
+      {
+        "title": "O alegere pe care o poate explica",
+        "paragraphs": [
+          "La o altă vizită, Emma privește trenulețul. Adultul o ajută să verifice prețul și suma disponibilă pentru jucării. Emma decide să păstreze ideea pentru mai târziu. Altcineva ar putea face o altă alegere permisă, împreună cu adultul său.",
+          "Emma explică arătând lista de dorințe și un desen cu biblioteca. A numit o emoție, a cerut ajutor și a verificat informații. Se poate simți uneori dezamăgită în continuare. A învăța să alegi nu înseamnă să nu mai ai niciodată emoții dificile."
+        ],
+        "idea": "O alegere gândită poate include emoții, informații și sprijin.",
+        "question": "Ce a ajutat-o să aleagă?",
+        "choices": [
+          {
+            "text": "Copierea cumpărăturii unui prieten",
+            "feedback": "Gândește-te la ce s-a întâmplat în acest capitol. O alegere gândită poate include emoții, informații și sprijin.",
+            "correct": false
+          },
+          {
+            "text": "Verificarea informațiilor și cererea de ajutor",
+            "feedback": "Se potrivește. O alegere gândită poate include emoții, informații și sprijin.",
+            "correct": true
+          },
+          {
+            "text": "Să nu se simtă niciodată dezamăgită",
+            "feedback": "Verifică din nou povestea. O alegere gândită poate include emoții, informații și sprijin.",
+            "correct": false
+          }
+        ],
+        "activity": "Povestește alegerea folosind trei imagini: emoția, întrebarea și o acțiune posibilă. Poți arăta, desena, tasta, folosi comunicarea augmentativă și alternativă, vorbi sau ruga un adult să îți noteze ideea."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Emoție",
+        "meaning": "O trăire precum entuziasmul, dezamăgirea sau îngrijorarea."
+      },
+      {
+        "term": "Pauză",
+        "meaning": "O scurtă oprire înainte de următoarea acțiune."
+      },
+      {
+        "term": "Preferință",
+        "meaning": "Ceva ce o persoană apreciază sau alege."
+      }
+    ]
+  },
+  "the-message-max-could-not-send": {
+    "title": "Mesajul pe care Max nu îl putea trimite",
+    "subtitle": "O poveste originală Money Quest, de citit și explorat împreună",
+    "audience": "Explorer · 6-8 ani · Lectură împreună și activități opționale",
+    "description": "Un mesaj imaginar dintr-un joc o ajută pe Emma să exerseze cererea de ajutor și protejarea informațiilor private.",
+    "coverAlt": "Emma și Max într-un loc din Money Quest legat de această poveste.",
+    "chapters": [
+      {
+        "title": "Un mesaj surprinzător",
+        "paragraphs": [
+          "Emma se joacă lângă adultul care o însoțește. Pe ecran apare un mesaj. Spune că a câștigat un costum pentru cățel, dar trebuie să acționeze repede. Max doarme pe păturica lui. Nu a trimis nimănui vreun mesaj.",
+          "Emma vrea să apese butonul colorat. În schimb, îi arată adultului. Un mesaj poate suna interesant fără să fie de încredere. Îl pot închide și pot verifica prin meniul obișnuit al jocului. Un mesaj neașteptat nu are nevoie de răspuns imediat."
+        ],
+        "idea": "Graba cerută pe neașteptate este un motiv să te oprești și să verifici cu un adult de încredere.",
+        "question": "Ce ar trebui să facă mai întâi?",
+        "choices": [
+          {
+            "text": "Să îi arate unui adult de încredere",
+            "feedback": "Se potrivește. Graba cerută pe neașteptate este un motiv să te oprești și să verifici cu un adult de încredere.",
+            "correct": true
+          },
+          {
+            "text": "Să apese repede butonul",
+            "feedback": "Verifică din nou povestea. Graba cerută pe neașteptate este un motiv să te oprești și să verifici cu un adult de încredere.",
+            "correct": false
+          },
+          {
+            "text": "Să răspundă cu un secret",
+            "feedback": "Gândește-te la ce s-a întâmplat în acest capitol. Graba cerută pe neașteptate este un motiv să te oprești și să verifici cu un adult de încredere.",
+            "correct": false
+          }
+        ],
+        "activity": "Arată un cartonaș cu oprește-te și întreabă pentru un mesaj inventat. Poți arăta, desena, tasta, folosi comunicarea augmentativă și alternativă, vorbi sau ruga un adult să îți noteze ideea."
+      },
+      {
+        "title": "Secretul rămâne privat",
+        "paragraphs": [
+          "Mesajul cere o parolă. Emma știe că parola ajută la protejarea unui cont. Nu o tastează în mesaj. Adultul explică faptul că o imagine cu un cățel prietenos nu dovedește cine o cere.",
+          "Închid mesajul. Emma nu a greșit cu nimic primindu-l. Dacă ar fi apăsat deja ceva, ar putea totuși cere ajutor. Păstrarea secretului ar face mai dificil sprijinul adultului. Poate primi ajutor și după o greșeală."
+        ],
+        "idea": "Nu trimite o parolă ca răspuns la un mesaj neașteptat; cere ajutor și după o greșeală.",
+        "question": "Ce nu trebuie să apară în răspuns?",
+        "choices": [
+          {
+            "text": "Un desen imaginar cu un copac",
+            "feedback": "Verifică din nou povestea. Nu trimite o parolă ca răspuns la un mesaj neașteptat; cere ajutor și după o greșeală.",
+            "correct": false
+          },
+          {
+            "text": "O întrebare către un adult de încredere",
+            "feedback": "Gândește-te la ce s-a întâmplat în acest capitol. Nu trimite o parolă ca răspuns la un mesaj neașteptat; cere ajutor și după o greșeală.",
+            "correct": false
+          },
+          {
+            "text": "O parolă",
+            "feedback": "Se potrivește. Nu trimite o parolă ca răspuns la un mesaj neașteptat; cere ajutor și după o greșeală.",
+            "correct": true
+          }
+        ],
+        "activity": "Alege cartonașul inventat care arată ceva privat: o parolă, titlul unei povești sau o culoare preferată imaginară. Poți arăta, desena, tasta, folosi comunicarea augmentativă și alternativă, vorbi sau ruga un adult să îți noteze ideea."
+      },
+      {
+        "title": "Un costum are un cost",
+        "paragraphs": [
+          "În meniul obișnuit al jocului, alt costum are un preț afișat. Emma întreabă dacă monedele din joc și lirele reale sunt același lucru. Adultul verifică ecranul. Această cumpărătură ar folosi bani reali din contul adultului.",
+          "Emma nu apasă cumpără. Citesc ce este inclus și dacă plata se repetă. Un obiect digital poate costa bani reali chiar dacă nu sosește nimic într-un colet. Întrebarea pusă mai întâi îl ajută pe adult să decidă cheltuiala. Max are deja o zgardă obișnuită."
+        ],
+        "idea": "Verifică dacă o cumpărătură din joc folosește bani reali și dacă plata se repetă.",
+        "question": "Cine ar trebui să verifice această cumpărătură?",
+        "choices": [
+          {
+            "text": "Max în timp ce doarme",
+            "feedback": "Gândește-te la ce s-a întâmplat în acest capitol. Verifică dacă o cumpărătură din joc folosește bani reali și dacă plata se repetă.",
+            "correct": false
+          },
+          {
+            "text": "Adultul responsabil pentru cont",
+            "feedback": "Se potrivește. Verifică dacă o cumpărătură din joc folosește bani reali și dacă plata se repetă.",
+            "correct": true
+          },
+          {
+            "text": "Expeditorul unui mesaj neașteptat",
+            "feedback": "Verifică din nou povestea. Verifică dacă o cumpărătură din joc folosește bani reali și dacă plata se repetă.",
+            "correct": false
+          }
+        ],
+        "activity": "Desenează o etichetă de cumpărătură imaginară, cu preț și un simbol pentru întreabă mai întâi. Poți arăta, desena, tasta, folosi comunicarea augmentativă și alternativă, vorbi sau ruga un adult să îți noteze ideea."
+      },
+      {
+        "title": "Fotografia casei",
+        "paragraphs": [
+          "Un joc îi cere Emmei să încarce o fotografie. În imagine se văd intrarea casei și un ghiozdan cu numele ei. Ea se oprește. Adultul explică faptul că imaginile pot dezvălui informații private chiar dacă textul care le însoțește spune foarte puțin.",
+          "Aleg să nu încarce fotografia. Emma se poate bucura în schimb de desenarea unei case inventate pe hârtie. Nu trebuie să își arate adresa reală, școala sau fața pentru această activitate. Nu orice cerere de fotografie are nevoie de o fotografie drept răspuns."
+        ],
+        "idea": "Imaginile pot dezvălui detalii private; alegerea de a nu încărca nimic este valabilă.",
+        "question": "Ce este mai sigur pentru această activitate?",
+        "choices": [
+          {
+            "text": "Să deseneze pe hârtie o casă inventată",
+            "feedback": "Se potrivește. Imaginile pot dezvălui detalii private; alegerea de a nu încărca nimic este valabilă.",
+            "correct": true
+          },
+          {
+            "text": "Să încarce o adresă de acasă",
+            "feedback": "Verifică din nou povestea. Imaginile pot dezvălui detalii private; alegerea de a nu încărca nimic este valabilă.",
+            "correct": false
+          },
+          {
+            "text": "Să publice numele unei școli",
+            "feedback": "Gândește-te la ce s-a întâmplat în acest capitol. Imaginile pot dezvălui detalii private; alegerea de a nu încărca nimic este valabilă.",
+            "correct": false
+          }
+        ],
+        "activity": "Compară două imagini inventate și arată un detaliu care ar trebui să rămână privat. Poți arăta, desena, tasta, folosi comunicarea augmentativă și alternativă, vorbi sau ruga un adult să îți noteze ideea."
+      },
+      {
+        "title": "Cineva spune că este un prieten",
+        "paragraphs": [
+          "Un jucător nou spune că o cunoaște pe Emma de la școală. Numele de pe ecran pare cunoscut. Emma nu poate afla cine este în spatele contului doar din nume. Nu acceptă să se întâlnească sau să treacă într-o discuție privată.",
+          "Îi arată adultului, care poate folosi setările de siguranță ale jocului. Un ton prietenos nu verifică identitatea. Emma se poate opri din joc sau poate bloca acel contact cu ajutor. Nu îi datorează unui necunoscut continuarea conversației doar fiindcă a trimis cuvinte amabile sau un cadou virtual."
+        ],
+        "idea": "Un nume de pe ecran nu dovedește identitatea; cere sprijinul unui adult de încredere.",
+        "question": "Ce dovedește cine este jucătorul?",
+        "choices": [
+          {
+            "text": "Un cadou virtual gratuit",
+            "feedback": "Verifică din nou povestea. Un nume de pe ecran nu dovedește identitatea; cere sprijinul unui adult de încredere.",
+            "correct": false
+          },
+          {
+            "text": "O propoziție prietenoasă",
+            "feedback": "Gândește-te la ce s-a întâmplat în acest capitol. Un nume de pe ecran nu dovedește identitatea; cere sprijinul unui adult de încredere.",
+            "correct": false
+          },
+          {
+            "text": "Numele singur nu dovedește nimic",
+            "feedback": "Se potrivește. Un nume de pe ecran nu dovedește identitatea; cere sprijinul unui adult de încredere.",
+            "correct": true
+          }
+        ],
+        "activity": "Alege un pas sigur pentru un contact neașteptat imaginar: oprește-te, întreabă sau continuă în privat. Poți arăta, desena, tasta, folosi comunicarea augmentativă și alternativă, vorbi sau ruga un adult să îți noteze ideea."
+      },
+      {
+        "title": "Ajutor și după o greșeală",
+        "paragraphs": [
+          "Într-o după-amiază, Emma apasă un link necunoscut înainte să se gândească. Îi spune imediat adultului. Nu mai introduc informații și verifică ce s-a întâmplat. Adultul se ocupă de cont și de dispozitiv. Emma nu trebuie să repare totul singură.",
+          "Împreună fac un mic memento: oprește-te, întreabă, verifică. Este un sprijin, nu o promisiune că nimeni nu va mai greși vreodată. Max se întinde lângă masă. Emma revine la o activitate cunoscută când adultul spune că este potrivit. A cere ajutor a fost o acțiune utilă."
+        ],
+        "idea": "Spune-i repede unui adult de încredere; adulții se ocupă de recuperarea contului și de dispozitiv.",
+        "question": "Ce ajută după apăsarea unui link neașteptat?",
+        "choices": [
+          {
+            "text": "Să introduci mai multe detalii private",
+            "feedback": "Gândește-te la ce s-a întâmplat în acest capitol. Spune-i repede unui adult de încredere; adulții se ocupă de recuperarea contului și de dispozitiv.",
+            "correct": false
+          },
+          {
+            "text": "Să îi spui unui adult de încredere",
+            "feedback": "Se potrivește. Spune-i repede unui adult de încredere; adulții se ocupă de recuperarea contului și de dispozitiv.",
+            "correct": true
+          },
+          {
+            "text": "Să ascunzi întâmplarea de rușine",
+            "feedback": "Verifică din nou povestea. Spune-i repede unui adult de încredere; adulții se ocupă de recuperarea contului și de dispozitiv.",
+            "correct": false
+          }
+        ],
+        "activity": "Așază trei cartonașe pentru o greșeală imaginară: oprește-te, spune și lasă un adult să verifice. Poți arăta, desena, tasta, folosi comunicarea augmentativă și alternativă, vorbi sau ruga un adult să îți noteze ideea."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Privat",
+        "meaning": "Informații care nu ar trebui împărtășite liber."
+      },
+      {
+        "term": "Parolă",
+        "meaning": "Un secret folosit pentru a ajuta la protejarea accesului."
+      },
+      {
+        "term": "Cumpărătură",
+        "meaning": "Cumpărarea unui lucru, inclusiv a unui obiect digital."
+      }
+    ]
+  },
+  "the-repair-table": {
+    "title": "Masa de reparații",
+    "subtitle": "O poveste originală Money Quest, de citit și explorat împreună",
+    "audience": "Explorer · 6-8 ani · Lectură împreună și activități opționale",
+    "description": "Emma descoperă că împrumutul, repararea și cumpărarea sunt alegeri posibile diferite.",
+    "coverAlt": "Emma și Max într-un loc din Money Quest legat de această poveste.",
+    "chapters": [
+      {
+        "title": "O roată se desprinde",
+        "paragraphs": [
+          "O roată se desprinde de la căruciorul de jucărie al Emmei. Ea este dezamăgită și cere unul nou. Adultul pune jucăria stricată pe masă, departe de Max. Mai întâi vor afla ce s-a întâmplat și dacă o pot repara în siguranță.",
+          "Roata este slăbită, dar restul căruciorului pare utilizabil. Privitul atent nu promite o reparație. Le oferă informații înainte să cheltuiască bani. Emma poate arăta problema, iar adultul se ocupă de piesele mici."
+        ],
+        "idea": "Verifică problema înainte să decizi dacă trebuie înlocuit obiectul.",
+        "question": "Ce vine înaintea cumpărăturilor?",
+        "choices": [
+          {
+            "text": "Să privească problema în siguranță",
+            "feedback": "Se potrivește. Verifică problema înainte să decizi dacă trebuie înlocuit obiectul.",
+            "correct": true
+          },
+          {
+            "text": "Să arunce fiecare piesă",
+            "feedback": "Verifică din nou povestea. Verifică problema înainte să decizi dacă trebuie înlocuit obiectul.",
+            "correct": false
+          },
+          {
+            "text": "Să cumpere primul cărucior nou",
+            "feedback": "Gândește-te la ce s-a întâmplat în acest capitol. Verifică problema înainte să decizi dacă trebuie înlocuit obiectul.",
+            "correct": false
+          }
+        ],
+        "activity": "Desenează un obiect imaginar stricat și marchează partea care trebuie verificată. Poți arăta, desena, tasta, folosi comunicarea augmentativă și alternativă, vorbi sau ruga un adult să îți noteze ideea."
+      },
+      {
+        "title": "Adultul verifică",
+        "paragraphs": [
+          "Căruciorul are o piesă mică de prindere. Adultul verifică dacă poate fi reparat cu unelte potrivite. Emma privește dintr-un loc liber. Nu folosește unelte ascuțite și nu testează un obiect electric deteriorat. Este o reparație de jucărie pe care un adult o poate evalua.",
+          "Piesa de prindere poate fi înlocuită. Adultul explică faptul că unele reparații nu sunt sigure, nu sunt potrivite sau sunt prea scumpe. Repararea este o opțiune de verificat, nu o regulă pentru fiecare obiect. Emma poate învăța în continuare observând și punând o întrebare."
+        ],
+        "idea": "Un adult potrivit ar trebui să evalueze siguranța și să folosească uneltele și piesele mici.",
+        "question": "Cine verifică această reparație?",
+        "choices": [
+          {
+            "text": "Max cu lăbuțele lui",
+            "feedback": "Verifică din nou povestea. Un adult potrivit ar trebui să evalueze siguranța și să folosească uneltele și piesele mici.",
+            "correct": false
+          },
+          {
+            "text": "Emma singură, cu unelte ascuțite",
+            "feedback": "Gândește-te la ce s-a întâmplat în acest capitol. Un adult potrivit ar trebui să evalueze siguranța și să folosească uneltele și piesele mici.",
+            "correct": false
+          },
+          {
+            "text": "Un adult potrivit",
+            "feedback": "Se potrivește. Un adult potrivit ar trebui să evalueze siguranța și să folosească uneltele și piesele mici.",
+            "correct": true
+          }
+        ],
+        "activity": "Arată ce sarcini imaginare revin unui adult: unelte, piese mici sau desenarea unui plan. Poți arăta, desena, tasta, folosi comunicarea augmentativă și alternativă, vorbi sau ruga un adult să îți noteze ideea."
+      },
+      {
+        "title": "Un împrumut pentru o după-amiază",
+        "paragraphs": [
+          "Cât așteaptă căruciorul, Emma are nevoie de o găleată pentru un magazin imaginar. Un vecin se oferă să o împrumute, cu acordul adultului. Emma întreabă când trebuie să o înapoieze și unde să o păstreze. Împrumutul nu face găleata a ei.",
+          "O înapoiază curată după activitate. Nimeni nu trebuie să cumpere încă o găleată pentru o singură după-amiază. Împrumutul funcționează doar dacă proprietarul este de acord și obiectul poate fi folosit în siguranță. Vecinul poate spune și nu. Emma poate alege altă activitate dacă nu este nimic disponibil."
+        ],
+        "idea": "Împrumutul are nevoie de permisiune, grijă și un moment convenit pentru înapoiere.",
+        "question": "Ce ar trebui să stabilească?",
+        "choices": [
+          {
+            "text": "Că vecinul trebuie să spună da",
+            "feedback": "Gândește-te la ce s-a întâmplat în acest capitol. Împrumutul are nevoie de permisiune, grijă și un moment convenit pentru înapoiere.",
+            "correct": false
+          },
+          {
+            "text": "Când să înapoieze găleata",
+            "feedback": "Se potrivește. Împrumutul are nevoie de permisiune, grijă și un moment convenit pentru înapoiere.",
+            "correct": true
+          },
+          {
+            "text": "Că un împrumut înseamnă proprietate",
+            "feedback": "Verifică din nou povestea. Împrumutul are nevoie de permisiune, grijă și un moment convenit pentru înapoiere.",
+            "correct": false
+          }
+        ],
+        "activity": "Creează un memento în imagini pentru înapoierea unui obiect imaginar împrumutat. Poți arăta, desena, tasta, folosi comunicarea augmentativă și alternativă, vorbi sau ruga un adult să îți noteze ideea."
+      },
+      {
+        "title": "Două etichete cu preț",
+        "paragraphs": [
+          "Adultul găsește în poveste o piesă potrivită, care costă o liră imaginară. Un cărucior nou costă cinci lire imaginare. Compară opțiunile complete, inclusiv dacă reparația va funcționa. Un preț mic nu este util dacă piesa este greșită.",
+          "Emma folosește jetoane ca să compare unu cu cinci. Pentru noul cărucior ar mai trebui patru jetoane. Aleg reparația potrivită. Acestea sunt prețuri inventate pentru învățare, nu o promisiune despre magazine reale. Un alt obiect ar putea duce la o decizie diferită."
+        ],
+        "idea": "Compară potrivirea și costul; o piesă greșită, chiar dacă e mai ieftină, nu este utilă.",
+        "question": "Ce comparație contează?",
+        "choices": [
+          {
+            "text": "Costul și dacă piesa se potrivește",
+            "feedback": "Se potrivește. Compară potrivirea și costul; o piesă greșită, chiar dacă e mai ieftină, nu este utilă.",
+            "correct": true
+          },
+          {
+            "text": "Doar ambalajul cel mai colorat",
+            "feedback": "Verifică din nou povestea. Compară potrivirea și costul; o piesă greșită, chiar dacă e mai ieftină, nu este utilă.",
+            "correct": false
+          },
+          {
+            "text": "Să cumpere mereu cel mai ieftin obiect",
+            "feedback": "Gândește-te la ce s-a întâmplat în acest capitol. Compară potrivirea și costul; o piesă greșită, chiar dacă e mai ieftină, nu este utilă.",
+            "correct": false
+          }
+        ],
+        "activity": "Folosește cinci jetoane pentru a compara o reparație imaginară de o liră cu o înlocuire de cinci lire. Poți arăta, desena, tasta, folosi comunicarea augmentativă și alternativă, vorbi sau ruga un adult să îți noteze ideea."
+      },
+      {
+        "title": "O nouă folosire pentru o cutie",
+        "paragraphs": [
+          "Cutia de livrare este goală. Emma vrea un garaj pentru căruciorul reparat. Adultul verifică dacă este curată și sigură. Emma desenează uși pe exterior. Țin foarfeca și piesele mici departe de Max.",
+          "Cutia are acum o nouă folosire. Nu trebuia neapărat să devină o jucărie și nu orice ambalaj este potrivit. Refolosirea poate evita uneori altă cumpărătură sau poate amâna aruncarea unui lucru. Emma alege ce se potrivește proiectului. Nu trebuie să adune multe obiecte ca să arate că îi pasă."
+        ],
+        "idea": "Refolosirea poate ajuta când un obiect este sigur și util pentru un scop real.",
+        "question": "Ce face cutia utilă?",
+        "choices": [
+          {
+            "text": "Orice ambalaj vechi este sigur",
+            "feedback": "Verifică din nou povestea. Refolosirea poate ajuta când un obiect este sigur și util pentru un scop real.",
+            "correct": false
+          },
+          {
+            "text": "Păstrarea tuturor lucrurilor este obligatorie",
+            "feedback": "Gândește-te la ce s-a întâmplat în acest capitol. Refolosirea poate ajuta când un obiect este sigur și util pentru un scop real.",
+            "correct": false
+          },
+          {
+            "text": "Se potrivește proiectului în siguranță",
+            "feedback": "Se potrivește. Refolosirea poate ajuta când un obiect este sigur și util pentru un scop real.",
+            "correct": true
+          }
+        ],
+        "activity": "Proiectează o nouă folosire imaginară și sigură pentru o cutie curată din carton. Poți arăta, desena, tasta, folosi comunicarea augmentativă și alternativă, vorbi sau ruga un adult să îți noteze ideea."
+      },
+      {
+        "title": "Căruciorul se întoarce",
+        "paragraphs": [
+          "Adultul verifică roata reparată înainte ca Emma să folosească jucăria. Căruciorul rulează pe podea. Emma pune în el mărfuri imaginare și îl parchează în garajul din carton. Max stă lângă adult cât timp sunt strânse piesele mici.",
+          "Emma își amintește trei întrebări posibile: Putem folosi ce avem? Am putea împrumuta cu permisiune? Trebuie înlocuit ceva? Niciun răspuns nu se potrivește tuturor obiectelor. Poate întreba un adult și poate compara opțiunile disponibile în acea situație."
+        ],
+        "idea": "Folosirea, împrumutul, repararea și înlocuirea sunt opțiuni de analizat în funcție de situație.",
+        "question": "Ce întrebare ajută data viitoare?",
+        "choices": [
+          {
+            "text": "Să cumpărăm înainte să verificăm?",
+            "feedback": "Gândește-te la ce s-a întâmplat în acest capitol. Folosirea, împrumutul, repararea și înlocuirea sunt opțiuni de analizat în funcție de situație.",
+            "correct": false
+          },
+          {
+            "text": "Ce opțiuni sunt sigure și utile?",
+            "feedback": "Se potrivește. Folosirea, împrumutul, repararea și înlocuirea sunt opțiuni de analizat în funcție de situație.",
+            "correct": true
+          },
+          {
+            "text": "Trebuie reparat orice obiect?",
+            "feedback": "Verifică din nou povestea. Folosirea, împrumutul, repararea și înlocuirea sunt opțiuni de analizat în funcție de situație.",
+            "correct": false
+          }
+        ],
+        "activity": "Desenează trei opțiuni pentru un obiect imaginar și alege una de cercetat împreună cu un adult. Poți arăta, desena, tasta, folosi comunicarea augmentativă și alternativă, vorbi sau ruga un adult să îți noteze ideea."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Reparare",
+        "meaning": "Refacerea unui obiect, ca să poată fi folosit din nou."
+      },
+      {
+        "term": "A împrumuta",
+        "meaning": "A folosi ceva cu permisiune și a-l înapoia."
+      },
+      {
+        "term": "Refolosire",
+        "meaning": "Folosirea unui obiect din nou, pentru un scop potrivit."
+      }
+    ]
+  },
+  "the-robot-with-the-wrong-answer": {
+    "title": "Robotul cu răspunsul greșit",
+    "subtitle": "O poveste originală Money Quest, de citit și explorat împreună",
+    "audience": "Explorer · 6-8 ani · Lectură împreună și activități opționale",
+    "description": "Un ajutor AI imaginar îi arată Emmei de ce trebuie verificate și răspunsurile spuse cu încredere.",
+    "coverAlt": "Emma și Max într-un loc din Money Quest legat de această poveste.",
+    "chapters": [
+      {
+        "title": "Ecranul care vorbește",
+        "paragraphs": [
+          "La o masă de învățare supravegheată, Emma încearcă un robot imaginar care oferă ajutor. El răspunde în propoziții întregi. Emma crede că trebuie să știe totul fiindcă pare atât de sigur. Adultul întreabă dacă a suna sigur înseamnă a avea dreptate.",
+          "Îi cer să numere cele patru bărcuțe pictate într-o imagine. Spune cinci. Emma arată fiecare bărcuță și numără. Sunt patru. Răspunsul instrumentului poate fi greșit chiar dacă propoziția pare prietenoasă, completă și sigură."
+        ],
+        "idea": "Un răspuns spus cu încredere poate fi greșit; verifică-l folosind dovezi.",
+        "question": "Câte bărcuțe pictate sunt?",
+        "choices": [
+          {
+            "text": "Patru, după verificarea imaginii",
+            "feedback": "Se potrivește. Un răspuns spus cu încredere poate fi greșit; verifică-l folosind dovezi.",
+            "correct": true
+          },
+          {
+            "text": "Cinci, fiindcă așa spune instrumentul",
+            "feedback": "Verifică din nou povestea. Un răspuns spus cu încredere poate fi greșit; verifică-l folosind dovezi.",
+            "correct": false
+          },
+          {
+            "text": "Atâtea câte spune cu încredere",
+            "feedback": "Gândește-te la ce s-a întâmplat în acest capitol. Un răspuns spus cu încredere poate fi greșit; verifică-l folosind dovezi.",
+            "correct": false
+          }
+        ],
+        "activity": "Desenează patru obiecte simple și verifică un răspuns imaginar greșit intenționat. Poți arăta, desena, tasta, folosi comunicarea augmentativă și alternativă, vorbi sau ruga un adult să îți noteze ideea."
+      },
+      {
+        "title": "Ce face instrumentul",
+        "paragraphs": [
+          "Emma întreabă dacă robotul are emoții ca Max. Adultul explică faptul că este un instrument informatic care produce răspunsuri pe baza unor tipare. Nu este un animal de companie sau o persoană. O propoziție prietenoasă nu înseamnă că o înțelege pe Emma cum ar face un prieten.",
+          "Folosesc un nume inventat în activitate și nu introduc informații personale. Emma poate întreba o persoană reală când are nevoie de grijă sau ajutor. Instrumentul poate sprijini unele sarcini, dar nu înlocuiește un adult de încredere și nu decide ce este potrivit pentru ea."
+        ],
+        "idea": "Un răspuns al calculatorului nu este o prietenie și nu înlocuiește grija unui om.",
+        "question": "Cine poate oferi sprijin personal real?",
+        "choices": [
+          {
+            "text": "Un instrument, fiindcă spune că îi pasă",
+            "feedback": "Verifică din nou povestea. Un răspuns al calculatorului nu este o prietenie și nu înlocuiește grija unui om.",
+            "correct": false
+          },
+          {
+            "text": "Orice ecran cu o față",
+            "feedback": "Gândește-te la ce s-a întâmplat în acest capitol. Un răspuns al calculatorului nu este o prietenie și nu înlocuiește grija unui om.",
+            "correct": false
+          },
+          {
+            "text": "Un adult de încredere",
+            "feedback": "Se potrivește. Un răspuns al calculatorului nu este o prietenie și nu înlocuiește grija unui om.",
+            "correct": true
+          }
+        ],
+        "activity": "Grupează cartonașe inventate: instrument informatic, animal și adult de încredere. Poți arăta, desena, tasta, folosi comunicarea augmentativă și alternativă, vorbi sau ruga un adult să îți noteze ideea."
+      },
+      {
+        "title": "O sursă de căutat",
+        "paragraphs": [
+          "Ajutorul imaginar spune că toate păsările pot zbura. Emma își amintește că a văzut un pinguin într-o carte de la bibliotecă. Împreună cu adultul găsește o sursă potrivită despre natură. Unele păsări nu pot zbura. Afirmația era prea generală.",
+          "Emma pune un semn de întrebare lângă răspuns. Nu trebuie să cunoască toate păsările ca să observe un contraexemplu. Căutarea unei surse îi ajută să verifice sensul afirmației. Dacă i-ar cere aceluiași instrument să repete răspunsul, nu ar face o verificare independentă."
+        ],
+        "idea": "Folosește o sursă independentă potrivită pentru a verifica o afirmație despre fapte.",
+        "question": "Ce ajută la verificarea afirmației despre păsări?",
+        "choices": [
+          {
+            "text": "Cât de colorat este ecranul",
+            "feedback": "Gândește-te la ce s-a întâmplat în acest capitol. Folosește o sursă independentă potrivită pentru a verifica o afirmație despre fapte.",
+            "correct": false
+          },
+          {
+            "text": "O sursă potrivită despre natură",
+            "feedback": "Se potrivește. Folosește o sursă independentă potrivită pentru a verifica o afirmație despre fapte.",
+            "correct": true
+          },
+          {
+            "text": "Același răspuns repetat mai tare",
+            "feedback": "Verifică din nou povestea. Folosește o sursă independentă potrivită pentru a verifica o afirmație despre fapte.",
+            "correct": false
+          }
+        ],
+        "activity": "Folosește cu un adult o imagine sau o carte despre natură pentru a verifica o afirmație inventată despre animale. Poți arăta, desena, tasta, folosi comunicarea augmentativă și alternativă, vorbi sau ruga un adult să îți noteze ideea."
+      },
+      {
+        "title": "O idee aparține cuiva",
+        "paragraphs": [
+          "Instrumentul propune copierea desenului unui coleg pentru coperta unei povești. Emma știe că desenul a fost făcut de coleg. Nu îl prezintă ca fiind al ei. Adultul o ajută să planifice o imagine originală, cu formele și culorile alese de ea.",
+          "Faptul că un calculator propune o acțiune nu stabilește dacă ea este corectă sau permisă. Emma poate întreba cine a creat ceva și de ce permisiune este nevoie. Desenează altă bărcuță, cu o pânză dungată. A primi o idee este diferit de a prezenta munca altei persoane ca fiind a ta."
+        ],
+        "idea": "Verifică autorul și permisiunea; propunerea unui instrument nu face copierea acceptabilă.",
+        "question": "Ce ar trebui să creeze Emma?",
+        "choices": [
+          {
+            "text": "Propriul desen",
+            "feedback": "Se potrivește. Verifică autorul și permisiunea; propunerea unui instrument nu face copierea acceptabilă.",
+            "correct": true
+          },
+          {
+            "text": "Lucrarea unui coleg, cu numele ei",
+            "feedback": "Verifică din nou povestea. Verifică autorul și permisiunea; propunerea unui instrument nu face copierea acceptabilă.",
+            "correct": false
+          },
+          {
+            "text": "Orice cere ecranul",
+            "feedback": "Gândește-te la ce s-a întâmplat în acest capitol. Verifică autorul și permisiunea; propunerea unui instrument nu face copierea acceptabilă.",
+            "correct": false
+          }
+        ],
+        "activity": "Inventează o imagine simplă pentru o copertă și spune sau arată cine a creat-o. Poți arăta, desena, tasta, folosi comunicarea augmentativă și alternativă, vorbi sau ruga un adult să îți noteze ideea."
+      },
+      {
+        "title": "O sarcină mică și utilă",
+        "paragraphs": [
+          "Emma are nevoie de trei nume posibile pentru o grădină imaginară de pe Lună. Cu adultul, cere idei ajutorului imaginar. Citesc împreună propunerile. Una se pronunță greu, una este deja numele unei cărți cunoscute, iar alta îi dă Emmei o idee nouă.",
+          "Schimbă ultima propunere într-un nume care îi place. Instrumentul a ajutat la găsirea ideilor. Nu a scris un raport despre fapte și nu a verificat dacă titlul poate fi folosit pentru publicare. Emma alege în continuare și își explică alegerea. Păstrează grădina imaginară pe hârtie, fără să o publice."
+        ],
+        "idea": "Un instrument poate sugera idei, iar oamenii rămân responsabili pentru verificare și alegere.",
+        "question": "Cine face alegerea finală?",
+        "choices": [
+          {
+            "text": "Prima propunere, automat",
+            "feedback": "Verifică din nou povestea. Un instrument poate sugera idei, iar oamenii rămân responsabili pentru verificare și alegere.",
+            "correct": false
+          },
+          {
+            "text": "Instrumentul, fără verificare",
+            "feedback": "Gândește-te la ce s-a întâmplat în acest capitol. Un instrument poate sugera idei, iar oamenii rămân responsabili pentru verificare și alegere.",
+            "correct": false
+          },
+          {
+            "text": "Emma, cu sprijin potrivit",
+            "feedback": "Se potrivește. Un instrument poate sugera idei, iar oamenii rămân responsabili pentru verificare și alegere.",
+            "correct": true
+          }
+        ],
+        "activity": "Inventează trei nume pentru o grădină imaginară, fără să ai nevoie de un instrument online. Poți arăta, desena, tasta, folosi comunicarea augmentativă și alternativă, vorbi sau ruga un adult să îți noteze ideea."
+      },
+      {
+        "title": "Cartonașul de verificare",
+        "paragraphs": [
+          "Emma face un cartonaș cu imagini pentru viitoare activități cu instrumente. Arată un semn de întrebare, o carte și un adult. Îi amintește să întrebe care este afirmația, să verifice o sursă potrivită și să ceară ajutor uman când are nevoie. Îl pune lângă masa supravegheată.",
+          "Poate și să aleagă să nu folosească instrumentul. Desenul și discuția rămân disponibile. Max împinge mingea lui obișnuită spre adult. Emma râde observând diferența: mingea nu are nevoie de un răspuns isteț, ci de o joacă sigură cu cineva care este acolo."
+        ],
+        "idea": "Alege un instrument pentru un scop, verifică ce produce și păstrează opțiunile fără ecran.",
+        "question": "Ce se potrivește pe un cartonaș de verificare?",
+        "choices": [
+          {
+            "text": "O cerere de informații private",
+            "feedback": "Gândește-te la ce s-a întâmplat în acest capitol. Alege un instrument pentru un scop, verifică ce produce și păstrează opțiunile fără ecran.",
+            "correct": false
+          },
+          {
+            "text": "O întrebare, o sursă și ajutor uman",
+            "feedback": "Se potrivește. Alege un instrument pentru un scop, verifică ce produce și păstrează opțiunile fără ecran.",
+            "correct": true
+          },
+          {
+            "text": "O regulă să crezi fiecare răspuns",
+            "feedback": "Verifică din nou povestea. Alege un instrument pentru un scop, verifică ce produce și păstrează opțiunile fără ecran.",
+            "correct": false
+          }
+        ],
+        "activity": "Creează un cartonaș cu trei imagini pentru verificarea unei activități imaginare pe calculator. Poți arăta, desena, tasta, folosi comunicarea augmentativă și alternativă, vorbi sau ruga un adult să îți noteze ideea."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Instrument AI",
+        "meaning": "Un sistem informatic care poate produce răspunsuri pe baza unor tipare."
+      },
+      {
+        "term": "Dovezi",
+        "meaning": "Informații care ajută la verificarea unei idei."
+      },
+      {
+        "term": "Sursă",
+        "meaning": "Locul din care provin informațiile."
+      }
+    ]
+  },
+  "the-picnic-with-eight-tokens": {
+    "title": "Picnicul cu opt jetoane",
+    "subtitle": "O poveste originală Money Quest, de citit și explorat împreună",
+    "audience": "Explorer · 6-8 ani · Lectură împreună și activități opționale",
+    "description": "Un picnic imaginar îi oferă Emmei un motiv practic să planifice, să numere și să lase loc pentru schimbări.",
+    "coverAlt": "Emma și Max într-un loc din Money Quest legat de această poveste.",
+    "chapters": [
+      {
+        "title": "Opt jetoane pe masă",
+        "paragraphs": [
+          "Grupul Emmei pregătește un picnic imaginar într-un joc cu imagini. Adultul le oferă opt jetoane. Fiecare jeton reprezintă o liră imaginară. Nu folosesc banii familiei. Max privește în timp ce Emma așază jetoanele pe un rând.",
+          "Cartonașele arată mâncare, apă și decorațiuni. Grupul nu poate alege totul cu opt jetoane. Trebuie să verifice ce contează pentru picnicul lor imaginar. Planificarea cu sume inventate le permite să exerseze fără să îi ceară cuiva să spună cât câștigă sau cheltuiește familia sa."
+        ],
+        "idea": "Un buget imaginar este o limită pentru o activitate inventată, nu o judecată despre o familie.",
+        "question": "Câte jetoane sunt disponibile?",
+        "choices": [
+          {
+            "text": "Opt",
+            "feedback": "Se potrivește. Un buget imaginar este o limită pentru o activitate inventată, nu o judecată despre o familie.",
+            "correct": true
+          },
+          {
+            "text": "Oricâte își doresc",
+            "feedback": "Verifică din nou povestea. Un buget imaginar este o limită pentru o activitate inventată, nu o judecată despre o familie.",
+            "correct": false
+          },
+          {
+            "text": "Nu există nicio limită",
+            "feedback": "Gândește-te la ce s-a întâmplat în acest capitol. Un buget imaginar este o limită pentru o activitate inventată, nu o judecată despre o familie.",
+            "correct": false
+          }
+        ],
+        "activity": "Așază opt semne sau jetoane lângă un plan de picnic imaginar. Poți arăta, desena, tasta, folosi comunicarea augmentativă și alternativă, vorbi sau ruga un adult să îți noteze ideea."
+      },
+      {
+        "title": "Primele două cartonașe",
+        "paragraphs": [
+          "Cartonașul cu mâncare din poveste costă trei jetoane, iar cel cu apă costă unul. Adultul explică faptul că personajele au nevoie de aceste lucruri pentru picnic. În viața reală, un adult ar verifica și nevoile alimentare, accesul la apă și siguranța.",
+          "Emma mută patru jetoane lângă cele două cartonașe. Rămân patru. Alegerea întâi a unor lucruri utile lasă o sumă clară pentru alegerile următoare. Lista nu a creat bani în plus. Îi ajută doar să vadă ce au decis și ce a rămas."
+        ],
+        "idea": "Trei plus unu folosesc patru jetoane, iar din cele opt inițiale rămân patru.",
+        "question": "Câte rămân după mâncare și apă?",
+        "choices": [
+          {
+            "text": "Opt",
+            "feedback": "Verifică din nou povestea. Trei plus unu folosesc patru jetoane, iar din cele opt inițiale rămân patru.",
+            "correct": false
+          },
+          {
+            "text": "Douăsprezece",
+            "feedback": "Gândește-te la ce s-a întâmplat în acest capitol. Trei plus unu folosesc patru jetoane, iar din cele opt inițiale rămân patru.",
+            "correct": false
+          },
+          {
+            "text": "Patru",
+            "feedback": "Se potrivește. Trei plus unu folosesc patru jetoane, iar din cele opt inițiale rămân patru.",
+            "correct": true
+          }
+        ],
+        "activity": "Mută trei jetoane și apoi încă unul dintr-un grup de opt; arată câte au rămas. Poți arăta, desena, tasta, folosi comunicarea augmentativă și alternativă, vorbi sau ruga un adult să îți noteze ideea."
+      },
+      {
+        "title": "O decorațiune poate aștepta",
+        "paragraphs": [
+          "Un cartonaș cu panglică costă trei jetoane. Unul cu pătură costă două. Grupului îi mai rămân patru jetoane. Nu poate cumpăra ambele cartonașe, fiindcă trei plus două fac cinci. Emma le pune lângă jetoanele rămase pentru comparație.",
+          "Personajele au deja un loc potrivit unde să stea în acest joc inventat. Pot alege o decorațiune, pot păstra jetoanele sau își pot schimba planul. O dorință nu este ceva rău. Este o alegere de analizat după nevoi și limite. Și a nu cumpăra este o decizie posibilă."
+        ],
+        "idea": "Un lucru plăcut în plus poate fi ales, dar totalul trebuie să se încadreze în suma disponibilă.",
+        "question": "Pot cumpăra ambele lucruri în plus cu patru jetoane?",
+        "choices": [
+          {
+            "text": "Da, lista adaugă un jeton",
+            "feedback": "Gândește-te la ce s-a întâmplat în acest capitol. Un lucru plăcut în plus poate fi ales, dar totalul trebuie să se încadreze în suma disponibilă.",
+            "correct": false
+          },
+          {
+            "text": "Nu, împreună costă cinci",
+            "feedback": "Se potrivește. Un lucru plăcut în plus poate fi ales, dar totalul trebuie să se încadreze în suma disponibilă.",
+            "correct": true
+          },
+          {
+            "text": "Da, fiindcă ambele sunt frumoase",
+            "feedback": "Verifică din nou povestea. Un lucru plăcut în plus poate fi ales, dar totalul trebuie să se încadreze în suma disponibilă.",
+            "correct": false
+          }
+        ],
+        "activity": "Compară două lucruri imaginare în plus, care costă trei și două, folosind patru semne disponibile. Poți arăta, desena, tasta, folosi comunicarea augmentativă și alternativă, vorbi sau ruga un adult să îți noteze ideea."
+      },
+      {
+        "title": "Vremea se schimbă",
+        "paragraphs": [
+          "Imaginea din poveste se schimbă și arată o zi ploioasă. Adultul oferă o scenă de picnic în interior, care folosește aceleași cartonașe cu mâncare. Emma mută planul pe noua imagine. Grupul nu trebuie să păstreze planul de afară doar fiindcă a fost primul.",
+          "Verifică ce alegeri încă sunt utile. Panglica este opțională, iar mâncarea este în continuare utilă. Un plan se poate schimba când informațiile se schimbă. Nimeni nu pierde un premiu pentru adaptare. Max este mulțumit că activitatea reală rămâne în interior, unde păturica lui este caldă și uscată."
+        ],
+        "idea": "Informațiile schimbate pot fi un motiv pentru a revedea un plan.",
+        "question": "Ce poate revizui grupul?",
+        "choices": [
+          {
+            "text": "Locul picnicului, după ce verifică ploaia",
+            "feedback": "Se potrivește. Informațiile schimbate pot fi un motiv pentru a revedea un plan.",
+            "correct": true
+          },
+          {
+            "text": "Nimic, dacă există deja un plan",
+            "feedback": "Verifică din nou povestea. Informațiile schimbate pot fi un motiv pentru a revedea un plan.",
+            "correct": false
+          },
+          {
+            "text": "Vremea, cheltuind jetoane",
+            "feedback": "Gândește-te la ce s-a întâmplat în acest capitol. Informațiile schimbate pot fi un motiv pentru a revedea un plan.",
+            "correct": false
+          }
+        ],
+        "activity": "Arată o variantă în interior și una afară pentru un eveniment imaginar, apoi alege pentru o imagine cu ploaie. Poți arăta, desena, tasta, folosi comunicarea augmentativă și alternativă, vorbi sau ruga un adult să îți noteze ideea."
+      },
+      {
+        "title": "Jetonul păstrat",
+        "paragraphs": [
+          "Grupul Emmei decide să folosească trei dintre cele patru jetoane rămase pentru un cartonaș cu decorațiuni. Păstrează un jeton deoparte. Adultul explică faptul că o sumă necheltuită poate lăsa loc pentru o alegere ulterioară. Nu garantează că orice surpriză va putea fi plătită.",
+          "Grupul notează sumele folosite și nefolosite. Șapte dintre cele opt jetoane au fost folosite. Unul rămâne. Pot explica planul arătând. Nimeni nu trebuie să scrie un calcul lung pentru a demonstra că înțelege ce s-a întâmplat în joc."
+        ],
+        "idea": "Opt jetoane minus șapte folosite lasă unul; banii necheltuiți rămân disponibili.",
+        "question": "Câte jetoane au rămas nefolosite?",
+        "choices": [
+          {
+            "text": "Șapte",
+            "feedback": "Verifică din nou povestea. Opt jetoane minus șapte folosite lasă unul; banii necheltuiți rămân disponibili.",
+            "correct": false
+          },
+          {
+            "text": "Nouă",
+            "feedback": "Gândește-te la ce s-a întâmplat în acest capitol. Opt jetoane minus șapte folosite lasă unul; banii necheltuiți rămân disponibili.",
+            "correct": false
+          },
+          {
+            "text": "Unul",
+            "feedback": "Se potrivește. Opt jetoane minus șapte folosite lasă unul; banii necheltuiți rămân disponibili.",
+            "correct": true
+          }
+        ],
+        "activity": "Desenează opt cercuri, marchează șapte ca folosite și arată cercul nefolosit. Poți arăta, desena, tasta, folosi comunicarea augmentativă și alternativă, vorbi sau ruga un adult să îți noteze ideea."
+      },
+      {
+        "title": "Un plan pe care toți îl pot înțelege",
+        "paragraphs": [
+          "Pentru ultima rundă, grupul pune cartonașele și jetoanele unde toți le pot vedea sau pot ajunge la ele. Un copil arată cartonașul cu apă ca să îi verifice locul în plan. Emma face loc întrebării, în loc să se grăbească să termine.",
+          "Jocul de picnic se încheie cu o scurtă recapitulare: ce era disponibil, ce au ales și ce a rămas. Alt grup ar putea face alegeri diferite în aceeași limită. Învățarea utilă înseamnă verificarea planului și ascultarea celor implicați, nu găsirea celei mai spectaculoase imagini de picnic."
+        ],
+        "idea": "Un plan ar trebui să poată fi înțeles de cei care îl folosesc, cu moduri accesibile de a pune întrebări.",
+        "question": "Ce merită recapitulat?",
+        "choices": [
+          {
+            "text": "Cine a terminat cel mai repede",
+            "feedback": "Gândește-te la ce s-a întâmplat în acest capitol. Un plan ar trebui să poată fi înțeles de cei care îl folosesc, cu moduri accesibile de a pune întrebări.",
+            "correct": false
+          },
+          {
+            "text": "Sumele disponibile, folosite și rămase",
+            "feedback": "Se potrivește. Un plan ar trebui să poată fi înțeles de cei care îl folosesc, cu moduri accesibile de a pune întrebări.",
+            "correct": true
+          },
+          {
+            "text": "Al cui picnic pare cel mai scump",
+            "feedback": "Verifică din nou povestea. Un plan ar trebui să poată fi înțeles de cei care îl folosesc, cu moduri accesibile de a pune întrebări.",
+            "correct": false
+          }
+        ],
+        "activity": "Povestește un buget de picnic imaginar folosind cartonașe, desene sau notițele unui adult. Poți arăta, desena, tasta, folosi comunicarea augmentativă și alternativă, vorbi sau ruga un adult să îți noteze ideea."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Buget",
+        "meaning": "Un plan pentru folosirea unei sume disponibile."
+      },
+      {
+        "term": "Total",
+        "meaning": "Suma obținută când numărăm lucrurile împreună."
+      },
+      {
+        "term": "Rămas",
+        "meaning": "Ce se păstrează după ce o parte a fost folosită."
+      }
+    ]
+  },
+  "the-kindness-club": {
+    "title": "Clubul bunătății",
+    "subtitle": "O poveste originală Money Quest, de citit și explorat împreună",
+    "audience": "Explorer · 6-8 ani · Lectură împreună și activități opționale",
+    "description": "Emma și prietenii ei pregătesc un mic proiect comunitar, în care fiecare poate alege cum să participe.",
+    "coverAlt": "Emma și Max într-un loc din Money Quest legat de această poveste.",
+    "chapters": [
+      {
+        "title": "O invitație cu opțiuni",
+        "paragraphs": [
+          "Emma vrea să înceapă un club al bunătății la o activitate comunitară supravegheată. Desenează un afiș care îi invită pe toți să spună o poveste cu voce tare. Apoi își amintește că unii copii pot să nu vrea să vorbească în grup. Max se odihnește lângă scaunul adultului.",
+          "Emma adaugă alte moduri de participare: desen, arătatul imaginilor sau aranjarea cartonașelor cu povești. Un copil poate și să privească înainte să decidă. O invitație devine mai utilă când explică opțiunile disponibile, în loc să presupună că toți vor participa la fel."
+        ],
+        "idea": "Oferă moduri de participare care contează, inclusiv posibilitatea de a privi sau de a refuza.",
+        "question": "Ce îmbunătățește invitația?",
+        "choices": [
+          {
+            "text": "Moduri diferite de a participa",
+            "feedback": "Se potrivește. Oferă moduri de participare care contează, inclusiv posibilitatea de a privi sau de a refuza.",
+            "correct": true
+          },
+          {
+            "text": "Un discurs obligatoriu pentru toți",
+            "feedback": "Verifică din nou povestea. Oferă moduri de participare care contează, inclusiv posibilitatea de a privi sau de a refuza.",
+            "correct": false
+          },
+          {
+            "text": "O regulă împotriva privitului",
+            "feedback": "Gândește-te la ce s-a întâmplat în acest capitol. Oferă moduri de participare care contează, inclusiv posibilitatea de a privi sau de a refuza.",
+            "correct": false
+          }
+        ],
+        "activity": "Creează o invitație cu două moduri de a răspunde pentru un club imaginar. Poți arăta, desena, tasta, folosi comunicarea augmentativă și alternativă, vorbi sau ruga un adult să îți noteze ideea."
+      },
+      {
+        "title": "Ajutorul începe cu o întrebare",
+        "paragraphs": [
+          "Grupul vrea să ajute un vecin. Emma propune să îi ducă sacoșa fără să întrebe. Adultul explică faptul că ajutorul ar trebui să înceapă cu o întrebare. O persoană poate dori sprijin, poate prefera alt ajutor sau poate vrea să facă singură sarcina.",
+          "Emma desenează un cartonaș care spune: Ai dori ajutor? Vecinul din poveste spune nu, mulțumesc. Clubul acceptă răspunsul. Respectarea alegerii cuiva face parte din bunătate. O intenție bună nu îi dă clubului permisiunea de a prelua lucrurile altei persoane."
+        ],
+        "idea": "Întreabă înainte să ajuți și acceptă răspunsul persoanei.",
+        "question": "Ce ar trebui să facă mai întâi clubul?",
+        "choices": [
+          {
+            "text": "Să ia sacoșa fără să întrebe",
+            "feedback": "Verifică din nou povestea. Întreabă înainte să ajuți și acceptă răspunsul persoanei.",
+            "correct": false
+          },
+          {
+            "text": "Să insiste să ajute oricum",
+            "feedback": "Gândește-te la ce s-a întâmplat în acest capitol. Întreabă înainte să ajuți și acceptă răspunsul persoanei.",
+            "correct": false
+          },
+          {
+            "text": "Să întrebe dacă persoana dorește ajutor",
+            "feedback": "Se potrivește. Întreabă înainte să ajuți și acceptă răspunsul persoanei.",
+            "correct": true
+          }
+        ],
+        "activity": "Alege o formulare sau o imagine respectuoasă pentru a cere acordul într-o situație imaginară. Poți arăta, desena, tasta, folosi comunicarea augmentativă și alternativă, vorbi sau ruga un adult să îți noteze ideea."
+      },
+      {
+        "title": "O sarcină fără cumpărături",
+        "paragraphs": [
+          "Clubul nu are bani de cadouri. Emma se teme că proiectul nu poate continua. Un adult întreabă ce gesturi bune nu necesită o cumpărătură. Copiii propun ascultarea, înapoierea materialelor comune și eliberarea unui loc la masă. Max nu are nicio propunere de cumpărături.",
+          "Aleg să organizeze cartonașele cu imagini ale comunității, cu permisiune. Este o sarcină utilă și nu costă nimic. A oferi bani nu este un test al bunătății. Familiile au resurse diferite și nimeni nu trebuie să își explice situația financiară pentru a face parte din club."
+        ],
+        "idea": "Timpul, grija și acțiunile utile pot contribui fără o cumpărătură.",
+        "question": "Ce acțiune nu costă bani?",
+        "choices": [
+          {
+            "text": "Să ceară date bancare private",
+            "feedback": "Gândește-te la ce s-a întâmplat în acest capitol. Timpul, grija și acțiunile utile pot contribui fără o cumpărătură.",
+            "correct": false
+          },
+          {
+            "text": "Să aranjeze cartonașele comune cu permisiune",
+            "feedback": "Se potrivește. Timpul, grija și acțiunile utile pot contribui fără o cumpărătură.",
+            "correct": true
+          },
+          {
+            "text": "Să cumpere un cadou fiecăruia",
+            "feedback": "Verifică din nou povestea. Timpul, grija și acțiunile utile pot contribui fără o cumpărătură.",
+            "correct": false
+          }
+        ],
+        "activity": "Desenează un mod sigur și gratuit prin care un club imaginar poate contribui. Poți arăta, desena, tasta, folosi comunicarea augmentativă și alternativă, vorbi sau ruga un adult să îți noteze ideea."
+      },
+      {
+        "title": "Nu toți își doresc o îmbrățișare",
+        "paragraphs": [
+          "Emma vrea să îi mulțumească unui prieten printr-o îmbrățișare. Prietenul face un pas înapoi. Emma se oprește. Adultul oferă alternative: un salut cu mâna, un cartonaș de mulțumire sau un simplu mulțumesc. Prietenul alege salutul, iar Emma îi răspunde la fel.",
+          "Nimeni nu trebuie să accepte atingerea pentru a arăta prietenie. Oamenii pot prefera saluturi diferite în zile diferite. Întrebarea și ascultarea ajută clubul să respecte fiecare persoană. Emma adaugă o imagine cu un salut pe panoul invitațiilor, ca vizitatorii să poată alege un salut confortabil fără să explice în fața tuturor."
+        ],
+        "idea": "Respectă limitele personale și oferă saluturi fără atingere.",
+        "question": "Ce poate face Emma?",
+        "choices": [
+          {
+            "text": "Să se oprească și să ofere un salut cu mâna",
+            "feedback": "Se potrivește. Respectă limitele personale și oferă saluturi fără atingere.",
+            "correct": true
+          },
+          {
+            "text": "Să îmbrățișeze după ce prietenul se retrage",
+            "feedback": "Verifică din nou povestea. Respectă limitele personale și oferă saluturi fără atingere.",
+            "correct": false
+          },
+          {
+            "text": "Să ceară neapărat o explicație",
+            "feedback": "Gândește-te la ce s-a întâmplat în acest capitol. Respectă limitele personale și oferă saluturi fără atingere.",
+            "correct": false
+          }
+        ],
+        "activity": "Alege un salut fără atingere pentru panoul de bun venit al unui club imaginar. Poți arăta, desena, tasta, folosi comunicarea augmentativă și alternativă, vorbi sau ruga un adult să îți noteze ideea."
+      },
+      {
+        "title": "Recunoașterea contribuțiilor",
+        "paragraphs": [
+          "Clubul termină de sortat cartonașele. Emma a făcut invitația, un copil a verificat grupurile, iar altul a dus tava goală împreună cu un adult. Un vizitator îi mulțumește doar Emmei. Ea îi arată pe ceilalți și explică ce a făcut fiecare.",
+          "Adultul mulțumește grupului pentru contribuții concrete. Și munca liniștită contează. Proiectul nu a reușit fiindcă un copil era cel mai important. A reușit fiindcă mai multe persoane au avut roluri potrivite. Rolul lui Max era să stea în afara zonei de lucru, lucru pe care l-a făcut de pe păturica sa."
+        ],
+        "idea": "Descrie contribuțiile concrete și include oamenii a căror muncă s-a văzut mai puțin.",
+        "question": "Cine merită recunoaștere?",
+        "choices": [
+          {
+            "text": "Doar persoana care vorbește cel mai tare",
+            "feedback": "Verifică din nou povestea. Descrie contribuțiile concrete și include oamenii a căror muncă s-a văzut mai puțin.",
+            "correct": false
+          },
+          {
+            "text": "Doar persoana care ține afișul",
+            "feedback": "Gândește-te la ce s-a întâmplat în acest capitol. Descrie contribuțiile concrete și include oamenii a căror muncă s-a văzut mai puțin.",
+            "correct": false
+          },
+          {
+            "text": "Toți cei care au contribuit",
+            "feedback": "Se potrivește. Descrie contribuțiile concrete și include oamenii a căror muncă s-a văzut mai puțin.",
+            "correct": true
+          }
+        ],
+        "activity": "Arată trei roluri diferite într-un proiect imaginar și spune ce aduce fiecare. Poți arăta, desena, tasta, folosi comunicarea augmentativă și alternativă, vorbi sau ruga un adult să îți noteze ideea."
+      },
+      {
+        "title": "Un club care se poate schimba",
+        "paragraphs": [
+          "La următoarea întâlnire, un copil găsește masa clubului prea aglomerată. Emma ascultă și întreabă adultul dacă poate exista un loc mai liniștit pentru participare. Mută câteva cartonașe și lasă mai mult spațiu. Păstrează și opțiunea de a privi.",
+          "Schimbarea nu înseamnă că primul club a fost un eșec. Feedbackul poate arăta o barieră pe care organizatorii nu au observat-o. Emma păstrează un cartonaș pentru Am nevoie de altceva. Clubul poate întreba în continuare ce ajută, iar adulții verifică siguranța și sprijinul. Bunătatea include ascultarea răspunsului."
+        ],
+        "idea": "Folosește feedbackul pentru a elimina bariere și verifică în continuare de ce are nevoie participarea.",
+        "question": "Ce ar trebui să facă clubul cu feedbackul util?",
+        "choices": [
+          {
+            "text": "Să le ceară tuturor să suporte același aranjament",
+            "feedback": "Gândește-te la ce s-a întâmplat în acest capitol. Folosește feedbackul pentru a elimina bariere și verifică în continuare de ce are nevoie participarea.",
+            "correct": false
+          },
+          {
+            "text": "Să analizeze o schimbare practică",
+            "feedback": "Se potrivește. Folosește feedbackul pentru a elimina bariere și verifică în continuare de ce are nevoie participarea.",
+            "correct": true
+          },
+          {
+            "text": "Să îl ignore după deschidere",
+            "feedback": "Verifică din nou povestea. Folosește feedbackul pentru a elimina bariere și verifică în continuare de ce are nevoie participarea.",
+            "correct": false
+          }
+        ],
+        "activity": "Desenează o schimbare care ar putea face o activitate imaginară de grup mai ușor de accesat. Poți arăta, desena, tasta, folosi comunicarea augmentativă și alternativă, vorbi sau ruga un adult să îți noteze ideea."
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Permisiune",
+        "meaning": "Acordul ca o acțiune să aibă loc."
+      },
+      {
+        "term": "Limită personală",
+        "meaning": "O limită despre ceea ce este confortabil pentru cineva."
+      },
+      {
+        "term": "Contribuție",
+        "meaning": "Ce adaugă o persoană la o activitate comună."
+      }
+    ]
+  }
+}

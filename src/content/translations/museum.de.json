@@ -1,0 +1,262 @@
+{
+  "before-money": {
+    "room": {
+      "title": "Vor dem Geld",
+      "intro": "Menschen haben Waren und Dienstleistungen auf viele Arten ausgetauscht.",
+      "story": "Ein Bauer hat Äpfel. Ein Bäcker hat Brot. Sie können tauschen, wenn beide einverstanden sind. Das nennt man Tauschhandel. Menschen nutzten auch Geschenke, Versprechen und Kredit. Geld ist nicht überall auf dieselbe Weise entstanden.",
+      "quiz": {
+        "question": "Warum kann Tauschen schwierig sein?",
+        "answers": [
+          "Beide Personen müssen den Tausch wollen",
+          "Alles hat denselben Wert",
+          "Niemand braucht etwas"
+        ],
+        "correct": 0
+      },
+      "explanation": "Für einen Tausch musst du jemanden finden, der dein Angebot möchte.",
+      "activity": "Überlege dir einen fairen Tausch mit einem Freund oder einer Freundin."
+    },
+    "note": {
+      "feedback": "Beide Personen müssen einem Tausch zustimmen. Tauschhandel war eine Art, Waren auszutauschen, aber keine allgemeine Stufe, die überall dem Geld vorausging.",
+      "challenges": [
+        "Zeige auf zwei Dinge, die Menschen tauschen könnten.",
+        "Spielt einen Tausch nach. Was passiert, wenn eine Person das Angebot nicht möchte?",
+        "Erkläre, warum Geld, Tauschhandel und Kredit nebeneinander bestehen können."
+      ]
+    }
+  },
+  "first-coins": {
+    "room": {
+      "title": "Die ersten Münzen",
+      "intro": "Geprägte Münzen erleichterten viele Tauschgeschäfte.",
+      "story": "Einige der frühesten geprägten Münzen wurden vor mehr als 2.500 Jahren in Lydien in der heutigen Türkei hergestellt. Dazu gehörten Münzen aus Elektron, einer Mischung aus Gold und Silber. Münzen entwickelten sich an verschiedenen Orten. Fachleute erforschen ihre Anfänge noch heute.",
+      "quiz": {
+        "question": "Was konnte eine Münzprägung zeigen?",
+        "answers": [
+          "Den genauen Preis jedes Gegenstands",
+          "Wer die Münze ausgegeben hatte",
+          "Wie viele Personen sie besessen hatten"
+        ],
+        "correct": 1
+      },
+      "explanation": "Die Menschen mussten der Münze weiterhin vertrauen.",
+      "activity": "Gestalte eine Münze mit einem bedeutungsvollen Symbol."
+    },
+    "note": {
+      "feedback": "Die Prägung kennzeichnete einen Herausgeber oder eine zuständige Stelle. Auch Vertrauen, Gewicht und Metall waren wichtig.",
+      "challenges": [
+        "Zeichne ein Symbol für eine Spielmünze.",
+        "Erkläre, was das Symbol jemandem sagen könnte.",
+        "Vergleiche eine Münzprägung mit einem modernen Sicherheitsmerkmal. Was lässt sich jeweils damit prüfen?"
+      ]
+    }
+  },
+  "strange-money": {
+    "room": {
+      "title": "Ungewöhnliches Geld",
+      "intro": "Geld hatte viele verschiedene Formen.",
+      "story": "Verschiedene Gemeinschaften nutzten Muscheln, Perlen und Steinscheiben als Geld.",
+      "quiz": {
+        "question": "Was ist am wichtigsten, damit etwas als Geld funktioniert?",
+        "answers": [
+          "Es muss aus Gold sein",
+          "Es muss winzig sein",
+          "Die Menschen sind bereit, es anzunehmen"
+        ],
+        "correct": 2
+      },
+      "explanation": "Gemeinsames Vertrauen und Einverständnis sind entscheidend.",
+      "activity": "Wähle Gegenstände als Währung für eine erfundene Stadt."
+    },
+    "note": {
+      "feedback": "Damit etwas in einer Gemeinschaft als Geld dient, müssen die Menschen es als Bezahlung annehmen.",
+      "challenges": [
+        "Wähle einen Gegenstand als Spielgeld.",
+        "Erkläre, warum Menschen deine Wahl annehmen würden.",
+        "Vergleiche für zwei mögliche Währungen Haltbarkeit, Transportierbarkeit und gemeinsame Akzeptanz."
+      ]
+    }
+  },
+  "money-through-time": {
+    "room": {
+      "title": "Geld im Lauf der Zeit",
+      "intro": "Zahlungsarten verändern sich.",
+      "story": "Menschen nutzten Münzen, Geldscheine, Konten und elektronische Zahlungen. Manche älteren Zahlungsarten werden weiterhin verwendet.",
+      "quiz": {
+        "question": "Was gab es zuerst?",
+        "answers": [
+          "Münzen",
+          "Bankkarten",
+          "Handyzahlungen"
+        ],
+        "correct": 0
+      },
+      "explanation": "Münzen sind Tausende Jahre älter als Zahlungskarten.",
+      "activity": "Frage einen Erwachsenen, wie er als Kind bezahlt hat."
+    },
+    "note": {
+      "feedback": "Münzen wurden lange vor Zahlungskarten und Werkzeugen für Handyzahlungen verwendet.",
+      "challenges": [
+        "Wähle, was es zuerst gab: eine Münze oder eine Handyzahlung.",
+        "Ordne Münzen, Geldscheine und Handyzahlungen auf einer Zeitleiste an.",
+        "Erkläre, warum eine neue Zahlungsart ältere Zahlungsarten nicht verschwinden lässt."
+      ]
+    }
+  },
+  "banknote-lab": {
+    "room": {
+      "title": "Das Banknotenlabor",
+      "intro": "Geldscheine haben Sicherheitsmerkmale.",
+      "story": "Moderne britische Geldscheine bestehen aus Polymer und haben Merkmale, mit denen Menschen echte Scheine erkennen können.",
+      "quiz": {
+        "question": "Warum haben Geldscheine Sicherheitsmerkmale?",
+        "answers": [
+          "Damit alle Scheine dieselbe Farbe haben",
+          "Damit sie schwerer zu kopieren sind",
+          "Damit sie die Preise der Geschäfte bestimmen"
+        ],
+        "correct": 1
+      },
+      "explanation": "Sicherheitsmerkmale helfen, Fälschungen zu verhindern.",
+      "activity": "Gestalte einen Spielgeldschein mit deinem eigenen Muster."
+    },
+    "note": {
+      "feedback": "Sicherheitsmerkmale machen echte Geldscheine leichter erkennbar und das Kopieren schwieriger.",
+      "challenges": [
+        "Finde eine Fensterform auf dem Bild eines Geldscheins.",
+        "Gestalte einen Geldschein, der eindeutig Spielgeld ist. Kopiere keinen echten Schein.",
+        "Erkläre, warum du offizielle Hinweise prüfen solltest, statt einen Geldschein nur nach seiner Farbe zu beurteilen."
+      ]
+    }
+  },
+  "gold-vault": {
+    "room": {
+      "title": "Der Goldtresor",
+      "intro": "Geld und Gold sind nicht dasselbe.",
+      "story": "Gold wurde für Münzen und Schmuck verwendet. Heutige britische Pfund können nicht gegen eine feste Goldmenge eingelöst werden.",
+      "quiz": {
+        "question": "Besteht eine Ein-Pfund-Münze aus reinem Gold?",
+        "answers": [
+          "Ja, ihre Farbe beweist es",
+          "Nur ältere Ein-Pfund-Münzen bestehen aus reinem Gold",
+          "Nein"
+        ],
+        "correct": 2
+      },
+      "explanation": "Geld funktioniert, weil Menschen es als Bezahlung annehmen.",
+      "activity": "Vergleiche eine Spielmünze mit einer echten Münze."
+    },
+    "note": {
+      "feedback": "Moderne britische Münzen sind nicht aus reinem Gold. Ein Pfund ist kein Versprechen, es gegen eine feste Menge Gold einzutauschen.",
+      "challenges": [
+        "Vergleiche mit einem Erwachsenen die Farben zweier Münzen.",
+        "Erkläre, warum ein goldfarbener Gegenstand nicht aus Gold bestehen muss.",
+        "Vergleiche den Metallwert mit dem auf einer Münze angegebenen Wert."
+      ]
+    }
+  },
+  "around-the-world": {
+    "room": {
+      "title": "Geld rund um die Welt",
+      "intro": "An verschiedenen Orten werden unterschiedliche Währungen verwendet.",
+      "story": "Das Vereinigte Königreich nutzt Pfund Sterling, Japan Yen und viele europäische Länder Euro.",
+      "quiz": {
+        "question": "Welche Währung wird in Japan verwendet?",
+        "answers": [
+          "Yen",
+          "Pfund",
+          "Euro"
+        ],
+        "correct": 0
+      },
+      "explanation": "Wechselkurse zwischen Währungen ändern sich.",
+      "activity": "Finde die Währungen verschiedener Länder auf einer Karte."
+    },
+    "note": {
+      "feedback": "Japan verwendet Yen. Der Wert von Währungen kann sich im Verhältnis zueinander ändern.",
+      "challenges": [
+        "Zeige mit Hilfe Japan auf einer Karte.",
+        "Ordne dem Vereinigten Königreich, Japan und einem Land des Euroraums ihre Währungen zu.",
+        "Wenn ein erfundener Wechselkurs von £1 = 150 Yen auf £1 = 160 Yen steigt, berechne, wie viele Yen du bei jedem Kurs für £5 bekommst."
+      ]
+    }
+  },
+  "business-invention": {
+    "room": {
+      "title": "Unternehmen und Erfindungen",
+      "intro": "Ideen können echte Probleme lösen.",
+      "story": "Wer ein Unternehmen gründet, kann eine kleine Idee testen und Menschen fragen, ob sie ihnen hilft.",
+      "quiz": {
+        "question": "Was solltest du tun, bevor du 100 Produkte herstellst?",
+        "answers": [
+          "Rückmeldungen ignorieren",
+          "Eine kleine Idee testen",
+          "100 Schachteln kaufen"
+        ],
+        "correct": 1
+      },
+      "explanation": "Frühes Testen kann Zeit und Geld sparen.",
+      "activity": "Erfinde etwas Hilfreiches für dein Zuhause."
+    },
+    "note": {
+      "feedback": "Ein kleiner Test liefert Informationen, bevor du mehr Zeit und Geld einsetzt.",
+      "challenges": [
+        "Zeichne etwas, das jemandem helfen könnte.",
+        "Frage eine vertraute Person, was deine Idee verbessern würde.",
+        "Wähle einen Test, lege ein kleines Budget fest und entscheide, welche Erkenntnisse dich dazu bringen würden, die Idee zu ändern."
+      ]
+    }
+  },
+  "museum-of-mistakes": {
+    "room": {
+      "title": "Das Museum der Fehler",
+      "intro": "Rückmeldungen helfen Menschen, etwas zu verbessern.",
+      "story": "1985 änderte Coca-Cola in den USA die Rezeptur seines Cola-Getränks. Nach Beschwerden brachte das Unternehmen die ursprüngliche Rezeptur zurück.",
+      "quiz": {
+        "question": "Was können Unternehmen aus Rückmeldungen lernen?",
+        "answers": [
+          "Fehler verbergen",
+          "Niemals etwas ändern",
+          "Zuhören und sich verbessern"
+        ],
+        "correct": 2
+      },
+      "explanation": "Lernen bedeutet, wahrzunehmen, was passiert ist, und sich anzupassen.",
+      "activity": "Beschreibe etwas, das du nach einem Fehler verbessert hast."
+    },
+    "note": {
+      "feedback": "Kundenrückmeldungen können Probleme aufzeigen, die ein Unternehmen lösen muss. Das heißt nicht, dass jeder Vorschlag umgesetzt werden muss.",
+      "challenges": [
+        "Wähle eine Änderung, die du an einem erfundenen Entwurf ausprobieren könntest.",
+        "Bitte zwei Personen um Rückmeldung. Achte darauf, ob sie unterschiedlicher Meinung sind.",
+        "Vergleiche Kundenrückmeldungen mit Verkäufen und Kosten, bevor du entscheidest, welche Änderung du testest."
+      ]
+    }
+  },
+  "future-money": {
+    "room": {
+      "title": "Das Geldlabor der Zukunft",
+      "intro": "Digitale Zahlungen verwenden ebenfalls echtes Geld.",
+      "story": "Karten und Handys können Anweisungen senden, um Geld zu überweisen oder ein Konto zu belasten. Die Karte selbst ist nicht der Kontostand.",
+      "quiz": {
+        "question": "Entsteht kostenloses Geld, wenn du eine Karte an das Lesegerät hältst?",
+        "answers": [
+          "Nein",
+          "Ja, das Gerät fügt Geld hinzu",
+          "Ja, wenn du mit dem Handy bezahlst"
+        ],
+        "correct": 0
+      },
+      "explanation": "Prüfe den Betrag, bevor du bezahlst.",
+      "activity": "Spiele eine Kartenzahlung nach und trage sie in ein Budget ein."
+    },
+    "note": {
+      "feedback": "Eine Karte oder ein Handy sendet Zahlungsanweisungen. Dadurch entsteht kein kostenloses Geld.",
+      "challenges": [
+        "Zeige auf eine Karte und eine Münze. Was davon ist Bargeld?",
+        "Stelle dir vor, du gibst £2 von einem Kontostand von £5 aus. Notiere den neuen Kontostand.",
+        "Vergleiche Debitkarte, Kreditkarte und Handy-Wallet. Erkläre, woher das Geld für die Zahlung kommt."
+      ]
+    }
+  }
+}

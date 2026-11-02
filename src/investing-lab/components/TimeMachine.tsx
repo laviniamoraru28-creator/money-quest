@@ -83,7 +83,7 @@ export function TimeMachine({ companies, seriesByCompany, currencyCode }: TimeMa
               onClick={() => setDaysAgo(preset)}
               className={[
                 "min-h-touch-min-child rounded-sm border px-sm py-2xs text-sm font-medium",
-                daysAgo === preset ? "border-teal bg-teal/10 text-teal" : "border-ink/15 text-ink/70 hover:border-teal/50",
+                daysAgo === preset ? "border-teal bg-teal/10 text-teal-text" : "border-ink/15 text-ink/70 hover:border-teal/50",
               ].join(" ")}
             >
               {t("investingLab.timeMachineYearsAgo", { years: Math.round(preset / 365) })}
@@ -99,15 +99,15 @@ export function TimeMachine({ companies, seriesByCompany, currencyCode }: TimeMa
           </p>
           <p className="mt-2xs flex items-baseline gap-xs">
             <span className="font-display text-xl font-bold">{formatCurrency(result.currentValueMinorUnits, currencyCode, uiLocale)}</span>
-            <span className={["text-sm font-medium", isUp ? "text-success" : "text-error"].join(" ")}>
+            <span className={["text-sm font-medium", isUp ? "text-success-text" : "text-error-text"].join(" ")}>
               {isUp ? "▲" : "▼"} {Math.abs(result.percentChange).toFixed(1)}%
             </span>
           </p>
-          {result.shares === 0 && <p className="mt-2xs text-xs text-ink/50">{t("investingLab.timeMachineTooSmallHint")}</p>}
+          {result.shares === 0 && <p className="mt-2xs text-xs text-ink/70">{t("investingLab.timeMachineTooSmallHint")}</p>}
         </div>
       )}
 
-      <p className="mt-2xs text-xs text-ink/50">{t("investingLab.timeMachineDisclaimer")}</p>
+      <p className="mt-2xs text-xs text-ink/70">{t("investingLab.timeMachineDisclaimer")}</p>
     </div>
   );
 }

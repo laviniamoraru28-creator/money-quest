@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 
 import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
@@ -17,21 +18,21 @@ export default function GoalsPage() {
   const [name, setName] = useState("");
   const [target, setTarget] = useState("");
 
-  if (!isLoaded) return <div className="grid min-h-screen place-items-center bg-fog text-ink/60">{t("common.loading")}</div>;
+  if (!isLoaded) return <div className="grid min-h-screen place-items-center bg-fog text-ink/70">{t("common.loading")}</div>;
 
   return (
     <div className="min-h-screen bg-fog px-sm py-lg">
-      <main className="mx-auto max-w-[700px]">
+      <main id="main-content" tabIndex={-1} className="mx-auto max-w-[700px]">
         <div className="flex flex-wrap gap-2xs">
           <Link
             href="/"
-            className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal transition-colors duration-quick hover:bg-teal/5"
+            className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal-text transition-colors duration-quick hover:bg-teal/5"
           >
             <span aria-hidden="true">🏠</span> {t("nav.home")}
           </Link>
           <Link
             href="/play"
-            className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal transition-colors duration-quick hover:bg-teal/5"
+            className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal-text transition-colors duration-quick hover:bg-teal/5"
           >
             <span aria-hidden="true">←</span> {t("nav.backToWorldMap")}
           </Link>
@@ -42,19 +43,19 @@ export default function GoalsPage() {
             than a replacement. */}
         <div className="mt-sm flex justify-center" aria-hidden="true">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/money-quest/lessons/money-goals.webp" alt="" width={512} height={512} className="h-24 w-24" />
+          <Image unoptimized src="/images/money-quest/lessons/money-goals.webp" alt="" width={512} height={512} className="h-24 w-24" />
         </div>
         <h1 className="mt-sm font-display text-2xl font-bold">{t("play.mySavingsGoalsTitle")}</h1>
         <p className="mt-2xs text-sm text-ink/70">{t("play.goalsSavedLocallyHint")}</p>
 
         <Card variant="data" className="mt-md">
           <div className="flex items-center justify-between">
-            <p className="text-sm text-ink/60">{t("play.yourCoins")}</p>
-            <button type="button" onClick={() => setShowForm((v) => !v)} className="text-sm font-medium text-teal hover:underline">
+            <p className="text-sm text-ink/70">{t("play.yourCoins")}</p>
+            <button type="button" onClick={() => setShowForm((v) => !v)} className="text-sm font-medium text-teal-text hover:underline">
               {showForm ? t("common.cancel") : t("play.newGoal")}
             </button>
           </div>
-          <p className="font-display text-2xl font-bold text-teal">{formatCurrency(state.walletBalanceMinorUnits, state.currencyCode, uiLocale)}</p>
+          <p className="font-display text-2xl font-bold text-teal-text">{formatCurrency(state.walletBalanceMinorUnits, state.currencyCode, uiLocale)}</p>
         </Card>
 
         {showForm && (
@@ -99,7 +100,7 @@ export default function GoalsPage() {
         )}
 
         <div className="mt-sm grid gap-sm">
-          {state.goals.length === 0 && <p className="text-base text-ink/60">{t("play.noGoalsYet")}</p>}
+          {state.goals.length === 0 && <p className="text-base text-ink/70">{t("play.noGoalsYet")}</p>}
           {state.goals.map((goal) => {
             const percent = Math.min(100, Math.round((goal.currentMinorUnits / goal.targetMinorUnits) * 100));
             return (
@@ -111,7 +112,7 @@ export default function GoalsPage() {
                 <div className="mt-2xs h-3 w-full">
                   <ProgressBar percent={percent} label={t("play.progressTowardGoal", { goalName: goal.name })} />
                 </div>
-                <p className="mt-2xs text-sm text-ink/60">
+                <p className="mt-2xs text-sm text-ink/70">
                   {t("play.amountOfTarget", { current: formatCurrency(goal.currentMinorUnits, state.currencyCode, uiLocale), target: formatCurrency(goal.targetMinorUnits, state.currencyCode, uiLocale) })}
                 </p>
                 {!goal.achievedAt && (
@@ -131,7 +132,7 @@ export default function GoalsPage() {
                     )}
                   </>
                 )}
-                <button type="button" onClick={() => removeGoal(goal.id)} className="mt-2xs text-xs text-ink/40 hover:text-error">
+                <button type="button" onClick={() => removeGoal(goal.id)} className="mt-2xs text-xs text-ink/70 hover:text-error-text">
                   {t("play.removeGoal")}
                 </button>
               </Card>
@@ -169,7 +170,7 @@ function ContributeRow({ goal, currencyCode, onContribute }: { goal: { id: strin
           onContribute(toMinorUnits(major, currencyCode));
           setAmount("");
         }}
-        className="min-h-touch-min-child rounded-sm border-2 border-teal px-sm py-2xs text-sm font-medium text-teal hover:bg-teal/5"
+        className="min-h-touch-min-child rounded-sm border-2 border-teal px-sm py-2xs text-sm font-medium text-teal-text hover:bg-teal/5"
       >
         {t("play.addCoins")}
       </button>
@@ -225,7 +226,7 @@ function SavingPlanner({ remainingMinorUnits, currencyCode, uiLocale }: { remain
               key={major}
               type="button"
               onClick={() => setWeeklyAmount(String(major))}
-              className="min-h-touch-min-child rounded-sm border border-ink/15 px-2xs py-3xs text-xs text-ink/70 hover:border-teal hover:text-teal"
+              className="min-h-touch-min-child rounded-sm border border-ink/15 px-2xs py-3xs text-xs text-ink/70 hover:border-teal hover:text-teal-text"
             >
               {formatCurrency(toMinorUnits(major, currencyCode), currencyCode, uiLocale)}
             </button>
@@ -248,7 +249,7 @@ function WithdrawRow({ goal, currencyCode, onWithdraw }: { goal: { id: string; c
   const [amount, setAmount] = useState("");
   return (
     <div className="mt-2xs">
-      <p className="text-xs text-ink/50">{t("play.whatIfYouSpendSome")}</p>
+      <p className="text-xs text-ink/70">{t("play.whatIfYouSpendSome")}</p>
       <div className="mt-3xs flex items-center gap-2xs">
         <label htmlFor={`withdraw-${goal.id}`} className="sr-only">
           {t("play.amountToWithdraw")}

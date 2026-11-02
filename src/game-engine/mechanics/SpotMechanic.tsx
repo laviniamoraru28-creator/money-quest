@@ -60,16 +60,16 @@ export function SpotMechanic({ round, onAnswer, isResolved }: MechanicProps<Spot
             >
               {item.text}
               {correctlyFlagged && (
-                <span className="ml-2xs text-sm font-medium text-success">
+                <span className="ml-2xs text-sm font-medium text-success-text">
                   <span aria-hidden="true">✓</span> {t("game.goodCatch")}
                 </span>
               )}
               {missedFlag && (
-                <span className="ml-2xs text-sm font-medium text-error">
+                <span className="ml-2xs text-sm font-medium text-error-text">
                   <span aria-hidden="true">✗</span> {t("game.missedWarningSign")}
                 </span>
               )}
-              {wronglyFlagged && <span className="ml-2xs text-sm font-medium text-warning">{t("game.actuallyFine")}</span>}
+              {wronglyFlagged && <span className="ml-2xs text-sm font-medium text-warning-text">{t("game.actuallyFine")}</span>}
             </button>
           );
         })}

@@ -1,0 +1,96 @@
+{
+  "reviewed": "2026-10-29",
+  "totalBytes": 1984251,
+  "videos": [
+    {
+      "id": "ocean",
+      "author": "Engin Akyurt",
+      "sourcePage": "https://www.pexels.com/video/calm-ocean-surface-with-gentle-waves-32324752/",
+      "sourceDownload": "https://videos.pexels.com/video-files/32324752/13788219_1920_1080_30fps.mp4",
+      "sourceSha256": "b6b43056200e9acb4320d533598e5032be5a3b98233849900ed7df6327073112",
+      "licence": "Pexels Licence",
+      "licenceUrl": "https://www.pexels.com/license/",
+      "reviewed": "2026-10-29",
+      "localPath": "public/media/quiet/ocean-v1.mp4",
+      "sha256": "0d8ad56ab1cf852a78cfd32431201286711e5c47fefecc0c27b8a13d5c6d474a",
+      "bytes": 1146457,
+      "processing": "First 20 seconds, resized to 960x540 at 20fps; no audio; H.264 CRF31 faststart.",
+      "technical": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 960,
+            "height": 540,
+            "avg_frame_rate": "20/1"
+          }
+        ],
+        "format": {
+          "duration": "20.000000"
+        }
+      },
+      "visualReview": "Contact sheets reviewed at sampled frames. No people, logos or captions observed in those frames. This is not a full motion-safety or therapeutic efficacy assessment."
+    },
+    {
+      "id": "rain",
+      "author": "Maurício Mascaro",
+      "sourcePage": "https://www.pexels.com/video/video-of-raindrops-on-a-glass-window-5734758/",
+      "sourceDownload": "https://videos.pexels.com/video-files/5734758/5734758-hd_1920_1080_30fps.mp4",
+      "sourceSha256": "10ca33f3abf498fa885bd7ad2f344b892f8896c0a76fe2ace7cf2b8266cd07c5",
+      "licence": "Pexels Licence",
+      "licenceUrl": "https://www.pexels.com/license/",
+      "reviewed": "2026-10-29",
+      "localPath": "public/media/quiet/rain-v1.mp4",
+      "sha256": "d7b64663dd7323fdc8ce2b3e3f0315178808a00622677a006b0abcfd36f96b30",
+      "bytes": 277751,
+      "processing": "Playback slowed to half speed, resized to 960x540 at 20fps; no audio; H.264 CRF31 faststart.",
+      "technical": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 960,
+            "height": 540,
+            "avg_frame_rate": "20/1"
+          }
+        ],
+        "format": {
+          "duration": "6.650000"
+        }
+      },
+      "visualReview": "Contact sheets reviewed at sampled frames. No people, logos or captions observed in those frames. This is not a full motion-safety or therapeutic efficacy assessment."
+    },
+    {
+      "id": "aquarium",
+      "author": "Stephan Leuzinger",
+      "sourcePage": "https://www.pexels.com/video/serene-aquarium-marine-life-scene-34660142/",
+      "sourceDownload": "https://videos.pexels.com/video-files/34660142/14691471_3840_2160_30fps.mp4",
+      "sourceSha256": "d88c7030c42f384de8b6c30bd0b21baac42beb2aa67ebd0782d07764aed5c548",
+      "licence": "Pexels Licence",
+      "licenceUrl": "https://www.pexels.com/license/",
+      "reviewed": "2026-10-29",
+      "localPath": "public/media/quiet/aquarium-v1.mp4",
+      "sha256": "dfa97b41a21c927b7e55b00f9c6afc7d13f58418826fbafbcb8b744ac1bafdd9",
+      "bytes": 560043,
+      "processing": "Playback slowed to half speed, resized to 960x540 at 20fps; no audio; H.264 CRF31 faststart.",
+      "technical": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 960,
+            "height": 540,
+            "avg_frame_rate": "20/1"
+          }
+        ],
+        "format": {
+          "duration": "11.250000"
+        }
+      },
+      "visualReview": "Contact sheets reviewed at sampled frames. No people, logos or captions observed in those frames. This is not a full motion-safety or therapeutic efficacy assessment."
+    }
+  ]
+}

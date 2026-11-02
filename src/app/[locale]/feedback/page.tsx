@@ -70,10 +70,10 @@ export default function FeedbackPage() {
 
   return (
     <div className="min-h-screen bg-fog px-sm py-lg">
-      <main className="mx-auto max-w-[600px]">
+      <main id="main-content" tabIndex={-1} className="mx-auto max-w-[600px]">
         <Link
           href="/"
-          className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal transition-colors duration-quick hover:bg-teal/5"
+          className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal-text transition-colors duration-quick hover:bg-teal/5"
         >
           <span aria-hidden="true">🏠</span> {t("nav.home")}
         </Link>
@@ -84,7 +84,7 @@ export default function FeedbackPage() {
           {isSubmitted ? (
             <div className="text-center">
               <p aria-hidden="true" className="text-3xl">🌟</p>
-              <p className="mt-2xs font-display text-lg font-bold text-teal">{t("feedback.thankYouTitle")}</p>
+              <p className="mt-2xs font-display text-lg font-bold text-teal-text">{t("feedback.thankYouTitle")}</p>
               <p className="mt-2xs text-sm text-ink/70">
                 {saveFailed ? t("feedback.saveFailedNote") : t("feedback.savedLocallyNote")}
               </p>

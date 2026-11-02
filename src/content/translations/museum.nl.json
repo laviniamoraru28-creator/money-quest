@@ -1,0 +1,262 @@
+{
+  "before-money": {
+    "room": {
+      "title": "Vóór geld",
+      "intro": "Mensen hebben goederen en diensten op veel manieren uitgewisseld.",
+      "story": "Een boer heeft appels. Een bakker heeft brood. Ze kunnen ruilen als ze het allebei eens zijn. Dat heet ruilhandel. Mensen gebruikten ook geschenken, beloften en krediet. Geld is niet overal op dezelfde manier ontstaan.",
+      "quiz": {
+        "question": "Waarom kan ruilen moeilijk zijn?",
+        "answers": [
+          "Beide mensen moeten de ruil willen",
+          "Alles heeft dezelfde waarde",
+          "Niemand heeft iets nodig"
+        ],
+        "correct": 0
+      },
+      "explanation": "Om te ruilen moet je iemand vinden die jouw aanbod wil.",
+      "activity": "Bedenk een eerlijke ruil met een vriend of vriendin."
+    },
+    "note": {
+      "feedback": "Beide mensen moeten instemmen met een ruil. Ruilhandel was een manier om goederen uit te wisselen, geen algemene fase die overal aan geld voorafging.",
+      "challenges": [
+        "Wijs twee dingen aan die mensen zouden kunnen ruilen.",
+        "Speel een ruil na. Wat als iemand het aanbod niet wil?",
+        "Leg uit waarom geld, ruilhandel en krediet naast elkaar kunnen bestaan."
+      ]
+    }
+  },
+  "first-coins": {
+    "room": {
+      "title": "De eerste munten",
+      "intro": "Munten met een stempel maakten het ruilen makkelijker.",
+      "story": "Sommige van de vroegste geslagen munten werden meer dan 2.500 jaar geleden gemaakt in Lydië, in het huidige Turkije. Daar waren ook munten van elektrum bij, een mengsel van goud en zilver. Munten ontwikkelden zich op verschillende plaatsen. Historici onderzoeken hun ontstaan nog steeds.",
+      "quiz": {
+        "question": "Wat hielp de stempel op een munt te laten zien?",
+        "answers": [
+          "De precieze prijs van elk voorwerp",
+          "Wie de munt had uitgegeven",
+          "Hoeveel mensen de munt hadden gehad"
+        ],
+        "correct": 1
+      },
+      "explanation": "Mensen moesten de munt nog steeds vertrouwen.",
+      "activity": "Ontwerp een munt met een betekenisvol symbool."
+    },
+    "note": {
+      "feedback": "De stempel liet zien wie de uitgever of bevoegde instantie was. Vertrouwen, gewicht en metaal telden ook mee.",
+      "challenges": [
+        "Teken een symbool voor een speelmunt.",
+        "Leg uit wat het symbool iemand zou kunnen vertellen.",
+        "Vergelijk een muntstempel met een modern veiligheidskenmerk. Wat helpt elk om te controleren?"
+      ]
+    }
+  },
+  "strange-money": {
+    "room": {
+      "title": "Ongewoon geld",
+      "intro": "Geld heeft veel vormen gehad.",
+      "story": "Verschillende gemeenschappen gebruikten schelpen, kralen en stenen schijven als geld.",
+      "quiz": {
+        "question": "Wat is het belangrijkst om iets als geld te laten werken?",
+        "answers": [
+          "Het moet van goud zijn",
+          "Het moet piepklein zijn",
+          "Mensen spreken af het te accepteren"
+        ],
+        "correct": 2
+      },
+      "explanation": "Gedeeld vertrouwen en overeenstemming zijn onmisbaar.",
+      "activity": "Kies voorwerpen als betaalmiddel voor een verzonnen stad."
+    },
+    "note": {
+      "feedback": "Om iets als geld te laten werken, moeten mensen in een gemeenschap het als betaling accepteren.",
+      "challenges": [
+        "Kies een voorwerp als speelgeld.",
+        "Leg uit waarom mensen jouw keuze zouden accepteren.",
+        "Vergelijk twee mogelijke betaalmiddelen op hoe lang ze meegaan, hoe makkelijk je ze meeneemt en of de gemeenschap ze accepteert."
+      ]
+    }
+  },
+  "money-through-time": {
+    "room": {
+      "title": "Geld door de tijd",
+      "intro": "Manieren van betalen veranderen.",
+      "story": "Mensen gebruikten munten, bankbiljetten, rekeningen en elektronische betalingen. Sommige oudere manieren worden nog steeds gebruikt.",
+      "quiz": {
+        "question": "Wat was er eerder?",
+        "answers": [
+          "Munten",
+          "Bankpassen",
+          "Mobiele betalingen"
+        ],
+        "correct": 0
+      },
+      "explanation": "Munten zijn duizenden jaren ouder dan betaalkaarten.",
+      "activity": "Vraag een volwassene hoe die als kind betaalde."
+    },
+    "note": {
+      "feedback": "Munten werden lang vóór betaalkaarten en mobiele betaalmiddelen gebruikt.",
+      "challenges": [
+        "Kies wat er eerst was: een munt of een betaling met een telefoon.",
+        "Zet munten, bankbiljetten en mobiele betalingen op een tijdlijn.",
+        "Leg uit waarom een nieuwe betaalmethode oudere methoden niet laat verdwijnen."
+      ]
+    }
+  },
+  "banknote-lab": {
+    "room": {
+      "title": "Het bankbiljettenlab",
+      "intro": "Bankbiljetten hebben veiligheidskenmerken.",
+      "story": "Moderne Britse bankbiljetten zijn van polymeer en hebben kenmerken die helpen om echte biljetten te herkennen.",
+      "quiz": {
+        "question": "Waarom hebben bankbiljetten veiligheidskenmerken?",
+        "answers": [
+          "Om alle biljetten dezelfde kleur te geven",
+          "Om namaken moeilijker te maken",
+          "Om de prijzen van winkels te bepalen"
+        ],
+        "correct": 1
+      },
+      "explanation": "Veiligheidskenmerken helpen tegen vervalsing.",
+      "activity": "Ontwerp een speelbankbiljet met een eigen patroon."
+    },
+    "note": {
+      "feedback": "Veiligheidskenmerken maken echte biljetten makkelijker herkenbaar en moeilijker na te maken.",
+      "challenges": [
+        "Zoek een venstervorm op een afbeelding van een bankbiljet.",
+        "Ontwerp een biljet dat duidelijk speelgeld is. Kopieer geen echt biljet.",
+        "Leg uit waarom je officiële informatie moet raadplegen in plaats van een biljet alleen op kleur te beoordelen."
+      ]
+    }
+  },
+  "gold-vault": {
+    "room": {
+      "title": "De goudkluis",
+      "intro": "Geld is niet hetzelfde als goud.",
+      "story": "Goud is gebruikt voor munten en sieraden. Moderne Britse ponden kunnen niet worden ingewisseld voor een vaste hoeveelheid goud.",
+      "quiz": {
+        "question": "Is een munt van één pond van puur goud?",
+        "answers": [
+          "Ja, de kleur bewijst dat",
+          "Alleen oudere pondmunten zijn van puur goud",
+          "Nee"
+        ],
+        "correct": 2
+      },
+      "explanation": "Geld werkt omdat mensen het als betaling accepteren.",
+      "activity": "Vergelijk een speelmunt met een echte munt."
+    },
+    "note": {
+      "feedback": "Moderne Britse munten zijn niet van puur goud. Een pond is geen belofte om het in te wisselen voor een vaste hoeveelheid goud.",
+      "challenges": [
+        "Vergelijk de kleuren van twee munten met een volwassene.",
+        "Leg uit waarom een goudkleurig voorwerp niet van goud hoeft te zijn.",
+        "Vergelijk de waarde van het metaal met de waarde die op een munt staat."
+      ]
+    }
+  },
+  "around-the-world": {
+    "room": {
+      "title": "Geld over de hele wereld",
+      "intro": "Op verschillende plaatsen worden verschillende valuta gebruikt.",
+      "story": "Het Verenigd Koninkrijk gebruikt Britse ponden, Japan gebruikt yen en veel Europese landen gebruiken euro’s.",
+      "quiz": {
+        "question": "Welke valuta gebruikt Japan?",
+        "answers": [
+          "Yen",
+          "Ponden",
+          "Euro’s"
+        ],
+        "correct": 0
+      },
+      "explanation": "Wisselkoersen tussen valuta veranderen.",
+      "activity": "Zoek de valuta van verschillende landen op een kaart."
+    },
+    "note": {
+      "feedback": "Japan gebruikt yen. De waarde van valuta kan ten opzichte van elkaar veranderen.",
+      "challenges": [
+        "Wijs Japan met hulp aan op een kaart.",
+        "Koppel het Verenigd Koninkrijk, Japan en een land uit het eurogebied aan hun valuta.",
+        "Als een verzonnen koers verandert van £1 = 150 yen naar £1 = 160 yen, bereken dan hoeveel yen je bij elke koers voor £5 krijgt."
+      ]
+    }
+  },
+  "business-invention": {
+    "room": {
+      "title": "Ondernemen en uitvinden",
+      "intro": "Ideeën kunnen echte problemen oplossen.",
+      "story": "Ondernemers kunnen een klein idee testen en mensen vragen of het hen helpt.",
+      "quiz": {
+        "question": "Wat moet je doen voordat je 100 producten maakt?",
+        "answers": [
+          "Reacties negeren",
+          "Een klein idee testen",
+          "100 dozen kopen"
+        ],
+        "correct": 1
+      },
+      "explanation": "Vroeg testen kan tijd en geld besparen.",
+      "activity": "Bedenk iets dat thuis kan helpen."
+    },
+    "note": {
+      "feedback": "Een kleine test geeft informatie voordat je meer tijd en geld inzet.",
+      "challenges": [
+        "Teken iets dat iemand zou kunnen helpen.",
+        "Vraag iemand die je vertrouwt wat je idee beter zou maken.",
+        "Kies een test, stel een klein budget vast en bepaal welke aanwijzingen je van idee zouden doen veranderen."
+      ]
+    }
+  },
+  "museum-of-mistakes": {
+    "room": {
+      "title": "Het museum van fouten",
+      "intro": "Reacties helpen mensen om iets te verbeteren.",
+      "story": "In 1985 veranderde Coca-Cola in de Verenigde Staten het recept van zijn coladrank. Na klachten bracht het bedrijf het oorspronkelijke recept terug.",
+      "quiz": {
+        "question": "Wat kunnen bedrijven van reacties leren?",
+        "answers": [
+          "Fouten verbergen",
+          "Nooit veranderen",
+          "Luisteren en verbeteren"
+        ],
+        "correct": 2
+      },
+      "explanation": "Leren betekent opmerken wat er is gebeurd en je aanpassen.",
+      "activity": "Beschrijf iets dat je na een fout hebt verbeterd."
+    },
+    "note": {
+      "feedback": "Reacties van klanten kunnen problemen laten zien die een bedrijf moet aanpakken. Dat betekent niet dat elk voorstel moet worden gevolgd.",
+      "challenges": [
+        "Kies één verandering om bij een verzonnen ontwerp te proberen.",
+        "Vraag twee mensen om hun mening. Let op of ze het oneens zijn.",
+        "Vergelijk klantreacties met verkoop en kosten voordat je beslist welke verandering je test."
+      ]
+    }
+  },
+  "future-money": {
+    "room": {
+      "title": "Het lab voor toekomstig geld",
+      "intro": "Digitale betalingen gebruiken nog steeds echt geld.",
+      "story": "Kaarten en telefoons kunnen opdrachten sturen om geld over te maken of een rekening te belasten. De kaart zelf is niet het saldo op de rekening.",
+      "quiz": {
+        "question": "Ontstaat er gratis geld als je met een kaart tikt?",
+        "answers": [
+          "Nee",
+          "Ja, het betaalapparaat voegt geld toe",
+          "Ja, als je met een telefoon betaalt"
+        ],
+        "correct": 0
+      },
+      "explanation": "Controleer het bedrag voordat je betaalt.",
+      "activity": "Speel een kaartbetaling na en schrijf die op in een budget."
+    },
+    "note": {
+      "feedback": "Een kaart of telefoon stuurt betaalopdrachten. Daardoor ontstaat geen gratis geld.",
+      "challenges": [
+        "Wijs een kaart en een munt aan. Welke is contant geld?",
+        "Doe alsof je £2 uitgeeft van een saldo van £5. Schrijf het nieuwe saldo op.",
+        "Vergelijk een debetkaart, een creditcard en een telefoonwallet. Leg uit waar het geld voor de betaling vandaan komt."
+      ]
+    }
+  }
+}
