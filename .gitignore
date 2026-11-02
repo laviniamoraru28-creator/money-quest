@@ -45,3 +45,10 @@ moneyquest-namecheap-built.zip
 
 # Localized fallback HTML generated only for active release locales
 /public/offline-pages/*.html
+
+# Local agent worktree scaffolding (git worktrees for background subagents)
+/.claude/
+
+# Sandbox-only Playwright override (pre-installed Chromium revision
+# mismatch workaround); never used by CI, which installs its own browser
+/playwright.local.config.ts
