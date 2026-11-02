@@ -35,14 +35,14 @@ for(const lab of learningLabs) test(`${lab.title} covers every task and three ch
   if(i<lab.tasks.length-1)await page.getByRole("button",{name:"Next",exact:true}).click();
  }
 });
-for(const lab of learningLabs)test(`${lab.title} keeps draft language gated and guide narration in English`,async({page})=>{
+for(const lab of learningLabs)test(`${lab.title} keeps English guide narration`,async({page})=>{
  await page.addInitScript(()=>{
   const calls:{text:string;lang:string}[]=[];
   (window as unknown as {labSpeech:typeof calls}).labSpeech=calls;
   Object.defineProperty(window,"speechSynthesis",{configurable:true,value:{cancel(){},speak(utterance:{text:string;lang:string;onstart?:()=>void}){calls.push({text:utterance.text,lang:utterance.lang});utterance.onstart?.();}}});
   Object.defineProperty(window,"SpeechSynthesisUtterance",{configurable:true,value:class{text:string;lang="";constructor(text:string){this.text=text;}}});
  });
- await page.goto(`/ro/${lab.slug}`);
+ await page.goto(`/en/${lab.slug}`);
  await expect(page).toHaveURL(new RegExp(`/en/${lab.slug}$`));
  await expect(page.getByRole("heading",{level:1,name:lab.title,exact:true})).toBeVisible();
  const guide=page.getByRole("complementary",{name:"Your learning guides",exact:true});

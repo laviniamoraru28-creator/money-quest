@@ -45,5 +45,5 @@ assert.deepEqual(parseOfflineWorkerMessage({type:"progress",done:2,total:10}),{t
 for(const data of [{type:"ready",count:-1},{type:"ready",count:"10"},{type:"progress",done:11,total:10},{type:"progress",done:1,total:Infinity}])assert.deepEqual(parseOfflineWorkerMessage(data),{type:"error",code:"download_failed"});
 assert.equal(parseOfflineWorkerMessage(null),null);assert.equal(parseOfflineWorkerMessage({type:"unrelated"}),null);
 assert.equal(offlineExceptionCode(new DOMException("quota","QuotaExceededError")),"storage_full");assert.equal(offlineExceptionCode(new DOMException("timeout","AbortError")),"timeout");assert.equal(offlineExceptionCode(new Error("RAW")),"download_failed");
-assert.deepEqual(ACTIVE_LOCALES,["en"]);
+assert.deepEqual(ACTIVE_LOCALES,LOCALES);
 console.log("PASS: 315 common/offline UI strings, actual toolbar SSR and standalone fallback HTML in nine locales, regional tags, structured/legacy errors, all localized status variants, malformed message handling and unchanged English-only activation. Real non-English browser interaction and voice quality remain pending.");

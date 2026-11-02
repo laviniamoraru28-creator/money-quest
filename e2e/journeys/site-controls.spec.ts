@@ -17,5 +17,5 @@ test("offline controls translate structured and older worker errors without expo
  }
  await expect(page.getByText(/RAW UNTRANSLATED/)).toHaveCount(0);
  const activeFallback=await request.get("/offline-pages/en.html");expect(activeFallback.status()).toBe(200);expect(await activeFallback.text()).toContain('<html lang="en">');
- expect((await request.get("/offline-pages/ro.html")).status()).toBe(404);
+ const romanian=await request.get("/offline-pages/ro.html");expect(romanian.status()).toBe(200);expect(await romanian.text()).toContain('<html lang="ro">');
 });

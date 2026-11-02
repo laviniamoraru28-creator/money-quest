@@ -1,3 +1,4 @@
+import {publicParentLocale} from "@/lib/i18n/parent-presentation";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
@@ -47,7 +48,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
  */
 export default async function PrivacyPage({ params }: PageProps) {
   const { locale } = await params;
-  const config=publicCommerce();if(config?.mode==="live"&&config.release)return <LiveShopPrivacy release={config.release}/>;
+  const config=publicCommerce();if(config?.mode==="live"&&config.release)return <LiveShopPrivacy release={config.release} locale={publicParentLocale(locale)}/>;
   const t = await getTranslations();
   const siteUrl = getSiteUrl();
   const breadcrumbSchema = buildBreadcrumbSchema([

@@ -1,12 +1,12 @@
 # Money Quest: instalare pe Namecheap
 
-Acest kit pregătește website-ul actualizat și produsele PDF în nouă limbi. Website-ul public rămâne în engleză. Modul de plată pornește oprit. Nu trebuie să muți `main` pentru instalarea manuală a acestui pachet.
+Acest kit pregătește website-ul actualizat și produsele PDF în nouă limbi. Website-ul public activează toate cele nouă limbi: engleză, română, spaniolă, franceză, germană, italiană, portugheză, neerlandeză și polonă. Modul de plată pornește oprit. Nu trebuie să muți `main` pentru instalarea manuală a acestui pachet.
 
 ## 1. Fișierele au destinații diferite
 
 | Fișier | Destinație | Conținut |
 | --- | --- | --- |
-| `Money-Quest-Website-Namecheap.zip` | Folderul aplicației Node.js din cPanel | Website compilat, imagini publice, mostre gratuite și comenzile de administrare |
+| `Money-Quest-Website-Multilingual-Namecheap-20261102.zip` | Folderul aplicației Node.js din cPanel | Website compilat, imagini publice, mostre gratuite și comenzile de administrare |
 | `Money-Quest-Private-Setup.zip` | Un folder privat din cont, în afara aplicației și a tuturor rădăcinilor web | Cele două produse multilingve, verificarea integrității și programul de configurare |
 
 Arhiva privată nu se încarcă în `public_html`, în folderul aplicației sau într-un folder accesibil printr-un domeniu. Produsele pentru părinți sunt în interiorul ei, în `private-assets`. Fișierele de lucru și ilustrațiile originale nu fac parte din produsele pentru cumpărători.
@@ -20,7 +20,7 @@ Păstrează o copie a website-ului actual înainte de înlocuire. Păstrează se
 ## 3. Instalează website-ul
 
 1. Oprește aplicația Node.js pentru actualizare.
-2. Încarcă `Money-Quest-Website-Namecheap.zip` în Application root și extrage-l acolo. La rădăcină trebuie să apară `server.js`, `package.json`, `host-env.cjs`, `public` și folderul ascuns `.next`. Nu crea încă un folder intermediar. Arhiva nu conține produse plătite sau parole.
+2. Încarcă `Money-Quest-Website-Multilingual-Namecheap-20261102.zip` în Application root și extrage-l acolo. La rădăcină trebuie să apară `server.js`, `package.json`, `host-env.cjs`, `public` și folderul ascuns `.next`. Nu crea încă un folder intermediar. Arhiva nu conține produse plătite sau parole.
 3. Folosește Node 24, modul Production și startup file `server.js`. Build-ul a folosit Node 24.22.1 și pachetele fixate în `package-lock.json`.
 4. Activează mediul Node al aplicației folosind comanda afișată de cPanel. Din Application root rulează `npm ci --omit=dev`. Nu încărca un folder `node_modules` de pe alt calculator. Kitul conține deja build-ul, deci nu este necesar să compilezi pe hosting.
 5. Repornește aplicația. Verifică `https://moneyquesteducation.com/api/health`, pagina principală și `/en/parents/shop`. Verifică cele două mostre PDF. Plățile rămân oprite până la configurarea lor.

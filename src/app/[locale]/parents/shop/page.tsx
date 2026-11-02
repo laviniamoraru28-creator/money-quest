@@ -12,6 +12,6 @@ export async function generateMetadata({params}:{params:Promise<{locale:string}>
 export default async function Page({params}:{params:Promise<{locale:string}>}){
  const {locale}=await params;const config=publicCommerce(),live=config?.mode==="live";const presentation=storefrontCatalogue(publicParentLocale(locale),live);
  const available=await Promise.all(shopProducts.map(canCheckout));
- const schema={"@context":"https://schema.org","@type":"CollectionPage",name:presentation.copy.title,url:`${getSiteUrl()}/${publicParentLocale(locale)}/parents/shop`,description:live?"English digital printable educational resources for families, with free samples.":"Original printable educational resources for families, with free samples. Paid editions are in preparation."};
- return <><script type="application/ld+json" dangerouslySetInnerHTML={{__html:safeJsonLd(schema)}}/><ShopCatalogue {...presentation} available={available} merchant={live&&config?.release?<ShopMerchant release={config.release}/>:undefined}/></>;
+ const schema={"@context":"https://schema.org","@type":"CollectionPage",name:presentation.copy.title,url:`${getSiteUrl()}/${publicParentLocale(locale)}/parents/shop`,description:presentation.copy.intro};
+ return <><script type="application/ld+json" dangerouslySetInnerHTML={{__html:safeJsonLd(schema)}}/><ShopCatalogue {...presentation} available={available} merchant={live&&config?.release?<ShopMerchant release={config.release} locale={publicParentLocale(locale)}/>:undefined}/></>;
 }

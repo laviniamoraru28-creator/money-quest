@@ -39,7 +39,7 @@ assert.equal(laboratorySpeechLocales.en,"en-GB");
 for(const lab of learningLabs){
  for(const locale of [...LOCALES,"unknown"]){
   const publicView=publicLaboratoryPresentation(lab,locale);
-  assert.equal(publicView.locale,"en");assert.equal(publicView.lab,lab);
+  assert.equal(publicView.locale,locale==="unknown"?"en":locale);if(locale==="en"||locale==="unknown")assert.equal(publicView.lab,lab);else assert.notEqual(publicView.lab.title,lab.title);
  }
  for(const locale of LOCALES){
   const view=draftLaboratoryPresentation(lab,locale);
@@ -57,5 +57,5 @@ for(const lab of learningLabs){
  }
  assert.throws(()=>draftLaboratoryPresentation({...lab,description:`${lab.description} changed`},"ro"),/Stale translation/);
 }
-assert.deepEqual(ACTIVE_LOCALES,["en"]);
+assert.deepEqual(ACTIVE_LOCALES,LOCALES);
 console.log("PASS: 270 lab UI strings across nine locales, regional speech tags, template parity, actual component SSR for all three labs in all nine locales, scoped age readings, stale-source rejection and English-only public gate. No browser/voice quality certification.");

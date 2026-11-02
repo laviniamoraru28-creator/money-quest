@@ -43,6 +43,7 @@ try{
  }
  assert.ok(healthy,'Extracted production server health');
  const routes=['/en','/en/library','/en/museum','/en/mind-lab','/en/brain-lab','/en/parents/shop','/en/privacy','/sitemap.xml','/robots.txt','/offline-manifest.json','/resources/samples/free-family-sample-en.pdf','/resources/samples/free-journal-week-one-en.pdf'];
+ for(const locale of ['ro','fr','de','es','it','pt','nl','pl']) routes.push(`/${locale}`,`/${locale}/library`,`/${locale}/brain-lab`,`/resources/samples/free-family-sample-${locale}.pdf`,`/worksheets/${locale}/money-quest-worksheets-answer-key.pdf`);
  for(const route of routes)assert.equal((await fetch(origin+route)).status,200,route);
  const checkout=await fetch(origin+'/api/shop/checkout',{method:'POST',headers:{'Content-Type':'application/json',Origin:origin},body:JSON.stringify({productId:'family-adventure-pack'})});
  assert.ok(!checkout.ok,'Commerce stays closed in the extracted artifact');

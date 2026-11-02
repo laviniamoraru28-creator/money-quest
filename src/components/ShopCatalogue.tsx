@@ -1,10 +1,11 @@
+import {liveShopCopy} from "@/content/live-shop-copy";
 import type {ReactNode} from "react";
 import Image from "next/image";
 import {Link} from "@/i18n/navigation";
 import {ShopCheckout} from "@/components/ShopCheckout";
 import type {ShopCataloguePresentation} from "@/lib/i18n/shop-catalogue-presentation";
 /** Selected server copy only; product IDs and file URLs remain canonical. */
-export function ShopCatalogue({copy,products,flowCopy,available,termsRequired=false,merchant}:ShopCataloguePresentation & {available:readonly boolean[];termsRequired?:boolean;merchant?:ReactNode}){
+export function ShopCatalogue({locale,copy,products,flowCopy,available,termsRequired=false,merchant}:ShopCataloguePresentation & {available:readonly boolean[];termsRequired?:boolean;merchant?:ReactNode}){
  return <div className="min-h-screen bg-fog text-ink">
   <header className="border-b border-ink/15 bg-white"><nav aria-label={copy.nav} className="mx-auto flex max-w-6xl flex-wrap items-center gap-5 px-5 py-3"><Link href="/" className="min-h-12 py-3 font-bold text-teal-text underline">{copy.home}</Link><Link href="/parents/resources" className="min-h-12 py-3 text-teal-text underline">{copy.guides}</Link><Link href="/parent-info" className="min-h-12 py-3 text-teal-text underline">{copy.privacy}</Link></nav></header>
   <main id="main-content" tabIndex={-1} className="mx-auto max-w-6xl px-5 py-9">
@@ -16,7 +17,7 @@ export function ShopCatalogue({copy,products,flowCopy,available,termsRequired=fa
     <div className="p-6"><h3 className="text-2xl">{product.title}</h3><p className="mt-3 leading-relaxed">{product.description}</p><p className="mt-3 font-bold text-teal-text">{product.pages}</p><ul className="mt-4 list-disc space-y-2 pl-5">{product.includes.map(item=><li key={item}>{item}</li>)}</ul>
      <p className="mt-5 text-2xl font-bold">{product.priceLabel} <span className="text-sm font-normal">{copy.priceNote}</span></p><p className="mt-2 text-sm">{copy.format}</p>
      <a href={product.sample} className="mt-5 inline-flex min-h-12 w-full items-center justify-center rounded-xl border-2 border-teal px-4 py-3 text-center font-bold text-teal-text">{product.sampleLabel}</a>
-     <ShopCheckout productId={product.id} enabled={available[index]??false} copy={flowCopy} termsRequired={termsRequired}/>
+     <ShopCheckout productId={product.id} enabled={available[index]??false} copy={flowCopy} termsRequired={termsRequired} termsNotice={liveShopCopy[locale].acknowledge} termsLinkLabel={liveShopCopy[locale].termsShort} termsHref={`/${locale}/parents/shop/terms`}/>
     </div>
    </article>)}</div></section>
    <section aria-labelledby="included-title" className="mt-10 rounded-3xl border border-ink/15 bg-white p-6"><h2 id="included-title" className="text-2xl">{copy.includedTitle}</h2><div className="mt-5 grid gap-6 md:grid-cols-3"><div><h3 className="font-bold">{copy.picturesTitle}</h3><p className="mt-2">{copy.picturesBody}</p></div><div><h3 className="font-bold">{copy.responseTitle}</h3><p className="mt-2">{copy.responseBody}</p></div><div><h3 className="font-bold">{copy.supportTitle}</h3><p className="mt-2">{copy.supportBody}</p></div></div><p className="mt-6 text-sm">{copy.evidence}</p><Link href="/parents/resources" className="mt-3 inline-block min-h-12 py-3 font-semibold text-teal-text underline">{copy.evidenceLink}</Link></section>

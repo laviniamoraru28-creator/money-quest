@@ -35,7 +35,7 @@ for(const locale of LOCALES){
   const p=presentation.products[index]!,text=edition.products[source.id];
   assert.equal(manifest.products[source.id],sourceFingerprint(shopCatalogueProductSource(source)));
   const en=shopCatalogueCopy.en.products[source.id];assert.deepEqual({title:en.title,description:en.description,pages:en.pages,includes:en.includes},shopCatalogueProductSource(source));
-  assert.equal(p.id,source.id);assert.equal(p.image,source.image);assert.equal(p.sample,source.sample);
+  assert.equal(p.id,source.id);assert.equal(p.image,source.image);assert.equal(p.sample,source.sample.replace(/-en\.pdf$/,`-${locale}.pdf`));
   assert.deepEqual(Object.keys(p).sort(),["id","image","sample","title","description","pages","includes","imageAlt","sampleLabel","priceLabel"].sort());
   assert.equal(p.priceLabel,new Intl.NumberFormat(REGIONAL_LOCALES[locale],{style:"currency",currency:"GBP"}).format(source.price/100));
   assert(text.sampleLabel.includes("PDF"));
@@ -59,7 +59,7 @@ for(const locale of LOCALES){
   const inputs=html.match(/<input\b[^>]*>/g)||[];assert.equal(inputs.length,enabled?6:0);
   for(const input of inputs)assert(!/\bchecked(?:=|\s|>)/.test(input));
  }
- assert.equal(publicParentLocale(locale),"en");
+ assert.equal(publicParentLocale(locale),locale);
 }
 assert.equal(renders,18);
 const title=shopCatalogueCopy.en.copy.title;
@@ -70,5 +70,5 @@ const draft=shopCatalogueCopy.ro.products[product.id];
 try{Object.defineProperty(draft,"price",{value:1,enumerable:true,configurable:true});assert.throws(()=>shopCataloguePresentation("ro"),/unexpected fields/);}finally{Reflect.deleteProperty(draft,"price");}
 const missing=draft.includes.pop()!;
 try{assert.throws(()=>shopCataloguePresentation("ro"),/array structure/);}finally{draft.includes.push(missing);}
-assert.deepEqual(ACTIVE_LOCALES,["en"]);assert(shopProducts.every(p=>!p.releaseReady));assert.deepEqual(shopProducts.map(p=>p.price),[599,799]);assert.equal(SHOP_TERMS_VERSION,"2026-10-28-draft-v1");
+assert.deepEqual(ACTIVE_LOCALES,LOCALES);assert(shopProducts.every(p=>!p.releaseReady));assert.deepEqual(shopProducts.map(p=>p.price),[599,799]);assert.equal(SHOP_TERMS_VERSION,"2026-10-28-draft-v1");
 console.log("PASS: 468 catalogue strings and 18 actual SSR renders across nine locales; source-staleness/shape/extra-commerce-field refusal, canonical product fields, quantities, regional GBP display, sample links, FAQ, image alt, closed/sandbox controls and public gates. Translated product editions supplied separately; non-English browser/editorial certification remains pending.");

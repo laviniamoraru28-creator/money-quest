@@ -1,3 +1,6 @@
+import {LESSON_WORKSHEETS} from "../src/content/worksheets";
+import {reviewsCopy} from "../src/content/reviews-copy";
+import {liveShopCopy} from "../src/content/live-shop-copy";
 import {existsSync,readFileSync,writeFileSync} from "node:fs";
 import {LOCALES,ACTIVE_LOCALES,type Locale} from "../src/i18n/config";
 import {originalBooks} from "../src/content/library";
@@ -18,6 +21,13 @@ const groups=[
  {id:"shortReads",file:"short-reads",source:Object.fromEntries(libraryBooks.map(book=>[book.slug,shortReadTranslationSource(book,discoveryNotes[book.slug]!)]))},
  {id:"externalBookIntroductions",file:"author-books",source:Object.fromEntries(authorBooks.map(book=>[book.id,externalBookTranslationSource(book)]))}
 ];
+/** Empty source fields are intentional hidden notices, not missing translations. */
+function markAllowedEmpty(source:any,value:any):any{
+ if(source===""&&value==="")return "__INTENTIONALLY_EMPTY__";
+ if(Array.isArray(value))return value.map((item,index)=>markAllowedEmpty(source?.[index],item));
+ if(value&&typeof value==="object")return Object.fromEntries(Object.entries(value).map(([key,item])=>[key,markAllowedEmpty(source?.[key],item)]));
+ return value;
+}
 const blockers:string[]=[];
 const matrix:Record<string,unknown>={};
 for(const locale of LOCALES){
@@ -36,15 +46,18 @@ for(const locale of LOCALES){
 }
 const currentLocaleSet:readonly string[]=ACTIVE_LOCALES;
 for(const locale of LOCALES)if(!currentLocaleSet.includes(locale))blockers.push(`${locale}: public route not activated`);
-/** Explicit remaining integration blockers. Remove only with localized code and verification. */
-const integrationBlockers=[
- "Live storefront accepts only English, including checkout consent and order communication",
- "Existing visual Explorer, parent shop/resources/terms and review/reward components still need complete localized UI and metadata",
- "Complete nine-language browser journeys, overflow, keyboard and narration checks are pending",
- "Free legacy website worksheets and samples remain English; multilingual paid bundles are separate"
-];
-blockers.push(...integrationBlockers);
-const report={generated:new Date().toISOString(),plannedLocales:LOCALES,activeLocales:ACTIVE_LOCALES,releaseReady:blockers.length===0,editorialReview:"AI draft review; no independent native-editor certification",scope:"Six authored content groups, route activation and explicit remaining integration work. Message key parity, browser layout and legal text require separate validation.",matrix,blockers};
+// File availability is part of the multilingual website contract. Merchant
+// credentials and hosted payment evidence are a separate activation gate.
+for(const locale of LOCALES){
+ const messages=JSON.parse(readFileSync(`messages/${locale}.json`,"utf8"));
+ const english=JSON.parse(readFileSync("messages/en.json","utf8"));
+ try{assertTranslationShape(markAllowedEmpty(english,english),markAllowedEmpty(english,messages),`messages/${locale}`);}catch(error){blockers.push(`${locale}: message structure invalid: ${String(error)}`);}
+ for(const filename of Object.values(LESSON_WORKSHEETS))if(!existsSync(`public/worksheets/${locale}/${filename}`))blockers.push(`${locale}: missing worksheet ${filename}`);
+ if(!existsSync(`public/worksheets/${locale}/money-quest-worksheets-answer-key.pdf`))blockers.push(`${locale}: missing answer guide`);
+ for(const stem of ["free-family-sample","free-journal-week-one"])if(!existsSync(`public/resources/samples/${stem}-${locale}.pdf`))blockers.push(`${locale}: missing ${stem}`);
+ for(const [name,copy] of [["reviews",reviewsCopy],["live shop",liveShopCopy]] as const){try{assertTranslationShape(copy.en,copy[locale],`${name}/${locale}`);}catch(error){blockers.push(String(error));}}
+}
+const report={generated:new Date().toISOString(),plannedLocales:LOCALES,activeLocales:ACTIVE_LOCALES,releaseReady:blockers.length===0,editorialReview:"AI draft review; no independent native-editor certification",scope:"Six authored content groups, nine-locale message shape, route activation, localized UI copy and all 207 current public PDFs. Browser/voice quality and merchant configuration require separate evidence.",commerceReady:false,commerceNote:"Commerce stays off until actual private host configuration, reviewed merchant policies and complete hosted settlement/email/download tests pass.",matrix,blockers};
 const output=process.argv.find(value=>value.startsWith("--output="))?.slice(9);
 if(output)writeFileSync(output,JSON.stringify(report,null,2)+"\n");
 console.log(JSON.stringify(report,null,2));

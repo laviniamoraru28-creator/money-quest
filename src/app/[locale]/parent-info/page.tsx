@@ -1,3 +1,5 @@
+import {liveShopCopy} from "@/content/live-shop-copy";
+import {publicParentLocale} from "@/lib/i18n/parent-presentation";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
@@ -98,7 +100,7 @@ export default async function ParentInfoPage({ params }: PageProps) {
           </section>
         </div>
 
-        {config?.mode==="live"&&config.release&&<div className="mt-lg"><p className="mb-4">The learning privacy information below concerns children’s free learning. Optional adult purchases use Stripe and transactional email. See the purchase privacy policy and seller details.</p><ShopMerchant release={config.release}/></div>}
+        {config?.mode==="live"&&config.release&&<div className="mt-lg"><p className="mb-4">{liveShopCopy[publicParentLocale(locale)].processing}</p><ShopMerchant release={config.release} locale={publicParentLocale(locale)}/></div>}
         <h2 className="mt-lg font-display text-xl font-bold text-teal-text">{t("parentInfo.privacySectionTitle")}</h2>
         <div className="mt-md grid gap-md">
           <section>

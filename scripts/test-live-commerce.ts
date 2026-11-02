@@ -75,15 +75,15 @@ async function main(){
    const texts=orderErrorCopy[locale];assert.deepEqual(Object.keys(texts),Object.keys(orderErrorCopy.en));
    for(const kind of ["download","receipt"] as const){const h=orderErrorHtml(locale,kind,"support@merchant.test");assert(h.includes(`lang="${locale}"`));assert(h.includes(texts[kind]));assert(h.includes(`href="/${locale}/parents/shop"`));assert(!h.includes("<script"));assert(!h.includes("cs_live_"));assert(h.includes("noindex,nofollow"));}
    for(const value of Object.values(texts)){assert(value.trim());assert.equal(value,value.normalize("NFC"));}
-   assert.equal(publicOrderErrorLocale(locale),"en");assert(siteDescriptions[locale].trim());assert(!siteDescriptions[locale].includes("ever"));
+   assert.equal(publicOrderErrorLocale(locale),locale);assert(siteDescriptions[locale].trim());assert(!siteDescriptions[locale].includes("ever"));
   }
   const injected=orderErrorHtml("en","download",'bad"><script>alert(1)</script>');assert(!injected.includes("<script>"));assert(injected.includes("&lt;script&gt;"));
   // Later release text cannot rewrite the contract attached to an existing order.
   release.terms.text="Changed later. ".repeat(30);await writeFile(releasePath,JSON.stringify(release));assert(confirmationText(order,config.origin,config.signing).includes(contract.termsText));
   const messages=JSON.parse(await readFile("messages/en.json","utf8"));const render=(children:React.ReactElement)=>renderToStaticMarkup(React.createElement(NextIntlClientProvider,{locale:"en",messages,timeZone:"Europe/London",children}));
-  const p=storefrontCatalogue("en",true),html=render(React.createElement(ShopCatalogue,{...p,available:[true,true]}));assert(html.includes("Continue to secure payment"));assert(!html.includes("Continue to test card payment"));assert(!html.includes("Prices below are proposed"));assert.equal((html.match(/<input\b/g)||[]).length,8);assert(!/\bchecked=""/.test(html));assert(html.includes("digital download terms (opens a new tab)"));
+  const p=storefrontCatalogue("en",true),html=render(React.createElement(ShopCatalogue,{...p,available:[true,true]}));assert(html.includes("Continue to secure payment"));assert(!html.includes("Continue to test card payment"));assert(!html.includes("Prices below are proposed"));assert.equal((html.match(/<input\b/g)||[]).length,8);assert(!/\bchecked=""/.test(html));assert(html.includes("Digital download terms"));
   for(const component of [LiveShopTerms,LiveShopPrivacy]){const h=render(React.createElement(component,{release}));assert(h.includes(release.merchant.name));assert(h.includes(release.merchant.email));}
-  assert(!storefrontFlow("en",true).copy.verified.includes("Sandbox"));assert.throws(()=>storefrontFlow("ro",true),/not released/);
+  assert(!storefrontFlow("en",true).copy.verified.includes("Sandbox"));for(const locale of ["ro","es","fr","de","it","pt","nl","pl"] as const){const view=storefrontFlow(locale,true);assert.equal(view.locale,locale);assert(view.termsRequired);assert.notEqual(view.copy.continueTest,storefrontFlow("en",true).copy.continueTest);}
   // Revalidation revokes a later refunded payment before it can be fulfilled again.
   session={...session,payment_intent:{status:"succeeded",latest_charge:{refunded:true,amount_refunded:599,disputed:false}}};await assert.rejects(fulfillSession(session.id,{client,send}));assert.equal(sent,3);
   // Rehearse the exact source subset included with the Namecheap admin commands.

@@ -1,3 +1,4 @@
+import {liveShopCopy} from "@/content/live-shop-copy";
 import type {Locale} from "@/i18n/config";
 import {commerceConfig} from "./config";
 import {shopFlowPresentation} from "@/lib/i18n/parent-presentation";
@@ -7,11 +8,12 @@ export function publicCommerce(){try{return commerceConfig();}catch{return null;
 export function storefrontFlow(locale:Locale,live=false){
  const flow=shopFlowPresentation(locale);
  if(!live)return {...flow,termsRequired:false};
- if(locale!=="en")throw new Error("Live storefront language not released");
- return {termsRequired:true,copy:{...flow.copy,testOnly:"Secure card payment for a digital download with nine language editions. No printed item or subscription.",continueTest:"Continue to secure payment",verified:"Payment verified. Your order confirmation has been sent to the email provided at checkout. Download your files or save another copy of the confirmation below."}};
+ const liveCopy=liveShopCopy[locale];
+ return {locale,termsRequired:true,copy:{...flow.copy,testOnly:liveCopy.secure,continueTest:liveCopy.continue,verified:liveCopy.verified}};
 }
 export function storefrontCatalogue(locale:Locale,live=false){
  const p=shopCataloguePresentation(locale),flow=storefrontFlow(locale,live);
  if(!live)return {...p,termsRequired:false};
- return {...p,flowCopy:flow.copy,termsRequired:true,copy:{...p.copy,previewTitle:"Nine-language print-at-home bundles",previewBody:"The full bundles include nine language editions; the free samples are in English. You print and bind at home. The prices shown are one-time totals in GBP; there is no subscription.",priceNote:"one payment",a4:"The licence is for one household. Classroom copying and redistribution are not included.",terms:"Digital download terms"}};
+ const t=liveShopCopy[locale];
+ return {...p,flowCopy:flow.copy,termsRequired:true,copy:{...p.copy,previewTitle:t.previewTitle,previewBody:t.previewBody,priceNote:t.onePayment,a4:t.licence,terms:t.termsShort}};
 }

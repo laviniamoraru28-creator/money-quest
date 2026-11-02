@@ -36,5 +36,5 @@ for(const locale of locales){
   assert.throws(()=>draftTranslatedMuseum(room,note,{...copy,note:{...copy.note,sources:[]}},manifest.sources[room.slug]));
  }
 }
-assert.deepEqual(ACTIVE_LOCALES,["en"],"A translated content group must not activate incomplete site locales");
+assert.deepEqual(ACTIVE_LOCALES,LOCALES);
 console.log(`PASS: ${museumRooms.length} Museum rooms in ${locales.length} language drafts (${strings} text fragments), three age challenges, answer flags, figures, metadata and stale-source guards.`);

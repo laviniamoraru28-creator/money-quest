@@ -7,7 +7,7 @@ import {libraryPeople} from "../src/content/people";
 import {biographyTranslationSource,assertTranslationShape,sourceFingerprint} from "../src/lib/i18n/content-translations";
 import {draftBiographyPresentation,publicLibraryLocale} from "../src/lib/i18n/library-presentation";
 import BiographyProfile from "../src/components/BiographyProfile";
-import {ACTIVE_LOCALES,type Locale} from "../src/i18n/config";
+import {LOCALES,ACTIVE_LOCALES,type Locale} from "../src/i18n/config";
 import manifest from "../src/content/translations/people.sources.json";
 (globalThis as typeof globalThis & {React:typeof React}).React=React;
 const escape=(s:string)=>s.replaceAll("&","&amp;").replaceAll("'","&#x27;").replaceAll('"',"&quot;");
@@ -33,7 +33,7 @@ for(const entry of manifest.locales){const locale=entry as Locale;const copies=J
   for(const level of ["Builder","Strategist"])assert(p.ages.includes(level));
   assert.throws(()=>draftBiographyPresentation({...person,sections:person.sections.map((s,i)=>i? s:{...s,text:s.text+" changed"})},locale),/Stale translation/);
  }
- assert.equal(strings,manifest.stringsPerLocale);assert.equal(publicLibraryLocale(locale),"en");
+ assert.equal(strings,manifest.stringsPerLocale);assert.equal(publicLibraryLocale(locale),locale);
 }
-assert.equal(renders,manifest.locales.length*10);assert.deepEqual(ACTIVE_LOCALES,["en"]);
+assert.equal(renders,manifest.locales.length*10);assert.deepEqual(ACTIVE_LOCALES,LOCALES);
 console.log(`PASS: ${manifest.locales.length*147} biography draft fragments and ${renders} actual complete profile SSR renders; numeric facts, source fingerprints, canonical metadata, real/thematic illustration disclosures, levels and the public-language gate preserved. Native-editor, voice and non-English browser review still pending.`);

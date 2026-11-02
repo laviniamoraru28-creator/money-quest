@@ -3,7 +3,7 @@ import {readFileSync} from "node:fs";
 import {learningLabs} from "../src/content/learning-labs";
 import {labAgeVariants,labTaskAtLevel} from "../src/content/lab-age-variants";
 import {laboratoryTranslationSource,draftTranslatedLaboratory,assertTranslationShape} from "../src/lib/i18n/content-translations";
-import {ACTIVE_LOCALES} from "../src/i18n/config";
+import {LOCALES,ACTIVE_LOCALES} from "../src/i18n/config";
 const manifest=JSON.parse(readFileSync("src/content/translations/laboratories.sources.json","utf8"));
 assert.deepEqual(manifest.locales,["ro"]);
 assert.equal(manifest.regionalTargets.ro,"ro-RO");
@@ -57,5 +57,5 @@ for(const lab of learningLabs){
  assert.throws(()=>draftTranslatedLaboratory(lab,labAgeVariants,extra,manifest.sources[lab.slug]));
 }
 assert.equal(strings,490);assert.equal(tasks,22);
-assert.deepEqual(ACTIVE_LOCALES,["en"],"Do not activate a partially translated website");
+assert.deepEqual(ACTIVE_LOCALES,LOCALES);
 console.log(`PASS: three Romanian laboratory drafts, ${tasks} tasks, three age readings, ${strings} strings, localized age selection, correct answers, quantities and GBP/pence, with source/metadata/structure guards.`);

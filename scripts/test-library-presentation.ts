@@ -43,9 +43,9 @@ for(const invalid of ["2026-02-30","2026-10-28T12:00:00Z","bad","2026-1-2"])asse
 for(const locale of LOCALES){
  assert.equal(REGIONAL_LOCALES[locale].split("-")[0],locale);
  const date=librarySourceDate(locale,"2026-10-28");assert(date.includes("2026")&&date.includes("28"));
- assert.equal(publicLibraryLocale(locale),"en");
+ assert.equal(publicLibraryLocale(locale),locale);
 }
-assert.equal(publicLibraryLocale("unknown"),"en");assert.deepEqual(ACTIVE_LOCALES,["en"]);
+assert.equal(publicLibraryLocale("unknown"),"en");assert.deepEqual(ACTIVE_LOCALES,LOCALES);
 function render(locale:Locale,element:React.ReactElement){
  const messages=JSON.parse(readFileSync(`messages/${locale}.json`,"utf8"));
  return renderToStaticMarkup(React.createElement(NextIntlClientProvider,{locale,messages,timeZone:"Europe/London",children:element}));

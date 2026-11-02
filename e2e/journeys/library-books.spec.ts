@@ -69,14 +69,14 @@ test("optional chapter question never blocks navigation and blocked storage stay
   await expect(page.getByRole("heading", { name: book.chapters.at(-2)!.title, level: 2, exact: true })).toBeFocused();
 });
 
-test("inactive Romanian reader preserves English narration, typography controls and cover descriptions",async({page})=>{
+test("English reader preserves English narration, typography controls and cover descriptions",async({page})=>{
  await page.addInitScript(()=>{
   const calls:{lang:string;text:string}[]=[];(window as unknown as {readerSpeech:typeof calls}).readerSpeech=calls;
   Object.defineProperty(window,"speechSynthesis",{configurable:true,value:{cancel(){},speak(utterance:{lang:string;text:string;onstart?:()=>void}){calls.push({lang:utterance.lang,text:utterance.text});utterance.onstart?.();}}});
   Object.defineProperty(window,"SpeechSynthesisUtterance",{configurable:true,value:class{text:string;lang="";constructor(text:string){this.text=text;}}});
  });
  const book=originalBooks.find(book=>book.slug==="the-repair-table")!;
- await page.goto(`/ro/library/${book.slug}`);await expect(page).toHaveURL(new RegExp(`/en/library/${book.slug}$`));
+ await page.goto(`/en/library/${book.slug}`);await expect(page).toHaveURL(new RegExp(`/en/library/${book.slug}$`));
  await page.getByRole("button",{name:"Open book",exact:true}).click();
  const article=page.getByRole("article"),chapter=book.chapters[0]!;
  await article.getByRole("button",{name:"Listen",exact:true}).click();
@@ -89,9 +89,9 @@ test("inactive Romanian reader preserves English narration, typography controls 
  await expect(article.getByRole("img",{name:book.coverAlt,exact:true})).toBeVisible();
 });
 
-test("inactive Romanian biography retains canonical source and a British calendar date",async({page})=>{
+test("English biography retains canonical source and a British calendar date",async({page})=>{
  const person=libraryPeople[0]!;
- await page.goto(`/ro/library/${person.slug}`);await expect(page).toHaveURL(new RegExp(`/en/library/${person.slug}$`));
+ await page.goto(`/en/library/${person.slug}`);await expect(page).toHaveURL(new RegExp(`/en/library/${person.slug}$`));
  await expect(page.getByRole("heading",{name:person.title,exact:true,level:1})).toBeVisible();
  await page.getByText("Factual source and notes for grown-ups",{exact:true}).click();
  await expect(page.getByText(`Source checked ${librarySourceDate("en",person.checked)}.`,{exact:true})).toBeVisible();

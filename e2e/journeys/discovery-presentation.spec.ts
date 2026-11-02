@@ -2,14 +2,14 @@ import {test,expect} from "@playwright/test";
 import {museumRooms,libraryBooks} from "../../src/content/discovery";
 import {discoveryNotes} from "../../src/content/discovery-notes";
 
-test("Museum presentation keeps gated language, narration, quiz and canonical completion",async({page})=>{
+test("Museum presentation keeps English narration, quiz and canonical completion",async({page})=>{
  await page.addInitScript(()=>{
   const calls:{lang:string;text:string}[]=[];(window as unknown as {discoverySpeech:typeof calls}).discoverySpeech=calls;
   Object.defineProperty(window,"speechSynthesis",{configurable:true,value:{cancel(){},speak(utterance:{lang:string;text:string;onstart?:()=>void}){calls.push({lang:utterance.lang,text:utterance.text});utterance.onstart?.();}}});
   Object.defineProperty(window,"SpeechSynthesisUtterance",{configurable:true,value:class{text:string;lang="";constructor(text:string){this.text=text;}}});
  });
  const room=museumRooms.find(room=>room.slug==="first-coins")!,note=discoveryNotes[room.slug]!;
- await page.goto(`/ro/museum/${room.slug}`);await expect(page).toHaveURL(new RegExp(`/en/museum/${room.slug}$`));
+ await page.goto(`/en/museum/${room.slug}`);await expect(page).toHaveURL(new RegExp(`/en/museum/${room.slug}$`));
  const article=page.getByRole("article");await expect(article.getByRole("heading",{name:room.title,exact:true,level:1})).toBeVisible();
  await article.getByRole("button",{name:"Listen",exact:true}).last().click();
  await expect.poll(()=>page.evaluate(()=>(window as unknown as {discoverySpeech:{lang:string}[]}).discoverySpeech.map(call=>call.lang))).toEqual(["en-GB"]);
@@ -29,7 +29,7 @@ test("Museum presentation keeps gated language, narration, quiz and canonical co
 test("short-read presentation retains three pages, age activities and honest blocked-storage feedback",async({page})=>{
  await page.addInitScript(()=>{Storage.prototype.setItem=()=>{throw new DOMException("Blocked","SecurityError")};});
  const book=libraryBooks.find(book=>book.slug==="the-digital-coin")!,note=discoveryNotes[book.slug]!;
- await page.goto(`/ro/library/${book.slug}`);await expect(page).toHaveURL(new RegExp(`/en/library/${book.slug}$`));
+ await page.goto(`/en/library/${book.slug}`);await expect(page).toHaveURL(new RegExp(`/en/library/${book.slug}$`));
  await expect(page.getByRole("region",{name:"Discovery challenge",exact:true})).toHaveCount(0);
  for(let index=0;index<3;index++){
   await expect(page.getByRole("heading",{name:book.pages[index]!.title,exact:true,level:2})).toBeVisible();await expect(page.getByText(`Page ${index+1} of 3`,{exact:true})).toBeVisible();

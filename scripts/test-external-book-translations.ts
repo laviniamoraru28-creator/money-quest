@@ -38,7 +38,7 @@ for(const locale of LOCALES){
  const sorted=Array.from(new Set(published.flatMap(b=>b.topics))).sort((a,b)=>a.localeCompare(b,REGIONAL_LOCALES[locale]));
  const options=Array.from(html.matchAll(/<option\b[^>]*>(.*?)<\/option>/g),m=>m[1]);assert.deepEqual(options,[escape(libraryShelfCopy[locale].allTopics),...sorted.map(escape)]);
  const money=published.find(b=>b.id==="money-for-beginners")!.topics[0];assert.equal(published.find(b=>b.id==="why-money-matters")!.topics[0],money);assert.equal(published.find(b=>b.id==="dosh")!.topics[1],money);
- assert.equal(publicLibraryLocale(locale),"en");
+ assert.equal(publicLibraryLocale(locale),locale);
 }
-assert.equal(cards,108);assert.equal(renders,9);assert.deepEqual(ACTIVE_LOCALES,["en"]);
+assert.equal(cards,108);assert.equal(renders,9);assert.deepEqual(ACTIVE_LOCALES,LOCALES);
 console.log("PASS: 888 translated external-book introduction fragments, nine isolated author-shelf SSR renders and 108 cards; canonical titles/credits/links/dates, attributed numeric age guidance, ideas/discussion/access, localized topic sorting and the public-language gate. No localized book editions, stock, price, clinical outcome or fresh all-source check claimed. Native-editor/non-English browser/voice review remains pending.");

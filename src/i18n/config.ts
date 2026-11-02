@@ -64,4 +64,4 @@ export function isSupportedLocale(value: string): value is Locale {
  */
 export const PLANNED_LAUNCH_LOCALES = LOCALES;
 /** Current released installation. New multilingual packaging is blocked until ready. */
-export const ACTIVE_LOCALES = ["en"] as const;
+export const ACTIVE_LOCALES = LOCALES;

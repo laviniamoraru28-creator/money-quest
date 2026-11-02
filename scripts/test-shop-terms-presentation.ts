@@ -34,8 +34,8 @@ for(const locale of LOCALES){
  assert(!html.includes("{version}"));assert(!html.includes("<form"));assert(!html.includes("<input"));
  for(const literal of ["PDF","ZIP"])assert(copy.body1.includes(literal));
  assert(copy.body4.includes("Stripe"));assert(copy.body5.includes("90"));
- assert.equal(publicParentLocale(locale),"en");
+ assert.equal(publicParentLocale(locale),locale);
 }
-assert.equal(publicParentLocale("unknown"),"en");assert.deepEqual(ACTIVE_LOCALES,["en"]);
+assert.equal(publicParentLocale("unknown"),"en");assert.deepEqual(ACTIVE_LOCALES,LOCALES);
 assert(shopProducts.every(p=>!p.releaseReady));assert.deepEqual(shopProducts.map(p=>p.price),[599,799]);
 console.log("PASS: 144 digital-download terms strings and nine actual component SSR renders, English source/consent-version guards, six sections, locale links, format/90-day preservation and unchanged release gates. Legal adaptation, native editorial review and non-English browser QA remain pending.");

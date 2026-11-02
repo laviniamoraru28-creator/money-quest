@@ -35,5 +35,5 @@ for(const locale of locales){
   assert.throws(()=>draftTranslatedShortRead(book,note,{...copy,note:{...copy.note,sources:[]}},manifest.sources[book.slug]));
  }
 }
-assert.deepEqual(ACTIVE_LOCALES,["en"]);
+assert.deepEqual(ACTIVE_LOCALES,LOCALES);
 console.log(`PASS: ${libraryBooks.length} short reads in ${locales.length} languages (${strings} draft fragments), three pages, age challenges, quiz flags, metadata, amounts and stale-source guards.`);

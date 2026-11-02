@@ -28,6 +28,9 @@ jobs:
           # avoids a build behaving differently in CI than in production.
           node-version: "24.22.1"
 
+      - name: Printable build dependencies
+        run: python3 -m pip install reportlab==4.4.9
+
       - name: Install dependencies (reproducible)
         run: npm ci
 

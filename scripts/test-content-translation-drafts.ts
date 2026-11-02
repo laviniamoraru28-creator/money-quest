@@ -3,7 +3,7 @@ import {readFileSync} from "node:fs";
 import {originalBooks} from "../src/content/library";
 import {libraryPeople} from "../src/content/people";
 import {biographyTranslationSource,draftTranslatedBiography,bookTranslationSource,draftTranslatedBook,assertTranslationShape} from "../src/lib/i18n/content-translations";
-import {ACTIVE_LOCALES} from "../src/i18n/config";
+import {LOCALES,ACTIVE_LOCALES} from "../src/i18n/config";
 const translations=JSON.parse(readFileSync("src/content/translations/people.ro.json","utf8"));
 const manifest=JSON.parse(readFileSync("src/content/translations/people.ro.sources.json","utf8"));
 assert.deepEqual(Object.keys(translations).sort(),libraryPeople.map(p=>p.slug).sort());
@@ -34,5 +34,5 @@ for(const book of originalBooks){
  const tampered=structuredClone(bookTranslations[book.slug]);tampered.chapters[0].choices[0].correct=!tampered.chapters[0].choices[0].correct;
  assert.throws(()=>assertTranslationShape(bookTranslationSource(book),tampered));
 }
-assert.deepEqual(ACTIVE_LOCALES,["en"],"Do not activate incomplete site translations because one content group is ready");
+assert.deepEqual(ACTIVE_LOCALES,LOCALES);
 console.log("PASS: all 10 Romanian books and 10 biography drafts preserve metadata, answer keys, amounts and structure, stale source text is rejected, and incomplete locale rollout stays blocked.");

@@ -1,0 +1,1096 @@
+{
+  "worksheets": [
+    {
+      "file": "public/worksheets/en/01-what-is-money.pdf",
+      "locale": "en",
+      "lessonId": "explorer-money_basics-l1",
+      "source": "messages/en.json#curriculum.explorer-money_basics-l1"
+    },
+    {
+      "file": "public/worksheets/en/02-where-does-money-come-from.pdf",
+      "locale": "en",
+      "lessonId": "builder-money_basics-l1",
+      "source": "messages/en.json#curriculum.builder-money_basics-l1"
+    },
+    {
+      "file": "public/worksheets/en/03-what-does-saving-mean.pdf",
+      "locale": "en",
+      "lessonId": "explorer-saving-l1",
+      "source": "messages/en.json#curriculum.explorer-saving-l1"
+    },
+    {
+      "file": "public/worksheets/en/04-saving-for-something-bigger.pdf",
+      "locale": "en",
+      "lessonId": "builder-saving-l1",
+      "source": "messages/en.json#curriculum.builder-saving-l1"
+    },
+    {
+      "file": "public/worksheets/en/05-saving-vs-spending.pdf",
+      "locale": "en",
+      "lessonId": "strategist-saving-l1",
+      "source": "messages/en.json#curriculum.strategist-saving-l1"
+    },
+    {
+      "file": "public/worksheets/en/06-understanding-exchange-rates.pdf",
+      "locale": "en",
+      "lessonId": "strategist-currencies-l1",
+      "source": "messages/en.json#curriculum.strategist-currencies-l1"
+    },
+    {
+      "file": "public/worksheets/en/07-some-promises-are-too-good.pdf",
+      "locale": "en",
+      "lessonId": "explorer-scams-l1",
+      "source": "messages/en.json#curriculum.explorer-scams-l1"
+    },
+    {
+      "file": "public/worksheets/en/08-spotting-a-scam.pdf",
+      "locale": "en",
+      "lessonId": "builder-scams-l1",
+      "source": "messages/en.json#curriculum.builder-scams-l1"
+    },
+    {
+      "file": "public/worksheets/en/09-scams-target-emotions.pdf",
+      "locale": "en",
+      "lessonId": "strategist-scams-l1",
+      "source": "messages/en.json#curriculum.strategist-scams-l1"
+    },
+    {
+      "file": "public/worksheets/en/10-giving-on-purpose.pdf",
+      "locale": "en",
+      "lessonId": "builder-giving-l1",
+      "source": "messages/en.json#curriculum.builder-giving-l1"
+    },
+    {
+      "file": "public/worksheets/en/11-money-you-cant-hold.pdf",
+      "locale": "en",
+      "lessonId": "explorer-digital_money-l1",
+      "source": "messages/en.json#curriculum.explorer-digital_money-l1"
+    },
+    {
+      "file": "public/worksheets/en/12-how-a-card-payment-works.pdf",
+      "locale": "en",
+      "lessonId": "builder-digital_money-l1",
+      "source": "messages/en.json#curriculum.builder-digital_money-l1"
+    },
+    {
+      "file": "public/worksheets/en/13-staying-safe-with-digital-money.pdf",
+      "locale": "en",
+      "lessonId": "strategist-digital_money-l1",
+      "source": "messages/en.json#curriculum.strategist-digital_money-l1"
+    },
+    {
+      "file": "public/worksheets/en/14-saving-vs-growing-your-money.pdf",
+      "locale": "en",
+      "lessonId": "explorer-investing_basics-l1",
+      "source": "messages/en.json#curriculum.explorer-investing_basics-l1"
+    },
+    {
+      "file": "public/worksheets/en/15-owning-a-small-piece-of-a-company.pdf",
+      "locale": "en",
+      "lessonId": "builder-investing_basics-l1",
+      "source": "messages/en.json#curriculum.builder-investing_basics-l1"
+    },
+    {
+      "file": "public/worksheets/en/16-locked-until-18-junior-isa.pdf",
+      "locale": "en",
+      "lessonId": "builder-junior_isa-l1",
+      "source": "messages/en.json#curriculum.builder-junior_isa-l1"
+    },
+    {
+      "file": "public/worksheets/en/17-junior-isa-milestones.pdf",
+      "locale": "en",
+      "lessonId": "strategist-junior_isa-l1",
+      "source": "messages/en.json#curriculum.strategist-junior_isa-l1"
+    },
+    {
+      "file": "public/worksheets/en/18-need-it-or-want-it.pdf",
+      "locale": "en",
+      "lessonId": "explorer-needs_wants-l1",
+      "source": "messages/en.json#curriculum.explorer-needs_wants-l1"
+    },
+    {
+      "file": "public/worksheets/en/19-the-grey-area.pdf",
+      "locale": "en",
+      "lessonId": "builder-needs_wants-l1",
+      "source": "messages/en.json#curriculum.builder-needs_wants-l1"
+    },
+    {
+      "file": "public/worksheets/en/20-needs-wants-social-pressure.pdf",
+      "locale": "en",
+      "lessonId": "strategist-needs_wants-l1",
+      "source": "messages/en.json#curriculum.strategist-needs_wants-l1"
+    },
+    {
+      "file": "public/worksheets/ro/01-what-is-money.pdf",
+      "locale": "ro",
+      "lessonId": "explorer-money_basics-l1",
+      "source": "messages/ro.json#curriculum.explorer-money_basics-l1"
+    },
+    {
+      "file": "public/worksheets/ro/02-where-does-money-come-from.pdf",
+      "locale": "ro",
+      "lessonId": "builder-money_basics-l1",
+      "source": "messages/ro.json#curriculum.builder-money_basics-l1"
+    },
+    {
+      "file": "public/worksheets/ro/03-what-does-saving-mean.pdf",
+      "locale": "ro",
+      "lessonId": "explorer-saving-l1",
+      "source": "messages/ro.json#curriculum.explorer-saving-l1"
+    },
+    {
+      "file": "public/worksheets/ro/04-saving-for-something-bigger.pdf",
+      "locale": "ro",
+      "lessonId": "builder-saving-l1",
+      "source": "messages/ro.json#curriculum.builder-saving-l1"
+    },
+    {
+      "file": "public/worksheets/ro/05-saving-vs-spending.pdf",
+      "locale": "ro",
+      "lessonId": "strategist-saving-l1",
+      "source": "messages/ro.json#curriculum.strategist-saving-l1"
+    },
+    {
+      "file": "public/worksheets/ro/06-understanding-exchange-rates.pdf",
+      "locale": "ro",
+      "lessonId": "strategist-currencies-l1",
+      "source": "messages/ro.json#curriculum.strategist-currencies-l1"
+    },
+    {
+      "file": "public/worksheets/ro/07-some-promises-are-too-good.pdf",
+      "locale": "ro",
+      "lessonId": "explorer-scams-l1",
+      "source": "messages/ro.json#curriculum.explorer-scams-l1"
+    },
+    {
+      "file": "public/worksheets/ro/08-spotting-a-scam.pdf",
+      "locale": "ro",
+      "lessonId": "builder-scams-l1",
+      "source": "messages/ro.json#curriculum.builder-scams-l1"
+    },
+    {
+      "file": "public/worksheets/ro/09-scams-target-emotions.pdf",
+      "locale": "ro",
+      "lessonId": "strategist-scams-l1",
+      "source": "messages/ro.json#curriculum.strategist-scams-l1"
+    },
+    {
+      "file": "public/worksheets/ro/10-giving-on-purpose.pdf",
+      "locale": "ro",
+      "lessonId": "builder-giving-l1",
+      "source": "messages/ro.json#curriculum.builder-giving-l1"
+    },
+    {
+      "file": "public/worksheets/ro/11-money-you-cant-hold.pdf",
+      "locale": "ro",
+      "lessonId": "explorer-digital_money-l1",
+      "source": "messages/ro.json#curriculum.explorer-digital_money-l1"
+    },
+    {
+      "file": "public/worksheets/ro/12-how-a-card-payment-works.pdf",
+      "locale": "ro",
+      "lessonId": "builder-digital_money-l1",
+      "source": "messages/ro.json#curriculum.builder-digital_money-l1"
+    },
+    {
+      "file": "public/worksheets/ro/13-staying-safe-with-digital-money.pdf",
+      "locale": "ro",
+      "lessonId": "strategist-digital_money-l1",
+      "source": "messages/ro.json#curriculum.strategist-digital_money-l1"
+    },
+    {
+      "file": "public/worksheets/ro/14-saving-vs-growing-your-money.pdf",
+      "locale": "ro",
+      "lessonId": "explorer-investing_basics-l1",
+      "source": "messages/ro.json#curriculum.explorer-investing_basics-l1"
+    },
+    {
+      "file": "public/worksheets/ro/15-owning-a-small-piece-of-a-company.pdf",
+      "locale": "ro",
+      "lessonId": "builder-investing_basics-l1",
+      "source": "messages/ro.json#curriculum.builder-investing_basics-l1"
+    },
+    {
+      "file": "public/worksheets/ro/16-locked-until-18-junior-isa.pdf",
+      "locale": "ro",
+      "lessonId": "builder-junior_isa-l1",
+      "source": "messages/ro.json#curriculum.builder-junior_isa-l1"
+    },
+    {
+      "file": "public/worksheets/ro/17-junior-isa-milestones.pdf",
+      "locale": "ro",
+      "lessonId": "strategist-junior_isa-l1",
+      "source": "messages/ro.json#curriculum.strategist-junior_isa-l1"
+    },
+    {
+      "file": "public/worksheets/ro/18-need-it-or-want-it.pdf",
+      "locale": "ro",
+      "lessonId": "explorer-needs_wants-l1",
+      "source": "messages/ro.json#curriculum.explorer-needs_wants-l1"
+    },
+    {
+      "file": "public/worksheets/ro/19-the-grey-area.pdf",
+      "locale": "ro",
+      "lessonId": "builder-needs_wants-l1",
+      "source": "messages/ro.json#curriculum.builder-needs_wants-l1"
+    },
+    {
+      "file": "public/worksheets/ro/20-needs-wants-social-pressure.pdf",
+      "locale": "ro",
+      "lessonId": "strategist-needs_wants-l1",
+      "source": "messages/ro.json#curriculum.strategist-needs_wants-l1"
+    },
+    {
+      "file": "public/worksheets/es/01-what-is-money.pdf",
+      "locale": "es",
+      "lessonId": "explorer-money_basics-l1",
+      "source": "messages/es.json#curriculum.explorer-money_basics-l1"
+    },
+    {
+      "file": "public/worksheets/es/02-where-does-money-come-from.pdf",
+      "locale": "es",
+      "lessonId": "builder-money_basics-l1",
+      "source": "messages/es.json#curriculum.builder-money_basics-l1"
+    },
+    {
+      "file": "public/worksheets/es/03-what-does-saving-mean.pdf",
+      "locale": "es",
+      "lessonId": "explorer-saving-l1",
+      "source": "messages/es.json#curriculum.explorer-saving-l1"
+    },
+    {
+      "file": "public/worksheets/es/04-saving-for-something-bigger.pdf",
+      "locale": "es",
+      "lessonId": "builder-saving-l1",
+      "source": "messages/es.json#curriculum.builder-saving-l1"
+    },
+    {
+      "file": "public/worksheets/es/05-saving-vs-spending.pdf",
+      "locale": "es",
+      "lessonId": "strategist-saving-l1",
+      "source": "messages/es.json#curriculum.strategist-saving-l1"
+    },
+    {
+      "file": "public/worksheets/es/06-understanding-exchange-rates.pdf",
+      "locale": "es",
+      "lessonId": "strategist-currencies-l1",
+      "source": "messages/es.json#curriculum.strategist-currencies-l1"
+    },
+    {
+      "file": "public/worksheets/es/07-some-promises-are-too-good.pdf",
+      "locale": "es",
+      "lessonId": "explorer-scams-l1",
+      "source": "messages/es.json#curriculum.explorer-scams-l1"
+    },
+    {
+      "file": "public/worksheets/es/08-spotting-a-scam.pdf",
+      "locale": "es",
+      "lessonId": "builder-scams-l1",
+      "source": "messages/es.json#curriculum.builder-scams-l1"
+    },
+    {
+      "file": "public/worksheets/es/09-scams-target-emotions.pdf",
+      "locale": "es",
+      "lessonId": "strategist-scams-l1",
+      "source": "messages/es.json#curriculum.strategist-scams-l1"
+    },
+    {
+      "file": "public/worksheets/es/10-giving-on-purpose.pdf",
+      "locale": "es",
+      "lessonId": "builder-giving-l1",
+      "source": "messages/es.json#curriculum.builder-giving-l1"
+    },
+    {
+      "file": "public/worksheets/es/11-money-you-cant-hold.pdf",
+      "locale": "es",
+      "lessonId": "explorer-digital_money-l1",
+      "source": "messages/es.json#curriculum.explorer-digital_money-l1"
+    },
+    {
+      "file": "public/worksheets/es/12-how-a-card-payment-works.pdf",
+      "locale": "es",
+      "lessonId": "builder-digital_money-l1",
+      "source": "messages/es.json#curriculum.builder-digital_money-l1"
+    },
+    {
+      "file": "public/worksheets/es/13-staying-safe-with-digital-money.pdf",
+      "locale": "es",
+      "lessonId": "strategist-digital_money-l1",
+      "source": "messages/es.json#curriculum.strategist-digital_money-l1"
+    },
+    {
+      "file": "public/worksheets/es/14-saving-vs-growing-your-money.pdf",
+      "locale": "es",
+      "lessonId": "explorer-investing_basics-l1",
+      "source": "messages/es.json#curriculum.explorer-investing_basics-l1"
+    },
+    {
+      "file": "public/worksheets/es/15-owning-a-small-piece-of-a-company.pdf",
+      "locale": "es",
+      "lessonId": "builder-investing_basics-l1",
+      "source": "messages/es.json#curriculum.builder-investing_basics-l1"
+    },
+    {
+      "file": "public/worksheets/es/16-locked-until-18-junior-isa.pdf",
+      "locale": "es",
+      "lessonId": "builder-junior_isa-l1",
+      "source": "messages/es.json#curriculum.builder-junior_isa-l1"
+    },
+    {
+      "file": "public/worksheets/es/17-junior-isa-milestones.pdf",
+      "locale": "es",
+      "lessonId": "strategist-junior_isa-l1",
+      "source": "messages/es.json#curriculum.strategist-junior_isa-l1"
+    },
+    {
+      "file": "public/worksheets/es/18-need-it-or-want-it.pdf",
+      "locale": "es",
+      "lessonId": "explorer-needs_wants-l1",
+      "source": "messages/es.json#curriculum.explorer-needs_wants-l1"
+    },
+    {
+      "file": "public/worksheets/es/19-the-grey-area.pdf",
+      "locale": "es",
+      "lessonId": "builder-needs_wants-l1",
+      "source": "messages/es.json#curriculum.builder-needs_wants-l1"
+    },
+    {
+      "file": "public/worksheets/es/20-needs-wants-social-pressure.pdf",
+      "locale": "es",
+      "lessonId": "strategist-needs_wants-l1",
+      "source": "messages/es.json#curriculum.strategist-needs_wants-l1"
+    },
+    {
+      "file": "public/worksheets/fr/01-what-is-money.pdf",
+      "locale": "fr",
+      "lessonId": "explorer-money_basics-l1",
+      "source": "messages/fr.json#curriculum.explorer-money_basics-l1"
+    },
+    {
+      "file": "public/worksheets/fr/02-where-does-money-come-from.pdf",
+      "locale": "fr",
+      "lessonId": "builder-money_basics-l1",
+      "source": "messages/fr.json#curriculum.builder-money_basics-l1"
+    },
+    {
+      "file": "public/worksheets/fr/03-what-does-saving-mean.pdf",
+      "locale": "fr",
+      "lessonId": "explorer-saving-l1",
+      "source": "messages/fr.json#curriculum.explorer-saving-l1"
+    },
+    {
+      "file": "public/worksheets/fr/04-saving-for-something-bigger.pdf",
+      "locale": "fr",
+      "lessonId": "builder-saving-l1",
+      "source": "messages/fr.json#curriculum.builder-saving-l1"
+    },
+    {
+      "file": "public/worksheets/fr/05-saving-vs-spending.pdf",
+      "locale": "fr",
+      "lessonId": "strategist-saving-l1",
+      "source": "messages/fr.json#curriculum.strategist-saving-l1"
+    },
+    {
+      "file": "public/worksheets/fr/06-understanding-exchange-rates.pdf",
+      "locale": "fr",
+      "lessonId": "strategist-currencies-l1",
+      "source": "messages/fr.json#curriculum.strategist-currencies-l1"
+    },
+    {
+      "file": "public/worksheets/fr/07-some-promises-are-too-good.pdf",
+      "locale": "fr",
+      "lessonId": "explorer-scams-l1",
+      "source": "messages/fr.json#curriculum.explorer-scams-l1"
+    },
+    {
+      "file": "public/worksheets/fr/08-spotting-a-scam.pdf",
+      "locale": "fr",
+      "lessonId": "builder-scams-l1",
+      "source": "messages/fr.json#curriculum.builder-scams-l1"
+    },
+    {
+      "file": "public/worksheets/fr/09-scams-target-emotions.pdf",
+      "locale": "fr",
+      "lessonId": "strategist-scams-l1",
+      "source": "messages/fr.json#curriculum.strategist-scams-l1"
+    },
+    {
+      "file": "public/worksheets/fr/10-giving-on-purpose.pdf",
+      "locale": "fr",
+      "lessonId": "builder-giving-l1",
+      "source": "messages/fr.json#curriculum.builder-giving-l1"
+    },
+    {
+      "file": "public/worksheets/fr/11-money-you-cant-hold.pdf",
+      "locale": "fr",
+      "lessonId": "explorer-digital_money-l1",
+      "source": "messages/fr.json#curriculum.explorer-digital_money-l1"
+    },
+    {
+      "file": "public/worksheets/fr/12-how-a-card-payment-works.pdf",
+      "locale": "fr",
+      "lessonId": "builder-digital_money-l1",
+      "source": "messages/fr.json#curriculum.builder-digital_money-l1"
+    },
+    {
+      "file": "public/worksheets/fr/13-staying-safe-with-digital-money.pdf",
+      "locale": "fr",
+      "lessonId": "strategist-digital_money-l1",
+      "source": "messages/fr.json#curriculum.strategist-digital_money-l1"
+    },
+    {
+      "file": "public/worksheets/fr/14-saving-vs-growing-your-money.pdf",
+      "locale": "fr",
+      "lessonId": "explorer-investing_basics-l1",
+      "source": "messages/fr.json#curriculum.explorer-investing_basics-l1"
+    },
+    {
+      "file": "public/worksheets/fr/15-owning-a-small-piece-of-a-company.pdf",
+      "locale": "fr",
+      "lessonId": "builder-investing_basics-l1",
+      "source": "messages/fr.json#curriculum.builder-investing_basics-l1"
+    },
+    {
+      "file": "public/worksheets/fr/16-locked-until-18-junior-isa.pdf",
+      "locale": "fr",
+      "lessonId": "builder-junior_isa-l1",
+      "source": "messages/fr.json#curriculum.builder-junior_isa-l1"
+    },
+    {
+      "file": "public/worksheets/fr/17-junior-isa-milestones.pdf",
+      "locale": "fr",
+      "lessonId": "strategist-junior_isa-l1",
+      "source": "messages/fr.json#curriculum.strategist-junior_isa-l1"
+    },
+    {
+      "file": "public/worksheets/fr/18-need-it-or-want-it.pdf",
+      "locale": "fr",
+      "lessonId": "explorer-needs_wants-l1",
+      "source": "messages/fr.json#curriculum.explorer-needs_wants-l1"
+    },
+    {
+      "file": "public/worksheets/fr/19-the-grey-area.pdf",
+      "locale": "fr",
+      "lessonId": "builder-needs_wants-l1",
+      "source": "messages/fr.json#curriculum.builder-needs_wants-l1"
+    },
+    {
+      "file": "public/worksheets/fr/20-needs-wants-social-pressure.pdf",
+      "locale": "fr",
+      "lessonId": "strategist-needs_wants-l1",
+      "source": "messages/fr.json#curriculum.strategist-needs_wants-l1"
+    },
+    {
+      "file": "public/worksheets/de/01-what-is-money.pdf",
+      "locale": "de",
+      "lessonId": "explorer-money_basics-l1",
+      "source": "messages/de.json#curriculum.explorer-money_basics-l1"
+    },
+    {
+      "file": "public/worksheets/de/02-where-does-money-come-from.pdf",
+      "locale": "de",
+      "lessonId": "builder-money_basics-l1",
+      "source": "messages/de.json#curriculum.builder-money_basics-l1"
+    },
+    {
+      "file": "public/worksheets/de/03-what-does-saving-mean.pdf",
+      "locale": "de",
+      "lessonId": "explorer-saving-l1",
+      "source": "messages/de.json#curriculum.explorer-saving-l1"
+    },
+    {
+      "file": "public/worksheets/de/04-saving-for-something-bigger.pdf",
+      "locale": "de",
+      "lessonId": "builder-saving-l1",
+      "source": "messages/de.json#curriculum.builder-saving-l1"
+    },
+    {
+      "file": "public/worksheets/de/05-saving-vs-spending.pdf",
+      "locale": "de",
+      "lessonId": "strategist-saving-l1",
+      "source": "messages/de.json#curriculum.strategist-saving-l1"
+    },
+    {
+      "file": "public/worksheets/de/06-understanding-exchange-rates.pdf",
+      "locale": "de",
+      "lessonId": "strategist-currencies-l1",
+      "source": "messages/de.json#curriculum.strategist-currencies-l1"
+    },
+    {
+      "file": "public/worksheets/de/07-some-promises-are-too-good.pdf",
+      "locale": "de",
+      "lessonId": "explorer-scams-l1",
+      "source": "messages/de.json#curriculum.explorer-scams-l1"
+    },
+    {
+      "file": "public/worksheets/de/08-spotting-a-scam.pdf",
+      "locale": "de",
+      "lessonId": "builder-scams-l1",
+      "source": "messages/de.json#curriculum.builder-scams-l1"
+    },
+    {
+      "file": "public/worksheets/de/09-scams-target-emotions.pdf",
+      "locale": "de",
+      "lessonId": "strategist-scams-l1",
+      "source": "messages/de.json#curriculum.strategist-scams-l1"
+    },
+    {
+      "file": "public/worksheets/de/10-giving-on-purpose.pdf",
+      "locale": "de",
+      "lessonId": "builder-giving-l1",
+      "source": "messages/de.json#curriculum.builder-giving-l1"
+    },
+    {
+      "file": "public/worksheets/de/11-money-you-cant-hold.pdf",
+      "locale": "de",
+      "lessonId": "explorer-digital_money-l1",
+      "source": "messages/de.json#curriculum.explorer-digital_money-l1"
+    },
+    {
+      "file": "public/worksheets/de/12-how-a-card-payment-works.pdf",
+      "locale": "de",
+      "lessonId": "builder-digital_money-l1",
+      "source": "messages/de.json#curriculum.builder-digital_money-l1"
+    },
+    {
+      "file": "public/worksheets/de/13-staying-safe-with-digital-money.pdf",
+      "locale": "de",
+      "lessonId": "strategist-digital_money-l1",
+      "source": "messages/de.json#curriculum.strategist-digital_money-l1"
+    },
+    {
+      "file": "public/worksheets/de/14-saving-vs-growing-your-money.pdf",
+      "locale": "de",
+      "lessonId": "explorer-investing_basics-l1",
+      "source": "messages/de.json#curriculum.explorer-investing_basics-l1"
+    },
+    {
+      "file": "public/worksheets/de/15-owning-a-small-piece-of-a-company.pdf",
+      "locale": "de",
+      "lessonId": "builder-investing_basics-l1",
+      "source": "messages/de.json#curriculum.builder-investing_basics-l1"
+    },
+    {
+      "file": "public/worksheets/de/16-locked-until-18-junior-isa.pdf",
+      "locale": "de",
+      "lessonId": "builder-junior_isa-l1",
+      "source": "messages/de.json#curriculum.builder-junior_isa-l1"
+    },
+    {
+      "file": "public/worksheets/de/17-junior-isa-milestones.pdf",
+      "locale": "de",
+      "lessonId": "strategist-junior_isa-l1",
+      "source": "messages/de.json#curriculum.strategist-junior_isa-l1"
+    },
+    {
+      "file": "public/worksheets/de/18-need-it-or-want-it.pdf",
+      "locale": "de",
+      "lessonId": "explorer-needs_wants-l1",
+      "source": "messages/de.json#curriculum.explorer-needs_wants-l1"
+    },
+    {
+      "file": "public/worksheets/de/19-the-grey-area.pdf",
+      "locale": "de",
+      "lessonId": "builder-needs_wants-l1",
+      "source": "messages/de.json#curriculum.builder-needs_wants-l1"
+    },
+    {
+      "file": "public/worksheets/de/20-needs-wants-social-pressure.pdf",
+      "locale": "de",
+      "lessonId": "strategist-needs_wants-l1",
+      "source": "messages/de.json#curriculum.strategist-needs_wants-l1"
+    },
+    {
+      "file": "public/worksheets/it/01-what-is-money.pdf",
+      "locale": "it",
+      "lessonId": "explorer-money_basics-l1",
+      "source": "messages/it.json#curriculum.explorer-money_basics-l1"
+    },
+    {
+      "file": "public/worksheets/it/02-where-does-money-come-from.pdf",
+      "locale": "it",
+      "lessonId": "builder-money_basics-l1",
+      "source": "messages/it.json#curriculum.builder-money_basics-l1"
+    },
+    {
+      "file": "public/worksheets/it/03-what-does-saving-mean.pdf",
+      "locale": "it",
+      "lessonId": "explorer-saving-l1",
+      "source": "messages/it.json#curriculum.explorer-saving-l1"
+    },
+    {
+      "file": "public/worksheets/it/04-saving-for-something-bigger.pdf",
+      "locale": "it",
+      "lessonId": "builder-saving-l1",
+      "source": "messages/it.json#curriculum.builder-saving-l1"
+    },
+    {
+      "file": "public/worksheets/it/05-saving-vs-spending.pdf",
+      "locale": "it",
+      "lessonId": "strategist-saving-l1",
+      "source": "messages/it.json#curriculum.strategist-saving-l1"
+    },
+    {
+      "file": "public/worksheets/it/06-understanding-exchange-rates.pdf",
+      "locale": "it",
+      "lessonId": "strategist-currencies-l1",
+      "source": "messages/it.json#curriculum.strategist-currencies-l1"
+    },
+    {
+      "file": "public/worksheets/it/07-some-promises-are-too-good.pdf",
+      "locale": "it",
+      "lessonId": "explorer-scams-l1",
+      "source": "messages/it.json#curriculum.explorer-scams-l1"
+    },
+    {
+      "file": "public/worksheets/it/08-spotting-a-scam.pdf",
+      "locale": "it",
+      "lessonId": "builder-scams-l1",
+      "source": "messages/it.json#curriculum.builder-scams-l1"
+    },
+    {
+      "file": "public/worksheets/it/09-scams-target-emotions.pdf",
+      "locale": "it",
+      "lessonId": "strategist-scams-l1",
+      "source": "messages/it.json#curriculum.strategist-scams-l1"
+    },
+    {
+      "file": "public/worksheets/it/10-giving-on-purpose.pdf",
+      "locale": "it",
+      "lessonId": "builder-giving-l1",
+      "source": "messages/it.json#curriculum.builder-giving-l1"
+    },
+    {
+      "file": "public/worksheets/it/11-money-you-cant-hold.pdf",
+      "locale": "it",
+      "lessonId": "explorer-digital_money-l1",
+      "source": "messages/it.json#curriculum.explorer-digital_money-l1"
+    },
+    {
+      "file": "public/worksheets/it/12-how-a-card-payment-works.pdf",
+      "locale": "it",
+      "lessonId": "builder-digital_money-l1",
+      "source": "messages/it.json#curriculum.builder-digital_money-l1"
+    },
+    {
+      "file": "public/worksheets/it/13-staying-safe-with-digital-money.pdf",
+      "locale": "it",
+      "lessonId": "strategist-digital_money-l1",
+      "source": "messages/it.json#curriculum.strategist-digital_money-l1"
+    },
+    {
+      "file": "public/worksheets/it/14-saving-vs-growing-your-money.pdf",
+      "locale": "it",
+      "lessonId": "explorer-investing_basics-l1",
+      "source": "messages/it.json#curriculum.explorer-investing_basics-l1"
+    },
+    {
+      "file": "public/worksheets/it/15-owning-a-small-piece-of-a-company.pdf",
+      "locale": "it",
+      "lessonId": "builder-investing_basics-l1",
+      "source": "messages/it.json#curriculum.builder-investing_basics-l1"
+    },
+    {
+      "file": "public/worksheets/it/16-locked-until-18-junior-isa.pdf",
+      "locale": "it",
+      "lessonId": "builder-junior_isa-l1",
+      "source": "messages/it.json#curriculum.builder-junior_isa-l1"
+    },
+    {
+      "file": "public/worksheets/it/17-junior-isa-milestones.pdf",
+      "locale": "it",
+      "lessonId": "strategist-junior_isa-l1",
+      "source": "messages/it.json#curriculum.strategist-junior_isa-l1"
+    },
+    {
+      "file": "public/worksheets/it/18-need-it-or-want-it.pdf",
+      "locale": "it",
+      "lessonId": "explorer-needs_wants-l1",
+      "source": "messages/it.json#curriculum.explorer-needs_wants-l1"
+    },
+    {
+      "file": "public/worksheets/it/19-the-grey-area.pdf",
+      "locale": "it",
+      "lessonId": "builder-needs_wants-l1",
+      "source": "messages/it.json#curriculum.builder-needs_wants-l1"
+    },
+    {
+      "file": "public/worksheets/it/20-needs-wants-social-pressure.pdf",
+      "locale": "it",
+      "lessonId": "strategist-needs_wants-l1",
+      "source": "messages/it.json#curriculum.strategist-needs_wants-l1"
+    },
+    {
+      "file": "public/worksheets/pt/01-what-is-money.pdf",
+      "locale": "pt",
+      "lessonId": "explorer-money_basics-l1",
+      "source": "messages/pt.json#curriculum.explorer-money_basics-l1"
+    },
+    {
+      "file": "public/worksheets/pt/02-where-does-money-come-from.pdf",
+      "locale": "pt",
+      "lessonId": "builder-money_basics-l1",
+      "source": "messages/pt.json#curriculum.builder-money_basics-l1"
+    },
+    {
+      "file": "public/worksheets/pt/03-what-does-saving-mean.pdf",
+      "locale": "pt",
+      "lessonId": "explorer-saving-l1",
+      "source": "messages/pt.json#curriculum.explorer-saving-l1"
+    },
+    {
+      "file": "public/worksheets/pt/04-saving-for-something-bigger.pdf",
+      "locale": "pt",
+      "lessonId": "builder-saving-l1",
+      "source": "messages/pt.json#curriculum.builder-saving-l1"
+    },
+    {
+      "file": "public/worksheets/pt/05-saving-vs-spending.pdf",
+      "locale": "pt",
+      "lessonId": "strategist-saving-l1",
+      "source": "messages/pt.json#curriculum.strategist-saving-l1"
+    },
+    {
+      "file": "public/worksheets/pt/06-understanding-exchange-rates.pdf",
+      "locale": "pt",
+      "lessonId": "strategist-currencies-l1",
+      "source": "messages/pt.json#curriculum.strategist-currencies-l1"
+    },
+    {
+      "file": "public/worksheets/pt/07-some-promises-are-too-good.pdf",
+      "locale": "pt",
+      "lessonId": "explorer-scams-l1",
+      "source": "messages/pt.json#curriculum.explorer-scams-l1"
+    },
+    {
+      "file": "public/worksheets/pt/08-spotting-a-scam.pdf",
+      "locale": "pt",
+      "lessonId": "builder-scams-l1",
+      "source": "messages/pt.json#curriculum.builder-scams-l1"
+    },
+    {
+      "file": "public/worksheets/pt/09-scams-target-emotions.pdf",
+      "locale": "pt",
+      "lessonId": "strategist-scams-l1",
+      "source": "messages/pt.json#curriculum.strategist-scams-l1"
+    },
+    {
+      "file": "public/worksheets/pt/10-giving-on-purpose.pdf",
+      "locale": "pt",
+      "lessonId": "builder-giving-l1",
+      "source": "messages/pt.json#curriculum.builder-giving-l1"
+    },
+    {
+      "file": "public/worksheets/pt/11-money-you-cant-hold.pdf",
+      "locale": "pt",
+      "lessonId": "explorer-digital_money-l1",
+      "source": "messages/pt.json#curriculum.explorer-digital_money-l1"
+    },
+    {
+      "file": "public/worksheets/pt/12-how-a-card-payment-works.pdf",
+      "locale": "pt",
+      "lessonId": "builder-digital_money-l1",
+      "source": "messages/pt.json#curriculum.builder-digital_money-l1"
+    },
+    {
+      "file": "public/worksheets/pt/13-staying-safe-with-digital-money.pdf",
+      "locale": "pt",
+      "lessonId": "strategist-digital_money-l1",
+      "source": "messages/pt.json#curriculum.strategist-digital_money-l1"
+    },
+    {
+      "file": "public/worksheets/pt/14-saving-vs-growing-your-money.pdf",
+      "locale": "pt",
+      "lessonId": "explorer-investing_basics-l1",
+      "source": "messages/pt.json#curriculum.explorer-investing_basics-l1"
+    },
+    {
+      "file": "public/worksheets/pt/15-owning-a-small-piece-of-a-company.pdf",
+      "locale": "pt",
+      "lessonId": "builder-investing_basics-l1",
+      "source": "messages/pt.json#curriculum.builder-investing_basics-l1"
+    },
+    {
+      "file": "public/worksheets/pt/16-locked-until-18-junior-isa.pdf",
+      "locale": "pt",
+      "lessonId": "builder-junior_isa-l1",
+      "source": "messages/pt.json#curriculum.builder-junior_isa-l1"
+    },
+    {
+      "file": "public/worksheets/pt/17-junior-isa-milestones.pdf",
+      "locale": "pt",
+      "lessonId": "strategist-junior_isa-l1",
+      "source": "messages/pt.json#curriculum.strategist-junior_isa-l1"
+    },
+    {
+      "file": "public/worksheets/pt/18-need-it-or-want-it.pdf",
+      "locale": "pt",
+      "lessonId": "explorer-needs_wants-l1",
+      "source": "messages/pt.json#curriculum.explorer-needs_wants-l1"
+    },
+    {
+      "file": "public/worksheets/pt/19-the-grey-area.pdf",
+      "locale": "pt",
+      "lessonId": "builder-needs_wants-l1",
+      "source": "messages/pt.json#curriculum.builder-needs_wants-l1"
+    },
+    {
+      "file": "public/worksheets/pt/20-needs-wants-social-pressure.pdf",
+      "locale": "pt",
+      "lessonId": "strategist-needs_wants-l1",
+      "source": "messages/pt.json#curriculum.strategist-needs_wants-l1"
+    },
+    {
+      "file": "public/worksheets/nl/01-what-is-money.pdf",
+      "locale": "nl",
+      "lessonId": "explorer-money_basics-l1",
+      "source": "messages/nl.json#curriculum.explorer-money_basics-l1"
+    },
+    {
+      "file": "public/worksheets/nl/02-where-does-money-come-from.pdf",
+      "locale": "nl",
+      "lessonId": "builder-money_basics-l1",
+      "source": "messages/nl.json#curriculum.builder-money_basics-l1"
+    },
+    {
+      "file": "public/worksheets/nl/03-what-does-saving-mean.pdf",
+      "locale": "nl",
+      "lessonId": "explorer-saving-l1",
+      "source": "messages/nl.json#curriculum.explorer-saving-l1"
+    },
+    {
+      "file": "public/worksheets/nl/04-saving-for-something-bigger.pdf",
+      "locale": "nl",
+      "lessonId": "builder-saving-l1",
+      "source": "messages/nl.json#curriculum.builder-saving-l1"
+    },
+    {
+      "file": "public/worksheets/nl/05-saving-vs-spending.pdf",
+      "locale": "nl",
+      "lessonId": "strategist-saving-l1",
+      "source": "messages/nl.json#curriculum.strategist-saving-l1"
+    },
+    {
+      "file": "public/worksheets/nl/06-understanding-exchange-rates.pdf",
+      "locale": "nl",
+      "lessonId": "strategist-currencies-l1",
+      "source": "messages/nl.json#curriculum.strategist-currencies-l1"
+    },
+    {
+      "file": "public/worksheets/nl/07-some-promises-are-too-good.pdf",
+      "locale": "nl",
+      "lessonId": "explorer-scams-l1",
+      "source": "messages/nl.json#curriculum.explorer-scams-l1"
+    },
+    {
+      "file": "public/worksheets/nl/08-spotting-a-scam.pdf",
+      "locale": "nl",
+      "lessonId": "builder-scams-l1",
+      "source": "messages/nl.json#curriculum.builder-scams-l1"
+    },
+    {
+      "file": "public/worksheets/nl/09-scams-target-emotions.pdf",
+      "locale": "nl",
+      "lessonId": "strategist-scams-l1",
+      "source": "messages/nl.json#curriculum.strategist-scams-l1"
+    },
+    {
+      "file": "public/worksheets/nl/10-giving-on-purpose.pdf",
+      "locale": "nl",
+      "lessonId": "builder-giving-l1",
+      "source": "messages/nl.json#curriculum.builder-giving-l1"
+    },
+    {
+      "file": "public/worksheets/nl/11-money-you-cant-hold.pdf",
+      "locale": "nl",
+      "lessonId": "explorer-digital_money-l1",
+      "source": "messages/nl.json#curriculum.explorer-digital_money-l1"
+    },
+    {
+      "file": "public/worksheets/nl/12-how-a-card-payment-works.pdf",
+      "locale": "nl",
+      "lessonId": "builder-digital_money-l1",
+      "source": "messages/nl.json#curriculum.builder-digital_money-l1"
+    },
+    {
+      "file": "public/worksheets/nl/13-staying-safe-with-digital-money.pdf",
+      "locale": "nl",
+      "lessonId": "strategist-digital_money-l1",
+      "source": "messages/nl.json#curriculum.strategist-digital_money-l1"
+    },
+    {
+      "file": "public/worksheets/nl/14-saving-vs-growing-your-money.pdf",
+      "locale": "nl",
+      "lessonId": "explorer-investing_basics-l1",
+      "source": "messages/nl.json#curriculum.explorer-investing_basics-l1"
+    },
+    {
+      "file": "public/worksheets/nl/15-owning-a-small-piece-of-a-company.pdf",
+      "locale": "nl",
+      "lessonId": "builder-investing_basics-l1",
+      "source": "messages/nl.json#curriculum.builder-investing_basics-l1"
+    },
+    {
+      "file": "public/worksheets/nl/16-locked-until-18-junior-isa.pdf",
+      "locale": "nl",
+      "lessonId": "builder-junior_isa-l1",
+      "source": "messages/nl.json#curriculum.builder-junior_isa-l1"
+    },
+    {
+      "file": "public/worksheets/nl/17-junior-isa-milestones.pdf",
+      "locale": "nl",
+      "lessonId": "strategist-junior_isa-l1",
+      "source": "messages/nl.json#curriculum.strategist-junior_isa-l1"
+    },
+    {
+      "file": "public/worksheets/nl/18-need-it-or-want-it.pdf",
+      "locale": "nl",
+      "lessonId": "explorer-needs_wants-l1",
+      "source": "messages/nl.json#curriculum.explorer-needs_wants-l1"
+    },
+    {
+      "file": "public/worksheets/nl/19-the-grey-area.pdf",
+      "locale": "nl",
+      "lessonId": "builder-needs_wants-l1",
+      "source": "messages/nl.json#curriculum.builder-needs_wants-l1"
+    },
+    {
+      "file": "public/worksheets/nl/20-needs-wants-social-pressure.pdf",
+      "locale": "nl",
+      "lessonId": "strategist-needs_wants-l1",
+      "source": "messages/nl.json#curriculum.strategist-needs_wants-l1"
+    },
+    {
+      "file": "public/worksheets/pl/01-what-is-money.pdf",
+      "locale": "pl",
+      "lessonId": "explorer-money_basics-l1",
+      "source": "messages/pl.json#curriculum.explorer-money_basics-l1"
+    },
+    {
+      "file": "public/worksheets/pl/02-where-does-money-come-from.pdf",
+      "locale": "pl",
+      "lessonId": "builder-money_basics-l1",
+      "source": "messages/pl.json#curriculum.builder-money_basics-l1"
+    },
+    {
+      "file": "public/worksheets/pl/03-what-does-saving-mean.pdf",
+      "locale": "pl",
+      "lessonId": "explorer-saving-l1",
+      "source": "messages/pl.json#curriculum.explorer-saving-l1"
+    },
+    {
+      "file": "public/worksheets/pl/04-saving-for-something-bigger.pdf",
+      "locale": "pl",
+      "lessonId": "builder-saving-l1",
+      "source": "messages/pl.json#curriculum.builder-saving-l1"
+    },
+    {
+      "file": "public/worksheets/pl/05-saving-vs-spending.pdf",
+      "locale": "pl",
+      "lessonId": "strategist-saving-l1",
+      "source": "messages/pl.json#curriculum.strategist-saving-l1"
+    },
+    {
+      "file": "public/worksheets/pl/06-understanding-exchange-rates.pdf",
+      "locale": "pl",
+      "lessonId": "strategist-currencies-l1",
+      "source": "messages/pl.json#curriculum.strategist-currencies-l1"
+    },
+    {
+      "file": "public/worksheets/pl/07-some-promises-are-too-good.pdf",
+      "locale": "pl",
+      "lessonId": "explorer-scams-l1",
+      "source": "messages/pl.json#curriculum.explorer-scams-l1"
+    },
+    {
+      "file": "public/worksheets/pl/08-spotting-a-scam.pdf",
+      "locale": "pl",
+      "lessonId": "builder-scams-l1",
+      "source": "messages/pl.json#curriculum.builder-scams-l1"
+    },
+    {
+      "file": "public/worksheets/pl/09-scams-target-emotions.pdf",
+      "locale": "pl",
+      "lessonId": "strategist-scams-l1",
+      "source": "messages/pl.json#curriculum.strategist-scams-l1"
+    },
+    {
+      "file": "public/worksheets/pl/10-giving-on-purpose.pdf",
+      "locale": "pl",
+      "lessonId": "builder-giving-l1",
+      "source": "messages/pl.json#curriculum.builder-giving-l1"
+    },
+    {
+      "file": "public/worksheets/pl/11-money-you-cant-hold.pdf",
+      "locale": "pl",
+      "lessonId": "explorer-digital_money-l1",
+      "source": "messages/pl.json#curriculum.explorer-digital_money-l1"
+    },
+    {
+      "file": "public/worksheets/pl/12-how-a-card-payment-works.pdf",
+      "locale": "pl",
+      "lessonId": "builder-digital_money-l1",
+      "source": "messages/pl.json#curriculum.builder-digital_money-l1"
+    },
+    {
+      "file": "public/worksheets/pl/13-staying-safe-with-digital-money.pdf",
+      "locale": "pl",
+      "lessonId": "strategist-digital_money-l1",
+      "source": "messages/pl.json#curriculum.strategist-digital_money-l1"
+    },
+    {
+      "file": "public/worksheets/pl/14-saving-vs-growing-your-money.pdf",
+      "locale": "pl",
+      "lessonId": "explorer-investing_basics-l1",
+      "source": "messages/pl.json#curriculum.explorer-investing_basics-l1"
+    },
+    {
+      "file": "public/worksheets/pl/15-owning-a-small-piece-of-a-company.pdf",
+      "locale": "pl",
+      "lessonId": "builder-investing_basics-l1",
+      "source": "messages/pl.json#curriculum.builder-investing_basics-l1"
+    },
+    {
+      "file": "public/worksheets/pl/16-locked-until-18-junior-isa.pdf",
+      "locale": "pl",
+      "lessonId": "builder-junior_isa-l1",
+      "source": "messages/pl.json#curriculum.builder-junior_isa-l1"
+    },
+    {
+      "file": "public/worksheets/pl/17-junior-isa-milestones.pdf",
+      "locale": "pl",
+      "lessonId": "strategist-junior_isa-l1",
+      "source": "messages/pl.json#curriculum.strategist-junior_isa-l1"
+    },
+    {
+      "file": "public/worksheets/pl/18-need-it-or-want-it.pdf",
+      "locale": "pl",
+      "lessonId": "explorer-needs_wants-l1",
+      "source": "messages/pl.json#curriculum.explorer-needs_wants-l1"
+    },
+    {
+      "file": "public/worksheets/pl/19-the-grey-area.pdf",
+      "locale": "pl",
+      "lessonId": "builder-needs_wants-l1",
+      "source": "messages/pl.json#curriculum.builder-needs_wants-l1"
+    },
+    {
+      "file": "public/worksheets/pl/20-needs-wants-social-pressure.pdf",
+      "locale": "pl",
+      "lessonId": "strategist-needs_wants-l1",
+      "source": "messages/pl.json#curriculum.strategist-needs_wants-l1"
+    }
+  ],
+  "locales": [
+    "en",
+    "ro",
+    "es",
+    "fr",
+    "de",
+    "it",
+    "pt",
+    "nl",
+    "pl"
+  ],
+  "note": "Each edition uses the exact translated story, quiz and practical challenge of its linked website lesson. Legacy English PDFs remain at their original URLs for old links."
+}

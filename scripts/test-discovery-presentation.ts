@@ -47,9 +47,9 @@ function assertCards(presentation:DiscoveryPresentation,slugs:string[]){
 }
 for(const locale of LOCALES){
  for(const kind of ["museum","library"] as const){
-  const publicHub=publicDiscoveryPresentation(kind,locale);assert.equal(publicHub.locale,"en");
+  const publicHub=publicDiscoveryPresentation(kind,locale);assert.equal(publicHub.locale,locale);
   for(const source of kind==="museum"?museumRooms:libraryBooks){
-   const publicDetail=publicDiscoveryPresentation(kind,locale,source.slug);assert.equal(publicDetail.locale,"en");assert.equal(publicDetail.item,source);
+   const publicDetail=publicDiscoveryPresentation(kind,locale,source.slug);assert.equal(publicDetail.locale,locale);assert.equal(publicDetail.item?.slug,source.slug);assert.equal(publicDetail.item?.title,draftDiscoveryPresentation(kind,locale,source.slug).item?.title);
   }
  }
  const hub=draftDiscoveryPresentation("museum",locale),hubHtml=render(hub),ui=discoveryCopy[locale];
@@ -95,5 +95,5 @@ const originalTitle=museumRooms[0]!.title;
 try{museumRooms[0]!.title+=" changed";assert.throws(()=>draftDiscoveryPresentation("museum","ro",museumRooms[0]!.slug),/Stale translation/);}finally{museumRooms[0]!.title=originalTitle;}
 const originalFeedback=discoveryNotes[libraryBooks[0]!.slug]!.feedback;
 try{discoveryNotes[libraryBooks[0]!.slug]!.feedback+=" changed";assert.throws(()=>draftDiscoveryPresentation("library","ro",libraryBooks[0]!.slug),/Stale translation/);}finally{discoveryNotes[libraryBooks[0]!.slug]!.feedback=originalFeedback;}
-assert.deepEqual(ACTIVE_LOCALES,["en"]);assert.equal(renders,180);
+assert.deepEqual(ACTIVE_LOCALES,LOCALES);assert.equal(renders,180);
 console.log("PASS: 351 discovery UI strings, 180 successful localized component SSR renders (18 details across nine locales, nine Museum hubs, nine full Library hubs), lean cards/current detail, canonical identifiers/sources/answers, distinct age challenges, stale-source refusal and English-only gate. SSR covers the first short-read page; non-English browser interaction, global layout, actual voice quality and final editorial review remain pending.");

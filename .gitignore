@@ -52,3 +52,14 @@ moneyquest-namecheap-built.zip
 # Sandbox-only Playwright override (pre-installed Chromium revision
 # mismatch workaround); never used by CI, which installs its own browser
 /playwright.local.config.ts
+
+# Generated locale worksheets are built from canonical lesson messages
+/public/worksheets/en/
+/public/worksheets/ro/
+/public/worksheets/es/
+/public/worksheets/fr/
+/public/worksheets/de/
+/public/worksheets/it/
+/public/worksheets/pt/
+/public/worksheets/nl/
+/public/worksheets/pl/

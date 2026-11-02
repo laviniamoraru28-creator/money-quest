@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build && node --import tsx scripts/build-offline-manifest.ts",
+    "build": "python3 scripts/generate-localized-worksheets.py && next build && node --import tsx scripts/build-offline-manifest.ts",
     "start": "NODE_ENV=production node server.js",
     "lint": "eslint src --ext .ts,.tsx --max-warnings=0",
     "typecheck": "tsc --noEmit",
@@ -16,7 +16,8 @@
     "shop:check": "node --require ./host-env.cjs --import tsx scripts/shop-preflight.ts",
     "shop:deliver": "node --require ./host-env.cjs --import tsx scripts/shop-deliver-pending.ts",
     "check:multilingual": "node --import tsx scripts/check-multilingual-release.ts",
-    "package:namecheap": "node scripts/package-namecheap.mjs"
+    "package:namecheap": "node scripts/package-namecheap.mjs",
+    "printables:build": "python3 scripts/generate-localized-worksheets.py"
   },
   "dependencies": {
     "next": "^15.5.28",

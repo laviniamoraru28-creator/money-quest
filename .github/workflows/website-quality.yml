@@ -3,7 +3,7 @@ on:
   push:
     branches: [feature/website-completion-20261027, "release/**"]
   pull_request:
-    branches: [feature/website-completion-20261027, review/website-completion-20261027, feature/library-first-original-book, feature/public-multilingual-launch]
+    branches: [feature/website-completion-20261027, review/website-completion-20261027, feature/library-first-original-book, feature/public-multilingual-launch, integration/launch-20261102]
   workflow_dispatch: {}
 permissions:
   contents: read
@@ -28,6 +28,8 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
           cache: npm
+      - name: Printable build dependencies
+        run: python3 -m pip install reportlab==4.4.9
       - run: npm ci
       - run: npm run lint
       - run: npm run typecheck

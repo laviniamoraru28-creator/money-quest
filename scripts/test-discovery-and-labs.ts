@@ -1,3 +1,4 @@
+import {LOCALES} from "../src/i18n/config";
 import assert from "node:assert/strict";
 import {readFileSync,existsSync} from "node:fs";
 import {museumRooms,libraryBooks} from "../src/content/discovery";
@@ -17,6 +18,6 @@ for(const lab of learningLabs){assert.equal(new Set(lab.tasks.map(task=>task.id)
 for(const path of [...WORLDS.flatMap(world=>[`worlds/${world.id}.webp`,`worlds/${world.id}-thumb.webp`]),"guides/girl-and-puppy.webp","guides/girl-and-puppy-thumb.webp",...['brain-lab','mind-lab','future-skills','inclusive-learning','museum','library'].flatMap(item=>[`sections/${item}.webp`,`sections/${item}-thumb.webp`]),...['coins','banknote','card','phone'].map(item=>`money/${item}.webp`)]){
  const full=`public/images/money-quest/${path}`;assert.ok(existsSync(full),`missing ${full}`);const bytes=readFileSync(full);assert.ok(bytes.length>1000);assert.ok(bytes.length<150000,`oversized ${full}`);assert.equal(bytes.toString('ascii',0,4),'RIFF');assert.equal(bytes.toString('ascii',8,12),'WEBP');
 }
-const urls=sitemap().map(entry=>entry.url);assert.equal(new Set(urls).size,urls.length);for(const url of urls){assert.ok(new URL(url).pathname.startsWith('/en'));assert.ok(!url.includes('/play'));assert.ok(!url.includes('.example'))}
-for(const slug of [...learningLabs.map(lab=>lab.slug),'inclusive-learning','museum','library'])assert.ok(urls.includes(`https://moneyquesteducation.com/en/${slug}`));
+const urls=sitemap().map(entry=>entry.url);assert.equal(new Set(urls).size,urls.length);for(const url of urls){assert.ok(LOCALES.some(locale=>new URL(url).pathname.startsWith(`/${locale}/`)||new URL(url).pathname===`/${locale}`));assert.ok(!url.includes('/play'));assert.ok(!url.includes('.example'))}
+for(const locale of LOCALES)for(const slug of [...learningLabs.map(lab=>lab.slug),'inclusive-learning','museum','library'])assert.ok(urls.includes(`https://moneyquesteducation.com/${locale}/${slug}`));
 console.log('PASS: 18 discoveries, 24 short story pages, 54 discovery challenges, 22 lab tasks, 66 practical challenges, 32 image files and English-only sitemap integrity.');

@@ -1,7 +1,7 @@
 "use client";
 
 import { useParams } from "next/navigation";
-import { useTranslations } from "next-intl";
+import { useTranslations,useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { getLessonStructureById } from "@/content/catalog";
 import { getWorksheetFilename } from "@/content/worksheets";
@@ -20,6 +20,7 @@ import { getWorksheetFilename } from "@/content/worksheets";
 export default function WorksheetPage() {
   const params = useParams<{ worldId: string; activityId: string }>();
   const t = useTranslations();
+  const locale=useLocale();
 
   const structure = getLessonStructureById(params.activityId);
   const filename = getWorksheetFilename(params.activityId);
@@ -62,7 +63,7 @@ export default function WorksheetPage() {
         <p className="mt-2xs text-sm text-ink/70">{t("worksheet.englishOnlyNote")}</p>
 
         <a
-          href={`/worksheets/${filename}`}
+          href={`/worksheets/${locale}/${filename}`}
           target="_blank"
           rel="noopener noreferrer"
           className="mt-md inline-flex min-h-touch-min-child w-full items-center justify-center gap-2xs rounded-lg bg-teal px-md py-xs text-center font-medium text-white shadow-resting hover:bg-teal/90"
@@ -72,7 +73,7 @@ export default function WorksheetPage() {
         <p className="mt-2xs text-sm text-ink/70">{t("worksheet.printHint")}</p>
 
         <a
-          href="/worksheets/answer-key/money-quest-worksheets-answer-key.pdf"
+          href={`/worksheets/${locale}/money-quest-worksheets-answer-key.pdf`}
           target="_blank"
           rel="noopener noreferrer"
           className="mt-md inline-block text-sm text-teal-text hover:underline"

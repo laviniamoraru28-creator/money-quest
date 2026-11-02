@@ -1,13 +1,13 @@
 import {test,expect} from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
-import {PARENT_GUIDE_SOURCES} from "../../src/content/parent-guide-copy";
+import {parentGuideCopy,PARENT_GUIDE_SOURCES} from "../../src/content/parent-guide-copy";
 import {shopFlowCopy} from "../../src/content/shop-flow-copy";
 import {shopTermsCopy} from "../../src/content/shop-terms-copy";
 import {SHOP_TERMS_VERSION} from "../../src/content/shop";
 import {shopCatalogueCopy} from "../../src/content/shop-catalogue-copy";
 import {shopProducts} from "../../src/content/shop";
 test("shop catalogue keeps English file disclosures, real previews and canonical free samples",async({page})=>{
- await page.setViewportSize({width:320,height:900});await page.goto("/ro/parents/shop");await expect(page).toHaveURL(/\/en\/parents\/shop$/);
+ await page.setViewportSize({width:320,height:900});await page.goto("/en/parents/shop");await expect(page).toHaveURL(/\/en\/parents\/shop$/);
  const copy=shopCatalogueCopy.en.copy;await expect(page.getByText(copy.previewBody,{exact:true})).toBeVisible();
  await expect(page.getByText(copy.digital,{exact:true})).toBeVisible();await expect(page.getByText(copy.responseBody,{exact:true})).toBeVisible();
  await page.getByRole("link",{name:copy.sampleCta,exact:true}).click();await expect(page).toHaveURL(/#free-preview$/);
@@ -23,8 +23,8 @@ test("shop catalogue keeps English file disclosures, real previews and canonical
  const schema=await page.locator('script[type="application/ld+json"]').allTextContents();const collection=schema.map(text=>JSON.parse(text)).find(item=>item["@type"]==="CollectionPage");
  expect(collection.url).toBe("https://moneyquesteducation.com/en/parents/shop");expect(collection.offers).toBeUndefined();
 });
-test("download terms preserve English disclosures and inactive-language redirect",async({page})=>{
- await page.goto("/ro/parents/shop/terms");await expect(page).toHaveURL(/\/en\/parents\/shop\/terms$/);
+test("download terms preserve English disclosures and English navigation",async({page})=>{
+ await page.goto("/en/parents/shop/terms");await expect(page).toHaveURL(/\/en\/parents\/shop\/terms$/);
  const main=page.locator("main");
  await expect(main.getByRole("heading",{level:1})).toHaveText(shopTermsCopy.en.title);
  await expect(main.getByText(shopTermsCopy.en.status.replace("{version}",SHOP_TERMS_VERSION),{exact:true})).toBeVisible();
@@ -61,12 +61,12 @@ test("order and recovery routes are noindex and not listed in the sitemap",async
  for(const path of ["/en/parents/shop/success","/en/parents/shop/download"]){await page.goto(path);await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content",/noindex/);}
 });
 
-test("parent guide retains English sample disclosure, sources and inactive-language redirect",async({page})=>{
- await page.goto("/ro/parents/resources");await expect(page).toHaveURL(/\/en\/parents\/resources$/);
+test("parent guide retains localized sample links, sources and English navigation",async({page})=>{
+ await page.goto("/en/parents/resources");await expect(page).toHaveURL(/\/en\/parents\/resources$/);
  await expect(page.getByText(/augmentative and alternative communication \(AAC\)/)).toBeVisible();
  for(const source of PARENT_GUIDE_SOURCES)await expect(page.getByRole("link",{name:source.title,exact:true})).toHaveAttribute("href",source.url);
- await expect(page.getByRole("link",{name:"Three activities and answers (PDF, English)",exact:true})).toHaveAttribute("href","/resources/samples/free-family-sample-en.pdf");
- await expect(page.getByRole("link",{name:"First journal week (PDF, English)",exact:true})).toHaveAttribute("href","/resources/samples/free-journal-week-one-en.pdf");
+ await expect(page.getByRole("link",{name:parentGuideCopy.en.activitySample,exact:true})).toHaveAttribute("href","/resources/samples/free-family-sample-en.pdf");
+ await expect(page.getByRole("link",{name:parentGuideCopy.en.journalSample,exact:true})).toHaveAttribute("href","/resources/samples/free-journal-week-one-en.pdf");
 });
 
 test("order retry localizes errors without another payment and removes query references",async({page})=>{
@@ -77,7 +77,7 @@ test("order retry localizes errors without another payment and removes query ref
   attempts++;
   await route.fulfill({status:attempts===1?409:200,contentType:"application/json",body:JSON.stringify(attempts===1?{code:"order_not_ready",message:"RAW INTERNAL ORDER ERROR"}:{token:"ui-fixture-token-not-a-real-order"})});
  });
- await page.goto("/ro/parents/shop/success?session_id=cs_test_ui_fixture12345&checkout=abcd1234");
+ await page.goto("/en/parents/shop/success?session_id=cs_test_ui_fixture12345&checkout=abcd1234");
  await expect(page).toHaveURL(/\/en\/parents\/shop\/success$/);
  await expect(page.getByRole("status").filter({hasText:shopFlowCopy.en.orderNotReady})).toHaveText(shopFlowCopy.en.orderNotReady);
  await expect(page.getByText(/RAW INTERNAL ORDER ERROR/)).toHaveCount(0);

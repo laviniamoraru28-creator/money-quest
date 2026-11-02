@@ -39,7 +39,7 @@ for(const locale of LOCALES){
  for(const text of [copy.title,copy.intro,copy.step3,copy.sendBody,copy.evidenceBody,copy.sampleBody,copy.activitySample,copy.journalSample,copy.freeBody])assert(html.includes(escape(text)),`${locale}: ${text}`);
  for(const level of ["Explorer","Builder","Strategist"])assert(copy.levelsBody.includes(level));
  assert(copy.printNote.includes("A4"));assert(copy.printNote.includes("100"));
- assert(html.includes('href="/resources/samples/free-family-sample-en.pdf"'));assert(html.includes('href="/resources/samples/free-journal-week-one-en.pdf"'));
+ assert(html.includes(`href="/resources/samples/free-family-sample-${locale}.pdf"`));assert(html.includes(`href="/resources/samples/free-journal-week-one-${locale}.pdf"`));
  for(const source of PARENT_GUIDE_SOURCES){assert(html.includes(escape(source.title)));assert(html.includes(escape(source.url)));assert(html.includes(escape(copy[source.id])));}
  const flow=shopFlowPresentation(locale);
  for(const enabled of [false,true]){
@@ -52,10 +52,10 @@ for(const locale of LOCALES){
   if(enabled)for(const text of [flow.copy.adult,flow.copy.instant,flow.copy.ack])assert(markup.includes(escape(text)));
  }
  for(const recovery of [false,true]){const markup=render(locale,React.createElement(ShopOrder,{recovery,...flow}));renders++;assert(markup.includes(escape(recovery?flow.copy.recoveryPending:flow.copy.checking)));assert(!markup.includes('name="token"'),"No token or download action before a browser-held reference is obtained");}
- assert.equal(publicParentLocale(locale),"en");
+ assert.equal(publicParentLocale(locale),locale);
 }
 assert.equal(renders,45);assert.equal(PARENT_GUIDE_CHECKED,"2026-10-28");
-assert.equal(publicParentLocale("unknown"),"en");assert.deepEqual(ACTIVE_LOCALES,["en"]);
+assert.equal(publicParentLocale("unknown"),"en");assert.deepEqual(ACTIVE_LOCALES,LOCALES);
 for(const [code,key] of Object.entries({purchases_closed:"checkoutClosed",checkout_use_site:"checkoutUseSite",checkout_choices:"checkoutChoices",checkout_adult:"checkoutAdult",product_unavailable:"productUnavailable",checkout_unavailable:"checkoutUnavailable",order_use_site:"orderUseSite",order_not_ready:"orderNotReady"}))assert.equal(shopErrorKey({code,message:"RAW DIAGNOSTIC"},"checkoutUnavailable"),key);
 assert.equal(shopErrorKey({message:"Purchases are not open yet. Free samples are available."},"checkoutUnavailable"),"checkoutClosed");
 assert.equal(shopErrorKey({message:"Order not ready or this browser cannot verify it. Retry after payment completes; do not pay again."},"orderUnavailable"),"orderNotReady");

@@ -37,6 +37,8 @@ jobs:
           # behave differently at runtime.
           node-version: "24.22.1"
 
+      - name: Printable build dependencies
+        run: python3 -m pip install reportlab==4.4.9
       - name: Install dependencies
         run: npm ci
 

@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import {readFileSync} from "node:fs";
 import {authorBooks} from "../src/content/author-books";
 import {externalBookTranslationSource,draftTranslatedExternalBook,assertTranslationShape} from "../src/lib/i18n/content-translations";
-import {ACTIVE_LOCALES,LOCALES} from "../src/i18n/config";
+import {LOCALES,ACTIVE_LOCALES} from "../src/i18n/config";
 const manifest=JSON.parse(readFileSync("src/content/translations/author-books.sources.json","utf8"));
 const copies=JSON.parse(readFileSync("src/content/translations/author-books.ro.json","utf8"));
 assert.deepEqual(manifest.locales,LOCALES.filter(locale=>locale!=="en"));assert.equal(manifest.regionalTargets.ro,"ro-RO");
@@ -26,5 +26,5 @@ for(const book of authorBooks){
  assert.throws(()=>draftTranslatedExternalBook(book,{...copy,title:"Invented Romanian edition"},manifest.sources[book.id]));
  const missing=structuredClone(copy);missing.ideas.pop();assert.throws(()=>draftTranslatedExternalBook(book,missing,manifest.sources[book.id]));
 }
-assert.equal(strings,111);assert.deepEqual(ACTIVE_LOCALES,["en"]);
+assert.equal(strings,111);assert.deepEqual(ACTIVE_LOCALES,LOCALES);
 console.log("PASS: twelve Romanian external-book introduction drafts (111 strings), preserved published titles/metadata/URLs/age guidance, complete ideas and source guards; no locale activation.");
