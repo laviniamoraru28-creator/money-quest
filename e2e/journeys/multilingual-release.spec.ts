@@ -1,3 +1,4 @@
+import {readFileSync} from 'node:fs';
 import {test,expect} from '@playwright/test';
 import {LOCALES,REGIONAL_LOCALES} from '../../src/i18n/config';
 import {originalBooks} from '../../src/content/library';
@@ -15,14 +16,14 @@ import {parentGuideCopy} from '../../src/content/parent-guide-copy';
 import {LESSON_WORKSHEETS} from '../../src/content/worksheets';
 
 for(const locale of LOCALES){
- test(`${locale}: real routes, localized reading levels, narration and downloadable editions`,async({page,request})=>{
+ test(`${locale}: real routes, localized reading levels, narration and downloadable editions`,async({page,request},info)=>{
   test.setTimeout(90000);
   await page.addInitScript(()=>{
    (window as any).releaseSpeech=[];
    Object.defineProperty(window,'speechSynthesis',{configurable:true,value:{cancel(){},getVoices(){return [];},speak(u:any){(window as any).releaseSpeech.push(u.lang);u.onstart?.();}}});
    Object.defineProperty(window,'SpeechSynthesisUtterance',{configurable:true,value:class{lang='';text:string;constructor(text:string){this.text=text;}}});
   });
-  await page.setViewportSize({width:393,height:852});
+  await page.setViewportSize({width:info.project.name==='mobile-chrome'?393:1280,height:852});
   await page.goto(`/${locale}/brain-lab`);
   await expect(page).toHaveURL(new RegExp(`/${locale}/brain-lab$`));
   await expect(page.locator('html')).toHaveAttribute('lang',locale);
@@ -37,14 +38,16 @@ for(const locale of LOCALES){
    await article.getByRole('button',{name:reading.choices[reading.correct],exact:true}).click();
    await expect(article.getByRole('status').filter({hasText:reading.explanation})).toBeVisible();
   }
-  const guide=page.getByRole('complementary',{name:ui.guideLabel,exact:true});await guide.getByRole('button',{name:(await import(`../../messages/${locale}.json`)).a11y.listenToLessonLabel,exact:true}).click();
+  const guide=page.getByRole('complementary',{name:ui.guideLabel,exact:true});await guide.getByRole('button',{name:JSON.parse(readFileSync(`messages/${locale}.json`,'utf8')).a11y.listenToLessonLabel,exact:true}).click();
   await expect.poll(()=>page.evaluate(()=>(window as any).releaseSpeech)).toEqual([REGIONAL_LOCALES[locale]]);
   expect(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)).toBe(false);
+  await page.screenshot({path:info.outputPath(`lab-${locale}.png`),fullPage:true});
   const book=draftReaderPresentation(originalBooks[0]!,locale).book;
   await page.goto(`/${locale}/library/${book.slug}`);await expect(page.locator('main h1')).toHaveText(book.title);
   await page.getByRole('button',{name:experienceCopy[locale].openBook,exact:true}).click();
   await expect(page.getByText(book.chapters[0]!.paragraphs[0]!,{exact:true})).toBeVisible();
   await page.getByRole('button',{name:readerCopy[locale].nextPage+' →',exact:true}).click();
+  await page.screenshot({path:info.outputPath(`book-${locale}.png`),fullPage:true});
   expect(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)).toBe(false);
   await page.goto(`/${locale}/parents/resources`);
   await expect(page.getByRole('link',{name:parentGuideCopy[locale].activitySample,exact:true})).toHaveAttribute('href',`/resources/samples/free-family-sample-${locale}.pdf`);

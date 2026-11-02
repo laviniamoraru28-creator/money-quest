@@ -46,8 +46,8 @@ test("invalid live download and receipt show a private accessible recovery page"
   const response=await request.post(`${base}/api/shop/${kind}`,{headers:{Origin:"https://moneyquesteducation.com"},form:{token:"private-invalid-fixture-not-for-reflection",locale:"ro"}});
   expect(response.status()).toBe(403);expect(response.headers()["content-type"]).toContain("text/html");expect(response.headers()["cache-control"]).toContain("no-store");expect(response.headers()["x-robots-tag"]).toContain("noindex");
   const html=await response.text();expect(html).not.toContain("private-invalid-fixture-not-for-reflection");expect(html).not.toContain("Invalid download link");
-  await page.setContent(html);await expect(page.locator("html")).toHaveAttribute("lang","en");await expect(page.getByRole("heading",{level:1})).toHaveText(kind==="download"?"Download unavailable":"Confirmation unavailable");
-  await expect(page.getByText(/Do not pay again/)).toBeVisible();await expect(page.getByRole("link",{name:"Contact order support"})).toHaveAttribute("href","mailto:support@merchant.test");
+  await page.setContent(html);await expect(page.locator("html")).toHaveAttribute("lang","ro");await expect(page.getByRole("heading",{level:1})).toHaveText(kind==="download"?"Descărcarea nu este disponibilă":"Confirmarea nu este disponibilă");
+  await expect(page.getByText(/Nu plăti din nou/)).toBeVisible();await expect(page.getByRole("link",{name:"Contactează asistența pentru comenzi"})).toHaveAttribute("href","mailto:support@merchant.test");
   const result=await new AxeBuilder({page}).withTags(["wcag2a","wcag2aa","wcag21aa"]).analyze();expect(result.violations).toEqual([]);
  }
 });
