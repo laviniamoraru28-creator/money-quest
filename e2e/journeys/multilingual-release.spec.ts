@@ -12,6 +12,7 @@ import {labTaskAtLevel} from '../../src/content/lab-age-variants';
 import {laboratoryCopy} from '../../src/content/laboratory-copy';
 import {experienceCopy} from '../../src/content/experience-copy';
 import {readerCopy} from '../../src/content/reader-copy';
+import {reviewsCopy} from '../../src/content/reviews-copy';
 import {parentGuideCopy} from '../../src/content/parent-guide-copy';
 import {LESSON_WORKSHEETS} from '../../src/content/worksheets';
 
@@ -57,6 +58,8 @@ for(const locale of LOCALES){
   const fallback=await request.get(`/offline-pages/${locale}.html`);expect(fallback.status()).toBe(200);expect(await fallback.text()).toContain(`<html lang="${locale}">`);
   const canonical=page.locator('link[rel="canonical"]');await expect(canonical).toHaveAttribute('href',`https://moneyquesteducation.com/${locale}/parents/resources`);
   expect(await page.locator('link[rel="alternate"][hreflang]').count()).toBeGreaterThanOrEqual(9);
+  await page.goto(`/${locale}/reviews`);await expect(page.getByRole('heading',{level:1})).toHaveText(reviewsCopy[locale].title);
+  if(locale==='pl')await expect(page.getByRole('radio',{name:'2 gwiazdki',exact:true})).toBeVisible();
  });
 }
 
