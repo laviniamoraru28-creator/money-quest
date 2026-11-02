@@ -1,0 +1,878 @@
+{
+  "brain-lab": {
+    "title": "Breinlab",
+    "description": "Ontdek geheugen, aandacht, waarneming, denken, leren en beslissingen. Oefen handige strategieën in je eigen tempo.",
+    "tasks": [
+      {
+        "title": "Een korte lijst onthouden",
+        "idea": "Groeperen kan je helpen een lijst te onthouden.",
+        "situation": "Je hebt appels, peren, sokken en een hoed nodig. Welk plan kan je helpen onthouden?",
+        "choices": [
+          "Eén keer lezen en hopen",
+          "Fruit en kleding groeperen",
+          "Meer dingen toevoegen"
+        ],
+        "correct": 1,
+        "explanation": "Twee logische groepen kunnen deze lijst makkelijker ordenen. Een geschreven lijst is ook een handig hulpmiddel.",
+        "tryIt": [
+          "Wijs twee dingen aan die bij elkaar horen.",
+          "Maak twee groepen voor een lijst van zes dingen. Dek de lijst af en zeg wat je nog weet.",
+          "Vergelijk groeperen met een geschreven lijst. Wat hielp het beste bij deze taak, en waarom?"
+        ],
+        "readings": [
+          {
+            "idea": "Zet dingen die bij elkaar horen in een groep.",
+            "situation": "Onthoud een appel, een peer, een sok en een hoed. Wat kan helpen?",
+            "choices": [
+              "Wegkijken en raden",
+              "Een fruitgroep en een kledinggroep maken",
+              "Heel veel dingen erbij doen"
+            ],
+            "explanation": "Een appel en een peer zijn fruit. Een sok en een hoed zijn kleding. Twee groepen kunnen je helpen onthouden. Een plaatjeslijst kan ook helpen."
+          },
+          {
+            "idea": "Een geheugenstrategie moet bij de taak passen, en je kunt testen of ze werkt.",
+            "situation": "Je moet morgen een gemengde lijst onthouden. Welk plan test of groeperen jou helpt?",
+            "choices": [
+              "Aannemen dat een zeker gevoel bewijst dat je het onthoudt",
+              "Je geheugen na groeperen vergelijken met je geheugen na opnieuw lezen",
+              "De lijst langer maken zonder het te testen"
+            ],
+            "explanation": "Vergelijk wat je echt onthoudt, niet alleen hoe makkelijk de strategie aanvoelt. Een geschreven herinnering is misschien het beste hulpmiddel als nauwkeurig onthouden belangrijk is. Eén keer testen bewijst geen algemeen geldig resultaat."
+          }
+        ]
+      },
+      {
+        "title": "Eén ding tegelijk",
+        "idea": "Je kunt je omgeving aanpassen om je aandacht te ondersteunen.",
+        "situation": "Een video blijft je afleiden terwijl je een instructie leest. Wat zou je kunnen proberen?",
+        "choices": [
+          "De video pauzeren",
+          "De video harder zetten",
+          "Nog een video openen"
+        ],
+        "correct": 0,
+        "explanation": "Minder afleidende informatie kan je helpen je te concentreren. Je mag ook een pauze nemen.",
+        "tryIt": [
+          "Kies een rustigere plek of pauzeer een geluid.",
+          "Lees één instructie zonder afleiding. Merk op wat helpt.",
+          "Plan een plek om te studeren. Leg uit welke afleidingen je zou verminderen en welke hulp je zou houden."
+        ],
+        "readings": [
+          {
+            "idea": "Te veel geluiden kunnen een taak moeilijk maken.",
+            "situation": "Er speelt een video terwijl jij één stap probeert te lezen. Wat zou kunnen helpen?",
+            "choices": [
+              "De video pauzeren",
+              "Hem harder zetten",
+              "Nog een video starten"
+            ],
+            "explanation": "Probeer één stap terwijl de video gepauzeerd is. Je mag om hulp vragen of een pauze nemen. Verschillende mensen hebben verschillende hulp nodig."
+          },
+          {
+            "idea": "Aandacht ondersteunen betekent afleidende dingen verminderen en handige hulp behouden.",
+            "situation": "Berichtjes onderbreken je het leren, maar een visuele checklist helpt je juist. Welke verandering is het testen waard?",
+            "choices": [
+              "Berichtmeldingen uitschakelen en de checklist houden",
+              "Alle hulp weghalen, ook de checklist",
+              "Meer apps toevoegen om te oefenen met negeren"
+            ],
+            "explanation": "Verander de afleiding die je hebt opgemerkt en houd de hulp die de taak makkelijker maakt. Vergelijk wat je afmaakt en begrijpt. Een strategie die vandaag helpt, moet morgen misschien worden aangepast."
+          }
+        ]
+      },
+      {
+        "title": "Nog eens kijken",
+        "idea": "Een eerste indruk kan details missen.",
+        "situation": "Twee verpakkingen zien er even groot uit. Hoe kun je controleren welke meer inhoud heeft?",
+        "choices": [
+          "De kleurrijkste verpakking kiezen",
+          "Raden op basis van de afbeelding",
+          "De gewichtsetiketten vergelijken"
+        ],
+        "correct": 2,
+        "explanation": "Een verpakking kan groter lijken, maar toch minder inhoud hebben. Vergelijk dezelfde eenheden op de etiketten.",
+        "tryIt": [
+          "Wijs het grootste getal aan op twee verzonnen etiketten.",
+          "Vergelijk twee verpakkingen met het label 100 g en 150 g.",
+          "Vergelijk 200 g voor £2 met 300 g voor £2.40. Bereken de prijs per 100 g."
+        ],
+        "readings": [
+          {
+            "idea": "Een groot-ogende verpakking heeft niet altijd meer inhoud.",
+            "situation": "Op één verzonnen verpakking staat 2 stuks, op een andere staat 3 stuks. Hoe controleer je welke er meer heeft?",
+            "choices": [
+              "De felle kleur kiezen",
+              "Raden op basis van de afbeelding",
+              "2 en 3 vergelijken"
+            ],
+            "explanation": "Drie is meer dan twee. Een duidelijk etiket kan je helpen je eerste gok te controleren."
+          },
+          {
+            "idea": "Hoe een verpakking eruitziet en wat ze waard is voor je geld, zijn twee verschillende vragen.",
+            "situation": "Eén verpakking is 200 g voor £2. Een andere is 300 g voor £2.40. Wat helpt om de waarde te vergelijken?",
+            "choices": [
+              "De doos kiezen die er hoger uitziet",
+              "Aannemen dat de hogere totaalprijs minder waard is",
+              "De prijs per 100 g van elke verpakking berekenen en vergelijken"
+            ],
+            "explanation": "De eerste kost £1 per 100 g. De tweede kost 80p per 100 g. Eenheidsprijzen helpen je de waarde te vergelijken, maar meer kopen is alleen nuttig als je het nodig hebt en het totaal kunt betalen."
+          }
+        ]
+      },
+      {
+        "title": "Zoek een andere verklaring",
+        "idea": "Eén aanwijzing kan meer dan één verklaring hebben.",
+        "situation": "Een vriend zwaait niet terug. Wat is een handige volgende gedachte?",
+        "choices": [
+          "Die persoon mag me vast niet",
+          "Die persoon heeft me misschien niet gezien",
+          "Ik weet precies wat die persoon denkt"
+        ],
+        "correct": 1,
+        "explanation": "Je kunt de gedachten van een ander niet kennen door één handeling. Je kunt later vriendelijk navragen.",
+        "tryIt": [
+          "Kies een mogelijke reden, of wijs een plaatje aan.",
+          "Noem twee mogelijke redenen voor hetzelfde voorval.",
+          "Maak onderscheid tussen wat je zag en wat je daaruit afleidde. Welk bewijs zou helpen?"
+        ],
+        "readings": [
+          {
+            "idea": "We kunnen niet in het hoofd van een ander kijken.",
+            "situation": "Een vriend zwaait niet terug. Wat zou waar kunnen zijn?",
+            "choices": [
+              "Die persoon mag je vast niet",
+              "Die persoon heeft je misschien niet gezien",
+              "Jij weet alles wat die persoon denkt"
+            ],
+            "explanation": "Misschien heeft je vriend je niet gezien. Er kunnen ook andere redenen zijn. Je kunt later vriendelijk navragen."
+          },
+          {
+            "idea": "Eén waarneming kan meerdere mogelijke verklaringen hebben.",
+            "situation": "Je zag een vriend voorbijlopen zonder te zwaaien. Welke conclusie houdt rekening met onzekerheid?",
+            "choices": [
+              "Hun bedoeling staat nu vast",
+              "Ze hebben het misschien niet gemerkt; meer informatie zou helpen",
+              "Eén handeling laat hun hele mening over jou zien"
+            ],
+            "explanation": "Niet zwaaien is de waarneming. Iemand niet mogen is een interpretatie. Overweeg andere mogelijkheden voordat je respectvol navraagt. Je hoeft niet meteen te beslissen."
+          }
+        ]
+      },
+      {
+        "title": "Controleer wat je onthoudt",
+        "idea": "Proberen iets terug te halen uit je geheugen laat zien wat nog meer oefening nodig heeft.",
+        "situation": "Je hebt een korte les gelezen. Wat kan je helpen om te controleren wat je hebt geleerd?",
+        "choices": [
+          "Een vraag beantwoorden en daarna controleren",
+          "Alleen de pagina's tellen",
+          "Alle feedback overslaan"
+        ],
+        "correct": 0,
+        "explanation": "Een idee terughalen en de feedback bekijken helpt je hiaten op te merken. Je kunt de uitleg nog eens teruglezen.",
+        "tryIt": [
+          "Wijs iets aan dat je nog weet.",
+          "Sluit de les en leg één idee uit. Controleer het daarna.",
+          "Bekijk het idee op een andere dag opnieuw en gebruik het in een nieuw voorbeeld. Merk op wat je nog moet oefenen."
+        ],
+        "readings": [
+          {
+            "idea": "Probeer één idee te onthouden en controleer het daarna.",
+            "situation": "Je hebt een kort verhaal gelezen. Hoe kun je zien wat je nog weet?",
+            "choices": [
+              "Een antwoord kiezen en het controleren",
+              "Alleen de pagina's tellen",
+              "Nooit terugkijken"
+            ],
+            "explanation": "Een vraag kan laten zien wat je nog weet. Mis je een idee, kijk dan terug of vraag hulp. Een fout is handige informatie."
+          },
+          {
+            "idea": "Iets terughalen uit je geheugen en feedback krijgen, kan een hiaat laten zien dat alleen herlezen verbergt.",
+            "situation": "Je hebt een idee bestudeerd. Welke controle geeft bewijs of je het ook echt kunt gebruiken?",
+            "choices": [
+              "Het uitleggen zonder te kijken, en het daarna vergelijken met de bron",
+              "Leren alleen beoordelen op basis van leestijd",
+              "Elke vraag vermijden die een fout zou kunnen blootleggen"
+            ],
+            "explanation": "Probeer het idee terug te halen en toe te passen, controleer de feedback en bekijk hiaten opnieuw. Herhaal dit later als het nuttig is. Slagen voor één bekende vraag bewijst geen begrip in elke situatie."
+          }
+        ]
+      },
+      {
+        "title": "Pauzeer voor je kiest",
+        "idea": "Een korte pauze geeft je tijd om keuzes te vergelijken.",
+        "situation": "Een winkelreclame zegt dat een speelgoedaanbieding snel afloopt. Wat kun je doen?",
+        "choices": [
+          "Kopen voordat je nadenkt",
+          "De reclame laten kiezen",
+          "Je budget en je doel controleren"
+        ],
+        "correct": 2,
+        "explanation": "Tijdsdruk kan een keuze beïnvloeden. De kosten en je prioriteiten controleren helpt je beslissen.",
+        "tryIt": [
+          "Wijs Wachten of Kopen aan. Neem de tijd om te kiezen.",
+          "Vergelijk het speelgoed met je spaardoel.",
+          "Zet de alternatieve kosten en het bewijs voor de aanbieding op een rijtje. Besluit of wachten zou helpen."
+        ],
+        "readings": [
+          {
+            "idea": "Je mag stoppen en nadenken voordat je iets koopt.",
+            "situation": "Op een bordje bij speelgoed staat 'Snel!'. Wat zou je kunnen doen?",
+            "choices": [
+              "Kopen zonder te controleren",
+              "Het bordje laten kiezen",
+              "Je geld en wat je wilt controleren"
+            ],
+            "explanation": "Een bordje kan niet voor jou kiezen. Je kunt de prijs controleren, een volwassene vragen en besluiten om te wachten."
+          },
+          {
+            "idea": "Tijdsdruk kan een keuze belangrijker laten voelen dan het bewijs rechtvaardigt.",
+            "situation": "Een reclame telt af naar een korting op een product dat je niet van plan was te kopen. Welke reactie beschermt jouw keuze?",
+            "choices": [
+              "De aftelklok zien als bewijs van waarde",
+              "Kopen zodat je niet hoeft te vergelijken",
+              "De totale kosten, je prioriteiten en waar je op zou inleveren controleren"
+            ],
+            "explanation": "De alternatieve kosten zijn het andere gebruik van hetzelfde geld. Controleer het echte aanbod en je prioriteiten. Wachten kan verstandig zijn, ook als de korting echt is."
+          }
+        ]
+      }
+    ]
+  },
+  "mind-lab": {
+    "title": "Gevoelslab",
+    "description": "Oefen met gevoelens opmerken, hulp vragen, plannen aanpassen en samenwerken met anderen. Je mag elke activiteit overslaan.",
+    "tasks": [
+      {
+        "title": "Merk een gevoel op",
+        "idea": "Mensen kunnen in dezelfde situatie verschillende dingen voelen.",
+        "situation": "Een spel voelt frustrerend. Wat zou je eerst kunnen doen?",
+        "choices": [
+          "Het gevoel opmerken en pauzeren",
+          "Doorgaan tot het pijn doet",
+          "Elk gevoel verbergen"
+        ],
+        "correct": 0,
+        "explanation": "Een gevoel opmerken kan je helpen kiezen wat je daarna doet. Er bestaat geen fout gevoel.",
+        "tryIt": [
+          "Wijs een gevoelswoord aan, teken het, of sla het over.",
+          "Noem een lichaamssignaal dat je merkt bij frustratie. Je mag dit voor jezelf houden.",
+          "Vergelijk een gevoel, een gedachte en een handeling. Plan één reactie die je welzijn beschermt."
+        ],
+        "readings": [
+          {
+            "idea": "Je kunt een gevoel opmerken en om een pauze vragen.",
+            "situation": "Een spel voelt vervelend. Wat kun je eerst doen?",
+            "choices": [
+              "Merken hoe je je voelt en pauzeren",
+              "Doorspelen, ook als je wilt stoppen",
+              "Doen alsof gevoelens verboden zijn"
+            ],
+            "explanation": "Je mag naar een gevoel wijzen, een plaatje laten zien of om hulp vragen. Je hoeft je gevoel niet hardop te zeggen."
+          },
+          {
+            "idea": "Gevoelens, interpretaties en handelingen hangen samen, maar zijn niet hetzelfde.",
+            "situation": "Een tegenslag maakt dat je je beschaamd voelt en denkt: 'Ik faal altijd.' Wat is een nuttige eerste reactie?",
+            "choices": [
+              "Het gevoel opmerken, pauzeren en die conclusie onderzoeken",
+              "Het gevoel zien als bewijs dat de conclusie klopt",
+              "Jezelf dwingen door te gaan, ondanks de spanning"
+            ],
+            "explanation": "Een onprettig gevoel is echt, maar het bewijst geen algemeen oordeel. Je kunt kiezen voor privacy, een pauze of vertrouwde steun terwijl je beslist wat je daarna doet."
+          }
+        ]
+      },
+      {
+        "title": "Weet wat jou helpt",
+        "idea": "Verschillende mensen hebben baat bij verschillende soorten hulp.",
+        "situation": "Instructies zijn moeilijk te volgen. Waarom zou je kunnen vragen?",
+        "choices": [
+          "Meer taken tegelijk",
+          "Een plaatje of één stap per keer",
+          "Nooit hulp"
+        ],
+        "correct": 1,
+        "explanation": "Hulp kiezen is een vaardigheid. Plaatjes, voordoen en korte stappen kunnen helpen.",
+        "tryIt": [
+          "Kies een plaatje, gesproken instructie of voordoen.",
+          "Probeer twee manieren om een instructie te krijgen. Wat helpt vandaag het beste?",
+          "Leg uit hoe de hulp die je kiest kan veranderen bij een andere taak of omgeving."
+        ],
+        "readings": [
+          {
+            "idea": "Je mag een manier van leren kiezen die jou helpt.",
+            "situation": "Een lange instructie is moeilijk. Waarom zou je kunnen vragen?",
+            "choices": [
+              "Meer stappen tegelijk",
+              "Een plaatje of één kleine stap",
+              "Helemaal geen hulp"
+            ],
+            "explanation": "Plaatjes, voordoen of één stap kunnen helpen. Om hulp vragen mag altijd."
+          },
+          {
+            "idea": "Nuttige hulp hangt af van de persoon, de taak en de omgeving.",
+            "situation": "Geschreven instructies helpen bij de ene activiteit, maar niet bij een lawaaiige praktische taak. Waarom zou je kunnen vragen?",
+            "choices": [
+              "Altijd hetzelfde format, wat het probleem ook is",
+              "Voordoen of kortere stappen, en daarna checken wat werkt",
+              "Alle hulp weghalen om zelfstandigheid te bewijzen"
+            ],
+            "explanation": "Zelfstandigheid kan ook betekenen dat je effectieve hulp kiest. Probeer een passende aanpassing en leg uit wat er veranderde, zonder dat je een diagnose of privégegevens hoeft te delen."
+          }
+        ]
+      },
+      {
+        "title": "Probeer een andere aanpak",
+        "idea": "Leren kan betekenen dat je de aanpak verandert, rust neemt of hulp vraagt.",
+        "situation": "Jouw blokkenbrug valt twee keer om. Wat zou kunnen helpen?",
+        "choices": [
+          "Altijd hetzelfde plan blijven gebruiken",
+          "Jezelf de schuld geven",
+          "Een breder fundament proberen of hulp vragen"
+        ],
+        "correct": 2,
+        "explanation": "Een andere aanpak of nuttige feedback kan helpen. Een pauze nemen is ook een goede keuze.",
+        "tryIt": [
+          "Kies Opnieuw proberen, Hulp of Pauze.",
+          "Verander één deel van een blokkenbrug en kijk wat er gebeurt.",
+          "Noteer één verandering, het resultaat en wat je daarna zou testen."
+        ],
+        "readings": [
+          {
+            "idea": "Een nieuwe poging mag een ander plan gebruiken.",
+            "situation": "Jouw blokkenbrug valt om. Wat zou kunnen helpen?",
+            "choices": [
+              "Elk blok altijd hetzelfde laten",
+              "Zeggen dat je nergens goed in bent",
+              "Een brede onderkant proberen of hulp vragen"
+            ],
+            "explanation": "Je mag één deel veranderen, hulp vragen of een pauze nemen. Je hoeft niet door te proberen als je moet stoppen."
+          },
+          {
+            "idea": "Doorzetten is nuttig als het gepaard gaat met informatie, grenzen en een andere aanpak.",
+            "situation": "Een project slaagt twee keer niet voor dezelfde test. Welke volgende stap gebruikt het bewijs?",
+            "choices": [
+              "Het ongewijzigde plan steeds blijven herhalen",
+              "Je eigen kunnen de schuld geven zonder het ontwerp te bekijken",
+              "De fout bekijken, één deel veranderen, of advies vragen"
+            ],
+            "explanation": "Benoem wat er niet werkte, kies een testbare verandering en vergelijk de resultaten. Rusten, steun vragen of besluiten te stoppen kunnen ook verstandig zijn. Doorzettingsvermogen betekent niet dat je schade moet verdragen."
+          }
+        ]
+      },
+      {
+        "title": "Maak een tweede plan",
+        "idea": "Je kunt een plan aanpassen als er iets verandert.",
+        "situation": "Regen gooit je buitenactiviteit in de war. Wat zou je kunnen doen?",
+        "choices": [
+          "Een alternatief binnen kiezen",
+          "Aannemen dat de hele dag verpest is",
+          "Het weer negeren"
+        ],
+        "correct": 0,
+        "explanation": "Een tweede plan kan een deel van je doel overeind houden. Je mag teleurgesteld zijn en toch een andere activiteit kiezen.",
+        "tryIt": [
+          "Kies tussen twee activiteiten binnen.",
+          "Maak een plan voor buiten en een alternatief voor binnen.",
+          "Houd hetzelfde doel, maar verander de manier. Leg de voor- en nadelen uit."
+        ],
+        "readings": [
+          {
+            "idea": "Een plan mag veranderen.",
+            "situation": "Regen verpest je picknick. Wat zou je kunnen doen?",
+            "choices": [
+              "Een veilige picknick binnen kiezen",
+              "Zeggen dat er nu niets leuks meer kan gebeuren",
+              "Toch naar buiten gaan zonder te checken of het veilig is"
+            ],
+            "explanation": "Je mag verdrietig zijn over de regen en toch iets anders proberen. Een volwassene kan je helpen kiezen."
+          },
+          {
+            "idea": "Een alternatief plan kan een doel overeind houden, terwijl de manier verandert.",
+            "situation": "Het weer gooit een buitenevenement in de wijk in de war. Welke reactie houdt rekening met deze beperking?",
+            "choices": [
+              "Veilige opties binnen vergelijken met het hoofddoel van het evenement",
+              "Aannemen dat een andere manier het doel waardeloos maakt",
+              "Het weer negeren en doorgaan zonder te controleren"
+            ],
+            "explanation": "Bepaal het doel, de veiligheidsbeperking en de beschikbare middelen voordat je alternatieven vergelijkt. Een evenement binnen kan sommige doelen overeind houden, terwijl ruimte of capaciteit verandert. Benoem de voor- en nadelen."
+          }
+        ]
+      },
+      {
+        "title": "Begin met één stap",
+        "idea": "Een kleinere stap kan het makkelijker maken om aan een probleem te beginnen.",
+        "situation": "Je bureau ligt te vol om te gebruiken. Waar zou je kunnen beginnen?",
+        "choices": [
+          "Alles op de grond leggen",
+          "De potloden in één bakje doen",
+          "Meteen een nieuw bureau kopen"
+        ],
+        "correct": 1,
+        "explanation": "Een duidelijke eerste stap is makkelijker om echt te doen. Daarna kun je de volgende stap kiezen.",
+        "tryIt": [
+          "Wijs iets aan dat je kunt opruimen.",
+          "Kies drie kleine stappen en voer ze uit.",
+          "Omschrijf het probleem, vergelijk twee oplossingen en test de goedkoopste."
+        ],
+        "readings": [
+          {
+            "idea": "Begin met één klein klusje.",
+            "situation": "Er is geen ruimte om te tekenen op je bureau. Waar zou je kunnen beginnen?",
+            "choices": [
+              "Alles op de grond duwen",
+              "De potloden in een bakje doen",
+              "Meteen om een nieuw bureau vragen"
+            ],
+            "explanation": "De potloden opruimen maakt een beetje ruimte vrij. Daarna kun je de volgende stap kiezen of om hulp vragen."
+          },
+          {
+            "idea": "Omschrijf een probleem voordat je een dure oplossing kiest.",
+            "situation": "Een rommelige werkplek vertraagt een gezamenlijke taak. Wat is een verstandige eerste test?",
+            "choices": [
+              "De rommel naar de plek van iemand anders verplaatsen",
+              "Eén categorie ordenen en kijken of de toegang beter wordt",
+              "Alle meubels vervangen zonder eerst te onderzoeken"
+            ],
+            "explanation": "Een goedkope, terug te draaien test geeft informatie. Kijk of de verandering de mensen helpt die de ruimte gebruiken, en besluit daarna of een grotere verandering nodig is."
+          }
+        ]
+      },
+      {
+        "title": "Luister en vraag na",
+        "idea": "Mensen kunnen verschillende dingen willen. Vraag het liever dan te raden.",
+        "situation": "Twee vrienden willen verschillende spellen. Wat zou kunnen helpen?",
+        "choices": [
+          "De luidste persoon laten kiezen",
+          "Stoppen met luisteren",
+          "Iedereen vragen en samen een eerlijk plan afspreken"
+        ],
+        "correct": 2,
+        "explanation": "Luisteren en om de beurt gaan kan helpen een plan te vinden. Iedereen mag nee zeggen.",
+        "tryIt": [
+          "Wijs je keuze aan of gebruik je communicatiemiddel.",
+          "Oefen met een vriend vragen wat die het liefst wil.",
+          "Vergelijk om de beurt gaan, ideeën combineren en iets anders kiezen. Leg uit wat het beste past."
+        ],
+        "readings": [
+          {
+            "idea": "Mensen mogen verschillende dingen kiezen.",
+            "situation": "Jij en een vriend willen verschillende spellen. Wat zou kunnen helpen?",
+            "choices": [
+              "Alleen de luidste persoon kiest",
+              "Stoppen met luisteren naar je vriend",
+              "Elkaar vragen en samen een eerlijk plan maken"
+            ],
+            "explanation": "Je mag wijzen, plaatjes gebruiken of praten. Om de beurt gaan is één optie, en iedereen mag nee zeggen."
+          },
+          {
+            "idea": "Een eerlijke groepsbeslissing houdt rekening met toegankelijke inbreng en respecteert grenzen.",
+            "situation": "Twee vrienden geven de voorkeur aan verschillende activiteiten en één van hen wil niet praten. Welke aanpak betrekt iedereen erbij?",
+            "choices": [
+              "De persoon die het makkelijkst praat voor iedereen laten beslissen",
+              "Stilte zien als instemming",
+              "Een andere manier om te reageren aanbieden en eerlijke opties vergelijken"
+            ],
+            "explanation": "Vraag naar voorkeuren zonder iemand te dwingen te praten. Om de beurt gaan, ideeën combineren of iets anders kiezen kan passen bij verschillende situaties. Instemming betekent weinig als iemand niet kan reageren of weigeren."
+          }
+        ]
+      },
+      {
+        "title": "Vraag het voordat je deelt",
+        "idea": "Je mag een grens stellen en de grens van een ander respecteren.",
+        "situation": "Een vriend wil jouw foto plaatsen. Dat wil jij niet. Wat kun je zeggen?",
+        "choices": [
+          "Nee, deel hem niet",
+          "Toestemmen omdat je moet",
+          "In plaats daarvan hun foto delen"
+        ],
+        "correct": 0,
+        "explanation": "Je mag weigeren. Vrienden moeten jouw keuze respecteren. Vraag indien nodig een vertrouwde volwassene om hulp.",
+        "tryIt": [
+          "Wijs ja, nee of hulp aan.",
+          "Oefen een korte zin om je grens aan te geven.",
+          "Plan wat je doet als iemand je grens negeert. Betrek een vertrouwde volwassene erbij."
+        ],
+        "readings": [
+          {
+            "idea": "Je mag nee zeggen tegen het delen van jouw foto.",
+            "situation": "Een vriend wil jouw foto delen. Dat wil jij niet. Wat kun je zeggen?",
+            "choices": [
+              "Nee, deel hem niet",
+              "Ik moet ja zeggen",
+              "In plaats daarvan deel ik jouw foto"
+            ],
+            "explanation": "Jouw keuze telt. Je mag naar nee wijzen of een vertrouwde volwassene om hulp vragen."
+          },
+          {
+            "idea": "Toestemming om te delen moet vrijwillig zijn en specifiek gelden voor die situatie.",
+            "situation": "Een vriend wil een foto plaatsen die jij niet gedeeld wilt zien. Welke reactie geeft jouw grens duidelijk aan?",
+            "choices": [
+              "Ik geef geen toestemming om deze foto te plaatsen; houd hem privé",
+              "Ik moet instemmen om de vriendschap te behouden",
+              "Ik wreek me door hun foto te plaatsen"
+            ],
+            "explanation": "Je mag weigeren zonder te bewijzen dat de foto schadelijk is. Wordt je grens genegeerd, vraag dan om verwijdering en steun van een vertrouwde volwassene. Wreek je niet door de informatie van iemand anders bloot te geven."
+          }
+        ]
+      },
+      {
+        "title": "Kies voor een pauze",
+        "idea": "Een pauze kan je helpen als een activiteit te veel wordt.",
+        "situation": "Een drukke ruimte voelt overweldigend. Wat is een redelijke keuze?",
+        "choices": [
+          "Blijven, omdat pauzes niet mogen",
+          "Om een rustigere plek vragen",
+          "Meer lawaai maken"
+        ],
+        "correct": 1,
+        "explanation": "Je mag om een pauze of hulp vragen. Rustgevende strategieën werken voor iedereen anders.",
+        "tryIt": [
+          "Kies Rust, Bewegen, Hulp of Overslaan.",
+          "Maak een privélijstje van twee soorten hulp waar je om kunt vragen.",
+          "Plan hoe je om een pauze vraagt en terugkomt als je er klaar voor voelt."
+        ],
+        "readings": [
+          {
+            "idea": "Je mag om een pauze vragen.",
+            "situation": "Een ruimte is te luidruchtig voor jou. Wat zou je kunnen proberen?",
+            "choices": [
+              "Blijven, omdat pauzes niet zijn toegestaan",
+              "Om een rustigere plek vragen",
+              "Meer lawaai maken"
+            ],
+            "explanation": "Een rustige plek, bewegen of hulp kunnen bij jou passen. Kies samen met een vertrouwde volwassene. Je mag deze activiteit overslaan."
+          },
+          {
+            "idea": "Een pauzeplan moet communicatie, veiligheid en je eigen keuze ondersteunen.",
+            "situation": "Een drukke omgeving wordt overweldigend. Welk plan houdt rekening met jouw behoeften?",
+            "choices": [
+              "Blijven tot je het niet meer aankunt",
+              "Een afgesproken pauzesignaal gebruiken en naar een geschikte plek gaan",
+              "Aannemen dat dezelfde rustgevende activiteit iedereen moet helpen"
+            ],
+            "explanation": "Plan een manier om hulp te vragen zonder dat je het hoeft uit te leggen met woorden. Verschillende zintuiglijke behoeften vragen om verschillende aanpassingen. Of je teruggaat, moet afhangen van hoe klaar je je voelt en de situatie, niet van de eis om spanning te verbergen."
+          }
+        ]
+      }
+    ]
+  },
+  "future-skills": {
+    "title": "Toekomstvaardigheden",
+    "description": "Maak zorgvuldige keuzes over informatie, ideeën, technologie en dagelijkse taken. Technologie is een hulpmiddel. Jij blijft de baas.",
+    "tasks": [
+      {
+        "title": "Controleer een bewering",
+        "idea": "Ook een stellige bewering heeft bewijs nodig.",
+        "situation": "Een video zegt dat een drankje iedereen slimmer maakt. Wat zou je moeten controleren?",
+        "choices": [
+          "Hoe spannend de muziek is",
+          "Of de presentator lacht",
+          "Wie de bewering doet en welk bewijs die ondersteunt"
+        ],
+        "correct": 2,
+        "explanation": "Populariteit en zelfvertrouwen bewijzen geen bewering. Zoek naar betrouwbaar bewijs en vraag een vertrouwde volwassene.",
+        "tryIt": [
+          "Kies Controleren of Meteen geloven.",
+          "Zoek de maker en de datum van een verzonnen bewering.",
+          "Vergelijk een reclame met onafhankelijk bewijs. Benoem wat onzeker blijft."
+        ],
+        "readings": [
+          {
+            "idea": "Een video kan iets zeggen dat niet waar is.",
+            "situation": "Een video zegt dat een drankje elk kind slim maakt. Wat zou je moeten controleren?",
+            "choices": [
+              "Alleen de muziek",
+              "Of de persoon lacht",
+              "Wie het zegt en wat laat zien dat het waar is"
+            ],
+            "explanation": "Een vrolijke stem is geen bewijs. Een vertrouwde volwassene kan helpen de bewering te controleren."
+          },
+          {
+            "idea": "Een bewering heeft bewijs nodig dat de conclusie ook echt ondersteunt.",
+            "situation": "Iemand verkoopt een drankje en beweert dat het de resultaten van elke leerling verbetert. Welke controle is het sterkst?",
+            "choices": [
+              "Likes meetellen als wetenschappelijk bewijs",
+              "Vertrouwen op het zelfvertrouwen van de maker",
+              "Onafhankelijk bewijs, de beperkingen ervan en het belang van de verkoper controleren"
+            ],
+            "explanation": "Kijk wie er baat bij heeft, hoe goed het bewijs is en of het precies die bewering ondersteunt. Een ervaringsverhaal of populariteit bewijst geen effect dat voor iedereen geldt."
+          }
+        ]
+      },
+      {
+        "title": "Verzin meer dan één idee",
+        "idea": "Ideeën kunnen beter worden als je verschillende mogelijkheden test.",
+        "situation": "Je wilt een kartonnen doos opnieuw gebruiken. Wat is een handige eerste stap?",
+        "choices": [
+          "Aan meerdere gebruiksmogelijkheden denken",
+          "Aannemen dat er maar één gebruik is",
+          "Kopiëren zonder na te denken"
+        ],
+        "correct": 0,
+        "explanation": "Alternatieven verzinnen geeft je keuzes. Test daarna welke het beste bij je doel past.",
+        "tryIt": [
+          "Teken of wijs een gebruiksmogelijkheid voor een doos aan.",
+          "Verzin drie ideeën en kies er één om te proberen.",
+          "Kies beperkingen zoals kosten en materialen. Vergelijk de ideeën ermee en verbeter er daarna één."
+        ],
+        "readings": [
+          {
+            "idea": "Eén voorwerp kan verschillende gebruiken hebben.",
+            "situation": "Je hebt een lege kartonnen doos. Wat kun je eerst doen?",
+            "choices": [
+              "Aan een paar manieren denken om hem te gebruiken",
+              "Zeggen dat hij maar één gebruik heeft",
+              "Kopiëren zonder zelf te kiezen"
+            ],
+            "explanation": "Teken, wijs of bouw een idee. Past het eerste niet, dan mag je iets anders proberen."
+          },
+          {
+            "idea": "Alternatieven verzinnen en beperkingen beoordelen zijn verschillende onderdelen van creatief werk.",
+            "situation": "Een team moet een doos opnieuw gebruiken zonder nieuwe materialen. Welke eerste stap levert handige opties op?",
+            "choices": [
+              "Meerdere ideeën verzinnen en ze daarna vergelijken met de beperking",
+              "Elk idee afwijzen voordat het is onderzocht",
+              "Het eerste ontwerp kopiëren zonder te checken of het past"
+            ],
+            "explanation": "Houd het verzinnen van ideeën los van het beoordelen ervan. Test een veelbelovende optie op doel, materiaal en toegankelijkheid, en gebruik daarna feedback om hem te verbeteren."
+          }
+        ]
+      },
+      {
+        "title": "Test een klein idee",
+        "idea": "Een bedrijf moet een probleem oplossen en de kosten begrijpen.",
+        "situation": "Je wilt boekenleggers verkopen. Wat zou je kunnen doen voordat je er 100 maakt?",
+        "choices": [
+          "Meteen alle materialen kopen",
+          "Een voorbeeld maken en om feedback vragen",
+          "Aannemen dat iedereen er één koopt"
+        ],
+        "correct": 1,
+        "explanation": "Een kleine test helpt je iets te leren voordat je meer uitgeeft. Vraag een volwassene voordat je iets verkoopt of informatie deelt.",
+        "tryIt": [
+          "Kies een ontwerp voor één voorbeeld.",
+          "Zet de materialen en de kosten van één boekenlegger op een rijtje.",
+          "Schat de kosten, prijs en winst van een kleine partij. Leg uit hoe feedback het plan zou kunnen veranderen."
+        ],
+        "readings": [
+          {
+            "idea": "Probeer één klein idee voordat je er veel maakt.",
+            "situation": "Je wilt boekenleggers maken voor een nepwinkeltje. Wat zou je eerst kunnen doen?",
+            "choices": [
+              "Een enorme stapel materialen kopen",
+              "Één voorbeeld maken en vragen wat beter kan",
+              "Aannemen dat iedereen er één wil"
+            ],
+            "explanation": "Met een voorbeeld leer je iets voordat je meer materiaal gebruikt. Vraag een volwassene voordat je echt iets verkoopt."
+          },
+          {
+            "idea": "Een kleine proef kan een aanname van een bedrijf testen, terwijl je de ingezette middelen beperkt.",
+            "situation": "Je overweegt 100 boekenleggers te maken voor een begeleid project. Welke eerste stap levert nuttig bewijs op?",
+            "choices": [
+              "Het hele budget uitgeven voordat je de vraag hebt gecontroleerd",
+              "Een voorbeeld testen, de kosten schatten en relevante feedback vragen",
+              "Interesse zien als gegarandeerde verkoop"
+            ],
+            "explanation": "Bepaal wat je wilt leren en wat de test maximaal mag kosten. Feedback kan het ontwerp of de beslissing om door te gaan veranderen. Verkoopopbrengst is pas winst na aftrek van de relevante kosten."
+          }
+        ]
+      },
+      {
+        "title": "Maak ruimte voor anderen",
+        "idea": "Een leider kan luisteren en verantwoordelijkheid delen.",
+        "situation": "Jouw team heeft een poster nodig. Hoe zou je kunnen beginnen?",
+        "choices": [
+          "Alles alleen doen",
+          "Bevelen geven zonder iets te vragen",
+          "Om ideeën vragen en rollen afspreken"
+        ],
+        "correct": 2,
+        "explanation": "Duidelijke, gedeelde rollen en luisteren helpen een team om verschillende sterke punten te gebruiken.",
+        "tryIt": [
+          "Kies een taak die je wilt proberen.",
+          "Spreek twee rollen af met een partner.",
+          "Plan rollen, een tussentijds overleg en een eerlijke manier om een meningsverschil op te lossen."
+        ],
+        "readings": [
+          {
+            "idea": "Een leider kan anderen helpen meedoen.",
+            "situation": "Jouw groep wil een poster maken. Hoe kunnen jullie beginnen?",
+            "choices": [
+              "Alles doen zonder te vragen",
+              "Meteen bevelen geven",
+              "Om ideeën vragen en samen taken kiezen"
+            ],
+            "explanation": "Mensen mogen wijzen, tekenen of praten. Verdeel handige taken en maak ruimte voor verschillende ideeën."
+          },
+          {
+            "idea": "Leiderschap omvat toegankelijke deelname, duidelijke rollen en verantwoording.",
+            "situation": "Een team heeft een deadline en verschillende sterke punten. Wat is een nuttige openingsbeslissing?",
+            "choices": [
+              "Alle taken bij één persoon leggen",
+              "Rollen verdelen zonder de capaciteit te checken",
+              "Het doel afspreken, om inbreng vragen en werkbare rollen toewijzen"
+            ],
+            "explanation": "Controleer of iedereen het doel begrijpt en op een passende manier kan bijdragen. Spreek een tussentijds overleg af en een eerlijke manier om meningsverschillen op te lossen. Deel de erkenning en de verantwoordelijkheid."
+          }
+        ]
+      },
+      {
+        "title": "Controleer een AI-antwoord",
+        "idea": "AI kan nuttige suggesties geven, maar ook onjuiste informatie.",
+        "situation": "Een AI-tool geeft een verrassend feit zonder bron. Wat zou je moeten doen?",
+        "choices": [
+          "Het controleren met een betrouwbare bron",
+          "Het geloven omdat het zeker klinkt",
+          "Het meteen delen"
+        ],
+        "correct": 0,
+        "explanation": "Een AI-antwoord is geen bewijs. Controleer belangrijke informatie. Een vertrouwde volwassene kan je helpen leeftijdsgeschikte tools te gebruiken.",
+        "tryIt": [
+          "Kies Controleren of Meteen delen.",
+          "Vergelijk een verzonnen AI-bewering met een betrouwbare bron.",
+          "Controleer of een genoemde bron bestaat en de bewering ondersteunt. Leg uit wat je nog niet kunt controleren."
+        ],
+        "readings": [
+          {
+            "idea": "Een computerantwoord kan fout zijn.",
+            "situation": "Een AI-tool geeft een verrassend feit. Wat zou je moeten doen?",
+            "choices": [
+              "Controleren bij een betrouwbare bron en een volwassene",
+              "Elk computerantwoord geloven",
+              "Delen zonder te controleren"
+            ],
+            "explanation": "AI kan fouten maken. Een antwoord controleren helpt. Voor deze activiteit heb je geen AI-account nodig."
+          },
+          {
+            "idea": "Een vloeiend geformuleerd AI-antwoord is geen bewijs dat een uitspraak of bronverwijzing klopt.",
+            "situation": "Een AI-antwoord noemt een verrassend onderzoek. Welke controle is nodig voordat je erop vertrouwt?",
+            "choices": [
+              "Controleren of de bron bestaat en de specifieke bewering ondersteunt",
+              "Een zekere toon zien als controle",
+              "Het antwoord herhalen totdat het bekend aanvoelt"
+            ],
+            "explanation": "Controleer de oorspronkelijke bron, de auteur, de context en wat onzeker blijft. Ook een echte bronverwijzing kan de conclusie niet ondersteunen. Houd je bij elke echte tool aan de leeftijds- en privacyregels."
+          }
+        ]
+      },
+      {
+        "title": "Bescherm privé-informatie",
+        "idea": "Wachtwoorden en persoonlijke gegevens horen niet in openbare tools.",
+        "situation": "Een gamechat vraagt om jouw wachtwoord om een prijs te geven. Wat zou je moeten doen?",
+        "choices": [
+          "Het privé versturen",
+          "Het niet delen; het vertellen aan een vertrouwde volwassene",
+          "Het wachtwoord van iemand anders proberen"
+        ],
+        "correct": 1,
+        "explanation": "Een prijs is geen reden om een wachtwoord te delen. Sluit het verzoek en vraag hulp.",
+        "tryIt": [
+          "Wijs Stop of Hulp aan.",
+          "Sorteer verzonnen gegevens in Privé en Veilig om te delen, met begeleiding van een volwassene.",
+          "Beschrijf hoe je een verdacht bericht zou melden zonder de links erin te openen."
+        ],
+        "readings": [
+          {
+            "idea": "Houd wachtwoorden privé.",
+            "situation": "Een berichtje in een spel vraagt om jouw wachtwoord om een prijs te geven. Wat kun je doen?",
+            "choices": [
+              "Het wachtwoord versturen",
+              "Het niet versturen; het vragen aan een vertrouwde volwassene",
+              "Het wachtwoord van een vriend proberen"
+            ],
+            "explanation": "Een prijs is geen reden om een wachtwoord te delen. Stop en vraag hulp, zonder de links in het bericht te openen."
+          },
+          {
+            "idea": "Een beloning kan gebruikt worden om iemand onder druk te zetten om inloggegevens te delen.",
+            "situation": "Een onverwacht bericht beweert dat je je wachtwoord moet opgeven om een prijs te krijgen. Wat past hier het beste?",
+            "choices": [
+              "Het via een privébericht versturen",
+              "Weigeren, betrouwbare meldfuncties gebruiken en het vertellen aan een vertrouwde volwassene",
+              "Het verzoek testen met de inloggegevens van iemand anders"
+            ],
+            "explanation": "Open geen verdachte links en vul geen inloggegevens in. Controleer via een onafhankelijke, betrouwbare weg. Een privébericht maakt een verzoek niet veilig."
+          }
+        ]
+      },
+      {
+        "title": "Plan een dagelijkse taak",
+        "idea": "Een korte checklist kan je helpen zelfstandig te handelen.",
+        "situation": "Je moet voor school inpakken. Wat zou kunnen helpen?",
+        "choices": [
+          "Wachten tot je weggaat",
+          "Willekeurige dingen inpakken",
+          "Een korte checklist gebruiken"
+        ],
+        "correct": 2,
+        "explanation": "Een checklist ondersteunt het plannen. Plaatjes of voordoen kunnen werken in plaats van geschreven woorden.",
+        "tryIt": [
+          "Wijs iets aan dat je moet inpakken.",
+          "Maak een plaatjes- of geschreven checklist met drie dingen.",
+          "Maak een checklist, test hem een week en verwijder stappen die niet helpen."
+        ],
+        "readings": [
+          {
+            "idea": "Een plaatjeslijst kan je helpen met inpakken.",
+            "situation": "Je moet je schooltas inpakken. Wat zou kunnen helpen?",
+            "choices": [
+              "Wachten tot je weggaat",
+              "Willekeurige dingen kiezen",
+              "Een korte plaatjes- of woordenlijst gebruiken"
+            ],
+            "explanation": "Wijs elk voorwerp aan terwijl je het inpakt. Vraag om hulp als er iets ontbreekt."
+          },
+          {
+            "idea": "Een checklist is nuttig als de stappen bij de taak passen en je ze kunt bijstellen.",
+            "situation": "Je vergeet steeds opnieuw één voorwerp bij het voorbereiden van een activiteit. Welke methode kun je testen?",
+            "choices": [
+              "Vertrouwen op haasten op het laatste moment",
+              "De lijst langer maken zonder te checken of alles relevant is",
+              "Een korte checklist gebruiken, letten op wat ontbreekt en hem bijstellen"
+            ],
+            "explanation": "Neem noodzakelijke handelingen op, test de lijst in de praktijk en verwijder stappen die niet helpen. Zelfstandigheid kan ook herinneringen en toegankelijke formats omvatten."
+          }
+        ]
+      },
+      {
+        "title": "Kies met een budget",
+        "idea": "Jouw keuze heeft een prijs en kan een ander doel beïnvloeden.",
+        "situation": "Je hebt £5. Een notitieboekje kost £3 en een speeltje kost £4. Wat kun je kopen zonder te lenen?",
+        "choices": [
+          "Eén voorwerp, met wat geld over",
+          "Beide voor £5",
+          "Beide, zonder geld over"
+        ],
+        "correct": 0,
+        "explanation": "£3 + £4 = £7. Je kunt er nu één kiezen, wachten, of meer sparen. Er is meer dan één redelijke keuze.",
+        "tryIt": [
+          "Wijs het voorwerp aan dat je kiest.",
+          "Bereken hoeveel geld er overblijft bij elke keuze.",
+          "Leg de alternatieve kosten van elke optie uit en besluit wat bij jouw prioriteiten past."
+        ],
+        "readings": [
+          {
+            "idea": "Controleer het geld voordat je kiest.",
+            "situation": "Je hebt £5. Een notitieboekje kost £3 en een speeltje kost £4. Wat kun je je nu veroorloven?",
+            "choices": [
+              "Eén voorwerp, met geld over",
+              "Beide voorwerpen voor £5",
+              "Beide, zonder iets over"
+            ],
+            "explanation": "Drie plus vier is zeven, en dat is meer dan vijf. Je kunt er één kiezen, wachten of geen van beide kiezen."
+          },
+          {
+            "idea": "Een budget laat afwegingen zien, maar bepaalt niet jouw prioriteiten voor je.",
+            "situation": "Met £5 beschikbaar kun je een notitieboekje van £3 en een speeltje van £4 niet allebei kopen zonder extra geld. Welke uitspraak klopt?",
+            "choices": [
+              "Elk voorwerp is apart betaalbaar; het andere gebruik van het geld is de alternatieve kosten",
+              "Beide zijn betaalbaar, omdat elk minder dan £5 kost",
+              "Lenen heft de kosten van de keuze op"
+            ],
+            "explanation": "De gecombineerde prijs is £7. Als je er één kiest, blijft er een ander bedrag over en stel je een ander gebruik van het geld uit. Wachten of geen van beide kiezen kan ook bij jouw prioriteiten passen."
+          }
+        ]
+      }
+    ]
+  }
+}
