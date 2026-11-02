@@ -79,12 +79,12 @@ for(const locale of LOCALES){
    if(locale!=="en")for(const phrase of ["Discovery navigation","Choose a practical challenge","Sources for grown-ups","Larger text","Read a page, then choose Next."])assert(!html.includes(phrase),`${locale}/${source.slug}: English interface leak`);
   }
  }
- if(locale==="en"||locale==="ro"){
+ {
   const library=draftDiscoveryPresentation("library",locale),html=render(library);
   assertCards(library,libraryBooks.map(book=>book.slug));assert.equal(library.shelves?.locale,locale);
   for(const text of [ui.libraryTitle,ui.libraryIntro,ui.libraryGuide,ui.shortHeading,ui.shortIntro])assert(html.includes(escape(text)));
   for(const book of library.shelves!.books)assert(html.includes(escape(book.title)));
- }else assert.throws(()=>draftDiscoveryPresentation("library",locale),/not ready/,"A full hub must not mix unfinished original-book content with translated short reads");
+ }
 }
 const hub=draftDiscoveryPresentation("library","en");
 assert.throws(()=>render({...hub,shelves:undefined}),/complete shelf presentation/);
@@ -95,5 +95,5 @@ const originalTitle=museumRooms[0]!.title;
 try{museumRooms[0]!.title+=" changed";assert.throws(()=>draftDiscoveryPresentation("museum","ro",museumRooms[0]!.slug),/Stale translation/);}finally{museumRooms[0]!.title=originalTitle;}
 const originalFeedback=discoveryNotes[libraryBooks[0]!.slug]!.feedback;
 try{discoveryNotes[libraryBooks[0]!.slug]!.feedback+=" changed";assert.throws(()=>draftDiscoveryPresentation("library","ro",libraryBooks[0]!.slug),/Stale translation/);}finally{discoveryNotes[libraryBooks[0]!.slug]!.feedback=originalFeedback;}
-assert.deepEqual(ACTIVE_LOCALES,["en"]);assert.equal(renders,173);
-console.log("PASS: 351 discovery UI strings, 173 successful localized component SSR renders (18 details across nine locales, nine Museum hubs, EN/RO full Library hubs), lean cards/current detail, canonical identifiers/sources/answers, distinct age challenges, stale-source refusal and English-only gate. SSR covers the first short-read page; non-English browser interaction, global layout, actual voice quality and final editorial review remain pending.");
+assert.deepEqual(ACTIVE_LOCALES,["en"]);assert.equal(renders,180);
+console.log("PASS: 351 discovery UI strings, 180 successful localized component SSR renders (18 details across nine locales, nine Museum hubs, nine full Library hubs), lean cards/current detail, canonical identifiers/sources/answers, distinct age challenges, stale-source refusal and English-only gate. SSR covers the first short-read page; non-English browser interaction, global layout, actual voice quality and final editorial review remain pending.");

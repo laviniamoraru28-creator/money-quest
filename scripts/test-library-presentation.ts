@@ -57,28 +57,29 @@ for(const book of originalBooks){
  assert.equal(ro.book.slug,book.slug);assert.equal(ro.book.cover,book.cover);
  assert.deepEqual(ro.book.chapters.map(chapter=>chapter.paragraphs.length),book.chapters.map(chapter=>chapter.paragraphs.length));
  assert.deepEqual(ro.book.chapters.map(chapter=>chapter.choices.map(choice=>choice.correct)),book.chapters.map(chapter=>chapter.choices.map(choice=>choice.correct)));
- for(const [locale,view] of [["en",en],["ro",ro]] as const){
+ for(const locale of LOCALES){
+  const view=locale==="en"?en:locale==="ro"?ro:draftReaderPresentation(book,locale);
   const html=render(locale,React.createElement(OriginalBookReader,view));
   for(const text of [view.book.title,view.book.subtitle,view.book.coverAlt,readerCopy[locale].contents,readerCopy[locale].editorial,readerCopy[locale].words,readerCopy[locale].backLibrary])assert(html.includes(escape(text)),`${locale}/${book.slug}: ${text}`);
   assert(html.includes(`aria-label="${escape(readerCopy[locale].bookNav)}"`));
   for(const chapter of view.book.chapters)assert(html.includes(escape(chapter.title)),"Every chapter remains directly available in Contents");
-  if(locale==="ro")for(const text of ["Book navigation","Contents: choose any chapter","Back to Library"])assert(!html.includes(text));
+  if(locale!=="en")for(const text of ["Book navigation","Contents: choose any chapter","Back to Library"])assert(!html.includes(text),`${locale}/${book.slug}: ${text}`);
  }
  assert.throws(()=>draftReaderPresentation({...book,subtitle:book.subtitle+" changed"},"ro"),/Stale translation/);
 }
 for(const person of libraryPeople){
  const ro=draftBiographyPresentation(person,"ro");
  for(const field of ["slug","name","source","sourceTitle","checked","image"] as const)assert.equal(ro.person[field],person[field]);
- for(const locale of ["en","ro"] as const){
+ for(const locale of LOCALES){
   const view=draftBiographyPresentation(person,locale),html=render(locale,React.createElement(BiographyProfile,view));
   for(const text of [view.person.title,view.person.playful,readerCopy[locale].sources,readerCopy[locale].sourceNote,readerText(locale,"sourceChecked",{date:librarySourceDate(locale,person.checked)})])assert(html.includes(escape(text)),`${locale}/${person.slug}: ${text}`);
   for(const section of view.person.sections){assert(html.includes(escape(section.heading)));assert(html.includes(escape(section.text)));}
   assert(html.includes(escape(person.source)));assert(html.includes(escape(person.sourceTitle)));
-  if(locale==="ro")for(const text of ["Biography navigation","Ideas to keep questioning","Factual source and notes for grown-ups"])assert(!html.includes(text));
+  if(locale!=="en")for(const text of ["Biography navigation","Ideas to keep questioning","Factual source and notes for grown-ups"])assert(!html.includes(text),`${locale}/${person.slug}: ${text}`);
  }
  assert.throws(()=>draftBiographyPresentation({...person,topic:person.topic+" changed"},"ro"),/Stale translation/);
 }
-for(const locale of ["en","ro"] as const){
+for(const locale of LOCALES){
  const presentation=draftShelfPresentation(locale),html=render(locale,React.createElement(LibraryShelves,{presentation}));
  assert.equal(presentation.books.length,10);assert.equal(presentation.people.length,10);assert.equal(presentation.published.length,12);
  for(const book of presentation.books)assert(html.includes(escape(book.title)));
@@ -88,11 +89,6 @@ for(const locale of ["en","ro"] as const){
   assert(html.includes(escape(book.title)));assert(html.includes(escape(book.description)));assert(html.includes(escape(book.url)));
  });
  assert(html.includes(escape(libraryShelfCopy[locale].topic)));assert(html.includes(escape(libraryShelfCopy[locale].allTopics)));
- if(locale==="ro")for(const phrase of ["Library shelves","Choose a topic","Books by other authors","For grown-ups: where to find this book"])assert(!html.includes(phrase));
+ if(locale!=="en")for(const phrase of ["Library shelves","Choose a topic","Books by other authors","For grown-ups: where to find this book"])assert(!html.includes(phrase),`${locale}: ${phrase}`);
 }
-for(const locale of LOCALES.filter(locale=>locale!=="en"&&locale!=="ro")){
- assert.throws(()=>draftReaderPresentation(originalBooks[0]!,locale),/not ready/);
-
- assert.throws(()=>draftShelfPresentation(locale),/not ready/);
-}
-console.log("PASS: 675 reader/biography/shelf UI strings across nine locales, EN/RO component SSR for 10 books, 10 biographies and both shelf editions, canonical metadata, pagination and answer preservation, calendar dates, stale-source refusal and English-only activation. Open Romanian reader interaction and real voice quality remain unverified.");
+console.log("PASS: 675 reader/biography/shelf UI strings across nine locales, actual component SSR for 10 books, 10 biographies and both shelf editions in all nine locales, canonical metadata, pagination and answer preservation, calendar dates, stale-source refusal and English-only activation. Open non-English reader interaction and real voice quality remain unverified.");

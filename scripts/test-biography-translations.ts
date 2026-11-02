@@ -5,8 +5,7 @@ import {renderToStaticMarkup} from "react-dom/server";
 import {NextIntlClientProvider} from "next-intl";
 import {libraryPeople} from "../src/content/people";
 import {biographyTranslationSource,assertTranslationShape,sourceFingerprint} from "../src/lib/i18n/content-translations";
-import {draftBiographyPresentation,publicLibraryLocale,draftShelfPresentation,draftReaderPresentation} from "../src/lib/i18n/library-presentation";
-import {originalBooks} from "../src/content/library";
+import {draftBiographyPresentation,publicLibraryLocale} from "../src/lib/i18n/library-presentation";
 import BiographyProfile from "../src/components/BiographyProfile";
 import {ACTIVE_LOCALES,type Locale} from "../src/i18n/config";
 import manifest from "../src/content/translations/people.sources.json";
@@ -35,7 +34,6 @@ for(const entry of manifest.locales){const locale=entry as Locale;const copies=J
   assert.throws(()=>draftBiographyPresentation({...person,sections:person.sections.map((s,i)=>i? s:{...s,text:s.text+" changed"})},locale),/Stale translation/);
  }
  assert.equal(strings,manifest.stringsPerLocale);assert.equal(publicLibraryLocale(locale),"en");
- if(locale!=="ro"){assert.throws(()=>draftShelfPresentation(locale),/not ready/);assert.throws(()=>draftReaderPresentation(originalBooks[0]!,locale),/not ready/);}
 }
 assert.equal(renders,manifest.locales.length*10);assert.deepEqual(ACTIVE_LOCALES,["en"]);
-console.log(`PASS: ${manifest.locales.length*147} biography draft fragments and ${renders} actual complete profile SSR renders; numeric facts, source fingerprints, canonical metadata, real/thematic illustration disclosures, levels and unfinished book/hub/public-language gates preserved. Native-editor, voice and non-English browser review still pending.`);
+console.log(`PASS: ${manifest.locales.length*147} biography draft fragments and ${renders} actual complete profile SSR renders; numeric facts, source fingerprints, canonical metadata, real/thematic illustration disclosures, levels and the public-language gate preserved. Native-editor, voice and non-English browser review still pending.`);

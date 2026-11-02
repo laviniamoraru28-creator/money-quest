@@ -15,6 +15,7 @@ import manifest from "../src/content/translations/laboratory-copy.sources.json";
 // tsx follows this repository's JSX-preserve setting with the classic runtime.
 // Next's production compiler provides its own JSX runtime; this is SSR test setup only.
 (globalThis as typeof globalThis & {React:typeof React}).React=React;
+const escape=(s:string)=>s.replaceAll("&","&amp;").replaceAll("'","&#x27;").replaceAll('"',"&quot;").replaceAll("<","&lt;").replaceAll(">","&gt;");
 const keys=Object.keys(laboratoryCopy.en).sort();
 assert.equal(manifest.sourceHash,sourceFingerprint(laboratoryCopy.en),"English UI changed: review translated copy and record its source again");
 assert.deepEqual(manifest.locales,LOCALES);
@@ -40,22 +41,21 @@ for(const lab of learningLabs){
   const publicView=publicLaboratoryPresentation(lab,locale);
   assert.equal(publicView.locale,"en");assert.equal(publicView.lab,lab);
  }
- for(const locale of ["en","ro"] as const){
+ for(const locale of LOCALES){
   const view=draftLaboratoryPresentation(lab,locale);
   const messages=JSON.parse(readFileSync(`messages/${locale}.json`,"utf8"));
   const html=renderToStaticMarkup(React.createElement(NextIntlClientProvider,{locale,messages,timeZone:"Europe/London",children:React.createElement(LearningLabExperience,view)}));
   const copy=laboratoryCopy[locale];
-  for(const visible of [view.lab.title,copy.home,copy.challenge,copy.guide,copy.hideGuide,copy.communication,copy.mark,laboratoryPosition(locale,1,lab.tasks.length)])assert(html.includes(visible),`${locale}/${lab.slug}: rendered ${visible}`);
-  assert(html.includes(`aria-label="${copy.navigation}"`));assert(html.includes(`aria-label="${copy.guideLabel}"`));
+  for(const visible of [view.lab.title,copy.home,copy.challenge,copy.guide,copy.hideGuide,copy.communication,copy.mark,laboratoryPosition(locale,1,lab.tasks.length)])assert(html.includes(escape(visible)),`${locale}/${lab.slug}: rendered ${visible}`);
+  assert(html.includes(`aria-label="${escape(copy.navigation)}"`));assert(html.includes(`aria-label="${escape(copy.guideLabel)}"`));
   const first=labTaskAtLevel(lab.slug,view.lab.tasks[0]!,0,view.variants);
-  assert(html.includes(first.idea));assert(html.includes(first.situation));
-  if(locale==="ro"){
-   assert(!html.includes(labTaskAtLevel(lab.slug,lab.tasks[0]!,0).idea),"No global English age-reading leak in Romanian SSR");
-   for(const phrase of ["Learning navigation","Choose your challenge","Your learning guides","Mark as practised","Hide guide","Your practical challenge:"])assert(!html.includes(phrase),`Untranslated UI: ${phrase}`);
+  assert(html.includes(escape(first.idea)));assert(html.includes(escape(first.situation)));
+  if(locale!=="en"){
+   assert(!html.includes(escape(labTaskAtLevel(lab.slug,lab.tasks[0]!,0).idea)),`No global English age-reading leak in ${locale} SSR`);
+   for(const phrase of ["Learning navigation","Choose your challenge","Your learning guides","Mark as practised","Hide guide","Your practical challenge:"])assert(!html.includes(phrase),`${locale}: untranslated UI: ${phrase}`);
   }
  }
- for(const locale of LOCALES.filter(locale=>locale!=="en"&&locale!=="ro"))assert.throws(()=>draftLaboratoryPresentation(lab,locale),/not ready/);
  assert.throws(()=>draftLaboratoryPresentation({...lab,description:`${lab.description} changed`},"ro"),/Stale translation/);
 }
 assert.deepEqual(ACTIVE_LOCALES,["en"]);
-console.log("PASS: 270 lab UI strings across nine locales, regional speech tags, template parity, actual EN/RO component SSR for all three labs, scoped age readings, stale-source rejection and English-only public gate. No browser/voice quality certification.");
+console.log("PASS: 270 lab UI strings across nine locales, regional speech tags, template parity, actual component SSR for all three labs in all nine locales, scoped age readings, stale-source rejection and English-only public gate. No browser/voice quality certification.");
