@@ -292,7 +292,7 @@ test.describe("Real Life Quests - mission header fits at 320px through legacy lo
       const scrollWidth = await page.evaluate(() => document.documentElement.scrollWidth);
       const clientWidth = await page.evaluate(() => document.documentElement.clientWidth);
       expect(scrollWidth, `width=${width} should not overflow`).toBeLessThanOrEqual(clientWidth + 1);
-      await expect(page.locator("h1")).toHaveText("My First Mini Business");
+      await expect(page.locator("h1")).toHaveText("Mein erstes Mini-Unternehmen");
     }
   });
 });

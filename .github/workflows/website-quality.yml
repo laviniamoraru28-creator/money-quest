@@ -61,3 +61,4 @@ jobs:
           path: |
             test-results/
             server.log
+            moneyquest-namecheap-candidate.zip
