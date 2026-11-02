@@ -1,0 +1,853 @@
+{
+  "status": "draft-printable-source",
+  "currency": "GBP",
+  "editions": {
+    "Explorer 6–8": [
+      [
+        "Sort money and payment tools",
+        "cut-sort",
+        "Cut out the cards. Put each in Money, Way to pay, or Not money.",
+        [
+          "£5 banknote",
+          "£1 coin",
+          "debit card",
+          "phone payment",
+          "leaf",
+          "stone"
+        ],
+        [
+          "Money: £5 banknote, £1 coin",
+          "Way to pay: debit card, phone payment",
+          "Not money: leaf, stone"
+        ]
+      ],
+      [
+        "Match banknotes",
+        "match",
+        "Draw a line from each banknote to its value.",
+        [
+          "£5 note",
+          "£10 note",
+          "£20 note"
+        ],
+        [
+          "5 pounds",
+          "10 pounds",
+          "20 pounds"
+        ]
+      ],
+      [
+        "Needs or wants?",
+        "cut-sort",
+        "Cut and glue each picture word into Needs or Wants.",
+        [
+          "water",
+          "warm coat",
+          "toy robot",
+          "sweets",
+          "food",
+          "game skin"
+        ],
+        [
+          "Needs: water, warm coat, food",
+          "Wants: toy robot, sweets, game skin"
+        ]
+      ],
+      [
+        "Shopping basket puzzle",
+        "puzzle",
+        "Cut out the four pieces. Arrange them to make a shopping basket. Then circle what fits a £5 budget.",
+        [
+          "apple £1",
+          "bread £2",
+          "milk £2",
+          "toy £8"
+        ],
+        [
+          "apple + bread + milk = £5"
+        ]
+      ],
+      [
+        "Path to a savings goal",
+        "maze",
+        "Draw a path through SAVE boxes to reach your goal.",
+        [
+          "START",
+          "SAVE £1",
+          "SPEND £1",
+          "SAVE £2",
+          "SAVE £2",
+          "GOAL £5"
+        ],
+        [
+          "£1 + £2 + £2 = £5"
+        ]
+      ],
+      [
+        "What happens first?",
+        "sequence",
+        "Number the picture cards from 1 to 4.",
+        [
+          "Spend",
+          "Earn",
+          "Share",
+          "Save"
+        ],
+        [
+          "One example order: Earn, Save, Spend, Share"
+        ]
+      ],
+      [
+        "Ways to pay",
+        "circle",
+        "Circle the tools that can help you pay.",
+        [
+          "debit card",
+          "banana",
+          "phone wallet",
+          "stone",
+          "cash note",
+          "shoe"
+        ],
+        [
+          "debit card and phone wallet are payment tools; cash note is money"
+        ]
+      ],
+      [
+        "Save or buy today?",
+        "collage",
+        "Cut and glue each card into Save for later or Buy today. Explain your choice.",
+        [
+          "new bicycle",
+          "bus ticket",
+          "water",
+          "video game"
+        ],
+        [
+          "Answers vary; explain needs and priorities"
+        ]
+      ],
+      [
+        "What does the customer need?",
+        "match",
+        "Match each customer to the item that helps.",
+        [
+          "Thirsty customer",
+          "Cold customer",
+          "Customer wants to draw"
+        ],
+        [
+          "water",
+          "scarf",
+          "pencil"
+        ]
+      ],
+      [
+        "Build a market stall",
+        "collage",
+        "Cut out the pieces. Glue them into a stall picture.",
+        [
+          "roof",
+          "counter",
+          "apples",
+          "sign",
+          "customer"
+        ],
+        [
+          "Include roof, counter, products and sign"
+        ]
+      ],
+      [
+        "Make a shop sign",
+        "collage",
+        "Cut out words and shapes. Create a clear sign for your shop.",
+        [
+          "FRESH",
+          "FRUIT",
+          "£1",
+          "APPLE",
+          "STAR"
+        ],
+        [
+          "Sign should say what is sold"
+        ]
+      ],
+      [
+        "Price tags",
+        "match",
+        "Match the item to a price tag and decide what £5 can buy.",
+        [
+          "apple",
+          "bread",
+          "notebook"
+        ],
+        [
+          "£1",
+          "£2",
+          "£4"
+        ]
+      ],
+      [
+        "From idea to sale",
+        "sequence",
+        "Number the steps in a useful order.",
+        [
+          "Sell",
+          "Make",
+          "Think of an idea",
+          "Show a customer"
+        ],
+        [
+          "Idea, Make, Show, Sell"
+        ]
+      ],
+      [
+        "Listen to feedback",
+        "choice",
+        "A customer says the sign is hard to read. Circle the best change.",
+        [
+          "Make letters bigger",
+          "Hide the sign",
+          "Ignore the customer"
+        ],
+        [
+          "Make letters bigger"
+        ]
+      ],
+      [
+        "Feelings and help",
+        "match",
+        "Connect the feeling to a kind response.",
+        [
+          "Sad",
+          "Worried",
+          "Happy"
+        ],
+        [
+          "Ask if they need help",
+          "Offer to listen",
+          "Celebrate together"
+        ]
+      ],
+      [
+        "Taking turns",
+        "sequence",
+        "Number the steps for sharing one toy.",
+        [
+          "My turn",
+          "Ask for a turn",
+          "Friend's turn",
+          "Say thank you"
+        ],
+        [
+          "Ask, friend's turn, my turn, thank you (other fair sequences possible)"
+        ]
+      ],
+      [
+        "Helpful team actions",
+        "cut-sort",
+        "Sort actions into Helps the team and Does not help.",
+        [
+          "listen",
+          "push",
+          "share",
+          "shout",
+          "ask",
+          "grab"
+        ],
+        [
+          "Helps: listen, share, ask"
+        ]
+      ],
+      [
+        "Team puzzle",
+        "puzzle",
+        "Cut four pieces and put them together. Give everyone a job.",
+        [
+          "plan",
+          "build",
+          "check",
+          "celebrate"
+        ],
+        [
+          "All four roles can contribute"
+        ]
+      ],
+      [
+        "Fix the block tower",
+        "choice",
+        "The tower falls by accident. Circle a helpful next step.",
+        [
+          "Help rebuild",
+          "Blame a friend",
+          "Walk away"
+        ],
+        [
+          "Help rebuild"
+        ]
+      ],
+      [
+        "Share fairly",
+        "collage",
+        "You have four art pencils and two friends. Draw or glue a fair sharing plan.",
+        [
+          "pencil 1",
+          "pencil 2",
+          "pencil 3",
+          "pencil 4"
+        ],
+        [
+          "Possible: two pencils each; ask and take turns"
+        ]
+      ]
+    ],
+    "Builder 9–11": [
+      [
+        "Money and payment tools",
+        "match",
+        "Match each item to cash, bank money or payment tool.",
+        [
+          "£10 note",
+          "bank balance",
+          "debit card",
+          "phone wallet"
+        ],
+        [
+          "cash",
+          "bank money",
+          "payment tool",
+          "payment tool"
+        ]
+      ],
+      [
+        "Needs and wants budget",
+        "budget",
+        "You have £15. Choose needs first, then decide on wants.",
+        [
+          "lunch £6",
+          "bus £3",
+          "toy £9",
+          "water £2"
+        ],
+        [
+          "Example: lunch + bus + water = £11"
+        ]
+      ],
+      [
+        "Work out the change",
+        "budget",
+        "Pay with £20. Find the change for each item.",
+        [
+          "book £12",
+          "snack £3",
+          "game £17"
+        ],
+        [
+          "£8",
+          "£17",
+          "£3"
+        ]
+      ],
+      [
+        "Price or value?",
+        "choice",
+        "Two bottles hold the same water. Which offers better value?",
+        [
+          "500 ml for £2",
+          "500 ml for £3"
+        ],
+        [
+          "£2 bottle if quality is equal"
+        ]
+      ],
+      [
+        "Savings target",
+        "budget",
+        "You have £4 and save £3 each week. How many weeks to reach £16?",
+        [
+          "week 1",
+          "week 2",
+          "week 3",
+          "week 4"
+        ],
+        [
+          "4 weeks"
+        ]
+      ],
+      [
+        "Countdown advert",
+        "choice",
+        "An advert says 'Buy in 10 seconds!' What is a sensible first step?",
+        [
+          "Pause and check",
+          "Buy immediately",
+          "Share a password"
+        ],
+        [
+          "Pause and check"
+        ]
+      ],
+      [
+        "Safe online payments",
+        "cut-sort",
+        "Sort the actions into Safe and Unsafe.",
+        [
+          "ask a trusted adult",
+          "share PIN",
+          "check seller",
+          "click unknown link"
+        ],
+        [
+          "Safe: ask adult, check seller"
+        ]
+      ],
+      [
+        "Plan your £20",
+        "budget",
+        "Plan £20 across needs, saving and fun. Make your total exactly £20.",
+        [
+          "Needs £___",
+          "Save £___",
+          "Fun £___"
+        ],
+        [
+          "Any nonnegative amounts totaling £20"
+        ]
+      ],
+      [
+        "Customer needs",
+        "match",
+        "Match a problem to a useful business idea.",
+        [
+          "wet shoes",
+          "lost keys",
+          "thirsty walkers"
+        ],
+        [
+          "shoe cover",
+          "key tag",
+          "water stand"
+        ]
+      ],
+      [
+        "Prototype collage",
+        "collage",
+        "Design a useful product with these pieces and label its purpose.",
+        [
+          "handle",
+          "container",
+          "label",
+          "strap"
+        ],
+        [
+          "Design explains customer problem"
+        ]
+      ],
+      [
+        "Costs and profit",
+        "budget",
+        "You sell 5 bracelets for £4 each. Materials cost £8 total. Find profit.",
+        [
+          "sales 5 × £4",
+          "cost £8",
+          "profit £___"
+        ],
+        [
+          "£12 profit"
+        ]
+      ],
+      [
+        "Try two signs",
+        "choice",
+        "Which sign might help people understand the offer?",
+        [
+          "LEMONADE",
+          "FREE SAMPLE: TRY IT"
+        ],
+        [
+          "Test both; ask customers"
+        ]
+      ],
+      [
+        "Improve with feedback",
+        "sequence",
+        "Put these steps in order.",
+        [
+          "Improve",
+          "Listen",
+          "Test again",
+          "Make first version"
+        ],
+        [
+          "Make, Listen, Improve, Test"
+        ]
+      ],
+      [
+        "Mini business plan",
+        "collage",
+        "Complete three boxes: customer, product and price.",
+        [
+          "Customer",
+          "Product",
+          "Price"
+        ],
+        [
+          "All three connected logically"
+        ]
+      ],
+      [
+        "Team roles",
+        "match",
+        "Match each job to a useful strength.",
+        [
+          "organise steps",
+          "draw poster",
+          "check money"
+        ],
+        [
+          "planner",
+          "artist",
+          "checker"
+        ]
+      ],
+      [
+        "Repair a mistake",
+        "sequence",
+        "Number a constructive response after an error.",
+        [
+          "Apologise",
+          "Notice problem",
+          "Fix it",
+          "Learn"
+        ],
+        [
+          "Notice, Apologise, Fix, Learn"
+        ]
+      ],
+      [
+        "Feelings comic",
+        "match",
+        "Connect each feeling to a supportive response.",
+        [
+          "frustrated",
+          "excluded",
+          "confused"
+        ],
+        [
+          "offer a break",
+          "invite to join",
+          "explain clearly"
+        ]
+      ],
+      [
+        "Fair team budget",
+        "budget",
+        "A team has £12. Share it between materials and signs. Explain.",
+        [
+          "materials £___",
+          "signs £___"
+        ],
+        [
+          "Any justified split totaling £12"
+        ]
+      ],
+      [
+        "Listening choices",
+        "choice",
+        "A teammate disagrees. Choose the helpful reply.",
+        [
+          "Tell me your idea",
+          "You are wrong",
+          "Stop talking"
+        ],
+        [
+          "Tell me your idea"
+        ]
+      ],
+      [
+        "Choose as a team",
+        "collage",
+        "Compare two ideas. Draw a team decision board with reasons.",
+        [
+          "Idea A",
+          "Idea B",
+          "Our choice"
+        ],
+        [
+          "Give reasons and include others"
+        ]
+      ]
+    ],
+    "Strategist 12–14": [
+      [
+        "Cash or digital?",
+        "match",
+        "Match each transaction to its payment method and one risk.",
+        [
+          "cash at shop",
+          "debit online",
+          "phone wallet"
+        ],
+        [
+          "cash handling",
+          "seller security",
+          "device security"
+        ]
+      ],
+      [
+        "Subscription comparison",
+        "budget",
+        "Compare £6 monthly with £60 annually. What is the annual difference?",
+        [
+          "£6 × 12",
+          "£60 annually"
+        ],
+        [
+          "£12 saved annually"
+        ]
+      ],
+      [
+        "Opportunity cost",
+        "choice",
+        "You have £30. Choose a workshop or a game. Explain what you give up.",
+        [
+          "workshop £30",
+          "game £30"
+        ],
+        [
+          "The alternative not chosen is the opportunity cost"
+        ]
+      ],
+      [
+        "Monthly budget",
+        "budget",
+        "Allocate £100 among travel £25, saving £20, food £35 and optional spending.",
+        [
+          "travel £25",
+          "saving £20",
+          "food £35",
+          "optional £___"
+        ],
+        [
+          "£20 optional"
+        ]
+      ],
+      [
+        "Unit prices",
+        "budget",
+        "Compare 750 g for £3 and 1 kg for £3.60. Which costs less per kg?",
+        [
+          "750 g £3",
+          "1 kg £3.60"
+        ],
+        [
+          "1 kg pack at £3.60/kg vs £4/kg"
+        ]
+      ],
+      [
+        "Savings timeline",
+        "budget",
+        "Start with £20 and save £8 monthly. When do you reach £60?",
+        [
+          "start £20",
+          "monthly £8",
+          "target £60"
+        ],
+        [
+          "5 months"
+        ]
+      ],
+      [
+        "Spot persuasion",
+        "cut-sort",
+        "Sort marketing claims into evidence or pressure.",
+        [
+          "limited time",
+          "verified ingredients",
+          "only 2 left",
+          "unit price shown"
+        ],
+        [
+          "Pressure: limited time, only 2 left"
+        ]
+      ],
+      [
+        "Safer buying checklist",
+        "collage",
+        "Create a checklist for a fictional online purchase.",
+        [
+          "seller",
+          "price",
+          "returns",
+          "privacy",
+          "adult help"
+        ],
+        [
+          "Check each before paying"
+        ]
+      ],
+      [
+        "Ask customers",
+        "match",
+        "Match interview questions to what they reveal.",
+        [
+          "What is difficult?",
+          "What do you use now?",
+          "What would help?"
+        ],
+        [
+          "problem",
+          "current alternative",
+          "desired solution"
+        ]
+      ],
+      [
+        "Value proposition",
+        "collage",
+        "Complete: For whom, what problem, what solution?",
+        [
+          "customer",
+          "problem",
+          "solution"
+        ],
+        [
+          "Coherent and specific"
+        ]
+      ],
+      [
+        "Unit costs",
+        "budget",
+        "Materials £2.50, packaging £0.50. Sell for £5. What is unit profit?",
+        [
+          "materials £2.50",
+          "packaging £0.50",
+          "price £5"
+        ],
+        [
+          "£2 profit before other costs"
+        ]
+      ],
+      [
+        "Revenue versus profit",
+        "match",
+        "A stall sells 10 items for £6 each. Costs total £35. Find both.",
+        [
+          "revenue",
+          "costs",
+          "profit"
+        ],
+        [
+          "£60 revenue, £25 profit"
+        ]
+      ],
+      [
+        "Break-even challenge",
+        "budget",
+        "Fixed costs £20. Earn £4 contribution per sale. How many sales break even?",
+        [
+          "fixed £20",
+          "contribution £4"
+        ],
+        [
+          "5 sales"
+        ]
+      ],
+      [
+        "Respond to feedback",
+        "sequence",
+        "Order an evidence-led improvement cycle.",
+        [
+          "collect comments",
+          "make a change",
+          "test",
+          "measure results"
+        ],
+        [
+          "Collect, change, test, measure"
+        ]
+      ],
+      [
+        "Decision matrix",
+        "budget",
+        "Rate two plans from 1–5 for cost, fairness and feasibility.",
+        [
+          "Plan A",
+          "Plan B",
+          "cost",
+          "fairness",
+          "feasibility"
+        ],
+        [
+          "Reasoned scoring, no unique answer"
+        ]
+      ],
+      [
+        "Stakeholder collage",
+        "collage",
+        "Map needs of customers, team and community.",
+        [
+          "customers",
+          "team",
+          "community"
+        ],
+        [
+          "Different needs represented"
+        ]
+      ],
+      [
+        "Constructive feedback",
+        "choice",
+        "Choose feedback that is specific and respectful.",
+        [
+          "The labels are hard to read; can we enlarge them?",
+          "Your work is bad"
+        ],
+        [
+          "Specific respectful feedback"
+        ]
+      ],
+      [
+        "Delegate tasks",
+        "match",
+        "Match tasks to skills and check workload balance.",
+        [
+          "design",
+          "budget",
+          "presentation"
+        ],
+        [
+          "visual",
+          "numerical",
+          "communication"
+        ]
+      ],
+      [
+        "Resolve disagreement",
+        "sequence",
+        "Sequence a fair resolution process.",
+        [
+          "hear both sides",
+          "name the problem",
+          "suggest options",
+          "agree and review"
+        ],
+        [
+          "Hear, name, suggest, agree"
+        ]
+      ],
+      [
+        "Inclusive team review",
+        "collage",
+        "Write or draw what worked, who was included and what to improve.",
+        [
+          "worked",
+          "included",
+          "next time"
+        ],
+        [
+          "Concrete reflection"
+        ]
+      ]
+    ]
+  }
+}
