@@ -1,0 +1,614 @@
+{
+  "brain-lab": {
+    "title": "Laboratorio del Cervello",
+    "description": "Esplora memoria, attenzione, percezione, pensiero, apprendimento e decisioni. Allena strategie utili al tuo ritmo.",
+    "tasks": [
+      {
+        "title": "Ricorda una lista breve",
+        "idea": "Raggruppare le cose può aiutarti a ricordare una lista.",
+        "situation": "Devi comprare mele, pere, calzini e un cappello. Quale piano potrebbe aiutarti a ricordarli?",
+        "choices": ["Leggere una volta e sperare", "Raggruppare frutta e vestiti", "Aggiungere altri oggetti"],
+        "correct": 1,
+        "explanation": "Due gruppi con un significato possono rendere questa lista più facile da organizzare. Anche una lista scritta è uno strumento utile.",
+        "tryIt": [
+          "Indica due cose che vanno insieme.",
+          "Crea due gruppi per una lista di sei oggetti. Copri la lista e ricorda quello che puoi.",
+          "Confronta il raggruppamento con una lista scritta. Quale ti ha aiutato in questo compito, e perché?"
+        ],
+        "readings": [
+          {
+            "idea": "Metti insieme le cose che si somigliano, in un gruppo.",
+            "situation": "Devi ricordare una mela, una pera, un calzino e un cappello. Cosa potrebbe aiutarti?",
+            "choices": ["Guardare altrove e indovinare", "Fare un gruppo di frutta e un gruppo di vestiti", "Aggiungere tante altre cose"],
+            "explanation": "La mela e la pera sono frutta. Il calzino e il cappello sono vestiti. Due gruppi possono aiutarti a ricordare. Anche una lista con i disegni può aiutare."
+          },
+          {
+            "idea": "Una strategia di memoria deve adattarsi al compito, e la sua utilità si può verificare.",
+            "situation": "Domani devi ricordare una lista di oggetti diversi tra loro. Quale piano ti permette di verificare se raggruppare ti aiuta davvero?",
+            "choices": ["Supporre che una sensazione di sicurezza dimostri un ricordo corretto", "Confrontare quanto ricordi dopo aver raggruppato con quanto ricordi dopo aver riletto la lista", "Allungare la lista senza verificare nulla"],
+            "explanation": "Confronta ciò che ricordi davvero, non solo quanto ti sembra facile la strategia. Un promemoria scritto può essere lo strumento migliore quando serve un ricordo preciso. Una sola prova non dimostra un risultato valido in generale."
+          }
+        ]
+      },
+      {
+        "title": "Una cosa alla volta",
+        "idea": "Puoi cambiare l'ambiente intorno a te per aiutare la tua attenzione.",
+        "situation": "Un video continua a distrarti mentre leggi le istruzioni. Cosa potresti provare?",
+        "choices": ["Metti in pausa il video", "Alza il volume del video", "Apri un altro video"],
+        "correct": 0,
+        "explanation": "Ridurre le informazioni che competono tra loro può aiutarti a concentrarti. Puoi anche fare una pausa.",
+        "tryIt": [
+          "Scegli un posto più tranquillo o metti in pausa un suono.",
+          "Leggi un'istruzione dopo aver rimosso le distrazioni. Osserva cosa ti aiuta.",
+          "Progetta uno spazio per studiare. Spiega quali distrazioni ridurresti e quale supporto manterresti."
+        ],
+        "readings": [
+          {
+            "idea": "Troppi suoni insieme possono rendere difficile un compito.",
+            "situation": "Un video è acceso mentre provi a leggere un passaggio. Cosa potrebbe aiutarti?",
+            "choices": ["Metterlo in pausa", "Alzare il volume", "Accenderne un altro"],
+            "explanation": "Prova a leggere un passaggio con il video in pausa. Puoi chiedere aiuto o fare una pausa. Persone diverse hanno bisogno di aiuti diversi."
+          },
+          {
+            "idea": "Sostenere l'attenzione significa ridurre le richieste in competizione, mantenendo però i supporti utili.",
+            "situation": "I messaggi ti interrompono mentre studi, ma una lista visiva di controllo ti aiuta. Quale cambiamento vale la pena testare?",
+            "choices": ["Silenziare le notifiche dei messaggi e mantenere la lista di controllo", "Eliminare ogni supporto, compresa la lista di controllo", "Aggiungere più app per esercitarti a ignorarle"],
+            "explanation": "Cambia la distrazione che hai individuato e mantieni un supporto che aiuta il compito. Confronta cosa riesci a completare e a capire. Una strategia utile oggi potrebbe aver bisogno di essere adattata domani."
+          }
+        ]
+      },
+      {
+        "title": "Guarda di nuovo",
+        "idea": "Una prima impressione può far perdere dei dettagli.",
+        "situation": "Due confezioni sembrano della stessa grandezza. Come puoi controllare quale ne contiene di più?",
+        "choices": ["Scegliere la confezione più colorata", "Indovinare dall'immagine", "Confrontare le etichette del peso"],
+        "correct": 2,
+        "explanation": "Una confezione può sembrare più grande ma contenere di meno. Confronta le stesse unità di misura sulle etichette.",
+        "tryIt": [
+          "Indica il numero più grande su due etichette finte.",
+          "Confronta due confezioni etichettate 100 g e 150 g.",
+          "Confronta 200 g a £2 con 300 g a £2.40. Calcola il prezzo per 100 g."
+        ],
+        "readings": [
+          {
+            "idea": "Una confezione che sembra grande potrebbe non contenere di più.",
+            "situation": "Una confezione finta dice 2 oggetti e un'altra dice 3 oggetti. Come puoi controllare quale ne ha di più?",
+            "choices": ["Scegliere il colore più vivace", "Indovinare dall'immagine", "Confrontare 2 e 3"],
+            "explanation": "Tre è più di due. Guardare un'etichetta chiara può aiutarti a controllare la tua prima idea."
+          },
+          {
+            "idea": "L'aspetto di una confezione e il rapporto qualità-prezzo sono due domande diverse.",
+            "situation": "Una confezione è 200 g a £2. Un'altra è 300 g a £2.40. Cosa aiuta a confrontare il valore?",
+            "choices": ["Scegliere qualunque scatola sembri più alta", "Supporre che il prezzo totale più alto sia sempre lo svantaggio peggiore", "Calcolare e confrontare il prezzo per ogni 100 g"],
+            "explanation": "La prima costa £1 ogni 100 g. La seconda costa 80p ogni 100 g. Il prezzo per unità aiuta a confrontare il valore, ma comprare di più conviene solo se ti serve davvero e puoi permetterti il totale."
+          }
+        ]
+      },
+      {
+        "title": "Trova un'altra spiegazione",
+        "idea": "Un solo indizio può avere più di una spiegazione.",
+        "situation": "Un amico non ti saluta con la mano. Qual è un pensiero utile da fare dopo?",
+        "choices": ["Deve essere per forza che non gli piaccio", "Forse non mi ha visto", "So esattamente cosa pensa"],
+        "correct": 1,
+        "explanation": "Non puoi conoscere i pensieri di un'altra persona da una sola azione. Più tardi puoi controllare con gentilezza.",
+        "tryIt": [
+          "Scegli una possibile ragione, oppure indica un'immagine.",
+          "Indica due possibili ragioni per lo stesso fatto.",
+          "Separa quello che hai osservato da quello che hai dedotto. Quali prove ti aiuterebbero?"
+        ],
+        "readings": [
+          {
+            "idea": "Non possiamo leggere nella mente di un'altra persona.",
+            "situation": "Un amico non ti saluta con la mano. Cosa potrebbe essere vero?",
+            "choices": ["Deve essere per forza che non gli piaci", "Forse non ti ha visto", "Conosci tutti i suoi pensieri"],
+            "explanation": "Forse il tuo amico non ti ha visto. Ci possono essere anche altre ragioni. Più tardi puoi controllare con gentilezza."
+          },
+          {
+            "idea": "Un'osservazione può avere più spiegazioni possibili.",
+            "situation": "Hai visto un amico passare senza salutarti con la mano. Quale conclusione mantiene l'incertezza chiara?",
+            "choices": ["La sua intenzione è ormai dimostrata", "Forse non ti ha notato; servirebbero altre informazioni", "Un'azione rivela tutta la sua opinione su di te"],
+            "explanation": "Non salutare è l'osservazione. Pensare che non gli piaci è un'interpretazione. Considera altre possibilità prima di controllare con rispetto. Non devi decidere subito."
+          }
+        ]
+      },
+      {
+        "title": "Controlla cosa ricordi",
+        "idea": "Provare a ricordare può mostrarti cosa ha bisogno di più esercizio.",
+        "situation": "Hai letto una breve lezione. Cosa potrebbe aiutarti a controllare quello che hai imparato?",
+        "choices": ["Rispondere a una domanda, poi controllare", "Contare solo le pagine", "Saltare ogni correzione"],
+        "correct": 0,
+        "explanation": "Ricordare un'idea e controllare la correzione ti aiuta a notare le lacune. Puoi rivedere la spiegazione.",
+        "tryIt": [
+          "Indica una cosa che ricordi.",
+          "Chiudi la lezione e spiega un'idea. Poi controlla.",
+          "Rivedi l'idea un altro giorno e usala in un nuovo esempio. Osserva cosa devi ancora esercitare."
+        ],
+        "readings": [
+          {
+            "idea": "Prova a ricordare un'idea, poi controllala.",
+            "situation": "Hai letto una breve storia. Come puoi vedere cosa ricordi?",
+            "choices": ["Scegliere una risposta e controllarla", "Contare solo le pagine", "Non guardare mai indietro"],
+            "explanation": "Una domanda può mostrarti cosa ricordi. Se manca un'idea, guarda indietro o chiedi aiuto. Un errore è un'informazione utile."
+          },
+          {
+            "idea": "Il recupero attivo e la correzione possono rivelare una lacuna che la sola rilettura potrebbe nascondere.",
+            "situation": "Dopo aver studiato un'idea, quale controllo ti dà la prova che sai davvero usarla?",
+            "choices": ["Spiegarla senza guardare, poi controllare con la fonte", "Valutare l'apprendimento solo dal tempo passato a leggere", "Evitare ogni domanda che potrebbe rivelare un errore"],
+            "explanation": "Prova a ricordare e ad applicare l'idea, controlla la correzione e rivedi le lacune. Ripeti più avanti se è utile. Rispondere bene a una domanda familiare non dimostra di capire in ogni situazione."
+          }
+        ]
+      },
+      {
+        "title": "Fermati prima di scegliere",
+        "idea": "Una breve pausa ti dà il tempo di confrontare le opzioni.",
+        "situation": "Una pubblicità dice che un'offerta su un giocattolo finisce presto. Cosa puoi fare?",
+        "choices": ["Comprare senza pensare", "Lasciare che la pubblicità decida", "Controllare il tuo budget e il tuo obiettivo"],
+        "correct": 2,
+        "explanation": "L'urgenza può influenzare una scelta. Controllare il costo e le tue priorità ti aiuta a decidere.",
+        "tryIt": [
+          "Indica aspettare o comprare. Prendi il tuo tempo per scegliere.",
+          "Confronta il giocattolo con il tuo obiettivo di risparmio.",
+          "Elenca il costo-opportunità e le prove a favore dell'offerta. Decidi se aspettare ti aiuterebbe."
+        ],
+        "readings": [
+          {
+            "idea": "Puoi fermarti e pensare prima di comprare.",
+            "situation": "Un cartello su un giocattolo dice 'Affrettati!'. Cosa potresti fare?",
+            "choices": ["Comprare senza controllare", "Lasciare che il cartello decida", "Controllare i tuoi soldi e cosa vuoi davvero"],
+            "explanation": "Un cartello non può scegliere per te. Puoi controllare il costo, chiedere a un adulto e decidere di aspettare."
+          },
+          {
+            "idea": "L'urgenza può far sembrare un'opzione più importante di quanto le prove sostengano davvero.",
+            "situation": "Una pubblicità mostra un conto alla rovescia su uno sconto per un prodotto che non avevi pensato di comprare. Quale risposta protegge la tua scelta?",
+            "choices": ["Trattare il conto alla rovescia come una prova di valore", "Comprare per non doversi confrontare con altre opzioni", "Controllare il costo totale, le priorità e a cosa rinunceresti"],
+            "explanation": "Il costo-opportunità è l'altro uso possibile dello stesso denaro. Controlla l'offerta reale e le tue priorità. Aspettare può essere sensato anche se lo sconto è vero."
+          }
+        ]
+      }
+    ]
+  },
+  "mind-lab": {
+    "title": "Laboratorio della Mente",
+    "description": "Allena a notare le emozioni, chiedere aiuto, adattare i piani e lavorare con gli altri. Puoi saltare qualsiasi attività.",
+    "tasks": [
+      {
+        "title": "Nota un'emozione",
+        "idea": "Persone diverse possono sentire cose diverse nella stessa situazione.",
+        "situation": "Un gioco ti fa sentire frustrato. Cosa potresti fare per prima cosa?",
+        "choices": ["Notare l'emozione e fermarti", "Continuare finché fa male", "Nascondere ogni emozione"],
+        "correct": 0,
+        "explanation": "Notare un'emozione può aiutarti a scegliere cosa fare dopo. Non esiste un'emozione sbagliata.",
+        "tryIt": [
+          "Indica una parola che descrive un'emozione, disegnala, oppure salta.",
+          "Nomina un segnale del corpo che noti quando sei frustrato. Puoi tenerlo privato.",
+          "Confronta un'emozione, un pensiero e un'azione. Pianifica una risposta che protegga il tuo benessere."
+        ],
+        "readings": [
+          {
+            "idea": "Puoi notare un'emozione e chiedere una pausa.",
+            "situation": "Un gioco ti fa sentire arrabbiato. Cosa puoi fare per prima cosa?",
+            "choices": ["Notare come ti senti e fermarti", "Giocare anche quando vuoi smettere", "Fare finta che le emozioni siano proibite"],
+            "explanation": "Puoi indicare un'emozione, mostrare un'immagine o chiedere aiuto. Non devi dire la tua emozione a voce alta."
+          },
+          {
+            "idea": "Emozioni, interpretazioni e azioni sono collegate, ma non sono la stessa cosa.",
+            "situation": "Una delusione ti fa sentire in imbarazzo e pensare 'Fallisco sempre'. Qual è una prima risposta utile?",
+            "choices": ["Notare l'emozione, fermarti ed esaminare quella conclusione", "Trattare l'emozione come prova che la conclusione è vera", "Costringerti a continuare comunque, nonostante il disagio"],
+            "explanation": "Un'emozione spiacevole è reale, ma non dimostra un giudizio così generale. Puoi scegliere la privacy, una pausa o un supporto di fiducia mentre decidi cosa fare dopo."
+          }
+        ]
+      },
+      {
+        "title": "Sai cosa ti aiuta",
+        "idea": "Persone diverse trovano utili aiuti diversi.",
+        "situation": "Le istruzioni sono difficili da seguire. Cosa potresti chiedere?",
+        "choices": ["Più compiti insieme", "Un'immagine o un passo alla volta", "Niente aiuto, mai"],
+        "correct": 1,
+        "explanation": "Scegliere un aiuto è un'abilità. Immagini, dimostrazioni e passi brevi possono aiutare.",
+        "tryIt": [
+          "Scegli un'immagine, un'istruzione parlata o una dimostrazione.",
+          "Prova due modi di ricevere un'istruzione. Quale ti aiuta oggi?",
+          "Spiega come l'aiuto che scegli potrebbe cambiare in base al compito o al luogo."
+        ],
+        "readings": [
+          {
+            "idea": "Puoi scegliere un modo di imparare che ti aiuta.",
+            "situation": "Un'istruzione lunga è difficile. Cosa potresti chiedere?",
+            "choices": ["Più passi insieme", "Un'immagine o un piccolo passo", "Nessun aiuto per niente"],
+            "explanation": "Immagini, una dimostrazione o un passo alla volta possono aiutare. Chiedere aiuto è permesso."
+          },
+          {
+            "idea": "L'aiuto utile dipende dalla persona, dal compito e dal luogo.",
+            "situation": "Le istruzioni scritte ti aiutano in un'attività ma non in un compito pratico e rumoroso. Cosa potresti chiedere?",
+            "choices": ["Lo stesso formato indipendentemente dal problema", "Una dimostrazione o passi più brevi, poi verificare cosa funziona", "Eliminare ogni aiuto per dimostrare indipendenza"],
+            "explanation": "L'indipendenza può comprendere la scelta di un aiuto efficace. Prova un adattamento utile e spiega cosa è cambiato, senza dover rivelare una diagnosi o informazioni private."
+          }
+        ]
+      },
+      {
+        "title": "Prova una strategia diversa",
+        "idea": "Imparare può voler dire cambiare metodo, riposare o chiedere aiuto.",
+        "situation": "Il tuo ponte di mattoncini cade due volte. Cosa potrebbe aiutare?",
+        "choices": ["Usare sempre lo stesso piano", "Dare la colpa a te stesso", "Provare una base più larga o chiedere aiuto"],
+        "correct": 2,
+        "explanation": "Una strategia cambiata o un consiglio utile possono aiutare. Anche fare una pausa è una scelta valida.",
+        "tryIt": [
+          "Scegli riprovare, chiedere aiuto o fare una pausa.",
+          "Cambia una parte di un ponte di mattoncini e osserva cosa succede.",
+          "Annota un cambiamento, il suo risultato e cosa proveresti dopo."
+        ],
+        "readings": [
+          {
+            "idea": "Un nuovo tentativo può usare un piano diverso.",
+            "situation": "Il tuo ponte di mattoncini cade. Cosa potrebbe aiutare?",
+            "choices": ["Tenere ogni mattoncino sempre uguale", "Dire che sei negato per tutto", "Provare una base più larga o chiedere aiuto"],
+            "explanation": "Puoi cambiare una parte, chiedere aiuto o fare una pausa. Non devi continuare a provare quando hai bisogno di fermarti."
+          },
+          {
+            "idea": "La perseveranza è utile quando comprende informazioni, limiti personali e un cambio di strategia.",
+            "situation": "Un progetto fallisce due volte lo stesso test. Quale passo successivo usa davvero le prove raccolte?",
+            "choices": ["Ripetere lo stesso piano all'infinito senza cambiarlo", "Dare la colpa alla propria capacità senza esaminare il progetto", "Rivedere l'errore, cambiare una parte, oppure chiedere consiglio"],
+            "explanation": "Definisci cosa non ha funzionato, scegli un cambiamento verificabile e confronta i risultati. Riposare, chiedere supporto o decidere di fermarti possono essere scelte altrettanto ragionevoli. La resilienza non significa tollerare un danno."
+          }
+        ]
+      },
+      {
+        "title": "Fai un piano di riserva",
+        "idea": "Puoi modificare un piano quando qualcosa cambia.",
+        "situation": "La pioggia annulla la tua attività all'aperto. Cosa potresti fare?",
+        "choices": ["Scegliere un'alternativa al chiuso", "Pensare che tutta la giornata sia rovinata", "Ignorare il tempo"],
+        "correct": 0,
+        "explanation": "Un piano di riserva può mantenere parte del tuo obiettivo. Puoi sentirti deluso e scegliere comunque un'altra attività.",
+        "tryIt": [
+          "Scegli tra due attività al chiuso.",
+          "Fai un piano all'aperto e un'alternativa al chiuso.",
+          "Mantieni lo stesso obiettivo cambiando il metodo. Spiega i compromessi."
+        ],
+        "readings": [
+          {
+            "idea": "Un piano può cambiare.",
+            "situation": "La pioggia rovina il tuo picnic. Cosa potresti fare?",
+            "choices": ["Scegliere un picnic al sicuro, al chiuso", "Dire che niente di buono può succedere ora", "Uscire senza controllare se è sicuro"],
+            "explanation": "Puoi sentirti triste per la pioggia e provare comunque un'altra attività. Un adulto può aiutarti a scegliere."
+          },
+          {
+            "idea": "Un piano alternativo può mantenere un obiettivo cambiando il metodo.",
+            "situation": "Il maltempo annulla un evento all'aperto per la comunità. Quale risposta affronta davvero il problema?",
+            "choices": ["Confrontare opzioni sicure al chiuso con l'obiettivo principale dell'evento", "Supporre che cambiare metodo renda l'obiettivo inutile", "Ignorare il tempo e procedere senza controllare"],
+            "explanation": "Individua l'obiettivo, il problema di sicurezza e le risorse disponibili prima di confrontare le alternative. Un evento al chiuso può mantenere alcuni obiettivi cambiando spazio o capienza. Riconosci apertamente i compromessi."
+          }
+        ]
+      },
+      {
+        "title": "Inizia con un passo",
+        "idea": "Un passo più piccolo può rendere un problema più facile da affrontare.",
+        "situation": "La tua scrivania è troppo in disordine per usarla. Da dove potresti iniziare?",
+        "choices": ["Spostare tutto per terra", "Mettere le matite in un portapenne", "Comprare subito una scrivania nuova"],
+        "correct": 1,
+        "explanation": "Un primo passo chiaro è più facile da fare. Dopo quello, puoi scegliere il passo successivo.",
+        "tryIt": [
+          "Indica una cosa da riporre.",
+          "Scegli e completa tre piccoli passi.",
+          "Definisci il problema, confronta due soluzioni e prova quella che costa meno."
+        ],
+        "readings": [
+          {
+            "idea": "Inizia con un piccolo lavoretto.",
+            "situation": "Non c'è spazio per disegnare sulla tua scrivania. Da dove potresti iniziare?",
+            "choices": ["Spingere tutto per terra", "Mettere le matite in un portapenne", "Chiedere di comprare subito una scrivania nuova"],
+            "explanation": "Riporre le matite crea un piccolo spazio libero. Poi puoi scegliere il passo successivo o chiedere aiuto."
+          },
+          {
+            "idea": "Definisci un problema prima di scegliere una soluzione costosa.",
+            "situation": "Uno spazio di lavoro in disordine rallenta un compito condiviso. Qual è un primo test sensato?",
+            "choices": ["Spostare il disordine nello spazio di qualcun altro", "Organizzare una categoria e verificare se l'accesso migliora", "Sostituire tutti i mobili senza prima indagare"],
+            "explanation": "Un test a basso costo e reversibile ti dà informazioni utili. Osserva se il cambiamento aiuta chi usa lo spazio, poi decidi se serve davvero un cambiamento più grande."
+          }
+        ]
+      },
+      {
+        "title": "Ascolta e verifica",
+        "idea": "Le persone possono volere cose diverse. Chiedi, invece di indovinare.",
+        "situation": "Due amici vogliono giochi diversi. Cosa potrebbe aiutare?",
+        "choices": ["Lasciare che decida chi parla più forte", "Smettere di ascoltare", "Chiedere a ciascuno e trovare un piano giusto"],
+        "correct": 2,
+        "explanation": "Ascoltare e fare i turni può aiutare le persone a trovare un piano. Tutti possono dire di no.",
+        "tryIt": [
+          "Indica la tua scelta, oppure usa il tuo strumento di comunicazione.",
+          "Esercitati a chiedere a un amico cosa preferirebbe.",
+          "Confronta fare i turni, unire le idee e scegliere un'altra attività. Spiega quale si adatta meglio."
+        ],
+        "readings": [
+          {
+            "idea": "Le persone possono scegliere cose diverse.",
+            "situation": "Tu e un amico volete giochi diversi. Cosa potrebbe aiutare?",
+            "choices": ["Decide solo chi parla più forte", "Smettere di ascoltare il tuo amico", "Chiedervi a vicenda e fare un piano giusto"],
+            "explanation": "Puoi indicare, usare immagini o parlare. Fare i turni è una possibilità, e ognuno può dire di no."
+          },
+          {
+            "idea": "Una decisione di gruppo giusta comprende contributi accessibili e il rispetto dei limiti personali.",
+            "situation": "Due amici preferiscono attività diverse e uno non vuole parlare. Quale approccio include davvero tutti?",
+            "choices": ["Lasciare che decida chi parla con più sicurezza", "Trattare il silenzio come un accordo", "Offrire un altro modo di rispondere e confrontare opzioni giuste"],
+            "explanation": "Verifica le preferenze senza forzare nessuno a parlare. Fare i turni, unire le idee o scegliere un'altra attività possono adattarsi a situazioni diverse. Un accordo non ha valore se qualcuno non può rispondere o rifiutare."
+          }
+        ]
+      },
+      {
+        "title": "Chiedi prima di condividere",
+        "idea": "Puoi stabilire un limite e rispettare quello di un'altra persona.",
+        "situation": "Un amico chiede di pubblicare la tua foto. Non lo vuoi. Cosa puoi dire?",
+        "choices": ["No, per favore non condividerla", "Accettare perché devi per forza", "Condividere la sua foto, invece"],
+        "correct": 0,
+        "explanation": "Puoi rifiutare. Gli amici dovrebbero rispettare la tua scelta. Chiedi aiuto a un adulto di fiducia, se serve.",
+        "tryIt": [
+          "Indica sì, no oppure aiuto.",
+          "Esercitati con una breve frase per stabilire un limite.",
+          "Pianifica cosa fare se qualcuno ignora il tuo limite. Includi un adulto di fiducia."
+        ],
+        "readings": [
+          {
+            "idea": "Puoi dire di no a condividere la tua foto.",
+            "situation": "Un amico vuole condividere la tua foto. Non lo vuoi. Cosa puoi dire?",
+            "choices": ["No, per favore non condividerla", "Devo dire sì per forza", "Condividerò io la sua foto, invece"],
+            "explanation": "La tua scelta conta. Puoi indicare no oppure chiedere a un adulto di fiducia di aiutarti."
+          },
+          {
+            "idea": "Il consenso a condividere qualcosa deve essere libero e specifico per quella situazione.",
+            "situation": "Un amico vuole pubblicare una foto che non vuoi condividere. Quale risposta esprime chiaramente il tuo limite?",
+            "choices": ["Non do il mio consenso a pubblicare questa foto; per favore tienila privata", "Devo per forza essere d'accordo per restare amici", "Mi vendicherò pubblicando una sua foto"],
+            "explanation": "Puoi rifiutare senza dover dimostrare che l'immagine è dannosa. Se il limite viene ignorato, chiedi che venga rimossa e cerca il supporto di un adulto di fiducia. Non vendicarti esponendo le informazioni di qualcun altro."
+          }
+        ]
+      },
+      {
+        "title": "Scegli una pausa",
+        "idea": "Una pausa può aiutarti quando un'attività diventa troppo.",
+        "situation": "Una stanza affollata ti sembra travolgente. Qual è una scelta ragionevole?",
+        "choices": ["Restare perché le pause sono vietate", "Chiedere uno spazio più tranquillo", "Aggiungere ancora più rumore"],
+        "correct": 1,
+        "explanation": "Puoi chiedere una pausa o un supporto. Le strategie per calmarsi funzionano in modo diverso per persone diverse.",
+        "tryIt": [
+          "Scegli silenzio, movimento, aiuto oppure salta.",
+          "Fai una lista privata di due supporti che puoi chiedere.",
+          "Pianifica come comunicare una richiesta di pausa e come tornare quando ti senti pronto."
+        ],
+        "readings": [
+          {
+            "idea": "Puoi chiedere una pausa.",
+            "situation": "Una stanza è troppo rumorosa per te. Cosa potresti provare?",
+            "choices": ["Restare perché le pause non sono permesse", "Chiedere un posto più tranquillo", "Fare ancora più rumore"],
+            "explanation": "Un posto tranquillo, il movimento o l'aiuto possono andare bene per te. Scegli insieme a un adulto di fiducia. Puoi saltare questa attività."
+          },
+          {
+            "idea": "Un piano per le pause dovrebbe sostenere la comunicazione, la sicurezza e la scelta personale.",
+            "situation": "Un ambiente affollato comincia a diventare travolgente. Quale piano rispetta davvero i tuoi bisogni?",
+            "choices": ["Restare finché non riesci più a sopportarlo", "Usare un segnale concordato per la pausa e raggiungere uno spazio adatto", "Supporre che la stessa attività calmante debba funzionare per tutti"],
+            "explanation": "Pianifica un modo per chiedere supporto senza doverlo spiegare a voce. Bisogni sensoriali diversi richiedono adattamenti diversi. Il momento di tornare dovrebbe dipendere da quando sei pronto e dalla situazione, non dall'obbligo di nascondere il disagio."
+          }
+        ]
+      }
+    ]
+  },
+  "future-skills": {
+    "title": "Abilità per il Futuro",
+    "description": "Fai scelte attente con informazioni, idee, tecnologia e compiti di ogni giorno. La tecnologia è uno strumento. Sei sempre tu al comando.",
+    "tasks": [
+      {
+        "title": "Verifica un'affermazione",
+        "idea": "Un'affermazione detta con sicurezza ha comunque bisogno di prove.",
+        "situation": "Un video dice che una bevanda rende tutti più intelligenti. Cosa dovresti controllare?",
+        "choices": ["Quanto è eccitante la musica", "Se chi parla sorride", "Chi ha fatto l'affermazione e quali prove la sostengono"],
+        "correct": 2,
+        "explanation": "La popolarità e la sicurezza non dimostrano un'affermazione. Cerca prove affidabili e chiedi a un adulto di fiducia.",
+        "tryIt": [
+          "Scegli controllare oppure credere subito.",
+          "Trova l'autore e la data di un'affermazione finta.",
+          "Confronta una pubblicità con prove indipendenti. Individua cosa resta incerto."
+        ],
+        "readings": [
+          {
+            "idea": "Un video può dire qualcosa che non è vero.",
+            "situation": "Un video dice che una bevanda rende ogni bambino più intelligente. Cosa dovresti controllare?",
+            "choices": ["Solo la musica", "Se la persona sorride", "Chi lo dice e cosa dimostra che è vero"],
+            "explanation": "Una voce allegra non è una prova. Un adulto di fiducia può aiutarti a controllare l'affermazione."
+          },
+          {
+            "idea": "Un'affermazione ha bisogno di prove che sostengano davvero la sua conclusione.",
+            "situation": "Un creatore di contenuti vende una bevanda affermando che migliora i risultati di ogni studente. Quale controllo è più solido?",
+            "choices": ["Contare i like come prova scientifica", "Fidarsi della sicurezza con cui parla il creatore", "Controllare prove indipendenti, i loro limiti e l'interesse di chi vende"],
+            "explanation": "Cerca chi ne trae vantaggio, la qualità delle prove e se sostengono esattamente quell'affermazione. Una testimonianza o la popolarità non dimostrano un effetto valido per tutti."
+          }
+        ]
+      },
+      {
+        "title": "Trova più di un'idea",
+        "idea": "Le idee possono migliorare quando provi diverse possibilità.",
+        "situation": "Vuoi riutilizzare una scatola di cartone. Qual è un primo passo utile?",
+        "choices": ["Pensare a diversi usi", "Supporre che ci sia un solo uso possibile", "Copiare senza pensare"],
+        "correct": 0,
+        "explanation": "Generare alternative ti dà delle scelte. Poi puoi provare quale si adatta meglio al tuo obiettivo.",
+        "tryIt": [
+          "Disegna o indica un uso per una scatola.",
+          "Crea tre idee e scegline una da provare.",
+          "Scegli dei limiti, come il costo e i materiali. Confronta le idee con quei limiti, poi migliorane una."
+        ],
+        "readings": [
+          {
+            "idea": "Un oggetto può avere usi diversi.",
+            "situation": "Hai una scatola di cartone vuota. Cosa puoi fare per prima cosa?",
+            "choices": ["Pensare a qualche modo di usarla", "Dire che ha solo un uso possibile", "Copiare senza scegliere"],
+            "explanation": "Disegna, indica o costruisci un'idea. Puoi provarne un'altra se la prima non va bene."
+          },
+          {
+            "idea": "Generare alternative e valutare i limiti sono due parti diverse del lavoro creativo.",
+            "situation": "Un gruppo deve riutilizzare una scatola senza materiali nuovi. Quale primo passo apre davvero nuove possibilità?",
+            "choices": ["Generare diverse idee, poi confrontarle con il limite dato", "Scartare ogni idea prima ancora di esplorarla", "Copiare il primo progetto senza controllare se funziona"],
+            "explanation": "Separa il momento in cui generi idee da quello in cui le giudichi. Prova un'opzione promettente rispetto allo scopo, ai materiali e all'accesso disponibile, poi usa il feedback per migliorarla."
+          }
+        ]
+      },
+      {
+        "title": "Prova una piccola idea",
+        "idea": "Un'attività deve risolvere un problema e capire bene i costi.",
+        "situation": "Vuoi vendere segnalibri. Cosa potresti fare prima di farne 100?",
+        "choices": ["Comprare subito tutti i materiali", "Fare un campione e chiedere un parere", "Supporre che tutti li compreranno"],
+        "correct": 1,
+        "explanation": "Una piccola prova ti aiuta a imparare prima di spendere di più. Chiedi a un adulto prima di vendere o condividere informazioni.",
+        "tryIt": [
+          "Scegli un progetto per un campione.",
+          "Elenca i materiali e il costo di un segnalibro.",
+          "Stima costo, prezzo e guadagno per un piccolo lotto. Spiega come il parere di qualcuno potrebbe cambiare il piano."
+        ],
+        "readings": [
+          {
+            "idea": "Prova una piccola idea prima di farne tante.",
+            "situation": "Vuoi fare segnalibri per un negozio immaginario. Cosa potresti fare per prima cosa?",
+            "choices": ["Comprare un mucchio enorme di materiali", "Fare un campione e chiedere cosa ne pensano", "Supporre che tutti ne vogliano uno"],
+            "explanation": "Un campione ti permette di imparare prima di usare altri materiali. Chiedi a un adulto prima di vendere davvero qualcosa."
+          },
+          {
+            "idea": "Un piccolo test può verificare un'ipotesi di business limitando le risorse a rischio.",
+            "situation": "Stai pensando a 100 segnalibri per un progetto seguito da un adulto. Quale primo passo dà prove utili?",
+            "choices": ["Spendere tutto il budget prima di verificare la domanda", "Testare un campione, stimare i costi e cercare un parere pertinente", "Trattare chi dice di essere interessato come una vendita garantita"],
+            "explanation": "Definisci cosa vuoi scoprire e il costo massimo della prova. Il parere ricevuto può cambiare il progetto o la decisione di continuare. Il ricavato delle vendite non è profitto finché non si sottraggono i costi pertinenti."
+          }
+        ]
+      },
+      {
+        "title": "Fai spazio agli altri",
+        "idea": "Chi guida un gruppo può ascoltare e condividere le responsabilità.",
+        "situation": "Il tuo gruppo deve fare un poster. Come potreste iniziare?",
+        "choices": ["Fare ogni parte da solo", "Dare ordini senza chiedere nulla", "Chiedere idee e accordarvi sui ruoli"],
+        "correct": 2,
+        "explanation": "Ruoli chiari e condivisi, insieme all'ascolto, aiutano un gruppo a usare i punti di forza di ciascuno.",
+        "tryIt": [
+          "Scegli un compito che vorresti provare.",
+          "Accordati su due ruoli con un compagno.",
+          "Pianifica i ruoli, un momento di verifica e un modo giusto per risolvere un disaccordo."
+        ],
+        "readings": [
+          {
+            "idea": "Chi guida può aiutare gli altri a partecipare.",
+            "situation": "Il tuo gruppo vuole fare un poster. Come potete iniziare?",
+            "choices": ["Fare tutto senza chiedere nulla", "Dare ordini subito", "Chiedere idee e scegliere insieme i compiti"],
+            "explanation": "Le persone possono indicare, disegnare o parlare. Condividete i compiti utili e fate spazio a idee diverse."
+          },
+          {
+            "idea": "La leadership comprende la partecipazione accessibile, ruoli chiari e responsabilità condivisa.",
+            "situation": "Un gruppo ha una scadenza e punti di forza diversi. Qual è una prima decisione utile?",
+            "choices": ["Concentrare ogni compito su una sola persona", "Assegnare i ruoli senza verificare chi può farcela", "Accordarsi sull'obiettivo, invitare contributi e assegnare ruoli realistici"],
+            "explanation": "Verifica che tutti capiscano l'obiettivo e possano contribuire in un modo adatto a loro. Accordatevi su un momento di verifica e un modo giusto per risolvere un disaccordo. Condividete il merito e le responsabilità."
+          }
+        ]
+      },
+      {
+        "title": "Verifica una risposta dell'IA",
+        "idea": "L'IA può dare suggerimenti utili, ma anche informazioni sbagliate.",
+        "situation": "Uno strumento di IA dà un fatto sorprendente senza indicare una fonte. Cosa dovresti fare?",
+        "choices": ["Controllarlo con una fonte affidabile", "Crederci perché suona sicuro", "Condividerlo subito"],
+        "correct": 0,
+        "explanation": "Una risposta dell'IA non è una prova. Controlla le informazioni importanti. Un adulto di fiducia può aiutarti a usare strumenti adatti alla tua età.",
+        "tryIt": [
+          "Scegli controllare oppure condividere subito.",
+          "Confronta un'affermazione finta dell'IA con una fonte di fiducia.",
+          "Controlla se la fonte citata esiste davvero e sostiene l'affermazione. Spiega cosa resta ancora da verificare."
+        ],
+        "readings": [
+          {
+            "idea": "Una risposta del computer può essere sbagliata.",
+            "situation": "Uno strumento di IA dà un fatto sorprendente. Cosa dovresti fare?",
+            "choices": ["Controllare con una fonte di fiducia e un adulto", "Credere a ogni risposta del computer", "Condividerla senza controllare"],
+            "explanation": "L'IA può sbagliare. Controllare una risposta aiuta. Non serve aprire un account di IA per questa attività."
+          },
+          {
+            "idea": "Una risposta dell'IA scritta con fluidità non è prova che un'affermazione o una citazione sia accurata.",
+            "situation": "Una risposta dell'IA cita uno studio sorprendente. Quale controllo serve prima di fidarsene?",
+            "choices": ["Verificare che la fonte esista davvero e sostenga esattamente quell'affermazione", "Trattare un tono sicuro come una verifica", "Ripetere la risposta finché non sembra familiare"],
+            "explanation": "Controlla la fonte originale, l'autore, il contesto e cosa resta incerto. Una citazione vera può comunque non sostenere la conclusione. Segui le regole sull'età e sulla privacy per qualsiasi strumento reale."
+          }
+        ]
+      },
+      {
+        "title": "Proteggi le informazioni private",
+        "idea": "Password e dati personali non vanno mai inseriti in strumenti pubblici.",
+        "situation": "Una chat di gioco chiede la tua password per darti un premio. Cosa dovresti fare?",
+        "choices": ["Inviarla in privato", "Non condividerla; dirlo a un adulto di fiducia", "Provare la password di qualcun altro"],
+        "correct": 1,
+        "explanation": "Un premio non giustifica condividere una password. Chiudi la richiesta e chiedi aiuto.",
+        "tryIt": [
+          "Indica fermati oppure aiuto.",
+          "Ordina dei dati finti in privati e condivisibili solo con la guida di un adulto.",
+          "Descrivi come segnaleresti un messaggio sospetto senza aprire i suoi link."
+        ],
+        "readings": [
+          {
+            "idea": "Tieni le password private.",
+            "situation": "Un messaggio di gioco chiede la tua password per darti un premio. Cosa puoi fare?",
+            "choices": ["Inviare la password", "Non inviarla; chiedere a un adulto di fiducia", "Provare la password di un amico"],
+            "explanation": "Un premio non è un buon motivo per condividere una password. Fermati e chiedi aiuto senza aprire i link del messaggio."
+          },
+          {
+            "idea": "Una ricompensa può essere usata per spingere qualcuno a condividere le proprie credenziali.",
+            "situation": "Un messaggio inaspettato dice che devi fornire la tua password per ricevere un premio. Cosa è giusto fare?",
+            "choices": ["Inviarla tramite un messaggio privato", "Rifiutare, usare gli strumenti di segnalazione affidabili e dirlo a un adulto di fiducia", "Provare la richiesta con le credenziali di qualcun altro"],
+            "explanation": "Non aprire link sospetti né inserire le tue credenziali. Verifica tramite un canale di fiducia indipendente. Un messaggio privato non rende una richiesta più sicura."
+          }
+        ]
+      },
+      {
+        "title": "Pianifica un compito di ogni giorno",
+        "idea": "Una breve lista di controllo può aiutarti ad agire da solo.",
+        "situation": "Devi preparare la borsa per la scuola. Cosa potrebbe aiutarti?",
+        "choices": ["Aspettare fino al momento di uscire", "Metterci dentro cose a caso", "Usare una breve lista di controllo"],
+        "correct": 2,
+        "explanation": "Una lista di controllo aiuta a pianificare. Immagini o una dimostrazione possono funzionare al posto delle parole scritte.",
+        "tryIt": [
+          "Indica una cosa che devi portare.",
+          "Fai una lista di controllo con tre immagini o parole.",
+          "Fai una lista di controllo, provala per una settimana e togli i passaggi che non aiutano."
+        ],
+        "readings": [
+          {
+            "idea": "Una lista con immagini può aiutarti a preparare la borsa.",
+            "situation": "Devi preparare la borsa di scuola. Cosa potrebbe aiutarti?",
+            "choices": ["Aspettare fino al momento di uscire", "Scegliere cose a caso", "Usare una breve lista con immagini o parole"],
+            "explanation": "Indica ogni oggetto mentre lo metti nella borsa. Chiedi aiuto se manca qualcosa."
+          },
+          {
+            "idea": "Una lista di controllo è utile quando i suoi passaggi si adattano al compito e possono essere rivisti.",
+            "situation": "Ti scordi sempre lo stesso oggetto quando ti prepari per un'attività. Quale metodo potresti provare?",
+            "choices": ["Affidarti alla fretta dell'ultimo momento", "Allungare la lista senza controllare se serve davvero", "Usare una breve lista di controllo, osservare cosa manca e correggerla"],
+            "explanation": "Includi le azioni necessarie, prova la lista nella pratica e togli i passaggi inutili. L'indipendenza può comprendere promemoria e formati accessibili."
+          }
+        ]
+      },
+      {
+        "title": "Scegli con un budget",
+        "idea": "Ogni scelta ha un costo e può influire su un altro obiettivo.",
+        "situation": "Hai £5. Un quaderno costa £3 e un giocattolo costa £4. Cosa puoi comprare senza farti prestare soldi?",
+        "choices": ["Un oggetto, con dei soldi che rimangono", "Entrambi, per £5", "Entrambi, senza che resti niente"],
+        "correct": 0,
+        "explanation": "£3 + £4 = £7. Puoi scegliere un oggetto ora, aspettare, oppure risparmiare di più. C'è più di una scelta ragionevole.",
+        "tryIt": [
+          "Indica l'oggetto che scegli.",
+          "Calcola quanti soldi restano per ogni scelta.",
+          "Spiega il costo-opportunità di ogni opzione e decidi quale si adatta meglio alle tue priorità."
+        ],
+        "readings": [
+          {
+            "idea": "Controlla i soldi prima di scegliere.",
+            "situation": "Hai £5. Un quaderno costa £3 e un giocattolo costa £4. Cosa puoi permetterti ora?",
+            "choices": ["Un oggetto, con dei soldi che restano", "Entrambi gli oggetti per £5", "Entrambi, senza che resti niente"],
+            "explanation": "Tre più quattro fa sette, che è più di cinque. Puoi scegliere un oggetto, aspettare, oppure non scegliere nessuno dei due."
+          },
+          {
+            "idea": "Un budget rende visibili i compromessi, senza decidere le tue priorità al posto tuo.",
+            "situation": "Con £5 disponibili, un quaderno da £3 e un giocattolo da £4 non si possono comprare entrambi senza altri soldi. Quale affermazione è corretta?",
+            "choices": ["Ogni oggetto da solo è alla tua portata; l'altro uso possibile dei soldi è il costo-opportunità", "Entrambi sono alla tua portata perché ciascuno costa meno di £5", "Farsi prestare i soldi elimina il costo della scelta"],
+            "explanation": "Il prezzo combinato è £7. Scegliere un oggetto lascia un saldo diverso e rinvia un altro uso di quei soldi. Aspettare o non scegliere nessuno dei due può adattarsi anche alle tue priorità."
+          }
+        ]
+      }
+    ]
+  }
+}
