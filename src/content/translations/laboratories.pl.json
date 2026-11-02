@@ -1,0 +1,878 @@
+{
+  "brain-lab": {
+    "title": "Laboratorium Mózgu",
+    "description": "Odkrywaj pamięć, uwagę, percepcję, myślenie, uczenie się i podejmowanie decyzji. Ćwicz przydatne strategie w swoim tempie.",
+    "tasks": [
+      {
+        "title": "Zapamiętaj krótką listę",
+        "idea": "Grupowanie może pomóc ci zapamiętać listę.",
+        "situation": "Potrzebujesz jabłek, gruszek, skarpetek i czapki. Który plan mógłby pomóc ci to zapamiętać?",
+        "choices": [
+          "Przeczytać raz i liczyć na szczęście",
+          "Pogrupować owoce i ubrania",
+          "Dodać więcej rzeczy"
+        ],
+        "correct": 1,
+        "explanation": "Dwie sensowne grupy mogą pomóc ci lepiej zorganizować tę listę. Przydatnym narzędziem jest też lista zapisana na papierze.",
+        "tryIt": [
+          "Wskaż dwie rzeczy, które do siebie pasują.",
+          "Podziel listę sześciu rzeczy na dwie grupy. Zakryj ją i powiedz, co pamiętasz.",
+          "Porównaj grupowanie z listą zapisaną na papierze. Co pomogło w tym zadaniu i dlaczego?"
+        ],
+        "readings": [
+          {
+            "idea": "Rzeczy, które do siebie pasują, połącz w jedną grupę.",
+            "situation": "Zapamiętaj jabłko, gruszkę, skarpetkę i czapkę. Co mogłoby pomóc?",
+            "choices": [
+              "Odwrócić wzrok i zgadywać",
+              "Zrobić grupę owoców i grupę ubrań",
+              "Dodać dużo więcej rzeczy"
+            ],
+            "explanation": "Jabłko i gruszka to owoce. Skarpetka i czapka to ubrania. Dwie grupy mogą pomóc ci zapamiętać. Pomocna może być też lista z obrazkami."
+          },
+          {
+            "idea": "Strategia pamięciowa powinna być dopasowana do zadania, a jej skuteczność można sprawdzić.",
+            "situation": "Musisz zapamiętać na jutro zróżnicowaną listę. Który plan sprawdza, czy grupowanie faktycznie ci pomaga?",
+            "choices": [
+              "Założyć, że poczucie pewności dowodzi dobrego zapamiętania",
+              "Porównać, co pamiętasz po pogrupowaniu, z tym, co pamiętasz po ponownym przeczytaniu",
+              "Wydłużyć listę bez żadnej weryfikacji"
+            ],
+            "explanation": "Porównuj to, co faktycznie pamiętasz, a nie to, jak łatwa wydaje się strategia. Gdy liczy się dokładność, najlepszym narzędziem może być zapisana notatka. Jedna próba nie dowodzi, że metoda działa zawsze."
+          }
+        ]
+      },
+      {
+        "title": "Jedna rzecz na raz",
+        "idea": "Możesz zmienić swoje otoczenie, aby łatwiej się skoncentrować.",
+        "situation": "Film na ekranie ciągle rozprasza cię podczas czytania instrukcji. Co mógłbyś zrobić?",
+        "choices": [
+          "Zatrzymać film",
+          "Zwiększyć głośność filmu",
+          "Włączyć kolejny film"
+        ],
+        "correct": 0,
+        "explanation": "Ograniczenie rzeczy konkurujących o twoją uwagę może pomóc ci się skoncentrować. Możesz też zrobić sobie przerwę.",
+        "tryIt": [
+          "Wybierz spokojniejsze miejsce albo wyłącz jakiś dźwięk.",
+          "Przeczytaj jedną instrukcję po usunięciu rozpraszających rzeczy. Zauważ, co pomaga.",
+          "Zaplanuj miejsce do nauki. Wyjaśnij, które rozpraszacze ograniczyłbyś, a jakie wsparcie chciałbyś zachować."
+        ],
+        "readings": [
+          {
+            "idea": "Zbyt wiele dźwięków naraz może utrudnić zadanie.",
+            "situation": "Film gra, gdy próbujesz przeczytać jeden krok instrukcji. Co mogłoby pomóc?",
+            "choices": [
+              "Zatrzymać film",
+              "Zrobić głośniej",
+              "Włączyć kolejny film"
+            ],
+            "explanation": "Spróbuj przeczytać jeden krok, gdy film jest zatrzymany. Możesz też poprosić o pomoc lub zrobić przerwę. Różnym osobom pomaga coś innego."
+          },
+          {
+            "idea": "Wspieranie uwagi oznacza ograniczanie konkurujących wymagań, ale zachowanie przydatnego wsparcia.",
+            "situation": "Podczas powtórki do testu rozpraszają cię powiadomienia, a lista kontrolna wciąż ci pomaga. Którą zmianę warto przetestować?",
+            "choices": [
+              "Wyciszyć powiadomienia i zachować listę kontrolną",
+              "Usunąć każde wsparcie, także listę kontrolną",
+              "Dodać więcej aplikacji, aby ćwiczyć ich ignorowanie"
+            ],
+            "explanation": "Zmień rozpraszacz, który zidentyfikowałeś, i zachowaj wsparcie, które pomaga w zadaniu. Porównaj, co udało ci się wykonać i zrozumieć. Strategia pomocna dziś może wymagać zmiany jutro."
+          }
+        ]
+      },
+      {
+        "title": "Spójrz jeszcze raz",
+        "idea": "Pierwsze wrażenie może nie uwzględniać szczegółów.",
+        "situation": "Dwa opakowania wyglądają na tej samej wielkości. Jak sprawdzić, w którym jest więcej produktu?",
+        "choices": [
+          "Wybrać jaśniejsze opakowanie",
+          "Zgadywać na podstawie zdjęcia",
+          "Porównać informacje o wadze na etykietach"
+        ],
+        "correct": 2,
+        "explanation": "Opakowanie może wyglądać na większe, a zawierać mniej. Porównaj te same jednostki na etykietach.",
+        "tryIt": [
+          "Wskaż większą liczbę na dwóch przykładowych etykietach.",
+          "Porównaj dwa opakowania oznaczone 100 g i 150 g.",
+          "Porównaj 200 g za £2 z 300 g za £2.40. Policz cenę za 100 g."
+        ],
+        "readings": [
+          {
+            "idea": "Opakowanie, które wygląda na duże, nie musi zawierać więcej.",
+            "situation": "Jedno opakowanie ma napis 2 sztuki, a drugie 3 sztuki. Jak sprawdzić, w którym jest więcej?",
+            "choices": [
+              "Wybrać jaśniejszy kolor",
+              "Zgadywać na podstawie obrazka",
+              "Porównać 2 i 3"
+            ],
+            "explanation": "Trzy to więcej niż dwa. Spojrzenie na wyraźną etykietę pomaga sprawdzić pierwsze wrażenie."
+          },
+          {
+            "idea": "Wygląd opakowania i opłacalność cenowa to dwie różne sprawy.",
+            "situation": "Jedno opakowanie to 200 g za £2. Drugie to 300 g za £2.40. Co pomaga porównać opłacalność?",
+            "choices": [
+              "Wybrać opakowanie, które wygląda na wyższe",
+              "Założyć, że wyższa cena całkowita oznacza gorszą opłacalność",
+              "Obliczyć i porównać cenę za każde 100 g"
+            ],
+            "explanation": "Pierwsze opakowanie kosztuje £1 za 100 g. Drugie kosztuje 80p za 100 g. Cena jednostkowa pomaga porównać opłacalność, ale większa ilość ma sens tylko, gdy jej potrzebujesz i możesz sobie pozwolić na całość."
+          }
+        ]
+      },
+      {
+        "title": "Znajdź inne wyjaśnienie",
+        "idea": "Jedna wskazówka może mieć więcej niż jedno wyjaśnienie.",
+        "situation": "Kolega nie odmachuje ci. Jaka myśl mogłaby ci pomóc?",
+        "choices": [
+          "Pewnie mnie nie lubi",
+          "Może mnie nie zauważył",
+          "Wiem dokładnie, co myśli"
+        ],
+        "correct": 1,
+        "explanation": "Nie możesz poznać czyichś myśli na podstawie jednego zachowania. Możesz delikatnie sprawdzić to później.",
+        "tryIt": [
+          "Wybierz możliwy powód albo wskaż obrazek.",
+          "Podaj dwa możliwe powody tego samego zdarzenia.",
+          "Odróżnij to, co zaobserwowałeś, od tego, co wywnioskowałeś. Jakie dowody by pomogły?"
+        ],
+        "readings": [
+          {
+            "idea": "Nie możemy czytać czyichś myśli.",
+            "situation": "Kolega nie odmachuje ci. Co może być prawdą?",
+            "choices": [
+              "Pewnie cię nie lubi",
+              "Może cię nie zauważył",
+              "Znasz każdą jego myśl"
+            ],
+            "explanation": "Może twój kolega cię nie zauważył. Mogą być też inne powody. Możesz delikatnie sprawdzić to później."
+          },
+          {
+            "idea": "Jedna obserwacja może mieć kilka możliwych wyjaśnień.",
+            "situation": "Widziałeś, jak kolega przechodzi obok bez machnięcia ręką. Który wniosek zachowuje właściwą niepewność?",
+            "choices": [
+              "Jego intencja jest już udowodniona",
+              "Może nie zauważył; więcej informacji by pomogło",
+              "Jedno zachowanie ujawnia całą jego opinię o tobie"
+            ],
+            "explanation": "Brak machnięcia ręką to obserwacja. Niechęć to interpretacja. Rozważ alternatywy, zanim z szacunkiem to sprawdzisz. Nie musisz decydować od razu."
+          }
+        ]
+      },
+      {
+        "title": "Sprawdź, co pamiętasz",
+        "idea": "Próba przypomnienia sobie czegoś może pokazać, co wymaga więcej ćwiczeń.",
+        "situation": "Przeczytałeś krótką lekcję. Co mogłoby pomóc ci sprawdzić, czego się nauczyłeś?",
+        "choices": [
+          "Odpowiedzieć na pytanie, a potem sprawdzić",
+          "Liczyć tylko strony",
+          "Zignorować każdą informację zwrotną"
+        ],
+        "correct": 0,
+        "explanation": "Przypomnienie sobie pomysłu i sprawdzenie odpowiedzi pomaga zauważyć braki. Możesz wrócić do wyjaśnienia.",
+        "tryIt": [
+          "Wskaż jedną rzecz, którą pamiętasz.",
+          "Zamknij lekcję i wyjaśnij jeden pomysł. Potem to sprawdź.",
+          "Wróć do tego pomysłu innego dnia i użyj go w nowym przykładzie. Zauważ, co jeszcze wymaga ćwiczeń."
+        ],
+        "readings": [
+          {
+            "idea": "Spróbuj zapamiętać jeden pomysł, a potem to sprawdź.",
+            "situation": "Przeczytałeś krótkie opowiadanie. Jak sprawdzić, co pamiętasz?",
+            "choices": [
+              "Wybrać odpowiedź i ją sprawdzić",
+              "Liczyć tylko strony",
+              "Nigdy nie wracać do tekstu"
+            ],
+            "explanation": "Pytanie może pokazać, co pamiętasz. Jeśli czegoś brakuje, wróć do tekstu albo poproś o pomoc. Błąd to przydatna informacja."
+          },
+          {
+            "idea": "Przypominanie sobie i informacja zwrotna mogą ujawnić braki, które samo ponowne czytanie może skryć.",
+            "situation": "Po przerobieniu jakiegoś pomysłu, który sposób sprawdzenia daje dowód, że umiesz go zastosować?",
+            "choices": [
+              "Wyjaśnić go bez podglądania, a potem sprawdzić ze źródłem",
+              "Oceniać naukę tylko na podstawie czasu spędzonego na czytaniu",
+              "Unikać każdego pytania, które mogłoby ujawnić błąd"
+            ],
+            "explanation": "Spróbuj przypomnieć sobie i zastosować pomysł, sprawdź informację zwrotną i wróć do braków. Powtórz to później, jeśli warto. Sukces przy jednym znanym pytaniu nie dowodzi zrozumienia w każdej sytuacji."
+          }
+        ]
+      },
+      {
+        "title": "Zatrzymaj się przed wyborem",
+        "idea": "Krótka przerwa daje ci czas na porównanie opcji.",
+        "situation": "Reklama w sklepie mówi, że oferta na zabawkę kończy się wkrótce. Co możesz zrobić?",
+        "choices": [
+          "Kupić bez zastanowienia",
+          "Pozwolić, by reklama zdecydowała za ciebie",
+          "Sprawdzić swój budżet i cel"
+        ],
+        "correct": 2,
+        "explanation": "Pośpiech może wpłynąć na decyzję. Sprawdzenie kosztu i swoich priorytetów pomaga ci zdecydować.",
+        "tryIt": [
+          "Wskaż: czekać czy kupić. Daj sobie czas na decyzję.",
+          "Porównaj zabawkę ze swoim celem oszczędzania.",
+          "Wypisz koszt alternatywny i dowody na rzecz oferty. Zdecyduj, czy warto zaczekać."
+        ],
+        "readings": [
+          {
+            "idea": "Możesz zatrzymać się i pomyśleć, zanim kupisz.",
+            "situation": "Na szyldzie zabawki jest napis „Szybko!”. Co mógłbyś zrobić?",
+            "choices": [
+              "Kupić bez sprawdzania",
+              "Pozwolić, by szyld zdecydował",
+              "Sprawdzić swoje pieniądze i to, czego chcesz"
+            ],
+            "explanation": "Szyld nie może decydować za ciebie. Możesz sprawdzić cenę, zapytać dorosłego i zdecydować się zaczekać."
+          },
+          {
+            "idea": "Pośpiech może sprawić, że opcja wydaje się ważniejsza, niż wskazują na to dowody.",
+            "situation": "Reklama odlicza czas do zniżki na produkt, którego nie planowałeś kupować. Która reakcja chroni twoją decyzję?",
+            "choices": [
+              "Uznać odliczanie czasu za dowód wartości",
+              "Kupić, żeby nie musieć porównywać",
+              "Sprawdzić całkowity koszt, priorytety i to, z czego musiałbyś zrezygnować"
+            ],
+            "explanation": "Koszt alternatywny to inne zastosowanie tych samych pieniędzy. Sprawdź rzeczywistą ofertę i swoje priorytety. Zaczekanie może mieć sens, nawet jeśli zniżka jest prawdziwa."
+          }
+        ]
+      }
+    ]
+  },
+  "mind-lab": {
+    "title": "Laboratorium Umysłu",
+    "description": "Ćwicz zauważanie emocji, proszenie o pomoc, zmienianie planów i współpracę z innymi. Każde zadanie możesz pominąć.",
+    "tasks": [
+      {
+        "title": "Zauważ emocję",
+        "idea": "Różne osoby mogą czuć różne rzeczy w tej samej sytuacji.",
+        "situation": "Gra wywołuje frustrację. Co możesz zrobić najpierw?",
+        "choices": [
+          "Zauważyć emocję i zrobić przerwę",
+          "Grać dalej, aż zacznie boleć",
+          "Skrywać każdą emocję"
+        ],
+        "correct": 0,
+        "explanation": "Zauważenie emocji może pomóc ci zdecydować, co zrobić dalej. Nie ma złych emocji.",
+        "tryIt": [
+          "Wskaż słowo opisujące emocję, narysuj je albo zrezygnuj z zadania.",
+          "Nazwij sygnał z ciała, który zauważasz, gdy czujesz frustrację. Możesz zachować go dla siebie.",
+          "Porównaj emocję, myśl i działanie. Zaplanuj jedną reakcję, która chroni twoje samopoczucie."
+        ],
+        "readings": [
+          {
+            "idea": "Możesz zauważyć emocję i poprosić o przerwę.",
+            "situation": "Gra jest przykra. Co możesz zrobić najpierw?",
+            "choices": [
+              "Zauważyć, co czujesz, i zrobić przerwę",
+              "Grać dalej, nawet gdy chcesz przestać",
+              "Udawać, że emocje są zabronione"
+            ],
+            "explanation": "Możesz wskazać emocję, pokazać obrazek albo poprosić o pomoc. Nie musisz mówić, co czujesz, na głos."
+          },
+          {
+            "idea": "Emocje, interpretacje i działania są ze sobą powiązane, ale to nie to samo.",
+            "situation": "Niepowodzenie sprawia, że czujesz zawstydzenie i myślisz „zawsze mi się nie udaje”. Jaka jest przydatna pierwsza reakcja?",
+            "choices": [
+              "Zauważyć emocję, zatrzymać się i przyjrzeć się temu wnioskowi",
+              "Uznać emocję za dowód, że wniosek jest prawdziwy",
+              "Zmusić się do działania bez względu na dyskomfort"
+            ],
+            "explanation": "Nieprzyjemna emocja jest prawdziwa, ale nie dowodzi uogólniającego osądu. Zanim zdecydujesz, co dalej, możesz wybrać prywatność, przerwę lub wsparcie zaufanej osoby."
+          }
+        ]
+      },
+      {
+        "title": "Wiedz, co ci pomaga",
+        "idea": "Różnym osobom pomagają różne formy wsparcia.",
+        "situation": "Trudno ci podążać za instrukcjami. O co mógłbyś poprosić?",
+        "choices": [
+          "O więcej zadań na raz",
+          "O obrazek albo jeden krok na raz",
+          "O żadną pomoc"
+        ],
+        "correct": 1,
+        "explanation": "Wybieranie wsparcia to umiejętność. Pomocne mogą być obrazki, pokazanie na przykładzie i krótkie kroki.",
+        "tryIt": [
+          "Wybierz obrazek, instrukcję mówioną albo pokazanie na przykładzie.",
+          "Wypróbuj dwa sposoby przyjmowania instrukcji. Który pomaga dzisiaj?",
+          "Wyjaśnij, jak wybrane przez ciebie wsparcie mogłoby się zmieniać w zależności od zadania czy miejsca."
+        ],
+        "readings": [
+          {
+            "idea": "Możesz wybrać sposób nauki, który ci pomaga.",
+            "situation": "Długa instrukcja jest trudna. O co mógłbyś poprosić?",
+            "choices": [
+              "O więcej kroków na raz",
+              "O obrazek albo jeden mały krok",
+              "O żadną pomoc"
+            ],
+            "explanation": "Obrazki, pokazanie na przykładzie albo jeden krok mogą pomóc. Proszenie o wsparcie jest w porządku."
+          },
+          {
+            "idea": "Przydatne wsparcie zależy od osoby, zadania i sytuacji.",
+            "situation": "Pisane instrukcje pomagają w jednym zadaniu, ale nie w głośnym zadaniu praktycznym. O co mógłbyś poprosić?",
+            "choices": [
+              "O ten sam format niezależnie od problemu",
+              "O pokazanie na przykładzie albo krótsze kroki, a potem sprawdzenie, co działa",
+              "O usunięcie każdego wsparcia, żeby dowieść samodzielności"
+            ],
+            "explanation": "Samodzielność może obejmować wybieranie skutecznego wsparcia. Wypróbuj trafną zmianę i wyjaśnij, co się zmieniło, bez konieczności ujawniania diagnozy czy prywatnych informacji."
+          }
+        ]
+      },
+      {
+        "title": "Spróbuj innej strategii",
+        "idea": "Uczenie się może oznaczać zmianę metody, odpoczynek albo poproszenie o pomoc.",
+        "situation": "Twój mostek z klocków zawalił się dwa razy. Co mogłoby pomóc?",
+        "choices": [
+          "Trzymać się tego samego planu na zawsze",
+          "Obwiniać siebie",
+          "Spróbować szerszej podstawy albo poprosić o pomoc"
+        ],
+        "correct": 2,
+        "explanation": "Zmiana strategii albo przydatna informacja zwrotna mogą pomóc. Przerwa też jest dobrym wyborem.",
+        "tryIt": [
+          "Wybierz: spróbować jeszcze raz, poprosić o pomoc albo zrobić przerwę.",
+          "Zmień jedną część mostka z klocków i zobacz, co się stanie.",
+          "Zapisz jedną zmianę, jej wynik i co chciałbyś sprawdzić następnie."
+        ],
+        "readings": [
+          {
+            "idea": "Nowa próba może wykorzystać inny plan.",
+            "situation": "Twój mostek z klocków się zawalił. Co mogłoby pomóc?",
+            "choices": [
+              "Trzymać każdy klocek tak samo na zawsze",
+              "Powiedzieć, że nic ci nie wychodzi",
+              "Spróbować szerszego spodu albo poprosić o pomoc"
+            ],
+            "explanation": "Możesz zmienić jedną część, poprosić o pomoc albo zrobić przerwę. Nie musisz próbować dalej, gdy potrzebujesz przestać."
+          },
+          {
+            "idea": "Wytrwałość jest przydatna, gdy obejmuje informacje, granice i zmianę strategii.",
+            "situation": "Projekt dwa razy nie przechodzi tego samego testu. Który następny krok wykorzystuje te dowody?",
+            "choices": [
+              "Powtarzać niezmieniony plan bez końca",
+              "Winić swoje umiejętności bez analizy projektu",
+              "Przeanalizować niepowodzenie, zmienić jedną część albo poprosić o radę"
+            ],
+            "explanation": "Nazwij, co się nie udało, wybierz zmianę, którą można przetestować, i porównaj wyniki. Odpoczynek, wsparcie albo decyzja o zakończeniu też mogą być rozsądne. Wytrwałość nie znaczy znoszenia szkody."
+          }
+        ]
+      },
+      {
+        "title": "Zrób drugi plan",
+        "idea": "Możesz zmienić plan, gdy coś się zmienia.",
+        "situation": "Deszcz odwołuje twoją aktywność na zewnątrz. Co mógłbyś zrobić?",
+        "choices": [
+          "Wybrać alternatywę w domu",
+          "Uznać, że cały dzień jest zepsuty",
+          "Zignorować pogodę"
+        ],
+        "correct": 0,
+        "explanation": "Drugi plan może zachować część twojego celu. Możesz czuć rozczarowanie i jednocześnie wybrać inną aktywność.",
+        "tryIt": [
+          "Wybierz jedną z dwóch aktywności w domu.",
+          "Zrób plan na zewnątrz i alternatywę w domu.",
+          "Zachowaj ten sam cel, zmieniając metodę. Wyjaśnij, z czego musisz zrezygnować."
+        ],
+        "readings": [
+          {
+            "idea": "Plan może się zmienić.",
+            "situation": "Deszcz przerywa twój piknik. Co mógłbyś zrobić?",
+            "choices": [
+              "Wybrać bezpieczny piknik w domu",
+              "Powiedzieć, że teraz nic dobrego się nie może zdarzyć",
+              "Wyjść bez sprawdzenia, czy to bezpieczne"
+            ],
+            "explanation": "Możesz czuć smutek z powodu deszczu i nadal spróbować innej aktywności. Dorosły może pomóc ci wybrać."
+          },
+          {
+            "idea": "Plan zastępczy może zachować cel, nawet gdy zmienia się metoda.",
+            "situation": "Pogoda odwołuje imprezę społeczności na zewnątrz. Która reakcja uwzględnia to ograniczenie?",
+            "choices": [
+              "Porównać bezpieczne opcje w domu z głównym celem wydarzenia",
+              "Uznać, że zmieniona metoda czyni cel bezwartościowym",
+              "Zignorować pogodę i działać bez sprawdzenia"
+            ],
+            "explanation": "Zanim porównasz alternatywy, określ cel, ograniczenie bezpieczeństwa i dostępne zasoby. Wydarzenie w domu może zachować część celów, zmieniając przestrzeń lub liczbę uczestników. Nazwij, z czego trzeba zrezygnować."
+          }
+        ]
+      },
+      {
+        "title": "Zacznij od jednego kroku",
+        "idea": "Mniejszy krok może sprawić, że problem łatwiej zacząć rozwiązywać.",
+        "situation": "Twoje biurko jest tak zagracone, że nie można go używać. Od czego mógłbyś zacząć?",
+        "choices": [
+          "Zrzucić wszystko na podłogę",
+          "Włożyć ołówki do jednego pojemnika",
+          "Natychmiast kupić nowe biurko"
+        ],
+        "correct": 1,
+        "explanation": "Jasny pierwszy krok łatwiej jest wykonać. Następny krok możesz wybrać potem.",
+        "tryIt": [
+          "Wskaż jedną rzecz do odłożenia.",
+          "Wybierz i wykonaj trzy małe kroki.",
+          "Zdefiniuj problem, porównaj dwa rozwiązania i przetestuj to tańsze."
+        ],
+        "readings": [
+          {
+            "idea": "Zacznij od jednego małego zadania.",
+            "situation": "Na biurku nie ma miejsca do rysowania. Od czego mógłbyś zacząć?",
+            "choices": [
+              "Zrzucić wszystko na podłogę",
+              "Włożyć ołówki do pojemnika",
+              "Poprosić o kupno nowego biurka od razu"
+            ],
+            "explanation": "Odłożenie ołówków robi małe, czyste miejsce. Potem możesz wybrać następny krok albo poprosić o pomoc."
+          },
+          {
+            "idea": "Zanim wybierzesz kosztowne rozwiązanie, zdefiniuj problem.",
+            "situation": "Zagracone miejsce pracy zwalnia zadanie wykonywane razem z kimś. Jaki jest rozsądny pierwszy test?",
+            "choices": [
+              "Przenieść bałagan w czyjąś inną przestrzeń",
+              "Zorganizować jedną kategorię i sprawdzić, czy dostęp się poprawia",
+              "Zastąpić wszystkie meble bez wcześniejszego sprawdzenia"
+            ],
+            "explanation": "Niedrogi, odwracalny test daje informację. Zaobserwuj, czy zmiana pomaga osobom korzystającym z przestrzeni, a potem zdecyduj, czy potrzebna jest większa zmiana."
+          }
+        ]
+      },
+      {
+        "title": "Słuchaj i sprawdzaj",
+        "idea": "Ludzie mogą chcieć różnych rzeczy. Pytaj, nie zgaduj.",
+        "situation": "Dwoje przyjaciół chce grać w różne gry. Co mogłoby pomóc?",
+        "choices": [
+          "Pozwolić, by zdecydowała najgłośniejsza osoba",
+          "Przestać słuchać",
+          "Zapytać każdą osobę i uzgodnić sprawiedliwy plan"
+        ],
+        "correct": 2,
+        "explanation": "Słuchanie i zmieniająca się kolejność mogą pomóc znaleźć plan. Każdy może powiedzieć nie.",
+        "tryIt": [
+          "Wskaż swój wybór albo użyj swojego narzędzia komunikacji.",
+          "Poćwicz pytanie przyjaciela, co by wolał.",
+          "Porównaj zmienianie się, łączenie pomysłów i wybór innej aktywności. Wyjaśnij, co się tutaj sprawdza."
+        ],
+        "readings": [
+          {
+            "idea": "Ludzie mogą wybierać różne rzeczy.",
+            "situation": "Ty i twój przyjaciel chcecie grać w różne gry. Co mogłoby pomóc?",
+            "choices": [
+              "Decyduje tylko najgłośniejsza osoba",
+              "Przestać słuchać przyjaciela",
+              "Zapytać się nawzajem i zrobić sprawiedliwy plan"
+            ],
+            "explanation": "Możesz wskazać, użyć obrazków albo powiedzieć. Zmienianie się jest jedną z opcji, a każda osoba może powiedzieć nie."
+          },
+          {
+            "idea": "Sprawiedliwa decyzja grupowa uwzględnia dostępne sposoby wypowiedzi i respektuje granice.",
+            "situation": "Dwoje przyjaciół woli różne aktywności, a jedno z nich nie chce mówić. Które podejście ich uwzględnia?",
+            "choices": [
+              "Pozwolić, by zdecydowała pewna siebie osoba za wszystkich",
+              "Uznać milczenie za zgodę",
+              "Zaproponować inny sposób odpowiedzi i porównać sprawiedliwe opcje"
+            ],
+            "explanation": "Sprawdź preferencje bez wymuszania mówienia. Zmienianie się, łączenie pomysłów albo wybór innej aktywności mogą pasować do różnych sytuacji. Zgoda nie ma sensu, jeśli ktoś nie może odpowiedzieć albo odmówić."
+          }
+        ]
+      },
+      {
+        "title": "Zapytaj, zanim udostępnisz",
+        "idea": "Możesz ustalić granicę i respektować granicę innej osoby.",
+        "situation": "Przyjaciel chce opublikować twoje zdjęcie. Nie chcesz tego. Co możesz powiedzieć?",
+        "choices": [
+          "Nie, proszę, nie udostępniaj go",
+          "Zgodzić się, bo muszę",
+          "Udostępnić jego zdjęcie w zamian"
+        ],
+        "correct": 0,
+        "explanation": "Możesz odmówić. Przyjaciele powinni respektować twój wybór. Poproś o pomoc zaufanego dorosłego, jeśli trzeba.",
+        "tryIt": [
+          "Wskaż: tak, nie albo pomoc.",
+          "Poćwicz krótkie zdanie wyznaczające granicę.",
+          "Zaplanuj, co zrobić, jeśli ktoś zignoruje twoją granicę. Uwzględnij zaufanego dorosłego."
+        ],
+        "readings": [
+          {
+            "idea": "Możesz powiedzieć nie na udostępnianie swojego zdjęcia.",
+            "situation": "Przyjaciel chce udostępnić twoje zdjęcie. Nie chcesz tego. Co możesz powiedzieć?",
+            "choices": [
+              "Nie, proszę, nie udostępniaj go",
+              "Muszę się zgodzić",
+              "Udostępnię jego zdjęcie w zamian"
+            ],
+            "explanation": "Twój wybór ma znaczenie. Możesz wskazać „nie” albo poprosić zaufanego dorosłego o pomoc."
+          },
+          {
+            "idea": "Zgoda na udostępnienie powinna być dobrowolna i odnosić się do konkretnej sytuacji.",
+            "situation": "Przyjaciel chce opublikować zdjęcie, którego nie chcesz udostępniać. Która odpowiedź wyraża twoją granicę?",
+            "choices": [
+              "Nie zgadzam się na publikację tego zdjęcia; proszę, zachowaj je prywatnie",
+              "Muszę się zgodzić, żeby utrzymać przyjaźń",
+              "Zemszczę się, publikując jego zdjęcie"
+            ],
+            "explanation": "Możesz odmówić bez udowadniania, że zdjęcie jest szkodliwe. Jeśli granica zostanie zignorowana, poproś o usunięcie i wsparcie zaufanego dorosłego. Nie mścij się, ujawniając informacje o kimś innym."
+          }
+        ]
+      },
+      {
+        "title": "Wybierz przerwę",
+        "idea": "Przerwa może pomóc, gdy jakaś aktywność staje się dla ciebie zbyt intensywna.",
+        "situation": "Zatłoczone pomieszczenie wydaje się przytłaczające. Jaki jest rozsądny wybór?",
+        "choices": [
+          "Zostać, bo przerwy są zabronione",
+          "Poprosić o spokojniejsze miejsce",
+          "Dodać więcej hałasu"
+        ],
+        "correct": 1,
+        "explanation": "Możesz poprosić o przerwę albo o wsparcie. Strategie wyciszające działają różnie u różnych osób.",
+        "tryIt": [
+          "Wybierz: cisza, ruch, pomoc albo pominięcie zadania.",
+          "Zrób prywatną listę dwóch rodzajów wsparcia, o które możesz poprosić.",
+          "Zaplanuj, jak zgłosić potrzebę przerwy i wrócić, gdy poczujesz się na to gotowy."
+        ],
+        "readings": [
+          {
+            "idea": "Możesz poprosić o przerwę.",
+            "situation": "Pomieszczenie jest dla ciebie zbyt głośne. Co mógłbyś spróbować?",
+            "choices": [
+              "Zostać, bo przerwy są niedozwolone",
+              "Poprosić o spokojniejsze miejsce",
+              "Zrobić więcej hałasu"
+            ],
+            "explanation": "Spokojne miejsce, ruch albo pomoc mogą ci pasować. Wybieraj razem z zaufanym dorosłym. Możesz też pominąć to zadanie."
+          },
+          {
+            "idea": "Plan przerwy powinien wspierać komunikację, bezpieczeństwo i osobisty wybór.",
+            "situation": "Zatłoczone miejsce zaczyna cię przytłaczać. Który plan respektuje twoje potrzeby?",
+            "choices": [
+              "Zostać, aż nie będziesz w stanie dalej funkcjonować",
+              "Użyć uzgodnionego sygnału przerwy i dostać się do odpowiedniej przestrzeni",
+              "Założyć, że ta sama aktywność wyciszająca musi pomóc każdemu"
+            ],
+            "explanation": "Zaplanuj sposób proszenia o wsparcie bez konieczności słownego wyjaśniania. Różne potrzeby sensoryczne wymagają różnych form dostosowania. Powrót powinien zależeć od gotowości i sytuacji, a nie od wymogu skrywania trudności."
+          }
+        ]
+      }
+    ]
+  },
+  "future-skills": {
+    "title": "Umiejętności Przyszłości",
+    "description": "Podejmuj rozważne decyzje dotyczące informacji, pomysłów, technologii i codziennych zadań. Technologia jest narzędziem. Ty decydujesz.",
+    "tasks": [
+      {
+        "title": "Sprawdź twierdzenie",
+        "idea": "Przekonujące twierdzenie wciąż wymaga dowodów.",
+        "situation": "Film mówi, że napój czyni każdego mądrzejszym. Co powinieneś sprawdzić?",
+        "choices": [
+          "Jak wpadająca w ucho jest muzyka",
+          "Czy prezenter się uśmiecha",
+          "Kto stworzył to twierdzenie i jakie dowody je wspierają"
+        ],
+        "correct": 2,
+        "explanation": "Popularność i przekonanie nie dowodzą twierdzenia. Szukaj wiarygodnych dowodów i zapytaj zaufanego dorosłego.",
+        "tryIt": [
+          "Wybierz: sprawdzić albo natychmiast uwierzyć.",
+          "Znajdź autora i datę przykładowego twierdzenia.",
+          "Porównaj reklamę z niezależnymi dowodami. Określ, co wciąż jest niepewne."
+        ],
+        "readings": [
+          {
+            "idea": "Film może mówić coś, co nie jest prawdą.",
+            "situation": "Film mówi, że napój czyni każde dziecko bystrzejszym. Co powinieneś sprawdzić?",
+            "choices": [
+              "Tylko muzykę",
+              "Czy osoba się uśmiecha",
+              "Kto to mówi i co to potwierdza"
+            ],
+            "explanation": "Wesoły głos to nie dowód. Zaufany dorosły może pomóc sprawdzić takie twierdzenie."
+          },
+          {
+            "idea": "Twierdzenie wymaga dowodów, które naprawdę potwierdzają wniosek.",
+            "situation": "Twórca sprzedaje napój, twierdząc, że poprawia wyniki każdego ucznia. Które sprawdzenie jest najsilniejsze?",
+            "choices": [
+              "Uznać liczbę polubień za naukowy dowód",
+              "Zaufać przekonaniu twórcy",
+              "Sprawdzić niezależne dowody, ich ograniczenia i interes sprzedającego"
+            ],
+            "explanation": "Sprawdź, kto na tym zyskuje, jak dobre są dowody i czy potwierdzają właśnie to twierdzenie. Pojedyncza opinia albo popularność nie dowodzą uniwersalnego efektu."
+          }
+        ]
+      },
+      {
+        "title": "Wymyśl więcej niż jeden pomysł",
+        "idea": "Pomysły mogą się poprawiać, gdy testujesz różne możliwości.",
+        "situation": "Chcesz ponownie wykorzystać kartonowe pudełko. Jaki jest przydatny pierwszy krok?",
+        "choices": [
+          "Wymyślić kilka zastosowań",
+          "Założyć, że istnieje tylko jedno zastosowanie",
+          "Skopiować coś bez zastanowienia"
+        ],
+        "correct": 0,
+        "explanation": "Tworzenie alternatyw daje ci wybór. Potem sprawdź, które pasuje do twojego celu.",
+        "tryIt": [
+          "Narysuj albo wskaż zastosowanie pudełka.",
+          "Wymyśl trzy pomysły i wybierz jeden do wypróbowania.",
+          "Wybierz ograniczenia, na przykład koszt i materiały. Porównaj pomysły z nimi, a potem jeden udoskonal."
+        ],
+        "readings": [
+          {
+            "idea": "Jedna rzecz może mieć różne zastosowania.",
+            "situation": "Masz puste kartonowe pudełko. Co możesz zrobić najpierw?",
+            "choices": [
+              "Wymyślić kilka sposobów jego użycia",
+              "Powiedzieć, że ma tylko jedno zastosowanie",
+              "Skopiować coś bez wyboru"
+            ],
+            "explanation": "Narysuj, wskaż albo zbuduj pomysł. Możesz spróbować innego, jeśli pierwszy nie wyjdzie."
+          },
+          {
+            "idea": "Tworzenie alternatyw i ocenianie ograniczeń to dwie różne części pracy twórczej.",
+            "situation": "Zespół musi ponownie wykorzystać pudełko, bez nowych materiałów. Jaki pierwszy krok otwiera przydatne opcje?",
+            "choices": [
+              "Wygenerować kilka pomysłów, a potem porównać je z ograniczeniem",
+              "Odrzucić każdy pomysł, zanim go zbadasz",
+              "Skopiować pierwszy projekt bez sprawdzenia, czy pasuje"
+            ],
+            "explanation": "Oddziel tworzenie pomysłów od ich oceny. Przetestuj obiecującą opcję pod względem celu, materiałów i dostępności, a potem wykorzystaj informację zwrotną, by ją poprawić."
+          }
+        ]
+      },
+      {
+        "title": "Przetestuj mały pomysł",
+        "idea": "Biznes musi rozwiązywać problem i rozumieć koszty.",
+        "situation": "Chcesz sprzedawać zakładki do książek. Co mógłbyś zrobić przed zrobieniem stu sztuk?",
+        "choices": [
+          "Kupić od razu wszystkie materiały",
+          "Zrobić jedną próbkę i zapytać o opinię",
+          "Założyć, że każdy kupi"
+        ],
+        "correct": 1,
+        "explanation": "Mały test pomaga się czegoś nauczyć, zanim wydasz więcej. Zapytaj dorosłego, zanim coś sprzedasz albo udostępnisz informacje.",
+        "tryIt": [
+          "Wybierz wzór dla jednej próbki.",
+          "Wypisz materiały i koszt jednej zakładki.",
+          "Oszacuj koszt, cenę i zysk dla małej partii. Wyjaśnij, jak opinie mogłyby zmienić plan."
+        ],
+        "readings": [
+          {
+            "idea": "Przed zrobieniem wielu rzeczy spróbuj jednego małego pomysłu.",
+            "situation": "Chcesz robić zakładki do niby-sklepu. Co mógłbyś zrobić najpierw?",
+            "choices": [
+              "Kupić ogromną ilość materiałów",
+              "Zrobić jedną próbkę i zapytać, co pomaga",
+              "Założyć, że każdy chce jedną"
+            ],
+            "explanation": "Próbka pozwala się czegoś nauczyć, zanim użyjesz więcej materiałów. Przed jakąkolwiek prawdziwą sprzedażą zapytaj dorosłego."
+          },
+          {
+            "idea": "Mały test pilotażowy może zweryfikować założenie biznesowe, ograniczając ryzyko.",
+            "situation": "Rozważasz zrobienie stu zakładek w ramach projektu pod nadzorem. Jaki pierwszy krok daje przydatne dowody?",
+            "choices": [
+              "Wydać cały budżet, zanim sprawdzisz zainteresowanie",
+              "Przetestować próbkę, oszacować koszty i poszukać trafnej opinii",
+              "Uznać wyrażone zainteresowanie za gwarantowaną sprzedaż"
+            ],
+            "explanation": "Określ, czego chcesz się nauczyć, i maksymalny koszt testu. Opinie mogą zmienić projekt albo decyzję o kontynuacji. Przychód ze sprzedaży to nie zysk, dopóki nie odejmiesz istotnych kosztów."
+          }
+        ]
+      },
+      {
+        "title": "Zrób miejsce dla innych",
+        "idea": "Lider może słuchać i dzielić odpowiedzialność.",
+        "situation": "Twój zespół potrzebuje zrobić plakat. Jak mógłbyś zacząć?",
+        "choices": [
+          "Zrobić wszystko samodzielnie",
+          "Wydawać rozkazy bez pytania",
+          "Zapytać o pomysły i uzgodnić role"
+        ],
+        "correct": 2,
+        "explanation": "Jasno podzielone role i słuchanie pomagają zespołowi wykorzystać różne mocne strony.",
+        "tryIt": [
+          "Wybierz jedno zadanie, które chciałbyś wypróbować.",
+          "Uzgodnij dwie role z partnerem.",
+          "Zaplanuj role, moment sprawdzenia postępów i sprawiedliwy sposób rozwiązywania niezgody."
+        ],
+        "readings": [
+          {
+            "idea": "Lider może pomóc innym się włączyć.",
+            "situation": "Twoja grupa chce zrobić plakat. Jak możesz zacząć?",
+            "choices": [
+              "Zrobić wszystko bez pytania",
+              "Od razu wydawać rozkazy",
+              "Zapytać o pomysły i razem wybrać zadania"
+            ],
+            "explanation": "Ludzie mogą wskazywać, rysować albo mówić. Podziel przydatne zadania i daj miejsce różnym pomysłom."
+          },
+          {
+            "idea": "Przywództwo obejmuje dostępny udział, jasne role i odpowiedzialność.",
+            "situation": "Zespół ma termin i różne mocne strony. Jaka pierwsza decyzja jest przydatna?",
+            "choices": [
+              "Skoncentrować każde zadanie przy jednej osobie",
+              "Przydzielić role bez sprawdzenia możliwości",
+              "Uzgodnić cel, zaprosić do udziału i przydzielić wykonalne role"
+            ],
+            "explanation": "Sprawdź, czy wszyscy rozumieją cel i mogą wnieść wkład w odpowiedni sposób. Uzgodnij moment sprawdzenia postępów i sprawiedliwy sposób rozwiązywania niezgody. Dziel zarówno zasługi, jak i odpowiedzialność."
+          }
+        ]
+      },
+      {
+        "title": "Sprawdź odpowiedź AI",
+        "idea": "AI może dawać przydatne podpowiedzi, ale też błędne informacje.",
+        "situation": "Narzędzie AI podaje zaskakujący fakt bez żadnego źródła. Co powinieneś zrobić?",
+        "choices": [
+          "Sprawdzić go, używając wiarygodnego źródła",
+          "Uwierzyć, bo brzmi na pewne",
+          "Natychmiast go udostępnić"
+        ],
+        "correct": 0,
+        "explanation": "Odpowiedź AI nie jest dowodem. Sprawdzaj ważne informacje. Zaufany dorosły może pomóc ci korzystać z narzędzi dopasowanych do wieku.",
+        "tryIt": [
+          "Wybierz: sprawdzić albo natychmiast udostępnić.",
+          "Porównaj przykładowe twierdzenie AI z zaufanym źródłem.",
+          "Sprawdź, czy przywołane źródło istnieje i potwierdza twierdzenie. Wyjaśnij, czego wciąż nie możesz zweryfikować."
+        ],
+        "readings": [
+          {
+            "idea": "Odpowiedź komputera może być błędna.",
+            "situation": "Narzędzie AI podaje zaskakujący fakt. Co powinieneś zrobić?",
+            "choices": [
+              "Sprawdzić u zaufanego źródła i dorosłego",
+              "Uwierzyć każdej odpowiedzi komputera",
+              "Udostępnić ją bez sprawdzania"
+            ],
+            "explanation": "AI może się mylić. Sprawdzenie odpowiedzi pomaga. Do tego zadania nie musisz logować się na żadne konto AI."
+          },
+          {
+            "idea": "Płynnie napisana odpowiedź AI nie jest dowodem, że twierdzenie czy cytat są dokładne.",
+            "situation": "Odpowiedź AI wymienia zaskakujące badanie. Co trzeba sprawdzić, zanim na niej się oprzesz?",
+            "choices": [
+              "Zweryfikować, że źródło istnieje i potwierdza konkretne twierdzenie",
+              "Uznać pewny ton za weryfikację",
+              "Powtarzać odpowiedź, aż wyda się znana"
+            ],
+            "explanation": "Sprawdź oryginalne źródło, autora, kontekst i to, co wciąż jest niepewne. Prawdziwy cytat może wciąż nie potwierdzać wniosku. Przy prawdziwym narzędziu przestrzegaj zasad wieku i prywatności."
+          }
+        ]
+      },
+      {
+        "title": "Chroń prywatne informacje",
+        "idea": "Hasła i dane osobowe nie powinny trafiać do publicznych narzędzi.",
+        "situation": "Czat w grze prosi o twoje hasło w zamian za nagrodę. Co powinieneś zrobić?",
+        "choices": [
+          "Wysłać je prywatnie",
+          "Nie udostępniać go; powiedzieć zaufanemu dorosłemu",
+          "Spróbować cudzego hasła"
+        ],
+        "correct": 1,
+        "explanation": "Nagroda nie usprawiedliwia udostępnienia hasła. Zamknij taką prośbę i poproś o pomoc.",
+        "tryIt": [
+          "Wskaż: stop albo pomoc.",
+          "Posortuj przykładowe dane na prywatne i te, które można udostępnić pod opieką dorosłego.",
+          "Opisz, jak zgłosiłbyś podejrzaną wiadomość bez otwierania jej linków."
+        ],
+        "readings": [
+          {
+            "idea": "Hasła trzymaj dla siebie.",
+            "situation": "Wiadomość w grze prosi o twoje hasło w zamian za nagrodę. Co możesz zrobić?",
+            "choices": [
+              "Wysłać hasło",
+              "Nie wysyłać go; zapytać zaufanego dorosłego",
+              "Spróbować hasła przyjaciela"
+            ],
+            "explanation": "Nagroda to nie powód, by udostępnić hasło. Zatrzymaj się i poproś o pomoc, nie otwierając linków z tej wiadomości."
+          },
+          {
+            "idea": "Nagroda może być użyta, by wywrzeć presję na udostępnienie danych logowania.",
+            "situation": "Niespodziewana wiadomość twierdzi, że musisz podać hasło, aby otrzymać nagrodę. Co jest właściwe?",
+            "choices": [
+              "Wysłać je w prywatnej wiadomości",
+              "Odmówić, skorzystać z zaufanych narzędzi do zgłaszania i powiedzieć zaufanemu dorosłemu",
+              "Przetestować prośbę, używając danych logowania kogoś innego"
+            ],
+            "explanation": "Nie otwieraj podejrzanych linków i nie podawaj danych logowania. Sprawdź to niezależną, zaufaną drogą. Wiadomość prywatna nie czyni prośby bezpieczną."
+          }
+        ]
+      },
+      {
+        "title": "Zaplanuj codzienne zadanie",
+        "idea": "Krótka lista kontrolna może pomóc ci działać samodzielnie.",
+        "situation": "Musisz spakować się do szkoły. Co mogłoby pomóc?",
+        "choices": [
+          "Czekać do ostatniej chwili",
+          "Pakować losowe rzeczy",
+          "Użyć krótkiej listy kontrolnej"
+        ],
+        "correct": 2,
+        "explanation": "Lista kontrolna wspiera planowanie. Obrazki albo pokazanie na przykładzie mogą zastąpić pisane słowa.",
+        "tryIt": [
+          "Wskaż jedną rzecz, którą musisz zapakować.",
+          "Zrób listę kontrolną z trzema obrazkami albo słowami.",
+          "Zrób listę kontrolną, przetestuj ją przez tydzień i usuń kroki, które nie pomagają."
+        ],
+        "readings": [
+          {
+            "idea": "Lista z obrazkami może pomóc ci się pakować.",
+            "situation": "Musisz spakować tornister do szkoły. Co mogłoby pomóc?",
+            "choices": [
+              "Czekać, aż będziesz wychodzić",
+              "Wybrać przypadkowe rzeczy",
+              "Użyć krótkiej listy z obrazkami albo słowami"
+            ],
+            "explanation": "Wskazuj każdą rzecz, gdy ją pakujesz. Poproś o pomoc, jeśli czegoś brakuje."
+          },
+          {
+            "idea": "Lista kontrolna jest przydatna, gdy jej kroki odpowiadają zadaniu i można je sprawdzić.",
+            "situation": "Wciąż zapominasz o jednej rzeczy, przygotowując się do jakiejś aktywności. Którą metodę mógłbyś przetestować?",
+            "choices": [
+              "Liczyć na pośpiech w ostatniej chwili",
+              "Wydłużyć listę bez sprawdzenia, czy jest trafna",
+              "Użyć krótkiej listy kontrolnej, zaobserwować pominięcia i ją poprawić"
+            ],
+            "explanation": "Umieść na liście potrzebne czynności, przetestuj ją w praktyce i usuń kroki, które nie pomagają. Samodzielność może obejmować przypomnienia i dostępne formaty."
+          }
+        ]
+      },
+      {
+        "title": "Wybieraj z budżetem",
+        "idea": "Twój wybór ma koszt i może wpłynąć na inny cel.",
+        "situation": "Masz £5. Zeszyt kosztuje £3, a zabawka £4. Co możesz kupić bez pożyczania pieniędzy?",
+        "choices": [
+          "Jedną rzecz, z pewną sumą pieniędzy, która zostanie",
+          "Obie rzeczy za £5",
+          "Obie rzeczy, nie mając nic z reszty"
+        ],
+        "correct": 0,
+        "explanation": "£3 + £4 = £7. Możesz wybrać jedną rzecz teraz, zaczekać albo zaoszczędzić więcej. Jest więcej niż jeden rozsądny wybór.",
+        "tryIt": [
+          "Wskaż rzecz, którą wybierasz.",
+          "Oblicz, ile pieniędzy zostanie przy każdym wyborze.",
+          "Wyjaśnij koszt alternatywny każdej opcji i zdecyduj, która odpowiada twoim priorytetom."
+        ],
+        "readings": [
+          {
+            "idea": "Sprawdź pieniądze, zanim wybierzesz.",
+            "situation": "Masz £5. Zeszyt kosztuje £3, a zabawka £4. Na co teraz masz pieniądze?",
+            "choices": [
+              "Na jedną rzecz, z resztą pieniędzy",
+              "Na obie rzeczy za £5",
+              "Na obie rzeczy, bez niczego z reszty"
+            ],
+            "explanation": "Trzy plus cztery to siedem, a to więcej niż pięć. Możesz wybrać jedną rzecz, zaczekać albo nie wybierać żadnej."
+          },
+          {
+            "idea": "Budżet ukazuje kompromisy, ale nie decyduje za ciebie o priorytetach.",
+            "situation": "Mając £5, nie można kupić zeszytu za £3 i zabawki za £4 bez dodatkowych pieniędzy. Które stwierdzenie jest prawdziwe?",
+            "choices": [
+              "Każdą z rzeczy można kupić samodzielnie; druga rzecz staje się kosztem alternatywnym",
+              "Obie są dostępne, bo każda kosztuje mniej niż £5",
+              "Pożyczenie pieniędzy usuwa koszt tej decyzji"
+            ],
+            "explanation": "Łączna cena to £7. Wybór jednej rzeczy zostawia inną sumę i odkłada inne wykorzystanie pieniędzy. Zaczekanie albo niewybranie żadnej rzeczy też może odpowiadać twoim priorytetom."
+          }
+        ]
+      }
+    ]
+  }
+}
