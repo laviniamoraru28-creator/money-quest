@@ -41,7 +41,7 @@ export function AccessibilityMenu() {
         title={t("a11y.accessibilityMenuLabel")}
         className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-teal/30 bg-white px-3 py-2 text-sm font-semibold text-teal-text shadow-resting hover:bg-fog"
       >
-        <ActionIcon name="settings"/><span>Settings</span>
+        <ActionIcon name="settings"/><span>{t("a11y.settingsLabel")}</span>
       </button>
 
       {isOpen && (
@@ -66,7 +66,7 @@ export function AccessibilityMenu() {
               aria-label={t("a11y.focusModeLabel")}
             />
           </label>
-          <label className="mt-2xs flex min-h-touch-min-child items-center justify-between gap-sm"><span className="text-sm">Night view</span><input type="checkbox" checked={nightView} onChange={toggleNightView} className="h-6 w-6" aria-label="Night view"/></label>
+          <label className="mt-2xs flex min-h-touch-min-child items-center justify-between gap-sm"><span className="text-sm">{t("a11y.nightViewLabel")}</span><input type="checkbox" checked={nightView} onChange={toggleNightView} className="h-6 w-6" aria-label={t("a11y.nightViewLabel")}/></label>
           <p className="mt-2xs text-xs text-ink/70">{t("a11y.focusModeHint")}</p>
         </div>
       )}

@@ -1,9 +1,9 @@
 import {test, expect} from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 
-test("quiet corner starts still and silent, has working pictures and accessible mobile layout", async ({page}, testInfo) => {
+test("quiet corner preserves silent video controls and accessible mobile layout", async ({page}, testInfo) => {
   await page.goto("/en/quiet-corner");
-  await expect.poll(() => page.locator("main img").evaluate((el:HTMLImageElement) => el.complete && el.naturalWidth === 1200)).toBe(true);
+  await expect(page.locator("#quiet-pictures")).toHaveCount(0);
   await page.screenshot({path:testInfo.outputPath("quiet-corner-default.png"),fullPage:true});
   await page.setViewportSize({width:320,height:900});
   await page.goto("/en/quiet-corner");
@@ -11,11 +11,6 @@ test("quiet corner starts still and silent, has working pictures and accessible 
   await expect(page.getByRole("button", {name:"Play sound",exact:true})).toBeVisible();
   await expect(page.locator(".quiet-picture-moving")).toHaveCount(0);
   expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(false);
-  for (const scene of ["Rest with Max","Ocean","Garden"]) {
-    await page.getByRole("button",{name:scene,exact:true}).click();
-    const image = page.locator("main img");
-    await expect.poll(() => image.evaluate((el:HTMLImageElement) => el.complete && el.naturalWidth === 1200)).toBe(true);
-  }
   const result = await new AxeBuilder({page}).withTags(["wcag2a","wcag2aa","wcag21aa"]).analyze();
   expect(result.violations).toEqual([]);
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href",/\/en\/quiet-corner$/);
@@ -25,19 +20,16 @@ test("quiet corner starts still and silent, has working pictures and accessible 
   expect((await new AxeBuilder({page}).withTags(["wcag2a","wcag2aa","wcag21aa"]).analyze()).violations).toEqual([]);
 });
 
-test("movement is optional and reduced motion cancels it", async ({page}) => {
-  await page.emulateMedia({reducedMotion:"no-preference"});
-  await page.goto("/en/quiet-corner");
-  await page.getByRole("button",{name:"Start slow picture movement",exact:true}).click();
-  await expect(page.locator(".quiet-picture-moving")).toHaveCount(1);
-  await page.emulateMedia({reducedMotion:"reduce"});
-  await expect(page.locator(".quiet-picture-moving")).toHaveCount(0);
-  await expect(page.getByRole("button",{name:"Start slow picture movement",exact:true})).toBeDisabled();
-  await page.emulateMedia({reducedMotion:"no-preference"});
-  await expect(page.locator(".quiet-picture-moving")).toHaveCount(0);
-  await page.getByRole("button",{name:"Hide picture",exact:true}).click();
-  await expect(page.locator("main img")).toHaveCount(0);
-  await expect(page.getByRole("button",{name:"Start slow picture movement",exact:true})).toBeDisabled();
+test("obsolete picture animation controls are absent with either motion preference", async ({page}) => {
+  for(const reducedMotion of ["no-preference","reduce"] as const){
+    await page.emulateMedia({reducedMotion});
+    await page.goto("/en/quiet-corner");
+    await expect(page.getByRole("button",{name:"Start slow picture movement",exact:true})).toHaveCount(0);
+    await expect(page.getByRole("button",{name:"Hide picture",exact:true})).toHaveCount(0);
+    await expect(page.getByRole("button",{name:"Play sound",exact:true})).toBeVisible();
+    await expect(page.getByText("Real nature videos",{exact:true})).toBeVisible();
+    await expect(page.locator("video")).toHaveCount(0);
+  }
 });
 
 test("communication cards support keyboard focus and do not create stored responses", async ({page}) => {
@@ -90,7 +82,7 @@ test("quiet corner remains usable when Web Audio is unavailable", async ({page})
   await page.addInitScript(() => {Object.defineProperty(window,"AudioContext",{value:undefined,configurable:true});});
   await page.goto("/en/quiet-corner");
   await page.getByRole("button",{name:"Play sound",exact:true}).click();
-  await expect(page.getByText("Sound could not start. You can use the pictures or stay in silence.",{exact:true})).toBeVisible();
+  await expect(page.getByText("Sound could not start. You can watch a video or stay in silence.",{exact:true})).toBeVisible();
   await page.getByRole("button",{name:"I need quiet",exact:true}).click();
   await expect(page.getByRole("dialog")).toBeVisible();
 });

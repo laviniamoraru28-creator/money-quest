@@ -26,6 +26,9 @@ export default function DiscoveryExperience({presentation}:{presentation:Discove
   useEffect(()=>{try{const value=JSON.parse(localStorage.getItem(STORE)||"[]");if(Array.isArray(value))setSaved(value.filter((s):s is string=>typeof s==="string"))}catch{setSaveFailed(true)}setReady(true)},[]);
   useEffect(()=>{setPage(0);setAnswer(null)},[slug]);
   const prefix="/"+kind;
+  const roomIndex=items.findIndex(entry=>entry.slug===slug);
+  const previousRoom=items[roomIndex-1];
+  const nextRoom=items[roomIndex+1];
   const complete=(s:string)=>saved.includes(kind+":"+s);
   const mark=()=>{if(!item)return;const value=Array.from(new Set([...saved,kind+":"+item.slug]));setSaved(value);try{localStorage.setItem(STORE,JSON.stringify(value))}catch{setSaveFailed(true)}};
   const reading=item&&"pages" in item?item.pages[page]:undefined;
@@ -42,6 +45,10 @@ export default function DiscoveryExperience({presentation}:{presentation:Discove
   {note&&<section className="mt-6 rounded-xl border border-teal/20 bg-fog p-4"><label htmlFor="discovery-level" className="font-bold">{ui.chooseChallenge}</label><select id="discovery-level" value={level} onChange={e=>setLevel(Number(e.target.value))} className="ml-3 min-h-12 max-w-full rounded-lg border border-ink/30 bg-white p-2"><option value={0}>Explorer</option><option value={1}>Builder</option><option value={2}>Strategist</option></select><p className="mt-3">{note.challenges[level]}</p></section>}
   {(kind==="museum"||("pages" in item&&page===item.pages.length-1))&&<section className="mt-9 border-t pt-7" aria-label={ui.challenge}><h2 className="text-xl">{ui.challenge}</h2><fieldset className="mt-3"><legend className="text-lg">{item.quiz.question}</legend><div className="mt-4 grid gap-3">{item.quiz.answers.map((label,i)=><button key={label} type="button" aria-pressed={answer===i} onClick={()=>setAnswer(i)} className={`min-h-12 rounded-xl border-2 p-4 text-left ${answer===i?"border-teal bg-teal/10":"border-ink/20"}`}>{label}</button>)}</div></fieldset><p role="status" className="mt-4">{answer!==null?(answer===item.quiz.correct?`${reader.correct} ${note?.feedback??("explanation" in item?item.explanation:"")}`:ui.retry):""}</p>{answer===item.quiz.correct&&<button type="button" disabled={!ready} onClick={mark} className="mt-4 min-h-12 rounded-xl bg-teal px-5 py-3 font-semibold text-white">{complete(item.slug)?saveFailed?ui.completedAgain:ui.saved:ui.mark}</button>}<p role="status" className="mt-2 text-sm">{saveFailed?ui.saveFailed:""}</p></section>}
   {note?.sources&&<details className="mt-6 rounded-xl border border-ink/20 p-4"><summary className="min-h-11 cursor-pointer py-2 font-bold">{ui.sources}</summary><ul className="mt-3 space-y-2">{note.sources.map(source=><li key={source.url}><a className="inline-block min-h-11 py-2 text-teal-text underline" href={source.url} rel="noreferrer">{source.title}</a></li>)}</ul></details>}
-  </article><nav aria-label={ui.continue} className="mt-6 flex flex-wrap gap-5"><Link href={prefix} className="min-h-11 py-2 font-semibold text-teal-text underline">{kind==="museum"?ui.allRooms:ui.allBooks}</Link><Link href={kind==="museum"?"/library":"/museum"} className="min-h-11 py-2 font-semibold text-teal-text underline">{kind==="museum"?ui.visitLibrary:ui.visitMuseum}</Link></nav></>}
+  </article>{kind==="museum"&&<nav aria-label={ui.museum} className="mt-6 flex flex-wrap items-center justify-between gap-3">
+    {previousRoom?<Link href={`${prefix}/${previousRoom.slug}`} className="min-h-12 rounded-xl border border-teal px-5 py-3 font-semibold text-teal-text">← {ui.previousRoom}</Link>:<span/>}
+    <Link href="/museum" className="min-h-12 rounded-xl border border-teal px-5 py-3 font-semibold text-teal-text">{ui.backMuseum}</Link>
+    {nextRoom?<Link href={`${prefix}/${nextRoom.slug}`} className="min-h-12 rounded-xl bg-teal px-5 py-3 font-semibold text-white">{ui.nextRoom} →</Link>:<span/>}
+  </nav>}<nav aria-label={ui.continue} className="mt-6 flex flex-wrap gap-5"><Link href={prefix} className="min-h-11 py-2 font-semibold text-teal-text underline">{kind==="museum"?ui.allRooms:ui.allBooks}</Link><Link href={kind==="museum"?"/library":"/museum"} className="min-h-11 py-2 font-semibold text-teal-text underline">{kind==="museum"?ui.visitLibrary:ui.visitMuseum}</Link></nav></>}
   </main></div>;
 }

@@ -63,3 +63,6 @@ moneyquest-namecheap-built.zip
 /public/worksheets/pt/
 /public/worksheets/nl/
 /public/worksheets/pl/
+
+# Local audit logs and generation receipts
+.work/

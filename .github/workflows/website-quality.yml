@@ -3,7 +3,7 @@ on:
   push:
     branches: [feature/website-completion-20261027, "release/**"]
   pull_request:
-    branches: [feature/website-completion-20261027, review/website-completion-20261027, feature/library-first-original-book, feature/public-multilingual-launch, integration/launch-20261102]
+    branches: [main, feature/website-completion-20261027, review/website-completion-20261027, feature/library-first-original-book, feature/public-multilingual-launch, integration/launch-20261102]
   workflow_dispatch: {}
 permissions:
   contents: read

@@ -1,14 +1,6 @@
-/**
- * Structural (English-only, not translated) mapping from a canonical
- * lesson id to its printable worksheet PDF, mirroring how
- * curriculum/structures.ts separates structural data from translated
- * text. Worksheets are a standalone printable resource — deliberately
- * NOT part of the 9-language translation system (see
- * public/worksheets/README.txt) — so this file lives outside
- * messages/*.json on purpose. Only the 20 lessons listed here have a
- * worksheet; every other lesson simply isn't in this map, and pages
- * should check for that (no worksheet button shown) rather than
- * guessing or falling back.
+/** Canonical lesson-to-filename mapping. Build generates all nine language editions
+ * from each locale’s lesson text under /worksheets/{locale}/. Only these twenty
+ * lessons have worksheets; other lessons must not guess a download path.
  */
 export const LESSON_WORKSHEETS: Record<string, string> = {
   "explorer-money_basics-l1": "01-what-is-money.pdf",

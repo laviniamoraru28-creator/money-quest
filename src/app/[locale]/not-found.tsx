@@ -1,24 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 
-/**
- * Found during an earlier audit: no custom not-found page existed
- * anywhere in the app, meaning a mistyped URL or a stale link (a real,
- * likely scenario for a child clicking around, or a link surviving
- * after seeded content changes) fell through to Next.js's generic,
- * unbranded default 404 — jarring and potentially confusing for a
- * young child, and not something a parent encountering it would read
- * as "safe, nothing's wrong here." Unlike error.tsx (which must stay
- * English and translation-independent, since a broken translation
- * context could itself be the reason a real error occurred), this
- * page has no such constraint — a 404 for a genuinely missing route
- * doesn't imply the i18n system itself is broken, so it's safe and
- * correct for this one to be fully localized. A Server Component
- * (not Client) deliberately: no interactivity is needed here, and
- * getTranslations() reads directly from the request's own locale
- * rather than depending on the client-side NextIntlClientProvider
- * having already mounted.
- */
+/** Missing routes use the current request locale. */
 export default async function NotFound() {
   const t = await getTranslations();
   return (

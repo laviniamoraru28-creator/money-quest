@@ -287,6 +287,8 @@
     "readAloudLabel": "Read this aloud",
     "stopReadingLabel": "Stop",
     "accessibilityMenuLabel": "Accessibility settings",
+    "settingsLabel": "Settings",
+    "nightViewLabel": "Night view",
     "reducedMotionLabel": "Reduce animations",
     "focusModeLabel": "Focus mode",
     "focusModeHint": "Hides extra details so only the main activity shows.",
