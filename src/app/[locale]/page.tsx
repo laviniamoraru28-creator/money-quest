@@ -183,7 +183,7 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
           <div className="flex flex-wrap gap-sm">
             <Link href="/parent-info" className="hover:text-teal-text">{t("nav.forParents")}</Link>
             <Link href="/privacy" className="hover:text-teal-text">{t("footer.privacy")}</Link>
-            <Link href="/feedback" className="hover:text-teal-text">{t("footer.feedback")}</Link>
+            <Link href="/feedback" className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-teal/30 px-3 py-2 font-semibold text-teal-text hover:bg-teal/5"><span aria-hidden="true" className="text-xl text-amber-500">★</span>{t("footer.feedback")}</Link>
             <Link href="/contact" className="hover:text-teal-text">{t("footer.contact")}</Link>
           </div>
         </div>
