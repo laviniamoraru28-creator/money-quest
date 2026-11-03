@@ -1,6 +1,9 @@
 import {test,expect} from "@playwright/test";
 test("comment stays private until authenticated approval",async({page})=>{
-  await page.goto("/en/reviews");const origin=new URL(page.url()).origin;
+  await page.goto("/en");
+  await page.locator('footer a[href="/en/reviews"]').click();
+  await expect(page).toHaveURL(/\/en\/reviews$/);
+  const origin=new URL(page.url()).origin;
   const message=`Clear pictures and helpful choices ${test.info().project.name}.`;
   await page.getByRole("radio",{name:"4 stars",exact:true}).check();
   await page.getByLabel("Comment (optional, up to 500 characters)").fill(message);

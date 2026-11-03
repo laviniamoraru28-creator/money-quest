@@ -2016,7 +2016,7 @@
   "footer": {
     "privacy": "Prywatność",
     "contact": "Kontakt",
-    "feedback": "Opinia"
+    "feedback": "Opinie"
   },
   "play": {
     "chooseYourLevel": "Wybierz swój poziom nauki",
@@ -5605,7 +5605,7 @@
     "challengeLabel": "Twoje wyzwanie Money Quest:",
     "questions": [
       {
-        "prompt": "Dostajesz 10 monet od krewnego. Jaki jest twój pierwszy instynkt?",
+        "prompt": "Ktoś z rodziny daje ci banknot 10 funtów. Co robisz najpierw?",
         "options": [
           "Schować je gdzieś bezpiecznie na później",
           "Pomyśleć o podzieleniu ich na kilka rzeczy",
@@ -5625,7 +5625,7 @@
         ]
       },
       {
-        "prompt": "Znajomemu brakuje trochę monet na coś. Ty:",
+        "prompt": "Znajomemu brakuje pieniędzy na zakup. Co robisz?",
         "options": [
           "Współczujesz mu, ale zachowujesz swoje monety",
           "Zastanawiasz się, czy możesz pomóc, nie psując własnego planu",

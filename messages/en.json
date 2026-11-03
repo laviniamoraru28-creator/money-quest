@@ -304,7 +304,7 @@
   "footer": {
     "privacy": "Privacy",
     "contact": "Contact",
-    "feedback": "Feedback"
+    "feedback": "Reviews"
   },
   "play": {
     "chooseYourLevel": "Choose your learning level",
@@ -3893,7 +3893,7 @@
     "challengeLabel": "Your Money Quest challenge:",
     "questions": [
       {
-        "prompt": "You get 10 coins from a relative. What's your first instinct?",
+        "prompt": "A relative gives you a £10 banknote. What would you do first?",
         "options": [
           "Put it somewhere safe for later",
           "Think about splitting it between a few things",
@@ -3913,9 +3913,9 @@
         ]
       },
       {
-        "prompt": "A friend is a little short on coins for something. You:",
+        "prompt": "A friend doesn't have quite enough money to buy something. What would you do?",
         "options": [
-          "Feel for them, but keep your own coins put away",
+          "Feel for them, but keep your own money put away",
           "Think about whether you could help without messing up your own plan",
           "Aren't sure - you're usually spending what you have anyway",
           "Think it over carefully before deciding",
