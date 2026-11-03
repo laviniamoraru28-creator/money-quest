@@ -23,8 +23,10 @@ export default function QuietSceneMedia({scene, moving, reduced, alt, locale, bu
   const video = useRef<HTMLVideoElement>(null);
   const [muted, setMuted] = useState(true);
   const [failed, setFailed] = useState(false);
-  const active = moving && !reduced && !failed;
-  useEffect(() => {setMuted(true); setFailed(false);}, [scene]);
+  const [pausedByPage, setPausedByPage] = useState(false);
+  const active = moving && !reduced && !failed && !pausedByPage;
+  useEffect(() => {setMuted(true); setFailed(false); setPausedByPage(false);}, [scene]);
+  useEffect(() => {if (!moving || reduced) {setMuted(true); setPausedByPage(false);}}, [moving, reduced]);
   useEffect(() => {
     const element = video.current;
     if (!element) return;
@@ -33,7 +35,7 @@ export default function QuietSceneMedia({scene, moving, reduced, alt, locale, bu
     void element.play().catch(() => setFailed(true));
   }, [active, scene, muted]);
   useEffect(() => {
-    const stop = () => {video.current?.pause(); setMuted(true);};
+    const stop = () => {video.current?.pause(); setMuted(true); setPausedByPage(true);};
     const visibility = () => {if (document.hidden) stop();};
     window.addEventListener("moneyquest-stop-quiet-video", stop);
     window.addEventListener("pagehide", stop);
