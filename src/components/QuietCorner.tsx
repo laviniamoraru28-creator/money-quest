@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import {useCallback, useEffect, useRef, useState} from "react";
 import {Link} from "@/i18n/navigation";
 import {quietCopy} from "@/content/quiet-corner";
@@ -8,6 +7,7 @@ import type {Locale} from "@/i18n/config";
 import {QuietAudio, type QuietSound} from "@/lib/audio/quiet-audio";
 import {useAccessibilityPrefs} from "@/lib/accessibility/use-accessibility-preferences";
 import QuietVideos from "@/components/QuietVideos";
+import QuietSceneMedia from "@/components/QuietSceneMedia";
 
 const button = "min-h-12 rounded-2xl border-2 border-teal/40 bg-white px-5 py-3 font-bold text-teal-text focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-teal";
 const stopButton = button.replace("bg-white", "bg-teal").replace("text-teal-text", "text-white");
@@ -96,7 +96,7 @@ export default function QuietCorner({locale}: {locale: Locale}) {
       <section aria-labelledby="quiet-pictures" className="mt-7 rounded-3xl border border-teal/20 bg-white p-4 sm:p-6">
         <h2 id="quiet-pictures" className="text-xl">{t.pictures}</h2>
         <div className="my-4 flex flex-wrap gap-3">{scenes.map(id => <button type="button" key={id} aria-pressed={scene === id} className={`${button} ${scene === id ? "border-teal bg-teal/10" : ""}`} onClick={() => {setScene(id); setHidden(false); setMoving(false);}}>{t[id]}</button>)}</div>
-        {!hidden && <figure><div className="overflow-hidden rounded-2xl bg-fog"><Image unoptimized priority={scene === "max"} src={`/images/money-quest/quiet/${scene}-v1.webp`} alt={t[altKeys[scene]]} width={1200} height={675} className={`aspect-video h-auto w-full object-cover ${moving && !reduced ? "quiet-picture-moving" : ""}`}/></div><figcaption className="mt-2 text-sm">{t.imageNote}</figcaption></figure>}
+        {!hidden && <figure><QuietSceneMedia scene={scene} moving={moving} reduced={reduced} alt={t[altKeys[scene]]} locale={locale} buttonClass={button}/><figcaption className="mt-2 text-sm">{t.imageNote}</figcaption></figure>}
         <div className="mt-4 flex flex-wrap gap-3"><button type="button" className={button} aria-pressed={hidden} onClick={() => {setHidden(!hidden); setMoving(false);}}>{hidden ? t.show : t.hide}</button><button type="button" className={`${button} disabled:opacity-60`} disabled={hidden || reduced} aria-pressed={moving && !reduced} onClick={() => setMoving(!moving)}>{moving && !reduced ? t.still : t.move}</button></div>
         {reduced && <p className="mt-3 text-sm">{t.motionOff}</p>}
       </section>
