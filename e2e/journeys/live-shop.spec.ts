@@ -25,11 +25,12 @@ test("synthetic live storefront requires four choices and surfaces safe payment 
  let submitted:unknown=null;await page.route("**/api/shop/checkout",async route=>{submitted=route.request().postDataJSON();await route.fulfill({status:503,contentType:"application/json",body:JSON.stringify({code:"checkout_unavailable",message:"RAW INTERNAL FIXTURE ERROR"})});});
  await page.setViewportSize({width:320,height:900});await page.goto(`${base}/en/parents/shop`);
  await expect(page.getByText("Synthetic browser merchant",{exact:true})).toBeVisible();await expect(page.getByText("Test checkout only. No real money will be taken.",{exact:true})).toHaveCount(0);
- const card=page.locator("article#family-adventure-pack"),button=card.getByRole("button",{name:"Continue to secure payment",exact:true});await expect(button).toBeDisabled();
+ await expect(page.locator("article#family-adventure-pack").getByRole("checkbox")).toHaveCount(0);
+ const card=page.locator("article#adventure-journal"),button=card.getByRole("button",{name:"Continue to secure payment",exact:true});await expect(button).toBeDisabled();
  const choices=card.getByRole("checkbox");await expect(choices).toHaveCount(4);for(let i=0;i<4;i++)await expect(choices.nth(i)).not.toBeChecked();
  for(let i=0;i<3;i++)await choices.nth(i).check();await expect(button).toBeDisabled();await choices.nth(3).check();await expect(button).toBeEnabled();await button.click();
  await expect(card.getByRole("status")).toHaveText("Checkout is unavailable. Please try later.");
- expect(submitted).toEqual({productId:"family-adventure-pack",adultPurchaser:true,instantSupply:true,cancellationAcknowledged:true,termsAccepted:true});await expect(page.getByText("RAW INTERNAL FIXTURE ERROR")).toHaveCount(0);
+ expect(submitted).toEqual({productId:"adventure-journal",adultPurchaser:true,instantSupply:true,cancellationAcknowledged:true,termsAccepted:true});await expect(page.getByText("RAW INTERNAL FIXTURE ERROR")).toHaveCount(0);
  await choices.nth(3).uncheck();await expect(button).toBeDisabled();expect(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)).toBe(false);
  const result=await new AxeBuilder({page}).withTags(["wcag2a","wcag2aa","wcag21aa"]).analyze();expect(result.violations).toEqual([]);
 });
