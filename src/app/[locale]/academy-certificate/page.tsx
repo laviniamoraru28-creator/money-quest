@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { useSearchParams } from "next/navigation";
 import { useLocalProgress } from "@/lib/local-progress/use-local-progress";
@@ -10,7 +10,8 @@ import { getWorldCatalog } from "@/content/catalog";
 import type { AgeBand } from "@/types/database.types";
 
 const BANDS = ["explorer","builder","strategist"] as const;
-export default function AcademyCertificatePage() {
+export default function AcademyCertificatePage() { return <Suspense fallback={<main className="p-8">Loading…</main>}><AcademyCertificateContent /></Suspense>; }
+function AcademyCertificateContent() {
   const query = useSearchParams();
   const raw = query.get("level");
   const band: AgeBand | null = BANDS.find(b => b === raw) ?? null;
