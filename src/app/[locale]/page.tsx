@@ -159,7 +159,6 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
               <li>✓ {t("landing.trust4")}</li>
             </ul>
             <Link href="/parents/resources" className="mt-6 mr-5 inline-flex min-h-12 items-center rounded-xl bg-parent-action px-5 py-3 font-bold text-white">{t("landing.parentResourcesLink")}</Link>
-            <Link href="/explorer" className="mt-4 block min-h-12 rounded-xl border-2 border-teal bg-white px-4 py-3 font-bold text-teal-text">{experienceCopy[isSupportedLocale(locale)?locale:"en"].visual} →</Link>
               <Link href="/parent-info" className="mt-sm inline-block text-teal-text hover:underline">
               {t("landing.readFullParentInfoLink")}
             </Link>
