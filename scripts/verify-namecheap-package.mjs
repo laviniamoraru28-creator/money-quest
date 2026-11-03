@@ -45,6 +45,9 @@ try{
  const routes=['/en','/en/library','/en/museum','/en/mind-lab','/en/brain-lab','/en/parents/shop','/en/privacy','/sitemap.xml','/robots.txt','/offline-manifest.json','/resources/samples/free-family-sample-en.pdf','/resources/samples/free-journal-week-one-en.pdf'];
  for(const locale of ['ro','fr','de','es','it','pt','nl','pl']) routes.push(`/${locale}`,`/${locale}/library`,`/${locale}/brain-lab`,`/resources/samples/free-family-sample-${locale}.pdf`,`/worksheets/${locale}/money-quest-worksheets-answer-key.pdf`);
  for(const route of routes)assert.equal((await fetch(origin+route)).status,200,route);
+ for(const band of ['explorer','builder','strategist'])assert.equal((await fetch(origin+`/certificates/${band}-background.jpg`)).status,200);
+ for(const font of ['DejaVuSerif.ttf','DejaVuSans.ttf','Allura-Regular.ttf'])assert.equal((await fetch(origin+`/certificates/fonts/${font}`)).status,200,font);
+ assert.equal((await fetch(origin+'/ro/academy-certificate?level=explorer')).status,200);
  const checkout=await fetch(origin+'/api/shop/checkout',{method:'POST',headers:{'Content-Type':'application/json',Origin:origin},body:JSON.stringify({productId:'family-adventure-pack'})});
  assert.ok(!checkout.ok,'Commerce stays closed in the extracted artifact');
  console.log(JSON.stringify({node:process.version,buildId:status.buildId,sourceCommit:status.sourceCommit,inventoryFiles:status.files.length,routes:routes.length,productionInstall:'PASS',adminImports:'PASS',closedCheckout:'PASS',result:'PASS'},null,2));

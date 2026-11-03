@@ -160,6 +160,8 @@ export default function PlayPage() {
           })}
         </div>
 
+
+
         {/* More features — upgraded from a row of small text links to
             clearly-identifiable cards, matching the same visual
             language as the World cards above, so these existing

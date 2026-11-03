@@ -1,3 +1,4 @@
+import { AcademyCertificateReward } from "@/components/AcademyCertificateReward";
 import type { ReactNode } from "react";
 import { SoundToggle } from "@/components/ui/SoundToggle";
 import { AccessibilityMenu } from "@/components/ui/AccessibilityMenu";
@@ -25,6 +26,7 @@ export default function PlayLayout({ children }: { children: ReactNode }) {
         <SoundToggle />
       </div>
       {children}
+      <AcademyCertificateReward />
     </>
   );
 }
