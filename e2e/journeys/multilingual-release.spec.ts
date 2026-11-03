@@ -51,8 +51,9 @@ for(const locale of LOCALES){
   await page.screenshot({path:info.outputPath(`book-${locale}.png`),fullPage:true});
   expect(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)).toBe(false);
   await page.goto(`/${locale}/parents/resources`);
-  await expect(page.getByRole('link',{name:parentGuideCopy[locale].activitySample,exact:true})).toHaveAttribute('href',`/resources/samples/free-family-sample-${locale}.pdf`);
-  for(const file of [`/resources/samples/free-family-sample-${locale}.pdf`,`/resources/samples/free-journal-week-one-${locale}.pdf`,`/worksheets/${locale}/${Object.values(LESSON_WORKSHEETS)[0]}`,`/worksheets/${locale}/money-quest-worksheets-answer-key.pdf`]){
+  await expect(page.getByRole('link',{name:parentGuideCopy[locale].activitySample,exact:true})).toHaveAttribute('href',"/resources/samples/free-academy-activities-en.pdf");
+  await expect(page.getByRole('link',{name:parentGuideCopy[locale].journalSample,exact:true})).toHaveAttribute('href',"/resources/samples/free-journal-30-days-en.pdf");
+  for(const file of ["/resources/samples/free-academy-activities-en.pdf","/resources/samples/free-journal-30-days-en.pdf",`/worksheets/${locale}/${Object.values(LESSON_WORKSHEETS)[0]}`,`/worksheets/${locale}/money-quest-worksheets-answer-key.pdf`]){
    const response=await request.get(file);expect(response.status(),file).toBe(200);expect((await response.body()).subarray(0,4).toString()).toBe('%PDF');
   }
   const fallback=await request.get(`/offline-pages/${locale}.html`);expect(fallback.status()).toBe(200);expect(await fallback.text()).toContain(`<html lang="${locale}">`);
