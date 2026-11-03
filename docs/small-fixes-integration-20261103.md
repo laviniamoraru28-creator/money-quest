@@ -5,7 +5,7 @@ Combines the previously requested corrections from PRs #17, #18, #19, #22 and #2
 - Requested Romanian homepage and SEO wording.
 - Money Personality prompts use a £10 banknote, with clearer Romanian questions, answers and selected result copy. Answer ordering and scoring are unchanged.
 - Removes the unwanted caption under the welcome image while retaining narration.
-- Visible localized footer feedback/reviews link with a decorative star. It keeps the existing feedback destination and does not claim to publish a new public review.
+- Visible localized footer feedback/reviews link with a decorative star. It opens the existing moderated public reviews page, rather than the old device-local feedback form. The browser moderation journey starts through this footer link.
 - Night View uses the same inline alignment, icon gap and 48px minimum height as Listen.
 - Keeps the two retired Explorer links and route out of the homepage/sitemap, retaining Inclusive Learning and SEND support.
 
