@@ -39,7 +39,7 @@ for(const locale of LOCALES){
  for(const text of [copy.title,copy.intro,copy.step3,copy.sendBody,copy.evidenceBody,copy.sampleBody,copy.activitySample,copy.journalSample,copy.freeBody])assert(html.includes(escape(text)),`${locale}: ${text}`);
  for(const level of ["Explorer","Builder","Strategist"])assert(copy.levelsBody.includes(level));
  assert(copy.printNote.includes("A4"));assert(copy.printNote.includes("100"));
- assert(html.includes(`href="/resources/samples/free-family-sample-${locale}.pdf"`));assert(html.includes(`href="/resources/samples/free-journal-week-one-${locale}.pdf"`));
+ assert(html.includes(`href="/resources/samples/free-academy-activities-en.pdf"`));assert(html.includes(`href="/resources/samples/free-journal-30-days-en.pdf"`));
  for(const source of PARENT_GUIDE_SOURCES){assert(html.includes(escape(source.title)));assert(html.includes(escape(source.url)));assert(html.includes(escape(copy[source.id])));}
  const flow=shopFlowPresentation(locale);
  for(const enabled of [false,true]){
