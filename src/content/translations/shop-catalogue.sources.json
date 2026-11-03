@@ -12,13 +12,13 @@
     "nl",
     "pl"
   ],
-  "sourceHash": "42a2c23c50525ca396e332d5d92a5dc59eef9c22690733a3a646051d634e3fd6",
+  "sourceHash": "d8bb933ad90bb49a51d8a1cb4fb8d36d630cde25032ea2a425f94662719cc92b",
   "products": {
     "family-adventure-pack": "379cab4d58abdd2f3471e12215bddc9d28255abef3d82867aeced825d2157c30",
-    "adventure-journal": "86670d9a8a807dd642a3d09b027d1ce4b70c24e73972e11e5ac0fdf4541f82e9"
+    "adventure-journal": "d7cd222cdf086aa9146a72e4994ae4b8083b45b6048af1f466193909690ca814"
   },
   "stringsPerLocale": 52,
   "translatedStrings": 416,
-  "scope": "Nine-language storefront text. Academy and journal use supplied English originals; translated PDF editions remain pending. Both samples are explicitly English.",
+  "scope": "Nine-language storefront; nine actual 44-page journal PDF editions and matching samples. Academy supplied PDFs remain English-only with translations pending.",
   "review": "AI multilingual editorial drafts, not native-editor or product/legal certification. No public locale, translated file edition or live sales activation. SEO metadata, receipts, native errors and actual printable manuscripts remain separate work."
 }
