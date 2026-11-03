@@ -41,3 +41,5 @@ This is AI translation, editorial and visual review, not an independent native-e
 The journal's product-file readiness flag now reflects the completed nine-language files. The existing live eligibility check previously consulted that flag only for the Academy pack. It now respects an unreleased flag for either product. A regression check verifies that an unreleased journal rejects new LIVE checkout even with otherwise valid configured assets. Existing paid-contract download/fulfilment paths do not depend on the current catalogue readiness flag.
 
 Merchant credentials, private host installation and end-to-end settlement/email/download evidence remain separate from these file checks. No real charge, payment link or hosting deployment is performed by this integration.
+
+New LIVE purchases also require the host release hash and byte count to match the current catalogue archive. An installed older archive cannot satisfy that gate, even if its own integrity is valid. Existing paid contracts still verify and deliver their original archives independently. Regression checks cover a valid old archive, matching current archive, mismatched size and unreleased product.

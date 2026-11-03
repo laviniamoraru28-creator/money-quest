@@ -11,6 +11,7 @@ import {LOCALES} from "../src/i18n/config";
 async function main(){
  const product=shopProducts.find(p=>p.id===manifest.productId)!;
  assert(product);assert.equal(product.file,manifest.archive.file);assert.equal(product.releaseReady,true);
+ assert.deepEqual(product.releaseArchive,{sha256:manifest.archive.sha256,bytes:manifest.archive.bytes});
  assert.equal(manifest.ready,true);assert.equal(manifest.commerceReady,false);
  assert.deepEqual(manifest.availableLocales,LOCALES);assert.deepEqual(manifest.targetLocales,LOCALES);
  assert.equal(manifest.source.pages,44);assert.equal(manifest.source.dailyPages,30);
