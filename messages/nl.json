@@ -2407,7 +2407,7 @@
   "footer": {
     "privacy": "Privacy",
     "contact": "Contact",
-    "feedback": "Feedback"
+    "feedback": "Beoordelingen"
   },
   "play": {
     "chooseYourLevel": "Kies je leerniveau",
@@ -5996,7 +5996,7 @@
     "challengeLabel": "Jouw Money Quest-uitdaging:",
     "questions": [
       {
-        "prompt": "Je krijgt 10 munten van een familielid. Wat is je eerste instinct?",
+        "prompt": "Je krijgt een biljet van 10 pond van een familielid. Wat doe je eerst?",
         "options": [
           "Ze ergens veilig bewaren voor later",
           "Nadenken over ze verdelen over een paar dingen",
@@ -6016,7 +6016,7 @@
         ]
       },
       {
-        "prompt": "Een vriend komt een beetje munten tekort voor iets. Jij:",
+        "prompt": "Een vriend heeft niet genoeg geld om iets te kopen. Wat doe je?",
         "options": [
           "Leeft mee, maar houdt je eigen munten apart",
           "Denkt na of je kunt helpen zonder je eigen plan te verstoren",

@@ -304,7 +304,7 @@
   "footer": {
     "privacy": "Privacidad",
     "contact": "Contacto",
-    "feedback": "Comentarios"
+    "feedback": "Reseñas"
   },
   "play": {
     "chooseYourLevel": "Elige tu nivel de aprendizaje",
@@ -3893,7 +3893,7 @@
     "challengeLabel": "Tu desafío de Money Quest:",
     "questions": [
       {
-        "prompt": "Recibes 10 monedas de un familiar. ¿Cuál es tu primer instinto?",
+        "prompt": "Un familiar te da un billete de £10. ¿Qué harías primero?",
         "options": [
           "Guardarlas en algún sitio seguro para después",
           "Pensar en repartirlas entre varias cosas",
@@ -3913,7 +3913,7 @@
         ]
       },
       {
-        "prompt": "A un amigo le faltan monedas para algo. Tú:",
+        "prompt": "A un amigo le falta dinero para comprar algo. ¿Qué haces?",
         "options": [
           "Lo sientes por él, pero guardas tus propias monedas",
           "Piensas si podrías ayudar sin estropear tu propio plan",

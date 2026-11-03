@@ -3893,7 +3893,7 @@
     "challengeLabel": "Ton défi Money Quest :",
     "questions": [
       {
-        "prompt": "Tu reçois 10 pièces d'un proche. Quel est ton premier réflexe ?",
+        "prompt": "Un proche te donne un billet de 10 £. Que fais-tu en premier ?",
         "options": [
           "Les mettre quelque part en sécurité pour plus tard",
           "Réfléchir à les répartir entre plusieurs choses",
@@ -3913,7 +3913,7 @@
         ]
       },
       {
-        "prompt": "Un ami manque un peu de pièces pour quelque chose. Tu :",
+        "prompt": "Un ami n'a pas assez d'argent pour acheter quelque chose. Que fais-tu ?",
         "options": [
           "Compatis, mais gardes tes propres pièces de côté",
           "Te demandes si tu pourrais aider sans bouleverser ton propre plan",
