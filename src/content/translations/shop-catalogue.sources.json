@@ -1,6 +1,6 @@
 {
   "status": "draft",
-  "recorded": "2026-10-30",
+  "recorded": "2026-11-03",
   "locales": [
     "en",
     "ro",
@@ -12,13 +12,13 @@
     "nl",
     "pl"
   ],
-  "sourceHash": "37d67f7d60312ade7d90a3ce172dc33b3168c3e053c6ee9bfc27a5ba347f20d3",
+  "sourceHash": "42a2c23c50525ca396e332d5d92a5dc59eef9c22690733a3a646051d634e3fd6",
   "products": {
-    "family-adventure-pack": "1be2a8e1040cca3032f310f97e14f4bccedd1fa67123597ac4685601d5559e3b",
-    "adventure-journal": "908ecb88e20584bbae758d7d434ba9c11ecd291ae0d89c8e3415ef9e1deb8642"
+    "family-adventure-pack": "379cab4d58abdd2f3471e12215bddc9d28255abef3d82867aeced825d2157c30",
+    "adventure-journal": "86670d9a8a807dd642a3d09b027d1ce4b70c24e73972e11e5ac0fdf4541f82e9"
   },
   "stringsPerLocale": 52,
   "translatedStrings": 416,
-  "scope": "Nine-language private printable bundles; public samples and transaction UI remain English. Three editions and both visual versions per language.",
+  "scope": "Nine-language storefront text. Academy and journal use supplied English originals; translated PDF editions remain pending. Both samples are explicitly English.",
   "review": "AI multilingual editorial drafts, not native-editor or product/legal certification. No public locale, translated file edition or live sales activation. SEO metadata, receipts, native errors and actual printable manuscripts remain separate work."
 }

@@ -42,7 +42,7 @@ try{
   await new Promise(resolve=>setTimeout(resolve,500));
  }
  assert.ok(healthy,'Extracted production server health');
- const routes=['/en','/en/library','/en/museum','/en/mind-lab','/en/brain-lab','/en/parents/shop','/en/privacy','/sitemap.xml','/robots.txt','/offline-manifest.json','/resources/samples/free-family-sample-en.pdf','/resources/samples/free-journal-week-one-en.pdf'];
+ const routes=['/en','/en/library','/en/museum','/en/mind-lab','/en/brain-lab','/en/parents/shop','/en/privacy','/sitemap.xml','/robots.txt','/offline-manifest.json','/resources/samples/free-family-sample-en.pdf','/resources/samples/free-journal-week-one-en.pdf','/resources/samples/free-academy-activities-en.pdf','/resources/samples/free-journal-30-days-en.pdf'];
  for(const locale of ['ro','fr','de','es','it','pt','nl','pl']) routes.push(`/${locale}`,`/${locale}/library`,`/${locale}/brain-lab`,`/resources/samples/free-family-sample-${locale}.pdf`,`/worksheets/${locale}/money-quest-worksheets-answer-key.pdf`);
  for(const route of routes)assert.equal((await fetch(origin+route)).status,200,route);
  for(const band of ['explorer','builder','strategist'])assert.equal((await fetch(origin+`/certificates/${band}-background.jpg`)).status,200);

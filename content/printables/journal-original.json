@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "productId": "adventure-journal",
+  "sourceLanguage": "en",
+  "ready": false,
+  "targetLocales": [
+    "en",
+    "ro",
+    "es",
+    "fr",
+    "de",
+    "it",
+    "pt",
+    "nl",
+    "pl"
+  ],
+  "availableLocales": [
+    "en"
+  ],
+  "source": {
+    "file": "Money_Quest_Future_Ready_Journal_44_pages_en.pdf",
+    "pages": 44,
+    "dailyPages": 30,
+    "dailyPageRange": [
+      14,
+      43
+    ],
+    "sha256": "9d8e6b4fcfb6a9cbf39a0c4dd88e861dc9c15f16d0ec006b62a1540bf04bff91",
+    "bytes": 4514054,
+    "sourceLibraryFileId": "libfile_f9b8f5e42d588191abfd8a3a682206c9"
+  },
+  "archive": {
+    "file": "money-quest-future-ready-journal-en.zip",
+    "sha256": "51db8aaca51ff974024a174588d711a73caa39656c388060053c57a03e286671",
+    "bytes": 3647157
+  },
+  "sample": {
+    "file": "/resources/samples/free-journal-30-days-en.pdf",
+    "pages": 3,
+    "sourcePages": [
+      1,
+      6,
+      14
+    ],
+    "sha256": "6adb4950e1a88555f4cd5e70c36a0fef7cd2df949f6b64ab1ca529b7fefa80ed"
+  },
+  "localeStatus": {
+    "en": "original-supplied",
+    "ro": "pending-page-reconstruction-and-translation",
+    "es": "pending-page-reconstruction-and-translation",
+    "fr": "pending-page-reconstruction-and-translation",
+    "de": "pending-page-reconstruction-and-translation",
+    "it": "pending-page-reconstruction-and-translation",
+    "pt": "pending-page-reconstruction-and-translation",
+    "nl": "pending-page-reconstruction-and-translation",
+    "pl": "pending-page-reconstruction-and-translation"
+  }
+}

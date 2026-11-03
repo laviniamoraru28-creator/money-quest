@@ -35,15 +35,15 @@ for(const locale of LOCALES){
   const p=presentation.products[index]!,text=edition.products[source.id];
   assert.equal(manifest.products[source.id],sourceFingerprint(shopCatalogueProductSource(source)));
   const en=shopCatalogueCopy.en.products[source.id];assert.deepEqual({title:en.title,description:en.description,pages:en.pages,includes:en.includes},shopCatalogueProductSource(source));
-  assert.equal(p.id,source.id);assert.equal(p.image,source.image);assert.equal(p.sample,source.sample.replace(/-en\.pdf$/,`-${locale}.pdf`));
+  assert.equal(p.id,source.id);assert.equal(p.image,source.image);assert.equal(p.sample,source.sample);
   assert.deepEqual(Object.keys(p).sort(),["id","image","sample","title","description","pages","includes","imageAlt","sampleLabel","priceLabel"].sort());
   assert.equal(p.priceLabel,new Intl.NumberFormat(REGIONAL_LOCALES[locale],{style:"currency",currency:"GBP"}).format(source.price/100));
   assert(text.sampleLabel.includes("PDF"));
   if(source.id==="family-adventure-pack"){
-   assert(text.description.includes("20"));assert(text.pages.includes("20"));assert(text.includes[1]!.includes("40"));
-   if(locale!=="en"){assert(text.includes[2]!.includes("7"));}
+   assert(text.description.includes("60"));assert(text.pages.includes("60"));
+   assert(text.pages.includes("20"));for(const [i,level] of ["Explorer","Builder","Strategist"].entries())assert(text.includes[i]!.includes(level));
    assert(text.sampleLabel.includes("3"));
-  }else{assert(text.description.includes("12"));assert(text.pages.includes("39"));assert(text.pages.includes("A4"));assert(text.includes[1]!.includes("25 mm"));assert(text.includes[2]!.includes("12"));}
+  }else{assert(text.description.includes("30"));assert(text.pages.includes("44"));assert(text.pages.includes("A4"));assert(text.includes[0]!.includes("30"));assert(text.sampleLabel.includes("3"));}
  }
  const messages=JSON.parse(readFileSync(`messages/${locale}.json`,"utf8"));
  for(const enabled of [false,true]){

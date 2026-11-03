@@ -17,7 +17,8 @@
     "shop:deliver": "node --require ./host-env.cjs --import tsx scripts/shop-deliver-pending.ts",
     "check:multilingual": "node --import tsx scripts/check-multilingual-release.ts",
     "package:namecheap": "node scripts/package-namecheap.mjs",
-    "printables:build": "python3 scripts/generate-localized-worksheets.py"
+    "printables:build": "python3 scripts/generate-localized-worksheets.py",
+    "printables:academy": "python3 scripts/prepare-academy-originals.py"
   },
   "dependencies": {
     "@pdf-lib/fontkit": "1.1.1",
