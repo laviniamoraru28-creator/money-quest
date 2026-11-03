@@ -46,7 +46,7 @@ test("every Museum room has a representative image and generation disclosure",as
 test("retired picture learning is absent while Inclusive Learning remains available",async({page,request})=>{
  const sitemap=await request.get("/sitemap.xml");
  expect(sitemap.ok()).toBe(true);
- expect(await sitemap.text()).not.toMatch(/\\/explorer(?:<|\\/)/);
+ expect(await sitemap.text()).not.toContain("/explorer");
  for(const locale of ["en","ro","es","fr","de","it","pt","nl","pl"]){
   await page.goto(`/${locale}`);
   await expect(page.locator('a[href$="/explorer"]')).toHaveCount(0);
