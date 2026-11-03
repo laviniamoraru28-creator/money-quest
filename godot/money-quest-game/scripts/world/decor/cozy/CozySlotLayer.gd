@@ -25,6 +25,8 @@ extends Node3D
 ## else uses it, so they never stop the player or the camera's own
 ## occlusion (layer 2).
 const REVEAL_LAYER: int = 1 << 19
+## A hidden roof or canopy comes back only after this long out of the way.
+const REVEAL_HOLD_MS: int = 500
 
 ## Use delivered kit assets where they exist (false = placeholders only).
 @export var use_assets: bool = true
@@ -32,6 +34,7 @@ const REVEAL_LAYER: int = 1 << 19
 var _root: Node3D
 var _player: Node3D
 var _reveal: Dictionary = {}   # reveal body -> the part it hides
+var _last_blocked: Dictionary = {}   # reveal body -> msec it last blocked the view
 var _portals: Array[Node3D] = []
 var _interactables: Array[Node3D] = []
 var _accepted: Array[CozySlot] = []
@@ -78,6 +81,7 @@ func _fill(s: CozySlot) -> void:
 	for body in _reveal.keys():
 		if not is_instance_valid(body) or s.is_ancestor_of(body):
 			_reveal.erase(body)
+			_last_blocked.erase(body)
 	for c in s.get_children():
 		s.remove_child(c)
 		c.queue_free()
@@ -91,13 +95,13 @@ func _fill(s: CozySlot) -> void:
 
 
 ## Gives each part of `piece` named in `fragments` (a roof, a canopy) an
-## invisible shape on REVEAL_LAYER, matching its meshes.
+## invisible shape on REVEAL_LAYER, matching its meshes. A part may be
+## nested at any depth (Blender exports often wrap meshes in empties); only
+## the outermost matching node gets the shape, covering every mesh below.
 func _add_reveal(piece: Node3D, fragments: Array) -> void:
 	for n in piece.find_children("*", "Node3D", true, false):
-		if n is CollisionObject3D or n is CollisionShape3D or not _named(n, fragments):
+		if not CozyKit.is_reveal_part(n, fragments) or _inside_part(n, piece, fragments):
 			continue
-		if _named(n.get_parent(), fragments):
-			continue   # its parent is already a revealed part
 		var meshes: Array = n.find_children("*", "MeshInstance3D", true, false)
 		if n is MeshInstance3D:
 			meshes.append(n)
@@ -116,17 +120,23 @@ func _add_reveal(piece: Node3D, fragments: Array) -> void:
 		_reveal[body] = n
 
 
-func _named(n: Node, fragments: Array) -> bool:
-	for f in fragments:
-		if String(n.name).contains(String(f)):
+## True when an ancestor of `n` (below `piece`) is itself a revealed part.
+func _inside_part(n: Node, piece: Node, fragments: Array) -> bool:
+	var p: Node = n.get_parent()
+	while p and p != piece:
+		if CozyKit.is_reveal_part(p, fragments):
 			return true
+		p = p.get_parent()
 	return false
 
 
 ## One ray a physics frame, from the camera to the player's middle, on
-## REVEAL_LAYER only (it also counts a camera that is inside a part): every
-## part it meets is hidden, every other part shown. An instant switch,
-## nothing animates, and the camera itself is left exactly as configured.
+## REVEAL_LAYER only (it also counts a camera that is inside a part): a
+## part it meets is hidden at once, and shown again only after it has been
+## clear of the view for REVEAL_HOLD seconds, so a roof or canopy at the
+## edge of the view never blinks on and off. An instant switch, nothing
+## animates (nothing to reduce under Reduced Motion), and the camera itself
+## is left exactly as configured.
 func _physics_process(_delta: float) -> void:
 	if _reveal.is_empty() or _player == null:
 		return
@@ -145,9 +155,13 @@ func _physics_process(_delta: float) -> void:
 		var skip: Array[RID] = q.exclude
 		skip.append(hit["rid"])
 		q.exclude = skip
+	var now: int = Time.get_ticks_msec()
+	for body in hits:
+		_last_blocked[body] = now
 	for body in _reveal:
 		if is_instance_valid(body):
-			(_reveal[body] as Node3D).visible = not hits.has(body)
+			var clear_ms: int = now - int(_last_blocked.get(body, -REVEAL_HOLD_MS))
+			(_reveal[body] as Node3D).visible = clear_ms >= REVEAL_HOLD_MS
 
 
 func _read_zone() -> void:
