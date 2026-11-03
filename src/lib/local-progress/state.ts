@@ -34,6 +34,7 @@ export interface LocalProgressState {
   completedActivityIds: string[];
   goals: LocalGoal[];
   earnedBadgeIds: string[];
+  certificateCompletionDates: Partial<Record<"explorer" | "builder" | "strategist", string>>;
 }
 
 export function createDefaultState(): LocalProgressState {
@@ -45,6 +46,7 @@ export function createDefaultState(): LocalProgressState {
     completedActivityIds: [],
     goals: [],
     earnedBadgeIds: [],
+    certificateCompletionDates: {},
   };
 }
 
