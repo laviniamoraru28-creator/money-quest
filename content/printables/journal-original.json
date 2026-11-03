@@ -25,14 +25,21 @@
       14,
       43
     ],
-    "sha256": "9d8e6b4fcfb6a9cbf39a0c4dd88e861dc9c15f16d0ec006b62a1540bf04bff91",
-    "bytes": 4514054,
-    "sourceLibraryFileId": "libfile_f9b8f5e42d588191abfd8a3a682206c9"
+    "sha256": "17d5db8b99aba4553794c940860ec8693d0d5d386474bc0233e0ac335fdee381",
+    "bytes": 4499156,
+    "sourceLibraryFileId": "libfile_f9b8f5e42d588191abfd8a3a682206c9",
+    "originalSha256": "9d8e6b4fcfb6a9cbf39a0c4dd88e861dc9c15f16d0ec006b62a1540bf04bff91",
+    "corrections": [
+      {
+        "page": 8,
+        "change": "Savings markers renumbered consecutively 1-24; all other pages and coin borders preserved."
+      }
+    ]
   },
   "archive": {
     "file": "money-quest-future-ready-journal-en.zip",
-    "sha256": "51db8aaca51ff974024a174588d711a73caa39656c388060053c57a03e286671",
-    "bytes": 3647157
+    "sha256": "c7d021add17ec4440ce479941c7e5b23c2bf1cbeedb76fdd6738c1f95467736e",
+    "bytes": 3648702
   },
   "sample": {
     "file": "/resources/samples/free-journal-30-days-en.pdf",
