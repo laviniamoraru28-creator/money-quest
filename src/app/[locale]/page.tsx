@@ -2,7 +2,6 @@ import {publicNavigationCopy} from "@/content/public-navigation-copy";
 import {discoveryCopy} from "@/content/discovery-copy";
 import Image from "next/image";
 import {WelcomeMessage} from "@/components/WelcomeMessage";
-import {experienceCopy} from "@/content/experience-copy";
 import {isSupportedLocale} from "@/i18n/config";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
@@ -63,7 +62,6 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
                 <Link href="/play" className="inline-flex min-h-12 items-center justify-center rounded-xl px-5 py-3 font-medium bg-teal text-white hover:bg-teal/90">{t("landing.ctaGetStartedFree")}</Link>
                 <Link href="/#how-it-works" className="inline-flex min-h-12 items-center justify-center rounded-xl px-5 py-3 font-medium border border-teal text-teal-text hover:bg-teal/5">{t("landing.ctaSeeHowItWorks")}</Link>
               </div>
-              <Link href="/explorer" className="mt-4 block min-h-12 rounded-xl border-2 border-teal bg-white px-4 py-3 font-bold text-teal-text">{experienceCopy[isSupportedLocale(locale)?locale:"en"].visual} →</Link>
               <Link href="/parent-info" className="mt-sm inline-block text-sm text-teal-text hover:underline">
                 {t("nav.forParents")}
               </Link>
