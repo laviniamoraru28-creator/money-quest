@@ -1,9 +1,9 @@
 name: Website completion quality
 on:
   push:
-    branches: [feature/website-completion-20261027, "release/**"]
+    branches: [feature/website-completion-20261027, "release/**", feature/academy-certificates-i18n, main]
   pull_request:
-    branches: [feature/website-completion-20261027, review/website-completion-20261027, feature/library-first-original-book, feature/public-multilingual-launch, integration/launch-20261102]
+    branches: [main, feature/website-completion-20261027, review/website-completion-20261027, feature/library-first-original-book, feature/public-multilingual-launch, integration/launch-20261102]
   workflow_dispatch: {}
 permissions:
   contents: read
@@ -29,11 +29,15 @@ jobs:
           node-version: ${{ matrix.node }}
           cache: npm
       - name: Printable build dependencies
-        run: python3 -m pip install reportlab==4.4.9
+        run: python3 -m pip install reportlab==4.4.9 PyMuPDF==1.26.6
       - run: npm ci
       - run: npm run lint
       - run: npm run typecheck
       - run: npm run test:unit
+      - name: Generate and inspect all 27 certificate PDFs
+        run: |
+          CERTIFICATE_QA_OUTPUT=certificate-qa node --import tsx scripts/test-academy-certificates.ts
+          python3 scripts/inspect-certificate-pdfs.py certificate-qa
       - run: npm run build
       - name: Package and rehearse extracted Namecheap runtime
         run: |
@@ -53,12 +57,17 @@ jobs:
         env:
           E2E_BASE_URL: http://localhost:3000
         run: npx playwright test --project=desktop-chrome --project=mobile-chrome --max-failures=8
+      - name: Safari certificate downloads on iPhone and iPad
+        run: |
+          npx playwright install --with-deps webkit
+          npx playwright test academy-certificates.spec.ts --project=iphone-safari --project=tablet-safari
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: website-test-evidence-node-${{ matrix.node }}
           retention-days: 7
           path: |
+            certificate-qa/
             test-results/
             server.log
             moneyquest-namecheap-candidate.zip

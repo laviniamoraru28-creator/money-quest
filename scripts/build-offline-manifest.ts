@@ -46,7 +46,7 @@ for(const locale of LOCALES){
  if(active.includes(locale))writeFileSync(file,offlineFallbackHtml(locale));
  else rmSync(file,{force:true});
 }
-const publicAssets=files("public").filter(file=>/\.(webp|png|jpg|jpeg|svg|avif|pdf|mp4|woff2?|webmanifest|html)$/.test(file)).map(file=>`/${file.replace(/^public\//,"")}`);
+const publicAssets=files("public").filter(file=>/\.(webp|png|jpg|jpeg|svg|avif|pdf|mp4|woff2?|ttf|webmanifest|html)$/.test(file)).map(file=>`/${file.replace(/^public\//,"")}`);
 const nextAssets=files(".next/static").filter(file=>!file.endsWith(".map")).map(file=>file.replace(/^\.next/,"/_next"));
 const manifest={version:readFileSync(".next/BUILD_ID","utf8").trim(),pages:Object.fromEntries(ACTIVE_LOCALES.map(locale=>[locale,[...pages].sort().map(route=>route.replace(/^\/en(?=\/|$)/,`/${locale}`))])),assets:[...new Set([...publicAssets,...nextAssets])].sort()};
 writeFileSync("public/offline-manifest.json",JSON.stringify(manifest));

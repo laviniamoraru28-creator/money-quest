@@ -121,18 +121,13 @@ export function useLocalProgress() {
 
   const completeActivity = useCallback(
     (activityId: string, wasCorrect: boolean, xpReward: number, coinRewardMinorUnits: number) => {
-      const result = applyActivityCompletion(state, activityId, wasCorrect, xpReward, coinRewardMinorUnits);
+      const result = applyActivityCompletion(readFromStorage(), activityId, wasCorrect, xpReward, coinRewardMinorUnits);
       persist(result.state);
       if(result.coinsAwarded>0 && typeof window!=="undefined")window.dispatchEvent(new CustomEvent("moneyquest-coin-award",{detail:{amount:result.coinsAwarded,currency:state.currencyCode}}));
       return result;
     },
     [state, persist]
   );
-
-  const recordCertificateCompletion = useCallback((band: "explorer" | "builder" | "strategist") => {
-    if (state.certificateCompletionDates?.[band]) return;
-    persist({ ...state, certificateCompletionDates: { ...state.certificateCompletionDates, [band]: new Date().toISOString() } });
-  }, [state, persist]);
 
   const createGoal = useCallback(
     (name: string, targetMinorUnits: number) => {
@@ -191,6 +186,5 @@ export function useLocalProgress() {
     removeGoal,
     resetProgress,
     awardBadge,
-    recordCertificateCompletion,
   };
 }

@@ -1,39 +1,27 @@
 "use client";
-import { useEffect } from "react";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale } from "next-intl";
 import { useLocalProgress } from "@/lib/local-progress/use-local-progress";
-import { WORLDS } from "@/content/worlds";
-import { getWorldCatalog } from "@/content/catalog";
-import { certificateCopy, certificateCompetencies } from "@/content/certificate-copy";
-import { REGIONAL_LOCALES, isSupportedLocale } from "@/i18n/config";
-import type { AgeBand } from "@/types/database.types";
+import { certificateCopy } from "@/content/certificate-copy";
+import { isSupportedLocale } from "@/i18n/config";
+import { CERTIFICATE_BANDS, isCertificateEligible } from "@/lib/certificates/eligibility";
+import { CertificateDownload } from "@/components/CertificateDownload";
+import { Link } from "@/i18n/navigation";
 
+/** Earned levels remain accessible when a family switches to another level. */
 export function AcademyCertificateReward() {
-  const localeRaw = useLocale();
-  const locale = isSupportedLocale(localeRaw) ? localeRaw : "en";
-  const copy = certificateCopy[locale] as Record<string,string>;
-  const t = useTranslations();
-  const { state, isLoaded, recordCertificateCompletion } = useLocalProgress();
-  const band = state.ageBand as AgeBand | null;
-  const required = band ? WORLDS.flatMap(world => getWorldCatalog(world.id, band, t).map(activity => activity.id)) : [];
-  const completed = new Set(state.completedActivityIds);
-  const eligible = Boolean(band && required.length > 0 && required.every(id => completed.has(id)));
-  const date = band ? state.certificateCompletionDates?.[band] : undefined;
-  useEffect(() => {
-    if (isLoaded && eligible && band && !date) recordCertificateCompletion(band);
-  }, [isLoaded, eligible, band, date, recordCertificateCompletion]);
-  if (!isLoaded || !band || !eligible || !date) return null;
-  const dateText = new Intl.DateTimeFormat(REGIONAL_LOCALES[locale], {day:"numeric",month:"long",year:"numeric"}).format(new Date(date));
-  const competencies = certificateCompetencies[band].map(key => copy[key]);
-  return (
-    <section aria-label={copy.ready} className="mt-8 rounded-2xl border-2 border-amber-600 bg-white p-5 text-center text-slate-900">
-      <h2 className="font-display text-2xl font-bold">{copy.ready}</h2>
-      <p className="mt-2">Money Quest Academy · {band.toUpperCase()}</p>
-      <a className="mt-4 inline-flex min-h-12 items-center justify-center rounded-xl bg-teal px-6 py-3 font-semibold text-white" href={`/${locale}/academy-certificate?level=${band}`}>
-        {copy.download}
-      </a>
-      <p className="mt-2 text-sm">{copy.date}: {dateText}</p>
-      <span className="sr-only">{competencies.join(", ")}</span>
-    </section>
-  );
+  const raw = useLocale();
+  const locale = isSupportedLocale(raw) ? raw : "en";
+  const copy = certificateCopy[locale];
+  const {state,isLoaded} = useLocalProgress();
+  if(!isLoaded)return null;
+  const earned=CERTIFICATE_BANDS.filter(band=>isCertificateEligible(state.completedActivityIds,band));
+  if(!earned.length)return null;
+  return <section aria-label={copy.ready} className="mx-auto mt-8 max-w-3xl rounded-2xl border-2 border-amber-600 bg-white p-5 text-center text-slate-900">
+    <h2 className="font-display text-2xl font-bold">{copy.congratulations}</h2>
+    {earned.map(band=><div key={band} className="mt-4">
+      <h3 className="font-bold">Money Quest Academy · {copy[band]}</h3>
+      <CertificateDownload band={band} locale={locale} date={state.certificateCompletionDates[band]} />
+      <Link className="inline-flex min-h-12 items-center underline" href={`/academy-certificate?level=${band}`}>{copy.view}</Link>
+    </div>)}
+  </section>;
 }

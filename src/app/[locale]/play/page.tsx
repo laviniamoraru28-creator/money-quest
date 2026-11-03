@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import { AcademyCertificateReward } from "@/components/AcademyCertificateReward";
 
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
@@ -161,7 +160,7 @@ export default function PlayPage() {
           })}
         </div>
 
-        <AcademyCertificateReward />
+
 
         {/* More features — upgraded from a row of small text links to
             clearly-identifiable cards, matching the same visual
