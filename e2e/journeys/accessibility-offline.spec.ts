@@ -55,10 +55,9 @@ test("offline download covers unvisited books and leadership, with removable loc
     await page.goto(path);await expect(page.locator("main h1")).toBeVisible();
     await expect(page.getByText("Reconnect to download Money Quest for offline use.",{exact:true})).toHaveCount(0);
   }
-  for(const scene of ["Rest with Max","Ocean","Garden"]){
-    await page.getByRole("button",{name:scene,exact:true}).click();
-    await expect.poll(()=>page.locator("main img").evaluate((image:HTMLImageElement)=>image.complete&&image.naturalWidth===1200)).toBe(true);
-  }
+  // The picture/animation scene picker (Rest with Max/Ocean/Garden) was
+  // removed in favour of the original videos below - nothing left to
+  // check here.
   await page.emulateMedia({reducedMotion:"no-preference"});
   await page.getByText("Real nature videos",{exact:true}).click();
   for(const [name,id] of [["Ocean water","ocean"],["Rain on a window","rain"],["Aquarium fish","aquarium"]]){
@@ -76,6 +75,6 @@ test("offline download covers unvisited books and leadership, with removable loc
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content","noindex,nofollow");
   await page.getByRole("link",{name:"Go to Money Quest home",exact:true}).click();
   await expect(page.locator("main h1")).toBeVisible();
-  await page.getByText("Use without internet",{exact:true}).click();await page.getByRole("button",{name:"Remove offline copy",exact:true}).click();
+  await page.locator("summary",{hasText:"Settings"}).click();await page.getByText("Use without internet",{exact:true}).click();await page.getByRole("button",{name:"Remove offline copy",exact:true}).click();
   await expect(page.getByRole("status").filter({hasText:"Offline copies removed"})).toBeVisible();await context.setOffline(false);
 });

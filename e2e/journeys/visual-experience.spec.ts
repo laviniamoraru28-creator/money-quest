@@ -84,7 +84,11 @@ test("background audio stays silent initially, persists between pages and stops 
  await page.locator("summary",{hasText:"Settings"}).click();await page.getByText("Background sound",{exact:true}).first().click();
  await page.getByRole("button",{name:"Play sound",exact:true}).click();
  await expect.poll(states).toEqual(["running"]);
- await page.getByRole("link").filter({has:page.getByRole("heading",{name:"Money Quest Library",exact:true})}).click();
+ // Navigate via the nav drawer (still a client-side <Link>, same as the
+ // homepage's own former Library card was) rather than page.goto, so this
+ // still exercises SPA navigation - the actual thing being tested here.
+ await page.getByRole("button",{name:"Menu",exact:true}).click();
+ await page.getByRole("link",{name:"Library",exact:true}).click();
  await expect(page.getByRole("heading",{name:"Money Quest Library",exact:true})).toBeVisible();
  expect(await states()).toEqual(["running"]);
  await page.getByRole("button",{name:"Listen",exact:true}).first().click();
