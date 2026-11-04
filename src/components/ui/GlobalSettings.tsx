@@ -21,7 +21,14 @@ export function GlobalSettings({locale,copy}:{locale:Locale;copy:SiteControlsCop
  const toggle=(label:string|undefined,checked:boolean,change:()=>void)=><label className="flex min-h-11 items-center justify-between gap-4"><span>{label}</span><input type="checkbox" checked={checked} disabled={!p.isLoaded} onChange={change} className="h-5 w-5 accent-teal"/></label>;
  return <details data-read-aloud-ignore className="relative z-40 rounded-xl border border-teal/40 bg-white text-ink">
   <summary className="min-h-12 cursor-pointer px-4 py-3 font-semibold text-teal-text">⚙ {t[0]}</summary>
-  <div className="absolute right-0 top-full z-50 mt-2 max-h-[75vh] w-[min(22rem,90vw)] space-y-4 overflow-y-auto rounded-2xl border border-teal/30 bg-white p-4 shadow-lg">
+  {/* Below `md`, `right-0` can push this panel off-screen: the trigger
+     sits near the toolbar's left edge on narrow viewports, so a
+     right-aligned 22rem-wide panel runs far past the left edge of a
+     ~375-412px viewport, making its lower controls permanently
+     unreachable. `fixed` + viewport-relative insets keep it fully
+     on-screen regardless of where the trigger sits; `md:` restores the
+     original trigger-anchored dropdown once there's room for it. */}
+  <div className="fixed inset-x-4 top-20 z-50 max-h-[75vh] space-y-4 overflow-y-auto rounded-2xl border border-teal/30 bg-white p-4 shadow-lg md:absolute md:inset-x-auto md:right-0 md:top-full md:mt-2 md:w-[min(22rem,90vw)]">
    <fieldset className="space-y-2"><legend className="font-bold">{t[1]}</legend>
     {toggle(copy.night,p.nightView,p.toggleNightView)}
     <label className="block">{t[2]}<select disabled={!p.isLoaded} value={p.imageSize} onChange={e=>p.setPreference("imageSize",e.target.value as typeof p.imageSize)} className="mt-1 min-h-11 w-full rounded-lg border border-ink/30 bg-white p-2"><option value="full">{t[3]}</option><option value="small">{t[4]}</option><option value="minimal">{t[5]}</option></select></label>
