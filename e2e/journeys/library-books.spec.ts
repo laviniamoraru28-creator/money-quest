@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
-import { originalBooks } from "../../src/content/library";
+import { publicOriginalBooks as originalBooks } from "../../src/content/library-publication";
 import { authorBooks } from "../../src/content/author-books";
 import { libraryPeople } from "../../src/content/people";
 import {librarySourceDate} from "../../src/content/reader-copy";
@@ -19,7 +19,7 @@ test("Library separates full originals, author listings and existing short reads
     await expect(article.getByRole("link")).toHaveAttribute("href", book.url);
     await expect(article).toContainText("The complete book is not hosted on Money Quest.");
   }
-  await expect(page.getByRole("link", { name: /The Saving Seed/ })).toBeVisible();
+  await expect(page.getByRole("link", { name: /The Saving Seed/ })).toHaveCount(0);
 });
 
 for (const book of originalBooks) test(`original book: all chapters, feedback, completion, WCAG: ${book.slug}`, async ({ page }) => {
@@ -75,7 +75,7 @@ test("English reader preserves narration, typography and page-specific illustrat
   Object.defineProperty(window,"speechSynthesis",{configurable:true,value:{cancel(){},speak(utterance:{lang:string;text:string;onstart?:()=>void}){calls.push({lang:utterance.lang,text:utterance.text});utterance.onstart?.();}}});
   Object.defineProperty(window,"SpeechSynthesisUtterance",{configurable:true,value:class{text:string;lang="";constructor(text:string){this.text=text;}}});
  });
- const book=originalBooks.find(book=>book.slug==="the-repair-table")!;
+ const book=originalBooks[0]!;
  await page.goto(`/en/library/${book.slug}`);await expect(page).toHaveURL(new RegExp(`/en/library/${book.slug}$`));
  await page.getByRole("button",{name:"Open book",exact:true}).click();
  const article=page.getByRole("article"),chapter=book.chapters[0]!;

@@ -1,4 +1,5 @@
 import {museumRooms,libraryBooks,type Room,type Book} from "@/content/discovery";
+import {publicShortReads} from "@/content/library-publication";
 import {discoveryNotes,type DiscoveryNote} from "@/content/discovery-notes";
 import type {Locale} from "@/i18n/config";
 import {draftTranslatedMuseum,draftTranslatedShortRead} from "./content-translations";
@@ -58,5 +59,7 @@ export function draftDiscoveryPresentation(kind:DiscoveryKind,locale:Locale,slug
 }
 /** UI/content drafts never bypass the public activation gate. */
 export function publicDiscoveryPresentation(kind:DiscoveryKind,requestedLocale:string,slug?:string) {
- return draftDiscoveryPresentation(kind,publicLibraryLocale(requestedLocale),slug);
+ if(kind==="library"&&slug&&!publicShortReads.some(book=>book.slug===slug))throw new Error(`Unpublished Library story: ${slug}`);
+ const view=draftDiscoveryPresentation(kind,publicLibraryLocale(requestedLocale),slug);
+ return kind==="library"?{...view,entries:view.entries.filter(entry=>publicShortReads.some(book=>book.slug===entry.slug))}:view;
 }

@@ -44,10 +44,10 @@ export default function OriginalBookReader({book,locale,paragraphsPerPage}:Reade
   }, [book.slug]);
   const move = (index: number) => { if (index < 0 || index >= book.chapters.length) return; stop(); setOpened(true); setPage(spreads.findIndex(item=>item.chapterIndex===index)); };
   const turnPage = (index:number) => { if(index<0||index>=spreads.length)return;stop();setPage(index); };
-  const useBookCover = chapter === 0 || !["the-little-compass-and-the-money-choices", "the-garden-everyone-could-enter", "the-market-town-notebook"].includes(book.slug);
   const pageArt=bookPageArt(book.slug,chapter,spread.part);
-  const artAlt=pageArt?spread.paragraphs[0]!.split(/(?<=[.!?])\s+/u)[0]!:(useBookCover?book.coverAlt:copy.scene);
-  const art = pageArt?.src ?? (useBookCover ? book.cover : `/images/money-quest/worlds/${book.slug==="the-little-compass-and-the-money-choices"?["coin-cove","sky-exchange","market-town","market-town","golden-vault","guardian-gate","kindness-grove","coin-cove"][chapter]:book.slug==="the-garden-everyone-could-enter"?"kindness-grove":book.slug==="the-market-town-notebook"?"market-town":""}.webp`);
+  if(opened&&!pageArt)throw new Error(`Unpublished page artwork: ${book.slug}:${chapter}:${spread.part}`);
+  const artAlt=spread.paragraphs[0]!.split(/(?<=[.!?])\s+/u)[0]!;
+  const art=pageArt?.src??book.cover;
   const markFinished = () => {
     try {
       const parsed: unknown = JSON.parse(localStorage.getItem(STORE) || "[]");
@@ -63,7 +63,7 @@ export default function OriginalBookReader({book,locale,paragraphsPerPage}:Reade
       <p className="mt-4 max-w-3xl">{readerText(locale,"intro",{count:book.chapters.length})}</p>
       <details className="mt-5 rounded-xl border border-ink/20 bg-white p-4"><summary className="min-h-12 cursor-pointer py-3 font-bold">{copy.contents}</summary><ol className="mt-2 list-decimal pl-6">{book.chapters.map((item, index) => <li key={item.title}><button type="button" aria-current={chapter === index ? "step" : undefined} onClick={() => move(index)} className="min-h-12 py-3 text-left font-semibold text-teal-text underline">{item.title}</button></li>)}</ol></details>
       {!opened && <button ref={coverButton} type="button" aria-label={t.openBook} onClick={() => {setOpened(true); requestAnimationFrame(() => title.current?.focus());}} className="library-cover library-cover-0 mx-auto mt-7 block max-w-sm text-left">
-        <Image unoptimized src={book.cover} alt={book.coverAlt} width={576} height={384} className="aspect-square w-full object-cover"/><span className="block p-5 text-xl font-bold">{book.title}</span><span className="block px-5 pb-5 font-semibold">{t.openBook} →</span>
+        <Image unoptimized src={book.cover} alt={book.coverAlt} width={576} height={384} className="aspect-[3/2] w-full bg-cream object-contain"/><span className="block p-5 text-xl font-bold">{book.title}</span><span className="block px-5 pb-5 font-semibold">{t.openBook} →</span>
       </button>}
       {opened && <article className="book-opening mt-6 rounded-3xl border border-ink/15 bg-white p-5 md:p-9">
         <button type="button" onClick={() => {stop(); setOpened(false); requestAnimationFrame(() => coverButton.current?.focus());}} className="mb-4 min-h-12 rounded-xl border border-teal px-4 py-3 font-semibold text-teal-text">{t.closeBook}</button>

@@ -2,8 +2,8 @@ import {readFileSync, writeFileSync, readdirSync, statSync, mkdirSync, rmSync} f
 import path from "node:path";
 import {offlineFallbackHtml} from "../src/lib/offline/fallback-page";
 import {ACTIVE_LOCALES,LOCALES} from "../src/i18n/config";
-import {libraryBooks, museumRooms} from "../src/content/discovery";
-import {originalBooks} from "../src/content/library";
+import {museumRooms} from "../src/content/discovery";
+import {publicOriginalBooks as originalBooks,publicShortReads as libraryBooks,publicLibraryStorySlugs} from "../src/content/library-publication";
 import {libraryPeople} from "../src/content/people";
 import {ARTICLE_STRUCTURES} from "../src/content/articles";
 import {LQ_MISSIONS} from "../src/content/leadership-quest/structures";
@@ -26,6 +26,7 @@ function visit(value: unknown): void {
   if(Array.isArray(value))value.forEach(visit);
   else if(value&&typeof value==="object") for(const [key,item] of Object.entries(value)) {
     if(key==="url"&&typeof item==="string"&&item.startsWith("/en/")) {
+      if(item.startsWith("/en/library/")&&!publicLibraryStorySlugs.has(item.split("/").at(-1)!)&&!libraryPeople.some(person=>item.endsWith(`/${person.slug}`)))continue;
       pages.add(item);if(item.includes("/lesson/"))pages.add(`${item}/worksheet`);
     } else visit(item);
   }

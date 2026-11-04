@@ -4,6 +4,7 @@ import { originalBooks } from "../src/content/library";
 import { authorBooks } from "../src/content/author-books";
 import { libraryBooks } from "../src/content/discovery";
 import { libraryPeople } from "../src/content/people";
+import {publicLibraryStorySlugs} from "../src/content/library-publication";
 import sitemap from "../src/app/sitemap";
 
 assert.equal(originalBooks.length, 10);
@@ -24,7 +25,7 @@ for (const book of originalBooks) {
     assert.ok(chapter.choices.every(choice => choice.feedback.length > 40));
     assert.ok(chapter.activity.length > 60);
   }
-  assert.ok(sitemap().some(entry => new URL(entry.url).pathname === `/en/library/${book.slug}`));
+  assert.equal(sitemap().some(entry => new URL(entry.url).pathname === `/en/library/${book.slug}`),publicLibraryStorySlugs.has(book.slug));
 }
 const allowedHosts = ["usborne.com", "www.jacquelinedavies.net", "www.abramsbooks.com", "www.penguinrandomhouse.com", "www.eden.co.uk", "www.hive.co.uk", "www.hachette.co.uk", "collins.co.uk", "www.quarto.com"];
 for (const book of authorBooks) {

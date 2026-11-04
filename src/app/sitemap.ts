@@ -3,8 +3,8 @@ import { getSiteUrl } from "@/lib/seo/site-url";
 import { ARTICLE_STRUCTURES } from "@/content/articles";
 import { ACTIVE_LOCALES } from "@/i18n/config";
 import {libraryPeople} from "@/content/people";
-import {originalBooks} from "@/content/library";
-import { museumRooms, libraryBooks } from "@/content/discovery";
+import {publicOriginalBooks as originalBooks, publicShortReads as libraryBooks} from "@/content/library-publication";
+import { museumRooms } from "@/content/discovery";
 
 /**
  * Covers every genuinely public, indexable page — the landing page,
