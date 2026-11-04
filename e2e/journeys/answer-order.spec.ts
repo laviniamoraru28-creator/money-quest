@@ -40,7 +40,7 @@ test.describe("Lesson quiz answer order", () => {
 
     for (let i = 0; i < 10; i++) {
       if (i > 0) await page.reload();
-      const labelLocator = page.locator("fieldset label");
+      const labelLocator = page.locator('fieldset label:has(input[type="radio"])');
       await expect(labelLocator).toHaveCount(4);
       const trimmed = (await labelLocator.allTextContents()).map((l) => l.trim());
       positions.add(trimmed.indexOf(CORRECT_LESSON_ANSWER));
@@ -74,7 +74,7 @@ test.describe("Lesson quiz answer order", () => {
     await chooseLevel(page, "Builder");
     await page.goto(LESSON_URL);
 
-    const labelLocator = page.locator("fieldset label");
+    const labelLocator = page.locator('fieldset label:has(input[type="radio"])');
     await expect(labelLocator).toHaveCount(4);
     const labels = (await labelLocator.allTextContents()).map((l) => l.trim());
     const wrongLabel = labels.find((l) => l !== CORRECT_LESSON_ANSWER);
@@ -131,7 +131,7 @@ test.describe("Game-engine multiple-choice round answer order", () => {
     const positions = new Set<number>();
     for (let i = 0; i < 8; i++) {
       if (i > 0) await page.reload();
-      const labelLocator = page.locator("fieldset label");
+      const labelLocator = page.locator('fieldset label:has(input[type="radio"])');
       await expect(labelLocator).toHaveCount(4);
       const labels = (await labelLocator.allTextContents()).map((l) => l.trim());
       positions.add(labels.indexOf(CORRECT_GAME_ANSWER));
@@ -149,7 +149,7 @@ test.describe("Game-engine multiple-choice round answer order", () => {
     await chooseLevel(page, "Explorer");
     await page.goto(GAME_URL);
 
-    const labelLocator = page.locator("fieldset label");
+    const labelLocator = page.locator('fieldset label:has(input[type="radio"])');
     await expect(labelLocator).toHaveCount(4);
     const labels = (await labelLocator.allTextContents()).map((l) => l.trim());
     const wrongLabel = labels.find((l) => l !== CORRECT_GAME_ANSWER);

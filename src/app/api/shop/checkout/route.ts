@@ -7,6 +7,7 @@ import {limitedBody} from "@/lib/security/limited-body";
 import {verifyConfirmationTransport} from "@/lib/commerce/confirmation";
 import {validatedCheckoutUrl} from "@/lib/commerce/client-messages";
 import {saveContract,archiveName,type Contract} from "@/lib/commerce/release";
+import {PARENT_BONUS,parentBonusMetadata,verifyParentBonus} from "@/lib/commerce/parent-bonus";
 export const runtime="nodejs";export const dynamic="force-dynamic";
 export async function POST(request:Request){
  let config;try{config=commerceConfig();}catch{return NextResponse.json({code:"purchases_closed",message:"Purchases are not open yet. Free samples are available."},{status:503})}
@@ -18,12 +19,13 @@ export async function POST(request:Request){
  if(!await canCheckout(product))return NextResponse.json({code:"product_unavailable",message:"This download is not available for purchase yet."},{status:503});
  const nonce=randomBytes(32).toString("hex"),tag=randomBytes(4).toString("hex");
  try{
+ await verifyParentBonus(config.assets);
  await verifyLiveStripeConfiguration(config,product.id);
  if(config.mode==="live")await verifyConfirmationTransport();
  let contract:Contract|undefined;
  if(config.mode==="live"){
   const r=config.release!,asset=r.products[product.id];
-  contract={id:randomBytes(16).toString("hex"),mode:"live",accountId:r.accountId,productId:product.id,title:product.title,description:product.description,pages:product.pages,includes:[...product.includes],amount:product.price,currency:"gbp",priceId:process.env[product.priceEnv]!,termsVersion:r.terms.version,termsText:r.terms.text,merchant:r.merchant,privacy:r.privacy,taxStatement:r.taxStatement,archive:{file:archiveName(product,asset.sha256),...asset},created:Date.now()};
+  contract={bonus:{...PARENT_BONUS},id:randomBytes(16).toString("hex"),mode:"live",accountId:r.accountId,productId:product.id,title:product.title,description:product.description,pages:product.pages,includes:[...product.includes],amount:product.price,currency:"gbp",priceId:process.env[product.priceEnv]!,termsVersion:r.terms.version,termsText:r.terms.text,merchant:r.merchant,privacy:r.privacy,taxStatement:r.taxStatement,archive:{file:archiveName(product,asset.sha256),...asset},created:Date.now()};
   await saveContract(config.orders,contract);
  }
  const session=await stripeClient().checkout.sessions.create({
@@ -39,7 +41,7 @@ export async function POST(request:Request){
   adaptive_pricing:{enabled:false},
   client_reference_id:tag,
   // Fulfilment validates these server-owned fields before releasing an archive.
-  metadata:{app:APP_ID,product_id:product.id,locale:"en",instant_supply:"yes",cancellation_ack:"yes",terms_version:config.termsVersion,...(contract?{contract_id:contract.id,account_id:contract.accountId,terms_accepted:"yes"}:{}),browser_hash:createHash("sha256").update(nonce).digest("hex")},
+  metadata:{...parentBonusMetadata(),app:APP_ID,product_id:product.id,locale:"en",instant_supply:"yes",cancellation_ack:"yes",terms_version:config.termsVersion,...(contract?{contract_id:contract.id,account_id:contract.accountId,terms_accepted:"yes"}:{}),browser_hash:createHash("sha256").update(nonce).digest("hex")},
   line_items:[{price:process.env[product.priceEnv]!,quantity:1}],
   success_url:`${config.origin}/en/parents/shop/success?session_id={CHECKOUT_SESSION_ID}&checkout=${tag}`,
   cancel_url:`${config.origin}/en/parents/shop?cancelled=1`

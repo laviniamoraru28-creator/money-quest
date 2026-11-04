@@ -99,7 +99,7 @@ test.describe("Real Life Quests mission page - completion, reflection, XP", () =
 
     await page.getByRole("button", { name: "Mark as completed" }).click();
     await expect(page.getByText("Completed!", { exact: false })).toBeVisible();
-    await expect(page.getByText(/XP/i)).toBeVisible();
+    await expect(page.getByText(/\bXP\b/i)).toBeVisible();
 
     const reflectionButtons = page.locator('button[aria-pressed]').filter({ hasText: /😊|😐|🤔|💡/ });
     await expect(reflectionButtons).toHaveCount(4);
@@ -246,7 +246,7 @@ test.describe("Real Life Quests - pilot missions' visual-choice pickers at 320px
   test("my-first-mini-business and share-my-idea pickers fit without horizontal overflow", async ({ page }) => {
     for (const missionId of ["my-first-mini-business", "share-my-idea"]) {
       await page.goto(`/en/real-life-quests/missions/${missionId}`);
-      await page.locator("[aria-pressed]").first().click();
+      await page.getByRole("main").locator("[aria-pressed]").first().click();
       const scrollWidth = await page.evaluate(() => document.documentElement.scrollWidth);
       const clientWidth = await page.evaluate(() => document.documentElement.clientWidth);
       expect(scrollWidth).toBeLessThanOrEqual(clientWidth + 1);
