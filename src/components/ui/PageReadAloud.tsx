@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import {GlobalSettings} from "./GlobalSettings";
+import {LanguageSwitcher} from "./LanguageSwitcher";
 import {NavMenu} from "./NavMenu";
 
 import {ActionIcon} from "./ActionIcon";
@@ -52,6 +53,7 @@ export function PageReadAloud({locale,copy}:{locale:Locale;copy:SiteControlsCopy
   };
   return <aside aria-label={copy.region} data-read-aloud-ignore className="border-b border-teal/20 bg-cream px-5 py-2 text-ink">
     <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-3">
+      <LanguageSwitcher/>
       <button type="button" disabled={!isSupported} onClick={listen} className="inline-flex min-h-12 items-center gap-2 rounded-xl border border-teal/40 bg-white px-4 py-3 font-semibold text-teal-text disabled:opacity-60"><ActionIcon name="sound"/>{isSpeaking ? copy.stop : copy.listen}</button>
       <GlobalSettings locale={language} copy={copy}/>
       <span className="text-sm">{copy.optional}</span>
