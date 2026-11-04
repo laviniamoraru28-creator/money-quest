@@ -20,14 +20,15 @@ def prepare(source, output):
         raise ValueError('Journal differs from the supplied verified original')
     readme = (ROOT / 'content/printables/journal-original-readme.txt').read_bytes()
     output.mkdir(parents=True, exist_ok=True, mode=0o700)
-    archive = output / manifest['archive']['file']
+    archive_spec = manifest.get('previousEnglishArchive', manifest['archive'])
+    archive = output / archive_spec['file']
     with zipfile.ZipFile(archive, 'x', zipfile.ZIP_DEFLATED) as bundle:
         for name, content in [(item['file'], data), ('READ-ME.txt', readme)]:
             entry = zipfile.ZipInfo(name, (2026, 11, 3, 0, 0, 0))
             entry.compress_type = zipfile.ZIP_DEFLATED
             bundle.writestr(entry, content)
     result = archive.read_bytes()
-    if len(result) != manifest['archive']['bytes'] or hashlib.sha256(result).hexdigest() != manifest['archive']['sha256']:
+    if len(result) != archive_spec['bytes'] or hashlib.sha256(result).hexdigest() != archive_spec['sha256']:
         archive.unlink()
         raise ValueError('Journal archive differs from the verified manifest')
     archive.chmod(0o600)

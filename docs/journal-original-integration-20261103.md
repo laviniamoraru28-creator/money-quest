@@ -1,3 +1,7 @@
+# Historical English-source checkpoint
+
+The current nine-language completion is documented in `journal-pdf-translations-20261103.md`. The sections below preserve the earlier English-source checkpoint and its validation history; its pending-translation statements are superseded.
+
 # Supplied 44-page journal replacement
 
 This replaces the old three-edition, 12-week journal description with the owner's single illustrated, undated 30-day journal. Preserve product ID `adventure-journal`, price £7.99 and existing historical customer contracts. The supplied layout is retained. Page 8 has one verified correction: its 24 savings markers now run consecutively from 1 to 24, replacing the original sequence that skipped six numbers. The other 43 pages render pixel-identically to the supplied original.

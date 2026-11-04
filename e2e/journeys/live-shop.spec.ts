@@ -21,17 +21,15 @@ test.beforeAll(async()=>{test.setTimeout(60000);
  await expect.poll(async()=>{try{return (await fetch(`${base}/api/health`)).status;}catch{return 0;}},{timeout:45000}).toBe(200);
 });
 test.afterAll(async()=>{if(child&&child.exitCode===null){child.kill("SIGTERM");await new Promise<void>(r=>{const t=setTimeout(()=>{child.kill("SIGKILL");r();},5000);child.once("exit",()=>{clearTimeout(t);r();});});}if(root)await rm(root,{recursive:true,force:true});});
-test("synthetic live storefront requires four choices and surfaces safe payment errors",async({page})=>{
- let submitted:unknown=null;await page.route("**/api/shop/checkout",async route=>{submitted=route.request().postDataJSON();await route.fulfill({status:503,contentType:"application/json",body:JSON.stringify({code:"checkout_unavailable",message:"RAW INTERNAL FIXTURE ERROR"})});});
+test("a valid older archive cannot enable new multilingual journal purchases",async({page,request})=>{
  await page.setViewportSize({width:320,height:900});await page.goto(`${base}/en/parents/shop`);
  await expect(page.getByText("Synthetic browser merchant",{exact:true})).toBeVisible();await expect(page.getByText("Test checkout only. No real money will be taken.",{exact:true})).toHaveCount(0);
- await expect(page.locator("article#family-adventure-pack").getByRole("checkbox")).toHaveCount(0);
- const card=page.locator("article#adventure-journal"),button=card.getByRole("button",{name:"Continue to secure payment",exact:true});await expect(button).toBeDisabled();
- const choices=card.getByRole("checkbox");await expect(choices).toHaveCount(4);for(let i=0;i<4;i++)await expect(choices.nth(i)).not.toBeChecked();
- for(let i=0;i<3;i++)await choices.nth(i).check();await expect(button).toBeDisabled();await choices.nth(3).check();await expect(button).toBeEnabled();await button.click();
- await expect(card.getByRole("status")).toHaveText("Checkout is unavailable. Please try later.");
- expect(submitted).toEqual({productId:"adventure-journal",adultPurchaser:true,instantSupply:true,cancellationAcknowledged:true,termsAccepted:true});await expect(page.getByText("RAW INTERNAL FIXTURE ERROR")).toHaveCount(0);
- await choices.nth(3).uncheck();await expect(button).toBeDisabled();expect(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)).toBe(false);
+ for(const id of ["family-adventure-pack","adventure-journal"]){
+  const card=page.locator(`article#${id}`);await expect(card.getByRole("checkbox")).toHaveCount(0);await expect(card.getByRole("button",{name:"Continue to secure payment",exact:true})).toHaveCount(0);
+ }
+ const response=await request.post(`${base}/api/shop/checkout`,{headers:{Origin:"https://moneyquesteducation.com"},data:{productId:"adventure-journal",adultPurchaser:true,instantSupply:true,cancellationAcknowledged:true,termsAccepted:true}});
+ expect(response.status()).toBe(503);expect((await response.json()).code).toBe("product_unavailable");
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)).toBe(false);
  const result=await new AxeBuilder({page}).withTags(["wcag2a","wcag2aa","wcag21aa"]).analyze();expect(result.violations).toEqual([]);
 });
 test("synthetic live terms and privacy show the configured seller and full policy",async({page})=>{
