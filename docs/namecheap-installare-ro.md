@@ -1,6 +1,6 @@
 # Money Quest: instalare pe Namecheap
 
-Acest kit pregătește website-ul actualizat și produsele PDF în nouă limbi. Website-ul public activează toate cele nouă limbi: engleză, română, spaniolă, franceză, germană, italiană, portugheză, neerlandeză și polonă. Modul de plată pornește oprit. Nu trebuie să muți `main` pentru instalarea manuală a acestui pachet.
+Acest kit pregătește website-ul actualizat și produsele PDF în nouă limbi. Website-ul public activează toate cele nouă limbi: engleză, română, spaniolă, franceză, germană, italiană, portugheză, neerlandeză și polonă. Modul de plată pornește oprit. Pentru lansarea finală, integrează mai întâi schimbările terminate și verificate în `main`, apoi compilează și creează arhiva din acel commit curat. O arhivă mai veche sau marcată candidate nu reprezintă automat versiunea finală.
 
 ## 1. Fișierele au destinații diferite
 
@@ -61,13 +61,22 @@ Nu modifica sumele sau amprentele produselor decât dacă instalezi o ediție no
 
 ## 6. Webhook și verificare
 
-În contul Stripe corespunzător mediului ales, endpoint-ul aplicației este:
+Webhookul LIVE există deja în contul Money Quest, `acct_1UVYX9QZFq5acwqx`. Verificare Stripe API din 4 noiembrie 2026: endpoint `we_1UY3SfQZFq5acwqx8rQLYTO8`, `livemode=true`, `status=enabled`. Nu crea alt webhook LIVE. URL-ul existent corespunde handlerului `src/app/api/shop/webhook/route.ts`:
 
 ```text
 https://moneyquesteducation.com/api/shop/webhook
 ```
 
-Evenimentele necesare sunt `checkout.session.completed` și `checkout.session.async_payment_succeeded`. Fișierul `stripe-webhook.json` din kit conține URL-ul și lista. Secretul real trebuie pus numai în configurația privată. Endpoint-ul refuză semnături și medii nepotrivite.
+Am confirmat ambele evenimente pe endpoint-ul existent: `checkout.session.completed` și `checkout.session.async_payment_succeeded`. Fișierul `stripe-webhook.json`, dacă există în kitul privat, este o referință de configurare, nu o cerere să creezi un endpoint nou. Endpoint-ul refuză semnături și medii nepotrivite.
+
+Pentru a instala secretul în Namecheap:
+
+1. În Stripe LIVE, deschide Workbench, Webhooks, apoi endpoint-ul cu ID-ul de mai sus. Deschide detaliile și dezvăluie Signing secret. Copiază secretul care începe cu `whsec_`, nu ID-ul `we_` și nu cheia API.
+2. În cPanel, deschide Setup Node.js App, apoi aplicația pentru `moneyquesteducation.com`. La Environment variables adaugă sau actualizează `MONEYQUEST_STRIPE_WEBHOOK_SECRET`. Lipește secretul ca valoare și salvează. Nu îl pune în variabile cu prefixul `NEXT_PUBLIC_`.
+3. Dacă folosești deja fișierul privat `commerce.env`, poți completa aceeași variabilă acolo, păstrând permisiunile `600` și calea în afara aplicației și a rădăcinii web. O valoare veche definită în cPanel are prioritate față de acest fișier. Evită două valori diferite.
+4. Repornește aplicația după salvare. Nu pune secretul în GitHub, ZIP, fișiere publice sau mesaje. Nu este necesară recompilarea website-ului pentru această variabilă de server.
+
+Accesul la Stripe confirmă existența webhookului, dar nu arată dacă Namecheap are secretul corect. Verificarea configurației private pe hosting rămâne necesară.
 
 Mai întâi testează configurația într-un mediu Stripe de test, cu cheia, prețurile și webhook-ul acelui mediu. Nu combina credențiale test și live. Codul păstrează separat comenzile live. Configurația livrată de acest kit are prețurile live existente; ele nu sunt prețuri pentru test.
 
@@ -79,7 +88,9 @@ MONEYQUEST_HOST_ENV_FILE=/home/UTILIZATOR/moneyquest-private/commerce.env npm ru
 
 Modul trebuie setat la mediul pe care îl verifici. Comanda verifică arhivele, contul și prețurile live, precum și autentificarea SMTP, fără să creeze plată sau să trimită email. Nu dovedește singură livrarea în inbox sau o cumpărătură completă. Procesul website-ului deja pornit citește fișierul la pornire; repornește-l când aplici configurația finală.
 
-Verifică apoi o comandă controlată: Checkout, webhook, confirmare în inbox, descărcare, redescărcare și comportamentul după rambursare. O comandă live folosește bani reali. Testele locale din raport folosesc date simulate și nu sunt prezentate drept o plată reală.
+Verifică apoi într-un mediu de test: Checkout, webhook, confirmare în inbox, descărcare, redescărcare și comportamentul după rambursare. Nu face o plată LIVE fără aprobarea explicită a proprietarei pentru acel test. Testele locale din raport folosesc date simulate și nu sunt prezentate drept o plată reală.
+
+Handlerul verifică semnătura pe corpul original al cererii, apoi verifică mediul și starea `paid`. Recitește sesiunea de la Stripe și validează plata, suma, prețul, contractul și absența rambursării sau disputei. Persistența comenzilor folosește ID-ul sesiunii, blocare și scriere atomică. Evenimentele repetate, inclusiv cele două tipuri pentru aceeași sesiune, converg către aceeași comandă. Confirmările obișnuite se trimit o singură dată. Dacă procesul se oprește după acceptarea emailului de către SMTP, dar înainte de salvarea marcajului, o reîncercare poate repeta confirmarea. Nu apare o debitare nouă.
 
 ## 7. Reîncercarea emailurilor și revenirea
 
