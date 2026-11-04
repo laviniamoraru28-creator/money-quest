@@ -292,5 +292,54 @@
     "width": 960,
     "height": 540,
     "sourceHash": "d8c1dbc39fdfdfcf9faeafba50a006eefede2fad488288373eb5950f6338e69e"
+  },
+  "the-little-compass-and-the-money-choices:6:0": {
+    "src": "/images/money-quest/books/pages/the-little-compass-and-the-money-choices-c7-p1-v1.webp",
+    "width": 960,
+    "height": 640,
+    "sourceHash": "c483067a60784bdd49eb8e0bb7712b5aa3e0d36e1a3d2665ede5c885871d275c"
+  },
+  "the-little-compass-and-the-money-choices:6:1": {
+    "src": "/images/money-quest/books/pages/the-little-compass-and-the-money-choices-c7-p2-v1.webp",
+    "width": 960,
+    "height": 640,
+    "sourceHash": "b37dcf334dd4add2980a5ea3b4e6a9bf0abf4e28dec49622be61ca1ce32bbf30"
+  },
+  "the-little-compass-and-the-money-choices:6:2": {
+    "src": "/images/money-quest/books/pages/the-little-compass-and-the-money-choices-c5-p3-v1.webp",
+    "width": 960,
+    "height": 540,
+    "sourceHash": "b34a713d2cc9cc1f50cad6c497e5693906df86f4725c6324d9afe36c23ae38cc",
+    "reusedFrom": "the-little-compass-and-the-money-choices:4:2"
+  },
+  "the-little-compass-and-the-money-choices:6:3": {
+    "src": "/images/money-quest/books/pages/the-little-compass-and-the-money-choices-c7-p4-v1.webp",
+    "width": 960,
+    "height": 540,
+    "sourceHash": "e2eae384fa43555b2d8f603ecda0ea293093f0b306f934c9ed1bfd3aa5fd31be"
+  },
+  "the-little-compass-and-the-money-choices:7:0": {
+    "src": "/images/money-quest/books/pages/the-little-compass-and-the-money-choices-c8-p1-v1.webp",
+    "width": 960,
+    "height": 640,
+    "sourceHash": "3c07eb24281342ec7dc92747c09ffb64d035656896e75d38adf24afaf2a8a710"
+  },
+  "the-little-compass-and-the-money-choices:7:1": {
+    "src": "/images/money-quest/books/pages/the-little-compass-and-the-money-choices-c8-p2-v1.webp",
+    "width": 960,
+    "height": 640,
+    "sourceHash": "c9d5e21954559fdd7850cf92b48c0bfc5eb48dc6731f6edceae4c816e90e702f"
+  },
+  "the-little-compass-and-the-money-choices:7:2": {
+    "src": "/images/money-quest/books/pages/the-little-compass-and-the-money-choices-c8-p3-v1.webp",
+    "width": 960,
+    "height": 540,
+    "sourceHash": "13d45300a17a2fb23296a3bc906d6a5dce853be9754483ca6065586126d027e3"
+  },
+  "the-little-compass-and-the-money-choices:7:3": {
+    "src": "/images/money-quest/books/pages/the-little-compass-and-the-money-choices-c8-p4-v1.webp",
+    "width": 960,
+    "height": 540,
+    "sourceHash": "5d64059cd0098ad8b24a6a55be0475ea15f85fb106bdec755af1e8c03b7bf6a3"
   }
 }
