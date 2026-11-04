@@ -23,7 +23,7 @@ test("illustrated shelf covers open and close books with keyboard and reduced mo
  await page.screenshot({path:test.info().outputPath("open-illustrated-book.png"),fullPage:true});
  await page.getByRole("button",{name:"Close book",exact:true}).click();
  // Night view now lives inside the consolidated Global Settings panel.
- await page.getByRole("button",{name:/Settings/}).click();
+ await page.locator("summary",{hasText:"Settings"}).click();
  await page.getByRole("checkbox",{name:"Night view",exact:true}).check();
  await expect(page.locator("html")).toHaveAttribute("data-night-view","true");
  await expect(page.locator(".library-cover > span").first()).toHaveCSS("color","rgb(255, 255, 255)");

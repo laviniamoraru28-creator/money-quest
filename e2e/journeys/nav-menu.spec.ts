@@ -103,7 +103,7 @@ test("dark mode (Night view): menu stays legible and passes WCAG contrast",async
  // Night view now lives inside the consolidated Global Settings panel
  // (a native <details>, whose <summary> carries an implicit button role)
  // rather than its own always-visible toolbar button.
- await page.getByRole("button",{name:/Settings/}).click();
+ await page.locator("summary",{hasText:"Settings"}).click();
  await page.getByRole("checkbox",{name:"Night view",exact:true}).check();
  await page.getByRole("button",{name:"Menu",exact:true}).click();
  const dialog=page.getByRole("dialog",{name:"Explore Money Quest"});

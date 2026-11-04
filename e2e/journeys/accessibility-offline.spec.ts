@@ -22,12 +22,12 @@ test("Listen is present in Leadership and reads visible content without form val
 // (a native <details>, whose <summary> carries an implicit button role)
 // rather than its own always-visible toolbar button.
 for(const path of ["/en","/en/library","/en/brain-lab","/en/mind-lab","/en/leadership-quest","/en/play/investing-lab"])test(`night view contrast and persistence: ${path}`,async({page})=>{
-  await page.goto(path);await page.getByRole("button",{name:/Settings/}).click();await page.getByRole("checkbox",{name:"Night view",exact:true}).check();
+  await page.goto(path);await page.locator("summary",{hasText:"Settings"}).click();await page.getByRole("checkbox",{name:"Night view",exact:true}).check();
   await expect(page.locator("html")).toHaveAttribute("data-night-view","true");
   const result=await new AxeBuilder({page}).withTags(["wcag2a","wcag2aa","wcag21aa"]).analyze();expect(result.violations).toEqual([]);
   expect(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)).toBe(false);
   await page.reload();await expect(page.locator("html")).toHaveAttribute("data-night-view","true");
-  await page.getByRole("button",{name:/Settings/}).click();await page.getByRole("checkbox",{name:"Night view",exact:true}).uncheck();await expect(page.locator("html")).toHaveAttribute("data-night-view","false");
+  await page.locator("summary",{hasText:"Settings"}).click();await page.getByRole("checkbox",{name:"Night view",exact:true}).uncheck();await expect(page.locator("html")).toHaveAttribute("data-night-view","false");
 });
 
 for(const lab of learningLabs)test(`actual age-specific lab wording: ${lab.slug}`,async({page})=>{
