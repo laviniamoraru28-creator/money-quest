@@ -32,23 +32,23 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
           <details className="relative z-20">
             <summary className="cursor-pointer rounded-xl border border-teal/20 px-4 py-3 font-bold text-teal-text focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal">{t("a11y.mainNavigationLabel")} ☰</summary>
             <nav aria-label={t("a11y.mainNavigationLabel")} className="absolute right-0 top-full z-30 mt-2 grid max-h-[75vh] min-w-[min(20rem,90vw)] gap-1 overflow-y-auto rounded-2xl border border-ink/10 bg-white p-3 shadow-lg">
+              <Link href="/" className="rounded-lg px-3 py-2 font-bold hover:bg-cream">{t("nav.home")}</Link>
+              <Link href="/play" className="rounded-lg px-3 py-2 font-bold hover:bg-cream">{t("nav.getStarted")}</Link>
               {[
-                { href: "/", label: t("nav.home") },
-                { href: "/play", label: t("nav.getStarted") },
-                { href: "/library", label: "Library" },
-                { href: "/museum", label: "Museum" },
-                { href: "/brain-lab", label: "Brain Lab" },
-                { href: "/mind-lab", label: "Mind Lab" },
-                { href: "/investing-lab", label: "Investing Lab" },
-                { href: "/future-skills", label: "Future Skills" },
-                { href: "/inclusive-learning", label: "Inclusive Learning" },
-                { href: "/quiet-corner", label: "Quiet Corner" },
-                { href: "/learn", label: t("nav.learn") },
-                { href: "/parents/shop", label: t("nav.parentShop") },
-                { href: "/parent-info", label: t("nav.forParents") },
-                { href: "/privacy", label: t("footer.privacy") },
-                { href: "/contact", label: t("footer.contact") },
-              ].map((item) => <Link key={item.href} href={item.href} className="rounded-lg px-3 py-2 hover:bg-cream focus-visible:outline focus-visible:outline-2 focus-visible:outline-teal">{item.label}</Link>)}
+                { title: "Learning Adventures", links: [{href:"/play",label:t("nav.getStarted")},{href:"/learn",label:t("nav.learn")}] },
+                { title: "Explore & Discover", links: [{href:"/brain-lab",label:"Brain Lab"},{href:"/mind-lab",label:"Mind Lab"},{href:"/investing-lab",label:"Investing Lab"},{href:"/future-skills",label:"Future Skills"}] },
+                { title: "Library & Museum", links: [{href:"/library",label:"Library"},{href:"/museum",label:"Museum"}] },
+                { title: "Wellbeing & Inclusion", links: [{href:"/quiet-corner",label:"Quiet Corner"},{href:"/inclusive-learning",label:"Inclusive Learning"}] },
+                { title: t("nav.forParents"), links: [{href:"/parents/shop",label:t("nav.parentShop")},{href:"/parent-info",label:t("nav.forParents")},{href:"/reviews",label:t("footer.feedback")}] },
+                { title: "Information", links: [{href:"/privacy",label:t("footer.privacy")},{href:"/contact",label:t("footer.contact")}] },
+              ].map(group => (
+                <details key={group.title} className="rounded-lg border border-ink/10">
+                  <summary className="cursor-pointer px-3 py-3 font-semibold text-teal-text">{group.title}</summary>
+                  <div className="grid gap-1 px-2 pb-2">
+                    {group.links.map(item=><Link key={item.href} href={item.href} className="rounded-lg px-3 py-2 hover:bg-cream focus-visible:outline focus-visible:outline-2 focus-visible:outline-teal">{item.label}</Link>)}
+                  </div>
+                </details>
+              ))}
             </nav>
           </details>
           <div className="flex flex-wrap items-center gap-sm">
