@@ -63,5 +63,7 @@ function getLastModifiedForPath(path: string): string | undefined {
     const article = ARTICLE_STRUCTURES.find((a) => a.slug === slug);
     if (article) return article.updatedDate;
   }
-  // Do not invent a modification date for static pages. Search engines\n  // should only receive lastModified when it reflects a real content update.\n  return undefined;
+  // Do not invent a modification date for static pages. Search engines
+  // should only receive lastModified when it reflects a real content update.
+  return undefined;
 }
