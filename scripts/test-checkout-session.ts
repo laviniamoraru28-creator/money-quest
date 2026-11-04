@@ -7,6 +7,7 @@ import ts from "typescript";
 import type Stripe from "stripe";
 import {shopProducts,SHOP_TERMS_VERSION} from "../src/content/shop";
 import {APP_ID,validatePaidSession} from "../src/lib/commerce/stripe";
+import {PARENT_BONUS,parentBonusMetadata} from "../src/lib/commerce/parent-bonus";
 import type {Contract} from "../src/lib/commerce/release";
 
 // Execute the production route body. Only external configuration, persistence,
@@ -15,12 +16,13 @@ async function main(){
  const source=await readFile("src/app/api/shop/checkout/route.ts","utf8");
  const compiled=ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText;
  const actualRequire=createRequire(import.meta.url),module={exports:{} as {POST:(request:Request)=>Promise<Response>}};
- let mode:"sandbox"|"live"="sandbox",available=true,ready=true,creates=0,mailChecks=0;
+ let mode:"sandbox"|"live"="sandbox",available=true,ready=true,bonusReady=true,creates=0,mailChecks=0;
  let captured:Stripe.Checkout.SessionCreateParams|undefined;
  let options:{idempotencyKey:string}|undefined;
  const contracts:Contract[]=[];
  const release={accountId:"acct_fixture",merchant:{name:"Synthetic merchant",address:"Synthetic address",email:"support@merchant.test"},terms:{version:"fixture-v1",text:"Synthetic terms"},privacy:"Synthetic privacy",taxStatement:"Synthetic tax statement",products:Object.fromEntries(shopProducts.map(p=>[p.id,{sha256:"a".repeat(64),bytes:200}]))};
  const mocks:Record<string,unknown>={
+  "@/lib/commerce/parent-bonus":{PARENT_BONUS,parentBonusMetadata,verifyParentBonus:async()=>{if(!bonusReady)throw new Error("Synthetic missing bonus");return Buffer.from("verified synthetic PDF");}},
   "@/content/shop":{shopProducts,findProduct:(id:string)=>shopProducts.find(p=>p.id===id)},
   "@/lib/commerce/config":{commerceConfig:()=>({mode,origin:"https://moneyquesteducation.com",orders:"/synthetic-orders",termsVersion:mode==="live"?release.terms.version:SHOP_TERMS_VERSION,release:mode==="live"?release:undefined}),canCheckout:async()=>available},
   "@/lib/commerce/stripe":{APP_ID,verifyLiveStripeConfiguration:async()=>{if(!ready)throw new Error("Synthetic preflight failure");},stripeClient:()=>({checkout:{sessions:{create:async(params:Stripe.Checkout.SessionCreateParams,requestOptions:{idempotencyKey:string})=>{creates++;captured=params;options=requestOptions;return {url:"https://checkout.stripe.com/c/pay/cs_fixture",livemode:mode==="live"};}}}})},
@@ -65,6 +67,7 @@ async function main(){
     for(const extra of [{instantSupply:false},{cancellationAcknowledged:false},{adultPurchaser:false},{metadata:{app:APP_ID}},...(mode==="live"?[{termsAccepted:false}]:[])])assert.equal((await module.exports.POST(request(product.id,extra))).status,400);
     assert.equal((await module.exports.POST(request(product.id,{},"https://untrusted.test"))).status,403);
     available=false;assert.equal((await module.exports.POST(request(product.id))).status,503);available=true;
+    bonusReady=false;assert.equal((await module.exports.POST(request(product.id))).status,503);bonusReady=true;
     ready=false;assert.equal((await module.exports.POST(request(product.id))).status,503);ready=true;
     assert.equal(creates,before,"Rejected choices/origins/preflight must not create a session");
    }

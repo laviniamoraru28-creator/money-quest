@@ -49,7 +49,6 @@ for(const locale of LOCALES){
  for(const kind of ["museum","library"] as const){
   const publicHub=publicDiscoveryPresentation(kind,locale);assert.equal(publicHub.locale,locale);
   for(const source of kind==="museum"?museumRooms:libraryBooks){
-   if(kind==="library"){assert.throws(()=>publicDiscoveryPresentation(kind,locale,source.slug),/Unpublished Library story/);continue;}
    const publicDetail=publicDiscoveryPresentation(kind,locale,source.slug);assert.equal(publicDetail.locale,locale);assert.equal(publicDetail.item?.slug,source.slug);assert.equal(publicDetail.item?.title,draftDiscoveryPresentation(kind,locale,source.slug).item?.title);
   }
  }

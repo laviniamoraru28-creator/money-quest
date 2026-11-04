@@ -61,6 +61,8 @@ jobs:
         run: |
           npx playwright install --with-deps webkit
           npx playwright test academy-certificates.spec.ts --project=iphone-safari --project=tablet-safari
+      - name: Require complete original-book artwork before release
+        run: node --import tsx scripts/test-library-artwork.ts --complete
       - uses: actions/upload-artifact@v4
         if: always()
         with:

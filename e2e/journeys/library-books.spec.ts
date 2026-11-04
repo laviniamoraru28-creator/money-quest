@@ -1,6 +1,7 @@
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import { publicOriginalBooks as originalBooks } from "../../src/content/library-publication";
+import { publicShortReads } from "../../src/content/library-publication";
 import { authorBooks } from "../../src/content/author-books";
 import { libraryPeople } from "../../src/content/people";
 import {librarySourceDate} from "../../src/content/reader-copy";
@@ -19,7 +20,9 @@ test("Library separates full originals, author listings and existing short reads
     await expect(article.getByRole("link")).toHaveAttribute("href", book.url);
     await expect(article).toContainText("The complete book is not hosted on Money Quest.");
   }
-  await expect(page.getByRole("link", { name: /The Saving Seed/ })).toHaveCount(0);
+  for (const book of publicShortReads) {
+    await expect(page.getByRole("link").filter({has: page.getByRole("heading", {name: book.title, exact: true})})).toHaveAttribute("href", `/en/library/${book.slug}`);
+  }
 });
 
 for (const book of originalBooks) test(`original book: all chapters, feedback, completion, WCAG: ${book.slug}`, async ({ page }) => {

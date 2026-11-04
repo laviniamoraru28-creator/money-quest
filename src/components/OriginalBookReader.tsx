@@ -45,8 +45,7 @@ export default function OriginalBookReader({book,locale,paragraphsPerPage}:Reade
   const move = (index: number) => { if (index < 0 || index >= book.chapters.length) return; stop(); setOpened(true); setPage(spreads.findIndex(item=>item.chapterIndex===index)); };
   const turnPage = (index:number) => { if(index<0||index>=spreads.length)return;stop();setPage(index); };
   const pageArt=bookPageArt(book.slug,chapter,spread.part);
-  if(opened&&!pageArt)throw new Error(`Unpublished page artwork: ${book.slug}:${chapter}:${spread.part}`);
-  const artAlt=spread.paragraphs[0]!.split(/(?<=[.!?])\s+/u)[0]!;
+  const artAlt=pageArt?spread.paragraphs[0]!.split(/(?<=[.!?])\s+/u)[0]!:book.coverAlt;
   const art=pageArt?.src??book.cover;
   const markFinished = () => {
     try {

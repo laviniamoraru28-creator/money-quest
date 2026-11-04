@@ -20,7 +20,7 @@ if(!candidate&&execFileSync('git',['status','--porcelain'],{encoding:'utf8'}).tr
 const buildId=readFileSync('.next/BUILD_ID','utf8').trim();
 if(JSON.parse(readFileSync('public/offline-manifest.json','utf8')).version!==buildId)throw new Error('Offline manifest does not match this build');
 const stage=mkdtempSync(path.join(tmpdir(),'moneyquest-package-'));
-const entries=['.next','messages','server.js','host-env.cjs','package.json','package-lock.json','next.config.mjs','public','tsconfig.json','src/i18n','src/content/shop.ts','src/lib/commerce','scripts/shop-preflight.ts','scripts/shop-deliver-pending.ts'];
+const entries=['.next','messages','server.js','host-env.cjs','package.json','package-lock.json','next.config.mjs','public','tsconfig.json','src/i18n','src/content/shop.ts','src/lib/commerce','scripts/shop-preflight.ts','scripts/shop-deliver-pending.ts','scripts/shop-install-parent-bonus.ts'];
 try{
  for(const entry of entries){
   const target=path.join(stage,entry);mkdirSync(path.dirname(target),{recursive:true});
