@@ -19,7 +19,7 @@ pl:["Ustawienia","Wygląd i obrazy","Rozmiar obrazów","Pełne ilustracje","Mnie
 };
 export function GlobalSettings({locale,copy}:{locale:Locale;copy:SiteControlsCopy}){
  const p=useAccessibilityPrefs(), t=labels[locale]??labels.en;
- const toggle=(label:string,checked:boolean,change:()=>void)=><label className="flex min-h-11 items-center justify-between gap-4"><span>{label}</span><input type="checkbox" checked={checked} disabled={!p.isLoaded} onChange={change} className="h-5 w-5 accent-teal"/></label>;
+ const toggle=(label:string|undefined,checked:boolean,change:()=>void)=><label className="flex min-h-11 items-center justify-between gap-4"><span>{label}</span><input type="checkbox" checked={checked} disabled={!p.isLoaded} onChange={change} className="h-5 w-5 accent-teal"/></label>;
  return <details data-read-aloud-ignore className="relative z-40 rounded-xl border border-teal/40 bg-white text-ink">
   <summary className="min-h-12 cursor-pointer px-4 py-3 font-semibold text-teal-text">⚙ {t[0]}</summary>
   <div className="absolute right-0 top-full z-50 mt-2 max-h-[75vh] w-[min(22rem,90vw)] space-y-4 overflow-y-auto rounded-2xl border border-teal/30 bg-white p-4 shadow-lg">

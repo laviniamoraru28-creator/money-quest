@@ -29,28 +29,12 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
       <header className="border-b border-ink/10 bg-white">
         <div className="mx-auto flex max-w-[1200px] flex-wrap items-center justify-between gap-3 px-sm py-xs">
           <span className="font-display text-lg font-bold text-teal-text">{t("common.moneyQuest")}</span>
-          <details className="relative z-20">
-            <summary className="cursor-pointer rounded-xl border border-teal/20 px-4 py-3 font-bold text-teal-text focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal">{t("a11y.mainNavigationLabel")} ☰</summary>
-            <nav aria-label={t("a11y.mainNavigationLabel")} className="absolute right-0 top-full z-30 mt-2 grid max-h-[75vh] min-w-[min(20rem,90vw)] gap-1 overflow-y-auto rounded-2xl border border-ink/10 bg-white p-3 shadow-lg">
-              <Link href="/" className="rounded-lg px-3 py-2 font-bold hover:bg-cream">{t("nav.home")}</Link>
-              <Link href="/play" className="rounded-lg px-3 py-2 font-bold hover:bg-cream">{t("nav.getStarted")}</Link>
-              {[
-                { title: "Learning Adventures", links: [{href:"/play",label:t("nav.getStarted")},{href:"/learn",label:t("nav.learn")}] },
-                { title: "Explore & Discover", links: [{href:"/brain-lab",label:"Brain Lab"},{href:"/mind-lab",label:"Mind Lab"},{href:"/investing-lab",label:"Investing Lab"},{href:"/future-skills",label:"Future Skills"}] },
-                { title: "Library & Museum", links: [{href:"/library",label:"Library"},{href:"/museum",label:"Museum"}] },
-                { title: "Wellbeing & Inclusion", links: [{href:"/quiet-corner",label:"Quiet Corner"},{href:"/inclusive-learning",label:"Inclusive Learning"}] },
-                { title: t("nav.forParents"), links: [{href:"/parents/shop",label:t("nav.parentShop")},{href:"/parent-info",label:t("nav.forParents")},{href:"/reviews",label:t("footer.feedback")}] },
-                { title: "Information", links: [{href:"/privacy",label:t("footer.privacy")},{href:"/contact",label:t("footer.contact")}] },
-              ].map(group => (
-                <details key={group.title} className="rounded-lg border border-ink/10">
-                  <summary className="cursor-pointer px-3 py-3 font-semibold text-teal-text">{group.title}</summary>
-                  <div className="grid gap-1 px-2 pb-2">
-                    {group.links.map(item=><Link key={item.href} href={item.href} className="rounded-lg px-3 py-2 hover:bg-cream focus-visible:outline focus-visible:outline-2 focus-visible:outline-teal">{item.label}</Link>)}
-                  </div>
-                </details>
-              ))}
-            </nav>
-          </details>
+          {/* Sitewide categorized navigation (Learning Adventures, Explore &
+              Discover, Library & Museum, Wellbeing & Inclusion, For Parents,
+              Information) is the universal nav drawer rendered once in the
+              root layout's PageReadAloud bar above — not duplicated here, so
+              there's exactly one accessible, tested nav mechanism covering
+              every route, not two different ones on the homepage alone. */}
           <div className="flex flex-wrap items-center gap-sm">
             <Link href="/parents/shop" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-parent-action px-4 py-3 font-bold text-white shadow-sm"><span aria-hidden="true">▤</span> {t("nav.parentShop")}</Link>
             <Link href="/play" className="inline-flex min-h-12 items-center justify-center rounded-xl px-5 py-3 font-medium bg-teal text-white hover:bg-teal/90">{t("nav.getStarted")}</Link>

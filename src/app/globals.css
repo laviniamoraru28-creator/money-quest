@@ -148,3 +148,9 @@ html[data-image-size="minimal"] [data-learning-decoration] { display: none !impo
 html[data-text-size="large"] { font-size: 112.5%; }
 html[data-text-size="extra"] { font-size: 125%; }
 html[data-high-contrast="true"]:not([data-night-view="true"]) { filter: contrast(1.2); }
+
+/* Universal nav drawer entrance. Neutralized for both OS-level and the
+   in-app reduced-motion toggle by the existing blanket rules above
+   (animation-duration: 0.01ms !important), so no separate override is
+   needed here - matches every other animation in this file. */
+@keyframes nav-drawer-in { from { transform: translateX(100%); } to { transform: translateX(0); } }

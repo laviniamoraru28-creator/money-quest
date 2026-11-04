@@ -40,6 +40,11 @@ const ALLOWED_IDENTICAL = new Set([
   // loanwords/interjections.
   "investingLab.diversificationTitle",
   "curriculum.strategist-investing_basics-l1.vocabulary.1.term",
+  // "Entrepreneur Quest" and "Leadership Quest" are section brand names,
+  // the same pattern as "Money Quest" itself (navMenu.moneyQuest is
+  // identical too, but short enough to fall under MIN_LENGTH_TO_FLAG).
+  "navMenu.entrepreneurQuest",
+  "navMenu.leadershipQuest",
 ]);
 
 // Structural/technical fields within games.* that must NEVER be
