@@ -1,0 +1,1033 @@
+{
+  "schema": 1,
+  "sourceRecovered": true,
+  "originalPdfsUnchanged": true,
+  "pages": 60,
+  "releaseReady": false,
+  "verifiedTranslatedPages": 0,
+  "sourceArchive": "Money_Quest_Academy_Integration_EN_Pending_Translations.zip",
+  "originalArchiveSha256": "b5389e9e21b839512a0eed02df8e9bd3450691db5d5b7f54c0afad0fc7c84ccf",
+  "worksheetImages": [
+    {
+      "level": "explorer",
+      "page": 1,
+      "sourcePdfSha256": "bef67d10982a0cc7e3d68cfb7a29e57aa482616c4e331e1b1a322ac401078f43",
+      "imageSha256": "850dfc5d2a81da3ea710367caf248138f5e4cde47b6a783d7e5adfb5cff9c37a",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "explorer",
+      "page": 2,
+      "sourcePdfSha256": "bef67d10982a0cc7e3d68cfb7a29e57aa482616c4e331e1b1a322ac401078f43",
+      "imageSha256": "6a1e68cb1f8b32044afa36f21c317f11e491f6930f6742a52d709110518610d9",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "explorer",
+      "page": 3,
+      "sourcePdfSha256": "bef67d10982a0cc7e3d68cfb7a29e57aa482616c4e331e1b1a322ac401078f43",
+      "imageSha256": "00b0978518fad268de9280dd81d05ce38247da9dae461c937c2a0d49a37140df",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "explorer",
+      "page": 4,
+      "sourcePdfSha256": "bef67d10982a0cc7e3d68cfb7a29e57aa482616c4e331e1b1a322ac401078f43",
+      "imageSha256": "858a112993378b38ba702a2bacd2ab784ebf4ea20e8ce6508b44fe4f01f2485e",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "explorer",
+      "page": 5,
+      "sourcePdfSha256": "bef67d10982a0cc7e3d68cfb7a29e57aa482616c4e331e1b1a322ac401078f43",
+      "imageSha256": "b4e096f257ce2388448c9fcd1eee528e278d561d47e9617592e2509b8517cfca",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "explorer",
+      "page": 6,
+      "sourcePdfSha256": "bef67d10982a0cc7e3d68cfb7a29e57aa482616c4e331e1b1a322ac401078f43",
+      "imageSha256": "3a8aee89a849b80dab0093605a5f0b2510e697c272b2de3898da367eb17a79d1",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "explorer",
+      "page": 7,
+      "sourcePdfSha256": "bef67d10982a0cc7e3d68cfb7a29e57aa482616c4e331e1b1a322ac401078f43",
+      "imageSha256": "f9b7ec671bc43fbf8dac0a6f53a3fe9bb00ed27bcb12c171540634100c6f05ab",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "explorer",
+      "page": 8,
+      "sourcePdfSha256": "bef67d10982a0cc7e3d68cfb7a29e57aa482616c4e331e1b1a322ac401078f43",
+      "imageSha256": "69b26d7d84747294667ed23b249c78cbd8250dd27f8953b2db49481e0e21d80e",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "explorer",
+      "page": 9,
+      "sourcePdfSha256": "bef67d10982a0cc7e3d68cfb7a29e57aa482616c4e331e1b1a322ac401078f43",
+      "imageSha256": "8e8111fd98b7d7639bd1e5881407e44b3a95c24aa35ece92c4c67670c57407ee",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "explorer",
+      "page": 10,
+      "sourcePdfSha256": "bef67d10982a0cc7e3d68cfb7a29e57aa482616c4e331e1b1a322ac401078f43",
+      "imageSha256": "db66f7a8e16cb246f152348dab5703a281727305768fa2efda5240ef5e579f1f",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "explorer",
+      "page": 11,
+      "sourcePdfSha256": "bef67d10982a0cc7e3d68cfb7a29e57aa482616c4e331e1b1a322ac401078f43",
+      "imageSha256": "3e36302fda6f2ea672ce65e2b43fd24be72cc8bef4e627a8a2e352818e97d88d",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "explorer",
+      "page": 12,
+      "sourcePdfSha256": "bef67d10982a0cc7e3d68cfb7a29e57aa482616c4e331e1b1a322ac401078f43",
+      "imageSha256": "837b75953b3402c79a7651eae79970a1e1b5ae63de3e8a857ae96631a238fba9",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "explorer",
+      "page": 13,
+      "sourcePdfSha256": "bef67d10982a0cc7e3d68cfb7a29e57aa482616c4e331e1b1a322ac401078f43",
+      "imageSha256": "b3d1f14fc619086a8198d9eaa840fef750698b8f3802ac003c41d2811edf7a00",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "explorer",
+      "page": 14,
+      "sourcePdfSha256": "bef67d10982a0cc7e3d68cfb7a29e57aa482616c4e331e1b1a322ac401078f43",
+      "imageSha256": "cd3a667c3f11e5f91ce99853a5db4a4bd6eeb8a298ec3425732dcedb9d75c092",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "explorer",
+      "page": 15,
+      "sourcePdfSha256": "bef67d10982a0cc7e3d68cfb7a29e57aa482616c4e331e1b1a322ac401078f43",
+      "imageSha256": "7cd664d0465cddfa1f2113049aa7cf5efd388d2612185c543098e6baf9a8d42c",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "explorer",
+      "page": 16,
+      "sourcePdfSha256": "bef67d10982a0cc7e3d68cfb7a29e57aa482616c4e331e1b1a322ac401078f43",
+      "imageSha256": "76b03d854f3f87423cab3e6aca04e8a98dd214fed87d4bea832f832c69bb1a51",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "explorer",
+      "page": 17,
+      "sourcePdfSha256": "bef67d10982a0cc7e3d68cfb7a29e57aa482616c4e331e1b1a322ac401078f43",
+      "imageSha256": "fb608bd53f59bcef29e3cf1cd12ecc5f05b3ca9a51de500e7306aadad4bc70cf",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "explorer",
+      "page": 18,
+      "sourcePdfSha256": "bef67d10982a0cc7e3d68cfb7a29e57aa482616c4e331e1b1a322ac401078f43",
+      "imageSha256": "024f222ac60fcc660593de30184bb3d48142f488314757078f80317371253d27",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "explorer",
+      "page": 19,
+      "sourcePdfSha256": "bef67d10982a0cc7e3d68cfb7a29e57aa482616c4e331e1b1a322ac401078f43",
+      "imageSha256": "3d344ea964265f586e9b70770624c234f0d9f5c05d3ee1b2c1ad3b24062a833d",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "explorer",
+      "page": 20,
+      "sourcePdfSha256": "bef67d10982a0cc7e3d68cfb7a29e57aa482616c4e331e1b1a322ac401078f43",
+      "imageSha256": "8fa2111a5cb2a412c6f4af795596d9622dec74d6039d9ca640fe7c8c383ca41c",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "builder",
+      "page": 1,
+      "sourcePdfSha256": "89fc44353e4bfd4bb5177cfb7078d027414cbb7f8c446b2a17ed666df1cc4a63",
+      "imageSha256": "cedcdd53baffcddef82eeb00e9f094438fb772f9432d9b833833023d05572056",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "builder",
+      "page": 2,
+      "sourcePdfSha256": "89fc44353e4bfd4bb5177cfb7078d027414cbb7f8c446b2a17ed666df1cc4a63",
+      "imageSha256": "69c6df6622558d3ca6fd153ed4699b185a930ec482bbd44d573c502eedc20192",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "builder",
+      "page": 3,
+      "sourcePdfSha256": "89fc44353e4bfd4bb5177cfb7078d027414cbb7f8c446b2a17ed666df1cc4a63",
+      "imageSha256": "3a4e3256bb232c3b00b7a1c729cf11becf85d632fcf7fcb5f1486e84599cf987",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "builder",
+      "page": 4,
+      "sourcePdfSha256": "89fc44353e4bfd4bb5177cfb7078d027414cbb7f8c446b2a17ed666df1cc4a63",
+      "imageSha256": "a929d70f2ab0cd3ed44b180bbe9bdf93846d32eb6bd1f1c6d4028fc49823a8b2",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "builder",
+      "page": 5,
+      "sourcePdfSha256": "89fc44353e4bfd4bb5177cfb7078d027414cbb7f8c446b2a17ed666df1cc4a63",
+      "imageSha256": "2448d11b6e64149aa5f2d03d526d324d170e61dbfcab9203ef4e1d5f493a695d",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "builder",
+      "page": 6,
+      "sourcePdfSha256": "89fc44353e4bfd4bb5177cfb7078d027414cbb7f8c446b2a17ed666df1cc4a63",
+      "imageSha256": "0da77277aaa52769e8402fe629d64a9b14469aad8a6d380286e42a4e7e1fc793",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "builder",
+      "page": 7,
+      "sourcePdfSha256": "89fc44353e4bfd4bb5177cfb7078d027414cbb7f8c446b2a17ed666df1cc4a63",
+      "imageSha256": "eb31a725d6e1ec42d693533972078ee708940a76f7e5ca19abf40dcc0fc69647",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "builder",
+      "page": 8,
+      "sourcePdfSha256": "89fc44353e4bfd4bb5177cfb7078d027414cbb7f8c446b2a17ed666df1cc4a63",
+      "imageSha256": "3b284ec8bb64896633be1ff7b89fc627ad5b183ce9950bee48ac374353b4a87f",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "builder",
+      "page": 9,
+      "sourcePdfSha256": "89fc44353e4bfd4bb5177cfb7078d027414cbb7f8c446b2a17ed666df1cc4a63",
+      "imageSha256": "a76d7fd99520db90342f072d73f6cecb3cd7c077df7953ae827bb75ab169ed88",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "builder",
+      "page": 10,
+      "sourcePdfSha256": "89fc44353e4bfd4bb5177cfb7078d027414cbb7f8c446b2a17ed666df1cc4a63",
+      "imageSha256": "4ab923280571a740d43df2b63c6f269529c3ddb46a91df85aef14440e1c09108",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "builder",
+      "page": 11,
+      "sourcePdfSha256": "89fc44353e4bfd4bb5177cfb7078d027414cbb7f8c446b2a17ed666df1cc4a63",
+      "imageSha256": "dd013146bc8d4ee97168f414b3ea3156d24f63d698e1245f7dc70a1e1b5504e8",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "builder",
+      "page": 12,
+      "sourcePdfSha256": "89fc44353e4bfd4bb5177cfb7078d027414cbb7f8c446b2a17ed666df1cc4a63",
+      "imageSha256": "29bd60570a2ba1d999723f516d7baf67c692f13c6281a178649c16d908075366",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "builder",
+      "page": 13,
+      "sourcePdfSha256": "89fc44353e4bfd4bb5177cfb7078d027414cbb7f8c446b2a17ed666df1cc4a63",
+      "imageSha256": "8a968c1d236e0df97382872014366fabf633ab3b95d3846fd26dd0afec5658f4",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "builder",
+      "page": 14,
+      "sourcePdfSha256": "89fc44353e4bfd4bb5177cfb7078d027414cbb7f8c446b2a17ed666df1cc4a63",
+      "imageSha256": "bb40bc94ea7121f41a0864966cd731eec85c1f32e5b05986bad12f7b959cc9a1",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "builder",
+      "page": 15,
+      "sourcePdfSha256": "89fc44353e4bfd4bb5177cfb7078d027414cbb7f8c446b2a17ed666df1cc4a63",
+      "imageSha256": "59585bd33f80f55ee5a2d470dea4713d6557851742a3cb43909dc574651ad3ec",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "builder",
+      "page": 16,
+      "sourcePdfSha256": "89fc44353e4bfd4bb5177cfb7078d027414cbb7f8c446b2a17ed666df1cc4a63",
+      "imageSha256": "d635ab4a40001939256eaedd50e62958edd59c1e342f6b260383958e6aea46ea",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "builder",
+      "page": 17,
+      "sourcePdfSha256": "89fc44353e4bfd4bb5177cfb7078d027414cbb7f8c446b2a17ed666df1cc4a63",
+      "imageSha256": "6d850ffc9a0b539eb0cb160afb967712aedc14d03b09443d4dde29bdf436c5e4",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "builder",
+      "page": 18,
+      "sourcePdfSha256": "89fc44353e4bfd4bb5177cfb7078d027414cbb7f8c446b2a17ed666df1cc4a63",
+      "imageSha256": "deab4380d23265facb07031269f5764adb65662d4866a44a51c3bed2d79e5813",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "builder",
+      "page": 19,
+      "sourcePdfSha256": "89fc44353e4bfd4bb5177cfb7078d027414cbb7f8c446b2a17ed666df1cc4a63",
+      "imageSha256": "643befbe2f39eafa332a0159c2045dae7432976d31ffa7e183ac6358df30483c",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "builder",
+      "page": 20,
+      "sourcePdfSha256": "89fc44353e4bfd4bb5177cfb7078d027414cbb7f8c446b2a17ed666df1cc4a63",
+      "imageSha256": "a960af0da194df54bd9a24b50c2c360fc598257bdc386cb5806c1613ba4c366c",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "strategist",
+      "page": 1,
+      "sourcePdfSha256": "9b44f04e717b7a9b7e2fb50c0663ea158bf0a21028da76c2846c7acdff3bf10e",
+      "imageSha256": "cedf9b1287039fd91d2e830194eac6f3772dfa89ec00d582640753dc31eb0bc0",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "strategist",
+      "page": 2,
+      "sourcePdfSha256": "9b44f04e717b7a9b7e2fb50c0663ea158bf0a21028da76c2846c7acdff3bf10e",
+      "imageSha256": "5a2c4b75cb8dfccfb57a85d56918cd70321207090d8f21eed02952d0bef7a6ce",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "strategist",
+      "page": 3,
+      "sourcePdfSha256": "9b44f04e717b7a9b7e2fb50c0663ea158bf0a21028da76c2846c7acdff3bf10e",
+      "imageSha256": "d94957933693827077cc273b70093e7173343fcf037ac9f528abc3a4e0c15651",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "strategist",
+      "page": 4,
+      "sourcePdfSha256": "9b44f04e717b7a9b7e2fb50c0663ea158bf0a21028da76c2846c7acdff3bf10e",
+      "imageSha256": "9755fcc2d2a2d9c02c9110e9603032b30ef3cf0e68d2782cae895d0aa866b9a9",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "strategist",
+      "page": 5,
+      "sourcePdfSha256": "9b44f04e717b7a9b7e2fb50c0663ea158bf0a21028da76c2846c7acdff3bf10e",
+      "imageSha256": "55f60eaa3bc5f70749b6a471afee711869223ad5533caad56ee77c2b4402feb4",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "strategist",
+      "page": 6,
+      "sourcePdfSha256": "9b44f04e717b7a9b7e2fb50c0663ea158bf0a21028da76c2846c7acdff3bf10e",
+      "imageSha256": "deae82289029ff5bbd85f3fc29f1b7fea8dfd4a7ffcf5d38c14faf9499ce09cc",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "strategist",
+      "page": 7,
+      "sourcePdfSha256": "9b44f04e717b7a9b7e2fb50c0663ea158bf0a21028da76c2846c7acdff3bf10e",
+      "imageSha256": "f2c5084fdc5f8f211059c4727d2671fca9e37d5ebfc6a4b3f47a377f5bd52b73",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "strategist",
+      "page": 8,
+      "sourcePdfSha256": "9b44f04e717b7a9b7e2fb50c0663ea158bf0a21028da76c2846c7acdff3bf10e",
+      "imageSha256": "026d2c34d269253f26cabee93715068ba182154b2c5351d9457f8554e2899b08",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "strategist",
+      "page": 9,
+      "sourcePdfSha256": "9b44f04e717b7a9b7e2fb50c0663ea158bf0a21028da76c2846c7acdff3bf10e",
+      "imageSha256": "80a22934373f7fa008455c66d199a92aa3952f274784c54cfb2da26c7219d4c3",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "strategist",
+      "page": 10,
+      "sourcePdfSha256": "9b44f04e717b7a9b7e2fb50c0663ea158bf0a21028da76c2846c7acdff3bf10e",
+      "imageSha256": "acb4903a6c370c7fa101c08cac72ec61646665b2c615ddbf79a7ed73a66e38a8",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "strategist",
+      "page": 11,
+      "sourcePdfSha256": "9b44f04e717b7a9b7e2fb50c0663ea158bf0a21028da76c2846c7acdff3bf10e",
+      "imageSha256": "3fdc943ae64ac3ee47ef5427c66ac21011fbcfb68a8bf1162f694b8c5280345f",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "strategist",
+      "page": 12,
+      "sourcePdfSha256": "9b44f04e717b7a9b7e2fb50c0663ea158bf0a21028da76c2846c7acdff3bf10e",
+      "imageSha256": "915306be61a1b719f5d9948ac1810c71e3330380a5a1164221009bf9f57f9cb9",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "strategist",
+      "page": 13,
+      "sourcePdfSha256": "9b44f04e717b7a9b7e2fb50c0663ea158bf0a21028da76c2846c7acdff3bf10e",
+      "imageSha256": "add2e4a443f42b6524dbcba79a83ebb931a00153baf76547838975ac0f9aff14",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "strategist",
+      "page": 14,
+      "sourcePdfSha256": "9b44f04e717b7a9b7e2fb50c0663ea158bf0a21028da76c2846c7acdff3bf10e",
+      "imageSha256": "fdd33636893d2f1b77beead29e6fd71d1474763257611ddd4efdd06e9c5f53df",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "strategist",
+      "page": 15,
+      "sourcePdfSha256": "9b44f04e717b7a9b7e2fb50c0663ea158bf0a21028da76c2846c7acdff3bf10e",
+      "imageSha256": "324ea71684803fdf7b79e0412ec8fd5c74b32bea35072e72a0ea6492b82223eb",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "strategist",
+      "page": 16,
+      "sourcePdfSha256": "9b44f04e717b7a9b7e2fb50c0663ea158bf0a21028da76c2846c7acdff3bf10e",
+      "imageSha256": "97d80374165f6fe7ea48b28dabcff475947e18cd54fca378c8fe1ba761ed8e70",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "strategist",
+      "page": 17,
+      "sourcePdfSha256": "9b44f04e717b7a9b7e2fb50c0663ea158bf0a21028da76c2846c7acdff3bf10e",
+      "imageSha256": "a6cf364cde2f4239fb707586a5302f61774175c6dff11fda64375074dc2d3d89",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "strategist",
+      "page": 18,
+      "sourcePdfSha256": "9b44f04e717b7a9b7e2fb50c0663ea158bf0a21028da76c2846c7acdff3bf10e",
+      "imageSha256": "341709c367cc391bf5e5420a2f2a5f3eac33abc8f515121da2aa677f8c53472b",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "strategist",
+      "page": 19,
+      "sourcePdfSha256": "9b44f04e717b7a9b7e2fb50c0663ea158bf0a21028da76c2846c7acdff3bf10e",
+      "imageSha256": "3a1d5641503476525abe29724a572ef237c9ec84176e98353cc6db0d40fc5cba",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    },
+    {
+      "level": "strategist",
+      "page": 20,
+      "sourcePdfSha256": "9b44f04e717b7a9b7e2fb50c0663ea158bf0a21028da76c2846c7acdff3bf10e",
+      "imageSha256": "f96a0c1c1da9959014bd9344775a1b0170fdb086537fd456d34ce2330cd7b059",
+      "width": 1312,
+      "height": 1856,
+      "sourcePagePoints": [
+        0.0,
+        0.0,
+        314.8800048828125,
+        445.44000244140625
+      ],
+      "selectableText": false,
+      "reviewStatus": "needs-manual-transcription-and-educational-review",
+      "translatedLocales": []
+    }
+  ],
+  "branchesSearched": 57
+}
