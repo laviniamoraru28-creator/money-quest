@@ -88,11 +88,13 @@ test("order retry localizes errors without another payment and removes query ref
  await expect(page.getByRole("button",{name:shopFlowCopy.en.download,exact:true})).toBeVisible();expect(attempts).toBe(2);expect(checkouts).toBe(0);
 });
 
-test("recovery removes the fragment while retaining private POST forms and pending verification",async({page})=>{
- let orders=0;page.on("request",request=>{if(new URL(request.url()).pathname==="/api/shop/order")orders++;});
+test("recovery verifies the token before displaying private POST download forms",async({page})=>{
+ let orders=0,verify!:()=>void;const pending=new Promise<void>(resolve=>{verify=resolve;});
+ await page.route("**/api/shop/order",async route=>{orders++;expect(route.request().postDataJSON()).toEqual({token:"ui-recovery-fixture-not-a-real-order"});await pending;await route.fulfill({status:200,contentType:"application/json",body:JSON.stringify({token:"ui-recovery-fixture-not-a-real-order",bonusAvailable:false})});});
  await page.goto("/en/parents/shop/download#token=ui-recovery-fixture-not-a-real-order");
  await expect(page).toHaveURL(/\/en\/parents\/shop\/download$/);
- await expect(page.getByRole("status").filter({hasText:shopFlowCopy.en.recoveryPending})).toHaveText(shopFlowCopy.en.recoveryPending);
+ await expect.poll(()=>orders).toBe(1);await expect(page.locator('form[action="/api/shop/download"]')).toHaveCount(0);
+ verify();await expect(page.getByRole("status").filter({hasText:shopFlowCopy.en.verified})).toHaveText(shopFlowCopy.en.verified);
  for(const action of ["download","receipt"]){const form=page.locator(`form[action="/api/shop/${action}"]`);await expect(form).toHaveAttribute("method","post");await expect(form.locator('input[name="token"]')).toHaveValue("ui-recovery-fixture-not-a-real-order");}
- await expect(page.getByText(shopFlowCopy.en.verified,{exact:true})).toHaveCount(0);expect(orders).toBe(0);
+ expect(orders).toBe(1);
 });
