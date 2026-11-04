@@ -16,9 +16,12 @@ interface AccessibilityPrefs {
   reducedMotion: boolean;
   focusMode: boolean;
   nightView: boolean;
+  imageSize: "full" | "small" | "minimal";
+  textSize: "normal" | "large" | "extra";
+  highContrast: boolean;
 }
 
-const DEFAULT_PREFS: AccessibilityPrefs = { reducedMotion: false, focusMode: false, nightView: false };
+const DEFAULT_PREFS: AccessibilityPrefs = { reducedMotion: false, focusMode: false, nightView: false, imageSize: "full", textSize: "normal", highContrast: false };
 
 function readPrefsFromStorage(): AccessibilityPrefs {
   if (typeof window === "undefined") return DEFAULT_PREFS;
@@ -30,6 +33,9 @@ function readPrefsFromStorage(): AccessibilityPrefs {
       reducedMotion: Boolean(parsed.reducedMotion),
       focusMode: Boolean(parsed.focusMode),
       nightView: Boolean(parsed.nightView),
+      imageSize: ["full","small","minimal"].includes(parsed.imageSize) ? parsed.imageSize : "full",
+      textSize: ["normal","large","extra"].includes(parsed.textSize) ? parsed.textSize : "normal",
+      highContrast: Boolean(parsed.highContrast),
     };
   } catch {
     return DEFAULT_PREFS;
@@ -75,16 +81,29 @@ export function useAccessibilityPrefs() {
     document.documentElement.setAttribute("data-reduced-motion", prefs.reducedMotion ? "true" : "false");
     document.documentElement.setAttribute("data-focus-mode", prefs.focusMode ? "true" : "false");
     document.documentElement.setAttribute("data-night-view", prefs.nightView ? "true" : "false");
-  }, [prefs.reducedMotion, prefs.focusMode, prefs.nightView, isLoaded]);
+    document.documentElement.setAttribute("data-image-size", prefs.imageSize);
+    document.documentElement.setAttribute("data-text-size", prefs.textSize);
+    document.documentElement.setAttribute("data-high-contrast", prefs.highContrast ? "true" : "false");
+  }, [prefs, isLoaded]);
 
-  const update = useCallback((key: keyof AccessibilityPrefs) => {
-    const next = { ...prefs, [key]: !prefs[key] };
-    setPrefs(next);
-    writePrefsToStorage(next);
-    window.dispatchEvent(new CustomEvent("moneyquest-prefs", {detail: next}));
-  }, [prefs]);
+  const setPreference = useCallback(<K extends keyof AccessibilityPrefs>(key: K, value: AccessibilityPrefs[K]) => {
+    setPrefs(previous => {
+      const next = { ...previous, [key]: value };
+      writePrefsToStorage(next);
+      window.dispatchEvent(new CustomEvent("moneyquest-prefs", {detail: next}));
+      return next;
+    });
+  }, []);
+  const update = useCallback((key: "reducedMotion" | "focusMode" | "nightView" | "highContrast") => {
+    setPreference(key, !prefs[key]);
+  }, [prefs, setPreference]);
   const toggleReducedMotion = useCallback(() => update("reducedMotion"), [update]);
   const toggleFocusMode = useCallback(() => update("focusMode"), [update]);
   const toggleNightView = useCallback(() => update("nightView"), [update]);
-  return { ...prefs, isLoaded, toggleReducedMotion, toggleFocusMode, toggleNightView };
+  const resetPreferences = useCallback(() => {
+    setPrefs(DEFAULT_PREFS);
+    writePrefsToStorage(DEFAULT_PREFS);
+    window.dispatchEvent(new CustomEvent("moneyquest-prefs", {detail: DEFAULT_PREFS}));
+  }, []);
+  return { ...prefs, isLoaded, toggleReducedMotion, toggleFocusMode, toggleNightView, setPreference, resetPreferences };
 }
