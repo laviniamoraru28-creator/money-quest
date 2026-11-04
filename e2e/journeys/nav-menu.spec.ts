@@ -83,6 +83,10 @@ test("the menu does not cover or disable the language selector",async({page})=>{
 });
 
 test("every menu link resolves to a real page, no broken links",async({page,request})=>{
+ // One real round trip per unique link (now ~20, across six sections) -
+ // comfortably over the default 30s budget on mobile-chrome specifically,
+ // independent of anything actually being broken.
+ test.setTimeout(60000);
  await page.goto("/en");
  await page.getByRole("button",{name:"Menu",exact:true}).click();
  const dialog=page.getByRole("dialog",{name:"Explore Money Quest"});

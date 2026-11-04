@@ -46,6 +46,11 @@ test("every Museum room has a representative image and generation disclosure",as
 });
 
 test("retired picture learning is absent while Inclusive Learning remains available",async({page,request})=>{
+ // Nine locales, each with two real page navigations and a direct
+ // request - genuinely more work than the default 30s budget comfortably
+ // covers, independent of anything else; give it real headroom rather
+ // than risk the loop getting cut off partway through a locale.
+ test.setTimeout(90000);
  const sitemap=await request.get("/sitemap.xml");
  expect(sitemap.ok()).toBe(true);
  expect(await sitemap.text()).not.toContain("/explorer");
