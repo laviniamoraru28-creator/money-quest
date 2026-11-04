@@ -19,9 +19,9 @@ for(const locale of LOCALES){
   await expect(promo.locator("form,a,button")).toHaveCount(0);await expect(page.locator("article[id]")).toHaveCount(shopProducts.length);
   await promo.screenshot({path:test.info().outputPath("bonus-light.png")});
   const settings=page.locator("details").filter({has:page.getByText(siteControlsCopy[locale].night,{exact:true})});
-  await settings.locator("summary").click();
+  await settings.locator(":scope > summary").click();
   await settings.getByRole("checkbox",{name:siteControlsCopy[locale].night,exact:true}).check();
-  await settings.locator("summary").click();
+  await settings.locator(":scope > summary").click();
   await expect(page.locator("html")).toHaveAttribute("data-night-view","true");
   await expect.poll(()=>promo.evaluate(el=>getComputedStyle(el).color)).toBe("rgb(255, 255, 255)");
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
