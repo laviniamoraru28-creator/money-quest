@@ -142,3 +142,11 @@ html[data-night-view="true"] .book-paper { background:#080808; color:#fff; }
 html[data-night-view="true"] :where(.library-cover,.library-shelves) {background:#111 !important;}
 html[data-night-view="true"] .library-cover,
 html[data-night-view="true"] .library-cover * {color:#fff !important;}
+
+/* User-selected illustration density. Only decorative artwork is resized/hidden.
+   Instructional images remain unchanged so visual exercises remain usable. */
+html[data-image-size="small"] [data-learning-decoration] img { max-width: 55%; height: auto; margin-inline: auto; }
+html[data-image-size="minimal"] [data-learning-decoration] { display: none !important; }
+html[data-text-size="large"] { font-size: 112.5%; }
+html[data-text-size="extra"] { font-size: 125%; }
+html[data-high-contrast="true"]:not([data-night-view="true"]) { filter: contrast(1.2); }
