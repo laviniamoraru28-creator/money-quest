@@ -42,7 +42,6 @@ export const navMenuSections: NavMenuSection[] = [
       { labelKey: "mindLab", href: "/mind-lab" },
       { labelKey: "investingLab", href: "/play/investing-lab" },
       { labelKey: "futureSkills", href: "/future-skills" },
-      { labelKey: "visualExplorer", href: "/explorer" },
       { labelKey: "moneyPersonality", href: "/play/money-personality" },
     ],
   },
