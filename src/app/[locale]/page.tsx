@@ -111,7 +111,7 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
         {/* Parent shop stays visible; secondary experiences live in the menu. */}
         <section className="mx-auto max-w-[1200px] px-sm pb-2xl" aria-labelledby="parent-shop-heading">
           <div className="grid items-center gap-md overflow-hidden rounded-3xl border border-teal/15 bg-cream p-md md:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] md:p-lg">
-            <Image unoptimized src="/images/money-quest/sections/library-thumb.webp" alt="" width={480} height={360} loading="lazy" className="mx-auto h-44 w-full rounded-xl object-contain md:h-56" />
+            <Image unoptimized src="/images/money-quest/worlds/coin-cove-thumb.webp" alt="" width={480} height={360} loading="lazy" className="mx-auto h-44 w-full rounded-xl object-contain md:h-56" />
             <div>
               <h2 id="parent-shop-heading" className="font-display text-2xl font-bold text-ink">{t("nav.parentShop")}</h2>
               <p className="mt-xs text-ink/80">{t("landing.parentResourcesLink")}</p>
