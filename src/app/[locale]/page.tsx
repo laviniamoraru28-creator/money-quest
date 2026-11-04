@@ -1,5 +1,7 @@
 import Image from "next/image";
 import {WelcomeMessage} from "@/components/WelcomeMessage";
+import {HomepageReviews} from "@/components/HomepageReviews";
+import {isSupportedLocale} from "@/i18n/config";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { buildOrganizationSchema, buildWebSiteSchema } from "@/lib/seo/structured-data";
@@ -119,6 +121,7 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
             </div>
           </div>
         </section>
+        <HomepageReviews locale={isSupportedLocale(locale)?locale:"en"}/>
       </main>
 
       <footer className="border-t border-ink/10 bg-white py-md">
