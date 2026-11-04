@@ -57,11 +57,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return entries;
 }
 
-function getLastModifiedForPath(path: string): string {
+function getLastModifiedForPath(path: string): string | undefined {
   if (path.startsWith("/learn/")) {
     const slug = path.replace("/learn/", "");
     const article = ARTICLE_STRUCTURES.find((a) => a.slug === slug);
     if (article) return article.updatedDate;
   }
-  return new Date().toISOString().slice(0, 10);
+  // Do not invent a modification date for static pages. Search engines\n  // should only receive lastModified when it reflects a real content update.\n  return undefined;
 }
