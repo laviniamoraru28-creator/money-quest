@@ -4,8 +4,9 @@ import path from "node:path";
 import {privateDirectory} from "./private-path";
 import {createHash} from "node:crypto";
 import {shopProducts,type ShopProduct} from "@/content/shop";
+import {validateParentBonus,type ParentBonusGrant} from "./parent-bonus";
 export type Release={schema:1;accountId:string;merchant:{name:string;address:string;email:string};terms:{version:string;text:string};privacy:string;taxStatement:string;products:Record<ShopProduct["id"],{sha256:string;bytes:number}>};
-export type Contract={id:string;mode:"live";accountId:string;productId:ShopProduct["id"];title:string;description:string;pages:string;includes:string[];amount:number;currency:"gbp";priceId:string;termsVersion:string;termsText:string;merchant:Release["merchant"];privacy:string;taxStatement:string;archive:{file:string;sha256:string;bytes:number};created:number};
+export type Contract={bonus?:ParentBonusGrant;id:string;mode:"live";accountId:string;productId:ShopProduct["id"];title:string;description:string;pages:string;includes:string[];amount:number;currency:"gbp";priceId:string;termsVersion:string;termsText:string;merchant:Release["merchant"];privacy:string;taxStatement:string;archive:{file:string;sha256:string;bytes:number};created:number};
 const emailPattern=/^[A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Za-z0-9](?:[A-Za-z0-9.-]*[A-Za-z0-9])?\.[A-Za-z]{2,}$/;
 export function validEmail(value:unknown):value is string{return typeof value==="string"&&value.length<=254&&emailPattern.test(value)&&!/[\r\n]/.test(value);}
 function text(value:unknown,min=1,max=20000):value is string{return typeof value==="string"&&value.trim().length>=min&&value.length<=max&&!/[\u0000\uFFFD]/.test(value);}
@@ -38,6 +39,7 @@ export function validContractId(id:string){return /^[a-f0-9]{32}$/.test(id);}
 export function validateContract(value:unknown):Contract{
  const c=value as Contract,product=shopProducts.find(p=>p.id===c?.productId);
  if(!c||!validContractId(c.id)||c.mode!=="live"||!product||!/^acct_[A-Za-z0-9]+$/.test(c.accountId)||!text(c.title)||!text(c.description)||!text(c.pages)||!Array.isArray(c.includes)||c.includes.length!==4||!c.includes.every(v=>text(v,1,1000))||!Number.isSafeInteger(c.amount)||c.amount<=0||c.currency!=="gbp"||!/^price_[A-Za-z0-9_]+$/.test(c.priceId)||!text(c.termsVersion)||!text(c.termsText,300)||!text(c.privacy,100)||!text(c.taxStatement,20)||!text(c.merchant?.name)||!text(c.merchant?.address)||!validEmail(c.merchant?.email)||!Number.isSafeInteger(c.created)||!c.archive||c.archive.file!==archiveName(product,c.archive.sha256)||!Number.isSafeInteger(c.archive.bytes)||c.archive.bytes<100||c.archive.bytes>100*1024*1024)throw new Error("Invalid private contract snapshot");
+ if(c.bonus)validateParentBonus(c.bonus);
  return c;
 }
 export async function saveContract(directory:string,contract:Contract){validateContract(contract);await mkdir(directory,{recursive:true,mode:0o700});await writeFile(path.join(directory,`contract-${contract.id}.json`),JSON.stringify(contract),{flag:"wx",mode:0o600});}

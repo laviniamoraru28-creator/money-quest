@@ -48,3 +48,19 @@ Keep the owner-supplied masters unchanged. Reconstructed customer editions need 
 The three supplied English PDFs are available. None of the 24 translated full activity PDFs has passed reconstruction, translation and visual validation in this work. The 27-PDF/540-worksheet-page deliverable is unfinished. Keep the Academy product's `releaseReady` false and preserve its server-side purchase block. The nine-language journal is a separate completed file set; its completion does not certify these activities.
 
 Still required: verified text transcription and artwork corrections, eight translations of every worksheet, all A4 layouts and appropriate answer guidance, visual inspection of all final pages, secure final archive packaging, hashes and private delivery-manifest updates. The recovery script and metadata do not replace those deliverables.
+
+## Full Explorer source review and Romanian authoring checkpoint
+
+All twenty Explorer page images were then inspected individually at full resolution. A private checked English transcription records instructions, labels, embedded scene text, example values, answer guidance and an explicit correction plan. Romanian editorial copy now covers all twenty pages. This is manuscript work, not a completed translated PDF pack: A4 reconstruction and final visual validation remain outstanding.
+
+Additional concrete issues found during this review:
+
+- Page 1 needs to distinguish cash from a payment card that accesses money in an account.
+- Page 7 must specify equal quantities as well as equal quality for its price comparison.
+- Page 10 has six product cards but only five price labels.
+- Page 16's supplied green ticks and red crosses reveal the intended answers; customer worksheets should not pre-mark them.
+- Page 17 forces a unique morning/evening split, although brushing teeth belongs in both and other routines vary.
+- Page 18 needs explicit scenario captions so safety is judged from the action described, rather than an adult's mere presence in a drawing.
+- Page 20 supplies a five-stop trail but no dice or movement rules. Describe it as a trail rather than imply unspecified board-game rules.
+
+The private authoring checkpoint is saved as `Academy_Explorer_Source_Translation_Workbench_20261104.zip`, 11,279 bytes, SHA-256 `edd1783565eed2ef5a877c824a3ff361962884588eee8fcb0d81ffbe38241afb`, Library file `libfile_528eee3d77f08191b61abaac5de28bb6`. It contains the two manuscripts and an explicit unfinished-status README. Full paid text and source images remain outside Git/public directories. The pinned English masters and existing product readiness flags are unchanged.
