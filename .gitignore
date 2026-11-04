@@ -36,6 +36,10 @@ yarn-error.log*
 # TypeScript incremental build cache
 *.tsbuildinfo
 
+# Python bytecode cache from running scripts/*.py
+__pycache__/
+*.pyc
+
 # Deployment build artifacts produced locally by the Namecheap workflow
 /deploy/
 moneyquest-namecheap-built.zip
@@ -66,3 +70,7 @@ moneyquest-namecheap-built.zip
 
 # Local audit logs and generation receipts
 .work/
+# Complete paid Academy PDFs and private delivery archives
+/private-assets/
+/source-pdfs/
+/academy-private-kit/

@@ -22,7 +22,9 @@ test("illustrated shelf covers open and close books with keyboard and reduced mo
  await expect(page.getByRole("heading",{level:2}).first()).toBeFocused();
  await page.screenshot({path:test.info().outputPath("open-illustrated-book.png"),fullPage:true});
  await page.getByRole("button",{name:"Close book",exact:true}).click();
- await page.getByRole("button",{name:"Night view",exact:true}).click();
+ // Night view now lives inside the consolidated Global Settings panel.
+ await page.locator("summary",{hasText:"Settings"}).click();
+ await page.getByRole("checkbox",{name:"Night view",exact:true}).check();
  await expect(page.locator("html")).toHaveAttribute("data-night-view","true");
  await expect(page.locator(".library-cover > span").first()).toHaveCSS("color","rgb(255, 255, 255)");
  await page.screenshot({path:test.info().outputPath("closed-book-night-view.png"),fullPage:true});
@@ -43,35 +45,30 @@ test("every Museum room has a representative image and generation disclosure",as
  await page.screenshot({path:test.info().outputPath("museum-realistic-illustration.png"),fullPage:true});
 });
 
-test("three picture activities support examples, optional answers and no saved responses",async({page})=>{
- if(test.info().project.name==="mobile-chrome")await page.setViewportSize({width:320,height:800});
- await page.goto("/en/explorer");
- const before=await page.evaluate(()=>JSON.stringify(localStorage));
- const titles=["What is money?","Choose and pay","Save for a goal"];
- for(let lesson=0;lesson<3;lesson++){
-  await expect(page.getByRole("heading",{name:titles[lesson],level:2,exact:true})).toBeVisible();
-  expect((await new AxeBuilder({page}).withTags(["wcag2a","wcag2aa","wcag21aa"]).analyze()).violations).toEqual([]);
-  await page.getByRole("button",{name:"☝ Choose a picture",exact:true}).click();
-  const choices=page.locator('main button[aria-pressed]').filter({has:page.locator('svg')});
-  await expect(choices).toHaveCount(2);
-  const boxes=await choices.evaluateAll(elements=>elements.map(el=>({top:el.getBoundingClientRect().top,left:el.getBoundingClientRect().left})));
-  expect(Math.abs(boxes[0]!.top-boxes[1]!.top)).toBeLessThan(2);
-  expect(boxes[1]!.left).toBeGreaterThan(boxes[0]!.left);
-  await choices.nth(lesson===2?0:1).click();await expect(page.getByRole("status").filter({hasText:"Try another picture"})).toBeVisible();
-  await page.getByRole("button",{name:"↻ Show me",exact:true}).click();
-  await page.getByRole("button",{name:"☝ Choose a picture",exact:true}).click();
-  await choices.nth(lesson===2?1:0).click();await expect(page.getByRole("status").filter({hasText:"That fits."})).toBeVisible();
-  await expect(page.getByRole("status").filter({hasText:"That fits."}).locator("[aria-hidden=true]")).toHaveText("✓");
-  expect(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)).toBe(false);
-  expect((await new AxeBuilder({page}).withTags(["wcag2a","wcag2aa","wcag21aa"]).analyze()).violations).toEqual([]);
-  await page.screenshot({path:test.info().outputPath(`visual-activity-${lesson+1}.png`),fullPage:true});
-  await page.getByRole("button",{name:lesson===2?"Finish →":"Next →",exact:true}).click();
+test("retired picture learning is absent while Inclusive Learning remains available",async({page,request})=>{
+ // Nine locales, each with two real page navigations and a direct
+ // request - genuinely more work than the default 30s budget comfortably
+ // covers, independent of anything else; give it real headroom rather
+ // than risk the loop getting cut off partway through a locale.
+ test.setTimeout(90000);
+ const sitemap=await request.get("/sitemap.xml");
+ expect(sitemap.ok()).toBe(true);
+ expect(await sitemap.text()).not.toContain("/explorer");
+ for(const locale of ["en","ro","es","fr","de","it","pt","nl","pl"]){
+  await page.goto(`/${locale}`);
+  await expect(page.locator('a[href$="/explorer"]')).toHaveCount(0);
+  // The homepage no longer carries a direct, always-visible card for this
+  // (PR #34 moved secondary destinations into the categorized nav menu,
+  // by design) - present-in-markup via the nav drawer is what "remains
+  // available" means here; the goto+ok() check below is the real test
+  // that the destination itself still works.
+  await expect(page.locator(`a[href="/${locale}/inclusive-learning"]`)).toHaveCount(1);
+  const retired=await request.get(`/${locale}/explorer`);
+  expect(retired.status()).toBe(404);
+  const inclusive=await page.goto(`/${locale}/inclusive-learning`);
+  expect(inclusive?.ok()).toBe(true);
+  await expect(page.locator("main")).toBeVisible();
  }
- await expect(page.getByText("You explored all three ideas.",{exact:false})).toBeVisible();
- expect(await page.evaluate(()=>JSON.stringify(localStorage))).toBe(before);
- await page.getByRole("button",{name:"↻ Show me again",exact:true}).click();
- await page.getByRole("button",{name:"Next →",exact:true}).click();
- await expect(page.getByRole("heading",{name:titles[1],level:2,exact:true})).toBeFocused();
 });
 
 test("background audio stays silent initially, persists between pages and stops for narration or page hide",async({page})=>{
@@ -84,10 +81,14 @@ test("background audio stays silent initially, persists between pages and stops 
  await page.goto("/en");
  const states=()=>page.evaluate(()=>((window as unknown as {mqTestContexts:AudioContext[]}).mqTestContexts).map(ctx=>ctx.state));
  expect(await states()).toEqual([]);
- await page.getByText("Background sound",{exact:true}).first().click();
+ await page.locator("summary",{hasText:"Settings"}).click();await page.getByText("Background sound",{exact:true}).first().click();
  await page.getByRole("button",{name:"Play sound",exact:true}).click();
  await expect.poll(states).toEqual(["running"]);
- await page.getByRole("link").filter({has:page.getByRole("heading",{name:"Money Quest Library",exact:true})}).click();
+ // Navigate via the nav drawer (still a client-side <Link>, same as the
+ // homepage's own former Library card was) rather than page.goto, so this
+ // still exercises SPA navigation - the actual thing being tested here.
+ await page.getByRole("button",{name:"Menu",exact:true}).click();
+ await page.getByRole("link",{name:"Library",exact:true}).click();
  await expect(page.getByRole("heading",{name:"Money Quest Library",exact:true})).toBeVisible();
  expect(await states()).toEqual(["running"]);
  await page.getByRole("button",{name:"Listen",exact:true}).first().click();

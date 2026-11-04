@@ -1,0 +1,336 @@
+{
+  "schema": 2,
+  "productId": "adventure-journal",
+  "sourceLanguage": "en",
+  "ready": true,
+  "targetLocales": [
+    "en",
+    "ro",
+    "es",
+    "fr",
+    "de",
+    "it",
+    "pt",
+    "nl",
+    "pl"
+  ],
+  "availableLocales": [
+    "en",
+    "ro",
+    "es",
+    "fr",
+    "de",
+    "it",
+    "pt",
+    "nl",
+    "pl"
+  ],
+  "source": {
+    "file": "Money_Quest_Future_Ready_Journal_44_pages_en.pdf",
+    "pages": 44,
+    "dailyPages": 30,
+    "dailyPageRange": [
+      14,
+      43
+    ],
+    "sha256": "17d5db8b99aba4553794c940860ec8693d0d5d386474bc0233e0ac335fdee381",
+    "bytes": 4499156,
+    "sourceLibraryFileId": "libfile_f9b8f5e42d588191abfd8a3a682206c9",
+    "originalSha256": "9d8e6b4fcfb6a9cbf39a0c4dd88e861dc9c15f16d0ec006b62a1540bf04bff91",
+    "corrections": [
+      {
+        "page": 8,
+        "change": "Savings markers renumbered consecutively 1-24; all other pages and coin borders preserved."
+      }
+    ]
+  },
+  "archive": {
+    "file": "money-quest-future-ready-journal-multilingual.zip",
+    "sha256": "87814c8633797011eadbe85752d0028d0a387890b7ee264683e8e7cf2af87a64",
+    "bytes": 33294271
+  },
+  "sample": {
+    "file": "/resources/samples/free-journal-30-days-en.pdf",
+    "pages": 3,
+    "sourcePages": [
+      1,
+      6,
+      14
+    ],
+    "sha256": "2294c5f6a95e7bea9c873b501ee1a33ca20ebc9367b40940071da4aa37d5449b",
+    "bytes": 1160668
+  },
+  "localeStatus": {
+    "en": "original-corrected",
+    "ro": "translated-rendered-verified",
+    "es": "translated-rendered-verified",
+    "fr": "translated-rendered-verified",
+    "de": "translated-rendered-verified",
+    "it": "translated-rendered-verified",
+    "pt": "translated-rendered-verified",
+    "nl": "translated-rendered-verified",
+    "pl": "translated-rendered-verified"
+  },
+  "commerceReady": false,
+  "previousEnglishArchive": {
+    "file": "money-quest-future-ready-journal-en.zip",
+    "sha256": "c7d021add17ec4440ce479941c7e5b23c2bf1cbeedb76fdd6738c1f95467736e",
+    "bytes": 3648702
+  },
+  "editions": {
+    "en": {
+      "file": "en/Money_Quest_Future_Ready_Journal_44_pages_en.pdf",
+      "pages": 44,
+      "sha256": "f0b2fcaa9b0cccb9b5acaa2b7013b465e52fc8c7b20544b403cc2db5d0d50878",
+      "bytes": 4499165
+    },
+    "ro": {
+      "file": "ro/Money_Quest_Future_Ready_Journal_44_pages_ro.pdf",
+      "pages": 44,
+      "sha256": "398af060a78d69ebbbbb81537874a597d16e04e46e43c3b84422eff5f5128143",
+      "bytes": 4618509
+    },
+    "es": {
+      "file": "es/Money_Quest_Future_Ready_Journal_44_pages_es.pdf",
+      "pages": 44,
+      "sha256": "cc1f11090af9285b0c513015be14919674ebd802c0a17bc3f8bc634e1cfd15b4",
+      "bytes": 4617891
+    },
+    "fr": {
+      "file": "fr/Money_Quest_Future_Ready_Journal_44_pages_fr.pdf",
+      "pages": 44,
+      "sha256": "37df3bf3b97dd4161c1f9c182243a3540bb05fb66f15df06e2b650bd6efb3f72",
+      "bytes": 4618505
+    },
+    "de": {
+      "file": "de/Money_Quest_Future_Ready_Journal_44_pages_de.pdf",
+      "pages": 44,
+      "sha256": "c7387378cbdbe2a80f071682e99dc3a0bf33ad163690006ae1631cf7b09834d8",
+      "bytes": 4620024
+    },
+    "it": {
+      "file": "it/Money_Quest_Future_Ready_Journal_44_pages_it.pdf",
+      "pages": 44,
+      "sha256": "98c46463c46af5191726a132d4074644298ebcb746081a50da81c92e7031dff7",
+      "bytes": 4617000
+    },
+    "pt": {
+      "file": "pt/Money_Quest_Future_Ready_Journal_44_pages_pt.pdf",
+      "pages": 44,
+      "sha256": "8e655fe1e577ce938becb94d2d87697f9c8e4a1fa2e044800663ec2192f691c6",
+      "bytes": 4618817
+    },
+    "nl": {
+      "file": "nl/Money_Quest_Future_Ready_Journal_44_pages_nl.pdf",
+      "pages": 44,
+      "sha256": "8f5a4cf4fc77dea8764694fd047ca418e7569cf6c6f9719817aaab81a3daa177",
+      "bytes": 4619730
+    },
+    "pl": {
+      "file": "pl/Money_Quest_Future_Ready_Journal_44_pages_pl.pdf",
+      "pages": 44,
+      "sha256": "e9448ed4078bb09f23658d1c3250e50a6a47e4e9ca4bb5297f4501dfd4a7151c",
+      "bytes": 4621716
+    }
+  },
+  "samples": {
+    "en": {
+      "file": "/resources/samples/free-journal-30-days-en.pdf",
+      "pages": 3,
+      "sourcePages": [
+        1,
+        6,
+        14
+      ],
+      "sha256": "2294c5f6a95e7bea9c873b501ee1a33ca20ebc9367b40940071da4aa37d5449b",
+      "bytes": 1160668,
+      "headings": []
+    },
+    "ro": {
+      "file": "/resources/samples/free-journal-30-days-ro.pdf",
+      "pages": 3,
+      "sourcePages": [
+        1,
+        6,
+        14
+      ],
+      "sha256": "6a4c441bb775cd6162ba905bd246eb6c2ea71f9db6a3e70d31c55b7e3ad5902d",
+      "bytes": 1224434,
+      "headings": [
+        "JURNALUL MEU PENTRU VIITOR",
+        "PLANUL MEU PENTRU BANI",
+        "JURNALUL MEU ZILNIC"
+      ]
+    },
+    "es": {
+      "file": "/resources/samples/free-journal-30-days-es.pdf",
+      "pages": 3,
+      "sourcePages": [
+        1,
+        6,
+        14
+      ],
+      "sha256": "45cac26fd67b2e15cb363c16fa460bac5b7bba09aa49a886f1822f95f89c9bf3",
+      "bytes": 1225071,
+      "headings": [
+        "MI DIARIO PARA EL FUTURO",
+        "MI PLAN PERSONAL DE DINERO",
+        "MI DIARIO DE CADA DÍA"
+      ]
+    },
+    "fr": {
+      "file": "/resources/samples/free-journal-30-days-fr.pdf",
+      "pages": 3,
+      "sourcePages": [
+        1,
+        6,
+        14
+      ],
+      "sha256": "158540f9ad03ef660190e4eddefb6092e5bcfaa7c3a56cce69953131dbb3a2b8",
+      "bytes": 1224800,
+      "headings": [
+        "MON CARNET POUR L’AVENIR",
+        "MON PLAN POUR MON ARGENT",
+        "MON JOURNAL QUOTIDIEN"
+      ]
+    },
+    "de": {
+      "file": "/resources/samples/free-journal-30-days-de.pdf",
+      "pages": 3,
+      "sourcePages": [
+        1,
+        6,
+        14
+      ],
+      "sha256": "00ce7fb913a4be7b26c4a8cb1fba6cfb3a403c144a6416680e11e88da7159562",
+      "bytes": 1225975,
+      "headings": [
+        "MEIN TAGEBUCH FÜR DIE ZUKUNFT",
+        "MEIN PERSÖNLICHER GELDPLAN",
+        "MEIN TAGEBUCH FÜR HEUTE"
+      ]
+    },
+    "it": {
+      "file": "/resources/samples/free-journal-30-days-it.pdf",
+      "pages": 3,
+      "sourcePages": [
+        1,
+        6,
+        14
+      ],
+      "sha256": "4de82b34c588067ad179f47bd4ee0203cacb493261f4f3f5eb0be99bc1340658",
+      "bytes": 1222913,
+      "headings": [
+        "IL MIO DIARIO PER IL FUTURO",
+        "IL MIO PIANO PER IL DENARO",
+        "IL MIO DIARIO QUOTIDIANO"
+      ]
+    },
+    "pt": {
+      "file": "/resources/samples/free-journal-30-days-pt.pdf",
+      "pages": 3,
+      "sourcePages": [
+        1,
+        6,
+        14
+      ],
+      "sha256": "a89c70a6300afaddbcf2c0d728d656cdad42e15a48885ee96f28ca67c109e9d4",
+      "bytes": 1224622,
+      "headings": [
+        "O MEU DIÁRIO PARA O FUTURO",
+        "O MEU PLANO PARA O DINHEIRO",
+        "O MEU DIÁRIO DE CADA DIA"
+      ]
+    },
+    "nl": {
+      "file": "/resources/samples/free-journal-30-days-nl.pdf",
+      "pages": 3,
+      "sourcePages": [
+        1,
+        6,
+        14
+      ],
+      "sha256": "68401392a22f3380d095f85e2782043a3cdea01ba7490cad7fbdb31a8df68925",
+      "bytes": 1225404,
+      "headings": [
+        "MIJN DAGBOEK VOOR DE TOEKOMST",
+        "MIJN PERSOONLIJKE GELDPLAN",
+        "MIJN DAGBOEK VOOR VANDAAG"
+      ]
+    },
+    "pl": {
+      "file": "/resources/samples/free-journal-30-days-pl.pdf",
+      "pages": 3,
+      "sourcePages": [
+        1,
+        6,
+        14
+      ],
+      "sha256": "5104c269150bd45b46398f3cb10cd830c76010c6e20d9373b0d544fa47f85b25",
+      "bytes": 1227147,
+      "headings": [
+        "MÓJ DZIENNIK NA PRZYSZŁOŚĆ",
+        "MÓJ OSOBISTY PLAN PIENIĘDZY",
+        "MÓJ DZIENNIK NA DZIŚ"
+      ]
+    }
+  },
+  "images": {
+    "en": {
+      "file": "/images/money-quest/products/journal-44-pages-preview.webp",
+      "sha256": "27ea5c753a2ec2937665f4a26fba76b6704697ef5b976d3fa46386532c6eef20",
+      "bytes": 77218
+    },
+    "ro": {
+      "file": "/images/money-quest/products/journal-44-pages-ro-preview.webp",
+      "sha256": "3c2273d0f09bd5c50686f74c35cb9d15526a042692ed40132e4c8d520506a3c1",
+      "bytes": 78248
+    },
+    "es": {
+      "file": "/images/money-quest/products/journal-44-pages-es-preview.webp",
+      "sha256": "84ca4cdda435502f21495ad9770d5577d6b9fc406f748efd08cc9c3da12f5b6f",
+      "bytes": 78156
+    },
+    "fr": {
+      "file": "/images/money-quest/products/journal-44-pages-fr-preview.webp",
+      "sha256": "697b6355d65da3b559792ab636b1f36966c6a821ffd2e1abd517f71d8161bf18",
+      "bytes": 78320
+    },
+    "de": {
+      "file": "/images/money-quest/products/journal-44-pages-de-preview.webp",
+      "sha256": "653eb403967dced917923e08d4c929f317743519d4ff65746b0585781c679479",
+      "bytes": 78166
+    },
+    "it": {
+      "file": "/images/money-quest/products/journal-44-pages-it-preview.webp",
+      "sha256": "ffcd098548053125939aa83ba35d607467a0fd6e9b719fe46a52976a15131f00",
+      "bytes": 78184
+    },
+    "pt": {
+      "file": "/images/money-quest/products/journal-44-pages-pt-preview.webp",
+      "sha256": "5b4165d22318ed1e011cac1fe6bad8e014cfd9f6f2804e913b06b39fe380ee8e",
+      "bytes": 78496
+    },
+    "nl": {
+      "file": "/images/money-quest/products/journal-44-pages-nl-preview.webp",
+      "sha256": "9fd3b1009faea8845f0c08f872cfd64d7933df45f6debc202cf3df665fd4dbc4",
+      "bytes": 78544
+    },
+    "pl": {
+      "file": "/images/money-quest/products/journal-44-pages-pl-preview.webp",
+      "sha256": "9d77fd0af47eb74ea7cb8694f53c4dc5898b5182841d48fdb6356a3a39351159",
+      "bytes": 78586
+    }
+  },
+  "quality": {
+    "translatedRegionsPerEdition": 583,
+    "translatedEditions": 8,
+    "languageTags": true,
+    "allDailyPagesVerified": true,
+    "samplePagesPixelMatch": true,
+    "artOutsideTranslatedLabelsUnchanged": true,
+    "review": "AI translation and editorial review, all 15 unique templates visually inspected per translated edition, automated text/glyph/bounds checks. No independent native-editor or tagged-PDF certification.",
+    "currency": "GBP retained from the supplied English planners; blank amounts are not converted.",
+    "translatedSourceStrings": 130
+  }
+}

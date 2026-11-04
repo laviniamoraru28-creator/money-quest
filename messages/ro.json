@@ -1,6 +1,6 @@
 {
   "seo": {
-    "defaultTitle": "Money Quest - Învață despre bani jucându-te",
+    "defaultTitle": "Money Quest - Învață despre bani prin joc, prin explorare și prin luarea deciziilor",
     "defaultDescription": "Cum gestionează Money Quest învățarea, accesibilitatea, confidențialitatea și cumpărăturile opționale ale adulților."
   },
   "common": {
@@ -27,9 +27,9 @@
   },
   "landing": {
     "parentResourcesLink": "Resurse pentru părinți și materiale de imprimat",
-    "heroTitle": "Învață despre bani jucându-te, explorând și luând decizii.",
+    "heroTitle": "Învață despre bani prin joc, prin explorare și prin luarea deciziilor.",
     "heroSubtitle": "Money Quest este o lume gratuită de educație financiară pentru copii de 6–14 ani - misiuni, un portofel fictiv și abilități reale. Fără cont necesar.",
-    "heroImageAlt": "Imagine generată cu AI: un copil zâmbitor ține un telefon pe care apare website-ul Money Quest.",
+    "heroImageAlt": "O ilustrație cu un copil zâmbitor care ține un telefon pe care apare website-ul Money Quest.",
     "ctaGetStartedFree": "Începe-ți Aventura Money Quest",
     "ctaSeeHowItWorks": "Vezi cum funcționează",
     "whyFree": "Activitățile educaționale de bază Money Quest rămân gratuite. Resursele opționale de imprimat acasă pentru părinți se vând separat. Copilul nu trebuie să cumpere nimic în timpul activităților.",
@@ -306,7 +306,7 @@
   "footer": {
     "privacy": "Confidențialitate",
     "contact": "Contact",
-    "feedback": "Feedback"
+    "feedback": "Recenzii"
   },
   "play": {
     "chooseYourLevel": "Alege-ți nivelul de învățare",
@@ -3887,7 +3887,7 @@
   },
   "moneyPersonality": {
     "title": "Personalitatea Financiară",
-    "subtitle": "O privire ușoară, doar de distracție, asupra modului în care tinzi să te gândești la bani. Nu există un răspuns corect și niciun tip nu este mai bun decât altul.",
+    "subtitle": "Descoperă cum îți place să folosești banii. Este un test distractiv, fără răspunsuri corecte sau greșite. Niciun rezultat nu este mai bun decât altul.",
     "startButton": "Începe",
     "retakeButton": "Reia testul",
     "backToWorldMap": "Înapoi la Harta Lumilor",
@@ -3895,61 +3895,61 @@
     "challengeLabel": "Provocarea ta Money Quest:",
     "questions": [
       {
-        "prompt": "Primești 10 monede de la o rudă. Care este primul tău instinct?",
+        "prompt": "O rudă îți dă o bancnotă de £10. Ce faci mai întâi?",
         "options": [
-          "Le pun undeva în siguranță pentru mai târziu",
-          "Mă gândesc să le împart între câteva lucruri",
-          "Caut ceva distractiv de cumpărat cu ele",
-          "Stau puțin cu ele înainte de a decide orice",
-          "Mă gândesc la cineva cu care aș putea să le împart"
+          "O păstrez pentru mai târziu.",
+          "Mă gândesc cum să împart suma pentru mai multe lucruri.",
+          "Caut ceva care îmi place și aș vrea să cumpăr.",
+          "Mă gândesc bine înainte să decid ce fac cu banii.",
+          "Mă gândesc dacă aș putea împărți o parte cu cineva."
         ]
       },
       {
-        "prompt": "E timpul să-ți cheltuiești alocația săptămânală. Tu:",
+        "prompt": "Ai primit banii de buzunar pentru această săptămână. Ce faci?",
         "options": [
-          "Le păstrezi mai ales, doar în caz",
-          "Decizi din timp la ce servește fiecare parte",
-          "Ai deja ales ceva de cumpărat",
-          "Îți iei ceva timp să decizi, cântărind totul",
-          "Pui deoparte ceva pentru altcineva"
+          "Păstrez cea mai mare parte a banilor, pentru orice eventualitate.",
+          "Îmi fac un plan și decid cât economisesc și cât cheltuiesc.",
+          "Știu deja ce vreau să cumpăr.",
+          "Compar opțiunile înainte să iau o decizie.",
+          "Pun deoparte o sumă ca să ajut pe cineva."
         ]
       },
       {
-        "prompt": "Un prieten nu are chiar suficiente monede pentru ceva. Tu:",
+        "prompt": "Un prieten nu are destui bani pentru ceva ce își dorește. Ce faci?",
         "options": [
-          "Empatizezi, dar îți păstrezi propriile monede deoparte",
-          "Te gândești dacă poți ajuta fără să-ți strici propriul plan",
-          "Nu ești sigur - de obicei cheltuiești ce ai oricum",
-          "Te gândești bine înainte de a decide",
-          "Oferi să ajuți dacă poți"
+          "Îmi pare rău pentru el, dar prefer să-mi păstrez economiile.",
+          "Verific dacă îl pot ajuta fără să renunț la planurile mele.",
+          "Nu știu dacă pot ajuta, pentru că de obicei îmi cheltuiesc banii.",
+          "Mă gândesc bine înainte să hotărăsc.",
+          "Îl ajut cu o sumă mică, dacă pot."
         ]
       },
       {
-        "prompt": "Vezi ceva ce îți dorești, dar este puțin scump. Tu:",
+        "prompt": "Vezi ceva ce îți dorești, dar costă destul de mult. Ce faci?",
         "options": [
-          "Începi să economisești puțin câte puțin",
-          "Faci un plan pentru cât timp va dura să economisești",
-          "Chiar îl vrei acum - așteptarea e grea",
-          "Te gândești dacă chiar îl vrei, sau doar îți place acum",
-          "Te întrebi dacă banii ar putea fi mai utili altfel"
+          "Încep să strâng bani, puțin câte puțin.",
+          "Calculez cât trebuie să economisesc și cât timp îmi va lua.",
+          "Mi-aș dori să îl cumpăr imediat. Îmi este greu să aștept.",
+          "Mă întreb dacă am cu adevărat nevoie de acel lucru.",
+          "Mă gândesc dacă aș putea folosi banii pentru ceva mai important."
         ]
       },
       {
-        "prompt": "La finalul unei săptămâni bune cu banii, te simți cel mai bine când:",
+        "prompt": "La sfârșitul săptămânii, ce te bucură cel mai mult?",
         "options": [
-          "Economiile tale au crescut",
-          "Totul a mers așa cum ai planificat",
-          "Ai primit ceva ce chiar îți doreai",
-          "Ai făcut o alegere chibzuită, oricare ar fi fost ea",
-          "Ai putut ajuta pe cineva"
+          "Am reușit să economisesc mai mult.",
+          "Mi-am respectat planul pentru bani.",
+          "Mi-am cumpărat ceva ce îmi doream.",
+          "Am luat o decizie de care sunt mulțumit.",
+          "Am putut să ajut pe cineva."
         ]
       }
     ],
     "results": {
       "saver": {
         "name": "Economisitorul",
-        "description": "Îți place să păstrezi banii în siguranță și pregătiți pentru orice urmează - economisirea îți vine natural.",
-        "challenge": "Încearcă să stabilești un obiectiv de economisire și privește-l crescând."
+        "description": "Îți place să pui bani deoparte și să fii pregătit pentru viitor.",
+        "challenge": "Alege ceva pentru care vrei să economisești și urmărește-ți progresul."
       },
       "planner": {
         "name": "Planificatorul",
@@ -3958,17 +3958,17 @@
       },
       "shopper": {
         "name": "Cumpărătorul",
-        "description": "Știi ce-ți place și nu-ți este teamă să mergi să obții asta - cheltuirea este distractivă pentru tine.",
-        "challenge": "Încearcă să compari prețurile înainte de următoarea ta achiziție, doar ca să vezi ce găsești."
+        "description": "Îți place să cumperi lucruri care te bucură. Poți învăța să alegi ce merită cumpărat.",
+        "challenge": "Înainte de următoarea cumpărătură, compară două prețuri."
       },
       "thinker": {
         "name": "Gânditorul",
         "description": "Îți place să-ți iei timp și să te gândești bine la lucruri înainte de a decide orice.",
-        "challenge": "Data viitoare, încearcă să-ți dai o perioadă scurtă de așteptare înainte de o achiziție mai mare."
+        "challenge": "Când îți dorești ceva scump, acordă-ți puțin timp înainte să decizi."
       },
       "giver": {
         "name": "Dăruitorul",
-        "description": "Împărțirea și ajutorarea altora contează pentru tine, chiar și când vine vorba de bani.",
+        "description": "Îți place să împarți cu ceilalți și să ajuți atunci când poți.",
         "challenge": "Încearcă să pui deoparte o sumă mică special pentru a dărui."
       }
     }
@@ -6770,5 +6770,41 @@
       "chooseOfferTitle": "Alege ce oferi",
       "chooseIdeaTitle": "Alege-ți ideea"
     }
+  },
+  "navMenu":   {
+    "openMenu": "Meniu",
+    "closeMenu": "Închide meniul",
+    "title": "Explorează Money Quest",
+    "searchPlaceholder": "Caută o lecție sau o activitate…",
+    "searchNoResults": "Niciun rezultat găsit.",
+    "home": "Acasă",
+    "sectionLearningAdventures": "Aventuri de învățare",
+    "sectionExploreDiscover": "Explorează și descoperă",
+    "sectionLibraryMuseum": "Bibliotecă și Muzeu",
+    "sectionWellbeingInclusion": "Bunăstare și incluziune",
+    "sectionForParents": "Pentru părinți",
+    "sectionInformation": "Informații",
+    "moneyQuest": "Money Quest",
+    "entrepreneurQuest": "Entrepreneur Quest",
+    "leadershipQuest": "Leadership Quest",
+    "realLifeQuests": "Provocări din viața reală",
+    "library": "Bibliotecă",
+    "museum": "Muzeu",
+    "brainLab": "Laboratorul creierului",
+    "mindLab": "Laboratorul minții",
+    "futureSkills": "Abilități de viitor",
+    "inclusiveLearning": "Învățare incluzivă",
+    "visualExplorer": "Explorator vizual",
+    "investingLab": "Laboratorul de investiții",
+    "moneyPersonality": "Personalitatea financiară",
+    "learningArticles": "Articole educaționale",
+    "quietCorner": "Colțul liniștit",
+    "parentInfo": "Informații pentru părinți",
+    "parentResources": "Resurse de tipărit",
+    "shop": "Magazin",
+    "reviews": "Recenzii",
+    "contact": "Contact",
+    "privacy": "Confidențialitate",
+    "currentPage": "Pagina curentă"
   }
 }

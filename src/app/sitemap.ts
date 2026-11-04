@@ -28,7 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // with no unique indexable content (see feedback/layout.tsx's own
   // noindex), not an oversight — listing a noindexed URL in the
   // sitemap would just send Google a contradictory signal.
-  const staticPaths = ["/explorer", "/quiet-corner", "/parents/resources", "/parents/shop", "/parents/shop/terms", "/reviews", "/brain-lab", "/mind-lab", "/future-skills", "/inclusive-learning", "", "/learn", "/privacy", "/contact", "/parent-info"];
+  const staticPaths = ["/quiet-corner", "/parents/resources", "/parents/shop", "/parents/shop/terms", "/reviews", "/brain-lab", "/mind-lab", "/future-skills", "/inclusive-learning", "", "/learn", "/privacy", "/contact", "/parent-info"];
   const articlePaths = ARTICLE_STRUCTURES.map((a) => `/learn/${a.slug}`);
   const allPaths = [...staticPaths, ...articlePaths];
 
@@ -36,7 +36,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const discoveryPaths = ["/museum", ...museumRooms.map((room) => `/museum/${room.slug}`), "/library", ...[...libraryBooks,...originalBooks,...libraryPeople].map((book) => `/library/${book.slug}`)];
   for (const path of discoveryPaths) {
    for (const locale of ACTIVE_LOCALES) {
-    entries.push({url: `${siteUrl}/${locale}${path}`, changeFrequency: "monthly", priority: 0.7, alternates:{languages:Object.fromEntries(ACTIVE_LOCALES.map(language=>[language,`${siteUrl}/${language}${path}`]))}});
+    entries.push({url: `${siteUrl}/${locale}${path}`, changeFrequency: "monthly", priority: 0.7, alternates:{languages:Object.fromEntries([...ACTIVE_LOCALES.map(language=>[language,`${siteUrl}/${language}${path}`]),["x-default",`${siteUrl}/en${path}`]])}});
    }
   }
 
@@ -48,7 +48,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         changeFrequency: path.startsWith("/learn/") ? "monthly" : "weekly",
         priority: path === "" ? 1.0 : path === "/learn" ? 0.9 : path.startsWith("/learn/") ? 0.8 : 0.5,
         alternates: {
-          languages: Object.fromEntries(ACTIVE_LOCALES.map((l) => [l, `${siteUrl}/${l}${path}`])),
+          languages: Object.fromEntries([...ACTIVE_LOCALES.map((l) => [l, `${siteUrl}/${l}${path}`]), ["x-default", `${siteUrl}/en${path}`]]),
         },
       });
     }
@@ -57,11 +57,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return entries;
 }
 
-function getLastModifiedForPath(path: string): string {
+function getLastModifiedForPath(path: string): string | undefined {
   if (path.startsWith("/learn/")) {
     const slug = path.replace("/learn/", "");
     const article = ARTICLE_STRUCTURES.find((a) => a.slug === slug);
     if (article) return article.updatedDate;
   }
-  return new Date().toISOString().slice(0, 10);
+  // Do not invent a modification date for static pages. Search engines
+  // should only receive lastModified when it reflects a real content update.
+  return undefined;
 }

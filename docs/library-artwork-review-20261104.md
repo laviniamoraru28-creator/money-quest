@@ -1,0 +1,11 @@
+# Library artwork review, 4 November 2026
+
+Updated the existing PR #20 worktree with main 88bf4d9. Merge resolutions retain main's original Quiet Corner videos, current Settings behavior and privacy/release fixes. Library-specific Reduced Motion rules remain. The homepage hero image is unchanged.
+
+The existing artwork inventory contains 140 reading pages. There are 57 mapped images, including 25 previously generated pages awaiting review, and 83 missing pages. All 25 existing images were reviewed against the complete source reading-page text. One substantive mismatch was corrected: Emma's ordered picture cards now show paper, a building and glue, without an unrelated red button over the paper icon. The corrected 960 x 640 WebP is a new version; other correct illustrations were retained. Source hashes and image hashes are recorded in the inventory.
+
+The full-completion check previously iterated only the one currently published original book. It now checks all ten original books, so an 83-page shortfall cannot pass as complete merely because unfinished titles are filtered from the public catalogue. The default asset-integrity test verifies the available 57/140 mappings; `--complete` intentionally fails until every original page is illustrated. These are separate results.
+
+Node 24.22.1 TypeScript, ESLint and 53/53 existing unit suites passed after merging the production changes and reviewing the 25 images. The focused asset check passes after the stricter completion-check update. Full production/browser validation and all 83 remaining illustrations are outstanding. PR #20 remains draft and must not merge as a completed Library release yet. The existing branch currently publishes only the fully illustrated Little Compass story; expanding publication to all ten original books is still part of final completion, not an approved reduction in requested scope.
+
+Correction prompt, built-in image generation: remove only the shiny red circular button from the leftmost picture card, preserve its stack-of-paper drawing and the other two building/glue cards, characters, scene, lighting and storybook style. The output was visually inspected and optimized as `public/images/money-quest/books/pages/emma-and-the-picture-plan-c2-p1-v2.webp`.

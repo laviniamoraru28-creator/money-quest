@@ -83,7 +83,7 @@ export async function generateMetadata({
     // left as a path-only string.
     alternates: {
       canonical: `${siteUrl}/${locale}`,
-      languages: Object.fromEntries(ACTIVE_LOCALES.map((l) => [l, `${siteUrl}/${l}`])),
+      languages: Object.fromEntries([...ACTIVE_LOCALES.map((l) => [l, `${siteUrl}/${l}`]), ["x-default", `${siteUrl}/en`]]),
     },
     openGraph: {
       title: t("defaultTitle"),

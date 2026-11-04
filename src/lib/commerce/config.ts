@@ -34,5 +34,5 @@ export function commerceConfig(){
  return {mode:mode as "sandbox"|"live",key,signing,webhook,origin:url.origin,orders,assets,release,termsVersion:release?.terms.version??SHOP_TERMS_VERSION};
 }
 export type CommerceConfig=ReturnType<typeof commerceConfig>;
-export async function canCheckout(product:ShopProduct){try{const c=commerceConfig();if(!process.env[product.priceEnv]?.startsWith("price_"))return false;
- if(c.mode==="live"){const asset=c.release!.products[product.id];await verifyArchive(c.assets,archiveName(product,asset.sha256),asset,false);}else await access(path.join(c.assets,product.file));return true;}catch{return false;}}
+export async function canCheckout(product:ShopProduct){try{const c=commerceConfig();if(c.mode==="live"&&!product.releaseReady)return false;if(!process.env[product.priceEnv]?.startsWith("price_"))return false;
+ if(c.mode==="live"){const asset=c.release!.products[product.id];if("releaseArchive" in product&&(asset.sha256!==product.releaseArchive.sha256||asset.bytes!==product.releaseArchive.bytes))return false;await verifyArchive(c.assets,archiveName(product,asset.sha256),asset,false);}else await access(path.join(c.assets,product.file));return true;}catch{return false;}}

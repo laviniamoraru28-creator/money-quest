@@ -39,7 +39,7 @@ for(const locale of LOCALES){
  for(const text of [copy.title,copy.intro,copy.step3,copy.sendBody,copy.evidenceBody,copy.sampleBody,copy.activitySample,copy.journalSample,copy.freeBody])assert(html.includes(escape(text)),`${locale}: ${text}`);
  for(const level of ["Explorer","Builder","Strategist"])assert(copy.levelsBody.includes(level));
  assert(copy.printNote.includes("A4"));assert(copy.printNote.includes("100"));
- assert(html.includes(`href="/resources/samples/free-family-sample-${locale}.pdf"`));assert(html.includes(`href="/resources/samples/free-journal-week-one-${locale}.pdf"`));
+ assert(html.includes(`href="/resources/samples/free-academy-activities-en.pdf"`));assert(html.includes(`href="/resources/samples/free-journal-30-days-${locale}.pdf"`));
  for(const source of PARENT_GUIDE_SOURCES){assert(html.includes(escape(source.title)));assert(html.includes(escape(source.url)));assert(html.includes(escape(copy[source.id])));}
  const flow=shopFlowPresentation(locale);
  for(const enabled of [false,true]){
@@ -62,5 +62,5 @@ assert.equal(shopErrorKey({message:"Order not ready or this browser cannot verif
 assert.equal(shopErrorKey({code:"toString",message:"RAW DIAGNOSTIC"},"orderUnavailable"),"orderUnavailable");assert.equal(shopErrorKey(null,"checkoutUnavailable"),"checkoutUnavailable");
 assert.equal(validatedCheckoutUrl("https://checkout.stripe.com/c/pay/cs_test_fixture"),"https://checkout.stripe.com/c/pay/cs_test_fixture");
 for(const url of [null,"bad","javascript:alert(1)","http://checkout.stripe.com/pay","https://checkout.stripe.com.evil.test/pay","https://checkout.stripe.com@evil.test/pay","https://user:password@checkout.stripe.com/pay","https://checkout.stripe.com:444/pay"])assert.throws(()=>validatedCheckoutUrl(url));
-assert(shopProducts.every(product=>!product.releaseReady));assert.deepEqual(shopProducts.map(product=>product.price),[599,799]);assert.equal(SHOP_TERMS_VERSION,"2026-10-28-draft-v1");
+assert.deepEqual(shopProducts.map(product=>product.releaseReady),[false,true]);assert.deepEqual(shopProducts.map(product=>product.price),[599,799]);assert.equal(SHOP_TERMS_VERSION,"2026-10-28-draft-v1");
 console.log("PASS: 540 parent-guide/shop-flow UI strings and 45 actual component SSR renders across nine locales, source/PDF/level preservation, separate unchecked consents, sandbox/English-file disclosures, structured/legacy errors, hosted-checkout URL restrictions and public/release gates. Catalogue/terms/receipts/PDFs and non-English browser/legal/editorial review remain pending.");

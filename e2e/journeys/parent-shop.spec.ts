@@ -44,7 +44,7 @@ for(const path of ["/en/parents/resources","/en/parents/shop","/en/parents/shop/
 test("parent shop is visible from home at narrow widths and learning stays available",async({page})=>{
  await page.setViewportSize({width:320,height:900});await page.goto("/en");
  await expect(page.getByRole("link",{name:"Parent shop · PDFs",exact:true})).toBeVisible();
- const image=page.getByRole("img",{name:/AI-generated illustration of a smiling child/});
+ const image=page.getByRole("img",{name:/illustration of a smiling child/});
  await expect.poll(()=>image.evaluate((el:HTMLImageElement)=>el.complete&&el.naturalWidth>0)).toBe(true);
  expect(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)).toBe(false);
  await page.getByRole("link",{name:"Parent shop · PDFs",exact:true}).click();await expect(page.getByRole("heading",{name:"Bring Money Quest learning to your kitchen table"})).toBeVisible();
@@ -52,7 +52,7 @@ test("parent shop is visible from home at narrow widths and learning stays avail
  await expect(page.getByRole("button",{name:"Purchases open after review"}).first()).toBeDisabled();
 });
 test("free samples are real PDF downloads and checkout fails closed without configuration",async({request})=>{
- for(const file of ["free-family-sample-en.pdf","free-journal-week-one-en.pdf"]){const response=await request.get(`/resources/samples/${file}`);expect(response.ok()).toBe(true);expect(response.headers()["content-type"]).toContain("application/pdf");expect((await response.body()).subarray(0,4).toString()).toBe("%PDF");}
+ for(const file of ["free-academy-activities-en.pdf","free-journal-30-days-en.pdf"]){const response=await request.get(`/resources/samples/${file}`);expect(response.ok()).toBe(true);expect(response.headers()["content-type"]).toContain("application/pdf");expect((await response.body()).subarray(0,4).toString()).toBe("%PDF");}
  const checkout=await request.post("/api/shop/checkout",{data:{productId:"family-adventure-pack",adultPurchaser:true,instantSupply:true,cancellationAcknowledged:true}});expect(checkout.status()).toBe(503);
  const download=await request.post("/api/shop/download",{form:{token:"invalid"}});expect(download.status()).toBe(403);
 });
@@ -65,8 +65,8 @@ test("parent guide retains localized sample links, sources and English navigatio
  await page.goto("/en/parents/resources");await expect(page).toHaveURL(/\/en\/parents\/resources$/);
  await expect(page.getByText(/augmentative and alternative communication \(AAC\)/)).toBeVisible();
  for(const source of PARENT_GUIDE_SOURCES)await expect(page.getByRole("link",{name:source.title,exact:true})).toHaveAttribute("href",source.url);
- await expect(page.getByRole("link",{name:parentGuideCopy.en.activitySample,exact:true})).toHaveAttribute("href","/resources/samples/free-family-sample-en.pdf");
- await expect(page.getByRole("link",{name:parentGuideCopy.en.journalSample,exact:true})).toHaveAttribute("href","/resources/samples/free-journal-week-one-en.pdf");
+ await expect(page.getByRole("link",{name:parentGuideCopy.en.activitySample,exact:true})).toHaveAttribute("href","/resources/samples/free-academy-activities-en.pdf");
+ await expect(page.getByRole("link",{name:parentGuideCopy.en.journalSample,exact:true})).toHaveAttribute("href","/resources/samples/free-journal-30-days-en.pdf");
 });
 
 test("order retry localizes errors without another payment and removes query references",async({page})=>{

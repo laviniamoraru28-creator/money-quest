@@ -29,7 +29,7 @@
     "parentResourcesLink": "Elternmaterialien und Shop für Druckvorlagen",
     "heroTitle": "Lerne über Geld, indem du spielst, erkundest und Entscheidungen triffst.",
     "heroSubtitle": "Money Quest ist eine kostenlose Welt der finanziellen Bildung für Kinder von 6 bis 14 Jahren - Quests, eine fiktive Geldbörse und echte Fähigkeiten. Kein Konto nötig.",
-    "heroImageAlt": "KI-generiertes Bild eines lächelnden Kindes mit einem Smartphone, das die Money-Quest-Website zeigt.",
+    "heroImageAlt": "Eine Illustration eines lächelnden Kindes mit einem Smartphone, das die Money-Quest-Website zeigt.",
     "ctaGetStartedFree": "Starte deine Money Quest",
     "ctaSeeHowItWorks": "So funktioniert's ansehen",
     "whyFree": "Die grundlegenden Lernangebote von Money Quest bleiben kostenlos. Optionale Druckmaterialien für Eltern werden separat verkauft. In den Lernaktivitäten für Kinder sind keine Käufe erforderlich.",
@@ -306,7 +306,7 @@
   "footer": {
     "privacy": "Datenschutz",
     "contact": "Kontakt",
-    "feedback": "Feedback"
+    "feedback": "Bewertungen"
   },
   "play": {
     "chooseYourLevel": "Wähle dein Lernlevel",
@@ -3895,7 +3895,7 @@
     "challengeLabel": "Deine Money-Quest-Herausforderung:",
     "questions": [
       {
-        "prompt": "Du bekommst 10 Münzen von einem Verwandten. Was ist dein erster Instinkt?",
+        "prompt": "Ein Verwandter schenkt dir einen 10-Pfund-Schein. Was machst du zuerst?",
         "options": [
           "Sie irgendwo sicher für später aufbewahren",
           "Überlegen, sie auf ein paar Dinge aufzuteilen",
@@ -3915,7 +3915,7 @@
         ]
       },
       {
-        "prompt": "Einem Freund fehlen ein paar Münzen für etwas. Du:",
+        "prompt": "Ein Freund hat nicht genug Geld, um etwas zu kaufen. Was machst du?",
         "options": [
           "Es tut dir leid für ihn, aber du behältst deine eigenen Münzen",
           "Überlegst, ob du helfen könntest, ohne deinen eigenen Plan durcheinanderzubringen",
@@ -6770,5 +6770,41 @@
       "chooseOfferTitle": "Wähle, was du anbietest",
       "chooseIdeaTitle": "Wähle deine Idee"
     }
+  },
+  "navMenu":   {
+    "openMenu": "Menü",
+    "closeMenu": "Menü schließen",
+    "title": "Money Quest entdecken",
+    "searchPlaceholder": "Nach einer Lektion oder Aktivität suchen…",
+    "searchNoResults": "Keine Treffer gefunden.",
+    "home": "Startseite",
+    "sectionLearningAdventures": "Lernabenteuer",
+    "sectionExploreDiscover": "Entdecken",
+    "sectionLibraryMuseum": "Bibliothek & Museum",
+    "sectionWellbeingInclusion": "Wohlbefinden & Inklusion",
+    "sectionForParents": "Für Eltern",
+    "sectionInformation": "Informationen",
+    "moneyQuest": "Money Quest",
+    "entrepreneurQuest": "Entrepreneur Quest",
+    "leadershipQuest": "Leadership Quest",
+    "realLifeQuests": "Alltagsmissionen",
+    "library": "Bibliothek",
+    "museum": "Museum",
+    "brainLab": "Gehirnlabor",
+    "mindLab": "Gefühlslabor",
+    "futureSkills": "Zukunftskompetenzen",
+    "inclusiveLearning": "Inklusives Lernen",
+    "visualExplorer": "Visueller Entdecker",
+    "investingLab": "Investitionslabor",
+    "moneyPersonality": "Geld-Persönlichkeit",
+    "learningArticles": "Lernartikel",
+    "quietCorner": "Ruhige Ecke",
+    "parentInfo": "Informationen für Eltern",
+    "parentResources": "Druckvorlagen",
+    "shop": "Shop",
+    "reviews": "Bewertungen",
+    "contact": "Kontakt",
+    "privacy": "Datenschutz",
+    "currentPage": "Aktuelle Seite"
   }
 }

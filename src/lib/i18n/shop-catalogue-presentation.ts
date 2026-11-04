@@ -1,3 +1,4 @@
+import journalFiles from "../../../content/printables/journal-original.json";
 import {shopProducts,type ShopProduct} from "@/content/shop";
 import {shopCatalogueCopy,type ShopCatalogueCopy} from "@/content/shop-catalogue-copy";
 import {shopFlowCopy} from "@/content/shop-flow-copy";
@@ -16,7 +17,7 @@ export function shopCataloguePresentation(locale:Locale){
  const products=shopProducts.map(product=>{
   if(sourceFingerprint(shopCatalogueProductSource(product))!==manifest.products[product.id])throw new Error(`Stale shop product draft: ${product.id}`);
   const text=edition.products[product.id];
-  return {id:product.id,image:product.image,sample:product.sample.replace(/-en\.pdf$/,`-${locale}.pdf`),
+  return {id:product.id,image:product.id==="adventure-journal"?journalFiles.images[locale].file:product.image,sample:product.id==="adventure-journal"?journalFiles.samples[locale].file:product.sample,
    title:text.title,description:text.description,pages:text.pages,includes:text.includes,
    imageAlt:text.imageAlt,sampleLabel:text.sampleLabel,
    priceLabel:new Intl.NumberFormat(REGIONAL_LOCALES[locale],{style:"currency",currency:"GBP"}).format(product.price/100)};

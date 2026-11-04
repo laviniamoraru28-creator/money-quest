@@ -1,3 +1,4 @@
+import { isCertificateEligible, requiredCertificateActivities, completionTimestamp } from "@/lib/certificates/eligibility";
 import type { AgeBand } from "@/types/database.types";
 
 /**
@@ -34,6 +35,7 @@ export interface LocalProgressState {
   completedActivityIds: string[];
   goals: LocalGoal[];
   earnedBadgeIds: string[];
+  certificateCompletionDates: Partial<Record<"explorer" | "builder" | "strategist", string>>;
 }
 
 export function createDefaultState(): LocalProgressState {
@@ -45,6 +47,7 @@ export function createDefaultState(): LocalProgressState {
     completedActivityIds: [],
     goals: [],
     earnedBadgeIds: [],
+    certificateCompletionDates: {},
   };
 }
 
@@ -70,7 +73,8 @@ export function applyActivityCompletion(
   activityId: string,
   wasCorrect: boolean,
   xpReward: number,
-  coinRewardMinorUnits: number
+  coinRewardMinorUnits: number,
+  now: Date = new Date()
 ): CompletionResult {
   const wasFirstCompletion = !state.completedActivityIds.includes(activityId);
 
@@ -78,12 +82,21 @@ export function applyActivityCompletion(
     return { state, xpAwarded: 0, coinsAwarded: 0, wasFirstCompletion: wasFirstCompletion && !wasCorrect };
   }
 
+  const completedActivityIds = [...state.completedActivityIds, activityId];
+  const band = state.ageBand;
+  const certificateCompletionDates = { ...state.certificateCompletionDates };
+  // Only the selected band's actual final curriculum activity can earn its date.
+  if (band && !certificateCompletionDates[band] && requiredCertificateActivities(band).includes(activityId)
+    && isCertificateEligible(completedActivityIds, band)) {
+    certificateCompletionDates[band] = completionTimestamp(now);
+  }
   return {
     state: {
       ...state,
+      certificateCompletionDates,
       xpTotal: state.xpTotal + xpReward,
       walletBalanceMinorUnits: state.walletBalanceMinorUnits + coinRewardMinorUnits,
-      completedActivityIds: [...state.completedActivityIds, activityId],
+      completedActivityIds,
     },
     xpAwarded: xpReward,
     coinsAwarded: coinRewardMinorUnits,

@@ -37,6 +37,10 @@ function readFromStorage(): LocalProgressState {
     for (const field of ["xpTotal","walletBalanceMinorUnits"] as const) if (!Number.isSafeInteger(next[field]) || next[field] < 0) next[field] = 0;
     next.completedActivityIds = Array.isArray(next.completedActivityIds) ? next.completedActivityIds.filter((id: unknown) => typeof id === "string") : [];
     next.earnedBadgeIds = Array.isArray(next.earnedBadgeIds) ? next.earnedBadgeIds.filter((id: unknown) => typeof id === "string") : [];
+    const dates = next.certificateCompletionDates;
+    next.certificateCompletionDates = dates && typeof dates === "object" && !Array.isArray(dates)
+      ? Object.fromEntries(Object.entries(dates).filter(([key,value]) => ["explorer","builder","strategist"].includes(key) && typeof value === "string" && !Number.isNaN(Date.parse(value))))
+      : {};
     next.goals = Array.isArray(next.goals) ? next.goals.filter((goal: unknown) => {
       if (!goal || typeof goal !== "object") return false;
       const value=goal as Record<string,unknown>;
@@ -117,7 +121,7 @@ export function useLocalProgress() {
 
   const completeActivity = useCallback(
     (activityId: string, wasCorrect: boolean, xpReward: number, coinRewardMinorUnits: number) => {
-      const result = applyActivityCompletion(state, activityId, wasCorrect, xpReward, coinRewardMinorUnits);
+      const result = applyActivityCompletion(readFromStorage(), activityId, wasCorrect, xpReward, coinRewardMinorUnits);
       persist(result.state);
       if(result.coinsAwarded>0 && typeof window!=="undefined")window.dispatchEvent(new CustomEvent("moneyquest-coin-award",{detail:{amount:result.coinsAwarded,currency:state.currencyCode}}));
       return result;

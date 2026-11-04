@@ -29,7 +29,7 @@
     "parentResourcesLink": "Ressources pour les parents et boutique de fichiers à imprimer",
     "heroTitle": "Apprends l'argent en jouant, en explorant et en prenant des décisions.",
     "heroSubtitle": "Money Quest est un monde gratuit d'éducation financière pour les enfants de 6 à 14 ans - des quêtes, un portefeuille fictif et de vraies compétences. Aucun compte nécessaire.",
-    "heroImageAlt": "Image générée par IA : un enfant souriant tient un téléphone affichant le site Money Quest.",
+    "heroImageAlt": "Une illustration d'un enfant souriant tenant un téléphone affichant le site Money Quest.",
     "ctaGetStartedFree": "Commence ta Money Quest",
     "ctaSeeHowItWorks": "Voir comment ça marche",
     "whyFree": "Les activités essentielles de Money Quest restent gratuites. Les ressources facultatives à imprimer pour les parents sont vendues séparément. Aucun achat n’est nécessaire dans les activités pour enfants.",
@@ -3895,7 +3895,7 @@
     "challengeLabel": "Ton défi Money Quest :",
     "questions": [
       {
-        "prompt": "Tu reçois 10 pièces d'un proche. Quel est ton premier réflexe ?",
+        "prompt": "Un proche te donne un billet de 10 £. Que fais-tu en premier ?",
         "options": [
           "Les mettre quelque part en sécurité pour plus tard",
           "Réfléchir à les répartir entre plusieurs choses",
@@ -3915,7 +3915,7 @@
         ]
       },
       {
-        "prompt": "Un ami manque un peu de pièces pour quelque chose. Tu :",
+        "prompt": "Un ami n'a pas assez d'argent pour acheter quelque chose. Que fais-tu ?",
         "options": [
           "Compatis, mais gardes tes propres pièces de côté",
           "Te demandes si tu pourrais aider sans bouleverser ton propre plan",
@@ -6379,5 +6379,41 @@
       "chooseOfferTitle": "Choisis quoi proposer",
       "chooseIdeaTitle": "Choisis ton idée"
     }
+  },
+  "navMenu":   {
+    "openMenu": "Menu",
+    "closeMenu": "Fermer le menu",
+    "title": "Explorer Money Quest",
+    "searchPlaceholder": "Rechercher une leçon ou une activité…",
+    "searchNoResults": "Aucun résultat trouvé.",
+    "home": "Accueil",
+    "sectionLearningAdventures": "Aventures d'apprentissage",
+    "sectionExploreDiscover": "Explorer et découvrir",
+    "sectionLibraryMuseum": "Bibliothèque et Musée",
+    "sectionWellbeingInclusion": "Bien-être et inclusion",
+    "sectionForParents": "Pour les parents",
+    "sectionInformation": "Informations",
+    "moneyQuest": "Money Quest",
+    "entrepreneurQuest": "Entrepreneur Quest",
+    "leadershipQuest": "Leadership Quest",
+    "realLifeQuests": "Défis de la vie réelle",
+    "library": "Bibliothèque",
+    "museum": "Musée",
+    "brainLab": "Labo du cerveau",
+    "mindLab": "Labo de l'esprit",
+    "futureSkills": "Compétences d'avenir",
+    "inclusiveLearning": "Apprentissage inclusif",
+    "visualExplorer": "Explorateur visuel",
+    "investingLab": "Labo des investissements",
+    "moneyPersonality": "Personnalité financière",
+    "learningArticles": "Articles éducatifs",
+    "quietCorner": "Coin tranquille",
+    "parentInfo": "Informations pour les parents",
+    "parentResources": "Ressources à imprimer",
+    "shop": "Boutique",
+    "reviews": "Avis",
+    "contact": "Contact",
+    "privacy": "Confidentialité",
+    "currentPage": "Page actuelle"
   }
 }

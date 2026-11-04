@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "productId": "family-adventure-pack",
+  "release": "academy-originals-20261103",
+  "ready": false,
+  "sourceLanguage": "en",
+  "targetLocales": [
+    "en",
+    "ro",
+    "es",
+    "fr",
+    "de",
+    "it",
+    "pt",
+    "nl",
+    "pl"
+  ],
+  "availableLocales": [
+    "en"
+  ],
+  "localeStatus": {
+    "en": "original-supplied",
+    "ro": "pending-page-reconstruction-and-translation",
+    "es": "pending-page-reconstruction-and-translation",
+    "fr": "pending-page-reconstruction-and-translation",
+    "de": "pending-page-reconstruction-and-translation",
+    "it": "pending-page-reconstruction-and-translation",
+    "pt": "pending-page-reconstruction-and-translation",
+    "nl": "pending-page-reconstruction-and-translation",
+    "pl": "pending-page-reconstruction-and-translation"
+  },
+  "archive": {
+    "file": "money-quest-academy-activities-en.zip",
+    "sha256": "b5389e9e21b839512a0eed02df8e9bd3450691db5d5b7f54c0afad0fc7c84ccf",
+    "bytes": 15903288
+  },
+  "worksheets": [
+    {
+      "level": "explorer",
+      "ages": "6-8",
+      "file": "Money_Quest_EXPLORER_Ages_6-8_20worksheets_en.pdf",
+      "pages": 20,
+      "bytes": 5114953,
+      "sha256": "bef67d10982a0cc7e3d68cfb7a29e57aa482616c4e331e1b1a322ac401078f43",
+      "sourceLibraryFileId": "libfile_9a1b9017e0a881919f0ab09d6ae1e9d1"
+    },
+    {
+      "level": "builder",
+      "ages": "9-11",
+      "file": "Money_Quest_BUILDER_Ages_9-11_20worksheets_en.pdf",
+      "pages": 20,
+      "bytes": 5438955,
+      "sha256": "89fc44353e4bfd4bb5177cfb7078d027414cbb7f8c446b2a17ed666df1cc4a63",
+      "sourceLibraryFileId": "libfile_4dfd122f8e0c819180ffe6541a04084b"
+    },
+    {
+      "level": "strategist",
+      "ages": "12-14",
+      "file": "Money_Quest_STRATEGIST_Ages_12-14_20worksheets_en.pdf",
+      "pages": 20,
+      "bytes": 5951790,
+      "sha256": "9b44f04e717b7a9b7e2fb50c0663ea158bf0a21028da76c2846c7acdff3bf10e",
+      "sourceLibraryFileId": "libfile_55dbe3e8096c81919aadd44d7d44a049"
+    }
+  ],
+  "sample": {
+    "file": "/resources/samples/free-academy-activities-en.pdf",
+    "language": "en",
+    "pages": 3
+  },
+  "note": "Image-only originals. Localised storefront text is separate from translated printable editions. Do not activate multilingual sales until all pages are rebuilt, translated and visually checked."
+}

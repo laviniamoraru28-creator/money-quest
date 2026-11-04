@@ -5,7 +5,6 @@ import {basename} from "node:path";
 import {libraryPeople} from "../src/content/people";
 import {originalBooks} from "../src/content/library";
 import {bookPageArt} from "../src/content/book-page-art";
-import {publicOriginalBooks} from "../src/content/library-publication";
 import artwork from "../src/content/book-page-art.json";
 
 const hash=(value:string|Buffer)=>createHash("sha256").update(value).digest("hex");
@@ -45,8 +44,8 @@ for(const book of originalBooks){
   });
 }
 assert.equal(Object.keys(artwork).length,generated,"No orphaned artwork mappings");
-if(process.argv.includes("--complete"))for(const book of publicOriginalBooks){
+if(process.argv.includes("--complete"))for(const book of originalBooks){
  const per=book.audience.startsWith("Explorer")?1:2;
- book.chapters.forEach((chapter,i)=>{for(let part=0;part<Math.ceil(chapter.paragraphs.length/per);part++)assert(bookPageArt(book.slug,i,part),`Missing public story artwork: ${book.slug}:${i}:${part}`);});
+ book.chapters.forEach((chapter,i)=>{for(let part=0;part<Math.ceil(chapter.paragraphs.length/per);part++)assert(bookPageArt(book.slug,i,part),`Missing original story artwork: ${book.slug}:${i}:${part}`);});
 }
 console.log(`PASS: ${portraits.size} correctly mapped distinct biography portraits and ${generated}/${expected} individual original-book illustrations; source alignment, explicit reviewed reuse, WebP assets and bounded dimensions.`);

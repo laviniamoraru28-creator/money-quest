@@ -1,8 +1,9 @@
 import {test, expect} from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 
-test("quiet corner preserves silent video controls and accessible mobile layout", async ({page}, testInfo) => {
+test("quiet corner keeps original videos, sound and accessible mobile layout", async ({page}, testInfo) => {
   await page.goto("/en/quiet-corner");
+  await expect(page.getByText("Real nature videos",{exact:true})).toBeVisible();
   await expect(page.locator("#quiet-pictures")).toHaveCount(0);
   await page.screenshot({path:testInfo.outputPath("quiet-corner-default.png"),fullPage:true});
   await page.setViewportSize({width:320,height:900});
@@ -15,21 +16,11 @@ test("quiet corner preserves silent video controls and accessible mobile layout"
   expect(result.violations).toEqual([]);
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href",/\/en\/quiet-corner$/);
   await page.screenshot({path:testInfo.outputPath("quiet-corner-320px.png"),fullPage:true});
-  await page.getByRole("button",{name:"Night view",exact:true}).click();
+  // Night view now lives inside the consolidated Global Settings panel.
+  await page.locator("summary",{hasText:"Settings"}).click();
+  await page.getByRole("checkbox",{name:"Night view",exact:true}).check();
   await expect(page.locator("html")).toHaveAttribute("data-night-view","true");
   expect((await new AxeBuilder({page}).withTags(["wcag2a","wcag2aa","wcag21aa"]).analyze()).violations).toEqual([]);
-});
-
-test("obsolete picture animation controls are absent with either motion preference", async ({page}) => {
-  for(const reducedMotion of ["no-preference","reduce"] as const){
-    await page.emulateMedia({reducedMotion});
-    await page.goto("/en/quiet-corner");
-    await expect(page.getByRole("button",{name:"Start slow picture movement",exact:true})).toHaveCount(0);
-    await expect(page.getByRole("button",{name:"Hide picture",exact:true})).toHaveCount(0);
-    await expect(page.getByRole("button",{name:"Play sound",exact:true})).toBeVisible();
-    await expect(page.getByText("Real nature videos",{exact:true})).toBeVisible();
-    await expect(page.locator("video")).toHaveCount(0);
-  }
 });
 
 test("communication cards support keyboard focus and do not create stored responses", async ({page}) => {
@@ -82,7 +73,7 @@ test("quiet corner remains usable when Web Audio is unavailable", async ({page})
   await page.addInitScript(() => {Object.defineProperty(window,"AudioContext",{value:undefined,configurable:true});});
   await page.goto("/en/quiet-corner");
   await page.getByRole("button",{name:"Play sound",exact:true}).click();
-  await expect(page.getByText("Sound could not start. You can watch a video or stay in silence.",{exact:true})).toBeVisible();
+  await expect(page.getByText("Sound could not start. You can stay in silence.",{exact:true})).toBeVisible();
   await page.getByRole("button",{name:"I need quiet",exact:true}).click();
   await expect(page.getByRole("dialog")).toBeVisible();
 });

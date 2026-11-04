@@ -29,7 +29,7 @@
     "parentResourcesLink": "Oudermateriaal en winkel met printbare activiteiten",
     "heroTitle": "Leer over geld door te spelen, ontdekken en beslissingen te nemen.",
     "heroSubtitle": "Money Quest is een gratis financiële-geletterdheidswereld voor kinderen van 6 tot 14 jaar - questen, een fictieve portemonnee en echte vaardigheden. Geen account nodig.",
-    "heroImageAlt": "Een met AI gemaakte afbeelding van een glimlachend kind met een telefoon waarop de Money Quest-website staat.",
+    "heroImageAlt": "Een illustratie van een glimlachend kind met een telefoon waarop de Money Quest-website staat.",
     "ctaGetStartedFree": "Begin je Money Quest",
     "ctaSeeHowItWorks": "Bekijk hoe het werkt",
     "whyFree": "De basisactiviteiten van Money Quest blijven gratis. Optionele printmaterialen voor ouders worden apart verkocht. Kinderen hoeven niets te kopen om aan de leeractiviteiten mee te doen.",
@@ -2409,7 +2409,7 @@
   "footer": {
     "privacy": "Privacy",
     "contact": "Contact",
-    "feedback": "Feedback"
+    "feedback": "Beoordelingen"
   },
   "play": {
     "chooseYourLevel": "Kies je leerniveau",
@@ -5998,7 +5998,7 @@
     "challengeLabel": "Jouw Money Quest-uitdaging:",
     "questions": [
       {
-        "prompt": "Je krijgt 10 munten van een familielid. Wat is je eerste instinct?",
+        "prompt": "Je krijgt een biljet van 10 pond van een familielid. Wat doe je eerst?",
         "options": [
           "Ze ergens veilig bewaren voor later",
           "Nadenken over ze verdelen over een paar dingen",
@@ -6018,7 +6018,7 @@
         ]
       },
       {
-        "prompt": "Een vriend komt een beetje munten tekort voor iets. Jij:",
+        "prompt": "Een vriend heeft niet genoeg geld om iets te kopen. Wat doe je?",
         "options": [
           "Leeft mee, maar houdt je eigen munten apart",
           "Denkt na of je kunt helpen zonder je eigen plan te verstoren",
@@ -6770,5 +6770,41 @@
       "chooseOfferTitle": "Kies wat je aanbiedt",
       "chooseIdeaTitle": "Kies je idee"
     }
+  },
+  "navMenu":   {
+    "openMenu": "Menu",
+    "closeMenu": "Menu sluiten",
+    "title": "Ontdek Money Quest",
+    "searchPlaceholder": "Zoek een les of activiteit…",
+    "searchNoResults": "Geen resultaten gevonden.",
+    "home": "Home",
+    "sectionLearningAdventures": "Leeravonturen",
+    "sectionExploreDiscover": "Ontdekken",
+    "sectionLibraryMuseum": "Bibliotheek & Museum",
+    "sectionWellbeingInclusion": "Welzijn & Inclusie",
+    "sectionForParents": "Voor ouders",
+    "sectionInformation": "Informatie",
+    "moneyQuest": "Money Quest",
+    "entrepreneurQuest": "Entrepreneur Quest",
+    "leadershipQuest": "Leadership Quest",
+    "realLifeQuests": "Opdrachten uit het echte leven",
+    "library": "Bibliotheek",
+    "museum": "Museum",
+    "brainLab": "Breinlab",
+    "mindLab": "Gevoelslab",
+    "futureSkills": "Toekomstvaardigheden",
+    "inclusiveLearning": "Inclusief leren",
+    "visualExplorer": "Visuele verkenner",
+    "investingLab": "Investeringslab",
+    "moneyPersonality": "Geldpersoonlijkheid",
+    "learningArticles": "Leerartikelen",
+    "quietCorner": "Rustig hoekje",
+    "parentInfo": "Informatie voor ouders",
+    "parentResources": "Afdrukbare materialen",
+    "shop": "Winkel",
+    "reviews": "Beoordelingen",
+    "contact": "Contact",
+    "privacy": "Privacy",
+    "currentPage": "Huidige pagina"
   }
 }

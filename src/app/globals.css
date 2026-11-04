@@ -118,6 +118,7 @@ html[data-night-view="true"] .investment-phone-screen { background: #000; }
 html[data-night-view="true"] .book-paper { background:#080808; color:#fff; }
 @media(max-width:700px) { .book-spread{grid-template-columns:minmax(0,1fr);} .book-illustration{border-right:0;border-bottom:1px solid #d3cbb5;} .book-illustration img{max-height:260px;object-fit:contain;} }
 
+
 /* Illustrated covers remain keyboard links; shelving never requires dragging. */
 .library-shelves {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem 1.25rem;padding:1.5rem 1rem;background:#f2e7d6;border-radius:1.5rem;}
 .library-shelf-slot {display:flex;flex-direction:column;min-width:0;padding-bottom:1rem;}
@@ -142,3 +143,16 @@ html[data-night-view="true"] .library-cover * {color:#fff !important;}
 /* Library pages respect both the system preference and the in-site control. */
 @media(prefers-reduced-motion:reduce) {.book-reading-page {animation:none;}}
 [data-reduced-motion="true"] :is(.book-opening,.book-reading-page) {animation:none;}
+/* User-selected illustration density. Only decorative artwork is resized/hidden.
+   Instructional images remain unchanged so visual exercises remain usable. */
+html[data-image-size="small"] [data-learning-decoration] img { max-width: 55%; height: auto; margin-inline: auto; }
+html[data-image-size="minimal"] [data-learning-decoration] { display: none !important; }
+html[data-text-size="large"] { font-size: 112.5%; }
+html[data-text-size="extra"] { font-size: 125%; }
+html[data-high-contrast="true"]:not([data-night-view="true"]) { filter: contrast(1.2); }
+
+/* Universal nav drawer entrance. Neutralized for both OS-level and the
+   in-app reduced-motion toggle by the existing blanket rules above
+   (animation-duration: 0.01ms !important), so no separate override is
+   needed here - matches every other animation in this file. */
+@keyframes nav-drawer-in { from { transform: translateX(100%); } to { transform: translateX(0); } }
