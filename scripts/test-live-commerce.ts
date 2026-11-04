@@ -6,6 +6,9 @@ import {createHash} from "node:crypto";
 import {createServer} from "node:http";
 import {spawnSync} from "node:child_process";
 import Stripe from "stripe";
+import nodemailer from "nodemailer";
+import {POST as webhookPost} from "../src/app/api/shop/webhook/route";
+import {POST as downloadPost} from "../src/app/api/shop/download/route";
 import React from "react";
 import {renderToStaticMarkup} from "react-dom/server";
 import {NextIntlClientProvider} from "next-intl";
@@ -70,6 +73,42 @@ async function main(){
   const order=await fulfillSession(session.id,{client,send});assert.equal(sent,1);assert.equal(order.mode,"live");assert(await confirmationSent(config.orders,order.sessionId));
   assert(lastText.includes(contract.termsText));assert(lastText.includes(contract.privacy));assert(lastText.includes(contract.merchant.address));assert(lastText.includes("£5.99 GBP"));assert(lastText.includes("#token=cs_live_"));assert(!lastText.includes("SANDBOX"));
   await fulfillSession(session.id,{client,send});assert.equal(sent,1,"Duplicate event must not send another confirmation");assert.deepEqual(await readOrder(config.orders,order.sessionId),order);
+  // Exercise the actual route handlers with SDK retrieval and SMTP stubbed locally.
+  // No Stripe endpoint or recipient is contacted, including for synthetic LIVE events.
+  const sessionsPrototype=Object.getPrototypeOf(client.checkout.sessions);
+  const retrieve=sessionsPrototype.retrieve,createTransport=nodemailer.createTransport;
+  const previousSession=session;
+  let retrieved=0,routeEmails=0;
+  sessionsPrototype.retrieve=async(id:string)=>{retrieved++;assert.equal(id,session.id);return structuredClone(session);};
+  nodemailer.createTransport=(()=>({sendMail:async()=>{routeEmails++;return {accepted:["buyer@merchant.test"],rejected:[]};}})) as unknown as typeof nodemailer.createTransport;
+  const eventRequest=(type:string,object:unknown,options:{livemode?:boolean;secret?:string;timestamp?:number;tamper?:boolean;unsigned?:boolean}={})=>{
+   const payload=JSON.stringify({id:"evt_localfixture",object:"event",livemode:options.livemode??true,type,data:{object}});
+   const signature=client.webhooks.generateTestHeaderString({payload,secret:options.secret??config.webhook,...(options.timestamp?{timestamp:options.timestamp}:{})});
+   return new Request(config.origin+"/api/shop/webhook",{method:"POST",headers:options.unsigned?{}:{"stripe-signature":signature},body:payload+(options.tamper?" ":"")});
+  };
+  const downloadRequest=(token:string,origin=config.origin)=>new Request(config.origin+"/api/shop/download",{method:"POST",headers:{origin},body:new URLSearchParams({token,locale:"en"})});
+  try{
+   const object={id:session.id,metadata:session.metadata,payment_status:"paid"};
+   for(const options of [{unsigned:true},{secret:"whsec_wrong_fixture"},{timestamp:1},{tamper:true},{livemode:false}])assert.equal((await webhookPost(eventRequest("checkout.session.completed",object,options))).status,400);
+   for(const [type,data] of [["checkout.session.completed",{...object,payment_status:"unpaid"}],["checkout.session.async_payment_succeeded",{...object,metadata:{app:"another-app"}}],["customer.created",object]] as const)assert.equal((await webhookPost(eventRequest(type,data))).status,200);
+   assert.equal(retrieved,0,"Rejected or irrelevant events must not retrieve or fulfil payments");assert.equal(routeEmails,0);
+   // Unpaid settled-session data is rejected even if a signed event claims it was paid.
+   session={...session,id:"cs_live_routefixture123456",payment_status:"unpaid"};
+   const routeObject={...object,id:session.id};
+   assert.equal((await webhookPost(eventRequest("checkout.session.completed",routeObject))).status,500);
+   assert.equal(await readOrder(config.orders,session.id),null);assert.equal(routeEmails,0);
+   session={...session,payment_status:"paid"};
+   const responses=await Promise.all([webhookPost(eventRequest("checkout.session.completed",routeObject)),webhookPost(eventRequest("checkout.session.async_payment_succeeded",routeObject))]);
+   assert(responses.every(response=>response.status===200));assert.equal(routeEmails,1,"Both event types for one session must create one order and confirmation");
+   const routeOrder=await readOrder(config.orders,session.id);assert(routeOrder);assert.equal(routeOrder.amount,599);
+   assert.equal((await webhookPost(eventRequest("checkout.session.completed",routeObject))).status,200);assert.equal(routeEmails,1);
+   const routeToken=orderToken(routeOrder,config.signing);
+   const download=await downloadPost(downloadRequest(routeToken));assert.equal(download.status,200);assert.equal(download.headers.get("content-type"),"application/zip");assert(download.headers.get("cache-control")?.includes("no-store"));assert.deepEqual(Buffer.from(await download.arrayBuffer()),bytes);
+   for(const badToken of [routeToken+"tampered",orderToken({...routeOrder,expires:Date.now()-1000},config.signing)])assert.equal((await downloadPost(downloadRequest(badToken))).status,403);
+   assert.equal((await downloadPost(downloadRequest(routeToken,"https://another-site.test"))).status,403);
+   session={...session,payment_intent:{status:"succeeded",latest_charge:{refunded:true,amount_refunded:599,disputed:false}}};
+   assert.equal((await downloadPost(downloadRequest(routeToken))).status,403,"A refund revokes the actual download route");
+  }finally{sessionsPrototype.retrieve=retrieve;nodemailer.createTransport=createTransport;session=previousSession;}
   const token=orderToken(order,config.signing);assert.equal(parseOrderToken(token,config.signing).id,order.sessionId);assert(!validSessionId(order.sessionId,"sandbox"));assert.throws(()=>parseOrderToken(token+"bad",config.signing));
   // Concurrent duplicate events must converge to one original order and one email.
   const duplicate={...order,sessionId:"cs_live_concurrent12345678"};const [left,right]=await Promise.all([saveOrderOnce(config.orders,duplicate),saveOrderOnce(config.orders,{...duplicate,created:duplicate.created+1})]);assert.deepEqual(left,right);

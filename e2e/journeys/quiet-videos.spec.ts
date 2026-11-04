@@ -43,10 +43,10 @@ test("video stops on stop-all, closing, speech and reduced motion without restar
   await summary.click();await expect(page.locator("video")).toHaveCount(0);
 });
 
-test("a failed video leaves still pictures and communication available",async({page})=>{
+test("a failed video keeps communication available",async({page})=>{
   await page.route("**/media/quiet/*.mp4",route=>route.abort());
   await page.emulateMedia({reducedMotion:"no-preference"});await page.goto("/en/quiet-corner");
   await page.getByText("Real nature videos",{exact:true}).click();await page.getByRole("button",{name:"Watch video",exact:true}).click();
-  await expect(page.getByText("This video could not play. You can use the still pictures above.",{exact:true})).toBeVisible();
+  await expect(page.getByText("This video could not play. You can try another video.",{exact:true})).toBeVisible();
   await page.getByRole("button",{name:"I need help",exact:true}).click();await expect(page.getByRole("dialog")).toBeVisible();await expect(page.locator("video")).toHaveCount(0);
 });

@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description: article.metaDescription,
     alternates: {
       canonical: `${siteUrl}/${locale}${path}`,
-      languages: Object.fromEntries(ACTIVE_LOCALES.map((l) => [l, `${siteUrl}/${l}${path}`])),
+      languages: Object.fromEntries([...ACTIVE_LOCALES.map((l) => [l, `${siteUrl}/${l}${path}`]), ["x-default", `${siteUrl}/en${path}`]]),
     },
     openGraph: {
       title: article.title,

@@ -33,7 +33,11 @@ for(const locale of LOCALES){
  assert.equal(messages.a11y.listenToLessonLabel,copy.listen,"Generic narration must say Listen, not Listen to the lesson");
  assert.equal(messages.a11y.stopReadingLabel,copy.stop,"Keep short narration controls consistent");
  const html=renderToStaticMarkup(React.createElement(NextIntlClientProvider,{locale,messages,timeZone:"Europe/London",children:React.createElement(PathnameContext.Provider,{value:`/${locale}/library`,children:React.createElement(PageReadAloud,{locale,copy})})}));
- for(const text of [copy.region,copy.listen,copy.night,copy.reviews,copy.optional,copy.offlineSummary,copy.instructions,copy.limitations,copy.download,copy.remove])assert(html.includes(escape(text)),`${locale}: ${text}`);
+ // copy.reviews is intentionally no longer in this toolbar's own static
+ // markup: Reviews moved into the universal nav drawer's Information
+ // section (see nav-menu.spec.ts), which only renders once opened, not
+ // the always-visible Global Settings panel this bar still renders here.
+ for(const text of [copy.region,copy.listen,copy.night,copy.optional,copy.offlineSummary,copy.instructions,copy.limitations,copy.download,copy.remove])assert(html.includes(escape(text)),`${locale}: ${text}`);
  const fallback=offlineFallbackHtml(locale);assert(fallback.includes(`<html lang="${locale}">`));assert(fallback.includes(`href="/${locale}"`));assert(fallback.includes('content="noindex,nofollow"'));assert(!fallback.includes("<script"));
  for(const text of [copy.offlineHeading,copy.offlineWhy,copy.offlineWorks,copy.offlineHome,copy.offlineReconnect])assert(fallback.includes(text.replaceAll("&","&amp;")),`${locale}: offline fallback`);
 }

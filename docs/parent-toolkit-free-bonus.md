@@ -2,13 +2,15 @@
 
 Branch: `feature/parent-toolkit-free-bonus`, based on main `e351ffafb7f6a09e2631af73f53b09002e02debb`.
 
-## Source PDF and release blocker
+## Final private PDF edition
 
 Located the exact `Little_Minds_Smart_Money_Illustrated.pdf` supplied by the owner. Technical verification: eight A4 pages, five embedded Meta AI illustrations, 1,662,500 bytes, unencrypted, no JavaScript, readable text, no replacement glyphs or out-of-page text. All eight rendered pages were visually inspected. The PDF was not rewritten or replaced.
 
 SHA-256: `1d3e2d2b3666562786cbeffdd413bb572d3fd29a0bf372df63f2b34261d93833`.
 
-Page 8 still describes the material as an "expanded working draft" and says the final illustrated edition will include verified references and matched artwork. This contradicts its description as a completed final guide. Resolve that editorial note before publishing it to customers. No unfinished alternative guide has been substituted, and the other four Parent Toolkit guides have not been added.
+The final edition corrects page 8, removes four production-only illustration-slot notes and numbers the illustrated pages in their actual order. It preserves every embedded illustration byte for byte. The family activities and their arithmetic were checked. Further-reading links point to MoneyHelper's Talk Learn Do, its teenager-budgeting guidance and CFPB's parent money-choice activities, reviewed 4 November 2026. These sources support the general approach; they do not endorse Money Quest. The guide does not claim clinical efficacy or independently certified accessibility.
+
+Final PDF: 1,649,806 bytes; SHA-256 `5804a1aab9ff055846980a05c8aea6e14b72bc48b79fe0087d18082e0abd47e1`. The original source hash above remains the input guard. Reproduce the final private edition with `python3 scripts/finalize-parent-guide.py --source /private/Little_Minds_Smart_Money_Illustrated.pdf --output /private/Little_Minds_Smart_Money_Final.pdf`. The script refuses modified sources, existing output files and output inside this public repository.
 
 The original source remains in the owner's existing private ChatGPT file. Only a WebP rendering of its original first-page cover is committed. The complete PDF is deliberately absent from Git, public/, offline assets and this public repository. No unrestricted PDF URL exists.
 
@@ -16,15 +18,15 @@ The original source remains in the owner's existing private ChatGPT file. Only a
 
 The server expects the PDF inside its existing `MONEYQUEST_DOWNLOAD_DIRECTORY`, outside both the application directory and `MONEYQUEST_DOCUMENT_ROOT`. Its content-addressed filename is:
 
-`parent-toolkit-little-minds-smart-money-1d3e2d2b3666562786cbeffdd413bb572d3fd29a0bf372df63f2b34261d93833.pdf`
+`parent-toolkit-little-minds-smart-money-5804a1aab9ff055846980a05c8aea6e14b72bc48b79fe0087d18082e0abd47e1.pdf`
 
 No LIVE key, signing secret, product, Stripe Price or product amount is changed. The existing merchant/release, SMTP, paid ZIP and readiness rules remain in force. The new shop page disables purchase controls when the bonus is not installed, and the checkout route verifies it again before creating any Stripe Session. A missing or corrupt bonus therefore cannot start a new charge. Existing paid orders can still retrieve their original product using the existing mechanism.
 
-After editorial resolution and normal code review, an operator with Namecheap access must:
+After normal code review, an operator with Namecheap access must:
 
-1. Obtain the exact approved original PDF privately. Do not upload it to public_html, public/, or Git.
+1. Obtain the exact approved final PDF privately. Do not upload it to public_html, public/, or Git.
 2. Make it available at an absolute private source path on the host, keeping the existing private download directory and document-root settings.
-3. Run `npm run shop:install-parent-bonus -- /absolute/private/source/Little_Minds_Smart_Money_Illustrated.pdf` from the application, using the existing private environment configuration. The installer verifies exact bytes and SHA-256, writes with mode 0600 and verifies the destination again.
+3. Run `npm run shop:install-parent-bonus -- /absolute/private/source/Little_Minds_Smart_Money_Final.pdf` from the application, using the existing private environment configuration. The installer verifies exact bytes and SHA-256, writes with mode 0600 and verifies the destination again.
 4. Run `npm run shop:check`. The extra bonus-integrity readiness check must pass alongside the existing product, merchant and SMTP checks.
 5. Complete a staged sandbox purchase and confirm host mail/download delivery before production activation.
 
@@ -64,6 +66,14 @@ The preview uses the site's cream/sage design, responsive layout and existing ni
 
 ## Remaining blockers
 
-1. Resolve the final-guide/editorial-draft contradiction on page 8.
+1. Final-edition editorial corrections are complete and visually reviewed.
 2. Install the approved PDF in Namecheap's existing private download directory. Hosting access is not available in this session, so no host or LIVE-delivery pass is claimed.
-3. Follow the existing production review/release process; this feature is proposed as a draft PR and must not merge automatically. Existing commerce launch gates, including unreleased products, are unchanged.
+3. Follow the existing production review/release process; this feature is proposed as a draft PR and may merge only after fresh code/build/browser validation. Existing commerce launch gates, including unreleased products, are unchanged.
+
+## Fresh final-edition verification, 4 November 2026
+
+The feature was integrated with production main `88bf4d911969c5d003573333a7862bc044fb8b94` in an isolated worktree. Node 24.22.1 TypeScript and ESLint pass; 52/52 unit suites pass, including actual checkout, webhook, entitlement, recovery and download route execution with synthetic payments. Production build generates 826 static pages and the offline manifest; the multilingual release check reports no website-content blockers after generated lesson worksheets are present. This website-content check does not certify the paid Academy translations.
+
+The final PDF reproduces byte-identically, keeps every embedded illustration byte-identical, contains eight A4 pages with an English language tag, has no draft/illustration-slot notes and no text outside page bounds. All eight final pages were rendered and visually reviewed. Its private installer succeeds against the actual final bytes. Neither a real charge nor an external email was sent.
+
+Fresh local browser execution is blocked: Playwright's Chromium download returns an invalid ZIP in this environment. The earlier browser results above describe the previous feature checkpoint, not a new browser pass on this final tree. Fresh GitHub CI/browser verification is required before merge. Namecheap private installation and hosted payment/email/download verification remain outstanding.

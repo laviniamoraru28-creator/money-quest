@@ -44,7 +44,7 @@ for(const path of ["/en/parents/resources","/en/parents/shop","/en/parents/shop/
 test("parent shop is visible from home at narrow widths and learning stays available",async({page})=>{
  await page.setViewportSize({width:320,height:900});await page.goto("/en");
  await expect(page.getByRole("link",{name:"Parent shop · PDFs",exact:true})).toBeVisible();
- const image=page.getByRole("img",{name:/AI-generated illustration of a smiling child/});
+ const image=page.getByRole("img",{name:/illustration of a smiling child/});
  await expect.poll(()=>image.evaluate((el:HTMLImageElement)=>el.complete&&el.naturalWidth>0)).toBe(true);
  expect(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)).toBe(false);
  await page.getByRole("link",{name:"Parent shop · PDFs",exact:true}).click();await expect(page.getByRole("heading",{name:"Bring Money Quest learning to your kitchen table"})).toBeVisible();

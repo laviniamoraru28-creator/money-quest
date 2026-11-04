@@ -4,11 +4,11 @@ import path from "node:path";
 import {privateDirectory} from "./private-path";
 export const PARENT_BONUS_ID="little-minds-smart-money";
 export type ParentBonusGrant={id:string;version:string;title:string;language:"en";file:string;sha256:string;bytes:number};
-/** Original eight-page illustrated source. Never place this PDF in public/ or Git. */
+/** Final eight-page illustrated edition. Never place this PDF in public/ or Git. */
 export const PARENT_BONUS:Readonly<ParentBonusGrant>={
  id:PARENT_BONUS_ID,version:"2026-11-04",title:"Little Minds, Smart Money",language:"en",
- file:"parent-toolkit-little-minds-smart-money-1d3e2d2b3666562786cbeffdd413bb572d3fd29a0bf372df63f2b34261d93833.pdf",
- sha256:"1d3e2d2b3666562786cbeffdd413bb572d3fd29a0bf372df63f2b34261d93833",bytes:1662500
+ file:"parent-toolkit-little-minds-smart-money-5804a1aab9ff055846980a05c8aea6e14b72bc48b79fe0087d18082e0abd47e1.pdf",
+ sha256:"5804a1aab9ff055846980a05c8aea6e14b72bc48b79fe0087d18082e0abd47e1",bytes:1649806
 };
 export function validateParentBonus(value:unknown):ParentBonusGrant{
  const grant=value as ParentBonusGrant;
