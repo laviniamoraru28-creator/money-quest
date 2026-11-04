@@ -47,7 +47,7 @@ for(const lab of learningLabs)test(`actual age-specific lab wording: ${lab.slug}
 
 test("offline download covers unvisited books and leadership, with removable local copy",async({page,context})=>{
   test.setTimeout(240000);
-  await page.goto("/en");await page.getByText("Use without internet",{exact:true}).click();
+  await page.goto("/en");await page.locator("summary",{hasText:"Settings"}).click();await page.getByText("Use without internet",{exact:true}).click();
   await page.getByRole("button",{name:"Download for offline use",exact:true}).click();
   await expect(page.getByRole("status").filter({hasText:"Offline download complete:"})).toBeVisible({timeout:180000});
   await context.setOffline(true);

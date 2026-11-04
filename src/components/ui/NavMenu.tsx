@@ -99,8 +99,28 @@ export function NavMenu() {
         <ActionIcon name="menu" />
       </button>
 
-      {isOpen && (
-        <div className="fixed inset-0 z-[60] flex justify-end bg-ink/50" role="presentation">
+      {
+        // Always rendered (never unmounted), so every real route below
+        // stays present in the server-rendered HTML - crawlable and
+        // reachable without executing JS or simulating a click. Hidden
+        // via a plain "hidden" utility class rather than conditional
+        // mounting or the native `hidden` attribute: Tailwind's `flex`
+        // utility is author-origin CSS and would silently override the
+        // attribute's user-agent-origin `display:none`, regardless of
+        // selector specificity, since author styles always beat
+        // user-agent defaults in the cascade - a real, easy-to-miss
+        // gotcha when mixing the two. Swapping the whole class string
+        // (not just adding "hidden" alongside "flex") sidesteps it.
+        // `aria-hidden` covers the accessibility tree directly rather
+        // than relying on `display:none` alone to exclude it, and
+        // closing-to-open still re-triggers the CSS entrance animation
+        // (restoring `display` restarts a paused CSS animation).
+      }
+        <div
+          aria-hidden={!isOpen}
+          className={isOpen ? "fixed inset-0 z-[60] flex justify-end bg-ink/50" : "hidden"}
+          role="presentation"
+        >
           <div
             ref={panel}
             role="dialog"
@@ -186,7 +206,6 @@ export function NavMenu() {
             </nav>
           </div>
         </div>
-      )}
     </>
   );
 }
