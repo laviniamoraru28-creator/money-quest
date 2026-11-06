@@ -33,7 +33,12 @@ for(const locale of LOCALES) for(const band of ['explorer','builder','strategist
   const lesson=LESSON_STRUCTURES.find(item=>item.ageBand===band && item.topicId==='money_basics')!;
   const title=messages.curriculum[lesson.id].title;
   await page.addInitScript(state=>localStorage.setItem('moneyquest_local_progress_v1',JSON.stringify(state)),{...createDefaultState(),ageBand:band});
-  await page.goto(`/${locale}/play/world/${lesson.worldId}/lesson/${lesson.id}`);
+  await page.goto(`/${locale}/play/world/${lesson.worldId}`);
+  await expect(page.locator('#money-examples-heading')).toBeVisible();
+  await page.locator(`a[href="/${locale}/play/world/${lesson.worldId}/lesson/${lesson.id}"]`).click();
+  await expect(page.locator('[data-lesson-section="lesson"]')).toBeVisible();
+  await expect(page.locator('#money-examples-heading')).toHaveCount(0);
+  await page.getByRole('button',{name:messages.lesson.backToMoneyForms,exact:true}).click();
   const forms=page.locator('[data-lesson-section="examples"]');
   await expect(forms).toBeVisible();
   if(locale==='en' && band==='explorer') await page.screenshot({path:test.info().outputPath('money-forms.png'),fullPage:true});
@@ -78,6 +83,7 @@ for(const locale of LOCALES) for(const band of ['explorer','builder','strategist
   for(const lesson of LESSON_STRUCTURES.filter(item=>item.ageBand===band)) {
    await page.goto(`/${locale}/play/world/${lesson.worldId}/lesson/${lesson.id}`);
    if(lesson.topicId==='money_basics') {
+    await page.getByRole('button',{name:messages.lesson.backToMoneyForms,exact:true}).click();
     await expect(page.locator('img[src*="/money/card.webp"]')).toBeVisible();
     await page.getByRole('button',{name:messages.lesson.continueToLesson.replace('{title}',messages.curriculum[lesson.id].title),exact:true}).click();
    }

@@ -52,7 +52,7 @@ const TERM_ACCENTS = ["gold", "coral", "soft-blue"] as const;
 
 export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, previousActivityHref, activityPosition, onComplete }: LessonPlayerProps) {
   const router = useRouter();
-  const [section, setSection] = useState<"examples" | "lesson">(activity.topicId === "money_basics" ? "examples" : "lesson");
+  const [section, setSection] = useState<"examples" | "lesson">("lesson");
   const sectionHeading = useRef<HTMLHeadingElement>(null);
   function changeSection(next: "examples" | "lesson") {
     window.dispatchEvent(new Event("moneyquest-stop-speech"));
