@@ -11,25 +11,28 @@ import {LOCALES} from "../../src/i18n/config";
 const publicProductId=[...publiclyListedProductIds][0]!;
 
 for(const locale of LOCALES){
- test(`${locale}: bonus promotion, full cover, mobile and night view`,async({page})=>{
+ test(`${locale}: withdrawn bonus stays hidden while published products and night view remain usable`,async({page})=>{
   const copy=parentBonusCopy[locale];
   await page.goto(`/${locale}/parents/shop`);
-  const promo=page.getByRole("region",{name:"Little Minds, Smart Money",exact:true});
-  await expect(promo.getByText(copy.badge,{exact:true})).toBeVisible();
-  for(const text of [copy.description,copy.activities,copy.included,copy.englishOnly])await expect(promo.getByText(text,{exact:true})).toBeVisible();
-  const image=promo.getByRole("img",{name:copy.coverAlt,exact:true});await expect.poll(()=>image.evaluate((el:HTMLImageElement)=>el.complete&&el.naturalWidth>0)).toBe(true);
+  await expect(page.getByRole("region",{name:"Little Minds, Smart Money",exact:true})).toHaveCount(0);
+  await expect(page.getByText(copy.badge,{exact:true})).toHaveCount(0);
+  await expect(page.getByRole("img",{name:copy.coverAlt,exact:true})).toHaveCount(0);
+  await expect(page.locator('a[href$="Little_Minds_Smart_Money_Illustrated.pdf"]')).toHaveCount(0);
+  await expect(page.locator("article[id]")).toHaveCount(publiclyListedProductIds.size);
+  const product=page.locator(`article#${publicProductId}`);
+  await expect(product.getByRole("heading")).toBeVisible();
+  const image=product.getByRole("img");
+  await expect.poll(()=>image.evaluate((el:HTMLImageElement)=>el.complete&&el.naturalWidth>0)).toBe(true);
   expect(await image.evaluate(el=>getComputedStyle(el).objectFit)).toBe("contain");
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
-  await expect(promo.locator("form,a,button")).toHaveCount(0);await expect(page.locator("article[id]")).toHaveCount(publiclyListedProductIds.size);
-  await promo.screenshot({path:test.info().outputPath("bonus-light.png")});
-  const settings=page.locator("details").filter({has:page.getByText(siteControlsCopy[locale].night,{exact:true})});
-  await settings.locator(":scope > summary").click();
-  await settings.getByRole("checkbox",{name:siteControlsCopy[locale].night,exact:true}).check();
-  await settings.locator(":scope > summary").click();
+  const settings=page.locator('[data-settings-trigger]');
+  await settings.click();
+  await page.getByRole("checkbox",{name:siteControlsCopy[locale].night,exact:true}).check();
+  await settings.click();
   await expect(page.locator("html")).toHaveAttribute("data-night-view","true");
-  await expect.poll(()=>promo.evaluate(el=>getComputedStyle(el).color)).toBe("rgb(255, 255, 255)");
+  await expect.poll(()=>product.evaluate(el=>getComputedStyle(el).color)).toBe("rgb(255, 255, 255)");
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
-  await promo.screenshot({path:test.info().outputPath("bonus-night.png")});
+  const a11y=await new AxeBuilder({page}).withTags(["wcag2a","wcag2aa","wcag21aa"]).analyze();expect(a11y.violations).toEqual([]);
  });
  test(`${locale}: verified success has two separate secure POST downloads`,async({page})=>{
   await page.route("**/api/shop/order",route=>route.fulfill({status:200,contentType:"application/json",body:JSON.stringify({token:"mock-verified-purchase-token",bonusAvailable:true})}));

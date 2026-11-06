@@ -19,7 +19,7 @@ test("Listen is present in Leadership and reads visible content without form val
 });
 
 // Night view now lives inside the consolidated Global Settings panel
-// (a native <details>, whose <summary> carries an implicit button role)
+// (a native popover with a labelled Settings button)
 // rather than its own always-visible toolbar button.
 for(const path of ["/en","/en/library","/en/brain-lab","/en/mind-lab","/en/leadership-quest","/en/play/investing-lab"])test(`night view contrast and persistence: ${path}`,async({page})=>{
   await page.goto(path);await page.locator('button[data-settings-trigger][aria-label="Settings"]').click();await page.getByRole("checkbox",{name:"Night view",exact:true}).check();
@@ -49,7 +49,9 @@ test("offline download covers unvisited books and leadership, with removable loc
   test.setTimeout(240000);
   await page.goto("/en");await page.locator('button[data-settings-trigger][aria-label="Settings"]').click();await page.getByText("Use without internet",{exact:true}).click();
   await page.getByRole("button",{name:"Download for offline use",exact:true}).click();
-  await expect(page.getByRole("status").filter({hasText:"Offline download complete:"})).toBeVisible({timeout:180000});
+  const result=page.getByRole("status").filter({hasText:/Offline download complete:|could not be saved|timed out|storage is full/i});
+  await expect(result).toBeVisible({timeout:180000});
+  await expect(result).toContainText("Offline download complete:");
   await context.setOffline(true);
   for(const path of ["/en/library/the-little-compass-and-the-money-choices","/en/leadership-quest","/en/mind-lab","/en/quiet-corner"]){
     await page.goto(path);await expect(page.locator("main h1")).toBeVisible();

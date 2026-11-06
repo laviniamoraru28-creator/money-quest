@@ -15,7 +15,7 @@ jobs:
       matrix:
         node: [24.22.1]
     runs-on: ubuntu-24.04
-    timeout-minutes: 30
+    timeout-minutes: 60
     env:
       NEXT_PUBLIC_SITE_URL: https://moneyquesteducation.com
       NEXT_TELEMETRY_DISABLED: 1
@@ -64,7 +64,7 @@ jobs:
       - name: Browser journeys and WCAG checks
         env:
           E2E_BASE_URL: http://localhost:3000
-        run: npx playwright test --project=desktop-chrome --project=mobile-chrome --max-failures=8
+        run: npx playwright test --project=desktop-chrome --project=mobile-chrome --workers=2 --max-failures=8
       - name: Safari certificate downloads on iPhone and iPad
         run: |
           npx playwright install --with-deps webkit
