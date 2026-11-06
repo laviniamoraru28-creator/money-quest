@@ -3,7 +3,7 @@ import AxeBuilder from "@axe-core/playwright";
 
 test("real videos load only after a choice, play locally and keep accessible controls",async({page},testInfo)=>{
   const media:string[]=[];const external:string[]=[];
-  page.on("request",request=>{const url=new URL(request.url());if(url.pathname.endsWith(".mp4"))media.push(url.pathname);if(url.hostname!=="localhost"&&url.hostname!=="127.0.0.1")external.push(url.hostname);});
+  page.on("request",request=>{const url=new URL(request.url());if(url.pathname.endsWith(".mp4"))media.push(url.pathname);if(["http:","https:"].includes(url.protocol)&&url.hostname!=="localhost"&&url.hostname!=="127.0.0.1")external.push(url.hostname);});
   await page.emulateMedia({reducedMotion:"no-preference"});
   await page.setViewportSize({width:320,height:900});
   await page.goto("/en/quiet-corner");
