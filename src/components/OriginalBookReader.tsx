@@ -61,7 +61,6 @@ export default function OriginalBookReader({book,locale,paragraphsPerPage}:Reade
     } catch { setSaveStatus("saveFailure"); }
   };
   return <div className="min-h-screen bg-fog text-ink">
-    <header className="border-b border-ink/15 bg-white"><nav aria-label={copy.bookNav} className="mx-auto flex max-w-5xl flex-wrap items-center gap-5 px-5 py-3"><Link href="/library" className="min-h-12 py-3 font-semibold text-teal-text underline">{copy.backLibrary}</Link><Link href="/" className="min-h-12 py-3 font-semibold text-teal-text underline">{copy.home}</Link></nav></header>
     <main id="main-content" tabIndex={-1} className="mx-auto max-w-5xl px-5 py-8">
       <p className="font-semibold text-teal-text">{copy.original}</p><h1 className="mt-3 text-3xl md:text-4xl">{book.title}</h1><p className="mt-3 text-lg">{book.subtitle}</p><p className="mt-2">{book.audience}</p>
       <p className="mt-4 max-w-3xl">{readerText(locale,"intro",{count:book.chapters.length})}</p>
