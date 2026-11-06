@@ -27,21 +27,6 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(orgSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(webSiteSchema) }} />
 
-      <header className="border-b border-ink/10 bg-white">
-        <div className="mx-auto flex max-w-[1200px] flex-wrap items-center justify-between gap-3 px-sm py-xs">
-          <span className="font-display text-lg font-bold text-teal-text">{t("common.moneyQuest")}</span>
-          {/* Sitewide categorized navigation (Learning Adventures, Explore &
-              Discover, Library & Museum, Wellbeing & Inclusion, For Parents,
-              Information) is the universal nav drawer rendered once in the
-              root layout's PageReadAloud bar above — not duplicated here, so
-              there's exactly one accessible, tested nav mechanism covering
-              every route, not two different ones on the homepage alone. */}
-          <div className="flex flex-wrap items-center gap-sm">
-            <Link href="/parents/shop" className="hidden md:inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-parent-action px-4 py-3 font-bold text-white shadow-sm"><span aria-hidden="true">▤</span> {t("nav.parentShop")}</Link>
-          </div>
-        </div>
-      </header>
-
       <main id="main-content" tabIndex={-1}>
         {/* Hero */}
         <section className="mx-auto max-w-[1200px] px-sm py-2xl md:py-3xl">
