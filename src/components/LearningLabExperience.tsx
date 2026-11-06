@@ -2,7 +2,6 @@
 import {ActionIcon} from "@/components/ui/ActionIcon";
 import Image from "next/image";
 import {useEffect,useRef,useState} from "react";
-import {Link} from "@/i18n/navigation";
 import {laboratoryCopy,laboratoryPosition,laboratorySpeechLocales} from "@/content/laboratory-copy";
 import type {LaboratoryPresentation} from "@/lib/i18n/laboratory-presentation";
 import {labAgeVariants,labTaskAtLevel} from "@/content/lab-age-variants";
@@ -30,6 +29,5 @@ export default function LearningLabExperience({lab,locale="en",variants=labAgeVa
     {answer!==null&&<p role="status" className="mt-4 rounded-xl bg-fog p-4">{answer===item.correct?`${copy.correct} ${item.explanation}`:copy.retry}</p>}
     <section className="mt-6 border-t pt-5"><h3 className="text-xl">{copy.tryHeading}</h3><p className="mt-2 text-lg">{item.tryIt[level]}</p><p className="mt-2 text-sm">{copy.communication}</p><button type="button" disabled={!storageReady} onClick={mark} className="mt-4 min-h-12 rounded-xl bg-teal px-5 py-3 font-bold text-white">{done.includes(key)?copy.practised:copy.mark}</button><p role="status" className="mt-2 text-sm">{storageFailed?copy.storageFailed:done.includes(key)?copy.saved:""}</p></section>
     </article><nav aria-label={copy.steps} className="mt-5 flex flex-wrap gap-3"><button type="button" disabled={index===0} onClick={()=>choose(index-1)} className="min-h-12 rounded-xl border border-teal px-5 py-3 disabled:opacity-40">{copy.back}</button><button type="button" disabled={index===lab.tasks.length-1} onClick={()=>choose(index+1)} className="min-h-12 rounded-xl bg-teal px-5 py-3 text-white disabled:opacity-40">{copy.next}</button></nav>
-    {false && lab.slug === "future-skills" && <nav aria-label={copy.deeper} className="mt-8 flex flex-wrap gap-3">{[["entrepreneur-quest",copy.entrepreneur],["leadership-quest",copy.leadership],["real-life-quests",copy.realLife]].map(([path,label])=><Link key={path} href={`/${path}`} className="min-h-12 rounded-xl border border-teal bg-white px-4 py-3 text-teal-text">{label}</Link>)}</nav>}
     </main></div>;
 }
