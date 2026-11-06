@@ -15,7 +15,6 @@ import peoplePl from "@/content/translations/people.pl.json";
 import {draftTranslatedBook,draftTranslatedBiography} from "./content-translations";
 import {draftTranslatedExternalBook} from "./content-translations";
 import {publicOriginalBooks} from "@/content/library-publication";
-import {libraryPeople} from "@/content/people";
 import {publicLibraryPeople} from "@/content/people-publication";
 import {authorBooks} from "@/content/author-books";
 import externalBooks from "@/content/translations/author-books.ro.json";
