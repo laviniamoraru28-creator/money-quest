@@ -94,6 +94,7 @@ test("background audio stays silent initially, persists between pages and stops 
  expect(await states()).toEqual(["running"]);
  await page.getByRole("button",{name:"Listen",exact:true}).first().click();
  await expect.poll(states).toEqual(["closed"]);
+ await page.locator("[data-settings-trigger]").click();
  await page.getByRole("button",{name:"Play sound",exact:true}).click();
  await expect.poll(states).toEqual(["closed","running"]);
  await page.evaluate(()=>window.dispatchEvent(new Event("pagehide")));

@@ -26,7 +26,7 @@ export function BackgroundSound({locale}:{locale:string}) {
  return <details className="rounded-xl border border-teal/40 bg-white px-3"><summary className="min-h-12 cursor-pointer py-3 font-semibold text-teal-text">{t.background}{active?" ●":""}</summary>
   <div className="flex max-w-md flex-wrap gap-3 pb-4"><label className="w-full">{t.background}<select aria-label={t.background} value={sound} onChange={e=>{stop();setSound(e.target.value as QuietSound);}} className="mt-1 block min-h-12 w-full min-w-0 max-w-full rounded-xl border border-ink/30 p-2">{(["waves","forest","rain","notes"] as const).map(id=><option key={id} value={id}>{t[id]}</option>)}</select></label>
    <button type="button" aria-pressed={active||starting} onClick={()=>{if(active||starting)stop();else void play();}} className="min-h-12 rounded-xl border border-teal px-4 py-3 font-semibold text-teal-text">{active||starting?t.stop:t.play}</button>
-   <label className="flex min-h-12 flex-wrap items-center gap-2">{t.volume}<input aria-label={`${t.background}: ${t.volume}`} className="h-12 w-28 accent-teal" type="range" min="0" max="100" value={volume} onChange={e=>{const value=Number(e.target.value);setVolume(value);audio.current?.setVolume(value);}}/><output>{volume}%</output></label>
+   <label className="flex min-h-12 flex-wrap items-center gap-2">{t.volume}<input aria-label={`${t.background}: ${t.volume}`} className="h-12 w-28 accent-teal" type="range" min="0" max="100" aria-valuetext={`${volume}%`} value={volume} onChange={e=>{const value=Number(e.target.value);setVolume(value);audio.current?.setVolume(value);}}/><output>{volume}%</output></label>
    <p className="w-full text-sm">{t.hint}</p><p role="status">{message}</p>
   </div></details>;
 }
