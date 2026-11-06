@@ -1,5 +1,4 @@
 import Image from "next/image";
-import {WelcomeMessage} from "@/components/WelcomeMessage";
 import {HomepageReviews} from "@/components/HomepageReviews";
 import {isSupportedLocale} from "@/i18n/config";
 import { getTranslations } from "next-intl/server";
@@ -61,7 +60,6 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
                   alt={t("landing.heroImageAlt")} width={1536} height={1024} priority
                   className="h-auto w-full object-cover" />
               </picture>
-              <WelcomeMessage/>
               <div className="bg-white px-4 pb-4"><Link href="/play" className="inline-flex min-h-12 w-full items-center justify-center rounded-xl bg-teal px-5 py-3 text-center font-bold text-white hover:bg-teal/90">{t("landing.ctaGetStartedFree")}</Link></div>
             </div>
           </div>
