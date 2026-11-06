@@ -1,7 +1,6 @@
 import { AcademyCertificateReward } from "@/components/AcademyCertificateReward";
 import type { ReactNode } from "react";
 import { SoundToggle } from "@/components/ui/SoundToggle";
-import { AccessibilityMenu } from "@/components/ui/AccessibilityMenu";
 
 /**
  * Wraps every /play/* page (World Map, lessons, games, the Simulator,
@@ -21,8 +20,7 @@ import { AccessibilityMenu } from "@/components/ui/AccessibilityMenu";
 export default function PlayLayout({ children }: { children: ReactNode }) {
   return (
     <>
-      <div className="sticky top-0 z-40 flex flex-wrap justify-end gap-2 bg-white/95 px-4 py-2 shadow-sm" aria-label="Learning settings">
-        <AccessibilityMenu />
+      <div className="sticky top-0 z-40 flex flex-wrap justify-end gap-2 bg-white/95 px-4 py-2 shadow-sm" aria-label="Learning sound">
         <SoundToggle />
       </div>
       {children}
