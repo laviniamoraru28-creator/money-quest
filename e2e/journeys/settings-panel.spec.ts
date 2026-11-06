@@ -50,7 +50,7 @@ for(const locale of LOCALES) test(`${locale}: settings close by trigger, X, Esca
  await page.keyboard.press('Escape');await closed();
  await page.reload();await open();await checkBounds();
  await expect(panel.getByRole('checkbox',{name:text[7],exact:true})).toBeChecked();
- if(locale==='en')await page.screenshot({path:test.info().outputPath('settings-extra-text-contrast.png'),fullPage:true});
+ if(locale==='en')await page.screenshot({path:test.info().outputPath('settings-extra-text-contrast.png'),fullPage:false});
  await close.click();await closed();
  // No hidden layer can intercept the navigation after closing.
  await page.getByRole('link',{name:'Money Quest',exact:true}).first().click();

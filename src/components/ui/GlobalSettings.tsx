@@ -42,12 +42,12 @@ export function GlobalSettings({locale,copy,compact=false}:{locale:Locale;copy:S
  // The browser handles outside taps, Escape, repeated trigger clicks and Tab.
  return <div data-read-aloud-ignore className="relative rounded-xl border border-teal/40 bg-white text-ink">
   <button ref={trigger} type="button" data-settings-trigger {...{popovertarget:id,popovertargetaction:"toggle"}} aria-label={t[0]} title={t[0]} aria-expanded={open} aria-controls={id} aria-haspopup="dialog" className={compact?"flex min-h-11 min-w-11 items-center justify-center rounded-lg text-xl font-semibold text-teal-text":"min-h-12 px-4 py-3 font-semibold text-teal-text"}><span aria-hidden="true">⚙</span>{!compact&&t[0]}</button>
-  <div ref={panel} id={id} popover="auto" role="dialog" aria-labelledby={`${id}-title`} data-settings-panel className="fixed inset-x-4 top-20 m-0 max-h-[calc(100dvh-6rem)] space-y-4 overflow-y-auto overscroll-contain rounded-2xl border border-teal/30 bg-white p-4 text-ink shadow-lg md:left-auto md:w-[min(24rem,calc(100vw-2rem))]">
+  <div ref={panel} id={id} popover="auto" role="dialog" aria-labelledby={`${id}-title`} data-settings-panel className="fixed inset-x-4 top-20 m-0 w-[calc(100vw-2rem)] min-w-0 max-w-[calc(100vw-2rem)] max-h-[calc(100dvh-6rem)] space-y-4 overflow-y-auto overscroll-contain rounded-2xl border border-teal/30 bg-white p-4 text-ink shadow-lg md:left-auto md:w-[min(24rem,calc(100vw-2rem))]">
    <div className="sticky top-0 z-10 -mx-1 flex items-center justify-between gap-3 bg-white px-1 py-2">
     <h2 id={`${id}-title`} className="min-w-0 break-words font-bold">{t[0]}</h2>
     <button ref={close} type="button" aria-label={closeLabels[locale]} title={closeLabels[locale]} onClick={closePanel} className="flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-lg border border-teal text-xl font-bold text-teal-text"><span aria-hidden="true">×</span></button>
    </div>
-   <fieldset className="space-y-2"><legend className="font-bold">{t[1]}</legend>
+   <fieldset className="min-w-0 space-y-2"><legend className="font-bold">{t[1]}</legend>
     {toggle(copy.night,p.nightView,p.toggleNightView)}
     <label className="block">{t[2]}<select disabled={!p.isLoaded} value={p.imageSize} onChange={e=>p.setPreference("imageSize",e.target.value as typeof p.imageSize)} className="mt-1 min-h-11 w-full rounded-lg border border-ink/30 bg-white p-2"><option value="full">{t[3]}</option><option value="small">{t[4]}</option><option value="minimal">{t[5]}</option></select></label>
     {toggle(t[6],p.reducedMotion,p.toggleReducedMotion)}
@@ -55,7 +55,7 @@ export function GlobalSettings({locale,copy,compact=false}:{locale:Locale;copy:S
     <label className="block">{t[8]}<select disabled={!p.isLoaded} value={p.textSize} onChange={e=>p.setPreference("textSize",e.target.value as typeof p.textSize)} className="mt-1 min-h-11 w-full rounded-lg border border-ink/30 bg-white p-2"><option value="normal">{t[9]}</option><option value="large">{t[10]}</option><option value="extra">{t[11]}</option></select></label>
     {toggle(t[12],p.focusMode,p.toggleFocusMode)}
    </fieldset>
-   <fieldset className="space-y-3"><legend className="font-bold">{t[14]}</legend><BackgroundSound locale={locale}/><OfflineDownload locale={locale} copy={copy}/></fieldset>
+   <fieldset className="min-w-0 space-y-3"><legend className="font-bold">{t[14]}</legend><BackgroundSound locale={locale}/><OfflineDownload locale={locale} copy={copy}/></fieldset>
    <button type="button" disabled={!p.isLoaded} onClick={p.resetPreferences} className="min-h-11 rounded-lg border border-teal px-4 py-2 font-semibold text-teal-text">{t[13]}</button>
   </div>
  </div>;
