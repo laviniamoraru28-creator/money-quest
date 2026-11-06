@@ -51,13 +51,16 @@ export function PageReadAloud({locale,copy}:{locale:Locale;copy:SiteControlsCopy
     if (!text) { setMessage("noText"); return; }
     setMessage(null); speak(text);
   };
-  return <aside aria-label={copy.region} data-read-aloud-ignore className="sticky top-0 z-40 border-b border-teal/20 bg-cream px-3 py-2 text-ink sm:px-5">
-    <div className="mx-auto grid max-w-6xl grid-cols-2 items-center gap-2 sm:flex sm:flex-wrap sm:gap-3">
-      <div className="min-w-0"><LanguageSwitcher/></div>
-      <div className="flex justify-end sm:order-last sm:ml-auto"><NavMenu/></div>
-      <button type="button" disabled={!isSupported} onClick={listen} className="inline-flex min-h-12 items-center gap-2 rounded-xl border border-teal/40 bg-white px-4 py-3 font-semibold text-teal-text disabled:opacity-60"><ActionIcon name="sound"/>{isSpeaking ? copy.stop : copy.listen}</button>
-      <GlobalSettings locale={language} copy={copy}/>
-      <span role="status" className="text-sm">{message?copy[message]:""}</span>
+  return <aside aria-label={copy.region} data-read-aloud-ignore className="sticky top-0 z-40 border-b border-white/20 bg-emerald-800 px-2 py-2 text-white shadow-sm sm:px-5">
+    <div className="mx-auto flex max-w-6xl items-center justify-between gap-1 sm:gap-3">
+      <a href={`/${language}`} className="min-w-0 flex-1 truncate px-1 font-display text-base font-bold tracking-tight text-white sm:text-xl" aria-label="Money Quest home">Money Quest</a>
+      <div className="flex shrink-0 items-center gap-1 sm:gap-2">
+        <LanguageSwitcher compact/>
+        <div className="rounded-lg bg-white"><GlobalSettings locale={language} copy={copy} compact/></div>
+        <button type="button" disabled={!isSupported} onClick={listen} aria-label={isSpeaking?copy.stop:copy.listen} title={isSpeaking?copy.stop:copy.listen} className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg bg-white text-teal-text disabled:opacity-60"><ActionIcon name="sound"/><span className="sr-only">{isSpeaking?copy.stop:copy.listen}</span></button>
+        <NavMenu/>
+      </div>
     </div>
+    {message&&<p role="status" className="mx-auto max-w-6xl pt-1 text-xs text-white">{copy[message]}</p>}
   </aside>;
 }
