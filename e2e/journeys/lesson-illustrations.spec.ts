@@ -39,9 +39,9 @@ for(const locale of LOCALES) for(const band of ['explorer','builder','strategist
   if(locale==='en' && band==='explorer') await page.screenshot({path:test.info().outputPath('money-forms.png'),fullPage:true});
   await expect(page.locator('[data-lesson-section="lesson"]')).toHaveCount(0);
   const first=forms.getByRole('button',{name:moneyExamplesCopy[locale].coins,exact:true});
-  const card=forms.getByRole('button',{name:moneyExamplesCopy[locale].card,exact:true});
+  const card=forms.locator('.grid').getByRole('button',{name:moneyExamplesCopy[locale].card,exact:true});
   await card.click();await expect(card).toHaveAttribute('aria-pressed','true');
-  await forms.getByRole('button',{name:moneyExamplesCopy[locale].cardChoice,exact:true}).click();
+  await forms.getByRole('group',{name:moneyExamplesCopy[locale].question,exact:true}).getByRole('button',{name:moneyExamplesCopy[locale].cardChoice,exact:true}).click();
   const advance=page.getByRole('button',{name:messages.lesson.continueToLesson.replace('{title}',title),exact:true});
   await advance.click();
   await expect(forms).toHaveCount(0);
@@ -57,7 +57,7 @@ for(const locale of LOCALES) for(const band of ['explorer','builder','strategist
   await expect(forms).toBeVisible();
   await expect(first).toHaveAttribute('aria-pressed','true');
   await expect(card).toHaveAttribute('aria-pressed','false');
-  await expect(forms.getByRole('button',{name:moneyExamplesCopy[locale].cardChoice,exact:true})).toHaveAttribute('aria-pressed','false');
+  await expect(forms.getByRole('group',{name:moneyExamplesCopy[locale].question,exact:true}).getByRole('button',{name:moneyExamplesCopy[locale].cardChoice,exact:true})).toHaveAttribute('aria-pressed','false');
   await expect(page.locator('[data-lesson-illustration]')).toHaveCount(0);
   await advance.click();
   await expect(forms).toHaveCount(0);
