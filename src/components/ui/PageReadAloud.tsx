@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import {Link} from "@/i18n/navigation";
 import {GlobalSettings} from "./GlobalSettings";
 import {LanguageSwitcher} from "./LanguageSwitcher";
 import {NavMenu} from "./NavMenu";
@@ -51,14 +52,16 @@ export function PageReadAloud({locale,copy}:{locale:Locale;copy:SiteControlsCopy
     if (!text) { setMessage("noText"); return; }
     setMessage(null); speak(text);
   };
-  return <aside aria-label={copy.region} data-read-aloud-ignore className="border-b border-teal/20 bg-cream px-5 py-2 text-ink">
-    <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-3">
-      <LanguageSwitcher/>
-      <button type="button" disabled={!isSupported} onClick={listen} className="inline-flex min-h-12 items-center gap-2 rounded-xl border border-teal/40 bg-white px-4 py-3 font-semibold text-teal-text disabled:opacity-60"><ActionIcon name="sound"/>{isSpeaking ? copy.stop : copy.listen}</button>
-      <GlobalSettings locale={language} copy={copy}/>
-      <span className="text-sm">{copy.optional}</span>
-      <span role="status" className="text-sm">{message?copy[message]:""}</span>
-      <span className="ml-auto"><NavMenu/></span>
+  return <aside aria-label={copy.region} data-read-aloud-ignore className="sticky top-0 z-40 border-b border-white/20 bg-emerald-800 px-2 py-2 text-white shadow-sm sm:px-5">
+    <div className="mx-auto flex max-w-6xl items-center justify-between gap-1 sm:gap-3">
+      <Link href="/" className="min-w-0 flex-1 truncate px-1 font-display text-sm font-bold tracking-tight text-white min-[375px]:text-base sm:text-xl" aria-label="Money Quest">Money Quest</Link>
+      <div className="flex shrink-0 items-center gap-1 sm:gap-2">
+        <LanguageSwitcher compact/>
+        <div className="rounded-lg bg-white"><GlobalSettings locale={language} copy={copy} compact/></div>
+        <button type="button" disabled={!isSupported} onClick={listen} aria-label={isSpeaking?copy.stop:copy.listen} title={isSpeaking?copy.stop:copy.listen} className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg bg-white text-teal-text disabled:opacity-60"><ActionIcon name="sound"/><span className="sr-only">{isSpeaking?copy.stop:copy.listen}</span></button>
+        <NavMenu/>
+      </div>
     </div>
+    {message&&<p role="status" className="mx-auto max-w-6xl pt-1 text-xs text-white">{copy[message]}</p>}
   </aside>;
 }

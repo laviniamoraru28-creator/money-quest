@@ -1,5 +1,5 @@
 import Image from "next/image";
-import {WelcomeMessage} from "@/components/WelcomeMessage";
+import {certificateJourneyCopy} from "@/content/certificate-journey-copy";
 import {HomepageReviews} from "@/components/HomepageReviews";
 import {isSupportedLocale} from "@/i18n/config";
 import { getTranslations } from "next-intl/server";
@@ -11,6 +11,7 @@ import { getSiteUrl } from "@/lib/seo/site-url";
 export default async function LandingPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const t = await getTranslations();
+  const journey=certificateJourneyCopy[isSupportedLocale(locale)?locale:"en"];
   const siteUrl = getSiteUrl();
   const orgSchema = buildOrganizationSchema(siteUrl);
   const webSiteSchema = buildWebSiteSchema(siteUrl, locale);
@@ -26,22 +27,6 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(orgSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(webSiteSchema) }} />
 
-      <header className="border-b border-ink/10 bg-white">
-        <div className="mx-auto flex max-w-[1200px] flex-wrap items-center justify-between gap-3 px-sm py-xs">
-          <span className="font-display text-lg font-bold text-teal-text">{t("common.moneyQuest")}</span>
-          {/* Sitewide categorized navigation (Learning Adventures, Explore &
-              Discover, Library & Museum, Wellbeing & Inclusion, For Parents,
-              Information) is the universal nav drawer rendered once in the
-              root layout's PageReadAloud bar above — not duplicated here, so
-              there's exactly one accessible, tested nav mechanism covering
-              every route, not two different ones on the homepage alone. */}
-          <div className="flex flex-wrap items-center gap-sm">
-            <Link href="/parents/shop" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-parent-action px-4 py-3 font-bold text-white shadow-sm"><span aria-hidden="true">▤</span> {t("nav.parentShop")}</Link>
-            <Link href="/play" className="inline-flex min-h-12 items-center justify-center rounded-xl px-5 py-3 font-medium bg-teal text-white hover:bg-teal/90">{t("nav.getStarted")}</Link>
-          </div>
-        </div>
-      </header>
-
       <main id="main-content" tabIndex={-1}>
         {/* Hero */}
         <section className="mx-auto max-w-[1200px] px-sm py-2xl md:py-3xl">
@@ -53,10 +38,6 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
               <p className="mt-sm text-lg text-ink/80">
                 {t("landing.heroSubtitle")}
               </p>
-              <div className="mt-md flex flex-wrap gap-xs">
-                <Link href="/play" className="inline-flex min-h-12 items-center justify-center rounded-xl px-5 py-3 font-medium bg-teal text-white hover:bg-teal/90">{t("landing.ctaGetStartedFree")}</Link>
-                <Link href="/play" className="inline-flex min-h-12 items-center justify-center rounded-xl px-5 py-3 font-medium border border-teal text-teal-text hover:bg-teal/5">{t("nav.getStarted")}</Link>
-              </div>
 
             </div>
             <div className="relative overflow-hidden rounded-3xl border border-teal/15 bg-cream shadow-lg">
@@ -66,7 +47,7 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
                   alt={t("landing.heroImageAlt")} width={1536} height={1024} priority
                   className="h-auto w-full object-cover" />
               </picture>
-              <WelcomeMessage/>
+              <div className="bg-white px-4 pb-4"><Link href="/play" className="inline-flex min-h-12 w-full items-center justify-center rounded-xl bg-teal px-5 py-3 text-center font-bold text-white hover:bg-teal/90">{t("landing.ctaGetStartedFree")}</Link></div>
             </div>
           </div>
         </section>
@@ -94,6 +75,13 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
           </div>
         </section>
 
+        <section aria-labelledby="how-it-works-heading" className="mx-auto max-w-[1200px] px-sm pb-2xl">
+          <div className="rounded-2xl border border-teal/20 bg-white p-md md:p-lg">
+            <h2 id="how-it-works-heading" className="font-display text-2xl font-bold">{journey.heading}</h2>
+            <p className="mt-3">{journey.steps}</p>
+            <p className="mt-3">{journey.print}</p>
+          </div>
+        </section>
         {/* Parent shop stays visible; secondary experiences live in the menu. */}
         <section className="mx-auto max-w-[1200px] px-sm pb-2xl" aria-labelledby="parent-shop-heading">
           <div className="grid items-center gap-md overflow-hidden rounded-3xl border border-teal/15 bg-cream p-md md:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] md:p-lg">

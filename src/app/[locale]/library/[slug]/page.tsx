@@ -2,7 +2,7 @@ import {publicDiscoveryPresentation} from "@/lib/i18n/discovery-presentation";
 import {publicLibraryLocale,draftReaderPresentation,draftBiographyPresentation} from "@/lib/i18n/library-presentation";
 import {learningMetadata} from "@/lib/seo/learning-metadata";
 import DiscoveryExperience from "@/components/DiscoveryExperience";
-import {libraryPeople} from "@/content/people";
+import {publicLibraryPeople as libraryPeople} from "@/content/people-publication";
 import BiographyProfile from "@/components/BiographyProfile";
 import OriginalBookReader from "@/components/OriginalBookReader";
 import {notFound} from "next/navigation";

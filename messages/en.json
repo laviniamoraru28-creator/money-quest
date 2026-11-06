@@ -54,6 +54,8 @@
     "level": "Level"
   },
   "lesson": {
+    "continueToLesson": "Continue: {title}",
+    "backToMoneyForms": "Back to forms of money",
     "quickCheck": "Quick check",
     "newWords": "New words",
     "checkMyAnswer": "Check my answer",
@@ -6400,7 +6402,7 @@
     "library": "Library",
     "museum": "Museum",
     "brainLab": "Brain Lab",
-    "mindLab": "Mind Lab",
+    "mindLab": "Emotion Lab",
     "futureSkills": "Future Skills",
     "inclusiveLearning": "Inclusive Learning",
     "visualExplorer": "Visual Explorer",
@@ -6415,5 +6417,15 @@
     "contact": "Contact",
     "privacy": "Privacy",
     "currentPage": "Current page"
+  },
+  "activityGuide": {
+    "complete": "You have finished this activity. Notice what you learned, then choose where to go next.",
+    "incorrect": "Pause and look at the explanation. You can try a different answer when you are ready.",
+    "correct": "You have finished this step. Use what you noticed in the next round.",
+    "playing": "Choose your answer. You can use a hint or try again. There is no timer.",
+    "lessonRetry": "Take a moment. Look at the explanation, then choose again. Mistakes can show what to practise.",
+    "lessonComplete": "You checked your idea and finished this lesson. Choose the next activity when you are ready.",
+    "lessonGoal": "Your goal: explore {title}. Read or listen, then try the question. You can take your time.",
+    "world": "Welcome to {name}. {description} Choose a lesson or a game below. You can take your time."
   }
 }

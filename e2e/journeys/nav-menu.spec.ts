@@ -50,7 +50,7 @@ test("search filters to real existing routes only, with no invented results",asy
  // Search-result links include their section as extra context in the
  // accessible name ("Brain Lab Explore & Discover"), unlike the plain
  // section-browsing view - so match by substring here, not exact:true.
- for(const name of ["Brain Lab","Mind Lab","Investing Lab"])await expect(dialog.getByRole("link",{name:new RegExp(`^${name}\\b`)})).toBeVisible();
+ for(const name of ["Brain Lab","Emotion Lab","Investing Lab"])await expect(dialog.getByRole("link",{name:new RegExp(`^${name}\\b`)})).toBeVisible();
  await expect(dialog.getByRole("button",{name:"Explore & Discover",exact:true})).toBeHidden();
  await search.fill("zzz-nonexistent-xyz");
  await expect(dialog.getByText("No matches found.")).toBeVisible();
@@ -105,9 +105,9 @@ test("every menu link resolves to a real page, no broken links",async({page,requ
 test("dark mode (Night view): menu stays legible and passes WCAG contrast",async({page})=>{
  await page.goto("/en");
  // Night view now lives inside the consolidated Global Settings panel
- // (a native <details>, whose <summary> carries an implicit button role)
+ // (a native popover opened by the labelled Settings button)
  // rather than its own always-visible toolbar button.
- await page.locator("summary",{hasText:"Settings"}).click();
+ await page.locator('button[data-settings-trigger][aria-label="Settings"]').click();
  await page.getByRole("checkbox",{name:"Night view",exact:true}).check();
  await page.getByRole("button",{name:"Menu",exact:true}).click();
  const dialog=page.getByRole("dialog",{name:"Explore Money Quest"});

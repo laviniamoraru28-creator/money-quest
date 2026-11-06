@@ -19,15 +19,15 @@ test("Listen is present in Leadership and reads visible content without form val
 });
 
 // Night view now lives inside the consolidated Global Settings panel
-// (a native <details>, whose <summary> carries an implicit button role)
+// (a native popover with a labelled Settings button)
 // rather than its own always-visible toolbar button.
 for(const path of ["/en","/en/library","/en/brain-lab","/en/mind-lab","/en/leadership-quest","/en/play/investing-lab"])test(`night view contrast and persistence: ${path}`,async({page})=>{
-  await page.goto(path);await page.locator("summary",{hasText:"Settings"}).click();await page.getByRole("checkbox",{name:"Night view",exact:true}).check();
+  await page.goto(path);await page.locator('button[data-settings-trigger][aria-label="Settings"]').click();await page.getByRole("checkbox",{name:"Night view",exact:true}).check();
   await expect(page.locator("html")).toHaveAttribute("data-night-view","true");
   const result=await new AxeBuilder({page}).withTags(["wcag2a","wcag2aa","wcag21aa"]).analyze();expect(result.violations).toEqual([]);
   expect(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)).toBe(false);
   await page.reload();await expect(page.locator("html")).toHaveAttribute("data-night-view","true");
-  await page.locator("summary",{hasText:"Settings"}).click();await page.getByRole("checkbox",{name:"Night view",exact:true}).uncheck();await expect(page.locator("html")).toHaveAttribute("data-night-view","false");
+  await page.locator('button[data-settings-trigger][aria-label="Settings"]').click();await page.getByRole("checkbox",{name:"Night view",exact:true}).uncheck();await expect(page.locator("html")).toHaveAttribute("data-night-view","false");
 });
 
 for(const lab of learningLabs)test(`actual age-specific lab wording: ${lab.slug}`,async({page})=>{
@@ -47,9 +47,11 @@ for(const lab of learningLabs)test(`actual age-specific lab wording: ${lab.slug}
 
 test("offline download covers unvisited books and leadership, with removable local copy",async({page,context})=>{
   test.setTimeout(240000);
-  await page.goto("/en");await page.locator("summary",{hasText:"Settings"}).click();await page.getByText("Use without internet",{exact:true}).click();
+  await page.goto("/en");await page.locator('button[data-settings-trigger][aria-label="Settings"]').click();await page.getByText("Use without internet",{exact:true}).click();
   await page.getByRole("button",{name:"Download for offline use",exact:true}).click();
-  await expect(page.getByRole("status").filter({hasText:"Offline download complete:"})).toBeVisible({timeout:180000});
+  const result=page.getByRole("status").filter({hasText:/Offline download complete:|could not be saved|timed out|storage is full/i});
+  await expect(result).toBeVisible({timeout:180000});
+  await expect(result).toContainText("Offline download complete:");
   await context.setOffline(true);
   for(const path of ["/en/library/the-little-compass-and-the-money-choices","/en/leadership-quest","/en/mind-lab","/en/quiet-corner"]){
     await page.goto(path);await expect(page.locator("main h1")).toBeVisible();
@@ -59,7 +61,7 @@ test("offline download covers unvisited books and leadership, with removable loc
   // removed in favour of the original videos below - nothing left to
   // check here.
   await page.emulateMedia({reducedMotion:"no-preference"});
-  await page.getByText("Real nature videos",{exact:true}).click();
+  await expect(page.getByRole("region",{name:"Real nature videos",exact:true})).toBeVisible();
   for(const [name,id] of [["Ocean water","ocean"],["Rain on a window","rain"],["Aquarium fish","aquarium"]]){
     const range=await page.evaluate(async path=>{const response=await fetch(path,{headers:{Range:"bytes=0-15"}});return {status:response.status,length:(await response.arrayBuffer()).byteLength,range:response.headers.get("Content-Range")};},`/media/quiet/${id}-v1.mp4`);
     expect(range.status).toBe(206);expect(range.length).toBe(16);expect(range.range).toMatch(/^bytes 0-15\//);
@@ -75,6 +77,6 @@ test("offline download covers unvisited books and leadership, with removable loc
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content","noindex,nofollow");
   await page.getByRole("link",{name:"Go to Money Quest home",exact:true}).click();
   await expect(page.locator("main h1")).toBeVisible();
-  await page.locator("summary",{hasText:"Settings"}).click();await page.getByText("Use without internet",{exact:true}).click();await page.getByRole("button",{name:"Remove offline copy",exact:true}).click();
+  await page.locator('button[data-settings-trigger][aria-label="Settings"]').click();await page.getByText("Use without internet",{exact:true}).click();await page.getByRole("button",{name:"Remove offline copy",exact:true}).click();
   await expect(page.getByRole("status").filter({hasText:"Offline copies removed"})).toBeVisible();await context.setOffline(false);
 });

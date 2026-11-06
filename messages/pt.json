@@ -54,6 +54,8 @@
     "level": "Nível"
   },
   "lesson": {
+    "continueToLesson": "Continuar: {title}",
+    "backToMoneyForms": "Voltar às formas de dinheiro",
     "quickCheck": "Verificação rápida",
     "newWords": "Palavras novas",
     "checkMyAnswer": "Verificar a minha resposta",
@@ -6791,7 +6793,7 @@
     "library": "Biblioteca",
     "museum": "Museu",
     "brainLab": "Laboratório do Cérebro",
-    "mindLab": "Laboratório da Mente",
+    "mindLab": "Laboratório das emoções",
     "futureSkills": "Competências para o Futuro",
     "inclusiveLearning": "Aprendizagem inclusiva",
     "visualExplorer": "Explorador visual",
@@ -6806,5 +6808,15 @@
     "contact": "Contacto",
     "privacy": "Privacidade",
     "currentPage": "Página atual"
+  },
+  "activityGuide": {
+    "complete": "Terminaste esta atividade. Pensa no que aprendeste e escolhe o próximo passo.",
+    "incorrect": "Lê a explicação. Podes experimentar outra resposta quando quiseres.",
+    "correct": "Terminaste este passo. Usa o que observaste na próxima ronda.",
+    "playing": "Escolhe a tua resposta. Podes usar uma pista ou tentar novamente. Não há limite de tempo.",
+    "lessonRetry": "Lê a explicação e escolhe novamente. Os erros mostram o que podes praticar.",
+    "lessonComplete": "Verificaste a tua ideia e terminaste a lição. Escolhe a próxima atividade quando quiseres.",
+    "lessonGoal": "O teu objetivo: explorar {title}. Lê ou ouve e responde à pergunta. Segue o teu ritmo.",
+    "world": "Bem-vindo a {name}. {description} Escolhe uma lição ou um jogo. Segue o teu ritmo."
   }
 }

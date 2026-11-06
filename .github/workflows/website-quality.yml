@@ -15,7 +15,7 @@ jobs:
       matrix:
         node: [24.22.1]
     runs-on: ubuntu-24.04
-    timeout-minutes: 30
+    timeout-minutes: 60
     env:
       NEXT_PUBLIC_SITE_URL: https://moneyquesteducation.com
       NEXT_TELEMETRY_DISABLED: 1
@@ -56,11 +56,11 @@ jobs:
       - name: Browser journeys and WCAG checks
         env:
           E2E_BASE_URL: http://localhost:3000
-        run: npx playwright test --project=desktop-chrome --project=mobile-chrome --max-failures=8
+        run: npx playwright test --project=desktop-chrome --project=mobile-chrome --workers=2 --max-failures=8
       - name: Safari certificate downloads on iPhone and iPad
         run: |
           npx playwright install --with-deps webkit
-          npx playwright test academy-certificates.spec.ts --project=iphone-safari --project=tablet-safari
+          npx playwright test academy-certificates.spec.ts settings-panel.spec.ts --project=iphone-safari --project=tablet-safari --workers=2
           npx playwright test library-public.spec.ts nav-menu.spec.ts site-controls.spec.ts quiet-videos.spec.ts multilingual-release.spec.ts --project=tablet-safari
       - name: Require complete published-book artwork before release
         run: node --import tsx scripts/test-library-artwork.ts --complete

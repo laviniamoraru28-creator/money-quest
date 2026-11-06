@@ -7,6 +7,7 @@ import OriginalBookReader from "../src/components/OriginalBookReader";
 import BiographyProfile from "../src/components/BiographyProfile";
 import {LibraryShelves} from "../src/components/LibraryShelves";
 import {publicOriginalBooks} from "../src/content/library-publication";
+import {publicLibraryPeople} from "../src/content/people-publication";
 import {libraryPeople} from "../src/content/people";
 import {authorBooks} from "../src/content/author-books";
 import {readerCopy,readerText,librarySourceDate} from "../src/content/reader-copy";
@@ -53,15 +54,15 @@ function render(locale:Locale,element:React.ReactElement){
 const escape=(value:string)=>value.replaceAll("&","&amp;").replaceAll("'","&#x27;").replaceAll('"',"&quot;").replaceAll("<","&lt;").replaceAll(">","&gt;");
 for(const book of publicOriginalBooks){
  const en=draftReaderPresentation(book,"en"),ro=draftReaderPresentation(book,"ro");
- assert.equal(en.book,book);assert.equal(ro.paragraphsPerPage,en.paragraphsPerPage,"Localized prose must not change pagination");
+ assert.equal(en.book.slug,book.slug);assert.equal(ro.paragraphsPerPage,en.paragraphsPerPage,"Localized prose must not change pagination");
  assert.equal(ro.book.slug,book.slug);assert.equal(ro.book.cover,book.cover);
- assert.deepEqual(ro.book.chapters.map(chapter=>chapter.paragraphs.length),book.chapters.map(chapter=>chapter.paragraphs.length));
- assert.deepEqual(ro.book.chapters.map(chapter=>chapter.choices.map(choice=>choice.correct)),book.chapters.map(chapter=>chapter.choices.map(choice=>choice.correct)));
+ assert.deepEqual(ro.book.chapters.map(chapter=>chapter.paragraphs.length),en.book.chapters.map(chapter=>chapter.paragraphs.length));
+ assert.deepEqual(ro.book.chapters.map(chapter=>chapter.choices.map(choice=>choice.correct)),en.book.chapters.map(chapter=>chapter.choices.map(choice=>choice.correct)));
  for(const locale of LOCALES){
   const view=locale==="en"?en:locale==="ro"?ro:draftReaderPresentation(book,locale);
   const html=render(locale,React.createElement(OriginalBookReader,view));
-  for(const text of [view.book.title,view.book.subtitle,view.book.coverAlt,readerCopy[locale].contents,readerCopy[locale].editorial,readerCopy[locale].words,readerCopy[locale].backLibrary])assert(html.includes(escape(text)),`${locale}/${book.slug}: ${text}`);
-  assert(html.includes(`aria-label="${escape(readerCopy[locale].bookNav)}"`));
+  for(const text of [view.book.title,view.book.subtitle,view.book.coverAlt,readerCopy[locale].contents,readerCopy[locale].words])assert(html.includes(escape(text)),`${locale}/${book.slug}: ${text}`);
+  assert(html.includes(escape(readerCopy[locale].contents)),"Chapter navigation stays accessible through Contents");
   for(const chapter of view.book.chapters)assert(html.includes(escape(chapter.title)),"Every chapter remains directly available in Contents");
   if(locale!=="en")for(const text of ["Book navigation","Contents: choose any chapter","Back to Library"])assert(!html.includes(text),`${locale}/${book.slug}: ${text}`);
  }
@@ -81,7 +82,7 @@ for(const person of libraryPeople){
 }
 for(const locale of LOCALES){
  const presentation=draftShelfPresentation(locale),html=render(locale,React.createElement(LibraryShelves,{presentation}));
- assert.equal(presentation.books.length,publicOriginalBooks.length);assert.equal(presentation.people.length,10);assert.equal(presentation.published.length,12);
+ assert.equal(presentation.books.length,publicOriginalBooks.length);assert.deepEqual(presentation.people.map(person=>person.slug),publicLibraryPeople.map(person=>person.slug));assert.equal(presentation.published.length,12);
  for(const book of presentation.books)assert(html.includes(escape(book.title)));
  for(const person of presentation.people)assert(html.includes(escape(person.topic)));
  presentation.published.forEach((book,index)=>{

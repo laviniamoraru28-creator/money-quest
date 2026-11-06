@@ -46,8 +46,8 @@ for(const lab of learningLabs){
   const messages=JSON.parse(readFileSync(`messages/${locale}.json`,"utf8"));
   const html=renderToStaticMarkup(React.createElement(NextIntlClientProvider,{locale,messages,timeZone:"Europe/London",children:React.createElement(LearningLabExperience,view)}));
   const copy=laboratoryCopy[locale];
-  for(const visible of [view.lab.title,copy.home,copy.challenge,copy.guide,copy.hideGuide,copy.communication,copy.mark,laboratoryPosition(locale,1,lab.tasks.length)])assert(html.includes(escape(visible)),`${locale}/${lab.slug}: rendered ${visible}`);
-  assert(html.includes(`aria-label="${escape(copy.navigation)}"`));assert(html.includes(`aria-label="${escape(copy.guideLabel)}"`));
+  for(const visible of [view.lab.title,copy.challenge,copy.guide,copy.hideGuide,copy.communication,copy.mark,laboratoryPosition(locale,1,lab.tasks.length)])assert(html.includes(escape(visible)),`${locale}/${lab.slug}: rendered ${visible}`);
+  assert(html.includes(`aria-label="${escape(copy.activities)}"`));assert(html.includes(`aria-label="${escape(copy.guideLabel)}"`));
   const first=labTaskAtLevel(lab.slug,view.lab.tasks[0]!,0,view.variants);
   assert(html.includes(escape(first.idea)));assert(html.includes(escape(first.situation)));
   if(locale!=="en"){

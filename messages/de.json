@@ -54,6 +54,8 @@
     "level": "Level"
   },
   "lesson": {
+    "continueToLesson": "Weiter: {title}",
+    "backToMoneyForms": "Zurück zu den Geldformen",
     "quickCheck": "Schnellcheck",
     "newWords": "Neue Wörter",
     "checkMyAnswer": "Meine Antwort prüfen",
@@ -6806,5 +6808,15 @@
     "contact": "Kontakt",
     "privacy": "Datenschutz",
     "currentPage": "Aktuelle Seite"
+  },
+  "activityGuide": {
+    "complete": "Du hast diese Aktivität beendet. Denke an das Gelernte und wähle deinen nächsten Schritt.",
+    "incorrect": "Lies die Erklärung. Du kannst eine andere Antwort ausprobieren, sobald du bereit bist.",
+    "correct": "Du hast diesen Schritt geschafft. Nutze deine Beobachtungen in der nächsten Runde.",
+    "playing": "Wähle deine Antwort. Du kannst einen Hinweis nutzen oder es erneut versuchen. Es gibt kein Zeitlimit.",
+    "lessonRetry": "Lies die Erklärung und wähle erneut. Fehler zeigen dir, was du üben kannst.",
+    "lessonComplete": "Du hast deine Idee geprüft und die Lektion beendet. Wähle die nächste Aktivität, wenn du bereit bist.",
+    "lessonGoal": "Dein Ziel: {title} entdecken. Lies oder höre zu und beantworte dann die Frage. Lass dir Zeit.",
+    "world": "Willkommen in {name}. {description} Wähle eine Lektion oder ein Spiel. Lass dir Zeit."
   }
 }

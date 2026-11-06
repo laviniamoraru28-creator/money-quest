@@ -1,4 +1,3 @@
-import {ParentGuideBonus} from "@/components/ParentGuideBonus";
 import {liveShopCopy} from "@/content/live-shop-copy";
 import type {ReactNode} from "react";
 import Image from "next/image";
@@ -12,7 +11,6 @@ export function ShopCatalogue({locale,copy,products,flowCopy,available,termsRequ
   <main id="main-content" tabIndex={-1} className="mx-auto max-w-6xl px-5 py-9">
    <section className="rounded-3xl border border-teal/20 bg-white p-6 md:p-10"><p className="font-bold text-teal-text">{copy.audience}</p><h1 className="mt-3 max-w-3xl text-3xl leading-tight md:text-4xl">{copy.title}</h1><p className="mt-5 max-w-3xl text-lg leading-relaxed">{copy.intro}</p><p className="mt-4 max-w-3xl">{copy.digital}</p><a href="#free-preview" className="mt-6 inline-flex min-h-12 items-center rounded-xl bg-teal px-6 py-3 font-bold text-white">{copy.sampleCta}</a><p className="mt-3 text-sm">{copy.freeNote}</p></section>
    <aside className="mt-6 rounded-2xl border border-ink/20 bg-cream p-5"><h2 className="text-lg font-bold">{copy.previewTitle}</h2><p className="mt-2">{copy.previewBody}</p></aside>
-   <ParentGuideBonus locale={locale}/>
    {merchant&&<div className="mt-6">{merchant}</div>}
    <section id="free-preview" aria-labelledby="products-title" className="mt-10 scroll-mt-6"><h2 id="products-title" className="text-2xl">{copy.productsTitle}</h2><div className="mt-6 grid items-start gap-7 lg:grid-cols-2">{products.map((product,index)=><article key={product.id} id={product.id} className="min-w-0 overflow-hidden rounded-3xl border border-ink/20 bg-white">
     <div className="bg-cream p-6"><Image unoptimized src={product.image} alt={product.imageAlt} width={640} height={900} className="mx-auto h-72 w-auto max-w-full rounded-xl object-contain shadow-md"/></div>

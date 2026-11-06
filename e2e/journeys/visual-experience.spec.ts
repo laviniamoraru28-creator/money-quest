@@ -24,7 +24,7 @@ test("illustrated shelf covers open and close books with keyboard and reduced mo
  await page.screenshot({path:test.info().outputPath("open-illustrated-book.png"),fullPage:true});
  await page.getByRole("button",{name:"Close book",exact:true}).click();
  // Night view now lives inside the consolidated Global Settings panel.
- await page.locator("summary",{hasText:"Settings"}).click();
+ await page.locator('button[data-settings-trigger][aria-label="Settings"]').click();
  await page.getByRole("checkbox",{name:"Night view",exact:true}).check();
  await expect(page.locator("html")).toHaveAttribute("data-night-view","true");
  await expect(page.locator(".library-cover > span").first()).toHaveCSS("color","rgb(255, 255, 255)");
@@ -33,13 +33,13 @@ test("illustrated shelf covers open and close books with keyboard and reduced mo
  await expect(page.getByRole("button",{name:"Open book",exact:true})).toBeVisible();
 });
 
-test("every Museum room has a representative image and generation disclosure",async({page})=>{
+test("every Museum room keeps a representative image and accessible description",async({page})=>{
  for(const room of museumRooms){
   await page.goto(`/en/museum/${room.slug}`);
   const image=page.getByRole("img",{name:museumMedia[room.slug]!.alt.en,exact:true});
   await image.scrollIntoViewIfNeeded();
   await expect.poll(()=>image.evaluate((el:HTMLImageElement)=>el.complete&&el.naturalWidth>0)).toBe(true);
-  await expect(page.locator("figcaption")).toContainText("AI-generated illustration");
+  await expect(image).toHaveAttribute("alt",museumMedia[room.slug]!.alt.en);
   await expect(page.getByRole("heading",{name:"Discovery challenge",exact:true})).toBeVisible();
   expect(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)).toBe(false);
  }
@@ -82,7 +82,7 @@ test("background audio stays silent initially, persists between pages and stops 
  await page.goto("/en");
  const states=()=>page.evaluate(()=>((window as unknown as {mqTestContexts:AudioContext[]}).mqTestContexts).map(ctx=>ctx.state));
  expect(await states()).toEqual([]);
- await page.locator("summary",{hasText:"Settings"}).click();await page.getByText("Background sound",{exact:true}).first().click();
+ await page.locator('button[data-settings-trigger][aria-label="Settings"]').click();await page.getByText("Background sound",{exact:true}).first().click();
  await page.getByRole("button",{name:"Play sound",exact:true}).click();
  await expect.poll(states).toEqual(["running"]);
  // Navigate via the nav drawer (still a client-side <Link>, same as the
@@ -94,6 +94,7 @@ test("background audio stays silent initially, persists between pages and stops 
  expect(await states()).toEqual(["running"]);
  await page.getByRole("button",{name:"Listen",exact:true}).first().click();
  await expect.poll(states).toEqual(["closed"]);
+ await page.locator("[data-settings-trigger]").click();
  await page.getByRole("button",{name:"Play sound",exact:true}).click();
  await expect.poll(states).toEqual(["closed","running"]);
  await page.evaluate(()=>window.dispatchEvent(new Event("pagehide")));

@@ -8,7 +8,7 @@ This review supersedes the earlier requirement to publish every manuscript and r
 | --- | ---: | ---: |
 | Original illustrated storybooks | 2 | 8 |
 | Short reads without complete illustrations | 0 | 8 |
-| Illustrated biographies | 10 | 0 |
+| Illustrated biographies | 5 | 5 |
 | Attributed external book recommendations | 12 | 0 |
 
 The Little Compass and the Money Choices has 32 reviewed page illustrations. The Garden Everyone Could Enter has 12. Both retain their original text, chapter questions, navigation, completion state, translated editions, narration, keyboard controls and accessibility preferences. No new illustrations were generated for this release work.
@@ -29,6 +29,6 @@ The illustration inventory preserves 66 of 140 reviewed mappings. All 44 pages i
 
 Reused the existing PR #14 fix for untranslated Play-level guidance and world-map links. It supplies the selected locale and existing translated guide/navigation labels; it does not create a second navigation system. New browser coverage exercises both the initial level chooser and the resulting map in all nine languages.
 
-PR #39's recovered-source inventory and private recovery tool are retained. This does not complete the 27 paid Activity Pack PDFs. Their commercial readiness remains false. The existing completed journal, certificates, Parent Guide bonus, original Quiet Corner videos, homepage hero and removed picture-learning decision remain unchanged.
+PR #39's recovered-source inventory and private recovery tool are retained. This does not complete the 27 paid Activity Pack PDFs. Their commercial readiness remains false. The existing completed journal, certificates, private Parent Guide delivery integration, original Quiet Corner videos, homepage hero and removed picture-learning decision remain unchanged. The storefront Parent Guide promotion remains hidden pending the owner’s revisions. Offline page inventories use the same five public biographies as the Library; unpublished biographies remain in source without being fetched for offline copies.
 
 Fresh test results and deployment status belong in the release report. This document does not certify hosted payments, SMTP delivery or a Namecheap deployment.

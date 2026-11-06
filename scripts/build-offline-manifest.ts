@@ -4,7 +4,7 @@ import {offlineFallbackHtml} from "../src/lib/offline/fallback-page";
 import {ACTIVE_LOCALES,LOCALES} from "../src/i18n/config";
 import {museumRooms} from "../src/content/discovery";
 import {publicOriginalBooks as originalBooks,publicShortReads as libraryBooks,publicLibraryStorySlugs} from "../src/content/library-publication";
-import {libraryPeople} from "../src/content/people";
+import {publicLibraryPeople as libraryPeople} from "../src/content/people-publication";
 import {ARTICLE_STRUCTURES} from "../src/content/articles";
 import {LQ_MISSIONS} from "../src/content/leadership-quest/structures";
 import {RLQ_MISSIONS} from "../src/content/real-life-quests/structures";

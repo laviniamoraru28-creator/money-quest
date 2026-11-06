@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import {certificateJourneyCopy} from "@/content/certificate-journey-copy";
 
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
@@ -41,6 +42,7 @@ export default function PlayPage() {
   const discoveryLabels = discoveryCopy[safeLocale];
   const guideLabels = laboratoryCopy[safeLocale];
   const navigationLabels = publicNavigationCopy[safeLocale];
+  const journey=certificateJourneyCopy[safeLocale];
   const t = useTranslations();
   const { state, isLoaded, level, setAgeBand, setCurrencyCode } = useLocalProgress();
 
@@ -64,6 +66,7 @@ export default function PlayPage() {
           </div>
           <h1 className="mt-sm font-display text-2xl font-bold">{t("play.chooseYourLevel")}</h1>
           <p className="mt-2xs text-base text-ink/70">{t("play.levelChoiceHint")}</p>
+          <p className="mt-4 text-sm text-ink/80">{journey.steps} {journey.print}</p>
           <div className="mt-md grid gap-sm">
             {LEVEL_OPTIONS.map((option) => (
               <button

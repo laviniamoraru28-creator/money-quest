@@ -54,6 +54,8 @@
     "level": "Poziom"
   },
   "lesson": {
+    "continueToLesson": "Dalej: {title}",
+    "backToMoneyForms": "Wróć do form pieniądza",
     "quickCheck": "Szybkie sprawdzenie",
     "newWords": "Nowe słowa",
     "checkMyAnswer": "Sprawdź moją odpowiedź",
@@ -6400,7 +6402,7 @@
     "library": "Biblioteka",
     "museum": "Muzeum",
     "brainLab": "Laboratorium Mózgu",
-    "mindLab": "Laboratorium Umysłu",
+    "mindLab": "Laboratorium emocji",
     "futureSkills": "Umiejętności Przyszłości",
     "inclusiveLearning": "Nauka włączająca",
     "visualExplorer": "Odkrywca wizualny",
@@ -6415,5 +6417,15 @@
     "contact": "Kontakt",
     "privacy": "Prywatność",
     "currentPage": "Bieżąca strona"
+  },
+  "activityGuide": {
+    "complete": "Ta aktywność jest ukończona. Pomyśl o tym, czego się uczysz, i wybierz następny krok.",
+    "incorrect": "Przeczytaj wyjaśnienie. Możesz spróbować innej odpowiedzi, gdy zechcesz.",
+    "correct": "Ten krok jest ukończony. Wykorzystaj swoje obserwacje w następnej rundzie.",
+    "playing": "Wybierz odpowiedź. Możesz użyć podpowiedzi lub spróbować ponownie. Nie ma limitu czasu.",
+    "lessonRetry": "Przeczytaj wyjaśnienie i wybierz ponownie. Błędy pokazują, co warto ćwiczyć.",
+    "lessonComplete": "Pomysł sprawdzony, lekcja ukończona. Wybierz następną aktywność, gdy zechcesz.",
+    "lessonGoal": "Twój cel: poznaj {title}. Przeczytaj lub posłuchaj, potem odpowiedz na pytanie. Masz tyle czasu, ile potrzebujesz.",
+    "world": "Witaj w {name}. {description} Wybierz lekcję lub grę. Masz tyle czasu, ile potrzebujesz."
   }
 }

@@ -8,7 +8,6 @@ import {readerCopy,readerText} from "@/content/reader-copy";
 import type {ReaderPresentation} from "@/lib/i18n/library-presentation";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@/i18n/navigation";
-import { AccessibilityMenu } from "@/components/ui/AccessibilityMenu";
 import { useReadAloud } from "@/lib/accessibility/use-read-aloud";
 
 const STORE = "money-quest-discovery-v1";
@@ -44,7 +43,12 @@ export default function OriginalBookReader({book,locale,paragraphsPerPage}:Reade
   }, [book.slug]);
   const move = (index: number) => { if (index < 0 || index >= book.chapters.length) return; stop(); setOpened(true); setPage(spreads.findIndex(item=>item.chapterIndex===index)); };
   const turnPage = (index:number) => { if(index<0||index>=spreads.length)return;stop();setPage(index); };
-  const pageArt=bookPageArt(book.slug,chapter,spread.part);
+  const sourceChapterIndices:Record<string,number[]> = {
+    "the-little-compass-and-the-money-choices":[0,2,4,6,7],
+    "the-garden-everyone-could-enter":[0,1,2,4,5],
+  };
+  const sourceChapter=sourceChapterIndices[book.slug]?.[chapter]??chapter;
+  const pageArt=bookPageArt(book.slug,sourceChapter,spread.part);
   if(!pageArt)throw new Error(`Unreviewed Library page: ${book.slug}:${chapter}:${spread.part}`);
   const artAlt=spread.paragraphs[0]!.split(/(?<=[.!?])\s+/u)[0]!;
   const art=pageArt.src;
@@ -57,7 +61,6 @@ export default function OriginalBookReader({book,locale,paragraphsPerPage}:Reade
     } catch { setSaveStatus("saveFailure"); }
   };
   return <div className="min-h-screen bg-fog text-ink">
-    <header className="border-b border-ink/15 bg-white"><nav aria-label={copy.bookNav} className="mx-auto flex max-w-5xl flex-wrap items-center gap-5 px-5 py-3"><Link href="/library" className="min-h-12 py-3 font-semibold text-teal-text underline">{copy.backLibrary}</Link><Link href="/" className="min-h-12 py-3 font-semibold text-teal-text underline">{copy.home}</Link><AccessibilityMenu/></nav></header>
     <main id="main-content" tabIndex={-1} className="mx-auto max-w-5xl px-5 py-8">
       <p className="font-semibold text-teal-text">{copy.original}</p><h1 className="mt-3 text-3xl md:text-4xl">{book.title}</h1><p className="mt-3 text-lg">{book.subtitle}</p><p className="mt-2">{book.audience}</p>
       <p className="mt-4 max-w-3xl">{readerText(locale,"intro",{count:book.chapters.length})}</p>

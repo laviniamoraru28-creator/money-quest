@@ -66,7 +66,7 @@ for(const locale of LOCALES){
    assert.deepEqual(note.sources,discoveryNotes[source.slug]!.sources,"Keep canonical bibliography and URLs");
    assert.equal(note.challenges.length,3);assert.equal(new Set(note.challenges).size,3);
    for(const text of [item.title,ui.allDiscoveries,ui.chooseChallenge,note.challenges[0],readerCopy[locale].larger,laboratoryCopy[locale].hideGuide])assert(html.includes(escape(text)),`${locale}/${source.slug}: ${text}`);
-   assert(html.includes(`aria-label="${escape(ui.navigation)}"`));
+   assert(html.includes(`aria-label="${escape(ui.bookPages)}"`) || html.includes(`aria-label="${escape(ui.challenge)}"`), "Keep labelled activity controls after global navigation replaces duplicate links");
    for(const label of ["Explorer","Builder","Strategist"])assert(html.includes(`>${label}</option>`));
    for(const citation of note.sources??[]){assert(html.includes(escape(citation.title)));assert(html.includes(escape(citation.url)));}
    if("story" in item){

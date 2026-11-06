@@ -15,7 +15,7 @@ import peoplePl from "@/content/translations/people.pl.json";
 import {draftTranslatedBook,draftTranslatedBiography} from "./content-translations";
 import {draftTranslatedExternalBook} from "./content-translations";
 import {publicOriginalBooks} from "@/content/library-publication";
-import {libraryPeople} from "@/content/people";
+import {publicLibraryPeople} from "@/content/people-publication";
 import {authorBooks} from "@/content/author-books";
 import externalBooks from "@/content/translations/author-books.ro.json";
 import externalManifest from "@/content/translations/author-books.sources.json";
@@ -37,21 +37,26 @@ const bookDrafts:Partial<Record<Locale,Record<string,unknown>>>={ro:books,es:boo
 const externalDrafts:Partial<Record<Locale,Record<string,unknown>>>={ro:externalBooks,es:externalES,fr:externalFR,de:externalDE,it:externalIT,pt:externalPT,nl:externalNL,pl:externalPL};
 
 const biographyDrafts:Partial<Record<Locale,Record<string,unknown>>>={ro:people,es:peopleEs,fr:peopleFr,de:peopleDe,it:peopleIt,pt:peoplePt,nl:peopleNl,pl:peoplePl};
-export type ReaderPresentation={book:OriginalBook;locale:Locale;paragraphsPerPage:1|2};
+export type ReaderPresentation={book:OriginalBook;locale:Locale;paragraphsPerPage:1|2|4};
 export type BiographyPresentation={person:LibraryPerson;locale:Locale};
 export type ShelfPresentation={locale:Locale;books:OriginalBook[];people:LibraryPerson[];published:typeof authorBooks};
 export function publicLibraryLocale(requested:string):Locale {
  const active:readonly string[]=ACTIVE_LOCALES;
  return isSupportedLocale(requested)&&active.includes(requested)?requested:"en";
 }
+const shortChapterIndices:Record<string,number[]> = {
+  "the-little-compass-and-the-money-choices":[0,2,4,6,7],
+  "the-garden-everyone-could-enter":[0,1,2,4,5],
+};
 export function draftReaderPresentation(book:OriginalBook,locale:Locale):ReaderPresentation {
  // Layout comes from the canonical edition, never a translated audience label.
- const paragraphsPerPage=book.audience.startsWith("Explorer")?1:2;
- if(locale==="en")return {book,locale,paragraphsPerPage};
+ const paragraphsPerPage=4;
+ const shorten=(edition:OriginalBook):OriginalBook=>({...edition,chapters:(shortChapterIndices[edition.slug]??edition.chapters.map((_,i)=>i)).map(index=>edition.chapters[index]!).filter(Boolean)});
+ if(locale==="en")return {book:shorten(book),locale,paragraphsPerPage};
  const draft=bookDrafts[locale];if(!draft)throw new Error(`Original-book translation not ready: ${locale}`);
  const slug=book.slug as keyof typeof books;
  if(!draft[slug]||!bookManifest.sources[slug])throw new Error(`Missing original-book translation: ${book.slug}`);
- return {book:draftTranslatedBook(book,draft[slug],bookManifest.sources[slug]),locale,paragraphsPerPage};
+ return {book:shorten(draftTranslatedBook(book,draft[slug],bookManifest.sources[slug])),locale,paragraphsPerPage};
 }
 export function draftBiographyPresentation(person:LibraryPerson,locale:Locale):BiographyPresentation {
  if(locale==="en")return {person,locale};
@@ -71,7 +76,7 @@ export function draftShelfPresentation(locale:Locale):ShelfPresentation {
 
  return {
   locale,books:publicOriginalBooks.map(book=>draftReaderPresentation(book,locale).book),
-  people:libraryPeople.map(person=>draftBiographyPresentation(person,locale).person),
+  people:publicLibraryPeople.map(person=>draftBiographyPresentation(person,locale).person),
   published:authorBooks.map(book=>draftPublishedBook(book,locale))
  };
 }
