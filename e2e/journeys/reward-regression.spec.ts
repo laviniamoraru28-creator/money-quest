@@ -20,6 +20,10 @@ for(const locale of LOCALES)for(const band of ['explorer','builder','strategist'
  const earned=await read();expect(earned.xpTotal).toBeGreaterThan(0);expect(earned.completedActivityIds.filter((id:string)=>id===lesson.id)).toHaveLength(1);
  await page.reload();expect(await read()).toEqual(earned);
  await page.getByRole('button',{name:messages.lesson.continueToLesson.replace('{title}',messages.curriculum[lesson.id].title),exact:true}).click();
- await answer();await page.getByRole('button',{name:messages.lesson.checkMyAnswer,exact:true}).click();
+ await expect(page.getByText(messages.lesson.alreadyCompleted,{exact:true})).toBeVisible();
+ await expect(page.getByRole('radio').first()).toBeDisabled();
+ await expect(page.getByRole('button',{name:messages.lesson.checkMyAnswer,exact:true})).toHaveCount(0);
+ await page.getByRole('button',{name:messages.lesson.backToMoneyForms,exact:true}).click();
+ await page.getByRole('button',{name:messages.lesson.continueToLesson.replace('{title}',messages.curriculum[lesson.id].title),exact:true}).click();
  expect(await read()).toEqual(earned);await expect(page.locator('[data-coin-award]')).toHaveCount(0);
 });

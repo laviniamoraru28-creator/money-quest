@@ -36,6 +36,7 @@ for(const locale of LOCALES) for(const band of ['explorer','builder','strategist
   await page.goto(`/${locale}/play/world/${lesson.worldId}/lesson/${lesson.id}`);
   const forms=page.locator('[data-lesson-section="examples"]');
   await expect(forms).toBeVisible();
+  if(locale==='en' && band==='explorer') await page.screenshot({path:test.info().outputPath('money-forms.png'),fullPage:true});
   await expect(page.locator('[data-lesson-section="lesson"]')).toHaveCount(0);
   const first=forms.getByRole('button',{name:moneyExamplesCopy[locale].coins,exact:true});
   const card=forms.getByRole('button',{name:moneyExamplesCopy[locale].card,exact:true});
@@ -82,6 +83,7 @@ for(const locale of LOCALES) for(const band of ['explorer','builder','strategist
    else await expect(illustration.locator('svg')).toBeVisible();
    await expect(illustration.getByRole('img')).toHaveAccessibleName(messages.curriculum[lesson.id].title);
    await checkLayout(page);
+   if(locale==='en' && band==='explorer') await page.screenshot({path:test.info().outputPath(`${lesson.topicId}.png`),fullPage:true});
   }
   expect(errors).toEqual([]);
  });
