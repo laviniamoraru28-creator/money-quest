@@ -71,18 +71,9 @@ export default function QuietCorner({locale}: {locale: Locale}) {
   const dismissCard = () => { const previous = card; setCard(null); if (previous !== null) cardTriggers.current[previous]?.focus(); };
   const cardText = [t.breakCard, t.quietCard, t.helpCard];
   return <div className="min-h-screen bg-fog text-ink">
-    <nav aria-label={t.title} className="mx-auto flex max-w-5xl flex-wrap gap-3 px-5 py-5"><Link href="/" className={button}>{t.home}</Link><Link href="/mind-lab" className={button}>{t.mind}</Link></nav>
-    <main id="main-content" tabIndex={-1} className="mx-auto max-w-5xl px-5 pb-12">
-      <div className="flex flex-wrap items-start justify-between gap-4"><div className="max-w-2xl"><h1 className="text-3xl sm:text-4xl">{t.title}</h1><p className="mt-3 text-lg">{t.intro}</p></div><button type="button" className={stopButton} onClick={() => { stopEverything(); setMessage(t.stopped); }}>{t.finish}</button></div>
-      <section aria-labelledby="quiet-sound" className="mt-5 rounded-3xl border border-teal/20 bg-white p-4 sm:p-6">
-        <h2 id="quiet-sound" className="text-xl">{t.sound}</h2><p className="mt-2 text-sm">{t.soundNote}</p>
-        <fieldset className="mt-4"><legend className="sr-only">{t.sound}</legend><div className="flex flex-wrap gap-3">{(["rain", "notes"] as const).map(id => <button type="button" key={id} aria-pressed={sound === id} className={`${button} ${sound === id ? "border-teal bg-teal/10" : ""}`} onClick={() => {stopAudio(); setSound(id); setMessage("");}}>{t[id]}</button>)}</div></fieldset>
-        <div className="mt-4 flex flex-wrap items-center gap-4"><button type="button" className={button} onClick={() => {if (playing || starting) stopAudio(); else void play();}}>{playing || starting ? t.stop : t.play}</button><label className="flex min-h-12 flex-wrap items-center gap-3" htmlFor="quiet-volume">{t.volume}<input id="quiet-volume" aria-valuetext={`${volume}%`} className="h-12 w-40 accent-teal" type="range" min="0" max="100" step="1" value={volume} onChange={event => {const next = Number(event.target.value); setVolume(next); audio.current?.setVolume(next);}}/><output aria-hidden="true" htmlFor="quiet-volume">{volume}%</output></label></div>
-        <p role="status" className="mt-3 text-sm">{starting ? t.starting : message}</p>
-      </section>
+    <main id="main-content" tabIndex={-1} className="mx-auto max-w-5xl px-5 py-8">
+      <h1 className="font-display text-3xl font-bold sm:text-4xl">{t.title}</h1>
       <QuietVideos locale={locale}/>
-      <section aria-labelledby="quiet-cards" className="mt-5 rounded-3xl border border-teal/20 bg-white p-4 sm:p-6"><h2 id="quiet-cards" className="text-xl">{t.cards}</h2><p className="mt-2 text-sm">{t.cardHint}</p><div className="mt-4 grid gap-3 sm:grid-cols-3">{cardText.map((text, index) => <button key={text} type="button" ref={el => {cardTriggers.current[index] = el;}} className={`${button} flex flex-col items-center gap-3 py-6 text-lg`} onClick={() => {stopEverything(); setCard(index);}}><CardSymbol index={index}/>{text}</button>)}</div></section>
-      {card !== null && <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-ink/80 p-5" role="dialog" aria-modal="true" aria-labelledby="quiet-card-title" onKeyDown={event => {if (event.key === "Escape") dismissCard(); if (event.key === "Tab") {event.preventDefault(); closeCard.current?.focus();}}}><div className="flex max-w-lg flex-col items-center gap-6 rounded-3xl bg-white p-8 text-center text-ink"><CardSymbol index={card}/><h2 id="quiet-card-title" className="text-3xl">{cardText[card]}</h2><button type="button" ref={closeCard} className={button} onClick={dismissCard}>{t.close}</button></div></div>}
     </main>
   </div>;
 }
