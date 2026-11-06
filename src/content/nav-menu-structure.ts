@@ -41,6 +41,8 @@ export const navMenuSections: NavMenuSection[] = [
       { labelKey: "brainLab", href: "/brain-lab" },
       { labelKey: "mindLab", href: "/mind-lab" },
       { labelKey: "investingLab", href: "/play/investing-lab" },
+      { labelKey: "savingsGoals", href: "/play/goals" },
+      { labelKey: "moneySimulator", href: "/play/simulator" },
       { labelKey: "futureSkills", href: "/future-skills" },
       { labelKey: "moneyPersonality", href: "/play/money-personality" },
     ],

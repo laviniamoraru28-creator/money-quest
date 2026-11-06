@@ -49,14 +49,17 @@ export function useSound() {
   useEffect(() => {
     setIsMuted(readMutedFromStorage());
     setIsLoaded(true);
+    const sync=()=>setIsMuted(readMutedFromStorage());
+    window.addEventListener("moneyquest-sound-change",sync);
+    window.addEventListener("storage",sync);
+    return ()=>{window.removeEventListener("moneyquest-sound-change",sync);window.removeEventListener("storage",sync);};
   }, []);
 
   const toggleMuted = useCallback(() => {
-    setIsMuted((prev) => {
-      const next = !prev;
-      writeMutedToStorage(next);
-      return next;
-    });
+    const next = !readMutedFromStorage();
+    writeMutedToStorage(next);
+    setIsMuted(next);
+    window.dispatchEvent(new Event("moneyquest-sound-change"));
   }, []);
 
   const playCorrect = useCallback(() => {

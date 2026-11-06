@@ -1,7 +1,8 @@
 import {test,expect} from "@playwright/test";
 test("comment stays private until authenticated approval",async({page})=>{
   await page.goto("/en");
-  await page.locator('footer a[href="/en/reviews"]').click();
+  await page.getByRole("button",{name:"Menu",exact:true}).click();
+  await page.getByRole("link",{name:"Reviews",exact:true}).click();
   await expect(page).toHaveURL(/\/en\/reviews$/);
   const origin=new URL(page.url()).origin;
   const message=`Clear pictures and helpful choices ${test.info().project.name}.`;

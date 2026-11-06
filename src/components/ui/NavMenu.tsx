@@ -1,9 +1,12 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useMessages, useTranslations } from "next-intl";
 import { ActionIcon } from "./ActionIcon";
 import { Link, usePathname } from "@/i18n/navigation";
+import {findLessons,normalizeSearch} from "@/lib/lesson-search";
+import {useLocalProgress} from "@/lib/local-progress/use-local-progress";
+import {getLevelLabelKey} from "@/content/level-options";
 import { navMenuSections } from "@/content/nav-menu-structure";
 
 const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])';
@@ -21,6 +24,9 @@ const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), [tabi
 export function NavMenu() {
   const t = useTranslations("navMenu");
   const pathname = usePathname();
+  const all = useTranslations();
+  const messages = useMessages();
+  const {setAgeBand} = useLocalProgress();
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [collapsed, setCollapsed] = useState<Set<number>>(new Set());
@@ -77,12 +83,13 @@ export function NavMenu() {
     return next;
   });
 
-  const normalizedQuery = query.trim().toLowerCase();
+  const normalizedQuery = normalizeSearch(query);
+  const lessons = useMemo(()=>findLessons(messages.curriculum,normalizedQuery),[messages,normalizedQuery]);
   const searchResults = useMemo(() => {
     if (!normalizedQuery) return null;
-    return navMenuSections.flatMap((section) => section.items.filter((item) => t(item.labelKey).toLowerCase().includes(normalizedQuery)).map((item) => ({ ...item, sectionLabel: t(section.labelKey) })));
+    return navMenuSections.flatMap((section) => section.items.filter((item) => normalizeSearch(t(item.labelKey)).includes(normalizedQuery)).map((item) => ({ ...item, sectionLabel: t(section.labelKey) })));
     // eslint-disable-next-line react-hooks/exhaustive-deps -- t() is stable for a given locale; re-deriving per keystroke is intentional, not a missing dependency bug.
-  }, [normalizedQuery]);
+  }, [normalizedQuery,t]);
 
   return (
     <>
@@ -157,10 +164,11 @@ export function NavMenu() {
               </Link>
 
               {searchResults ? (
-                searchResults.length === 0 ? (
+                searchResults.length === 0 && lessons.length === 0 ? (
                   <p className="px-3 py-4 text-ink/70">{t("searchNoResults")}</p>
                 ) : (
-                  <ul>
+                  <ul aria-live="polite">
+                    {lessons.map(lesson=><li key={lesson.id}><Link href={lesson.href} onClick={()=>{setAgeBand(lesson.ageBand);close();}} className="flex min-h-12 flex-col justify-center rounded-xl px-3 py-3 hover:bg-fog"><span className="font-bold text-ink">{lesson.title}</span><span className="text-sm text-ink/70">{all(getLevelLabelKey(lesson.ageBand))}</span></Link></li>)}
                     {searchResults.map((item) => (
                       <li key={item.href}>
                         <Link href={item.href} aria-current={pathname === item.href ? "page" : undefined} className="flex min-h-12 flex-col justify-center rounded-xl px-3 py-2 hover:bg-fog aria-[current=page]:bg-fog aria-[current=page]:font-bold">

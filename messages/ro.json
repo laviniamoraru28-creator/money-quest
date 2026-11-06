@@ -445,7 +445,7 @@
       "title": "Ce sunt banii?",
       "learningObjective": "Recunoașterea faptului că banii sunt folosiți pentru a obține lucruri de care oamenii au nevoie sau pe care le doresc.",
       "shortIntroduction": "Monedele zornăie. Bancnotele foșnesc. Dar ce SUNT banii, de fapt? Hai să aflăm împreună.",
-      "story": "Intri într-un mic magazin cu adultul tău. Vrei un măr. Vânzătoarea nu vrea o îmbrățișare sau un „bate palma” pentru asta - vrea două monede. Îi dai două monede. Ea îți dă mărul. Așa funcționează banii!",
+      "story": "Intri într-un mic magazin cu părintele sau cu un adult de încredere. Vrei un măr. Vânzătoarea nu vrea o îmbrățișare sau un „bate palma” pentru asta - vrea două monede. Îi dai două monede. Ea îți dă mărul. Așa funcționează banii!",
       "keyConcept": "Banii sunt ceva ce schimbăm pentru lucrurile de care avem nevoie sau pe care le dorim, în loc să schimbăm obiecte direct.",
       "vocabulary": [
         {
@@ -575,7 +575,7 @@
       "title": "Ai nevoie sau îți dorești?",
       "learningObjective": "Sortarea obiectelor de zi cu zi în nevoi și dorințe.",
       "shortIntroduction": "Unele lucruri trebuie să le ai. Altele doar îți plac foarte, foarte mult. Hai să le deosebim!",
-      "story": "Tu și adultul tău treceți pe lângă o brutărie. Vezi pâine pentru cină - burtica ta are nevoie de asta! Apoi vezi un baton uriaș de ciocolată. Nu ai nevoie de el, dar, wow, ți-l DOREȘTI. Ambele sentimente sunt reale, dar nu sunt același lucru.",
+      "story": "Treci pe lângă o brutărie împreună cu părintele sau cu un adult de încredere. Vezi pâine pentru cină - burtica ta are nevoie de asta! Apoi vezi un baton uriaș de ciocolată. Nu ai nevoie de el, dar, wow, ți-l DOREȘTI. Ambele sentimente sunt reale, dar nu sunt același lucru.",
       "keyConcept": "O nevoie este ceva ce trebuie să ai ca să fii bine. O dorință este ceva plăcut de avut, chiar dacă îți place foarte mult.",
       "vocabulary": [
         {
@@ -6504,7 +6504,7 @@
           "Ajutați-vă să scrieți sau să desenați lista împreună.",
           "Alegeți împreună o cifră pentru \"buget\" - reală sau imaginară.",
           "Privește lista și decide ce e mai important dacă bugetul e strâmt.",
-          "Mergi la cumpărături împreună cu adultul tău de încredere - nu te duci niciodată singur la cumpărături - sau jucați-vă de-a magazinul acasă, și vedeți cât de aproape a fost planul."
+          "Mergi la cumpărături împreună cu părintele sau cu un adult de încredere - nu te duci niciodată singur la cumpărături - sau jucați-vă de-a magazinul acasă, și vedeți cât de aproape a fost planul."
         ],
         "durationEstimate": "Cam 20 de minute pentru planificare; ieșirea în sine durează cât durează.",
         "independentVersion": "Încearcă să estimezi costul total înainte de ieșire, apoi verifică cât de aproape a fost ghicitoarea.",
@@ -6807,7 +6807,9 @@
     "reviews": "Recenzii",
     "contact": "Contact",
     "privacy": "Confidențialitate",
-    "currentPage": "Pagina curentă"
+    "currentPage": "Pagina curentă",
+    "savingsGoals": "Obiectivele Mele de Economisire",
+    "moneySimulator": "Simulatorul de Viață Financiară"
   },
   "activityGuide": {
     "complete": "Ai terminat această activitate. Gândește-te la ce ai învățat, apoi alege ce vrei să faci în continuare.",

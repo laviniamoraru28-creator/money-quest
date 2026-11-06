@@ -49,7 +49,12 @@ for(const locale of LOCALES){
  const messages=JSON.parse(readFileSync(`messages/${locale}.json`,"utf8"));
  for(const enabled of [false,true]){
   const html=renderToStaticMarkup(React.createElement(NextIntlClientProvider,{locale,messages,timeZone:"Europe/London",children:React.createElement(ShopCatalogue,{...presentation,available:[enabled,enabled]})}));renders++;
-  for(const text of Object.values(edition.copy))assert(html.includes(escape(text)),`${locale}: ${text}`);
+  const removed=new Set(["previewTitle","previewBody"]);
+  const whenOpen=new Set(["includedTitle","picturesTitle","picturesBody","responseTitle","responseBody","supportTitle","supportBody","evidence","evidenceLink"]);
+  for(const [key,text] of Object.entries(edition.copy)){
+   if(removed.has(key)||(!enabled&&whenOpen.has(key)))assert(!html.includes(`>${escape(text)}<`),`${locale}: hidden until sale ${key}`);
+   else assert(html.includes(escape(text)),`${locale}: ${text}`);
+  }
   for(const product of presentation.products){
    for(const text of [product.title,product.description,product.pages,...product.includes,product.imageAlt,product.sampleLabel,product.priceLabel])assert(html.includes(escape(text)),`${locale}: ${text}`);
    assert(html.includes(`href="${product.sample}"`));assert(html.includes(`id="${product.id}"`));
