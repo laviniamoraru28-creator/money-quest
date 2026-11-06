@@ -4,11 +4,10 @@ import type {BiographyPresentation} from "@/lib/i18n/library-presentation";
 import {readerCopy,readerText,librarySourceDate} from "@/content/reader-copy";
 import {REGIONAL_LOCALES} from "@/i18n/config";
 import { ReadAloudButton } from "@/components/ui/ReadAloudButton";
-import { AccessibilityMenu } from "@/components/ui/AccessibilityMenu";
 
 export default function BiographyProfile({person,locale}:BiographyPresentation) {
   const copy=readerCopy[locale];
-  return <div className="min-h-screen bg-fog text-ink"><header className="border-b border-ink/15 bg-white"><nav aria-label={copy.bioNav} className="mx-auto flex max-w-4xl flex-wrap items-center gap-5 px-5 py-3"><Link href="/library" className="min-h-12 py-3 font-semibold text-teal-text underline">{copy.backLibrary}</Link><Link href="/museum" className="min-h-12 py-3 font-semibold text-teal-text underline">{copy.visitMuseum}</Link><AccessibilityMenu/></nav></header>
+  return <div className="min-h-screen bg-fog text-ink"><header className="border-b border-ink/15 bg-white"><nav aria-label={copy.bioNav} className="mx-auto flex max-w-4xl flex-wrap items-center gap-5 px-5 py-3"><Link href="/library" className="min-h-12 py-3 font-semibold text-teal-text underline">{copy.backLibrary}</Link><Link href="/museum" className="min-h-12 py-3 font-semibold text-teal-text underline">{copy.visitMuseum}</Link></nav></header>
     <main id="main-content" tabIndex={-1} className="mx-auto max-w-4xl px-5 py-8"><article className="rounded-3xl border border-ink/15 bg-white p-5 md:p-9">
       <p className="font-semibold text-teal-text">{copy.bioIntro}</p><h1 className="mt-3 text-3xl">{person.title}</h1><p className="mt-3">{person.topic}</p><p className="mt-2 text-sm">{person.ages}</p>
       <Image unoptimized data-learning-decoration src={person.image} alt={person.alt} width={768} height={768} className="mx-auto mt-6 aspect-square w-full max-w-md rounded-3xl object-contain"/>
