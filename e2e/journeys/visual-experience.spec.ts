@@ -1,3 +1,4 @@
+import {publicOriginalBooks} from "../../src/content/library-publication";
 import {test,expect} from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import {museumMedia} from "../../src/content/museum-media";
@@ -7,7 +8,7 @@ test("illustrated shelf covers open and close books with keyboard and reduced mo
  await page.emulateMedia({reducedMotion:"reduce"});
  await page.goto("/en/library");
  const shelf=page.locator("#money-quest-books");
- await expect(shelf.locator(".library-cover")).toHaveCount(10);
+ await expect(shelf.locator(".library-cover")).toHaveCount(publicOriginalBooks.length);
  await page.screenshot({path:test.info().outputPath("illustrated-library-shelves.png"),fullPage:true});
  await shelf.locator(".library-cover").first().focus();await page.keyboard.press("Enter");
  await expect(page.getByRole("button",{name:"Open book",exact:true})).toBeVisible();

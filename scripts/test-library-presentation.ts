@@ -91,4 +91,4 @@ for(const locale of LOCALES){
  assert(html.includes(escape(libraryShelfCopy[locale].topic)));assert(html.includes(escape(libraryShelfCopy[locale].allTopics)));
  if(locale!=="en")for(const phrase of ["Library shelves","Choose a topic","Books by other authors","For grown-ups: where to find this book"])assert(!html.includes(phrase),`${locale}: ${phrase}`);
 }
-console.log("PASS: 675 reader/biography/shelf UI strings across nine locales, actual component SSR for 10 books, 10 biographies and both shelf editions in all nine locales, canonical metadata, pagination and answer preservation, calendar dates, stale-source refusal and English-only activation. Open non-English reader interaction and real voice quality remain unverified.");
+console.log(`PASS: 675 reader/biography/shelf UI strings across nine locales, component SSR for ${publicOriginalBooks.length} published books, ten biographies and all nine shelf editions; canonical metadata, pagination, calendar dates and stale-source refusal. Audible device voice quality requires device verification.`);
