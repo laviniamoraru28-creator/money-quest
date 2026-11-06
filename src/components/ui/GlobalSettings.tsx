@@ -16,11 +16,11 @@ pt:["Definições","Ecrã e imagens","Tamanho das imagens","Ilustrações comple
 nl:["Instellingen","Weergave en afbeeldingen","Afbeeldingsgrootte","Volledige illustraties","Kleinere illustraties","Minimale decoratie","Minder beweging","Hoog contrast","Tekstgrootte","Normaal","Groot","Extra groot","Focusmodus","Standaardinstellingen","Geluid"],
 pl:["Ustawienia","Wygląd i obrazy","Rozmiar obrazów","Pełne ilustracje","Mniejsze ilustracje","Minimum dekoracji","Ogranicz ruch","Wysoki kontrast","Rozmiar tekstu","Normalny","Duży","Bardzo duży","Tryb skupienia","Przywróć ustawienia","Dźwięk"]
 };
-export function GlobalSettings({locale,copy}:{locale:Locale;copy:SiteControlsCopy}){
+export function GlobalSettings({locale,copy,compact=false}:{locale:Locale;copy:SiteControlsCopy;compact?:boolean}){
  const p=useAccessibilityPrefs(), t=labels[locale]??labels.en;
  const toggle=(label:string|undefined,checked:boolean,change:()=>void)=><label className="flex min-h-11 items-center justify-between gap-4"><span>{label}</span><input type="checkbox" checked={checked} disabled={!p.isLoaded} onChange={change} className="h-5 w-5 accent-teal"/></label>;
  return <details data-read-aloud-ignore className="relative z-40 rounded-xl border border-teal/40 bg-white text-ink">
-  <summary className="min-h-12 cursor-pointer px-4 py-3 font-semibold text-teal-text">⚙ {t[0]}</summary>
+  <summary aria-label={t[0]} title={t[0]} className={compact?"flex min-h-11 min-w-11 cursor-pointer list-none items-center justify-center rounded-lg text-xl font-semibold text-teal-text [&::-webkit-details-marker]:hidden":"min-h-12 cursor-pointer px-4 py-3 font-semibold text-teal-text"}>⚙ {!compact&&t[0]}</summary>
   {/* Below `md`, `right-0` can push this panel off-screen: the trigger
      sits near the toolbar's left edge on narrow viewports, so a
      right-aligned 22rem-wide panel runs far past the left edge of a
