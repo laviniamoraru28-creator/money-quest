@@ -50,7 +50,7 @@ export default function SimulatorPage() {
           simulationActivityId={`simulator-${state.ageBand}`}
           backHref="/play"
           onComplete={(activityId, wasCorrect, xpReward, coinRewardMinorUnits) => {
-            const result = completeActivity(activityId, wasCorrect, xpReward, coinRewardMinorUnits);
+            const result = completeActivity(activityId, wasCorrect, xpReward, coinRewardMinorUnits, {inlineReward: true});
             return { xpAwarded: result.xpAwarded, coinsAwarded: result.coinsAwarded };
           }}
         />

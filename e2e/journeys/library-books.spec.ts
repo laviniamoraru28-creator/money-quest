@@ -1,10 +1,13 @@
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
-import { publicOriginalBooks as originalBooks } from "../../src/content/library-publication";
+import {draftReaderPresentation} from "../../src/lib/i18n/library-presentation";
+import { publicOriginalBooks as sourceBooks } from "../../src/content/library-publication";
 import { publicShortReads } from "../../src/content/library-publication";
 import { authorBooks } from "../../src/content/author-books";
-import { libraryPeople } from "../../src/content/people";
+import { publicLibraryPeople as libraryPeople } from "../../src/content/people-publication";
 import {librarySourceDate} from "../../src/content/reader-copy";
+
+const originalBooks=sourceBooks.map(book=>draftReaderPresentation(book,"en").book);
 
 test("Library separates full originals, author listings and existing short reads", async ({ page }) => {
   await page.goto("/en/library");
@@ -92,7 +95,7 @@ test("English reader preserves narration, typography and page-specific illustrat
  const expectedAlt=book.chapters[1]!.paragraphs[0]!.split(/(?<=[.!?])\s+/u)[0]!;
  const illustration=article.getByRole("img",{name:expectedAlt,exact:true});
  await expect(illustration).toBeVisible();
- await expect(illustration).toHaveAttribute("src",`/images/money-quest/books/pages/${book.slug}-c2-p1-v1.webp`);
+ await expect(illustration).toHaveAttribute("src",`/images/money-quest/books/pages/${book.slug}-c3-p1-v1.webp`);
  await expect.poll(()=>illustration.evaluate((image:HTMLImageElement)=>image.complete&&image.naturalWidth>0)).toBe(true);
 });
 

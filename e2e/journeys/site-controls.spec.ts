@@ -9,7 +9,7 @@ test("offline controls translate structured and older worker errors without expo
  });
  await page.goto("/en/library");
  const toolbar=page.getByRole("complementary",{name:"Page read-aloud",exact:true});
- await toolbar.locator("summary",{hasText:"Settings"}).click();
+ await toolbar.locator('summary[aria-label="Settings"]').click();
  await toolbar.getByText("Use without internet",{exact:true}).click();
  for(const message of [siteControlsCopy.en.storageFull,siteControlsCopy.en.busy,siteControlsCopy.en.downloadFailed]){
   await toolbar.getByRole("button",{name:"Download for offline use",exact:true}).click();

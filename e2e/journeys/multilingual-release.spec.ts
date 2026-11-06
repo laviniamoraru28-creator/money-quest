@@ -2,7 +2,7 @@ import {readFileSync} from 'node:fs';
 import {test,expect} from '@playwright/test';
 import {LOCALES,REGIONAL_LOCALES} from '../../src/i18n/config';
 import {publicOriginalBooks as originalBooks} from '../../src/content/library-publication';
-import {libraryPeople} from '../../src/content/people';
+import {publicLibraryPeople as libraryPeople} from '../../src/content/people-publication';
 import {museumRooms} from '../../src/content/discovery';
 import {learningLabs} from '../../src/content/learning-labs';
 import {draftReaderPresentation,draftBiographyPresentation} from '../../src/lib/i18n/library-presentation';

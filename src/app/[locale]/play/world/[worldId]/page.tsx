@@ -73,7 +73,7 @@ export default function WorldPage() {
           )}
         </div>
         <Image unoptimized data-learning-decoration src={`/images/money-quest/worlds/${world.id}.webp`} alt="" width={768} height={768} className="mt-5 max-h-96 w-full rounded-2xl bg-cream object-contain" />
-        <GuidePanel message={`Welcome to ${world.name}. ${world.description} Choose a lesson or a game below. You can take your time.`}/>
+        <GuidePanel message={t("activityGuide.world", {name: world.name, description: world.description})}/>
         {world.id === "coin-cove" && <MoneyExamples/>}
         <p className="mt-2xs text-base text-ink/70">{world.description}</p>
 

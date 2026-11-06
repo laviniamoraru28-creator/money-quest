@@ -127,7 +127,7 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
         )}
       </div>
 
-      <GuidePanel compact message={phase === "incorrect" ? "Take a moment. Look at the explanation, then choose again. Mistakes can show what to practise." : phase === "correct" ? "You checked your idea and finished this lesson. Choose the next activity when you are ready." : `Your goal: explore ${activity.title.toLowerCase()}. Read or listen, then try the question. You can take your time.`} />
+      <GuidePanel compact message={phase === "incorrect" ? t("activityGuide.lessonRetry") : phase === "correct" ? t("activityGuide.lessonComplete") : t("activityGuide.lessonGoal", {title: activity.title})} />
       {activity.topicId === "money_basics" && <MoneyExamples/>}
       {/* Screen-reader announcement of the quiz result — see
           GameShell.tsx's identical pattern and comment for why this

@@ -29,7 +29,7 @@ for(const entry of manifest.locales){const locale=entry as Locale;const copies=J
   assert.equal(p.sections.length,3);assert.equal(p.takeaways.length,3);
   const html=renderToStaticMarkup(React.createElement(NextIntlClientProvider,{locale,messages,timeZone:"Europe/London",children:React.createElement(BiographyProfile,presentation)}));renders++;
   for(const text of [p.title,p.topic,p.ages,p.alt,p.playful,...p.sections.flatMap(s=>[s.heading,s.text]),...p.takeaways])assert(html.includes(escape(text)),`${locale}: ${text}`);
-  if(p.illustrationNote)assert(html.includes(escape(p.illustrationNote)));
+  assert(html.includes(`alt="${escape(p.alt)}"`),"Keep the accessible portrait description");
   for(const level of ["Builder","Strategist"])assert(p.ages.includes(level));
   assert.throws(()=>draftBiographyPresentation({...person,sections:person.sections.map((s,i)=>i? s:{...s,text:s.text+" changed"})},locale),/Stale translation/);
  }

@@ -33,16 +33,17 @@ for(const locale of LOCALES)test(`${locale}: curated Library every page, speech,
   await article.getByRole("button",{name:copy.stop,exact:true}).click();
   await page.emulateMedia({reducedMotion:"reduce"});
   expect(await article.evaluate(el=>getComputedStyle(el).animationName)).toBe("none");
-  const spreads=book.chapters.flatMap((ch,c)=>Array.from({length:Math.ceil(ch.paragraphs.length/view.paragraphsPerPage)},(_,part)=>({chapter:c,part})));
+  const sourceIndices=book.slug==="the-little-compass-and-the-money-choices"?[0,2,4,6,7]:[0,1,2,4,5];
+  const spreads=view.book.chapters.flatMap((ch,c)=>Array.from({length:Math.ceil(ch.paragraphs.length/view.paragraphsPerPage)},(_,part)=>({chapter:c,part})));
   let index=0;
   for(const {chapter,part} of spreads){
-   const art=bookPageArt(book.slug,chapter,part)!;
+   const art=bookPageArt(book.slug,sourceIndices[chapter]!,part)!;
    const img=article.locator("figure img");await expect(img).toHaveAttribute("src",art.src);
    await expect.poll(()=>img.evaluate((el:HTMLImageElement)=>el.complete&&el.naturalWidth>0)).toBe(true);
    await expect(article.locator(".book-reading-page")).toContainText(view.book.chapters[chapter]!.paragraphs[part*view.paragraphsPerPage]!);
    expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
    expect(await article.locator(".book-reading-page").evaluate(el=>getComputedStyle(el).animationName)).toBe("none");
-   if(index===15){await page.getByRole("button",{name:a11y.accessibilityMenuLabel,exact:true}).click();await page.getByRole("checkbox",{name:a11y.nightViewLabel,exact:true}).check();await page.keyboard.press("Escape");await expect.poll(()=>article.locator(".book-reading-page").evaluate(el=>getComputedStyle(el).color)).toBe("rgb(255, 255, 255)");}
+   if(index===2){await page.locator("summary[aria-label]").first().click();await page.getByRole("checkbox",{name:a11y.nightViewLabel,exact:true}).check();await page.locator("summary[aria-label]").first().click();await expect.poll(()=>article.locator(".book-reading-page").evaluate(el=>getComputedStyle(el).color)).toBe("rgb(255, 255, 255)");}
    if(index<spreads.length-1){
     if(index===0){const region=article.getByRole("region",{name:copy.pages,exact:true});await region.focus();await page.keyboard.press("ArrowRight");}
     else await article.getByRole("button",{name:new RegExp(copy.nextPage)}).click();

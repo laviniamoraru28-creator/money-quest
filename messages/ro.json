@@ -6806,5 +6806,15 @@
     "contact": "Contact",
     "privacy": "Confidențialitate",
     "currentPage": "Pagina curentă"
+  },
+  "activityGuide": {
+    "complete": "Ai terminat această activitate. Gândește-te la ce ai învățat, apoi alege ce vrei să faci în continuare.",
+    "incorrect": "Oprește-te puțin și citește explicația. Poți încerca alt răspuns când ești pregătit.",
+    "correct": "Ai terminat acest pas. Folosește ce ai observat în runda următoare.",
+    "playing": "Alege un răspuns. Poți folosi un indiciu sau poți încerca din nou. Nu există limită de timp.",
+    "lessonRetry": "Citește explicația, apoi alege din nou. Greșelile îți arată ce poți exersa.",
+    "lessonComplete": "Ți-ai verificat ideea și ai terminat lecția. Alege următoarea activitate când ești pregătit.",
+    "lessonGoal": "Scopul tău: descoperă {title}. Citește sau ascultă, apoi răspunde la întrebare. Lucrează în ritmul tău.",
+    "world": "Bine ai venit în {name}. {description} Alege o lecție sau un joc de mai jos. Lucrează în ritmul tău."
   }
 }

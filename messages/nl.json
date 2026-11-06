@@ -6806,5 +6806,15 @@
     "contact": "Contact",
     "privacy": "Privacy",
     "currentPage": "Huidige pagina"
+  },
+  "activityGuide": {
+    "complete": "Je hebt deze activiteit afgerond. Denk aan wat je hebt geleerd en kies je volgende stap.",
+    "incorrect": "Lees de uitleg. Je kunt een ander antwoord proberen zodra je klaar bent.",
+    "correct": "Je hebt deze stap afgerond. Gebruik wat je zag in de volgende ronde.",
+    "playing": "Kies je antwoord. Je kunt een hint gebruiken of het opnieuw proberen. Er is geen tijdslimiet.",
+    "lessonRetry": "Lees de uitleg en kies opnieuw. Fouten laten zien wat je kunt oefenen.",
+    "lessonComplete": "Je hebt je idee gecontroleerd en de les afgerond. Kies de volgende activiteit wanneer je wilt.",
+    "lessonGoal": "Je doel: {title} ontdekken. Lees of luister en beantwoord de vraag. Neem je tijd.",
+    "world": "Welkom in {name}. {description} Kies een les of een spel. Neem je tijd."
   }
 }

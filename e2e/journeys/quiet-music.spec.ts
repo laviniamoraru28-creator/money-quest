@@ -18,6 +18,8 @@ test("original melody plays offline only when requested and obeys volume and sto
     };
   });
   await page.goto("/en/quiet-corner");
+  await page.locator('summary[aria-label="Settings"]').click();
+  await page.getByText("Background sound",{exact:true}).first().click();
   await context.setOffline(true);
   const stats=()=>page.evaluate(()=>{const data=(window as unknown as {quietMusicStats:{created:number;closed:number;notes:{frequency:number;time:number}[];rms:()=>number}}).quietMusicStats;return {created:data.created,closed:data.closed,notes:data.notes,rms:data.rms()};});
   await page.getByRole("button",{name:"Slow melody",exact:true}).click();expect((await stats()).created).toBe(0);

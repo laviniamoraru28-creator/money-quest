@@ -164,7 +164,7 @@ export function GameShell({ config, ageBand, difficulty = "standard", currencyCo
     return (
       <Card variant="reward" className="text-center">
         <h1 className="font-display text-2xl font-bold">{t("game.questComplete")}</h1>
-        <GuidePanel compact message="You have finished this activity. Notice what you learned, then choose where to go next."/>
+        <GuidePanel compact message={t("activityGuide.complete")}/>
         <p className="mt-2xs text-base text-ink/70">
           {t("game.scoreLine", { correct: firstTryCorrectCount, total: variant.rounds.length, percent: scorePercent })}
         </p>
@@ -240,7 +240,7 @@ export function GameShell({ config, ageBand, difficulty = "standard", currencyCo
       </div>
 
       <h1 className="font-display text-xl font-bold">{config.title}</h1>
-      <GuidePanel compact message={phase === "incorrect" ? "Pause and look at the explanation. You can try a different answer when you are ready." : phase === "correct" ? "You have finished this step. Use what you noticed in the next round." : "Choose your answer. You can use a hint or try again. There is no timer."} />
+      <GuidePanel compact message={t(`activityGuide.${phase}`)} />
       {/* Progress */}
       <div>
         <p className="text-sm text-ink/70" aria-live="polite">

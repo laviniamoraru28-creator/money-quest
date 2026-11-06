@@ -37,7 +37,7 @@ for(const locale of LOCALES){
  // markup: Reviews moved into the universal nav drawer's Information
  // section (see nav-menu.spec.ts), which only renders once opened, not
  // the always-visible Global Settings panel this bar still renders here.
- for(const text of [copy.region,copy.listen,copy.night,copy.optional,copy.offlineSummary,copy.instructions,copy.limitations,copy.download,copy.remove])assert(html.includes(escape(text)),`${locale}: ${text}`);
+ for(const text of [copy.region,copy.listen,copy.night,copy.offlineSummary,copy.instructions,copy.limitations,copy.download,copy.remove])assert(html.includes(escape(text)),`${locale}: ${text}`);
  const fallback=offlineFallbackHtml(locale);assert(fallback.includes(`<html lang="${locale}">`));assert(fallback.includes(`href="/${locale}"`));assert(fallback.includes('content="noindex,nofollow"'));assert(!fallback.includes("<script"));
  for(const text of [copy.offlineHeading,copy.offlineWhy,copy.offlineWorks,copy.offlineHome,copy.offlineReconnect])assert(fallback.includes(text.replaceAll("&","&amp;")),`${locale}: offline fallback`);
 }

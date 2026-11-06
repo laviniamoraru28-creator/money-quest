@@ -1,5 +1,8 @@
 "use client";
 import Image from "next/image";
+import {useLocale} from "next-intl";
+import {laboratoryCopy} from "@/content/laboratory-copy";
+import {isSupportedLocale,REGIONAL_LOCALES} from "@/i18n/config";
 
 import {useState} from "react";
 import {ReadAloudButton} from "@/components/ui/ReadAloudButton";
@@ -7,7 +10,11 @@ import {useAccessibilityPrefs} from "@/lib/accessibility/use-accessibility-prefe
 
 /** Authored guidance only. No generated conversations or automatic speech. */
 const defaultLabels={showGuide:"Show guide",hideGuide:"Hide guide",guideLabel:"Your learning guides"};
-export function GuidePanel({message, compact = false, uiLocale="en-GB", labels=defaultLabels}: {message: string; compact?: boolean; uiLocale?:string; labels?:typeof defaultLabels}) {
+export function GuidePanel({message, compact = false, uiLocale, labels}: {message: string; compact?: boolean; uiLocale?:string; labels?:typeof defaultLabels}) {
+  const raw=useLocale();
+  const locale=isSupportedLocale(raw)?raw:"en";
+  labels=labels??laboratoryCopy[locale]??defaultLabels;
+  uiLocale=uiLocale??REGIONAL_LOCALES[locale];
   const [hidden, setHidden] = useState(false);
   const {focusMode} = useAccessibilityPrefs();
   if (hidden) return <button type="button" onClick={() => setHidden(false)} className="my-3 min-h-11 rounded-xl border border-teal px-4 text-teal-text">{labels.showGuide}</button>;

@@ -6791,7 +6791,7 @@
     "library": "Biblioteca",
     "museum": "Museo",
     "brainLab": "Laboratorio del Cervello",
-    "mindLab": "Laboratorio delle Emozioni",
+    "mindLab": "Laboratorio delle emozioni",
     "futureSkills": "Abilità per il Futuro",
     "inclusiveLearning": "Apprendimento inclusivo",
     "visualExplorer": "Esploratore visivo",
@@ -6806,5 +6806,15 @@
     "contact": "Contatti",
     "privacy": "Privacy",
     "currentPage": "Pagina corrente"
+  },
+  "activityGuide": {
+    "complete": "Hai terminato questa attività. Pensa a ciò che hai imparato, poi scegli come continuare.",
+    "incorrect": "Leggi la spiegazione. Puoi provare un’altra risposta quando vuoi.",
+    "correct": "Hai terminato questo passo. Usa ciò che hai notato nel prossimo turno.",
+    "playing": "Scegli la risposta. Puoi usare un indizio o riprovare. Non c’è un limite di tempo.",
+    "lessonRetry": "Leggi la spiegazione e scegli di nuovo. Gli errori ti mostrano cosa esercitare.",
+    "lessonComplete": "Hai verificato la tua idea e terminato la lezione. Scegli la prossima attività quando vuoi.",
+    "lessonGoal": "Il tuo obiettivo: esplorare {title}. Leggi o ascolta, poi rispondi alla domanda. Prenditi il tuo tempo.",
+    "world": "Benvenuto a {name}. {description} Scegli una lezione o un gioco. Prenditi il tuo tempo."
   }
 }

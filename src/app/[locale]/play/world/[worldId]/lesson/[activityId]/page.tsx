@@ -58,7 +58,7 @@ export default function LessonPage() {
           previousActivityHref={previousActivityHref}
           activityPosition={activityPosition}
           onComplete={(activityId, wasCorrect, xpReward, coinRewardMinorUnits) => {
-            const result = completeActivity(activityId, wasCorrect, xpReward, coinRewardMinorUnits);
+            const result = completeActivity(activityId, wasCorrect, xpReward, coinRewardMinorUnits, {inlineReward: true});
             return { xpAwarded: result.xpAwarded, coinsAwarded: result.coinsAwarded };
           }}
         />
