@@ -36,8 +36,7 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
               there's exactly one accessible, tested nav mechanism covering
               every route, not two different ones on the homepage alone. */}
           <div className="flex flex-wrap items-center gap-sm">
-            <Link href="/parents/shop" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-parent-action px-4 py-3 font-bold text-white shadow-sm"><span aria-hidden="true">▤</span> {t("nav.parentShop")}</Link>
-            <Link href="/play" className="inline-flex min-h-12 items-center justify-center rounded-xl px-5 py-3 font-medium bg-teal text-white hover:bg-teal/90">{t("nav.getStarted")}</Link>
+            <Link href="/parents/shop" className="hidden md:inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-parent-action px-4 py-3 font-bold text-white shadow-sm"><span aria-hidden="true">▤</span> {t("nav.parentShop")}</Link>
           </div>
         </div>
       </header>
@@ -53,10 +52,6 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
               <p className="mt-sm text-lg text-ink/80">
                 {t("landing.heroSubtitle")}
               </p>
-              <div className="mt-md flex flex-wrap gap-xs">
-                <Link href="/play" className="inline-flex min-h-12 items-center justify-center rounded-xl px-5 py-3 font-medium bg-teal text-white hover:bg-teal/90">{t("landing.ctaGetStartedFree")}</Link>
-                <Link href="/play" className="inline-flex min-h-12 items-center justify-center rounded-xl px-5 py-3 font-medium border border-teal text-teal-text hover:bg-teal/5">{t("nav.getStarted")}</Link>
-              </div>
 
             </div>
             <div className="relative overflow-hidden rounded-3xl border border-teal/15 bg-cream shadow-lg">
@@ -67,6 +62,7 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
                   className="h-auto w-full object-cover" />
               </picture>
               <WelcomeMessage/>
+              <div className="bg-white px-4 pb-4"><Link href="/play" className="inline-flex min-h-12 w-full items-center justify-center rounded-xl bg-teal px-5 py-3 text-center font-bold text-white hover:bg-teal/90">{t("landing.ctaGetStartedFree")}</Link></div>
             </div>
           </div>
         </section>
