@@ -49,6 +49,10 @@ for(const locale of LOCALES) for(const band of ['explorer','builder','strategist
   await expect(page.locator('img[src*="/money/"]')).toHaveCount(0);
   await expect(page.locator('[data-lesson-section="lesson"] h1')).toBeFocused();
   await checkLayout(page);
+  const wrong=messages.curriculum[lesson.id].quiz.options.find((option:string)=>option!==messages.curriculum[lesson.id].quiz.correctAnswer);
+  await page.getByRole('radio',{name:wrong,exact:true}).check();
+  await page.getByRole('button',{name:messages.lesson.checkMyAnswer,exact:true}).click();
+  await expect(page.getByRole('button',{name:messages.common.tryAgain,exact:true})).toBeVisible();
   await page.getByRole('button',{name:messages.lesson.backToMoneyForms,exact:true}).click();
   await expect(forms).toBeVisible();
   await expect(first).toHaveAttribute('aria-pressed','true');
@@ -57,6 +61,9 @@ for(const locale of LOCALES) for(const band of ['explorer','builder','strategist
   await expect(page.locator('[data-lesson-illustration]')).toHaveCount(0);
   await advance.click();
   await expect(forms).toHaveCount(0);
+  await expect(page.getByRole('button',{name:messages.common.tryAgain,exact:true})).toHaveCount(0);
+  await expect(page.locator('input[type="radio"]:checked')).toHaveCount(0);
+  await expect(page.getByRole('button',{name:messages.lesson.checkMyAnswer,exact:true})).toBeDisabled();
   await expect(page.locator('[data-coin-award]')).toHaveCount(0);
  });
 

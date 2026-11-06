@@ -56,6 +56,9 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
   const sectionHeading = useRef<HTMLHeadingElement>(null);
   function changeSection(next: "examples" | "lesson") {
     window.dispatchEvent(new Event("moneyquest-stop-speech"));
+    setSelectedOption(null);
+    setPhase("unanswered");
+    setAward(activity.isCompleted ? {xp: 0, coins: 0} : null);
     setSection(next);
     // Focus the new section after React unmounts the previous section.
     requestAnimationFrame(() => sectionHeading.current?.focus());
