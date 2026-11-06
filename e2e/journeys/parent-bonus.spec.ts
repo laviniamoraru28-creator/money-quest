@@ -3,8 +3,12 @@ import AxeBuilder from "@axe-core/playwright";
 import {siteControlsCopy} from "../../src/content/site-controls-copy";
 import {parentBonusCopy} from "../../src/content/parent-bonus-copy";
 import {shopFlowCopy} from "../../src/content/shop-flow-copy";
-import {shopProducts} from "../../src/content/shop";
+import {publiclyListedProductIds} from "../../src/content/shop-publication";
 import {LOCALES} from "../../src/i18n/config";
+// The Academy Activity Pack is unpublished this release (see
+// shop-publication.ts); drive the purchase/bonus flow against a product
+// that actually renders a card, rather than the array's first entry.
+const publicProductId=[...publiclyListedProductIds][0]!;
 
 for(const locale of LOCALES){
  test(`${locale}: bonus promotion, full cover, mobile and night view`,async({page})=>{
@@ -16,7 +20,7 @@ for(const locale of LOCALES){
   const image=promo.getByRole("img",{name:copy.coverAlt,exact:true});await expect.poll(()=>image.evaluate((el:HTMLImageElement)=>el.complete&&el.naturalWidth>0)).toBe(true);
   expect(await image.evaluate(el=>getComputedStyle(el).objectFit)).toBe("contain");
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
-  await expect(promo.locator("form,a,button")).toHaveCount(0);await expect(page.locator("article[id]")).toHaveCount(shopProducts.length);
+  await expect(promo.locator("form,a,button")).toHaveCount(0);await expect(page.locator("article[id]")).toHaveCount(publiclyListedProductIds.size);
   await promo.screenshot({path:test.info().outputPath("bonus-light.png")});
   const settings=page.locator("details").filter({has:page.getByText(siteControlsCopy[locale].night,{exact:true})});
   await settings.locator(":scope > summary").click();
@@ -44,7 +48,7 @@ test("mock purchase keeps the product and adds the bonus; recovery rechecks paym
  test.skip(!process.env.MQ_BONUS_E2E_CHECKOUT,"Requires isolated sandbox fixture assets, never live credentials");
  const requests:string[]=[];
  await page.route("**/api/shop/checkout",async route=>{
-  expect(route.request().postDataJSON()).toEqual({productId:shopProducts[0]!.id,adultPurchaser:true,instantSupply:true,cancellationAcknowledged:true});
+  expect(route.request().postDataJSON()).toEqual({productId:publicProductId,adultPurchaser:true,instantSupply:true,cancellationAcknowledged:true});
   await route.fulfill({status:200,contentType:"application/json",body:JSON.stringify({url:"https://checkout.stripe.com/c/pay/mock-parent-bonus"})});
  });
  const base=new URL(test.info().project.use.baseURL as string||"http://127.0.0.1:3013").origin;
@@ -52,7 +56,7 @@ test("mock purchase keeps the product and adds the bonus; recovery rechecks paym
  await page.route("**/api/shop/order",async route=>{requests.push(JSON.stringify(route.request().postDataJSON()));await route.fulfill({status:200,contentType:"application/json",body:JSON.stringify({token:"mock-verified-purchase-token",bonusAvailable:true})});});
  await page.route("**/api/shop/download",async route=>{const body=new URLSearchParams(route.request().postData()!);expect(body.get("token")).toBe("mock-verified-purchase-token");const bonus=body.get("asset")==="parent-guide";await route.fulfill({status:200,headers:{"Content-Type":bonus?"application/pdf":"application/zip","Content-Disposition":`attachment; filename="${bonus?"Little_Minds_Smart_Money_Illustrated.pdf":"purchased-product.zip"}"`},body:bonus?Buffer.from("%PDF-1.7\nMock bonus download\n%%EOF"):Buffer.from("PK\x03\x04mock product")});});
  await page.goto("/en/parents/shop");
- const card=page.locator(`article#${shopProducts[0]!.id}`);for(const checkbox of await card.getByRole("checkbox").all())await checkbox.check();
+ const card=page.locator(`article#${publicProductId}`);for(const checkbox of await card.getByRole("checkbox").all())await checkbox.check();
  await card.getByRole("button",{name:shopFlowCopy.en.continueTest,exact:true}).click();
  await page.getByRole("link",{name:"Complete mock payment",exact:true}).click();
  const productDownload=page.waitForEvent("download");await page.getByRole("button",{name:shopFlowCopy.en.download,exact:true}).click();expect((await productDownload).suggestedFilename()).toBe("purchased-product.zip");

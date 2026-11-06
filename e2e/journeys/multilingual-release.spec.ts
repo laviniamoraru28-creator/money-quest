@@ -51,8 +51,8 @@ for(const locale of LOCALES){
   await page.screenshot({path:info.outputPath(`book-${locale}.png`),fullPage:true});
   expect(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)).toBe(false);
   await page.goto(`/${locale}/parents/resources`);
-  await expect(page.getByRole('link',{name:parentGuideCopy[locale].activitySample,exact:true})).toHaveAttribute('href',"/resources/samples/free-academy-activities-en.pdf");
   await expect(page.getByRole('link',{name:parentGuideCopy[locale].journalSample,exact:true})).toHaveAttribute('href',`/resources/samples/free-journal-30-days-${locale}.pdf`);
+  await expect(page.locator('a[href="/resources/samples/free-academy-activities-en.pdf"]')).toHaveCount(0);
   for(const file of ["/resources/samples/free-academy-activities-en.pdf",`/resources/samples/free-journal-30-days-${locale}.pdf`,`/worksheets/${locale}/${Object.values(LESSON_WORKSHEETS)[0]}`,`/worksheets/${locale}/money-quest-worksheets-answer-key.pdf`]){
    const response=await request.get(file);expect(response.status(),file).toBe(200);expect((await response.body()).subarray(0,4).toString()).toBe('%PDF');
   }

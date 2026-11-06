@@ -6,6 +6,7 @@ import {shopTermsCopy} from "../../src/content/shop-terms-copy";
 import {SHOP_TERMS_VERSION} from "../../src/content/shop";
 import {shopCatalogueCopy} from "../../src/content/shop-catalogue-copy";
 import {shopProducts} from "../../src/content/shop";
+import {publiclyListedProductIds} from "../../src/content/shop-publication";
 test("shop catalogue keeps English file disclosures, real previews and canonical free samples",async({page})=>{
  await page.setViewportSize({width:320,height:900});await page.goto("/en/parents/shop");await expect(page).toHaveURL(/\/en\/parents\/shop$/);
  const copy=shopCatalogueCopy.en.copy;await expect(page.getByText(copy.previewBody,{exact:true})).toBeVisible();
@@ -13,11 +14,14 @@ test("shop catalogue keeps English file disclosures, real previews and canonical
  await page.getByRole("link",{name:copy.sampleCta,exact:true}).click();await expect(page).toHaveURL(/#free-preview$/);
  for(const product of shopProducts){
   const text=shopCatalogueCopy.en.products[product.id],card=page.locator(`article#${product.id}`);
+  if(!publiclyListedProductIds.has(product.id)){await expect(card).toHaveCount(0);continue;}
   await expect(card.getByRole("heading",{name:text.title,exact:true})).toBeVisible();
   const image=card.getByRole("img",{name:text.imageAlt,exact:true});await image.scrollIntoViewIfNeeded();await expect.poll(()=>image.evaluate((el:HTMLImageElement)=>el.complete&&el.naturalWidth>0)).toBe(true);
   await expect(card.getByRole("link",{name:text.sampleLabel,exact:true})).toHaveAttribute("href",product.sample);
   await expect(card.getByRole("button",{name:shopFlowCopy.en.closedButton,exact:true})).toBeDisabled();
  }
+ // Only publicly-listed products render a card at all this release.
+ await expect(page.locator("article")).toHaveCount(Array.from(publiclyListedProductIds).length);
  for(const i of [1,2,3,4] as const){await page.getByText(copy[`q${i}`],{exact:true}).click();await expect(page.getByText(copy[`a${i}`],{exact:true})).toBeVisible();}
  expect(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)).toBe(false);
  const schema=await page.locator('script[type="application/ld+json"]').allTextContents();const collection=schema.map(text=>JSON.parse(text)).find(item=>item["@type"]==="CollectionPage");
@@ -48,7 +52,7 @@ test("parent shop is visible from home at narrow widths and learning stays avail
  await expect.poll(()=>image.evaluate((el:HTMLImageElement)=>el.complete&&el.naturalWidth>0)).toBe(true);
  expect(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)).toBe(false);
  await page.getByRole("link",{name:"Parent shop · PDFs",exact:true}).click();await expect(page.getByRole("heading",{name:"Bring Money Quest learning to your kitchen table"})).toBeVisible();
- await expect(page.getByText("Purchases open after review",{exact:true})).toHaveCount(2);
+ await expect(page.getByText("Purchases open after review",{exact:true})).toHaveCount(Array.from(publiclyListedProductIds).length);
  await expect(page.getByRole("button",{name:"Purchases open after review"}).first()).toBeDisabled();
 });
 test("free samples are real PDF downloads and checkout fails closed without configuration",async({request})=>{
@@ -65,8 +69,10 @@ test("parent guide retains localized sample links, sources and English navigatio
  await page.goto("/en/parents/resources");await expect(page).toHaveURL(/\/en\/parents\/resources$/);
  await expect(page.getByText(/augmentative and alternative communication \(AAC\)/)).toBeVisible();
  for(const source of PARENT_GUIDE_SOURCES)await expect(page.getByRole("link",{name:source.title,exact:true})).toHaveAttribute("href",source.url);
- await expect(page.getByRole("link",{name:parentGuideCopy.en.activitySample,exact:true})).toHaveAttribute("href","/resources/samples/free-academy-activities-en.pdf");
  await expect(page.getByRole("link",{name:parentGuideCopy.en.journalSample,exact:true})).toHaveAttribute("href","/resources/samples/free-journal-30-days-en.pdf");
+ // The Academy Activity Pack is unpublished this release: no promotional
+ // link to its free sample should remain on this page.
+ await expect(page.locator('a[href="/resources/samples/free-academy-activities-en.pdf"]')).toHaveCount(0);
 });
 
 test("order retry localizes errors without another payment and removes query references",async({page})=>{

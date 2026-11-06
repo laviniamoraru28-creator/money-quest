@@ -36,10 +36,12 @@ let renders=0;
 for(const locale of LOCALES){
  const guide=parentGuidePresentation(locale),html=render(locale,React.createElement(ParentResourceGuide,guide)),copy=guide.copy;
  renders++;
- for(const text of [copy.title,copy.intro,copy.step3,copy.sendBody,copy.evidenceBody,copy.sampleBody,copy.activitySample,copy.journalSample,copy.freeBody])assert(html.includes(escape(text)),`${locale}: ${text}`);
+ for(const text of [copy.title,copy.intro,copy.step3,copy.sendBody,copy.evidenceBody,copy.sampleBody,copy.journalSample,copy.freeBody])assert(html.includes(escape(text)),`${locale}: ${text}`);
  for(const level of ["Explorer","Builder","Strategist"])assert(copy.levelsBody.includes(level));
  assert(copy.printNote.includes("A4"));assert(copy.printNote.includes("100"));
- assert(html.includes(`href="/resources/samples/free-academy-activities-en.pdf"`));assert(html.includes(`href="/resources/samples/free-journal-30-days-${locale}.pdf"`));
+ // The Academy Activity Pack is unpublished this release: its free sample
+ // must not be promoted from the parent resources page either.
+ assert(!html.includes("free-academy-activities-en.pdf"));assert(html.includes(`href="/resources/samples/free-journal-30-days-${locale}.pdf"`));
  for(const source of PARENT_GUIDE_SOURCES){assert(html.includes(escape(source.title)));assert(html.includes(escape(source.url)));assert(html.includes(escape(copy[source.id])));}
  const flow=shopFlowPresentation(locale);
  for(const enabled of [false,true]){
