@@ -5,6 +5,7 @@ import {NextIntlClientProvider} from "next-intl";
 import {readFileSync} from "node:fs";
 import DiscoveryExperience from "../src/components/DiscoveryExperience";
 import {discoveryCopy,discoveryText} from "../src/content/discovery-copy";
+import {publicShortReads} from "../src/content/library-publication";
 import {museumRooms,libraryBooks} from "../src/content/discovery";
 import {discoveryNotes} from "../src/content/discovery-notes";
 import {museumMedia} from "../src/content/museum-media";
@@ -48,7 +49,7 @@ function assertCards(presentation:DiscoveryPresentation,slugs:string[]){
 for(const locale of LOCALES){
  for(const kind of ["museum","library"] as const){
   const publicHub=publicDiscoveryPresentation(kind,locale);assert.equal(publicHub.locale,locale);
-  for(const source of kind==="museum"?museumRooms:libraryBooks){
+  for(const source of kind==="museum"?museumRooms:publicShortReads){
    const publicDetail=publicDiscoveryPresentation(kind,locale,source.slug);assert.equal(publicDetail.locale,locale);assert.equal(publicDetail.item?.slug,source.slug);assert.equal(publicDetail.item?.title,draftDiscoveryPresentation(kind,locale,source.slug).item?.title);
   }
  }
@@ -82,7 +83,7 @@ for(const locale of LOCALES){
  {
   const library=draftDiscoveryPresentation("library",locale),html=render(library);
   assertCards(library,libraryBooks.map(book=>book.slug));assert.equal(library.shelves?.locale,locale);
-  for(const text of [ui.libraryTitle,ui.libraryIntro,ui.libraryGuide,ui.shortHeading,ui.shortIntro])assert(html.includes(escape(text)));
+  for(const text of [ui.libraryTitle,ui.libraryIntro,ui.libraryGuide])assert(html.includes(escape(text)));
   for(const book of library.shelves!.books)assert(html.includes(escape(book.title)));
  }
 }

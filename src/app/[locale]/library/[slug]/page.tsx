@@ -6,8 +6,7 @@ import {libraryPeople} from "@/content/people";
 import BiographyProfile from "@/components/BiographyProfile";
 import OriginalBookReader from "@/components/OriginalBookReader";
 import {notFound} from "next/navigation";
-import {libraryBooks} from "@/content/discovery";
-import {originalBooks} from "@/content/library";
+import {publicShortReads as libraryBooks,publicOriginalBooks as originalBooks} from "@/content/library-publication";
 type Props={params:Promise<{slug:string;locale:string}>};
 export default async function Page({params}:Props){
   const {slug,locale:requestedLocale}=await params;

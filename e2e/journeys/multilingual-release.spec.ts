@@ -1,7 +1,7 @@
 import {readFileSync} from 'node:fs';
 import {test,expect} from '@playwright/test';
 import {LOCALES,REGIONAL_LOCALES} from '../../src/i18n/config';
-import {originalBooks} from '../../src/content/library';
+import {publicOriginalBooks as originalBooks} from '../../src/content/library-publication';
 import {libraryPeople} from '../../src/content/people';
 import {museumRooms} from '../../src/content/discovery';
 import {learningLabs} from '../../src/content/learning-labs';

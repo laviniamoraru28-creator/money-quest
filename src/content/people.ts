@@ -47,9 +47,9 @@ export const libraryPeople: Biography[] = [
   "title": "Katherine Johnson: checking the numbers",
   "topic": "Mathematics, teamwork and checking evidence",
   "ages": "Builder and Strategist · ages 9–14; shared reading is welcome",
-  "image": "/images/money-quest/sections/brain-lab-v2.webp",
-  "alt": "An illustrated Money Quest learning laboratory, used to introduce mathematics.",
-  "illustrationNote": "Money Quest thematic illustration. It does not depict this person or a historical event.",
+  "image": "/images/money-quest/people/katherine-johnson-v1.webp",
+  "alt": "Katherine Johnson checking calculations beside an orbital diagram and spacecraft model.",
+  "illustrationNote": "Original AI-generated cartoon illustration. An imagined scene, not a photograph or historical evidence.",
   "playful": "Imagine planning a journey without checking where it ends. What would you need to calculate before setting off?",
   "sections": [
     {
@@ -80,9 +80,9 @@ export const libraryPeople: Biography[] = [
   "title": "Mae Jemison: more than one interest",
   "topic": "Science, medicine and exploration",
   "ages": "Builder and Strategist · ages 9–14; shared reading is welcome",
-  "image": "/images/money-quest/sections/future-skills.webp",
-  "alt": "A Money Quest future-skills illustration, introducing exploration and learning.",
-  "illustrationNote": "Money Quest thematic illustration. It does not depict this person or a historical event.",
+  "image": "/images/money-quest/people/mae-jemison-v1.webp",
+  "alt": "Mae Jemison holding a plant experiment beside a spacecraft window.",
+  "illustrationNote": "Original AI-generated cartoon illustration. An imagined scene, not a photograph or historical evidence.",
   "playful": "If you could pack a question for a space journey, which question would you take? No suitcase could hold every interesting question.",
   "sections": [
     {
@@ -113,9 +113,9 @@ export const libraryPeople: Biography[] = [
   "title": "Tim Berners-Lee: sharing information",
   "topic": "Invention, the web and digital responsibility",
   "ages": "Builder and Strategist · ages 9–14; shared reading is welcome",
-  "image": "/images/money-quest/sections/future-skills.webp",
-  "alt": "A Money Quest future-skills illustration, introducing connected information.",
-  "illustrationNote": "Money Quest thematic illustration. It does not depict this person or a historical event.",
+  "image": "/images/money-quest/people/tim-berners-lee-v1.webp",
+  "alt": "Tim Berners-Lee connecting paper documents with arrows beside an early computer.",
+  "illustrationNote": "Original AI-generated cartoon illustration. An imagined scene, not a photograph or historical evidence.",
   "playful": "Imagine a library where each page could point you to another useful page. Which connections would help you find an answer?",
   "sections": [
     {
@@ -146,9 +146,9 @@ export const libraryPeople: Biography[] = [
   "title": "Wangari Maathai: trees and community",
   "topic": "Environment, leadership and working together",
   "ages": "Builder and Strategist · ages 9–14; shared reading is welcome",
-  "image": "/images/money-quest/worlds/kindness-grove.webp",
-  "alt": "A Money Quest garden illustration, introducing community and the environment.",
-  "illustrationNote": "Money Quest thematic illustration. It does not depict this person or a historical event.",
+  "image": "/images/money-quest/people/wangari-maathai-v1.webp",
+  "alt": "Wangari Maathai holding a tree seedling in a community garden.",
+  "illustrationNote": "Original AI-generated cartoon illustration. An imagined scene, not a photograph or historical evidence.",
   "playful": "A tree cannot fill in its own project plan. What might people need to organise to help a young tree grow?",
   "sections": [
     {
@@ -179,9 +179,9 @@ export const libraryPeople: Biography[] = [
   "title": "Louis Braille: designing for touch",
   "topic": "Accessible reading, design and inclusion",
   "ages": "Builder and Strategist · ages 9–14; shared reading is welcome",
-  "image": "/images/money-quest/sections/inclusive-learning.webp",
-  "alt": "A Money Quest inclusive-learning illustration, introducing different ways to read.",
-  "illustrationNote": "Money Quest thematic illustration. It does not depict this person or a historical event.",
+  "image": "/images/money-quest/people/louis-braille-v1.webp",
+  "alt": "Louis Braille reading raised dots with his fingertips beside a slate and stylus.",
+  "illustrationNote": "Original AI-generated cartoon illustration. An imagined scene, not a photograph or historical evidence.",
   "playful": "Could your fingers read a message? Raised patterns can carry information without needing printed letters to be seen.",
   "sections": [
     {
@@ -212,9 +212,9 @@ export const libraryPeople: Biography[] = [
   "title": "Jane Goodall: looking before concluding",
   "topic": "Observation, animals and evidence",
   "ages": "Builder and Strategist · ages 9–14; shared reading is welcome",
-  "image": "/images/money-quest/sections/brain-lab.webp",
-  "alt": "A Money Quest discovery illustration, introducing observation and questions.",
-  "illustrationNote": "Money Quest thematic illustration. It does not depict this person or a historical event.",
+  "image": "/images/money-quest/people/jane-goodall-v1.webp",
+  "alt": "Jane Goodall observing a chimpanzee in a forest and taking notes.",
+  "illustrationNote": "Original AI-generated cartoon illustration. An imagined scene, not a photograph or historical evidence.",
   "playful": "If an animal could correct your notebook, would it cross out a guess? Looking carefully helps separate what happened from what we imagine.",
   "sections": [
     {
@@ -245,9 +245,9 @@ export const libraryPeople: Biography[] = [
   "title": "Beatrix Potter: drawing, writing and making",
   "topic": "Creativity, publishing and enterprise",
   "ages": "Builder and Strategist · ages 9–14; shared reading is welcome",
-  "image": "/images/money-quest/sections/library.webp",
-  "alt": "A Money Quest library illustration, introducing writing and creative work.",
-  "illustrationNote": "Money Quest thematic illustration. It does not depict this person or a historical event.",
+  "image": "/images/money-quest/people/beatrix-potter-v1.webp",
+  "alt": "Beatrix Potter drawing a rabbit in a sketchbook beside a cottage window.",
+  "illustrationNote": "Original AI-generated cartoon illustration. An imagined scene, not a photograph or historical evidence.",
   "playful": "A rabbit cannot send a book to a printer. An author needs more than a story character to turn an idea into a published book.",
   "sections": [
     {

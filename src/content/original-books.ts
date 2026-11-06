@@ -20,7 +20,7 @@ export const firstMoneyBook = {
   subtitle: "A Coin Cove story about spending, saving and caring",
   audience: "Explorer · ages 6–8 · Read independently or with a grown-up",
   description: "Join our girl guide and her puppy for eight chapters about a model boat, a tempting market and a plan that can change.",
-  cover: "/images/money-quest/books/little-compass-cover.webp",
+  cover: "/images/money-quest/books/pages/the-little-compass-and-the-money-choices-c1-p1-v1.webp",
   coverAlt: "Our girl guide and her brown-and-white puppy consider a wooden model boat at a sunny Coin Cove market stall.",
   chapters: [
     {

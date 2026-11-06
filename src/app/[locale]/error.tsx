@@ -1,21 +1,15 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import {errorBoundaryCopy,errorLocale} from "@/content/error-boundary-copy";
+import type {Locale} from "@/i18n/config";
 import { reportClientErrorAction } from "@/lib/monitoring/report-client-error-action";
 
-/**
- * Found during the final launch audit alongside not-found.tsx: no
- * error boundary existed anywhere, so any unhandled exception in a
- * Server Component's render fell through to Next.js's generic default
- * error page. This is the one Next.js App Router convention that MUST
- * be a Client Component and MUST NOT depend on locale/translation
- * context (an error here could itself be the reason that context
- * failed to load) — kept deliberately simple, plain English, a plain
- * <a> tag rather than the i18n-aware Link, and no data fetching of its
- * own, so this page has the best possible chance of rendering even
- * when something else in the app just broke.
- */
+/** Recovery copy must not require a working locale provider. */
 export default function ErrorBoundary({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) {
+  const [locale,setLocale]=useState<Locale>("en");
+  useEffect(()=>{setLocale(errorLocale(window.location.pathname));},[]);
+  const copy=errorBoundaryCopy[locale];
   useEffect(() => {
     // eslint-disable-next-line no-console
     console.error("[error-boundary]", error);
@@ -36,21 +30,21 @@ export default function ErrorBoundary({ error, reset }: { error: Error & { diges
         <span className="text-5xl" aria-hidden="true">
           🛠️
         </span>
-        <h1 className="mt-sm font-display text-2xl font-bold">Something went wrong</h1>
+        <h1 className="mt-sm font-display text-2xl font-bold">{copy.title}</h1>
         <p className="mt-2xs text-base text-ink/70">
-          Try again. You can also return to the home page.
+          {copy.body}
         </p>
         <button
           type="button"
           onClick={reset}
           className="mt-md min-h-touch-min rounded-lg bg-teal px-md py-xs font-medium text-white shadow-resting hover:bg-teal/90"
         >
-          Try again
+          {copy.retry}
         </button>
         <p className="mt-sm">
           {/* eslint-disable-next-line @next/next/no-html-link-for-pages -- Full navigation can recover a broken router or locale provider. */}
-          <a href="/" className="text-sm text-teal-text hover:underline">
-            Or go to the home page
+          <a href={`/${locale}`} className="text-sm text-teal-text hover:underline">
+            {copy.home}
           </a>
         </p>
       </div>

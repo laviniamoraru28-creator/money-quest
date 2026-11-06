@@ -38,7 +38,10 @@
     "allRooms": "All rooms",
     "allBooks": "All books",
     "visitLibrary": "Visit Library",
-    "visitMuseum": "Visit Museum"
+    "visitMuseum": "Visit Museum",
+    "previousRoom": "Previous room",
+    "nextRoom": "Next room",
+    "backMuseum": "Back to Museum"
   },
   "ro": {
     "navigation": "Navigare printre descoperiri",
@@ -79,7 +82,10 @@
     "allRooms": "Toate camerele",
     "allBooks": "Toate cărțile",
     "visitLibrary": "Vizitează biblioteca",
-    "visitMuseum": "Vizitează muzeul"
+    "visitMuseum": "Vizitează muzeul",
+    "previousRoom": "Camera anterioară",
+    "nextRoom": "Camera următoare",
+    "backMuseum": "Înapoi la muzeu"
   },
   "es": {
     "navigation": "Navegación de descubrimiento",
@@ -120,7 +126,10 @@
     "allRooms": "Todas las salas",
     "allBooks": "Todos los libros",
     "visitLibrary": "Visita la biblioteca",
-    "visitMuseum": "Visita el museo"
+    "visitMuseum": "Visita el museo",
+    "previousRoom": "Sala anterior",
+    "nextRoom": "Sala siguiente",
+    "backMuseum": "Volver al museo"
   },
   "fr": {
     "navigation": "Navigation de découverte",
@@ -161,7 +170,10 @@
     "allRooms": "Toutes les salles",
     "allBooks": "Tous les livres",
     "visitLibrary": "Visite la bibliothèque",
-    "visitMuseum": "Visite le musée"
+    "visitMuseum": "Visite le musée",
+    "previousRoom": "Salle précédente",
+    "nextRoom": "Salle suivante",
+    "backMuseum": "Retour au musée"
   },
   "de": {
     "navigation": "Entdeckungsnavigation",
@@ -202,7 +214,10 @@
     "allRooms": "Alle Räume",
     "allBooks": "Alle Bücher",
     "visitLibrary": "Besuche die Bibliothek",
-    "visitMuseum": "Besuche das Museum"
+    "visitMuseum": "Besuche das Museum",
+    "previousRoom": "Vorheriger Raum",
+    "nextRoom": "Nächster Raum",
+    "backMuseum": "Zurück zum Museum"
   },
   "it": {
     "navigation": "Navigazione delle scoperte",
@@ -243,7 +258,10 @@
     "allRooms": "Tutte le sale",
     "allBooks": "Tutti i libri",
     "visitLibrary": "Visita la biblioteca",
-    "visitMuseum": "Visita il museo"
+    "visitMuseum": "Visita il museo",
+    "previousRoom": "Sala precedente",
+    "nextRoom": "Sala successiva",
+    "backMuseum": "Torna al museo"
   },
   "pt": {
     "navigation": "Navegação de descobertas",
@@ -284,7 +302,10 @@
     "allRooms": "Todas as salas",
     "allBooks": "Todos os livros",
     "visitLibrary": "Visita a biblioteca",
-    "visitMuseum": "Visita o museu"
+    "visitMuseum": "Visita o museu",
+    "previousRoom": "Sala anterior",
+    "nextRoom": "Sala seguinte",
+    "backMuseum": "Voltar ao museu"
   },
   "nl": {
     "navigation": "Ontdekkingsnavigatie",
@@ -325,7 +346,10 @@
     "allRooms": "Alle zalen",
     "allBooks": "Alle boeken",
     "visitLibrary": "Bezoek de bibliotheek",
-    "visitMuseum": "Bezoek het museum"
+    "visitMuseum": "Bezoek het museum",
+    "previousRoom": "Vorige zaal",
+    "nextRoom": "Volgende zaal",
+    "backMuseum": "Terug naar het museum"
   },
   "pl": {
     "navigation": "Nawigacja odkryć",
@@ -366,6 +390,9 @@
     "allRooms": "Wszystkie sale",
     "allBooks": "Wszystkie książki",
     "visitLibrary": "Odwiedź bibliotekę",
-    "visitMuseum": "Odwiedź muzeum"
+    "visitMuseum": "Odwiedź muzeum",
+    "previousRoom": "Poprzednia sala",
+    "nextRoom": "Następna sala",
+    "backMuseum": "Powrót do muzeum"
   }
 }

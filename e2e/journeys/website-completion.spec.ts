@@ -1,6 +1,7 @@
 import {test,expect} from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import {museumRooms,libraryBooks} from "../../src/content/discovery";
+import {publicOriginalBooks} from "../../src/content/library-publication";
 import {labTaskAtLevel} from "../../src/content/lab-age-variants";
 import {learningLabs} from "../../src/content/learning-labs";
 const pages=["/en","/en/play","/en/museum","/en/library","/en/brain-lab","/en/mind-lab","/en/future-skills","/en/inclusive-learning","/en/play/simulator","/en/play/investing-lab","/en/play/goals","/en/play/money-personality","/en/entrepreneur-quest","/en/leadership-quest","/en/real-life-quests"];
@@ -16,15 +17,16 @@ for(const path of pages) test(`page, images, hydration and accessibility: ${path
  const result=await new AxeBuilder({page}).withTags(["wcag2a","wcag2aa","wcag21aa"]).analyze();expect(result.violations).toEqual([]);expect(errors).toEqual([]);
 });
 test("all museum and library detail routes have correct canonical metadata",async({page})=>{
- for(const [kind,entries] of [["museum",museumRooms],["library",libraryBooks]] as const) for(const item of entries){
+ for(const [kind,entries] of [["museum",museumRooms],["library",publicOriginalBooks]] as const) for(const item of entries){
   const path=`/en/${kind}/${item.slug}`;const response=await page.goto(path);expect(response?.status()).toBe(200);await expect(page.getByRole("heading",{name:item.title,exact:true,level:1})).toBeVisible();await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href",`https://moneyquesteducation.com${path}`);
  }
 });
-test("book page navigation, retry, saved progress and reload",async({page})=>{
- await page.goto("/en/library/the-saving-seed");await page.getByRole("button",{name:"Next",exact:true}).click();await expect(page.getByText("Page 2 of 3",{exact:true})).toBeVisible();await page.getByRole("button",{name:"Next",exact:true}).click();
- await page.getByRole("button",{name:"Buying sweets daily",exact:true}).click();await expect(page.getByRole("status").filter({hasText:"Look back"})).toBeVisible();
- await page.getByRole("button",{name:"Saving little by little",exact:true}).click();await page.getByRole("button",{name:"Mark as discovered",exact:true}).click();await expect(page.getByRole("button",{name:"Saved on this device",exact:true})).toBeVisible();
- await page.reload();await page.getByRole("button",{name:"Next",exact:true}).click();await page.getByRole("button",{name:"Next",exact:true}).click();await page.getByRole("button",{name:"Saving little by little",exact:true}).click();await expect(page.getByRole("button",{name:"Saved on this device",exact:true})).toBeVisible();
+test("unfinished short reads have no public routes or catalogue links",async({page})=>{
+ await page.goto('/en/library');
+ for(const book of libraryBooks){
+  await expect(page.locator(`a[href="/en/library/${book.slug}"]`)).toHaveCount(0);
+  expect((await page.request.get(`/en/library/${book.slug}`)).status()).toBe(404);
+ }
 });
 for(const lab of learningLabs) test(`${lab.title} covers every task and three challenges`,async({page})=>{
  await page.goto(`/en/${lab.slug}`);

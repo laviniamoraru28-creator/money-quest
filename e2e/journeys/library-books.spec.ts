@@ -1,6 +1,7 @@
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
-import { originalBooks } from "../../src/content/library";
+import { publicOriginalBooks as originalBooks } from "../../src/content/library-publication";
+import { publicShortReads } from "../../src/content/library-publication";
 import { authorBooks } from "../../src/content/author-books";
 import { libraryPeople } from "../../src/content/people";
 import {librarySourceDate} from "../../src/content/reader-copy";
@@ -19,7 +20,9 @@ test("Library separates full originals, author listings and existing short reads
     await expect(article.getByRole("link")).toHaveAttribute("href", book.url);
     await expect(article).toContainText("The complete book is not hosted on Money Quest.");
   }
-  await expect(page.getByRole("link", { name: /The Saving Seed/ })).toBeVisible();
+  for (const book of publicShortReads) {
+    await expect(page.getByRole("link").filter({has: page.getByRole("heading", {name: book.title, exact: true})})).toHaveAttribute("href", `/en/library/${book.slug}`);
+  }
 });
 
 for (const book of originalBooks) test(`original book: all chapters, feedback, completion, WCAG: ${book.slug}`, async ({ page }) => {
@@ -69,13 +72,13 @@ test("optional chapter question never blocks navigation and blocked storage stay
   await expect(page.getByRole("heading", { name: book.chapters.at(-2)!.title, level: 2, exact: true })).toBeFocused();
 });
 
-test("English reader preserves English narration, typography controls and cover descriptions",async({page})=>{
+test("English reader preserves narration, typography and page-specific illustration descriptions",async({page})=>{
  await page.addInitScript(()=>{
   const calls:{lang:string;text:string}[]=[];(window as unknown as {readerSpeech:typeof calls}).readerSpeech=calls;
   Object.defineProperty(window,"speechSynthesis",{configurable:true,value:{cancel(){},speak(utterance:{lang:string;text:string;onstart?:()=>void}){calls.push({lang:utterance.lang,text:utterance.text});utterance.onstart?.();}}});
   Object.defineProperty(window,"SpeechSynthesisUtterance",{configurable:true,value:class{text:string;lang="";constructor(text:string){this.text=text;}}});
  });
- const book=originalBooks.find(book=>book.slug==="the-repair-table")!;
+ const book=originalBooks[0]!;
  await page.goto(`/en/library/${book.slug}`);await expect(page).toHaveURL(new RegExp(`/en/library/${book.slug}$`));
  await page.getByRole("button",{name:"Open book",exact:true}).click();
  const article=page.getByRole("article"),chapter=book.chapters[0]!;
@@ -85,8 +88,12 @@ test("English reader preserves English narration, typography controls and cover 
  expect((await page.evaluate(()=>(window as unknown as {readerSpeech:{text:string}[]}).readerSpeech))[0]!.text).toContain(chapter.title);
  await article.getByRole("button",{name:"Larger text",exact:true}).click();await expect(article.getByRole("button",{name:"Standard text",exact:true})).toHaveAttribute("aria-pressed","true");
  await article.getByRole("button",{name:"Next chapter",exact:true}).click();
- // This book keeps its own cover on later chapters, so its actual cover alt must remain.
- await expect(article.getByRole("img",{name:book.coverAlt,exact:true})).toBeVisible();
+ // The next chapter now has dedicated artwork rather than a repeated cover.
+ const expectedAlt=book.chapters[1]!.paragraphs[0]!.split(/(?<=[.!?])\s+/u)[0]!;
+ const illustration=article.getByRole("img",{name:expectedAlt,exact:true});
+ await expect(illustration).toBeVisible();
+ await expect(illustration).toHaveAttribute("src",`/images/money-quest/books/pages/${book.slug}-c2-p1-v1.webp`);
+ await expect.poll(()=>illustration.evaluate((image:HTMLImageElement)=>image.complete&&image.naturalWidth>0)).toBe(true);
 });
 
 test("English biography retains canonical source and a British calendar date",async({page})=>{

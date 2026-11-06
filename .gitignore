@@ -68,6 +68,8 @@ moneyquest-namecheap-built.zip
 /public/worksheets/nl/
 /public/worksheets/pl/
 
+# Local audit logs and generation receipts
+.work/
 # Complete paid Academy PDFs and private delivery archives
 /private-assets/
 /source-pdfs/

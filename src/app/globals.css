@@ -110,7 +110,7 @@ html[data-night-view="true"] .investment-phone-screen { background: #000; }
 @keyframes coin-reward-enter { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes coin-reward-float { 0% { transform: translateY(6px); } 65% { transform: translateY(-12px); } 100% { transform: translateY(0); } }
 
-.book-spread { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); border:6px solid #5b3c77; border-radius:1rem 1rem 1.5rem 1.5rem; overflow:hidden; box-shadow:0 18px 35px #1c262422; }
+.book-spread { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); border:6px solid #527567; border-radius:1rem 1rem 1.5rem 1.5rem; overflow:hidden; box-shadow:0 18px 35px #1c262422; }
 .book-paper { min-width:0; margin:0; padding:clamp(1rem,3vw,2rem); background:#fff9e9; color:#1c2624; }
 .book-illustration { box-shadow:inset -12px 0 20px -18px #1c2624; border-right:1px solid #d3cbb5; }
 .book-reading-page { box-shadow:inset 12px 0 20px -18px #1c2624; animation:book-page-arrive .22s ease-out; }
@@ -118,7 +118,6 @@ html[data-night-view="true"] .investment-phone-screen { background: #000; }
 html[data-night-view="true"] .book-paper { background:#080808; color:#fff; }
 @media(max-width:700px) { .book-spread{grid-template-columns:minmax(0,1fr);} .book-illustration{border-right:0;border-bottom:1px solid #d3cbb5;} .book-illustration img{max-height:260px;object-fit:contain;} }
 
-/* Optional movement of a still picture; never starts automatically. */
 
 /* Illustrated covers remain keyboard links; shelving never requires dragging. */
 .library-shelves {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem 1.25rem;padding:1.5rem 1rem;background:#f2e7d6;border-radius:1.5rem;}
@@ -128,7 +127,7 @@ html[data-night-view="true"] .book-paper { background:#080808; color:#fff; }
 .library-cover {display:block;overflow:hidden;border-radius:4px 14px 14px 4px;border-left:9px solid #315d60;background:#e2f0e9;color:#182c2b;box-shadow:5px 5px 0 #d0c6ac,8px 10px 14px #352c2626;transition:transform .18s ease;}
 .library-cover:hover {transform:translateY(-4px);}
 .library-cover-1 {background:#fff0c8;border-left-color:#805923;}
-.library-cover-2 {background:#eee3fa;border-left-color:#654775;}
+.library-cover-2 {background:#e6eee3;border-left-color:#527567;}
 .library-cover-3 {background:#e4eefe;border-left-color:#345d86;}
 .book-opening {animation:book-unfold .35s ease-out;transform-origin:left center;}
 @keyframes book-unfold {from {opacity:.5;transform:perspective(1200px) rotateY(-12deg);}to {opacity:1;transform:none;}}
@@ -141,6 +140,9 @@ html[data-night-view="true"] :where(.library-cover,.library-shelves) {background
 html[data-night-view="true"] .library-cover,
 html[data-night-view="true"] .library-cover * {color:#fff !important;}
 
+/* Library pages respect both the system preference and the in-site control. */
+@media(prefers-reduced-motion:reduce) {.book-reading-page {animation:none;}}
+[data-reduced-motion="true"] :is(.book-opening,.book-reading-page) {animation:none;}
 /* User-selected illustration density. Only decorative artwork is resized/hidden.
    Instructional images remain unchanged so visual exercises remain usable. */
 html[data-image-size="small"] [data-learning-decoration] img { max-width: 55%; height: auto; margin-inline: auto; }

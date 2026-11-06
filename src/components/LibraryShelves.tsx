@@ -17,14 +17,14 @@ export function LibraryShelves({presentation}:{presentation:ShelfPresentation}) 
   const shown = published.filter(book => topic === "All topics" || book.topics.includes(topic));
   return <>
     <nav aria-label={copy.nav} className="mt-6 flex flex-wrap gap-3">
-      {[["#money-quest-books",copy.books],["#author-books",copy.authors],["#people-and-ideas",copy.people],["#short-reads",copy.shortReads]].map(([href, text]) => <a key={href} href={href} className="min-h-12 rounded-xl border border-teal/30 bg-white px-4 py-3 font-semibold text-teal-text underline">{text}</a>)}
+      {[["#money-quest-books",copy.books],["#author-books",copy.authors],["#people-and-ideas",copy.people]].map(([href, text]) => <a key={href} href={href} className="min-h-12 rounded-xl border border-teal/30 bg-white px-4 py-3 font-semibold text-teal-text underline">{text}</a>)}
     </nav>
     <section id="money-quest-books" aria-labelledby="original-shelf-title" className="mt-8 scroll-mt-8">
       <h2 id="original-shelf-title" className="text-2xl">{copy.originalHeading}</h2>
       <p className="mt-2">{shelfText(locale,"originalIntro",{count:books.length})}</p>
       <div className="library-shelves mt-5">{books.map((book, index) => <article key={book.slug} className="library-shelf-slot">
         <Link href={`/library/${book.slug}`} aria-label={book.title} className={`library-cover library-cover-${index % 4}`}>
-          <Image unoptimized src={book.cover} alt="" width={576} height={384} className="aspect-square w-full object-cover"/>
+          <Image unoptimized src={book.cover} alt="" width={576} height={384} className="aspect-[3/2] w-full bg-cream object-contain"/>
           <h3 className="p-4 text-lg font-bold leading-snug">{book.title}</h3>
         </Link>
         <div className="library-shelf-board" aria-hidden="true"/>
@@ -34,7 +34,7 @@ export function LibraryShelves({presentation}:{presentation:ShelfPresentation}) 
     <section id="people-and-ideas" aria-labelledby="people-shelf-title" className="mt-10 scroll-mt-8">
       <h2 id="people-shelf-title" className="text-2xl">{shelfText(locale,"peopleHeading",{count:people.length})}</h2>
       <p className="mt-2">{copy.peopleIntro}</p>
-      <div className="mt-5 grid gap-5 md:grid-cols-3">{people.map(person => <article key={person.slug} className="overflow-hidden rounded-2xl border border-ink/20 bg-white"><Image unoptimized data-learning-decoration src={person.image} alt="" width={384} height={384} className="aspect-square w-full object-cover"/><div className="p-5"><h3 className="text-xl"><Link href={`/library/${person.slug}`} className="inline-block min-h-12 py-2 font-semibold text-teal-text underline">{person.name}</Link></h3><p className="mt-2">{person.topic}</p><p className="mt-2 text-sm">{person.ages}</p></div></article>)}</div>
+      <div className="mt-5 grid gap-5 md:grid-cols-3">{people.map(person => <article key={person.slug} className="overflow-hidden rounded-2xl border border-ink/20 bg-white"><Image unoptimized data-learning-decoration src={person.image} alt="" width={384} height={384} className="aspect-[3/2] w-full bg-cream object-contain"/><div className="p-5"><h3 className="text-xl"><Link href={`/library/${person.slug}`} className="inline-block min-h-12 py-2 font-semibold text-teal-text underline">{person.name}</Link></h3><p className="mt-2">{person.topic}</p><p className="mt-2 text-sm">{person.ages}</p></div></article>)}</div>
     </section>
     <section id="author-books" aria-labelledby="author-shelf-title" className="mt-10 scroll-mt-8 rounded-3xl border border-ink/15 bg-white p-5 md:p-8">
       <h2 id="author-shelf-title" className="text-2xl">{copy.authorHeading}</h2>

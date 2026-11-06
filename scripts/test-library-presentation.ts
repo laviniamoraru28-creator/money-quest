@@ -6,7 +6,7 @@ import {readFileSync} from "node:fs";
 import OriginalBookReader from "../src/components/OriginalBookReader";
 import BiographyProfile from "../src/components/BiographyProfile";
 import {LibraryShelves} from "../src/components/LibraryShelves";
-import {originalBooks} from "../src/content/library";
+import {publicOriginalBooks} from "../src/content/library-publication";
 import {libraryPeople} from "../src/content/people";
 import {authorBooks} from "../src/content/author-books";
 import {readerCopy,readerText,librarySourceDate} from "../src/content/reader-copy";
@@ -51,7 +51,7 @@ function render(locale:Locale,element:React.ReactElement){
  return renderToStaticMarkup(React.createElement(NextIntlClientProvider,{locale,messages,timeZone:"Europe/London",children:element}));
 }
 const escape=(value:string)=>value.replaceAll("&","&amp;").replaceAll("'","&#x27;").replaceAll('"',"&quot;").replaceAll("<","&lt;").replaceAll(">","&gt;");
-for(const book of originalBooks){
+for(const book of publicOriginalBooks){
  const en=draftReaderPresentation(book,"en"),ro=draftReaderPresentation(book,"ro");
  assert.equal(en.book,book);assert.equal(ro.paragraphsPerPage,en.paragraphsPerPage,"Localized prose must not change pagination");
  assert.equal(ro.book.slug,book.slug);assert.equal(ro.book.cover,book.cover);
@@ -81,7 +81,7 @@ for(const person of libraryPeople){
 }
 for(const locale of LOCALES){
  const presentation=draftShelfPresentation(locale),html=render(locale,React.createElement(LibraryShelves,{presentation}));
- assert.equal(presentation.books.length,10);assert.equal(presentation.people.length,10);assert.equal(presentation.published.length,12);
+ assert.equal(presentation.books.length,publicOriginalBooks.length);assert.equal(presentation.people.length,10);assert.equal(presentation.published.length,12);
  for(const book of presentation.books)assert(html.includes(escape(book.title)));
  for(const person of presentation.people)assert(html.includes(escape(person.topic)));
  presentation.published.forEach((book,index)=>{

@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import {bookPageArt} from "@/content/book-page-art";
 import {experienceCopy} from "@/content/experience-copy";
 import {REGIONAL_LOCALES} from "@/i18n/config";
 import {readerCopy,readerText} from "@/content/reader-copy";
@@ -17,7 +18,7 @@ export default function OriginalBookReader({book,locale,paragraphsPerPage}:Reade
   const [opened, setOpened] = useState(false);
   const coverButton = useRef<HTMLButtonElement>(null);
   const perPage=paragraphsPerPage;
-  const spreads = book.chapters.flatMap((item, chapterIndex) => Array.from({length:Math.ceil(item.paragraphs.length/perPage)}, (_, part) => ({chapterIndex,paragraphs:item.paragraphs.slice(part*perPage,part*perPage+perPage)})));
+  const spreads = book.chapters.flatMap((item, chapterIndex) => Array.from({length:Math.ceil(item.paragraphs.length/perPage)}, (_, part) => ({chapterIndex,part,paragraphs:item.paragraphs.slice(part*perPage,part*perPage+perPage)})));
   const spread = spreads[page]!;
   const chapter = spread.chapterIndex;
   const [answers, setAnswers] = useState<Record<number, number>>({});
@@ -43,8 +44,10 @@ export default function OriginalBookReader({book,locale,paragraphsPerPage}:Reade
   }, [book.slug]);
   const move = (index: number) => { if (index < 0 || index >= book.chapters.length) return; stop(); setOpened(true); setPage(spreads.findIndex(item=>item.chapterIndex===index)); };
   const turnPage = (index:number) => { if(index<0||index>=spreads.length)return;stop();setPage(index); };
-  const useBookCover = chapter === 0 || !["the-little-compass-and-the-money-choices", "the-garden-everyone-could-enter", "the-market-town-notebook"].includes(book.slug);
-  const art = useBookCover ? book.cover : `/images/money-quest/worlds/${book.slug==="the-little-compass-and-the-money-choices"?["coin-cove","sky-exchange","market-town","market-town","golden-vault","guardian-gate","kindness-grove","coin-cove"][chapter]:book.slug==="the-garden-everyone-could-enter"?"kindness-grove":book.slug==="the-market-town-notebook"?"market-town":""}.webp`;
+  const pageArt=bookPageArt(book.slug,chapter,spread.part);
+  if(!pageArt)throw new Error(`Unreviewed Library page: ${book.slug}:${chapter}:${spread.part}`);
+  const artAlt=spread.paragraphs[0]!.split(/(?<=[.!?])\s+/u)[0]!;
+  const art=pageArt.src;
   const markFinished = () => {
     try {
       const parsed: unknown = JSON.parse(localStorage.getItem(STORE) || "[]");
@@ -60,14 +63,14 @@ export default function OriginalBookReader({book,locale,paragraphsPerPage}:Reade
       <p className="mt-4 max-w-3xl">{readerText(locale,"intro",{count:book.chapters.length})}</p>
       <details className="mt-5 rounded-xl border border-ink/20 bg-white p-4"><summary className="min-h-12 cursor-pointer py-3 font-bold">{copy.contents}</summary><ol className="mt-2 list-decimal pl-6">{book.chapters.map((item, index) => <li key={item.title}><button type="button" aria-current={chapter === index ? "step" : undefined} onClick={() => move(index)} className="min-h-12 py-3 text-left font-semibold text-teal-text underline">{item.title}</button></li>)}</ol></details>
       {!opened && <button ref={coverButton} type="button" aria-label={t.openBook} onClick={() => {setOpened(true); requestAnimationFrame(() => title.current?.focus());}} className="library-cover library-cover-0 mx-auto mt-7 block max-w-sm text-left">
-        <Image unoptimized src={book.cover} alt={book.coverAlt} width={576} height={384} className="aspect-square w-full object-cover"/><span className="block p-5 text-xl font-bold">{book.title}</span><span className="block px-5 pb-5 font-semibold">{t.openBook} →</span>
+        <Image unoptimized src={book.cover} alt={book.coverAlt} width={576} height={384} className="aspect-[3/2] w-full bg-cream object-contain"/><span className="block p-5 text-xl font-bold">{book.title}</span><span className="block px-5 pb-5 font-semibold">{t.openBook} →</span>
       </button>}
       {opened && <article className="book-opening mt-6 rounded-3xl border border-ink/15 bg-white p-5 md:p-9">
         <button type="button" onClick={() => {stop(); setOpened(false); requestAnimationFrame(() => coverButton.current?.focus());}} className="mb-4 min-h-12 rounded-xl border border-teal px-4 py-3 font-semibold text-teal-text">{t.closeBook}</button>
         <p className="font-semibold text-teal-text">{readerText(locale,"chapter",{current:chapter+1,total:book.chapters.length})}</p><h2 ref={title} tabIndex={-1} className="mt-3 text-2xl">{current.title}</h2>
         <div className="mt-5 flex flex-wrap gap-3">{isSupported && <button type="button" onClick={() => isSpeaking ? stop() : speak(readText)} className="min-h-12 rounded-xl border border-teal/40 px-4 py-3 font-semibold text-teal-text">{isSpeaking ? copy.stop : copy.listen}</button>}<button type="button" aria-pressed={large} onClick={() => setLarge(!large)} className="min-h-12 rounded-xl border border-ink/30 px-4 py-3">{large ? copy.standard : copy.larger}</button></div>
         <div className="book-spread mt-6" role="region" aria-label={copy.pages} tabIndex={0} onKeyDown={event=>{if(event.target!==event.currentTarget)return;if(event.key==="ArrowRight"){event.preventDefault();turnPage(page+1);}if(event.key==="ArrowLeft"){event.preventDefault();turnPage(page-1);}}}>
-          <figure className="book-paper book-illustration"><Image unoptimized data-learning-decoration src={art} alt={useBookCover?book.coverAlt:copy.scene} width={768} height={768} className="aspect-square w-full rounded-xl object-cover"/><figcaption className="mt-4 text-center text-sm leading-relaxed">{current.idea}</figcaption><p className="mt-5 text-center text-sm" aria-hidden="true">{page*2+1}</p></figure>
+          <figure className="book-paper book-illustration"><Image unoptimized data-learning-decoration src={art} alt={artAlt} width={pageArt?.width??768} height={pageArt?.height??768} className="aspect-square w-full rounded-xl object-contain"/><figcaption className="mt-4 text-center text-sm leading-relaxed">{current.idea}</figcaption><p className="mt-5 text-center text-sm" aria-hidden="true">{page*2+1}</p></figure>
           <section key={page} className="book-paper book-reading-page" aria-label={readerText(locale,"readingPage",{current:page+1})}><p className="text-sm font-semibold text-teal-text">{book.title}</p><h3 className="mt-4 text-xl">{current.title}</h3><div className={`mt-5 space-y-5 leading-loose ${large?"text-2xl":"text-lg"}`}>{spread.paragraphs.map(text=><p key={text}>{text}</p>)}</div><p className="mt-6 text-center text-sm" aria-hidden="true">{page*2+2}</p></section>
         </div>
         <nav aria-label={copy.turnPages} className="mt-6 flex flex-wrap items-center justify-between gap-3"><button type="button" disabled={page===0} onClick={()=>turnPage(page-1)} className="min-h-12 rounded-xl border border-teal px-5 py-3 font-semibold text-teal-text disabled:opacity-50">← {copy.previousPage}</button><p className="text-sm">{readerText(locale,"spread",{current:page+1,total:spreads.length})}</p><button type="button" disabled={page===spreads.length-1} onClick={()=>turnPage(page+1)} className="min-h-12 rounded-xl bg-teal px-5 py-3 font-semibold text-white disabled:opacity-50">{copy.nextPage} →</button></nav>

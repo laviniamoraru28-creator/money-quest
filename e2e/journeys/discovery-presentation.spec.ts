@@ -26,22 +26,6 @@ test("Museum presentation keeps English narration, quiz and canonical completion
  await page.reload();await page.getByRole("button",{name:room.quiz.answers[room.quiz.correct]!,exact:true}).click();await expect(page.getByRole("button",{name:"Saved on this device",exact:true})).toBeVisible();
 });
 
-test("short-read presentation retains three pages, age activities and honest blocked-storage feedback",async({page})=>{
- await page.addInitScript(()=>{Storage.prototype.setItem=()=>{throw new DOMException("Blocked","SecurityError")};});
- const book=libraryBooks.find(book=>book.slug==="the-digital-coin")!,note=discoveryNotes[book.slug]!;
- await page.goto(`/en/library/${book.slug}`);await expect(page).toHaveURL(new RegExp(`/en/library/${book.slug}$`));
- await expect(page.getByRole("region",{name:"Discovery challenge",exact:true})).toHaveCount(0);
- for(let index=0;index<3;index++){
-  await expect(page.getByRole("heading",{name:book.pages[index]!.title,exact:true,level:2})).toBeVisible();await expect(page.getByText(`Page ${index+1} of 3`,{exact:true})).toBeVisible();
-  if(index<2)await page.getByRole("button",{name:"Next",exact:true}).click();
- }
- for(let level=0;level<3;level++){
-  await page.getByLabel("Choose a practical challenge",{exact:true}).selectOption(String(level));await expect(page.getByText(note.challenges[level]!,{exact:true})).toBeVisible();
- }
- await page.getByRole("button",{name:book.quiz.answers[book.quiz.correct]!,exact:true}).click();await page.getByRole("button",{name:"Mark as discovered",exact:true}).click();
- await expect(page.getByRole("status").filter({hasText:"could not save progress"})).toBeVisible();
- await expect(page.getByRole("button",{name:"Completed. Explore again",exact:true})).toBeVisible();await expect(page.getByRole("button",{name:"Saved on this device",exact:true})).toHaveCount(0);
- expect(await page.evaluate(()=>localStorage.getItem("money-quest-discovery-v1"))).toBeNull();
- await page.getByRole("button",{name:"Previous",exact:true}).click();await expect(page.getByRole("heading",{name:book.pages[1]!.title,exact:true,level:2})).toBeFocused();
- await page.getByRole("button",{name:"Next",exact:true}).click();await expect(page.getByRole("button",{name:book.quiz.answers[book.quiz.correct]!,exact:true})).toHaveAttribute("aria-pressed","false");
+test("unillustrated short reads remain inaccessible through direct public URLs",async({page})=>{
+ for(const book of libraryBooks)expect((await page.request.get(`/en/library/${book.slug}`)).status()).toBe(404);
 });
