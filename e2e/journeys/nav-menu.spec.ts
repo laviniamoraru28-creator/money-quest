@@ -105,7 +105,7 @@ test("every menu link resolves to a real page, no broken links",async({page,requ
 test("dark mode (Night view): menu stays legible and passes WCAG contrast",async({page})=>{
  await page.goto("/en");
  // Night view now lives inside the consolidated Global Settings panel
- // (a native <details>, whose <summary> carries an implicit button role)
+ // (a native popover opened by the labelled Settings button)
  // rather than its own always-visible toolbar button.
  await page.locator('button[data-settings-trigger][aria-label="Settings"]').click();
  await page.getByRole("checkbox",{name:"Night view",exact:true}).check();

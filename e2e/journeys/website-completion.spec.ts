@@ -65,7 +65,7 @@ test("storage failure leaves learning usable",async({page})=>{
  await page.goto("/en/brain-lab");await page.getByRole("button",{name:"Mark as practised",exact:true}).click();await expect(page.getByRole("status").filter({hasText:"could not save"})).toBeVisible();await page.getByRole("button",{name:"Next",exact:true}).click();await expect(page.getByRole("heading",{name:"One thing at a time",exact:true})).toBeVisible();
 });
 test("keyboard settings and synchronized focus mode",async({page})=>{
- await page.goto("/en/brain-lab");await page.getByRole("button",{name:/Accessibility settings/i}).click();const checkbox=page.getByRole("checkbox",{name:/Focus Mode/i});await checkbox.check();await expect(page.locator('aside[aria-label="Your learning guides"] img')).toHaveCount(0);await expect(page.locator('[data-learning-decoration]').first()).toBeHidden();await page.keyboard.press("Escape");await expect(checkbox).toHaveCount(0);
+ await page.goto("/en/brain-lab");await page.locator("[data-settings-trigger]").click();const checkbox=page.getByRole("checkbox",{name:/Focus Mode/i});await checkbox.check();await expect(page.locator('aside[aria-label="Your learning guides"] img')).toHaveCount(0);await expect(page.locator('[data-learning-decoration]').first()).toBeHidden();await page.keyboard.press("Escape");await expect(checkbox).toBeHidden();await expect(page.locator("[data-settings-trigger]")).toBeFocused();
 });
 
 test("picture choices fit at 320px without horizontal scrolling",async({page})=>{

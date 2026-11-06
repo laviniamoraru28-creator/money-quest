@@ -61,7 +61,7 @@ test("offline download covers unvisited books and leadership, with removable loc
   // removed in favour of the original videos below - nothing left to
   // check here.
   await page.emulateMedia({reducedMotion:"no-preference"});
-  await page.getByText("Real nature videos",{exact:true}).click();
+  await expect(page.getByRole("region",{name:"Real nature videos",exact:true})).toBeVisible();
   for(const [name,id] of [["Ocean water","ocean"],["Rain on a window","rain"],["Aquarium fish","aquarium"]]){
     const range=await page.evaluate(async path=>{const response=await fetch(path,{headers:{Range:"bytes=0-15"}});return {status:response.status,length:(await response.arrayBuffer()).byteLength,range:response.headers.get("Content-Range")};},`/media/quiet/${id}-v1.mp4`);
     expect(range.status).toBe(206);expect(range.length).toBe(16);expect(range.range).toMatch(/^bytes 0-15\//);
