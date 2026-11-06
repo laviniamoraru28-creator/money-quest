@@ -1,4 +1,5 @@
 import Image from "next/image";
+import {certificateJourneyCopy} from "@/content/certificate-journey-copy";
 import {HomepageReviews} from "@/components/HomepageReviews";
 import {isSupportedLocale} from "@/i18n/config";
 import { getTranslations } from "next-intl/server";
@@ -10,6 +11,7 @@ import { getSiteUrl } from "@/lib/seo/site-url";
 export default async function LandingPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const t = await getTranslations();
+  const journey=certificateJourneyCopy[isSupportedLocale(locale)?locale:"en"];
   const siteUrl = getSiteUrl();
   const orgSchema = buildOrganizationSchema(siteUrl);
   const webSiteSchema = buildWebSiteSchema(siteUrl, locale);
@@ -88,6 +90,13 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
           </div>
         </section>
 
+        <section aria-labelledby="how-it-works-heading" className="mx-auto max-w-[1200px] px-sm pb-2xl">
+          <div className="rounded-2xl border border-teal/20 bg-white p-md md:p-lg">
+            <h2 id="how-it-works-heading" className="font-display text-2xl font-bold">{journey.heading}</h2>
+            <p className="mt-3">{journey.steps}</p>
+            <p className="mt-3">{journey.print}</p>
+          </div>
+        </section>
         {/* Parent shop stays visible; secondary experiences live in the menu. */}
         <section className="mx-auto max-w-[1200px] px-sm pb-2xl" aria-labelledby="parent-shop-heading">
           <div className="grid items-center gap-md overflow-hidden rounded-3xl border border-teal/15 bg-cream p-md md:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] md:p-lg">
