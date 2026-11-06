@@ -51,14 +51,13 @@ export function PageReadAloud({locale,copy}:{locale:Locale;copy:SiteControlsCopy
     if (!text) { setMessage("noText"); return; }
     setMessage(null); speak(text);
   };
-  return <aside aria-label={copy.region} data-read-aloud-ignore className="border-b border-teal/20 bg-cream px-5 py-2 text-ink">
-    <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-3">
-      <LanguageSwitcher/>
+  return <aside aria-label={copy.region} data-read-aloud-ignore className="sticky top-0 z-40 border-b border-teal/20 bg-cream px-3 py-2 text-ink sm:px-5">
+    <div className="mx-auto grid max-w-6xl grid-cols-2 items-center gap-2 sm:flex sm:flex-wrap sm:gap-3">
+      <div className="min-w-0"><LanguageSwitcher/></div>
+      <div className="flex justify-end sm:order-last sm:ml-auto"><NavMenu/></div>
       <button type="button" disabled={!isSupported} onClick={listen} className="inline-flex min-h-12 items-center gap-2 rounded-xl border border-teal/40 bg-white px-4 py-3 font-semibold text-teal-text disabled:opacity-60"><ActionIcon name="sound"/>{isSpeaking ? copy.stop : copy.listen}</button>
       <GlobalSettings locale={language} copy={copy}/>
-      <span className="text-sm">{copy.optional}</span>
       <span role="status" className="text-sm">{message?copy[message]:""}</span>
-      <span className="ml-auto"><NavMenu/></span>
     </div>
   </aside>;
 }
