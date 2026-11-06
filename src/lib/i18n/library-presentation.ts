@@ -16,6 +16,7 @@ import {draftTranslatedBook,draftTranslatedBiography} from "./content-translatio
 import {draftTranslatedExternalBook} from "./content-translations";
 import {publicOriginalBooks} from "@/content/library-publication";
 import {libraryPeople} from "@/content/people";
+import {publicLibraryPeople} from "@/content/people-publication";
 import {authorBooks} from "@/content/author-books";
 import externalBooks from "@/content/translations/author-books.ro.json";
 import externalManifest from "@/content/translations/author-books.sources.json";
@@ -71,7 +72,7 @@ export function draftShelfPresentation(locale:Locale):ShelfPresentation {
 
  return {
   locale,books:publicOriginalBooks.map(book=>draftReaderPresentation(book,locale).book),
-  people:libraryPeople.map(person=>draftBiographyPresentation(person,locale).person),
+  people:publicLibraryPeople.map(person=>draftBiographyPresentation(person,locale).person),
   published:authorBooks.map(book=>draftPublishedBook(book,locale))
  };
 }
