@@ -47,6 +47,6 @@ export default function DiscoveryExperience({presentation}:{presentation:Discove
     {previousRoom?<Link href={`${prefix}/${previousRoom.slug}`} className="min-h-12 rounded-xl border border-teal px-5 py-3 font-semibold text-teal-text">← {ui.previousRoom}</Link>:<span/>}
     <Link href="/museum" className="min-h-12 rounded-xl border border-teal px-5 py-3 font-semibold text-teal-text">{ui.backMuseum}</Link>
     {nextRoom?<Link href={`${prefix}/${nextRoom.slug}`} className="min-h-12 rounded-xl bg-teal px-5 py-3 font-semibold text-white">{ui.nextRoom} →</Link>:<span/>}
-  </nav>}<nav aria-label={ui.continue} className="mt-6 flex flex-wrap gap-5"><Link href={prefix} className="min-h-11 py-2 font-semibold text-teal-text underline">{kind==="museum"?ui.allRooms:ui.allBooks}</Link><Link href={kind==="museum"?"/library":"/museum"} className="min-h-11 py-2 font-semibold text-teal-text underline">{kind==="museum"?ui.visitLibrary:ui.visitMuseum}</Link></nav></>}
+  </nav>}</>}
   </main></div>;
 }
