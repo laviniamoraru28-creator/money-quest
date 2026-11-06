@@ -1,7 +1,7 @@
 "use client";
 
 import { useParams } from "next/navigation";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { useLocalProgress } from "@/lib/local-progress/use-local-progress";
 import { getLessonStructureById, getNextActivityAcrossWorlds, getPreviousActivityAcrossWorlds, getActivityPosition, getActivityHref } from "@/content/catalog";
@@ -14,6 +14,7 @@ import { getWorksheetFilename } from "@/content/worksheets";
 export default function LessonPage() {
   const params = useParams<{ worldId: string; activityId: string }>();
   const t = useTranslations();
+  const locale = useLocale();
   const { state, isLoaded, completeActivity } = useLocalProgress();
 
   if (!isLoaded) return <div className="grid min-h-screen place-items-center bg-fog text-ink/70">{t("common.loading")}</div>;
@@ -51,7 +52,7 @@ export default function LessonPage() {
         <p className="text-xs font-medium uppercase tracking-wide text-ink/70">
           {t("play.yourLevelLabel", { level: t(getLevelLabelKey(state.ageBand)) })}
         </p>
-        <LessonPlayer key={params.activityId}
+        <LessonPlayer key={`${locale}:${params.activityId}`}
           activity={activity}
           backToWorldHref={`/play/world/${params.worldId}`}
           nextActivityHref={nextActivityHref}

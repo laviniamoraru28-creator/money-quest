@@ -54,6 +54,8 @@
     "level": "Nivel"
   },
   "lesson": {
+    "continueToLesson": "Continuă: {title}",
+    "backToMoneyForms": "Înapoi la formele banilor",
     "quickCheck": "Verificare rapidă",
     "newWords": "Cuvinte noi",
     "checkMyAnswer": "Verifică răspunsul meu",

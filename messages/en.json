@@ -54,6 +54,8 @@
     "level": "Level"
   },
   "lesson": {
+    "continueToLesson": "Continue: {title}",
+    "backToMoneyForms": "Back to forms of money",
     "quickCheck": "Quick check",
     "newWords": "New words",
     "checkMyAnswer": "Check my answer",

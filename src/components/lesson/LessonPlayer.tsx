@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
 import { Button } from "@/components/ui/Button";
@@ -52,6 +52,14 @@ const TERM_ACCENTS = ["gold", "coral", "soft-blue"] as const;
 
 export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, previousActivityHref, activityPosition, onComplete }: LessonPlayerProps) {
   const router = useRouter();
+  const [section, setSection] = useState<"examples" | "lesson">(activity.topicId === "money_basics" ? "examples" : "lesson");
+  const sectionHeading = useRef<HTMLHeadingElement>(null);
+  function changeSection(next: "examples" | "lesson") {
+    window.dispatchEvent(new Event("moneyquest-stop-speech"));
+    setSection(next);
+    // Focus the new section after React unmounts the previous section.
+    requestAnimationFrame(() => sectionHeading.current?.focus());
+  }
   const uiLocale = useLocale();
   const t = useTranslations();
   const { playCorrect, playIncorrect, playGoalReached } = useSound();
@@ -128,7 +136,15 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
       </div>
 
       <GuidePanel compact message={phase === "incorrect" ? t("activityGuide.lessonRetry") : phase === "correct" ? t("activityGuide.lessonComplete") : t("activityGuide.lessonGoal", {title: activity.title})} />
-      {activity.topicId === "money_basics" && <MoneyExamples/>}
+      {section === "examples" ? (
+        <div data-lesson-section="examples">
+          <h1 ref={sectionHeading} tabIndex={-1} className="font-display text-xl font-bold">{activity.title}</h1>
+          <MoneyExamples />
+          <Button variant="quest-primary" className="w-full" onClick={() => changeSection("lesson")}>{t("lesson.continueToLesson", {title: activity.title})}</Button>
+        </div>
+      ) : (
+        <div data-lesson-section="lesson" className="flex flex-col gap-md">
+          {activity.topicId === "money_basics" && <Button variant="secondary" onClick={() => changeSection("examples")}>{t("lesson.backToMoneyForms")}</Button>}
       {/* Screen-reader announcement of the quiz result — see
           GameShell.tsx's identical pattern and comment for why this
           is a separate, always-mounted live region with a SHORT
@@ -152,7 +168,7 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
           className="relative flex items-center justify-center p-lg md:col-span-2"
           style={{ backgroundColor: `${worldThemeColor}22` }}
         >
-          <LessonIllustration topicId={activity.topicId} worldThemeColor={worldThemeColor} className="h-48 w-48 md:h-64 md:w-64" />
+          <LessonIllustration topicId={activity.topicId} label={activity.title} worldThemeColor={worldThemeColor} className="h-48 w-48 md:h-64 md:w-64" />
           <span className="absolute bottom-2xs right-sm font-display text-sm text-ink/70" aria-hidden="true">
             1
           </span>
@@ -160,7 +176,7 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
 
         <div className="relative bg-cream p-lg md:col-span-3">
           <div className="flex flex-col items-start gap-2xs">
-            <h1 className="font-display text-xl font-bold">{activity.title}</h1>
+            <h1 ref={sectionHeading} tabIndex={-1} className="font-display text-xl font-bold">{activity.title}</h1>
             <ReadAloudButton
               text={`${activity.content.shortIntroduction} ${activity.content.explanation} ${activity.content.story}`}
               uiLocale={uiLocale}
@@ -398,6 +414,8 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
           </div>
         )}
       </Card>
+        </div>
+      )}
     </div>
   );
 }

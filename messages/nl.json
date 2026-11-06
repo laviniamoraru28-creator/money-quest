@@ -54,6 +54,8 @@
     "level": "Niveau"
   },
   "lesson": {
+    "continueToLesson": "Verder: {title}",
+    "backToMoneyForms": "Terug naar vormen van geld",
     "quickCheck": "Snelle controle",
     "newWords": "Nieuwe woorden",
     "checkMyAnswer": "Controleer mijn antwoord",

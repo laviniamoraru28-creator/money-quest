@@ -54,6 +54,8 @@
     "level": "Poziom"
   },
   "lesson": {
+    "continueToLesson": "Dalej: {title}",
+    "backToMoneyForms": "Wróć do form pieniądza",
     "quickCheck": "Szybkie sprawdzenie",
     "newWords": "Nowe słowa",
     "checkMyAnswer": "Sprawdź moją odpowiedź",

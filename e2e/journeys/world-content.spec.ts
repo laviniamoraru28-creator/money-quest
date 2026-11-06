@@ -29,7 +29,7 @@ test("core lessons remain usable when storage is blocked",async({page})=>{
  await page.addInitScript(()=>{Storage.prototype.getItem=()=>{throw new DOMException("Blocked","SecurityError")};Storage.prototype.setItem=()=>{throw new DOMException("Blocked","SecurityError")}});
  await page.goto("/en/play");await page.getByRole("button",{name:/Explorer.*6-8/i}).click();
  await page.locator('a[href="/en/play/world/coin-cove"]').click();await expect(page.getByRole("heading",{name:"Meet money and ways to pay",exact:true})).toBeVisible();
- await page.locator('a[href*="/lesson/"]').first().click();await expect(page.getByRole("button",{name:"Check my answer",exact:true})).toBeVisible();
+ await page.locator('a[href*="/lesson/"]').first().click();await page.getByRole("button",{name:/^Continue:/}).click();await expect(page.getByRole("button",{name:"Check my answer",exact:true})).toBeVisible();
 });
 
 test("reset progress updates the world map immediately",async({page})=>{

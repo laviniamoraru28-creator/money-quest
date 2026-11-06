@@ -54,6 +54,8 @@
     "level": "Level"
   },
   "lesson": {
+    "continueToLesson": "Weiter: {title}",
+    "backToMoneyForms": "Zurück zu den Geldformen",
     "quickCheck": "Schnellcheck",
     "newWords": "Neue Wörter",
     "checkMyAnswer": "Meine Antwort prüfen",
