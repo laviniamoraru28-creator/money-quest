@@ -41,7 +41,7 @@ export function GlobalSettings({locale,copy,compact=false}:{locale:Locale;copy:S
  // sticky toolbars cannot clip it or move its Close button off the viewport.
  // The browser handles outside taps, Escape, repeated trigger clicks and Tab.
  return <div data-read-aloud-ignore className="relative rounded-xl border border-teal/40 bg-white text-ink">
-  <button ref={trigger} type="button" data-settings-trigger popoverTarget={id} popoverTargetAction="toggle" aria-label={t[0]} title={t[0]} aria-expanded={open} aria-controls={id} aria-haspopup="dialog" className={compact?"flex min-h-11 min-w-11 items-center justify-center rounded-lg text-xl font-semibold text-teal-text":"min-h-12 px-4 py-3 font-semibold text-teal-text"}><span aria-hidden="true">⚙</span>{!compact&&t[0]}</button>
+  <button ref={trigger} type="button" data-settings-trigger {...{popovertarget:id,popovertargetaction:"toggle"}} aria-label={t[0]} title={t[0]} aria-expanded={open} aria-controls={id} aria-haspopup="dialog" className={compact?"flex min-h-11 min-w-11 items-center justify-center rounded-lg text-xl font-semibold text-teal-text":"min-h-12 px-4 py-3 font-semibold text-teal-text"}><span aria-hidden="true">⚙</span>{!compact&&t[0]}</button>
   <div ref={panel} id={id} popover="auto" role="dialog" aria-labelledby={`${id}-title`} data-settings-panel className="fixed inset-x-4 top-20 m-0 max-h-[calc(100dvh-6rem)] space-y-4 overflow-y-auto overscroll-contain rounded-2xl border border-teal/30 bg-white p-4 text-ink shadow-lg md:left-auto md:w-[min(24rem,calc(100vw-2rem))]">
    <div className="sticky top-0 z-10 -mx-1 flex items-center justify-between gap-3 bg-white px-1 py-2">
     <h2 id={`${id}-title`} className="min-w-0 break-words font-bold">{t[0]}</h2>
