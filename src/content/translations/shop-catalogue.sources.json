@@ -1,6 +1,6 @@
 {
   "status": "draft",
-  "recorded": "2026-11-03",
+  "recorded": "2026-11-06",
   "locales": [
     "en",
     "ro",
@@ -12,13 +12,13 @@
     "nl",
     "pl"
   ],
-  "sourceHash": "d8bb933ad90bb49a51d8a1cb4fb8d36d630cde25032ea2a425f94662719cc92b",
+  "sourceHash": "d04bde78ba511f4056d1f850cc5ca062d20a5cb8171f87e0722c332d2a1a8eaf",
   "products": {
     "family-adventure-pack": "379cab4d58abdd2f3471e12215bddc9d28255abef3d82867aeced825d2157c30",
-    "adventure-journal": "d7cd222cdf086aa9146a72e4994ae4b8083b45b6048af1f466193909690ca814"
+    "adventure-journal": "0657b99909f5bbdeb4a913a54441be090f3401fb5a4ae7154640e4ab8baa0562"
   },
   "stringsPerLocale": 52,
   "translatedStrings": 416,
-  "scope": "Nine-language storefront; nine actual 44-page journal PDF editions and matching samples. Academy supplied PDFs remain English-only with translations pending.",
+  "scope": "Nine-language storefront; nine actual 45-page journal PDF editions and matching samples. Academy supplied PDFs remain English-only with translations pending.",
   "review": "AI multilingual editorial drafts, not native-editor or product/legal certification. No public locale, translated file edition or live sales activation. SEO metadata, receipts, native errors and actual printable manuscripts remain separate work."
 }

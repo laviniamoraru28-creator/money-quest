@@ -44,7 +44,7 @@ for(const locale of LOCALES){
    assert(text.description.includes("60"));assert(text.pages.includes("60"));
    assert(text.pages.includes("20"));for(const [i,level] of ["Explorer","Builder","Strategist"].entries())assert(text.includes[i]!.includes(level));
    assert(text.sampleLabel.includes("3"));
-  }else{assert(text.description.includes("30"));assert(text.pages.includes("44"));assert(text.pages.includes("A4"));assert(text.includes[0]!.includes("30"));assert(text.sampleLabel.includes("3"));}
+  }else{assert(text.description.includes("30"));assert(text.pages.includes("45"));assert(text.pages.includes("A4"));assert(text.includes[0]!.includes("30"));assert(text.sampleLabel.includes("3"));}
  }
  const messages=JSON.parse(readFileSync(`messages/${locale}.json`,"utf8"));
  for(const enabled of [false,true]){

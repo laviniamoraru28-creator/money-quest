@@ -43,3 +43,16 @@ The journal's product-file readiness flag now reflects the completed nine-langua
 Merchant credentials, private host installation and end-to-end settlement/email/download evidence remain separate from these file checks. No real charge, payment link or hosting deployment is performed by this integration.
 
 New LIVE purchases also require the host release hash and byte count to match the current catalogue archive. An installed older archive cannot satisfy that gate, even if its own integrity is valid. Existing paid contracts still verify and deliver their original archives independently. Regression checks cover a valid old archive, matching current archive, mismatched size and unreleased product.
+
+## 2026-11-06 monthly habit tracker
+
+All nine private editions now contain 45 A4 pages. A localized 30-day tracker
+with four blank habit columns is inserted at page 44, before the original back
+cover. The original 44 pages remain pixel-identical in every locale. The three
+sample pages [1, 6, 14] remain unchanged and match the new editions.
+
+`append-journal-habit-trackers.py` verifies the pinned approved 44-page sources,
+embeds the existing fonts, refuses public/repository output, and produces
+repeatable private PDFs. `prepare-journal-multilingual.py` rebuilds the pinned
+archive. Neither command activates commerce. Keep historical private archives
+and order contracts; install and verify the new archive before enabling sales.

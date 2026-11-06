@@ -53,4 +53,4 @@ if __name__ == '__main__':
     parser.add_argument('--source-dir', required=True, type=Path)
     parser.add_argument('--output-dir', required=True, type=Path)
     args = parser.parse_args()
-    print(json.dumps({'archive': str(prepare(args.source_dir, args.output_dir)), 'languages': 9, 'pagesPerEdition': 44}))
+    print(json.dumps({'archive': str(prepare(args.source_dir, args.output_dir)), 'languages': 9, 'pagesPerEdition': 45}))

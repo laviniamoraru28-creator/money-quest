@@ -46,8 +46,8 @@
   },
   "archive": {
     "file": "money-quest-future-ready-journal-multilingual.zip",
-    "sha256": "87814c8633797011eadbe85752d0028d0a387890b7ee264683e8e7cf2af87a64",
-    "bytes": 33294271
+    "sha256": "3a9dee83bf384af238749c6a3a4384f5a3749ce12b753e46edc95db0fe57b248",
+    "bytes": 33679726
   },
   "sample": {
     "file": "/resources/samples/free-journal-30-days-en.pdf",
@@ -79,58 +79,58 @@
   },
   "editions": {
     "en": {
-      "file": "en/Money_Quest_Future_Ready_Journal_44_pages_en.pdf",
-      "pages": 44,
-      "sha256": "f0b2fcaa9b0cccb9b5acaa2b7013b465e52fc8c7b20544b403cc2db5d0d50878",
-      "bytes": 4499165
+      "file": "en/Money_Quest_Future_Ready_Journal_45_pages_en.pdf",
+      "pages": 45,
+      "sha256": "e72bc1c106724b70e7ca6a6a046dd7611a6480e5c125154b5b109758cbe6c4aa",
+      "bytes": 4544374
     },
     "ro": {
-      "file": "ro/Money_Quest_Future_Ready_Journal_44_pages_ro.pdf",
-      "pages": 44,
-      "sha256": "398af060a78d69ebbbbb81537874a597d16e04e46e43c3b84422eff5f5128143",
-      "bytes": 4618509
+      "file": "ro/Money_Quest_Future_Ready_Journal_45_pages_ro.pdf",
+      "pages": 45,
+      "sha256": "91898e2e481083b755f97cacd6b1031c750e9c2a6124e633faafc54b4441cee3",
+      "bytes": 4663877
     },
     "es": {
-      "file": "es/Money_Quest_Future_Ready_Journal_44_pages_es.pdf",
-      "pages": 44,
-      "sha256": "cc1f11090af9285b0c513015be14919674ebd802c0a17bc3f8bc634e1cfd15b4",
-      "bytes": 4617891
+      "file": "es/Money_Quest_Future_Ready_Journal_45_pages_es.pdf",
+      "pages": 45,
+      "sha256": "5a0dd4471ff68c4d264105f96b60b954b105c7abf0a58699cd93a01e8e75059e",
+      "bytes": 4663294
     },
     "fr": {
-      "file": "fr/Money_Quest_Future_Ready_Journal_44_pages_fr.pdf",
-      "pages": 44,
-      "sha256": "37df3bf3b97dd4161c1f9c182243a3540bb05fb66f15df06e2b650bd6efb3f72",
-      "bytes": 4618505
+      "file": "fr/Money_Quest_Future_Ready_Journal_45_pages_fr.pdf",
+      "pages": 45,
+      "sha256": "e37c5ddd5775224c0d4b2400f43cdbc33e6a6f5260d57594f9fd9b41bf8a2bd1",
+      "bytes": 4663598
     },
     "de": {
-      "file": "de/Money_Quest_Future_Ready_Journal_44_pages_de.pdf",
-      "pages": 44,
-      "sha256": "c7387378cbdbe2a80f071682e99dc3a0bf33ad163690006ae1631cf7b09834d8",
-      "bytes": 4620024
+      "file": "de/Money_Quest_Future_Ready_Journal_45_pages_de.pdf",
+      "pages": 45,
+      "sha256": "cc73b60d18a2c3202ae07675f6a94a36fa6e3b3824e471e65336cf0cd2125cf1",
+      "bytes": 4665404
     },
     "it": {
-      "file": "it/Money_Quest_Future_Ready_Journal_44_pages_it.pdf",
-      "pages": 44,
-      "sha256": "98c46463c46af5191726a132d4074644298ebcb746081a50da81c92e7031dff7",
-      "bytes": 4617000
+      "file": "it/Money_Quest_Future_Ready_Journal_45_pages_it.pdf",
+      "pages": 45,
+      "sha256": "d95dec82a740fa4742cd9d2eceabe21be8e6865bfa30995f4e505459450e1431",
+      "bytes": 4661963
     },
     "pt": {
-      "file": "pt/Money_Quest_Future_Ready_Journal_44_pages_pt.pdf",
-      "pages": 44,
-      "sha256": "8e655fe1e577ce938becb94d2d87697f9c8e4a1fa2e044800663ec2192f691c6",
-      "bytes": 4618817
+      "file": "pt/Money_Quest_Future_Ready_Journal_45_pages_pt.pdf",
+      "pages": 45,
+      "sha256": "32c3c8a7e89e8764a0fce092548a10e8d491bf3122e5ab33729cf103d483ae98",
+      "bytes": 4664171
     },
     "nl": {
-      "file": "nl/Money_Quest_Future_Ready_Journal_44_pages_nl.pdf",
-      "pages": 44,
-      "sha256": "8f5a4cf4fc77dea8764694fd047ca418e7569cf6c6f9719817aaab81a3daa177",
-      "bytes": 4619730
+      "file": "nl/Money_Quest_Future_Ready_Journal_45_pages_nl.pdf",
+      "pages": 45,
+      "sha256": "cede78639a0e4e3d0c6bd0f3dde4799098ca43535f7ecbb0dff86d92b846ca18",
+      "bytes": 4664719
     },
     "pl": {
-      "file": "pl/Money_Quest_Future_Ready_Journal_44_pages_pl.pdf",
-      "pages": 44,
-      "sha256": "e9448ed4078bb09f23658d1c3250e50a6a47e4e9ca4bb5297f4501dfd4a7151c",
-      "bytes": 4621716
+      "file": "pl/Money_Quest_Future_Ready_Journal_45_pages_pl.pdf",
+      "pages": 45,
+      "sha256": "3dcaa194cf868cb00cf82cfe617d689b6a743611437a4de942a8b2ec1681fcff",
+      "bytes": 4667258
     }
   },
   "samples": {
@@ -329,8 +329,76 @@
     "allDailyPagesVerified": true,
     "samplePagesPixelMatch": true,
     "artOutsideTranslatedLabelsUnchanged": true,
-    "review": "AI translation and editorial review, all 15 unique templates visually inspected per translated edition, automated text/glyph/bounds checks. No independent native-editor or tagged-PDF certification.",
+    "review": "AI translation and editorial review, all 15 unique templates visually inspected per translated edition, automated text/glyph/bounds checks. No independent native-editor or tagged-PDF certification. Localized 30-day habit tracker inserted before the back cover; original 44 pages preserved pixel for pixel.",
     "currency": "GBP retained from the supplied English planners; blank amounts are not converted.",
-    "translatedSourceStrings": 130
+    "translatedSourceStrings": 130,
+    "habitTracker": {
+      "page": 44,
+      "days": 30,
+      "habitColumns": 4,
+      "localesVisuallyReviewed": 9,
+      "originalPagesPixelIdenticalPerLocale": 44
+    }
+  },
+  "habitTrackerSourceEditions": {
+    "en": {
+      "file": "en/Money_Quest_Future_Ready_Journal_44_pages_en.pdf",
+      "pages": 44,
+      "sha256": "f0b2fcaa9b0cccb9b5acaa2b7013b465e52fc8c7b20544b403cc2db5d0d50878",
+      "bytes": 4499165
+    },
+    "ro": {
+      "file": "ro/Money_Quest_Future_Ready_Journal_44_pages_ro.pdf",
+      "pages": 44,
+      "sha256": "398af060a78d69ebbbbb81537874a597d16e04e46e43c3b84422eff5f5128143",
+      "bytes": 4618509
+    },
+    "es": {
+      "file": "es/Money_Quest_Future_Ready_Journal_44_pages_es.pdf",
+      "pages": 44,
+      "sha256": "cc1f11090af9285b0c513015be14919674ebd802c0a17bc3f8bc634e1cfd15b4",
+      "bytes": 4617891
+    },
+    "fr": {
+      "file": "fr/Money_Quest_Future_Ready_Journal_44_pages_fr.pdf",
+      "pages": 44,
+      "sha256": "37df3bf3b97dd4161c1f9c182243a3540bb05fb66f15df06e2b650bd6efb3f72",
+      "bytes": 4618505
+    },
+    "de": {
+      "file": "de/Money_Quest_Future_Ready_Journal_44_pages_de.pdf",
+      "pages": 44,
+      "sha256": "c7387378cbdbe2a80f071682e99dc3a0bf33ad163690006ae1631cf7b09834d8",
+      "bytes": 4620024
+    },
+    "it": {
+      "file": "it/Money_Quest_Future_Ready_Journal_44_pages_it.pdf",
+      "pages": 44,
+      "sha256": "98c46463c46af5191726a132d4074644298ebcb746081a50da81c92e7031dff7",
+      "bytes": 4617000
+    },
+    "pt": {
+      "file": "pt/Money_Quest_Future_Ready_Journal_44_pages_pt.pdf",
+      "pages": 44,
+      "sha256": "8e655fe1e577ce938becb94d2d87697f9c8e4a1fa2e044800663ec2192f691c6",
+      "bytes": 4618817
+    },
+    "nl": {
+      "file": "nl/Money_Quest_Future_Ready_Journal_44_pages_nl.pdf",
+      "pages": 44,
+      "sha256": "8f5a4cf4fc77dea8764694fd047ca418e7569cf6c6f9719817aaab81a3daa177",
+      "bytes": 4619730
+    },
+    "pl": {
+      "file": "pl/Money_Quest_Future_Ready_Journal_44_pages_pl.pdf",
+      "pages": 44,
+      "sha256": "e9448ed4078bb09f23658d1c3250e50a6a47e4e9ca4bb5297f4501dfd4a7151c",
+      "bytes": 4621716
+    }
+  },
+  "previousMultilingualArchive": {
+    "file": "money-quest-future-ready-journal-multilingual.zip",
+    "sha256": "87814c8633797011eadbe85752d0028d0a387890b7ee264683e8e7cf2af87a64",
+    "bytes": 33294271
   }
 }
