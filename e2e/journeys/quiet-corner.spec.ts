@@ -17,7 +17,7 @@ test("quiet corner keeps original videos, sound and accessible mobile layout", a
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href",/\/en\/quiet-corner$/);
   await page.screenshot({path:testInfo.outputPath("quiet-corner-320px.png"),fullPage:true});
   // Night view now lives inside the consolidated Global Settings panel.
-  await page.locator('summary[aria-label="Settings"]').click();
+  await page.locator('button[data-settings-trigger][aria-label="Settings"]').click();
   await page.getByRole("checkbox",{name:"Night view",exact:true}).check();
   await expect(page.locator("html")).toHaveAttribute("data-night-view","true");
   expect((await new AxeBuilder({page}).withTags(["wcag2a","wcag2aa","wcag21aa"]).analyze()).violations).toEqual([]);

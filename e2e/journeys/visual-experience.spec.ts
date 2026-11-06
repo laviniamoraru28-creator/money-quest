@@ -24,7 +24,7 @@ test("illustrated shelf covers open and close books with keyboard and reduced mo
  await page.screenshot({path:test.info().outputPath("open-illustrated-book.png"),fullPage:true});
  await page.getByRole("button",{name:"Close book",exact:true}).click();
  // Night view now lives inside the consolidated Global Settings panel.
- await page.locator('summary[aria-label="Settings"]').click();
+ await page.locator('button[data-settings-trigger][aria-label="Settings"]').click();
  await page.getByRole("checkbox",{name:"Night view",exact:true}).check();
  await expect(page.locator("html")).toHaveAttribute("data-night-view","true");
  await expect(page.locator(".library-cover > span").first()).toHaveCSS("color","rgb(255, 255, 255)");
@@ -82,7 +82,7 @@ test("background audio stays silent initially, persists between pages and stops 
  await page.goto("/en");
  const states=()=>page.evaluate(()=>((window as unknown as {mqTestContexts:AudioContext[]}).mqTestContexts).map(ctx=>ctx.state));
  expect(await states()).toEqual([]);
- await page.locator('summary[aria-label="Settings"]').click();await page.getByText("Background sound",{exact:true}).first().click();
+ await page.locator('button[data-settings-trigger][aria-label="Settings"]').click();await page.getByText("Background sound",{exact:true}).first().click();
  await page.getByRole("button",{name:"Play sound",exact:true}).click();
  await expect.poll(states).toEqual(["running"]);
  // Navigate via the nav drawer (still a client-side <Link>, same as the

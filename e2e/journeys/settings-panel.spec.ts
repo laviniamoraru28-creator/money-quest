@@ -1,0 +1,58 @@
+import {test,expect} from '@playwright/test';
+import {LOCALES} from '../../src/i18n/config';
+import {settingsLabels} from '../../src/components/ui/GlobalSettings';
+import {siteControlsCopy} from '../../src/content/site-controls-copy';
+import {experienceCopy} from '../../src/content/experience-copy';
+
+for(const locale of LOCALES) test(`${locale}: settings close by trigger, X, Escape and outside with preferences preserved`,async({page})=>{
+ const text=settingsLabels[locale], sound=experienceCopy[locale];
+ await page.goto(`/${locale}/library`);
+ const trigger=page.locator('[data-settings-trigger]');
+ const panel=page.getByRole('dialog',{name:text[0],exact:true});
+ const open=async()=>{await trigger.click();await expect(panel).toBeVisible();await expect(trigger).toHaveAttribute('aria-expanded','true');};
+ const closed=async()=>{await expect(panel).toBeHidden();await expect(trigger).toHaveAttribute('aria-expanded','false');};
+ const checkBounds=async()=>{
+  const box=await panel.boundingBox(),viewport=page.viewportSize()!;
+  expect(box).not.toBeNull();expect(box!.x).toBeGreaterThanOrEqual(0);expect(box!.y).toBeGreaterThanOrEqual(0);
+  expect(box!.x+box!.width).toBeLessThanOrEqual(viewport.width+1);expect(box!.y+box!.height).toBeLessThanOrEqual(viewport.height+1);
+  expect(await panel.evaluate(el=>el.scrollWidth>el.clientWidth)).toBe(false);
+ };
+ await open();
+ const close=panel.getByRole('button').first();
+ await expect(close).toHaveAccessibleName(/\S/);await expect(close).toBeFocused();
+ await panel.getByRole('checkbox',{name:siteControlsCopy[locale].night,exact:true}).check();
+ await panel.getByRole('combobox',{name:text[2],exact:true}).selectOption('minimal');
+ await panel.getByRole('combobox',{name:text[8],exact:true}).selectOption('extra');
+ for(const index of [6,7,12])await panel.getByRole('checkbox',{name:text[index],exact:true}).check();
+ await checkBounds();
+ await trigger.click();await closed();
+ const preferences=await page.evaluate(()=>JSON.parse(localStorage.getItem('moneyquest_accessibility_prefs_v1')!));
+ expect(preferences).toMatchObject({nightView:true,imageSize:'minimal',textSize:'extra',reducedMotion:true,highContrast:true,focusMode:true});
+ await open();
+ for(const label of [siteControlsCopy[locale].night,text[6],text[7],text[12]])await expect(panel.getByRole('checkbox',{name:label,exact:true})).toBeChecked();
+ await expect(panel.getByRole('combobox',{name:text[2],exact:true})).toHaveValue('minimal');
+ await expect(panel.getByRole('combobox',{name:text[8],exact:true})).toHaveValue('extra');
+ await panel.locator('summary').filter({hasText:sound.background}).click();
+ await panel.getByRole('combobox',{name:sound.background,exact:true}).selectOption('forest');
+ const volume=panel.getByRole('slider',{name:`${sound.background}: ${sound.volume}`,exact:true});
+ await volume.focus();await volume.press('End');await expect(volume).toHaveValue('100');
+ await checkBounds();
+ await close.click();await closed();await expect(trigger).toBeFocused();
+ await open();
+ await expect(panel.getByRole('combobox',{name:sound.background,exact:true})).toHaveValue('forest');
+ await expect(volume).toHaveValue('100');
+ await volume.focus();await page.keyboard.press('Escape');await closed();await expect(trigger).toBeFocused();
+ await open();
+ await page.mouse.click(2,page.viewportSize()!.height-2);await closed();
+ expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('moneyquest_accessibility_prefs_v1')!))).toEqual(preferences);
+ await trigger.focus();await trigger.press('Enter');await expect(panel).toBeVisible();await expect(close).toBeFocused();
+ await page.keyboard.press('Tab');await expect(panel.getByRole('checkbox').first()).toBeFocused();
+ await page.keyboard.press('Escape');await closed();
+ await page.reload();await open();await checkBounds();
+ await expect(panel.getByRole('checkbox',{name:text[7],exact:true})).toBeChecked();
+ if(locale==='en')await page.screenshot({path:test.info().outputPath('settings-extra-text-contrast.png'),fullPage:true});
+ await close.click();await closed();
+ // No hidden layer can intercept the navigation after closing.
+ await page.getByRole('link',{name:'Money Quest',exact:true}).first().click();
+ await expect(page).toHaveURL(new RegExp(`/${locale}/?$`));
+});

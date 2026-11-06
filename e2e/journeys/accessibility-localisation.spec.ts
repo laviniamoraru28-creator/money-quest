@@ -6,7 +6,7 @@ for(const locale of LOCALES){
   test(`${locale}: settings and night-view labels follow the selected language`,async({page})=>{
     const {a11y}=JSON.parse(readFileSync(`messages/${locale}.json`,"utf8"));
     await page.goto(`/${locale}/museum`);
-    const trigger=page.locator("summary[aria-label]").first();
+    const trigger=page.locator("button[data-settings-trigger]").first();
     await expect(trigger).toHaveAccessibleName(a11y.settingsLabel);
     await trigger.click();
     const night=page.getByRole("checkbox",{name:a11y.nightViewLabel,exact:true});

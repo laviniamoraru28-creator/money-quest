@@ -1,11 +1,13 @@
 "use client";
+import {useEffect,useId,useRef,useState} from "react";
+import {usePathname} from "next/navigation";
 import {useAccessibilityPrefs} from "@/lib/accessibility/use-accessibility-preferences";
 import {BackgroundSound} from "./BackgroundSound";
 import {OfflineDownload} from "./OfflineDownload";
 import type {SiteControlsCopy} from "@/content/site-controls-copy";
 import type {Locale} from "@/i18n/config";
 
-const labels:Record<Locale,string[]> = {
+export const settingsLabels:Record<Locale,string[]> = {
 en:["Settings","Display and images","Image size","Full illustrations","Smaller illustrations","Minimal decorative images","Reduced motion","High contrast","Text size","Normal","Large","Extra large","Focus mode","Reset to defaults","Sound"],
 ro:["Setări","Afișare și imagini","Dimensiunea imaginilor","Ilustrații complete","Ilustrații mai mici","Imagini decorative minime","Mișcare redusă","Contrast ridicat","Dimensiunea textului","Normal","Mare","Foarte mare","Mod concentrare","Revino la setările inițiale","Sunet"],
 es:["Ajustes","Pantalla e imágenes","Tamaño de imágenes","Ilustraciones completas","Ilustraciones pequeñas","Imágenes decorativas mínimas","Movimiento reducido","Alto contraste","Tamaño de texto","Normal","Grande","Muy grande","Modo concentración","Restablecer ajustes","Sonido"],
@@ -16,19 +18,35 @@ pt:["Definições","Ecrã e imagens","Tamanho das imagens","Ilustrações comple
 nl:["Instellingen","Weergave en afbeeldingen","Afbeeldingsgrootte","Volledige illustraties","Kleinere illustraties","Minimale decoratie","Minder beweging","Hoog contrast","Tekstgrootte","Normaal","Groot","Extra groot","Focusmodus","Standaardinstellingen","Geluid"],
 pl:["Ustawienia","Wygląd i obrazy","Rozmiar obrazów","Pełne ilustracje","Mniejsze ilustracje","Minimum dekoracji","Ogranicz ruch","Wysoki kontrast","Rozmiar tekstu","Normalny","Duży","Bardzo duży","Tryb skupienia","Przywróć ustawienia","Dźwięk"]
 };
+const closeLabels:Record<Locale,string>={en:"Close settings",ro:"Închide setările",es:"Cerrar ajustes",fr:"Fermer les paramètres",de:"Einstellungen schließen",it:"Chiudi impostazioni",pt:"Fechar definições",nl:"Instellingen sluiten",pl:"Zamknij ustawienia"};
 export function GlobalSettings({locale,copy,compact=false}:{locale:Locale;copy:SiteControlsCopy;compact?:boolean}){
- const p=useAccessibilityPrefs(), t=labels[locale]??labels.en;
+ const p=useAccessibilityPrefs(), t=settingsLabels[locale]??settingsLabels.en;
+ const id=useId(), panel=useRef<HTMLDivElement>(null), trigger=useRef<HTMLButtonElement>(null), close=useRef<HTMLButtonElement>(null);
+ const [open,setOpen]=useState(false), pathname=usePathname();
+ useEffect(()=>{
+  const element=panel.current;
+  const sync=()=>{
+   const shown=element?.matches(":popover-open")??false;
+   setOpen(shown);
+   if(shown) close.current?.focus({preventScroll:true});
+   else if(element?.contains(document.activeElement)) trigger.current?.focus({preventScroll:true});
+  };
+  element?.addEventListener("toggle",sync);
+  return ()=>element?.removeEventListener("toggle",sync);
+ },[]);
+ useEffect(()=>{panel.current?.hidePopover();},[pathname]);
+ const closePanel=()=>{panel.current?.hidePopover();trigger.current?.focus({preventScroll:true});};
  const toggle=(label:string|undefined,checked:boolean,change:()=>void)=><label className="flex min-h-11 items-center justify-between gap-4"><span>{label}</span><input type="checkbox" checked={checked} disabled={!p.isLoaded} onChange={change} className="h-5 w-5 accent-teal"/></label>;
- return <details data-read-aloud-ignore className="relative z-40 rounded-xl border border-teal/40 bg-white text-ink">
-  <summary aria-label={t[0]} title={t[0]} className={compact?"flex min-h-11 min-w-11 cursor-pointer list-none items-center justify-center rounded-lg text-xl font-semibold text-teal-text [&::-webkit-details-marker]:hidden":"min-h-12 cursor-pointer px-4 py-3 font-semibold text-teal-text"}>⚙ {!compact&&t[0]}</summary>
-  {/* Below `md`, `right-0` can push this panel off-screen: the trigger
-     sits near the toolbar's left edge on narrow viewports, so a
-     right-aligned 22rem-wide panel runs far past the left edge of a
-     ~375-412px viewport, making its lower controls permanently
-     unreachable. `fixed` + viewport-relative insets keep it fully
-     on-screen regardless of where the trigger sits; `md:` restores the
-     original trigger-anchored dropdown once there's room for it. */}
-  <div className="fixed inset-x-4 top-20 z-50 max-h-[75vh] space-y-4 overflow-y-auto rounded-2xl border border-teal/30 bg-white p-4 shadow-lg md:absolute md:inset-x-auto md:right-0 md:top-full md:mt-2 md:w-[min(22rem,90vw)]">
+ // A native auto popover renders in the top layer. Root contrast filters and
+ // sticky toolbars cannot clip it or move its Close button off the viewport.
+ // The browser handles outside taps, Escape, repeated trigger clicks and Tab.
+ return <div data-read-aloud-ignore className="relative rounded-xl border border-teal/40 bg-white text-ink">
+  <button ref={trigger} type="button" data-settings-trigger popoverTarget={id} popoverTargetAction="toggle" aria-label={t[0]} title={t[0]} aria-expanded={open} aria-controls={id} aria-haspopup="dialog" className={compact?"flex min-h-11 min-w-11 items-center justify-center rounded-lg text-xl font-semibold text-teal-text":"min-h-12 px-4 py-3 font-semibold text-teal-text"}><span aria-hidden="true">⚙</span>{!compact&&t[0]}</button>
+  <div ref={panel} id={id} popover="auto" role="dialog" aria-labelledby={`${id}-title`} data-settings-panel className="fixed inset-x-4 top-20 m-0 max-h-[calc(100dvh-6rem)] space-y-4 overflow-y-auto overscroll-contain rounded-2xl border border-teal/30 bg-white p-4 text-ink shadow-lg md:left-auto md:w-[min(24rem,calc(100vw-2rem))]">
+   <div className="sticky top-0 z-10 -mx-1 flex items-center justify-between gap-3 bg-white px-1 py-2">
+    <h2 id={`${id}-title`} className="min-w-0 break-words font-bold">{t[0]}</h2>
+    <button ref={close} type="button" aria-label={closeLabels[locale]} title={closeLabels[locale]} onClick={closePanel} className="flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-lg border border-teal text-xl font-bold text-teal-text"><span aria-hidden="true">×</span></button>
+   </div>
    <fieldset className="space-y-2"><legend className="font-bold">{t[1]}</legend>
     {toggle(copy.night,p.nightView,p.toggleNightView)}
     <label className="block">{t[2]}<select disabled={!p.isLoaded} value={p.imageSize} onChange={e=>p.setPreference("imageSize",e.target.value as typeof p.imageSize)} className="mt-1 min-h-11 w-full rounded-lg border border-ink/30 bg-white p-2"><option value="full">{t[3]}</option><option value="small">{t[4]}</option><option value="minimal">{t[5]}</option></select></label>
@@ -40,5 +58,5 @@ export function GlobalSettings({locale,copy,compact=false}:{locale:Locale;copy:S
    <fieldset className="space-y-3"><legend className="font-bold">{t[14]}</legend><BackgroundSound locale={locale}/><OfflineDownload locale={locale} copy={copy}/></fieldset>
    <button type="button" disabled={!p.isLoaded} onClick={p.resetPreferences} className="min-h-11 rounded-lg border border-teal px-4 py-2 font-semibold text-teal-text">{t[13]}</button>
   </div>
- </details>;
+ </div>;
 }

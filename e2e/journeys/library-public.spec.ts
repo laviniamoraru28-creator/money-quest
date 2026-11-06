@@ -43,7 +43,7 @@ for(const locale of LOCALES)test(`${locale}: curated Library every page, speech,
    await expect(article.locator(".book-reading-page")).toContainText(view.book.chapters[chapter]!.paragraphs[part*view.paragraphsPerPage]!);
    expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
    expect(await article.locator(".book-reading-page").evaluate(el=>getComputedStyle(el).animationName)).toBe("none");
-   if(index===2){await page.locator("summary[aria-label]").first().click();await page.getByRole("checkbox",{name:a11y.nightViewLabel,exact:true}).check();await page.locator("summary[aria-label]").first().click();await expect.poll(()=>article.locator(".book-reading-page").evaluate(el=>getComputedStyle(el).color)).toBe("rgb(255, 255, 255)");}
+   if(index===2){await page.locator("button[data-settings-trigger]").first().click();await page.getByRole("checkbox",{name:a11y.nightViewLabel,exact:true}).check();await page.locator("button[data-settings-trigger]").first().click();await expect.poll(()=>article.locator(".book-reading-page").evaluate(el=>getComputedStyle(el).color)).toBe("rgb(255, 255, 255)");}
    if(index<spreads.length-1){
     if(index===0){const region=article.getByRole("region",{name:copy.pages,exact:true});await region.focus();await page.keyboard.press("ArrowRight");}
     else await article.getByRole("button",{name:new RegExp(copy.nextPage)}).click();
