@@ -87,13 +87,11 @@ export function useAccessibilityPrefs() {
   }, [prefs, isLoaded]);
 
   const setPreference = useCallback(<K extends keyof AccessibilityPrefs>(key: K, value: AccessibilityPrefs[K]) => {
-    setPrefs(previous => {
-      const next = { ...previous, [key]: value };
-      writePrefsToStorage(next);
-      window.dispatchEvent(new CustomEvent("moneyquest-prefs", {detail: next}));
-      return next;
-    });
-  }, []);
+    const next = { ...prefs, [key]: value };
+    setPrefs(next);
+    writePrefsToStorage(next);
+    window.dispatchEvent(new CustomEvent("moneyquest-prefs", {detail: next}));
+  }, [prefs]);
   const update = useCallback((key: "reducedMotion" | "focusMode" | "nightView" | "highContrast") => {
     setPreference(key, !prefs[key]);
   }, [prefs, setPreference]);
