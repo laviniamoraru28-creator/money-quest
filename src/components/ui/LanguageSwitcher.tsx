@@ -13,15 +13,15 @@ export function languageDestination(href:string,locale:Locale):string {
 }
 
 /** Native select supports touch, keyboard and long language names. */
-export function LanguageSwitcher({locales=ACTIVE_LOCALES}:{locales?:readonly Locale[]}) {
+export function LanguageSwitcher({locales=ACTIVE_LOCALES,compact=false}:{locales?:readonly Locale[];compact?:boolean}) {
  const locale=useLocale(),t=useTranslations("language");
- return <label data-read-aloud-ignore className="flex min-h-12 max-w-full items-center gap-2 text-sm font-semibold text-ink">
-  <span aria-hidden="true">🌐</span><span>{t("selectorLabel")}</span>
+ return <label data-read-aloud-ignore className="flex min-h-11 min-w-0 max-w-full items-center gap-1 text-sm font-semibold text-ink">
+  <span aria-hidden="true">🌐</span>{!compact&&<span>{t("selectorLabel")}</span>}
   <select aria-label={t("changeLanguage")} value={locale} onChange={event=>{
    const next=event.target.value;
    if(isSupportedLocale(next)&&locales.includes(next)&&next!==locale)window.location.assign(languageDestination(window.location.href,next));
-  }} className="min-h-12 min-w-0 max-w-full rounded-xl border border-teal/40 bg-white px-3 py-2 text-base text-ink focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal">
-   {locales.map(value=><option key={value} value={value} lang={value}>{LOCALE_LABELS[value].nativeName}</option>)}
+  }} className={compact?"min-h-11 w-[4.5rem] min-w-0 rounded-lg border border-teal/40 bg-white px-1 text-sm text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-teal":"min-h-12 min-w-0 max-w-full rounded-xl border border-teal/40 bg-white px-3 py-2 text-base text-ink focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal"}>
+   {locales.map(value=><option key={value} value={value} lang={value}>{compact?value.toUpperCase():LOCALE_LABELS[value].nativeName}</option>)}
   </select>
  </label>;
 }
