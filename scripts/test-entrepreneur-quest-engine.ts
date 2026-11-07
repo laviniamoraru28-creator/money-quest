@@ -1,7 +1,7 @@
 /** Run with: npx tsx scripts/test-entrepreneur-quest-engine.ts
  * Exercises runSimulator()'s arithmetic across all three price-to-cost
  * "buyFraction" tiers, the unitsMade-vs-demand capping logic, and the
- * floor-at-zero on remaining money — the exact places a formula bug
+ * cash conservation after paying costs — the exact places a formula bug
  * would silently show a child a wrong or confusing number. Also
  * exercises the EQ state-transition pure functions and the shared
  * awardBadge() function they compose with. */
@@ -30,14 +30,14 @@ const business = { ...createDefaultBusinessProfile(), costPerUnitMinorUnits: 200
 
 // Case 1: mid-range price-to-cost ratio (2.5 -> 0.7 buyFraction), demand
 // is the binding constraint (potentialBuyers < unitsMade), and the
-// resulting loss floors remaining money at 0 rather than going negative.
+// cash reserve remains untouched even when the business makes a loss.
 const run1 = runSimulator(business, { materialsMinorUnits: 2000, packagingMinorUnits: 500, advertisingMinorUnits: 1000, savedAsideMinorUnits: 1500 });
 check("Case 1: unitsMade (materials / cost-per-unit)", run1.unitsMade, 10);
 check("Case 1: unitsSold (capped by demand, not by units made)", run1.unitsSold, 3);
 check("Case 1: sales", run1.salesMinorUnits, 1500);
 check("Case 1: costs (materials + packaging + advertising)", run1.costsMinorUnits, 3500);
 check("Case 1: profit (can be negative — a real loss is honest)", run1.profitMinorUnits, -2000);
-check("Case 1: remaining money floors at 0, never negative", run1.remainingMoneyMinorUnits, 0);
+check("Case 1: remaining cash includes reserve and sales, without paying costs twice", run1.remainingMoneyMinorUnits, 3000);
 
 // Case 2: cheapest tier (ratio <= 2 -> buyFraction 1.0, everyone reached buys).
 const business2 = { ...business, costPerUnitMinorUnits: 100, priceMinorUnits: 200 };
@@ -45,7 +45,7 @@ const run2 = runSimulator(business2, { materialsMinorUnits: 1000, packagingMinor
 check("Case 2: unitsMade", run2.unitsMade, 10);
 check("Case 2: unitsSold (all 5 reached customers buy at a fair price)", run2.unitsSold, 5);
 check("Case 2: profit", run2.profitMinorUnits, -1500);
-check("Case 2: remaining money", run2.remainingMoneyMinorUnits, 1000);
+check("Case 2: remaining money", run2.remainingMoneyMinorUnits, 3500);
 
 // Case 3: most expensive tier (ratio > 3 -> buyFraction 0.4).
 const business3 = { ...business, costPerUnitMinorUnits: 100, priceMinorUnits: 400 };
@@ -53,7 +53,7 @@ const run3 = runSimulator(business3, { materialsMinorUnits: 500, packagingMinorU
 check("Case 3: unitsMade", run3.unitsMade, 5);
 check("Case 3: unitsSold (a high price puts off most of the people reached)", run3.unitsSold, 2);
 check("Case 3: profit", run3.profitMinorUnits, -950);
-check("Case 3: remaining money", run3.remainingMoneyMinorUnits, 2300);
+check("Case 3: remaining money", run3.remainingMoneyMinorUnits, 4050);
 
 // Case 4: unitsSold capped by what was actually MADE, not by demand —
 // spending almost everything on advertising reaches plenty of people,
@@ -62,7 +62,11 @@ const business4 = { ...business, costPerUnitMinorUnits: 100, priceMinorUnits: 15
 const run4 = runSimulator(business4, { materialsMinorUnits: 200, packagingMinorUnits: 0, advertisingMinorUnits: 4800, savedAsideMinorUnits: 0 });
 check("Case 4: unitsMade is the binding constraint", run4.unitsMade, 2);
 check("Case 4: unitsSold capped at unitsMade despite high demand", run4.unitsSold, 2);
-check("Case 4: a big loss still floors at 0, not negative", run4.remainingMoneyMinorUnits, 0);
+check("Case 4: a big loss preserves the actual cash from sales", run4.remainingMoneyMinorUnits, run4.salesMinorUnits);
+for (const run of [run1,run2,run3,run4]) {
+  check("Cash conservation: starting cash plus sales minus costs",run.remainingMoneyMinorUnits,run.startingMoneyMinorUnits+run.salesMinorUnits-run.costsMinorUnits);
+  check("Unspent reserve cannot disappear",run.remainingMoneyMinorUnits>=run.savedAsideMinorUnits,true);
+}
 
 // --- State-transition pure functions ---
 let eqState = createDefaultState();
