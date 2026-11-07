@@ -1,6 +1,5 @@
 import Image from "next/image";
 import {certificateJourneyCopy} from "@/content/certificate-journey-copy";
-import {HomepageReviews} from "@/components/HomepageReviews";
 import {isSupportedLocale} from "@/i18n/config";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
@@ -41,7 +40,7 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
 
             </div>
             <div className="relative overflow-hidden rounded-3xl border border-teal/15 bg-cream shadow-lg">
-              <picture data-learning-decoration>
+              <picture data-homepage-hero>
                 <source media="(max-width: 767px)" srcSet="/images/money-quest/homepage-family-v2-mobile.webp" />
                 <Image unoptimized src="/images/money-quest/homepage-family-v2.webp"
                   alt={t("landing.heroImageAlt")} width={1536} height={1024} priority
@@ -93,7 +92,6 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
             </div>
           </div>
         </section>
-        <HomepageReviews locale={isSupportedLocale(locale)?locale:"en"}/>
       </main>
 
       <footer className="border-t border-ink/10 bg-white py-md">
@@ -102,7 +100,6 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
           <div className="flex flex-wrap gap-sm">
             <Link href="/parent-info" className="hover:text-teal-text">{t("nav.forParents")}</Link>
             <Link href="/privacy" className="hover:text-teal-text">{t("footer.privacy")}</Link>
-            <Link href="/reviews" className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-teal/30 px-3 py-2 font-semibold text-teal-text hover:bg-teal/5"><span aria-hidden="true" className="text-xl text-amber-500">★</span>{t("footer.feedback")}</Link>
             <Link href="/contact" className="hover:text-teal-text">{t("footer.contact")}</Link>
           </div>
         </div>

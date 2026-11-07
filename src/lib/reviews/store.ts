@@ -1,10 +1,10 @@
 import {mkdir,open,readFile,rename,unlink} from "node:fs/promises";
 import path from "node:path";
 import {randomUUID} from "node:crypto";
-export type Review={id:string;rating:number;comment:string;status:"pending"|"approved"};
+export type Review={id:string;rating:number;comment:string;status:"pending"|"approved";notificationSent?:boolean};
 type Store={counts:[number,number,number,number,number];comments:Review[]};
 const empty=():Store=>({counts:[0,0,0,0,0],comments:[]});
-function filename(){const file=process.env.MONEYQUEST_REVIEW_STORE_PATH;if(!file||!path.isAbsolute(file)||!file.endsWith(".json"))throw new Error("Reviews are not configured");return file;}
+function filename(){const file=process.env.MONEYQUEST_REVIEW_STORE_PATH||path.resolve(process.cwd(),"..","moneyquest-private","reviews.json");if(!file||!path.isAbsolute(file)||!file.endsWith(".json"))throw new Error("Reviews are not configured");return file;}
 async function read(file:string):Promise<Store>{
   try {
     const data=JSON.parse(await readFile(file,"utf8"));
@@ -27,8 +27,8 @@ async function change<T>(fn:(store:Store)=>T):Promise<T>{
   }finally{await unlink(temporary).catch(()=>{});await handle.close();await unlink(lock).catch(()=>{});}
 }
 export async function publicReviews(){
-  const data=await read(filename());const total=data.counts.reduce((a,b)=>a+b,0);
-  return {count:total,average:total?data.counts.reduce((sum,n,i)=>sum+n*(i+1),0)/total:null,comments:data.comments.filter(r=>r.status==="approved").map(({rating,comment})=>({rating,comment}))};
+  const data=await read(filename());const approved=data.comments.filter(r=>r.status==="approved");const total=approved.length;
+  return {count:total,average:total?approved.reduce((sum,r)=>sum+r.rating,0)/total:null,comments:data.comments.filter(r=>r.status==="approved").map(({rating,comment})=>({rating,comment}))};
 }
 export function validateReview(value:unknown):{rating:number;comment:string}{
   if(!value||typeof value!=="object"||Array.isArray(value))throw new Error("Choose a rating from 1 to 5.");
@@ -44,9 +44,9 @@ export async function submitReview(value:unknown){
   const data=validateReview(value);
   return change(store=>{
     if(store.counts.reduce((a,b)=>a+b,0)>=100000||store.comments.length>=500)throw new Error("Feedback capacity reached");
-    store.counts[data.rating-1]!++;
-    if(data.comment)store.comments.push({id:randomUUID(),rating:data.rating,comment:data.comment,status:"pending"});
-    return {pending:Boolean(data.comment)};
+    const id=randomUUID();
+    store.comments.push({id,rating:data.rating,comment:data.comment,status:"pending"});
+    return {pending:true,id};
   });
 }
 export async function moderateReview(action:string,id?:string){
@@ -59,3 +59,6 @@ export async function moderateReview(action:string,id?:string){
     return {updated:true};
   });
 }
+
+export async function pendingReviewNotifications(){return (await read(filename())).comments.filter(r=>r.status==="pending"&&!r.notificationSent);}
+export async function markReviewNotified(id:string){return change(store=>{const review=store.comments.find(r=>r.id===id);if(review)review.notificationSent=true;});}

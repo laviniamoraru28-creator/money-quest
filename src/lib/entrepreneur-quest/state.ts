@@ -551,13 +551,11 @@ export function runSimulator(business: BusinessProfile, input: SimulatorInput): 
   const salesMinorUnits = unitsSold * price;
   const costsMinorUnits = input.materialsMinorUnits + input.packagingMinorUnits + input.advertisingMinorUnits;
   const profitMinorUnits = salesMinorUnits - costsMinorUnits;
-  // Floored at 0 rather than allowed to go negative: a real loss is a
-  // genuine, honest possible outcome here (that's what the "explanationLoss"
-  // copy is for), but this app has no borrowing/debt concept anywhere
-  // else, so showing a negative currency amount to a child would look
-  // like a broken number rather than a lesson. Losing everything you
-  // put in is a strong enough, still-true consequence on its own.
-  const remainingMoneyMinorUnits = Math.max(0, input.savedAsideMinorUnits + profitMinorUnits);
+  // Allocating the starting money already pays the costs. Cash left is
+  // the unspent reserve plus sales receipts. Profit separately measures
+  // whether those sales covered the costs; subtracting costs here again
+  // would erase the reserve and count every expense twice.
+  const remainingMoneyMinorUnits = input.savedAsideMinorUnits + salesMinorUnits;
 
   return {
     startingMoneyMinorUnits: EQ_STARTING_MONEY_MINOR_UNITS,

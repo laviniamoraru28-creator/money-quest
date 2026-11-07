@@ -9,10 +9,10 @@ import {moneyExamplesCopy} from "@/content/money-examples-copy";
 
 const learningCurrency:Record<Locale,string>={en:"GBP",ro:"RON",es:"EUR",fr:"EUR",de:"EUR",it:"EUR",pt:"EUR",nl:"EUR",pl:"PLN"};
 
-/** Labelled diagrams use exact HTML amounts. They are teaching models, not legal tender. */
+/** Preserve original money artwork in every language; only the account amount is localized. */
 export function MoneyDiagram({kind,locale="en"}: {kind:string;locale?:Locale}) {
-  return <div aria-hidden="true" className="flex h-28 items-center justify-center rounded-xl bg-cream p-3">
-    {(kind === "coins" || kind === "banknote") && locale!=="en" ? <div className={`flex items-center justify-center border-4 border-teal text-2xl font-bold text-teal-text ${kind==="coins"?"h-20 w-20 rounded-full bg-gold/20":"h-20 w-40 rounded-lg bg-teal/10"}`}>{new Intl.NumberFormat(REGIONAL_LOCALES[locale],{style:"currency",currency:learningCurrency[locale],maximumFractionDigits:0}).format(kind==="coins"?1:locale==="pl"?10:5)}</div> : kind === "account" ? <div className="w-full min-w-0 rounded-xl border-2 border-teal bg-white px-2 py-2 text-center shadow-md"><span className="block text-sm">{moneyExamplesCopy[locale].balance}</span><span className="text-base font-bold text-teal-text sm:text-xl">{new Intl.NumberFormat(REGIONAL_LOCALES[locale],{style:"currency",currency:learningCurrency[locale]}).format(12)}</span></div> : <Image unoptimized src={`/images/money-quest/money/${kind}.webp`} alt="" width={384} height={384} loading="lazy" className="h-full w-full object-contain"/>}
+  return <div aria-hidden="true" data-educational-image className="flex h-28 items-center justify-center rounded-xl bg-cream p-3">
+    {kind === "account" ? <div className="w-full min-w-0 rounded-xl border-2 border-teal bg-white px-2 py-2 text-center shadow-md"><span className="block text-sm">{moneyExamplesCopy[locale].balance}</span><span className="text-base font-bold text-teal-text sm:text-xl">{new Intl.NumberFormat(REGIONAL_LOCALES[locale],{style:"currency",currency:learningCurrency[locale]}).format(12)}</span></div> : <Image unoptimized src={`/images/money-quest/money/${kind}.webp`} alt="" width={384} height={384} loading="lazy" className="h-full w-full object-contain"/>}
   </div>;
 }
 export function MoneyExamples() {

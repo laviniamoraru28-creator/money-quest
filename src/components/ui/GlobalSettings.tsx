@@ -2,6 +2,7 @@
 import {useEffect,useId,useRef,useState} from "react";
 import {usePathname} from "next/navigation";
 import {useAccessibilityPrefs} from "@/lib/accessibility/use-accessibility-preferences";
+import {SoundToggle} from "./SoundToggle";
 import {BackgroundSound} from "./BackgroundSound";
 import {OfflineDownload} from "./OfflineDownload";
 import type {SiteControlsCopy} from "@/content/site-controls-copy";
@@ -55,7 +56,7 @@ export function GlobalSettings({locale,copy,compact=false}:{locale:Locale;copy:S
     <label className="block">{t[8]}<select disabled={!p.isLoaded} value={p.textSize} onChange={e=>p.setPreference("textSize",e.target.value as typeof p.textSize)} className="mt-1 min-h-11 w-full rounded-lg border border-ink/30 bg-white p-2"><option value="normal">{t[9]}</option><option value="large">{t[10]}</option><option value="extra">{t[11]}</option></select></label>
     {toggle(t[12],p.focusMode,p.toggleFocusMode)}
    </fieldset>
-   <fieldset className="min-w-0 space-y-3"><legend className="font-bold">{t[14]}</legend><BackgroundSound locale={locale}/><OfflineDownload locale={locale} copy={copy}/></fieldset>
+   <fieldset className="min-w-0 space-y-3"><legend className="font-bold">{t[14]}</legend><SoundToggle/><BackgroundSound locale={locale}/><OfflineDownload locale={locale} copy={copy}/></fieldset>
    <button type="button" disabled={!p.isLoaded} onClick={p.resetPreferences} className="min-h-11 rounded-lg border border-teal px-4 py-2 font-semibold text-teal-text">{t[13]}</button>
   </div>
  </div>;

@@ -7,10 +7,10 @@ import {SHOP_TERMS_VERSION} from "../../src/content/shop";
 import {shopCatalogueCopy} from "../../src/content/shop-catalogue-copy";
 import {shopProducts} from "../../src/content/shop";
 import {publiclyListedProductIds} from "../../src/content/shop-publication";
-test("shop catalogue keeps English file disclosures, real previews and canonical free samples",async({page})=>{
+test("shop catalogue keeps digital disclosures and free samples without unpublished sales notices",async({page})=>{
  await page.setViewportSize({width:320,height:900});await page.goto("/en/parents/shop");await expect(page).toHaveURL(/\/en\/parents\/shop$/);
- const copy=shopCatalogueCopy.en.copy;await expect(page.getByText(copy.previewBody,{exact:true})).toBeVisible();
- await expect(page.getByText(copy.digital,{exact:true})).toBeVisible();await expect(page.getByText(copy.responseBody,{exact:true})).toBeVisible();
+ const copy=shopCatalogueCopy.en.copy;await expect(page.getByText(copy.previewBody,{exact:true})).toHaveCount(0);
+ await expect(page.getByText(copy.digital,{exact:true})).toBeVisible();await expect(page.getByText(copy.responseBody,{exact:true})).toHaveCount(0);
  await page.getByRole("link",{name:copy.sampleCta,exact:true}).click();await expect(page).toHaveURL(/#free-preview$/);
  for(const product of shopProducts){
   const text=shopCatalogueCopy.en.products[product.id],card=page.locator(`article#${product.id}`);

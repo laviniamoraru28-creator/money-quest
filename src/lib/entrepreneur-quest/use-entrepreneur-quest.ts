@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import {
   createDefaultState,
   updateBusinessField as updateBusinessFieldPure,
@@ -81,140 +81,146 @@ export function resetEntrepreneurQuest(): EntrepreneurQuestState {
 export function useEntrepreneurQuest() {
   const [state, setState] = useState<EntrepreneurQuestState>(createDefaultState());
   const [isLoaded, setIsLoaded] = useState(false);
+  const latest = useRef(state);
 
   useEffect(() => {
-    setState(readFromStorage());
+    const restored = readFromStorage();
+    latest.current = restored;
+    setState(restored);
     setIsLoaded(true);
   }, []);
 
-  const persist = useCallback((next: EntrepreneurQuestState) => {
+  const persist = useCallback((change: (current: EntrepreneurQuestState) => EntrepreneurQuestState) => {
+    const next = change(latest.current);
+    latest.current = next;
     setState(next);
     writeToStorage(next);
   }, []);
 
   const updateBusinessField = useCallback(
     <K extends keyof BusinessProfile>(field: K, value: BusinessProfile[K]) => {
-      persist(updateBusinessFieldPure(state, field, value));
+      persist(current => updateBusinessFieldPure(current, field, value));
     },
-    [state, persist]
+    [persist]
   );
 
   const updateLogo = useCallback(
     <K extends keyof BusinessLogo>(field: K, value: BusinessLogo[K]) => {
-      persist(updateLogoPure(state, field, value));
+      persist(current => updateLogoPure(current, field, value));
     },
-    [state, persist]
+    [persist]
   );
 
   const completeStage = useCallback(
     (stageId: string) => {
-      persist(completeStagePure(state, stageId));
+      persist(current => completeStagePure(current, stageId));
     },
-    [state, persist]
+    [persist]
   );
 
   const recordDecision = useCallback(
     (eventId: string, choiceKey: string) => {
-      persist(recordDecisionPure(state, eventId, choiceKey));
+      persist(current => recordDecisionPure(current, eventId, choiceKey));
     },
-    [state, persist]
+    [persist]
   );
 
   const completeChallenge = useCallback(
     (challengeId: string) => {
-      persist(completeChallengePure(state, challengeId));
+      persist(current => completeChallengePure(current, challengeId));
     },
-    [state, persist]
+    [persist]
   );
 
   const toggleRealWorldMission = useCallback(
     (missionId: string) => {
-      persist(toggleRealWorldMissionPure(state, missionId));
+      persist(current => toggleRealWorldMissionPure(current, missionId));
     },
-    [state, persist]
+    [persist]
   );
 
   const completePitch = useCallback(() => {
-    persist(completePitchPure(state));
-  }, [state, persist]);
+    persist(current => completePitchPure(current));
+  }, [persist]);
 
   const runBusinessSimulator = useCallback(
     (input: SimulatorInput) => {
-      const run = runSimulator(state.business, input);
-      persist(applySimulatorRun(state, run));
+      const run = runSimulator(latest.current.business, input);
+      persist(current => applySimulatorRun(current, run));
       return run;
     },
-    [state, persist]
+    [persist]
   );
 
   const resetBusiness = useCallback(() => {
     const fresh = resetEntrepreneurQuest();
+    latest.current = fresh;
     setState(fresh);
   }, []);
 
   const completeRunActivity = useCallback(
     (activityId: string) => {
-      persist(completeRunActivityPure(state, activityId));
+      persist(current => completeRunActivityPure(current, activityId));
     },
-    [state, persist]
+    [persist]
   );
 
   const completeProblem = useCallback(
     (problemId: string) => {
-      persist(completeProblemPure(state, problemId));
+      persist(current => completeProblemPure(current, problemId));
     },
-    [state, persist]
+    [persist]
   );
 
   const setStockLevel = useCallback(
     (level: EQStockLevel) => {
-      persist(setStockLevelPure(state, level));
+      persist(current => setStockLevelPure(current, level));
     },
-    [state, persist]
+    [persist]
   );
 
   const applyPivotChoice = useCallback(
     (choiceKey: string) => {
-      persist(applyPivotChoicePure(state, choiceKey));
+      persist(current => applyPivotChoicePure(current, choiceKey));
     },
-    [state, persist]
+    [persist]
   );
 
   const applyGrowDecision = useCallback(
     (choiceKey: string) => {
-      persist(applyGrowDecisionPure(state, choiceKey));
+      persist(current => applyGrowDecisionPure(current, choiceKey));
     },
-    [state, persist]
+    [persist]
   );
 
   const completeAiLabActivity = useCallback(
     (activityId: string) => {
-      persist(completeAiLabActivityPure(state, activityId));
+      persist(current => completeAiLabActivityPure(current, activityId));
     },
-    [state, persist]
+    [persist]
   );
 
   const updateBusinessReview = useCallback(
     <K extends keyof BusinessReview>(field: K, value: BusinessReview[K]) => {
-      persist(updateBusinessReviewPure(state, field, value));
+      persist(current => updateBusinessReviewPure(current, field, value));
     },
-    [state, persist]
+    [persist]
   );
 
   const startRescue = useCallback(() => {
-    persist(startRescuePure(state));
-  }, [state, persist]);
+    persist(current => startRescuePure(current));
+  }, [persist]);
 
   const recordRescueDecision = useCallback(
     (problemId: string, responseKey: string) => {
-      persist(recordRescueDecisionPure(state, problemId, responseKey));
+      persist(current => recordRescueDecisionPure(current, problemId, responseKey));
     },
-    [state, persist]
+    [persist]
   );
 
   const finishRescue = useCallback(() => {
-    persist(finishRescuePure(state));
-  }, [state, persist]);
+    persist(current => finishRescuePure(current));
+  }, [persist]);
 
   return {
     state,

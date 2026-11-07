@@ -15,9 +15,7 @@ import { ProgressBar } from "@/components/ui/ProgressBar";
 import { LevelProgressRing } from "@/components/ui/LevelProgressRing";
 import { LevelBadgeStar } from "@/components/ui/LevelBadgeStar";
 import { GuidePanel } from "@/components/GuidePanel";
-import { discoveryCopy } from "@/content/discovery-copy";
 import { laboratoryCopy } from "@/content/laboratory-copy";
-import { publicNavigationCopy } from "@/content/public-navigation-copy";
 import { isSupportedLocale } from "@/i18n/config";
 import { LEVEL_OPTIONS } from "@/content/level-options";
 import type { AgeBand } from "@/types/database.types";
@@ -39,9 +37,7 @@ import type { AgeBand } from "@/types/database.types";
 export default function PlayPage() {
   const uiLocale = useLocale();
   const safeLocale = isSupportedLocale(uiLocale) ? uiLocale : "en";
-  const discoveryLabels = discoveryCopy[safeLocale];
   const guideLabels = laboratoryCopy[safeLocale];
-  const navigationLabels = publicNavigationCopy[safeLocale];
   const journey=certificateJourneyCopy[safeLocale];
   const t = useTranslations();
   const { state, isLoaded, level, setAgeBand, setCurrencyCode } = useLocalProgress();
@@ -172,72 +168,6 @@ export default function PlayPage() {
         </div>
 
 
-
-        {/* More features — upgraded from a row of small text links to
-            clearly-identifiable cards, matching the same visual
-            language as the World cards above, so these existing
-            features (nothing new here) are actually discoverable
-            rather than easy to miss at the bottom of the page. */}
-        <nav aria-label={navigationLabels.discover} className="mt-6 flex flex-wrap gap-3">{([["museum",discoveryLabels.museum],["library",discoveryLabels.library],["brain-lab",navigationLabels.brain],["mind-lab",navigationLabels.mind],["future-skills",navigationLabels.future],["inclusive-learning",navigationLabels.inclusive]] as const).map(([path,label])=><Link key={path} href={`/${path}`} className="min-h-12 rounded-xl border border-teal bg-white px-4 py-3 font-semibold text-teal-text">{label}</Link>)}</nav>
-        <h2 className="mt-lg font-display text-lg font-bold">{t("play.moreFeaturesTitle")}</h2>
-        <div className="mt-sm grid gap-sm sm:grid-cols-3">
-          <Link
-            href="/play/goals"
-            className="flex items-center gap-xs rounded-lg border-2 border-ink/10 bg-white p-sm shadow-resting transition-shadow hover:shadow-floating hover:border-teal"
-          >
-            <span aria-hidden="true" className="text-2xl">🎯</span>
-            <span className="font-medium">{t("play.mySavingsGoals")}</span>
-          </Link>
-          <Link
-            href="/play/simulator"
-            className="flex items-center gap-xs rounded-lg border-2 border-ink/10 bg-white p-sm shadow-resting transition-shadow hover:shadow-floating hover:border-teal"
-          >
-            <span aria-hidden="true" className="text-2xl">🧭</span>
-            <span className="font-medium">{t("play.moneyLifeSimulator")}</span>
-          </Link>
-          <Link
-            href="/play/money-personality"
-            className="flex items-center gap-xs rounded-lg border-2 border-ink/10 bg-white p-sm shadow-resting transition-shadow hover:shadow-floating hover:border-teal"
-          >
-            <span aria-hidden="true" className="text-2xl">🧠</span>
-            <span className="font-medium">{t("play.moneyPersonalityLink")}</span>
-          </Link>
-          <Link
-            href="/play/investing-lab"
-            className="flex items-center gap-xs rounded-lg border-2 border-ink/10 bg-white p-sm shadow-resting transition-shadow hover:shadow-floating hover:border-teal"
-          >
-            <span aria-hidden="true" className="text-2xl">📈</span>
-            <span className="font-medium">{t("play.investingLabLink")}</span>
-          </Link>
-          <Link
-            href="/entrepreneur-quest"
-            className="flex items-center gap-xs rounded-lg border-2 border-ink/10 bg-white p-sm shadow-resting transition-shadow hover:shadow-floating hover:border-teal"
-          >
-            <span aria-hidden="true" className="text-2xl">💡</span>
-            <span className="font-medium">{t("play.entrepreneurQuestLink")}</span>
-          </Link>
-          <Link
-            href="/leadership-quest"
-            className="flex items-center gap-xs rounded-lg border-2 border-ink/10 bg-white p-sm shadow-resting transition-shadow hover:shadow-floating hover:border-teal"
-          >
-            <span aria-hidden="true" className="text-2xl">🤝</span>
-            <span className="font-medium">{t("play.leadershipQuestLink")}</span>
-          </Link>
-          <Link
-            href="/real-life-quests"
-            className="flex items-center gap-xs rounded-lg border-2 border-ink/10 bg-white p-sm shadow-resting transition-shadow hover:shadow-floating hover:border-teal"
-          >
-            <span aria-hidden="true" className="text-2xl">🌍</span>
-            <span className="font-medium">{t("play.realLifeQuestsLink")}</span>
-          </Link>
-          <Link
-            href="/feedback"
-            className="flex items-center gap-xs rounded-lg border-2 border-ink/10 bg-white p-sm shadow-resting transition-shadow hover:shadow-floating hover:border-teal"
-          >
-            <span aria-hidden="true" className="text-2xl">⭐</span>
-            <span className="font-medium">{t("footer.feedback")}</span>
-          </Link>
-        </div>
 
         <div className="mt-md flex justify-end">
           <ResetProgressButton />
