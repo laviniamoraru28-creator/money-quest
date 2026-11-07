@@ -67,7 +67,7 @@
         "tryIt": [
           "Indica il numero più grande su due etichette finte.",
           "Confronta due confezioni etichettate 100 g e 150 g.",
-          "Confronta 200 g a £2 con 300 g a £2.40. Calcola il prezzo per 100 g."
+          "Confronta 200 g a 2 € con 300 g a 2,40 €. Calcola il prezzo per 100 g."
         ],
         "readings": [
           {
@@ -78,9 +78,9 @@
           },
           {
             "idea": "L'aspetto di una confezione e il rapporto qualità-prezzo sono due domande diverse.",
-            "situation": "Una confezione è 200 g a £2. Un'altra è 300 g a £2.40. Cosa aiuta a confrontare il valore?",
+            "situation": "Una confezione è 200 g a 2 €. Un'altra è 300 g a 2,40 €. Cosa aiuta a confrontare il valore?",
             "choices": ["Scegliere qualunque scatola sembri più alta", "Supporre che il prezzo totale più alto sia sempre lo svantaggio peggiore", "Calcolare e confrontare il prezzo per ogni 100 g"],
-            "explanation": "La prima costa £1 ogni 100 g. La seconda costa 80p ogni 100 g. Il prezzo per unità aiuta a confrontare il valore, ma comprare di più conviene solo se ti serve davvero e puoi permetterti il totale."
+            "explanation": "La prima costa 1 € ogni 100 g. La seconda costa 80 centesimi ogni 100 g. Il prezzo per unità aiuta a confrontare il valore, ma comprare di più conviene solo se ti serve davvero e puoi permetterti il totale."
           }
         ]
       },
@@ -585,10 +585,10 @@
       {
         "title": "Scegli con un budget",
         "idea": "Ogni scelta ha un costo e può influire su un altro obiettivo.",
-        "situation": "Hai £5. Un quaderno costa £3 e un giocattolo costa £4. Cosa puoi comprare senza farti prestare soldi?",
-        "choices": ["Un oggetto, con dei soldi che rimangono", "Entrambi, per £5", "Entrambi, senza che resti niente"],
+        "situation": "Hai 5 €. Un quaderno costa 3 € e un giocattolo costa 4 €. Cosa puoi comprare senza farti prestare soldi?",
+        "choices": ["Un oggetto, con dei soldi che rimangono", "Entrambi, per 5 €", "Entrambi, senza che resti niente"],
         "correct": 0,
-        "explanation": "£3 + £4 = £7. Puoi scegliere un oggetto ora, aspettare, oppure risparmiare di più. C'è più di una scelta ragionevole.",
+        "explanation": "3 € + 4 € = 7 €. Puoi scegliere un oggetto ora, aspettare, oppure risparmiare di più. C'è più di una scelta ragionevole.",
         "tryIt": [
           "Indica l'oggetto che scegli.",
           "Calcola quanti soldi restano per ogni scelta.",
@@ -597,15 +597,15 @@
         "readings": [
           {
             "idea": "Controlla i soldi prima di scegliere.",
-            "situation": "Hai £5. Un quaderno costa £3 e un giocattolo costa £4. Cosa puoi permetterti ora?",
-            "choices": ["Un oggetto, con dei soldi che restano", "Entrambi gli oggetti per £5", "Entrambi, senza che resti niente"],
+            "situation": "Hai 5 €. Un quaderno costa 3 € e un giocattolo costa 4 €. Cosa puoi permetterti ora?",
+            "choices": ["Un oggetto, con dei soldi che restano", "Entrambi gli oggetti per 5 €", "Entrambi, senza che resti niente"],
             "explanation": "Tre più quattro fa sette, che è più di cinque. Puoi scegliere un oggetto, aspettare, oppure non scegliere nessuno dei due."
           },
           {
             "idea": "Un budget rende visibili i compromessi, senza decidere le tue priorità al posto tuo.",
-            "situation": "Con £5 disponibili, un quaderno da £3 e un giocattolo da £4 non si possono comprare entrambi senza altri soldi. Quale affermazione è corretta?",
-            "choices": ["Ogni oggetto da solo è alla tua portata; l'altro uso possibile dei soldi è il costo-opportunità", "Entrambi sono alla tua portata perché ciascuno costa meno di £5", "Farsi prestare i soldi elimina il costo della scelta"],
-            "explanation": "Il prezzo combinato è £7. Scegliere un oggetto lascia un saldo diverso e rinvia un altro uso di quei soldi. Aspettare o non scegliere nessuno dei due può adattarsi anche alle tue priorità."
+            "situation": "Con 5 € disponibili, un quaderno da 3 € e un giocattolo da 4 € non si possono comprare entrambi senza altri soldi. Quale affermazione è corretta?",
+            "choices": ["Ogni oggetto da solo è alla tua portata; l'altro uso possibile dei soldi è il costo-opportunità", "Entrambi sono alla tua portata perché ciascuno costa meno di 5 €", "Farsi prestare i soldi elimina il costo della scelta"],
+            "explanation": "Il prezzo combinato è 7 €. Scegliere un oggetto lascia un saldo diverso e rinvia un altro uso di quei soldi. Aspettare o non scegliere nessuno dei due può adattarsi anche alle tue priorità."
           }
         ]
       }

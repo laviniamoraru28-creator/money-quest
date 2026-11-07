@@ -2634,7 +2634,7 @@
       "title": "Geld als hulpmiddel, niet als doel",
       "learningObjective": "Geld begrijpen als een gedeeld systeem dat alleen werkt omdat mensen ermee instemmen het te vertrouwen, en herkennen dat verschillende landen verschillende valuta gebruiken voor dit systeem.",
       "shortIntroduction": "Geld \"werkt\" alleen omdat miljoenen vreemden ermee instemmen hetzelfde idee te vertrouwen. Dat is best vreemd als je erover nadenkt.",
-      "story": "Mia helpt bij het plannen van een schoolinzamelingsactie en merkt iets op: de munten in haar zak zijn buiten haar eigen land niets waard. Een vriendin die op bezoek is uit het buitenland geeft haar een briefje van thuis, en geen van beiden kan het hier gebruiken. Mia beseft dat geld geen vast, universeel ding is - het is een systeem dat werkt omdat een specifieke groep mensen het ermee eens is dat het werkt.",
+      "story": "Mia helpt een inzamelactie op school te organiseren. Een vriendin brengt een buitenlands bankbiljet mee, maar de plaatselijke winkel accepteert die valuta niet. Het biljet behoudt zijn waarde en kan worden omgewisseld. Mia leert te controleren welke valuta een winkel accepteert; sommige landen gebruiken dezelfde valuta.",
       "keyConcept": "Geld is een gedeeld vertrouwenssysteem, geen vast universeel object - verschillende landen gebruiken verschillende valuta, en de waarde van een valuta komt voort uit het feit dat mensen ermee instemmen om het te gebruiken en te vertrouwen.",
       "vocabulary": [
         {
@@ -2655,15 +2655,15 @@
       "gameIdea": "Valuta-ontdekker: koppel landen aan hun valuta en vergelijk voorbeeldprijzen.",
       "challenge": "Zoek uit welke valuta wordt gebruikt in een land dat je nog nooit hebt bezocht, en een interessant feit erover.",
       "quiz": {
-        "question": "Waarom werkt geld uit het ene land niet automatisch in een ander land?",
+        "question": "Waarom zou een winkel een buitenlands bankbiljet kunnen weigeren?",
         "options": [
-          "Omdat elk land een andere, apart vertrouwde valuta gebruikt",
+          "Omdat de winkel mogelijk een andere valuta accepteert",
           "Omdat buitenlands geld nep is",
           "Omdat winkels geen toeristen mogen",
           "Omdat munten slijten tijdens het reizen"
         ],
-        "correctAnswer": "Omdat elk land een andere, apart vertrouwde valuta gebruikt",
-        "explanation": "Het geld van elk land is zijn eigen systeem van gedeeld vertrouwen - een winkel in het ene land heeft niet ingestemd om de valuta van een ander land te accepteren, net zoals je geen spelpunten van de ene app zou ruilen voor de valuta van een andere app."
+        "correctAnswer": "Omdat de winkel mogelijk een andere valuta accepteert",
+        "explanation": "Een bankbiljet kan zijn waarde behouden, ook als een winkel het niet accepteert. Sommige landen delen een valuta, zoals de euro. Bij verschillende valuta kan omwisselen nodig zijn en kunnen kosten gelden."
       },
       "feedback": {
         "success": "Je snapt het - geld is een vertrouwenssysteem, en dat systeem is op verschillende plekken anders. 🌍",
@@ -5980,6 +5980,15 @@
     "relatedHeading": "Gerelateerde artikelen",
     "ctaTitle": "Wil je dat je kind dit oefent, niet alleen erover leest?",
     "ctaBody": "Money Quest verandert precies deze ideeën in gratis, leeftijdsgerichte spellen en activiteiten."
+  },
+  "worldDescriptions": {
+    "coin-cove": "Ontdek geld, munten en verschillende manieren om te betalen.",
+    "market-town": "Oefen met koopkeuzes en onderscheid behoeften en wensen.",
+    "golden-vault": "Ontdek sparen en maak een plan voor een doel.",
+    "sky-exchange": "Vergelijk valuta en ontdek digitale betalingen.",
+    "guardian-gate": "Herken verdachte berichten en bescherm privégegevens.",
+    "horizon-peaks": "Vergelijk keuzes en maak plannen voor de toekomst.",
+    "kindness-grove": "Ontdek geven, delen en anderen helpen."
   },
   "levels": {
     "coin-cove": "Geldontdekker",

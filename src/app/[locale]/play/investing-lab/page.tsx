@@ -85,7 +85,7 @@ export default function InvestingLabPage() {
 
         <p className="mt-sm text-sm text-ink/70">{t("investingLab.guardrailIntro")}</p>
 
-        <div className="investment-phone mx-auto mt-md max-w-[580px]" aria-label="Fictional investing app simulator"><div className="investment-phone-notch" aria-hidden="true"/><div className="investment-phone-screen"><p className="mb-4 text-center text-sm font-bold uppercase tracking-wide text-teal-text">Money Quest · Simulation · Pretend money</p><Card variant="data">
+        <div className="investment-phone mx-auto mt-md max-w-[580px]" aria-label={t("investingLab.title")}><div className="investment-phone-notch" aria-hidden="true"/><div className="investment-phone-screen"><p className="mb-4 text-center text-sm font-bold uppercase tracking-wide text-teal-text">Money Quest · {t("investingLab.simulationBanner")}</p><Card variant="data">
           <div className="grid grid-cols-2 gap-sm">
             <div>
               <p className="text-xs uppercase tracking-wide text-ink/70">{t("investingLab.cashLabel")}</p>

@@ -95,7 +95,7 @@
         "tryIt": [
           "Wijs het grootste getal aan op twee verzonnen etiketten.",
           "Vergelijk twee verpakkingen met het label 100 g en 150 g.",
-          "Vergelijk 200 g voor £2 met 300 g voor £2.40. Bereken de prijs per 100 g."
+          "Vergelijk 200 g voor 2 € met 300 g voor 2,40 €. Bereken de prijs per 100 g."
         ],
         "readings": [
           {
@@ -110,13 +110,13 @@
           },
           {
             "idea": "Hoe een verpakking eruitziet en wat ze waard is voor je geld, zijn twee verschillende vragen.",
-            "situation": "Eén verpakking is 200 g voor £2. Een andere is 300 g voor £2.40. Wat helpt om de waarde te vergelijken?",
+            "situation": "Eén verpakking is 200 g voor 2 €. Een andere is 300 g voor 2,40 €. Wat helpt om de waarde te vergelijken?",
             "choices": [
               "De doos kiezen die er hoger uitziet",
               "Aannemen dat de hogere totaalprijs minder waard is",
               "De prijs per 100 g van elke verpakking berekenen en vergelijken"
             ],
-            "explanation": "De eerste kost £1 per 100 g. De tweede kost 80p per 100 g. Eenheidsprijzen helpen je de waarde te vergelijken, maar meer kopen is alleen nuttig als je het nodig hebt en het totaal kunt betalen."
+            "explanation": "De eerste kost 1 € per 100 g. De tweede kost 80 cent per 100 g. Eenheidsprijzen helpen je de waarde te vergelijken, maar meer kopen is alleen nuttig als je het nodig hebt en het totaal kunt betalen."
           }
         ]
       },
@@ -837,14 +837,14 @@
       {
         "title": "Kies met een budget",
         "idea": "Jouw keuze heeft een prijs en kan een ander doel beïnvloeden.",
-        "situation": "Je hebt £5. Een notitieboekje kost £3 en een speeltje kost £4. Wat kun je kopen zonder te lenen?",
+        "situation": "Je hebt 5 €. Een notitieboekje kost 3 € en een speeltje kost 4 €. Wat kun je kopen zonder te lenen?",
         "choices": [
           "Eén voorwerp, met wat geld over",
-          "Beide voor £5",
+          "Beide voor 5 €",
           "Beide, zonder geld over"
         ],
         "correct": 0,
-        "explanation": "£3 + £4 = £7. Je kunt er nu één kiezen, wachten, of meer sparen. Er is meer dan één redelijke keuze.",
+        "explanation": "3 € + 4 € = 7 €. Je kunt er nu één kiezen, wachten, of meer sparen. Er is meer dan één redelijke keuze.",
         "tryIt": [
           "Wijs het voorwerp aan dat je kiest.",
           "Bereken hoeveel geld er overblijft bij elke keuze.",
@@ -853,23 +853,23 @@
         "readings": [
           {
             "idea": "Controleer het geld voordat je kiest.",
-            "situation": "Je hebt £5. Een notitieboekje kost £3 en een speeltje kost £4. Wat kun je je nu veroorloven?",
+            "situation": "Je hebt 5 €. Een notitieboekje kost 3 € en een speeltje kost 4 €. Wat kun je je nu veroorloven?",
             "choices": [
               "Eén voorwerp, met geld over",
-              "Beide voorwerpen voor £5",
+              "Beide voorwerpen voor 5 €",
               "Beide, zonder iets over"
             ],
             "explanation": "Drie plus vier is zeven, en dat is meer dan vijf. Je kunt er één kiezen, wachten of geen van beide kiezen."
           },
           {
             "idea": "Een budget laat afwegingen zien, maar bepaalt niet jouw prioriteiten voor je.",
-            "situation": "Met £5 beschikbaar kun je een notitieboekje van £3 en een speeltje van £4 niet allebei kopen zonder extra geld. Welke uitspraak klopt?",
+            "situation": "Met 5 € beschikbaar kun je een notitieboekje van 3 € en een speeltje van 4 € niet allebei kopen zonder extra geld. Welke uitspraak klopt?",
             "choices": [
               "Elk voorwerp is apart betaalbaar; het andere gebruik van het geld is de alternatieve kosten",
-              "Beide zijn betaalbaar, omdat elk minder dan £5 kost",
+              "Beide zijn betaalbaar, omdat elk minder dan 5 € kost",
               "Lenen heft de kosten van de keuze op"
             ],
-            "explanation": "De gecombineerde prijs is £7. Als je er één kiest, blijft er een ander bedrag over en stel je een ander gebruik van het geld uit. Wachten of geen van beide kiezen kan ook bij jouw prioriteiten passen."
+            "explanation": "De gecombineerde prijs is 7 €. Als je er één kiest, blijft er een ander bedrag over en stel je een ander gebruik van het geld uit. Wachten of geen van beide kiezen kan ook bij jouw prioriteiten passen."
           }
         ]
       }

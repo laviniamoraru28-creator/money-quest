@@ -2243,7 +2243,7 @@
       "title": "Pieniądze jako narzędzie, a nie cel",
       "learningObjective": "Zrozumienie pieniędzy jako wspólnego systemu, który działa tylko dlatego, że ludzie zgadzają się mu ufać, oraz rozpoznanie, że różne kraje używają różnych walut dla tego systemu.",
       "shortIntroduction": "Pieniądze \"działają\" tylko dlatego, że miliony obcych ludzi zgadzają się ufać temu samemu pomysłowi. To naprawdę dziwne, gdy się nad tym zastanowić.",
-      "story": "Mia pomaga zaplanować zbiórkę pieniędzy w szkole i zauważa coś: monety w jej kieszeni są bezwartościowe poza jej własnym krajem. Koleżanka odwiedzająca z zagranicy podaje jej banknot z domu, i żadna z nich nie może go tu użyć. Mia uświadamia sobie, że pieniądze nie są czymś stałym i uniwersalnym - to system, który działa, ponieważ konkretna grupa ludzi zgadza się, że działa.",
+      "story": "Mia pomaga przygotować szkolną zbiórkę. Koleżanka przynosi zagraniczny banknot, ale miejscowy sklep nie przyjmuje tej waluty. Banknot nadal ma wartość i można go wymienić. Mia uczy się sprawdzać, jakie waluty przyjmuje sklep; niektóre kraje używają tej samej waluty.",
       "keyConcept": "Pieniądze to wspólny system zaufania, a nie stały, uniwersalny przedmiot - różne kraje używają różnych walut, a wartość waluty pochodzi z tego, że ludzie zgadzają się jej używać i jej ufać.",
       "vocabulary": [
         {
@@ -2264,15 +2264,15 @@
       "gameIdea": "Odkrywca Walut: dopasuj kraje do ich walut i porównaj przykładowe ceny.",
       "challenge": "Dowiedz się, jakiej waluty używa się w kraju, którego nigdy nie odwiedziłeś, i jednego ciekawego faktu na jej temat.",
       "quiz": {
-        "question": "Dlaczego pieniądze z jednego kraju nie działają automatycznie w innym?",
+        "question": "Dlaczego sklep może odmówić przyjęcia zagranicznego banknotu?",
         "options": [
-          "Ponieważ każdy kraj używa innej, osobno zaufanej waluty",
+          "Ponieważ sklep może przyjmować inną walutę",
           "Ponieważ zagraniczne pieniądze są fałszywe",
           "Ponieważ sklepy nie lubią turystów",
           "Ponieważ monety zużywają się podczas podróży"
         ],
-        "correctAnswer": "Ponieważ każdy kraj używa innej, osobno zaufanej waluty",
-        "explanation": "Pieniądze każdego kraju są jego własnym systemem wspólnego zaufania - sklep w jednym kraju nie zgodził się przyjmować waluty innego kraju, tak samo jak nie wymieniłbyś punktów z jednej gry na walutę innej aplikacji."
+        "correctAnswer": "Ponieważ sklep może przyjmować inną walutę",
+        "explanation": "Banknot może zachować wartość, nawet jeśli sklep go nie przyjmuje. Niektóre kraje mają wspólną walutę, na przykład euro. Przy różnych walutach może być potrzebna wymiana i mogą wystąpić opłaty."
       },
       "feedback": {
         "success": "Rozumiesz - pieniądze to system zaufania, a ten system różni się w różnych miejscach. 🌍",
@@ -5589,6 +5589,15 @@
     "relatedHeading": "Powiązane artykuły",
     "ctaTitle": "Chcesz, żeby twoje dziecko to ćwiczyło, a nie tylko o tym czytało?",
     "ctaBody": "Money Quest zamienia dokładnie te pomysły w bezpłatne, dostosowane do wieku gry i aktywności."
+  },
+  "worldDescriptions": {
+    "coin-cove": "Poznaj pieniądze, monety i różne sposoby płacenia.",
+    "market-town": "Ćwicz decyzje zakupowe i odróżniaj potrzeby od zachcianek.",
+    "golden-vault": "Poznaj oszczędzanie i zaplanuj cel.",
+    "sky-exchange": "Porównuj waluty i poznaj płatności cyfrowe.",
+    "guardian-gate": "Rozpoznawaj podejrzane wiadomości i chroń prywatne informacje.",
+    "horizon-peaks": "Porównuj wybory i planuj przyszłość.",
+    "kindness-grove": "Poznaj dawanie, dzielenie się i pomaganie innym."
   },
   "levels": {
     "coin-cove": "Odkrywca Pieniędzy",

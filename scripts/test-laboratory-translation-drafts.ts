@@ -4,6 +4,7 @@ import {learningLabs} from "../src/content/learning-labs";
 import {labAgeVariants,labTaskAtLevel} from "../src/content/lab-age-variants";
 import {laboratoryTranslationSource,draftTranslatedLaboratory,assertTranslationShape} from "../src/lib/i18n/content-translations";
 import {LOCALES,ACTIVE_LOCALES} from "../src/i18n/config";
+import {draftLaboratoryPresentation} from "../src/lib/i18n/laboratory-presentation";
 const manifest=JSON.parse(readFileSync("src/content/translations/laboratories.sources.json","utf8"));
 assert.deepEqual(manifest.locales,["ro"]);
 assert.equal(manifest.regionalTargets.ro,"ro-RO");
@@ -15,6 +16,8 @@ const number=(value:string)=>Number(value.replace(",","."));
 const figures=(value:unknown)=>(text(value).match(/\d+(?:[.,]\d+)?/g)||[]).map(number);
 const sterling=(value:unknown)=>Array.from(text(value).matchAll(/£\s*(\d+(?:[.,]\d{1,2})?)|(\d+(?:[.,]\d{1,2})?)\s*£/g),match=>number(match[1]??match[2]!));
 const pence=(value:unknown)=>Array.from(text(value).matchAll(/\b(\d+)\s*(?:p\b|de pence\b)/g),match=>Number(match[1]));
+const localMajor=(value:unknown)=>Array.from(text(value).matchAll(/(\d+(?:[.,]\d{1,2})?)\s*(?:lei|leu|zł|€)(?!\p{L})/gu),match=>number(match[1]!));
+const localMinor=(value:unknown)=>Array.from(text(value).matchAll(/\b(\d+)\s*(?:de bani\b|gr\b|céntimos\b|centimes\b|Cent\b|centesimi\b|cêntimos\b|cent\b)/gu),match=>Number(match[1]));
 let strings=0,tasks=0;
 for(const lab of learningLabs){
  const source=laboratoryTranslationSource(lab,labAgeVariants),copy=translations[lab.slug];
@@ -24,8 +27,8 @@ for(const lab of learningLabs){
  assert.notEqual(translated.lab.title,lab.title);
  assert.notEqual(translated.lab.description,lab.description);
  assert.deepEqual(figures(copy),figures(source),`${lab.slug}: quantities and decimal values`);
- assert.deepEqual(sterling(copy),sterling(source),`${lab.slug}: sterling amounts, accepting Romanian decimal commas and symbol order`);
- assert.deepEqual(pence(copy),pence(source),`${lab.slug}: pence values`);
+ assert.deepEqual(localMajor(copy),sterling(source),`${lab.slug}: fictional amounts retain their values in lei`);
+ assert.deepEqual(localMinor(copy),pence(source),`${lab.slug}: fractional values retain their values in bani`);
  const prose=text(copy);
  assert.equal(prose,prose.normalize("NFC"));assert(!/[\uFFFDŞşŢţ]/u.test(prose),"Valid Romanian diacritics, no replacement glyphs or legacy cedillas");
  assert(!/\s+[,.!?]/u.test(prose),"No spaces before Romanian sentence punctuation");
@@ -58,4 +61,12 @@ for(const lab of learningLabs){
 }
 assert.equal(strings,490);assert.equal(tasks,22);
 assert.deepEqual(ACTIVE_LOCALES,LOCALES);
-console.log(`PASS: three Romanian laboratory drafts, ${tasks} tasks, three age readings, ${strings} strings, localized age selection, correct answers, quantities and GBP/pence, with source/metadata/structure guards.`);
+for(const locale of LOCALES.filter(locale=>locale!=="en"))for(const lab of learningLabs){
+ draftLaboratoryPresentation(lab,locale);
+ const source=laboratoryTranslationSource(lab,labAgeVariants);
+ const copy=JSON.parse(readFileSync(`src/content/translations/laboratories.${locale}.json`,"utf8"))[lab.slug];
+ assert.deepEqual(localMajor(copy),sterling(source),`${locale}/${lab.slug}: all nominal prices use local currency`);
+ assert.deepEqual(localMinor(copy),pence(source),`${locale}/${lab.slug}: minor-unit arithmetic preserved`);
+ assert(!/£|GBP|\bpence\b|\b80p\b/.test(text(copy)),`${locale}/${lab.slug}: no stray sterling units`);
+}
+console.log(`PASS: Romanian laboratory structure, age selection and source guards; all eight translated editions preserve nominal prices, decimal values, minor units and answer arithmetic in local learning currencies.`);

@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
-import {mkdtemp,readFile,rm} from "node:fs/promises";
+import {mkdtemp,readFile,rm,open,unlink} from "node:fs/promises";
+import {setTimeout as delay} from "node:timers/promises";
 import {tmpdir} from "node:os";
 import path from "node:path";
 import {validateReview,submitReview,publicReviews,moderateReview} from "../src/lib/reviews/store";
@@ -14,6 +15,14 @@ async function main(){
     await moderateReview("approve",pending.find(review=>review.rating===5)!.id);data=await publicReviews();assert.equal(data.comments.length,1);assert.equal(data.count,1);assert.equal(data.average,5);
     await moderateReview("reject",pending.find(review=>review.rating===3)!.id);assert.equal((await publicReviews()).count,1);
     const stored=JSON.parse(await readFile(process.env.MONEYQUEST_REVIEW_STORE_PATH,"utf8"));assert.deepEqual(Object.keys(stored).sort(),["comments","counts"]);assert.deepEqual(Object.keys(stored.comments[0]).sort(),["comment","id","rating","status"]);
+    const lock=process.env.MONEYQUEST_REVIEW_STORE_PATH+".lock";
+    const held=await open(lock,"wx",0o600);
+    const release=delay(650).then(async()=>{await held.close();await unlink(lock);});
+    const [waiting]=await Promise.all([submitReview({rating:4,comment:"A concurrent submission."}),release]);
+    const afterWait=await moderateReview("list") as {id:string}[];
+    assert.equal(afterWait.length,2,"A slow durable write must not lose either review");
+    assert(afterWait.some(review=>review.id===waiting.id));
+    assert.equal((await publicReviews()).count,1,"The queued submission remains private");
   }finally{delete process.env.MONEYQUEST_REVIEW_STORE_PATH;await rm(dir,{recursive:true,force:true});}
   console.log("PASS: review validation, concurrent rating totals, private moderation queue, explicit approval and no name/IP/email fields.");
 }

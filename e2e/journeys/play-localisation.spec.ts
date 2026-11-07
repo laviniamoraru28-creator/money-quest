@@ -25,5 +25,9 @@ for(const locale of LOCALES)test(`${locale}: level chooser and world-map links u
  for(const path of ['museum','library','brain-lab','mind-lab','future-skills','inclusive-learning']){
   await expect(links.locator(`a[href="/${locale}/${path}"]`)).toBeVisible();
  }
+ await page.goto(`/${locale}/play/world/coin-cove`);
+ await expect(page.locator('main')).toContainText(messages.worldDescriptions['coin-cove']);
+ await expect(page.getByRole('complementary',{name:guide.guideLabel,exact:true})).toContainText(messages.worldDescriptions['coin-cove']);
+ if(locale!=='en')await expect(page.locator('main')).not.toContainText('Where every quest begins');
  expect(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)).toBe(false);
 });

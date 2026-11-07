@@ -531,7 +531,7 @@
       "title": "Money as a Tool, Not a Goal",
       "learningObjective": "Understand money as a shared system that only works because people agree to trust it, and recognise that different countries use different currencies for this system.",
       "shortIntroduction": "Money only 'works' because millions of strangers agree to trust the same idea. That's genuinely strange when you think about it.",
-      "story": "Mia is helping plan a school fundraiser and notices something: the coins in her pocket are worthless outside her own country. A friend visiting from abroad hands her a note from home, and neither of them can use it here. Mia realises money isn't some fixed, universal thing - it's a system that works because a specific group of people agree it does.",
+      "story": "Mia helps plan a school fundraiser. A friend brings a foreign banknote, but the local shop does not accept that currency. The note still has value and may be exchanged. Mia learns to check which currencies a shop accepts; some countries share the same currency.",
       "keyConcept": "Money is a shared system of trust, not a fixed universal object - different countries use different currencies, and a currency's value comes from people agreeing to use and trust it.",
       "vocabulary": [
         {
@@ -552,15 +552,15 @@
       "gameIdea": "Currency Explorer: match countries to their currencies and compare example prices.",
       "challenge": "Find out what currency is used in a country you've never visited, and one interesting fact about it.",
       "quiz": {
-        "question": "Why doesn't money from one country automatically work in another?",
+        "question": "Why might a shop refuse a foreign banknote?",
         "options": [
-          "Because each country uses a different, separately-trusted currency",
+          "Because the shop may accept a different currency",
           "Because foreign money is fake",
           "Because shops don't like tourists",
           "Because coins wear out when they travel"
         ],
-        "correctAnswer": "Because each country uses a different, separately-trusted currency",
-        "explanation": "Each country's money is its own system of shared trust - a shop in one country hasn't agreed to accept another country's currency, the same way you wouldn't trade game points from one app for a different app's currency."
+        "correctAnswer": "Because the shop may accept a different currency",
+        "explanation": "A banknote can retain value even when a shop does not accept it. Some countries share a currency, such as the euro. Where currencies differ, exchange may be needed and fees may apply."
       },
       "feedback": {
         "success": "You've got it - money is a system of trust, and that system is different in different places. 🌍",
@@ -3877,6 +3877,15 @@
     "relatedHeading": "Related reading",
     "ctaTitle": "Want your child to practice this, not just read about it?",
     "ctaBody": "Money Quest turns exactly these ideas into free, age-appropriate games and activities."
+  },
+  "worldDescriptions": {
+    "coin-cove": "Meet money, coins and different ways to pay.",
+    "market-town": "Practise shopping choices, needs and wants.",
+    "golden-vault": "Explore saving and plan a goal.",
+    "sky-exchange": "Compare currencies and explore digital payments.",
+    "guardian-gate": "Spot suspicious messages and protect private information.",
+    "horizon-peaks": "Compare choices and make plans for the future.",
+    "kindness-grove": "Explore giving, sharing and helping others."
   },
   "levels": {
     "coin-cove": "Money Explorer",

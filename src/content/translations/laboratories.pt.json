@@ -95,7 +95,7 @@
         "tryIt": [
           "Aponta para o número maior em dois rótulos imaginários.",
           "Compara duas embalagens com os rótulos 100 g e 150 g.",
-          "Compara 200 g por £2 com 300 g por £2.40. Calcula o preço por 100 g."
+          "Compara 200 g por 2 € com 300 g por 2,40 €. Calcula o preço por 100 g."
         ],
         "readings": [
           {
@@ -110,13 +110,13 @@
           },
           {
             "idea": "A aparência de uma embalagem e a relação qualidade-preço são perguntas diferentes.",
-            "situation": "Uma embalagem tem 200 g por £2. Outra tem 300 g por £2.40. O que ajuda a comparar o valor?",
+            "situation": "Uma embalagem tem 200 g por 2 €. Outra tem 300 g por 2,40 €. O que ajuda a comparar o valor?",
             "choices": [
               "Escolher a caixa que parece mais alta",
               "Assumir que o preço total mais alto é sempre o pior negócio",
               "Calcular e comparar o preço de cada uma por 100 g"
             ],
-            "explanation": "A primeira custa £1 por 100 g. A segunda custa 80p por 100 g. O preço por unidade ajuda a comparar valor, mas comprar mais só é útil se precisares dessa quantidade e puderes pagar o total."
+            "explanation": "A primeira custa 1 € por 100 g. A segunda custa 80 cêntimos por 100 g. O preço por unidade ajuda a comparar valor, mas comprar mais só é útil se precisares dessa quantidade e puderes pagar o total."
           }
         ]
       },
@@ -837,14 +837,14 @@
       {
         "title": "Escolhe com um orçamento",
         "idea": "A tua escolha tem um custo e pode afetar outro objetivo.",
-        "situation": "Tens £5. Um caderno custa £3 e um brinquedo custa £4. O que podes comprar sem pedires dinheiro emprestado?",
+        "situation": "Tens 5 €. Um caderno custa 3 € e um brinquedo custa 4 €. O que podes comprar sem pedires dinheiro emprestado?",
         "choices": [
           "Um dos itens, com algum dinheiro a sobrar",
-          "Os dois por £5",
+          "Os dois por 5 €",
           "Os dois, sem sobrar nenhum dinheiro"
         ],
         "correct": 0,
-        "explanation": "£3 + £4 = £7. Podes escolher um agora, esperar ou poupar mais. Há mais do que uma escolha razoável.",
+        "explanation": "3 € + 4 € = 7 €. Podes escolher um agora, esperar ou poupar mais. Há mais do que uma escolha razoável.",
         "tryIt": [
           "Aponta para o item que escolhes.",
           "Calcula o dinheiro que sobra em cada escolha.",
@@ -853,23 +853,23 @@
         "readings": [
           {
             "idea": "Verifica o dinheiro antes de escolher.",
-            "situation": "Tens £5. Um caderno custa £3 e um brinquedo custa £4. O que podes pagar agora?",
+            "situation": "Tens 5 €. Um caderno custa 3 € e um brinquedo custa 4 €. O que podes pagar agora?",
             "choices": [
               "Um item, com dinheiro a sobrar",
-              "Os dois itens por £5",
+              "Os dois itens por 5 €",
               "Os dois, sem nada a sobrar"
             ],
             "explanation": "Três mais quatro é sete, que é mais do que cinco. Podes escolher um, esperar ou não escolher nenhum."
           },
           {
             "idea": "Um orçamento torna os compromissos visíveis, mas não decide as tuas prioridades por ti.",
-            "situation": "Com £5 disponíveis, um caderno de £3 e um brinquedo de £4 não podem ser comprados ambos sem dinheiro extra. Qual destas afirmações se adequa?",
+            "situation": "Com 5 € disponíveis, um caderno de 3 € e um brinquedo de 4 € não podem ser comprados ambos sem dinheiro extra. Qual destas afirmações se adequa?",
             "choices": [
               "Qualquer um dos itens é pagável sozinho; a outra utilização possível do dinheiro é um custo de oportunidade",
-              "Os dois são pagáveis porque cada um custa menos do que £5",
+              "Os dois são pagáveis porque cada um custa menos do que 5 €",
               "Pedir dinheiro emprestado elimina o custo da escolha"
             ],
-            "explanation": "O preço combinado é £7. Escolher um deixa um saldo diferente e atrasa outra utilização do dinheiro. Esperar ou não escolher nenhum também pode adequar-se às tuas prioridades."
+            "explanation": "O preço combinado é 7 €. Escolher um deixa um saldo diferente e atrasa outra utilização do dinheiro. Esperar ou não escolher nenhum também pode adequar-se às tuas prioridades."
           }
         ]
       }
