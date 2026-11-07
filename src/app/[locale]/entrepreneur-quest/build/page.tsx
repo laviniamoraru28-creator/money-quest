@@ -249,10 +249,9 @@ export default function EntrepreneurQuestBuildPage() {
 
           {stage.id === "make-your-first-sale" && (
             <div className="mt-sm">
-              <Link href="/entrepreneur-quest/simulator">
-                <Button variant="quest-primary" className="w-full" onClick={goToNextStage}>
-                  {t("entrepreneurQuest.stages.make-your-first-sale.ctaButton")}
-                </Button>
+              <Link href="/entrepreneur-quest/simulator" onClick={goToNextStage}
+                className="inline-flex min-h-touch-min w-full items-center justify-center rounded-lg bg-teal px-sm py-2xs text-base font-medium text-white shadow-resting hover:bg-teal/90 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[3px] focus-visible:outline-teal">
+                {t("entrepreneurQuest.stages.make-your-first-sale.ctaButton")}
               </Link>
             </div>
           )}

@@ -36,3 +36,18 @@ test('saving costs and price keeps both edits when advancing, reloading and simu
  expect(result.remainingMoneyMinorUnits).toBe(2400);
  await expect(page.getByText('£24.00',{exact:true})).toBeVisible();
 });
+
+test('keyboard activation of the simulator link saves the build stage',async({page})=>{
+ const initial=createDefaultState();
+ initial.completedStageIds=EQ_STAGES.filter(stage=>stage.order<12).map(stage=>stage.id);
+ await page.addInitScript(state=>{
+  if(!localStorage.getItem('moneyquest_entrepreneur_quest_v1'))localStorage.setItem('moneyquest_entrepreneur_quest_v1',JSON.stringify(state));
+ },initial);
+ await page.goto('/en/entrepreneur-quest/build');
+ const link=page.getByRole('link',{name:'Go to the Business Simulator',exact:true});
+ await expect(link.locator('button')).toHaveCount(0);
+ await link.focus();await page.keyboard.press('Enter');
+ await expect(page).toHaveURL(/\/entrepreneur-quest\/simulator$/);
+ await page.goto('/en/entrepreneur-quest/build');
+ await expect(page.getByRole('heading',{name:'Calculate Your Profit',exact:true})).toBeVisible();
+});
