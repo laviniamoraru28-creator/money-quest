@@ -18,8 +18,9 @@ test("Museum presentation keeps English narration, quiz and canonical completion
  for(let level=0;level<3;level++){
   await page.getByLabel("Choose a practical challenge",{exact:true}).selectOption(String(level));await expect(page.getByText(note.challenges[level]!,{exact:true})).toBeVisible();
  }
+ await page.getByLabel("Choose a practical challenge",{exact:true}).selectOption("0");
  await page.getByRole("button",{name:room.quiz.answers[(room.quiz.correct+1)%3]!,exact:true}).click();await expect(page.getByRole("status").filter({hasText:"Look back at the story"})).toBeVisible();
- await page.getByRole("button",{name:room.quiz.answers[room.quiz.correct]!,exact:true}).click();await expect(page.getByRole("status").filter({hasText:note.feedback})).toBeVisible();
+ await page.getByRole("button",{name:room.quiz.answers[room.quiz.correct]!,exact:true}).click();await expect(page.getByRole("status").filter({hasText:room.explanation})).toBeVisible();
  await page.getByRole("button",{name:"Mark as discovered",exact:true}).click();await expect(page.getByRole("button",{name:"Saved on this device",exact:true})).toBeVisible();
  expect(await page.evaluate(()=>JSON.parse(localStorage.getItem("money-quest-discovery-v1")||"[]"))).toEqual([`museum:${room.slug}`]);
  await page.getByText("Sources for grown-ups",{exact:true}).click();await expect(page.getByRole("link",{name:note.sources![0]!.title,exact:true})).toHaveAttribute("href",note.sources![0]!.url);

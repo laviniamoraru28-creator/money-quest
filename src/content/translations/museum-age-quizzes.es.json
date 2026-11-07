@@ -1,0 +1,222 @@
+{
+  "before-money": [
+    {
+      "question": "Ofreces manzanas por pan, pero el panadero no quiere manzanas. ¿Qué podría ayudar?",
+      "answers": [
+        "Insistir en que acepte",
+        "Buscar otro intercambio que ambos acepten",
+        "Llevarte el pan sin permiso"
+      ],
+      "correct": 1,
+      "explanation": "Un intercambio necesita acuerdo. Quizá necesites otra persona u otra oferta."
+    },
+    {
+      "question": "Una ciudad usa dinero, trueque y crédito. ¿Qué conclusión es correcta?",
+      "answers": [
+        "Pueden coexistir varios métodos de intercambio",
+        "Toda ciudad debe abandonar el trueque antes de usar dinero",
+        "El crédito significa que no hay que devolver nada"
+      ],
+      "correct": 0,
+      "explanation": "Los métodos pueden coexistir. El crédito implica una obligación de devolución según lo acordado."
+    }
+  ],
+  "first-coins": [
+    {
+      "question": "Un comerciante ve una marca conocida en una moneda antigua. ¿Qué ayuda a identificar?",
+      "answers": [
+        "El precio del pan en todas partes",
+        "Todos los dueños anteriores",
+        "El emisor o la autoridad"
+      ],
+      "correct": 2,
+      "explanation": "La marca identifica al emisor. No fija todos los precios ni registra a cada dueño."
+    },
+    {
+      "question": "¿Por qué una marca puede no bastar para evaluar una moneda antigua?",
+      "answers": [
+        "Todos los objetos marcados valen lo mismo",
+        "También importan el peso, el metal y la confianza",
+        "Una marca garantiza el precio de los productos"
+      ],
+      "correct": 1,
+      "explanation": "La marca aporta una pista. El peso, el metal y la confianza en el emisor también influían en su aceptación."
+    }
+  ],
+  "strange-money": [
+    {
+      "question": "Tu ciudad imaginaria elige hojas como dinero. ¿Qué problema debes considerar?",
+      "answers": [
+        "Las hojas pueden romperse y descomponerse",
+        "Las hojas no pueden tener color",
+        "Solo el oro puede ser dinero"
+      ],
+      "correct": 0,
+      "explanation": "El dinero que se rompe o se descompone resulta difícil de guardar y reutilizar."
+    },
+    {
+      "question": "Se aceptan dos objetos como pago. ¿Qué más ayuda a comparar su utilidad como dinero?",
+      "answers": [
+        "Cuál tiene el color más brillante",
+        "Cuál encontraste primero",
+        "La durabilidad, la facilidad de transporte y de dividir el valor"
+      ],
+      "correct": 2,
+      "explanation": "La aceptación importa, pero también guardar, transportar y dividir el valor."
+    }
+  ],
+  "money-through-time": [
+    {
+      "question": "¿Qué orden va de métodos de pago más antiguos a más recientes?",
+      "answers": [
+        "Pagos con móvil, monedas, billetes",
+        "Monedas, billetes, pagos con móvil",
+        "Billetes, pagos con móvil, monedas"
+      ],
+      "correct": 1,
+      "explanation": "Las monedas existían antes que los billetes. Los pagos con móvil son mucho más recientes."
+    },
+    {
+      "question": "Una tienda introduce pagos con móvil y sigue aceptando efectivo. ¿Qué demuestra?",
+      "answers": [
+        "Pueden coexistir métodos nuevos y antiguos",
+        "El efectivo debe desaparecer inmediatamente",
+        "Pagar con el móvil crea dinero extra"
+      ],
+      "correct": 0,
+      "explanation": "Una tecnología nueva no sustituye automáticamente todos los métodos anteriores. El acceso y las preferencias varían."
+    }
+  ],
+  "banknote-lab": [
+    {
+      "question": "Un billete de juguete tiene una ventana transparente. ¿Por qué usaría un billete real algo parecido?",
+      "answers": [
+        "Para fijar el precio de los juguetes",
+        "Para valer más cada día",
+        "Para facilitar su comprobación y dificultar las copias"
+      ],
+      "correct": 2,
+      "explanation": "Los elementos de seguridad ayudan a comprobar billetes. No fijan precios ni aumentan su valor nominal."
+    },
+    {
+      "question": "Dos billetes tienen colores parecidos. ¿Cómo comprobarías si uno es auténtico?",
+      "answers": [
+        "Usar solo el color",
+        "Comprobar los elementos pertinentes siguiendo las instrucciones oficiales del banco emisor",
+        "Suponer que ambos son auténticos porque se parecen"
+      ],
+      "correct": 1,
+      "explanation": "El color no basta. Las divisas tienen elementos distintos; sigue las indicaciones del emisor correspondiente."
+    }
+  ],
+  "gold-vault": [
+    {
+      "question": "Una moneda tiene color dorado. ¿Qué puedes concluir solo por su color?",
+      "answers": [
+        "Seguro que es oro puro",
+        "Todavía hay que comprobar el metal",
+        "Puede comprar cualquier cosa"
+      ],
+      "correct": 1,
+      "explanation": "Un color dorado no demuestra que un objeto esté hecho de oro."
+    },
+    {
+      "question": "El valor nominal de una moneda supera el valor de su metal. ¿Qué afirmación encaja?",
+      "answers": [
+        "El valor de pago puede diferir del valor del material",
+        "La moneda no puede funcionar como dinero",
+        "Toda moneda debe poder cambiarse por oro"
+      ],
+      "correct": 0,
+      "explanation": "El valor nominal y el del metal son distintos. Las libras británicas modernas no se canjean por una cantidad fija de oro."
+    }
+  ],
+  "around-the-world": [
+    {
+      "question": "¿Qué pareja de país y moneda es correcta?",
+      "answers": [
+        "Japón y libras esterlinas",
+        "Reino Unido y yenes",
+        "Japón y yenes"
+      ],
+      "correct": 2,
+      "explanation": "Japón usa yenes. Reino Unido usa libras esterlinas."
+    },
+    {
+      "question": "Con tipos inventados de £1 = 150 yenes y después £1 = 160 yenes, ¿cuántos yenes obtienes por £5, sin comisiones?",
+      "answers": [
+        "750 yenes, después 800 yenes",
+        "800 yenes, después 750 yenes",
+        "150 yenes con ambos tipos"
+      ],
+      "correct": 0,
+      "explanation": "Multiplica cada tipo por 5: 750 y 800 yenes. Los cambios reales también pueden incluir comisiones."
+    }
+  ],
+  "business-invention": [
+    {
+      "question": "Haces un marcapáginas de prueba. ¿Qué comentario sería más útil ahora?",
+      "answers": [
+        "Si a un lector le resulta fácil usarlo",
+        "Si todos prometen comprar 100",
+        "Si puedes ignorar el coste de los materiales"
+      ],
+      "correct": 0,
+      "explanation": "Pregunta a una persona que lo usaría antes de gastar más. El interés no garantiza ventas."
+    },
+    {
+      "question": "En una actividad supervisada vendes 8 marcapáginas a £2 cada uno. Los costes totales son £10. ¿Cuál es el beneficio?",
+      "answers": [
+        "£16, porque todos los ingresos son beneficio",
+        "£10, porque los costes son el beneficio",
+        "£6, después de restar los costes"
+      ],
+      "correct": 2,
+      "explanation": "Los ingresos son 8 × £2 = £16. El beneficio es £16 − £10 = £6."
+    }
+  ],
+  "museum-of-mistakes": [
+    {
+      "question": "Dos clientes proponen cambios distintos. ¿Qué haces?",
+      "answers": [
+        "Seguir a quien habla más alto",
+        "Comparar sus razones y probar un cambio pequeño",
+        "Ignorar a ambos porque discrepan"
+      ],
+      "correct": 1,
+      "explanation": "Las opiniones distintas pueden revelar necesidades diferentes. Una prueba pequeña permite aprender antes de un cambio mayor."
+    },
+    {
+      "question": "Una sola queja pide un rediseño caro. ¿Qué pruebas ayudan a decidir?",
+      "answers": [
+        "La queja demuestra que todos quieren ese cambio",
+        "El coste no importa si alguien lo pide",
+        "Comparar patrones de comentarios, resultados de pruebas y costes"
+      ],
+      "correct": 2,
+      "explanation": "Una queja aporta información, pero no representa a todos. Examina los beneficios probables y los costes."
+    }
+  ],
+  "future-money": [
+    {
+      "question": "Una cuenta imaginaria tiene £5. Pagas £2 con tarjeta de débito y no hay otras operaciones. ¿Cuánto queda?",
+      "answers": [
+        "£3",
+        "£5",
+        "£7"
+      ],
+      "correct": 0,
+      "explanation": "El pago reduce el saldo: £5 − £2 = £3."
+    },
+    {
+      "question": "¿Qué afirmación compara correctamente débito y crédito?",
+      "answers": [
+        "Ambos crean dinero que nunca se devuelve",
+        "El débito usa fondos de la cuenta; el crédito es un préstamo que hay que devolver",
+        "Una cartera móvil siempre significa dinero gratis"
+      ],
+      "correct": 1,
+      "explanation": "En este ejemplo, el débito usa fondos disponibles. El crédito supone una deuda y puede tener intereses o comisiones. Una cartera es una herramienta de pago."
+    }
+  ]
+}

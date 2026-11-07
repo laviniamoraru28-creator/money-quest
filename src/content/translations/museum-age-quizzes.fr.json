@@ -1,0 +1,222 @@
+{
+  "before-money": [
+    {
+      "question": "Tu proposes des pommes contre du pain, mais le boulanger ne veut pas de pommes. Que faire ?",
+      "answers": [
+        "Insister pour qu’il accepte",
+        "Chercher un autre échange accepté par vous deux",
+        "Prendre le pain sans accord"
+      ],
+      "correct": 1,
+      "explanation": "Un échange demande un accord. Il faut parfois une autre personne ou une autre offre."
+    },
+    {
+      "question": "Une ville utilise argent, troc et crédit. Quelle conclusion convient ?",
+      "answers": [
+        "Plusieurs modes d’échange peuvent coexister",
+        "Toute ville doit abandonner le troc avant d’utiliser l’argent",
+        "Le crédit signifie que rien ne doit être remboursé"
+      ],
+      "correct": 0,
+      "explanation": "Ces méthodes peuvent coexister. Le crédit crée une obligation de remboursement selon les conditions convenues."
+    }
+  ],
+  "first-coins": [
+    {
+      "question": "Un marchand reconnaît une marque sur une pièce ancienne. Que permet-elle d’identifier ?",
+      "answers": [
+        "Le prix du pain partout",
+        "Tous les anciens propriétaires",
+        "L’émetteur ou l’autorité"
+      ],
+      "correct": 2,
+      "explanation": "La marque indique l’émetteur. Elle ne fixe pas tous les prix et ne recense pas chaque propriétaire."
+    },
+    {
+      "question": "Pourquoi une marque seule peut-elle être insuffisante pour évaluer une pièce antique ?",
+      "answers": [
+        "Tous les objets marqués ont la même valeur",
+        "Le poids, le métal et la confiance comptent aussi",
+        "Une marque garantit le prix des produits"
+      ],
+      "correct": 1,
+      "explanation": "La marque donne un indice. Le poids, le métal et la confiance envers l’émetteur influençaient aussi son acceptation."
+    }
+  ],
+  "strange-money": [
+    {
+      "question": "Ta ville imaginaire choisit des feuilles comme monnaie. Quel problème faut-il envisager ?",
+      "answers": [
+        "Les feuilles peuvent se déchirer et se décomposer",
+        "Les feuilles ne peuvent pas avoir de couleur",
+        "Seul l’or peut servir de monnaie"
+      ],
+      "correct": 0,
+      "explanation": "Une monnaie qui se déchire ou se décompose est difficile à conserver et à réutiliser."
+    },
+    {
+      "question": "Deux objets sont acceptés comme paiement. Quels autres critères permettent de comparer leur utilité ?",
+      "answers": [
+        "La couleur la plus vive",
+        "Celui que tu as trouvé en premier",
+        "La résistance, la facilité de transport et de division de la valeur"
+      ],
+      "correct": 2,
+      "explanation": "L’acceptation compte, mais conserver, transporter et diviser la valeur compte aussi."
+    }
+  ],
+  "money-through-time": [
+    {
+      "question": "Quel ordre va des moyens de paiement les plus anciens aux plus récents ?",
+      "answers": [
+        "Paiements par téléphone, pièces, billets",
+        "Pièces, billets, paiements par téléphone",
+        "Billets, paiements par téléphone, pièces"
+      ],
+      "correct": 1,
+      "explanation": "Les pièces existaient avant les billets. Les paiements par téléphone sont bien plus récents."
+    },
+    {
+      "question": "Un magasin propose le paiement par téléphone et accepte encore les espèces. Que montre cet exemple ?",
+      "answers": [
+        "Les méthodes anciennes et nouvelles peuvent coexister",
+        "Les espèces doivent disparaître immédiatement",
+        "Le téléphone crée de l’argent supplémentaire"
+      ],
+      "correct": 0,
+      "explanation": "Une nouvelle technologie ne remplace pas automatiquement toutes les anciennes méthodes. L’accès et les préférences diffèrent."
+    }
+  ],
+  "banknote-lab": [
+    {
+      "question": "Un billet de jeu a une fenêtre transparente. Pourquoi un vrai billet aurait-il un tel élément ?",
+      "answers": [
+        "Pour fixer le prix des jouets",
+        "Pour valoir davantage chaque jour",
+        "Pour faciliter les vérifications et compliquer les copies"
+      ],
+      "correct": 2,
+      "explanation": "Les éléments de sécurité aident aux vérifications. Ils ne fixent pas les prix et n’augmentent pas la valeur nominale."
+    },
+    {
+      "question": "Deux billets ont des couleurs proches. Comment vérifier si l’un est authentique ?",
+      "answers": [
+        "Se fier uniquement à la couleur",
+        "Vérifier les éléments pertinents selon les consignes officielles de la banque émettrice",
+        "Les croire authentiques parce qu’ils se ressemblent"
+      ],
+      "correct": 1,
+      "explanation": "La couleur ne suffit pas. Les monnaies ont des éléments différents ; consulte les consignes de l’émetteur concerné."
+    }
+  ],
+  "gold-vault": [
+    {
+      "question": "Une pièce est dorée. Que peux-tu conclure de sa seule couleur ?",
+      "answers": [
+        "Elle est forcément en or pur",
+        "Il faut encore vérifier son métal",
+        "Elle peut acheter n’importe quel objet"
+      ],
+      "correct": 1,
+      "explanation": "Une couleur dorée ne prouve pas qu’un objet est en or."
+    },
+    {
+      "question": "La valeur nominale d’une pièce dépasse celle de son métal. Quelle affirmation convient ?",
+      "answers": [
+        "La valeur de paiement peut différer de celle du matériau",
+        "La pièce ne peut pas servir de monnaie",
+        "Toute pièce doit être échangeable contre de l’or"
+      ],
+      "correct": 0,
+      "explanation": "La valeur affichée et celle du métal sont différentes. Les livres britanniques modernes ne sont pas échangeables contre une quantité fixe d’or."
+    }
+  ],
+  "around-the-world": [
+    {
+      "question": "Quelle association pays et monnaie est correcte ?",
+      "answers": [
+        "Japon et livres sterling",
+        "Royaume-Uni et yens",
+        "Japon et yens"
+      ],
+      "correct": 2,
+      "explanation": "Le Japon utilise le yen. Le Royaume-Uni utilise la livre sterling."
+    },
+    {
+      "question": "À des taux fictifs de £1 = 150 yens puis £1 = 160 yens, que donnent £5, sans frais ?",
+      "answers": [
+        "750 yens, puis 800 yens",
+        "800 yens, puis 750 yens",
+        "150 yens aux deux taux"
+      ],
+      "correct": 0,
+      "explanation": "Multiplie chaque taux par 5 : 750 et 800 yens. Un change réel peut aussi comporter des frais."
+    }
+  ],
+  "business-invention": [
+    {
+      "question": "Tu fabriques un marque-page d’essai. Quel retour serait le plus utile ?",
+      "answers": [
+        "Savoir si un lecteur le trouve facile à utiliser",
+        "Savoir si tout le monde promet d’en acheter 100",
+        "Savoir si tu peux ignorer le coût des matériaux"
+      ],
+      "correct": 0,
+      "explanation": "Interroge une personne qui l’utiliserait avant de dépenser davantage. L’intérêt ne garantit pas les ventes."
+    },
+    {
+      "question": "Lors d’un projet encadré, tu vends 8 marque-pages à £2 chacun. Le coût total est de £10. Quel est le bénéfice ?",
+      "answers": [
+        "£16, car toutes les recettes sont du bénéfice",
+        "£10, car le coût est égal au bénéfice",
+        "£6, après déduction des coûts"
+      ],
+      "correct": 2,
+      "explanation": "Les recettes sont de 8 × £2 = £16. Le bénéfice est de £16 − £10 = £6."
+    }
+  ],
+  "museum-of-mistakes": [
+    {
+      "question": "Deux clients proposent des changements différents. Que faire ?",
+      "answers": [
+        "Suivre celui qui parle le plus fort",
+        "Comparer leurs raisons et tester un petit changement",
+        "Les ignorer tous les deux puisqu’ils ne sont pas d’accord"
+      ],
+      "correct": 1,
+      "explanation": "Des avis différents peuvent révéler des besoins différents. Un petit essai permet d’apprendre avant un changement important."
+    },
+    {
+      "question": "Une seule réclamation demande une modification coûteuse. Quelles informations aident à décider ?",
+      "answers": [
+        "Cette réclamation prouve que tous les clients la veulent",
+        "Le coût ne compte pas si quelqu’un le demande",
+        "Comparer les tendances des avis, les résultats des essais et les coûts"
+      ],
+      "correct": 2,
+      "explanation": "Une réclamation est utile, mais ne représente pas tous les clients. Examine les avantages probables et les coûts."
+    }
+  ],
+  "future-money": [
+    {
+      "question": "Un compte fictif contient £5. Un paiement de £2 par carte de débit est effectué, sans autre opération. Que reste-t-il ?",
+      "answers": [
+        "£3",
+        "£5",
+        "£7"
+      ],
+      "correct": 0,
+      "explanation": "Le paiement réduit le solde : £5 − £2 = £3."
+    },
+    {
+      "question": "Quelle affirmation compare correctement débit et crédit ?",
+      "answers": [
+        "Les deux créent de l’argent à ne jamais rembourser",
+        "Le débit utilise l’argent du compte ; le crédit est un emprunt à rembourser",
+        "Un portefeuille sur téléphone signifie toujours de l’argent gratuit"
+      ],
+      "correct": 1,
+      "explanation": "Dans cet exemple, le débit utilise les fonds disponibles. Le crédit implique un emprunt, avec intérêts ou frais possibles. Le portefeuille est un outil de paiement."
+    }
+  ]
+}
