@@ -25,7 +25,11 @@ for(const locale of LOCALES)test(`${locale}: curated Library every page, speech,
  await expect(page.locator('a[href="#short-reads"]')).toHaveCount(0);
  for(const book of publicOriginalBooks){
   const view=draftReaderPresentation(book,locale),copy=readerCopy[locale],ui=experienceCopy[locale];
-  await page.goto(`/${locale}/library/${book.slug}`);
+  // Follow the same client-side links as a reader. A second page.goto tears
+  // down the document while Next's shelf prefetches are still in flight;
+  // WebKit can report those cancelled requests as access-control pageerrors.
+  await page.locator(`main a[href="/${locale}/library/${book.slug}"]`).click();
+  await expect(page).toHaveURL(`/${locale}/library/${book.slug}`);
   const cover=page.getByRole("button",{name:ui.openBook,exact:true});await cover.focus();await page.keyboard.press("Enter");
   const article=page.getByRole("article");
   await article.getByRole("button",{name:copy.listen,exact:true}).click();
@@ -54,6 +58,8 @@ for(const locale of LOCALES)test(`${locale}: curated Library every page, speech,
   await article.getByRole("button",{name:new RegExp(copy.previousPage)}).click();
   await article.getByRole("button",{name:ui.closeBook,exact:true}).click();await expect(cover).toBeFocused();
   await page.screenshot({path:test.info().outputPath(`${locale}-closed.png`),fullPage:true});
+  await page.getByRole("link",{name:copy.returnShelves,exact:true}).click();
+  await expect(page).toHaveURL(`/${locale}/library`);
  }
  for(const slug of [...originalBooks,...libraryBooks].filter(book=>!publicSlugs.includes(book.slug)).map(book=>book.slug))expect((await page.request.get(`/${locale}/library/${slug}`)).status()).toBe(404);
  expect(errors).toEqual([]);
