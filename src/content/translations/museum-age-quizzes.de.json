@@ -1,0 +1,222 @@
+{
+  "before-money": [
+    {
+      "question": "Du bietest Äpfel für Brot, aber der Bäcker möchte keine Äpfel. Was könnte helfen?",
+      "answers": [
+        "Darauf bestehen, dass er zustimmt",
+        "Einen anderen Tausch finden, dem beide zustimmen",
+        "Das Brot ohne Zustimmung nehmen"
+      ],
+      "correct": 1,
+      "explanation": "Ein Tausch braucht Zustimmung. Vielleicht brauchst du eine andere Person oder ein anderes Angebot."
+    },
+    {
+      "question": "Eine Stadt nutzt Geld, Tausch und Kredit. Welche Schlussfolgerung passt?",
+      "answers": [
+        "Mehrere Austauschformen können nebeneinander bestehen",
+        "Jede Stadt muss den Tausch vor der Nutzung von Geld aufgeben",
+        "Kredit bedeutet, dass niemand zurückzahlen muss"
+      ],
+      "correct": 0,
+      "explanation": "Diese Methoden können gleichzeitig bestehen. Ein Kredit verpflichtet zur Rückzahlung nach vereinbarten Bedingungen."
+    }
+  ],
+  "first-coins": [
+    {
+      "question": "Ein Händler erkennt einen Stempel auf einer alten Münze. Was hilft er zu erkennen?",
+      "answers": [
+        "Den Brotpreis überall",
+        "Alle früheren Besitzer",
+        "Den Herausgeber oder die zuständige Autorität"
+      ],
+      "correct": 2,
+      "explanation": "Der Stempel kennzeichnet den Herausgeber. Er bestimmt nicht alle Preise und erfasst nicht jeden Besitzer."
+    },
+    {
+      "question": "Warum reicht ein Stempel allein zur Beurteilung einer antiken Münze möglicherweise nicht aus?",
+      "answers": [
+        "Alle gestempelten Gegenstände sind gleich viel wert",
+        "Gewicht, Metall und Vertrauen zählen ebenfalls",
+        "Ein Stempel garantiert die Warenpreise"
+      ],
+      "correct": 1,
+      "explanation": "Der Stempel liefert einen Hinweis. Gewicht, Metall und Vertrauen in den Herausgeber beeinflussten ebenfalls die Annahme."
+    }
+  ],
+  "strange-money": [
+    {
+      "question": "Deine erfundene Stadt wählt Blätter als Geld. Welches Problem solltest du bedenken?",
+      "answers": [
+        "Blätter können reißen und verrotten",
+        "Blätter können keine Farbe haben",
+        "Nur Gold kann Geld sein"
+      ],
+      "correct": 0,
+      "explanation": "Geld, das reißt oder verrottet, lässt sich schwer aufbewahren und wiederverwenden."
+    },
+    {
+      "question": "Zwei Gegenstände werden als Zahlungsmittel akzeptiert. Was hilft noch, ihre Eignung zu vergleichen?",
+      "answers": [
+        "Welcher die kräftigere Farbe hat",
+        "Welchen du zuerst gefunden hast",
+        "Haltbarkeit, Transportierbarkeit und Teilbarkeit des Wertes"
+      ],
+      "correct": 2,
+      "explanation": "Akzeptanz ist wichtig. Auch das Aufbewahren, Transportieren und Aufteilen des Wertes beeinflusst die Nutzung."
+    }
+  ],
+  "money-through-time": [
+    {
+      "question": "Welche Reihenfolge führt von älteren zu neueren Zahlungsmethoden?",
+      "answers": [
+        "Handyzahlungen, Münzen, Banknoten",
+        "Münzen, Banknoten, Handyzahlungen",
+        "Banknoten, Handyzahlungen, Münzen"
+      ],
+      "correct": 1,
+      "explanation": "Münzen gab es vor Banknoten. Handyzahlungen sind deutlich neuer."
+    },
+    {
+      "question": "Ein Geschäft führt Handyzahlungen ein und nimmt weiterhin Bargeld. Was zeigt das?",
+      "answers": [
+        "Neue und ältere Methoden können nebeneinander bestehen",
+        "Bargeld muss sofort verschwinden",
+        "Handyzahlungen erzeugen zusätzliches Geld"
+      ],
+      "correct": 0,
+      "explanation": "Neue Technik ersetzt nicht automatisch jede ältere Methode. Zugang und Vorlieben unterscheiden sich."
+    }
+  ],
+  "banknote-lab": [
+    {
+      "question": "Ein Spielgeldschein hat ein durchsichtiges Fenster. Warum könnte ein echter Schein so etwas haben?",
+      "answers": [
+        "Um Spielzeugpreise festzulegen",
+        "Um jeden Tag mehr wert zu werden",
+        "Um Prüfungen zu erleichtern und Kopieren zu erschweren"
+      ],
+      "correct": 2,
+      "explanation": "Sicherheitsmerkmale helfen bei Prüfungen. Sie bestimmen keine Ladenpreise und erhöhen nicht den Nennwert."
+    },
+    {
+      "question": "Zwei Banknoten haben ähnliche Farben. Wie prüfst du, ob eine echt ist?",
+      "answers": [
+        "Nur die Farbe prüfen",
+        "Die passenden Merkmale anhand offizieller Hinweise der herausgebenden Bank prüfen",
+        "Beide für echt halten, weil sie ähnlich aussehen"
+      ],
+      "correct": 1,
+      "explanation": "Farbe allein reicht nicht. Währungen haben unterschiedliche Merkmale; nutze die Hinweise des jeweiligen Herausgebers."
+    }
+  ],
+  "gold-vault": [
+    {
+      "question": "Eine Münze sieht goldfarben aus. Was lässt sich allein aus der Farbe schließen?",
+      "answers": [
+        "Sie muss aus reinem Gold sein",
+        "Das Metall muss trotzdem geprüft werden",
+        "Sie kann jeden Gegenstand kaufen"
+      ],
+      "correct": 1,
+      "explanation": "Eine goldene Farbe beweist nicht, dass ein Gegenstand aus Gold besteht."
+    },
+    {
+      "question": "Der Nennwert einer Münze übersteigt ihren Metallwert. Welche Aussage passt?",
+      "answers": [
+        "Zahlungswert und Materialwert können verschieden sein",
+        "Die Münze kann nicht als Geld dienen",
+        "Jede Münze muss gegen Gold einlösbar sein"
+      ],
+      "correct": 0,
+      "explanation": "Nennwert und Metallwert sind unterschiedlich. Moderne britische Pfund sind nicht gegen eine feste Goldmenge einlösbar."
+    }
+  ],
+  "around-the-world": [
+    {
+      "question": "Welche Kombination aus Land und Währung stimmt?",
+      "answers": [
+        "Japan und Pfund Sterling",
+        "Vereinigtes Königreich und Yen",
+        "Japan und Yen"
+      ],
+      "correct": 2,
+      "explanation": "Japan nutzt Yen. Das Vereinigte Königreich nutzt Pfund Sterling."
+    },
+    {
+      "question": "Bei erfundenen Kursen von £1 = 150 Yen und später £1 = 160 Yen: Wie viel erhältst du für £5 ohne Gebühren?",
+      "answers": [
+        "750 Yen, dann 800 Yen",
+        "800 Yen, dann 750 Yen",
+        "150 Yen bei beiden Kursen"
+      ],
+      "correct": 0,
+      "explanation": "Multipliziere jeden Kurs mit 5: 750 und 800 Yen. Beim echten Umtausch können Gebühren hinzukommen."
+    }
+  ],
+  "business-invention": [
+    {
+      "question": "Du bastelst ein Lesezeichen als Muster. Welche Rückmeldung ist jetzt besonders nützlich?",
+      "answers": [
+        "Ob eine lesende Person es leicht benutzen kann",
+        "Ob alle versprechen, 100 zu kaufen",
+        "Ob du Materialkosten ignorieren kannst"
+      ],
+      "correct": 0,
+      "explanation": "Frage eine mögliche nutzende Person, bevor du mehr ausgibst. Interesse garantiert keine Verkäufe."
+    },
+    {
+      "question": "In einem betreuten Projekt verkaufst du 8 Lesezeichen für je £2. Die Gesamtkosten sind £10. Wie hoch ist der Gewinn?",
+      "answers": [
+        "£16, weil alle Einnahmen Gewinn sind",
+        "£10, weil Kosten und Gewinn gleich sind",
+        "£6 nach Abzug der Kosten"
+      ],
+      "correct": 2,
+      "explanation": "Die Einnahmen sind 8 × £2 = £16. Der Gewinn beträgt £16 − £10 = £6."
+    }
+  ],
+  "museum-of-mistakes": [
+    {
+      "question": "Zwei Kunden schlagen unterschiedliche Änderungen vor. Was tust du?",
+      "answers": [
+        "Der lauteren Person folgen",
+        "Ihre Gründe vergleichen und eine kleine Änderung testen",
+        "Beide ignorieren, weil sie uneinig sind"
+      ],
+      "correct": 1,
+      "explanation": "Unterschiedliche Rückmeldungen können verschiedene Bedürfnisse zeigen. Ein kleiner Test hilft vor einer größeren Änderung."
+    },
+    {
+      "question": "Eine einzelne Beschwerde fordert eine teure Neugestaltung. Welche Informationen helfen bei der Entscheidung?",
+      "answers": [
+        "Die Beschwerde beweist, dass alle Kunden das wollen",
+        "Die Kosten sind unwichtig, wenn jemand es verlangt",
+        "Rückmeldungsmuster, Testergebnisse und Kosten vergleichen"
+      ],
+      "correct": 2,
+      "explanation": "Eine Beschwerde ist hilfreich, vertritt aber nicht alle Kunden. Prüfe wahrscheinliche Vorteile und Kosten."
+    }
+  ],
+  "future-money": [
+    {
+      "question": "Ein erfundenes Konto enthält £5. Du zahlst £2 mit einer Debitkarte, ohne weitere Buchungen. Was bleibt?",
+      "answers": [
+        "£3",
+        "£5",
+        "£7"
+      ],
+      "correct": 0,
+      "explanation": "Die Zahlung verringert das Guthaben: £5 − £2 = £3."
+    },
+    {
+      "question": "Welche Aussage vergleicht Debit- und Kreditzahlungen richtig?",
+      "answers": [
+        "Beide erzeugen Geld, das nie zurückgezahlt wird",
+        "Debit nutzt Kontogeld; Kredit ist zurückzuzahlendes geliehenes Geld",
+        "Eine Handy-Wallet bedeutet immer kostenloses Geld"
+      ],
+      "correct": 1,
+      "explanation": "Debit nutzt in diesem Beispiel verfügbares Kontogeld. Kredit ist eine Schuld; Zinsen oder Gebühren sind möglich. Eine Wallet ist ein Zahlungswerkzeug."
+    }
+  ]
+}

@@ -1,0 +1,222 @@
+{
+  "before-money": [
+    {
+      "question": "Oferujesz jabłka za chleb, ale piekarz nie chce jabłek. Co może pomóc?",
+      "answers": [
+        "Nalegać, żeby się zgodził",
+        "Znaleźć inną wymianę, na którą obie osoby się zgodzą",
+        "Zabrać chleb bez zgody"
+      ],
+      "correct": 1,
+      "explanation": "Wymiana wymaga zgody. Możesz potrzebować innej osoby lub innej oferty."
+    },
+    {
+      "question": "Miasto używa pieniędzy, barteru i kredytu. Który wniosek jest poprawny?",
+      "answers": [
+        "Kilka metod wymiany może współistnieć",
+        "Każde miasto musi porzucić barter, zanim zacznie używać pieniędzy",
+        "Kredyt oznacza, że nie trzeba niczego spłacać"
+      ],
+      "correct": 0,
+      "explanation": "Te metody mogą współistnieć. Kredyt tworzy obowiązek spłaty na uzgodnionych warunkach."
+    }
+  ],
+  "first-coins": [
+    {
+      "question": "Kupiec rozpoznaje znak na starej monecie. Co pomaga on ustalić?",
+      "answers": [
+        "Cenę chleba wszędzie",
+        "Wszystkich poprzednich właścicieli",
+        "Emitenta lub władzę"
+      ],
+      "correct": 2,
+      "explanation": "Znak wskazuje emitenta. Nie ustala wszystkich cen ani nie zapisuje każdego właściciela."
+    },
+    {
+      "question": "Dlaczego sam znak może nie wystarczyć do oceny antycznej monety?",
+      "answers": [
+        "Wszystkie oznaczone przedmioty mają tę samą wartość",
+        "Liczą się też masa, metal i zaufanie",
+        "Znak gwarantuje cenę produktów"
+      ],
+      "correct": 1,
+      "explanation": "Znak dostarcza jednej wskazówki. Masa, metal i zaufanie do emitenta także wpływały na akceptację."
+    }
+  ],
+  "strange-money": [
+    {
+      "question": "Twoje wymyślone miasto wybiera liście jako pieniądze. Jaki problem trzeba rozważyć?",
+      "answers": [
+        "Liście mogą się podrzeć i rozłożyć",
+        "Liście nie mogą mieć koloru",
+        "Tylko złoto może być pieniądzem"
+      ],
+      "correct": 0,
+      "explanation": "Pieniądze, które się drą lub rozkładają, trudno przechowywać i używać ponownie."
+    },
+    {
+      "question": "Dwa przedmioty są przyjmowane jako zapłata. Co jeszcze pomaga porównać ich przydatność jako pieniędzy?",
+      "answers": [
+        "Który ma jaśniejszy kolor",
+        "Który znaleziono pierwszy",
+        "Trwałość, łatwość przenoszenia i dzielenia wartości"
+      ],
+      "correct": 2,
+      "explanation": "Akceptacja jest ważna. Liczy się też przechowywanie, przenoszenie i dzielenie wartości."
+    }
+  ],
+  "money-through-time": [
+    {
+      "question": "Która kolejność prowadzi od starszych do nowszych metod płatności?",
+      "answers": [
+        "Płatności telefonem, monety, banknoty",
+        "Monety, banknoty, płatności telefonem",
+        "Banknoty, płatności telefonem, monety"
+      ],
+      "correct": 1,
+      "explanation": "Monety istniały przed banknotami. Płatności telefonem są znacznie nowsze."
+    },
+    {
+      "question": "Sklep wprowadza płatności telefonem i nadal przyjmuje gotówkę. Co to pokazuje?",
+      "answers": [
+        "Nowe i starsze metody mogą współistnieć",
+        "Gotówka musi natychmiast zniknąć",
+        "Płatność telefonem tworzy dodatkowe pieniądze"
+      ],
+      "correct": 0,
+      "explanation": "Nowa technologia nie zastępuje automatycznie wszystkich starszych metod. Dostęp i preferencje są różne."
+    }
+  ],
+  "banknote-lab": [
+    {
+      "question": "Banknot do zabawy ma przezroczyste okienko. Po co prawdziwy banknot mógłby mieć taki element?",
+      "answers": [
+        "Aby ustalać ceny zabawek",
+        "Aby codziennie zyskiwać na wartości",
+        "Aby ułatwiać sprawdzanie i utrudniać kopiowanie"
+      ],
+      "correct": 2,
+      "explanation": "Zabezpieczenia pomagają sprawdzać banknoty. Nie ustalają cen i nie zwiększają wartości nominalnej."
+    },
+    {
+      "question": "Dwa banknoty mają podobny kolor. Jak sprawdzisz, czy jeden jest prawdziwy?",
+      "answers": [
+        "Sprawdzisz tylko kolor",
+        "Sprawdzisz odpowiednie cechy według oficjalnych wskazówek banku emitującego",
+        "Uznasz oba za prawdziwe, bo są podobne"
+      ],
+      "correct": 1,
+      "explanation": "Sam kolor nie wystarcza. Waluty mają różne zabezpieczenia; korzystaj ze wskazówek właściwego emitenta."
+    }
+  ],
+  "gold-vault": [
+    {
+      "question": "Moneta ma złoty kolor. Co można wywnioskować tylko z koloru?",
+      "answers": [
+        "Na pewno jest z czystego złota",
+        "Nadal trzeba sprawdzić metal",
+        "Można nią kupić wszystko"
+      ],
+      "correct": 1,
+      "explanation": "Złoty kolor nie dowodzi, że przedmiot jest wykonany ze złota."
+    },
+    {
+      "question": "Nominał monety przewyższa wartość jej metalu. Które stwierdzenie jest poprawne?",
+      "answers": [
+        "Wartość płatnicza może różnić się od wartości materiału",
+        "Moneta nie może działać jako pieniądz",
+        "Każdą monetę trzeba móc wymienić na złoto"
+      ],
+      "correct": 0,
+      "explanation": "Nominał i wartość metalu są różne. Współczesnych funtów brytyjskich nie wymienia się na stałą ilość złota."
+    }
+  ],
+  "around-the-world": [
+    {
+      "question": "Która para kraju i waluty jest poprawna?",
+      "answers": [
+        "Japonia i funty szterlingi",
+        "Wielka Brytania i jeny",
+        "Japonia i jeny"
+      ],
+      "correct": 2,
+      "explanation": "Japonia używa jenów. Wielka Brytania używa funtów szterlingów."
+    },
+    {
+      "question": "Przy wymyślonych kursach £1 = 150 jenów, a później £1 = 160 jenów, ile dostaniesz za £5 bez opłat?",
+      "answers": [
+        "750 jenów, potem 800 jenów",
+        "800 jenów, potem 750 jenów",
+        "150 jenów przy obu kursach"
+      ],
+      "correct": 0,
+      "explanation": "Pomnóż każdy kurs przez 5: 750 i 800 jenów. Rzeczywista wymiana może wiązać się z opłatami."
+    }
+  ],
+  "business-invention": [
+    {
+      "question": "Robisz jedną próbną zakładkę. Jaka opinia jest teraz najbardziej pomocna?",
+      "answers": [
+        "Czy czytelnikowi łatwo się jej używa",
+        "Czy wszyscy obiecują kupić 100",
+        "Czy można pominąć koszt materiałów"
+      ],
+      "correct": 0,
+      "explanation": "Zapytaj potencjalnego użytkownika o próbkę, zanim wydasz więcej. Zainteresowanie nie gwarantuje sprzedaży."
+    },
+    {
+      "question": "W projekcie pod opieką dorosłego sprzedajesz 8 zakładek po £2. Łączne koszty to £10. Jaki jest zysk?",
+      "answers": [
+        "£16, bo wszystkie wpływy to zysk",
+        "£10, bo koszty są równe zyskowi",
+        "£6 po odjęciu kosztów"
+      ],
+      "correct": 2,
+      "explanation": "Przychód wynosi 8 × £2 = £16. Zysk to £16 − £10 = £6."
+    }
+  ],
+  "museum-of-mistakes": [
+    {
+      "question": "Dwoje klientów proponuje różne zmiany. Co robisz?",
+      "answers": [
+        "Słuchasz osoby, która mówi głośniej",
+        "Porównujesz powody i testujesz małą zmianę",
+        "Ignorujesz obie osoby, bo się nie zgadzają"
+      ],
+      "correct": 1,
+      "explanation": "Różne opinie mogą pokazywać różne potrzeby. Mały test pomaga przed większą zmianą."
+    },
+    {
+      "question": "Jedna skarga wymaga kosztownego przeprojektowania. Jakie dane pomagają podjąć decyzję?",
+      "answers": [
+        "Skarga dowodzi, że wszyscy klienci tego chcą",
+        "Koszt nie ma znaczenia, jeśli ktoś o coś prosi",
+        "Porównanie wzorców opinii, wyników testów i kosztów"
+      ],
+      "correct": 2,
+      "explanation": "Skarga dostarcza informacji, ale nie reprezentuje wszystkich klientów. Sprawdź prawdopodobne korzyści i koszty."
+    }
+  ],
+  "future-money": [
+    {
+      "question": "Na wymyślonym koncie jest £5. Płacisz £2 kartą debetową, bez innych transakcji. Ile zostaje?",
+      "answers": [
+        "£3",
+        "£5",
+        "£7"
+      ],
+      "correct": 0,
+      "explanation": "Płatność zmniejsza saldo: £5 − £2 = £3."
+    },
+    {
+      "question": "Które stwierdzenie poprawnie porównuje płatności debetowe i kredytowe?",
+      "answers": [
+        "Obie tworzą pieniądze, których nigdy nie trzeba oddawać",
+        "Debet używa środków na koncie; kredyt to pożyczka do spłaty",
+        "Portfel w telefonie zawsze oznacza darmowe pieniądze"
+      ],
+      "correct": 1,
+      "explanation": "W tym przykładzie debet używa dostępnych środków. Kredyt oznacza pożyczkę; mogą wystąpić odsetki lub opłaty. Portfel to narzędzie płatnicze."
+    }
+  ]
+}

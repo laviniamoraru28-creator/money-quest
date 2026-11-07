@@ -1,0 +1,222 @@
+{
+  "before-money": [
+    {
+      "question": "You offer apples for bread, but the baker does not want apples. What could help?",
+      "answers": [
+        "Insist that the baker accepts",
+        "Find another exchange both people agree to",
+        "Take the bread anyway"
+      ],
+      "correct": 1,
+      "explanation": "A swap needs agreement. You may need a different partner or offer."
+    },
+    {
+      "question": "A town uses money, swaps and credit. Which conclusion fits?",
+      "answers": [
+        "Several exchange methods can coexist",
+        "Every town must abandon barter before using money",
+        "Credit means nobody needs to repay"
+      ],
+      "correct": 0,
+      "explanation": "Exchange methods can exist together. Credit creates an obligation under agreed terms."
+    }
+  ],
+  "first-coins": [
+    {
+      "question": "A trader sees a familiar stamp on an old coin. What does it help them identify?",
+      "answers": [
+        "The price of bread everywhere",
+        "Every previous owner",
+        "The issuer or authority"
+      ],
+      "correct": 2,
+      "explanation": "A stamp identifies an issuer. It does not set all prices or record every owner."
+    },
+    {
+      "question": "Why might a stamp alone be insufficient to assess an ancient coin?",
+      "answers": [
+        "All stamped objects have equal value",
+        "Weight, metal and trust also matter",
+        "A stamp guarantees the price of goods"
+      ],
+      "correct": 1,
+      "explanation": "A stamp supplies one clue. Weight, metal and trust in the issuer also affected acceptance."
+    }
+  ],
+  "strange-money": [
+    {
+      "question": "Your pretend town chooses leaves as money. What problem should you consider?",
+      "answers": [
+        "Leaves can tear and decay",
+        "Leaves cannot have any colour",
+        "Only gold can be money"
+      ],
+      "correct": 0,
+      "explanation": "Money that tears or decays is difficult to store and reuse."
+    },
+    {
+      "question": "Two objects are accepted as payment. What else helps compare their usefulness as money?",
+      "answers": [
+        "Which has the brightest colour",
+        "Which one you found first",
+        "Durability, portability and ease of dividing value"
+      ],
+      "correct": 2,
+      "explanation": "Acceptance matters, but storing, carrying and dividing value also affect everyday use."
+    }
+  ],
+  "money-through-time": [
+    {
+      "question": "Which order runs from older to newer payment methods?",
+      "answers": [
+        "Phone payments, coins, banknotes",
+        "Coins, banknotes, phone payments",
+        "Banknotes, phone payments, coins"
+      ],
+      "correct": 1,
+      "explanation": "Coins existed before banknotes. Phone payments are much more recent."
+    },
+    {
+      "question": "A shop introduces phone payments and still takes cash. What does this show?",
+      "answers": [
+        "New and older methods can coexist",
+        "Cash must disappear immediately",
+        "A phone payment creates extra money"
+      ],
+      "correct": 0,
+      "explanation": "New technology does not automatically replace every older method. Access and preferences differ."
+    }
+  ],
+  "banknote-lab": [
+    {
+      "question": "A pretend banknote has a clear window. Why might a real note use such a feature?",
+      "answers": [
+        "To set the price of toys",
+        "To make the note worth more each day",
+        "To help people check it and make copying harder"
+      ],
+      "correct": 2,
+      "explanation": "Security features support checks. A feature does not determine shop prices or increase the face value."
+    },
+    {
+      "question": "Two notes have a similar colour. How should you assess whether one is genuine?",
+      "answers": [
+        "Use colour as the only test",
+        "Check relevant features using the issuing bank’s official guidance",
+        "Assume both are genuine because they look alike"
+      ],
+      "correct": 1,
+      "explanation": "Colour alone is insufficient. Different currencies use different features; follow the relevant issuer’s guidance."
+    }
+  ],
+  "gold-vault": [
+    {
+      "question": "A coin looks gold-coloured. What can you conclude from the colour alone?",
+      "answers": [
+        "It must be pure gold",
+        "Its metal still needs checking",
+        "It can buy any item"
+      ],
+      "correct": 1,
+      "explanation": "A gold colour does not prove that an object is made of gold."
+    },
+    {
+      "question": "A coin’s face value exceeds the value of its metal. Which statement fits?",
+      "answers": [
+        "Payment value can differ from material value",
+        "The coin cannot function as money",
+        "Every coin must be redeemable for gold"
+      ],
+      "correct": 0,
+      "explanation": "The stated payment value and metal value are different. Modern UK pounds are not redeemable for a fixed quantity of gold."
+    }
+  ],
+  "around-the-world": [
+    {
+      "question": "Which country and currency match is correct?",
+      "answers": [
+        "Japan and pounds sterling",
+        "The UK and yen",
+        "Japan and yen"
+      ],
+      "correct": 2,
+      "explanation": "Japan uses yen. The UK uses pounds sterling."
+    },
+    {
+      "question": "At made-up rates of £1 = 150 yen and later £1 = 160 yen, what does £5 buy, ignoring fees?",
+      "answers": [
+        "750 yen, then 800 yen",
+        "800 yen, then 750 yen",
+        "150 yen at both rates"
+      ],
+      "correct": 0,
+      "explanation": "Multiply each rate by 5: 750 and 800 yen. Real exchanges may also have fees."
+    }
+  ],
+  "business-invention": [
+    {
+      "question": "You make one bookmark sample. What feedback is most useful next?",
+      "answers": [
+        "Whether a reader finds it easy to use",
+        "Whether everyone promises to buy 100",
+        "Whether you can ignore material costs"
+      ],
+      "correct": 0,
+      "explanation": "Ask a relevant user about the sample before spending more. Interest does not guarantee sales."
+    },
+    {
+      "question": "A supervised trial sells 8 bookmarks for £2 each. Total costs are £10. What is the profit?",
+      "answers": [
+        "£16, because all income is profit",
+        "£10, because costs equal profit",
+        "£6, after subtracting costs"
+      ],
+      "correct": 2,
+      "explanation": "Income is 8 × £2 = £16. Profit is £16 − £10 = £6."
+    }
+  ],
+  "museum-of-mistakes": [
+    {
+      "question": "Two customers suggest different changes. What should you do?",
+      "answers": [
+        "Follow whichever person speaks louder",
+        "Compare their reasons and test a small change",
+        "Ignore both because they disagree"
+      ],
+      "correct": 1,
+      "explanation": "Different feedback can reveal different needs. A small test helps you learn before a larger change."
+    },
+    {
+      "question": "One complaint asks for a costly redesign. What evidence helps you decide?",
+      "answers": [
+        "The complaint alone proves every customer wants it",
+        "The cost can be ignored if someone asks",
+        "Compare feedback patterns, trial results and costs"
+      ],
+      "correct": 2,
+      "explanation": "A complaint is useful evidence, but it does not represent every customer. Check likely benefits and costs."
+    }
+  ],
+  "future-money": [
+    {
+      "question": "A pretend account has £5. A £2 debit-card payment is made, with no other transactions. What remains?",
+      "answers": [
+        "£3",
+        "£5",
+        "£7"
+      ],
+      "correct": 0,
+      "explanation": "The payment reduces the balance: £5 − £2 = £3."
+    },
+    {
+      "question": "Which statement correctly compares debit and credit payments?",
+      "answers": [
+        "Both create money that never needs paying back",
+        "Debit uses account funds; credit is borrowing to repay",
+        "A phone wallet always means free money"
+      ],
+      "correct": 1,
+      "explanation": "Debit uses available account funds in this example. Credit involves borrowing; interest or fees may apply. A wallet is a payment tool."
+    }
+  ]
+}

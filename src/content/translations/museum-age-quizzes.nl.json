@@ -1,0 +1,222 @@
+{
+  "before-money": [
+    {
+      "question": "Je biedt appels voor brood, maar de bakker wil geen appels. Wat kan helpen?",
+      "answers": [
+        "Eisen dat de bakker akkoord gaat",
+        "Een andere ruil zoeken waarmee jullie beiden instemmen",
+        "Het brood zonder toestemming meenemen"
+      ],
+      "correct": 1,
+      "explanation": "Ruilen vraagt instemming. Misschien heb je een andere persoon of een ander aanbod nodig."
+    },
+    {
+      "question": "Een stad gebruikt geld, ruilhandel en krediet. Welke conclusie klopt?",
+      "answers": [
+        "Verschillende ruilmethoden kunnen naast elkaar bestaan",
+        "Elke stad moet ruilhandel opgeven voordat ze geld gebruikt",
+        "Krediet betekent dat niemand hoeft terug te betalen"
+      ],
+      "correct": 0,
+      "explanation": "Deze methoden kunnen samengaan. Krediet geeft een terugbetalingsplicht volgens afgesproken voorwaarden."
+    }
+  ],
+  "first-coins": [
+    {
+      "question": "Een handelaar herkent een stempel op een oude munt. Wat helpt die vast te stellen?",
+      "answers": [
+        "De broodprijs overal",
+        "Alle vorige eigenaren",
+        "De uitgever of autoriteit"
+      ],
+      "correct": 2,
+      "explanation": "Een stempel duidt de uitgever aan. Hij bepaalt niet alle prijzen en registreert niet elke eigenaar."
+    },
+    {
+      "question": "Waarom kan alleen een stempel onvoldoende zijn om een oude munt te beoordelen?",
+      "answers": [
+        "Alle gestempelde voorwerpen zijn evenveel waard",
+        "Gewicht, metaal en vertrouwen tellen ook mee",
+        "Een stempel garandeert de prijs van goederen"
+      ],
+      "correct": 1,
+      "explanation": "De stempel geeft één aanwijzing. Gewicht, metaal en vertrouwen in de uitgever beïnvloedden ook de acceptatie."
+    }
+  ],
+  "strange-money": [
+    {
+      "question": "Je verzonnen stad kiest bladeren als geld. Welk probleem moet je overwegen?",
+      "answers": [
+        "Bladeren kunnen scheuren en vergaan",
+        "Bladeren kunnen geen kleur hebben",
+        "Alleen goud kan geld zijn"
+      ],
+      "correct": 0,
+      "explanation": "Geld dat scheurt of vergaat, is moeilijk te bewaren en opnieuw te gebruiken."
+    },
+    {
+      "question": "Twee voorwerpen worden als betaling aanvaard. Wat helpt verder om hun bruikbaarheid als geld te vergelijken?",
+      "answers": [
+        "Welke de felste kleur heeft",
+        "Welke je het eerst vond",
+        "Duurzaamheid, draagbaarheid en het kunnen verdelen van waarde"
+      ],
+      "correct": 2,
+      "explanation": "Acceptatie telt, maar ook het bewaren, vervoeren en verdelen van waarde beïnvloedt het gebruik."
+    }
+  ],
+  "money-through-time": [
+    {
+      "question": "Welke volgorde loopt van oudere naar nieuwere betaalmethoden?",
+      "answers": [
+        "Telefoonbetalingen, munten, bankbiljetten",
+        "Munten, bankbiljetten, telefoonbetalingen",
+        "Bankbiljetten, telefoonbetalingen, munten"
+      ],
+      "correct": 1,
+      "explanation": "Munten bestonden vóór bankbiljetten. Telefoonbetalingen zijn veel recenter."
+    },
+    {
+      "question": "Een winkel voert telefoonbetalingen in en aanvaardt nog steeds contant geld. Wat laat dit zien?",
+      "answers": [
+        "Nieuwe en oudere methoden kunnen naast elkaar bestaan",
+        "Contant geld moet meteen verdwijnen",
+        "Een telefoonbetaling maakt extra geld"
+      ],
+      "correct": 0,
+      "explanation": "Nieuwe technologie vervangt niet automatisch elke oudere methode. Toegang en voorkeuren verschillen."
+    }
+  ],
+  "banknote-lab": [
+    {
+      "question": "Een speelbiljet heeft een doorzichtig venster. Waarom kan een echt biljet zoiets hebben?",
+      "answers": [
+        "Om de prijs van speelgoed te bepalen",
+        "Om elke dag meer waard te worden",
+        "Om controle te helpen en kopiëren moeilijker te maken"
+      ],
+      "correct": 2,
+      "explanation": "Veiligheidskenmerken helpen bij controles. Ze bepalen geen winkelprijzen en verhogen de nominale waarde niet."
+    },
+    {
+      "question": "Twee biljetten hebben vergelijkbare kleuren. Hoe controleer je of een biljet echt is?",
+      "answers": [
+        "Alleen naar de kleur kijken",
+        "De relevante kenmerken controleren met officiële aanwijzingen van de uitgevende bank",
+        "Aannemen dat beide echt zijn omdat ze op elkaar lijken"
+      ],
+      "correct": 1,
+      "explanation": "Kleur alleen is onvoldoende. Valuta hebben verschillende kenmerken; volg de aanwijzingen van de betreffende uitgever."
+    }
+  ],
+  "gold-vault": [
+    {
+      "question": "Een munt ziet er goudkleurig uit. Wat kun je alleen uit de kleur afleiden?",
+      "answers": [
+        "Hij is zeker van puur goud",
+        "Het metaal moet nog worden gecontroleerd",
+        "Je kunt er alles mee kopen"
+      ],
+      "correct": 1,
+      "explanation": "Een gouden kleur bewijst niet dat een voorwerp van goud is."
+    },
+    {
+      "question": "De nominale waarde van een munt is hoger dan de metaalwaarde. Welke uitspraak klopt?",
+      "answers": [
+        "Betaalwaarde kan verschillen van materiaalwaarde",
+        "De munt kan niet als geld werken",
+        "Elke munt moet voor goud inwisselbaar zijn"
+      ],
+      "correct": 0,
+      "explanation": "De vermelde waarde en metaalwaarde zijn verschillend. Moderne Britse ponden zijn niet inwisselbaar voor een vaste hoeveelheid goud."
+    }
+  ],
+  "around-the-world": [
+    {
+      "question": "Welke combinatie van land en valuta klopt?",
+      "answers": [
+        "Japan en Britse ponden",
+        "Het Verenigd Koninkrijk en yen",
+        "Japan en yen"
+      ],
+      "correct": 2,
+      "explanation": "Japan gebruikt yen. Het Verenigd Koninkrijk gebruikt Britse ponden."
+    },
+    {
+      "question": "Bij verzonnen koersen van £1 = 150 yen en later £1 = 160 yen: hoeveel krijg je voor £5, zonder kosten?",
+      "answers": [
+        "750 yen, daarna 800 yen",
+        "800 yen, daarna 750 yen",
+        "150 yen bij beide koersen"
+      ],
+      "correct": 0,
+      "explanation": "Vermenigvuldig elke koers met 5: 750 en 800 yen. Bij echt wisselen kunnen kosten gelden."
+    }
+  ],
+  "business-invention": [
+    {
+      "question": "Je maakt één proefbladwijzer. Welke feedback is nu het nuttigst?",
+      "answers": [
+        "Of een lezer hem makkelijk kan gebruiken",
+        "Of iedereen belooft er 100 te kopen",
+        "Of je materiaalkosten kunt negeren"
+      ],
+      "correct": 0,
+      "explanation": "Vraag een mogelijke gebruiker naar het voorbeeld voordat je meer uitgeeft. Interesse garandeert geen verkoop."
+    },
+    {
+      "question": "Bij een begeleid project verkoop je 8 bladwijzers voor £2 per stuk. De totale kosten zijn £10. Hoeveel winst maak je?",
+      "answers": [
+        "£16, want alle inkomsten zijn winst",
+        "£10, want kosten zijn gelijk aan winst",
+        "£6, nadat je de kosten aftrekt"
+      ],
+      "correct": 2,
+      "explanation": "De inkomsten zijn 8 × £2 = £16. De winst is £16 − £10 = £6."
+    }
+  ],
+  "museum-of-mistakes": [
+    {
+      "question": "Twee klanten stellen verschillende veranderingen voor. Wat doe je?",
+      "answers": [
+        "Luisteren naar degene die het hardst praat",
+        "Hun redenen vergelijken en een kleine verandering testen",
+        "Beiden negeren omdat ze het oneens zijn"
+      ],
+      "correct": 1,
+      "explanation": "Verschillende feedback kan verschillende behoeften laten zien. Een kleine test helpt voordat je een grote verandering maakt."
+    },
+    {
+      "question": "Eén klacht vraagt om een duur nieuw ontwerp. Welke informatie helpt bij je besluit?",
+      "answers": [
+        "De klacht bewijst dat alle klanten dit willen",
+        "Kosten tellen niet als iemand erom vraagt",
+        "Feedbackpatronen, testresultaten en kosten vergelijken"
+      ],
+      "correct": 2,
+      "explanation": "Een klacht is nuttige informatie, maar vertegenwoordigt niet alle klanten. Bekijk verwachte voordelen en kosten."
+    }
+  ],
+  "future-money": [
+    {
+      "question": "Een verzonnen rekening bevat £5. Je betaalt £2 met een debitcard, zonder andere transacties. Wat blijft over?",
+      "answers": [
+        "£3",
+        "£5",
+        "£7"
+      ],
+      "correct": 0,
+      "explanation": "De betaling verlaagt het saldo: £5 − £2 = £3."
+    },
+    {
+      "question": "Welke uitspraak vergelijkt debit- en creditbetalingen correct?",
+      "answers": [
+        "Beide maken geld dat je nooit hoeft terug te betalen",
+        "Debit gebruikt rekeninggeld; credit is lenen en terugbetalen",
+        "Een telefoonwallet betekent altijd gratis geld"
+      ],
+      "correct": 1,
+      "explanation": "Debit gebruikt in dit voorbeeld beschikbaar rekeninggeld. Credit is lenen; rente of kosten kunnen gelden. Een wallet is een betaalmiddel."
+    }
+  ]
+}

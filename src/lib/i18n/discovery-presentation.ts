@@ -1,3 +1,4 @@
+import {museumAgeAssessments,type DiscoveryAgeAssessments} from "@/content/museum-age-quizzes";
 import {museumRooms,libraryBooks,type Room,type Book} from "@/content/discovery";
 import {publicShortReads} from "@/content/library-publication";
 import {discoveryNotes,type DiscoveryNote} from "@/content/discovery-notes";
@@ -27,8 +28,8 @@ const shortReadsDrafts:Record<Exclude<Locale,"en">,Record<string,unknown>>={ro:s
 export type DiscoveryCard={slug:string;title:string;summary:string};
 type Base={locale:Locale;entries:DiscoveryCard[];note?:DiscoveryNote};
 export type DiscoveryPresentation=Base&(
- {kind:"museum";item?:Room;shelves?:never}|
- {kind:"library";item?:Book;shelves?:ShelfPresentation}
+ {kind:"museum";item?:Room;shelves?:never;ageAssessments?:DiscoveryAgeAssessments}|
+ {kind:"library";item?:Book;shelves?:ShelfPresentation;ageAssessments?:never}
 );
 export type DiscoveryKind=DiscoveryPresentation["kind"];
 
@@ -44,7 +45,7 @@ export function draftDiscoveryPresentation(kind:DiscoveryKind,locale:Locale,slug
   });
   const selected=translated.find(entry=>entry.room.slug===slug);
   if(slug&&!selected)throw new Error(`Unknown museum discovery: ${slug}`);
-  return {kind,locale,entries:translated.map(({room})=>({slug:room.slug,title:room.title,summary:room.intro})),item:selected?.room,note:selected?.note};
+  return {kind,locale,entries:translated.map(({room})=>({slug:room.slug,title:room.title,summary:room.intro})),item:selected?.room,note:selected?.note,...(selected?{ageAssessments:museumAgeAssessments(selected.room,locale)}:{})};
  }
  const translated=libraryBooks.map(book=>{
   const note=discoveryNotes[book.slug];if(!note)throw new Error(`Missing discovery note: ${book.slug}`);

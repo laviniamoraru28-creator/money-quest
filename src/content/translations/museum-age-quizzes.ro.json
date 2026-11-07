@@ -1,0 +1,222 @@
+{
+  "before-money": [
+    {
+      "question": "Oferi mere pentru pâine, dar brutarul nu vrea mere. Ce te-ar putea ajuta?",
+      "answers": [
+        "Insistă să accepte",
+        "Caută un alt schimb cu care sunteți amândoi de acord",
+        "Ia pâinea fără acord"
+      ],
+      "correct": 1,
+      "explanation": "Un schimb cere acordul ambelor persoane. Poate fi nevoie de alt partener sau de altă ofertă."
+    },
+    {
+      "question": "Într-un oraș se folosesc bani, troc și credit. Ce concluzie este corectă?",
+      "answers": [
+        "Mai multe metode de schimb pot exista împreună",
+        "Orice oraș trebuie să renunțe la troc înainte să folosească bani",
+        "Creditul înseamnă că nu trebuie să dai banii înapoi"
+      ],
+      "correct": 0,
+      "explanation": "Metodele de schimb pot coexista. Creditul presupune o obligație de rambursare în condițiile convenite."
+    }
+  ],
+  "first-coins": [
+    {
+      "question": "Un negustor vede un însemn cunoscut pe o monedă veche. Ce îl ajută să identifice?",
+      "answers": [
+        "Prețul pâinii peste tot",
+        "Toți foștii proprietari",
+        "Emitentul sau autoritatea"
+      ],
+      "correct": 2,
+      "explanation": "Însemnul indică emitentul. Nu stabilește toate prețurile și nu înregistrează fiecare proprietar."
+    },
+    {
+      "question": "De ce nu este suficient doar însemnul pentru a evalua o monedă antică?",
+      "answers": [
+        "Toate obiectele cu însemn au aceeași valoare",
+        "Contează și greutatea, metalul și încrederea",
+        "Însemnul garantează prețul produselor"
+      ],
+      "correct": 1,
+      "explanation": "Însemnul oferă un indiciu. Greutatea, metalul și încrederea în emitent influențau și ele acceptarea."
+    }
+  ],
+  "strange-money": [
+    {
+      "question": "În orașul tău imaginar, frunzele sunt bani. Ce problemă trebuie să iei în calcul?",
+      "answers": [
+        "Frunzele se pot rupe și descompune",
+        "Frunzele nu pot avea culoare",
+        "Doar aurul poate fi folosit ca bani"
+      ],
+      "correct": 0,
+      "explanation": "Banii care se rup sau se descompun sunt greu de păstrat și refolosit."
+    },
+    {
+      "question": "Două obiecte sunt acceptate la plată. Ce mai ajută să compari cât de utile sunt ca bani?",
+      "answers": [
+        "Care are culoarea mai vie",
+        "Pe care l-ai găsit primul",
+        "Rezistența, ușurința transportului și posibilitatea de a împărți valoarea"
+      ],
+      "correct": 2,
+      "explanation": "Acceptarea contează. Contează și cât de ușor poți păstra, transporta și împărți valoarea."
+    }
+  ],
+  "money-through-time": [
+    {
+      "question": "Care ordine merge de la metode de plată mai vechi la unele mai noi?",
+      "answers": [
+        "Plăți cu telefonul, monede, bancnote",
+        "Monede, bancnote, plăți cu telefonul",
+        "Bancnote, plăți cu telefonul, monede"
+      ],
+      "correct": 1,
+      "explanation": "Monedele au apărut înaintea bancnotelor. Plățile cu telefonul sunt mult mai recente."
+    },
+    {
+      "question": "Un magazin introduce plata cu telefonul și acceptă în continuare numerar. Ce arată asta?",
+      "answers": [
+        "Metodele noi și cele vechi pot coexista",
+        "Numerarul trebuie să dispară imediat",
+        "Plata cu telefonul creează bani în plus"
+      ],
+      "correct": 0,
+      "explanation": "O tehnologie nouă nu înlocuiește automat toate metodele vechi. Accesul și preferințele diferă."
+    }
+  ],
+  "banknote-lab": [
+    {
+      "question": "O bancnotă de joacă are o fereastră transparentă. De ce ar avea o bancnotă reală un astfel de element?",
+      "answers": [
+        "Ca să stabilească prețul jucăriilor",
+        "Ca să valoreze mai mult în fiecare zi",
+        "Ca să ajute la verificare și să îngreuneze copierea"
+      ],
+      "correct": 2,
+      "explanation": "Elementele de siguranță ajută la verificare. Nu stabilesc prețurile și nu măresc valoarea înscrisă."
+    },
+    {
+      "question": "Două bancnote au culori asemănătoare. Cum verifici dacă una este autentică?",
+      "answers": [
+        "Folosești doar culoarea drept criteriu",
+        "Verifici elementele relevante conform îndrumărilor oficiale ale băncii emitente",
+        "Presupui că ambele sunt autentice fiindcă seamănă"
+      ],
+      "correct": 1,
+      "explanation": "Culoarea singură nu este suficientă. Monedele naționale au elemente diferite. Urmează îndrumările emitentului relevant."
+    }
+  ],
+  "gold-vault": [
+    {
+      "question": "O monedă are culoare aurie. Ce poți afla doar din culoare?",
+      "answers": [
+        "Sigur este din aur pur",
+        "Metalul trebuie totuși verificat",
+        "Poate cumpăra orice produs"
+      ],
+      "correct": 1,
+      "explanation": "Culoarea aurie nu dovedește că un obiect este făcut din aur."
+    },
+    {
+      "question": "Valoarea înscrisă pe o monedă depășește valoarea metalului. Ce afirmație este corectă?",
+      "answers": [
+        "Valoarea la plată poate diferi de valoarea materialului",
+        "Moneda nu poate funcționa ca bani",
+        "Orice monedă trebuie să poată fi schimbată în aur"
+      ],
+      "correct": 0,
+      "explanation": "Valoarea înscrisă și valoarea metalului sunt diferite. Lirele britanice moderne nu se schimbă într-o cantitate fixă de aur."
+    }
+  ],
+  "around-the-world": [
+    {
+      "question": "Care pereche țară și monedă națională este corectă?",
+      "answers": [
+        "Japonia și lira sterlină",
+        "Regatul Unit și yenul",
+        "Japonia și yenul"
+      ],
+      "correct": 2,
+      "explanation": "Japonia folosește yenul. Regatul Unit folosește lira sterlină."
+    },
+    {
+      "question": "La cursuri imaginare de £1 = 150 yeni, apoi £1 = 160 yeni, câți yeni primești pentru £5, fără comisioane?",
+      "answers": [
+        "750 de yeni, apoi 800 de yeni",
+        "800 de yeni, apoi 750 de yeni",
+        "150 de yeni la ambele cursuri"
+      ],
+      "correct": 0,
+      "explanation": "Înmulțește fiecare curs cu 5: obții 750 și 800 de yeni. Schimburile reale pot avea și comisioane."
+    }
+  ],
+  "business-invention": [
+    {
+      "question": "Ai făcut un semn de carte de probă. Ce feedback te ajută cel mai mult acum?",
+      "answers": [
+        "Dacă unui cititor îi este ușor să îl folosească",
+        "Dacă toată lumea promite să cumpere 100",
+        "Dacă poți ignora costul materialelor"
+      ],
+      "correct": 0,
+      "explanation": "Întreabă un utilizator potrivit despre model înainte să cheltuiești mai mult. Interesul nu garantează vânzări."
+    },
+    {
+      "question": "La o activitate supravegheată, vinzi 8 semne de carte cu £2 fiecare. Costurile totale sunt £10. Care este profitul?",
+      "answers": [
+        "£16, fiindcă toate încasările sunt profit",
+        "£10, fiindcă profitul este egal cu cheltuielile",
+        "£6, după scăderea costurilor"
+      ],
+      "correct": 2,
+      "explanation": "Încasările sunt 8 × £2 = £16. Profitul este £16 − £10 = £6."
+    }
+  ],
+  "museum-of-mistakes": [
+    {
+      "question": "Doi clienți propun schimbări diferite. Ce faci?",
+      "answers": [
+        "Urmezi persoana care vorbește mai tare",
+        "Compari motivele și testezi o schimbare mică",
+        "Îi ignori pe amândoi fiindcă nu sunt de acord"
+      ],
+      "correct": 1,
+      "explanation": "Părerile diferite pot arăta nevoi diferite. Un test mic te ajută să înveți înainte de o schimbare mare."
+    },
+    {
+      "question": "O singură reclamație cere o modificare costisitoare. Ce dovezi te ajută să decizi?",
+      "answers": [
+        "Reclamația dovedește că toți clienții vor schimbarea",
+        "Poți ignora costul dacă cineva cere schimbarea",
+        "Compari tendințele din feedback, rezultatele testelor și costurile"
+      ],
+      "correct": 2,
+      "explanation": "O reclamație oferă informații utile, dar nu reprezintă toți clienții. Verifică beneficiile probabile și costurile."
+    }
+  ],
+  "future-money": [
+    {
+      "question": "Un cont imaginar are £5. Plătești £2 cu cardul de debit și nu au loc alte tranzacții. Cât rămâne?",
+      "answers": [
+        "£3",
+        "£5",
+        "£7"
+      ],
+      "correct": 0,
+      "explanation": "Plata scade soldul: £5 − £2 = £3."
+    },
+    {
+      "question": "Ce afirmație compară corect plățile cu cardul de debit și cele cu cardul de credit?",
+      "answers": [
+        "Ambele creează bani care nu trebuie dați înapoi",
+        "Debitul folosește banii din cont, creditul presupune un împrumut de rambursat",
+        "Un portofel de pe telefon înseamnă mereu bani gratis"
+      ],
+      "correct": 1,
+      "explanation": "În acest exemplu, debitul folosește banii disponibili în cont. Creditul este un împrumut, cu posibile dobânzi sau comisioane. Portofelul digital este un instrument de plată."
+    }
+  ]
+}

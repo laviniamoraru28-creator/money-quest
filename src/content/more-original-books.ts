@@ -4,7 +4,7 @@ export const teamworkBook: OriginalBook = {
   slug: "the-garden-everyone-could-enter",
   title: "The Garden Everyone Could Enter",
   subtitle: "A Money Quest story about listening, leadership and belonging",
-  audience: "Builder · ages 9–11 · Six chapters to read at your own pace",
+  audience: "Builder · ages 9–11 · Read at your own pace",
   description: "A garden project stalls when the team discovers that its exciting plan has left someone out.",
   cover: "/images/money-quest/worlds/kindness-grove.webp",
   coverAlt: "The Money Quest girl and her puppy in a welcoming, colourful garden.",
