@@ -531,7 +531,7 @@
       "title": "Il denaro come strumento, non come obiettivo",
       "learningObjective": "Comprendere il denaro come un sistema condiviso che funziona solo perché le persone accettano di fidarsene, e riconoscere che paesi diversi usano valute diverse per questo sistema.",
       "shortIntroduction": "Il denaro \"funziona\" solo perché milioni di estranei accettano di fidarsi della stessa idea. È davvero strano se ci pensi.",
-      "story": "Mia sta aiutando a organizzare una raccolta fondi scolastica e nota una cosa: le monete nella sua tasca non valgono nulla fuori dal suo paese. Un'amica in visita dall'estero le porge una banconota di casa sua, e nessuna delle due può usarla qui. Mia si rende conto che il denaro non è qualcosa di fisso e universale - è un sistema che funziona perché un gruppo specifico di persone è d'accordo che funzioni.",
+      "story": "Mia aiuta a organizzare una raccolta fondi scolastica. Un’amica porta una banconota straniera, ma il negozio locale non accetta quella valuta. La banconota conserva il suo valore e può essere cambiata. Mia impara a controllare le valute accettate da un negozio; alcuni paesi usano la stessa valuta.",
       "keyConcept": "Il denaro è un sistema condiviso di fiducia, non un oggetto universale fisso - paesi diversi usano valute diverse, e il valore di una valuta deriva dal fatto che le persone accettano di usarla e di fidarsene.",
       "vocabulary": [
         {
@@ -552,15 +552,15 @@
       "gameIdea": "Esploratore di Valute: abbina i paesi alle loro valute e confronta prezzi di esempio.",
       "challenge": "Scopri quale valuta si usa in un paese che non hai mai visitato, e un fatto interessante a riguardo.",
       "quiz": {
-        "question": "Perché il denaro di un paese non funziona automaticamente in un altro?",
+        "question": "Perché un negozio potrebbe rifiutare una banconota straniera?",
         "options": [
-          "Perché ogni paese usa una valuta diversa, con una fiducia separata",
+          "Perché il negozio potrebbe accettare una valuta diversa",
           "Perché il denaro straniero è falso",
           "Perché ai negozi non piacciono i turisti",
           "Perché le monete si consumano viaggiando"
         ],
-        "correctAnswer": "Perché ogni paese usa una valuta diversa, con una fiducia separata",
-        "explanation": "Il denaro di ogni paese è il proprio sistema di fiducia condivisa - un negozio in un paese non ha accettato di prendere la valuta di un altro paese, allo stesso modo in cui non scambieresti i punti gioco di un'app con la valuta di un'altra app."
+        "correctAnswer": "Perché il negozio potrebbe accettare una valuta diversa",
+        "explanation": "Una banconota può conservare valore anche se un negozio non la accetta. Alcuni paesi condividono una valuta, come l’euro. Se le valute differiscono, può servire un cambio e possono esserci commissioni."
       },
       "feedback": {
         "success": "Hai capito - il denaro è un sistema di fiducia, e quel sistema è diverso in luoghi diversi. 🌍",
@@ -3877,6 +3877,15 @@
     "relatedHeading": "Letture correlate",
     "ctaTitle": "Vuoi che tuo figlio lo pratichi, non solo che ne legga?",
     "ctaBody": "Money Quest trasforma esattamente queste idee in giochi e attività gratuite e adatte all'età."
+  },
+  "worldDescriptions": {
+    "coin-cove": "Scopri il denaro, le monete e diversi modi di pagare.",
+    "market-town": "Esercitati nelle scelte di acquisto e distingui bisogni e desideri.",
+    "golden-vault": "Esplora il risparmio e pianifica un obiettivo.",
+    "sky-exchange": "Confronta le valute ed esplora i pagamenti digitali.",
+    "guardian-gate": "Riconosci i messaggi sospetti e proteggi le informazioni private.",
+    "horizon-peaks": "Confronta le scelte e fai progetti per il futuro.",
+    "kindness-grove": "Scopri come donare, condividere e aiutare gli altri."
   },
   "levels": {
     "coin-cove": "Esploratore del Denaro",

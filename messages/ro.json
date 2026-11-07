@@ -531,7 +531,7 @@
       "title": "Banii ca instrument, nu ca scop",
       "learningObjective": "Înțelegerea banilor ca sistem comun care funcționează doar pentru că oamenii sunt de acord să aibă încredere în el, și recunoașterea faptului că diferite țări folosesc valute diferite pentru acest sistem.",
       "shortIntroduction": "Banii „funcționează” doar pentru că milioane de străini sunt de acord să aibă încredere în aceeași idee. E cu adevărat ciudat dacă te gândești la asta.",
-      "story": "Mia ajută la planificarea unei strângeri de fonduri școlare și observă ceva: monedele din buzunarul ei nu valorează nimic în afara țării ei. O prietenă în vizită din străinătate îi întinde o bancnotă de acasă, și niciuna dintre ele nu o poate folosi aici. Mia își dă seama că banii nu sunt ceva fix, universal - sunt un sistem care funcționează pentru că un anumit grup de oameni este de acord că funcționează.",
+      "story": "Mia ajută la organizarea unei strângeri de fonduri la școală. O prietenă aduce o bancnotă străină, dar magazinul local nu acceptă acea valută. Bancnota are în continuare valoare și poate fi schimbată. Mia învață să verifice ce valute acceptă magazinul. Unele țări folosesc aceeași valută.",
       "keyConcept": "Banii sunt un sistem comun de încredere, nu un obiect universal fix - diferite țări folosesc valute diferite, iar valoarea unei valute vine din faptul că oamenii sunt de acord să o folosească și să aibă încredere în ea.",
       "vocabulary": [
         {
@@ -552,15 +552,15 @@
       "gameIdea": "Exploratorul de Valute: asociază țările cu valutele lor și compară exemple de prețuri.",
       "challenge": "Află ce valută este folosită într-o țară pe care nu ai vizitat-o niciodată, și un fapt interesant despre aceasta.",
       "quiz": {
-        "question": "De ce banii dintr-o țară nu funcționează automat în alta?",
+        "question": "De ce ar putea un magazin să refuze o bancnotă străină?",
         "options": [
-          "Pentru că fiecare țară folosește o valută diferită, de încredere separată",
+          "Pentru că magazinul poate accepta altă valută",
           "Pentru că banii străini sunt falși",
           "Pentru că magazinelor nu le plac turiștii",
           "Pentru că monedele se uzează când călătoresc"
         ],
-        "correctAnswer": "Pentru că fiecare țară folosește o valută diferită, de încredere separată",
-        "explanation": "Banii fiecărei țări sunt propriul sistem de încredere comună - un magazin dintr-o țară nu a fost de acord să accepte valuta altei țări, la fel cum nu ai schimba puncte de joc dintr-o aplicație pentru valuta altei aplicații."
+        "correctAnswer": "Pentru că magazinul poate accepta altă valută",
+        "explanation": "O bancnotă își poate păstra valoarea chiar dacă un magazin nu o acceptă. Unele țări folosesc aceeași valută, cum este euro. Dacă valutele diferă, poate fi nevoie de schimb valutar și se pot percepe comisioane."
       },
       "feedback": {
         "success": "Ai înțeles - banii sunt un sistem de încredere, iar acel sistem diferă de la un loc la altul. 🌍",
@@ -3877,6 +3877,15 @@
     "relatedHeading": "Lectură conexă",
     "ctaTitle": "Vrei ca micuțul tău să exerseze asta, nu doar să citească despre ea?",
     "ctaBody": "Money Quest transformă exact aceste idei în jocuri și activități gratuite, adaptate vârstei."
+  },
+  "worldDescriptions": {
+    "coin-cove": "Descoperă banii, monedele și diferite moduri de a plăti.",
+    "market-town": "Exersează alegerile la cumpărături și deosebește nevoile de dorințe.",
+    "golden-vault": "Descoperă economisirea și planifică un obiectiv.",
+    "sky-exchange": "Compară valutele și descoperă plățile digitale.",
+    "guardian-gate": "Recunoaște mesajele suspecte și protejează informațiile personale.",
+    "horizon-peaks": "Compară alegerile și fă planuri pentru viitor.",
+    "kindness-grove": "Descoperă cum poți dărui, împărți și ajuta alte persoane."
   },
   "levels": {
     "coin-cove": "Exploratorul Banilor",

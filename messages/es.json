@@ -531,7 +531,7 @@
       "title": "El dinero como herramienta, no como meta",
       "learningObjective": "Comprender el dinero como un sistema compartido que solo funciona porque la gente acuerda confiar en él, y reconocer que diferentes países usan diferentes divisas para este sistema.",
       "shortIntroduction": "El dinero solo \"funciona\" porque millones de desconocidos acuerdan confiar en la misma idea. Es realmente extraño si lo piensas.",
-      "story": "Mia está ayudando a planear una recaudación de fondos escolar y nota algo: las monedas de su bolsillo no valen nada fuera de su propio país. Una amiga que visita desde el extranjero le da un billete de su país, y ninguna de las dos puede usarlo aquí. Mia se da cuenta de que el dinero no es algo fijo y universal - es un sistema que funciona porque un grupo específico de personas acuerda que funciona.",
+      "story": "Mia ayuda a organizar una recaudación escolar. Una amiga trae un billete extranjero, pero la tienda local no acepta esa divisa. El billete sigue teniendo valor y puede cambiarse. Mia aprende a comprobar qué divisas acepta una tienda; algunos países comparten la misma moneda.",
       "keyConcept": "El dinero es un sistema compartido de confianza, no un objeto universal fijo - diferentes países usan diferentes divisas, y el valor de una divisa proviene de que la gente acuerda usarla y confiar en ella.",
       "vocabulary": [
         {
@@ -552,15 +552,15 @@
       "gameIdea": "Explorador de Divisas: relaciona países con sus divisas y compara precios de ejemplo.",
       "challenge": "Averigua qué divisa se usa en un país que nunca has visitado, y un dato interesante sobre ella.",
       "quiz": {
-        "question": "¿Por qué el dinero de un país no funciona automáticamente en otro?",
+        "question": "¿Por qué podría una tienda rechazar un billete extranjero?",
         "options": [
-          "Porque cada país usa una divisa diferente, con su propia confianza",
+          "Porque la tienda puede aceptar una divisa diferente",
           "Porque el dinero extranjero es falso",
           "Porque a las tiendas no les gustan los turistas",
           "Porque las monedas se desgastan al viajar"
         ],
-        "correctAnswer": "Porque cada país usa una divisa diferente, con su propia confianza",
-        "explanation": "El dinero de cada país es su propio sistema de confianza compartida - una tienda de un país no ha acordado aceptar la divisa de otro país, de la misma forma que no cambiarías puntos de juego de una app por la divisa de otra app."
+        "correctAnswer": "Porque la tienda puede aceptar una divisa diferente",
+        "explanation": "Un billete puede conservar su valor aunque una tienda no lo acepte. Algunos países comparten una moneda, como el euro. Si las divisas son distintas, puede ser necesario cambiarlas y pagar comisiones."
       },
       "feedback": {
         "success": "Lo entendiste - el dinero es un sistema de confianza, y ese sistema es diferente en cada lugar. 🌍",
@@ -3877,6 +3877,15 @@
     "relatedHeading": "Lectura relacionada",
     "ctaTitle": "¿Quieres que tu hijo practique esto, no solo que lea sobre ello?",
     "ctaBody": "Money Quest convierte exactamente estas ideas en juegos y actividades gratuitas y adaptadas a la edad."
+  },
+  "worldDescriptions": {
+    "coin-cove": "Descubre el dinero, las monedas y distintas formas de pagar.",
+    "market-town": "Practica decisiones de compra, necesidades y deseos.",
+    "golden-vault": "Explora el ahorro y planifica una meta.",
+    "sky-exchange": "Compara divisas y explora los pagos digitales.",
+    "guardian-gate": "Detecta mensajes sospechosos y protege la información privada.",
+    "horizon-peaks": "Compara opciones y haz planes para el futuro.",
+    "kindness-grove": "Explora cómo dar, compartir y ayudar a otras personas."
   },
   "levels": {
     "coin-cove": "Explorador del Dinero",

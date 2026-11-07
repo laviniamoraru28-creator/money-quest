@@ -531,7 +531,7 @@
       "title": "L'argent comme outil, pas comme but",
       "learningObjective": "Comprendre l'argent comme un système partagé qui ne fonctionne que parce que les gens acceptent de lui faire confiance, et reconnaître que différents pays utilisent différentes devises pour ce système.",
       "shortIntroduction": "L'argent ne « fonctionne » que parce que des millions d'inconnus acceptent de faire confiance à la même idée. C'est vraiment étrange quand on y pense.",
-      "story": "Mia aide à organiser une collecte de fonds scolaire et remarque quelque chose : les pièces dans sa poche ne valent rien en dehors de son pays. Une amie en visite de l'étranger lui tend un billet de chez elle, et aucune des deux ne peut l'utiliser ici. Mia se rend compte que l'argent n'est pas une chose fixe et universelle - c'est un système qui fonctionne parce qu'un groupe précis de gens est d'accord qu'il fonctionne.",
+      "story": "Mia aide à préparer une collecte scolaire. Une amie apporte un billet étranger, mais le magasin local n’accepte pas cette monnaie. Le billet garde sa valeur et peut être changé. Mia apprend à vérifier les monnaies acceptées par un magasin ; certains pays utilisent la même monnaie.",
       "keyConcept": "L'argent est un système partagé de confiance, pas un objet universel fixe - différents pays utilisent différentes devises, et la valeur d'une devise vient du fait que les gens acceptent de l'utiliser et de lui faire confiance.",
       "vocabulary": [
         {
@@ -552,15 +552,15 @@
       "gameIdea": "Explorateur de Devises : associe des pays à leurs devises et compare des exemples de prix.",
       "challenge": "Découvre quelle devise est utilisée dans un pays que tu n'as jamais visité, et un fait intéressant à ce sujet.",
       "quiz": {
-        "question": "Pourquoi l'argent d'un pays ne fonctionne-t-il pas automatiquement dans un autre ?",
+        "question": "Pourquoi un magasin pourrait-il refuser un billet étranger ?",
         "options": [
-          "Parce que chaque pays utilise une devise différente, avec sa propre confiance",
+          "Parce que le magasin peut accepter une autre monnaie",
           "Parce que l'argent étranger est faux",
           "Parce que les magasins n'aiment pas les touristes",
           "Parce que les pièces s'usent en voyageant"
         ],
-        "correctAnswer": "Parce que chaque pays utilise une devise différente, avec sa propre confiance",
-        "explanation": "L'argent de chaque pays est son propre système de confiance partagée - un magasin dans un pays n'a pas accepté la devise d'un autre pays, tout comme tu n'échangerais pas des points de jeu d'une appli contre la devise d'une autre appli."
+        "correctAnswer": "Parce que le magasin peut accepter une autre monnaie",
+        "explanation": "Un billet peut garder sa valeur même si un magasin ne l’accepte pas. Certains pays partagent une monnaie, comme l’euro. Si les monnaies diffèrent, un change peut être nécessaire et entraîner des frais."
       },
       "feedback": {
         "success": "Tu as compris - l'argent est un système de confiance, et ce système est différent selon les endroits. 🌍",
@@ -3877,6 +3877,15 @@
     "relatedHeading": "Lectures connexes",
     "ctaTitle": "Tu veux que ton enfant pratique ça, pas seulement en lire ?",
     "ctaBody": "Money Quest transforme exactement ces idées en jeux et activités gratuits et adaptés à l'âge."
+  },
+  "worldDescriptions": {
+    "coin-cove": "Découvre l’argent, les pièces et différents moyens de payer.",
+    "market-town": "Exerce tes choix d’achat et distingue besoins et envies.",
+    "golden-vault": "Découvre l’épargne et prépare un objectif.",
+    "sky-exchange": "Compare les monnaies et découvre les paiements numériques.",
+    "guardian-gate": "Repère les messages suspects et protège les informations privées.",
+    "horizon-peaks": "Compare des choix et prépare des projets pour l’avenir.",
+    "kindness-grove": "Découvre comment donner, partager et aider les autres."
   },
   "levels": {
     "coin-cove": "Explorateur de l'Argent",

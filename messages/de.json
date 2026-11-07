@@ -531,7 +531,7 @@
       "title": "Geld als Werkzeug, nicht als Ziel",
       "learningObjective": "Geld als gemeinsames System verstehen, das nur funktioniert, weil Menschen sich einig sind, ihm zu vertrauen, und erkennen, dass verschiedene Länder unterschiedliche Währungen für dieses System verwenden.",
       "shortIntroduction": "Geld „funktioniert” nur, weil Millionen von Fremden sich einig sind, derselben Idee zu vertrauen. Das ist wirklich seltsam, wenn man darüber nachdenkt.",
-      "story": "Mia hilft bei der Planung einer Schul-Spendenaktion und bemerkt etwas: Die Münzen in ihrer Tasche sind außerhalb ihres eigenen Landes wertlos. Eine Freundin, die aus dem Ausland zu Besuch ist, gibt ihr einen Schein von zu Hause, und keine von beiden kann ihn hier benutzen. Mia erkennt, dass Geld keine feste, universelle Sache ist - es ist ein System, das funktioniert, weil eine bestimmte Gruppe von Menschen sich darauf einigt.",
+      "story": "Mia hilft bei einer Spendenaktion an ihrer Schule. Eine Freundin bringt einen ausländischen Geldschein mit, aber das örtliche Geschäft akzeptiert diese Währung nicht. Der Schein behält seinen Wert und kann umgetauscht werden. Mia lernt, die akzeptierten Währungen zu prüfen; manche Länder nutzen dieselbe Währung.",
       "keyConcept": "Geld ist ein gemeinsames Vertrauenssystem, kein festes universelles Objekt - verschiedene Länder verwenden unterschiedliche Währungen, und der Wert einer Währung kommt daher, dass Menschen sich einig sind, sie zu benutzen und ihr zu vertrauen.",
       "vocabulary": [
         {
@@ -552,15 +552,15 @@
       "gameIdea": "Währungs-Entdecker: Ordne Länder ihren Währungen zu und vergleiche Beispielpreise.",
       "challenge": "Finde heraus, welche Währung in einem Land verwendet wird, das du noch nie besucht hast, und eine interessante Tatsache darüber.",
       "quiz": {
-        "question": "Warum funktioniert Geld aus einem Land nicht automatisch in einem anderen?",
+        "question": "Warum könnte ein Geschäft einen ausländischen Geldschein ablehnen?",
         "options": [
-          "Weil jedes Land eine andere, separat vertrauenswürdige Währung verwendet",
+          "Weil das Geschäft möglicherweise eine andere Währung akzeptiert",
           "Weil ausländisches Geld falsch ist",
           "Weil Geschäfte keine Touristen mögen",
           "Weil Münzen sich beim Reisen abnutzen"
         ],
-        "correctAnswer": "Weil jedes Land eine andere, separat vertrauenswürdige Währung verwendet",
-        "explanation": "Das Geld jedes Landes ist sein eigenes System gemeinsamen Vertrauens - ein Geschäft in einem Land hat sich nicht darauf geeinigt, die Währung eines anderen Landes zu akzeptieren, genauso wie du keine Spielpunkte einer App gegen die Währung einer anderen App eintauschen würdest."
+        "correctAnswer": "Weil das Geschäft möglicherweise eine andere Währung akzeptiert",
+        "explanation": "Ein Geldschein kann seinen Wert behalten, auch wenn ein Geschäft ihn nicht annimmt. Manche Länder teilen eine Währung, etwa den Euro. Bei unterschiedlichen Währungen kann ein Umtausch nötig sein; dabei können Gebühren anfallen."
       },
       "feedback": {
         "success": "Du hast es verstanden - Geld ist ein Vertrauenssystem, und dieses System ist an verschiedenen Orten unterschiedlich. 🌍",
@@ -3877,6 +3877,15 @@
     "relatedHeading": "Weitere Artikel",
     "ctaTitle": "Möchtest du, dass dein Kind das übt, statt nur darüber zu lesen?",
     "ctaBody": "Money Quest verwandelt genau diese Ideen in kostenlose, altersgerechte Spiele und Aktivitäten."
+  },
+  "worldDescriptions": {
+    "coin-cove": "Lerne Geld, Münzen und verschiedene Zahlungsarten kennen.",
+    "market-town": "Übe Kaufentscheidungen und unterscheide Bedürfnisse und Wünsche.",
+    "golden-vault": "Entdecke das Sparen und plane ein Ziel.",
+    "sky-exchange": "Vergleiche Währungen und entdecke digitale Zahlungen.",
+    "guardian-gate": "Erkenne verdächtige Nachrichten und schütze private Informationen.",
+    "horizon-peaks": "Vergleiche Möglichkeiten und mache Pläne für die Zukunft.",
+    "kindness-grove": "Entdecke das Geben, Teilen und Helfen."
   },
   "levels": {
     "coin-cove": "Geld-Entdecker",
