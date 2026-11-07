@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { useParams } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
@@ -246,6 +246,19 @@ function MissionEventBody({
   onEffect: (eventId: string, choiceKey: string) => void;
 }) {
   const t = useTranslations();
+  const [attempt, setAttempt] = useState(0);
+  const [needsRetry, setNeedsRetry] = useState(false);
+  function handleGradedAnswer(isCorrect: boolean) {
+    if (isCorrect) onEffect(eventId, "completed");
+    else setNeedsRetry(true);
+  }
+  const withRetry = (mechanic: ReactNode) => <>
+    {mechanic}
+    {needsRetry && <Button variant="secondary" className="mt-sm w-full" onClick={() => {
+      setAttempt(current => current + 1);
+      setNeedsRetry(false);
+    }}>{t("common.tryAgain")}</Button>}
+  </>;
   if (!mission) return null;
   const kind = roundKindForEvent(eventId);
 
@@ -262,15 +275,13 @@ function MissionEventBody({
         right: t(`leadershipQuest.characters.${p.characterId}.name`),
       })),
     };
-    return (
-      <MatchMechanic
+    return withRetry(
+      <MatchMechanic key={attempt}
         round={round}
         currencyCode={currencyCode}
         uiLocale={uiLocale}
         usesCurrency={false}
-        onAnswer={(isCorrect) => {
-          if (isCorrect) onEffect(eventId, "completed");
-        }}
+        onAnswer={handleGradedAnswer}
         isResolved={isResolved}
       />
     );
@@ -289,15 +300,13 @@ function MissionEventBody({
       scenario: t(scenarioKey),
       items: itemIds.map((item) => ({ id: item.id, text: t(`${itemTextNamespace}.${item.id}`), isSuspicious: item.isSuspicious })),
     };
-    return (
-      <SpotMechanic
+    return withRetry(
+      <SpotMechanic key={attempt}
         round={round}
         currencyCode={currencyCode}
         uiLocale={uiLocale}
         usesCurrency={false}
-        onAnswer={(isCorrect) => {
-          if (isCorrect) onEffect(eventId, "completed");
-        }}
+        onAnswer={handleGradedAnswer}
         isResolved={isResolved}
       />
     );
@@ -314,15 +323,13 @@ function MissionEventBody({
       categories: LQ_DEADLINE_CATEGORIES.map((c) => ({ key: c.key, label: t(`leadershipQuest.missions.the-deadline.tasks.${c.key}`) })),
       targets: LQ_DEADLINE_CATEGORIES.map((c) => ({ categoryKey: c.key, targetMinorUnits: c.targetMinutes, toleranceMinorUnits: c.toleranceMinutes })),
     };
-    return (
-      <AllocateMechanic
+    return withRetry(
+      <AllocateMechanic key={attempt}
         round={round}
         currencyCode={currencyCode}
         uiLocale={uiLocale}
         usesCurrency={false}
-        onAnswer={(isCorrect) => {
-          if (isCorrect) onEffect(eventId, "completed");
-        }}
+        onAnswer={handleGradedAnswer}
         isResolved={isResolved}
       />
     );
@@ -338,15 +345,13 @@ function MissionEventBody({
       buckets: LQ_PRESSURE_TEST_BUCKET_KEYS.map((key) => ({ key, label: t(`leadershipQuest.missions.pressure-test.buckets.${key}`) })),
       items: LQ_PRESSURE_TEST_ITEMS.map((item) => ({ id: item.id, label: t(`leadershipQuest.missions.pressure-test.problems.${item.id}`), correctBucketKey: item.correctBucketKey })),
     };
-    return (
-      <SortMechanic
+    return withRetry(
+      <SortMechanic key={attempt}
         round={round}
         currencyCode={currencyCode}
         uiLocale={uiLocale}
         usesCurrency={false}
-        onAnswer={(isCorrect) => {
-          if (isCorrect) onEffect(eventId, "completed");
-        }}
+        onAnswer={handleGradedAnswer}
         isResolved={isResolved}
       />
     );
