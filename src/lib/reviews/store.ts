@@ -15,7 +15,11 @@ async function read(file:string):Promise<Store>{
 async function change<T>(fn:(store:Store)=>T):Promise<T>{
   const file=filename();await mkdir(path.dirname(file),{recursive:true,mode:0o700});
   const lock=`${file}.lock`;let handle;
-  for(let attempt=0;attempt<15;attempt++){
+  // A durable write can take longer than 375 ms on shared hosting. Wait for
+  // the current writer within a bounded deadline, rather than losing a valid
+  // simultaneous submission after a fixed number of fast retry attempts.
+  const deadline=performance.now()+5000;
+  while(performance.now()<deadline){
     try{handle=await open(lock,"wx",0o600);break;}catch(error){if((error as NodeJS.ErrnoException).code!=="EEXIST")throw error;await new Promise(resolve=>setTimeout(resolve,25));}
   }
   if(!handle)throw new Error("Review storage busy");
