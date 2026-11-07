@@ -95,7 +95,7 @@
         "tryIt": [
           "Montre le plus grand nombre sur deux étiquettes imaginaires.",
           "Compare deux paquets étiquetés 100 g et 150 g.",
-          "Compare 200 g pour £2 avec 300 g pour £2.40. Calcule le prix pour 100 g."
+          "Compare 200 g pour 2 € avec 300 g pour 2,40 €. Calcule le prix pour 100 g."
         ],
         "readings": [
           {
@@ -110,13 +110,13 @@
           },
           {
             "idea": "L'apparence d'un emballage et son bon rapport qualité-prix sont deux questions différentes.",
-            "situation": "Un paquet de 200 g coûte £2. Un autre de 300 g coûte £2.40. Qu'est-ce qui aide à comparer leur valeur ?",
+            "situation": "Un paquet de 200 g coûte 2 €. Un autre de 300 g coûte 2,40 €. Qu'est-ce qui aide à comparer leur valeur ?",
             "choices": [
               "Choisir la boîte qui semble la plus haute",
               "Supposer que le prix total le plus élevé est forcément le moins bon rapport",
               "Calculer et comparer le prix de chacun pour 100 g"
             ],
-            "explanation": "Le premier coûte £1 les 100 g. Le second coûte 80p les 100 g. Le prix à l'unité aide à comparer la valeur, mais acheter plus n'est utile que si tu en as besoin et peux payer le total."
+            "explanation": "Le premier coûte 1 € les 100 g. Le second coûte 80 centimes les 100 g. Le prix à l'unité aide à comparer la valeur, mais acheter plus n'est utile que si tu en as besoin et peux payer le total."
           }
         ]
       },
@@ -837,14 +837,14 @@
       {
         "title": "Choisir avec un budget",
         "idea": "Ton choix a un coût et peut affecter un autre objectif.",
-        "situation": "Tu as £5. Un carnet coûte £3 et un jouet coûte £4. Que peux-tu acheter sans emprunter d'argent ?",
+        "situation": "Tu as 5 €. Un carnet coûte 3 € et un jouet coûte 4 €. Que peux-tu acheter sans emprunter d'argent ?",
         "choices": [
           "Un seul objet, en gardant de l'argent",
-          "Les deux pour £5",
+          "Les deux pour 5 €",
           "Les deux, sans qu'il reste d'argent"
         ],
         "correct": 0,
-        "explanation": "£3 + £4 = £7. Tu peux choisir un seul objet maintenant, attendre, ou économiser davantage. Plusieurs choix sont raisonnables.",
+        "explanation": "3 € + 4 € = 7 €. Tu peux choisir un seul objet maintenant, attendre, ou économiser davantage. Plusieurs choix sont raisonnables.",
         "tryIt": [
           "Montre l'objet que tu choisis.",
           "Calcule l'argent qui te reste pour chaque choix.",
@@ -853,23 +853,23 @@
         "readings": [
           {
             "idea": "Vérifie l'argent disponible avant de choisir.",
-            "situation": "Tu as £5. Un carnet coûte £3 et un jouet coûte £4. Que peux-tu te permettre maintenant ?",
+            "situation": "Tu as 5 €. Un carnet coûte 3 € et un jouet coûte 4 €. Que peux-tu te permettre maintenant ?",
             "choices": [
               "Un seul objet, avec de l'argent en plus",
-              "Les deux objets pour £5",
+              "Les deux objets pour 5 €",
               "Les deux, sans rien qu'il reste"
             ],
             "explanation": "Trois plus quatre égale sept, ce qui est plus que cinq. Tu peux choisir un seul objet, attendre, ou ne choisir ni l'un ni l'autre."
           },
           {
             "idea": "Un budget rend les compromis visibles, sans décider de tes priorités à ta place.",
-            "situation": "Avec £5 disponibles, un carnet à £3 et un jouet à £4 ne peuvent pas tous les deux être achetés sans argent supplémentaire. Quelle affirmation est correcte ?",
+            "situation": "Avec 5 € disponibles, un carnet à 3 € et un jouet à 4 € ne peuvent pas tous les deux être achetés sans argent supplémentaire. Quelle affirmation est correcte ?",
             "choices": [
               "Chaque objet est accessible seul ; l'usage auquel tu renonces est un coût d'opportunité",
-              "Les deux sont accessibles, car chacun coûte moins de £5",
+              "Les deux sont accessibles, car chacun coûte moins de 5 €",
               "Emprunter supprime le coût du choix"
             ],
-            "explanation": "Le prix total des deux objets est de £7. Choisir un seul objet laisse un solde différent et retarde un autre usage de cet argent. Attendre ou ne rien choisir peut aussi correspondre à tes priorités."
+            "explanation": "Le prix total des deux objets est de 7 €. Choisir un seul objet laisse un solde différent et retarde un autre usage de cet argent. Attendre ou ne rien choisir peut aussi correspondre à tes priorités."
           }
         ]
       }

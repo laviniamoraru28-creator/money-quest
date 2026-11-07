@@ -95,7 +95,7 @@
         "tryIt": [
           "Zeige auf die größere Zahl auf zwei erfundenen Etiketten.",
           "Vergleiche zwei Packungen mit 100 g und 150 g.",
-          "Vergleiche 200 g für £2 mit 300 g für £2.40. Berechne den Preis je 100 g."
+          "Vergleiche 200 g für 2 € mit 300 g für 2,40 €. Berechne den Preis je 100 g."
         ],
         "readings": [
           {
@@ -110,13 +110,13 @@
           },
           {
             "idea": "Das Aussehen einer Packung und das Preis-Leistungs-Verhältnis sind unterschiedliche Fragen.",
-            "situation": "Eine Packung enthält 200 g für £2. Eine andere 300 g für £2.40. Was hilft beim Preisvergleich?",
+            "situation": "Eine Packung enthält 200 g für 2 €. Eine andere 300 g für 2,40 €. Was hilft beim Preisvergleich?",
             "choices": [
               "Die höher aussehende Schachtel nehmen",
               "Annehmen, dass der höhere Gesamtpreis das schlechtere Angebot ist",
               "Den jeweiligen Preis je 100 g berechnen und vergleichen"
             ],
-            "explanation": "Die erste kostet £1 je 100 g. Die zweite kostet 80p je 100 g. Grundpreise helfen beim Vergleich. Mehr zu kaufen ist aber nur sinnvoll, wenn du es brauchst und den Gesamtbetrag bezahlen kannst."
+            "explanation": "Die erste kostet 1 € je 100 g. Die zweite kostet 80 Cent je 100 g. Grundpreise helfen beim Vergleich. Mehr zu kaufen ist aber nur sinnvoll, wenn du es brauchst und den Gesamtbetrag bezahlen kannst."
           }
         ]
       },
@@ -837,14 +837,14 @@
       {
         "title": "Mit einem Budget wählen",
         "idea": "Deine Wahl kostet etwas und kann ein anderes Ziel beeinflussen.",
-        "situation": "Du hast £5. Ein Heft kostet £3 und ein Spielzeug £4. Was kannst du kaufen, ohne Geld zu leihen?",
+        "situation": "Du hast 5 €. Ein Heft kostet 3 € und ein Spielzeug 4 €. Was kannst du kaufen, ohne Geld zu leihen?",
         "choices": [
           "Einen Gegenstand, mit etwas Geld übrig",
-          "Beides für £5",
+          "Beides für 5 €",
           "Beides, ohne Geld übrig"
         ],
         "correct": 0,
-        "explanation": "£3 + £4 = £7. Du kannst jetzt eines wählen, warten oder mehr sparen. Es gibt mehr als eine vernünftige Wahl.",
+        "explanation": "3 € + 4 € = 7 €. Du kannst jetzt eines wählen, warten oder mehr sparen. Es gibt mehr als eine vernünftige Wahl.",
         "tryIt": [
           "Zeige auf den gewählten Gegenstand.",
           "Berechne für jede Wahl das übrige Geld.",
@@ -853,23 +853,23 @@
         "readings": [
           {
             "idea": "Prüfe vor der Wahl das Geld.",
-            "situation": "Du hast £5. Ein Heft kostet £3 und ein Spielzeug £4. Was kannst du dir jetzt leisten?",
+            "situation": "Du hast 5 €. Ein Heft kostet 3 € und ein Spielzeug 4 €. Was kannst du dir jetzt leisten?",
             "choices": [
               "Einen Gegenstand, mit Geld übrig",
-              "Beide Gegenstände für £5",
+              "Beide Gegenstände für 5 €",
               "Beides, ohne Rest"
             ],
             "explanation": "Drei plus vier sind sieben. Das ist mehr als fünf. Du kannst eines wählen, warten oder keines nehmen."
           },
           {
             "idea": "Ein Budget macht Abwägungen sichtbar. Es entscheidet nicht über deine Prioritäten.",
-            "situation": "Mit £5 lassen sich ein Heft für £3 und ein Spielzeug für £4 nicht zusammen ohne weiteres Geld kaufen. Welche Aussage passt?",
+            "situation": "Mit 5 € lassen sich ein Heft für 3 € und ein Spielzeug für 4 € nicht zusammen ohne weiteres Geld kaufen. Welche Aussage passt?",
             "choices": [
               "Jeder Gegenstand ist einzeln bezahlbar; die andere Geldverwendung ist die entgangene Alternative",
-              "Beide sind bezahlbar, weil jeder weniger als £5 kostet",
+              "Beide sind bezahlbar, weil jeder weniger als 5 € kostet",
               "Geldleihen beseitigt die Kosten der Wahl"
             ],
-            "explanation": "Der gemeinsame Preis ist £7. Die Wahl eines Gegenstands lässt einen anderen Restbetrag und verschiebt eine andere Geldverwendung. Auch Warten oder keines zu wählen kann zu deinen Prioritäten passen."
+            "explanation": "Der gemeinsame Preis ist 7 €. Die Wahl eines Gegenstands lässt einen anderen Restbetrag und verschiebt eine andere Geldverwendung. Auch Warten oder keines zu wählen kann zu deinen Prioritäten passen."
           }
         ]
       }

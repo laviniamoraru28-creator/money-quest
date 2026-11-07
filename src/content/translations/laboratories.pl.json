@@ -95,7 +95,7 @@
         "tryIt": [
           "Wskaż większą liczbę na dwóch przykładowych etykietach.",
           "Porównaj dwa opakowania oznaczone 100 g i 150 g.",
-          "Porównaj 200 g za £2 z 300 g za £2.40. Policz cenę za 100 g."
+          "Porównaj 200 g za 2 zł z 300 g za 2,40 zł. Policz cenę za 100 g."
         ],
         "readings": [
           {
@@ -110,13 +110,13 @@
           },
           {
             "idea": "Wygląd opakowania i opłacalność cenowa to dwie różne sprawy.",
-            "situation": "Jedno opakowanie to 200 g za £2. Drugie to 300 g za £2.40. Co pomaga porównać opłacalność?",
+            "situation": "Jedno opakowanie to 200 g za 2 zł. Drugie to 300 g za 2,40 zł. Co pomaga porównać opłacalność?",
             "choices": [
               "Wybrać opakowanie, które wygląda na wyższe",
               "Założyć, że wyższa cena całkowita oznacza gorszą opłacalność",
               "Obliczyć i porównać cenę za każde 100 g"
             ],
-            "explanation": "Pierwsze opakowanie kosztuje £1 za 100 g. Drugie kosztuje 80p za 100 g. Cena jednostkowa pomaga porównać opłacalność, ale większa ilość ma sens tylko, gdy jej potrzebujesz i możesz sobie pozwolić na całość."
+            "explanation": "Pierwsze opakowanie kosztuje 1 zł za 100 g. Drugie kosztuje 80 gr za 100 g. Cena jednostkowa pomaga porównać opłacalność, ale większa ilość ma sens tylko, gdy jej potrzebujesz i możesz sobie pozwolić na całość."
           }
         ]
       },
@@ -837,14 +837,14 @@
       {
         "title": "Wybieraj z budżetem",
         "idea": "Twój wybór ma koszt i może wpłynąć na inny cel.",
-        "situation": "Masz £5. Zeszyt kosztuje £3, a zabawka £4. Co możesz kupić bez pożyczania pieniędzy?",
+        "situation": "Masz 5 zł. Zeszyt kosztuje 3 zł, a zabawka 4 zł. Co możesz kupić bez pożyczania pieniędzy?",
         "choices": [
           "Jedną rzecz, z pewną sumą pieniędzy, która zostanie",
-          "Obie rzeczy za £5",
+          "Obie rzeczy za 5 zł",
           "Obie rzeczy, nie mając nic z reszty"
         ],
         "correct": 0,
-        "explanation": "£3 + £4 = £7. Możesz wybrać jedną rzecz teraz, zaczekać albo zaoszczędzić więcej. Jest więcej niż jeden rozsądny wybór.",
+        "explanation": "3 zł + 4 zł = 7 zł. Możesz wybrać jedną rzecz teraz, zaczekać albo zaoszczędzić więcej. Jest więcej niż jeden rozsądny wybór.",
         "tryIt": [
           "Wskaż rzecz, którą wybierasz.",
           "Oblicz, ile pieniędzy zostanie przy każdym wyborze.",
@@ -853,23 +853,23 @@
         "readings": [
           {
             "idea": "Sprawdź pieniądze, zanim wybierzesz.",
-            "situation": "Masz £5. Zeszyt kosztuje £3, a zabawka £4. Na co teraz masz pieniądze?",
+            "situation": "Masz 5 zł. Zeszyt kosztuje 3 zł, a zabawka 4 zł. Na co teraz masz pieniądze?",
             "choices": [
               "Na jedną rzecz, z resztą pieniędzy",
-              "Na obie rzeczy za £5",
+              "Na obie rzeczy za 5 zł",
               "Na obie rzeczy, bez niczego z reszty"
             ],
             "explanation": "Trzy plus cztery to siedem, a to więcej niż pięć. Możesz wybrać jedną rzecz, zaczekać albo nie wybierać żadnej."
           },
           {
             "idea": "Budżet ukazuje kompromisy, ale nie decyduje za ciebie o priorytetach.",
-            "situation": "Mając £5, nie można kupić zeszytu za £3 i zabawki za £4 bez dodatkowych pieniędzy. Które stwierdzenie jest prawdziwe?",
+            "situation": "Mając 5 zł, nie można kupić zeszytu za 3 zł i zabawki za 4 zł bez dodatkowych pieniędzy. Które stwierdzenie jest prawdziwe?",
             "choices": [
               "Każdą z rzeczy można kupić samodzielnie; druga rzecz staje się kosztem alternatywnym",
-              "Obie są dostępne, bo każda kosztuje mniej niż £5",
+              "Obie są dostępne, bo każda kosztuje mniej niż 5 zł",
               "Pożyczenie pieniędzy usuwa koszt tej decyzji"
             ],
-            "explanation": "Łączna cena to £7. Wybór jednej rzeczy zostawia inną sumę i odkłada inne wykorzystanie pieniędzy. Zaczekanie albo niewybranie żadnej rzeczy też może odpowiadać twoim priorytetom."
+            "explanation": "Łączna cena to 7 zł. Wybór jednej rzeczy zostawia inną sumę i odkłada inne wykorzystanie pieniędzy. Zaczekanie albo niewybranie żadnej rzeczy też może odpowiadać twoim priorytetom."
           }
         ]
       }

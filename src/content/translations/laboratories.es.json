@@ -67,7 +67,7 @@
         "tryIt": [
           "Señala el número más grande en dos etiquetas de ejemplo.",
           "Compara dos paquetes etiquetados con 100 g y 150 g.",
-          "Compara 200 g por £2 con 300 g por £2.40. Calcula el precio por cada 100 g."
+          "Compara 200 g por 2 € con 300 g por 2,40 €. Calcula el precio por cada 100 g."
         ],
         "readings": [
           {
@@ -78,9 +78,9 @@
           },
           {
             "idea": "El aspecto de un paquete y su relación calidad-precio son dos cosas distintas.",
-            "situation": "Un paquete tiene 200 g por £2. Otro tiene 300 g por £2.40. ¿Qué te ayuda a comparar cuál conviene más?",
+            "situation": "Un paquete tiene 200 g por 2 €. Otro tiene 300 g por 2,40 €. ¿Qué te ayuda a comparar cuál conviene más?",
             "choices": ["Elegir la caja que parezca más alta", "Suponer que el precio total más alto es siempre peor opción", "Calcular y comparar el precio de cada uno por cada 100 g"],
-            "explanation": "El primero cuesta £1 por cada 100 g. El segundo cuesta 80p por cada 100 g. El precio por unidad ayuda a comparar, pero comprar más solo conviene si lo necesitas y puedes pagar el total."
+            "explanation": "El primero cuesta 1 € por cada 100 g. El segundo cuesta 80 céntimos por cada 100 g. El precio por unidad ayuda a comparar, pero comprar más solo conviene si lo necesitas y puedes pagar el total."
           }
         ]
       },
@@ -585,10 +585,10 @@
       {
         "title": "Elige con un presupuesto",
         "idea": "Tu decisión tiene un coste y puede afectar a otro objetivo.",
-        "situation": "Tienes £5. Un cuaderno cuesta £3 y un juguete cuesta £4. ¿Qué puedes comprar sin pedir prestado?",
-        "choices": ["Un artículo, y te queda algo de dinero", "Los dos por £5", "Los dos, sin que te quede nada"],
+        "situation": "Tienes 5 €. Un cuaderno cuesta 3 € y un juguete cuesta 4 €. ¿Qué puedes comprar sin pedir prestado?",
+        "choices": ["Un artículo, y te queda algo de dinero", "Los dos por 5 €", "Los dos, sin que te quede nada"],
         "correct": 0,
-        "explanation": "£3 + £4 = £7. Puedes elegir uno ahora, esperar, o ahorrar más. Hay más de una decisión razonable.",
+        "explanation": "3 € + 4 € = 7 €. Puedes elegir uno ahora, esperar, o ahorrar más. Hay más de una decisión razonable.",
         "tryIt": [
           "Señala el artículo que elegirías.",
           "Calcula cuánto dinero te quedaría con cada opción.",
@@ -597,15 +597,15 @@
         "readings": [
           {
             "idea": "Comprueba el dinero antes de elegir.",
-            "situation": "Tienes £5. Un cuaderno cuesta £3 y un juguete cuesta £4. ¿Qué puedes comprar ahora?",
-            "choices": ["Un artículo, y te queda dinero", "Los dos artículos por £5", "Los dos, sin que te quede nada"],
+            "situation": "Tienes 5 €. Un cuaderno cuesta 3 € y un juguete cuesta 4 €. ¿Qué puedes comprar ahora?",
+            "choices": ["Un artículo, y te queda dinero", "Los dos artículos por 5 €", "Los dos, sin que te quede nada"],
             "explanation": "Tres más cuatro es siete, que es más que cinco. Puedes elegir uno, esperar, o no elegir ninguno."
           },
           {
             "idea": "Un presupuesto hace visibles las renuncias, pero no decide tus prioridades por ti.",
-            "situation": "Con £5 disponibles, no puedes comprar a la vez un cuaderno de £3 y un juguete de £4 sin más dinero. ¿Qué afirmación es correcta?",
-            "choices": ["Cualquiera de los dos artículos se puede comprar por separado; el otro uso del dinero es un coste de oportunidad", "Los dos son asequibles porque cada uno cuesta menos de £5", "Pedir prestado elimina el coste de la decisión"],
-            "explanation": "El precio combinado es £7. Elegir uno deja un saldo distinto y retrasa otro uso de ese dinero. Esperar o no elegir ninguno también puede ajustarse a tus prioridades."
+            "situation": "Con 5 € disponibles, no puedes comprar a la vez un cuaderno de 3 € y un juguete de 4 € sin más dinero. ¿Qué afirmación es correcta?",
+            "choices": ["Cualquiera de los dos artículos se puede comprar por separado; el otro uso del dinero es un coste de oportunidad", "Los dos son asequibles porque cada uno cuesta menos de 5 €", "Pedir prestado elimina el coste de la decisión"],
+            "explanation": "El precio combinado es 7 €. Elegir uno deja un saldo distinto y retrasa otro uso de ese dinero. Esperar o no elegir ninguno también puede ajustarse a tus prioridades."
           }
         ]
       }
