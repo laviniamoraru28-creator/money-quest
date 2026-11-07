@@ -9,6 +9,8 @@ for(const locale of LOCALES){
  const messages=JSON.parse(readFileSync(`messages/${locale}.json`,'utf8'));
  test(`${locale}: menu-only destinations, original money pictures and lesson keyword search`,async({page})=>{
   await page.goto(`/${locale}`);
+  const hero=page.locator('[data-homepage-hero] img');
+  await expect(hero).toBeVisible();await expect.poll(()=>hero.evaluate((e:HTMLImageElement)=>e.complete&&e.naturalWidth>0)).toBe(true);
   await expect(page.locator('main').getByRole('heading',{name:reviewsCopy[locale].title,exact:true})).toHaveCount(0);
   await expect(page.locator('footer a[href$="/reviews"]')).toHaveCount(0);
   await page.getByRole('button',{name:messages.navMenu.openMenu,exact:true}).click();
@@ -43,4 +45,10 @@ test('Romanian budget search returns a lesson without a preselected level',async
  const menu=page.getByRole('dialog',{name:'Explorează Money Quest',exact:true});
  await menu.getByRole('searchbox').fill('buget');await expect(menu.locator('a[href*="/lesson/"]').first()).toBeVisible();
  await menu.locator('a[href*="/lesson/"]').first().click();await expect(page.locator('[data-lesson-section="lesson"]')).toBeVisible();
+});
+
+test('English homepage retains its approved hero with reduced decorative images',async({page})=>{
+ await page.addInitScript(()=>localStorage.setItem('moneyquest_accessibility_prefs_v1',JSON.stringify({imageSize:'minimal',focusMode:true})));
+ await page.goto('/en');const image=page.locator('[data-homepage-hero] img');await expect(image).toBeVisible();
+ await expect.poll(()=>image.evaluate((e:HTMLImageElement)=>e.complete&&e.naturalWidth>0)).toBe(true);
 });

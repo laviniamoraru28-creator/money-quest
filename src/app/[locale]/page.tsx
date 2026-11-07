@@ -40,7 +40,7 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
 
             </div>
             <div className="relative overflow-hidden rounded-3xl border border-teal/15 bg-cream shadow-lg">
-              <picture data-learning-decoration>
+              <picture data-homepage-hero>
                 <source media="(max-width: 767px)" srcSet="/images/money-quest/homepage-family-v2-mobile.webp" />
                 <Image unoptimized src="/images/money-quest/homepage-family-v2.webp"
                   alt={t("landing.heroImageAlt")} width={1536} height={1024} priority
