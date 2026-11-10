@@ -31,6 +31,14 @@ const REVEAL_HOLD_MS: int = 500
 const GATE_ON_DOOR: float = 0.5
 ## Heights on the player kept in view (middle and feet), in metres.
 const VIEW_HEIGHTS: Array = [1.2, 0.2]
+## Most small scattered pieces one zone may have.
+const MAX_SMALL: int = 160
+## How close a small piece may come (metres): door, interactable, spawn point
+## and the straight way from the spawn point to a door.
+const SMALL_CLEAR_DOOR: float = 2.2
+const SMALL_CLEAR_INTERACT: float = 0.8
+const SMALL_CLEAR_SPAWN: float = 1.2
+const SMALL_CLEAR_WAY: float = 0.6
 
 ## Use delivered kit assets where they exist (false = placeholders only).
 @export var use_assets: bool = true
@@ -51,6 +59,8 @@ func _ready() -> void:
 	if _root == null:
 		return
 	_player = _root.get_node_or_null("Player") as Node3D
+	if not _root.find_children("*", "ZoneDressing", true, false).is_empty():
+		push_warning("CozySlotLayer: %s also has the old ZoneDressing; use one or the other." % _root.name)
 	_read_zone()
 	for c in get_children():
 		if c is CozySlot:
@@ -63,6 +73,7 @@ func _ready() -> void:
 	for s in _accepted:
 		_fill(s)
 	_build_shelf_objects()
+	_build_scatter()
 
 
 ## Slots that passed the clearance checks and were built.
@@ -82,6 +93,7 @@ func rebuild(assets: bool) -> void:
 	for s in _accepted:
 		_fill(s)
 	_build_shelf_objects()
+	_build_scatter()
 
 
 func _fill(s: CozySlot) -> void:
@@ -99,6 +111,8 @@ func _fill(s: CozySlot) -> void:
 		return
 	piece.name = "Piece"
 	s.add_child(piece)
+	if CozyKit.is_ground(s.kind):
+		_build_edge_fence()
 	if CozyKit.REVEAL_PARTS.has(s.kind):
 		_add_reveal(piece, CozyKit.REVEAL_PARTS[s.kind])
 
@@ -118,12 +132,78 @@ func _build_shelf_objects() -> void:
 	CozyKit.merge_small_pieces(self, "ShelfObjects", placed)
 
 
+## Every CozyScatter's spots that pass the checks, as one merged mesh.
+func _build_scatter() -> void:
+	var old: Node = get_node_or_null("SmallObjects")
+	if old:
+		remove_child(old)
+		old.queue_free()
+	var placed: Array = []
+	for c in get_children():
+		if not c is CozyScatter:
+			continue
+		for v: Vector3 in (c as CozyScatter).spots:
+			var why: String = "over the limit of %d" % MAX_SMALL if placed.size() >= MAX_SMALL else _check_small(Vector2(v.x, v.z))
+			if why.is_empty():
+				placed.append([(c as CozyScatter).piece, Transform3D(Basis(Vector3.UP, deg_to_rad(v.y)), Vector3(v.x, 0, v.z))])
+			else:
+				_rejected["%s at (%.1f, %.1f)" % [c.name, v.x, v.z]] = why
+				push_warning("CozySlotLayer: small piece %s at (%.1f, %.1f) not built: %s" % [c.name, v.x, v.z, why])
+	CozyKit.merge_small_pieces(self, "SmallObjects", placed)
+
+
+## "" when a small piece may stand at `p`, else the reason it may not.
+func _check_small(p: Vector2) -> String:
+	for n in _portals:
+		if p.distance_to(_flat(n)) < SMALL_CLEAR_DOOR:
+			return "too close to the door %s" % n.name
+	for n in _interactables:
+		if p.distance_to(_flat(n)) < SMALL_CLEAR_INTERACT:
+			return "too close to %s" % n.name
+	var spawn: Vector2 = _flat(_player) if _player else Vector2(0, 3)
+	if p.distance_to(spawn) < SMALL_CLEAR_SPAWN:
+		return "too close to the spawn point"
+	for n in _portals:
+		if _dist_to_segment(p, spawn, _flat(n)) < SMALL_CLEAR_WAY:
+			return "in the way to the door %s" % n.name
+	for paths in _root.find_children("*", "CozyPaths", true, false):
+		if (paths as CozyPaths).distance_to(Vector3(p.x, 0, p.y)) < 0.2:
+			return "on a path"
+	return _overlap(p, 0.3)
+
+
+## Invisible walls along the edge of a ground piece, so nobody walks off the
+## grass. Layer 1 only: the camera's occlusion (layer 2) ignores them.
+func _build_edge_fence() -> void:
+	if get_node_or_null("EdgeFence"):
+		return
+	var a: Rect2 = CozyKit.GROUND_AREA.grow(-0.3)
+	var body := StaticBody3D.new()
+	body.name = "EdgeFence"
+	body.collision_layer = 1
+	body.collision_mask = 0
+	var c: Vector2 = a.get_center()
+	for side: Array in [
+		[Vector3(a.position.x - 0.5, 2, c.y), Vector3(1, 4, a.size.y + 2)],
+		[Vector3(a.end.x + 0.5, 2, c.y), Vector3(1, 4, a.size.y + 2)],
+		[Vector3(c.x, 2, a.position.y - 0.5), Vector3(a.size.x + 2, 4, 1)],
+		[Vector3(c.x, 2, a.end.y + 0.5), Vector3(a.size.x + 2, 4, 1)],
+	]:
+		var shape := BoxShape3D.new()
+		shape.size = side[1]
+		var cs := CollisionShape3D.new()
+		cs.shape = shape
+		cs.position = side[0]
+		body.add_child(cs)
+	add_child(body)
+
+
 ## The plain shape a kit piece replaces: the zone's floor mesh (ground) or
 ## the door's grey block (gate). Hidden, never removed, so the zone is whole
 ## again whenever the piece is missing. Collision and door areas stay.
 func _show_stand_in(s: CozySlot, show_it: bool) -> void:
 	var stand_in: Node3D = null
-	if s.kind == "ground":
+	if CozyKit.is_ground(s.kind):
 		stand_in = _root.get_node_or_null("Ground/MeshInstance3D") as Node3D
 	elif CozyKit.is_gate(s.kind):
 		var door: Node3D = _door_at(_flat(s))

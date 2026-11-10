@@ -1,9 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://forestwalk001"]
+[gd_scene load_steps=18 format=3 uid="uid://forestwalk001"]
 
 [ext_resource type="Script" path="res://scenes/world/zones/calm_world/ForestWalk.gd" id="1"]
 [ext_resource type="PackedScene" path="res://scenes/player/Player.tscn" id="2"]
 [ext_resource type="PackedScene" path="res://scenes/player/CameraController.tscn" id="3"]
 [ext_resource type="Script" path="res://scripts/world/PortalInteraction.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/world/decor/cozy/CozySlotLayer.gd" id="c7"]
+[ext_resource type="Script" path="res://scripts/world/decor/cozy/CozySlot.gd" id="c8"]
+[ext_resource type="Script" path="res://scripts/world/decor/cozy/CozyPaths.gd" id="c9"]
+[ext_resource type="Script" path="res://scripts/world/decor/cozy/CozyScatter.gd" id="c10"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ground"]
 size = Vector3(24, 1, 24)
@@ -59,6 +63,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_ground")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 
 [node name="CameraController" parent="." instance=ExtResource("3")]
+use_authored_offset = true
 
 [node name="Trees" type="Node3D" parent="."]
 
@@ -147,3 +152,124 @@ no_depth_test = true
 font_size = 48
 outline_size = 8
 text = ""
+
+[node name="CozyPaths" type="Node3D" parent="."]
+script = ExtResource("c9")
+paths = Array[PackedVector3Array]([PackedVector3Array(0, 0, 9, 0, 0, 1.2)])
+widths = PackedFloat32Array(3)
+
+[node name="CozySlots" type="Node3D" parent="."]
+script = ExtResource("c7")
+
+[node name="Ground" type="Marker3D" parent="CozySlots"]
+script = ExtResource("c8")
+kind = "ground"
+
+[node name="Backdrop" type="Marker3D" parent="CozySlots"]
+script = ExtResource("c8")
+kind = "backdrop"
+
+[node name="GateHub" type="Marker3D" parent="CozySlots"]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, 8)
+script = ExtResource("c8")
+kind = "gate_02"
+
+[node name="Tree1" type="Marker3D" parent="CozySlots"]
+transform = Transform3D(0.9659, 0, -0.2588, 0, 1, 0, 0.2588, 0, 0.9659, -4, 0, -3)
+script = ExtResource("c8")
+kind = "tree_hero"
+
+[node name="Tree2" type="Marker3D" parent="CozySlots"]
+transform = Transform3D(-0.4067, 0, 0.9135, 0, 1, 0, -0.9135, 0, -0.4067, 3, 0, -5)
+script = ExtResource("c8")
+kind = "tree_light"
+
+[node name="Tree3" type="Marker3D" parent="CozySlots"]
+transform = Transform3D(0.8192, 0, 0.5736, 0, 1, 0, -0.5736, 0, 0.8192, -2, 0, -6)
+script = ExtResource("c8")
+kind = "tree_light"
+
+[node name="Tree4" type="Marker3D" parent="CozySlots"]
+transform = Transform3D(-0.9994, 0, 0.0349, 0, 1, 0, -0.0349, 0, -0.9994, 1, 0, -2.2)
+script = ExtResource("c8")
+kind = "tree_light"
+
+[node name="Tree5" type="Marker3D" parent="CozySlots"]
+transform = Transform3D(0.6947, 0, 0.7193, 0, 1, 0, -0.7193, 0, 0.6947, -5, 0, -1)
+script = ExtResource("c8")
+kind = "tree_light"
+
+[node name="Tree6" type="Marker3D" parent="CozySlots"]
+transform = Transform3D(-0.6561, 0, -0.7547, 0, 1, 0, 0.7547, 0, -0.6561, -9, 0, -8)
+script = ExtResource("c8")
+kind = "tree_light"
+
+[node name="Tree7" type="Marker3D" parent="CozySlots"]
+transform = Transform3D(0.0349, 0, 0.9994, 0, 1, 0, -0.9994, 0, 0.0349, 8, 0, -9)
+script = ExtResource("c8")
+kind = "tree_light"
+
+[node name="Tree8" type="Marker3D" parent="CozySlots"]
+transform = Transform3D(0.7314, 0, -0.6820, 0, 1, 0, 0.6820, 0, 0.7314, 9, 0, -2)
+script = ExtResource("c8")
+kind = "tree_light"
+
+[node name="Tree9" type="Marker3D" parent="CozySlots"]
+transform = Transform3D(0.8572, 0, -0.5150, 0, 1, 0, 0.5150, 0, 0.8572, -9.5, 0, 4)
+script = ExtResource("c8")
+kind = "tree_light"
+
+[node name="Tree10" type="Marker3D" parent="CozySlots"]
+transform = Transform3D(0.0175, 0, -0.9998, 0, 1, 0, 0.9998, 0, 0.0175, 9, 0, 5)
+script = ExtResource("c8")
+kind = "tree_light"
+
+[node name="Tree11" type="Marker3D" parent="CozySlots"]
+transform = Transform3D(-0.3256, 0, 0.9455, 0, 1, 0, -0.9455, 0, -0.3256, -3, 0, -10.2)
+script = ExtResource("c8")
+kind = "tree_light"
+
+[node name="Tree12" type="Marker3D" parent="CozySlots"]
+transform = Transform3D(0.9903, 0, -0.1392, 0, 1, 0, 0.1392, 0, 0.9903, 3.5, 0, -10.2)
+script = ExtResource("c8")
+kind = "tree_light"
+
+[node name="Boulder1" type="Marker3D" parent="CozySlots"]
+transform = Transform3D(0.5878, 0, -0.8090, 0, 1, 0, 0.8090, 0, 0.5878, -8, 0, 0.5)
+script = ExtResource("c8")
+kind = "boulder"
+
+[node name="Boulder2" type="Marker3D" parent="CozySlots"]
+transform = Transform3D(-0.4540, 0, 0.8910, 0, 1, 0, -0.8910, 0, -0.4540, 6.5, 0, 1)
+script = ExtResource("c8")
+kind = "boulder"
+
+[node name="Boulder3" type="Marker3D" parent="CozySlots"]
+transform = Transform3D(-0.7193, 0, 0.6947, 0, 1, 0, -0.6947, 0, -0.7193, -6.5, 0, -8)
+script = ExtResource("c8")
+kind = "boulder"
+
+[node name="Scatter1" type="Node" parent="CozySlots"]
+script = ExtResource("c10")
+piece = "Kit_Nature_Fern_01"
+spots = PackedVector3Array(-7.6, 4, -1.86, -9.35, 242, -3.66, -10.55, 2, -3.47, -6.89, 19, -3.53, 5.01, 199, -11.17, -9.34, 336, -5.36, -10.17, 334, -2.59, -9.54, 71, -1.71, -10.31, 87, -0.02, -8.04, 103, -1.03, -11.04, 229, -4.45, 3.49, 70, -8.63)
+
+[node name="Scatter2" type="Node" parent="CozySlots"]
+script = ExtResource("c10")
+piece = "Kit_Nature_Fern_03"
+spots = PackedVector3Array(5.69, 348, -9.79, 7.07, 218, 10.83, -7.47, 17, 1.93, 7.34, 129, 7.76, 8.47, 97, 6.53, 6.34, 149, -10.91, 8.3, 174, 8.4, 9.09, 193, 9.31, -10.23, 259, 2.02, 4.9, 296, -9.15, 6.35, 313, -7.76, 6.3, 151, 7.76)
+
+[node name="Scatter3" type="Node" parent="CozySlots"]
+script = ExtResource("c10")
+piece = "Kit_Nature_Mushrooms_01"
+spots = PackedVector3Array(8.7, 326, 7.66, -11.19, 135, -10.54, 6.39, 321, 9.44, 10.26, 109, 9.51, 7.41, 22, 10.03, -11.17, 199, -9.14, -9.16, 83, -10.85, 8.12, 37, 11.18, 10.87, 221, 10.55, 9.07, 83, 11.22)
+
+[node name="Scatter4" type="Node" parent="CozySlots"]
+script = ExtResource("c10")
+piece = "Kit_Nature_GrassTuft_01"
+spots = PackedVector3Array(-4.95, 219, -8.64, -11.26, 297, -7.52, -2.73, 65, -8.32, -7.3, 311, -5.29, -7.49, 127, -6.89, -6.71, 336, -6.51, -6.42, 329, -5.39, -6.28, 326, -10.26, -3.78, 309, -8.53, -8.88, 263, -6.14, -8.06, 328, -9.21, -5.91, 123, -9.16)
+
+[node name="Scatter5" type="Node" parent="CozySlots"]
+script = ExtResource("c10")
+piece = "Kit_Nature_Fern_03"
+spots = PackedVector3Array(-2.63, 220, 0.5, -2.7, 164, 2, -3, 236, 4, -2.8, 153, 5.3, 2.67, 78, 0.5, 2.94, 352, 2, 2.74, 153, 4, 2.79, 226, 5.3)

@@ -28,6 +28,11 @@ const KINDS: Dictionary = {
 	"gate_02": ["Kit_Calm_GateArch_02.glb", 1.8],   # mint
 	"gate_03": ["Kit_Calm_GateArch_03.glb", 1.8],   # butter
 	"ground": ["Kit_Ground_BubbleGarden_01.glb", 19.0],
+	"ground_sand": ["Kit_Ground_Calm_Sand_01.glb", 19.0],
+	"ground_sea": ["Kit_Ground_Calm_Sea_01.glb", 19.0],
+	"ground_glow": ["Kit_Ground_Calm_Glow_01.glb", 19.0],
+	"ground_rain": ["Kit_Ground_Calm_Rain_01.glb", 19.0],
+	"ground_lilac": ["Kit_Ground_Calm_Lilac_01.glb", 19.0],
 	"backdrop": ["Kit_Backdrop_CalmRing_01.glb", 40.0],
 }
 
@@ -37,8 +42,15 @@ const KINDS: Dictionary = {
 ## metres), because a ground piece may reach further on one side.
 const LANDSCAPE: Dictionary = {
 	"ground": Vector2(0, 2.5),
+	"ground_sand": Vector2(0, 2.5),
+	"ground_sea": Vector2(0, 2.5),
+	"ground_glow": Vector2(0, 2.5),
+	"ground_rain": Vector2(0, 2.5),
+	"ground_lilac": Vector2(0, 2.5),
 	"backdrop": Vector2.ZERO,
 }
+## The walkable area every ground piece shares: x, z, width, depth in metres.
+const GROUND_AREA := Rect2(-15, -12, 30, 29)
 ## Landscape kinds that are only scenery: no collision, any height.
 const SCENERY_ONLY: Array = ["backdrop"]
 
@@ -94,6 +106,10 @@ static func is_kind(kind: String) -> bool:
 
 static func is_landscape(kind: String) -> bool:
 	return LANDSCAPE.has(kind)
+
+
+static func is_ground(kind: String) -> bool:
+	return kind == "ground" or kind.begins_with("ground_")
 
 
 static func is_gate(kind: String) -> bool:

@@ -1,9 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://musicroom00001"]
+[gd_scene load_steps=16 format=3 uid="uid://musicroom00001"]
 
 [ext_resource type="Script" path="res://scenes/world/zones/calm_world/MusicRoom.gd" id="1"]
 [ext_resource type="PackedScene" path="res://scenes/player/Player.tscn" id="2"]
 [ext_resource type="PackedScene" path="res://scenes/player/CameraController.tscn" id="3"]
 [ext_resource type="Script" path="res://scripts/world/PortalInteraction.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/world/decor/cozy/CozySlotLayer.gd" id="c7"]
+[ext_resource type="Script" path="res://scripts/world/decor/cozy/CozySlot.gd" id="c8"]
+[ext_resource type="Script" path="res://scripts/world/decor/cozy/CozyPaths.gd" id="c9"]
+[ext_resource type="Script" path="res://scripts/world/decor/cozy/CozyScatter.gd" id="c10"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ground"]
 size = Vector3(24, 1, 24)
@@ -55,6 +59,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_ground")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 
 [node name="CameraController" parent="." instance=ExtResource("3")]
+use_authored_offset = true
 
 [node name="Notes" type="Node3D" parent="."]
 
@@ -103,3 +108,69 @@ no_depth_test = true
 font_size = 48
 outline_size = 8
 text = ""
+
+[node name="CozyPaths" type="Node3D" parent="."]
+script = ExtResource("c9")
+paths = Array[PackedVector3Array]([PackedVector3Array(0, 0, 9, 0, 0, -0.5)])
+widths = PackedFloat32Array(3)
+
+[node name="CozySlots" type="Node3D" parent="."]
+script = ExtResource("c7")
+
+[node name="Ground" type="Marker3D" parent="CozySlots"]
+script = ExtResource("c8")
+kind = "ground_lilac"
+
+[node name="Backdrop" type="Marker3D" parent="CozySlots"]
+script = ExtResource("c8")
+kind = "backdrop"
+
+[node name="GateHub" type="Marker3D" parent="CozySlots"]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, 8)
+script = ExtResource("c8")
+kind = "gate_02"
+
+[node name="Pavilion1" type="Marker3D" parent="CozySlots"]
+transform = Transform3D(0.6671, 0, -0.7450, 0, 1, 0, 0.7450, 0, 0.6671, 6.7, 0, -6)
+script = ExtResource("c8")
+kind = "pavilion"
+
+[node name="TreeLight1" type="Marker3D" parent="CozySlots"]
+transform = Transform3D(0.7660, 0, -0.6428, 0, 1, 0, 0.6428, 0, 0.7660, -8.5, 0, -6.5)
+script = ExtResource("c8")
+kind = "tree_light"
+
+[node name="TreeLight2" type="Marker3D" parent="CozySlots"]
+transform = Transform3D(0.7547, 0, -0.6561, 0, 1, 0, 0.6561, 0, 0.7547, -9.5, 0, 3.5)
+script = ExtResource("c8")
+kind = "tree_light"
+
+[node name="Boulder1" type="Marker3D" parent="CozySlots"]
+transform = Transform3D(-0.8829, 0, -0.4695, 0, 1, 0, 0.4695, 0, -0.8829, 9, 0, 3)
+script = ExtResource("c8")
+kind = "boulder"
+
+[node name="Boulder2" type="Marker3D" parent="CozySlots"]
+transform = Transform3D(-0.8910, 0, 0.4540, 0, 1, 0, -0.4540, 0, -0.8910, -3, 0, -10)
+script = ExtResource("c8")
+kind = "boulder"
+
+[node name="Scatter1" type="Node" parent="CozySlots"]
+script = ExtResource("c10")
+piece = "Kit_Calm_Hint_Chimes"
+spots = PackedVector3Array(-9.19, 338, 11.16, -8.76, 290, 10, -8.07, 242, 10.84, -6.65, 179, 11.01, -8.93, 317, 8.87)
+
+[node name="Scatter2" type="Node" parent="CozySlots"]
+script = ExtResource("c10")
+piece = "Kit_Nature_Flowers_01"
+spots = PackedVector3Array(-7.53, 100, -3.63, -11, 304, -5.45, -9.13, 8, -3.48, -9.08, 97, 5.04, -6.74, 92, 1.48, -8.52, 78, 1.77, -10.38, 228, -1.2, -7.18, 214, 0.04, -10.05, 187, -2.39, -7.94, 172, 2.92, -8.38, 252, 5.55, -11.15, 197, 1.03, -7.92, 178, -2.3, -10.16, 280, -3.78, -10.16, 124, -4.75, -6.5, 98, -1.38, -11.06, 323, -2.31, -11, 183, -0.4)
+
+[node name="Scatter3" type="Node" parent="CozySlots"]
+script = ExtResource("c10")
+piece = "Kit_Nature_GrassTuft_01"
+spots = PackedVector3Array(-10.08, 258, 8.95, -7.79, 173, 9.91, -10.55, 257, 6.55, 7.1, 144, 4.65, -1, 263, -8.48, -0.01, 269, -9.67, 9.2, 112, 1.57, -8.53, 153, 8.03, -5.22, 103, -9.15, -1.57, 260, -10.6, 9.61, 103, 4.57, 6.21, 145, 2.87, -11.39, 205, 9.09, -2.18, 141, -8.85)
+
+[node name="Scatter4" type="Node" parent="CozySlots"]
+script = ExtResource("c10")
+piece = "Kit_Nature_Flowers_01"
+spots = PackedVector3Array(-3, 194, 0.5, -2.93, 114, 2, -2.98, 55, 4, -2.96, 84, 5.3, 2.56, 103, 0.5, 2.52, 334, 2, 2.71, 278, 4, 2.79, 197, 5.3)

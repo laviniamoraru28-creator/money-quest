@@ -98,7 +98,7 @@ func _disc(st: SurfaceTool, c: Vector3, radius: float) -> void:
 static func _placeholder_material() -> StandardMaterial3D:
 	if _placeholder == null:
 		_placeholder = StandardMaterial3D.new()
-		_placeholder.albedo_color = DecorKit.color("path_stone")
+		_placeholder.albedo_color = Color(0.88, 0.8, 0.64)
 		_placeholder.roughness = 1.0
 		_placeholder.metallic_specular = 0.2
 	return _placeholder
