@@ -94,9 +94,14 @@ const CAMERA_BLOCK_HEIGHT: float = 12.0
 ## farthest onward portal standing on it).
 @export var aisle_length: float = 0.0
 @export_group("Light")
+## A sun without shadows renders dimmer on this renderer, so it gets more energy.
+const SHADOWLESS_SUN_BOOST := 2.4
+
 ## Interior sun: softer than the Hub's 1.0 — a room is mostly pale floor
 ## and walls, which clip to white under the full outdoor sun.
 @export var sun_energy: float = 0.6
+## Off in rooms with many characters, where shadows double the drawing cost.
+@export var sun_shadows: bool = true
 @export var sun_pitch_degrees: float = -49.0
 @export var sun_yaw_degrees: float = 25.0
 
@@ -748,8 +753,8 @@ func _tune_light() -> void:
 		return
 	sun.rotation = Vector3(deg_to_rad(sun_pitch_degrees), deg_to_rad(sun_yaw_degrees), 0)
 	sun.light_color = Color(1, 0.96, 0.88)
-	sun.light_energy = sun_energy
-	sun.shadow_enabled = true
+	sun.light_energy = sun_energy if sun_shadows else sun_energy * SHADOWLESS_SUN_BOOST
+	sun.shadow_enabled = sun_shadows
 	sun.shadow_blur = 1.5
 	# Enough bias that rounded faces and bodies seen up close never show
 	# striped self-shadowing ("acne").

@@ -63,6 +63,18 @@ const STYLES: Dictionary = {
 		"sun": 0.65, "open_air": false, "life": "workshop", "motifs": ["bulb", "sketch", "gear", "workbench"],
 		"kit": ["workbench", "picture_board", "crate_stack", "workbench", "potted_plant", "picture_board"],
 	},
+	"entrepreneur": {
+		"palette": {"floor": "floor_clay", "floor_accent": "floor_clay_soft", "wall": "cream", "wainscot": "wood",
+			"trim": "bulb", "pilaster": "ember", "path": "path_terracotta", "kerb": "wood_dark", "accent": "ember"},
+		"sun": 0.65, "open_air": false, "life": "workshop", "motifs": ["bulb", "sketch", "gear", "workbench"],
+		"kit": ["workbench", "picture_board", "crate_stack", "workbench", "potted_plant", "picture_board"],
+	},
+	"museum_room": {
+		"palette": {"floor": "floor_sage", "floor_accent": "floor_sage_soft", "wall": "parchment", "wainscot": "stone_dark",
+			"trim": "gold", "pilaster": "coral", "path": "path_stone", "kerb": "stone_dark", "accent": "coral"},
+		"sun": 0.6, "open_air": false, "life": "gallery", "motifs": ["column", "case", "plinth", "label"],
+		"kit": ["display_case:coin", "display_case:shell", "bench", "display_case:note", "display_case:vase", "potted_plant"],
+	},
 	"museum": {
 		"palette": {"floor": "stone_dark", "floor_accent": "stone", "wall": "parchment", "wainscot": "stone_dark",
 			"trim": "gold", "pilaster": "coral", "path": "path_stone", "kerb": "stone_dark", "accent": "coral"},
@@ -76,14 +88,16 @@ const STYLES: Dictionary = {
 		"kit": ["reading_chair", "book_cart", "lectern_book", "lamp", "potted_plant", "reading_chair"],
 	},
 	"mentor_hall": {
-		"palette": {"floor": "stone", "floor_accent": "path_stone", "wall": "plaster", "wainscot": "wood",
+		"palette": {"floor": "floor_rose", "floor_accent": "floor_rose_soft", "wall": "plaster", "wainscot": "wood",
 			"trim": "gold", "pilaster": "book_red", "path": "path_wood", "kerb": "wood_dark", "accent": "gold"},
 		"sun": 0.6, "open_air": false, "life": "gallery", "motifs": ["portrait", "statue", "keepsake"],
+		"kit": ["picture_board", "bench", "potted_plant", "lamp", "picture_board", "bench"],
 	},
 	"mind_lab": {
-		"palette": {"floor": "path_lilac", "floor_accent": "fog", "wall": "fog", "wainscot": "lilac",
+		"palette": {"floor": "path_lilac", "floor_accent": "floor_lilac_soft", "wall": "fog", "wainscot": "lilac",
 			"trim": "cream", "pilaster": "lilac_dark", "path": "path_lilac", "kerb": "lilac_dark", "accent": "lilac"},
 		"sun": 0.6, "open_air": false, "life": "calm_lab", "motifs": ["bubble", "puzzle", "display"],
+		"kit": ["potted_plant", "bench", "picture_board", "potted_plant"],
 	},
 	"calm_world": {
 		"palette": {"floor": "grass_light", "floor_accent": "grass", "wall": "fog", "wainscot": "leaf_soft",
@@ -91,9 +105,10 @@ const STYLES: Dictionary = {
 		"sun": 0.55, "open_air": true, "life": "calm", "motifs": ["leaf", "water", "lantern"],
 	},
 	"leadership": {
-		"palette": {"floor": "stone", "floor_accent": "path_slate", "wall": "plaster", "wainscot": "sky_light",
+		"palette": {"floor": "path_slate", "floor_accent": "floor_slate_soft", "wall": "plaster", "wainscot": "sky_light",
 			"trim": "cream", "pilaster": "sky", "path": "path_slate", "kerb": "sky", "accent": "sky"},
 		"sun": 0.65, "open_air": false, "life": "workshop", "motifs": ["round_table", "board", "flag"],
+		"kit": ["picture_board", "bench", "potted_plant", "lamp"],
 	},
 	# The Money Quest trail's outdoor rooms (each has its own dressing
 	# subclass for its edges and set pieces; these are their palettes).

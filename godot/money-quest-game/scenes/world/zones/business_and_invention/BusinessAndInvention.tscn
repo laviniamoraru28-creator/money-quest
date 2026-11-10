@@ -1,10 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://businessinvent0001"]
+[gd_scene load_steps=17 format=3 uid="uid://businessinvent0001"]
 
 [ext_resource type="Script" path="res://scenes/world/zones/business_and_invention/BusinessAndInvention.gd" id="1"]
 [ext_resource type="PackedScene" path="res://scenes/player/Player.tscn" id="2"]
 [ext_resource type="PackedScene" path="res://scenes/player/CameraController.tscn" id="3"]
 [ext_resource type="Script" path="res://scripts/world/PortalInteraction.gd" id="4"]
 [ext_resource type="Script" path="res://scripts/library/ExhibitInteraction.gd" id="5"]
+[ext_resource type="Script" path="res://scripts/world/zones/ZoneDressing.gd" id="zd_dress"]
+[ext_resource type="Script" path="res://scripts/world/EnvironmentOverride.gd" id="zd_env"]
+[ext_resource type="Environment" path="res://assets/environment/mq_interior_environment.tres" id="zd_envres"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ground"]
 size = Vector3(28, 1, 36)
@@ -173,6 +176,8 @@ text = ""
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 
 [node name="CameraController" parent="." instance=ExtResource("3")]
+occlusion_mask = 2
+use_authored_offset = true
 
 [node name="PortalToHub" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
@@ -215,3 +220,11 @@ no_depth_test = true
 font_size = 48
 outline_size = 8
 text = ""
+
+[node name="ZoneDressing" type="Node3D" parent="."]
+script = ExtResource("zd_dress")
+district_style = "museum_room"
+
+[node name="EnvironmentOverride" type="Node" parent="."]
+script = ExtResource("zd_env")
+environment = ExtResource("zd_envres")
