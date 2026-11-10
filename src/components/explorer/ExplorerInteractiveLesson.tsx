@@ -5,9 +5,9 @@ import {useLocale} from "next-intl";
 import {ExplorerPictureChoice} from "@/components/explorer/ExplorerPictureChoice";
 import {ExplorerCoinCount} from "@/components/explorer/ExplorerCoinCount";
 import {ExplorerMiniShop} from "@/components/explorer/ExplorerMiniShop";
+import {explorerOtherTopics,explorerScenario,type ExplorerOtherTopic} from "@/content/explorer-other-lessons";
 import {isSupportedLocale, type Locale} from "@/i18n/config";
 
-type Topic = "money_basics" | "needs_wants" | "saving";
 type Copy = {intro:string;listen:string;next:string;success:string;retry:string;coin:string;add:string;remove:string;check:string;count:string;needs:string;food:string;toy:string;save:string;jar:string;spend:string;done:string};
 const fields=(["intro","listen","next","success","retry","coin","add","remove","check","count","needs","food","toy","save","jar","spend","done"] as const);
 const rows:Record<Locale,string>={
@@ -39,7 +39,9 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
    setFinished(true);
    onComplete();
  };
- if(!(["money_basics","needs_wants","saving"] as string[]).includes(topicId))return null;
+ const otherTopic=explorerOtherTopics.find(topic=>topic===topicId);
+ const scenario=otherTopic?explorerScenario(locale,otherTopic as ExplorerOtherTopic):null;
+ if(!(["money_basics","needs_wants","saving",...explorerOtherTopics] as string[]).includes(topicId))return null;
  return <section data-explorer-interactive-lesson className="flex flex-col gap-5">
    <h2 className="text-2xl font-bold">{t.intro}</h2>
    {topicId==="money_basics" && (stage===0?
@@ -54,6 +56,10 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
    {topicId==="saving" && <ExplorerPictureChoice prompt={t.save}
      options={[{id:"save",label:t.jar,symbol:"🐷",explanation:""},{id:"spend",label:t.spend,symbol:"🛍️",explanation:""}]}
      correctId="save" successMessage={t.success} retryMessage={t.retry}
+     replayLabel={t.listen} nextLabel={t.next} onComplete={complete}/>}
+   {scenario&&<ExplorerPictureChoice prompt={scenario.prompt}
+     options={[{id:"yes",label:scenario.correct,symbol:scenario.correctSymbol,explanation:""},{id:"no",label:scenario.wrong,symbol:scenario.wrongSymbol,explanation:""}]}
+     correctId="yes" successMessage={t.success} retryMessage={t.retry}
      replayLabel={t.listen} nextLabel={t.next} onComplete={complete}/>}
    {finished&&<p role="status" className="rounded-xl bg-teal/10 p-4 text-xl font-bold">{t.done}</p>}
  </section>;
