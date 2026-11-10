@@ -4,6 +4,7 @@ import {useState} from "react";
 import {useLocale} from "next-intl";
 import {ExplorerPictureChoice} from "@/components/explorer/ExplorerPictureChoice";
 import {ExplorerCoinCount} from "@/components/explorer/ExplorerCoinCount";
+import {ExplorerSavingJar} from "@/components/explorer/ExplorerSavingJar";
 import {ExplorerMiniShop} from "@/components/explorer/ExplorerMiniShop";
 import {explorerOtherTopics,explorerScenario,type ExplorerOtherTopic} from "@/content/explorer-other-lessons";
 import {isSupportedLocale, type Locale} from "@/i18n/config";
@@ -53,10 +54,7 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
      options={[{id:"food",label:t.food,symbol:"🍎",explanation:""},{id:"toy",label:t.toy,symbol:"🧸",explanation:""}]}
      correctId="food" successMessage={t.success} retryMessage={t.retry}
      replayLabel={t.listen} nextLabel={t.next} onComplete={complete}/>}
-   {topicId==="saving" && <ExplorerPictureChoice prompt={t.save}
-     options={[{id:"save",label:t.jar,symbol:"🐷",explanation:""},{id:"spend",label:t.spend,symbol:"🛍️",explanation:""}]}
-     correctId="save" successMessage={t.success} retryMessage={t.retry}
-     replayLabel={t.listen} nextLabel={t.next} onComplete={complete}/>}
+   {topicId==="saving" && <ExplorerSavingJar onComplete={complete}/>}
    {scenario&&<ExplorerPictureChoice prompt={scenario.prompt}
      options={[{id:"yes",label:scenario.correct,symbol:scenario.correctSymbol,explanation:""},{id:"no",label:scenario.wrong,symbol:scenario.wrongSymbol,explanation:""}]}
      correctId="yes" successMessage={t.success} retryMessage={t.retry}
