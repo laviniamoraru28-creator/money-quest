@@ -2,6 +2,8 @@
 import {useState} from "react";
 import {useLocale} from "next-intl";
 import {isSupportedLocale,type Locale} from "@/i18n/config";
+import {learningAmount} from "@/lib/currency/learning-currency";
+import {useTapOrDrag} from "@/lib/explorer/use-tap-or-drag";
 
 const rows:Record<Locale,[string,string,string,string,string,string,string,string]>={
  en:["Save for a bicycle","Put coins and banknotes into the jar.","Saved","Goal","Coin","Banknote","Great! You saved enough for your bicycle!","Start again"],
@@ -14,8 +16,7 @@ const rows:Record<Locale,[string,string,string,string,string,string,string,strin
  nl:["Spaar voor een fiets","Doe munten en bankbiljetten in de pot.","Gespaard","Doel","Munt","Bankbiljet","Goed gedaan! Je hebt voor je fiets gespaard!","Opnieuw"],
  pl:["Oszczędzaj na rower","Włóż monety i banknoty do słoika.","Oszczędzono","Cel","Moneta","Banknot","Brawo! Udało ci się zaoszczędzić na rower!","Od nowa"]
 };
-const symbols:Record<Locale,string>={en:"£",ro:"lei",es:"€",fr:"€",de:"€",it:"€",pt:"€",nl:"€",pl:"zł"};
-function amount(value:number,locale:Locale){return ["ro","pl"].includes(locale)?`${value} ${symbols[locale]}`:`${symbols[locale]}${value}`;}
+const amount=learningAmount;
 type MoneyItem={id:string;value:number;kind:"coin"|"note"};
 // Use real circulating denominations. Poland has no 5-zloty banknote.
 const denominations:Record<Locale,{coin:number;note:number}>={
@@ -31,6 +32,7 @@ export function ExplorerSavingJar({onComplete}:{onComplete:()=>void}){
  const requested=useLocale(),locale=isSupportedLocale(requested)?requested:"en";
  const [title,instruction,savedLabel,goalLabel,coinLabel,noteLabel,success,restart]=rows[locale];
  const [added,setAdded]=useState<string[]>([]);
+ const {dragSource,dropTarget}=useTapOrDrag<string>();
  const MONEY=moneyItems(locale);
  const TARGET=MONEY.reduce((sum,item)=>sum+item.value,0);
  const saved=MONEY.filter(item=>added.includes(item.id)).reduce((sum,item)=>sum+item.value,0);
@@ -61,6 +63,7 @@ export function ExplorerSavingJar({onComplete}:{onComplete:()=>void}){
        <div className="relative flex h-64 w-52 flex-col items-center justify-end sm:h-80 sm:w-64">
          <div className="absolute -top-1 z-10 h-7 w-[88%] rounded-[50%] border-4 border-violet-700 bg-violet-500 shadow-md" aria-hidden="true"/>
          <div role="img" aria-label={`${savedLabel}: ${amount(saved,locale)}`}
+           {...dropTarget(add)}
            className="relative flex h-[90%] w-[84%] flex-col justify-end overflow-hidden rounded-b-[3.5rem] rounded-t-[2rem] border-[6px] border-sky-400 bg-gradient-to-br from-white/95 via-sky-50/60 to-cyan-200/60 p-3 shadow-inner">
            <div className="absolute inset-x-2 bottom-2 rounded-b-[2.5rem] bg-amber-200/35 transition-[height] duration-300 motion-reduce:transition-none" style={{height:`${(saved/TARGET)*80}%`}}/>
            <div className="relative z-10 flex flex-wrap content-end justify-center gap-1" style={{minHeight:`${Math.max(12,(saved/TARGET)*78)}%`}}>
@@ -82,8 +85,9 @@ export function ExplorerSavingJar({onComplete}:{onComplete:()=>void}){
    <div className="border-t-2 border-amber-200 bg-gradient-to-b from-amber-100 to-orange-200 p-4 sm:p-6">
      <div className="grid grid-cols-3 gap-3 sm:grid-cols-6">
        {MONEY.map(item=><button key={item.id} type="button" disabled={done||added.includes(item.id)} onClick={()=>add(item.id)}
+         {...dragSource(item.id)}
          aria-label={`${item.kind==="coin"?coinLabel:noteLabel} ${amount(item.value,locale)}`}
-         className="flex min-h-28 flex-col items-center justify-center rounded-2xl border-2 border-violet-300 bg-white/95 p-2 font-bold text-indigo-900 shadow-md transition-transform hover:-translate-y-1 focus-visible:outline focus-visible:outline-4 focus-visible:outline-violet-700 disabled:opacity-35 motion-reduce:transform-none">
+         className="flex min-h-28 cursor-grab flex-col items-center justify-center rounded-2xl border-2 border-violet-300 bg-white/95 p-2 font-bold text-indigo-900 shadow-md transition-transform hover:-translate-y-1 focus-visible:outline focus-visible:outline-4 focus-visible:outline-violet-700 active:cursor-grabbing disabled:cursor-default disabled:opacity-35 motion-reduce:transform-none">
          <span aria-hidden="true" className="text-4xl">{item.kind==="coin"?"🪙":"💷"}</span>
          <span>{amount(item.value,locale)}</span><span className="text-xs">{item.kind==="coin"?coinLabel:noteLabel}</span>
        </button>)}

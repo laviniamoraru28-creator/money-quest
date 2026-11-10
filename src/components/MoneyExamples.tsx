@@ -8,13 +8,13 @@ import {ReadAloudButton} from "@/components/ui/ReadAloudButton";
 import {useLocale} from "next-intl";
 import {REGIONAL_LOCALES,isSupportedLocale,type Locale} from "@/i18n/config";
 import {moneyExamplesCopy} from "@/content/money-examples-copy";
-
-const learningCurrency:Record<Locale,string>={en:"GBP",ro:"RON",es:"EUR",fr:"EUR",de:"EUR",it:"EUR",pt:"EUR",nl:"EUR",pl:"PLN"};
+import {LOCALE_LEARNING_CURRENCY} from "@/lib/currency/learning-currency";
+import {formatCurrency} from "@/lib/currency/format";
 
 /** Preserve original money artwork in every language; only the account amount is localized. */
 export function MoneyDiagram({kind,locale="en"}: {kind:string;locale?:Locale}) {
   return <div aria-hidden="true" data-educational-image className="flex h-28 items-center justify-center rounded-xl bg-cream p-3">
-    {kind === "account" ? <div className="w-full min-w-0 rounded-xl border-2 border-teal bg-white px-2 py-2 text-center shadow-md"><span className="block text-sm">{moneyExamplesCopy[locale].balance}</span><span className="text-base font-bold text-teal-text sm:text-xl">{new Intl.NumberFormat(REGIONAL_LOCALES[locale],{style:"currency",currency:learningCurrency[locale]}).format(12)}</span></div> : <Image unoptimized src={`/images/money-quest/money/${kind}.webp`} alt="" width={384} height={384} loading="lazy" className="h-full w-full object-contain"/>}
+    {kind === "account" ? <div className="w-full min-w-0 rounded-xl border-2 border-teal bg-white px-2 py-2 text-center shadow-md"><span className="block text-sm">{moneyExamplesCopy[locale].balance}</span><span className="text-base font-bold text-teal-text sm:text-xl">{formatCurrency(1200,LOCALE_LEARNING_CURRENCY[locale],REGIONAL_LOCALES[locale])}</span></div> : <Image unoptimized src={`/images/money-quest/money/${kind}.webp`} alt="" width={384} height={384} loading="lazy" className="h-full w-full object-contain"/>}
   </div>;
 }
 export function MoneyExamples({explorer=false}: {explorer?:boolean}) {

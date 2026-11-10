@@ -2,6 +2,7 @@
 
 import {useCallback, useEffect, useState} from "react";
 import type {Locale} from "@/i18n/config";
+import {learningAmount} from "@/lib/currency/learning-currency";
 
 type Method = "coins" | "banknote" | "card";
 type Copy = {title:string;instruction:string;coins:string;banknote:string;card:string;balance:string;price:string;paid:string;insufficient:string;again:string;listen:string;};
@@ -18,8 +19,7 @@ const rows:Record<Locale,string>={
 };
 const keys=(["title","instruction","coins","banknote","card","balance","price","paid","insufficient","again","listen"] as const);
 const copy=Object.fromEntries(Object.entries(rows).map(([locale,row])=>[locale,Object.fromEntries(keys.map((key,i)=>[key,row.split("|")[i]]))])) as Record<Locale,Copy>;
-const symbols:Record<Locale,string>={en:"£",ro:"lei",es:"€",fr:"€",de:"€",it:"€",pt:"€",nl:"€",pl:"zł"};
-const money=(n:number,locale:Locale)=>["ro","pl"].includes(locale)?`${n} ${symbols[locale]}`:`${symbols[locale]}${n}`;
+const money=learningAmount;
 
 /** Pretend purchase only. All three methods debit the same five-unit balance. */
 export function ExplorerMiniShop({locale,onComplete}: {locale:Locale;onComplete?:()=>void}) {

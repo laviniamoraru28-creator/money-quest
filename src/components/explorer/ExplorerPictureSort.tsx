@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { useTapOrDrag } from "@/lib/explorer/use-tap-or-drag";
 
 export type ExplorerSortItem = {
   id: string;
@@ -30,7 +31,7 @@ export function ExplorerPictureSort({
   prompt, items, destinations, replayLabel, tryAgainMessage,
   successMessage, onComplete,
 }: Props) {
-  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const { selected: selectedId, setSelected: setSelectedId, dragSource, dropTarget } = useTapOrDrag<string>();
   const [placed, setPlaced] = useState<Record<string, string>>({});
   const [feedback, setFeedback] = useState("");
   const [finished, setFinished] = useState(false);
@@ -51,16 +52,16 @@ export function ExplorerPictureSort({
     }
   }, []);
 
-  const place = (destinationId: string) => {
-    if (!selectedId || finished) return;
-    const item = items.find(entry => entry.id === selectedId);
+  const place = (destinationId: string, itemId: string | null = selectedId) => {
+    if (!itemId || finished) return;
+    const item = items.find(entry => entry.id === itemId);
     if (!item) return;
     if (item.destinationId !== destinationId) {
       setFeedback(tryAgainMessage);
       speak(tryAgainMessage);
       return;
     }
-    const next = { ...placed, [selectedId]: destinationId };
+    const next = { ...placed, [itemId]: destinationId };
     setPlaced(next);
     setSelectedId(null);
     const allCorrect = items.every(entry => next[entry.id] === entry.destinationId);
@@ -85,7 +86,8 @@ export function ExplorerPictureSort({
           <button type="button" key={item.id}
             aria-pressed={selectedId === item.id}
             onClick={() => { setSelectedId(item.id); setFeedback(""); speak(item.label); }}
-            className="flex min-h-28 flex-col items-center justify-center rounded-2xl border-2 border-teal/30 p-3 aria-pressed:border-teal aria-pressed:bg-teal/10">
+            {...dragSource(item.id)}
+            className="flex min-h-28 cursor-grab flex-col items-center justify-center rounded-2xl border-2 border-teal/30 p-3 aria-pressed:border-teal aria-pressed:bg-teal/10 active:cursor-grabbing">
             <span aria-hidden="true" className="text-5xl">{item.symbol}</span>
             <span className="font-semibold">{item.label}</span>
           </button>
@@ -93,9 +95,14 @@ export function ExplorerPictureSort({
       </div>
       <div className="mt-5 grid grid-cols-2 gap-3">
         {destinations.map(destination => (
-          <button type="button" key={destination.id} disabled={!selectedId || finished}
+          // Not a native `disabled` button even when nothing is tap-selected
+          // yet: a disabled element's pointer-events are suppressed in most
+          // browsers, which would silently swallow a drag-and-drop onto it.
+          // place() itself already no-ops without a valid item id.
+          <button type="button" key={destination.id} aria-disabled={finished}
             onClick={() => place(destination.id)}
-            className="flex min-h-32 flex-col items-center justify-center rounded-2xl border-2 border-teal bg-teal/5 p-4 disabled:opacity-60">
+            {...dropTarget(itemId => place(destination.id, itemId))}
+            className={`flex min-h-32 flex-col items-center justify-center rounded-2xl border-2 border-teal bg-teal/5 p-4 ${finished ? "opacity-60" : !selectedId ? "opacity-80" : ""}`}>
             <span aria-hidden="true" className="text-5xl">{destination.symbol}</span>
             <span className="font-bold">{destination.label}</span>
             <span aria-label={String(items.filter(item => placed[item.id] === destination.id).length)}>
