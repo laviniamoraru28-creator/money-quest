@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import {ExplorerMiniShop} from "@/components/explorer/ExplorerMiniShop";
 import {ExplorerPaymentChoice} from "@/components/explorer/ExplorerPaymentChoice";
 import {useState} from "react";
 import {ReadAloudButton} from "@/components/ui/ReadAloudButton";
@@ -44,6 +45,7 @@ export function MoneyExamples({explorer=false}: {explorer?:boolean}) {
       correctMethod="card"
     /></div> : <fieldset className="mt-5"><legend className="font-bold">{copy.question}</legend><div className="mt-3 flex flex-wrap gap-3">{[copy.coinChoice,copy.cardChoice].map((label,index)=><button type="button" key={label} aria-pressed={answer===index} onClick={()=>setAnswer(index)} className="min-h-12 rounded-xl border-2 border-teal px-4 py-2 text-teal-text">{label}</button>)}</div></fieldset>}
     {!explorer && answer!==null&&<p role="status" className="mt-3">{answer===1?copy.correct:copy.retry}</p>}
+    {explorer && <ExplorerMiniShop locale={locale}/>}
     <p className="mt-4 text-sm text-ink/70">{copy.illustration}</p>
   </section>;
 }
