@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import {ExplorerLessonDashboard} from "@/components/explorer/ExplorerLessonDashboard";
 import {certificateJourneyCopy} from "@/content/certificate-journey-copy";
 
 import { useLocale, useTranslations } from "next-intl";
@@ -134,8 +133,6 @@ export default function PlayPage() {
         </div>
 
         <p className="mt-sm text-xs text-ink/70">{t("play.virtualMoneyExplainer")}</p>
-
-        {state.ageBand === "explorer" && <ExplorerLessonDashboard completedActivityIds={state.completedActivityIds} />}
 
         <div className="mt-md grid gap-sm sm:grid-cols-2">
           {WORLDS.map((world) => {
