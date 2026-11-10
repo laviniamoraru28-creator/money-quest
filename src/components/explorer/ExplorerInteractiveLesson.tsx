@@ -46,8 +46,7 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
      <ExplorerCoinCount target={3} prompt={t.count} coinLabel={t.coin} addLabel={t.add} removeLabel={t.remove}
        replayLabel={t.listen} checkLabel={t.check} successMessage={t.success} retryMessage={t.retry}
        onComplete={()=>setStage(1)}/>:
-     <><ExplorerMiniShop locale={locale}/><button type="button" onClick={complete}
-       className="min-h-14 rounded-xl bg-teal px-5 py-3 font-bold text-white">{t.next}</button></>)}
+     <ExplorerMiniShop locale={locale} onComplete={complete}/>)}
    {topicId==="needs_wants" && <ExplorerPictureChoice prompt={t.needs}
      options={[{id:"food",label:t.food,symbol:"🍎",explanation:""},{id:"toy",label:t.toy,symbol:"🧸",explanation:""}]}
      correctId="food" successMessage={t.success} retryMessage={t.retry}
