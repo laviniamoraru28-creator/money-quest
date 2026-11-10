@@ -42,7 +42,11 @@ for(const locale of LOCALES){
      const reading=labTaskAtLevel(lab.slug,task,level,view.variants);
      await page.getByRole("button",{name:label,exact:true}).click();
      const article=page.getByRole("article");
-     await expect(article.locator("legend")).toHaveText(reading.situation);
+     // Explorer (level 0) renders the prompt in ExplorerPictureChoice's own
+     // <p>, not a <fieldset>/<legend> — Builder/Strategist keep the
+     // original fieldset unchanged, so check the text itself rather than
+     // which tag wraps it.
+     await expect(article.getByText(reading.situation,{exact:true})).toBeVisible();
      await expect(article.getByRole("button",{pressed:true})).toHaveCount(0);
      await expect(article.getByText(reading.tryIt[level]!,{exact:true})).toBeVisible();
      for(const choice of reading.choices)await expect(article.getByRole("button",{name:choice,exact:true})).toBeVisible();

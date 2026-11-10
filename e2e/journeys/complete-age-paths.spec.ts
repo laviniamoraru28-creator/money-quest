@@ -45,6 +45,84 @@ async function solveRound(page:Page,round:GameRound){
  }
 }
 
+/** Every Explorer lesson runs its own picture-first interactive flow
+ * instead of a single quiz radio; this drives each topic's exact
+ * activity sequence (verified directly against the running app). */
+async function completeExplorerLesson(page:Page,topicId:string){
+ const button=(name:string|RegExp)=>page.getByRole('button',{name,exact:typeof name==='string'});
+ switch(topicId){
+  case 'money_basics':
+   for(const label of ['Coin','Banknote','Debit card'])await button(label).click();
+   await button('Continue').click();
+   await button('Add').click();await button('Add').click();await button('Add').click();
+   await button('Check').click();
+   await button('Debit card').click();
+   await button('Your bank account').click();
+   await button('Continue').click();
+   break;
+  case 'needs_wants':
+   await button('Food').click();await button(/Need/).click();
+   await button('Water').click();await button(/Need/).click();
+   await button('Toy car').click();await button(/Want/).click();
+   await button('Candy').click();await button(/Want/).click();
+   await button('The ball').click();await button('Continue').click();
+   await button('Yes, the same way').click();await button('Continue').click();
+   break;
+  case 'saving':{
+   const coins=page.locator('[data-explorer-saving-jar] button[aria-label]');
+   const count=await coins.count();
+   for(let i=0;i<count;i++)await coins.nth(i).click({timeout:2000}).catch(()=>{});
+   await button('In a bank account').click();await button('Continue').click();
+   await button('Keep it for later').click();await button('Continue').click();
+   break;}
+  case 'currencies':
+   await button('Pound').click();await button(/United Kingdom/).click();
+   await button('Leu').click();await button(/Romania/).click();
+   await button('Euro').click();await button(/Europe/).click();
+   await button('Yen').click();await button(/Japan/).click();
+   await button('Coins').first().click();await button(/Coin box/).click();
+   await button('Coins').first().click();await button(/Coin box/).click();
+   await button('Banknotes').first().click();await button(/Note box/).click();
+   await button('Banknotes').first().click();await button(/Note box/).click();
+   await button('The pound symbol').click();await button('Continue').click();
+   await button('Yen').click();await button('Continue').click();
+   break;
+  case 'scams':
+   await button('Keep it in a safe place').click();await button('Continue').click();
+   await button('Only me').click();await button('Continue').click();
+   await button('Don’t share it, tell a trusted adult').click();await button('Continue').click();
+   await button('Ask a parent or trusted adult').click();await button('Continue').click();
+   break;
+  case 'long_term_thinking':
+   await button('Save a little money each week').click();await button('Continue').click();
+   for(const w of ['Week 1','Week 2','Week 3','Week 4'])await button(w).click();
+   await button('A savings jar or account').click();await button('Continue').click();
+   for(const s of ['Pick a goal','Save a little each week','Check how close you are','Reach your goal!'])await button(s).click();
+   break;
+  case 'giving':
+   await button('Coin').first().click();await button(/Give/).click();
+   for(let i=0;i<4;i++){await button('Coin').first().click();await button(/Keep/).click();}
+   await button(/animal shelter/i).click();
+   await button('Send the gift').click();await button('Continue').click();
+   break;
+  case 'digital_money':
+   await button('Debit card').click();
+   await button('Yes, it goes down either way').click();await button('Continue').click();
+   await button('Your bank account').click();await button('Continue').click();
+   break;
+  case 'investing_basics':
+   for(const s of ['Seed','Sprout','Bud','Flower'])await button(s).click();
+   await button('Investing').click();await button('Continue').click();
+   await button('No, it can go up or down').click();await button('Continue').click();
+   break;
+  case 'junior_isa':
+   await button('Parent or trusted adult').click();await button('Continue').click();
+   break;
+  default:
+   throw new Error(`no Explorer completion dispatcher for topic ${topicId}`);
+ }
+}
+
 for(const band of ['explorer','strategist'] as const)test(`${band}: complete every core lesson and standard game through the controls`,async({page})=>{
  test.setTimeout(600000);
  const errors:string[]=[];page.on('pageerror',error=>errors.push(error.message));
@@ -54,8 +132,11 @@ for(const band of ['explorer','strategist'] as const)test(`${band}: complete eve
  for(const lesson of LESSON_STRUCTURES.filter(item=>item.ageBand===band)){
   await test.step(lesson.id,async()=>{
    await page.goto(`/en/play/world/${lesson.worldId}/lesson/${lesson.id}`);
-   await page.getByRole('radio',{name:messages.curriculum[lesson.id].quiz.correctAnswer,exact:true}).check();
-   await page.getByRole('button',{name:messages.lesson.checkMyAnswer,exact:true}).click();
+   if(band==='explorer')await completeExplorerLesson(page,lesson.topicId);
+   else{
+    await page.getByRole('radio',{name:messages.curriculum[lesson.id].quiz.correctAnswer,exact:true}).check();
+    await page.getByRole('button',{name:messages.lesson.checkMyAnswer,exact:true}).click();
+   }
    await expect(page.getByText(messages.activityGuide.lessonComplete,{exact:true})).toBeVisible();
    expectedIds.push(lesson.id);
   });

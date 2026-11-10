@@ -15,8 +15,22 @@ for(const band of CERTIFICATE_BANDS)test(`certificate earned at real final ${ban
  await page.clock.setFixedTime(new Date("2026-11-03T12:34:00Z"));
  await page.goto(`/en/play/world/${lesson.worldId}/lesson/${lesson.id}`);
  await expect(page.getByRole("button",{name:certificateCopy.en.download,exact:true})).toHaveCount(0);
- await page.getByRole("radio",{name:messages.curriculum[lesson.id].quiz.correctAnswer,exact:true}).check();
- await page.getByRole("button",{name:"Check my answer",exact:true}).click();
+ if(band==="explorer"){
+  // Every Explorer lesson now runs through its own picture-first
+  // interactive flow instead of a single quiz radio; this is the
+  // first lesson's (money_basics) exact activity sequence.
+  const button=(name:string)=>page.getByRole("button",{name,exact:true});
+  for(const label of ["Coin","Banknote","Debit card"])await button(label).click();
+  await button("Continue").click();
+  await button("Add").click();await button("Add").click();await button("Add").click();
+  await button("Check").click();
+  await button("Debit card").click();
+  await button("Your bank account").click();
+  await button("Continue").click();
+ }else{
+  await page.getByRole("radio",{name:messages.curriculum[lesson.id].quiz.correctAnswer,exact:true}).check();
+  await page.getByRole("button",{name:"Check my answer",exact:true}).click();
+ }
  await expect(page.getByRole("button",{name:certificateCopy.en.download,exact:true})).toBeVisible();
  const readState=()=>page.evaluate(()=>JSON.parse(localStorage.getItem("moneyquest_local_progress_v1")!));
  const earned=await readState();

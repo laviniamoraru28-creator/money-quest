@@ -63,7 +63,7 @@ export function ExplorerPictureChoice({
   };
 
   return (
-    <section aria-label={prompt} className="overflow-hidden rounded-[2rem] border-2 border-sky-200 bg-gradient-to-b from-sky-100 via-white to-amber-50 p-4 shadow-xl md:p-7" data-explorer-picture-choice>
+    <section role="group" aria-label={prompt} className="overflow-hidden rounded-[2rem] border-2 border-sky-200 bg-gradient-to-b from-sky-100 via-white to-amber-50 p-4 shadow-xl md:p-7" data-explorer-picture-choice>
       <p className="mb-4 rounded-2xl bg-white/90 p-4 text-center font-display text-2xl font-extrabold text-indigo-950 shadow-sm">{prompt}</p>
       <button type="button" onClick={() => speak(prompt)}
         className="mb-5 min-h-12 rounded-full border-2 border-violet-400 bg-white px-5 py-3 font-bold text-violet-900 shadow-sm">
