@@ -13,6 +13,11 @@ extends Marker3D
 @export var kind: String = ""
 ## Ground footprint radius in metres (0 = the kind's default).
 @export var radius: float = 0.0
+## True when a CozyPaths ribbon is meant to lead up to this piece's entrance.
+@export var entrance_path_ok: bool = false
+## Gates only: the kit file (no extension) of the small object on the gate's
+## shelf that shows what is behind the door ("" = an empty shelf).
+@export var hint: String = ""
 
 
 func footprint() -> float:

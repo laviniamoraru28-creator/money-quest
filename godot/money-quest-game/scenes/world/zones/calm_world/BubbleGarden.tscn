@@ -212,7 +212,7 @@ outline_size = 8
 text = ""
 
 [node name="PortalToAquariumRoom" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.68, 0, -6.91)
 script = ExtResource("4")
 label_key = "zone.aquarium_room.name"
 target_zone_id = "calm-world-aquarium-room"
@@ -233,7 +233,7 @@ outline_size = 8
 text = ""
 
 [node name="PortalToLightRoom" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -9)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.49, 0, -9.14)
 script = ExtResource("4")
 label_key = "zone.light_room.name"
 target_zone_id = "calm-world-light-room"
@@ -254,7 +254,7 @@ outline_size = 8
 text = ""
 
 [node name="PortalToRainRoom" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.86, 0, -10.53)
 script = ExtResource("4")
 label_key = "zone.rain_room.name"
 target_zone_id = "calm-world-rain-room"
@@ -275,7 +275,7 @@ outline_size = 8
 text = ""
 
 [node name="PortalToUnderwaterRoom" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11)
 script = ExtResource("4")
 label_key = "zone.underwater_room.name"
 target_zone_id = "calm-world-underwater-room"
@@ -296,7 +296,7 @@ outline_size = 8
 text = ""
 
 [node name="PortalToForestWalk" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.86, 0, -10.53)
 script = ExtResource("4")
 label_key = "zone.forest_walk.name"
 target_zone_id = "calm-world-forest-walk"
@@ -317,7 +317,7 @@ outline_size = 8
 text = ""
 
 [node name="PortalToMusicRoom" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -9)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.49, 0, -9.14)
 script = ExtResource("4")
 label_key = "zone.music_room.name"
 target_zone_id = "calm-world-music-room"
@@ -338,7 +338,7 @@ outline_size = 8
 text = ""
 
 [node name="PortalToGrowAGarden" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.68, 0, -6.91)
 script = ExtResource("4")
 label_key = "zone.grow_a_garden.name"
 target_zone_id = "calm-world-grow-a-garden"
@@ -359,7 +359,7 @@ outline_size = 8
 text = ""
 
 [node name="PortalToCreateYourOwnGarden" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 0, -2)
 script = ExtResource("4")
 label_key = "zone.create_your_own_garden.name"
 target_zone_id = "calm-world-create-your-own-garden"
@@ -381,8 +381,8 @@ text = ""
 
 [node name="CozyPaths" type="Node3D" parent="."]
 script = ExtResource("9")
-paths = Array[PackedVector3Array]([PackedVector3Array(0, 0, 9.8, 0, 0, -7.4), PackedVector3Array(-8.6, 0, -5, -5.7, 0, -6.2, -2.9, 0, -7, 0, 0, -7.4, 2.9, 0, -7, 5.7, 0, -6.2, 8.6, 0, -5, 10.2, 0, -3.4)])
-widths = PackedFloat32Array(3.2, 3)
+paths = Array[PackedVector3Array]([PackedVector3Array(0, 0, 9.8, 0, 0, -10.4), PackedVector3Array(-8.68, 0, -4.67, -6.08, 0, -6.49, -3.15, 0, -7.61, 0, 0, -8, 3.15, 0, -7.61, 6.08, 0, -6.49, 8.68, 0, -4.67, 12, 0, -2), PackedVector3Array(-1.6, 0, 3.5, -5.05, 0, 3.5)])
+widths = PackedFloat32Array(3.2, 3, 2.2)
 
 [node name="CozySlots" type="Node3D" parent="."]
 script = ExtResource("7")
@@ -391,9 +391,10 @@ script = ExtResource("7")
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -9.3, 0, 3.5)
 script = ExtResource("8")
 kind = "pavilion"
+entrance_path_ok = true
 
 [node name="Pond" type="Marker3D" parent="CozySlots"]
-transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 8.5, 0, 3)
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 9, 0, 4.5)
 script = ExtResource("8")
 kind = "pond"
 
@@ -408,7 +409,7 @@ script = ExtResource("8")
 kind = "boulder"
 
 [node name="TreeWest" type="Marker3D" parent="CozySlots"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0, -4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4, 0, -1.5)
 script = ExtResource("8")
 kind = "tree_hero"
 
@@ -426,3 +427,64 @@ kind = "tree_light"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 9.5)
 script = ExtResource("8")
 kind = "tree_hero"
+
+[node name="Ground" type="Marker3D" parent="CozySlots"]
+script = ExtResource("8")
+kind = "ground"
+
+[node name="Backdrop" type="Marker3D" parent="CozySlots"]
+script = ExtResource("8")
+kind = "backdrop"
+
+[node name="GateHub" type="Marker3D" parent="CozySlots"]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, 8)
+script = ExtResource("8")
+kind = "gate_02"
+
+[node name="GateAquariumRoom" type="Marker3D" parent="CozySlots"]
+transform = Transform3D(0.4177, 0, 0.9086, 0, 1, 0, -0.9086, 0, 0.4177, -10.68, 0, -6.91)
+script = ExtResource("8")
+kind = "gate_01"
+hint = "Kit_Calm_Hint_FishBowl"
+
+[node name="GateLightRoom" type="Marker3D" parent="CozySlots"]
+transform = Transform3D(0.69, 0, 0.7238, 0, 1, 0, -0.7238, 0, 0.69, -7.49, 0, -9.14)
+script = ExtResource("8")
+kind = "gate_02"
+hint = "Kit_Calm_Hint_Crystal"
+
+[node name="GateRainRoom" type="Marker3D" parent="CozySlots"]
+transform = Transform3D(0.9111, 0, 0.4123, 0, 1, 0, -0.4123, 0, 0.9111, -3.86, 0, -10.53)
+script = ExtResource("8")
+kind = "gate_03"
+hint = "Kit_Calm_Hint_RainUmbrella"
+
+[node name="GateUnderwaterRoom" type="Marker3D" parent="CozySlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11)
+script = ExtResource("8")
+kind = "gate_01"
+hint = "Kit_Calm_Hint_ShellCoral"
+
+[node name="GateForestWalk" type="Marker3D" parent="CozySlots"]
+transform = Transform3D(0.9111, 0, -0.4123, 0, 1, 0, 0.4123, 0, 0.9111, 3.86, 0, -10.53)
+script = ExtResource("8")
+kind = "gate_02"
+hint = "Kit_Calm_Hint_Sapling"
+
+[node name="GateMusicRoom" type="Marker3D" parent="CozySlots"]
+transform = Transform3D(0.69, 0, -0.7238, 0, 1, 0, 0.7238, 0, 0.69, 7.49, 0, -9.14)
+script = ExtResource("8")
+kind = "gate_03"
+hint = "Kit_Calm_Hint_Chimes"
+
+[node name="GateGrowAGarden" type="Marker3D" parent="CozySlots"]
+transform = Transform3D(0.4177, 0, -0.9086, 0, 1, 0, 0.9086, 0, 0.4177, 10.68, 0, -6.91)
+script = ExtResource("8")
+kind = "gate_01"
+hint = "Kit_Calm_Hint_WateringCan"
+
+[node name="GateCreateYourOwnGarden" type="Marker3D" parent="CozySlots"]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 13.5, 0, -2)
+script = ExtResource("8")
+kind = "gate_03"
+hint = "Kit_Calm_Hint_Planter"

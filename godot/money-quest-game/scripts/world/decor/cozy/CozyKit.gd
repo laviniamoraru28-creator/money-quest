@@ -24,7 +24,23 @@ const KINDS: Dictionary = {
 	"tree_hero": ["Kit_Nature_OakHero_01.glb", 1.0],
 	"tree_light": ["Kit_Nature_OakLight_01.glb", 1.0],
 	"boulder": ["Kit_Nature_Boulder_01.glb", 0.8],
+	"gate_01": ["Kit_Calm_GateArch_01.glb", 1.8],   # lilac
+	"gate_02": ["Kit_Calm_GateArch_02.glb", 1.8],   # mint
+	"gate_03": ["Kit_Calm_GateArch_03.glb", 1.8],   # butter
+	"ground": ["Kit_Ground_BubbleGarden_01.glb", 19.0],
+	"backdrop": ["Kit_Backdrop_CalmRing_01.glb", 40.0],
 }
+
+## Landscape kinds: the zone's own floor, not an object standing on it. No
+## clearance rules and no placeholder (the zone's plain floor stays until a
+## valid asset replaces it). Value: where its collision is centred (x, z in
+## metres), because a ground piece may reach further on one side.
+const LANDSCAPE: Dictionary = {
+	"ground": Vector2(0, 2.5),
+	"backdrop": Vector2.ZERO,
+}
+## Landscape kinds that are only scenery: no collision, any height.
+const SCENERY_ONLY: Array = ["backdrop"]
 
 ## Pavilion measurements (the approved split requirements): floor top
 ## 0.15 m with a gentle bevelled edge all round (no step to climb), eight
@@ -46,12 +62,18 @@ const REVEAL_PARTS: Dictionary = {
 	"pavilion": ["Roof"],
 	"tree_hero": ["Canopy", "Leaves"],
 	"tree_light": ["Canopy", "Leaves"],
+	"gate_01": ["GateArch"],
+	"gate_02": ["GateArch"],
+	"gate_03": ["GateArch"],
 }
 
 ## kind -> MK_ markers a kit asset must carry (exact names, no ".001").
 const REQUIRED_MARKERS: Dictionary = {
 	"pavilion": ["MK_Front", "MK_Interact_Bench"],
 	"pond": ["MK_Interact_Pond"],
+	"gate_01": ["MK_DoorMarker", "MK_HintProp"],
+	"gate_02": ["MK_DoorMarker", "MK_HintProp"],
+	"gate_03": ["MK_DoorMarker", "MK_HintProp"],
 }
 
 ## How far a kit asset may be off: its collision centred within this many
@@ -62,10 +84,20 @@ const FOOTPRINT_TOLERANCE: float = 1.1
 
 ## Kit assets found invalid this run: asset path -> its problems.
 static var _invalid: Dictionary = {}
+## Gate kind -> its wood and moss combined into one mesh.
+static var _gate_mesh: Dictionary = {}
 
 
 static func is_kind(kind: String) -> bool:
 	return KINDS.has(kind)
+
+
+static func is_landscape(kind: String) -> bool:
+	return LANDSCAPE.has(kind)
+
+
+static func is_gate(kind: String) -> bool:
+	return kind.begins_with("gate_") and KINDS.has(kind)
 
 
 static func default_radius(kind: String) -> float:
@@ -100,6 +132,8 @@ static func build(kind: String, use_asset: bool) -> Node3D:
 		var problems := PackedStringArray(["it could not be loaded"]) if piece == null else validate(kind, piece)
 		if problems.is_empty():
 			batch_repeats(piece)
+			if is_gate(kind):
+				_one_surface(kind, piece)
 			piece.set_meta("cozy_source", "asset")
 			return piece
 		if piece:
@@ -107,6 +141,8 @@ static func build(kind: String, use_asset: bool) -> Node3D:
 		if not _invalid.has(path):
 			_invalid[path] = problems
 			push_warning("CozyKit: INVALID kit asset %s — %s. The placeholder is used instead." % [path, "; ".join(problems)])
+	if is_landscape(kind):
+		return null
 	var root := Node3D.new()
 	root.set_meta("cozy_source", "placeholder")
 	var m := MeshMerger.new()
@@ -132,7 +168,19 @@ static func build(kind: String, use_asset: bool) -> Node3D:
 		"boulder":
 			m.part(DecorKit.sphere(0.7, 10, 5), DecorKit.mat("rock"), Vector3(0, 0.22, 0), Vector3.ZERO, Vector3(1.0, 0.62, 0.82))
 			DecorKit.add_cyl_collider(body, 0.62, 0.7, DecorKit.xf(Vector3(0, 0.35, 0)))
-	m.commit_to(root, "Placeholder", true)
+		"gate_01", "gate_02", "gate_03":
+			for x in [-1.1, 1.1]:
+				m.part(DecorKit.box(Vector3(0.42, 2.7, 0.6)), DecorKit.mat("wood"), Vector3(x, 1.35, 0))
+				var post := CollisionShape3D.new()
+				var ps := BoxShape3D.new()
+				ps.size = Vector3(0.42, 2.3, 0.6)
+				post.shape = ps
+				post.position = Vector3(x, 1.15, 0)
+				body.add_child(post)
+			m.part(DecorKit.box(Vector3(2.6, 0.3, 0.6)), DecorKit.mat("wood_dark"), Vector3(0, 2.85, 0))
+			_marker(root, "MK_DoorMarker", Vector3(0, 3.2, 0))
+			_marker(root, "MK_HintProp", Vector3(1.62, 0.92, 0))
+	m.commit_to(root, "GateArch" if is_gate(kind) else "Placeholder", true)
 	root.add_child(body)
 	return root
 
@@ -239,6 +287,9 @@ static func validate(kind: String, piece: Node3D) -> PackedStringArray:
 		seen = true
 	if not seen:
 		problems.append("it has no visible geometry")
+	elif is_landscape(kind):
+		if not SCENERY_ONLY.has(kind) and absf(looks.end.y) > ORIGIN_TOLERANCE:
+			problems.append("its top is at %.2f m, not at floor level (y = 0)" % looks.end.y)
 	elif absf(looks.position.y) > ORIGIN_TOLERANCE:
 		problems.append("its lowest point is at %.2f m, not on the floor (y = 0)" % looks.position.y)
 	var solid := AABB()
@@ -254,11 +305,13 @@ static func validate(kind: String, piece: Node3D) -> PackedStringArray:
 			solid = b if shapes == 0 else solid.merge(b)
 			shapes += 1
 	if shapes == 0:
-		problems.append("it has no collision (COL_… shapes on layer 1)")
+		if not SCENERY_ONLY.has(kind):
+			problems.append("it has no collision (COL_… shapes on layer 1)")
 	else:
 		var c: Vector3 = solid.get_center()
-		if Vector2(c.x, c.z).length() > ORIGIN_TOLERANCE:
-			problems.append("its collision is centred %.2f m from the origin" % Vector2(c.x, c.z).length())
+		var off: float = (Vector2(c.x, c.z) - LANDSCAPE.get(kind, Vector2.ZERO)).length()
+		if off > ORIGIN_TOLERANCE:
+			problems.append("its collision is centred %.2f m from where it should be" % off)
 	# Trees are measured by their trunk collision (the canopy may spread);
 	# everything else by what is visible, collision or not.
 	var spread: AABB = solid if kind.begins_with("tree") else looks
@@ -279,6 +332,88 @@ static func validate(kind: String, piece: Node3D) -> PackedStringArray:
 		if piece.find_child(String(mk), true, false) == null:
 			problems.append("the marker %s is missing" % mk)
 	return problems
+
+
+## The material a small piece's surface is drawn with when merged: all plain
+## opaque vertex-coloured surfaces share one draw (at this size their small
+## roughness differences do not show); glass, water and glowing ones keep
+## their own.
+static func _draw_group(mat: Material, seen: Dictionary) -> Material:
+	if not _is_plain(mat):
+		return mat
+	for other in seen:
+		if _is_plain(other):
+			return other
+	return mat
+
+
+static func _is_plain(mat: Material) -> bool:
+	var m := mat as StandardMaterial3D
+	return m != null and m.transparency == BaseMaterial3D.TRANSPARENCY_DISABLED and not m.emission_enabled
+
+
+## A gate's wood and moss drawn as one surface, one shared mesh per kind, so
+## nine gates cost nine draws rather than eighteen.
+static func _one_surface(kind: String, piece: Node3D) -> void:
+	var parts: Array = piece.find_children("EX_*", "MeshInstance3D", true, false)
+	if parts.size() < 2:
+		return
+	if not _gate_mesh.has(kind):
+		var first_mat: Material = null
+		var st := SurfaceTool.new()
+		st.begin(Mesh.PRIMITIVE_TRIANGLES)
+		for mi in parts:
+			var mesh: Mesh = (mi as MeshInstance3D).mesh
+			for s in mesh.get_surface_count():
+				if first_mat == null:
+					first_mat = mesh.surface_get_material(s)
+				st.append_from(mesh, s, (parts[0] as Node3D).transform.affine_inverse() * (mi as Node3D).transform)
+		var out: ArrayMesh = st.commit()
+		out.surface_set_material(0, first_mat)
+		_gate_mesh[kind] = out
+	(parts[0] as MeshInstance3D).mesh = _gate_mesh[kind]
+	for i in range(1, parts.size()):
+		(parts[i] as Node).get_parent().remove_child(parts[i])
+		(parts[i] as Node).free()
+
+
+## Small objects placed many times (the gates' shelf objects) become one
+## mesh with one surface per shared material: a handful of draws however
+## many there are. `placed` = [[kit file without extension, Transform3D], ...]
+## relative to `parent`. A missing file is reported and left out.
+static func merge_small_pieces(parent: Node3D, node_name: String, placed: Array) -> void:
+	var tools: Dictionary = {}   # material -> SurfaceTool
+	for entry in placed:
+		var path: String = KIT_DIR + String(entry[0]) + ".glb"
+		var scene := load(path) as PackedScene if ResourceLoader.exists(path) else null
+		if scene == null:
+			push_warning("CozyKit: small piece %s is missing, left out." % path)
+			continue
+		var piece := scene.instantiate() as Node3D
+		for mi in piece.find_children("*", "MeshInstance3D", true, false):
+			var mesh: Mesh = (mi as MeshInstance3D).mesh
+			if mesh == null:
+				continue
+			var xf: Transform3D = (entry[1] as Transform3D) * _rel(mi, piece)
+			for s in mesh.get_surface_count():
+				var mat: Material = _draw_group(mesh.surface_get_material(s), tools)
+				if not tools.has(mat):
+					var fresh := SurfaceTool.new()
+					fresh.begin(Mesh.PRIMITIVE_TRIANGLES)
+					tools[mat] = fresh
+				(tools[mat] as SurfaceTool).append_from(mesh, s, xf)
+		piece.free()
+	if tools.is_empty():
+		return
+	var out := ArrayMesh.new()
+	for mat in tools:
+		out = (tools[mat] as SurfaceTool).commit(out)
+		out.surface_set_material(out.get_surface_count() - 1, mat)
+	var mi := MeshInstance3D.new()
+	mi.name = node_name
+	mi.mesh = out
+	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	parent.add_child(mi)
 
 
 ## Repeated small parts (plants, stones, lily pads) arrive from Blender as
