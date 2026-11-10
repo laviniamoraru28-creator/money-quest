@@ -10,6 +10,7 @@ import { LevelBadgeStar } from "@/components/ui/LevelBadgeStar";
 import { KeyTermBadge } from "@/components/ui/KeyTermBadge";
 import { GuidePanel } from "@/components/GuidePanel";
 import { MoneyExamples } from "@/components/MoneyExamples";
+import { ExplorerInteractiveLesson } from "@/components/explorer/ExplorerInteractiveLesson";
 import { ReadAloudButton } from "@/components/ui/ReadAloudButton";
 import { LessonIllustration } from "@/components/lesson/LessonIllustration";
 import { getWorldById } from "@/content/worlds";
@@ -75,6 +76,7 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
   );
   const { quiz, feedbackMessage } = activity.content;
   const isExplorer = activity.childAgeBand === "explorer";
+  const hasInteractiveExplorerLesson = isExplorer && ["money_basics","needs_wants","saving"].includes(activity.topicId);
   const world = getWorldById(activity.worldId);
   const worldThemeColor = world?.themeColor ?? "#0F7A6B";
   // Display order only — handleCheckAnswer below always compares the
@@ -140,7 +142,21 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
       </div>
 
       <GuidePanel compact message={phase === "incorrect" ? t("activityGuide.lessonRetry") : phase === "correct" ? t("activityGuide.lessonComplete") : t("activityGuide.lessonGoal", {title: activity.title})} />
-      {section === "examples" ? (
+      {hasInteractiveExplorerLesson ? (
+        <div data-lesson-section="explorer-interactive" className="flex flex-col gap-md">
+          <ExplorerInteractiveLesson topicId={activity.topicId} onComplete={() => {
+            if (activity.isCompleted || phase === "correct") return;
+            const result = onComplete(activity.id, true, activity.xpReward, activity.coinRewardMinorUnits);
+            setAward({xp:result.xpAwarded,coins:result.coinsAwarded});
+            setPhase("correct");
+            playCorrect();
+          }}/>
+          {(phase === "correct" || activity.isCompleted) && nextActivityHref &&
+            <Button variant="quest-primary" size="large" onClick={() => router.push(nextActivityHref)}>{t("play.nextActivity")}</Button>}
+          {(phase === "correct" || activity.isCompleted) && !nextActivityHref &&
+            <Button variant="quest-primary" size="large" onClick={() => router.push(backToWorldHref)}>{t("game.backToTheWorld")}</Button>}
+        </div>
+      ) : section === "examples" ? (
         <div data-lesson-section="examples">
           <h1 ref={sectionHeading} tabIndex={-1} className="font-display text-xl font-bold">{activity.title}</h1>
           <MoneyExamples />
