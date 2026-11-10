@@ -22,7 +22,7 @@ const symbols:Record<Locale,string>={en:"£",ro:"lei",es:"€",fr:"€",de:"€"
 const money=(n:number,locale:Locale)=>["ro","pl"].includes(locale)?`${n} ${symbols[locale]}`:`${symbols[locale]}${n}`;
 
 /** Pretend purchase only. All three methods debit the same five-unit balance. */
-export function ExplorerMiniShop({locale}: {locale:Locale}) {
+export function ExplorerMiniShop({locale,onComplete}: {locale:Locale;onComplete?:()=>void}) {
  const t=copy[locale];
  const [balance,setBalance]=useState(5);
  const [method,setMethod]=useState<Method|null>(null);
@@ -39,6 +39,7 @@ export function ExplorerMiniShop({locale}: {locale:Locale}) {
    if(method!==null)return;
    if(balance<2){setFeedback(t.insufficient);speak(t.insufficient);return;}
    setMethod(choice);
+   onComplete?.();
    setBalance(value=>value-2);
    setFeedback(t.paid);
    speak(t.paid);
