@@ -1,8 +1,9 @@
 "use client";
 
 import { useParams } from "next/navigation";
+import { useEffect } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
+import { Link, useRouter } from "@/i18n/navigation";
 import { useLocalProgress } from "@/lib/local-progress/use-local-progress";
 import { getLessonStructureById, getNextActivityAcrossWorlds, getPreviousActivityAcrossWorlds, getActivityPosition, getActivityHref } from "@/content/catalog";
 import { buildActivityDetailFromLesson } from "@/lib/domain/activity";
@@ -13,14 +14,26 @@ import { getWorksheetFilename } from "@/content/worksheets";
 
 export default function LessonPage() {
   const params = useParams<{ worldId: string; activityId: string }>();
+  const router = useRouter();
   const t = useTranslations();
   const locale = useLocale();
   const { state, isLoaded, completeActivity } = useLocalProgress();
 
+  const requestedStructure = getLessonStructureById(params.activityId);
+  const correctId = requestedStructure && state.ageBand && requestedStructure.ageBand !== state.ageBand
+    ? `${state.ageBand}-${requestedStructure.topicId}-l1`
+    : null;
+
+  useEffect(() => {
+    if (isLoaded && correctId) {
+      router.replace(`/play/world/${requestedStructure!.worldId}/lesson/${correctId}`);
+    }
+  }, [isLoaded, correctId, requestedStructure?.worldId, router]);
+
   if (!isLoaded) return <div className="grid min-h-screen place-items-center bg-fog text-ink/70">{t("common.loading")}</div>;
 
-  const structure = getLessonStructureById(params.activityId);
-  if (!structure || !state.ageBand) {
+  const structure = requestedStructure;
+  if (!structure || !state.ageBand || correctId || structure.worldId !== params.worldId) {
     return (
       <main id="main-content" tabIndex={-1} className="grid min-h-screen place-items-center bg-fog px-sm text-center">
         <div>
