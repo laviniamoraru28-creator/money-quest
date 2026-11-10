@@ -95,7 +95,9 @@ func _ready() -> void:
 	if interaction_priority == 10:
 		interaction_priority = 50
 	prompt_height = 2.6
-	visual = CharacterBuilder.build(CharacterLook.for_npc(npc_id), animated_body)
+	visual = CharacterBuilder.build(CharacterLook.for_npc(npc_id), animated_body, true)
+	for part in visual.find_children("*", "MeshInstance3D", true, false):
+		(part as MeshInstance3D).cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	visual.idle_phase = float(absi(npc_id.hash()) % 1000) * 0.0063
 	visual.can_wave = npc_id == "hub-guide"
 	visual.behaviour = CharacterBehaviour.preset(behaviour_profile if not behaviour_profile.is_empty() else CharacterBehaviour.preset_id_for_npc(npc_id))

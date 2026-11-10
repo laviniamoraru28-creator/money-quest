@@ -35,7 +35,7 @@ light_color = Color(1, 0.96, 0.88, 1)
 light_energy = 1.0
 shadow_enabled = true
 shadow_blur = 1.5
-directional_shadow_mode = 1
+directional_shadow_mode = 0
 directional_shadow_max_distance = 70.0
 
 [node name="HubLandscape" type="Node3D" parent="."]

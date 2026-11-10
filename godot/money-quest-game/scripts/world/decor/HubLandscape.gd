@@ -211,7 +211,7 @@ func _build_boundary() -> void:
 		if _is_reserved(p, -1.5):
 			continue
 		DecorProps.bush(m, K.xf(p, Vector3(0, _rng.randf_range(0, 360), 0)), _rng.randf_range(1.1, 1.45), "leaf" if i % 3 else "leaf_dark")
-	m.commit_to(self, "BoundaryHedge", true)
+	m.commit_to(self, "BoundaryHedge", false)
 
 	# Invisible walls just outside the hedge line (world collision only —
 	# they never block the camera).

@@ -760,7 +760,7 @@ func _tune_light() -> void:
 	# striped self-shadowing ("acne").
 	sun.shadow_bias = 0.12
 	sun.shadow_normal_bias = 2.6
-	sun.directional_shadow_mode = DirectionalLight3D.SHADOW_PARALLEL_2_SPLITS
+	sun.directional_shadow_mode = DirectionalLight3D.SHADOW_ORTHOGONAL
 	sun.directional_shadow_max_distance = maxf(room_size.x, room_size.y) * 1.6
 
 
