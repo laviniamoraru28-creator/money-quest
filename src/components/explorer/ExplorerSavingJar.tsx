@@ -4,6 +4,7 @@ import {useLocale} from "next-intl";
 import {isSupportedLocale,type Locale} from "@/i18n/config";
 import {learningAmount} from "@/lib/currency/learning-currency";
 import {useTapOrDrag} from "@/lib/explorer/use-tap-or-drag";
+import {explorerSpeechLang} from "@/lib/explorer/speech-lang";
 
 const rows:Record<Locale,[string,string,string,string,string,string,string,string]>={
  en:["Save for a bicycle","Put coins and banknotes into the jar.","Saved","Goal","Coin","Banknote","Great! You saved enough for your bicycle!","Start again"],
@@ -41,7 +42,7 @@ export function ExplorerSavingJar({onComplete}:{onComplete:()=>void}){
    if(typeof window==="undefined"||!("speechSynthesis" in window))return;
    window.speechSynthesis.cancel();
    const utterance=new SpeechSynthesisUtterance(message);
-   utterance.lang=document.documentElement.lang||"en";
+   utterance.lang=explorerSpeechLang();
    window.speechSynthesis.speak(utterance);
  };
  const add=(id:string)=>{

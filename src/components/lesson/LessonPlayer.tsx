@@ -111,6 +111,61 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
     setPhase("unanswered");
   }
 
+  // Shared success/reward UI for both the standard quiz flow and the
+  // Explorer interactive-activity flow — the reward itself (XP, coins,
+  // next-activity routing) doesn't depend on how the lesson was answered.
+  const rewardPanel = (phase === "correct" || activity.isCompleted) && (
+    <div className="mt-md rounded-sm border border-success/30 bg-success/5 p-sm">
+      <p className="font-medium text-success-text">
+        {activity.isCompleted && phase === "unanswered" ? t("lesson.alreadyCompleted") : feedbackMessage.success}
+      </p>
+      <div className="mt-2xs flex items-start gap-2xs">
+        <p className="text-sm text-ink/70">{quiz.explanation}</p>
+      </div>
+      {award && (award.xp > 0 || award.coins > 0) && (
+        <div className="mt-sm flex items-center gap-md">
+          {award.xp > 0 && <span className="font-bold text-teal-text">{t("lesson.xpEarned", { xp: award.xp })}</span>}
+          {award.coins > 0 && (
+            <span className="flex flex-col items-start">
+              <span className="text-xs font-normal text-ink/70">{t("lesson.virtualCoinsLabel")}</span>
+              <MoneyAmount amountMinorUnits={award.coins} currencyCode={activity.childCurrencyCode} uiLocale={uiLocale} showCoinIcon />
+            </span>
+          )}
+        </div>
+      )}
+      {award && (award.xp > 0 || award.coins > 0) && activity.content.rewardMessage && (
+        <p className="mt-2xs text-sm italic text-ink/70">{activity.content.rewardMessage}</p>
+      )}
+      {activity.content.challenge && !focusMode && (
+        <div className="mt-sm rounded-md border border-coral/30 bg-coral/10 p-sm">
+          <p className="text-xs font-bold uppercase tracking-wide text-ink/70">{t("lesson.tryThisAtHome")}</p>
+          <p className="mt-3xs text-sm text-ink/80">{activity.content.challenge}</p>
+        </div>
+      )}
+      {nextActivityHref ? (
+        <>
+          <Button variant="quest-primary" size="large" className="mt-md w-full" onClick={() => router.push(nextActivityHref)}>
+            {t("play.nextActivity")}
+          </Button>
+          <Button variant="secondary" size="large" className="mt-2xs w-full" onClick={() => router.push(backToWorldHref)}>
+            {t("game.backToTheWorld")}
+          </Button>
+        </>
+      ) : (
+        <>
+          <div className="mt-sm flex flex-col items-center gap-2xs">
+            <LevelBadgeStar size={40} />
+            <p className="text-sm font-bold text-teal-text">{t("play.levelComplete")}</p>
+            <p className="text-sm text-ink/70">{t("play.worldSequenceComplete")}</p>
+          </div>
+          <Button variant="quest-primary" size="large" className="mt-2xs w-full" onClick={() => router.push(backToWorldHref)}>
+            {t("game.backToTheWorld")}
+          </Button>
+        </>
+      )}
+    </div>
+  );
+
   return (
     <div className="flex flex-col gap-md">
       {/* Journey navigation — a real "Back" (to the previous activity,
@@ -143,21 +198,7 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
       </div>
 
       <GuidePanel compact message={phase === "incorrect" ? t("activityGuide.lessonRetry") : phase === "correct" ? t("activityGuide.lessonComplete") : t("activityGuide.lessonGoal", {title: activity.title})} />
-      {hasInteractiveExplorerLesson ? (
-        <div data-lesson-section="explorer-interactive" className="flex flex-col gap-md">
-          <ExplorerInteractiveLesson topicId={activity.topicId} onComplete={() => {
-            if (activity.isCompleted || phase === "correct") return;
-            const result = onComplete(activity.id, true, activity.xpReward, activity.coinRewardMinorUnits);
-            setAward({xp:result.xpAwarded,coins:result.coinsAwarded});
-            setPhase("correct");
-            playCorrect();
-          }}/>
-          {(phase === "correct" || activity.isCompleted) && nextActivityHref &&
-            <Button variant="quest-primary" size="large" onClick={() => router.push(nextActivityHref)}>{t("play.nextActivity")}</Button>}
-          {(phase === "correct" || activity.isCompleted) && !nextActivityHref &&
-            <Button variant="quest-primary" size="large" onClick={() => router.push(backToWorldHref)}>{t("game.backToTheWorld")}</Button>}
-        </div>
-      ) : section === "examples" ? (
+      {section === "examples" ? (
         <div data-lesson-section="examples">
           <h1 ref={sectionHeading} tabIndex={-1} className="font-display text-xl font-bold">{activity.title}</h1>
           <MoneyExamples />
@@ -278,12 +319,18 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
         </div>
       </div>
 
-      {/* Real-Life Scenario — the story and quiz restyled as one
-          interactive moment (a scenario, a decision, then why it
-          makes sense) rather than a paragraph followed by a separate
-          quiz block. This reuses the existing story/quiz content
-          exactly as authored — nothing new was invented here, only
-          how it's presented. */}
+      {hasInteractiveExplorerLesson ? (
+        <Card variant="activity" className="border-2 border-coral/30">
+          <ExplorerInteractiveLesson topicId={activity.topicId} onComplete={() => {
+            if (activity.isCompleted || phase === "correct") return;
+            const result = onComplete(activity.id, true, activity.xpReward, activity.coinRewardMinorUnits);
+            setAward({xp:result.xpAwarded,coins:result.coinsAwarded});
+            setPhase("correct");
+            playCorrect();
+          }}/>
+          {rewardPanel}
+        </Card>
+      ) : (
       <Card variant="activity" className="border-2 border-coral/30">
         <div className="flex items-center gap-2xs">
           <span aria-hidden="true" className="text-xl">📖</span>
@@ -370,74 +417,9 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
           </div>
         )}
 
-        {(phase === "correct" || activity.isCompleted) && (
-          <div className="mt-md rounded-sm border border-success/30 bg-success/5 p-sm">
-            <p className="font-medium text-success-text">
-              {activity.isCompleted && phase === "unanswered" ? t("lesson.alreadyCompleted") : feedbackMessage.success}
-            </p>
-            <div className="mt-2xs flex items-start gap-2xs">
-              
-              <p className="text-sm text-ink/70">{quiz.explanation}</p>
-            </div>
-            {award && (award.xp > 0 || award.coins > 0) && (
-              <div className="mt-sm flex items-center gap-md">
-                {award.xp > 0 && <span className="font-bold text-teal-text">{t("lesson.xpEarned", { xp: award.xp })}</span>}
-                {award.coins > 0 && (
-                  <span className="flex flex-col items-start">
-                    <span className="text-xs font-normal text-ink/70">{t("lesson.virtualCoinsLabel")}</span>
-                    <MoneyAmount amountMinorUnits={award.coins} currencyCode={activity.childCurrencyCode} uiLocale={uiLocale} showCoinIcon />
-                  </span>
-                )}
-              </div>
-            )}
-            {award && (award.xp > 0 || award.coins > 0) && activity.content.rewardMessage && (
-              <p className="mt-2xs text-sm italic text-ink/70">{activity.content.rewardMessage}</p>
-            )}
-            {activity.content.challenge && !focusMode && (
-              <div className="mt-sm rounded-md border border-coral/30 bg-coral/10 p-sm">
-                <p className="text-xs font-bold uppercase tracking-wide text-ink/70">{t("lesson.tryThisAtHome")}</p>
-                <p className="mt-3xs text-sm text-ink/80">{activity.content.challenge}</p>
-              </div>
-            )}
-            {nextActivityHref ? (
-              <>
-                <Button
-                  variant="quest-primary"
-                  size="large"
-                  className="mt-md w-full"
-                  onClick={() => router.push(nextActivityHref)}
-                >
-                  {t("play.nextActivity")}
-                </Button>
-                <Button
-                  variant="secondary"
-                  size="large"
-                  className="mt-2xs w-full"
-                  onClick={() => router.push(backToWorldHref)}
-                >
-                  {t("game.backToTheWorld")}
-                </Button>
-              </>
-            ) : (
-              <>
-                <div className="mt-sm flex flex-col items-center gap-2xs">
-                <LevelBadgeStar size={40} />
-                <p className="text-sm font-bold text-teal-text">{t("play.levelComplete")}</p>
-                <p className="text-sm text-ink/70">{t("play.worldSequenceComplete")}</p>
-              </div>
-                <Button
-                  variant="quest-primary"
-                  size="large"
-                  className="mt-2xs w-full"
-                  onClick={() => router.push(backToWorldHref)}
-                >
-                  {t("game.backToTheWorld")}
-                </Button>
-              </>
-            )}
-          </div>
-        )}
+        {rewardPanel}
       </Card>
+      )}
         </div>
       )}
     </div>

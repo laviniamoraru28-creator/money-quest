@@ -19,6 +19,7 @@ import {moneyBasicsLessonCopy} from "@/content/explorer-money-basics-lesson";
 import {needsWantsLessonCopy} from "@/content/explorer-needs-wants-lesson";
 import {savingExtraLessonCopy} from "@/content/explorer-saving-lesson-extra";
 import {isSupportedLocale, type Locale} from "@/i18n/config";
+import {explorerSpeechLang} from "@/lib/explorer/speech-lang";
 
 /** Topics with their own dedicated multi-activity flow below, instead of
  * the single generic two-option scenario question every other topic in
@@ -73,7 +74,7 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
        if(typeof window==="undefined"||!("speechSynthesis" in window))return;
        window.speechSynthesis.cancel();
        const utterance=new SpeechSynthesisUtterance(message);
-       utterance.lang=document.documentElement.lang||"en";
+       utterance.lang=explorerSpeechLang();
        window.speechSynthesis.speak(utterance);
      };
      if (stage === 0) return <section key="stage-0" data-explorer-discover className="rounded-3xl border border-teal/20 bg-white p-4 md:p-6">

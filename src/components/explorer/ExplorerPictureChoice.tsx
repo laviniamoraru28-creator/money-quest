@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { explorerSpeechLang } from "@/lib/explorer/speech-lang";
 
 export type ExplorerPictureOption = {
   id: string;
@@ -39,7 +40,7 @@ export function ExplorerPictureChoice({
     if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
     window.speechSynthesis.cancel();
     const next = new SpeechSynthesisUtterance(message);
-    next.lang = document.documentElement.lang || "en";
+    next.lang = explorerSpeechLang();
     utterance.current = next;
     window.speechSynthesis.speak(next);
   }, []);

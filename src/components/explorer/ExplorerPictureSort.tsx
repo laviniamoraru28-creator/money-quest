@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { useTapOrDrag } from "@/lib/explorer/use-tap-or-drag";
+import { explorerSpeechLang } from "@/lib/explorer/speech-lang";
 
 export type ExplorerSortItem = {
   id: string;
@@ -42,7 +43,7 @@ export function ExplorerPictureSort({
     if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
     window.speechSynthesis.cancel();
     const utterance = new SpeechSynthesisUtterance(message);
-    utterance.lang = document.documentElement.lang || "en";
+    utterance.lang = explorerSpeechLang();
     window.speechSynthesis.speak(utterance);
   }, []);
 

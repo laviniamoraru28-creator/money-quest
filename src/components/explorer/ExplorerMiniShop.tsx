@@ -3,6 +3,7 @@
 import {useCallback, useEffect, useState} from "react";
 import type {Locale} from "@/i18n/config";
 import {learningAmount} from "@/lib/currency/learning-currency";
+import {explorerSpeechLang} from "@/lib/explorer/speech-lang";
 
 type Method = "coins" | "banknote" | "card";
 type Copy = {title:string;instruction:string;coins:string;banknote:string;card:string;balance:string;price:string;paid:string;insufficient:string;again:string;listen:string;};
@@ -31,9 +32,9 @@ export function ExplorerMiniShop({locale,onComplete}: {locale:Locale;onComplete?
    if(typeof window==="undefined"||!("speechSynthesis" in window))return;
    window.speechSynthesis.cancel();
    const utterance=new SpeechSynthesisUtterance(value);
-   utterance.lang=locale==="en"?"en-GB":locale;
+   utterance.lang=explorerSpeechLang();
    window.speechSynthesis.speak(utterance);
- },[locale]);
+ },[]);
  useEffect(()=>()=>{if(typeof window!=="undefined"&&"speechSynthesis" in window)window.speechSynthesis.cancel();},[]);
  const pay=(choice:Method)=>{
    if(method!==null)return;
