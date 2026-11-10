@@ -63,31 +63,31 @@ export function ExplorerPictureChoice({
   };
 
   return (
-    <section aria-label={prompt} className="rounded-3xl border border-teal/20 bg-white p-4 md:p-6" data-explorer-picture-choice>
-      <p className="mb-4 text-xl font-bold">{prompt}</p>
+    <section aria-label={prompt} className="overflow-hidden rounded-[2rem] border-2 border-sky-200 bg-gradient-to-b from-sky-100 via-white to-amber-50 p-4 shadow-xl md:p-7" data-explorer-picture-choice>
+      <p className="mb-4 rounded-2xl bg-white/90 p-4 text-center font-display text-2xl font-extrabold text-indigo-950 shadow-sm">{prompt}</p>
       <button type="button" onClick={() => speak(prompt)}
-        className="mb-5 min-h-12 rounded-xl border-2 border-teal px-5 py-3 font-bold">
+        className="mb-5 min-h-12 rounded-full border-2 border-violet-400 bg-white px-5 py-3 font-bold text-violet-900 shadow-sm">
         <span aria-hidden="true">🔊 </span>{replayLabel}
       </button>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {options.map(option => (
           <button type="button" key={option.id}
             onClick={() => choose(option.id)}
             disabled={completed}
             aria-pressed={choice === option.id}
             aria-label={option.label}
-            className="flex min-h-32 flex-col items-center justify-center gap-2 rounded-2xl border-2 border-teal/30 p-4 text-center focus-visible:outline-4 aria-pressed:border-teal aria-pressed:bg-teal/10 disabled:opacity-80">
-            <span className="text-5xl" aria-hidden="true">{option.symbol}</span>
-            <span className="text-lg font-semibold">{option.label}</span>
+            className="flex min-h-52 flex-col items-center justify-center gap-4 rounded-3xl border-4 border-white bg-gradient-to-b from-white to-cyan-50 p-5 text-center shadow-md transition-transform hover:-translate-y-1 focus-visible:outline focus-visible:outline-4 focus-visible:outline-violet-700 aria-pressed:border-violet-500 aria-pressed:bg-violet-100 disabled:opacity-80 motion-reduce:transform-none">
+            <span className="text-7xl sm:text-8xl" aria-hidden="true">{option.symbol}</span>
+            <span className="text-xl font-extrabold text-indigo-950">{option.label}</span>
           </button>
         ))}
       </div>
-      <div role="status" aria-live="polite" aria-atomic="true" className="mt-5 min-h-12 text-lg">
+      <div role="status" aria-live="polite" aria-atomic="true" className="mt-5 min-h-12 rounded-xl bg-white/80 p-3 text-center text-lg font-bold text-indigo-900">
         {feedback}
       </div>
       {correct && !completed && (
         <button type="button" onClick={finish}
-          className="min-h-12 rounded-xl bg-teal px-6 py-3 font-bold text-white">
+          className="min-h-12 rounded-full bg-violet-700 px-7 py-3 font-bold text-white shadow-md hover:bg-violet-800">
           {nextLabel}
         </button>
       )}
