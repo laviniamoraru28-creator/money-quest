@@ -74,7 +74,7 @@ export default function WorldPage() {
         </div>
         <Image unoptimized data-learning-decoration src={`/images/money-quest/worlds/${world.id}.webp`} alt="" width={768} height={768} className="mt-5 max-h-96 w-full rounded-2xl bg-cream object-contain" />
         <GuidePanel message={t("activityGuide.world", {name: world.name, description: t(`worldDescriptions.${world.id}`)})}/>
-        {world.id === "coin-cove" && <MoneyExamples/>}
+        {world.id === "coin-cove" && <MoneyExamples explorer={state.ageBand === "explorer"}/>}
         <p className="mt-2xs text-base text-ink/70">{t(`worldDescriptions.${world.id}`)}</p>
 
         <div className="mt-md grid gap-sm">
