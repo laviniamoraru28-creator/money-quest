@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import {useLocale} from "next-intl";
 import {Link} from "@/i18n/navigation";
 import {LESSON_STRUCTURES} from "@/content/curriculum/structures";
