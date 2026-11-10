@@ -10,6 +10,9 @@ import {saveContract,archiveName,type Contract} from "@/lib/commerce/release";
 import {PARENT_BONUS,parentBonusMetadata,verifyParentBonus} from "@/lib/commerce/parent-bonus";
 export const runtime="nodejs";export const dynamic="force-dynamic";
 export async function POST(request:Request){
+ // Storefront is temporarily unpublished. Keep fulfilment/webhooks for existing orders.
+ return NextResponse.json({code:"purchases_closed",message:"Purchases are temporarily unavailable."},{status:503});
+ /*
  let config;try{config=commerceConfig();}catch{return NextResponse.json({code:"purchases_closed",message:"Purchases are not open yet. Free samples are available."},{status:503})}
  if(request.headers.get("origin")!==config.origin)return NextResponse.json({code:"checkout_use_site",message:"Use the Money Quest checkout page."},{status:403});
  let value:Record<string,unknown>;
@@ -50,4 +53,5 @@ export async function POST(request:Request){
  if(session.livemode!==(config.mode==="live"))throw new Error("Checkout environment mismatch");
  const response=NextResponse.json({url:checkoutUrl},{headers:{"Cache-Control":"no-store"}});response.cookies.set(`mq_checkout_${tag}`,nonce,{httpOnly:true,secure:config.origin.startsWith("https:"),sameSite:"lax",maxAge:86400,path:"/api/shop"});return response;
  }catch{return NextResponse.json({code:"checkout_unavailable",message:"Checkout could not be opened. You have not been charged by this request."},{status:503})}
+ */
 }
