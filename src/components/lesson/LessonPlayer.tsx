@@ -10,6 +10,7 @@ import { LevelBadgeStar } from "@/components/ui/LevelBadgeStar";
 import { KeyTermBadge } from "@/components/ui/KeyTermBadge";
 import { GuidePanel } from "@/components/GuidePanel";
 import { MoneyExamples } from "@/components/MoneyExamples";
+import { explorerOtherTopics } from "@/content/explorer-other-lessons";
 import { ExplorerInteractiveLesson } from "@/components/explorer/ExplorerInteractiveLesson";
 import { ReadAloudButton } from "@/components/ui/ReadAloudButton";
 import { LessonIllustration } from "@/components/lesson/LessonIllustration";
@@ -76,7 +77,7 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
   );
   const { quiz, feedbackMessage } = activity.content;
   const isExplorer = activity.childAgeBand === "explorer";
-  const hasInteractiveExplorerLesson = isExplorer && ["money_basics","needs_wants","saving"].includes(activity.topicId);
+  const hasInteractiveExplorerLesson = isExplorer && ["money_basics","needs_wants","saving",...explorerOtherTopics].includes(activity.topicId);
   const world = getWorldById(activity.worldId);
   const worldThemeColor = world?.themeColor ?? "#0F7A6B";
   // Display order only — handleCheckAnswer below always compares the
