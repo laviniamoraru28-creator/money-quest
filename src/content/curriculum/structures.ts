@@ -262,15 +262,6 @@ export const LESSON_STRUCTURES: LessonStructure[] = [
     orderIndex: 3,
   },
   {
-    id: "explorer-junior_isa-l1",
-    worldId: "sky-exchange",
-    topicId: "junior_isa",
-    ageBand: "explorer",
-    xpReward: 15,
-    coinRewardMinorUnits: 500,
-    orderIndex: 4,
-  },
-  {
     id: "builder-junior_isa-l1",
     worldId: "sky-exchange",
     topicId: "junior_isa",
