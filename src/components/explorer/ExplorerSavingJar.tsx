@@ -16,12 +16,23 @@ const rows:Record<Locale,[string,string,string,string,string,string,string,strin
 };
 const symbols:Record<Locale,string>={en:"£",ro:"lei",es:"€",fr:"€",de:"€",it:"€",pt:"€",nl:"€",pl:"zł"};
 function amount(value:number,locale:Locale){return ["ro","pl"].includes(locale)?`${value} ${symbols[locale]}`:`${symbols[locale]}${value}`;}
-const TARGET=10;
-const MONEY=[{id:"c1",value:1,kind:"coin"},{id:"n1",value:5,kind:"note"},{id:"c2",value:1,kind:"coin"},{id:"c3",value:1,kind:"coin"},{id:"c4",value:1,kind:"coin"},{id:"c5",value:1,kind:"coin"}] as const;
+type MoneyItem={id:string;value:number;kind:"coin"|"note"};
+// Use real circulating denominations. Poland has no 5-zloty banknote.
+const denominations:Record<Locale,{coin:number;note:number}>={
+ en:{coin:1,note:5},ro:{coin:1,note:5},es:{coin:1,note:5},fr:{coin:1,note:5},
+ de:{coin:1,note:5},it:{coin:1,note:5},pt:{coin:1,note:5},nl:{coin:1,note:5},
+ pl:{coin:2,note:10}
+};
+function moneyItems(locale:Locale):MoneyItem[]{
+ const {coin,note}=denominations[locale];
+ return [{id:"n1",value:note,kind:"note"},...Array.from({length:5},(_,i)=>({id:`c${i+1}`,value:coin,kind:"coin" as const}))];
+}
 export function ExplorerSavingJar({onComplete}:{onComplete:()=>void}){
  const requested=useLocale(),locale=isSupportedLocale(requested)?requested:"en";
  const [title,instruction,savedLabel,goalLabel,coinLabel,noteLabel,success,restart]=rows[locale];
  const [added,setAdded]=useState<string[]>([]);
+ const MONEY=moneyItems(locale);
+ const TARGET=MONEY.reduce((sum,item)=>sum+item.value,0);
  const saved=MONEY.filter(item=>added.includes(item.id)).reduce((sum,item)=>sum+item.value,0);
  const done=saved>=TARGET;
  const speak=(message:string)=>{
@@ -53,7 +64,7 @@ export function ExplorerSavingJar({onComplete}:{onComplete:()=>void}){
            className="relative flex h-[90%] w-[84%] flex-col justify-end overflow-hidden rounded-b-[3.5rem] rounded-t-[2rem] border-[6px] border-sky-400 bg-gradient-to-br from-white/95 via-sky-50/60 to-cyan-200/60 p-3 shadow-inner">
            <div className="absolute inset-x-2 bottom-2 rounded-b-[2.5rem] bg-amber-200/35 transition-[height] duration-300 motion-reduce:transition-none" style={{height:`${(saved/TARGET)*80}%`}}/>
            <div className="relative z-10 flex flex-wrap content-end justify-center gap-1" style={{minHeight:`${Math.max(12,(saved/TARGET)*78)}%`}}>
-             {MONEY.filter(item=>added.includes(item.id)).map(item=><span key={item.id} aria-hidden="true" className="text-3xl drop-shadow-sm sm:text-4xl">{item.kind==="coin"?"🪙":"💷"}</span>)}
+             {MONEY.filter(item=>added.includes(item.id)).map(item=><span key={item.id} aria-hidden="true" className="text-3xl drop-shadow-sm sm:text-4xl">{item.kind==="coin"?"🪙":"💵"}</span>)}
            </div>
          </div>
          <div className="absolute -right-7 top-12 rotate-6 rounded-xl border-2 border-amber-400 bg-yellow-100 px-3 py-2 text-3xl shadow-sm" aria-hidden="true">🚲</div>
