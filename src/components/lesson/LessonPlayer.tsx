@@ -74,6 +74,7 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
     activity.isCompleted ? { xp: 0, coins: 0 } : null
   );
   const { quiz, feedbackMessage } = activity.content;
+  const isExplorer = activity.childAgeBand === "explorer";
   const world = getWorldById(activity.worldId);
   const worldThemeColor = world?.themeColor ?? "#0F7A6B";
   // Display order only — handleCheckAnswer below always compares the
@@ -277,10 +278,11 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
 
         <p className="mt-md font-display text-lg font-bold text-teal-text">{t("lesson.whatWouldYouDo")}</p>
         <p className="mt-2xs text-base font-medium">{quiz.question}</p>
+        {isExplorer && <ReadAloudButton text={quiz.question} uiLocale={uiLocale} />}
 
         <fieldset className="mt-sm" disabled={phase === "correct" || activity.isCompleted}>
           <legend className="sr-only">{t("lesson.answerOptions")}</legend>
-          <div className="grid gap-2xs">
+          <div className={isExplorer ? "grid gap-4" : "grid gap-2xs"}>
             {shuffledOptions.map((option) => {
               const isSelected = selectedOption === option;
               const showAsCorrect = phase === "incorrect" && option === quiz.correct_answer;
@@ -291,6 +293,7 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
                   key={option}
                   className={[
                     "flex min-h-touch-min-child cursor-pointer items-center gap-xs rounded-lg border-2 px-sm py-2xs text-base shadow-resting transition-colors duration-quick",
+                    isExplorer ? "min-h-24 p-4 text-lg" : "",
                     showAsCorrect ? "border-success bg-success/10" : "",
                     showAsIncorrect ? "border-error bg-error/10" : "",
                     !showAsCorrect && !showAsIncorrect && isSelected ? "border-teal bg-teal/5" : "",
@@ -304,7 +307,8 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
                     checked={isSelected}
                     onChange={() => setSelectedOption(option)}
                   />
-                  {option}
+                  <span className="flex-1">{option}</span>
+                  {isExplorer && <span onClick={(event) => event.preventDefault()}><ReadAloudButton text={option} uiLocale={uiLocale} /></span>}
                   {showAsCorrect && (
                     <span>
                       <span aria-hidden="true"> ✓</span>
