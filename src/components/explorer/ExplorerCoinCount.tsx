@@ -1,5 +1,6 @@
 "use client";
 
+import { ReadAloudControl } from "@/components/ui/ReadAloudButton";
 import { useCallback, useEffect, useState } from "react";
 import { explorerSpeechLang } from "@/lib/explorer/speech-lang";
 
@@ -68,10 +69,7 @@ export function ExplorerCoinCount({
   return (
     <section data-explorer-coin-count className="rounded-3xl border border-teal/20 bg-white p-4 md:p-6">
       <h2 className="text-xl font-bold">{prompt}</h2>
-      <button type="button" onClick={() => speak(prompt)}
-        className="my-4 min-h-12 rounded-xl border-2 border-teal px-5 py-3 font-bold">
-        <span aria-hidden="true">🔊 </span>{replayLabel}
-      </button>
+      <ReadAloudControl label={replayLabel} onClick={() => speak(prompt)} className="my-4" />
       <div aria-label={coinLabel} className="flex min-h-28 flex-wrap items-center justify-center gap-3 rounded-2xl bg-cream p-4">
         {Array.from({ length: count }, (_, index) => (
           <span key={index} role="img" aria-label={coinLabel} className="flex h-16 w-16 items-center justify-center rounded-full border-4 border-amber-700 bg-amber-300 text-3xl text-amber-950 shadow-sm">

@@ -1,5 +1,6 @@
 "use client";
 
+import { ReadAloudControl } from "@/components/ui/ReadAloudButton";
 import { useCallback, useEffect, useState } from "react";
 import { useTapOrDrag } from "@/lib/explorer/use-tap-or-drag";
 import { explorerSpeechLang } from "@/lib/explorer/speech-lang";
@@ -78,10 +79,7 @@ export function ExplorerPictureSort({
   return (
     <section data-explorer-picture-sort className="rounded-3xl border border-teal/20 bg-white p-4 md:p-6">
       <h2 className="text-xl font-bold">{prompt}</h2>
-      <button type="button" onClick={() => speak(prompt)}
-        className="my-4 min-h-12 rounded-xl border-2 border-teal px-5 py-3 font-bold">
-        <span aria-hidden="true">🔊 </span>{replayLabel}
-      </button>
+      <ReadAloudControl label={replayLabel} onClick={() => speak(prompt)} className="my-4" />
       <div className="grid grid-cols-2 gap-3">
         {items.filter(item => !placed[item.id]).map(item => (
           <button type="button" key={item.id}

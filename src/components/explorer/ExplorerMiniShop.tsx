@@ -1,4 +1,5 @@
 "use client";
+import { ReadAloudControl } from "@/components/ui/ReadAloudButton";
 
 import {useCallback, useEffect, useState} from "react";
 import type {Locale} from "@/i18n/config";
@@ -48,7 +49,7 @@ export function ExplorerMiniShop({locale,onComplete}: {locale:Locale;onComplete?
  return <section data-explorer-mini-shop className="mt-6 rounded-3xl border-2 border-teal/30 bg-white p-4 sm:p-6">
    <h2 className="text-2xl font-bold">{t.title}</h2>
    <p className="mt-2 text-lg">{t.instruction.replace("2",money(2,locale)).replace("5",money(5,locale))}</p>
-   <button type="button" onClick={()=>speak(t.instruction)} className="mt-3 min-h-12 rounded-xl border-2 border-teal px-5 py-3 font-bold">🔊 {t.listen}</button>
+   <ReadAloudControl label={t.listen} onClick={()=>speak(t.instruction)} className="mt-3" />
    <div className="my-5 flex items-center justify-between rounded-2xl bg-cream p-5">
      <div className="text-center"><span aria-hidden="true" className="block text-6xl">🍎</span><span className="text-lg font-bold">{t.price}: {money(2,locale)}</span></div>
      <div className="text-center"><span aria-hidden="true" className="block text-5xl">💰</span><span className="text-lg font-bold">{t.balance}: {money(balance,locale)}</span></div>
