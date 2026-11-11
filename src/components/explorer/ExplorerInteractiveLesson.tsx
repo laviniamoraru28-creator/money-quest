@@ -84,14 +84,14 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
            <button type="button" key={item.id}
              aria-pressed={discovered.includes(item.id)}
              onClick={()=>{setDiscovered(prev=>prev.includes(item.id)?prev:[...prev,item.id]);speak(`${item.label}. ${item.desc}`);}}
-             className="flex min-h-40 flex-col items-center justify-center gap-3 rounded-3xl border-4 border-white bg-gradient-to-b from-white to-cyan-50 p-5 text-center shadow-md aria-pressed:border-violet-500 aria-pressed:bg-violet-100 focus-visible:outline focus-visible:outline-4 focus-visible:outline-violet-700">
+             className="flex min-h-40 flex-col items-center justify-center gap-3 rounded-3xl border-4 border-white bg-gradient-to-b from-white to-soft-blue/10 p-5 text-center shadow-md aria-pressed:border-teal aria-pressed:bg-teal/10 focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal">
              <span aria-hidden="true" className="text-6xl">{item.symbol}</span>
-             <span className="text-xl font-extrabold text-indigo-950">{item.label}</span>
+             <span className="text-xl font-extrabold text-ink">{item.label}</span>
            </button>)}
        </div>
        <p role="status" aria-live="polite" className="mt-4 min-h-12 text-lg">{discovered.length===items.length?items.find(i=>i.id===discovered[discovered.length-1])?.desc:""}</p>
        {discovered.length===items.length &&
-         <button type="button" onClick={()=>setStage(1)} className="mt-3 min-h-12 rounded-full bg-violet-700 px-7 py-3 font-bold text-white shadow-md">{m.continueLabel}</button>}
+         <button type="button" onClick={()=>setStage(1)} className="mt-3 min-h-12 rounded-full bg-teal px-7 py-3 font-bold text-white shadow-md">{m.continueLabel}</button>}
      </section>;
      if (stage === 1) return <ExplorerCoinCount key="stage-1" target={3} prompt={t.count} coinLabel={t.coin} addLabel={t.add} removeLabel={t.remove}
        replayLabel={t.listen} checkLabel={t.check} successMessage={t.success} retryMessage={t.retry}
@@ -293,9 +293,9 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
        <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
          {[{id:"shelter",label:c.cause1,symbol:"🐾"},{id:"foodbank",label:c.cause2,symbol:"🥫"}].map(option=>
            <button type="button" key={option.id} onClick={()=>setStage(2)}
-             className="flex min-h-40 flex-col items-center justify-center gap-3 rounded-3xl border-4 border-white bg-gradient-to-b from-white to-cyan-50 p-5 text-center shadow-md focus-visible:outline focus-visible:outline-4 focus-visible:outline-violet-700">
+             className="flex min-h-40 flex-col items-center justify-center gap-3 rounded-3xl border-4 border-white bg-gradient-to-b from-white to-soft-blue/10 p-5 text-center shadow-md focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal">
              <span aria-hidden="true" className="text-6xl">{option.symbol}</span>
-             <span className="text-xl font-extrabold text-indigo-950">{option.label}</span>
+             <span className="text-xl font-extrabold text-ink">{option.label}</span>
            </button>)}
        </div>
      </section>;
