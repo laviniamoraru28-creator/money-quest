@@ -42,9 +42,14 @@ try{
   await new Promise(resolve=>setTimeout(resolve,500));
  }
  assert.ok(healthy,'Extracted production server health');
- const routes=['/en','/en/library','/en/museum','/en/mind-lab','/en/brain-lab','/en/parents/shop','/en/privacy','/sitemap.xml','/robots.txt','/offline-manifest.json','/resources/samples/free-family-sample-en.pdf','/resources/samples/free-journal-week-one-en.pdf','/resources/samples/free-academy-activities-en.pdf','/resources/samples/free-journal-30-days-en.pdf'];
+ const routes=['/en','/en/library','/en/museum','/en/mind-lab','/en/brain-lab','/en/privacy','/sitemap.xml','/robots.txt','/offline-manifest.json','/resources/samples/free-family-sample-en.pdf','/resources/samples/free-journal-week-one-en.pdf','/resources/samples/free-academy-activities-en.pdf','/resources/samples/free-journal-30-days-en.pdf'];
  for(const locale of ['ro','fr','de','es','it','pt','nl','pl']) routes.push(`/${locale}`,`/${locale}/library`,`/${locale}/brain-lab`,`/resources/samples/free-family-sample-${locale}.pdf`,`/worksheets/${locale}/money-quest-worksheets-answer-key.pdf`);
  for(const route of routes)assert.equal((await fetch(origin+route)).status,200,route);
+ // The Parent Shop storefront is intentionally unpublished while purchases
+ // are paused (see src/app/[locale]/parents/shop/page.tsx) — the homepage
+ // promotion is also gone, so nothing should still link a visitor here.
+ assert.equal((await fetch(origin+'/en/parents/shop')).status,404,'/en/parents/shop must stay hidden');
+ assert.ok(!(await (await fetch(origin+'/en')).text()).includes('parent-shop-heading'),'homepage must not promote the shop');
  for(const band of ['explorer','builder','strategist'])assert.equal((await fetch(origin+`/certificates/${band}-background.jpg`)).status,200);
  for(const font of ['DejaVuSerif.ttf','DejaVuSans.ttf','Allura-Regular.ttf'])assert.equal((await fetch(origin+`/certificates/fonts/${font}`)).status,200,font);
  assert.equal((await fetch(origin+'/ro/academy-certificate?level=explorer')).status,200);
