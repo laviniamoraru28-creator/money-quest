@@ -63,6 +63,12 @@ export function GameShell({ config, ageBand, difficulty = "standard", currencyCo
   const { playCorrect, playIncorrect, playComplete, playGoalReached } = useSound();
   const variant = getVariant(config, ageBand, difficulty);
   const world = getWorldById(worldId);
+  // Explorer-only: the pre-reader redesign gives Explorer lessons larger,
+  // easier-to-read text throughout; games share this same shell with
+  // Builder/Strategist, so the bump has to be conditional here rather than
+  // changed on the shared classes, which must stay as they are for the
+  // older children those bands serve.
+  const isExplorer = ageBand === "explorer";
 
   const [roundIndex, setRoundIndex] = useState(0);
   const [attemptKey, setAttemptKey] = useState(0); // bumped on retry to force the mechanic to remount with fresh state
@@ -239,11 +245,11 @@ export function GameShell({ config, ageBand, difficulty = "standard", currencyCo
         )}
       </div>
 
-      <h1 className="font-display text-xl font-bold">{config.title}</h1>
+      <h1 className={isExplorer ? "font-display text-2xl font-extrabold" : "font-display text-xl font-bold"}>{config.title}</h1>
       <GuidePanel compact message={t(`activityGuide.${phase}`)} />
       {/* Progress */}
       <div>
-        <p className="text-sm text-ink/70" aria-live="polite">
+        <p className={isExplorer ? "text-base text-ink/70" : "text-sm text-ink/70"} aria-live="polite">
           {t("game.roundOf", { current: roundIndex + 1, total: variant.rounds.length })}
         </p>
         <div className="mt-3xs h-2 w-full">
@@ -276,7 +282,7 @@ export function GameShell({ config, ageBand, difficulty = "standard", currencyCo
       </div>
 
       <Card variant="activity">
-        <p className="text-lg font-medium">{round.prompt}</p>
+        <p className={isExplorer ? "text-xl font-bold" : "text-lg font-medium"}>{round.prompt}</p>
 
         <div className="mt-sm">
           <MechanicComponent
@@ -287,25 +293,26 @@ export function GameShell({ config, ageBand, difficulty = "standard", currencyCo
             usesCurrency={config.usesCurrency}
             onAnswer={handleAnswer}
             isResolved={phase === "correct"}
+            isExplorer={isExplorer}
           />
         </div>
 
         {phase === "playing" && (
           <div className="mt-sm">
             {!showHint ? (
-              <button type="button" onClick={() => setShowHint(true)} className="text-sm font-medium text-teal-text underline-offset-2 hover:underline">
+              <button type="button" onClick={() => setShowHint(true)} className={isExplorer ? "text-base font-bold text-teal-text underline-offset-2 hover:underline" : "text-sm font-medium text-teal-text underline-offset-2 hover:underline"}>
                 {t("game.needHint")}
               </button>
             ) : (
-              <p className="rounded-sm bg-gold/10 px-xs py-2xs text-sm text-ink/80">💡 {round.hint}</p>
+              <p className={isExplorer ? "rounded-sm bg-gold/10 px-xs py-2xs text-base text-ink/80" : "rounded-sm bg-gold/10 px-xs py-2xs text-sm text-ink/80"}>💡 {round.hint}</p>
             )}
           </div>
         )}
 
         {phase === "correct" && (
           <div className="mt-md rounded-sm border border-success/30 bg-success/5 p-sm">
-            <p className="font-medium text-success-text">{config.feedback.correct}</p>
-            <p className="mt-2xs text-sm text-ink/70">{round.explanation}</p>
+            <p className={isExplorer ? "text-lg font-bold text-success-text" : "font-medium text-success-text"}>{config.feedback.correct}</p>
+            <p className={isExplorer ? "mt-2xs text-base text-ink/70" : "mt-2xs text-sm text-ink/70"}>{round.explanation}</p>
             {!isLastRound && (
               <Button variant="quest-primary" className="mt-sm w-full" onClick={handleNextRound}>
                 {t("game.nextRound")}
@@ -316,10 +323,10 @@ export function GameShell({ config, ageBand, difficulty = "standard", currencyCo
 
         {phase === "incorrect" && (
           <div className="mt-md rounded-sm border border-error/30 bg-error/5 p-sm">
-            <p className="font-medium text-error-text">{config.feedback.incorrect}</p>
+            <p className={isExplorer ? "text-lg font-bold text-error-text" : "font-medium text-error-text"}>{config.feedback.incorrect}</p>
             <div className="mt-2xs flex items-start gap-2xs">
-              
-              <p className="text-sm text-ink/70">{round.explanation}</p>
+
+              <p className={isExplorer ? "text-base text-ink/70" : "text-sm text-ink/70"}>{round.explanation}</p>
             </div>
             <Button variant="secondary" className="mt-sm" onClick={handleRetry}>
               {t("common.tryAgain")}

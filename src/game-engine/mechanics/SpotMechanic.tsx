@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import type { MechanicProps } from "../registry";
 import type { SpotRound } from "../types";
 
-export function SpotMechanic({ round, onAnswer, isResolved }: MechanicProps<SpotRound>) {
+export function SpotMechanic({ round, onAnswer, isResolved, isExplorer }: MechanicProps<SpotRound>) {
   const t = useTranslations();
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
   const [checked, setChecked] = useState(false);
@@ -30,9 +30,9 @@ export function SpotMechanic({ round, onAnswer, isResolved }: MechanicProps<Spot
 
   return (
     <div>
-      <p className="rounded-sm bg-fog p-sm text-base italic text-ink/80">{round.scenario}</p>
+      <p className={isExplorer ? "rounded-sm bg-fog p-sm text-lg italic font-bold text-ink/80" : "rounded-sm bg-fog p-sm text-base italic text-ink/80"}>{round.scenario}</p>
 
-      <p className="mt-sm text-sm text-ink/70">{t("game.tapSuspicious")}</p>
+      <p className={isExplorer ? "mt-sm text-base text-ink/70" : "mt-sm text-sm text-ink/70"}>{t("game.tapSuspicious")}</p>
 
       <div className="mt-2xs grid gap-2xs">
         {round.items.map((item) => {
@@ -50,7 +50,8 @@ export function SpotMechanic({ round, onAnswer, isResolved }: MechanicProps<Spot
               aria-pressed={isSelected}
               onClick={() => toggle(item.id)}
               className={[
-                "min-h-touch-min-child rounded-sm border-2 px-sm py-2xs text-left text-base",
+                "min-h-touch-min-child rounded-sm border-2 px-sm py-2xs text-left",
+                isExplorer ? "text-lg font-bold" : "text-base",
                 correctlyFlagged ? "border-success bg-success/10" : "",
                 missedFlag ? "border-error bg-error/10" : "",
                 wronglyFlagged ? "border-warning bg-warning/10" : "",
@@ -60,16 +61,16 @@ export function SpotMechanic({ round, onAnswer, isResolved }: MechanicProps<Spot
             >
               {item.text}
               {correctlyFlagged && (
-                <span className="ml-2xs text-sm font-medium text-success-text">
+                <span className={isExplorer ? "ml-2xs text-base font-bold text-success-text" : "ml-2xs text-sm font-medium text-success-text"}>
                   <span aria-hidden="true">✓</span> {t("game.goodCatch")}
                 </span>
               )}
               {missedFlag && (
-                <span className="ml-2xs text-sm font-medium text-error-text">
+                <span className={isExplorer ? "ml-2xs text-base font-bold text-error-text" : "ml-2xs text-sm font-medium text-error-text"}>
                   <span aria-hidden="true">✗</span> {t("game.missedWarningSign")}
                 </span>
               )}
-              {wronglyFlagged && <span className="ml-2xs text-sm font-medium text-warning-text">{t("game.actuallyFine")}</span>}
+              {wronglyFlagged && <span className={isExplorer ? "ml-2xs text-base font-bold text-warning-text" : "ml-2xs text-sm font-medium text-warning-text"}>{t("game.actuallyFine")}</span>}
             </button>
           );
         })}
@@ -80,7 +81,7 @@ export function SpotMechanic({ round, onAnswer, isResolved }: MechanicProps<Spot
           type="button"
           disabled={selectedIds.size === 0}
           onClick={submit}
-          className="mt-md min-h-touch-min-child w-full rounded-lg bg-teal px-md py-xs font-medium text-white shadow-resting disabled:opacity-40"
+          className={isExplorer ? "mt-md min-h-touch-min-child w-full rounded-lg bg-teal px-md py-xs text-lg font-bold text-white shadow-resting disabled:opacity-40" : "mt-md min-h-touch-min-child w-full rounded-lg bg-teal px-md py-xs font-medium text-white shadow-resting disabled:opacity-40"}
         >
           {t("game.checkWhatIFound")}
         </button>

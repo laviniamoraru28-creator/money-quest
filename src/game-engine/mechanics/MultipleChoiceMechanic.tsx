@@ -6,7 +6,7 @@ import type { MechanicProps } from "../registry";
 import type { MultipleChoiceRound } from "../types";
 import { useAnswerOrder } from "@/lib/answer-order";
 
-export function MultipleChoiceMechanic({ round, onAnswer, isResolved }: MechanicProps<MultipleChoiceRound>) {
+export function MultipleChoiceMechanic({ round, onAnswer, isResolved, isExplorer }: MechanicProps<MultipleChoiceRound>) {
   const t = useTranslations();
   const [selected, setSelected] = useState<string | null>(null);
   const [checked, setChecked] = useState(false);
@@ -34,7 +34,8 @@ export function MultipleChoiceMechanic({ round, onAnswer, isResolved }: Mechanic
               <label
                 key={option}
                 className={[
-                  "flex min-h-touch-min-child cursor-pointer items-center gap-xs rounded-md border-2 px-sm py-2xs text-base",
+                  "flex min-h-touch-min-child cursor-pointer items-center gap-xs rounded-md border-2 px-sm py-2xs",
+                  isExplorer ? "text-lg font-bold" : "text-base",
                   showAsCorrect ? "border-success bg-success/10" : "",
                   showAsIncorrect ? "border-error bg-error/10" : "",
                   !showAsCorrect && !showAsIncorrect && isSelected ? "border-teal bg-teal/5" : "border-ink/15",
@@ -65,7 +66,7 @@ export function MultipleChoiceMechanic({ round, onAnswer, isResolved }: Mechanic
           type="button"
           disabled={!selected}
           onClick={submit}
-          className="mt-md min-h-touch-min-child w-full rounded-lg bg-teal px-md py-xs font-medium text-white shadow-resting disabled:opacity-40"
+          className={isExplorer ? "mt-md min-h-touch-min-child w-full rounded-lg bg-teal px-md py-xs text-lg font-bold text-white shadow-resting disabled:opacity-40" : "mt-md min-h-touch-min-child w-full rounded-lg bg-teal px-md py-xs font-medium text-white shadow-resting disabled:opacity-40"}
         >
           {t("lesson.checkMyAnswer")}
         </button>
