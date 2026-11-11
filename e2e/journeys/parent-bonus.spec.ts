@@ -1,6 +1,5 @@
 import {test,expect} from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
-import {siteControlsCopy} from "../../src/content/site-controls-copy";
 import {parentBonusCopy} from "../../src/content/parent-bonus-copy";
 import {shopFlowCopy} from "../../src/content/shop-flow-copy";
 import {publiclyListedProductIds} from "../../src/content/shop-publication";
@@ -11,28 +10,13 @@ import {LOCALES} from "../../src/i18n/config";
 const publicProductId=[...publiclyListedProductIds][0]!;
 
 for(const locale of LOCALES){
- test(`${locale}: withdrawn bonus stays hidden while published products and night view remain usable`,async({page})=>{
-  const copy=parentBonusCopy[locale];
-  await page.goto(`/${locale}/parents/shop`);
-  await expect(page.getByRole("region",{name:"Little Minds, Smart Money",exact:true})).toHaveCount(0);
-  await expect(page.getByText(copy.badge,{exact:true})).toHaveCount(0);
-  await expect(page.getByRole("img",{name:copy.coverAlt,exact:true})).toHaveCount(0);
-  await expect(page.locator('a[href$="Little_Minds_Smart_Money_Illustrated.pdf"]')).toHaveCount(0);
-  await expect(page.locator("article[id]")).toHaveCount(publiclyListedProductIds.size);
-  const product=page.locator(`article#${publicProductId}`);
-  await expect(product.getByRole("heading")).toBeVisible();
-  const image=product.getByRole("img");
-  await expect.poll(()=>image.evaluate((el:HTMLImageElement)=>el.complete&&el.naturalWidth>0)).toBe(true);
-  expect(await image.evaluate(el=>getComputedStyle(el).objectFit)).toBe("contain");
-  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
-  const settings=page.locator('[data-settings-trigger]');
-  await settings.click();
-  await page.getByRole("checkbox",{name:siteControlsCopy[locale].night,exact:true}).check();
-  await settings.click();
-  await expect(page.locator("html")).toHaveAttribute("data-night-view","true");
-  await expect.poll(()=>product.evaluate(el=>getComputedStyle(el).color)).toBe("rgb(255, 255, 255)");
-  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
-  const a11y=await new AxeBuilder({page}).withTags(["wcag2a","wcag2aa","wcag21aa"]).analyze();expect(a11y.violations).toEqual([]);
+ test(`${locale}: shop catalogue (and any withdrawn bonus on it) stays hidden while purchases are paused`,async({request})=>{
+  // The catalogue page — where a withdrawn bonus would otherwise need to
+  // stay hidden among published products — is itself unpublished while
+  // checkoutPaused() holds (src/lib/commerce/checkout-pause.ts); the
+  // bonus-visibility logic it would exercise stays covered at the unit
+  // level (test-parent-bonus.ts) for whenever purchases resume.
+  expect((await request.get(`/${locale}/parents/shop`)).status()).toBe(404);
  });
  test(`${locale}: verified success has two separate secure POST downloads`,async({page})=>{
   await page.route("**/api/shop/order",route=>route.fulfill({status:200,contentType:"application/json",body:JSON.stringify({token:"mock-verified-purchase-token",bonusAvailable:true})}));

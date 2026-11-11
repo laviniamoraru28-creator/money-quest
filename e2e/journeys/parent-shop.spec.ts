@@ -5,27 +5,14 @@ import {shopFlowCopy} from "../../src/content/shop-flow-copy";
 import {shopTermsCopy} from "../../src/content/shop-terms-copy";
 import {SHOP_TERMS_VERSION} from "../../src/content/shop";
 import {shopCatalogueCopy} from "../../src/content/shop-catalogue-copy";
-import {shopProducts} from "../../src/content/shop";
-import {publiclyListedProductIds} from "../../src/content/shop-publication";
-test("shop catalogue keeps digital disclosures and free samples without unpublished sales notices",async({page})=>{
- await page.setViewportSize({width:320,height:900});await page.goto("/en/parents/shop");await expect(page).toHaveURL(/\/en\/parents\/shop$/);
- const copy=shopCatalogueCopy.en.copy;await expect(page.getByText(copy.previewBody,{exact:true})).toHaveCount(0);
- await expect(page.getByText(copy.digital,{exact:true})).toBeVisible();await expect(page.getByText(copy.responseBody,{exact:true})).toHaveCount(0);
- await page.getByRole("link",{name:copy.sampleCta,exact:true}).click();await expect(page).toHaveURL(/#free-preview$/);
- for(const product of shopProducts){
-  const text=shopCatalogueCopy.en.products[product.id],card=page.locator(`article#${product.id}`);
-  if(!publiclyListedProductIds.has(product.id)){await expect(card).toHaveCount(0);continue;}
-  await expect(card.getByRole("heading",{name:text.title,exact:true})).toBeVisible();
-  const image=card.getByRole("img",{name:text.imageAlt,exact:true});await image.scrollIntoViewIfNeeded();await expect.poll(()=>image.evaluate((el:HTMLImageElement)=>el.complete&&el.naturalWidth>0)).toBe(true);
-  await expect(card.getByRole("link",{name:text.sampleLabel,exact:true})).toHaveAttribute("href",product.sample);
-  await expect(card.getByRole("button",{name:shopFlowCopy.en.closedButton,exact:true})).toBeDisabled();
- }
- // Only publicly-listed products render a card at all this release.
- await expect(page.locator("article")).toHaveCount(Array.from(publiclyListedProductIds).length);
- for(const i of [1,2,3,4] as const){await page.getByText(copy[`q${i}`],{exact:true}).click();await expect(page.getByText(copy[`a${i}`],{exact:true})).toBeVisible();}
- expect(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)).toBe(false);
- const schema=await page.locator('script[type="application/ld+json"]').allTextContents();const collection=schema.map(text=>JSON.parse(text)).find(item=>item["@type"]==="CollectionPage");
- expect(collection.url).toBe("https://moneyquesteducation.com/en/parents/shop");expect(collection.offers).toBeUndefined();
+test("shop catalogue stays unpublished (404) while purchases are paused",async({page,request})=>{
+ // The storefront itself is kept (src/app/[locale]/parents/shop/page.tsx),
+ // not deleted, behind checkoutPaused() — see src/lib/commerce/checkout-pause.ts.
+ // Its catalogue/disclosure rendering is covered at the unit level
+ // (test-shop-catalogue-presentation.ts) for whenever purchases resume;
+ // this just locks in that the public route stays hidden by default.
+ expect((await request.get("/en/parents/shop")).status()).toBe(404);
+ await page.goto("/en/parents/shop");await expect(page.getByRole("heading",{level:1})).not.toContainText(shopCatalogueCopy.en.copy.title);
 });
 test("download terms preserve English disclosures and English navigation",async({page})=>{
  await page.goto("/en/parents/shop/terms");await expect(page).toHaveURL(/\/en\/parents\/shop\/terms$/);
@@ -37,7 +24,7 @@ test("download terms preserve English disclosures and English navigation",async(
  await expect(main.getByRole("link",{name:shopTermsCopy.en.privacy,exact:true})).toHaveAttribute("href","/en/privacy");
  await expect(main.locator("form,input")).toHaveCount(0);
 });
-for(const path of ["/en/parents/resources","/en/parents/shop","/en/parents/shop/terms"]){
+for(const path of ["/en/parents/resources","/en/parents/shop/terms"]){
  test(`parent resource page, samples and accessibility: ${path}`,async({page})=>{
   await page.goto(path);await expect(page.locator("main h1")).toBeVisible();
   expect(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)).toBe(false);
@@ -45,15 +32,11 @@ for(const path of ["/en/parents/resources","/en/parents/shop","/en/parents/shop/
   const canonical=await page.locator('link[rel="canonical"]').getAttribute("href");expect(new URL(canonical!).pathname).toBe(path);
  });
 }
-test("parent shop is visible from home at narrow widths and learning stays available",async({page})=>{
+test("parent shop is not promoted from home while purchases are paused",async({page})=>{
  await page.setViewportSize({width:320,height:900});await page.goto("/en");
- await expect(page.getByRole("region",{name:"Parent shop · PDFs",exact:true}).getByRole("link")).toBeVisible();
- const image=page.getByRole("img",{name:/illustration of a smiling child/});
- await expect.poll(()=>image.evaluate((el:HTMLImageElement)=>el.complete&&el.naturalWidth>0)).toBe(true);
+ await expect(page.getByRole("region",{name:"Parent shop · PDFs",exact:true})).toHaveCount(0);
+ await expect(page.locator('a[href="/parents/shop"]')).toHaveCount(0);
  expect(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)).toBe(false);
- await page.getByRole("region",{name:"Parent shop · PDFs",exact:true}).getByRole("link").click();await expect(page.getByRole("heading",{name:"Bring Money Quest learning to your kitchen table"})).toBeVisible();
- await expect(page.getByText("Purchases open after review",{exact:true})).toHaveCount(Array.from(publiclyListedProductIds).length);
- await expect(page.getByRole("button",{name:"Purchases open after review"}).first()).toBeDisabled();
 });
 test("free samples are real PDF downloads and checkout fails closed without configuration",async({request})=>{
  for(const file of ["free-academy-activities-en.pdf","free-journal-30-days-en.pdf"]){const response=await request.get(`/resources/samples/${file}`);expect(response.ok()).toBe(true);expect(response.headers()["content-type"]).toContain("application/pdf");expect((await response.body()).subarray(0,4).toString()).toBe("%PDF");}
