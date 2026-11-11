@@ -178,32 +178,22 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
        ]}
        replayLabel={t.listen} tryAgainMessage={c.retry} successMessage={c.success}
        onComplete={()=>setStage(1)}/>;
-     if (stage === 1) return <ExplorerPictureSort
+     // Used to have a second sort stage here (plain coins-vs-notes),
+     // but that tests the exact coin/banknote distinction money_basics
+     // already teaches, and never touches this lesson's own topic —
+     // recognising that different countries use different currencies.
+     // Removed as a duplicate (see money-quest duplicate-activity audit).
+     if (stage === 1) return <ExplorerPictureChoice
        key="stage-1"
-       prompt={c.prompt2}
-       items={[
-         {id:"c1", symbol:"🪙", label:c.coinsLabel, destinationId:"coins"},
-         {id:"c2", symbol:"🪙", label:c.coinsLabel, destinationId:"coins"},
-         {id:"n1", symbol:"💵", label:c.notesLabel, destinationId:"notes"},
-         {id:"n2", symbol:"💷", label:c.notesLabel, destinationId:"notes"},
-       ]}
-       destinations={[
-         {id:"coins", symbol:"🪙", label:c.coinsBox},
-         {id:"notes", symbol:"💵", label:c.notesBox},
-       ]}
-       replayLabel={t.listen} tryAgainMessage={c.retry} successMessage={c.success}
-       onComplete={()=>setStage(2)}/>;
-     if (stage === 2) return <ExplorerPictureChoice
-       key="stage-2"
        prompt={c.prompt3}
        options={[
          {id:"pound", label:c.symbolPoundQuestion, symbol:"£", explanation:""},
          {id:"euro", label:c.symbolPoundWrong, symbol:"€", explanation:""},
        ]}
        correctId="pound" successMessage={c.success} retryMessage={c.retry}
-       replayLabel={c.replay} nextLabel={c.next} onComplete={()=>setStage(3)}/>;
+       replayLabel={c.replay} nextLabel={c.next} onComplete={()=>setStage(2)}/>;
      return <ExplorerPictureChoice
-       key="stage-3"
+       key="stage-2"
        prompt={c.prompt4tripJapan}
        options={[
          {id:"yen", label:c.prompt4yen, symbol:"¥", explanation:""},
@@ -310,17 +300,22 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
    })()}
    {topicId==="digital_money" && (() => {
      const c = digitalMoneyLessonCopy[locale];
-     if (stage === 0) return <ExplorerMiniShop key="stage-0" locale={locale} onComplete={()=>setStage(1)}/>;
-     if (stage === 1) return <ExplorerPictureChoice
-       key="stage-1" prompt={c.prompt1}
+     // Used to open on ExplorerMiniShop ("buy an apple, pick coins,
+     // banknote or card"), but that's the exact same shop activity
+     // money_basics already teaches — removed as a duplicate (see
+     // money-quest duplicate-activity audit) rather than re-teaching
+     // "three ways to pay" a second time in a lesson whose own topic
+     // is specifically where DIGITAL money comes from.
+     if (stage === 0) return <ExplorerPictureChoice
+       key="stage-0" prompt={c.prompt1}
        options={[
          {id:"sameWay", label:c.sameWay, symbol:"⬇️", explanation:""},
          {id:"fromNowhere", label:c.fromNowhere, symbol:"❓", explanation:""},
        ]}
        correctId="sameWay" successMessage={c.success} retryMessage={c.retry}
-       replayLabel={c.replay} nextLabel={c.next} onComplete={()=>setStage(2)}/>;
+       replayLabel={c.replay} nextLabel={c.next} onComplete={()=>setStage(1)}/>;
      return <ExplorerPictureChoice
-       key="stage-2" prompt={c.prompt2}
+       key="stage-1" prompt={c.prompt2}
        options={[
          {id:"bank", label:c.bankAccount, symbol:"🏦", explanation:""},
          {id:"free", label:c.freeFromCard, symbol:"✨", explanation:""},

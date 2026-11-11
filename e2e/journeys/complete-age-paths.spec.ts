@@ -80,10 +80,6 @@ async function completeExplorerLesson(page:Page,topicId:string){
    await button('Leu').click();await button(/Romania/).click();
    await button('Euro').click();await button(/Europe/).click();
    await button('Yen').click();await button(/Japan/).click();
-   await button('Coins').first().click();await button(/Coin box/).click();
-   await button('Coins').first().click();await button(/Coin box/).click();
-   await button('Banknotes').first().click();await button(/Note box/).click();
-   await button('Banknotes').first().click();await button(/Note box/).click();
    await button('The pound symbol').click();await button('Continue').click();
    await button('Yen').click();await button('Continue').click();
    break;
@@ -106,7 +102,6 @@ async function completeExplorerLesson(page:Page,topicId:string){
    await button('Send the gift').click();await button('Continue').click();
    break;
   case 'digital_money':
-   await button('Debit card').click();
    await button('Yes, it goes down either way').click();await button('Continue').click();
    await button('Your bank account').click();await button('Continue').click();
    break;
