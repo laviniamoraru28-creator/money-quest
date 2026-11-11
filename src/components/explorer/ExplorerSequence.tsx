@@ -106,7 +106,7 @@ export function ExplorerSequence({
             onClick={() => tryPlace(step.id)}
             {...dragSource(step.id)}
             aria-label={step.label}
-            className="flex min-h-24 w-24 cursor-grab flex-col items-center justify-center gap-1 rounded-2xl border-2 border-teal/30 p-2 font-semibold text-indigo-900 active:cursor-grabbing focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal">
+            className="flex min-h-24 w-24 cursor-grab flex-col items-center justify-center gap-1 rounded-2xl border-2 border-teal/30 p-2 font-semibold text-ink active:cursor-grabbing focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal">
             <span aria-hidden="true" className="text-4xl">{step.symbol}</span>
             <span className="text-xs">{step.label}</span>
           </button>
