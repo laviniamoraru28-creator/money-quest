@@ -5,7 +5,7 @@ import {ExplorerPaymentChoice} from "@/components/explorer/ExplorerPaymentChoice
 import {useState} from "react";
 import {ReadAloudButton} from "@/components/ui/ReadAloudButton";
 
-import {useLocale} from "next-intl";
+import {useLocale, useTranslations} from "next-intl";
 import {REGIONAL_LOCALES,isSupportedLocale,type Locale} from "@/i18n/config";
 import {moneyExamplesCopy} from "@/content/money-examples-copy";
 import {LOCALE_LEARNING_CURRENCY} from "@/lib/currency/learning-currency";
@@ -18,6 +18,7 @@ export function MoneyDiagram({kind,locale="en"}: {kind:string;locale?:Locale}) {
   </div>;
 }
 export function MoneyExamples({explorer=false}: {explorer?:boolean}) {
+  const t=useTranslations("a11y");
   const requested=useLocale(),locale=isSupportedLocale(requested)?requested:"en",copy=moneyExamplesCopy[locale];
   const examples=[
    {name:copy.coins,image:"coins",group:copy.money,detail:copy.coinDetail},
@@ -39,7 +40,7 @@ export function MoneyExamples({explorer=false}: {explorer?:boolean}) {
       coinLabel={copy.coins}
       banknoteLabel={copy.notes}
       cardLabel={copy.card}
-      replayLabel={copy.intro}
+      replayLabel={t("listenToLessonLabel")}
       retryMessage={copy.retry}
       successMessage={copy.correct}
       correctMethod="card"

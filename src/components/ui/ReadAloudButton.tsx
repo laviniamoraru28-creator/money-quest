@@ -5,6 +5,29 @@ import {useEffect} from "react";
 import { useTranslations } from "next-intl";
 import { useReadAloud } from "@/lib/accessibility/use-read-aloud";
 
+export function ReadAloudControl({
+  label, onClick, className, accessibleLabel, title,
+}: {
+  label: string;
+  onClick: () => void;
+  className?: string;
+  accessibleLabel?: string;
+  title?: string;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label={accessibleLabel}
+      title={title}
+      className={`inline-flex h-touch-min shrink-0 items-center gap-3xs rounded-full border border-teal/30 bg-white px-2xs text-sm font-medium text-teal-text hover:bg-cream ${className ?? ""}`}
+    >
+      <ActionIcon name="sound"/>
+      <span>{label}</span>
+    </button>
+  );
+}
+
 /**
  * A small, optional button next to a block of text — never required
  * to understand the activity, since the text is always fully visible
@@ -26,16 +49,6 @@ export function ReadAloudButton({ text, uiLocale }: { text: string; uiLocale: st
   useEffect(() => { stop(); }, [text, stop]);
   if (!isSupported) return null;
 
-  return (
-    <button
-      type="button"
-      onClick={() => (isSpeaking ? stop() : speak(text))}
-      aria-label={isSpeaking ? t("a11y.stopReadingLabel") : t("a11y.listenToLessonLabel")}
-      title={isSpeaking ? t("a11y.stopReadingLabel") : t("a11y.listenToLessonLabel")}
-      className="inline-flex h-touch-min shrink-0 items-center gap-3xs rounded-full border border-teal/30 bg-white px-2xs text-sm font-medium text-teal-text hover:bg-cream"
-    >
-      <ActionIcon name="sound"/>
-      <span>{isSpeaking ? t("a11y.stopReadingLabel") : t("a11y.listenToLessonLabel")}</span>
-    </button>
-  );
+  const label = isSpeaking ? t("a11y.stopReadingLabel") : t("a11y.listenToLessonLabel");
+  return <ReadAloudControl label={label} accessibleLabel={label} title={label} onClick={() => (isSpeaking ? stop() : speak(text))} />;
 }
