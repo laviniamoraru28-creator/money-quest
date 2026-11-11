@@ -87,9 +87,10 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
              className="flex min-h-40 flex-col items-center justify-center gap-3 rounded-3xl border-4 border-white bg-gradient-to-b from-white to-soft-blue/10 p-5 text-center shadow-md aria-pressed:border-teal aria-pressed:bg-teal/10 focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal">
              <span aria-hidden="true" className="text-6xl">{item.symbol}</span>
              <span className="text-xl font-extrabold text-ink">{item.label}</span>
+             {discovered.includes(item.id) && <span className="text-lg leading-relaxed text-ink">{item.desc}</span>}
            </button>)}
        </div>
-       <p role="status" aria-live="polite" className="mt-4 min-h-12 text-lg">{discovered.length===items.length?items.find(i=>i.id===discovered[discovered.length-1])?.desc:""}</p>
+       <p role="status" aria-live="polite" className="mt-4 text-lg">{discovered.length===items.length?m.continueLabel:""}</p>
        {discovered.length===items.length &&
          <button type="button" onClick={()=>setStage(1)} className="mt-3 min-h-12 rounded-full bg-teal px-7 py-3 font-bold text-white shadow-md">{m.continueLabel}</button>}
      </section>;
