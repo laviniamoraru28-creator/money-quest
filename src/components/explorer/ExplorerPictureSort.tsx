@@ -66,7 +66,8 @@ export function ExplorerPictureSort({
     setPlaced(next);
     setSelectedId(null);
     const allCorrect = items.every(entry => next[entry.id] === entry.destinationId);
-    const message = allCorrect ? successMessage : item.label;
+    const destinationLabel = destinations.find(entry => entry.id === destinationId)?.label ?? item.label;
+    const message = allCorrect ? successMessage : destinationLabel;
     setFeedback(message);
     speak(message);
     if (allCorrect) {
