@@ -33,8 +33,15 @@ async function main(){
  wrapper((id:string)=>id in mocks?mocks[id]:actualRequire(id.startsWith("@/")?"../src/"+id.slice(2):id),module,module.exports);
  const request=(productId:string,extra:Record<string,unknown>={},origin="https://moneyquesteducation.com")=>new Request(`${origin}/api/shop/checkout`,{method:"POST",headers:{origin,"Content-Type":"application/json"},body:JSON.stringify({productId,instantSupply:true,cancellationAcknowledged:true,adultPurchaser:true,...(mode==="live"?{termsAccepted:true}:{}),...extra})});
  const previous=shopProducts.map(p=>process.env[p.priceEnv]);
+ const previousPaused=process.env.MONEYQUEST_CHECKOUT_PAUSED;
  try{
   for(const p of shopProducts)process.env[p.priceEnv]=`price_fixture_${p.id.replaceAll("-","_")}`;
+  // New purchases are paused by default — verify that holds before
+  // overriding it to exercise the real (kept-intact) checkout logic below.
+  delete process.env.MONEYQUEST_CHECKOUT_PAUSED;
+  assert.equal((await module.exports.POST(request(shopProducts[0]!.id))).status,503);
+  assert.equal(creates,0,"A paused checkout must never create a Stripe session");
+  process.env.MONEYQUEST_CHECKOUT_PAUSED="false";
   for(const current of ["sandbox","live"] as const){
    mode=current;
    for(const product of shopProducts){
@@ -63,7 +70,7 @@ async function main(){
     assert.equal(validatePaidSession(paid,{mode,contract}).id,product.id);
     assert.throws(()=>validatePaidSession({...paid,metadata:{}},{mode,contract}));
     assert.throws(()=>validatePaidSession({...paid,amount_total:1},{mode,contract}));
-    const before=creates;
+    const before:number=creates;
     for(const extra of [{instantSupply:false},{cancellationAcknowledged:false},{adultPurchaser:false},{metadata:{app:APP_ID}},...(mode==="live"?[{termsAccepted:false}]:[])])assert.equal((await module.exports.POST(request(product.id,extra))).status,400);
     assert.equal((await module.exports.POST(request(product.id,{},"https://untrusted.test"))).status,403);
     available=false;assert.equal((await module.exports.POST(request(product.id))).status,503);available=true;
@@ -73,7 +80,10 @@ async function main(){
    }
   }
   assert.equal(creates,4);assert.equal(contracts.length,2);assert.equal(mailChecks,2);
-  console.log("PASS: actual checkout route for both products in sandbox/live, emitted payment metadata passes fulfilment checks, cookie ownership binding, immutable contract association, fixed GBP configuration and rejected choices/origins/preflight. No network, charge or email.");
- }finally{shopProducts.forEach((p,i)=>{if(previous[i]===undefined)delete process.env[p.priceEnv];else process.env[p.priceEnv]=previous[i];});}
+  console.log("PASS: checkout stays paused by default, the actual checkout route for both products in sandbox/live (once unpaused) emits payment metadata that passes fulfilment checks, cookie ownership binding, immutable contract association, fixed GBP configuration and rejected choices/origins/preflight. No network, charge or email.");
+ }finally{
+  shopProducts.forEach((p,i)=>{if(previous[i]===undefined)delete process.env[p.priceEnv];else process.env[p.priceEnv]=previous[i];});
+  if(previousPaused===undefined)delete process.env.MONEYQUEST_CHECKOUT_PAUSED;else process.env.MONEYQUEST_CHECKOUT_PAUSED=previousPaused;
+ }
 }
 main().catch(error=>{console.error(error);process.exitCode=1;});
