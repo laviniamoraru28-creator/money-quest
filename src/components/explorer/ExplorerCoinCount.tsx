@@ -69,7 +69,7 @@ export function ExplorerCoinCount({
     <section data-explorer-coin-count className="rounded-3xl border border-teal/20 bg-white p-4 md:p-6">
       <h2 className="text-xl font-bold">{prompt}</h2>
       <button type="button" onClick={() => speak(prompt)}
-        className="my-4 min-h-12 rounded-xl border-2 border-teal px-5 py-3 font-bold">
+        className="my-4 min-h-12 rounded-full border-2 border-teal bg-white px-5 py-3 font-bold text-teal-text">
         <span aria-hidden="true">🔊 </span>{replayLabel}
       </button>
       <div aria-label={coinLabel} className="flex min-h-28 flex-wrap items-center justify-center gap-3 rounded-2xl bg-cream p-4">

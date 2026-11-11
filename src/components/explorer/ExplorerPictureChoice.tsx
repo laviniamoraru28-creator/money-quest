@@ -67,7 +67,7 @@ export function ExplorerPictureChoice({
     <section role="group" aria-label={prompt} className="overflow-hidden rounded-[2rem] border-2 border-soft-blue/50 bg-gradient-to-b from-soft-blue/20 via-white to-coral/10 p-4 shadow-xl md:p-7" data-explorer-picture-choice>
       <p className="mb-4 rounded-2xl bg-white/90 p-4 text-center font-display text-2xl font-extrabold text-ink shadow-sm">{prompt}</p>
       <button type="button" onClick={() => speak(prompt)}
-        className="mb-5 min-h-12 rounded-full border-2 border-teal/40 bg-white px-5 py-3 font-bold text-teal-text shadow-sm">
+        className="mb-5 min-h-12 rounded-full border-2 border-teal bg-white px-5 py-3 font-bold text-teal-text shadow-sm">
         <span aria-hidden="true">🔊 </span>{replayLabel}
       </button>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
