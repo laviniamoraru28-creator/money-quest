@@ -4,6 +4,7 @@ import {LESSON_STRUCTURES} from '../../src/content/curriculum/structures';
 import {GAME_STRUCTURES} from '../../src/game-engine/structures';
 import {buildGameConfigFromStructure} from '../../src/game-engine/build-config';
 import {getVariant,type GameRound} from '../../src/game-engine/types';
+import {moneyBasicsLessonCopy} from '../../src/content/explorer-money-basics-lesson';
 
 const messages=JSON.parse(readFileSync('messages/en.json','utf8'));
 async function solveRound(page:Page,round:GameRound){
@@ -51,15 +52,26 @@ async function solveRound(page:Page,round:GameRound){
 async function completeExplorerLesson(page:Page,topicId:string){
  const button=(name:string|RegExp)=>page.getByRole('button',{name,exact:typeof name==='string'});
  switch(topicId){
-  case 'money_basics':
-   for(const label of ['Coin','Banknote','Debit card'])await button(label).click();
+  case 'money_basics':{
+   const en=moneyBasicsLessonCopy.en;
+   const descriptions:Record<string,string>={Coin:en.coinDesc,Banknote:en.banknoteDesc,'Debit card':en.cardDesc};
+   const tapped:string[]=[];
+   for(const label of ['Coin','Banknote','Debit card']){
+    await button(label).click();
+    tapped.push(label);
+    // Each card's own explanation appears immediately under it and stays
+    // visible as the other cards are tapped — regression coverage for the
+    // money-quest translation audit's "tap each image, see its explanation,
+    // keep it visible" fix.
+    for(const seen of tapped)await expect(page.getByText(descriptions[seen]!,{exact:true})).toBeVisible();
+   }
    await button('Continue').click();
    await button('Add').click();await button('Add').click();await button('Add').click();
    await button('Check').click();
    await button('Debit card').click();
    await button('Your bank account').click();
    await button('Continue').click();
-   break;
+   break;}
   case 'needs_wants':
    await button('Food').click();await button(/Need/).click();
    await button('Water').click();await button(/Need/).click();
