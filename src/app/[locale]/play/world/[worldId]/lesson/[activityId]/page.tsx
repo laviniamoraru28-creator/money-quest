@@ -20,15 +20,16 @@ export default function LessonPage() {
   const { state, isLoaded, completeActivity } = useLocalProgress();
 
   const requestedStructure = getLessonStructureById(params.activityId);
+  const requestedWorldId = requestedStructure?.worldId;
   const correctId = requestedStructure && state.ageBand && requestedStructure.ageBand !== state.ageBand
     ? `${state.ageBand}-${requestedStructure.topicId}-l1`
     : null;
 
   useEffect(() => {
-    if (isLoaded && correctId) {
-      router.replace(`/play/world/${requestedStructure!.worldId}/lesson/${correctId}`);
+    if (isLoaded && correctId && requestedWorldId) {
+      router.replace(`/play/world/${requestedWorldId}/lesson/${correctId}`);
     }
-  }, [isLoaded, correctId, requestedStructure?.worldId, router]);
+  }, [isLoaded, correctId, requestedWorldId, router]);
 
   if (!isLoaded) return <div className="grid min-h-screen place-items-center bg-fog text-ink/70">{t("common.loading")}</div>;
 
