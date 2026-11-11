@@ -1,6 +1,6 @@
 "use client";
 
-import {useState} from "react";
+import {useEffect,useState} from "react";
 import {useLocale} from "next-intl";
 import {ExplorerPictureChoice} from "@/components/explorer/ExplorerPictureChoice";
 import {ExplorerPictureSort} from "@/components/explorer/ExplorerPictureSort";
@@ -58,6 +58,7 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
    setFinished(true);
    onComplete();
  };
+ useEffect(()=>()=>{if(typeof window!=="undefined"&&"speechSynthesis" in window)window.speechSynthesis.cancel();},[stage]);
  const otherTopic=explorerOtherTopics.find(topic=>topic===topicId);
  const scenario=otherTopic?explorerScenario(locale,otherTopic as ExplorerOtherTopic):null;
  if(!(["money_basics","needs_wants","saving",...explorerOtherTopics] as string[]).includes(topicId))return null;

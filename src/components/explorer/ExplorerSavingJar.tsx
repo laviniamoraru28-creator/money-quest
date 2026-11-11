@@ -1,5 +1,5 @@
 "use client";
-import {useState} from "react";
+import {useEffect,useState} from "react";
 import {useLocale} from "next-intl";
 import {isSupportedLocale,type Locale} from "@/i18n/config";
 import {learningAmount} from "@/lib/currency/learning-currency";
@@ -38,6 +38,7 @@ export function ExplorerSavingJar({onComplete}:{onComplete:()=>void}){
  const TARGET=MONEY.reduce((sum,item)=>sum+item.value,0);
  const saved=MONEY.filter(item=>added.includes(item.id)).reduce((sum,item)=>sum+item.value,0);
  const done=saved>=TARGET;
+ useEffect(()=>()=>{if(typeof window!=="undefined"&&"speechSynthesis" in window)window.speechSynthesis.cancel();},[]);
  const speak=(message:string)=>{
    if(typeof window==="undefined"||!("speechSynthesis" in window))return;
    window.speechSynthesis.cancel();
@@ -57,7 +58,7 @@ export function ExplorerSavingJar({onComplete}:{onComplete:()=>void}){
    <div className="relative bg-gradient-to-r from-amber-300 via-yellow-200 to-orange-200 px-5 py-5 text-center">
      <h2 className="font-display text-2xl font-extrabold text-ink sm:text-3xl">🚲 {title}</h2>
      <p className="mt-2 text-base font-medium text-ink">{instruction}</p>
-     <button type="button" aria-label={instruction} className="mt-3 min-h-12 rounded-full border-2 border-teal bg-white px-5 py-2 font-bold text-teal-text shadow-sm" onClick={()=>speak(`${title}. ${instruction}`)}>🔊 {locale==="ro"?"Ascultă":locale==="en"?"Listen":"▶"}</button>
+     <button type="button" aria-label={instruction} className="mt-3 min-h-12 rounded-full border-2 border-teal bg-white px-5 py-3 font-bold text-teal-text shadow-sm" onClick={()=>speak(`${title}. ${instruction}`)}>🔊 {locale==="ro"?"Ascultă":locale==="en"?"Listen":"▶"}</button>
    </div>
    <div className="grid items-center gap-5 p-4 sm:p-7 lg:grid-cols-[minmax(0,1.4fr)_minmax(230px,1fr)]">
      <div className="flex flex-col items-center rounded-3xl bg-white/75 p-4">
