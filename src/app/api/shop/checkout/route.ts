@@ -8,8 +8,13 @@ import {verifyConfirmationTransport} from "@/lib/commerce/confirmation";
 import {validatedCheckoutUrl} from "@/lib/commerce/client-messages";
 import {saveContract,archiveName,type Contract} from "@/lib/commerce/release";
 import {PARENT_BONUS,parentBonusMetadata,verifyParentBonus} from "@/lib/commerce/parent-bonus";
+import {checkoutPaused} from "@/lib/commerce/checkout-pause";
 export const runtime="nodejs";export const dynamic="force-dynamic";
+// The rest of this route (session creation, contract binding, cookie
+// ownership) is kept intact, not deleted, for when checkoutPaused() is
+// lifted — see checkout-pause.ts.
 export async function POST(request:Request){
+ if(checkoutPaused())return NextResponse.json({code:"purchases_closed",message:"Purchases are temporarily unavailable."},{status:503});
  let config;try{config=commerceConfig();}catch{return NextResponse.json({code:"purchases_closed",message:"Purchases are not open yet. Free samples are available."},{status:503})}
  if(request.headers.get("origin")!==config.origin)return NextResponse.json({code:"checkout_use_site",message:"Use the Money Quest checkout page."},{status:403});
  let value:Record<string,unknown>;

@@ -69,7 +69,6 @@ export const navMenuSections: NavMenuSection[] = [
     items: [
       { labelKey: "parentInfo", href: "/parent-info" },
       { labelKey: "parentResources", href: "/parents/resources" },
-      { labelKey: "shop", href: "/parents/shop" },
     ],
   },
   {
