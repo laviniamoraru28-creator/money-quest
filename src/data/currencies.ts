@@ -51,6 +51,18 @@ export const CURRENCIES: CurrencyOption[] = [
     minorUnitDigits: 2,
     useLiteralSymbol: true,
   },
+  {
+    // Verified empirically (same failure mode as RON above): Intl only
+    // renders the native "zł" symbol when the UI locale is itself "pl" —
+    // every other UI locale falls back to the literal "PLN" code.
+    code: "PLN",
+    name: "Polish Złoty",
+    symbol: "zł",
+    symbolPosition: "after",
+    locale: "pl-PL",
+    minorUnitDigits: 2,
+    useLiteralSymbol: true,
+  },
 ];
 
 export const CURRENCY_BY_CODE: Record<string, CurrencyOption> = Object.fromEntries(

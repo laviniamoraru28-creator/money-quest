@@ -1,21 +1,23 @@
 "use client";
 import Image from "next/image";
+import {ExplorerMiniShop} from "@/components/explorer/ExplorerMiniShop";
+import {ExplorerPaymentChoice} from "@/components/explorer/ExplorerPaymentChoice";
 import {useState} from "react";
 import {ReadAloudButton} from "@/components/ui/ReadAloudButton";
 
 import {useLocale} from "next-intl";
 import {REGIONAL_LOCALES,isSupportedLocale,type Locale} from "@/i18n/config";
 import {moneyExamplesCopy} from "@/content/money-examples-copy";
-
-const learningCurrency:Record<Locale,string>={en:"GBP",ro:"RON",es:"EUR",fr:"EUR",de:"EUR",it:"EUR",pt:"EUR",nl:"EUR",pl:"PLN"};
+import {LOCALE_LEARNING_CURRENCY} from "@/lib/currency/learning-currency";
+import {formatCurrency} from "@/lib/currency/format";
 
 /** Preserve original money artwork in every language; only the account amount is localized. */
 export function MoneyDiagram({kind,locale="en"}: {kind:string;locale?:Locale}) {
   return <div aria-hidden="true" data-educational-image className="flex h-28 items-center justify-center rounded-xl bg-cream p-3">
-    {kind === "account" ? <div className="w-full min-w-0 rounded-xl border-2 border-teal bg-white px-2 py-2 text-center shadow-md"><span className="block text-sm">{moneyExamplesCopy[locale].balance}</span><span className="text-base font-bold text-teal-text sm:text-xl">{new Intl.NumberFormat(REGIONAL_LOCALES[locale],{style:"currency",currency:learningCurrency[locale]}).format(12)}</span></div> : <Image unoptimized src={`/images/money-quest/money/${kind}.webp`} alt="" width={384} height={384} loading="lazy" className="h-full w-full object-contain"/>}
+    {kind === "account" ? <div className="w-full min-w-0 rounded-xl border-2 border-teal bg-white px-2 py-2 text-center shadow-md"><span className="block text-sm">{moneyExamplesCopy[locale].balance}</span><span className="text-base font-bold text-teal-text sm:text-xl">{formatCurrency(1200,LOCALE_LEARNING_CURRENCY[locale],REGIONAL_LOCALES[locale])}</span></div> : <Image unoptimized src={`/images/money-quest/money/${kind}.webp`} alt="" width={384} height={384} loading="lazy" className="h-full w-full object-contain"/>}
   </div>;
 }
-export function MoneyExamples() {
+export function MoneyExamples({explorer=false}: {explorer?:boolean}) {
   const requested=useLocale(),locale=isSupportedLocale(requested)?requested:"en",copy=moneyExamplesCopy[locale];
   const examples=[
    {name:copy.coins,image:"coins",group:copy.money,detail:copy.coinDetail},
@@ -32,8 +34,18 @@ export function MoneyExamples() {
     <p className="mt-2">{copy.intro}</p>
     <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">{examples.map((item,i)=><button type="button" key={item.image} aria-pressed={selected===i} onClick={()=>{setSelected(i);setAnswer(null)}} className={`rounded-xl border-2 p-2 text-left ${selected===i?"border-teal bg-teal/5":"border-ink/20"}`}><MoneyDiagram kind={item.image} locale={locale}/><span className="mt-2 block text-base font-bold">{item.name}</span></button>)}</div>
     <div className="mt-4 rounded-xl bg-fog p-4" role="status"><p className="font-bold">{example.group}</p><p>{example.detail}</p><ReadAloudButton text={example.detail} uiLocale={REGIONAL_LOCALES[locale]}/></div>
-    <fieldset className="mt-5"><legend className="font-bold">{copy.question}</legend><div className="mt-3 flex flex-wrap gap-3">{[copy.coinChoice,copy.cardChoice].map((label,index)=><button type="button" key={label} aria-pressed={answer===index} onClick={()=>setAnswer(index)} className="min-h-12 rounded-xl border-2 border-teal px-4 py-2 text-teal-text">{label}</button>)}</div></fieldset>
-    {answer!==null&&<p role="status" className="mt-3">{answer===1?copy.correct:copy.retry}</p>}
+    {explorer ? <div className="mt-5"><ExplorerPaymentChoice
+      prompt={copy.question}
+      coinLabel={copy.coins}
+      banknoteLabel={copy.notes}
+      cardLabel={copy.card}
+      replayLabel={copy.intro}
+      retryMessage={copy.retry}
+      successMessage={copy.correct}
+      correctMethod="card"
+    /></div> : <fieldset className="mt-5"><legend className="font-bold">{copy.question}</legend><div className="mt-3 flex flex-wrap gap-3">{[copy.coinChoice,copy.cardChoice].map((label,index)=><button type="button" key={label} aria-pressed={answer===index} onClick={()=>setAnswer(index)} className="min-h-12 rounded-xl border-2 border-teal px-4 py-2 text-teal-text">{label}</button>)}</div></fieldset>}
+    {!explorer && answer!==null&&<p role="status" className="mt-3">{answer===1?copy.correct:copy.retry}</p>}
+    {explorer && <ExplorerMiniShop locale={locale}/>}
     <p className="mt-4 text-sm text-ink/70">{copy.illustration}</p>
   </section>;
 }
