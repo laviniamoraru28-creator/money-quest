@@ -24,6 +24,11 @@ for(const locale of LOCALES)for(const band of ['explorer','builder','strategist'
   await page.locator('[data-explorer-coin-count] button').nth(2).click();
   await page.locator('[data-explorer-coin-count] button').last().click();
   await page.locator('[data-explorer-mini-shop] button').nth(3).click();
+  // Paying shows a confirmation and waits for an explicit Continue click
+  // before advancing (see ExplorerMiniShop's handleContinue) — button
+  // index 4 is Continue, appearing right after the four shop buttons
+  // (Listen, coins, banknote, card) once a payment method is chosen.
+  await page.locator('[data-explorer-mini-shop] button').nth(4).click();
   await page.locator('[data-explorer-picture-choice] button[aria-pressed]').first().click();
   await page.locator('[data-explorer-picture-choice] button').last().click();
  } else {

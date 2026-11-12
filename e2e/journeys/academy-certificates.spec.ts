@@ -25,6 +25,7 @@ for(const band of CERTIFICATE_BANDS)test(`certificate earned at real final ${ban
   await button("Add").click();await button("Add").click();await button("Add").click();
   await button("Check").click();
   await button("Debit card").click();
+  await button("Continue").click();
   await button("Your bank account").click();
   await button("Continue").click();
  }else{

@@ -69,6 +69,10 @@ async function completeExplorerLesson(page:Page,topicId:string){
    await button('Add').click();await button('Add').click();await button('Add').click();
    await button('Check').click();
    await button('Debit card').click();
+   // Paying shows a visible/spoken confirmation and waits for its own
+   // Continue click before advancing (see ExplorerMiniShop) — distinct
+   // from the picture-choice stage's own Continue click two lines down.
+   await button('Continue').click();
    await button('Your bank account').click();
    await button('Continue').click();
    break;}
