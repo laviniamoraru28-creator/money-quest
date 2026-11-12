@@ -112,11 +112,13 @@ test('EN: payment confirmation is visible with a localized amount before advanci
   await expect(page.locator('[data-explorer-picture-choice]')).toBeVisible();
 });
 
-for (const locale of LOCALES) test(`${locale}: paid amount and remaining balance carry a real currency label`, async ({page}) => {
-  // See the EN test above for why: CI's shared single-CPU runner under
-  // --workers=2 can have this land alongside another worker's heaviest
-  // test and lose enough time to the contention to blow the 30s default.
-  test.setTimeout(60000);
+for (const locale of LOCALES) test(`${locale}: paid amount and remaining balance carry a real currency label`, async ({page}, info) => {
+  // This checks text content only, not rendering, so (like
+  // multilingual-release.spec.ts's equivalent check) it only needs one
+  // browser project — halving its CI footprint and its exposure to the
+  // single-CPU --workers=2 resource contention that caused a stray 60s
+  // timeout here even after the first fix (see the EN test above).
+  test.skip(info.project.name !== 'desktop-chrome', 'currency-label text check only needs one browser project');
   await driveToShop(page, locale);
   const shop = page.locator('[data-explorer-mini-shop]');
   await shop.locator('button').nth(1).click();
