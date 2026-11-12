@@ -27,14 +27,17 @@ test('switching from Builder to Strategist redirects an open lesson to the new b
   const lesson = LESSON_STRUCTURES.find((l) => l.topicId === 'money_basics' && l.ageBand === 'builder')!;
   await chooseLevel(page, /Builder.*9-11/);
   await page.goto(`/en/play/world/${lesson.worldId}/lesson/${lesson.id}`);
-  await expect(page.locator('[data-lesson-section] h1')).toHaveText(messages.curriculum[lesson.id].title);
+  // Both "examples" and "lesson" sections stay mounted at once (toggled via
+  // `hidden`, see lesson-sequence-integrity.spec.ts), so scope to the one
+  // actually shown on load rather than querying both sections' headings.
+  await expect(page.locator('[data-lesson-section="lesson"] h1')).toHaveText(messages.curriculum[lesson.id].title);
 
   await chooseLevel(page, /Strategist.*12-14/);
   // Revisit the now-stale Builder lesson URL directly.
   await page.goto(`/en/play/world/${lesson.worldId}/lesson/${lesson.id}`);
   const strategistLesson = LESSON_STRUCTURES.find((l) => l.topicId === 'money_basics' && l.ageBand === 'strategist')!;
   await expect(page).toHaveURL(new RegExp(`/lesson/${strategistLesson.id}$`));
-  await expect(page.locator('[data-lesson-section] h1')).toHaveText(messages.curriculum[strategistLesson.id].title);
+  await expect(page.locator('[data-lesson-section="lesson"] h1')).toHaveText(messages.curriculum[strategistLesson.id].title);
 });
 
 test('switching from Builder to Strategist redirects an open game to the new band', async ({page}) => {

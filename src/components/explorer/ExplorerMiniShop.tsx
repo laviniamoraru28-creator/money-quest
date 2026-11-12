@@ -42,8 +42,13 @@ export function ExplorerMiniShop({locale,onComplete}: {locale:Locale;onComplete?
    setMethod(choice);
    onComplete?.();
    setBalance(value=>value-2);
-   setFeedback(t.paid);
-   speak(t.paid);
+   // t.instruction above already localizes its "2"/"5" through money() —
+   // t.paid had been left as bare digits ("You paid 2. You have 3 left."),
+   // which hid the currency entirely. Same replace pattern, same two
+   // numbers this fixed-price shop ever shows (price 2, remaining 3).
+   const paidMessage=t.paid.replace("2",money(2,locale)).replace("3",money(balance-2,locale));
+   setFeedback(paidMessage);
+   speak(paidMessage);
  };
  return <section data-explorer-mini-shop className="mt-6 rounded-3xl border-2 border-teal/30 bg-white p-4 sm:p-6">
    <h2 className="text-2xl font-bold">{t.title}</h2>

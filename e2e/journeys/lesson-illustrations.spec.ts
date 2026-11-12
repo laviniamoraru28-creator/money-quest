@@ -28,7 +28,7 @@ async function checkLayout(page: Page) {
 }
 
 for(const locale of LOCALES) for(const band of ['explorer','builder','strategist'] as const) {
- test(`${locale}/${band}: money sections unmount and reset on forward/back navigation`, async({page})=>{
+ test(`${locale}/${band}: money sections stay mounted and preserve progress on forward/back navigation`, async({page})=>{
   const messages=JSON.parse(readFileSync(`messages/${locale}.json`,'utf8'));
   const lesson=LESSON_STRUCTURES.find(item=>item.ageBand===band && item.topicId==='money_basics')!;
   const title=messages.curriculum[lesson.id].title;
@@ -37,58 +37,67 @@ for(const locale of LOCALES) for(const band of ['explorer','builder','strategist
   await expect(page.locator('#money-examples-heading')).toBeVisible();
   await page.locator(`a[href="/${locale}/play/world/${lesson.worldId}/lesson/${lesson.id}"]`).click();
   await expect(page.locator('[data-lesson-section="lesson"]')).toBeVisible();
-  await expect(page.locator('#money-examples-heading')).toHaveCount(0);
+  // The examples section is mounted alongside the lesson section from the
+  // start (toggled with `hidden`, not conditionally rendered) — it just
+  // isn't the one shown yet.
+  await expect(page.locator('[data-lesson-section="examples"]')).toBeHidden();
   await page.getByRole('button',{name:messages.lesson.backToMoneyForms,exact:true}).click();
   const forms=page.locator('[data-lesson-section="examples"]');
   await expect(forms).toBeVisible();
   if(locale==='en' && band==='explorer') await page.screenshot({path:test.info().outputPath('money-forms.png'),fullPage:true});
-  await expect(page.locator('[data-lesson-section="lesson"]')).toHaveCount(0);
+  await expect(page.locator('[data-lesson-section="lesson"]')).toBeHidden();
   const first=forms.getByRole('button',{name:moneyExamplesCopy[locale].coins,exact:true});
   const card=forms.locator('.grid').getByRole('button',{name:moneyExamplesCopy[locale].card,exact:true});
   await card.click();await expect(card).toHaveAttribute('aria-pressed','true');
-  await forms.getByRole('group',{name:moneyExamplesCopy[locale].question,exact:true}).getByRole('button',{name:moneyExamplesCopy[locale].cardChoice,exact:true}).click();
+  const cardChoice=forms.getByRole('group',{name:moneyExamplesCopy[locale].question,exact:true}).getByRole('button',{name:moneyExamplesCopy[locale].cardChoice,exact:true});
+  await cardChoice.click();
   const advance=page.getByRole('button',{name:messages.lesson.continueToLesson.replace('{title}',title),exact:true});
   await advance.click();
-  await expect(forms).toHaveCount(0);
-  await expect(page.locator('#money-examples-heading')).toHaveCount(0);
-  await expect(page.locator('img[src*="/money/"]')).toHaveCount(0);
+  await expect(forms).toBeHidden();
   await expect(page.locator('[data-lesson-section="lesson"] h1')).toBeFocused();
   await checkLayout(page);
   if(band==='explorer') {
    // Explorer's money_basics lesson replaces the quiz with a picture-first
    // discover activity (see ExplorerInteractiveLesson) instead of a radio
-   // quiz — verify its own in-progress state unmounts and resets on
-   // forward/back navigation, the same guarantee checked below for the
-   // quiz-radio path on other bands.
+   // quiz — verify its own in-progress state, and the examples section's
+   // own card selection made above, both SURVIVE a round trip through
+   // Money Forms rather than being reset — the exact bug this fix closes.
    const discoverButtons=page.locator('[data-explorer-interactive-lesson] button[aria-pressed]');
    await discoverButtons.first().click();
    await expect(discoverButtons.first()).toHaveAttribute('aria-pressed','true');
    await page.getByRole('button',{name:messages.lesson.backToMoneyForms,exact:true}).click();
    await expect(forms).toBeVisible();
-   await expect(first).toHaveAttribute('aria-pressed','true');
-   await expect(card).toHaveAttribute('aria-pressed','false');
-   await expect(forms.getByRole('group',{name:moneyExamplesCopy[locale].question,exact:true}).getByRole('button',{name:moneyExamplesCopy[locale].cardChoice,exact:true})).toHaveAttribute('aria-pressed','false');
-   await expect(page.locator('[data-lesson-illustration]')).toHaveCount(0);
+   await expect(first).toHaveAttribute('aria-pressed','false');
+   await expect(card).toHaveAttribute('aria-pressed','true');
+   await expect(cardChoice).toHaveAttribute('aria-pressed','true');
+   await expect(page.locator('[data-lesson-illustration]')).toBeHidden();
    await advance.click();
-   await expect(forms).toHaveCount(0);
-   await expect(page.locator('[data-explorer-interactive-lesson] button[aria-pressed="true"]')).toHaveCount(0);
+   await expect(forms).toBeHidden();
+   await expect(discoverButtons.first()).toHaveAttribute('aria-pressed','true');
    await expect(page.locator('[data-coin-award]')).toHaveCount(0);
   } else {
    const wrong=messages.curriculum[lesson.id].quiz.options.find((option:string)=>option!==messages.curriculum[lesson.id].quiz.correctAnswer);
    await page.getByRole('radio',{name:wrong,exact:true}).check();
    await page.getByRole('button',{name:messages.lesson.checkMyAnswer,exact:true}).click();
-   await expect(page.getByRole('button',{name:messages.common.tryAgain,exact:true})).toBeVisible();
+   const tryAgain=page.getByRole('button',{name:messages.common.tryAgain,exact:true});
+   await expect(tryAgain).toBeVisible();
    await page.getByRole('button',{name:messages.lesson.backToMoneyForms,exact:true}).click();
    await expect(forms).toBeVisible();
-   await expect(first).toHaveAttribute('aria-pressed','true');
-   await expect(card).toHaveAttribute('aria-pressed','false');
-   await expect(forms.getByRole('group',{name:moneyExamplesCopy[locale].question,exact:true}).getByRole('button',{name:moneyExamplesCopy[locale].cardChoice,exact:true})).toHaveAttribute('aria-pressed','false');
-   await expect(page.locator('[data-lesson-illustration]')).toHaveCount(0);
+   await expect(first).toHaveAttribute('aria-pressed','false');
+   await expect(card).toHaveAttribute('aria-pressed','true');
+   await expect(cardChoice).toHaveAttribute('aria-pressed','true');
+   await expect(page.locator('[data-lesson-illustration]')).toBeHidden();
    await advance.click();
-   await expect(forms).toHaveCount(0);
-   await expect(page.getByRole('button',{name:messages.common.tryAgain,exact:true})).toHaveCount(0);
-   await expect(page.locator('input[type="radio"]:checked')).toHaveCount(0);
-   await expect(page.getByRole('button',{name:messages.lesson.checkMyAnswer,exact:true})).toBeDisabled();
+   await expect(forms).toBeHidden();
+   // phase stays "incorrect" (never silently reset to "unanswered"), so
+   // tryAgain is still the one shown — checkMyAnswer only renders again
+   // once the child actually retries.
+   await expect(tryAgain).toBeVisible();
+   // Not `exact` here: with phase still "incorrect" (preserved, not reset),
+   // this option's accessible name now carries its "(your answer - not
+   // quite right)" sr-only suffix too — see showAsIncorrect in LessonPlayer.
+   await expect(page.getByRole('radio',{name:wrong})).toBeChecked();
+   await expect(page.getByRole('button',{name:messages.lesson.checkMyAnswer,exact:true})).toHaveCount(0);
    await expect(page.locator('[data-coin-award]')).toHaveCount(0);
   }
  });

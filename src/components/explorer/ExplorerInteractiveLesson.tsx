@@ -20,6 +20,7 @@ import {needsWantsLessonCopy} from "@/content/explorer-needs-wants-lesson";
 import {savingExtraLessonCopy} from "@/content/explorer-saving-lesson-extra";
 import {isSupportedLocale, type Locale} from "@/i18n/config";
 import {explorerSpeechLang} from "@/lib/explorer/speech-lang";
+import {learningAmount} from "@/lib/currency/learning-currency";
 
 /** Topics with their own dedicated multi-activity flow below, instead of
  * the single generic two-option scenario question every other topic in
@@ -125,7 +126,10 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
        replayLabel={c.replay} tryAgainMessage={c.retry} successMessage={c.success}
        onComplete={()=>setStage(1)}/>;
      if (stage === 1) return <ExplorerPictureChoice
-       key="stage-1" prompt={c.budgetPrompt}
+       // budgetPrompt's "5"/"5"/"10" are monetary amounts (a budget and two
+       // prices), not object counts — give them a currency label instead of
+       // bare digits, same pattern as ExplorerMiniShop's instruction text.
+       key="stage-1" prompt={c.budgetPrompt.replace("10",learningAmount(10,locale)).split("5").join(learningAmount(5,locale))}
        options={[
          {id:"ball", label:c.ballChoice, symbol:"⚽", explanation:""},
          {id:"car", label:c.carChoice, symbol:"🚗", explanation:""},
