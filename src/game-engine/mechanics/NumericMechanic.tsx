@@ -6,7 +6,7 @@ import type { MechanicProps } from "../registry";
 import type { NumericRound } from "../types";
 import { getCurrencyOption } from "@/lib/currency/format";
 
-export function NumericMechanic({ round, currencyCode, usesCurrency, onAnswer, isResolved }: MechanicProps<NumericRound>) {
+export function NumericMechanic({ round, currencyCode, usesCurrency, onAnswer, isResolved, isExplorer }: MechanicProps<NumericRound>) {
   const t = useTranslations();
   // Note: this component shows a currency SYMBOL beside an input field
   // (an affordance, not a formatted amount), so it doesn't call
@@ -41,14 +41,14 @@ export function NumericMechanic({ round, currencyCode, usesCurrency, onAnswer, i
 
   return (
     <div>
-      <p className="rounded-sm bg-fog p-sm text-base text-ink/80">{round.givenContext}</p>
+      <p className={isExplorer ? "rounded-sm bg-fog p-sm text-lg font-bold text-ink/80" : "rounded-sm bg-fog p-sm text-base text-ink/80"}>{round.givenContext}</p>
 
-      <label htmlFor={`numeric-${round.id}`} className="mt-sm block text-sm font-medium">
+      <label htmlFor={`numeric-${round.id}`} className={isExplorer ? "mt-sm block text-base font-bold" : "mt-sm block text-sm font-medium"}>
         {usesCurrency && currency ? t("game.yourAnswerLabelCurrency", { code: currency.code }) : t("game.yourAnswerLabel")}
       </label>
       <div className="mt-2xs flex items-center gap-2xs">
         {usesCurrency && currency && currency.symbolPosition === "before" && (
-          <span className="text-lg font-bold" aria-hidden="true">
+          <span className={isExplorer ? "text-xl font-bold" : "text-lg font-bold"} aria-hidden="true">
             {currency.symbol}
           </span>
         )}
@@ -60,7 +60,7 @@ export function NumericMechanic({ round, currencyCode, usesCurrency, onAnswer, i
           disabled={isResolved || checked}
           value={inputValue}
           onChange={(e: { target: { value: string } }) => setInputValue(e.target.value)}
-          className="w-32 min-h-touch-min-child rounded-sm border border-ink/20 px-xs py-2xs text-lg tabular-nums focus-visible:border-teal"
+          className={isExplorer ? "w-32 min-h-touch-min-child rounded-sm border border-ink/20 px-xs py-2xs text-xl tabular-nums focus-visible:border-teal" : "w-32 min-h-touch-min-child rounded-sm border border-ink/20 px-xs py-2xs text-lg tabular-nums focus-visible:border-teal"}
         />
       </div>
 
@@ -69,7 +69,7 @@ export function NumericMechanic({ round, currencyCode, usesCurrency, onAnswer, i
           type="button"
           disabled={inputValue === ""}
           onClick={submit}
-          className="mt-md min-h-touch-min-child w-full rounded-lg bg-teal px-md py-xs font-medium text-white shadow-resting disabled:opacity-40"
+          className={isExplorer ? "mt-md min-h-touch-min-child w-full rounded-lg bg-teal px-md py-xs text-lg font-bold text-white shadow-resting disabled:opacity-40" : "mt-md min-h-touch-min-child w-full rounded-lg bg-teal px-md py-xs font-medium text-white shadow-resting disabled:opacity-40"}
         >
           {t("lesson.checkMyAnswer")}
         </button>

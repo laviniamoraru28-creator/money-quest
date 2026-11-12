@@ -77,7 +77,7 @@ export function ExplorerSequence({
     <section data-explorer-sequence className="rounded-3xl border border-teal/20 bg-white p-4 md:p-6">
       <h2 className="text-xl font-bold">{prompt}</h2>
       <button type="button" onClick={() => speak(prompt)}
-        className="my-4 min-h-12 rounded-xl border-2 border-teal px-5 py-3 font-bold">
+        className="my-4 min-h-12 rounded-full border-2 border-teal bg-white px-5 py-3 font-bold text-teal-text">
         <span aria-hidden="true">🔊 </span>{replayLabel}
       </button>
 
@@ -106,7 +106,7 @@ export function ExplorerSequence({
             onClick={() => tryPlace(step.id)}
             {...dragSource(step.id)}
             aria-label={step.label}
-            className="flex min-h-24 w-24 cursor-grab flex-col items-center justify-center gap-1 rounded-2xl border-2 border-teal/30 p-2 font-semibold text-indigo-900 active:cursor-grabbing focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal">
+            className="flex min-h-24 w-24 cursor-grab flex-col items-center justify-center gap-1 rounded-2xl border-2 border-teal/30 p-2 font-semibold text-ink active:cursor-grabbing focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal">
             <span aria-hidden="true" className="text-4xl">{step.symbol}</span>
             <span className="text-xs">{step.label}</span>
           </button>

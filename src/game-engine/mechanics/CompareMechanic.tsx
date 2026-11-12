@@ -7,7 +7,7 @@ import type { CompareRound } from "../types";
 import { formatCurrency } from "@/lib/currency/format";
 import { useAnswerOrder } from "@/lib/answer-order";
 
-export function CompareMechanic({ round, currencyCode, uiLocale, usesCurrency, onAnswer, isResolved }: MechanicProps<CompareRound>) {
+export function CompareMechanic({ round, currencyCode, uiLocale, usesCurrency, onAnswer, isResolved, isExplorer }: MechanicProps<CompareRound>) {
   const t = useTranslations();
   const [selected, setSelected] = useState<string | null>(null);
   const [checked, setChecked] = useState(false);
@@ -43,18 +43,18 @@ export function CompareMechanic({ round, currencyCode, uiLocale, usesCurrency, o
                 !showResult && !isSelected ? "border-ink/15" : "",
               ].join(" ")}
             >
-              <p className="font-medium">{option.label}</p>
-              <p className="mt-2xs text-lg font-bold text-ink">
+              <p className={isExplorer ? "text-lg font-bold" : "font-medium"}>{option.label}</p>
+              <p className={isExplorer ? "mt-2xs text-xl font-bold text-ink" : "mt-2xs text-lg font-bold text-ink"}>
                 {usesCurrency ? formatCurrency(option.amountMinorUnits, currencyCode, uiLocale) : option.amountMinorUnits}
               </p>
-              {option.detail && <p className="text-sm text-ink/70">{option.detail}</p>}
+              {option.detail && <p className={isExplorer ? "text-base text-ink/70" : "text-sm text-ink/70"}>{option.detail}</p>}
               {showResult && isCorrectOption && (
-                <p className="mt-2xs text-sm font-medium text-success-text">
+                <p className={isExplorer ? "mt-2xs text-base font-bold text-success-text" : "mt-2xs text-sm font-medium text-success-text"}>
                   <span aria-hidden="true">✓</span> {t("game.bestChoice")}
                 </p>
               )}
               {showResult && isSelected && !isCorrectOption && (
-                <p className="mt-2xs text-sm font-medium text-error-text">
+                <p className={isExplorer ? "mt-2xs text-base font-bold text-error-text" : "mt-2xs text-sm font-medium text-error-text"}>
                   <span aria-hidden="true">✗</span> {t("game.notBestValue")}
                 </p>
               )}
@@ -68,7 +68,7 @@ export function CompareMechanic({ round, currencyCode, uiLocale, usesCurrency, o
           type="button"
           disabled={!selected}
           onClick={submit}
-          className="mt-md min-h-touch-min-child w-full rounded-lg bg-teal px-md py-xs font-medium text-white shadow-resting disabled:opacity-40"
+          className={isExplorer ? "mt-md min-h-touch-min-child w-full rounded-lg bg-teal px-md py-xs text-lg font-bold text-white shadow-resting disabled:opacity-40" : "mt-md min-h-touch-min-child w-full rounded-lg bg-teal px-md py-xs font-medium text-white shadow-resting disabled:opacity-40"}
         >
           {t("game.checkMyChoice")}
         </button>

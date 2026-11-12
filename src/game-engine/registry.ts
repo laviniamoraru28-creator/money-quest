@@ -35,6 +35,13 @@ export interface MechanicProps<TRound extends GameRound = GameRound> {
    * mechanics use this to lock further input rather than each
    * reimplementing that rule. */
   isResolved: boolean;
+  /** Optional: true only when GameShell is rendering for the Explorer
+   * age band, so a mechanic can use the same larger, easier-to-read
+   * text as the rest of the Explorer pre-reader redesign. Omitted by
+   * other callers (e.g. Entrepreneur/Leadership Quest reusing
+   * MissionMechanic directly), which keeps their existing Builder/
+   * Strategist-appropriate sizing unchanged. */
+  isExplorer?: boolean;
 }
 
 /**

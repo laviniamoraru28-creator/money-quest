@@ -11,7 +11,7 @@ import type { SortRound } from "../types";
  * alternative — this mechanic simply never uses drag at all, so there's
  * nothing to provide an alternative to).
  */
-export function SortMechanic({ round, onAnswer, isResolved }: MechanicProps<SortRound>) {
+export function SortMechanic({ round, onAnswer, isResolved, isExplorer }: MechanicProps<SortRound>) {
   const t = useTranslations();
   const [placements, setPlacements] = useState<Record<string, string>>({});
   const [selectedItemId, setSelectedItemId] = useState<string | null>(null);
@@ -45,14 +45,15 @@ export function SortMechanic({ round, onAnswer, isResolved }: MechanicProps<Sort
               aria-pressed={selectedItemId === item.id}
               onClick={() => setSelectedItemId(item.id)}
               className={[
-                "min-h-touch-min-child rounded-sm border-2 px-sm py-2xs text-base",
+                "min-h-touch-min-child rounded-sm border-2 px-sm py-2xs",
+                isExplorer ? "text-lg font-bold" : "text-base",
                 selectedItemId === item.id ? "border-teal bg-teal/10" : "border-ink/20",
                 isPlaced ? "opacity-50" : "",
               ].join(" ")}
             >
               {item.label}
               {isPlaced && (
-                <span className="ml-2xs text-sm text-ink/70">
+                <span className={isExplorer ? "ml-2xs text-base text-ink/70" : "ml-2xs text-sm text-ink/70"}>
                   → {round.buckets.find((b) => b.key === placements[item.id])?.label}
                 </span>
               )}
@@ -61,7 +62,7 @@ export function SortMechanic({ round, onAnswer, isResolved }: MechanicProps<Sort
         })}
       </div>
 
-      <p className="mt-sm text-sm text-ink/70" aria-live="polite">
+      <p className={isExplorer ? "mt-sm text-base text-ink/70" : "mt-sm text-sm text-ink/70"} aria-live="polite">
         {selectedItemId
           ? t("game.selectedItemHint", { item: round.items.find((i) => i.id === selectedItemId)?.label ?? "" })
           : t("game.tapItemThenBucket")}
@@ -74,7 +75,7 @@ export function SortMechanic({ round, onAnswer, isResolved }: MechanicProps<Sort
             type="button"
             disabled={isResolved}
             onClick={() => placeInBucket(bucket.key)}
-            className="min-h-touch-min-child rounded-lg border-2 border-dashed border-teal/50 bg-teal/5 px-sm py-md font-medium text-teal-text"
+            className={isExplorer ? "min-h-touch-min-child rounded-lg border-2 border-dashed border-teal/50 bg-teal/5 px-sm py-md text-lg font-bold text-teal-text" : "min-h-touch-min-child rounded-lg border-2 border-dashed border-teal/50 bg-teal/5 px-sm py-md font-medium text-teal-text"}
           >
             {bucket.label}
           </button>
@@ -85,7 +86,7 @@ export function SortMechanic({ round, onAnswer, isResolved }: MechanicProps<Sort
         <button
           type="button"
           onClick={checkAnswers}
-          className="mt-md min-h-touch-min-child w-full rounded-lg bg-teal px-md py-xs font-medium text-white shadow-resting"
+          className={isExplorer ? "mt-md min-h-touch-min-child w-full rounded-lg bg-teal px-md py-xs text-lg font-bold text-white shadow-resting" : "mt-md min-h-touch-min-child w-full rounded-lg bg-teal px-md py-xs font-medium text-white shadow-resting"}
         >
           {t("game.checkMySorting")}
         </button>

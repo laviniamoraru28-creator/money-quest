@@ -55,15 +55,22 @@ const TERM_ACCENTS = ["gold", "coral", "soft-blue"] as const;
 export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, previousActivityHref, activityPosition, onComplete }: LessonPlayerProps) {
   const router = useRouter();
   const [section, setSection] = useState<"examples" | "lesson">("lesson");
-  const sectionHeading = useRef<HTMLHeadingElement>(null);
+  // Separate refs per section: both sections stay mounted at once (see
+  // below), so a single shared ref would end up pointing at whichever
+  // heading rendered last rather than the one actually being shown.
+  const examplesHeading = useRef<HTMLHeadingElement>(null);
+  const lessonHeading = useRef<HTMLHeadingElement>(null);
   function changeSection(next: "examples" | "lesson") {
+    // Both sections stay mounted (toggled with `hidden`, not conditional
+    // rendering — see the "lesson"/"examples" divs below), specifically so
+    // that leaving mid-activity and coming back doesn't lose progress: an
+    // Explorer child partway through money_basics' multi-stage flow, or a
+    // Builder/Strategist child with an answer already selected, picks up
+    // exactly where they left off instead of starting over. No state to
+    // reset here any more — only the section itself changes.
     window.dispatchEvent(new Event("moneyquest-stop-speech"));
-    setSelectedOption(null);
-    setPhase("unanswered");
-    setAward(activity.isCompleted ? {xp: 0, coins: 0} : null);
     setSection(next);
-    // Focus the new section after React unmounts the previous section.
-    requestAnimationFrame(() => sectionHeading.current?.focus());
+    requestAnimationFrame(() => (next === "examples" ? examplesHeading : lessonHeading).current?.focus());
   }
   const uiLocale = useLocale();
   const t = useTranslations();
@@ -198,14 +205,18 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
       </div>
 
       <GuidePanel compact message={phase === "incorrect" ? t("activityGuide.lessonRetry") : phase === "correct" ? t("activityGuide.lessonComplete") : t("activityGuide.lessonGoal", {title: activity.title})} />
-      {section === "examples" ? (
-        <div data-lesson-section="examples">
-          <h1 ref={sectionHeading} tabIndex={-1} className="font-display text-xl font-bold">{activity.title}</h1>
-          <MoneyExamples />
-          <Button variant="quest-primary" className="w-full" onClick={() => changeSection("lesson")}>{t("lesson.continueToLesson", {title: activity.title})}</Button>
-        </div>
-      ) : (
-        <div data-lesson-section="lesson" className="flex flex-col gap-md">
+      <div data-lesson-section="examples" hidden={section !== "examples"} style={section !== "examples" ? {display: "none"} : undefined}>
+        <h1 ref={examplesHeading} tabIndex={-1} className="font-display text-xl font-bold">{activity.title}</h1>
+        <MoneyExamples />
+        <Button variant="quest-primary" className="w-full" onClick={() => changeSection("lesson")}>{t("lesson.continueToLesson", {title: activity.title})}</Button>
+      </div>
+      {/* `hidden` alone isn't enough here: the UA stylesheet's `[hidden]
+          {display:none}` rule loses to this div's own `.flex` class (equal
+          specificity, author origin beats UA regardless of source order),
+          so the section stayed visibly laid out underneath the examples
+          section. The inline style forces it regardless of which classes
+          are on the element. */}
+      <div data-lesson-section="lesson" className="flex flex-col gap-md" hidden={section === "examples"} style={section === "examples" ? {display: "none"} : undefined}>
           {activity.topicId === "money_basics" && <Button variant="secondary" onClick={() => changeSection("examples")}>{t("lesson.backToMoneyForms")}</Button>}
       {/* Screen-reader announcement of the quiz result — see
           GameShell.tsx's identical pattern and comment for why this
@@ -238,7 +249,7 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
 
         <div className="relative bg-cream p-lg md:col-span-3">
           <div className="flex flex-col items-start gap-2xs">
-            <h1 ref={sectionHeading} tabIndex={-1} className="font-display text-xl font-bold">{activity.title}</h1>
+            <h1 ref={lessonHeading} tabIndex={-1} className="font-display text-xl font-bold">{activity.title}</h1>
             <ReadAloudButton
               text={`${activity.content.shortIntroduction} ${activity.content.explanation} ${activity.content.story}`}
               uiLocale={uiLocale}
@@ -421,7 +432,6 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
       </Card>
       )}
         </div>
-      )}
     </div>
   );
 }

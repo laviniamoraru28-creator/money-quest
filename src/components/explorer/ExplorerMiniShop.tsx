@@ -42,13 +42,18 @@ export function ExplorerMiniShop({locale,onComplete}: {locale:Locale;onComplete?
    setMethod(choice);
    onComplete?.();
    setBalance(value=>value-2);
-   setFeedback(t.paid);
-   speak(t.paid);
+   // t.instruction above already localizes its "2"/"5" through money() —
+   // t.paid had been left as bare digits ("You paid 2. You have 3 left."),
+   // which hid the currency entirely. Same replace pattern, same two
+   // numbers this fixed-price shop ever shows (price 2, remaining 3).
+   const paidMessage=t.paid.replace("2",money(2,locale)).replace("3",money(balance-2,locale));
+   setFeedback(paidMessage);
+   speak(paidMessage);
  };
  return <section data-explorer-mini-shop className="mt-6 rounded-3xl border-2 border-teal/30 bg-white p-4 sm:p-6">
    <h2 className="text-2xl font-bold">{t.title}</h2>
    <p className="mt-2 text-lg">{t.instruction.replace("2",money(2,locale)).replace("5",money(5,locale))}</p>
-   <button type="button" onClick={()=>speak(t.instruction)} className="mt-3 min-h-12 rounded-xl border-2 border-teal px-5 py-3 font-bold">🔊 {t.listen}</button>
+   <button type="button" onClick={()=>speak(t.instruction)} className="mt-3 min-h-12 rounded-full border-2 border-teal bg-white px-5 py-3 font-bold text-teal-text">🔊 {t.listen}</button>
    <div className="my-5 flex items-center justify-between rounded-2xl bg-cream p-5">
      <div className="text-center"><span aria-hidden="true" className="block text-6xl">🍎</span><span className="text-lg font-bold">{t.price}: {money(2,locale)}</span></div>
      <div className="text-center"><span aria-hidden="true" className="block text-5xl">💰</span><span className="text-lg font-bold">{t.balance}: {money(balance,locale)}</span></div>

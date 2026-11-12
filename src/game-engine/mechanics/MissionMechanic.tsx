@@ -18,7 +18,7 @@ import { formatCurrency } from "@/lib/currency/format";
  * missions never block "next" behind a passing score the way graded
  * rounds do.
  */
-export function MissionMechanic({ round, currencyCode, uiLocale, usesCurrency, onAnswer, isResolved }: MechanicProps<MissionRound>) {
+export function MissionMechanic({ round, currencyCode, uiLocale, usesCurrency, onAnswer, isResolved, isExplorer }: MechanicProps<MissionRound>) {
   const t = useTranslations();
   const [chosenKey, setChosenKey] = useState<string | null>(null);
   const chosen = round.choices.find((c) => c.key === chosenKey) ?? null;
@@ -31,7 +31,7 @@ export function MissionMechanic({ round, currencyCode, uiLocale, usesCurrency, o
 
   return (
     <div>
-      <p className="rounded-md bg-fog p-sm text-base font-medium text-ink">{round.situation}</p>
+      <p className={isExplorer ? "rounded-md bg-fog p-sm text-lg font-bold text-ink" : "rounded-md bg-fog p-sm text-base font-medium text-ink"}>{round.situation}</p>
 
       <div className="mt-sm grid gap-2xs">
         {round.choices.map((choice) => {
@@ -49,14 +49,14 @@ export function MissionMechanic({ round, currencyCode, uiLocale, usesCurrency, o
                 ].join(" ")}
               >
                 <span className="flex items-center justify-between gap-xs">
-                  <span className="font-medium">{choice.label}</span>
+                  <span className={isExplorer ? "text-lg font-bold" : "font-medium"}>{choice.label}</span>
                   {usesCurrency && choice.costMinorUnits !== undefined && (
-                    <span className="shrink-0 font-bold text-ink">{formatCurrency(choice.costMinorUnits, currencyCode, uiLocale)}</span>
+                    <span className={isExplorer ? "shrink-0 text-lg font-bold text-ink" : "shrink-0 font-bold text-ink"}>{formatCurrency(choice.costMinorUnits, currencyCode, uiLocale)}</span>
                   )}
                 </span>
               </button>
               {isChosen && (
-                <p className="mt-2xs rounded-md border border-teal/30 bg-teal/5 p-sm text-sm text-ink/80">
+                <p className={isExplorer ? "mt-2xs rounded-md border border-teal/30 bg-teal/5 p-sm text-base text-ink/80" : "mt-2xs rounded-md border border-teal/30 bg-teal/5 p-sm text-sm text-ink/80"}>
                   {choice.consequence}
                 </p>
               )}
@@ -65,7 +65,7 @@ export function MissionMechanic({ round, currencyCode, uiLocale, usesCurrency, o
         })}
       </div>
 
-      {!chosenKey && <p className="mt-sm text-sm text-ink/70">{t("game.chooseAnyOption")}</p>}
+      {!chosenKey && <p className={isExplorer ? "mt-sm text-base text-ink/70" : "mt-sm text-sm text-ink/70"}>{t("game.chooseAnyOption")}</p>}
     </div>
   );
 }

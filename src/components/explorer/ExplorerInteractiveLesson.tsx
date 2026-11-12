@@ -1,6 +1,6 @@
 "use client";
 
-import {useState} from "react";
+import {useEffect,useState} from "react";
 import {useLocale} from "next-intl";
 import {ExplorerPictureChoice} from "@/components/explorer/ExplorerPictureChoice";
 import {ExplorerPictureSort} from "@/components/explorer/ExplorerPictureSort";
@@ -20,6 +20,7 @@ import {needsWantsLessonCopy} from "@/content/explorer-needs-wants-lesson";
 import {savingExtraLessonCopy} from "@/content/explorer-saving-lesson-extra";
 import {isSupportedLocale, type Locale} from "@/i18n/config";
 import {explorerSpeechLang} from "@/lib/explorer/speech-lang";
+import {learningAmount} from "@/lib/currency/learning-currency";
 
 /** Topics with their own dedicated multi-activity flow below, instead of
  * the single generic two-option scenario question every other topic in
@@ -58,6 +59,7 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
    setFinished(true);
    onComplete();
  };
+ useEffect(()=>()=>{if(typeof window!=="undefined"&&"speechSynthesis" in window)window.speechSynthesis.cancel();},[stage]);
  const otherTopic=explorerOtherTopics.find(topic=>topic===topicId);
  const scenario=otherTopic?explorerScenario(locale,otherTopic as ExplorerOtherTopic):null;
  if(!(["money_basics","needs_wants","saving",...explorerOtherTopics] as string[]).includes(topicId))return null;
@@ -84,14 +86,15 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
            <button type="button" key={item.id}
              aria-pressed={discovered.includes(item.id)}
              onClick={()=>{setDiscovered(prev=>prev.includes(item.id)?prev:[...prev,item.id]);speak(`${item.label}. ${item.desc}`);}}
-             className="flex min-h-40 flex-col items-center justify-center gap-3 rounded-3xl border-4 border-white bg-gradient-to-b from-white to-cyan-50 p-5 text-center shadow-md aria-pressed:border-violet-500 aria-pressed:bg-violet-100 focus-visible:outline focus-visible:outline-4 focus-visible:outline-violet-700">
+             className="flex min-h-40 flex-col items-center justify-center gap-3 rounded-3xl border-4 border-white bg-gradient-to-b from-white to-soft-blue/10 p-5 text-center shadow-md aria-pressed:border-teal aria-pressed:bg-teal/10 focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal">
              <span aria-hidden="true" className="text-6xl">{item.symbol}</span>
-             <span className="text-xl font-extrabold text-indigo-950">{item.label}</span>
+             <span className="text-xl font-extrabold text-ink">{item.label}</span>
+             {discovered.includes(item.id) && <span className="text-lg leading-relaxed text-ink">{item.desc}</span>}
            </button>)}
        </div>
-       <p role="status" aria-live="polite" className="mt-4 min-h-12 text-lg">{discovered.length===items.length?items.find(i=>i.id===discovered[discovered.length-1])?.desc:""}</p>
+       <p role="status" aria-live="polite" className="mt-4 text-lg">{discovered.length===items.length?m.continueLabel:""}</p>
        {discovered.length===items.length &&
-         <button type="button" onClick={()=>setStage(1)} className="mt-3 min-h-12 rounded-full bg-violet-700 px-7 py-3 font-bold text-white shadow-md">{m.continueLabel}</button>}
+         <button type="button" onClick={()=>setStage(1)} className="mt-3 min-h-12 rounded-full bg-teal px-7 py-3 font-bold text-white shadow-md">{m.continueLabel}</button>}
      </section>;
      if (stage === 1) return <ExplorerCoinCount key="stage-1" target={3} prompt={t.count} coinLabel={t.coin} addLabel={t.add} removeLabel={t.remove}
        replayLabel={t.listen} checkLabel={t.check} successMessage={t.success} retryMessage={t.retry}
@@ -123,7 +126,10 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
        replayLabel={c.replay} tryAgainMessage={c.retry} successMessage={c.success}
        onComplete={()=>setStage(1)}/>;
      if (stage === 1) return <ExplorerPictureChoice
-       key="stage-1" prompt={c.budgetPrompt}
+       // budgetPrompt's "5"/"5"/"10" are monetary amounts (a budget and two
+       // prices), not object counts — give them a currency label instead of
+       // bare digits, same pattern as ExplorerMiniShop's instruction text.
+       key="stage-1" prompt={c.budgetPrompt.replace("10",learningAmount(10,locale)).split("5").join(learningAmount(5,locale))}
        options={[
          {id:"ball", label:c.ballChoice, symbol:"⚽", explanation:""},
          {id:"car", label:c.carChoice, symbol:"🚗", explanation:""},
@@ -178,32 +184,22 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
        ]}
        replayLabel={t.listen} tryAgainMessage={c.retry} successMessage={c.success}
        onComplete={()=>setStage(1)}/>;
-     if (stage === 1) return <ExplorerPictureSort
+     // Used to have a second sort stage here (plain coins-vs-notes),
+     // but that tests the exact coin/banknote distinction money_basics
+     // already teaches, and never touches this lesson's own topic —
+     // recognising that different countries use different currencies.
+     // Removed as a duplicate (see money-quest duplicate-activity audit).
+     if (stage === 1) return <ExplorerPictureChoice
        key="stage-1"
-       prompt={c.prompt2}
-       items={[
-         {id:"c1", symbol:"🪙", label:c.coinsLabel, destinationId:"coins"},
-         {id:"c2", symbol:"🪙", label:c.coinsLabel, destinationId:"coins"},
-         {id:"n1", symbol:"💵", label:c.notesLabel, destinationId:"notes"},
-         {id:"n2", symbol:"💷", label:c.notesLabel, destinationId:"notes"},
-       ]}
-       destinations={[
-         {id:"coins", symbol:"🪙", label:c.coinsBox},
-         {id:"notes", symbol:"💵", label:c.notesBox},
-       ]}
-       replayLabel={t.listen} tryAgainMessage={c.retry} successMessage={c.success}
-       onComplete={()=>setStage(2)}/>;
-     if (stage === 2) return <ExplorerPictureChoice
-       key="stage-2"
        prompt={c.prompt3}
        options={[
          {id:"pound", label:c.symbolPoundQuestion, symbol:"£", explanation:""},
          {id:"euro", label:c.symbolPoundWrong, symbol:"€", explanation:""},
        ]}
        correctId="pound" successMessage={c.success} retryMessage={c.retry}
-       replayLabel={c.replay} nextLabel={c.next} onComplete={()=>setStage(3)}/>;
+       replayLabel={c.replay} nextLabel={c.next} onComplete={()=>setStage(2)}/>;
      return <ExplorerPictureChoice
-       key="stage-3"
+       key="stage-2"
        prompt={c.prompt4tripJapan}
        options={[
          {id:"yen", label:c.prompt4yen, symbol:"¥", explanation:""},
@@ -293,9 +289,9 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
        <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
          {[{id:"shelter",label:c.cause1,symbol:"🐾"},{id:"foodbank",label:c.cause2,symbol:"🥫"}].map(option=>
            <button type="button" key={option.id} onClick={()=>setStage(2)}
-             className="flex min-h-40 flex-col items-center justify-center gap-3 rounded-3xl border-4 border-white bg-gradient-to-b from-white to-cyan-50 p-5 text-center shadow-md focus-visible:outline focus-visible:outline-4 focus-visible:outline-violet-700">
+             className="flex min-h-40 flex-col items-center justify-center gap-3 rounded-3xl border-4 border-white bg-gradient-to-b from-white to-soft-blue/10 p-5 text-center shadow-md focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal">
              <span aria-hidden="true" className="text-6xl">{option.symbol}</span>
-             <span className="text-xl font-extrabold text-indigo-950">{option.label}</span>
+             <span className="text-xl font-extrabold text-ink">{option.label}</span>
            </button>)}
        </div>
      </section>;
@@ -310,17 +306,22 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
    })()}
    {topicId==="digital_money" && (() => {
      const c = digitalMoneyLessonCopy[locale];
-     if (stage === 0) return <ExplorerMiniShop key="stage-0" locale={locale} onComplete={()=>setStage(1)}/>;
-     if (stage === 1) return <ExplorerPictureChoice
-       key="stage-1" prompt={c.prompt1}
+     // Used to open on ExplorerMiniShop ("buy an apple, pick coins,
+     // banknote or card"), but that's the exact same shop activity
+     // money_basics already teaches — removed as a duplicate (see
+     // money-quest duplicate-activity audit) rather than re-teaching
+     // "three ways to pay" a second time in a lesson whose own topic
+     // is specifically where DIGITAL money comes from.
+     if (stage === 0) return <ExplorerPictureChoice
+       key="stage-0" prompt={c.prompt1}
        options={[
          {id:"sameWay", label:c.sameWay, symbol:"⬇️", explanation:""},
          {id:"fromNowhere", label:c.fromNowhere, symbol:"❓", explanation:""},
        ]}
        correctId="sameWay" successMessage={c.success} retryMessage={c.retry}
-       replayLabel={c.replay} nextLabel={c.next} onComplete={()=>setStage(2)}/>;
+       replayLabel={c.replay} nextLabel={c.next} onComplete={()=>setStage(1)}/>;
      return <ExplorerPictureChoice
-       key="stage-2" prompt={c.prompt2}
+       key="stage-1" prompt={c.prompt2}
        options={[
          {id:"bank", label:c.bankAccount, symbol:"🏦", explanation:""},
          {id:"free", label:c.freeFromCard, symbol:"✨", explanation:""},

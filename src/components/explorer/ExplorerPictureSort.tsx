@@ -66,7 +66,8 @@ export function ExplorerPictureSort({
     setPlaced(next);
     setSelectedId(null);
     const allCorrect = items.every(entry => next[entry.id] === entry.destinationId);
-    const message = allCorrect ? successMessage : item.label;
+    const destinationLabel = destinations.find(entry => entry.id === destinationId)?.label ?? item.label;
+    const message = allCorrect ? successMessage : destinationLabel;
     setFeedback(message);
     speak(message);
     if (allCorrect) {
@@ -79,7 +80,7 @@ export function ExplorerPictureSort({
     <section data-explorer-picture-sort className="rounded-3xl border border-teal/20 bg-white p-4 md:p-6">
       <h2 className="text-xl font-bold">{prompt}</h2>
       <button type="button" onClick={() => speak(prompt)}
-        className="my-4 min-h-12 rounded-xl border-2 border-teal px-5 py-3 font-bold">
+        className="my-4 min-h-12 rounded-full border-2 border-teal bg-white px-5 py-3 font-bold text-teal-text">
         <span aria-hidden="true">🔊 </span>{replayLabel}
       </button>
       <div className="grid grid-cols-2 gap-3">

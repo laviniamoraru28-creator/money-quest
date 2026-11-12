@@ -7,7 +7,7 @@ import type { MatchRound } from "../types";
 
 /** Tap-tap matching (select a left item, then its right pair) rather than
  * drag — same accessibility rationale as SortMechanic. */
-export function MatchMechanic({ round, onAnswer, isResolved }: MechanicProps<MatchRound>) {
+export function MatchMechanic({ round, onAnswer, isResolved, isExplorer }: MechanicProps<MatchRound>) {
   const t = useTranslations();
   const [matchedIds, setMatchedIds] = useState<Set<string>>(new Set());
   const [selectedLeftId, setSelectedLeftId] = useState<string | null>(null);
@@ -54,7 +54,7 @@ export function MatchMechanic({ round, onAnswer, isResolved }: MechanicProps<Mat
           readers via aria-live, and visible on-screen for sighted users
           too, so the same real information reaches everyone rather than
           relying on the colour flash alone. */}
-      <p role="status" aria-live="polite" className="min-h-[1.5em] text-sm font-medium text-ink/70">
+      <p role="status" aria-live="polite" className={isExplorer ? "min-h-[1.5em] text-base font-bold text-ink/70" : "min-h-[1.5em] text-sm font-medium text-ink/70"}>
         {statusMessage}
       </p>
 
@@ -70,7 +70,8 @@ export function MatchMechanic({ round, onAnswer, isResolved }: MechanicProps<Mat
                 aria-pressed={selectedLeftId === pair.id}
                     onClick={() => handleLeftTap(pair.id)}
                 className={[
-                  "min-h-touch-min-child rounded-sm border-2 px-sm py-2xs text-left text-base",
+                  "min-h-touch-min-child rounded-sm border-2 px-sm py-2xs text-left",
+                  isExplorer ? "text-lg font-bold" : "text-base",
                   isMatched ? "border-success bg-success/10 opacity-60" : "",
                   selectedLeftId === pair.id ? "border-teal bg-teal/10" : "border-ink/20",
                 ].join(" ")}
@@ -97,7 +98,8 @@ export function MatchMechanic({ round, onAnswer, isResolved }: MechanicProps<Mat
                 disabled={isResolved || isMatched}
                     onClick={() => handleRightTap(pair.id)}
                 className={[
-                  "min-h-touch-min-child rounded-sm border-2 px-sm py-2xs text-left text-base",
+                  "min-h-touch-min-child rounded-sm border-2 px-sm py-2xs text-left",
+                  isExplorer ? "text-lg font-bold" : "text-base",
                   isMatched ? "border-success bg-success/10 opacity-60" : "",
                   isWrongFlash ? "border-error bg-error/10" : "border-ink/20",
                 ].join(" ")}

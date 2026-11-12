@@ -14,7 +14,7 @@ const STEP_MINOR_UNITS = 100; // adjust in whole "coin" steps of 1.00 in major u
 // (e.g. 1% of totalMinorUnits) would be a reasonable future refinement
 // if a game config ever needs much smaller or larger totals than that.
 
-export function AllocateMechanic({ round, currencyCode, uiLocale, usesCurrency, onAnswer, isResolved }: MechanicProps<AllocateRound>) {
+export function AllocateMechanic({ round, currencyCode, uiLocale, usesCurrency, onAnswer, isResolved, isExplorer }: MechanicProps<AllocateRound>) {
   const t = useTranslations();
   const initial = Object.fromEntries(round.categories.map((c) => [c.key, 0]));
   const [allocations, setAllocations] = useState<Record<string, number>>(initial);
@@ -48,7 +48,7 @@ export function AllocateMechanic({ round, currencyCode, uiLocale, usesCurrency, 
 
   return (
     <div>
-      <p className="text-sm text-ink/70">
+      <p className={isExplorer ? "text-base text-ink/70" : "text-sm text-ink/70"}>
         {t.rich("game.allocateInstructions", {
           amount: fmt(round.totalMinorUnits),
           bold: (chunks) => <span className="font-bold text-teal-text">{chunks}</span>,
@@ -63,18 +63,18 @@ export function AllocateMechanic({ round, currencyCode, uiLocale, usesCurrency, 
 
           return (
             <div key={category.key} className="flex items-center justify-between rounded-sm border border-ink/15 px-sm py-2xs">
-              <span className="font-medium">{category.label}</span>
+              <span className={isExplorer ? "text-lg font-bold" : "font-medium"}>{category.label}</span>
               <div className="flex items-center gap-2xs">
                 <button
                   type="button"
                   aria-label={t("a11y.decreaseCategory", { category: category.label })}
                   disabled={isResolved || value === 0}
                   onClick={() => adjust(category.key, -STEP_MINOR_UNITS)}
-                  className="grid h-touch-min w-touch-min place-items-center rounded-sm border border-ink/20 text-lg disabled:opacity-30"
+                  className={isExplorer ? "grid h-touch-min w-touch-min place-items-center rounded-sm border border-ink/20 text-xl disabled:opacity-30" : "grid h-touch-min w-touch-min place-items-center rounded-sm border border-ink/20 text-lg disabled:opacity-30"}
                 >
                   −
                 </button>
-                <span className={["min-w-[5rem] text-center font-bold tabular-nums", checked && !withinTolerance ? "text-error-text" : ""].join(" ")}>
+                <span className={["min-w-[5rem] text-center font-bold tabular-nums", isExplorer ? "text-lg" : "", checked && !withinTolerance ? "text-error-text" : ""].join(" ")}>
                   {fmt(value)}
                 </span>
                 {checked && !withinTolerance && (
@@ -85,7 +85,7 @@ export function AllocateMechanic({ round, currencyCode, uiLocale, usesCurrency, 
                   aria-label={t("a11y.increaseCategory", { category: category.label })}
                   disabled={isResolved || remaining <= 0}
                   onClick={() => adjust(category.key, STEP_MINOR_UNITS)}
-                  className="grid h-touch-min w-touch-min place-items-center rounded-sm border border-ink/20 text-lg disabled:opacity-30"
+                  className={isExplorer ? "grid h-touch-min w-touch-min place-items-center rounded-sm border border-ink/20 text-xl disabled:opacity-30" : "grid h-touch-min w-touch-min place-items-center rounded-sm border border-ink/20 text-lg disabled:opacity-30"}
                 >
                   +
                 </button>
@@ -95,7 +95,7 @@ export function AllocateMechanic({ round, currencyCode, uiLocale, usesCurrency, 
         })}
       </div>
 
-      <p className="mt-sm text-sm font-medium" aria-live="polite">
+      <p className={isExplorer ? "mt-sm text-base font-bold" : "mt-sm text-sm font-medium"} aria-live="polite">
         {remaining === 0 ? (
           <span className="text-success-text">{t("game.everyCoinPlanned")}</span>
         ) : (
@@ -108,7 +108,7 @@ export function AllocateMechanic({ round, currencyCode, uiLocale, usesCurrency, 
           type="button"
           disabled={remaining !== 0}
           onClick={submit}
-          className="mt-md min-h-touch-min-child w-full rounded-lg bg-teal px-md py-xs font-medium text-white shadow-resting disabled:opacity-40"
+          className={isExplorer ? "mt-md min-h-touch-min-child w-full rounded-lg bg-teal px-md py-xs text-lg font-bold text-white shadow-resting disabled:opacity-40" : "mt-md min-h-touch-min-child w-full rounded-lg bg-teal px-md py-xs font-medium text-white shadow-resting disabled:opacity-40"}
         >
           {t("game.checkMyPlan")}
         </button>
