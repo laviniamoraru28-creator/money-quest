@@ -31,6 +31,15 @@ async function driveToShop(page: Page, locale: Locale) {
   );
   await page.goto(`/${locale}/play/world/${moneyBasicsExplorerLesson.worldId}/lesson/${moneyBasicsExplorerLesson.id}`);
   const discover = page.locator('[data-explorer-discover] button[aria-pressed]');
+  // `.count()` takes an immediate snapshot — it does not wait for the page
+  // to finish hydrating. Reading it right after goto() risks a false "0"
+  // under load (confirmed as the actual cause of three straight CI
+  // failures, always at the exact same line below: the click loop ran 0
+  // times, so the Continue button that only appears once all 3 are
+  // discovered never showed up, and the subsequent wait hung for its full
+  // timeout waiting on something that would never arrive). Asserting the
+  // count first lets Playwright's own auto-retry wait out hydration.
+  await expect(discover).toHaveCount(3);
   const discoverCount = await discover.count();
   for (let i = 0; i < discoverCount; i++) await discover.nth(i).click();
   await page.locator('[data-explorer-discover] button:not([aria-pressed])').click();
