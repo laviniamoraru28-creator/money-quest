@@ -41,6 +41,13 @@ async function driveToShop(page: Page, locale: Locale) {
 }
 
 test('EN: payment confirmation is visible with a localized amount before advancing, and audio matches', async ({page}) => {
+  // CI runs with --workers=2 on a single-CPU runner; this test's own steps
+  // are fast, but it can land in the same window as another worker's
+  // heaviest test (e.g. world-content.spec.ts's full-site render pass,
+  // 25-30s on its own) and lose enough wall-clock time to the resource
+  // contention to blow the 30s default — confirmed by two CI runs failing
+  // at the same click with no other evidence of a real hang.
+  test.setTimeout(60000);
   await page.addInitScript(() => {
     const calls: string[] = [];
     (window as unknown as {speechCalls: string[]}).speechCalls = calls;
@@ -106,6 +113,10 @@ test('EN: payment confirmation is visible with a localized amount before advanci
 });
 
 for (const locale of LOCALES) test(`${locale}: paid amount and remaining balance carry a real currency label`, async ({page}) => {
+  // See the EN test above for why: CI's shared single-CPU runner under
+  // --workers=2 can have this land alongside another worker's heaviest
+  // test and lose enough time to the contention to blow the 30s default.
+  test.setTimeout(60000);
   await driveToShop(page, locale);
   const shop = page.locator('[data-explorer-mini-shop]');
   await shop.locator('button').nth(1).click();
