@@ -63,11 +63,11 @@ export function ExplorerSavingJar({onComplete}:{onComplete:()=>void}){
    <div className="grid items-center gap-5 p-4 sm:p-7 lg:grid-cols-[minmax(0,1.4fr)_minmax(230px,1fr)]">
      <div className="flex flex-col items-center rounded-3xl bg-white/75 p-4">
        <div className="relative flex h-64 w-52 flex-col items-center justify-end sm:h-80 sm:w-64">
-         <div className="absolute -top-1 z-10 h-7 w-[88%] rounded-[50%] border-4 border-teal bg-teal shadow-md" aria-hidden="true"/>
+         <div className="absolute top-3 z-10 h-3 w-[84%] rounded-md border-2 border-teal bg-teal shadow-sm" aria-hidden="true"/>
          <div role="img" aria-label={`${savedLabel}: ${amount(saved,locale)}`}
            {...dropTarget(add)}
-           className="relative flex h-[90%] w-[84%] flex-col justify-end overflow-hidden rounded-b-[3.5rem] rounded-t-[2rem] border-[6px] border-sky-400 bg-gradient-to-br from-white/95 via-sky-50/60 to-cyan-200/60 p-3 shadow-inner">
-           <div className="absolute inset-x-2 bottom-2 rounded-b-[2.5rem] bg-amber-200/35 transition-[height] duration-300 motion-reduce:transition-none" style={{height:`${(saved/TARGET)*80}%`}}/>
+           className="relative flex h-[88%] w-[84%] flex-col justify-end overflow-hidden rounded-b-xl rounded-t-lg border-[6px] border-sky-400 bg-gradient-to-br from-white/95 via-sky-50/60 to-cyan-200/60 p-3 shadow-inner">
+           <div className="absolute inset-x-2 bottom-2 rounded-b-lg bg-amber-200/35 transition-[height] duration-300 motion-reduce:transition-none" style={{height:`${(saved/TARGET)*80}%`}}/>
            <div className="relative z-10 flex flex-wrap content-end justify-center gap-1" style={{minHeight:`${Math.max(12,(saved/TARGET)*78)}%`}}>
              {MONEY.filter(item=>added.includes(item.id)).map(item=><span key={item.id} aria-hidden="true" className="text-3xl drop-shadow-sm sm:text-4xl">{item.kind==="coin"?"🪙":"💵"}</span>)}
            </div>
