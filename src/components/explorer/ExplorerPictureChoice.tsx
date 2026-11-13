@@ -1,6 +1,7 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import {useState} from "react";
+import {ReadAloudButton} from "@/components/ui/ReadAloudButton";
 import { explorerSpeechLang } from "@/lib/explorer/speech-lang";
 
 export type ExplorerPictureOption = {
@@ -16,7 +17,6 @@ type Props = {
   correctId: string;
   successMessage: string;
   retryMessage: string;
-  replayLabel: string;
   nextLabel: string;
   onComplete?: () => void;
 };
@@ -28,33 +28,19 @@ type Props = {
  */
 export function ExplorerPictureChoice({
   prompt, options, correctId, successMessage, retryMessage,
-  replayLabel, nextLabel, onComplete,
+  nextLabel, onComplete,
 }: Props) {
   const [choice, setChoice] = useState<string | null>(null);
   const [completed, setCompleted] = useState(false);
-  const utterance = useRef<SpeechSynthesisUtterance | null>(null);
+
   const correct = choice === correctId;
   const feedback = choice === null ? "" : correct ? successMessage : retryMessage;
 
-  const speak = useCallback((message: string) => {
-    if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
-    window.speechSynthesis.cancel();
-    const next = new SpeechSynthesisUtterance(message);
-    next.lang = explorerSpeechLang();
-    utterance.current = next;
-    window.speechSynthesis.speak(next);
-  }, []);
 
-  useEffect(() => () => {
-    if (typeof window !== "undefined" && "speechSynthesis" in window) {
-      window.speechSynthesis.cancel();
-    }
-  }, []);
 
   const choose = (id: string) => {
     if (completed) return;
     setChoice(id);
-    speak(id === correctId ? successMessage : retryMessage);
   };
 
   const finish = () => {
@@ -65,11 +51,8 @@ export function ExplorerPictureChoice({
 
   return (
     <section role="group" aria-label={prompt} className="overflow-hidden rounded-[2rem] border-2 border-soft-blue/50 bg-gradient-to-b from-soft-blue/20 via-white to-coral/10 p-4 shadow-xl md:p-7" data-explorer-picture-choice>
-      <p className="mb-4 rounded-2xl bg-white/90 p-4 text-center font-display text-2xl font-extrabold text-ink shadow-sm">{prompt}</p>
-      <button type="button" onClick={() => speak(prompt)}
-        className="mb-5 min-h-12 rounded-full border-2 border-teal bg-white px-5 py-3 font-bold text-teal-text shadow-sm">
-        <span aria-hidden="true">🔊 </span>{replayLabel}
-      </button>
+      <p className="mb-4 rounded-2xl bg-white/90 break-words px-3 py-3 text-center font-display text-[1.25rem] font-extrabold leading-snug sm:text-lg text-ink shadow-sm">{prompt}</p>
+      <ReadAloudButton text={feedback || [prompt, ...options.map(option => option.label)].join(" ")} uiLocale={explorerSpeechLang()} />
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {options.map(option => (
           <button type="button" key={option.id}
@@ -77,9 +60,9 @@ export function ExplorerPictureChoice({
             disabled={completed}
             aria-pressed={choice === option.id}
             aria-label={option.label}
-            className="flex min-h-52 flex-col items-center justify-center gap-4 rounded-3xl border-4 border-white bg-gradient-to-b from-white to-soft-blue/10 p-5 text-center shadow-md transition-transform hover:-translate-y-1 focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal aria-pressed:border-teal aria-pressed:bg-teal/10 disabled:opacity-80 motion-reduce:transform-none">
-            <span className="text-7xl sm:text-8xl" aria-hidden="true">{option.symbol}</span>
-            <span className="text-xl font-extrabold text-ink">{option.label}</span>
+            className="flex min-h-28 min-w-0 flex-col items-center justify-center gap-2 sm:min-h-44 rounded-3xl border-4 border-white bg-gradient-to-b from-white to-soft-blue/10 p-5 text-center shadow-md transition-transform hover:-translate-y-1 focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal aria-pressed:border-teal aria-pressed:bg-teal/10 disabled:opacity-80 motion-reduce:transform-none">
+            <span className="text-5xl sm:text-7xl" aria-hidden="true">{option.symbol}</span>
+            <span className="w-full break-words text-[1.125rem] font-extrabold leading-snug text-ink sm:text-lg"><span className="answer-label">{option.label}</span></span>
           </button>
         ))}
       </div>

@@ -76,7 +76,7 @@ export function MatchMechanic({ round, onAnswer, isResolved, isExplorer }: Mecha
                   selectedLeftId === pair.id ? "border-teal bg-teal/10" : "border-ink/20",
                 ].join(" ")}
               >
-                {pair.left}
+                <span className="answer-label">{pair.left}</span>
                 {isMatched && (
                   <span className="ml-2xs text-success-text">
                     <span aria-hidden="true">✓</span>
@@ -104,7 +104,7 @@ export function MatchMechanic({ round, onAnswer, isResolved, isExplorer }: Mecha
                   isWrongFlash ? "border-error bg-error/10" : "border-ink/20",
                 ].join(" ")}
               >
-                {pair.right}
+                <span className="answer-label">{pair.right}</span>
                 {isMatched && (
                   <span className="ml-2xs text-success-text">
                     <span aria-hidden="true">✓</span>

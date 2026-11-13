@@ -24,7 +24,7 @@ for(const locale of LOCALES){
   await expect(menu).toBeHidden();
   await page.goto(`/${locale}/play/world/coin-cove/lesson/${band}-money_basics-l1`);
   await page.getByRole('button',{name:messages.lesson.backToMoneyForms,exact:true}).click();
-  for(const kind of ['coins','banknote']){const image=page.locator(`img[src="/images/money-quest/money/${kind}.webp"]`);await expect(image).toBeVisible();await expect.poll(()=>image.evaluate((e:HTMLImageElement)=>e.complete&&e.naturalWidth>0)).toBe(true);}
+  for(const kind of ['coins','banknote']){const image=page.locator(`[data-lesson-section="examples"] img[src="/images/money-quest/money/${kind}.webp"]`);await expect(image).toBeVisible();await expect.poll(()=>image.evaluate((e:HTMLImageElement)=>e.complete&&e.naturalWidth>0)).toBe(true);}
   await expect(page.getByRole('button',{name:moneyExamplesCopy[locale].coins,exact:true})).toBeVisible();
   await page.goto(`/${locale}/play`);
   await expect(page.locator('main a[href$="/brain-lab"]')).toHaveCount(0);

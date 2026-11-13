@@ -1,4 +1,5 @@
 import Image from "next/image";
+import {ChooseLearningLevelLink} from "@/components/ChooseLearningLevelLink";
 import {certificateJourneyCopy} from "@/content/certificate-journey-copy";
 import {isSupportedLocale} from "@/i18n/config";
 import { getTranslations } from "next-intl/server";
@@ -57,19 +58,19 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
           <h2 id="levels-heading" className="text-center font-display text-2xl font-bold">{t("play.chooseYourLevel")}</h2>
           <p className="mx-auto mt-2xs max-w-[65ch] text-center text-ink/70">{t("play.levelChoiceHint")}</p>
           <div className="mt-md grid gap-md sm:grid-cols-3">
-            {[
-              { image: "coin-cove", label: t("play.earlyLearner"), range: t("play.earlyLearnerRange") },
-              { image: "market-town", label: t("play.primary"), range: t("play.primaryRange") },
-              { image: "golden-vault", label: t("play.olderLearner"), range: t("play.olderLearnerRange") },
-            ].map((level) => (
-              <Link key={level.image} href="/play" className="group overflow-hidden rounded-2xl border border-teal/20 bg-white shadow-resting transition-shadow hover:shadow-lg focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal">
+            {([
+              { ageBand: "explorer", image: "coin-cove", label: t("play.earlyLearner"), range: t("play.earlyLearnerRange") },
+              { ageBand: "builder", image: "market-town", label: t("play.primary"), range: t("play.primaryRange") },
+              { ageBand: "strategist", image: "golden-vault", label: t("play.olderLearner"), range: t("play.olderLearnerRange") },
+            ] as const).map((level) => (
+              <ChooseLearningLevelLink key={level.image} ageBand={level.ageBand} className="group overflow-hidden rounded-2xl border border-teal/20 bg-white shadow-resting transition-shadow hover:shadow-lg focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal">
                 <Image unoptimized src={`/images/money-quest/worlds/${level.image}-thumb.webp`} alt="" width={640} height={400} loading="lazy" className="h-48 w-full object-contain bg-cream p-3 transition-transform motion-safe:group-hover:scale-[1.02]" />
                 <div className="p-md text-center">
                   <h3 className="font-display text-xl font-bold text-teal-text">{level.label}</h3>
                   <p className="mt-1 text-ink/70">{level.range}</p>
                   <span className="mt-sm inline-block font-bold text-teal-text">{t("nav.getStarted")} →</span>
                 </div>
-              </Link>
+              </ChooseLearningLevelLink>
             ))}
           </div>
         </section>

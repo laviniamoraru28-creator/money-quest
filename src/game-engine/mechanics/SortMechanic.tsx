@@ -46,12 +46,12 @@ export function SortMechanic({ round, onAnswer, isResolved, isExplorer }: Mechan
               onClick={() => setSelectedItemId(item.id)}
               className={[
                 "min-h-touch-min-child rounded-sm border-2 px-sm py-2xs",
-                isExplorer ? "text-lg font-bold" : "text-base",
+                isExplorer ? "max-w-full break-words text-md font-bold leading-snug" : "text-base",
                 selectedItemId === item.id ? "border-teal bg-teal/10" : "border-ink/20",
                 isPlaced ? "opacity-50" : "",
               ].join(" ")}
             >
-              {item.label}
+              <span className="answer-label">{item.label}</span>
               {isPlaced && (
                 <span className={isExplorer ? "ml-2xs text-base text-ink/70" : "ml-2xs text-sm text-ink/70"}>
                   → {round.buckets.find((b) => b.key === placements[item.id])?.label}
@@ -68,16 +68,16 @@ export function SortMechanic({ round, onAnswer, isResolved, isExplorer }: Mechan
           : t("game.tapItemThenBucket")}
       </p>
 
-      <div className="mt-2xs grid grid-cols-2 gap-sm">
+      <div className={isExplorer ? "mt-2xs grid grid-cols-2 gap-2" : "mt-2xs grid grid-cols-2 gap-sm"}>
         {round.buckets.map((bucket) => (
           <button
             key={bucket.key}
             type="button"
             disabled={isResolved}
             onClick={() => placeInBucket(bucket.key)}
-            className={isExplorer ? "min-h-touch-min-child rounded-lg border-2 border-dashed border-teal/50 bg-teal/5 px-sm py-md text-lg font-bold text-teal-text" : "min-h-touch-min-child rounded-lg border-2 border-dashed border-teal/50 bg-teal/5 px-sm py-md font-medium text-teal-text"}
+            className={isExplorer ? "min-h-touch-min-child min-w-0 break-words rounded-lg border-2 border-dashed border-teal/50 bg-teal/5 px-2 py-3 text-base font-bold leading-snug text-teal-text sm:text-md" : "min-h-touch-min-child rounded-lg border-2 border-dashed border-teal/50 bg-teal/5 px-sm py-md font-medium text-teal-text"}
           >
-            {bucket.label}
+            <span className="answer-label">{bucket.label}</span>
           </button>
         ))}
       </div>

@@ -68,6 +68,7 @@ async function completeExplorerLesson(page:Page,topicId:string){
    await button('Continue').click();
    await button('Add').click();await button('Add').click();await button('Add').click();
    await button('Check').click();
+   await page.locator('[data-explorer-coin-count]').getByRole('button',{name:'Continue',exact:true}).click();
    await button('Debit card').click();
    // Paying shows a visible/spoken confirmation and waits for its own
    // Continue click before advancing (see ExplorerMiniShop) — distinct
@@ -81,13 +82,14 @@ async function completeExplorerLesson(page:Page,topicId:string){
    await button('Water').click();await button(/Need/).click();
    await button('Toy car').click();await button(/Want/).click();
    await button('Candy').click();await button(/Want/).click();
+   await page.locator('[data-explorer-picture-sort]').getByRole('button',{name:'Continue',exact:true}).click();
    await button('The ball').click();await button('Continue').click();
-   await button('Yes, the same way').click();await button('Continue').click();
    break;
   case 'saving':{
-   const coins=page.locator('[data-explorer-saving-jar] button[aria-label]');
+   const coins=page.locator('[data-explorer-saving-jar] button[draggable]');
    const count=await coins.count();
-   for(let i=0;i<count;i++)await coins.nth(i).click({timeout:2000}).catch(()=>{});
+   for(let i=0;i<count;i++)await coins.nth(i).click();
+   await page.locator('[data-explorer-saving-jar]').getByRole('button',{name:'Continue',exact:true}).click();
    await button('In a bank account').click();await button('Continue').click();
    await button('Keep it for later').click();await button('Continue').click();
    break;}
@@ -96,7 +98,7 @@ async function completeExplorerLesson(page:Page,topicId:string){
    await button('Leu').click();await button(/Romania/).click();
    await button('Euro').click();await button(/Europe/).click();
    await button('Yen').click();await button(/Japan/).click();
-   await button('The pound symbol').click();await button('Continue').click();
+   await page.locator('[data-explorer-picture-sort]').getByRole('button',{name:'Continue',exact:true}).click();
    await button('Yen').click();await button('Continue').click();
    break;
   case 'scams':
@@ -108,21 +110,24 @@ async function completeExplorerLesson(page:Page,topicId:string){
   case 'long_term_thinking':
    await button('Save a little money each week').click();await button('Continue').click();
    for(const w of ['Week 1','Week 2','Week 3','Week 4'])await button(w).click();
+   await page.locator('[data-explorer-sequence]').getByRole('button',{name:'Continue',exact:true}).click();
    await button('A savings jar or account').click();await button('Continue').click();
    for(const s of ['Pick a goal','Save a little each week','Check how close you are','Reach your goal!'])await button(s).click();
+   await page.locator('[data-explorer-sequence]').getByRole('button',{name:'Continue',exact:true}).click();
    break;
   case 'giving':
    await button('Coin').first().click();await button(/Give/).click();
    for(let i=0;i<4;i++){await button('Coin').first().click();await button(/Keep/).click();}
+   await page.locator('[data-explorer-picture-sort]').getByRole('button',{name:'Continue',exact:true}).click();
    await button(/animal shelter/i).click();
    await button('Send the gift').click();await button('Continue').click();
    break;
   case 'digital_money':
    await button('Yes, it goes down either way').click();await button('Continue').click();
-   await button('Your bank account').click();await button('Continue').click();
    break;
   case 'investing_basics':
    for(const s of ['Seed','Sprout','Bud','Flower'])await button(s).click();
+   await page.locator('[data-explorer-sequence]').getByRole('button',{name:'Continue',exact:true}).click();
    await button('Investing').click();await button('Continue').click();
    await button('No, it can go up or down').click();await button('Continue').click();
    break;

@@ -59,7 +59,7 @@ export function SpotMechanic({ round, onAnswer, isResolved, isExplorer }: Mechan
                 !showResult && !isSelected ? "border-ink/20" : "",
               ].join(" ")}
             >
-              {item.text}
+              <span className="answer-label">{item.text}</span>
               {correctlyFlagged && (
                 <span className={isExplorer ? "ml-2xs text-base font-bold text-success-text" : "ml-2xs text-sm font-medium text-success-text"}>
                   <span aria-hidden="true">✓</span> {t("game.goodCatch")}

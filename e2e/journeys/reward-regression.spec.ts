@@ -16,19 +16,21 @@ for(const locale of LOCALES)for(const band of ['explorer','builder','strategist'
   // flow instead of a quiz radio (see ExplorerInteractiveLesson) — drive
   // it with locale-agnostic selectors since this test covers all 9 locales.
   const discover=page.locator('[data-explorer-discover] button[aria-pressed]');
+  await expect(discover).toHaveCount(3);
   const discoverCount=await discover.count();
   for(let i=0;i<discoverCount;i++)await discover.nth(i).click();
-  await page.locator('[data-explorer-discover] button:not([aria-pressed])').click();
-  await page.locator('[data-explorer-coin-count] button').nth(2).click();
-  await page.locator('[data-explorer-coin-count] button').nth(2).click();
-  await page.locator('[data-explorer-coin-count] button').nth(2).click();
+  await page.locator('[data-explorer-discover] button:not([aria-pressed]):not([title])').click();
+  await page.locator('[data-explorer-coin-count] button:not([title])').nth(1).click();
+  await page.locator('[data-explorer-coin-count] button:not([title])').nth(1).click();
+  await page.locator('[data-explorer-coin-count] button:not([title])').nth(1).click();
   await page.locator('[data-explorer-coin-count] button').last().click();
-  await page.locator('[data-explorer-mini-shop] button').nth(3).click();
+  await page.locator('[data-explorer-coin-count] button').last().click();
+  await page.locator('[data-explorer-mini-shop] button[aria-pressed]').last().click();
   // Paying shows a confirmation and waits for an explicit Continue click
   // before advancing (see ExplorerMiniShop's handleContinue) — button
   // index 4 is Continue, appearing right after the four shop buttons
   // (Listen, coins, banknote, card) once a payment method is chosen.
-  await page.locator('[data-explorer-mini-shop] button').nth(4).click();
+  await page.locator('[data-explorer-mini-shop] button:not([aria-pressed]):not([title])').first().click();
   await page.locator('[data-explorer-picture-choice] button[aria-pressed]').first().click();
   await page.locator('[data-explorer-picture-choice] button').last().click();
  } else {

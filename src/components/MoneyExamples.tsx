@@ -39,7 +39,6 @@ export function MoneyExamples({explorer=false}: {explorer?:boolean}) {
       coinLabel={copy.coins}
       banknoteLabel={copy.notes}
       cardLabel={copy.card}
-      replayLabel={copy.intro}
       retryMessage={copy.retry}
       successMessage={copy.correct}
       correctMethod="card"

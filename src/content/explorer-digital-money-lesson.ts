@@ -19,7 +19,7 @@ const fields: readonly Fields[] = [
 
 const rows: Record<Locale, string> = {
   en: "When you pay with a card instead of coins, does your money still go down?|Yes, it goes down either way|No, card money never goes down|Where does the money for a card payment come from?|Your bank account|Free money inside the card|Listen|Try again|Well done!|Continue",
-  ro: "Când plătești cu cardul în loc de monede, banii tăi scad tot?|Da, scad oricum ai plăti|Nu, banii de pe card nu scad niciodată|De unde vin banii pentru o plată cu cardul?|Din contul tău bancar|Bani gratis din card|Ascultă|Mai încearcă|Bravo!|Continuă",
+  ro: "După ce plătești cu cardul, mai ai aceeași sumă în cont?|Nu, rămân mai puțini bani|Da, suma rămâne la fel|De unde vin banii pentru o plată cu cardul?|Din contul tău bancar|Bani gratis din card|Ascultă|Mai încearcă|Bravo!|Continuă",
   es: "Cuando pagas con tarjeta en lugar de monedas, ¿tu dinero baja igual?|Sí, baja de cualquier forma|No, el dinero de la tarjeta nunca baja|¿De dónde viene el dinero de un pago con tarjeta?|De tu cuenta bancaria|Dinero gratis dentro de la tarjeta|Escuchar|Inténtalo de nuevo|¡Muy bien!|Continuar",
   fr: "Quand tu paies par carte au lieu de pièces, ton argent diminue-t-il quand même ?|Oui, il diminue dans les deux cas|Non, l’argent de la carte ne diminue jamais|D’où vient l’argent d’un paiement par carte ?|De ton compte bancaire|De l’argent gratuit dans la carte|Écouter|Réessaie|Bravo !|Continuer",
   de: "Wenn du mit Karte statt mit Münzen bezahlst, sinkt dein Geld trotzdem?|Ja, es sinkt so oder so|Nein, Kartengeld sinkt nie|Woher kommt das Geld für eine Kartenzahlung?|Von deinem Bankkonto|Gratisgeld in der Karte|Anhören|Versuch es noch einmal|Super gemacht!|Weiter",

@@ -38,7 +38,6 @@ export default function LearningLabExperience({lab,locale="en",variants=labAgeVa
         correctId={String(item.correct)}
         successMessage={`${elc.wellDone} ${item.explanation}`}
         retryMessage={elc.tryAgain}
-        replayLabel={elc.listen}
         nextLabel={elc.next}
         onComplete={mark}/>
     ) : (<>

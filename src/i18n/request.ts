@@ -1,5 +1,6 @@
 import { getRequestConfig } from "next-intl/server";
 import { notFound } from "next/navigation";
+import {nextActivityCopy,romanianExplorerCopy} from "./explorer-copy";
 import { LOCALES, DEFAULT_LOCALE, isSupportedLocale } from "./config";
 
 /**
@@ -23,7 +24,20 @@ export default getRequestConfig(async ({ requestLocale }) => {
     notFound();
   }
 
-  const messages = (await import(`../../messages/${locale}.json`)).default;
+  const base = (await import(`../../messages/${locale}.json`)).default;
+  const play = {...base.play, nextActivity: nextActivityCopy[locale]};
+  const messages = locale === "ro" ? {
+    ...base,
+    game: {...base.game, ...romanianExplorerCopy.game},
+    play: {...play, ...romanianExplorerCopy.play},
+    curriculum: {
+      ...base.curriculum,
+      ...Object.fromEntries(Object.entries(romanianExplorerCopy.curriculum).map(([id, copy]) => [
+        id,
+        {...base.curriculum[id], ...copy},
+      ])),
+    },
+  } : {...base, play};
   const englishMessages =
     locale === DEFAULT_LOCALE ? messages : (await import(`../../messages/en.json`)).default;
 

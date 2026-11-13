@@ -1,6 +1,7 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import {useState} from "react";
+import {ReadAloudButton} from "@/components/ui/ReadAloudButton";
 import { explorerSpeechLang } from "@/lib/explorer/speech-lang";
 
 export type ExplorerPaymentMethod = "coins" | "banknote" | "card";
@@ -10,7 +11,6 @@ type Props = {
   coinLabel: string;
   banknoteLabel: string;
   cardLabel: string;
-  replayLabel: string;
   retryMessage: string;
   successMessage: string;
   /** The correct method for this particular learning scenario. */
@@ -24,26 +24,14 @@ type Props = {
  * Visual symbols are supplementary to spoken and written labels.
  */
 export function ExplorerPaymentChoice({
-  prompt, coinLabel, banknoteLabel, cardLabel, replayLabel,
+  prompt, coinLabel, banknoteLabel, cardLabel,
   retryMessage, successMessage, correctMethod, onComplete,
 }: Props) {
   const [selected, setSelected] = useState<ExplorerPaymentMethod | null>(null);
   const [finished, setFinished] = useState(false);
   const [feedback, setFeedback] = useState("");
 
-  const speak = useCallback((message: string) => {
-    if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
-    window.speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(message);
-    utterance.lang = explorerSpeechLang();
-    window.speechSynthesis.speak(utterance);
-  }, []);
 
-  useEffect(() => () => {
-    if (typeof window !== "undefined" && "speechSynthesis" in window) {
-      window.speechSynthesis.cancel();
-    }
-  }, []);
 
   const options: { id: ExplorerPaymentMethod; label: string; symbol: string }[] = [
     { id: "coins", label: coinLabel, symbol: "🪙" },
@@ -57,7 +45,6 @@ export function ExplorerPaymentChoice({
     const correct = method === correctMethod;
     const message = correct ? successMessage : retryMessage;
     setFeedback(message);
-    speak(message);
     if (correct) {
       setFinished(true);
       onComplete?.();
@@ -67,10 +54,7 @@ export function ExplorerPaymentChoice({
   return (
     <section data-explorer-payment-choice className="rounded-3xl border border-teal/20 bg-white p-4 md:p-6">
       <h2 className="text-xl font-bold">{prompt}</h2>
-      <button type="button" onClick={() => speak(prompt)}
-        className="my-4 min-h-12 rounded-full border-2 border-teal bg-white px-5 py-3 font-bold text-teal-text">
-        <span aria-hidden="true">🔊 </span>{replayLabel}
-      </button>
+      <ReadAloudButton text={feedback || prompt} uiLocale={explorerSpeechLang()} />
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
         {options.map(option => (
           <button type="button" key={option.id}

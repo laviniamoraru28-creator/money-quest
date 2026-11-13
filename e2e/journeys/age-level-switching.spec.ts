@@ -75,3 +75,14 @@ test('switching to a band with no variant for the open game shows "not available
   await expect(page).toHaveURL(new RegExp(`/game/game-explorer-${game.key}$`));
   await expect(page.getByText(messages.play.gameNotAvailable, {exact: true})).toBeVisible();
 });
+
+test('homepage level cards replace the previously selected age band', async ({page}) => {
+  await page.goto('/en');
+  await page.getByRole('link',{name:/Builder Ages 9-11/}).click();
+  await page.getByRole('link',{name:/Coin Cove/}).click();
+  await expect(page.locator('main a[href$="/builder-money_basics-l1"]')).toBeVisible();
+  await page.goto('/en');
+  await page.getByRole('link',{name:/Strategist Ages 12-14/}).click();
+  await page.getByRole('link',{name:/Coin Cove/}).click();
+  await expect(page.locator('main a[href$="/strategist-money_basics-l1"]')).toBeVisible();
+});

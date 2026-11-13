@@ -1,8 +1,9 @@
 "use client";
 
-import {useCallback, useEffect, useState} from "react";
+import {useState} from "react";
 import type {Locale} from "@/i18n/config";
 import {learningAmount} from "@/lib/currency/learning-currency";
+import {ReadAloudButton} from "@/components/ui/ReadAloudButton";
 import {explorerSpeechLang} from "@/lib/explorer/speech-lang";
 
 type Method = "coins" | "banknote" | "card";
@@ -25,6 +26,7 @@ const money=learningAmount;
 /** Pretend purchase only. All three methods debit the same five-unit balance. */
 export function ExplorerMiniShop({locale,onComplete}: {locale:Locale;onComplete?:()=>void}) {
  const t=copy[locale];
+ const instruction=t.instruction.replace("2",money(2,locale)).replace("5",money(5,locale));
  const [balance,setBalance]=useState(5);
  const [method,setMethod]=useState<Method|null>(null);
  const [feedback,setFeedback]=useState("");
@@ -32,17 +34,9 @@ export function ExplorerMiniShop({locale,onComplete}: {locale:Locale;onComplete?
  // below is the only thing that calls onComplete, but a double-click or a
  // repeated Enter keypress on it should still only ever advance once.
  const [advanced,setAdvanced]=useState(false);
- const speak=useCallback((value:string)=>{
-   if(typeof window==="undefined"||!("speechSynthesis" in window))return;
-   window.speechSynthesis.cancel();
-   const utterance=new SpeechSynthesisUtterance(value);
-   utterance.lang=explorerSpeechLang();
-   window.speechSynthesis.speak(utterance);
- },[]);
- useEffect(()=>()=>{if(typeof window!=="undefined"&&"speechSynthesis" in window)window.speechSynthesis.cancel();},[]);
  const pay=(choice:Method)=>{
    if(method!==null)return;
-   if(balance<2){setFeedback(t.insufficient);speak(t.insufficient);return;}
+   if(balance<2){setFeedback(t.insufficient);return;}
    const remaining=balance-2;
    setMethod(choice);
    setBalance(remaining);
@@ -52,17 +46,7 @@ export function ExplorerMiniShop({locale,onComplete}: {locale:Locale;onComplete?
    // numbers this fixed-price shop ever shows (price 2, remaining 3).
    const paidMessage=t.paid.replace("2",money(2,locale)).replace("3",money(remaining,locale));
    setFeedback(paidMessage);
-   speak(paidMessage);
-   // onComplete is deliberately NOT called here. It used to fire
-   // synchronously in this same handler, which — because React 18 batches
-   // every setState call in one event handler into a single render — meant
-   // the parent's onComplete (setStage to the next activity) unmounted this
-   // whole section in the very same pass that was supposed to show the
-   // "you paid" feedback. The spoken confirmation above still fired (speech
-   // is an imperative browser API, independent of rendering), but the
-   // visual confirmation never actually painted. Advancing now waits for
-   // the child's own Continue click (see handleContinue), so the
-   // confirmation is guaranteed to be on screen first.
+   // Keep the confirmation visible until the child chooses Continue.
  };
  const handleContinue=()=>{
    if(advanced)return;
@@ -78,8 +62,8 @@ export function ExplorerMiniShop({locale,onComplete}: {locale:Locale;onComplete?
  };
  return <section data-explorer-mini-shop className="mt-6 rounded-3xl border-2 border-teal/30 bg-white p-4 sm:p-6">
    <h2 className="text-2xl font-bold">{t.title}</h2>
-   <p className="mt-2 text-lg">{t.instruction.replace("2",money(2,locale)).replace("5",money(5,locale))}</p>
-   <button type="button" onClick={()=>speak(t.instruction)} className="mt-3 min-h-12 rounded-full border-2 border-teal bg-white px-5 py-3 font-bold text-teal-text">🔊 {t.listen}</button>
+   <p className="mt-2 text-lg">{instruction}</p>
+   <ReadAloudButton text={feedback || instruction} uiLocale={explorerSpeechLang()} />
    <div className="my-5 flex items-center justify-between rounded-2xl bg-cream p-5">
      <div className="text-center"><span aria-hidden="true" className="block text-6xl">🍎</span><span className="text-lg font-bold">{t.price}: {money(2,locale)}</span></div>
      <div className="text-center"><span aria-hidden="true" className="block text-5xl">💰</span><span className="text-lg font-bold">{t.balance}: {money(balance,locale)}</span></div>

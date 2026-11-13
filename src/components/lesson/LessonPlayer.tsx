@@ -60,6 +60,7 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
   // heading rendered last rather than the one actually being shown.
   const examplesHeading = useRef<HTMLHeadingElement>(null);
   const lessonHeading = useRef<HTMLHeadingElement>(null);
+  const explorerReward = useRef<HTMLDivElement>(null);
   function changeSection(next: "examples" | "lesson") {
     // Both sections stay mounted (toggled with `hidden`, not conditional
     // rendering — see the "lesson"/"examples" divs below), specifically so
@@ -68,9 +69,13 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
     // Builder/Strategist child with an answer already selected, picks up
     // exactly where they left off instead of starting over. No state to
     // reset here any more — only the section itself changes.
-    window.dispatchEvent(new Event("moneyquest-stop-speech"));
+    stopSpeech();
     setSection(next);
     requestAnimationFrame(() => (next === "examples" ? examplesHeading : lessonHeading).current?.focus());
+  }
+  function stopSpeech() {
+    window.dispatchEvent(new Event("moneyquest-stop-speech"));
+    window.speechSynthesis?.cancel();
   }
   const uiLocale = useLocale();
   const t = useTranslations();
@@ -122,13 +127,13 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
   // Explorer interactive-activity flow — the reward itself (XP, coins,
   // next-activity routing) doesn't depend on how the lesson was answered.
   const rewardPanel = (phase === "correct" || activity.isCompleted) && (
-    <div className="mt-md rounded-sm border border-success/30 bg-success/5 p-sm">
-      <p className="font-medium text-success-text">
-        {activity.isCompleted && phase === "unanswered" ? t("lesson.alreadyCompleted") : feedbackMessage.success}
-      </p>
-      <div className="mt-2xs flex items-start gap-2xs">
-        <p className="text-sm text-ink/70">{quiz.explanation}</p>
-      </div>
+    <div ref={isExplorer ? explorerReward : undefined} tabIndex={isExplorer ? -1 : undefined} className="mt-md rounded-sm border border-success/30 bg-success/5 p-sm">
+      {(!hasInteractiveExplorerLesson || phase === "unanswered") && (
+        <p className="font-medium text-success-text">
+          {activity.isCompleted && phase === "unanswered" ? t("lesson.alreadyCompleted") : feedbackMessage.success}
+        </p>
+      )}
+      {!hasInteractiveExplorerLesson && <p className="mt-2xs text-sm text-ink/70">{quiz.explanation}</p>}
       {award && (award.xp > 0 || award.coins > 0) && (
         <div className="mt-sm flex items-center gap-md">
           {award.xp > 0 && <span className="font-bold text-teal-text">{t("lesson.xpEarned", { xp: award.xp })}</span>}
@@ -149,9 +154,12 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
           <p className="mt-3xs text-sm text-ink/80">{activity.content.challenge}</p>
         </div>
       )}
+      {isExplorer && nextActivityHref && activityPosition && activityPosition.position === activityPosition.total && (
+        <p className="mt-sm text-base font-bold text-teal-text">{t("play.worldSequenceComplete")}</p>
+      )}
       {nextActivityHref ? (
         <>
-          <Button variant="quest-primary" size="large" className="mt-md w-full" onClick={() => router.push(nextActivityHref)}>
+          <Button variant="quest-primary" size="large" className="mt-3 w-full break-words" onClick={() => { stopSpeech(); router.push(nextActivityHref); }}>
             {t("play.nextActivity")}
           </Button>
           <Button variant="secondary" size="large" className="mt-2xs w-full" onClick={() => router.push(backToWorldHref)}>
@@ -204,7 +212,7 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
         )}
       </div>
 
-      <GuidePanel compact message={phase === "incorrect" ? t("activityGuide.lessonRetry") : phase === "correct" ? t("activityGuide.lessonComplete") : t("activityGuide.lessonGoal", {title: activity.title})} />
+      {!isExplorer && <GuidePanel compact message={phase === "incorrect" ? t("activityGuide.lessonRetry") : phase === "correct" ? t("activityGuide.lessonComplete") : t("activityGuide.lessonGoal", {title: activity.title})} />}
       <div data-lesson-section="examples" hidden={section !== "examples"} style={section !== "examples" ? {display: "none"} : undefined}>
         <h1 ref={examplesHeading} tabIndex={-1} className="font-display text-xl font-bold">{activity.title}</h1>
         <MoneyExamples />
@@ -217,7 +225,7 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
           section. The inline style forces it regardless of which classes
           are on the element. */}
       <div data-lesson-section="lesson" className="flex flex-col gap-md" hidden={section === "examples"} style={section === "examples" ? {display: "none"} : undefined}>
-          {activity.topicId === "money_basics" && <Button variant="secondary" onClick={() => changeSection("examples")}>{t("lesson.backToMoneyForms")}</Button>}
+          {activity.topicId === "money_basics" && !isExplorer && <Button variant="secondary" onClick={() => changeSection("examples")}>{t("lesson.backToMoneyForms")}</Button>}
       {/* Screen-reader announcement of the quiz result — see
           GameShell.tsx's identical pattern and comment for why this
           is a separate, always-mounted live region with a SHORT
@@ -247,7 +255,7 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
           </span>
         </div>
 
-        <div className="relative bg-cream p-lg md:col-span-3">
+        <div className={isExplorer ? "relative bg-cream p-4 sm:p-lg md:col-span-3" : "relative bg-cream p-lg md:col-span-3"}>
           <div className="flex flex-col items-start gap-2xs">
             <h1 ref={lessonHeading} tabIndex={-1} className="font-display text-xl font-bold">{activity.title}</h1>
             <ReadAloudButton
@@ -271,7 +279,7 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
               <p className="text-sm font-medium text-ink/70">{t("lesson.newWords")}</p>
               <div className="mt-2xs flex flex-wrap gap-2xs">
                 {activity.content.vocabulary.map((v, i) => (
-                  <span key={v.term} className="inline-flex items-center gap-3xs">
+                  <span key={v.term} className="inline-flex min-w-0 flex-wrap items-center gap-3xs">
                     <KeyTermBadge term={v.term} accentColor={TERM_ACCENTS[i % TERM_ACCENTS.length]} />
                     <span className="text-sm text-ink/70">- {v.definition}</span>
                   </span>
@@ -330,15 +338,24 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
         </div>
       </div>
 
+      {isExplorer && <GuidePanel compact message={phase === "incorrect" ? t("activityGuide.lessonRetry") : phase === "correct" ? t("activityGuide.lessonComplete") : t("activityGuide.lessonGoal", {title: activity.title})} />}
+
       {hasInteractiveExplorerLesson ? (
-        <Card variant="activity" className="border-2 border-coral/30">
+        <Card variant="activity" className="min-w-0 border-2 border-coral/30 p-3 sm:p-lg">
           <ExplorerInteractiveLesson topicId={activity.topicId} onComplete={() => {
-            if (activity.isCompleted || phase === "correct") return;
+            if (activity.isCompleted || phase === "correct") {
+              explorerReward.current?.focus();
+              return;
+            }
             const result = onComplete(activity.id, true, activity.xpReward, activity.coinRewardMinorUnits);
             setAward({xp:result.xpAwarded,coins:result.coinsAwarded});
             setPhase("correct");
             playCorrect();
+            requestAnimationFrame(() => explorerReward.current?.focus());
           }}/>
+          {activity.topicId === "money_basics" && (
+            <Button variant="secondary" onClick={() => changeSection("examples")}>{t("lesson.backToMoneyForms")}</Button>
+          )}
           {rewardPanel}
         </Card>
       ) : (
@@ -382,7 +399,7 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
                     checked={isSelected}
                     onChange={() => setSelectedOption(option)}
                   />
-                  <span className="flex-1">{option}</span>
+                  <span className="answer-label min-w-0 flex-1 break-words">{option}</span>
                   {isExplorer && <span onClick={(event) => event.preventDefault()}><ReadAloudButton text={option} uiLocale={uiLocale} /></span>}
                   {showAsCorrect && (
                     <span>

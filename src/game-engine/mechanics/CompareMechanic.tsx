@@ -43,7 +43,7 @@ export function CompareMechanic({ round, currencyCode, uiLocale, usesCurrency, o
                 !showResult && !isSelected ? "border-ink/15" : "",
               ].join(" ")}
             >
-              <p className={isExplorer ? "text-lg font-bold" : "font-medium"}>{option.label}</p>
+              <p className={isExplorer ? "text-lg font-bold" : "font-medium"}><span className="answer-label">{option.label}</span></p>
               <p className={isExplorer ? "mt-2xs text-xl font-bold text-ink" : "mt-2xs text-lg font-bold text-ink"}>
                 {usesCurrency ? formatCurrency(option.amountMinorUnits, currencyCode, uiLocale) : option.amountMinorUnits}
               </p>

@@ -1,7 +1,8 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import {useState} from "react";
 import { useTapOrDrag } from "@/lib/explorer/use-tap-or-drag";
+import {ReadAloudButton} from "@/components/ui/ReadAloudButton";
 import { explorerSpeechLang } from "@/lib/explorer/speech-lang";
 
 export type ExplorerSortItem = {
@@ -21,7 +22,7 @@ type Props = {
   prompt: string;
   items: readonly ExplorerSortItem[];
   destinations: readonly ExplorerSortDestination[];
-  replayLabel: string;
+  nextLabel: string;
   tryAgainMessage: string;
   successMessage: string;
   onComplete?: () => void;
@@ -29,7 +30,7 @@ type Props = {
 
 /** Tap-first picture sorting; no drag requirement, timers, or reading gate. */
 export function ExplorerPictureSort({
-  prompt, items, destinations, replayLabel, tryAgainMessage,
+  prompt, items, destinations, nextLabel, tryAgainMessage,
   successMessage, onComplete,
 }: Props) {
   const { selected: selectedId, setSelected: setSelectedId, dragSource, dropTarget } = useTapOrDrag<string>();
@@ -39,19 +40,7 @@ export function ExplorerPictureSort({
   const total = items.length;
   const correctCount = items.filter(item => placed[item.id] === item.destinationId).length;
 
-  const speak = useCallback((message: string) => {
-    if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
-    window.speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(message);
-    utterance.lang = explorerSpeechLang();
-    window.speechSynthesis.speak(utterance);
-  }, []);
 
-  useEffect(() => () => {
-    if (typeof window !== "undefined" && "speechSynthesis" in window) {
-      window.speechSynthesis.cancel();
-    }
-  }, []);
 
   const place = (destinationId: string, itemId: string | null = selectedId) => {
     if (!itemId || finished) return;
@@ -59,7 +48,6 @@ export function ExplorerPictureSort({
     if (!item) return;
     if (item.destinationId !== destinationId) {
       setFeedback(tryAgainMessage);
-      speak(tryAgainMessage);
       return;
     }
     const next = { ...placed, [itemId]: destinationId };
@@ -69,29 +57,24 @@ export function ExplorerPictureSort({
     const destinationLabel = destinations.find(entry => entry.id === destinationId)?.label ?? item.label;
     const message = allCorrect ? successMessage : destinationLabel;
     setFeedback(message);
-    speak(message);
     if (allCorrect) {
       setFinished(true);
-      onComplete?.();
     }
   };
 
   return (
     <section data-explorer-picture-sort className="rounded-3xl border border-teal/20 bg-white p-4 md:p-6">
-      <h2 className="text-xl font-bold">{prompt}</h2>
-      <button type="button" onClick={() => speak(prompt)}
-        className="my-4 min-h-12 rounded-full border-2 border-teal bg-white px-5 py-3 font-bold text-teal-text">
-        <span aria-hidden="true">🔊 </span>{replayLabel}
-      </button>
+      <h2 className="break-words text-[1.25rem] font-bold leading-snug sm:text-lg">{prompt}</h2>
+      <ReadAloudButton text={feedback || prompt} uiLocale={explorerSpeechLang()} />
       <div className="grid grid-cols-2 gap-3">
         {items.filter(item => !placed[item.id]).map(item => (
           <button type="button" key={item.id}
             aria-pressed={selectedId === item.id}
-            onClick={() => { setSelectedId(item.id); setFeedback(""); speak(item.label); }}
+            onClick={() => { setSelectedId(item.id); setFeedback(""); }}
             {...dragSource(item.id)}
             className="flex min-h-28 cursor-grab flex-col items-center justify-center rounded-2xl border-2 border-teal/30 p-3 aria-pressed:border-teal aria-pressed:bg-teal/10 active:cursor-grabbing">
             <span aria-hidden="true" className="text-5xl">{item.symbol}</span>
-            <span className="font-semibold">{item.label}</span>
+            <span className="font-semibold"><span className="answer-label">{item.label}</span></span>
           </button>
         ))}
       </div>
@@ -106,7 +89,7 @@ export function ExplorerPictureSort({
             {...dropTarget(itemId => place(destination.id, itemId))}
             className={`flex min-h-28 min-w-0 flex-col items-center justify-center gap-2 rounded-2xl border-2 border-teal bg-teal/5 p-3 min-[420px]:p-4 ${finished ? "opacity-60" : !selectedId ? "opacity-80" : ""}`}>
             <span aria-hidden="true" className="text-5xl">{destination.symbol}</span>
-            <span className="max-w-full break-words text-center text-base font-bold leading-snug sm:text-lg">{destination.label}</span>
+            <span className="max-w-full break-words text-center text-base font-bold leading-snug sm:text-lg"><span className="answer-label">{destination.label}</span></span>
             <span aria-label={String(items.filter(item => placed[item.id] === destination.id).length)}>
               {items.filter(item => placed[item.id] === destination.id).map(item => item.symbol).join(" ")}
             </span>
@@ -115,6 +98,7 @@ export function ExplorerPictureSort({
       </div>
       <p role="status" aria-live="polite" className="mt-4 min-h-12 text-lg">{feedback}</p>
       <progress aria-label={prompt} value={correctCount} max={Math.max(1, total)} className="w-full" />
+      {finished && onComplete && <button type="button" onClick={onComplete} className="mt-3 min-h-12 w-full rounded-full bg-teal px-4 py-3 text-base font-bold text-white">{nextLabel}</button>}
     </section>
   );
 }

@@ -63,7 +63,7 @@ export function AllocateMechanic({ round, currencyCode, uiLocale, usesCurrency, 
 
           return (
             <div key={category.key} className="flex items-center justify-between rounded-sm border border-ink/15 px-sm py-2xs">
-              <span className={isExplorer ? "text-lg font-bold" : "font-medium"}>{category.label}</span>
+              <span className={isExplorer ? "text-lg font-bold" : "font-medium"}><span className="answer-label">{category.label}</span></span>
               <div className="flex items-center gap-2xs">
                 <button
                   type="button"

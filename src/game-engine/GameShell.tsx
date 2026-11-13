@@ -152,6 +152,8 @@ export function GameShell({ config, ageBand, difficulty = "standard", currencyCo
   }
 
   function handleNextRound() {
+    window.dispatchEvent(new Event("moneyquest-stop-speech"));
+    window.speechSynthesis?.cancel();
     setRoundIndex((i) => i + 1);
     setPhase("playing");
     setShowHint(false);
@@ -189,9 +191,16 @@ export function GameShell({ config, ageBand, difficulty = "standard", currencyCo
           </div>
         )}
 
+        {isExplorer && nextActivityHref && activityPosition && activityPosition.position === activityPosition.total && (
+          <p className="mt-sm text-base font-bold text-teal-text">{t("play.worldSequenceComplete")}</p>
+        )}
         {nextActivityHref ? (
           <>
-            <Button variant="quest-primary" size="large" className="mt-md w-full" onClick={() => router.push(nextActivityHref)}>
+            <Button variant="quest-primary" size="large" className="mt-md w-full" onClick={() => {
+              window.dispatchEvent(new Event("moneyquest-stop-speech"));
+              window.speechSynthesis?.cancel();
+              router.push(nextActivityHref);
+            }}>
               {t("play.nextActivity")}
             </Button>
             <Button variant="secondary" size="large" className="mt-2xs w-full" onClick={() => router.push(backHref)}>
@@ -282,7 +291,7 @@ export function GameShell({ config, ageBand, difficulty = "standard", currencyCo
       </div>
 
       <Card variant="activity">
-        <p className={isExplorer ? "text-xl font-bold" : "text-lg font-medium"}>{round.prompt}</p>
+        <p className={isExplorer ? "break-words text-[1.25rem] font-bold leading-snug sm:text-lg" : "text-lg font-medium"}>{round.prompt}</p>
 
         <div className="mt-sm">
           <MechanicComponent

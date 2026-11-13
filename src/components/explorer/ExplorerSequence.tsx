@@ -1,7 +1,8 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import {useState} from "react";
 import { useTapOrDrag } from "@/lib/explorer/use-tap-or-drag";
+import {ReadAloudButton} from "@/components/ui/ReadAloudButton";
 import { explorerSpeechLang } from "@/lib/explorer/speech-lang";
 
 export type ExplorerSequenceStep = {
@@ -15,7 +16,7 @@ export type ExplorerSequenceStep = {
 type Props = {
   prompt: string;
   steps: readonly ExplorerSequenceStep[];
-  replayLabel: string;
+  nextLabel: string;
   tryAgainMessage: string;
   successMessage: string;
   onComplete?: () => void;
@@ -31,7 +32,7 @@ type Props = {
  * which stays closer to a 6-8-year-old's working-memory span.
  */
 export function ExplorerSequence({
-  prompt, steps, replayLabel, tryAgainMessage, successMessage, onComplete,
+  prompt, steps, nextLabel, tryAgainMessage, successMessage, onComplete,
 }: Props) {
   const [placed, setPlaced] = useState<string[]>([]);
   const [feedback, setFeedback] = useState("");
@@ -40,25 +41,12 @@ export function ExplorerSequence({
   const ordered = [...steps].sort((a, b) => a.order - b.order);
   const nextStep = ordered[placed.length];
 
-  const speak = useCallback((message: string) => {
-    if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
-    window.speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(message);
-    utterance.lang = explorerSpeechLang();
-    window.speechSynthesis.speak(utterance);
-  }, []);
 
-  useEffect(() => () => {
-    if (typeof window !== "undefined" && "speechSynthesis" in window) {
-      window.speechSynthesis.cancel();
-    }
-  }, []);
 
   const tryPlace = (id: string) => {
     if (finished || !nextStep) return;
     if (id !== nextStep.id) {
       setFeedback(tryAgainMessage);
-      speak(tryAgainMessage);
       return;
     }
     const next = [...placed, id];
@@ -66,20 +54,15 @@ export function ExplorerSequence({
     const done = next.length === ordered.length;
     const message = done ? successMessage : nextStep.label;
     setFeedback(message);
-    speak(message);
     if (done) {
       setFinished(true);
-      onComplete?.();
     }
   };
 
   return (
     <section data-explorer-sequence className="rounded-3xl border border-teal/20 bg-white p-4 md:p-6">
-      <h2 className="text-xl font-bold">{prompt}</h2>
-      <button type="button" onClick={() => speak(prompt)}
-        className="my-4 min-h-12 rounded-full border-2 border-teal bg-white px-5 py-3 font-bold text-teal-text">
-        <span aria-hidden="true">🔊 </span>{replayLabel}
-      </button>
+      <h2 className="break-words text-[1.25rem] font-bold leading-snug sm:text-lg">{prompt}</h2>
+      <ReadAloudButton text={feedback || prompt} uiLocale={explorerSpeechLang()} />
 
       <ol className="flex flex-wrap items-center gap-2" aria-label={prompt}>
         {ordered.map((step, index) => {
@@ -108,13 +91,14 @@ export function ExplorerSequence({
             aria-label={step.label}
             className="flex min-h-24 w-24 cursor-grab flex-col items-center justify-center gap-1 rounded-2xl border-2 border-teal/30 p-2 font-semibold text-ink active:cursor-grabbing focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal">
             <span aria-hidden="true" className="text-4xl">{step.symbol}</span>
-            <span className="text-xs">{step.label}</span>
+            <span className="text-xs"><span className="answer-label">{step.label}</span></span>
           </button>
         ))}
       </div>
 
       <p role="status" aria-live="polite" className="mt-4 min-h-12 text-lg">{feedback}</p>
       <progress aria-label={prompt} value={placed.length} max={ordered.length} className="w-full" />
+      {finished && onComplete && <button type="button" onClick={onComplete} className="mt-3 min-h-12 w-full rounded-full bg-teal px-4 py-3 text-base font-bold text-white">{nextLabel}</button>}
     </section>
   );
 }
