@@ -12,6 +12,8 @@ import { Card } from "@/components/ui/Card";
 import { MoneyAmount } from "@/components/ui/MoneyAmount";
 import { LevelBadgeStar } from "@/components/ui/LevelBadgeStar";
 import { ProgressBar } from "@/components/ui/ProgressBar";
+import { ReadAloudButton } from "@/components/ui/ReadAloudButton";
+import { explorerSpeechLang } from "@/lib/explorer/speech-lang";
 import { GuidePanel } from "@/components/GuidePanel";
 import { getWorldById } from "@/content/worlds";
 import { useSound } from "@/lib/audio/use-sound";
@@ -173,6 +175,7 @@ export function GameShell({ config, ageBand, difficulty = "standard", currencyCo
       <Card variant="reward" className="text-center">
         <h1 className="font-display text-2xl font-bold">{t("game.questComplete")}</h1>
         <GuidePanel compact message={t("activityGuide.complete")}/>
+        {isExplorer && <p className="mt-2xs text-base text-ink/80">{round.explanation}</p>}
         <p className="mt-2xs text-base text-ink/70">
           {t("game.scoreLine", { correct: firstTryCorrectCount, total: variant.rounds.length, percent: scorePercent })}
         </p>
@@ -293,6 +296,7 @@ export function GameShell({ config, ageBand, difficulty = "standard", currencyCo
       <Card variant="activity">
         <p className={isExplorer ? "break-words text-[1.25rem] font-bold leading-snug sm:text-lg" : "text-lg font-medium"}>{round.prompt}</p>
 
+        {isExplorer && <ReadAloudButton text={phase === "playing" ? round.prompt : round.explanation} uiLocale={explorerSpeechLang()} />}
         <div className="mt-sm">
           <MechanicComponent
             key={`${round.id}-${attemptKey}`}

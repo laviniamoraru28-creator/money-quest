@@ -53,7 +53,7 @@ export function ExplorerSavingJar({onComplete,nextLabel}:{onComplete:()=>void;ne
    <div className="grid items-center gap-5 p-4 sm:p-7 lg:grid-cols-[minmax(0,1.4fr)_minmax(230px,1fr)]">
      <div className="flex flex-col items-center rounded-3xl bg-white/75 p-4">
        <div className="relative flex h-64 w-full max-w-52 flex-col items-center justify-end sm:h-80 sm:w-64">
-         <div className="absolute top-3 z-10 h-3 w-[84%] rounded-md border-2 border-teal bg-teal shadow-sm" aria-hidden="true"/>
+         <div data-savings-jar-lid className="absolute top-3 z-10 h-3 w-[84%] rounded-md border-2 border-teal bg-teal shadow-sm" aria-hidden="true"/>
          <div role="img" aria-label={`${savedLabel}: ${amount(saved,locale)}`}
            {...dropTarget(add)}
            className="relative flex h-[88%] w-[84%] flex-col justify-end overflow-hidden rounded-b-xl rounded-t-lg border-[6px] border-sky-400 bg-gradient-to-br from-white/95 via-sky-50/60 to-cyan-200/60 p-3 shadow-inner">

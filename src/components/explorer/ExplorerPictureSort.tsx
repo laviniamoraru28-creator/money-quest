@@ -72,9 +72,9 @@ export function ExplorerPictureSort({
             aria-pressed={selectedId === item.id}
             onClick={() => { setSelectedId(item.id); setFeedback(""); }}
             {...dragSource(item.id)}
-            className="flex min-h-28 cursor-grab flex-col items-center justify-center rounded-2xl border-2 border-teal/30 p-3 aria-pressed:border-teal aria-pressed:bg-teal/10 active:cursor-grabbing">
+            className="flex min-h-28 min-w-0 cursor-grab flex-col items-center justify-center rounded-2xl border-2 border-teal/30 p-3 aria-pressed:border-teal aria-pressed:bg-teal/10 active:cursor-grabbing">
             <span aria-hidden="true" className="text-5xl">{item.symbol}</span>
-            <span className="font-semibold"><span className="answer-label">{item.label}</span></span>
+            <span className="answer-label w-full font-semibold">{item.label}</span>
           </button>
         ))}
       </div>
@@ -89,7 +89,7 @@ export function ExplorerPictureSort({
             {...dropTarget(itemId => place(destination.id, itemId))}
             className={`flex min-h-28 min-w-0 flex-col items-center justify-center gap-2 rounded-2xl border-2 border-teal bg-teal/5 p-3 min-[420px]:p-4 ${finished ? "opacity-60" : !selectedId ? "opacity-80" : ""}`}>
             <span aria-hidden="true" className="text-5xl">{destination.symbol}</span>
-            <span className="max-w-full break-words text-center text-base font-bold leading-snug sm:text-lg"><span className="answer-label">{destination.label}</span></span>
+            <span className="answer-label w-full text-center text-base font-bold leading-snug sm:text-lg">{destination.label}</span>
             <span aria-label={String(items.filter(item => placed[item.id] === destination.id).length)}>
               {items.filter(item => placed[item.id] === destination.id).map(item => item.symbol).join(" ")}
             </span>
