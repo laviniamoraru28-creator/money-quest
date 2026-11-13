@@ -62,7 +62,7 @@ export default function LessonPage() {
 
   return (
     <div className="min-h-screen bg-fog px-sm py-lg">
-      <main id="main-content" tabIndex={-1} className="mx-auto max-w-[700px]">
+      <main id="main-content" tabIndex={-1} data-explorer-answers={state.ageBand === "explorer" ? "" : undefined} className="mx-auto max-w-[700px]">
         <p className="text-xs font-medium uppercase tracking-wide text-ink/70">
           {t("play.yourLevelLabel", { level: t(getLevelLabelKey(state.ageBand)) })}
         </p>

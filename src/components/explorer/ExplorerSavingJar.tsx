@@ -1,9 +1,10 @@
 "use client";
-import {useEffect,useState} from "react";
+import {useState} from "react";
 import {useLocale} from "next-intl";
 import {isSupportedLocale,type Locale} from "@/i18n/config";
 import {learningAmount} from "@/lib/currency/learning-currency";
 import {useTapOrDrag} from "@/lib/explorer/use-tap-or-drag";
+import {ReadAloudButton} from "@/components/ui/ReadAloudButton";
 import {explorerSpeechLang} from "@/lib/explorer/speech-lang";
 
 const rows:Record<Locale,[string,string,string,string,string,string,string,string]>={
@@ -29,7 +30,7 @@ function moneyItems(locale:Locale):MoneyItem[]{
  const {coin,note}=denominations[locale];
  return [{id:"n1",value:note,kind:"note"},...Array.from({length:5},(_,i)=>({id:`c${i+1}`,value:coin,kind:"coin" as const}))];
 }
-export function ExplorerSavingJar({onComplete}:{onComplete:()=>void}){
+export function ExplorerSavingJar({onComplete,nextLabel}:{onComplete:()=>void;nextLabel:string}){
  const requested=useLocale(),locale=isSupportedLocale(requested)?requested:"en";
  const [title,instruction,savedLabel,goalLabel,coinLabel,noteLabel,success,restart]=rows[locale];
  const [added,setAdded]=useState<string[]>([]);
@@ -38,41 +39,30 @@ export function ExplorerSavingJar({onComplete}:{onComplete:()=>void}){
  const TARGET=MONEY.reduce((sum,item)=>sum+item.value,0);
  const saved=MONEY.filter(item=>added.includes(item.id)).reduce((sum,item)=>sum+item.value,0);
  const done=saved>=TARGET;
- useEffect(()=>()=>{if(typeof window!=="undefined"&&"speechSynthesis" in window)window.speechSynthesis.cancel();},[]);
- const speak=(message:string)=>{
-   if(typeof window==="undefined"||!("speechSynthesis" in window))return;
-   window.speechSynthesis.cancel();
-   const utterance=new SpeechSynthesisUtterance(message);
-   utterance.lang=explorerSpeechLang();
-   window.speechSynthesis.speak(utterance);
- };
  const add=(id:string)=>{
    if(done||added.includes(id))return;
    const next=[...added,id];
    setAdded(next);
-   const total=MONEY.filter(item=>next.includes(item.id)).reduce((sum,item)=>sum+item.value,0);
-   speak(total>=TARGET?success:`${savedLabel}: ${amount(total,locale)}`);
-   if(total>=TARGET)onComplete();
  };
  return <section data-explorer-saving-jar className="overflow-hidden rounded-[2rem] border-2 border-soft-blue/50 bg-gradient-to-b from-sky-100 via-cyan-50 to-amber-50 shadow-xl">
    <div className="relative bg-gradient-to-r from-amber-300 via-yellow-200 to-orange-200 px-5 py-5 text-center">
      <h2 className="font-display text-2xl font-extrabold text-ink sm:text-3xl">🚲 {title}</h2>
      <p className="mt-2 text-base font-medium text-ink">{instruction}</p>
-     <button type="button" aria-label={instruction} className="mt-3 min-h-12 rounded-full border-2 border-teal bg-white px-5 py-3 font-bold text-teal-text shadow-sm" onClick={()=>speak(`${title}. ${instruction}`)}>🔊 {locale==="ro"?"Ascultă":locale==="en"?"Listen":"▶"}</button>
+     <ReadAloudButton text={done ? success : `${title}. ${instruction}`} uiLocale={explorerSpeechLang()} />
    </div>
    <div className="grid items-center gap-5 p-4 sm:p-7 lg:grid-cols-[minmax(0,1.4fr)_minmax(230px,1fr)]">
      <div className="flex flex-col items-center rounded-3xl bg-white/75 p-4">
-       <div className="relative flex h-64 w-52 flex-col items-center justify-end sm:h-80 sm:w-64">
-         <div className="absolute -top-1 z-10 h-7 w-[88%] rounded-[50%] border-4 border-teal bg-teal shadow-md" aria-hidden="true"/>
+       <div className="relative flex h-64 w-full max-w-52 flex-col items-center justify-end sm:h-80 sm:w-64">
+         <div data-savings-jar-lid className="absolute top-3 z-10 h-3 w-[84%] rounded-md border-2 border-teal bg-teal shadow-sm" aria-hidden="true"/>
          <div role="img" aria-label={`${savedLabel}: ${amount(saved,locale)}`}
            {...dropTarget(add)}
-           className="relative flex h-[90%] w-[84%] flex-col justify-end overflow-hidden rounded-b-[3.5rem] rounded-t-[2rem] border-[6px] border-sky-400 bg-gradient-to-br from-white/95 via-sky-50/60 to-cyan-200/60 p-3 shadow-inner">
-           <div className="absolute inset-x-2 bottom-2 rounded-b-[2.5rem] bg-amber-200/35 transition-[height] duration-300 motion-reduce:transition-none" style={{height:`${(saved/TARGET)*80}%`}}/>
+           className="relative flex h-[88%] w-[84%] flex-col justify-end overflow-hidden rounded-b-xl rounded-t-lg border-[6px] border-sky-400 bg-gradient-to-br from-white/95 via-sky-50/60 to-cyan-200/60 p-3 shadow-inner">
+           <div className="absolute inset-x-2 bottom-2 rounded-b-lg bg-amber-200/35 transition-[height] duration-300 motion-reduce:transition-none" style={{height:`${(saved/TARGET)*80}%`}}/>
            <div className="relative z-10 flex flex-wrap content-end justify-center gap-1" style={{minHeight:`${Math.max(12,(saved/TARGET)*78)}%`}}>
              {MONEY.filter(item=>added.includes(item.id)).map(item=><span key={item.id} aria-hidden="true" className="text-3xl drop-shadow-sm sm:text-4xl">{item.kind==="coin"?"🪙":"💵"}</span>)}
            </div>
          </div>
-         <div className="absolute -right-7 top-12 rotate-6 rounded-xl border-2 border-amber-400 bg-yellow-100 px-3 py-2 text-3xl shadow-sm" aria-hidden="true">🚲</div>
+         <div className="absolute right-0 top-12 rotate-6 rounded-xl border-2 border-amber-400 bg-yellow-100 px-3 py-2 text-3xl shadow-sm" aria-hidden="true">🚲</div>
        </div>
        <p className="mt-4 text-center text-sm font-medium text-ink">{instruction}</p>
      </div>
@@ -85,16 +75,17 @@ export function ExplorerSavingJar({onComplete}:{onComplete:()=>void}){
      </div>
    </div>
    <div className="border-t-2 border-amber-200 bg-gradient-to-b from-amber-100 to-orange-200 p-4 sm:p-6">
-     <div className="grid grid-cols-3 gap-3 sm:grid-cols-6">
+     <div className="grid grid-cols-2 gap-2 sm:grid-cols-6">
        {MONEY.map(item=><button key={item.id} type="button" disabled={done||added.includes(item.id)} onClick={()=>add(item.id)}
          {...dragSource(item.id)}
          aria-label={`${item.kind==="coin"?coinLabel:noteLabel} ${amount(item.value,locale)}`}
          className="flex min-h-28 cursor-grab flex-col items-center justify-center rounded-2xl border-2 border-soft-blue/40 bg-white/95 p-2 font-bold text-ink shadow-md transition-transform hover:-translate-y-1 focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal active:cursor-grabbing disabled:cursor-default disabled:opacity-35 motion-reduce:transform-none">
          <span aria-hidden="true" className="text-4xl">{item.kind==="coin"?"🪙":"💷"}</span>
-         <span>{amount(item.value,locale)}</span><span className="text-xs">{item.kind==="coin"?coinLabel:noteLabel}</span>
+         <span className="break-words text-base">{amount(item.value,locale)}</span><span className="text-xs">{item.kind==="coin"?coinLabel:noteLabel}</span>
        </button>)}
      </div>
      {done&&<div className="mt-5 rounded-2xl border-2 border-emerald-300 bg-white p-5 text-center"><p role="status" className="text-xl font-bold text-emerald-800">⭐ {success}</p>
+       <button type="button" onClick={onComplete} className="mt-3 min-h-12 w-full rounded-full bg-teal px-4 py-3 text-base font-bold text-white">{nextLabel}</button>
        <button type="button" onClick={()=>setAdded([])} className="mt-3 min-h-12 rounded-full bg-teal px-6 py-3 font-bold text-white">{restart}</button>
      </div>}
    </div>

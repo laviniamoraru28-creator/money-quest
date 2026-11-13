@@ -49,7 +49,7 @@ export function MissionMechanic({ round, currencyCode, uiLocale, usesCurrency, o
                 ].join(" ")}
               >
                 <span className="flex items-center justify-between gap-xs">
-                  <span className={isExplorer ? "text-lg font-bold" : "font-medium"}>{choice.label}</span>
+                  <span className={isExplorer ? "text-lg font-bold" : "font-medium"}><span className="answer-label">{choice.label}</span></span>
                   {usesCurrency && choice.costMinorUnits !== undefined && (
                     <span className={isExplorer ? "shrink-0 text-lg font-bold text-ink" : "shrink-0 font-bold text-ink"}>{formatCurrency(choice.costMinorUnits, currencyCode, uiLocale)}</span>
                   )}

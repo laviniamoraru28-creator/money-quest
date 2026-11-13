@@ -38,6 +38,14 @@
   [data-age-band="explorer"] {
     font-size: 1.375rem; /* font-size-lg, 22px */
   }
+  [data-explorer-answers] .answer-label {
+    display: inline-block;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+  [data-explorer-answers] .answer-label::first-letter {
+    text-transform: uppercase;
+  }
   [data-age-band="builder"],
   [data-age-band="strategist"] {
     font-size: 1.125rem; /* font-size-md, 18px */

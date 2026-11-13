@@ -114,7 +114,11 @@ for(const locale of LOCALES) for(const band of ['explorer','builder','strategist
    await page.goto(`/${locale}/play/world/${lesson.worldId}/lesson/${lesson.id}`);
    if(lesson.topicId==='money_basics') {
     await page.getByRole('button',{name:messages.lesson.backToMoneyForms,exact:true}).click();
-    await expect(page.locator('img[src*="/money/card.webp"]')).toBeVisible();
+    // Scoped to the money-forms section: Explorer's own money_basics
+    // activity (mounted but hidden behind it) reuses the same card.webp
+    // artwork at a smaller size for its own "discover" step, so the bare
+    // asset path alone matches two elements once that band is included.
+    await expect(page.locator('[data-lesson-section="examples"] img[src*="/money/card.webp"]')).toBeVisible();
     await page.getByRole('button',{name:messages.lesson.continueToLesson.replace('{title}',messages.curriculum[lesson.id].title),exact:true}).click();
    }
    const illustration=page.locator(`[data-lesson-illustration="${lesson.topicId}"]`);

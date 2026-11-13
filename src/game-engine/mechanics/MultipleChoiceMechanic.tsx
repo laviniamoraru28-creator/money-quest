@@ -42,7 +42,7 @@ export function MultipleChoiceMechanic({ round, onAnswer, isResolved, isExplorer
                 ].join(" ")}
               >
                 <input type="radio" name={`mc-${round.id}`} value={option} checked={isSelected} onChange={() => setSelected(option)} />
-                {option}
+                <span className="answer-label">{option}</span>
                 {showAsCorrect && (
                   <span className="ml-auto text-success-text">
                     <span aria-hidden="true">✓</span>

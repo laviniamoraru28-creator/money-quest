@@ -39,12 +39,9 @@ for(const locale of LOCALES){
    await article.getByRole('button',{name:reading.choices[reading.correct],exact:true}).click();
    await expect(article.getByRole('status').filter({hasText:reading.explanation})).toBeVisible();
   }
+  expect(await page.evaluate(()=>(window as any).releaseSpeech)).toEqual([]);
   const guide=page.getByRole('complementary',{name:ui.guideLabel,exact:true});await guide.getByRole('button',{name:JSON.parse(readFileSync(`messages/${locale}.json`,'utf8')).a11y.listenToLessonLabel,exact:true}).click();
-  // Explorer's level (index 0) already spoke once on its own, immediate
-  // audio feedback when the correct picture choice was tapped above —
-  // see ExplorerPictureChoice. Both entries must carry the full regional
-  // locale (e.g. "ro-RO"), never the short UI locale code.
-  await expect.poll(()=>page.evaluate(()=>(window as any).releaseSpeech)).toEqual([REGIONAL_LOCALES[locale],REGIONAL_LOCALES[locale]]);
+  await expect.poll(()=>page.evaluate(()=>(window as any).releaseSpeech)).toEqual([REGIONAL_LOCALES[locale]]);
   expect(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)).toBe(false);
   await page.screenshot({path:info.outputPath(`lab-${locale}.png`),fullPage:true});
   const book=draftReaderPresentation(originalBooks[0]!,locale).book;

@@ -5,41 +5,53 @@ import {GAME_STRUCTURES} from '../../src/game-engine/structures';
 import {buildGameConfigFromStructure} from '../../src/game-engine/build-config';
 import {getVariant,type GameRound} from '../../src/game-engine/types';
 import {moneyBasicsLessonCopy} from '../../src/content/explorer-money-basics-lesson';
+import {needsWantsLessonCopy} from '../../src/content/explorer-needs-wants-lesson';
+import {savingExtraLessonCopy} from '../../src/content/explorer-saving-lesson-extra';
+import {currenciesLessonCopy} from '../../src/content/explorer-currencies-lesson';
+import {safetyLessonCopy} from '../../src/content/explorer-safety-lesson';
+import {longtermLessonCopy} from '../../src/content/explorer-longterm-lesson';
+import {givingLessonCopy} from '../../src/content/explorer-giving-lesson';
+import {digitalMoneyLessonCopy} from '../../src/content/explorer-digital-money-lesson';
+import {investingLessonCopy} from '../../src/content/explorer-investing-lesson';
+import {explorerScenario} from '../../src/content/explorer-other-lessons';
+import {getActivityHref,getWorldCatalog} from '../../src/content/catalog';
+import {WORLDS} from '../../src/content/worlds';
+import {nextActivityCopy,romanianExplorerCopy} from '../../src/i18n/explorer-copy';
 
 const messages=JSON.parse(readFileSync('messages/en.json','utf8'));
-async function solveRound(page:Page,round:GameRound){
+async function solveRound(page:Page,round:GameRound,copy=messages){
  const button=(name:string)=>page.getByRole('button',{name,exact:true});
  switch(round.mechanic){
   case 'multiple-choice':
    await page.getByRole('radio',{name:round.correctOption,exact:true}).check();
-   await button(messages.lesson.checkMyAnswer).click();break;
+   await button(copy.lesson.checkMyAnswer).click();break;
   case 'numeric':
    await page.getByRole('spinbutton').fill(String(round.correctValue));
-   await button(messages.lesson.checkMyAnswer).click();break;
+   await button(copy.lesson.checkMyAnswer).click();break;
   case 'sort':
    for(const item of round.items){
-    await page.getByRole('group',{name:messages.game.itemsToSort,exact:true}).getByRole('button',{name:item.label,exact:true}).click();
+    await page.getByRole('group',{name:copy.game.itemsToSort,exact:true}).getByRole('button',{name:item.label,exact:true}).click();
     await button(round.buckets.find(bucket=>bucket.key===item.correctBucketKey)!.label).click();
    }
-   await button(messages.game.checkMySorting).click();break;
+   await button(copy.game.checkMySorting).click();break;
   case 'match':
    for(const pair of round.pairs){
-    await page.getByRole('group',{name:messages.game.matchThese,exact:true}).getByRole('button',{name:pair.left,exact:true}).click();
-    await page.getByRole('group',{name:messages.game.withThese,exact:true}).getByRole('button',{name:pair.right,exact:true}).click();
+    await page.getByRole('group',{name:copy.game.matchThese,exact:true}).getByRole('button',{name:pair.left,exact:true}).click();
+    await page.getByRole('group',{name:copy.game.withThese,exact:true}).getByRole('button',{name:pair.right,exact:true}).click();
    }break;
   case 'compare':
    await page.getByRole('button').filter({has:page.getByText(round.options.find(option=>option.key===round.correctOptionKey)!.label,{exact:true})}).click();
-   await button(messages.game.checkMyChoice).click();break;
+   await button(copy.game.checkMyChoice).click();break;
   case 'allocate':
    for(const target of round.targets){
     const category=round.categories.find(item=>item.key===target.categoryKey)!;
     expect(target.targetMinorUnits%100).toBe(0);
-    for(let value=0;value<target.targetMinorUnits;value+=100)await button(messages.a11y.increaseCategory.replace('{category}',category.label)).click();
+    for(let value=0;value<target.targetMinorUnits;value+=100)await button(copy.a11y.increaseCategory.replace('{category}',category.label)).click();
    }
-   await button(messages.game.checkMyPlan).click();break;
+   await button(copy.game.checkMyPlan).click();break;
   case 'spot':
    for(const item of round.items.filter(item=>item.isSuspicious))await button(item.text).click();
-   await button(messages.game.checkWhatIFound).click();break;
+   await button(copy.game.checkWhatIFound).click();break;
   case 'mission':
    // Every mission choice is valid. Its consequence must remain visible.
    await page.getByRole('button').filter({has:page.getByText(round.choices[0]!.label,{exact:true})}).click();break;
@@ -49,88 +61,89 @@ async function solveRound(page:Page,round:GameRound){
 /** Every Explorer lesson runs its own picture-first interactive flow
  * instead of a single quiz radio; this drives each topic's exact
  * activity sequence (verified directly against the running app). */
-async function completeExplorerLesson(page:Page,topicId:string){
- const button=(name:string|RegExp)=>page.getByRole('button',{name,exact:typeof name==='string'});
+async function completeExplorerLesson(page:Page,topicId:string,locale:"en"|"ro"="en"){
+ const next=locale==='ro'?'Continuă':'Continue';
+ const button=(name:string)=>page.getByRole('button',{name,exact:true});
+ const choice=async (name:string)=>{
+  const stage=page.locator('[data-explorer-picture-choice]');
+  await stage.getByRole('button',{name,exact:true}).click();
+  await stage.getByRole('button',{name:next,exact:true}).click();
+ };
+ const sort=async (pairs:[string,string][])=>{
+  const stage=page.locator('[data-explorer-picture-sort]');
+  for(const [item,destination] of pairs){
+   await stage.getByRole('button',{name:item,exact:true}).first().click();
+   await stage.getByRole('button',{name:new RegExp('^'+destination+' [0-9]+$')}).click();
+  }
+  await stage.getByRole('button',{name:next,exact:true}).click();
+ };
+ const sequence=async (steps:string[])=>{
+  const stage=page.locator('[data-explorer-sequence]');
+  for(const step of steps)await stage.getByRole('button',{name:step,exact:true}).click();
+  await stage.getByRole('button',{name:next,exact:true}).click();
+ };
  switch(topicId){
   case 'money_basics':{
-   const en=moneyBasicsLessonCopy.en;
-   const descriptions:Record<string,string>={Coin:en.coinDesc,Banknote:en.banknoteDesc,'Debit card':en.cardDesc};
-   const tapped:string[]=[];
-   for(const label of ['Coin','Banknote','Debit card']){
-    await button(label).click();
-    tapped.push(label);
-    // Each card's own explanation appears immediately under it and stays
-    // visible as the other cards are tapped — regression coverage for the
-    // money-quest translation audit's "tap each image, see its explanation,
-    // keep it visible" fix.
-    for(const seen of tapped)await expect(page.getByText(descriptions[seen]!,{exact:true})).toBeVisible();
+   const c=moneyBasicsLessonCopy[locale];
+   const pictures=page.locator('[data-explorer-discover]');
+   for(const [label,description] of [[c.coin,c.coinDesc],[c.banknote,c.banknoteDesc],[c.card,c.cardDesc]] as const){
+    await pictures.getByRole('button',{name:label,exact:true}).click();
+    await expect(pictures.getByText(description,{exact:true})).toBeVisible();
    }
-   await button('Continue').click();
-   await button('Add').click();await button('Add').click();await button('Add').click();
-   await button('Check').click();
-   await button('Debit card').click();
-   // Paying shows a visible/spoken confirmation and waits for its own
-   // Continue click before advancing (see ExplorerMiniShop) — distinct
-   // from the picture-choice stage's own Continue click two lines down.
-   await button('Continue').click();
-   await button('Your bank account').click();
-   await button('Continue').click();
-   break;}
-  case 'needs_wants':
-   await button('Food').click();await button(/Need/).click();
-   await button('Water').click();await button(/Need/).click();
-   await button('Toy car').click();await button(/Want/).click();
-   await button('Candy').click();await button(/Want/).click();
-   await button('The ball').click();await button('Continue').click();
-   await button('Yes, the same way').click();await button('Continue').click();
-   break;
+   await pictures.getByRole('button',{name:next,exact:true}).click();
+   const coins=page.locator('[data-explorer-coin-count]');
+   for(let i=0;i<3;i++)await coins.getByRole('button',{name:locale==='ro'?'Adaugă':'Add',exact:true}).click();
+   await coins.getByRole('button',{name:locale==='ro'?'Verifică':'Check',exact:true}).click();
+   await coins.getByRole('button',{name:next,exact:true}).click();
+   const shop=page.locator('[data-explorer-mini-shop]');
+   await shop.getByRole('button',{name:c.card,exact:true}).click();
+   await shop.getByRole('button',{name:next,exact:true}).click();
+   await choice(c.bankAccount);break;
+  }
+  case 'needs_wants':{
+   const c=needsWantsLessonCopy[locale];
+   await sort([[c.food,c.needLabel],[c.water,c.needLabel],[c.toyCar,c.wantLabel],[c.candy,c.wantLabel]]);
+   await choice(c.ballChoice);break;
+  }
   case 'saving':{
-   const coins=page.locator('[data-explorer-saving-jar] button[aria-label]');
-   const count=await coins.count();
-   for(let i=0;i<count;i++)await coins.nth(i).click({timeout:2000}).catch(()=>{});
-   await button('In a bank account').click();await button('Continue').click();
-   await button('Keep it for later').click();await button('Continue').click();
-   break;}
-  case 'currencies':
-   await button('Pound').click();await button(/United Kingdom/).click();
-   await button('Leu').click();await button(/Romania/).click();
-   await button('Euro').click();await button(/Europe/).click();
-   await button('Yen').click();await button(/Japan/).click();
-   await button('The pound symbol').click();await button('Continue').click();
-   await button('Yen').click();await button('Continue').click();
+   const c=savingExtraLessonCopy[locale];
+   const jar=page.locator('[data-explorer-saving-jar]');
+   const coins=jar.locator('button[draggable]');
+   await expect(coins).toHaveCount(6);
+   for(const coin of await coins.all())await coin.click();
+   await jar.getByRole('button',{name:next,exact:true}).click();
+   await choice(c.bankChoice);await choice(c.saveChoice);break;
+  }
+  case 'currencies':{
+   const c=currenciesLessonCopy[locale];
+   await sort([[c.pound,c.uk],[c.leu,c.romania],[c.euro,c.europe],[c.yen,c.japan]]);
+   await choice(c.prompt4yen);break;
+  }
+  case 'scams':{
+   const c=safetyLessonCopy[locale];
+   for(const answer of [c.safe1,c.safe2,c.safe3,c.safe4])await choice(answer);
    break;
-  case 'scams':
-   await button('Keep it in a safe place').click();await button('Continue').click();
-   await button('Only me').click();await button('Continue').click();
-   await button('Don’t share it, tell a trusted adult').click();await button('Continue').click();
-   await button('Ask a parent or trusted adult').click();await button('Continue').click();
-   break;
-  case 'long_term_thinking':
-   await button('Save a little money each week').click();await button('Continue').click();
-   for(const w of ['Week 1','Week 2','Week 3','Week 4'])await button(w).click();
-   await button('A savings jar or account').click();await button('Continue').click();
-   for(const s of ['Pick a goal','Save a little each week','Check how close you are','Reach your goal!'])await button(s).click();
-   break;
-  case 'giving':
-   await button('Coin').first().click();await button(/Give/).click();
-   for(let i=0;i<4;i++){await button('Coin').first().click();await button(/Keep/).click();}
-   await button(/animal shelter/i).click();
-   await button('Send the gift').click();await button('Continue').click();
-   break;
+  }
+  case 'long_term_thinking':{
+   const c=longtermLessonCopy[locale];
+   await choice(c.goalBike);await sequence([c.week1,c.week2,c.week3,c.week4]);
+   await choice(c.jarChoice);await sequence([c.planGoal,c.planSave,c.planCheck,c.planReach]);break;
+  }
+  case 'giving':{
+   const c=givingLessonCopy[locale];
+   await sort([[c.coinLabel,c.giveBox],...[1,2,3,4].map((): [string,string]=>[c.coinLabel,c.keepBox])]);
+   await button(c.cause1).click();await choice(c.sendChoice);break;
+  }
   case 'digital_money':
-   await button('Yes, it goes down either way').click();await button('Continue').click();
-   await button('Your bank account').click();await button('Continue').click();
-   break;
-  case 'investing_basics':
-   for(const s of ['Seed','Sprout','Bud','Flower'])await button(s).click();
-   await button('Investing').click();await button('Continue').click();
-   await button('No, it can go up or down').click();await button('Continue').click();
-   break;
+   await choice(digitalMoneyLessonCopy[locale].sameWay);break;
+  case 'investing_basics':{
+   const c=investingLessonCopy[locale];
+   await sequence([c.seed,c.sprout,c.bud,c.flower]);await choice(c.investingChoice);await choice(c.upOrDown);break;
+  }
   case 'junior_isa':
-   await button('Parent or trusted adult').click();await button('Continue').click();
-   break;
+   await choice(explorerScenario(locale,'junior_isa').correct);break;
   default:
-   throw new Error(`no Explorer completion dispatcher for topic ${topicId}`);
+   throw new Error(`No Explorer completion dispatcher for topic ${topicId}`);
  }
 }
 
@@ -176,4 +189,40 @@ for(const band of ['explorer','strategist'] as const)test(`${band}: complete eve
  expect(new Set(progress.completedActivityIds).size).toBe(expectedIds.length);
  expect(progress.xpTotal).toBeGreaterThan(0);
  expect(errors).toEqual([]);
+});
+
+for(const locale of ['ro','en'] as const)test(`${locale}: Explorer follows the full mobile learning route in order`,async({page},info)=>{
+ test.skip(info.project.name!=='mobile-chrome','runs one Android-sized browser per language');
+ test.setTimeout(600_000);
+ const copy=JSON.parse(readFileSync(`messages/${locale}.json`,'utf8'));
+ const progress=()=>page.evaluate(()=>JSON.parse(localStorage.getItem('moneyquest_local_progress_v1')!));
+ const itinerary=WORLDS.flatMap(world=>getWorldCatalog(world.id,'explorer',key=>key));
+ await page.goto(`/${locale}`);
+ await page.getByRole('link',{name:new RegExp(locale==='ro'?romanianExplorerCopy.play.earlyLearner:copy.play.earlyLearner)}).click();
+ await page.getByRole('link',{name:/Coin Cove/}).click();
+ await page.locator(`main a[href$="${itinerary[0]!.id}"]`).click();
+ const expected:string[]=[];
+ for(const entry of itinerary){
+  await test.step(entry.id,async()=>{
+   await expect(page).toHaveURL(new RegExp(getActivityHref(entry.worldId,entry)+'$'));
+   if(entry.activityType==='lesson')await completeExplorerLesson(page,entry.topicId,locale);
+   else {
+    const key=entry.id.slice('game-explorer-'.length);
+    const structure=GAME_STRUCTURES.find(game=>game.key===key)!;
+    const variant=getVariant(buildGameConfigFromStructure(structure,copy.games[key]),'explorer','standard')!;
+    for(const [index,round] of variant.rounds.entries()){
+     await expect(page.getByText(round.prompt,{exact:true})).toBeVisible();
+     await solveRound(page,round,copy);
+     if(index<variant.rounds.length-1)await page.getByRole('button',{name:copy.game.nextRound,exact:true}).click();
+    }
+   }
+   expected.push(entry.id);
+   await expect.poll(async()=> (await progress()).completedActivityIds).toEqual(expected);
+   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+   if(entry!==itinerary.at(-1))await page.getByRole('button',{name:nextActivityCopy[locale],exact:true}).click();
+  });
+ }
+ const saved=await progress();
+ await page.reload();
+ expect(await progress()).toEqual(saved);
 });

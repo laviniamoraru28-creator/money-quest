@@ -42,10 +42,11 @@ async function driveToShop(page: Page, locale: Locale) {
   await expect(discover).toHaveCount(3);
   const discoverCount = await discover.count();
   for (let i = 0; i < discoverCount; i++) await discover.nth(i).click();
-  await page.locator('[data-explorer-discover] button:not([aria-pressed])').click();
-  await page.locator('[data-explorer-coin-count] button').nth(2).click();
-  await page.locator('[data-explorer-coin-count] button').nth(2).click();
-  await page.locator('[data-explorer-coin-count] button').nth(2).click();
+  await page.locator('[data-explorer-discover] button:not([aria-pressed]):not([title])').click();
+  await page.locator('[data-explorer-coin-count] button:not([title])').nth(1).click();
+  await page.locator('[data-explorer-coin-count] button:not([title])').nth(1).click();
+  await page.locator('[data-explorer-coin-count] button:not([title])').nth(1).click();
+  await page.locator('[data-explorer-coin-count] button').last().click();
   await page.locator('[data-explorer-coin-count] button').last().click();
 }
 
@@ -71,7 +72,7 @@ test('EN: payment confirmation is visible with a localized amount before advanci
   await expect(feedback).toHaveText('');
 
   // Pay with "Coins" (shop button index 1: Listen, Coins, Banknote, Card).
-  await shop.locator('button').nth(1).click();
+  await shop.locator('button[aria-pressed]').first().click();
 
   // Requirement 1: the confirmation is visible, and the activity has NOT
   // advanced yet — the next stage's own marker must not exist.
@@ -88,6 +89,8 @@ test('EN: payment confirmation is visible with a localized amount before advanci
 
   // Requirement 2: the spoken narration says the same localized amounts
   // (not merely that *some* speech fired).
+  expect(await page.evaluate(() => (window as unknown as {speechCalls: string[]}).speechCalls)).toEqual([]);
+  await shop.getByRole('button',{name:'Listen',exact:true}).click();
   const spoken = await page.evaluate(() => (window as unknown as {speechCalls: string[]}).speechCalls);
   expect(spoken.some((text) => text.includes(learningAmount(2, 'en')) && text.includes(learningAmount(3, 'en')))).toBe(true);
 
@@ -97,8 +100,8 @@ test('EN: payment confirmation is visible with a localized amount before advanci
   await expect(shop.locator('.my-5').getByText(learningAmount(3, 'en'))).toBeVisible();
 
   // Requirement 4: a clear Continue control, distinct from Play Again.
-  const continueButton = shop.locator('button').nth(4);
-  const playAgainButton = shop.locator('button').nth(5);
+  const continueButton = shop.locator('button:not([aria-pressed]):not([title])').first();
+  const playAgainButton = shop.locator('button:not([aria-pressed]):not([title])').last();
   await expect(continueButton).toBeVisible();
   await expect(playAgainButton).toBeVisible();
 
@@ -111,7 +114,7 @@ test('EN: payment confirmation is visible with a localized amount before advanci
   await expect(shop.locator('button[aria-pressed="true"]')).toHaveCount(0);
 
   // Pay again, then actually advance via Continue.
-  await shop.locator('button').nth(1).click();
+  await shop.locator('button[aria-pressed]').first().click();
   await expect(feedback).not.toHaveText('');
   await continueButton.click();
 
@@ -130,7 +133,7 @@ for (const locale of LOCALES) test(`${locale}: paid amount and remaining balance
   test.skip(info.project.name !== 'desktop-chrome', 'currency-label text check only needs one browser project');
   await driveToShop(page, locale);
   const shop = page.locator('[data-explorer-mini-shop]');
-  await shop.locator('button').nth(1).click();
+  await shop.locator('button[aria-pressed]').first().click();
   const feedback = shop.locator('[role="status"]');
   const paidText = await feedback.textContent();
   const price = learningAmount(2, locale);

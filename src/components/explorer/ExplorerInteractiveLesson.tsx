@@ -1,6 +1,8 @@
 "use client";
 
-import {useEffect,useState} from "react";
+import Image from "next/image";
+import {ReadAloudButton} from "@/components/ui/ReadAloudButton";
+import {useState} from "react";
 import {useLocale} from "next-intl";
 import {ExplorerPictureChoice} from "@/components/explorer/ExplorerPictureChoice";
 import {ExplorerPictureSort} from "@/components/explorer/ExplorerPictureSort";
@@ -59,36 +61,29 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
    setFinished(true);
    onComplete();
  };
- useEffect(()=>()=>{if(typeof window!=="undefined"&&"speechSynthesis" in window)window.speechSynthesis.cancel();},[stage]);
  const otherTopic=explorerOtherTopics.find(topic=>topic===topicId);
  const scenario=otherTopic?explorerScenario(locale,otherTopic as ExplorerOtherTopic):null;
  if(!(["money_basics","needs_wants","saving",...explorerOtherTopics] as string[]).includes(topicId))return null;
  return <section data-explorer-interactive-lesson className="flex flex-col gap-5">
-   <h2 className="text-2xl font-bold">{t.intro}</h2>
+   <h2 className="text-[1.375rem] font-bold leading-snug sm:text-lg">{t.intro}</h2>
    {topicId==="money_basics" && (() => {
      const m = moneyBasicsLessonCopy[locale];
      const items = [
-       {id:"coin", symbol:"🪙", label:m.coin, desc:m.coinDesc},
-       {id:"banknote", symbol:"💵", label:m.banknote, desc:m.banknoteDesc},
-       {id:"card", symbol:"💳", label:m.card, desc:m.cardDesc},
+       {id:"coin", image:"coins", label:m.coin, desc:m.coinDesc},
+       {id:"banknote", image:"banknote", label:m.banknote, desc:m.banknoteDesc},
+       {id:"card", image:"card", label:m.card, desc:m.cardDesc},
      ] as const;
-     const speak=(message:string)=>{
-       if(typeof window==="undefined"||!("speechSynthesis" in window))return;
-       window.speechSynthesis.cancel();
-       const utterance=new SpeechSynthesisUtterance(message);
-       utterance.lang=explorerSpeechLang();
-       window.speechSynthesis.speak(utterance);
-     };
      if (stage === 0) return <section key="stage-0" data-explorer-discover className="rounded-3xl border border-teal/20 bg-white p-4 md:p-6">
-       <h3 className="text-xl font-bold">{m.discoverPrompt}</h3>
+       <h3 className="text-[1.25rem] font-bold leading-snug sm:text-lg">{m.discoverPrompt}</h3>
+       <ReadAloudButton text={discovered.length ? items.filter(item=>discovered.includes(item.id)).map(item=>`${item.label}. ${item.desc}`).join(" ") : m.discoverPrompt} uiLocale={explorerSpeechLang()} />
        <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-3">
          {items.map(item=>
            <button type="button" key={item.id}
              aria-pressed={discovered.includes(item.id)}
-             onClick={()=>{setDiscovered(prev=>prev.includes(item.id)?prev:[...prev,item.id]);speak(`${item.label}. ${item.desc}`);}}
+             onClick={()=>{setDiscovered(prev=>prev.includes(item.id)?prev:[...prev,item.id]);}}
              className="flex min-h-40 flex-col items-center justify-center gap-3 rounded-3xl border-4 border-white bg-gradient-to-b from-white to-soft-blue/10 p-5 text-center shadow-md aria-pressed:border-teal aria-pressed:bg-teal/10 focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal">
-             <span aria-hidden="true" className="text-6xl">{item.symbol}</span>
-             <span className="text-xl font-extrabold text-ink">{item.label}</span>
+             <Image src={`/images/money-quest/money/${item.image}.webp`} alt="" width={384} height={384} unoptimized className="h-20 w-20 object-contain" />
+             <span className="break-words text-lg font-extrabold leading-snug text-ink">{item.label}</span>
              {discovered.includes(item.id) && <span className="text-lg leading-relaxed text-ink">{item.desc}</span>}
            </button>)}
        </div>
@@ -97,7 +92,7 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
          <button type="button" onClick={()=>setStage(1)} className="mt-3 min-h-12 rounded-full bg-teal px-7 py-3 font-bold text-white shadow-md">{m.continueLabel}</button>}
      </section>;
      if (stage === 1) return <ExplorerCoinCount key="stage-1" target={3} prompt={t.count} coinLabel={t.coin} addLabel={t.add} removeLabel={t.remove}
-       replayLabel={t.listen} checkLabel={t.check} successMessage={t.success} retryMessage={t.retry}
+       checkLabel={t.check} nextLabel={t.next} successMessage={t.success} retryMessage={t.retry}
        onComplete={()=>setStage(2)}/>;
      if (stage === 2) return <ExplorerMiniShop key="stage-2" locale={locale} onComplete={()=>setStage(3)}/>;
      return <ExplorerPictureChoice
@@ -107,7 +102,7 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
          {id:"free", label:m.freeMoney, symbol:"✨", explanation:""},
        ]}
        correctId="bank" successMessage={m.success} retryMessage={m.retry}
-       replayLabel={m.replay} nextLabel={m.next} onComplete={complete}/>;
+       nextLabel={m.next} onComplete={complete}/>;
    })()}
    {topicId==="needs_wants" && (() => {
      const c = needsWantsLessonCopy[locale];
@@ -123,7 +118,7 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
          {id:"need", symbol:"✅", label:c.needLabel},
          {id:"want", symbol:"⭐", label:c.wantLabel},
        ]}
-       replayLabel={c.replay} tryAgainMessage={c.retry} successMessage={c.success}
+       nextLabel={t.next} tryAgainMessage={c.retry} successMessage={c.success}
        onComplete={()=>setStage(1)}/>;
      if (stage === 1) return <ExplorerPictureChoice
        // budgetPrompt's "5"/"5"/"10" are monetary amounts (a budget and two
@@ -135,19 +130,11 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
          {id:"car", label:c.carChoice, symbol:"🚗", explanation:""},
        ]}
        correctId="ball" successMessage={c.success} retryMessage={c.retry}
-       replayLabel={c.replay} nextLabel={c.next} onComplete={()=>setStage(2)}/>;
-     return <ExplorerPictureChoice
-       key="stage-2" prompt={c.comparePrompt}
-       options={[
-         {id:"same", label:c.sameWay, symbol:"⬇️", explanation:""},
-         {id:"free", label:c.cardFree, symbol:"❓", explanation:""},
-       ]}
-       correctId="same" successMessage={c.success} retryMessage={c.retry}
-       replayLabel={c.replay} nextLabel={c.next} onComplete={complete}/>;
+       nextLabel={c.next} onComplete={complete}/>;
    })()}
    {topicId==="saving" && (() => {
      const c = savingExtraLessonCopy[locale];
-     if (stage === 0) return <ExplorerSavingJar key="stage-0" onComplete={()=>setStage(1)}/>;
+     if (stage === 0) return <ExplorerSavingJar key="stage-0" nextLabel={t.next} onComplete={()=>setStage(1)}/>;
      if (stage === 1) return <ExplorerPictureChoice
        key="stage-1" prompt={c.bankPrompt}
        options={[
@@ -155,15 +142,15 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
          {id:"ground", label:c.groundChoice, symbol:"🍂", explanation:""},
        ]}
        correctId="bank" successMessage={c.success} retryMessage={c.retry}
-       replayLabel={c.replay} nextLabel={c.next} onComplete={()=>setStage(2)}/>;
+       nextLabel={c.next} onComplete={()=>setStage(2)}/>;
      return <ExplorerPictureChoice
        key="stage-2" prompt={c.choicePrompt}
        options={[
-         {id:"save", label:c.saveChoice, symbol:"🏺", explanation:""},
+         {id:"save", label:c.saveChoice, symbol:"🫙", explanation:""},
          {id:"spend", label:c.spendChoice, symbol:"🍬", explanation:""},
        ]}
        correctId="save" successMessage={c.success} retryMessage={c.retry}
-       replayLabel={c.replay} nextLabel={c.next} onComplete={complete}/>;
+       nextLabel={c.next} onComplete={complete}/>;
    })()}
    {topicId==="currencies" && (() => {
      const c = currenciesLessonCopy[locale];
@@ -182,31 +169,17 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
          {id:"europe", symbol:"🇪🇺", label:c.europe},
          {id:"japan", symbol:"🇯🇵", label:c.japan},
        ]}
-       replayLabel={t.listen} tryAgainMessage={c.retry} successMessage={c.success}
+       nextLabel={t.next} tryAgainMessage={c.retry} successMessage={c.success}
        onComplete={()=>setStage(1)}/>;
-     // Used to have a second sort stage here (plain coins-vs-notes),
-     // but that tests the exact coin/banknote distinction money_basics
-     // already teaches, and never touches this lesson's own topic —
-     // recognising that different countries use different currencies.
-     // Removed as a duplicate (see money-quest duplicate-activity audit).
-     if (stage === 1) return <ExplorerPictureChoice
-       key="stage-1"
-       prompt={c.prompt3}
-       options={[
-         {id:"pound", label:c.symbolPoundQuestion, symbol:"£", explanation:""},
-         {id:"euro", label:c.symbolPoundWrong, symbol:"€", explanation:""},
-       ]}
-       correctId="pound" successMessage={c.success} retryMessage={c.retry}
-       replayLabel={c.replay} nextLabel={c.next} onComplete={()=>setStage(2)}/>;
      return <ExplorerPictureChoice
-       key="stage-2"
+       key="stage-1"
        prompt={c.prompt4tripJapan}
        options={[
          {id:"yen", label:c.prompt4yen, symbol:"¥", explanation:""},
          {id:"pound", label:c.prompt4pound, symbol:"£", explanation:""},
        ]}
        correctId="yen" successMessage={c.success} retryMessage={c.retry}
-       replayLabel={c.replay} nextLabel={c.next} onComplete={complete}/>;
+       nextLabel={c.next} onComplete={complete}/>;
    })()}
    {topicId==="scams" && (() => {
      const c = safetyLessonCopy[locale];
@@ -225,7 +198,7 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
          {id:"unsafe", label:round.unsafe, symbol:"⚠️", explanation:""},
        ]}
        correctId="safe" successMessage={c.success} retryMessage={c.retry}
-       replayLabel={c.replay} nextLabel={c.next}
+       nextLabel={c.next}
        onComplete={stage < rounds.length-1 ? () => setStage(stage+1) : complete}/>;
    })()}
    {topicId==="long_term_thinking" && (() => {
@@ -237,7 +210,7 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
          {id:"spend", label:c.goalSpendNow, symbol:"🍬", explanation:""},
        ]}
        correctId="save" successMessage={c.success} retryMessage={c.retry}
-       replayLabel={c.replay} nextLabel={c.next} onComplete={()=>setStage(1)}/>;
+       nextLabel={c.next} onComplete={()=>setStage(1)}/>;
      if (stage === 1) return <ExplorerSequence
        key="stage-1" prompt={c.prompt2}
        steps={[
@@ -246,16 +219,16 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
          {id:"w3", symbol:"3️⃣", label:c.week3, order:2},
          {id:"w4", symbol:"4️⃣", label:c.week4, order:3},
        ]}
-       replayLabel={c.replay} tryAgainMessage={c.retry} successMessage={c.success}
+       nextLabel={t.next} tryAgainMessage={c.retry} successMessage={c.success}
        onComplete={()=>setStage(2)}/>;
      if (stage === 2) return <ExplorerPictureChoice
        key="stage-2" prompt={c.prompt3}
        options={[
-         {id:"jar", label:c.jarChoice, symbol:"🏺", explanation:""},
+         {id:"jar", label:c.jarChoice, symbol:"🫙", explanation:""},
          {id:"pocket", label:c.pocketChoice, symbol:"👖", explanation:""},
        ]}
        correctId="jar" successMessage={c.success} retryMessage={c.retry}
-       replayLabel={c.replay} nextLabel={c.next} onComplete={()=>setStage(3)}/>;
+       nextLabel={c.next} onComplete={()=>setStage(3)}/>;
      return <ExplorerSequence
        key="stage-3" prompt={c.prompt4}
        steps={[
@@ -264,7 +237,7 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
          {id:"p3", symbol:"📊", label:c.planCheck, order:2},
          {id:"p4", symbol:"🏆", label:c.planReach, order:3},
        ]}
-       replayLabel={c.replay} tryAgainMessage={c.retry} successMessage={c.success}
+       nextLabel={t.next} tryAgainMessage={c.retry} successMessage={c.success}
        onComplete={complete}/>;
    })()}
    {topicId==="giving" && (() => {
@@ -282,7 +255,7 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
          {id:"give", symbol:"❤️", label:c.giveBox},
          {id:"keep", symbol:"👛", label:c.keepBox},
        ]}
-       replayLabel={c.replay} tryAgainMessage={c.retry} successMessage={c.remainderMessage}
+       nextLabel={t.next} tryAgainMessage={c.retry} successMessage={c.remainderMessage}
        onComplete={()=>setStage(1)}/>;
      if (stage === 1) return <section key="stage-1" className="rounded-3xl border border-teal/20 bg-white p-4 md:p-6">
        <h3 className="text-xl font-bold">{c.prompt2}</h3>
@@ -291,7 +264,7 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
            <button type="button" key={option.id} onClick={()=>setStage(2)}
              className="flex min-h-40 flex-col items-center justify-center gap-3 rounded-3xl border-4 border-white bg-gradient-to-b from-white to-soft-blue/10 p-5 text-center shadow-md focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal">
              <span aria-hidden="true" className="text-6xl">{option.symbol}</span>
-             <span className="text-xl font-extrabold text-ink">{option.label}</span>
+             <span className="break-words text-lg font-extrabold leading-snug text-ink">{option.label}</span>
            </button>)}
        </div>
      </section>;
@@ -302,7 +275,7 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
          {id:"close", label:c.closeChoice, symbol:"❌", explanation:""},
        ]}
        correctId="send" successMessage={c.success} retryMessage={c.retry}
-       replayLabel={c.replay} nextLabel={c.next} onComplete={complete}/>;
+       nextLabel={c.next} onComplete={complete}/>;
    })()}
    {topicId==="digital_money" && (() => {
      const c = digitalMoneyLessonCopy[locale];
@@ -312,22 +285,14 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
      // money-quest duplicate-activity audit) rather than re-teaching
      // "three ways to pay" a second time in a lesson whose own topic
      // is specifically where DIGITAL money comes from.
-     if (stage === 0) return <ExplorerPictureChoice
+     return <ExplorerPictureChoice
        key="stage-0" prompt={c.prompt1}
        options={[
          {id:"sameWay", label:c.sameWay, symbol:"⬇️", explanation:""},
          {id:"fromNowhere", label:c.fromNowhere, symbol:"❓", explanation:""},
        ]}
        correctId="sameWay" successMessage={c.success} retryMessage={c.retry}
-       replayLabel={c.replay} nextLabel={c.next} onComplete={()=>setStage(1)}/>;
-     return <ExplorerPictureChoice
-       key="stage-1" prompt={c.prompt2}
-       options={[
-         {id:"bank", label:c.bankAccount, symbol:"🏦", explanation:""},
-         {id:"free", label:c.freeFromCard, symbol:"✨", explanation:""},
-       ]}
-       correctId="bank" successMessage={c.success} retryMessage={c.retry}
-       replayLabel={c.replay} nextLabel={c.next} onComplete={complete}/>;
+       nextLabel={c.next} onComplete={complete}/>;
    })()}
    {topicId==="investing_basics" && (() => {
      const c = investingLessonCopy[locale];
@@ -339,16 +304,16 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
          {id:"bud", symbol:"🌷", label:c.bud, order:2},
          {id:"flower", symbol:"🌸", label:c.flower, order:3},
        ]}
-       replayLabel={c.replay} tryAgainMessage={c.retry} successMessage={c.success}
+       nextLabel={t.next} tryAgainMessage={c.retry} successMessage={c.success}
        onComplete={()=>setStage(1)}/>;
      if (stage === 1) return <ExplorerPictureChoice
        key="stage-1" prompt={c.prompt2}
        options={[
          {id:"investing", label:c.investingChoice, symbol:"📈", explanation:""},
-         {id:"saving", label:c.savingChoice, symbol:"🏺", explanation:""},
+         {id:"saving", label:c.savingChoice, symbol:"🫙", explanation:""},
        ]}
        correctId="investing" successMessage={c.success} retryMessage={c.retry}
-       replayLabel={c.replay} nextLabel={c.next} onComplete={()=>setStage(2)}/>;
+       nextLabel={c.next} onComplete={()=>setStage(2)}/>;
      return <ExplorerPictureChoice
        key="stage-2" prompt={c.prompt3}
        options={[
@@ -356,12 +321,12 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
          {id:"alwaysup", label:c.alwaysUp, symbol:"📈", explanation:""},
        ]}
        correctId="updown" successMessage={c.success} retryMessage={c.retry}
-       replayLabel={c.replay} nextLabel={c.next} onComplete={complete}/>;
+       nextLabel={c.next} onComplete={complete}/>;
    })()}
    {scenario && otherTopic && !(DEDICATED_OTHER_TOPICS as readonly string[]).includes(otherTopic) && <ExplorerPictureChoice prompt={scenario.prompt}
      options={[{id:"yes",label:scenario.correct,symbol:scenario.correctSymbol,explanation:""},{id:"no",label:scenario.wrong,symbol:scenario.wrongSymbol,explanation:""}]}
      correctId="yes" successMessage={t.success} retryMessage={t.retry}
-     replayLabel={t.listen} nextLabel={t.next} onComplete={complete}/>}
+     nextLabel={t.next} onComplete={complete}/>}
    {finished&&<p role="status" className="rounded-xl bg-teal/10 p-4 text-xl font-bold">{t.done}</p>}
  </section>;
 }

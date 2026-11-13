@@ -1,6 +1,7 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import {useState} from "react";
+import {ReadAloudButton} from "@/components/ui/ReadAloudButton";
 import { explorerSpeechLang } from "@/lib/explorer/speech-lang";
 
 type Props = {
@@ -9,8 +10,8 @@ type Props = {
   coinLabel: string;
   addLabel: string;
   removeLabel: string;
-  replayLabel: string;
   checkLabel: string;
+  nextLabel: string;
   successMessage: string;
   retryMessage: string;
   /** Small, concrete quantities only; this is counting, not currency valuation. */
@@ -24,33 +25,20 @@ type Props = {
  * Child can use buttons, touch, or keyboard. Never requires reading.
  */
 export function ExplorerCoinCount({
-  prompt, coinLabel, addLabel, removeLabel, replayLabel, checkLabel,
+  prompt, coinLabel, addLabel, removeLabel, checkLabel, nextLabel,
   successMessage, retryMessage, target, onComplete,
 }: Props) {
   const [count, setCount] = useState(0);
   const [feedback, setFeedback] = useState("");
   const [done, setDone] = useState(false);
 
-  const speak = useCallback((message: string) => {
-    if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
-    window.speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(message);
-    utterance.lang = explorerSpeechLang();
-    window.speechSynthesis.speak(utterance);
-  }, []);
 
-  useEffect(() => () => {
-    if (typeof window !== "undefined" && "speechSynthesis" in window) {
-      window.speechSynthesis.cancel();
-    }
-  }, []);
 
   const adjust = (next: number) => {
     if (done) return;
     const bounded = Math.min(5, Math.max(0, next));
     setCount(bounded);
     setFeedback("");
-    speak(String(bounded));
   };
 
   const check = () => {
@@ -58,20 +46,15 @@ export function ExplorerCoinCount({
     const correct = count === target;
     const message = correct ? successMessage : retryMessage;
     setFeedback(message);
-    speak(message);
     if (correct) {
       setDone(true);
-      onComplete?.();
     }
   };
 
   return (
     <section data-explorer-coin-count className="rounded-3xl border border-teal/20 bg-white p-4 md:p-6">
-      <h2 className="text-xl font-bold">{prompt}</h2>
-      <button type="button" onClick={() => speak(prompt)}
-        className="my-4 min-h-12 rounded-full border-2 border-teal bg-white px-5 py-3 font-bold text-teal-text">
-        <span aria-hidden="true">🔊 </span>{replayLabel}
-      </button>
+      <h2 className="break-words text-[1.25rem] font-bold leading-snug sm:text-lg">{prompt}</h2>
+      <ReadAloudButton text={feedback || prompt} uiLocale={explorerSpeechLang()} />
       <div aria-label={coinLabel} className="flex min-h-28 flex-wrap items-center justify-center gap-3 rounded-2xl bg-cream p-4">
         {Array.from({ length: count }, (_, index) => (
           <span key={index} role="img" aria-label={coinLabel} className="flex h-16 w-16 items-center justify-center rounded-full border-4 border-amber-700 bg-amber-300 text-3xl text-amber-950 shadow-sm">
@@ -82,11 +65,11 @@ export function ExplorerCoinCount({
       <p aria-live="polite" className="mt-3 text-center text-2xl font-bold">{count}</p>
       <div className="mt-4 grid grid-cols-2 gap-3">
         <button type="button" onClick={() => adjust(count - 1)} disabled={count === 0 || done}
-          className="min-h-16 rounded-2xl border-2 border-teal px-4 py-3 text-xl font-bold disabled:opacity-40">
+          className="min-h-16 rounded-2xl border-2 border-teal min-w-0 break-words px-2 py-3 text-md font-bold disabled:opacity-40">
           <span aria-hidden="true">− </span>{removeLabel}
         </button>
         <button type="button" onClick={() => adjust(count + 1)} disabled={count === 5 || done}
-          className="min-h-16 rounded-2xl border-2 border-teal px-4 py-3 text-xl font-bold disabled:opacity-40">
+          className="min-h-16 rounded-2xl border-2 border-teal min-w-0 break-words px-2 py-3 text-md font-bold disabled:opacity-40">
           <span aria-hidden="true">+ </span>{addLabel}
         </button>
       </div>
@@ -95,6 +78,7 @@ export function ExplorerCoinCount({
         {checkLabel}
       </button>
       <p role="status" aria-live="polite" className="mt-4 min-h-12 text-lg">{feedback}</p>
+      {done && onComplete && <button type="button" onClick={onComplete} className="mt-3 min-h-12 w-full rounded-full bg-teal px-4 py-3 text-base font-bold text-white">{nextLabel}</button>}
     </section>
   );
 }
