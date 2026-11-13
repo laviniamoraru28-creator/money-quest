@@ -95,7 +95,7 @@ export function ExplorerPictureSort({
           </button>
         ))}
       </div>
-      <div className="mt-5 grid grid-cols-2 gap-3">
+      <div className="mt-5 grid grid-cols-1 gap-3 min-[420px]:grid-cols-2">
         {destinations.map(destination => (
           // Not a native `disabled` button even when nothing is tap-selected
           // yet: a disabled element's pointer-events are suppressed in most
@@ -104,9 +104,9 @@ export function ExplorerPictureSort({
           <button type="button" key={destination.id} aria-disabled={finished}
             onClick={() => place(destination.id)}
             {...dropTarget(itemId => place(destination.id, itemId))}
-            className={`flex min-h-32 flex-col items-center justify-center rounded-2xl border-2 border-teal bg-teal/5 p-4 ${finished ? "opacity-60" : !selectedId ? "opacity-80" : ""}`}>
+            className={`flex min-h-28 min-w-0 flex-col items-center justify-center gap-2 rounded-2xl border-2 border-teal bg-teal/5 p-3 min-[420px]:p-4 ${finished ? "opacity-60" : !selectedId ? "opacity-80" : ""}`}>
             <span aria-hidden="true" className="text-5xl">{destination.symbol}</span>
-            <span className="font-bold">{destination.label}</span>
+            <span className="max-w-full break-words text-center text-base font-bold leading-snug sm:text-lg">{destination.label}</span>
             <span aria-label={String(items.filter(item => placed[item.id] === destination.id).length)}>
               {items.filter(item => placed[item.id] === destination.id).map(item => item.symbol).join(" ")}
             </span>
