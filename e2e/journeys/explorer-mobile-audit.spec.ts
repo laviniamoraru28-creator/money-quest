@@ -10,6 +10,7 @@ test('Money Basics explains money before practice and waits for the child after 
   const title = page.getByRole('heading',{name:'Ce sunt banii?',exact:true});
   const pictures = page.locator('[data-explorer-discover]');
   await expect(title).toBeVisible();
+  await expect(page.getByText('Scopul tău este să descoperi ce sunt banii. Citește sau ascultă, apoi răspunde la întrebare. Lucrează în ritmul tău.',{exact:true})).toBeVisible();
   await expect(pictures.locator('img')).toHaveCount(3);
   expect(await title.evaluate(el => Boolean(el.compareDocumentPosition(document.querySelector('[data-explorer-discover]')!) & Node.DOCUMENT_POSITION_FOLLOWING))).toBe(true);
   for (const picture of await pictures.locator('button[aria-pressed]').all()) await picture.click();
