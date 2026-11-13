@@ -38,7 +38,9 @@ export function ExplorerSavingJar({onComplete,nextLabel}:{onComplete:()=>void;ne
  const MONEY=moneyItems(locale);
  const TARGET=MONEY.reduce((sum,item)=>sum+item.value,0);
  const saved=MONEY.filter(item=>added.includes(item.id)).reduce((sum,item)=>sum+item.value,0);
- const done=saved>=TARGET;
+ const remaining=TARGET-saved;
+ const done=remaining===0;
+ const remainingLabel=locale==="ro"?(remaining===1?"rămas":"rămași"):locale==="en"?"to go":"";
  const add=(id:string)=>{
    if(done||added.includes(id))return;
    const next=[...added,id];
@@ -71,7 +73,7 @@ export function ExplorerSavingJar({onComplete,nextLabel}:{onComplete:()=>void;ne
        <div aria-hidden="true" className="text-6xl">🚲</div>
        <p role="status" aria-live="polite" className="text-2xl font-extrabold text-ink">{savedLabel}: {amount(saved,locale)} / {amount(TARGET,locale)}</p>
        <div role="progressbar" aria-valuemin={0} aria-valuemax={TARGET} aria-valuenow={saved} aria-label={savedLabel} className="h-5 overflow-hidden rounded-full bg-slate-200"><div className="h-full rounded-full bg-gradient-to-r from-lime-400 to-emerald-500 transition-[width] duration-300 motion-reduce:transition-none" style={{width:`${(saved/TARGET)*100}%`}}/></div>
-       <p className="text-base font-semibold text-ink">{done?success:`${amount(TARGET-saved,locale)} ${locale==="ro"?"rămași":locale==="en"?"to go":""}`}</p>
+       <p className="text-base font-semibold text-ink">{done?success:`${amount(remaining,locale)} ${remainingLabel}`}</p>
      </div>
    </div>
    <div className="border-t-2 border-amber-200 bg-gradient-to-b from-amber-100 to-orange-200 p-4 sm:p-6">

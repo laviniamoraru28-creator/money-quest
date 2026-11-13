@@ -54,9 +54,32 @@ test('Romanian savings jar shows its lid, preserves feedback, and continues on r
   await jar.screenshot({path:info.outputPath('explorer-savings-jar-ro.png')});
   const money=jar.locator('button[draggable]');
   await expect(money).toHaveCount(6);
-  for(const item of await money.all())await item.click();
+  const banknote=jar.getByRole('button',{name:'Bancnotă 5 lei',exact:true});
+  const coins=await jar.getByRole('button',{name:'Monedă 1 leu',exact:true}).all();
+  expect(coins).toHaveLength(5);
+  await banknote.click();
+  for(const coin of coins.slice(0,4))await coin.click();
+  await expect(jar.getByText('1 leu rămas',{exact:true})).toBeVisible();
+  await coins[4]!.click();
   await expect(jar.getByRole('progressbar')).toHaveAttribute('aria-valuenow','10');
   await expect(jar.getByText('Bravo! Ai strâns bani pentru bicicletă!',{exact:true})).toBeVisible();
   await jar.getByRole('button',{name:'Continuă',exact:true}).click();
   await expect(page.locator('[data-explorer-picture-choice]')).toBeVisible();
+});
+
+
+test('Romanian Explorer prices and rewards use lei with a GBP wallet',async({page})=>{
+  await page.addInitScript(()=>localStorage.setItem('moneyquest_local_progress_v1',JSON.stringify({ageBand:'explorer',currencyCode:'GBP'})));
+  await page.goto('/ro/play/world/market-town/game/game-explorer-smart-shopper');
+  await expect(page.getByRole('button',{name:/Ghiozdan simplu, rezistent.*15,00 lei/})).toBeVisible();
+  await expect(page.getByRole('main')).not.toContainText('GBP');
+
+  await page.goto('/ro/play/world/sky-exchange/lesson/explorer-digital_money-l1');
+  const question=page.locator('[data-explorer-picture-choice]');
+  await question.getByRole('button',{name:'Nu, rămân mai puțini bani',exact:true}).click();
+  await question.getByRole('button',{name:'Continuă',exact:true}).click();
+  await expect(page.getByText('5,00 lei',{exact:true})).toBeVisible();
+  await expect(page.getByRole('main')).not.toContainText('GBP');
+  const progress=await page.evaluate(()=>JSON.parse(localStorage.getItem('moneyquest_local_progress_v1')!));
+  expect(progress.currencyCode).toBe('GBP');
 });

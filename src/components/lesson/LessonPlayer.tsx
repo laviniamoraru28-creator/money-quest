@@ -19,6 +19,8 @@ import { useAccessibilityPrefs } from "@/lib/accessibility/use-accessibility-pre
 import { useSound } from "@/lib/audio/use-sound";
 import { useAnswerOrder } from "@/lib/answer-order";
 import type { ActivityDetail } from "@/lib/domain/activity";
+import { isSupportedLocale } from "@/i18n/config";
+import { LOCALE_LEARNING_CURRENCY } from "@/lib/currency/learning-currency";
 
 interface LessonPlayerProps {
   activity: ActivityDetail;
@@ -89,6 +91,7 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
   );
   const { quiz, feedbackMessage } = activity.content;
   const isExplorer = activity.childAgeBand === "explorer";
+  const rewardCurrencyCode = isExplorer && isSupportedLocale(uiLocale) ? LOCALE_LEARNING_CURRENCY[uiLocale] : activity.childCurrencyCode;
   const hasInteractiveExplorerLesson = isExplorer && ["money_basics","needs_wants","saving",...explorerOtherTopics].includes(activity.topicId);
   const world = getWorldById(activity.worldId);
   const worldThemeColor = world?.themeColor ?? "#0F7A6B";
@@ -140,7 +143,7 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
           {award.coins > 0 && (
             <span className="flex flex-col items-start">
               <span className="text-xs font-normal text-ink/70">{t("lesson.virtualCoinsLabel")}</span>
-              <MoneyAmount amountMinorUnits={award.coins} currencyCode={activity.childCurrencyCode} uiLocale={uiLocale} showCoinIcon />
+              <MoneyAmount amountMinorUnits={award.coins} currencyCode={rewardCurrencyCode} uiLocale={uiLocale} showCoinIcon />
             </span>
           )}
         </div>

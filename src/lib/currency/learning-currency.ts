@@ -35,5 +35,6 @@ export const LOCALE_LEARNING_CURRENCY: Record<Locale, string> = {
  */
 export function learningAmount(value: number, locale: Locale): string {
   const currency = getCurrencyOption(LOCALE_LEARNING_CURRENCY[locale]);
-  return currency.symbolPosition === "before" ? `${currency.symbol}${value}` : `${value} ${currency.symbol}`;
+  const symbol = locale === "ro" && value === 1 ? "leu" : currency.symbol;
+  return currency.symbolPosition === "before" ? `${symbol}${value}` : `${value} ${symbol}`;
 }
