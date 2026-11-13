@@ -79,7 +79,8 @@ test('Romanian Explorer prices and rewards use lei with a GBP wallet',async({pag
   const question=page.locator('[data-explorer-picture-choice]');
   await question.getByRole('button',{name:'Nu, rămân mai puțini bani',exact:true}).click();
   await question.getByRole('button',{name:'Continuă',exact:true}).click();
-  await expect(page.getByText('5,00 lei',{exact:true})).toBeVisible();
+  const reward=page.getByText('Monede virtuale câștigate',{exact:true}).locator('..');
+  await expect(reward).toContainText('5,00 lei');
   await expect(page.getByRole('main')).not.toContainText('GBP');
   const progress=await page.evaluate(()=>JSON.parse(localStorage.getItem('moneyquest_local_progress_v1')!));
   expect(progress.currencyCode).toBe('GBP');
