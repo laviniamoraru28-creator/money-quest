@@ -105,6 +105,7 @@ test('Romanian Explorer shows one discount scenario and one lab forward action',
   await page.getByRole('button',{name:/Caută și altă explicație/}).click();
   const article=page.getByRole('article');
   const choices=article.locator('[data-explorer-picture-choice] button[aria-pressed]');
+  await expect(choices).toHaveCount(3);
   const order=await choices.allTextContents();
   await article.getByRole('button',{name:'Poate nu te-a văzut',exact:true}).click();
   await expect(choices).toHaveText(order);
@@ -118,7 +119,7 @@ test('Romanian Explorer plant answers are scrambled and stay in place after a wr
   const stage=page.locator('[data-explorer-sequence]');
   const cards=stage.locator('button[draggable]');
   await expect(cards).toHaveCount(4);
-  await expect.poll(()=>cards.allTextContents()).not.toEqual(['Sămânță','Lăstar','Mugur','Floare']);
+  await expect.poll(()=>cards.evaluateAll(nodes=>nodes.map(node=>node.getAttribute('aria-label')))).not.toEqual(['Sămânță','Lăstar','Mugur','Floare']);
   await expect(cards.locator('svg')).toHaveCount(4);
   const order=await cards.allTextContents();
   await stage.getByRole('button',{name:'Mugur',exact:true}).click();
