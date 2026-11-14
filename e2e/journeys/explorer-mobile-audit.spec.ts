@@ -6,12 +6,17 @@ const moneyBasics = '/play/world/coin-cove/lesson/explorer-money_basics-l1';
 test('Money Basics explains money before practice and waits for the child after counting', async ({page}) => {
   await page.setViewportSize({width:375,height:812});
   await page.addInitScript(()=>localStorage.setItem('moneyquest_local_progress_v1',JSON.stringify({ageBand:'explorer'})));
-  await page.goto('/ro' + moneyBasics);
+  await page.goto('/ro/play/world/coin-cove');
+  const lessonLink = page.locator(`main a[href$="${moneyBasics}"]`);
+  await expect(lessonLink).toBeVisible();
+  await expect(page.locator('[data-explorer-mini-shop]')).toHaveCount(0);
+  await lessonLink.click();
   const title = page.getByRole('heading',{name:'Ce sunt banii?',exact:true});
   const pictures = page.locator('[data-explorer-discover]');
   await expect(title).toBeVisible();
   await expect(page.getByText('Scopul tău este să descoperi ce sunt banii. Citește sau ascultă, apoi răspunde la întrebare. Lucrează în ritmul tău.',{exact:true})).toBeVisible();
   await expect(pictures.locator('img')).toHaveCount(3);
+  await expect(page.locator('[data-explorer-mini-shop]')).toHaveCount(0);
   expect(await title.evaluate(el => Boolean(el.compareDocumentPosition(document.querySelector('[data-explorer-discover]')!) & Node.DOCUMENT_POSITION_FOLLOWING))).toBe(true);
   for (const picture of await pictures.locator('button[aria-pressed]').all()) await picture.click();
   await pictures.getByRole('button',{name:'Continuă',exact:true}).click();
@@ -21,6 +26,7 @@ test('Money Basics explains money before practice and waits for the child after 
   await expect(count.getByRole('status')).toHaveText('Bravo!');
   await expect(page.locator('[data-explorer-mini-shop]')).toHaveCount(0);
   await count.getByRole('button',{name:'Continuă',exact:true}).press('Enter');
+  await expect(page.locator('[data-explorer-mini-shop]')).toHaveCount(1);
   await expect(page.locator('[data-explorer-mini-shop]')).toBeVisible();
   await page.locator('[data-explorer-mini-shop]').getByRole('button',{name:'Card de debit',exact:true}).click();
   await page.locator('[data-explorer-mini-shop]').getByRole('button',{name:'Continuă',exact:true}).click();
