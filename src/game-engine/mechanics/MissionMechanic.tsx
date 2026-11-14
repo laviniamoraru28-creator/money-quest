@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import type { MechanicProps } from "../registry";
 import type { MissionRound } from "../types";
+import { useAnswerOrder } from "@/lib/answer-order";
 import { formatCurrency } from "@/lib/currency/format";
 
 /**
@@ -21,6 +22,7 @@ import { formatCurrency } from "@/lib/currency/format";
 export function MissionMechanic({ round, currencyCode, uiLocale, usesCurrency, onAnswer, isResolved, isExplorer }: MechanicProps<MissionRound>) {
   const t = useTranslations();
   const [chosenKey, setChosenKey] = useState<string | null>(null);
+  const choices = useAnswerOrder(round.choices);
   const chosen = round.choices.find((c) => c.key === chosenKey) ?? null;
 
   function choose(key: string) {
@@ -31,10 +33,10 @@ export function MissionMechanic({ round, currencyCode, uiLocale, usesCurrency, o
 
   return (
     <div>
-      <p className={isExplorer ? "rounded-md bg-fog p-sm text-lg font-bold text-ink" : "rounded-md bg-fog p-sm text-base font-medium text-ink"}>{round.situation}</p>
+      {!round.prompt.includes(round.situation) && <p className={isExplorer ? "rounded-md bg-fog p-sm text-lg font-bold text-ink" : "rounded-md bg-fog p-sm text-base font-medium text-ink"}>{round.situation}</p>}
 
       <div className="mt-sm grid gap-2xs">
-        {round.choices.map((choice) => {
+        {choices.map((choice) => {
           const isChosen = chosenKey === choice.key;
           return (
             <div key={choice.key}>

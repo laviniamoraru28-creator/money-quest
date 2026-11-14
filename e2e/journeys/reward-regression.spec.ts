@@ -1,3 +1,4 @@
+import {moneyBasicsLessonCopy} from '../../src/content/explorer-money-basics-lesson';
 import {test,expect} from '@playwright/test';
 import {readFileSync} from 'node:fs';
 import {createDefaultState} from '../../src/lib/local-progress/state';
@@ -35,8 +36,7 @@ for(const locale of LOCALES)for(const band of ['explorer','builder','strategist'
   // index 4 is Continue, appearing right after the four shop buttons
   // (Listen, coins, banknote, card) once a payment method is chosen.
   await page.locator('[data-explorer-mini-shop] button:not([aria-pressed]):not([title])').first().click();
-  await page.locator('[data-explorer-picture-choice] button[aria-pressed]').first().click();
-  await page.locator('[data-explorer-picture-choice] button').last().click();
+  await page.locator('[data-explorer-picture-choice]').getByRole('button',{name:moneyBasicsLessonCopy[locale].bankAccount,exact:true}).click();
  } else {
   const answer=()=>page.getByRole('radio',{name:messages.curriculum[lesson.id].quiz.correctAnswer,exact:true}).check();
   await answer();await page.getByRole('button',{name:messages.lesson.checkMyAnswer,exact:true}).click();

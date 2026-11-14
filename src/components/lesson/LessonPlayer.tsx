@@ -350,6 +350,7 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
       {hasInteractiveExplorerLesson ? (
         <Card variant="activity" className="min-w-0 border-2 border-coral/30 p-3 sm:p-lg">
           <ExplorerInteractiveLesson topicId={activity.topicId} onComplete={() => {
+            stopSpeech();
             if (activity.isCompleted || phase === "correct") {
               explorerReward.current?.focus();
               return;

@@ -28,7 +28,6 @@ for(const band of CERTIFICATE_BANDS)test(`certificate earned at real final ${ban
   await button("Debit card").click();
   await button("Continue").click();
   await button("Your bank account").click();
-  await button("Continue").click();
  }else{
   await page.getByRole("radio",{name:messages.curriculum[lesson.id].quiz.correctAnswer,exact:true}).check();
   await page.getByRole("button",{name:"Check my answer",exact:true}).click();

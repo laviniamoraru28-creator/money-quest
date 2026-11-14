@@ -1,5 +1,6 @@
 "use client";
 import {useState} from "react";
+import {ExplorerPicture} from "./ExplorerPicture";
 import {useLocale} from "next-intl";
 import {isSupportedLocale,type Locale} from "@/i18n/config";
 import {learningAmount} from "@/lib/currency/learning-currency";
@@ -18,7 +19,12 @@ const rows:Record<Locale,[string,string,string,string,string,string,string,strin
  nl:["Spaar voor een fiets","Doe munten en bankbiljetten in de pot.","Gespaard","Doel","Munt","Bankbiljet","Goed gedaan! Je hebt voor je fiets gespaard!","Opnieuw"],
  pl:["Oszczędzaj na rower","Włóż monety i banknoty do słoika.","Oszczędzono","Cel","Moneta","Banknot","Brawo! Udało ci się zaoszczędzić na rower!","Od nowa"]
 };
-const amount=learningAmount;
+function amount(value:number, locale:Locale): string {
+ if(locale!=="ro" || Number.isInteger(value)) return learningAmount(value,locale);
+ const lei=Math.floor(value);
+ const bani=`${Math.round((value-lei)*100)} bani`;
+ return lei===0 ? bani : `${learningAmount(lei,locale)} și ${bani}`;
+}
 type MoneyItem={id:string;value:number;kind:"coin"|"note"};
 // Use real circulating denominations. Poland has no 5-zloty banknote.
 const denominations:Record<Locale,{coin:number;note:number}>={
@@ -28,7 +34,12 @@ const denominations:Record<Locale,{coin:number;note:number}>={
 };
 function moneyItems(locale:Locale):MoneyItem[]{
  const {coin,note}=denominations[locale];
- return [{id:"n1",value:note,kind:"note"},...Array.from({length:5},(_,i)=>({id:`c${i+1}`,value:coin,kind:"coin" as const}))];
+ const values = locale === "ro" ? [note, 1, 1, 1, 1, 0.5, 0.1, 0.1, 0.1, 0.1, 0.1] : [note, ...Array<number>(5).fill(coin)];
+ return values.map((value,index)=>({
+   id:`money-${index}`,
+   value,
+   kind:index===0 || (locale==="ro" && value===1) ? "note" : "coin",
+ }));
 }
 export function ExplorerSavingJar({onComplete,nextLabel}:{onComplete:()=>void;nextLabel:string}){
  const requested=useLocale(),locale=isSupportedLocale(requested)?requested:"en";
@@ -36,9 +47,9 @@ export function ExplorerSavingJar({onComplete,nextLabel}:{onComplete:()=>void;ne
  const [added,setAdded]=useState<string[]>([]);
  const {dragSource,dropTarget}=useTapOrDrag<string>();
  const MONEY=moneyItems(locale);
- const TARGET=MONEY.reduce((sum,item)=>sum+item.value,0);
- const saved=MONEY.filter(item=>added.includes(item.id)).reduce((sum,item)=>sum+item.value,0);
- const remaining=TARGET-saved;
+ const TARGET=MONEY.reduce((sum,item)=>sum+Math.round(item.value*100),0)/100;
+ const saved=MONEY.filter(item=>added.includes(item.id)).reduce((sum,item)=>sum+Math.round(item.value*100),0)/100;
+ const remaining=(Math.round(TARGET*100)-Math.round(saved*100))/100;
  const done=remaining===0;
  const remainingLabel=locale==="ro"?(remaining===1?"rămas":"rămași"):locale==="en"?"to go":"";
  const add=(id:string)=>{
@@ -61,7 +72,7 @@ export function ExplorerSavingJar({onComplete,nextLabel}:{onComplete:()=>void;ne
            className="relative flex h-[88%] w-[84%] flex-col justify-end overflow-hidden rounded-b-xl rounded-t-lg border-[6px] border-sky-400 bg-gradient-to-br from-white/95 via-sky-50/60 to-cyan-200/60 p-3 shadow-inner">
            <div className="absolute inset-x-2 bottom-2 rounded-b-lg bg-amber-200/35 transition-[height] duration-300 motion-reduce:transition-none" style={{height:`${(saved/TARGET)*80}%`}}/>
            <div className="relative z-10 flex flex-wrap content-end justify-center gap-1" style={{minHeight:`${Math.max(12,(saved/TARGET)*78)}%`}}>
-             {MONEY.filter(item=>added.includes(item.id)).map(item=><span key={item.id} aria-hidden="true" className="text-3xl drop-shadow-sm sm:text-4xl">{item.kind==="coin"?"🪙":"💵"}</span>)}
+             {MONEY.filter(item=>added.includes(item.id)).map(item=><span key={item.id} aria-hidden="true" className="text-3xl drop-shadow-sm sm:text-4xl"><ExplorerPicture symbol={item.kind==="coin"?"🪙":"💵"} size={24}/></span>)}
            </div>
          </div>
          <div className="absolute right-0 top-12 rotate-6 rounded-xl border-2 border-amber-400 bg-yellow-100 px-3 py-2 text-3xl shadow-sm" aria-hidden="true">🚲</div>
@@ -82,7 +93,7 @@ export function ExplorerSavingJar({onComplete,nextLabel}:{onComplete:()=>void;ne
          {...dragSource(item.id)}
          aria-label={`${item.kind==="coin"?coinLabel:noteLabel} ${amount(item.value,locale)}`}
          className="flex min-h-28 cursor-grab flex-col items-center justify-center rounded-2xl border-2 border-soft-blue/40 bg-white/95 p-2 font-bold text-ink shadow-md transition-transform hover:-translate-y-1 focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal active:cursor-grabbing disabled:cursor-default disabled:opacity-35 motion-reduce:transform-none">
-         <span aria-hidden="true" className="text-4xl">{item.kind==="coin"?"🪙":"💷"}</span>
+         <span aria-hidden="true" className="text-4xl"><ExplorerPicture symbol={item.kind==="coin"?"🪙":"💵"}/></span>
          <span className="break-words text-base">{amount(item.value,locale)}</span><span className="text-xs">{item.kind==="coin"?coinLabel:noteLabel}</span>
        </button>)}
      </div>
