@@ -199,6 +199,7 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
        ]}
        correctId="safe" successMessage={c.success} retryMessage={c.retry}
        nextLabel={c.next}
+       completeOnCorrect={stage === rounds.length-1}
        onComplete={stage < rounds.length-1 ? () => setStage(stage+1) : complete}/>;
    })()}
    {topicId==="long_term_thinking" && (() => {
