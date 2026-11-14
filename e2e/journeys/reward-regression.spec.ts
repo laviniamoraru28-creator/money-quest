@@ -1,8 +1,10 @@
+import {moneyBasicsLessonCopy} from '../../src/content/explorer-money-basics-lesson';
 import {test,expect} from '@playwright/test';
 import {readFileSync} from 'node:fs';
 import {createDefaultState} from '../../src/lib/local-progress/state';
 import {LESSON_STRUCTURES} from '../../src/content/curriculum/structures';
 import {LOCALES} from '../../src/i18n/config';
+import {romanianExplorerCopy} from '../../src/i18n/explorer-copy';
 
 for(const locale of LOCALES)for(const band of ['explorer','builder','strategist'] as const)test(`${locale}/${band}: one inline reward, persisted once, translated guidance`,async({page})=>{
  const messages=JSON.parse(readFileSync(`messages/${locale}.json`,'utf8'));
@@ -10,7 +12,10 @@ for(const locale of LOCALES)for(const band of ['explorer','builder','strategist'
  const initial={...createDefaultState(),ageBand:band};
  await page.addInitScript(state=>{if(!localStorage.getItem('moneyquest_local_progress_v1'))localStorage.setItem('moneyquest_local_progress_v1',JSON.stringify(state));},initial);
  await page.goto(`/${locale}/play/world/${lesson.worldId}/lesson/${lesson.id}`);
- await expect(page.getByText(messages.activityGuide.lessonGoal.replace('{title}',messages.curriculum[lesson.id].title),{exact:true})).toBeVisible();
+ const goal=locale==='ro' && lesson.id==='explorer-money_basics-l1'
+  ? romanianExplorerCopy.moneyBasicsLessonGoal
+  : messages.activityGuide.lessonGoal.replace('{title}',messages.curriculum[lesson.id].title);
+ await expect(page.getByText(goal,{exact:true})).toBeVisible();
  if(band==='explorer') {
   // Explorer's money_basics lesson runs its own picture-first interactive
   // flow instead of a quiz radio (see ExplorerInteractiveLesson) — drive
@@ -31,8 +36,7 @@ for(const locale of LOCALES)for(const band of ['explorer','builder','strategist'
   // index 4 is Continue, appearing right after the four shop buttons
   // (Listen, coins, banknote, card) once a payment method is chosen.
   await page.locator('[data-explorer-mini-shop] button:not([aria-pressed]):not([title])').first().click();
-  await page.locator('[data-explorer-picture-choice] button[aria-pressed]').first().click();
-  await page.locator('[data-explorer-picture-choice] button').last().click();
+  await page.locator('[data-explorer-picture-choice]').getByRole('button',{name:moneyBasicsLessonCopy[locale].bankAccount,exact:true}).click();
  } else {
   const answer=()=>page.getByRole('radio',{name:messages.curriculum[lesson.id].quiz.correctAnswer,exact:true}).check();
   await answer();await page.getByRole('button',{name:messages.lesson.checkMyAnswer,exact:true}).click();

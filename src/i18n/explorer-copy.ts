@@ -13,6 +13,7 @@ export const nextActivityCopy: Record<Locale, string> = {
 };
 
 export const romanianExplorerCopy = {
+  "moneyBasicsLessonGoal": "Scopul tău este să descoperi ce sunt banii. Citește sau ascultă, apoi răspunde la întrebare. Lucrează în ritmul tău.",
   "game": {
     "tapItemThenBucket": "Atinge un obiect, apoi alege categoria potrivită.",
     "selectedItemHint": "Ai ales: {item}. Acum alege categoria potrivită."

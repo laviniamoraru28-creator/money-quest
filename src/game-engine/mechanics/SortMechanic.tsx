@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useAnswerOrder } from "@/lib/answer-order";
 import { useTranslations } from "next-intl";
 import type { MechanicProps } from "../registry";
 import type { SortRound } from "../types";
@@ -17,6 +18,8 @@ export function SortMechanic({ round, onAnswer, isResolved, isExplorer }: Mechan
   const [selectedItemId, setSelectedItemId] = useState<string | null>(null);
   const [checked, setChecked] = useState(false);
 
+  const items = useAnswerOrder(round.items);
+  const buckets = useAnswerOrder(round.buckets);
   const allPlaced = round.items.every((item) => placements[item.id]);
 
   function placeInBucket(bucketKey: string) {
@@ -35,7 +38,7 @@ export function SortMechanic({ round, onAnswer, isResolved, isExplorer }: Mechan
   return (
     <div>
       <div className="flex flex-wrap gap-2xs" role="group" aria-label={t("game.itemsToSort")}>
-        {round.items.map((item) => {
+        {items.map((item) => {
           const isPlaced = Boolean(placements[item.id]);
           return (
             <button
@@ -69,7 +72,7 @@ export function SortMechanic({ round, onAnswer, isResolved, isExplorer }: Mechan
       </p>
 
       <div className={isExplorer ? "mt-2xs grid grid-cols-2 gap-2" : "mt-2xs grid grid-cols-2 gap-sm"}>
-        {round.buckets.map((bucket) => (
+        {buckets.map((bucket) => (
           <button
             key={bucket.key}
             type="button"

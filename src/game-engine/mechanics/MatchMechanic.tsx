@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useAnswerOrder } from "@/lib/answer-order";
 import { useTranslations } from "next-intl";
 import type { MechanicProps } from "../registry";
 import type { MatchRound } from "../types";
@@ -20,7 +21,8 @@ export function MatchMechanic({ round, onAnswer, isResolved, isExplorer }: Mecha
   // using a screen reader or with a colour-vision difference).
   const [statusMessage, setStatusMessage] = useState<string>("");
 
-  const shuffledRight = shuffleDeterministic(round.pairs, round.id);
+  const shuffledLeft = useAnswerOrder(round.pairs);
+  const shuffledRight = useAnswerOrder(round.pairs);
 
   function handleLeftTap(pairId: string) {
     if (isResolved || matchedIds.has(pairId)) return;
@@ -60,7 +62,7 @@ export function MatchMechanic({ round, onAnswer, isResolved, isExplorer }: Mecha
 
       <div className="mt-2xs grid grid-cols-2 gap-md">
         <div className="grid gap-2xs" role="group" aria-label={t("game.matchThese")}>
-          {round.pairs.map((pair) => {
+          {shuffledLeft.map((pair) => {
             const isMatched = matchedIds.has(pair.id);
             return (
               <button
@@ -124,22 +126,4 @@ export function MatchMechanic({ round, onAnswer, isResolved, isExplorer }: Mecha
       </div>
     </div>
   );
-}
-
-/** A small, deterministic shuffle (Fibonacci-hash-based) so the same
- * round always shuffles the same way within a session — avoids a
- * dependency on Math.random() inside render, which would reshuffle on
- * every re-render and make the game feel broken. */
-function shuffleDeterministic<T>(items: T[], seed: string): T[] {
-  let hash = 0;
-  for (let i = 0; i < seed.length; i++) hash = (hash * 31 + seed.charCodeAt(i)) >>> 0;
-  const arr = [...items];
-  for (let i = arr.length - 1; i > 0; i--) {
-    hash = (hash * 1103515245 + 12345) >>> 0;
-    const j = hash % (i + 1);
-    const temp = arr[i] as T;
-    arr[i] = arr[j] as T;
-    arr[j] = temp;
-  }
-  return arr;
 }

@@ -64,10 +64,10 @@ async function solveRound(page:Page,round:GameRound,copy=messages){
 async function completeExplorerLesson(page:Page,topicId:string,locale:"en"|"ro"="en"){
  const next=locale==='ro'?'Continuă':'Continue';
  const button=(name:string)=>page.getByRole('button',{name,exact:true});
- const choice=async (name:string)=>{
+ const choice=async (name:string,final=false)=>{
   const stage=page.locator('[data-explorer-picture-choice]');
   await stage.getByRole('button',{name,exact:true}).click();
-  await stage.getByRole('button',{name:next,exact:true}).click();
+  if(!final)await stage.getByRole('button',{name:next,exact:true}).click();
  };
  const sort=async (pairs:[string,string][])=>{
   const stage=page.locator('[data-explorer-picture-sort]');
@@ -77,10 +77,10 @@ async function completeExplorerLesson(page:Page,topicId:string,locale:"en"|"ro"=
   }
   await stage.getByRole('button',{name:next,exact:true}).click();
  };
- const sequence=async (steps:string[])=>{
+ const sequence=async (steps:string[],final=false)=>{
   const stage=page.locator('[data-explorer-sequence]');
   for(const step of steps)await stage.getByRole('button',{name:step,exact:true}).click();
-  await stage.getByRole('button',{name:next,exact:true}).click();
+  if(!final)await stage.getByRole('button',{name:next,exact:true}).click();
  };
  switch(topicId){
   case 'money_basics':{
@@ -98,50 +98,50 @@ async function completeExplorerLesson(page:Page,topicId:string,locale:"en"|"ro"=
    const shop=page.locator('[data-explorer-mini-shop]');
    await shop.getByRole('button',{name:c.card,exact:true}).click();
    await shop.getByRole('button',{name:next,exact:true}).click();
-   await choice(c.bankAccount);break;
+   await choice(c.bankAccount,true);break;
   }
   case 'needs_wants':{
    const c=needsWantsLessonCopy[locale];
    await sort([[c.food,c.needLabel],[c.water,c.needLabel],[c.toyCar,c.wantLabel],[c.candy,c.wantLabel]]);
-   await choice(c.ballChoice);break;
+   await choice(c.ballChoice,true);break;
   }
   case 'saving':{
    const c=savingExtraLessonCopy[locale];
    const jar=page.locator('[data-explorer-saving-jar]');
    const coins=jar.locator('button[draggable]');
-   await expect(coins).toHaveCount(6);
+   await expect(coins).toHaveCount(locale==='ro'?11:6);
    for(const coin of await coins.all())await coin.click();
    await jar.getByRole('button',{name:next,exact:true}).click();
-   await choice(c.bankChoice);await choice(c.saveChoice);break;
+   await choice(c.bankChoice);await choice(c.saveChoice,true);break;
   }
   case 'currencies':{
    const c=currenciesLessonCopy[locale];
    await sort([[c.pound,c.uk],[c.leu,c.romania],[c.euro,c.europe],[c.yen,c.japan]]);
-   await choice(c.prompt4yen);break;
+   await choice(c.prompt4yen,true);break;
   }
   case 'scams':{
    const c=safetyLessonCopy[locale];
-   for(const answer of [c.safe1,c.safe2,c.safe3,c.safe4])await choice(answer);
+   for(const [i,answer] of [c.safe1,c.safe2,c.safe3,c.safe4].entries())await choice(answer,i===3);
    break;
   }
   case 'long_term_thinking':{
    const c=longtermLessonCopy[locale];
    await choice(c.goalBike);await sequence([c.week1,c.week2,c.week3,c.week4]);
-   await choice(c.jarChoice);await sequence([c.planGoal,c.planSave,c.planCheck,c.planReach]);break;
+   await choice(c.jarChoice);await sequence([c.planGoal,c.planSave,c.planCheck,c.planReach],true);break;
   }
   case 'giving':{
    const c=givingLessonCopy[locale];
    await sort([[c.coinLabel,c.giveBox],...[1,2,3,4].map((): [string,string]=>[c.coinLabel,c.keepBox])]);
-   await button(c.cause1).click();await choice(c.sendChoice);break;
+   await button(c.cause1).click();await choice(c.sendChoice,true);break;
   }
   case 'digital_money':
-   await choice(digitalMoneyLessonCopy[locale].sameWay);break;
+   await choice(digitalMoneyLessonCopy[locale].sameWay,true);break;
   case 'investing_basics':{
    const c=investingLessonCopy[locale];
-   await sequence([c.seed,c.sprout,c.bud,c.flower]);await choice(c.investingChoice);await choice(c.upOrDown);break;
+   await sequence([c.seed,c.sprout,c.bud,c.flower]);await choice(c.investingChoice);await choice(c.upOrDown,true);break;
   }
   case 'junior_isa':
-   await choice(explorerScenario(locale,'junior_isa').correct);break;
+   await choice(explorerScenario(locale,'junior_isa').correct,true);break;
   default:
    throw new Error(`No Explorer completion dispatcher for topic ${topicId}`);
  }

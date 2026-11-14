@@ -51,10 +51,18 @@ export function shuffleArray<T>(items: readonly T[]): T[] {
  * single question — never reshuffle inside a loop over multiple
  * questions sharing one component instance.
  */
-export function useAnswerOrder<T>(items: readonly T[]): T[] {
+export function useAnswerOrder<T>(items: readonly T[], avoidInitialOrder = false): T[] {
   // Match the server and initial client render. Randomise after hydration.
   const initialItems = useRef(items);
   const [order, setOrder] = useState<T[]>(() => initialItems.current.slice());
-  useEffect(() => { setOrder(shuffleArray(initialItems.current)); }, []); // The caller keys the component by question.
+  useEffect(() => {
+    const initial = initialItems.current;
+    const next = shuffleArray(initial);
+    if (avoidInitialOrder && next.length > 1 && next.every((item, index) => item === initial[index])) {
+      const swapIndex = 1 + Math.floor(Math.random() * (next.length - 1));
+      [next[0], next[swapIndex]] = [next[swapIndex]!, next[0]!];
+    }
+    setOrder(next);
+  }, [avoidInitialOrder]); // The caller keys the component by question.
   return order;
 }

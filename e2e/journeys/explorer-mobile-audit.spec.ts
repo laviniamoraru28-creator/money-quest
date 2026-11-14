@@ -10,6 +10,7 @@ test('Money Basics explains money before practice and waits for the child after 
   const title = page.getByRole('heading',{name:'Ce sunt banii?',exact:true});
   const pictures = page.locator('[data-explorer-discover]');
   await expect(title).toBeVisible();
+  await expect(page.getByText('Scopul tău este să descoperi ce sunt banii. Citește sau ascultă, apoi răspunde la întrebare. Lucrează în ritmul tău.',{exact:true})).toBeVisible();
   await expect(pictures.locator('img')).toHaveCount(3);
   expect(await title.evaluate(el => Boolean(el.compareDocumentPosition(document.querySelector('[data-explorer-discover]')!) & Node.DOCUMENT_POSITION_FOLLOWING))).toBe(true);
   for (const picture of await pictures.locator('button[aria-pressed]').all()) await picture.click();
@@ -21,6 +22,14 @@ test('Money Basics explains money before practice and waits for the child after 
   await expect(page.locator('[data-explorer-mini-shop]')).toHaveCount(0);
   await count.getByRole('button',{name:'Continuă',exact:true}).press('Enter');
   await expect(page.locator('[data-explorer-mini-shop]')).toBeVisible();
+  await page.locator('[data-explorer-mini-shop]').getByRole('button',{name:'Card de debit',exact:true}).click();
+  await page.locator('[data-explorer-mini-shop]').getByRole('button',{name:'Continuă',exact:true}).click();
+  const finalQuestion=page.locator('[data-explorer-picture-choice]');
+  await finalQuestion.getByRole('button',{name:'Din contul tău bancar',exact:true}).click();
+  await expect(finalQuestion.getByRole('button',{name:'Continuă',exact:true})).toHaveCount(0);
+  await page.getByRole('button',{name:'Următoarea activitate',exact:true}).click();
+  await expect(page).toHaveURL(/game-explorer-earn-your-coins$/);
+
 });
 
 for (const locale of LOCALES) test(`${locale}: sorting labels and answer controls fit narrow screens`,async({page},info)=>{
@@ -53,10 +62,67 @@ test('Romanian savings jar shows its lid, preserves feedback, and continues on r
   await expect(jar.locator('[data-savings-jar-lid]')).toBeVisible();
   await jar.screenshot({path:info.outputPath('explorer-savings-jar-ro.png')});
   const money=jar.locator('button[draggable]');
-  await expect(money).toHaveCount(6);
-  for(const item of await money.all())await item.click();
+  await expect(money).toHaveCount(11);
+  const notes=await jar.getByRole('button',{name:'Bancnotă 1 leu',exact:true}).all();
+  expect(notes).toHaveLength(4);
+  await expect(money.locator('svg, img')).toHaveCount(11);
+  await jar.getByRole('button',{name:'Bancnotă 5 lei',exact:true}).click();
+  for(const note of notes)await note.click();
+  await expect(jar.getByText('1 leu rămas',{exact:true})).toBeVisible();
+  await expect(jar.getByRole('button',{name:'Monedă 10 bani',exact:true})).toHaveCount(5);
+  await expect(jar.getByRole('button',{name:'Monedă 50 bani',exact:true})).toHaveCount(1);
+  for(const coin of await money.all())if(await coin.isEnabled())await coin.click();
   await expect(jar.getByRole('progressbar')).toHaveAttribute('aria-valuenow','10');
   await expect(jar.getByText('Bravo! Ai strâns bani pentru bicicletă!',{exact:true})).toBeVisible();
   await jar.getByRole('button',{name:'Continuă',exact:true}).click();
   await expect(page.locator('[data-explorer-picture-choice]')).toBeVisible();
+});
+
+
+test('Romanian Explorer prices and rewards use lei with a GBP wallet',async({page})=>{
+  await page.addInitScript(()=>localStorage.setItem('moneyquest_local_progress_v1',JSON.stringify({ageBand:'explorer',currencyCode:'GBP'})));
+  await page.goto('/ro/play/world/market-town/game/game-explorer-smart-shopper');
+  await expect(page.getByRole('button',{name:/Ghiozdan simplu, rezistent.*15,00 lei/})).toBeVisible();
+  await expect(page.getByRole('main')).not.toContainText('GBP');
+
+  await page.goto('/ro/play/world/sky-exchange/lesson/explorer-digital_money-l1');
+  const question=page.locator('[data-explorer-picture-choice]');
+  await question.getByRole('button',{name:'Nu, rămân mai puțini bani',exact:true}).click();
+  const reward=page.getByText('Monede virtuale câștigate',{exact:true}).locator('..');
+  await expect(reward).toContainText('5,00 lei');
+  await expect(page.getByRole('main')).not.toContainText('GBP');
+  const progress=await page.evaluate(()=>JSON.parse(localStorage.getItem('moneyquest_local_progress_v1')!));
+  expect(progress.currencyCode).toBe('GBP');
+});
+
+
+test('Romanian Explorer shows one discount scenario and one lab forward action',async({page})=>{
+  await page.addInitScript(()=>localStorage.setItem('moneyquest_local_progress_v1',JSON.stringify({ageBand:'explorer'})));
+  await page.goto('/ro/play/world/market-town/game/game-explorer-smart-shopping-detective');
+  await expect(page.getByText(/70% REDUCERE DOAR ASTĂZI/)).toHaveCount(1);
+
+  await page.goto('/ro/brain-lab');
+  await page.getByRole('button',{name:/Caută și altă explicație/}).click();
+  const article=page.getByRole('article');
+  const choices=article.locator('[data-explorer-picture-choice] button[aria-pressed]');
+  await expect(choices).toHaveCount(3);
+  const order=await choices.allTextContents();
+  await article.getByRole('button',{name:'Poate nu te-a văzut',exact:true}).click();
+  await expect(choices).toHaveText(order);
+  await expect(article.getByText(/Bravo! Poate că prietenul tău nu te-a văzut/)).toBeVisible();
+  await expect(page.getByRole('button',{name:/^(Înainte|Următorul)$/})).toHaveCount(1);
+});
+
+test('Romanian Explorer plant answers are scrambled and stay in place after a wrong answer',async({page})=>{
+  await page.addInitScript(()=>localStorage.setItem('moneyquest_local_progress_v1',JSON.stringify({ageBand:'explorer'})));
+  await page.goto('/ro/play/world/sky-exchange/lesson/explorer-investing_basics-l1');
+  const stage=page.locator('[data-explorer-sequence]');
+  const cards=stage.locator('button[draggable]');
+  await expect(cards).toHaveCount(4);
+  await expect.poll(()=>cards.evaluateAll(nodes=>nodes.map(node=>node.getAttribute('aria-label')))).not.toEqual(['Sămânță','Lăstar','Mugur','Floare']);
+  await expect(cards.locator('svg')).toHaveCount(4);
+  const order=await cards.allTextContents();
+  await stage.getByRole('button',{name:'Mugur',exact:true}).click();
+  await expect(cards).toHaveText(order);
+  await expect(stage.getByRole('status')).toHaveText('Mai încearcă');
 });

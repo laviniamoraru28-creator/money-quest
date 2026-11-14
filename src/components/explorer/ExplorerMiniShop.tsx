@@ -1,6 +1,7 @@
 "use client";
 
 import {useState} from "react";
+import {ExplorerPicture} from "./ExplorerPicture";
 import type {Locale} from "@/i18n/config";
 import {learningAmount} from "@/lib/currency/learning-currency";
 import {ReadAloudButton} from "@/components/ui/ReadAloudButton";
@@ -73,7 +74,7 @@ export function ExplorerMiniShop({locale,onComplete}: {locale:Locale;onComplete?
        <button key={option.id} type="button" disabled={method!==null} onClick={()=>pay(option.id)}
          aria-pressed={method===option.id}
          className="flex min-h-32 flex-col items-center justify-center gap-2 rounded-2xl border-2 border-teal/40 p-4 font-bold aria-pressed:bg-teal/10 disabled:opacity-70">
-         <span aria-hidden="true" className="text-5xl">{option.icon}</span>{option.label}
+         <ExplorerPicture symbol={option.icon} />{option.label}
        </button>)}
    </div>
    <p role="status" aria-live="polite" aria-atomic="true" className="mt-4 min-h-12 text-lg">{feedback}</p>

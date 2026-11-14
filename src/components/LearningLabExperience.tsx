@@ -24,22 +24,21 @@ export default function LearningLabExperience({lab,locale="en",variants=labAgeVa
   const choose=(next:number)=>{stop();setIndex(next);setAnswer(null);heading.current?.focus()};
   const mark=()=>{const next=Array.from(new Set([...done,key]));setDone(next);try{localStorage.setItem(STORE,JSON.stringify(next))}catch{setStorageFailed(true)}};
   const elc=explorerLabCopy[isSupportedLocale(locale)?locale:"en"];
-  const explorerIcons=["1️⃣","2️⃣","3️⃣","4️⃣"];
   return <div className="min-h-screen bg-fog">    <main id="main-content" tabIndex={-1} className="mx-auto max-w-6xl px-5 pb-12"><h1 className="text-3xl">{lab.title}</h1><p className="mt-3 text-lg">{lab.description}</p>
     <Image unoptimized data-learning-decoration src={`/images/money-quest/sections/${lab.slug === "brain-lab" ? "brain-lab-v2" : lab.slug}.webp`} alt="" width={640} height={640} className="mt-5 max-h-80 w-full rounded-2xl bg-cream object-contain"/><GuidePanel message={copy.guide} uiLocale={speechLocale} labels={copy}/>
     <fieldset className="my-5"><legend className="font-bold">{copy.challenge}</legend><div className="mt-2 flex flex-wrap gap-3">{levels.map((name,i)=><button type="button" key={name} aria-pressed={level===i} onClick={()=>{stop();setLevel(i);setAnswer(null)}} className={`min-h-12 rounded-xl border-2 px-4 py-2 ${level===i?"border-teal bg-teal text-white":"border-ink/20 bg-white"}`}>{name}<span aria-hidden="true"> ({ageRanges[i]})</span></button>)}</div><p className="mt-2 text-sm">{copy.levels}</p></fieldset>
     <nav aria-label={copy.activities} className="my-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{lab.tasks.map((task,i)=><button type="button" key={task.id} aria-current={i===index?"step":undefined} onClick={()=>choose(i)} className={`min-h-16 rounded-2xl border-2 px-4 py-3 text-left shadow-sm ${i===index?"border-teal bg-teal/10 font-bold":"border-ink/15 bg-white hover:border-teal/50"}`}>{i+1}. {task.title}</button>)}</nav>
     <article className="rounded-3xl border border-teal/20 bg-white p-5 shadow-resting sm:p-8">
-    <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-teal/10 text-teal-text"><ActionIcon name={lab.slug==="brain-lab"?"brain":lab.slug==="mind-lab"?"mind":"idea"} size={34}/></div><p className="text-sm text-teal-text">{laboratoryPosition(locale,index+1,lab.tasks.length)}</p><h2 ref={heading} tabIndex={-1} className="mt-2 text-2xl">{item.title}</h2><p className="mt-3 rounded-xl bg-cream p-4 font-semibold">{item.idea}</p><ReadAloudButton text={`${item.idea}. ${item.situation}. ${item.choices.join('. ')}. ${copy.practical} ${item.tryIt[level]}`} uiLocale={speechLocale}/>
+    <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-teal/10 text-teal-text"><ActionIcon name={lab.slug==="brain-lab"?"brain":lab.slug==="mind-lab"?"mind":"idea"} size={34}/></div><p className="text-sm text-teal-text">{laboratoryPosition(locale,index+1,lab.tasks.length)}</p><h2 ref={heading} tabIndex={-1} className="mt-2 text-2xl">{item.title}</h2><p className="mt-3 rounded-xl bg-cream p-4 font-semibold">{item.idea}</p><ReadAloudButton text={level===0 ? `${item.idea}. ${copy.practical} ${item.tryIt[level]}` : `${item.idea}. ${item.situation}. ${item.choices.join('. ')}. ${copy.practical} ${item.tryIt[level]}`} uiLocale={speechLocale}/>
     {level===0 ? (
       <ExplorerPictureChoice key={key}
         prompt={item.situation}
-        options={item.choices.map((choice,i)=>({id:String(i),label:choice,symbol:explorerIcons[i]??"⭐",explanation:""}))}
+        options={item.choices.map((choice,i)=>({id:String(i),label:choice,symbol:"",explanation:""}))}
         correctId={String(item.correct)}
         successMessage={`${elc.wellDone} ${item.explanation}`}
         retryMessage={elc.tryAgain}
         nextLabel={elc.next}
-        onComplete={mark}/>
+        completeOnCorrect/>
     ) : (<>
       <fieldset className="mt-5"><legend className="text-lg font-bold">{item.situation}</legend><div className="mt-3 grid gap-3">{item.choices.map((choice,i)=><button type="button" key={choice} aria-pressed={answer===i} onClick={()=>setAnswer(i)} className={`min-h-12 rounded-xl border-2 p-4 text-left ${answer===i?"border-teal bg-teal/10":"border-ink/20"}`}>{choice}</button>)}</div></fieldset>
       {answer!==null&&<p role="status" className="mt-4 rounded-xl bg-fog p-4">{answer===item.correct?`${copy.correct} ${item.explanation}`:copy.retry}</p>}

@@ -17,6 +17,8 @@ import { explorerSpeechLang } from "@/lib/explorer/speech-lang";
 import { GuidePanel } from "@/components/GuidePanel";
 import { getWorldById } from "@/content/worlds";
 import { useSound } from "@/lib/audio/use-sound";
+import { isSupportedLocale } from "@/i18n/config";
+import { LOCALE_LEARNING_CURRENCY } from "@/lib/currency/learning-currency";
 
 interface GameShellProps {
   config: GameConfig;
@@ -71,6 +73,7 @@ export function GameShell({ config, ageBand, difficulty = "standard", currencyCo
   // changed on the shared classes, which must stay as they are for the
   // older children those bands serve.
   const isExplorer = ageBand === "explorer";
+  const activityCurrencyCode = isExplorer && isSupportedLocale(uiLocale) ? LOCALE_LEARNING_CURRENCY[uiLocale] : currencyCode;
 
   const [roundIndex, setRoundIndex] = useState(0);
   const [attemptKey, setAttemptKey] = useState(0); // bumped on retry to force the mechanic to remount with fresh state
@@ -188,7 +191,7 @@ export function GameShell({ config, ageBand, difficulty = "standard", currencyCo
             {award.coins > 0 && (
               <span className="flex flex-col items-start">
                 <span className="text-xs font-normal text-ink/70">{t("lesson.virtualCoinsLabel")}</span>
-                <MoneyAmount amountMinorUnits={award.coins} currencyCode={currencyCode} uiLocale={uiLocale} showCoinIcon />
+                <MoneyAmount amountMinorUnits={award.coins} currencyCode={activityCurrencyCode} uiLocale={uiLocale} showCoinIcon />
               </span>
             )}
           </div>
@@ -301,7 +304,7 @@ export function GameShell({ config, ageBand, difficulty = "standard", currencyCo
           <MechanicComponent
             key={`${round.id}-${attemptKey}`}
             round={round}
-            currencyCode={currencyCode}
+            currencyCode={activityCurrencyCode}
             uiLocale={uiLocale}
             usesCurrency={config.usesCurrency}
             onAnswer={handleAnswer}

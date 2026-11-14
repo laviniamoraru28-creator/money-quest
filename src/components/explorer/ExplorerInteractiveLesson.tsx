@@ -102,7 +102,7 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
          {id:"free", label:m.freeMoney, symbol:"✨", explanation:""},
        ]}
        correctId="bank" successMessage={m.success} retryMessage={m.retry}
-       nextLabel={m.next} onComplete={complete}/>;
+       nextLabel={m.next} completeOnCorrect onComplete={complete}/>;
    })()}
    {topicId==="needs_wants" && (() => {
      const c = needsWantsLessonCopy[locale];
@@ -130,7 +130,7 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
          {id:"car", label:c.carChoice, symbol:"🚗", explanation:""},
        ]}
        correctId="ball" successMessage={c.success} retryMessage={c.retry}
-       nextLabel={c.next} onComplete={complete}/>;
+       nextLabel={c.next} completeOnCorrect onComplete={complete}/>;
    })()}
    {topicId==="saving" && (() => {
      const c = savingExtraLessonCopy[locale];
@@ -150,7 +150,7 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
          {id:"spend", label:c.spendChoice, symbol:"🍬", explanation:""},
        ]}
        correctId="save" successMessage={c.success} retryMessage={c.retry}
-       nextLabel={c.next} onComplete={complete}/>;
+       nextLabel={c.next} completeOnCorrect onComplete={complete}/>;
    })()}
    {topicId==="currencies" && (() => {
      const c = currenciesLessonCopy[locale];
@@ -179,7 +179,7 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
          {id:"pound", label:c.prompt4pound, symbol:"£", explanation:""},
        ]}
        correctId="yen" successMessage={c.success} retryMessage={c.retry}
-       nextLabel={c.next} onComplete={complete}/>;
+       nextLabel={c.next} completeOnCorrect onComplete={complete}/>;
    })()}
    {topicId==="scams" && (() => {
      const c = safetyLessonCopy[locale];
@@ -199,6 +199,7 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
        ]}
        correctId="safe" successMessage={c.success} retryMessage={c.retry}
        nextLabel={c.next}
+       completeOnCorrect={stage === rounds.length-1}
        onComplete={stage < rounds.length-1 ? () => setStage(stage+1) : complete}/>;
    })()}
    {topicId==="long_term_thinking" && (() => {
@@ -238,12 +239,12 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
          {id:"p4", symbol:"🏆", label:c.planReach, order:3},
        ]}
        nextLabel={t.next} tryAgainMessage={c.retry} successMessage={c.success}
-       onComplete={complete}/>;
+       completeOnCorrect onComplete={complete}/>;
    })()}
    {topicId==="giving" && (() => {
      const c = givingLessonCopy[locale];
      if (stage === 0) return <ExplorerPictureSort
-       key="stage-0" prompt={c.prompt1}
+       key="stage-0" prompt={c.prompt1} interchangeableItems
        items={[
          {id:"c1", symbol:"🪙", label:c.coinLabel, destinationId:"give"},
          {id:"c2", symbol:"🪙", label:c.coinLabel, destinationId:"keep"},
@@ -275,7 +276,7 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
          {id:"close", label:c.closeChoice, symbol:"❌", explanation:""},
        ]}
        correctId="send" successMessage={c.success} retryMessage={c.retry}
-       nextLabel={c.next} onComplete={complete}/>;
+       nextLabel={c.next} completeOnCorrect onComplete={complete}/>;
    })()}
    {topicId==="digital_money" && (() => {
      const c = digitalMoneyLessonCopy[locale];
@@ -292,17 +293,17 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
          {id:"fromNowhere", label:c.fromNowhere, symbol:"❓", explanation:""},
        ]}
        correctId="sameWay" successMessage={c.success} retryMessage={c.retry}
-       nextLabel={c.next} onComplete={complete}/>;
+       nextLabel={c.next} completeOnCorrect onComplete={complete}/>;
    })()}
    {topicId==="investing_basics" && (() => {
      const c = investingLessonCopy[locale];
      if (stage === 0) return <ExplorerSequence
        key="stage-0" prompt={c.prompt1}
        steps={[
-         {id:"seed", symbol:"🌱", label:c.seed, order:0},
-         {id:"sprout", symbol:"🌿", label:c.sprout, order:1},
-         {id:"bud", symbol:"🌷", label:c.bud, order:2},
-         {id:"flower", symbol:"🌸", label:c.flower, order:3},
+         {id:"seed", symbol:"seed", label:c.seed, order:0},
+         {id:"sprout", symbol:"sprout", label:c.sprout, order:1},
+         {id:"bud", symbol:"bud", label:c.bud, order:2},
+         {id:"flower", symbol:"flower", label:c.flower, order:3},
        ]}
        nextLabel={t.next} tryAgainMessage={c.retry} successMessage={c.success}
        onComplete={()=>setStage(1)}/>;
@@ -321,12 +322,12 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
          {id:"alwaysup", label:c.alwaysUp, symbol:"📈", explanation:""},
        ]}
        correctId="updown" successMessage={c.success} retryMessage={c.retry}
-       nextLabel={c.next} onComplete={complete}/>;
+       nextLabel={c.next} completeOnCorrect onComplete={complete}/>;
    })()}
    {scenario && otherTopic && !(DEDICATED_OTHER_TOPICS as readonly string[]).includes(otherTopic) && <ExplorerPictureChoice prompt={scenario.prompt}
      options={[{id:"yes",label:scenario.correct,symbol:scenario.correctSymbol,explanation:""},{id:"no",label:scenario.wrong,symbol:scenario.wrongSymbol,explanation:""}]}
      correctId="yes" successMessage={t.success} retryMessage={t.retry}
-     nextLabel={t.next} onComplete={complete}/>}
+     nextLabel={t.next} completeOnCorrect onComplete={complete}/>}
    {finished&&<p role="status" className="rounded-xl bg-teal/10 p-4 text-xl font-bold">{t.done}</p>}
  </section>;
 }

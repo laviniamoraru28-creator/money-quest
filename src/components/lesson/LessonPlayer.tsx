@@ -19,6 +19,9 @@ import { useAccessibilityPrefs } from "@/lib/accessibility/use-accessibility-pre
 import { useSound } from "@/lib/audio/use-sound";
 import { useAnswerOrder } from "@/lib/answer-order";
 import type { ActivityDetail } from "@/lib/domain/activity";
+import { isSupportedLocale } from "@/i18n/config";
+import { romanianExplorerCopy } from "@/i18n/explorer-copy";
+import { LOCALE_LEARNING_CURRENCY } from "@/lib/currency/learning-currency";
 
 interface LessonPlayerProps {
   activity: ActivityDetail;
@@ -89,6 +92,10 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
   );
   const { quiz, feedbackMessage } = activity.content;
   const isExplorer = activity.childAgeBand === "explorer";
+  const lessonGoal = isExplorer && uiLocale === "ro" && activity.topicId === "money_basics"
+    ? romanianExplorerCopy.moneyBasicsLessonGoal
+    : t("activityGuide.lessonGoal", {title: activity.title});
+  const rewardCurrencyCode = isExplorer && isSupportedLocale(uiLocale) ? LOCALE_LEARNING_CURRENCY[uiLocale] : activity.childCurrencyCode;
   const hasInteractiveExplorerLesson = isExplorer && ["money_basics","needs_wants","saving",...explorerOtherTopics].includes(activity.topicId);
   const world = getWorldById(activity.worldId);
   const worldThemeColor = world?.themeColor ?? "#0F7A6B";
@@ -140,7 +147,7 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
           {award.coins > 0 && (
             <span className="flex flex-col items-start">
               <span className="text-xs font-normal text-ink/70">{t("lesson.virtualCoinsLabel")}</span>
-              <MoneyAmount amountMinorUnits={award.coins} currencyCode={activity.childCurrencyCode} uiLocale={uiLocale} showCoinIcon />
+              <MoneyAmount amountMinorUnits={award.coins} currencyCode={rewardCurrencyCode} uiLocale={uiLocale} showCoinIcon />
             </span>
           )}
         </div>
@@ -212,7 +219,7 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
         )}
       </div>
 
-      {!isExplorer && <GuidePanel compact message={phase === "incorrect" ? t("activityGuide.lessonRetry") : phase === "correct" ? t("activityGuide.lessonComplete") : t("activityGuide.lessonGoal", {title: activity.title})} />}
+      {!isExplorer && <GuidePanel compact message={phase === "incorrect" ? t("activityGuide.lessonRetry") : phase === "correct" ? t("activityGuide.lessonComplete") : lessonGoal} />}
       <div data-lesson-section="examples" hidden={section !== "examples"} style={section !== "examples" ? {display: "none"} : undefined}>
         <h1 ref={examplesHeading} tabIndex={-1} className="font-display text-xl font-bold">{activity.title}</h1>
         <MoneyExamples />
@@ -338,11 +345,12 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
         </div>
       </div>
 
-      {isExplorer && <GuidePanel compact message={phase === "incorrect" ? t("activityGuide.lessonRetry") : phase === "correct" ? t("activityGuide.lessonComplete") : t("activityGuide.lessonGoal", {title: activity.title})} />}
+      {isExplorer && <GuidePanel compact message={phase === "incorrect" ? t("activityGuide.lessonRetry") : phase === "correct" ? t("activityGuide.lessonComplete") : lessonGoal} />}
 
       {hasInteractiveExplorerLesson ? (
         <Card variant="activity" className="min-w-0 border-2 border-coral/30 p-3 sm:p-lg">
           <ExplorerInteractiveLesson topicId={activity.topicId} onComplete={() => {
+            stopSpeech();
             if (activity.isCompleted || phase === "correct") {
               explorerReward.current?.focus();
               return;
