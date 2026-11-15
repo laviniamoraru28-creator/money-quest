@@ -4,7 +4,7 @@
     {
       "id": "saving-why",
       "category": "saving_spending",
-      "hook": "Pocket money gone by *Saturday*?",
+      "hook": "Your child's *pocket money*: gone by Saturday?",
       "reframe": "They're not careless. Nobody showed them money has *more than one job*.",
       "analogy": "It's like a video game: spend every coin on level one, and there's nothing left for the *big upgrade*.",
       "steps": [
@@ -42,7 +42,7 @@
     {
       "id": "needs-vs-wants",
       "category": "needs_wants",
-      "hook": "\"But I *NEED* it!\" Sound familiar?",
+      "hook": "Your child says: \"But I *NEED* it!\"",
       "reframe": "To a child, a strong want *feels* exactly like a need.",
       "analogy": "Think of a backpack for a trip. Water goes in *first*. Toys only if there's room.",
       "steps": [
@@ -80,7 +80,7 @@
     {
       "id": "think-like-entrepreneur",
       "category": "entrepreneurship",
-      "hook": "Lots of complaints, *zero* solutions?",
+      "hook": "Your child complains a lot, with *zero* solutions?",
       "reframe": "Complaining is just spotting problems. That's *step one* of every business.",
       "analogy": "Every game has a boss level. A problem is just a boss waiting for a *clever plan*.",
       "steps": [
@@ -179,7 +179,7 @@
     {
       "id": "notice-feelings",
       "category": "emotional_intelligence",
-      "hook": "Game lost. *Meltdown* starts. Now what?",
+      "hook": "Your child lost a game. *Meltdown*. Now what?",
       "reframe": "There is *no wrong feeling*. The skill is what happens next.",
       "analogy": "Feelings are like a game controller *buzzing*: a signal, not a command.",
       "steps": [
@@ -283,7 +283,7 @@
     {
       "id": "digital-money-feels-free",
       "category": "financial_education",
-      "hook": "\"Just *tap the card*, Mum!\"",
+      "hook": "Your child says: \"Just *tap the card*!\"",
       "reframe": "If they never see cash change hands, a tap looks like *magic*.",
       "analogy": "It's like *lives* in a game. You can't see them leave, but every tap uses one.",
       "steps": [
@@ -321,7 +321,7 @@
     {
       "id": "spot-a-scam",
       "category": "financial_education",
-      "hook": "\"You won a *free prize*! Click now!\"",
+      "hook": "Your child sees: \"You won a *free prize*!\"",
       "reframe": "Kids meet fake prizes in games and chats *earlier* than we think.",
       "analogy": "It's the stranger offering *free sweets*. Same trick, new screen.",
       "steps": [
@@ -358,7 +358,7 @@
     {
       "id": "giving-plan",
       "category": "giving",
-      "hook": "Is it always *\"mine, mine, mine\"*?",
+      "hook": "With your child, is it always *\"mine, mine, mine\"*?",
       "reframe": "Sharing isn't automatic. It's a *habit* you can practise.",
       "analogy": "Like sharing sweets: you still have some, and *someone else is happy*.",
       "steps": [
@@ -396,7 +396,7 @@
     {
       "id": "savings-goal-own-effort",
       "category": "saving_spending",
-      "hook": "They want the *big toy*. Today.",
+      "hook": "Your child wants the *big toy*. Today.",
       "reframe": "If you buy it today, they miss the *best part*: earning it.",
       "analogy": "It's like a game: the reward feels great because you *unlocked* it yourself.",
       "steps": [
@@ -434,7 +434,7 @@
     {
       "id": "grey-area-needs",
       "category": "needs_wants",
-      "hook": "\"I *need* a phone!\" Need, or want?",
+      "hook": "Your child says: \"I *need* a phone!\"",
       "reframe": "Some things are a need in one situation and a *want* in another.",
       "analogy": "Shoes are a need. The *third pair* of sparkly ones? That's a want.",
       "steps": [
@@ -467,7 +467,7 @@
     {
       "id": "test-small-idea",
       "category": "entrepreneurship",
-      "hook": "Big plan: *100 bookmarks*. What if nobody buys?",
+      "hook": "Your child plans *100 bookmarks*. What if nobody buys?",
       "reframe": "Big dreams are great. Big *first steps* are risky.",
       "analogy": "Game makers release a *demo level* first. Then they build the rest.",
       "steps": [
@@ -503,7 +503,7 @@
     {
       "id": "listen-in-conflict",
       "category": "leadership",
-      "hook": "Siblings *arguing* again?",
+      "hook": "Your kids are *arguing* again?",
       "reframe": "They don't need a judge. They need to feel *heard*.",
       "analogy": "Like a game with two players: *take turns*, or nobody gets to play.",
       "steps": [
@@ -536,7 +536,7 @@
     {
       "id": "resilience-change-strategy",
       "category": "emotional_intelligence",
-      "hook": "\"I *can't* do it!\" Tower down. Tears.",
+      "hook": "Your child cries: \"I *can't* do it!\"",
       "reframe": "Struggling isn't failing. It's a signal to *change the plan*.",
       "analogy": "Stuck on a level? You don't quit the game. You try a *different route*.",
       "steps": [
@@ -571,7 +571,7 @@
     {
       "id": "feel-in-a-month",
       "category": "decision_making",
-      "hook": "Bought today, *forgotten* by Friday?",
+      "hook": "Your child's new toy: *forgotten* by Friday?",
       "reframe": "In the moment, *now* is the only thing that exists for a child.",
       "analogy": "Like sweets: delicious for a minute, then *gone*.",
       "steps": [
@@ -609,7 +609,7 @@
     {
       "id": "check-ai-answers",
       "category": "critical_thinking",
-      "hook": "\"But the *AI* said so!\"",
+      "hook": "Your child says: \"But the *AI* said so!\"",
       "reframe": "AI sounds certain even when it's *wrong*.",
       "analogy": "It's like a classmate who always answers fast. Fast isn't always *right*.",
       "steps": [
@@ -644,7 +644,7 @@
     {
       "id": "what-is-money",
       "category": "financial_education",
-      "hook": "\"Why can't we just *get more* money?\"",
+      "hook": "Your child asks: \"Why can't we just *get more* money?\"",
       "reframe": "It's a fair question. Nobody is born knowing what money *is*.",
       "analogy": "Money is like *game tokens*: everyone agrees what they're worth, so you can trade them.",
       "steps": [
@@ -710,7 +710,7 @@
     {
       "id": "choice-with-budget",
       "category": "budgeting_planning",
-      "hook": "5 coins. Notebook: 3. Toy: 4. *Now what?*",
+      "hook": "Your child has 5 coins. Notebook: 3. Toy: 4. *Now what?*",
       "reframe": "There isn't one right answer. That's the *whole lesson*.",
       "analogy": "Like picking your team in a game: you can't have everyone, so you *choose*.",
       "steps": [
@@ -741,7 +741,7 @@
     {
       "id": "profit-basics",
       "category": "entrepreneurship",
-      "hook": "Bake sale made 20 coins. All *profit*? Not quite.",
+      "hook": "Your child's bake sale made 20 coins. All *profit*?",
       "reframe": "Money earned isn't the same as money *kept*.",
       "analogy": "Sell lemonade for 20 coins, but the lemons cost 8. What's *really* yours?",
       "steps": [
@@ -774,7 +774,7 @@
     {
       "id": "handle-mistakes",
       "category": "leadership",
-      "hook": "A teammate made a *big mistake*. Now what?",
+      "hook": "Your child's teammate made a *big mistake*. Now what?",
       "reframe": "How a leader reacts decides if people *speak up* next time.",
       "analogy": "In a team game, shouting at a teammate never *wins the match*.",
       "steps": [
@@ -807,7 +807,7 @@
     {
       "id": "listen-and-agree",
       "category": "emotional_intelligence",
-      "hook": "Two friends. *Two different games*. One afternoon.",
+      "hook": "Your child's friends want *two different games*. Now what?",
       "reframe": "Nobody is being difficult. They just want *different things*.",
       "analogy": "Like choosing a film: you *ask* everyone, you don't guess.",
       "steps": [
@@ -838,7 +838,7 @@
     {
       "id": "bigger-pack",
       "category": "critical_thinking",
-      "hook": "They always grab the *bigger* box?",
+      "hook": "Your child always grabs the *bigger* box?",
       "reframe": "A bigger box doesn't always mean *more inside*.",
       "analogy": "Like a huge bag of crisps that's *half air*.",
       "steps": [
@@ -869,7 +869,7 @@
     {
       "id": "waiting-can-pay-off",
       "category": "saving_spending",
-      "hook": "\"I want it *NOW*!\"",
+      "hook": "Your child shouts: \"I want it *NOW*!\"",
       "reframe": "Waiting is a *skill*. Even adults find it hard.",
       "analogy": "One sweet now, or *two* after dinner?",
       "steps": [
@@ -902,7 +902,7 @@
     {
       "id": "money-around-the-world",
       "category": "financial_education",
-      "hook": "On holiday, and the money looks *strange*?",
+      "hook": "On holiday, your child asks why money looks *different*?",
       "reframe": "Different countries use *different money*. That's a great thing to explore.",
       "analogy": "Like different games using different *tokens*: same idea, new look.",
       "steps": [
@@ -940,7 +940,7 @@
     {
       "id": "picture-checklist",
       "category": "budgeting_planning",
-      "hook": "Every morning: \"Where's my *school bag*?\"",
+      "hook": "Every morning your child asks: \"Where's my *school bag*?\"",
       "reframe": "They're not forgetful. They just need a *plan they can see*.",
       "analogy": "Like a *quest list* in a game: tick, tick, done.",
       "steps": [
