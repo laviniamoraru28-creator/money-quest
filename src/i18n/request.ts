@@ -1,5 +1,6 @@
 import { getRequestConfig } from "next-intl/server";
 import { notFound } from "next/navigation";
+import { lessonAssistantCopy } from "./lesson-assistant-copy";
 import {nextActivityCopy,romanianExplorerCopy} from "./explorer-copy";
 import { LOCALES, DEFAULT_LOCALE, isSupportedLocale } from "./config";
 
@@ -24,7 +25,7 @@ export default getRequestConfig(async ({ requestLocale }) => {
     notFound();
   }
 
-  const base = (await import(`../../messages/${locale}.json`)).default;
+  const base = { ...(await import(`../../messages/${locale}.json`)).default, lessonAssistant: lessonAssistantCopy[locale] };
   const play = {...base.play, nextActivity: nextActivityCopy[locale]};
   const messages = locale === "ro" ? {
     ...base,
