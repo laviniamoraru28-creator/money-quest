@@ -1,42 +1,39 @@
 import Image from "next/image";
 import { ReadAloudButton } from "@/components/ui/ReadAloudButton";
+import { explorerComicTranscripts } from "@/content/explorer-comic-transcripts";
 import type { ExplorerComicTopic } from "@/content/explorer-comic-topics";
+import { isSupportedLocale } from "@/i18n/config";
 
 export type { ExplorerComicTopic } from "@/content/explorer-comic-topics";
 export { hasExplorerComic } from "@/content/explorer-comic-topics";
 
 interface ExplorerComicLessonProps {
   topicId: ExplorerComicTopic;
-  title: string;
-  shortIntroduction: string;
-  keyConcept: string;
-  explanation: string;
-  story: string;
-  vocabulary: { term: string; definition: string }[];
   uiLocale: string;
-  headingRef: React.RefObject<HTMLHeadingElement>;
 }
 
 /**
  * Replaces the usual illustration+prose "book" panel for Explorer with
- * the supplied comic strip itself. The comic is the lesson now — the
- * text it replaces isn't shown alongside it — but every child's
- * learning page still needs the same content available to assistive
- * tech, so the same strings that used to be visible prose are kept as
- * an sr-only block (zero visual footprint) rather than dropped. The
- * image itself is alt="" since that block is its full equivalent.
+ * the supplied comic strip itself. The lesson title and instructional
+ * guide render before this (see LessonPlayer), so this component is
+ * just the comic: its own Listen button, the image, and an sr-only
+ * transcript for assistive tech.
+ *
+ * The Listen button reads a transcript of the comic's own visible
+ * text (title, dialogue, narration, key idea, vocabulary — see
+ * explorer-comic-transcripts.ts), not the separate lesson-content
+ * fields the comic replaced. The transcript is also the sr-only
+ * equivalent, so a blind or low-vision child gets exactly what the
+ * comic says, in the same panel order, via either path. The image
+ * itself is alt="" since that transcript is its complete equivalent.
  */
-export function ExplorerComicLesson({
-  topicId, title, shortIntroduction, keyConcept, explanation, story, vocabulary, uiLocale, headingRef,
-}: ExplorerComicLessonProps) {
-  // Same three fields the pre-comic "book" panel's own Listen button
-  // read aloud (shortIntroduction + explanation + story) — unchanged
-  // scope, just no longer tied to visible prose.
-  const readAloudText = [shortIntroduction, explanation, story].filter(Boolean).join(" ");
+export function ExplorerComicLesson({ topicId, uiLocale }: ExplorerComicLessonProps) {
+  const locale = isSupportedLocale(uiLocale) ? uiLocale : "en";
+  // Only English comic images exist today — see explorer-comic-transcripts.ts.
+  const transcript = explorerComicTranscripts[topicId].en;
   return (
     <div data-explorer-comic-lesson={topicId} className="flex flex-col gap-2xs">
-      <h1 ref={headingRef} tabIndex={-1} className="font-display text-xl font-bold">{title}</h1>
-      <ReadAloudButton text={readAloudText} uiLocale={uiLocale} />
+      <ReadAloudButton text={transcript} uiLocale={locale} />
       <div className="mt-2xs overflow-hidden rounded-xl shadow-floating">
         <Image
           unoptimized
@@ -48,22 +45,7 @@ export function ExplorerComicLesson({
           className="h-auto w-full max-w-full object-contain"
         />
       </div>
-      <div className="sr-only">
-        <p>{shortIntroduction}</p>
-        {keyConcept && <p>{keyConcept}</p>}
-        <p>{explanation}</p>
-        <p>{story}</p>
-        {vocabulary.length > 0 && (
-          <dl>
-            {vocabulary.map((v) => (
-              <div key={v.term}>
-                <dt>{v.term}</dt>
-                <dd>{v.definition}</dd>
-              </div>
-            ))}
-          </dl>
-        )}
-      </div>
+      <p className="sr-only">{transcript}</p>
     </div>
   );
 }

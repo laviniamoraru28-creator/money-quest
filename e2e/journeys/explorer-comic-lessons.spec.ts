@@ -6,10 +6,9 @@ import {EXPLORER_COMIC_TOPICS} from '../../src/content/explorer-comic-topics';
 /**
  * Regression coverage for replacing Explorer's text+illustration lesson
  * panel with the supplied English comic strips (see
- * ExplorerComicLesson). Scope: English Explorer only, and only for the
- * 8 topics a comic was actually supplied for — needs_wants and
- * investing_basics have none yet, and every other locale/age band must
- * render exactly as it did before this change.
+ * ExplorerComicLesson). Scope: English Explorer only, across all 10
+ * topics — every other locale/age band must render exactly as it did
+ * before this change.
  */
 const en = JSON.parse(readFileSync('messages/en.json', 'utf8'));
 const explorerLessons = LESSON_STRUCTURES.filter((l) => l.ageBand === 'explorer');
@@ -68,14 +67,24 @@ for (const topicId of EXPLORER_COMIC_TOPICS) {
   });
 }
 
-test('en/explorer needs_wants and investing_basics: no comic supplied, existing lesson presentation unchanged', async ({page}) => {
+test('en/explorer: title, then guide, then comic, then activities — in that order, for every comic topic', async ({page}) => {
   await page.addInitScript((state) => localStorage.setItem('moneyquest_local_progress_v1', JSON.stringify(state)), progress('explorer'));
-  for (const topicId of ['needs_wants', 'investing_basics']) {
+  for (const topicId of EXPLORER_COMIC_TOPICS) {
     const lesson = lessonFor(topicId);
     await page.goto(`/en/play/world/${lesson.worldId}/lesson/${lesson.id}`);
-    await expect(page.locator(`[data-lesson-illustration="${topicId}"]`)).toBeVisible();
-    await expect(page.locator('[data-explorer-comic-lesson]')).toHaveCount(0);
-    await expect(page.locator('[data-explorer-interactive-lesson]')).toBeVisible();
+    const order = await page.evaluate(() => {
+      const all = Array.from(document.querySelector('main')!.querySelectorAll('*'));
+      return {
+        h1: all.indexOf(document.querySelector('[data-lesson-section="lesson"] h1')!),
+        guide: all.indexOf(document.querySelector('aside[aria-label="Your learning guides"]')!),
+        comic: all.indexOf(document.querySelector('[data-explorer-comic-lesson]')!),
+        activities: all.indexOf(document.querySelector('[data-explorer-interactive-lesson]')!),
+      };
+    });
+    expect(order.h1, topicId).toBeGreaterThanOrEqual(0);
+    expect(order.h1, topicId).toBeLessThan(order.guide);
+    expect(order.guide, topicId).toBeLessThan(order.comic);
+    expect(order.comic, topicId).toBeLessThan(order.activities);
   }
 });
 
@@ -146,4 +155,21 @@ test('en/explorer full money_basics journey: comic, then the exact same activiti
   // Comic must still be the only one on screen — the activity flow
   // never remounts or duplicates it.
   await expect(page.locator('[data-explorer-comic-lesson]')).toHaveCount(1);
+});
+
+test('en/explorer: exactly one Listen control per distinct piece of content, none duplicated, every comic topic', async ({page}) => {
+  await page.addInitScript((state) => localStorage.setItem('moneyquest_local_progress_v1', JSON.stringify(state)), progress('explorer'));
+  for (const topicId of EXPLORER_COMIC_TOPICS) {
+    const lesson = lessonFor(topicId);
+    await page.goto(`/en/play/world/${lesson.worldId}/lesson/${lesson.id}`);
+    // Exactly one Listen button each for: the sitewide page-read-aloud
+    // toolbar, the instructional guide, and the comic itself. A
+    // fourth (the first activity stage's own) is topic-dependent but
+    // never more than one at a time, since ExplorerInteractiveLesson
+    // only ever mounts a single stage.
+    await expect(page.locator('aside[aria-label="Page read-aloud"]').getByRole('button', {name: 'Listen', exact: true})).toHaveCount(1);
+    await expect(page.locator('aside[aria-label="Your learning guides"]').getByRole('button', {name: 'Listen', exact: true})).toHaveCount(1);
+    await expect(page.locator('[data-explorer-comic-lesson]').getByRole('button', {name: 'Listen', exact: true})).toHaveCount(1);
+    expect(await page.getByRole('button', {name: 'Listen', exact: true}).count(), topicId).toBe(4);
+  }
 });

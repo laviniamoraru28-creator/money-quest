@@ -252,18 +252,21 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
         {phase === "correct" && t("a11y.answerCorrectAnnouncement")}
       </div>
 
+      {/* Explorer's own required order is title, then guide, then the
+          comic (see ExplorerComicLesson) — the reverse of the
+          guide-after-content order every other band/locale still
+          uses below. Rendered here, once, only for the comic branch;
+          the later `!explorerComicTopic && isExplorer` guide stays the
+          old position for everyone else. */}
+      {explorerComicTopic && (
+        <>
+          <h1 ref={lessonHeading} tabIndex={-1} className="font-display text-xl font-bold">{activity.title}</h1>
+          <GuidePanel compact message={phase === "incorrect" ? t("activityGuide.lessonRetry") : phase === "correct" ? t("activityGuide.lessonComplete") : lessonGoal} />
+        </>
+      )}
+
       {explorerComicTopic ? (
-        <ExplorerComicLesson
-          topicId={explorerComicTopic}
-          title={activity.title}
-          shortIntroduction={activity.content.shortIntroduction}
-          keyConcept={activity.content.keyConcept}
-          explanation={activity.content.explanation}
-          story={activity.content.story}
-          vocabulary={activity.content.vocabulary}
-          uiLocale={uiLocale}
-          headingRef={lessonHeading}
-        />
+        <ExplorerComicLesson topicId={explorerComicTopic} uiLocale={uiLocale} />
       ) : (
       /* The book — a two-page spread on desktop/tablet, stacked into
           a single page on mobile. Left page: an illustration relating
@@ -366,7 +369,7 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
       </div>
       )}
 
-      {isExplorer && <GuidePanel compact message={phase === "incorrect" ? t("activityGuide.lessonRetry") : phase === "correct" ? t("activityGuide.lessonComplete") : lessonGoal} />}
+      {!explorerComicTopic && isExplorer && <GuidePanel compact message={phase === "incorrect" ? t("activityGuide.lessonRetry") : phase === "correct" ? t("activityGuide.lessonComplete") : lessonGoal} />}
 
       {hasInteractiveExplorerLesson ? (
         <Card variant="activity" className="min-w-0 border-2 border-coral/30 p-3 sm:p-lg">
