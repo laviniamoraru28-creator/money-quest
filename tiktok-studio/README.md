@@ -128,25 +128,31 @@ Secret: `BUFFER_API_KEY`.
 
 ### Rollout (each step tested before the next)
 
-1. **Connect accounts (you).**
-   - TikTok: on the Money Quest account, switch to a **Business account** (free, in the TikTok
-     app: Settings > Account > Switch to Business Account). Buffer's docs disagree about
-     personal accounts, and a Business account also counts as your own brand's content.
-   - Buffer: create a free account at buffer.com, then go to Channels > Connect > TikTok. TikTok's
-     own login page opens, and you approve it there. Buffer never sees your password, and
-     neither do we.
-   - Buffer: go to Settings > API > create a personal API key, and save it in GitHub as the
-     repository secret `BUFFER_API_KEY`.
-2. **Merge to main.** The schedule then runs in review mode.
-3. **Run workflow: `buffer-setup`.** This finds your TikTok channel and checks that Buffer's
-   live API still has every field we use. It stops before posting if anything differs.
-4. **Run workflow: `next-video` + `buffer-notify`.** This tests hosting and the Buffer API end
-   to end. Buffer sends you a reminder about 20 minutes later. You post it yourself, or ignore
-   it and delete it in Buffer.
-5. **First automatic post:** after you approve it, set `PUBLIC_POSTING_APPROVED=true` and run
-   `next-video` + `buffer-auto` once. Check that it appears correctly on TikTok.
-6. **Automation:** after you approve it, set `PUBLISH_MODE=buffer-auto` and
-   `AUTOMATION_ENABLED=true`. From then on, three videos a week are created and published
+Tests before merging run from the development branch: changing
+`tiktok-studio/test-request.json` there starts one run. That path can only do `buffer-setup`,
+`review` or `buffer-notify`. Automatic posting is blocked on it.
+
+1. **Review run (no accounts needed).** Render + QA on GitHub's servers, video attached to the
+   run.
+2. **Connect accounts (you).**
+   - TikTok: switch the Money Quest account to a free **Business account** (TikTok app:
+     Settings > Account > Switch to Business Account).
+   - Buffer: at buffer.com go to Channels > Connect > TikTok. TikTok's own login page opens and
+     you approve it there.
+   - Install the Buffer mobile app and sign in with notifications allowed. The notification
+     test needs it.
+3. **API key (you).** In Buffer go to Settings > API and create a personal API key. Copy it
+   straight into GitHub: repository Settings > Secrets and variables > Actions > *Secrets* tab >
+   New repository secret, name `BUFFER_API_KEY`. Never put it in chat, a file or a commit.
+4. **`buffer-setup` run.** Read-only. Lists your TikTok channel and prints Buffer's live API
+   shape. Nothing is posted.
+5. **`next-video` + `buffer-notify` run.** Tests hosting and the Buffer API end to end. Buffer
+   sends a phone reminder about 20 minutes later. You post it yourself, or delete it in Buffer.
+6. **Merge to main** (only when you say so). The Mon/Wed/Fri schedule then runs in review mode.
+7. **First automatic post**, after you approve it: set `PUBLIC_POSTING_APPROVED=true` and run
+   `next-video` + `buffer-auto` once.
+8. **Automation**, after you approve it: set `PUBLISH_MODE=buffer-auto` and
+   `AUTOMATION_ENABLED=true`. Three videos a week are then created and published
    automatically. Any QA failure stops that video.
 
 Notes and known risks:
