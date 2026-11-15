@@ -46,19 +46,20 @@ async function checkLayout(page: Page) {
 for(const locale of LOCALES) for(const band of ['explorer','builder','strategist'] as const) {
  test(`${locale}/${band}: money sections stay mounted and preserve progress on forward/back navigation`, async({page})=>{
   // The whole money-forms round trip this test exercises was removed for
-  // English Explorer along with the "Back to forms of money" button that
-  // drove it (see explorer-comic-lessons.spec.ts for its replacement
-  // coverage) — every other locale/band still has it.
-  test.skip(locale==='en' && band==='explorer', 'the money-forms round trip was removed for English Explorer');
+  // Explorer (now comic-first in every locale) along with the "Back to
+  // forms of money" button that drove it — see
+  // explorer-comic-lessons.spec.ts for its replacement coverage, Builder
+  // and Strategist still have it.
+  test.skip(band==='explorer', 'the money-forms round trip was removed for Explorer in every locale');
   const messages=JSON.parse(readFileSync(`messages/${locale}.json`,'utf8'));
   const lesson=LESSON_STRUCTURES.find(item=>item.ageBand===band && item.topicId==='money_basics')!;
   const title=messages.curriculum[lesson.id].title;
   await page.addInitScript(state=>localStorage.setItem('moneyquest_local_progress_v1',JSON.stringify(state)),{...createDefaultState(),ageBand:band});
   await page.goto(`/${locale}/play/world/${lesson.worldId}`);
-  // English Explorer no longer shows this world-page money-forms intro
-  // (see explorer-comic-lessons.spec.ts) — every other locale/band still
-  // does.
-  if (!(locale === 'en' && band === 'explorer')) await expect(page.locator('#money-examples-heading')).toBeVisible();
+  // Explorer no longer shows this world-page money-forms intro, in any
+  // locale (see explorer-comic-lessons.spec.ts) — Builder and Strategist
+  // still do.
+  if (band !== 'explorer') await expect(page.locator('#money-examples-heading')).toBeVisible();
   await page.locator(`a[href="/${locale}/play/world/${lesson.worldId}/lesson/${lesson.id}"]`).click();
   await expect(page.locator('[data-lesson-section="lesson"]')).toBeVisible();
   // The examples section is mounted alongside the lesson section from the
@@ -68,7 +69,6 @@ for(const locale of LOCALES) for(const band of ['explorer','builder','strategist
   await page.getByRole('button',{name:messages.lesson.backToMoneyForms,exact:true}).click();
   const forms=page.locator('[data-lesson-section="examples"]');
   await expect(forms).toBeVisible();
-  if(locale==='en' && band==='explorer') await page.screenshot({path:test.info().outputPath('money-forms.png'),fullPage:true});
   await expect(page.locator('[data-lesson-section="lesson"]')).toBeHidden();
   const first=forms.getByRole('button',{name:moneyExamplesCopy[locale].coins,exact:true});
   const card=forms.locator('.grid').getByRole('button',{name:moneyExamplesCopy[locale].card,exact:true});
@@ -80,50 +80,31 @@ for(const locale of LOCALES) for(const band of ['explorer','builder','strategist
   await expect(forms).toBeHidden();
   await expect(page.locator('[data-lesson-section="lesson"] h1')).toBeFocused();
   await checkLayout(page);
-  if(band==='explorer') {
-   // Explorer's money_basics lesson replaces the quiz with a picture-first
-   // discover activity (see ExplorerInteractiveLesson) instead of a radio
-   // quiz — verify its own in-progress state, and the examples section's
-   // own card selection made above, both SURVIVE a round trip through
-   // Money Forms rather than being reset — the exact bug this fix closes.
-   const discoverButtons=page.locator('[data-explorer-interactive-lesson] button[aria-pressed]');
-   await discoverButtons.first().click();
-   await expect(discoverButtons.first()).toHaveAttribute('aria-pressed','true');
-   await page.getByRole('button',{name:messages.lesson.backToMoneyForms,exact:true}).click();
-   await expect(forms).toBeVisible();
-   await expect(first).toHaveAttribute('aria-pressed','false');
-   await expect(card).toHaveAttribute('aria-pressed','true');
-   await expect(cardChoice).toHaveAttribute('aria-pressed','true');
-   await expect(page.locator('[data-lesson-illustration]')).toBeHidden();
-   await advance.click();
-   await expect(forms).toBeHidden();
-   await expect(discoverButtons.first()).toHaveAttribute('aria-pressed','true');
-   await expect(page.locator('[data-coin-award]')).toHaveCount(0);
-  } else {
-   const wrong=messages.curriculum[lesson.id].quiz.options.find((option:string)=>option!==messages.curriculum[lesson.id].quiz.correctAnswer);
-   await page.getByRole('radio',{name:wrong,exact:true}).check();
-   await page.getByRole('button',{name:messages.lesson.checkMyAnswer,exact:true}).click();
-   const tryAgain=page.getByRole('button',{name:messages.common.tryAgain,exact:true});
-   await expect(tryAgain).toBeVisible();
-   await page.getByRole('button',{name:messages.lesson.backToMoneyForms,exact:true}).click();
-   await expect(forms).toBeVisible();
-   await expect(first).toHaveAttribute('aria-pressed','false');
-   await expect(card).toHaveAttribute('aria-pressed','true');
-   await expect(cardChoice).toHaveAttribute('aria-pressed','true');
-   await expect(page.locator('[data-lesson-illustration]')).toBeHidden();
-   await advance.click();
-   await expect(forms).toBeHidden();
-   // phase stays "incorrect" (never silently reset to "unanswered"), so
-   // tryAgain is still the one shown — checkMyAnswer only renders again
-   // once the child actually retries.
-   await expect(tryAgain).toBeVisible();
-   // Not `exact` here: with phase still "incorrect" (preserved, not reset),
-   // this option's accessible name now carries its "(your answer - not
-   // quite right)" sr-only suffix too — see showAsIncorrect in LessonPlayer.
-   await expect(page.getByRole('radio',{name:wrong})).toBeChecked();
-   await expect(page.getByRole('button',{name:messages.lesson.checkMyAnswer,exact:true})).toHaveCount(0);
-   await expect(page.locator('[data-coin-award]')).toHaveCount(0);
-  }
+  // Only Builder/Strategist reach here — Explorer is skipped above in
+  // every locale.
+  const wrong=messages.curriculum[lesson.id].quiz.options.find((option:string)=>option!==messages.curriculum[lesson.id].quiz.correctAnswer);
+  await page.getByRole('radio',{name:wrong,exact:true}).check();
+  await page.getByRole('button',{name:messages.lesson.checkMyAnswer,exact:true}).click();
+  const tryAgain=page.getByRole('button',{name:messages.common.tryAgain,exact:true});
+  await expect(tryAgain).toBeVisible();
+  await page.getByRole('button',{name:messages.lesson.backToMoneyForms,exact:true}).click();
+  await expect(forms).toBeVisible();
+  await expect(first).toHaveAttribute('aria-pressed','false');
+  await expect(card).toHaveAttribute('aria-pressed','true');
+  await expect(cardChoice).toHaveAttribute('aria-pressed','true');
+  await expect(page.locator('[data-lesson-illustration]')).toBeHidden();
+  await advance.click();
+  await expect(forms).toBeHidden();
+  // phase stays "incorrect" (never silently reset to "unanswered"), so
+  // tryAgain is still the one shown — checkMyAnswer only renders again
+  // once the child actually retries.
+  await expect(tryAgain).toBeVisible();
+  // Not `exact` here: with phase still "incorrect" (preserved, not reset),
+  // this option's accessible name now carries its "(your answer - not
+  // quite right)" sr-only suffix too — see showAsIncorrect in LessonPlayer.
+  await expect(page.getByRole('radio',{name:wrong})).toBeChecked();
+  await expect(page.getByRole('button',{name:messages.lesson.checkMyAnswer,exact:true})).toHaveCount(0);
+  await expect(page.locator('[data-coin-award]')).toHaveCount(0);
  });
 
  test(`${locale}/${band}: original artwork loads for every lesson with minimal images and focus mode`, async({page})=>{
@@ -137,8 +118,9 @@ for(const locale of LOCALES) for(const band of ['explorer','builder','strategist
   for(const lesson of LESSON_STRUCTURES.filter(item=>item.ageBand===band)) {
    await page.goto(`/${locale}/play/world/${lesson.worldId}/lesson/${lesson.id}`);
    // No "Back to forms of money" button (and no money-forms section to
-   // visit) for English Explorer any more — see explorer-comic-lessons.spec.ts.
-   if(lesson.topicId==='money_basics' && !(locale==='en' && band==='explorer')) {
+   // visit) for Explorer any more, in any locale — see
+   // explorer-comic-lessons.spec.ts.
+   if(lesson.topicId==='money_basics' && band!=='explorer') {
     await page.getByRole('button',{name:messages.lesson.backToMoneyForms,exact:true}).click();
     // Scoped to the money-forms section: Explorer's own money_basics
     // activity (mounted but hidden behind it) reuses the same card.webp
@@ -149,7 +131,7 @@ for(const locale of LOCALES) for(const band of ['explorer','builder','strategist
    }
    await expect(page.locator('html')).toHaveAttribute('data-image-size','minimal');
    await expect(page.locator('html')).toHaveAttribute('data-focus-mode','true');
-   if (locale === 'en' && band === 'explorer' && hasExplorerComic(lesson.topicId)) {
+   if (band === 'explorer' && hasExplorerComic(lesson.topicId)) {
     // Comic topics: the usual illustration+prose panel is replaced
     // entirely (see explorer-comic-lessons.spec.ts for the full
     // regression coverage) — just confirm it's gone and nothing
@@ -166,7 +148,6 @@ for(const locale of LOCALES) for(const band of ['explorer','builder','strategist
     else await expect(illustration.locator('svg')).toBeVisible();
     await expect(illustration.getByRole('img')).toHaveAccessibleName(messages.curriculum[lesson.id].title);
     await checkLayout(page);
-    if(locale==='en' && band==='explorer') await page.screenshot({path:test.info().outputPath(`${lesson.topicId}.png`),fullPage:true});
    }
   }
   expect(errors).toEqual([]);
