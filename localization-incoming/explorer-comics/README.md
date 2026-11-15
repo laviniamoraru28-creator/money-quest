@@ -22,9 +22,8 @@ already-approved Romanian text in `src/content/explorer-comic-transcripts.ts`.
   "Economisirea sau creșterea banilor?" — matches the approved transcript.
   Romanian set is now complete.
 
-## es/ — 9 of 10, received 2026-11-15
+## es/ — complete (10/10), received 2026-11-15
 
-All 9 matched uniquely, no duplicates this round.
-
-- **giving is MISSING.** Its approved Spanish title per the transcript is
-  "La alegría de compartir" — no image with that title/content was sent.
+All 9 matched uniquely, no duplicates. The user then sent giving separately,
+title "La alegría de compartir" — matches the approved transcript. Spanish
+set is now complete.
