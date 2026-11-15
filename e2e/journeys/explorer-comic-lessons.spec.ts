@@ -108,6 +108,18 @@ test('ro/explorer money_basics: no English-only comic, existing Romanian lesson 
   await expect(page.locator('[data-explorer-interactive-lesson]')).toBeVisible();
 });
 
+test('en/explorer money_basics: no leftover "Back to forms of money" button once the intro it pointed to is removed', async ({page}) => {
+  const lesson = lessonFor('money_basics');
+  await page.addInitScript((state) => localStorage.setItem('moneyquest_local_progress_v1', JSON.stringify(state)), progress('explorer'));
+  await page.goto(`/en/play/world/${lesson.worldId}/lesson/${lesson.id}`);
+  await expect(page.getByRole('button', {name: en.lesson.backToMoneyForms, exact: true})).toHaveCount(0);
+  // Builder keeps it — its own intro section was never removed.
+  const builderLesson = LESSON_STRUCTURES.find((l) => l.ageBand === 'builder' && l.topicId === 'money_basics')!;
+  await page.addInitScript((state) => localStorage.setItem('moneyquest_local_progress_v1', JSON.stringify(state)), progress('builder'));
+  await page.goto(`/en/play/world/${builderLesson.worldId}/lesson/${builderLesson.id}`);
+  await expect(page.getByRole('button', {name: en.lesson.backToMoneyForms, exact: true})).toBeVisible();
+});
+
 test('en/explorer coin-cove world page no longer shows the money-forms intro before the first lesson', async ({page}) => {
   await page.addInitScript((state) => localStorage.setItem('moneyquest_local_progress_v1', JSON.stringify(state)), progress('explorer'));
   await page.goto('/en/play/world/coin-cove');

@@ -207,20 +207,28 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
           so both read as actionable controls, not secondary metadata;
           flex-wrap keeps this from overflowing on narrow phones when a
           locale's labels run long. */}
-      <div className="flex flex-wrap items-center gap-xs text-sm">
-        {previousActivityHref && (
-          <Button variant="secondary" onClick={() => router.push(previousActivityHref)}>
-            <span aria-hidden="true">←</span> {t("common.back")}
+      <div className="flex flex-col gap-2xs">
+        {/* No flex-wrap here: all three stay on one row at every
+            supported width, down to 320px. The label text is sr-only
+            below the `sm` breakpoint and reappears at tablet/desktop
+            width — the icon alone, inside the same min-h-touch-min
+            button, is enough tap target on a phone and keeps every
+            language's (often longer) label from forcing a wrap. */}
+        <div className="flex items-center gap-2xs text-sm">
+          {previousActivityHref && (
+            <Button variant="secondary" onClick={() => router.push(previousActivityHref)}>
+              <span aria-hidden="true">←</span> <span className="sr-only sm:not-sr-only">{t("common.back")}</span>
+            </Button>
+          )}
+          <Button variant="secondary" onClick={() => router.push(backToWorldHref)}>
+            <span aria-hidden="true">🗺️</span> <span className="sr-only sm:not-sr-only">{t("game.backToTheWorld")}</span>
           </Button>
-        )}
-        <Button variant="secondary" onClick={() => router.push(backToWorldHref)}>
-          <span aria-hidden="true">🗺️</span> {t("game.backToTheWorld")}
-        </Button>
-        <Button variant="secondary" onClick={() => router.push("/")}>
-          <span aria-hidden="true">🏠</span> {t("nav.home")}
-        </Button>
+          <Button variant="secondary" onClick={() => router.push("/")}>
+            <span aria-hidden="true">🏠</span> <span className="sr-only sm:not-sr-only">{t("nav.home")}</span>
+          </Button>
+        </div>
         {activityPosition && (
-          <span className="ml-auto rounded-full bg-teal/10 px-sm py-3xs font-medium text-teal-text">
+          <span className="self-start rounded-full bg-teal/10 px-sm py-3xs text-sm font-medium text-teal-text">
             {world && t("play.levelActivityProgress", { level: world.orderIndex, position: activityPosition.position, total: activityPosition.total })}
           </span>
         )}
@@ -385,7 +393,11 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
             playCorrect();
             requestAnimationFrame(() => explorerReward.current?.focus());
           }}/>
-          {activity.topicId === "money_basics" && (
+          {/* Only for locales where the standalone "examples" section
+              still exists — removed for English Explorer along with
+              the pre-first-lesson money-forms intro it used to link
+              back to (see explorerComicTopic and the world page). */}
+          {activity.topicId === "money_basics" && !explorerComicTopic && (
             <Button variant="secondary" onClick={() => changeSection("examples")}>{t("lesson.backToMoneyForms")}</Button>
           )}
           {rewardPanel}
