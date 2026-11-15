@@ -33,7 +33,13 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - run: npm run typecheck
+      - name: Redis binaries for assistant ledger tests
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y redis-server redis-tools
       - run: npm run test:unit
+        env:
+          MQ_TEST_REQUIRE_REDIS: "true"
       - name: Generate and inspect all 27 certificate PDFs
         run: |
           CERTIFICATE_QA_OUTPUT=certificate-qa node --import tsx scripts/test-academy-certificates.ts
@@ -60,7 +66,7 @@ jobs:
       - name: Safari certificate downloads on iPhone and iPad
         run: |
           npx playwright install --with-deps webkit
-          npx playwright test academy-certificates.spec.ts settings-panel.spec.ts business-save-and-simulate.spec.ts leadership-retry.spec.ts --project=iphone-safari --project=tablet-safari --workers=2
+          npx playwright test academy-certificates.spec.ts lesson-assistant.spec.ts settings-panel.spec.ts business-save-and-simulate.spec.ts leadership-retry.spec.ts --project=iphone-safari --project=tablet-safari --workers=2
           npx playwright test library-public.spec.ts nav-menu.spec.ts owner-navigation-search.spec.ts site-controls.spec.ts quiet-videos.spec.ts multilingual-release.spec.ts --project=tablet-safari
       - name: Require complete published-book artwork before release
         run: node --import tsx scripts/test-library-artwork.ts --complete

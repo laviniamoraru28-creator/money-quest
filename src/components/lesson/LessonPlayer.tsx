@@ -13,6 +13,7 @@ import { MoneyExamples } from "@/components/MoneyExamples";
 import { explorerOtherTopics } from "@/content/explorer-other-lessons";
 import { ExplorerInteractiveLesson } from "@/components/explorer/ExplorerInteractiveLesson";
 import { ReadAloudButton } from "@/components/ui/ReadAloudButton";
+import { LessonAssistant } from "@/components/lesson/LessonAssistant";
 import { LessonIllustration } from "@/components/lesson/LessonIllustration";
 import { ExplorerComicLesson, hasExplorerComic } from "@/components/lesson/ExplorerComicLesson";
 import { getWorldById } from "@/content/worlds";
@@ -378,6 +379,8 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
       )}
 
       {!explorerComicTopic && isExplorer && <GuidePanel compact message={phase === "incorrect" ? t("activityGuide.lessonRetry") : phase === "correct" ? t("activityGuide.lessonComplete") : lessonGoal} />}
+
+      {isSupportedLocale(uiLocale) && <LessonAssistant lessonId={activity.id} locale={uiLocale} />}
 
       {hasInteractiveExplorerLesson ? (
         <Card variant="activity" className="min-w-0 border-2 border-coral/30 p-3 sm:p-lg">
