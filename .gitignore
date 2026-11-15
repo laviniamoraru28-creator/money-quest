@@ -39,3 +39,10 @@ yarn-error.log*
 # Deployment build artifacts produced locally by the Namecheap workflow
 /deploy/
 moneyquest-namecheap-built.zip
+
+# Python bytecode cache
+__pycache__/
+*.pyc
+
+# Local-only Playwright config pinned to this sandbox's Chromium build (not used by CI)
+/playwright.local.config.ts
