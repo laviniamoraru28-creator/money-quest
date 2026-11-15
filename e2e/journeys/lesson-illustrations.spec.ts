@@ -4,6 +4,7 @@ import {LOCALES} from '../../src/i18n/config';
 import {LESSON_STRUCTURES} from '../../src/content/curriculum/structures';
 import {createDefaultState} from '../../src/lib/local-progress/state';
 import {moneyExamplesCopy} from '../../src/content/money-examples-copy';
+import {hasExplorerComic} from '../../src/content/explorer-comic-topics';
 
 const images: Record<string, string> = {
  money_basics:'money-basics', needs_wants:'needs-wants', saving:'saving', digital_money:'digital-money',
@@ -11,15 +12,30 @@ const images: Record<string, string> = {
 };
 async function checkLayout(page: Page) {
  expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(false);
- const illustration=page.locator('[data-lesson-illustration]');
+ // Mutually exclusive: an English Explorer comic topic renders
+ // [data-explorer-comic-lesson] instead of [data-lesson-illustration]
+ // (see explorer-comic-lessons.spec.ts) — never both.
+ const illustration=page.locator('[data-lesson-illustration], [data-explorer-comic-lesson]');
  const box=await illustration.boundingBox();
  expect(box).not.toBeNull();
  expect(box!.x).toBeGreaterThanOrEqual(0);
  expect(box!.x+box!.width).toBeLessThanOrEqual(page.viewportSize()!.width);
  const heading=await page.locator('[data-lesson-section="lesson"] h1').boundingBox();
  expect(heading).not.toBeNull();
- // Stacked on phones, side by side on desktop; never overlap the reading text.
- expect(box!.y+box!.height<=heading!.y || box!.x+box!.width<=heading!.x).toBe(true);
+ // The comic's own wrapper also contains its heading (unlike the old
+ // illustration, a sibling of its own text block), so the overlap
+ // check below compares the actual image/svg's box, not the
+ // container's — otherwise a comic's box trivially "overlaps" its own
+ // heading by containment. Stacked on phones, side by side on desktop
+ // for the old layout; heading-above-image for the comic layout —
+ // never actually overlapping in any of the three.
+ const artBox=await illustration.locator('img, svg').first().boundingBox();
+ expect(artBox).not.toBeNull();
+ expect(
+  artBox!.y+artBox!.height<=heading!.y ||
+  artBox!.x+artBox!.width<=heading!.x ||
+  heading!.y+heading!.height<=artBox!.y
+ ).toBe(true);
  for(const image of await illustration.locator('img').all()) {
   await expect(image).toBeVisible();
   await expect.poll(()=>image.evaluate((node:HTMLImageElement)=>node.complete && node.naturalWidth>0)).toBe(true);
@@ -29,12 +45,20 @@ async function checkLayout(page: Page) {
 
 for(const locale of LOCALES) for(const band of ['explorer','builder','strategist'] as const) {
  test(`${locale}/${band}: money sections stay mounted and preserve progress on forward/back navigation`, async({page})=>{
+  // The whole money-forms round trip this test exercises was removed for
+  // English Explorer along with the "Back to forms of money" button that
+  // drove it (see explorer-comic-lessons.spec.ts for its replacement
+  // coverage) — every other locale/band still has it.
+  test.skip(locale==='en' && band==='explorer', 'the money-forms round trip was removed for English Explorer');
   const messages=JSON.parse(readFileSync(`messages/${locale}.json`,'utf8'));
   const lesson=LESSON_STRUCTURES.find(item=>item.ageBand===band && item.topicId==='money_basics')!;
   const title=messages.curriculum[lesson.id].title;
   await page.addInitScript(state=>localStorage.setItem('moneyquest_local_progress_v1',JSON.stringify(state)),{...createDefaultState(),ageBand:band});
   await page.goto(`/${locale}/play/world/${lesson.worldId}`);
-  await expect(page.locator('#money-examples-heading')).toBeVisible();
+  // English Explorer no longer shows this world-page money-forms intro
+  // (see explorer-comic-lessons.spec.ts) — every other locale/band still
+  // does.
+  if (!(locale === 'en' && band === 'explorer')) await expect(page.locator('#money-examples-heading')).toBeVisible();
   await page.locator(`a[href="/${locale}/play/world/${lesson.worldId}/lesson/${lesson.id}"]`).click();
   await expect(page.locator('[data-lesson-section="lesson"]')).toBeVisible();
   // The examples section is mounted alongside the lesson section from the
@@ -112,7 +136,9 @@ for(const locale of LOCALES) for(const band of ['explorer','builder','strategist
   },{...createDefaultState(),ageBand:band});
   for(const lesson of LESSON_STRUCTURES.filter(item=>item.ageBand===band)) {
    await page.goto(`/${locale}/play/world/${lesson.worldId}/lesson/${lesson.id}`);
-   if(lesson.topicId==='money_basics') {
+   // No "Back to forms of money" button (and no money-forms section to
+   // visit) for English Explorer any more — see explorer-comic-lessons.spec.ts.
+   if(lesson.topicId==='money_basics' && !(locale==='en' && band==='explorer')) {
     await page.getByRole('button',{name:messages.lesson.backToMoneyForms,exact:true}).click();
     // Scoped to the money-forms section: Explorer's own money_basics
     // activity (mounted but hidden behind it) reuses the same card.webp
@@ -121,16 +147,27 @@ for(const locale of LOCALES) for(const band of ['explorer','builder','strategist
     await expect(page.locator('[data-lesson-section="examples"] img[src*="/money/card.webp"]')).toBeVisible();
     await page.getByRole('button',{name:messages.lesson.continueToLesson.replace('{title}',messages.curriculum[lesson.id].title),exact:true}).click();
    }
-   const illustration=page.locator(`[data-lesson-illustration="${lesson.topicId}"]`);
-   await expect(illustration).toBeVisible();
    await expect(page.locator('html')).toHaveAttribute('data-image-size','minimal');
    await expect(page.locator('html')).toHaveAttribute('data-focus-mode','true');
-   const asset=images[lesson.topicId];
-   if(asset) await expect(illustration.locator('img')).toHaveAttribute('src',`/images/money-quest/lessons/${asset}.webp`);
-   else await expect(illustration.locator('svg')).toBeVisible();
-   await expect(illustration.getByRole('img')).toHaveAccessibleName(messages.curriculum[lesson.id].title);
-   await checkLayout(page);
-   if(locale==='en' && band==='explorer') await page.screenshot({path:test.info().outputPath(`${lesson.topicId}.png`),fullPage:true});
+   if (locale === 'en' && band === 'explorer' && hasExplorerComic(lesson.topicId)) {
+    // Comic topics: the usual illustration+prose panel is replaced
+    // entirely (see explorer-comic-lessons.spec.ts for the full
+    // regression coverage) — just confirm it's gone and nothing
+    // overflows under these same accessibility preferences.
+    await expect(page.locator('[data-lesson-illustration]')).toHaveCount(0);
+    const comic=page.locator(`[data-explorer-comic-lesson="${lesson.topicId}"]`);
+    await expect(comic).toBeVisible();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(false);
+   } else {
+    const illustration=page.locator(`[data-lesson-illustration="${lesson.topicId}"]`);
+    await expect(illustration).toBeVisible();
+    const asset=images[lesson.topicId];
+    if(asset) await expect(illustration.locator('img')).toHaveAttribute('src',`/images/money-quest/lessons/${asset}.webp`);
+    else await expect(illustration.locator('svg')).toBeVisible();
+    await expect(illustration.getByRole('img')).toHaveAccessibleName(messages.curriculum[lesson.id].title);
+    await checkLayout(page);
+    if(locale==='en' && band==='explorer') await page.screenshot({path:test.info().outputPath(`${lesson.topicId}.png`),fullPage:true});
+   }
   }
   expect(errors).toEqual([]);
  });

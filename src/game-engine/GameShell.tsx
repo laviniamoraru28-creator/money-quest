@@ -241,20 +241,25 @@ export function GameShell({ config, ageBand, difficulty = "standard", currencyCo
           there, the Next/Back-to-World buttons already are the
           navigation, and a back-to-previous-activity link at that
           point would just replay the game the child just finished. */}
-      <div className="flex flex-wrap items-center gap-xs text-sm">
-        {previousActivityHref && (
-          <Button variant="secondary" onClick={() => router.push(previousActivityHref)}>
-            <span aria-hidden="true">←</span> {t("common.back")}
+      <div className="flex flex-col gap-2xs">
+        {/* No flex-wrap here: all three stay on one row at every
+            supported width, down to 320px — see LessonPlayer's
+            identical nav row for why the label is sr-only on mobile. */}
+        <div className="flex items-center gap-2xs text-sm">
+          {previousActivityHref && (
+            <Button variant="secondary" onClick={() => router.push(previousActivityHref)}>
+              <span aria-hidden="true">←</span> <span className="sr-only sm:not-sr-only">{t("common.back")}</span>
+            </Button>
+          )}
+          <Button variant="secondary" onClick={() => router.push(backHref)}>
+            <span aria-hidden="true">🗺️</span> <span className="sr-only sm:not-sr-only">{t("game.backToTheWorld")}</span>
           </Button>
-        )}
-        <Button variant="secondary" onClick={() => router.push(backHref)}>
-          <span aria-hidden="true">🗺️</span> {t("game.backToTheWorld")}
-        </Button>
-        <Button variant="secondary" onClick={() => router.push("/")}>
-          <span aria-hidden="true">🏠</span> {t("nav.home")}
-        </Button>
+          <Button variant="secondary" onClick={() => router.push("/")}>
+            <span aria-hidden="true">🏠</span> <span className="sr-only sm:not-sr-only">{t("nav.home")}</span>
+          </Button>
+        </div>
         {activityPosition && (
-          <span className="ml-auto rounded-full bg-teal/10 px-sm py-3xs font-medium text-teal-text">
+          <span className="self-start rounded-full bg-teal/10 px-sm py-3xs text-sm font-medium text-teal-text">
             {world && t("play.levelActivityProgress", { level: world.orderIndex, position: activityPosition.position, total: activityPosition.total })}
           </span>
         )}

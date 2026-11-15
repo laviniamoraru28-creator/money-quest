@@ -14,6 +14,7 @@ import { explorerOtherTopics } from "@/content/explorer-other-lessons";
 import { ExplorerInteractiveLesson } from "@/components/explorer/ExplorerInteractiveLesson";
 import { ReadAloudButton } from "@/components/ui/ReadAloudButton";
 import { LessonIllustration } from "@/components/lesson/LessonIllustration";
+import { ExplorerComicLesson, hasExplorerComic } from "@/components/lesson/ExplorerComicLesson";
 import { getWorldById } from "@/content/worlds";
 import { useAccessibilityPrefs } from "@/lib/accessibility/use-accessibility-preferences";
 import { useSound } from "@/lib/audio/use-sound";
@@ -97,6 +98,12 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
     : t("activityGuide.lessonGoal", {title: activity.title});
   const rewardCurrencyCode = isExplorer && isSupportedLocale(uiLocale) ? LOCALE_LEARNING_CURRENCY[uiLocale] : activity.childCurrencyCode;
   const hasInteractiveExplorerLesson = isExplorer && ["money_basics","needs_wants","saving",...explorerOtherTopics].includes(activity.topicId);
+  // English-only: Explorer's supplied comic strips replace the usual
+  // illustration+prose panel for the topics that have one. needs_wants
+  // and investing_basics have no comic yet, and every other locale
+  // keeps its existing lesson presentation until translated comics are
+  // supplied — see ExplorerComicLesson's own doc comment.
+  const explorerComicTopic = isExplorer && uiLocale === "en" && hasExplorerComic(activity.topicId) ? activity.topicId : null;
   const world = getWorldById(activity.worldId);
   const worldThemeColor = world?.themeColor ?? "#0F7A6B";
   // Display order only — handleCheckAnswer below always compares the
@@ -200,20 +207,28 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
           so both read as actionable controls, not secondary metadata;
           flex-wrap keeps this from overflowing on narrow phones when a
           locale's labels run long. */}
-      <div className="flex flex-wrap items-center gap-xs text-sm">
-        {previousActivityHref && (
-          <Button variant="secondary" onClick={() => router.push(previousActivityHref)}>
-            <span aria-hidden="true">←</span> {t("common.back")}
+      <div className="flex flex-col gap-2xs">
+        {/* No flex-wrap here: all three stay on one row at every
+            supported width, down to 320px. The label text is sr-only
+            below the `sm` breakpoint and reappears at tablet/desktop
+            width — the icon alone, inside the same min-h-touch-min
+            button, is enough tap target on a phone and keeps every
+            language's (often longer) label from forcing a wrap. */}
+        <div className="flex items-center gap-2xs text-sm">
+          {previousActivityHref && (
+            <Button variant="secondary" onClick={() => router.push(previousActivityHref)}>
+              <span aria-hidden="true">←</span> <span className="sr-only sm:not-sr-only">{t("common.back")}</span>
+            </Button>
+          )}
+          <Button variant="secondary" onClick={() => router.push(backToWorldHref)}>
+            <span aria-hidden="true">🗺️</span> <span className="sr-only sm:not-sr-only">{t("game.backToTheWorld")}</span>
           </Button>
-        )}
-        <Button variant="secondary" onClick={() => router.push(backToWorldHref)}>
-          <span aria-hidden="true">🗺️</span> {t("game.backToTheWorld")}
-        </Button>
-        <Button variant="secondary" onClick={() => router.push("/")}>
-          <span aria-hidden="true">🏠</span> {t("nav.home")}
-        </Button>
+          <Button variant="secondary" onClick={() => router.push("/")}>
+            <span aria-hidden="true">🏠</span> <span className="sr-only sm:not-sr-only">{t("nav.home")}</span>
+          </Button>
+        </div>
         {activityPosition && (
-          <span className="ml-auto rounded-full bg-teal/10 px-sm py-3xs font-medium text-teal-text">
+          <span className="self-start rounded-full bg-teal/10 px-sm py-3xs text-sm font-medium text-teal-text">
             {world && t("play.levelActivityProgress", { level: world.orderIndex, position: activityPosition.position, total: activityPosition.total })}
           </span>
         )}
@@ -245,12 +260,28 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
         {phase === "correct" && t("a11y.answerCorrectAnnouncement")}
       </div>
 
-      {/* The book — a two-page spread on desktop/tablet, stacked into
+      {/* Explorer's own required order is title, then guide, then the
+          comic (see ExplorerComicLesson) — the reverse of the
+          guide-after-content order every other band/locale still
+          uses below. Rendered here, once, only for the comic branch;
+          the later `!explorerComicTopic && isExplorer` guide stays the
+          old position for everyone else. */}
+      {explorerComicTopic && (
+        <>
+          <h1 ref={lessonHeading} tabIndex={-1} className="font-display text-xl font-bold">{activity.title}</h1>
+          <GuidePanel compact message={phase === "incorrect" ? t("activityGuide.lessonRetry") : phase === "correct" ? t("activityGuide.lessonComplete") : lessonGoal} />
+        </>
+      )}
+
+      {explorerComicTopic ? (
+        <ExplorerComicLesson topicId={explorerComicTopic} uiLocale={uiLocale} />
+      ) : (
+      /* The book — a two-page spread on desktop/tablet, stacked into
           a single page on mobile. Left page: an illustration relating
           directly to this lesson's topic (see LessonIllustration's
           own doc comment on scope). Right page: the actual reading
           content, broken into short sections rather than one long
-          block of prose, per the redesign brief. */}
+          block of prose, per the redesign brief. */
       <div className="overflow-hidden rounded-xl shadow-floating md:grid md:grid-cols-5">
         <div
           className="relative flex items-center justify-center p-lg md:col-span-2"
@@ -344,8 +375,9 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
           </span>
         </div>
       </div>
+      )}
 
-      {isExplorer && <GuidePanel compact message={phase === "incorrect" ? t("activityGuide.lessonRetry") : phase === "correct" ? t("activityGuide.lessonComplete") : lessonGoal} />}
+      {!explorerComicTopic && isExplorer && <GuidePanel compact message={phase === "incorrect" ? t("activityGuide.lessonRetry") : phase === "correct" ? t("activityGuide.lessonComplete") : lessonGoal} />}
 
       {hasInteractiveExplorerLesson ? (
         <Card variant="activity" className="min-w-0 border-2 border-coral/30 p-3 sm:p-lg">
@@ -361,7 +393,11 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
             playCorrect();
             requestAnimationFrame(() => explorerReward.current?.focus());
           }}/>
-          {activity.topicId === "money_basics" && (
+          {/* Only for locales where the standalone "examples" section
+              still exists — removed for English Explorer along with
+              the pre-first-lesson money-forms intro it used to link
+              back to (see explorerComicTopic and the world page). */}
+          {activity.topicId === "money_basics" && !explorerComicTopic && (
             <Button variant="secondary" onClick={() => changeSection("examples")}>{t("lesson.backToMoneyForms")}</Button>
           )}
           {rewardPanel}
