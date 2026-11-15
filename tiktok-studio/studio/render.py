@@ -27,14 +27,13 @@ TRANSITION = 0.32
 # One colour card per scene type. `bg` is a vertical gradient (top, bottom).
 # `hl` is the highlight colour; with `pill` the highlighted words sit on a
 # solid pill of that colour instead of just changing colour.
-PALETTES = {
-    "hook":  {"bg": ("#0B3B36", "#0E4A43"), "text": "#FFFFFF", "hl": "#E8A33D", "pill": None,      "chip": ("#E8A33D", "#0B3B36"), "dark": True},
-    "tip":   {"bg": ("#E8A33D", "#F2B95C"), "text": "#0B3B36", "hl": "#FFF8EC", "pill": "#0B3B36", "chip": ("#0B3B36", "#FFF8EC"), "dark": False},
-    "why":   {"bg": ("#3A2459", "#4A2F70"), "text": "#FFFFFF", "hl": "#E8A33D", "pill": None,      "chip": ("#E8A33D", "#3A2459"), "dark": True},
-    "learn": {"bg": ("#FFF8EC", "#F6E7C8"), "text": "#0B3B36", "hl": "#FFF8EC", "pill": "#0F7A6B", "chip": ("#0F7A6B", "#FFFFFF"), "dark": False},
-    "cta":   {"bg": ("#0B3B36", "#0E4A43"), "text": "#FFFFFF", "hl": "#E8A33D", "pill": None,      "chip": ("#E8A33D", "#0B3B36"), "dark": True},
-}
-START_SIZE = {"hook": 156, "tip": 116, "why": 116, "learn": 116}
+_TEAL = {"bg": ("#0B3B36", "#0E4A43"), "text": "#FFFFFF", "hl": "#E8A33D", "pill": None, "chip": ("#E8A33D", "#0B3B36"), "dark": True}
+_GOLD = {"bg": ("#E8A33D", "#F2B95C"), "text": "#0B3B36", "hl": "#FFF8EC", "pill": "#0B3B36", "chip": ("#0B3B36", "#FFF8EC"), "dark": False}
+_PURPLE = {"bg": ("#3A2459", "#4A2F70"), "text": "#FFFFFF", "hl": "#E8A33D", "pill": None, "chip": ("#E8A33D", "#3A2459"), "dark": True}
+_CREAM = {"bg": ("#FFF8EC", "#F6E7C8"), "text": "#0B3B36", "hl": "#FFF8EC", "pill": "#0F7A6B", "chip": ("#0F7A6B", "#FFFFFF"), "dark": False}
+PALETTES = {"hook": _TEAL, "reframe": _CREAM, "analogy": _PURPLE, "steps": _GOLD, "why": _TEAL, "question": _CREAM, "cta": _TEAL}
+START_SIZE = {"hook": 156, "reframe": 120, "analogy": 112, "steps": 96, "why": 116, "question": 124}
+STEP_BREAK = "\u00b6"
 MIN_SIZE = 64
 
 
@@ -90,6 +89,12 @@ def _wrap(tokens, font, max_w):
     lines, cur, cur_w = [], [], 0.0
     space = font.getlength(" ")
     for word, hl in tokens:
+        if word == STEP_BREAK:
+            if cur:
+                lines.append(cur)
+            lines.append(None)  # group boundary
+            cur, cur_w = [], 0.0
+            continue
         w = font.getlength(word)
         add = w if not cur else space + w
         if cur and cur_w + add > max_w:
@@ -155,29 +160,38 @@ class Scene:
     def _build_text(self, layout):
         scene, pal, fonts = self.scene, self.pal, self.fonts
         tokens = parse_highlights(scene["text"])
+        real = [t for t in tokens if t[0] != STEP_BREAK]
         size = START_SIZE[self.kind]
         avail_h = TEXT_BOTTOM - TEXT_TOP
         while True:
             font = fonts.bold(size)
-            lines = _wrap(tokens, font, TEXT_W)
+            wrapped = _wrap(tokens, font, TEXT_W)
             asc, desc = font.getmetrics()
             lh = int((asc + desc) * 1.14)
-            widest = max(font.getlength(w) for w, _ in tokens)
-            if (lh * len(lines) <= avail_h and widest <= TEXT_W) or size <= MIN_SIZE:
+            gap = int(lh * 0.5)
+            n_lines = sum(1 for ln in wrapped if ln is not None)
+            block_h = lh * n_lines + gap * sum(1 for ln in wrapped if ln is None)
+            widest = max(font.getlength(w) for w, _ in real)
+            if (block_h <= avail_h and widest <= TEXT_W) or size <= MIN_SIZE:
                 break
             size -= 4
         self.font_size = size
         space = font.getlength(" ")
-        block_h = lh * len(lines)
-        y0 = TEXT_TOP + (avail_h - block_h) // 2
-        centered = self.kind == "hook"
+        y = TEXT_TOP + (avail_h - block_h) // 2
+        y0 = y
+        centered = self.kind in ("hook", "question")
         pad = int(space * 0.42)
-        self.words = []  # (image, x, y)
-        for li, line in enumerate(lines):
+        self.words = []  # (image, x, y, group)
+        group, li = 0, 0
+        for line in wrapped:
+            if line is None:
+                group += 1
+                y += gap
+                continue
             line_w = sum(font.getlength(w) for w, _ in line) + space * (len(line) - 1)
             x = TEXT_X + (TEXT_W - line_w) / 2 if centered else float(TEXT_X)
-            y = y0 + li * lh
             layout.append({"scene": self.kind, "element": f"line{li}", "box": [int(x), y, int(x + line_w) + 1, y + lh], "font_size": size})
+            li += 1
             for word, hl in line:
                 w = font.getlength(word)
                 img = Image.new("RGBA", (int(w) + 2 * pad + 2, lh), (0, 0, 0, 0))
@@ -186,8 +200,10 @@ class Scene:
                 if hl and pal["pill"]:
                     d.rounded_rectangle((0, ty + int(asc * 0.08), img.width - 1, ty + asc + desc - int(desc * 0.1)), radius=int(size * 0.2), fill=_hex(pal["pill"]))
                 d.text((pad, ty), word, font=font, fill=_hex(pal["hl"] if hl else pal["text"]))
-                self.words.append((img, int(x) - pad, y))
+                self.words.append((img, int(x) - pad, y, group))
                 x += w + space
+            y += lh
+        self.groups = group + 1
         if scene.get("label"):
             f = fonts.bold(44)
             tw = int(f.getlength(scene["label"]))
@@ -280,12 +296,18 @@ class Scene:
         # second); later scenes wait for the push transition to finish.
         start = 0.0 if self.kind == "hook" else 0.22
         stagger = min(0.075, 0.9 / max(1, len(self.words)))
+        # Steps appear one group at a time, spread over the scene.
+        group_gap = (self.scene["duration"] - 2.2) / self.groups if self.groups > 1 else 0.0
         if self.label:
             chip, lx, ly = self.label
             kk = _ease_out((tau - start + 0.1) / 0.3)
             img.alpha_composite(_with_alpha(chip, kk), (int(lx - 30 * (1 - kk)), ly))
-        for i, (layer, x, y) in enumerate(self.words):
-            kk = _ease_out((tau - start - i * stagger) / 0.2)
+        seen = {}
+        for layer, x, y, g in self.words:
+            i = seen.get(g, 0)
+            seen[g] = i + 1
+            idx = i if self.groups > 1 else sum(seen.values()) - 1
+            kk = _ease_out((tau - start - g * group_gap - idx * stagger) / 0.2)
             if kk <= 0:
                 continue
             img.alpha_composite(_with_alpha(layer, kk), (x, int(y + 34 * (1 - kk))))

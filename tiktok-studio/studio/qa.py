@@ -116,7 +116,7 @@ def check_spelling(texts: list[str]) -> list[str]:
 
 def check_content(topic: dict, plan: dict, config: dict) -> dict:
     errors, warnings = [], []
-    for field in ("hook", "learn", "why", "tip", "explore", "category"):
+    for field in ("hook", "reframe", "analogy", "steps", "why", "question", "learn", "tip", "explore", "category"):
         if not topic.get(field):
             errors.append(f"missing field: {field}")
     root = website_root(config)
@@ -125,7 +125,7 @@ def check_content(topic: dict, plan: dict, config: dict) -> dict:
             errors.append(f"image not found: {img}")
     errors += check_sources(topic, config)
 
-    texts = [topic.get(k, "") for k in ("hook", "learn", "why", "tip", "explore")] + config["brand"]["cta_lines"]
+    texts = [topic.get(k, "") for k in ("hook", "reframe", "analogy", "why", "question", "learn", "tip", "explore")] + list(topic.get("steps", [])) + config["brand"]["cta_lines"]
     errors += check_spelling(texts + [plan["caption"]])
 
     for text in texts + [plan["caption"]]:
@@ -136,6 +136,11 @@ def check_content(topic: dict, plan: dict, config: dict) -> dict:
     cta = plan["scenes"][-1]
     if cta["kind"] != "cta" or cta["lines"] != ["Help your child build real-life skills.", "Explore Money Quest.", "Link in bio."]:
         errors.append("final scene must carry the exact brand CTA")
+    steps = topic.get("steps", [])
+    if len(steps) != 3 or any(word_count(st) > 10 for st in steps):
+        errors.append("exercise must be exactly 3 steps of at most 10 words each")
+    if not plain(topic.get("question", "")).rstrip('"').endswith("?"):
+        errors.append("closing question must end with a question mark")
     if word_count(topic.get("hook", "")) > 12:
         errors.append("hook longer than 12 words")
     if not plan["scenes"][0]["text"].rstrip("*\" ").endswith(("?", "!", ".")):

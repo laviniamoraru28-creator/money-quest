@@ -1,6 +1,6 @@
 # Money Quest TikTok Studio
 
-Short, educational TikTok videos **for parents** that explain *why* a skill taught on
+Short, educational TikTok videos **for parents** (about 30-36 seconds, text only) that explain *why* a skill taught on
 Money Quest matters for their child. These are not adverts. Each video answers one question:
 **"Why is this knowledge or skill important for my child?"** A parent should learn something
 useful even if they never visit the website.
@@ -21,14 +21,16 @@ curriculum/topics.json ──► select ──► script ──► render ──
 
 | Seconds (approx.) | Scene | Content |
 |---|---|---|
-| 0-3 | Problem | A real-life problem a parent recognises, in very large text |
-| 3-7 | Try this | The fix: one practical thing to do at home |
-| 7-12 | Why it works | Why the fix works, with an everyday example |
-| 12-16 | What your child learns | The skill, in plain words |
+| 0-3 | Hook | A real-life problem a parent recognises, in very large text |
+| 3-7 | Reframe | A warm one-line reframe ("They're not careless...") |
+| 7-13 | Think of it like this | An analogy from the child's world: games, sweets, sport |
+| 13-22 | Try this today | A 3-step exercise, steps appearing one by one |
+| 22-27 | Why it works | Why the exercise works |
+| 27-32 | Tell us | A question that invites comments |
 | last ~3 | Brand | "Help your child build real-life skills. Explore Money Quest. Link in bio." plus where to explore further on the site |
 
-Scene lengths are calculated from word count (about 3.6 words per second plus a lead-in), so the
-total adapts but always stays within 10-20 seconds.
+Scene lengths are calculated from word count (about 3.1 words per second plus a lead-in), so
+videos run 30-36 seconds (QA allows 25-46). What the child learns is stated in the caption.
 
 **Visuals:** text only, no images. Each scene is a bold brand-colour card (teal, gold, purple,
 cream) with very large text that pops in word by word, highlighted key words, a push transition
@@ -66,7 +68,7 @@ thinking, and giving. 30 topics is 10 weeks at 3 per week. Add new topics in the
 ## QA (a video can't be published unless all checks pass)
 
 Spelling · source quotes present · guardrails · exact CTA · hook length · reading speed ·
-10-20 s duration · H.264/AAC 1080x1920 30 fps · every text box inside TikTok's safe zone (clear
+25-46 s duration · H.264/AAC 1080x1920 30 fps · every text box inside TikTok's safe zone (clear
 of the top tabs, right-hand buttons and bottom caption) · minimum font size · text contrast
 (white 12.4:1, gold 5.8:1 on the panel) · no blank frames · audio present and not clipping ·
 contact sheet (`contact_sheet.jpg`) for a human glance.

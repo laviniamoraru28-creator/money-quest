@@ -10,30 +10,59 @@
       "cream": "#FFF8EC",
       "white": "#FFFFFF"
     },
-    "cta_lines": ["Help your child build real-life skills.", "Explore Money Quest.", "Link in bio."]
+    "cta_lines": [
+      "Help your child build real-life skills.",
+      "Explore Money Quest.",
+      "Link in bio."
+    ]
   },
   "website_repo_root": "..",
   "video": {
     "width": 1080,
     "height": 1920,
     "fps": 30,
-    "min_seconds": 10,
-    "max_seconds": 20,
+    "min_seconds": 25,
+    "max_seconds": 46,
     "max_words_per_second": 3.6,
-    "safe_zone": {"left": 60, "right": 140, "top": 200, "bottom": 420}
+    "safe_zone": {
+      "left": 60,
+      "right": 140,
+      "top": 200,
+      "bottom": 420
+    }
   },
   "fonts": {
-    "bold": ["/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf", "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", "/usr/share/fonts/truetype/freefont/FreeSansBold.ttf"],
-    "regular": ["/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf", "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", "/usr/share/fonts/truetype/freefont/FreeSans.ttf"]
+    "bold": [
+      "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf",
+      "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+      "/usr/share/fonts/truetype/freefont/FreeSansBold.ttf"
+    ],
+    "regular": [
+      "/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf",
+      "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+      "/usr/share/fonts/truetype/freefont/FreeSans.ttf"
+    ]
   },
   "schedule": {
     "videos_per_week": 3,
-    "days": ["Mon", "Wed", "Fri"],
+    "days": [
+      "Mon",
+      "Wed",
+      "Fri"
+    ],
     "note": "The actual cron lives in .github/workflows/tiktok-studio.yml"
   },
   "selection": {
     "avoid_category_repeat_within": 2,
-    "performance_weight_bounds": [0.7, 1.3]
+    "performance_weight_bounds": [
+      0.7,
+      1.3
+    ]
   },
-  "hashtags_base": ["#parenting", "#financialliteracy", "#parentingtips", "#kidsandmoney"]
+  "hashtags_base": [
+    "#parenting",
+    "#financialliteracy",
+    "#parentingtips",
+    "#kidsandmoney"
+  ]
 }
