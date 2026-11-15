@@ -1,0 +1,46 @@
+# Money Quest lesson assistant
+
+## Implementation
+
+The feature targets the current repository baseline, Next.js 15.5.28 and Node.js 24.22.1. The shared lesson player places the collapsed assistant beside the existing activity on all 30 curriculum lesson routes. Its nine translations include safety messages and limit notices. A child can choose a shortcut, type a question or answer a generated challenge with visual choices. Each challenge presents a shuffled, stable choice order. Opening the assistant keeps the current activity mounted and preserves progress. Speech is explicit and uses a local device voice for the selected language when available.
+
+`POST /api/lesson-assistant` validates the same-origin request, signed visitor cookie, JSON size, lesson ID, action, language and question length. The server resolves the activity and learning level from the catalog. It reads the selected language's curriculum objective, concept, explanation, misconception and examples of existing activities. The assistant receives this educational context and a level-specific brief. It can teach related concepts and use new fictional examples.
+
+The server depends on a small provider interface. The included adapter targets OpenAI Chat Completions with a pinned model, structured replies and no tools or browsing. A second call independently reviews the draft and user question for scope, personal data, language, age suitability and factual consistency. Shortcuts and typed questions share the same safety and cost controls. Responses render as text, with a fixed set of icons. The safety filter is probabilistic and needs live quality checks before use with children. [Structured Outputs](https://developers.openai.com/api/docs/guides/structured-outputs)
+
+The application keeps one signed fragment of the last reviewed reply in the open panel, bound to the lesson, language, visitor and UTC date. A follow-up can use that fragment. Closing the panel clears its local conversation state. The browser does not persist the conversation. Money Quest does not store messages, transcripts, IP addresses, exact ages, learning profiles or progress in the assistant ledger. The provider receives the selected learning band, language, lesson context, user text and the reviewed reply fragment where applicable. The application logs generic failures and threshold events without message text or identifiers.
+
+## Limits and cost
+
+- Ten submitted AI turns per signed browser session per UTC day, including the three shortcuts. The identifier expires at the next UTC midnight. The daily Redis counter uses a rotating HMAC and expires at midnight as well. As this is a site without accounts, resetting browser storage or switching devices creates a new visitor session. The shared monthly limit still applies.
+- One Redis Lua transaction checks the daily count and the shared monthly balance, then reserves the upper estimated cost of generation and review before either call. Concurrent requests share the same balance. A second transaction settles reported usage and refunds any unused allowance once. Missing billing confirmation keeps the full reservation. An estimate overrun suspends future calls for review.
+- The application denies requests that would take the estimated monthly spend above £5. It emits a server warning once at £4 of used or reserved funds and does not raise the limits. If Redis is unavailable or uninitialised, AI calls stop. Lessons remain available. The monthly total lasts 90 days and reservation records expire after one day.
+- The pinned candidate is GPT-4.1 mini for its documented price, structured outputs and bounded generation. The official price is US$0.40 per million uncached input tokens and US$1.60 per million output tokens. The application budgets at full input price. Generation allows up to 360 output tokens and the review allows 32. [Model pricing](https://developers.openai.com/api/docs/models/gpt-4.1-mini)
+- Illustrative rate: £1 = US$1.3282 on 11 November 2026. The buffered example uses £1 per US$1 to make room for exchange-rate movement, fees and any relevant tax. Confirm your account's invoice terms and the effective GBP cost before configuring the buffer. [Bank of England](https://www.bankofengland.co.uk/boeapps/database/Rates.asp?TD=11&TM=Nov&TY=2026&into=GBP&rateview=D)
+- OpenAI documents an optional enforced project limit, with possible overshoot while enforcement takes effect. Its project limit and the application's reservations reduce exposure. Provider invoices, taxes, conversion and any separate store charges can still differ from the application ledger. Confirm which features are available on the actual project. [OpenAI project limits](https://help.openai.com/en/articles/9186755-managing-projects-in-the-api-platform)
+
+Assumptions for these estimates are three successful turns per conversation and 1,500 input tokens plus 180 output tokens per turn across both calls. These are planning figures before live measurement. A conversation with more turns or longer context will cost more.
+
+| Monthly conversations | AI turns | Estimated API cost at the sample spot rate | Ledger estimate with the sample buffer |
+| ---: | ---: | ---: | ---: |
+| 250 | 750 | £0.50 | £0.67 |
+| 500 | 1,500 | £1.00 | £1.33 |
+| 1,000 | 3,000 | £2.01 | £2.66 |
+| 1,500 | 4,500 | £3.01 | £4.00 |
+| 1,800 | 5,400 | £3.61 | £4.80 |
+| 2,000 | 6,000 | £4.01 | £5.33 before the £5 gate stops new turns |
+
+## UK children’s privacy and approval before activation
+
+Money Quest is designed to be accessed by children. Complete a Data Protection Impact Assessment before a public pilot. Document the lawful basis, cookie necessity, what may be disclosed in free text, processors, international transfers, contractual terms, retention and deletion. Agree how a parent can report a harmful response and who will act on reports. Update the child-facing privacy notice and the parent-facing notice to explain the AI provider and optional use. Apply the applicable high-privacy safeguards to all visitors without using the selected lesson band as identity or proof of age. [ICO Children’s Code standards](https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/childrens-information/childrens-code-guidance-and-resources/age-appropriate-design-a-code-of-practice-for-online-services/code-standards/)
+
+Child free text can include personal information that a filter misses. OpenAI's under-18 guidance says to implement Zero Data Retention before using its API to process personal data from children under 13 or under the applicable age of digital consent. OpenAI must approve those controls. Sending `store: false` alone leaves other retention controls separate. Confirm Zero Data Retention for the specific project and endpoint before accepting children's free text. [OpenAI under-18 guidance](https://developers.openai.com/api/docs/guides/safety-checks/under-18-api-guidance) · [Provider data controls](https://developers.openai.com/api/docs/guides/your-data)
+
+## Activation and verification
+
+1. Obtain owner approval for provider, prices, conversion buffer, project controls and a separately capped test. Use a dedicated project and key. Enable its enforced spend limit and alert if the provider account offers them. Test with adult-authored synthetic prompts first. Review actual usage, response quality, scope refusals, privacy guard behaviour and the nine languages. Compare against OpenAI's current guidance on model choice for minors before selecting a public release model.
+2. Provision a dedicated persistent Redis store with a single authoritative write endpoint, eviction disabled and no paid upgrade unless separately approved. The implementation uses the Upstash Redis REST command protocol. Initialise `mq:assistant:ledger-ready` with the same high-entropy value as `MQ_AI_LEDGER_MARKER`. Keep this key and the ledger across restarts. If ledger data is lost, reconcile provider usage for the month before reinitialising. Confirm hosting outbound access and any store limits. [Redis REST API](https://upstash.com/docs/redis/features/restapi)
+3. Configure the variables in `.env.local.example` in the private host environment. Supply the exact HTTPS origin, high-entropy signing secret, Redis write credentials, buffered GBP per USD and an ISO UTC expiry within the next 31 days. Set the expiry to the next scheduled price and exchange-rate review. Leave `MQ_AI_ENABLED=false` until the approved test or launch window. Set it back to false to stop AI calls. The project funding settings are separate.
+4. Check real mobile devices for voices and screen-reader behaviour, complete the UK privacy review, then seek approval for merge and deployment.
+
+Automated testing uses fixtures for all model responses. Run `npm run test:unit` with Redis binaries for real local Lua tests, and `npx playwright test lesson-assistant.spec.ts` against a local build for browser checks. The browser suite exercises the three levels and nine locales, a 320-pixel mobile layout, keyboard interaction, automatic accessibility checks, screen-reader announcements, local narration with a simulated voice, focus and motion preferences, progress preservation and the safe unavailable states.
