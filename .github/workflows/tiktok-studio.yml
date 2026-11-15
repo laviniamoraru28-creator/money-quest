@@ -13,6 +13,13 @@ name: TikTok Studio (Money Quest videos)
 # Scheduled runs only fire from the default branch (GitHub rule).
 
 on:
+  # Pre-merge testing: committing a change to tiktok-studio/test-request.json on
+  # the development branch runs the requested test from that branch. It can
+  # only do buffer-setup, review or buffer-notify, never automatic posting.
+  # Remove this trigger once the studio is merged to main.
+  push:
+    branches: [ccr-845ea0e4-yysn7f]
+    paths: [tiktok-studio/test-request.json]
   schedule:
     - cron: "41 17 * * 1,3,5"   # Mon/Wed/Fri 17:41 UTC: one new video
     - cron: "13 9 * * 0"        # Sunday 09:13 UTC: status sync, metrics, cleanup
@@ -79,6 +86,14 @@ jobs:
             mode="${{ inputs.publish_mode }}"
             # Pressing "Run workflow" with a Buffer mode authorises this one video.
             automation=$([ "$mode" != "review" ] && echo true || echo false)
+          elif [ "${{ github.event_name }}" = "push" ]; then
+            task=$(python -c "import json;print(json.load(open('test-request.json')).get('task','next-video'))")
+            mode=$(python -c "import json;print(json.load(open('test-request.json')).get('publish_mode','review'))")
+            case "$task" in next-video|buffer-setup) ;; *) echo "::error::test task must be next-video or buffer-setup"; exit 1;; esac
+            case "$mode" in review|buffer-notify) ;; *) echo "::error::branch tests may only use review or buffer-notify"; exit 1;; esac
+            automation=$([ "$mode" = "buffer-notify" ] && echo true || echo false)
+            # Branch tests can never post publicly, whatever the repository variable says.
+            echo "PUBLIC_POSTING_APPROVED=false" >> "$GITHUB_ENV"
           else
             task=$([ "${{ github.event.schedule }}" = "13 9 * * 0" ] && echo weekly-maintenance || echo next-video)
             mode="${{ vars.PUBLISH_MODE || 'review' }}"

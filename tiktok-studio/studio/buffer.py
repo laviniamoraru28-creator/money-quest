@@ -86,27 +86,86 @@ REQUIRED = {
 }
 ENUMS = {"SchedulingType": ["automatic", "notification"], "ShareMode": ["customScheduled"]}
 
+_TYPE_REF = "kind name ofType { kind name ofType { kind name ofType { kind name } } }"
+_INTROSPECT = """query {
+  __schema {
+    queryType { name } mutationType { name }
+    types { kind name
+      fields { name args { name type { %s } } type { %s } }
+      inputFields { name type { %s } }
+      enumValues { name } }
+  }
+}""" % (_TYPE_REF, _TYPE_REF, _TYPE_REF)
 
-def schema_report() -> list[str]:
-    """Returns a list of problems (empty = this client matches the live API)."""
+
+def _tstr(t: dict | None) -> str:
+    if not t:
+        return "?"
+    if t["kind"] == "NON_NULL":
+        return _tstr(t.get("ofType")) + "!"
+    if t["kind"] == "LIST":
+        return "[" + _tstr(t.get("ofType")) + "]"
+    return t.get("name") or "?"
+
+
+def _base(t: dict | None) -> str | None:
+    while t and t.get("ofType"):
+        t = t["ofType"]
+    return t.get("name") if t else None
+
+
+def schema_report() -> tuple[list[str], list[str]]:
+    """One introspection request. Returns (problems, description lines).
+
+    The description prints the exact live shape of everything this client
+    touches, so any mismatch can be fixed from the workflow log."""
+    schema = gql(_INTROSPECT)["__schema"]
+    types = {t["name"]: t for t in schema["types"]}
+    lines: list[str] = []
+    seen: set[str] = set()
+
+    def describe(name: str, depth: int = 0):
+        t = types.get(name)
+        if not t or name in seen or name.startswith("__") or depth > 4:
+            return
+        seen.add(name)
+        if t["kind"] == "ENUM":
+            lines.append(f"enum {name}: {', '.join(v['name'] for v in t['enumValues'] or [])}")
+        elif t["kind"] == "INPUT_OBJECT":
+            lines.append(f"input {name}: " + ", ".join(f"{f['name']}: {_tstr(f['type'])}" for f in t["inputFields"] or []))
+            for f in t["inputFields"] or []:
+                describe(_base(f["type"]), depth + 1)
+        elif t["kind"] == "UNION":
+            lines.append(f"union {name}")
+        elif t["kind"] == "OBJECT" and name in ("Post", "Channel", "PostActionSuccess", "MutationError"):
+            lines.append(f"type {name}: " + ", ".join(f"{f['name']}: {_tstr(f['type'])}" for f in t["fields"] or []))
+
+    for root, wanted in ((schema["queryType"]["name"], ("account", "channels", "post", "posts")),
+                         ((schema.get("mutationType") or {}).get("name"), ("createPost", "deletePost"))):
+        for f in (types.get(root) or {}).get("fields") or []:
+            if f["name"] in wanted:
+                lines.append(f"{root}.{f['name']}(" + ", ".join(f"{a['name']}: {_tstr(a['type'])}" for a in f["args"]) + f") -> {_tstr(f['type'])}")
+                for a in f["args"]:
+                    describe(_base(a["type"]))
+    for name in ("Post", "PostStatus", "SchedulingType", "ShareMode", "MutationError"):
+        describe(name)
+
     problems = []
     for type_name, fields in REQUIRED.items():
-        data = gql("query($n: String!) { __type(name: $n) { name fields { name } inputFields { name } } }", {"n": type_name})
-        t = data.get("__type")
+        t = types.get(type_name)
         if not t:
-            problems.append(f"type {type_name} not found (introspection may be disabled)")
+            problems.append(f"type {type_name} not found")
             continue
         names = {f["name"] for f in (t.get("fields") or []) + (t.get("inputFields") or [])}
-        problems += [f"{type_name}.{f} missing (has: {sorted(names)})" for f in fields if f not in names]
+        problems += [f"{type_name}.{f} missing" for f in fields if f not in names]
     for enum, values in ENUMS.items():
-        data = gql("query($n: String!) { __type(name: $n) { enumValues { name } } }", {"n": enum})
-        t = data.get("__type")
+        t = types.get(enum)
         if not t:
             problems.append(f"enum {enum} not found")
             continue
         names = {v["name"] for v in t.get("enumValues") or []}
-        problems += [f"{enum}.{v} missing (has: {sorted(names)})" for v in values if v not in names]
-    return problems
+        problems += [f"{enum}.{v} missing" for v in values if v not in names]
+    return problems, lines
 
 
 # -- posting --------------------------------------------------------------------

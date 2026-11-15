@@ -139,23 +139,33 @@ def cmd_approve(args):
 
 # -- hosting & Buffer ----------------------------------------------------------
 def cmd_buffer_setup(_):
+    """Read-only: lists TikTok channels and checks Buffer's live API. Posts nothing."""
     chans = buffer.tiktok_channels()
+    rc = 0
     if not chans:
-        print("No TikTok channel found in your Buffer account. Connect TikTok in Buffer first (Channels > Connect > TikTok).")
-        return 1
-    print("TikTok channels in Buffer:")
-    for c in chans:
-        print(f"  {c['name']:<30} id={c['id']}  organization={c['organization']}  queuePaused={c.get('isQueuePaused')}")
-    if len(chans) > 1:
-        print("More than one TikTok channel: set the BUFFER_CHANNEL_ID repository variable to the right id.")
-    problems = buffer.schema_report()
+        print("No TikTok channel found in this Buffer account. Connect TikTok in Buffer first (Channels > Connect > TikTok).")
+        rc = 1
+    else:
+        print("TikTok channels in Buffer:")
+        for c in chans:
+            print(f"  {c['name']:<30} id={c['id']}  queuePaused={c.get('isQueuePaused')}")
+        if len(chans) > 1:
+            print("More than one TikTok channel: set the BUFFER_CHANNEL_ID repository variable to the right id.")
+    try:
+        problems, lines = buffer.schema_report()
+    except buffer.BufferError as err:
+        print(f"\nCould not read Buffer's API schema ({err}); the notification test will show whether posting works.")
+        return rc
+    print("\nBuffer live API (parts this client uses):")
+    for line in lines:
+        print("  " + line)
     if problems:
-        print("\nBuffer's live API differs from what this client expects:")
+        print("\nDifferences from what this client expects:")
         for p in problems:
             print("  -", p)
         return 1
-    print("\nBuffer API schema check: OK (all fields this client uses exist)")
-    return 0
+    print("\nBuffer API schema check: OK")
+    return rc
 
 
 def _channel() -> dict:
