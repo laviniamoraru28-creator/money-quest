@@ -35,3 +35,11 @@ All 9 matched uniquely, no duplicates.
 - **investing_basics is MISSING.** Its approved French title per the
   transcript is "Épargner ou faire grandir son argent" — no image with
   that title/content was sent.
+
+## de/ — 9 of 10, received 2026-11-15
+
+All 9 matched uniquely, no duplicates.
+
+- **investing_basics is MISSING.** Its approved German title per the
+  transcript is "Sparen oder dein Geld wachsen lassen" — no image with
+  that title/content was sent.
