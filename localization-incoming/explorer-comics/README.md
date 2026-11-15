@@ -119,3 +119,21 @@ to its language folder. Those 5 languages are now 10/10 complete.
 | fr | 9/10 — missing investing_basics only |
 
 8 of 9 languages complete. Only fr/investing_basics remains outstanding.
+
+## fr/investing_basics — received 2026-11-15
+
+Matches by content ("Épargner ou faire fructifier ton argent" — same
+épargner-vs-investir structure as the approved transcript's "Épargner ou
+faire grandir son argent", just different wording in the title itself).
+fr is now 10/10.
+
+## FULL INVENTORY COMPLETE: 90/90
+
+All 8 translated languages (ro, es, fr, de, it, pt, nl, pl) × 10 topics
+verified present and matched by content against
+`src/content/explorer-comic-transcripts.ts`. Combined with the 10
+original English images already in the repo, that's the full 90-image
+set for Directive 5. No duplicates left unresolved, no missing lessons.
+Next step: integration into the site (lesson-ID/language-code/image-path
+mapping, Listen narration, responsive layout, tests) — not yet done as
+of this commit.
