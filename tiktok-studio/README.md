@@ -81,59 +81,91 @@ python -m studio check                   # content QA for all topics
 python -m studio make --topic saving-why # render one video -> output/<date>-<topic>/
 python -m studio make                    # render the next topic the selector picks
 python -m studio approve <run>           # human approval
-python -m studio publish <run> --mode drafts            # send to your TikTok inbox
-python -m studio publish <run> --mode direct            # post (SELF_ONLY until app audit)
-python -m studio status <run>
-python -m studio metrics                 # pull views/likes/comments/shares
+python -m studio buffer-setup            # find TikTok channel in Buffer + verify API schema
+python -m studio host <run>              # (in Actions) public video URL via GitHub Release
+python -m studio publish <run> --mode buffer-notify   # Buffer reminds you; you post
+python -m studio publish <run> --mode buffer-auto     # Buffer posts (needs PUBLIC_POSTING_APPROVED)
+python -m studio sync                    # Buffer status -> history
+python -m studio metrics                 # views/likes/comments/shares (Buffer, experimental)
+python -m studio metrics-import f.csv    # or import from a TikTok Studio export
 python -m studio topics                  # what has been used
 ```
 
 Each run folder contains `video.mp4`, `cover.jpg`, `caption.txt` (caption and hashtags),
 `script.txt`, `contact_sheet.jpg` and `qa_report.json`.
 
-## Scheduling and publishing (`.github/workflows/tiktok-studio.yml`)
+## Publishing: why Buffer, and how it's wired
 
-* **Mon/Wed/Fri 17:41 UTC:** pick the next topic, render it, run QA, then publish only if
-  authorised (see below). Otherwise the video is attached to the workflow run as an artifact
-  for review.
-* **Sunday:** refresh metrics. Topic choice then favours categories with higher engagement
-  (likes + comments + shares per view, weighted 0.7-1.3x so no category is ever dropped).
-* Scheduled runs only fire once the workflow is on the default branch (`main`).
-* The selector never repeats a topic that was approved, sent to drafts or published.
+**Direct TikTok API isn't an option for public posts.** TikTok's Content Posting API audit
+rejects apps whose purpose is uploading to the developer's own or team's accounts. TikTok's
+review note reads: "Applications intended for personal use or internal company use are not
+eligible for approval." Unaudited apps can only make private (`SELF_ONLY`) posts. So
+`studio/tiktok.py` stays as an optional private/drafts path, and public publishing goes
+through **Buffer**, which is already an approved TikTok partner.
 
-### Rollout (nothing is fully automatic until every step is tested)
+**Buffer Free plan:** 3 channels, 10 scheduled posts per channel, TikTok auto-publishing and API
+access (one personal API key). We schedule one post at a time, so the 10-post limit never
+matters.
 
-1. **Approve the sample.** Review `output/2026-11-15-saving-why/`.
-2. **Review-mode test.** Merge, then run the workflow manually with `publish_mode = review`.
-   Check that the artifact appears and the `tiktok-studio-state` branch is created.
-3. **TikTok developer app (free).** At developers.tiktok.com create an app, add *Login Kit*
-   and *Content Posting API*, and request the scopes `user.info.basic, video.upload,
-   video.publish, video.list`. Set a redirect URI you control (your website URL works for
-   copying the `code`). Then:
-   ```bash
-   export TIKTOK_CLIENT_KEY=... TIKTOK_CLIENT_SECRET=... TIKTOK_REDIRECT_URI=...
-   python -m studio auth-url        # open, log in as the Money Quest account, approve
-   python -m studio auth-code CODE  # prints the refresh token
-   ```
-   Save `TIKTOK_CLIENT_KEY`, `TIKTOK_CLIENT_SECRET` and `TIKTOK_REFRESH_TOKEN` as **repository
-   secrets**. Never commit them.
-4. **Drafts test.** Run the workflow manually with `publish_mode = drafts`. The video lands in
-   your TikTok inbox, and you post it from the app. This needs no app audit.
-5. **Direct test.** Run with `publish_mode = direct` (`SELF_ONLY`). The post appears privately
-   on your profile. Run `metrics` after a day.
-6. **App audit.** TikTok only allows public direct posts from audited apps. Submit the app for
-   review. Until it's approved, use `drafts`.
-7. **Turn on automation** (only after steps 2-5 succeed and you authorise it). Set the
-   repository **variables** `TIKTOK_AUTOMATION_APPROVED=true`, `TIKTOK_PUBLISH_MODE=drafts`
-   (or `direct` after the audit) and `TIKTOK_PRIVACY=PUBLIC_TO_EVERYONE` (direct only).
+```
+GitHub Actions (Mon/Wed/Fri)
+  render + QA ──► upload video.mp4 to a public pre-release "tiktok-<run>" on this repo
+             ──► Buffer API createPost(TikTok channel, caption, video URL, due in 20 min)
+             ──► Buffer posts to TikTok (or sends you a phone reminder in notify mode)
+Sunday: sync statuses, pull metrics (Buffer, experimental), delete hosting releases 14+ days old
+```
 
-Posts are marked as promoting your own brand (`brand_organic_toggle`), which is TikTok's
-required disclosure for this kind of content. TikTok's refresh tokens last about a year. The
-workflow warns when TikTok issues a new one.
+### Switches (repository variables, all off by default)
+
+| Variable | Values | Effect |
+|---|---|---|
+| `PUBLISH_MODE` | `review` (default), `buffer-notify`, `buffer-auto` | `buffer-notify`: Buffer reminds you and you tap to post. `buffer-auto`: Buffer posts by itself. |
+| `AUTOMATION_ENABLED` | `true` / unset | Lets scheduled runs send videos to Buffer without a per-video `approve`. |
+| `PUBLIC_POSTING_APPROVED` | `true` / unset | Required for `buffer-auto`. Without it, public posting is refused in code. |
+| `BUFFER_CHANNEL_ID` | id | Only needed if Buffer has more than one TikTok channel. |
+
+Secret: `BUFFER_API_KEY`.
+
+### Rollout (each step tested before the next)
+
+1. **Connect accounts (you).**
+   - TikTok: on the Money Quest account, switch to a **Business account** (free, in the TikTok
+     app: Settings > Account > Switch to Business Account). Buffer's docs disagree about
+     personal accounts, and a Business account also counts as your own brand's content.
+   - Buffer: create a free account at buffer.com, then go to Channels > Connect > TikTok. TikTok's
+     own login page opens, and you approve it there. Buffer never sees your password, and
+     neither do we.
+   - Buffer: go to Settings > API > create a personal API key, and save it in GitHub as the
+     repository secret `BUFFER_API_KEY`.
+2. **Merge to main.** The schedule then runs in review mode.
+3. **Run workflow: `buffer-setup`.** This finds your TikTok channel and checks that Buffer's
+   live API still has every field we use. It stops before posting if anything differs.
+4. **Run workflow: `next-video` + `buffer-notify`.** This tests hosting and the Buffer API end
+   to end. Buffer sends you a reminder about 20 minutes later. You post it yourself, or ignore
+   it and delete it in Buffer.
+5. **First automatic post:** after you approve it, set `PUBLIC_POSTING_APPROVED=true` and run
+   `next-video` + `buffer-auto` once. Check that it appears correctly on TikTok.
+6. **Automation:** after you approve it, set `PUBLISH_MODE=buffer-auto` and
+   `AUTOMATION_ENABLED=true`. From then on, three videos a week are created and published
+   automatically. Any QA failure stops that video.
+
+Notes and known risks:
+* Buffer fetches the video from the release URL, which GitHub serves via a redirect as
+  `application/octet-stream`. Step 4 shows whether Buffer accepts it. If it doesn't, the
+  fallback is a free Cloudflare R2 bucket or GitHub Pages; we'd only need to change `hosting.py`.
+* Buffer's API docs conflict in places (one note says video isn't supported via the API, while
+  the video example says it is), so step 3 checks the live schema and step 4 checks real
+  behaviour.
+* Buffer's post metrics are labelled experimental and refresh daily. If they're unavailable,
+  export numbers from TikTok Studio and run `python -m studio metrics-import file.csv`
+  (columns: `run` or `topic_id`, `views`, `likes`, `comments`, `shares`).
+* Hosting releases are public (this repository is public), so a video is technically
+  reachable shortly before it posts.
+* Auto-publishing can't add TikTok's trending sounds. We use our own original music anyway.
 
 ## Costs
 
-Everything here is free: GitHub Actions minutes (about 1-2 minutes per video), ffmpeg, Python
-libraries, the TikTok developer APIs, and the site's own artwork and original music. Nothing
-needs to be bought. Optional paid add-ons (premium TTS narration, extra artwork) need your
+Everything is free: GitHub Actions minutes (about 2 minutes per video), GitHub release hosting,
+Buffer Free, ffmpeg and Python libraries, and the site's own artwork and original music.
+Nothing needs to be bought. Paid options (Buffer paid plans, premium TTS narration) need your
 approval first.

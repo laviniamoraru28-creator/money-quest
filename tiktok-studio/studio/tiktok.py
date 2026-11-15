@@ -1,4 +1,9 @@
-"""Minimal client for TikTok's official Content Posting API and Display API.
+"""OPTIONAL direct client for TikTok's Content Posting API and Display API.
+
+Main publishing goes through Buffer (buffer.py). TikTok's audit doesn't
+approve apps used only to post to your own account, so this client is
+limited to private (SELF_ONLY) posts and drafts. It's kept for testing and in
+case the policy changes.
 
 Uses only the documented, authorised endpoints (OAuth 2.0 user tokens):
   * Content Posting API  - video.publish (direct post) / video.upload (send to drafts inbox)

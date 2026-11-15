@@ -1,26 +1,40 @@
 """Command line: python -m studio <command>
 
-  topics                      list the topic bank and what has been used
-  check                       content QA for every topic (no rendering)
-  make [--topic ID]           script + render + full QA for one video (default: next topic)
-  approve RUN                 mark a rendered video as approved by a human
-  publish RUN --mode M        M = drafts (TikTok inbox) or direct; needs QA pass + approval
-  status RUN                  fetch TikTok processing status for a published run
-  metrics                     pull view/like/comment/share counts into history
-  scheduled                   what the weekly workflow runs (see README)
-  auth-url / auth-code CODE   one-time TikTok authorisation helpers
+  topics                       list the topic bank and what has been used
+  check                        content QA for every topic (no rendering)
+  make [--topic ID]            script + render + full QA (default: next topic)
+  approve RUN                  mark a rendered video as approved by a human
+  buffer-setup                 find your TikTok channel in Buffer + verify Buffer's live API schema
+  host RUN                     upload the video to a public GitHub Release URL and verify it
+  publish RUN --mode M         M = buffer-notify | buffer-auto | tiktok-drafts | tiktok-private
+  sync                         update Buffer post status (scheduled -> published)
+  metrics                      pull performance numbers (Buffer, experimental)
+  metrics-import FILE.csv      import numbers from a TikTok Studio export / hand-made CSV
+  scheduled                    what the Mon/Wed/Fri workflow runs
+  cleanup-hosting              delete hosting releases of videos published 14+ days ago
+  auth-url / auth-code CODE    only for the optional direct TikTok API (private posts)
+
+Publish modes
+  review          render + QA only (default; nothing leaves GitHub)
+  buffer-notify   Buffer sends you a phone reminder; YOU tap to post. Safe test mode.
+  buffer-auto     Buffer posts publicly at the scheduled time. Requires the
+                  PUBLIC_POSTING_APPROVED=true repository variable.
+  tiktok-drafts   direct TikTok API: video lands in your TikTok inbox
+  tiktok-private  direct TikTok API: private (SELF_ONLY) post
 """
 from __future__ import annotations
 
 import argparse
+import csv
 import datetime as dt
 import json
 import os
 import sys
-from pathlib import Path
 
-from . import qa, script, select, tiktok
+from . import buffer, hosting, qa, script, select, tiktok
 from .common import OUTPUT_DIR, get_topic, load_config, load_history, load_topics, now_iso, save_history
+
+MODES = ("buffer-notify", "buffer-auto", "tiktok-drafts", "tiktok-private")
 
 
 def _entry(history: dict, run: str) -> dict:
@@ -30,6 +44,19 @@ def _entry(history: dict, run: str) -> dict:
     raise SystemExit(f"Unknown run {run}. See state/history.json.")
 
 
+def _flag(name: str) -> bool:
+    return os.environ.get(name, "").strip().lower() == "true"
+
+
+def _gh_output(**kv):
+    path = os.environ.get("GITHUB_OUTPUT")
+    if path:
+        with open(path, "a") as f:
+            for k, v in kv.items():
+                f.write(f"{k}={v}\n")
+
+
+# -- content -----------------------------------------------------------------
 def cmd_topics(_):
     used = {v["topic_id"]: v["status"] for v in load_history()["videos"]}
     for t in load_topics():
@@ -42,9 +69,8 @@ def cmd_check(_):
     for t in load_topics():
         plan = script.build_plan(t, config)
         res = qa.check_content(t, plan, config)
-        mark = "PASS" if not res["errors"] else "FAIL"
         failed += bool(res["errors"])
-        print(f"{mark} {t['id']:<28} {plan['duration']:5.2f}s")
+        print(f"{'PASS' if not res['errors'] else 'FAIL'} {t['id']:<28} {plan['duration']:5.2f}s")
         for e in res["errors"]:
             print(f"     - {e}")
     print(f"\n{len(load_topics()) - failed} passed, {failed} failed")
@@ -52,7 +78,7 @@ def cmd_check(_):
 
 
 def make_video(topic: dict, config: dict) -> tuple[str, dict]:
-    from . import render  # imported lazily: needs Pillow/ffmpeg
+    from . import render  # needs Pillow + ffmpeg
 
     plan = script.build_plan(topic, config)
     run = f"{dt.date.today().isoformat()}-{topic['id']}"
@@ -68,12 +94,9 @@ def make_video(topic: dict, config: dict) -> tuple[str, dict]:
     history = load_history()
     history["videos"] = [v for v in history["videos"] if v["run"] != run]
     history["videos"].append({
-        "run": run,
-        "topic_id": topic["id"],
-        "category": topic["category"],
+        "run": run, "topic_id": topic["id"], "category": topic["category"],
         "status": "rendered" if result["passed"] else "qa_failed",
-        "rendered_at": now_iso(),
-        "duration": plan["duration"],
+        "rendered_at": now_iso(), "duration": plan["duration"],
     })
     save_history(history)
     return run, result
@@ -83,12 +106,11 @@ def _print_result(run, result):
     print(f"\nRun: {run}  ->  output/{run}/")
     for section in ("content", "render"):
         r = result.get(section)
-        if not r:
-            continue
-        for e in r["errors"]:
-            print(f"  ERROR [{section}] {e}")
-        for w in r["warnings"]:
-            print(f"  warn  [{section}] {w}")
+        if r:
+            for e in r["errors"]:
+                print(f"  ERROR [{section}] {e}")
+            for w in r["warnings"]:
+                print(f"  warn  [{section}] {w}")
     print("QA PASSED" if result["passed"] else "QA FAILED")
 
 
@@ -101,6 +123,7 @@ def cmd_make(args):
     print(script.describe(script.build_plan(topic, config)))
     run, result = make_video(topic, config)
     _print_result(run, result)
+    _gh_output(run=run, qa_passed=str(result["passed"]).lower())
     return 0 if result["passed"] else 1
 
 
@@ -108,123 +131,222 @@ def cmd_approve(args):
     history = load_history()
     e = _entry(history, args.run)
     if e["status"] != "rendered":
-        raise SystemExit(f"Run is '{e['status']}', only a QA-passed 'rendered' video can be approved")
-    e["status"] = "approved"
-    e["approved_at"] = now_iso()
+        raise SystemExit(f"Run is '{e['status']}'; only a QA-passed 'rendered' video can be approved")
+    e["status"], e["approved_at"] = "approved", now_iso()
     save_history(history)
     print(f"Approved {args.run}")
 
 
-def _publish(run: str, mode: str, privacy: str, require_approval: bool) -> dict:
+# -- hosting & Buffer ----------------------------------------------------------
+def cmd_buffer_setup(_):
+    chans = buffer.tiktok_channels()
+    if not chans:
+        print("No TikTok channel found in your Buffer account. Connect TikTok in Buffer first (Channels > Connect > TikTok).")
+        return 1
+    print("TikTok channels in Buffer:")
+    for c in chans:
+        print(f"  {c['name']:<30} id={c['id']}  organization={c['organization']}  queuePaused={c.get('isQueuePaused')}")
+    if len(chans) > 1:
+        print("More than one TikTok channel: set the BUFFER_CHANNEL_ID repository variable to the right id.")
+    problems = buffer.schema_report()
+    if problems:
+        print("\nBuffer's live API differs from what this client expects:")
+        for p in problems:
+            print("  -", p)
+        return 1
+    print("\nBuffer API schema check: OK (all fields this client uses exist)")
+    return 0
+
+
+def _channel() -> dict:
+    wanted = os.environ.get("BUFFER_CHANNEL_ID", "").strip()
+    chans = buffer.tiktok_channels()
+    if wanted:
+        for c in chans:
+            if c["id"] == wanted:
+                return c
+        raise SystemExit(f"BUFFER_CHANNEL_ID {wanted} is not a TikTok channel in this Buffer account")
+    if len(chans) != 1:
+        raise SystemExit(f"Found {len(chans)} TikTok channels in Buffer; set BUFFER_CHANNEL_ID")
+    return chans[0]
+
+
+def cmd_host(args):
+    history = load_history()
+    e = _entry(history, args.run)
+    out_dir = OUTPUT_DIR / args.run
+    url = hosting.upload(args.run, out_dir)
+    check = hosting.check_public(url, (out_dir / "video.mp4").stat().st_size)
+    print(json.dumps({"url": url, **check}, indent=2))
+    if check["status"] not in (200, 206) or not check["looks_like_mp4"]:
+        raise SystemExit("Hosted video is not publicly readable as MP4")
+    e["video_url"] = url
+    save_history(history)
+    _gh_output(video_url=url)
+
+
+def _publish(run: str, mode: str, *, video_url: str | None, privacy: str, delay_min: int) -> dict:
+    if mode not in MODES:
+        raise SystemExit(f"Unknown mode {mode}")
     history = load_history()
     e = _entry(history, run)
     out_dir = OUTPUT_DIR / run
-    qa_res = json.loads((out_dir / "qa_report.json").read_text())
-    if not qa_res["passed"]:
+    if not json.loads((out_dir / "qa_report.json").read_text())["passed"]:
         raise SystemExit("Refusing to publish: QA did not pass")
-    if require_approval and e["status"] != "approved":
-        raise SystemExit("Refusing to publish: video not approved (python -m studio approve RUN)")
-    if e["status"] in select.USED_STATUSES - {"approved"}:
-        raise SystemExit(f"Already {e['status']}")
-    token = tiktok.access_token()
-    video = out_dir / "video.mp4"
-    if mode == "drafts":
-        publish_id = tiktok.send_to_drafts(token, video)
+    # Gate 1: a human approved this video, or automation was explicitly enabled.
+    if e["status"] != "approved" and not _flag("AUTOMATION_ENABLED"):
+        raise SystemExit("Refusing: video not approved (python -m studio approve RUN) and AUTOMATION_ENABLED is not true")
+    if e["status"] not in ("approved", "rendered"):
+        raise SystemExit(f"Refusing: run is already '{e['status']}'")
+    # Gate 2: anything that becomes publicly visible needs the owner's standing approval.
+    public = mode == "buffer-auto" or (mode == "tiktok-private" and privacy != "SELF_ONLY")
+    if public and not _flag("PUBLIC_POSTING_APPROVED"):
+        raise SystemExit("Refusing public posting: set the repository variable PUBLIC_POSTING_APPROVED=true to allow it")
+
+    caption = (out_dir / "caption.txt").read_text(encoding="utf-8").strip()
+    e.update({"publish_mode": mode, "submitted_at": now_iso()})
+
+    if mode.startswith("buffer"):
+        video_url = video_url or e.get("video_url")
+        if not video_url:
+            raise SystemExit("Buffer needs a public video URL: run `host RUN` first or pass --video-url")
+        ch = _channel()
+        due = dt.datetime.now(dt.timezone.utc) + dt.timedelta(minutes=delay_min)
+        scheduling = "notification" if mode == "buffer-notify" else "automatic"
+        post = buffer.create_post(ch["id"], caption, video_url, scheduling, due)
+        e.update({"buffer_post_id": post["id"], "buffer_channel_id": ch["id"], "buffer_org_id": ch["organizationId"],
+                  "due_at": due.isoformat(timespec="seconds"), "video_url": video_url,
+                  "status": "sent_to_phone" if scheduling == "notification" else "queued_in_buffer"})
     else:
-        caption = (out_dir / "caption.txt").read_text(encoding="utf-8").strip()
-        publish_id = tiktok.direct_post(token, video, caption, privacy, e["duration"])
-    status = tiktok.wait_for_status(token, publish_id)
-    e.update({"publish_id": publish_id, "publish_mode": mode, "privacy": privacy if mode == "direct" else None,
-              "tiktok_status": status.get("status"), "submitted_at": now_iso()})
-    if status.get("status") == "PUBLISH_COMPLETE":
-        e["status"] = "published"
-        e["post_ids"] = status.get("publicaly_available_post_id") or status.get("publicly_available_post_id") or []
-    elif status.get("status") == "SEND_TO_USER_INBOX":
-        e["status"] = "sent_to_drafts"
-    elif status.get("status") == "FAILED":
-        e["status"] = "publish_failed"
-        e["fail_reason"] = status.get("fail_reason")
-    else:
-        e["status"] = "scheduled"  # still processing; `status` command will update
+        token = tiktok.access_token()
+        video = out_dir / "video.mp4"
+        if mode == "tiktok-drafts":
+            publish_id = tiktok.send_to_drafts(token, video)
+        else:
+            publish_id = tiktok.direct_post(token, video, caption, privacy, e["duration"])
+        status = tiktok.wait_for_status(token, publish_id)
+        e.update({"publish_id": publish_id, "tiktok_status": status.get("status")})
+        e["status"] = {"PUBLISH_COMPLETE": "published", "SEND_TO_USER_INBOX": "sent_to_drafts",
+                       "FAILED": "publish_failed"}.get(status.get("status"), "scheduled")
+        if e["status"] == "published":
+            e["post_ids"] = status.get("publicaly_available_post_id") or []
+        if e["status"] == "publish_failed":
+            e["fail_reason"] = status.get("fail_reason")
     save_history(history)
     return e
 
 
 def cmd_publish(args):
-    e = _publish(args.run, args.mode, args.privacy, require_approval=True)
+    e = _publish(args.run, args.mode, video_url=args.video_url, privacy=args.privacy, delay_min=args.delay_min)
     print(json.dumps(e, indent=2))
     return 0 if e["status"] != "publish_failed" else 1
 
 
-def cmd_status(args):
+def cmd_sync(_):
     history = load_history()
-    e = _entry(history, args.run)
-    st = tiktok.publish_status(tiktok.access_token(), e["publish_id"])
-    e["tiktok_status"] = st.get("status")
-    if st.get("status") == "PUBLISH_COMPLETE":
-        e["status"] = "published"
-        e["post_ids"] = st.get("publicaly_available_post_id") or e.get("post_ids", [])
+    changed = 0
+    for e in history["videos"]:
+        if e.get("buffer_post_id") and e["status"] in ("queued_in_buffer", "sent_to_phone"):
+            try:
+                p = buffer.get_post(e["buffer_post_id"])
+            except buffer.BufferError as err:
+                print(f"{e['run']}: {err}")
+                continue
+            e["buffer_status"] = p.get("status")
+            if p.get("sentAt"):
+                e.update({"status": "published", "published_at": p["sentAt"], "external_link": p.get("externalLink")})
+                changed += 1
+            elif str(p.get("status")).lower() in ("error", "failed"):
+                e["status"] = "publish_failed"
+                changed += 1
     save_history(history)
-    print(json.dumps(st, indent=2))
+    print(f"Synced Buffer status; {changed} change(s)")
 
 
 def cmd_metrics(_):
-    token = tiktok.access_token()
-    videos = {str(v["id"]): v for v in tiktok.list_videos(token)}
     history = load_history()
     updated = 0
-    for e in history["videos"]:
-        for pid in e.get("post_ids", []):
-            v = videos.get(str(pid))
-            if v:
-                e["metrics"] = {k: v.get(k, 0) for k in ("view_count", "like_count", "comment_count", "share_count")}
-                e["metrics_at"] = now_iso()
-                e["share_url"] = v.get("share_url")
+    pairs = {(e["buffer_org_id"], e["buffer_channel_id"]) for e in history["videos"] if e.get("buffer_post_id")}
+    for org, ch in pairs:
+        try:
+            posts = {p["id"]: p for p in buffer.sent_posts_with_metrics(org, ch)}
+        except buffer.BufferError as err:
+            print(f"Buffer metrics unavailable ({err}). Use `metrics-import` with a TikTok Studio export instead.")
+            continue
+        for e in history["videos"]:
+            p = posts.get(e.get("buffer_post_id"))
+            if p and p["metrics"]:
+                e["metrics"], e["metrics_raw"], e["metrics_at"] = buffer.normalise_metrics(p["metrics"]), p["metrics"], now_iso()
                 updated += 1
     save_history(history)
     print(f"Updated metrics for {updated} video(s)")
     scores = select.category_scores(history)
     if scores:
-        print("Category weighting used for future topic choice:", json.dumps(scores, indent=2))
+        print("Category weighting for future topics:", json.dumps(scores))
 
 
+def cmd_metrics_import(args):
+    """CSV columns: run (or topic_id), views, likes, comments, shares."""
+    history = load_history()
+    n = 0
+    with open(args.file, newline="", encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            key = (row.get("run") or row.get("topic_id") or "").strip()
+            for e in history["videos"]:
+                if key in (e["run"], e["topic_id"]):
+                    e["metrics"] = {"view_count": int(row.get("views") or 0), "like_count": int(row.get("likes") or 0),
+                                    "comment_count": int(row.get("comments") or 0), "share_count": int(row.get("shares") or 0)}
+                    e["metrics_at"] = now_iso()
+                    n += 1
+    save_history(history)
+    print(f"Imported metrics for {n} video(s)")
+
+
+def cmd_cleanup(_):
+    history = load_history()
+    runs = [e["run"] for e in history["videos"] if e["status"] == "published"]
+    print("Deleted:", hosting.cleanup(runs) or "nothing")
+
+
+# -- the scheduled slot ------------------------------------------------------------
 def cmd_scheduled(_):
-    """Weekly slot: pick -> render -> QA -> (publish only when authorised)."""
+    """Pick -> render -> QA -> (host + publish, only when enabled)."""
     config = load_config()
+    mode = os.environ.get("PUBLISH_MODE", "review").strip() or "review"
     topic = select.next_topic()
     if not topic:
         print("::error::Topic bank exhausted")
         return 1
     run, result = make_video(topic, config)
     _print_result(run, result)
-    gh_out = os.environ.get("GITHUB_OUTPUT")
-    if gh_out:
-        with open(gh_out, "a") as f:
-            f.write(f"run={run}\nqa_passed={'true' if result['passed'] else 'false'}\n")
+    _gh_output(run=run, qa_passed=str(result["passed"]).lower())
     if not result["passed"]:
         return 1
-    automated = os.environ.get("TIKTOK_AUTOMATION_APPROVED", "").lower() == "true"
-    mode = os.environ.get("TIKTOK_PUBLISH_MODE", "review")
-    if not automated or mode not in ("drafts", "direct"):
-        print("Review mode: video rendered and QA-passed; nothing sent to TikTok.")
+    if mode == "review":
+        print("Review mode: video rendered and QA-passed; nothing sent anywhere.")
         return 0
-    privacy = os.environ.get("TIKTOK_PRIVACY", "SELF_ONLY")
-    e = _publish(run, mode, privacy, require_approval=False)
+    if not _flag("AUTOMATION_ENABLED"):
+        print(f"PUBLISH_MODE={mode} but AUTOMATION_ENABLED is not true: stopping after render.")
+        return 0
+    if mode.startswith("buffer"):
+        cmd_host(argparse.Namespace(run=run))
+    e = _publish(run, mode, video_url=None, privacy=os.environ.get("TIKTOK_PRIVACY", "SELF_ONLY"),
+                 delay_min=int(os.environ.get("PUBLISH_DELAY_MINUTES", "20")))
     print(json.dumps(e, indent=2))
     return 0 if e["status"] != "publish_failed" else 1
 
 
+# -- optional direct TikTok API ----------------------------------------------------
 def cmd_auth_url(_):
     url, state = tiktok.authorize_url()
-    print("Open this URL while logged in to the Money Quest TikTok account:\n")
     print(url)
-    print(f"\nCheck that the redirect comes back with state={state}, then run: python -m studio auth-code <code>")
+    print(f"\nCheck the redirect returns state={state}, then: python -m studio auth-code <code>")
 
 
 def cmd_auth_code(args):
     tok = tiktok.exchange_code(args.code)
     print("Scopes granted:", tok.get("scope"))
-    print("Save this refresh token as the TIKTOK_REFRESH_TOKEN repository secret (do not commit it):")
+    print("Save as the TIKTOK_REFRESH_TOKEN secret (never commit it):")
     print(tok.get("refresh_token"))
 
 
@@ -235,18 +357,24 @@ def main(argv=None):
     sub.add_parser("check").set_defaults(fn=cmd_check)
     m = sub.add_parser("make"); m.add_argument("--topic"); m.set_defaults(fn=cmd_make)
     a = sub.add_parser("approve"); a.add_argument("run"); a.set_defaults(fn=cmd_approve)
-    pb = sub.add_parser("publish"); pb.add_argument("run"); pb.add_argument("--mode", choices=["drafts", "direct"], required=True)
-    pb.add_argument("--privacy", default="SELF_ONLY", help="SELF_ONLY until the TikTok app passes audit"); pb.set_defaults(fn=cmd_publish)
-    s = sub.add_parser("status"); s.add_argument("run"); s.set_defaults(fn=cmd_status)
+    sub.add_parser("buffer-setup").set_defaults(fn=cmd_buffer_setup)
+    h = sub.add_parser("host"); h.add_argument("run"); h.set_defaults(fn=cmd_host)
+    pb = sub.add_parser("publish"); pb.add_argument("run"); pb.add_argument("--mode", choices=MODES, required=True)
+    pb.add_argument("--video-url"); pb.add_argument("--privacy", default="SELF_ONLY")
+    pb.add_argument("--delay-min", type=int, default=20, help="minutes from now until Buffer posts / reminds")
+    pb.set_defaults(fn=cmd_publish)
+    sub.add_parser("sync").set_defaults(fn=cmd_sync)
     sub.add_parser("metrics").set_defaults(fn=cmd_metrics)
+    mi = sub.add_parser("metrics-import"); mi.add_argument("file"); mi.set_defaults(fn=cmd_metrics_import)
+    sub.add_parser("cleanup-hosting").set_defaults(fn=cmd_cleanup)
     sub.add_parser("scheduled").set_defaults(fn=cmd_scheduled)
     sub.add_parser("auth-url").set_defaults(fn=cmd_auth_url)
     c = sub.add_parser("auth-code"); c.add_argument("code"); c.set_defaults(fn=cmd_auth_code)
     args = p.parse_args(argv)
     try:
         return args.fn(args) or 0
-    except tiktok.TikTokError as e:
-        print(f"TikTok error: {e}", file=sys.stderr)
+    except (tiktok.TikTokError, buffer.BufferError) as err:
+        print(f"Publishing error: {err}", file=sys.stderr)
         return 2
 
 

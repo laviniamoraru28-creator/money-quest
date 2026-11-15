@@ -1,40 +1,36 @@
 name: TikTok Studio (Money Quest videos)
 
-# Separate from the website: this workflow only touches tiktok-studio/ and
-# stores its memory (which topics were used, TikTok post ids, metrics) on
-# its own branch `tiktok-studio-state`, so it never pushes to main and never
-# triggers a website build.
+# Separate from the website: works only in tiktok-studio/, keeps its memory on
+# the `tiktok-studio-state` branch (never pushes to main, never triggers a
+# website build) and hosts finished videos as pre-releases named tiktok-*.
 #
+# Publishing goes through Buffer (Free plan) using Buffer's approved TikTok
+# integration. Three independent switches, all OFF by default:
+#   vars.PUBLISH_MODE             review | buffer-notify | buffer-auto
+#   vars.AUTOMATION_ENABLED       "true" lets scheduled runs send videos to Buffer
+#   vars.PUBLIC_POSTING_APPROVED  "true" allows buffer-auto (public posts)
+# With the defaults every run is review-only: render + QA + artifact.
 # Scheduled runs only fire from the default branch (GitHub rule).
-# Until the repository variable TIKTOK_AUTOMATION_APPROVED is "true" AND
-# TIKTOK_PUBLISH_MODE is "drafts" or "direct", every run is REVIEW ONLY:
-# it renders + QA-checks the next video and attaches it to the run as an
-# artifact. Nothing is sent to TikTok. See tiktok-studio/README.md.
 
 on:
   schedule:
     - cron: "41 17 * * 1,3,5"   # Mon/Wed/Fri 17:41 UTC: one new video
-    - cron: "13 9 * * 0"        # Sunday 09:13 UTC: refresh performance metrics
+    - cron: "13 9 * * 0"        # Sunday 09:13 UTC: status sync, metrics, cleanup
   workflow_dispatch:
     inputs:
       task:
         description: "What to run"
         type: choice
-        options: [next-video, metrics]
+        options: [next-video, buffer-setup, weekly-maintenance]
         default: next-video
       publish_mode:
-        description: "review = render only; drafts = send to TikTok inbox; direct = post (SELF_ONLY until app audit)"
+        description: "review = render only; buffer-notify = Buffer reminds you and you tap to post; buffer-auto = Buffer posts publicly (needs PUBLIC_POSTING_APPROVED)"
         type: choice
-        options: [review, drafts, direct]
+        options: [review, buffer-notify, buffer-auto]
         default: review
-      privacy:
-        description: "Privacy for direct mode"
-        type: choice
-        options: [SELF_ONLY, PUBLIC_TO_EVERYONE]
-        default: SELF_ONLY
 
 permissions:
-  contents: write
+  contents: write   # state branch + hosting releases
 
 concurrency:
   group: tiktok-studio
@@ -48,9 +44,11 @@ jobs:
       run:
         working-directory: tiktok-studio
     env:
-      TIKTOK_CLIENT_KEY: ${{ secrets.TIKTOK_CLIENT_KEY }}
-      TIKTOK_CLIENT_SECRET: ${{ secrets.TIKTOK_CLIENT_SECRET }}
-      TIKTOK_REFRESH_TOKEN: ${{ secrets.TIKTOK_REFRESH_TOKEN }}
+      GH_TOKEN: ${{ github.token }}
+      BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+      BUFFER_CHANNEL_ID: ${{ vars.BUFFER_CHANNEL_ID }}
+      PUBLIC_POSTING_APPROVED: ${{ vars.PUBLIC_POSTING_APPROVED || 'false' }}
+      PUBLISH_DELAY_MINUTES: "20"
     steps:
       - uses: actions/checkout@v4
 
@@ -73,38 +71,44 @@ jobs:
             echo "No state branch yet: starting fresh"
           fi
 
-      - name: Decide mode
+      - name: Decide what to do
         id: mode
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             task="${{ inputs.task }}"
             mode="${{ inputs.publish_mode }}"
-            privacy="${{ inputs.privacy }}"
-            # A person pressing "Run workflow" with drafts/direct is an explicit, one-off authorisation.
-            approved=$([ "$mode" != "review" ] && echo true || echo false)
+            # Pressing "Run workflow" with a Buffer mode authorises this one video.
+            automation=$([ "$mode" != "review" ] && echo true || echo false)
           else
-            task=$([ "${{ github.event.schedule }}" = "13 9 * * 0" ] && echo metrics || echo next-video)
-            mode="${{ vars.TIKTOK_PUBLISH_MODE || 'review' }}"
-            privacy="${{ vars.TIKTOK_PRIVACY || 'SELF_ONLY' }}"
-            approved="${{ vars.TIKTOK_AUTOMATION_APPROVED || 'false' }}"
+            task=$([ "${{ github.event.schedule }}" = "13 9 * * 0" ] && echo weekly-maintenance || echo next-video)
+            mode="${{ vars.PUBLISH_MODE || 'review' }}"
+            automation="${{ vars.AUTOMATION_ENABLED || 'false' }}"
           fi
-          {
-            echo "task=$task"; echo "mode=$mode"; echo "privacy=$privacy"; echo "approved=$approved"
-          } >> "$GITHUB_OUTPUT"
-          echo "task=$task mode=$mode privacy=$privacy approved=$approved"
+          { echo "task=$task"; echo "mode=$mode"; echo "automation=$automation"; } >> "$GITHUB_OUTPUT"
+          echo "task=$task mode=$mode automation=$automation public_approved=$PUBLIC_POSTING_APPROVED"
+
+      - name: Check Buffer connection
+        if: steps.mode.outputs.task == 'buffer-setup'
+        run: python -m studio buffer-setup
+
+      - name: Sync earlier Buffer posts
+        if: steps.mode.outputs.task != 'buffer-setup' && env.BUFFER_API_KEY != ''
+        continue-on-error: true
+        run: python -m studio sync
 
       - name: Make (and maybe publish) the next video
         id: make
         if: steps.mode.outputs.task == 'next-video'
         env:
-          TIKTOK_PUBLISH_MODE: ${{ steps.mode.outputs.mode }}
-          TIKTOK_PRIVACY: ${{ steps.mode.outputs.privacy }}
-          TIKTOK_AUTOMATION_APPROVED: ${{ steps.mode.outputs.approved }}
+          PUBLISH_MODE: ${{ steps.mode.outputs.mode }}
+          AUTOMATION_ENABLED: ${{ steps.mode.outputs.automation }}
         run: python -m studio scheduled
 
-      - name: Refresh metrics
-        if: steps.mode.outputs.task == 'metrics'
-        run: python -m studio metrics
+      - name: Weekly metrics and hosting cleanup
+        if: steps.mode.outputs.task == 'weekly-maintenance'
+        run: |
+          python -m studio metrics || echo "::warning::metrics failed (Buffer post metrics are experimental)"
+          python -m studio cleanup-hosting
 
       - name: Attach video for review
         if: always() && steps.make.outputs.run != ''
