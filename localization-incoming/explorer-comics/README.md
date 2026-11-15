@@ -95,3 +95,27 @@ All 9 matched uniquely, no duplicates.
 investing_basics is missing in 6 of 9 languages — worth flagging to the
 user as likely a systematic gap in whatever process generated the source
 images, not 6 independent one-off misses.
+
+## investing_basics follow-up batch — received 2026-11-15
+
+5 of the 6 missing investing_basics images arrived: pl, nl, pt, it, de —
+each matched by title/content against the approved transcript and added
+to its language folder. Those 5 languages are now 10/10 complete.
+
+- **fr investing_basics is still MISSING.** Approved title: "Épargner ou
+  faire grandir son argent".
+
+## Status after this batch
+
+| Language | Status |
+|---|---|
+| ro | 10/10 complete |
+| es | 10/10 complete |
+| de | 10/10 complete |
+| it | 10/10 complete |
+| pt | 10/10 complete |
+| nl | 10/10 complete |
+| pl | 10/10 complete |
+| fr | 9/10 — missing investing_basics only |
+
+8 of 9 languages complete. Only fr/investing_basics remains outstanding.
