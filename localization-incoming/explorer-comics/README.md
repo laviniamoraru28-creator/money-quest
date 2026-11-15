@@ -51,3 +51,11 @@ All 9 matched uniquely, no duplicates.
 - **investing_basics is MISSING.** Its approved Italian title per the
   transcript is "Risparmiare o far crescere i tuoi soldi" — no image with
   that title/content was sent.
+
+## pt/ — 9 of 10, received 2026-11-15
+
+All 9 matched uniquely, no duplicates.
+
+- **investing_basics is MISSING.** Its approved Portuguese title per the
+  transcript is "Poupar ou fazer crescer o teu dinheiro" — no image with
+  that title/content was sent.
