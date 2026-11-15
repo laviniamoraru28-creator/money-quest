@@ -116,7 +116,7 @@ export const moneyBasicsOverlayRegions: ComicOverlayRegion[] = [
     en: "KEY IDEA", ro: "IDEE CHEIE", es: "IDEA CLAVE", fr: "IDÉE CLÉ", de: "KERNIDEE",
     it: "IDEA CHIAVE", pt: "IDEIA-CHAVE", nl: "KERNIDEE", pl: "NAJWAŻNIEJSZA MYŚL",
   }),
-  region("keyIdeaBody", "box", [258, 428, 822, 562], 0.12, "#fdeecb", "#2b2b2b", "normal", {
+  region("keyIdeaBody", "box", [258, 428, 822, 544], 0.12, "#fdeecb", "#2b2b2b", "normal", {
     en: "Money is something we trade for the things we want or need, instead of swapping items directly.",
     ro: "Banii sunt ceva ce schimbăm pentru lucrurile pe care ni le dorim sau de care avem nevoie, în loc să facem schimb de obiecte direct.",
     es: "El dinero es algo que intercambiamos por las cosas que queremos o necesitamos, en lugar de intercambiar objetos directamente.",
@@ -190,3 +190,41 @@ export const moneyBasicsOverlayRegions: ComicOverlayRegion[] = [
     pl: "– monety i banknoty, których używamy, żeby coś kupić.",
   }),
 ];
+
+/**
+ * The image split into contiguous, non-overlapping vertical sections —
+ * title, each illustrated panel, and the footer — covering 0 to 1536
+ * with no gaps. Found from the regions' own extents (each section's
+ * bounds are the midpoint between its own regions and its neighbors'),
+ * not from guessing pixel coordinates — an earlier attempt at this
+ * from a quick visual estimate put a seam through the middle of
+ * panel C/D's actual gap, confirmed wrong by cropping and looking
+ * again. Rendering slices this image into (see ExplorerComicOverlay)
+ * are what let a caption be inserted in real document flow directly
+ * below one specific panel, without touching the image pixels at all.
+ */
+export interface ComicSection {
+  id: string;
+  yStart: number;
+  yEnd: number;
+}
+
+export const moneyBasicsSections: ComicSection[] = [
+  { id: "title", yStart: 0, yEnd: 106 },
+  { id: "panelA", yStart: 106, yEnd: 349 },
+  { id: "keyIdea", yStart: 349, yEnd: 546 },
+  { id: "panelB", yStart: 546, yEnd: 790 },
+  { id: "panelC", yStart: 790, yEnd: 1063 },
+  { id: "panelD", yStart: 1063, yEnd: 1420 },
+  { id: "footer", yStart: 1420, yEnd: 1536 },
+];
+
+export const moneyBasicsRegionSection: Record<string, string> = {
+  title: "title",
+  bubble1: "panelA", bubble2: "panelA",
+  keyIdeaPill: "keyIdea", keyIdeaBody: "keyIdea",
+  panel2Bubble: "panelB",
+  bubble3a: "panelC", bubble3b: "panelC",
+  bubble4a: "panelD", bubble4b: "panelD",
+  footerLabel: "footer", footerPill: "footer", footerDef: "footer",
+};
