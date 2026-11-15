@@ -1,9 +1,7 @@
 /**
- * Proof of concept ONLY — covers a single comic (money_basics) in all
- * nine supported locales, to test whether localized dialogue can be
- * displayed as HTML/CSS overlays on top of the existing, unmodified
- * comic image, instead of generating 90 separate localized raster
- * images.
+ * money_basics' entry in the comic-overlay registry (see
+ * explorer-comic-overlay-registry.ts for the method every other topic
+ * follows) — the comic this mechanism was proven out and debugged on.
  *
  * Every region below is a rectangle in the ORIGINAL image's pixel
  * space (864x1536 — see public/images/money-quest/lessons/comics/money_basics.webp),
@@ -37,28 +35,11 @@
  * reads the panels.
  */
 
-export type OverlayLocale = "en" | "ro" | "es" | "fr" | "de" | "it" | "pt" | "nl" | "pl";
+import { registerComicOverlay, IMG_W, IMG_H, type OverlayLocale, type ComicOverlayRegion } from "@/content/explorer-comic-overlay-registry";
 
+export type { OverlayLocale } from "@/content/explorer-comic-overlay-registry";
 export const OVERLAY_LOCALES: readonly OverlayLocale[] = ["en", "ro", "es", "fr", "de", "it", "pt", "nl", "pl"];
 
-export interface ComicOverlayRegion {
-  id: string;
-  shape: "bubble" | "box";
-  /** Percent of the 864x1536 image, so the overlay scales with the responsive image. */
-  left: number;
-  top: number;
-  width: number;
-  height: number;
-  /** Corner radius as a fraction (0-0.5) of the region's shorter side. */
-  radius: number;
-  bg: string;
-  textColor: string;
-  fontWeight: "normal" | "bold";
-  text: Record<OverlayLocale, string>;
-}
-
-const IMG_W = 864;
-const IMG_H = 1536;
 const pct = (px: number, total: number) => Number(((px / total) * 100).toFixed(2));
 
 function region(
@@ -203,28 +184,25 @@ export const moneyBasicsOverlayRegions: ComicOverlayRegion[] = [
  * are what let a caption be inserted in real document flow directly
  * below one specific panel, without touching the image pixels at all.
  */
-export interface ComicSection {
-  id: string;
-  yStart: number;
-  yEnd: number;
-}
-
-export const moneyBasicsSections: ComicSection[] = [
-  { id: "title", yStart: 0, yEnd: 106 },
-  { id: "panelA", yStart: 106, yEnd: 349 },
-  { id: "keyIdea", yStart: 349, yEnd: 546 },
-  { id: "panelB", yStart: 546, yEnd: 790 },
-  { id: "panelC", yStart: 790, yEnd: 1063 },
-  { id: "panelD", yStart: 1063, yEnd: 1420 },
-  { id: "footer", yStart: 1420, yEnd: 1536 },
-];
-
-export const moneyBasicsRegionSection: Record<string, string> = {
-  title: "title",
-  bubble1: "panelA", bubble2: "panelA",
-  keyIdeaPill: "keyIdea", keyIdeaBody: "keyIdea",
-  panel2Bubble: "panelB",
-  bubble3a: "panelC", bubble3b: "panelC",
-  bubble4a: "panelD", bubble4b: "panelD",
-  footerLabel: "footer", footerPill: "footer", footerDef: "footer",
-};
+registerComicOverlay("money_basics", {
+  imageFile: "money_basics.webp",
+  regions: moneyBasicsOverlayRegions,
+  sections: [
+    { id: "title", yStart: 0, yEnd: 106 },
+    { id: "panelA", yStart: 106, yEnd: 349 },
+    { id: "keyIdea", yStart: 349, yEnd: 546 },
+    { id: "panelB", yStart: 546, yEnd: 790 },
+    { id: "panelC", yStart: 790, yEnd: 1063 },
+    { id: "panelD", yStart: 1063, yEnd: 1420 },
+    { id: "footer", yStart: 1420, yEnd: 1536 },
+  ],
+  regionSection: {
+    title: "title",
+    bubble1: "panelA", bubble2: "panelA",
+    keyIdeaPill: "keyIdea", keyIdeaBody: "keyIdea",
+    panel2Bubble: "panelB",
+    bubble3a: "panelC", bubble3b: "panelC",
+    bubble4a: "panelD", bubble4b: "panelD",
+    footerLabel: "footer", footerPill: "footer", footerDef: "footer",
+  },
+});
