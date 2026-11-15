@@ -1,20 +1,14 @@
 {
-  "_about": "Verified topic bank. Every topic is grounded in published Money Quest content: each `sources` entry names a file in the website repo and an exact quote that QA checks is still present. Scene text: `hook` (0-3s), `learn` (what children learn), `why` (why it matters + everyday example), `tip` (one practical insight for parents), `explore` (where parents can go further on the site). Wrap a word or short phrase in *asterisks* to highlight it in gold.",
+  "_about": "Verified topic bank. Every topic is grounded in published Money Quest content: each `sources` entry names a file in the website repo and an exact quote that QA checks is still present. Scene text: `hook` (a real-life problem a parent recognises), `tip` (the fix to try), `why` (why it works), `learn` (the skill the child builds), `explore` (where parents can go further on the site). Wrap a word or short phrase in *asterisks* to highlight it.",
   "topics": [
     {
       "id": "saving-why",
       "category": "saving_spending",
-      "hook": "Why should children learn to *save money*?",
+      "hook": "Pocket money gone by *Saturday*?",
       "learn": "Saving means keeping some money now so you can use it later, for something bigger.",
       "why": "Skipping one small treat brings a bigger goal closer. That's *patience*, practised for real.",
       "tip": "Use a *clear jar* they can watch fill up. Seeing progress beats an abstract number.",
       "explore": "Golden Vault: saving lessons for ages 6-14",
-      "images": [
-        "public/images/money-quest/worlds/golden-vault.webp",
-        "public/images/money-quest/books/little-compass-cover.webp",
-        "public/images/money-quest/worlds/horizon-peaks.webp",
-        "public/images/money-quest/worlds/golden-vault.webp"
-      ],
       "hashtags": [
         "#savingmoney",
         "#moneyhabits"
@@ -40,17 +34,11 @@
     {
       "id": "needs-vs-wants",
       "category": "needs_wants",
-      "hook": "Why is understanding *needs and wants* important?",
+      "hook": "\"But I *NEED* it!\" Sound familiar?",
       "learn": "A *need* is something you must have. A *want* is nice to have.",
       "why": "A strong want can feel as urgent as a need. Spotting the difference guides *spending choices*.",
       "tip": "Ask: *\"What would happen if you didn't get it?\"* It beats \"You don't need that.\"",
       "explore": "Market Town: needs and wants lessons",
-      "images": [
-        "public/images/money-quest/worlds/market-town.webp",
-        "public/images/money-quest/books/kindness-club-cover-v1.webp",
-        "public/images/money-quest/worlds/market-town.webp",
-        "public/images/money-quest/books/kindness-club-cover-v1.webp"
-      ],
       "hashtags": [
         "#needsvswants",
         "#moneyhabits"
@@ -76,17 +64,11 @@
     {
       "id": "think-like-entrepreneur",
       "category": "entrepreneurship",
-      "hook": "Can kids learn to think like *entrepreneurs*?",
+      "hook": "Lots of complaints, *zero* solutions?",
       "learn": "Every good business starts by solving a problem that annoys people or wastes their time.",
       "why": "Spotting everyday problems trains kids to look for *solutions*, not just complaints.",
       "tip": "Ask: *\"What annoys you? How could you fix it?\"* Then sketch the idea together.",
       "explore": "Entrepreneur Quest: build a virtual business",
-      "images": [
-        "public/images/money-quest/books/repair-table-cover-v1.webp",
-        "public/images/money-quest/sections/future-skills.webp",
-        "public/images/money-quest/worlds/market-town.webp",
-        "public/images/money-quest/books/repair-table-cover-v1.webp"
-      ],
       "hashtags": [
         "#kidentrepreneur",
         "#problemsolving"
@@ -107,17 +89,11 @@
     {
       "id": "leadership-at-seven",
       "category": "leadership",
-      "hook": "Can children learn *leadership* at age 7?",
+      "hook": "Does your child *take over* every group game?",
       "learn": "Leadership means listening, agreeing roles and using everyone's strengths, not giving orders.",
       "why": "Kids lead every day in games, group work and sport. *Listening first* makes a team work.",
       "tip": "After a team activity, ask: *\"Who did what, and how did you decide?\"*",
       "explore": "Leadership Quest: lead a team, one choice at a time",
-      "images": [
-        "public/images/money-quest/sections/future-skills.webp",
-        "public/images/money-quest/sections/inclusive-learning.webp",
-        "public/images/money-quest/books/kindness-club-cover-v1.webp",
-        "public/images/money-quest/sections/future-skills.webp"
-      ],
       "hashtags": [
         "#leadershipforkids",
         "#teamwork"
@@ -140,17 +116,11 @@
     {
       "id": "pause-before-buying",
       "category": "decision_making",
-      "hook": "\"Offer ends soon!\" What should a *child* do?",
+      "hook": "\"Offer ends soon!\" And your child *panics*?",
       "learn": "A short pause gives time to compare options and check the budget and goal.",
       "why": "Urgency pushes quick choices. *Pausing* protects pocket money, and it works for adults too.",
       "tip": "Try a family *\"sleep on it\"* rule for unplanned buys, then talk it over.",
       "explore": "Brain Lab: practise everyday thinking skills",
-      "images": [
-        "public/images/money-quest/sections/brain-lab-v2.webp",
-        "public/images/money-quest/worlds/market-town.webp",
-        "public/images/money-quest/sections/brain-lab.webp",
-        "public/images/money-quest/sections/brain-lab-v2.webp"
-      ],
       "hashtags": [
         "#decisionmaking",
         "#mindfulspending"
@@ -169,17 +139,11 @@
     {
       "id": "notice-feelings",
       "category": "emotional_intelligence",
-      "hook": "Why should kids *name their feelings*?",
+      "hook": "Game lost. *Meltdown* starts. Now what?",
       "learn": "Noticing a feeling helps you choose what to do next. There is no wrong feeling.",
       "why": "A frustrated child who pauses can pick a calmer next step instead of reacting.",
       "tip": "Ask: *\"Where do you feel it in your body?\"* Then choose a next step together.",
       "explore": "Emotion Lab: noticing feelings and asking for help",
-      "images": [
-        "public/images/money-quest/sections/mind-lab.webp",
-        "public/images/money-quest/worlds/kindness-grove.webp",
-        "public/images/money-quest/sections/mind-lab.webp",
-        "public/images/money-quest/sections/mind-lab.webp"
-      ],
       "hashtags": [
         "#emotionalintelligence",
         "#feelings"
@@ -198,17 +162,11 @@
     {
       "id": "check-a-claim",
       "category": "critical_thinking",
-      "hook": "Would your child believe a *confident* video?",
+      "hook": "Your child believes *every* video they watch?",
       "learn": "A confident claim still needs evidence. Ask who made it and what supports it.",
       "why": "Ads, influencers and AI answers are everywhere. *Checking* is a skill they'll use for life.",
       "tip": "Play *\"Prove it!\"*: pick a claim from an advert and look for evidence together.",
       "explore": "Future Skills: careful choices with information",
-      "images": [
-        "public/images/money-quest/sections/future-skills.webp",
-        "public/images/money-quest/sections/brain-lab-v2.webp",
-        "public/images/money-quest/worlds/guardian-gate.webp",
-        "public/images/money-quest/sections/future-skills.webp"
-      ],
       "hashtags": [
         "#criticalthinking",
         "#medialiteracy"
@@ -231,17 +189,11 @@
     {
       "id": "budget-fixed-pie",
       "category": "budgeting_planning",
-      "hook": "Can kids learn *budgeting* without a spreadsheet?",
+      "hook": "Your child wants *everything* at once?",
       "learn": "With a fixed amount, giving more to one thing means less for another.",
       "why": "That one idea is the foundation of *every budget* they'll ever make.",
       "tip": "Split play money into four pots: *needs, wants, saving, giving*. Let them choose the amounts.",
       "explore": "Learning articles: budgeting for kids",
-      "images": [
-        "public/images/money-quest/worlds/coin-cove.webp",
-        "public/images/money-quest/worlds/horizon-peaks.webp",
-        "public/images/money-quest/worlds/golden-vault.webp",
-        "public/images/money-quest/worlds/coin-cove.webp"
-      ],
       "hashtags": [
         "#budgeting",
         "#moneyhabits"
@@ -267,17 +219,11 @@
     {
       "id": "digital-money-feels-free",
       "category": "financial_education",
-      "hook": "Does a card tap feel like *free money* to kids?",
+      "hook": "\"Just *tap the card*, Mum!\"",
       "learn": "Card and phone payments move real money out of an account. Nothing is free.",
       "why": "Without seeing cash change hands, spending can feel *less real*, for adults too.",
       "tip": "Narrate it: *\"My card takes this from my account, just like handing over coins.\"*",
       "explore": "Sky Exchange: digital money lessons",
-      "images": [
-        "public/images/money-quest/worlds/sky-exchange.webp",
-        "public/images/money-quest/guides/girl-and-puppy.webp",
-        "public/images/money-quest/worlds/sky-exchange.webp",
-        "public/images/money-quest/guides/girl-and-puppy.webp"
-      ],
       "hashtags": [
         "#digitalmoney",
         "#moneytalks"
@@ -303,17 +249,11 @@
     {
       "id": "spot-a-scam",
       "category": "financial_education",
-      "hook": "Would your child *spot an online scam*?",
+      "hook": "\"You won a *free prize*! Click now!\"",
       "learn": "Scams share warning signs: urgency, secrecy, and asking for passwords or personal details.",
       "why": "Kids meet pop-ups and game-chat \"prizes\" early. Knowing the *pattern* protects them anywhere.",
       "tip": "Agree one family rule: *urgent message or password request? Check with a grown-up first.*",
       "explore": "Guardian Gate: staying safe from scams",
-      "images": [
-        "public/images/money-quest/worlds/guardian-gate.webp",
-        "public/images/money-quest/sections/brain-lab-v2.webp",
-        "public/images/money-quest/worlds/guardian-gate.webp",
-        "public/images/money-quest/sections/brain-lab-v2.webp"
-      ],
       "hashtags": [
         "#onlinesafety",
         "#scamawareness"
@@ -338,17 +278,11 @@
     {
       "id": "giving-plan",
       "category": "giving",
-      "hook": "Should *giving* be part of a child's money plan?",
+      "hook": "Is it always *\"mine, mine, mine\"*?",
       "learn": "Giving some of what you have to help others is a kind choice, not a loss.",
       "why": "Planning to give makes *generosity* a habit, right alongside saving and spending.",
       "tip": "Let your child help choose a cause and a small amount. There's no \"correct\" amount.",
       "explore": "Kindness Grove: giving lessons",
-      "images": [
-        "public/images/money-quest/worlds/kindness-grove.webp",
-        "public/images/money-quest/worlds/kindness-grove.webp",
-        "public/images/money-quest/sections/mind-lab.webp",
-        "public/images/money-quest/worlds/kindness-grove.webp"
-      ],
       "hashtags": [
         "#generosity",
         "#kindness"
@@ -374,17 +308,11 @@
     {
       "id": "savings-goal-own-effort",
       "category": "saving_spending",
-      "hook": "Should you *top up* your child's savings goal?",
+      "hook": "They want the *big toy*. Today.",
       "learn": "A goal shows the trade-off: skip small treats now to afford something bigger later.",
       "why": "Getting there through their *own effort*, even slowly, tends to matter more than the amount.",
       "tip": "Let them pick the goal, then work out *how many weeks* it will take.",
       "explore": "Savings Goals and Golden Vault",
-      "images": [
-        "public/images/money-quest/worlds/horizon-peaks.webp",
-        "public/images/money-quest/worlds/golden-vault.webp",
-        "public/images/money-quest/books/little-compass-cover.webp",
-        "public/images/money-quest/worlds/horizon-peaks.webp"
-      ],
       "hashtags": [
         "#savingmoney",
         "#goalsetting"
@@ -410,17 +338,11 @@
     {
       "id": "grey-area-needs",
       "category": "needs_wants",
-      "hook": "Is a phone a *need* or a *want*?",
+      "hook": "\"I *need* a phone!\" Need, or want?",
       "learn": "Some things can be a need in one situation and a want in another.",
       "why": "Real life isn't black and white. Weighing the situation builds *real reasoning*, not rote rules.",
       "tip": "Ask your child to *argue both sides* for something they want. Then decide together.",
       "explore": "Market Town: needs and wants lessons",
-      "images": [
-        "public/images/money-quest/books/kindness-club-cover-v1.webp",
-        "public/images/money-quest/worlds/market-town.webp",
-        "public/images/money-quest/worlds/sky-exchange.webp",
-        "public/images/money-quest/books/kindness-club-cover-v1.webp"
-      ],
       "hashtags": [
         "#needsvswants",
         "#criticalthinking"
@@ -441,17 +363,11 @@
     {
       "id": "test-small-idea",
       "category": "entrepreneurship",
-      "hook": "Why should kids *test an idea* before building it?",
+      "hook": "Big plan: *100 bookmarks*. What if nobody buys?",
       "learn": "Making one sample and asking for feedback can prevent a costly mistake.",
       "why": "Mistakes are cheaper when they're *small*. That applies to crafts, school projects and more.",
       "tip": "Before making lots of anything, make *one*, show it, and ask what people think.",
       "explore": "Entrepreneur Quest: test, build and pitch",
-      "images": [
-        "public/images/money-quest/books/repair-table-cover-v1.webp",
-        "public/images/money-quest/sections/future-skills.webp",
-        "public/images/money-quest/sections/brain-lab.webp",
-        "public/images/money-quest/books/repair-table-cover-v1.webp"
-      ],
       "hashtags": [
         "#kidentrepreneur",
         "#growthmindset"
@@ -475,17 +391,11 @@
     {
       "id": "listen-in-conflict",
       "category": "leadership",
-      "hook": "What should kids do when *friends disagree*?",
+      "hook": "Siblings *arguing* again?",
       "learn": "Ask each person to explain their side, one at a time.",
       "why": "When people *feel heard*, they start to understand each other, in class, at play and at home.",
       "tip": "In sibling arguments, try: *\"One at a time. What happened for you?\"*",
       "explore": "Leadership Quest: the Team Conflict mission",
-      "images": [
-        "public/images/money-quest/sections/inclusive-learning.webp",
-        "public/images/money-quest/worlds/kindness-grove.webp",
-        "public/images/money-quest/sections/future-skills.webp",
-        "public/images/money-quest/sections/inclusive-learning.webp"
-      ],
       "hashtags": [
         "#leadershipforkids",
         "#siblings"
@@ -506,17 +416,11 @@
     {
       "id": "resilience-change-strategy",
       "category": "emotional_intelligence",
-      "hook": "What helps when something *keeps going wrong*?",
+      "hook": "\"I *can't* do it!\" Tower down. Tears.",
       "learn": "Try a different strategy, take a break, or ask for help.",
       "why": "Struggling isn't failing. It's a signal to *change the plan*, a skill for school and beyond.",
       "tip": "When the tower falls twice, ask *\"What could we change?\"* instead of \"Try harder.\"",
       "explore": "Emotion Lab: resilience and adapting plans",
-      "images": [
-        "public/images/money-quest/sections/mind-lab.webp",
-        "public/images/money-quest/worlds/horizon-peaks.webp",
-        "public/images/money-quest/sections/brain-lab-v2.webp",
-        "public/images/money-quest/sections/mind-lab.webp"
-      ],
       "hashtags": [
         "#resilience",
         "#growthmindset"
@@ -539,17 +443,11 @@
     {
       "id": "feel-in-a-month",
       "category": "decision_making",
-      "hook": "How can you help kids make *better decisions*?",
+      "hook": "Bought today, *forgotten* by Friday?",
       "learn": "Think about the likely outcome of a choice, not just the feeling right now.",
       "why": "It's a *transferable skill*: it helps with money, friendships and schoolwork alike.",
       "tip": "Before a purchase, ask lightly: *\"How will you feel about this in a month?\"*",
       "explore": "Horizon Peaks: planning ahead",
-      "images": [
-        "public/images/money-quest/worlds/horizon-peaks.webp",
-        "public/images/money-quest/worlds/horizon-peaks.webp",
-        "public/images/money-quest/worlds/horizon-peaks.webp",
-        "public/images/money-quest/worlds/horizon-peaks.webp"
-      ],
       "hashtags": [
         "#decisionmaking",
         "#parentingtips"
@@ -575,17 +473,11 @@
     {
       "id": "check-ai-answers",
       "category": "critical_thinking",
-      "hook": "Should kids trust *everything AI* tells them?",
+      "hook": "\"But the *AI* said so!\"",
       "learn": "AI can give useful suggestions and incorrect information. An AI answer is not proof.",
       "why": "Checking important facts with a *reliable source* keeps kids in charge of the tool.",
       "tip": "Next time AI surprises you, check the fact together. Make it a *habit*, not a lecture.",
       "explore": "Future Skills: AI literacy and digital safety",
-      "images": [
-        "public/images/money-quest/sections/future-skills.webp",
-        "public/images/money-quest/worlds/sky-exchange.webp",
-        "public/images/money-quest/sections/brain-lab-v2.webp",
-        "public/images/money-quest/sections/future-skills.webp"
-      ],
       "hashtags": [
         "#ailiteracy",
         "#criticalthinking"
@@ -608,17 +500,11 @@
     {
       "id": "what-is-money",
       "category": "financial_education",
-      "hook": "Does your child know what *money* really is?",
+      "hook": "\"Why can't we just *get more* money?\"",
       "learn": "Money is something we trade for what we need or want, instead of swapping items.",
       "why": "It's the starting point for *every money choice*, from pocket money to a first wage.",
       "tip": "Let your child hand over the coins at the shop. *Real exchange* makes it click.",
       "explore": "Coin Cove: where every quest begins",
-      "images": [
-        "public/images/money-quest/worlds/coin-cove.webp",
-        "public/images/money-quest/sections/museum.webp",
-        "public/images/money-quest/worlds/coin-cove.webp",
-        "public/images/money-quest/sections/museum.webp"
-      ],
       "hashtags": [
         "#moneybasics",
         "#moneytalks"
@@ -639,17 +525,11 @@
     {
       "id": "ads-make-wants-urgent",
       "category": "needs_wants",
-      "hook": "Why do adverts make wants feel like *needs*?",
+      "hook": "One advert, and suddenly they *must* have it?",
       "learn": "Ads and social pressure are designed to make wants feel urgent.",
       "why": "Noticing that design helps kids, and adults, *pause* before buying on impulse.",
       "tip": "Turn it into a game: *spot the trick* together. Curious beats lecturing.",
       "explore": "Market Town: needs, wants and social pressure",
-      "images": [
-        "public/images/money-quest/worlds/market-town.webp",
-        "public/images/money-quest/books/kindness-club-cover-v1.webp",
-        "public/images/money-quest/worlds/sky-exchange.webp",
-        "public/images/money-quest/worlds/market-town.webp"
-      ],
       "hashtags": [
         "#needsvswants",
         "#medialiteracy"
@@ -675,12 +555,6 @@
       "why": "There's more than one good answer: *buy one, wait, or save more*. Kids learn to weigh them.",
       "tip": "Give small real choices with a *fixed amount*. Let them decide, then talk it through.",
       "explore": "Future Skills: choosing with a budget",
-      "images": [
-        "public/images/money-quest/worlds/market-town.webp",
-        "public/images/money-quest/sections/museum.webp",
-        "public/images/money-quest/worlds/coin-cove.webp",
-        "public/images/money-quest/worlds/market-town.webp"
-      ],
       "hashtags": [
         "#budgeting",
         "#decisionmaking"
@@ -699,17 +573,11 @@
     {
       "id": "profit-basics",
       "category": "entrepreneurship",
-      "hook": "Does your child know what *profit* means?",
+      "hook": "Bake sale made 20 coins. All *profit*? Not quite.",
       "learn": "Profit is the money you keep after paying your costs: sales minus costs.",
       "why": "Money earned isn't all money kept. Materials cost something, a lesson for *any project*.",
       "tip": "At a bake sale, add up ingredient *costs* together before counting the takings.",
       "explore": "Entrepreneur Quest: costs, prices and profit",
-      "images": [
-        "public/images/money-quest/worlds/market-town.webp",
-        "public/images/money-quest/books/kindness-club-cover-v1.webp",
-        "public/images/money-quest/books/repair-table-cover-v1.webp",
-        "public/images/money-quest/worlds/market-town.webp"
-      ],
       "hashtags": [
         "#kidentrepreneur",
         "#moneybasics"
@@ -730,17 +598,11 @@
     {
       "id": "handle-mistakes",
       "category": "leadership",
-      "hook": "How should a leader react to someone's *mistake*?",
+      "hook": "A teammate made a *big mistake*. Now what?",
       "learn": "Talking privately and working out what happened beats blaming in front of everyone.",
       "why": "Public blame can make people *afraid to speak up*. Kindness keeps a team working.",
       "tip": "When your child makes a mistake, model it: talk *privately*, fix it together.",
       "explore": "Leadership Quest: the Big Mistake mission",
-      "images": [
-        "public/images/money-quest/worlds/horizon-peaks.webp",
-        "public/images/money-quest/sections/mind-lab.webp",
-        "public/images/money-quest/worlds/kindness-grove.webp",
-        "public/images/money-quest/worlds/horizon-peaks.webp"
-      ],
       "hashtags": [
         "#leadershipforkids",
         "#positiveparenting"
@@ -761,17 +623,11 @@
     {
       "id": "listen-and-agree",
       "category": "emotional_intelligence",
-      "hook": "Two friends want *different games*. Now what?",
+      "hook": "Two friends. *Two different games*. One afternoon.",
       "learn": "Listening and asking, rather than guessing, helps people find a fair plan.",
       "why": "Kids who ask *\"What do you want?\"* make friendships easier, and everyone can still say no.",
       "tip": "Next disagreement, ask each child to say what they want. Then *agree a plan* together.",
       "explore": "Emotion Lab: relationships and boundaries",
-      "images": [
-        "public/images/money-quest/books/kindness-club-cover-v1.webp",
-        "public/images/money-quest/sections/inclusive-learning.webp",
-        "public/images/money-quest/worlds/kindness-grove.webp",
-        "public/images/money-quest/books/kindness-club-cover-v1.webp"
-      ],
       "hashtags": [
         "#emotionalintelligence",
         "#friendship"
@@ -790,17 +646,11 @@
     {
       "id": "bigger-pack",
       "category": "critical_thinking",
-      "hook": "Is the bigger pack *always* more?",
+      "hook": "They always grab the *bigger* box?",
       "learn": "A package can look bigger while holding less. Compare the labels, not the picture.",
       "why": "Checking real numbers beats *first impressions*, at the shop and beyond.",
       "tip": "In the shop, let your child compare two *weight labels* and pick the better deal.",
       "explore": "Brain Lab: perception and thinking",
-      "images": [
-        "public/images/money-quest/sections/brain-lab-v2.webp",
-        "public/images/money-quest/worlds/market-town.webp",
-        "public/images/money-quest/sections/brain-lab.webp",
-        "public/images/money-quest/sections/brain-lab-v2.webp"
-      ],
       "hashtags": [
         "#criticalthinking",
         "#smartshopping"
@@ -819,17 +669,11 @@
     {
       "id": "waiting-can-pay-off",
       "category": "saving_spending",
-      "hook": "Can a 6-year-old learn *patience* with money?",
+      "hook": "\"I want it *NOW*!\"",
       "learn": "Waiting a little can sometimes get you more than rushing to have it now.",
       "why": "Small, real practice with waiting builds a habit they'll need for *bigger choices*.",
       "tip": "Offer a choice: a small treat now, or a bigger one *after a day*. Let them decide.",
       "explore": "Horizon Peaks: waiting can pay off",
-      "images": [
-        "public/images/money-quest/worlds/horizon-peaks.webp",
-        "public/images/money-quest/books/little-compass-cover.webp",
-        "public/images/money-quest/worlds/golden-vault.webp",
-        "public/images/money-quest/worlds/horizon-peaks.webp"
-      ],
       "hashtags": [
         "#patience",
         "#savingmoney"
@@ -850,17 +694,11 @@
     {
       "id": "money-around-the-world",
       "category": "financial_education",
-      "hook": "Why does money look *different* in every country?",
+      "hook": "On holiday, and the money looks *strange*?",
       "learn": "Different countries use different currencies, and they look different from place to place.",
       "why": "It sparks *curiosity* about the world, and shows money is a shared agreement.",
       "tip": "Show your child a foreign coin, or photos of one. A *real comparison* sticks.",
       "explore": "Sky Exchange: currencies around the world",
-      "images": [
-        "public/images/money-quest/worlds/sky-exchange.webp",
-        "public/images/money-quest/sections/museum.webp",
-        "public/images/money-quest/worlds/coin-cove.webp",
-        "public/images/money-quest/worlds/sky-exchange.webp"
-      ],
       "hashtags": [
         "#currency",
         "#moneybasics"
@@ -886,17 +724,11 @@
     {
       "id": "picture-checklist",
       "category": "budgeting_planning",
-      "hook": "Why should kids *plan* everyday tasks?",
+      "hook": "Every morning: \"Where's my *school bag*?\"",
       "learn": "A short checklist helps children act independently.",
       "why": "Packing a school bag from a *3-item checklist* builds planning they can use anywhere.",
       "tip": "Make a *picture checklist* together. Then step back and let them use it.",
       "explore": "Future Skills: practical everyday skills",
-      "images": [
-        "public/images/money-quest/sections/brain-lab.webp",
-        "public/images/money-quest/sections/future-skills.webp",
-        "public/images/money-quest/guides/girl-and-puppy.webp",
-        "public/images/money-quest/sections/brain-lab.webp"
-      ],
       "hashtags": [
         "#independence",
         "#planning"
@@ -915,17 +747,11 @@
     {
       "id": "scams-use-emotions",
       "category": "financial_education",
-      "hook": "Why do *smart people* fall for scams?",
+      "hook": "A message says *\"Act now!\"* Your teen clicks?",
       "learn": "Scams are built to trigger strong feelings like excitement, fear or urgency.",
       "why": "A strong feeling makes us skip careful thinking. A *pause habit* protects older kids online.",
       "tip": "Ask your teen: *\"What feeling is this message trying to create?\"*",
       "explore": "Guardian Gate: scams target emotions",
-      "images": [
-        "public/images/money-quest/worlds/guardian-gate.webp",
-        "public/images/money-quest/sections/brain-lab-v2.webp",
-        "public/images/money-quest/worlds/sky-exchange.webp",
-        "public/images/money-quest/worlds/guardian-gate.webp"
-      ],
       "hashtags": [
         "#onlinesafety",
         "#scamawareness"
@@ -946,17 +772,11 @@
     {
       "id": "saving-vs-investing",
       "category": "financial_education",
-      "hook": "Is *investing* the same as saving?",
+      "hook": "Your teen asks: *\"Should I invest?\"*",
       "learn": "Saving keeps money safe. Investing tries to grow it, but it can go up or down.",
       "why": "Understanding *risk* early helps older kids tell investing apart from gambling.",
       "tip": "Explore the idea with *pretend money* first. Real decisions stay a family conversation.",
       "explore": "Investing Lab: fictional companies, pretend money",
-      "images": [
-        "public/images/money-quest/worlds/golden-vault.webp",
-        "public/images/money-quest/worlds/horizon-peaks.webp",
-        "public/images/money-quest/sections/museum.webp",
-        "public/images/money-quest/worlds/golden-vault.webp"
-      ],
       "hashtags": [
         "#investingforkids",
         "#moneybasics"

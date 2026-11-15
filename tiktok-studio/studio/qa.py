@@ -116,7 +116,7 @@ def check_spelling(texts: list[str]) -> list[str]:
 
 def check_content(topic: dict, plan: dict, config: dict) -> dict:
     errors, warnings = [], []
-    for field in ("hook", "learn", "why", "tip", "explore", "images", "category"):
+    for field in ("hook", "learn", "why", "tip", "explore", "category"):
         if not topic.get(field):
             errors.append(f"missing field: {field}")
     root = website_root(config)
@@ -214,14 +214,22 @@ def check_render(out_dir: Path, plan: dict, config: dict) -> dict:
         if x0 < x_min or x1 > x_max or y0 < y_min or y1 > y_max:
             errors.append(f"{item['scene']}/{item['element']} outside TikTok safe zone: {item['box']}")
         fs = item.get("font_size")
-        if fs and item["element"].startswith("line") and fs < 44:
+        if fs and item["element"].startswith("line") and fs < 64:
             errors.append(f"{item['scene']} text shrank to {fs}px (too small on a phone)")
 
-    colors = config["brand"]["colors"]
-    for name, fg in (("white", colors["white"]), ("gold", colors["gold"])):
-        ratio = contrast(fg, colors["deep"])
-        if ratio < 4.5:
-            errors.append(f"{name} text on panel contrast {ratio:.2f}:1 < 4.5:1")
+    from .render import PALETTES
+
+    for kind, pal in PALETTES.items():
+        for bg in pal["bg"]:
+            pairs = [("text", pal["text"], bg)]
+            if pal.get("pill"):
+                pairs.append(("highlight", pal["hl"], pal["pill"]))
+            else:
+                pairs.append(("highlight", pal["hl"], bg))
+            for name, fg, back in pairs:
+                ratio = contrast(fg, back)
+                if ratio < 4.5:
+                    errors.append(f"{kind} {name} contrast {ratio:.2f}:1 < 4.5:1")
 
     mean, peak = _volume(video)
     if peak > -0.3:

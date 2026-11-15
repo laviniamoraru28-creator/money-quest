@@ -21,20 +21,19 @@ curriculum/topics.json ──► select ──► script ──► render ──
 
 | Seconds (approx.) | Scene | Content |
 |---|---|---|
-| 0-3 | Hook | A question or surprising statement |
-| 3-7 | What children learn | The learning objective, in plain words |
-| 7-12 | Why it matters | Why the skill matters, with an everyday example |
-| 12-16 | Try this at home | One practical insight for parents |
+| 0-3 | Problem | A real-life problem a parent recognises, in very large text |
+| 3-7 | Try this | The fix: one practical thing to do at home |
+| 7-12 | Why it works | Why the fix works, with an everyday example |
+| 12-16 | What your child learns | The skill, in plain words |
 | last ~3 | Brand | "Help your child build real-life skills. Explore Money Quest. Link in bio." plus where to explore further on the site |
 
 Scene lengths are calculated from word count (about 3.6 words per second plus a lead-in), so the
 total adapts but always stays within 10-20 seconds.
 
-**Visuals:** Money Quest's own artwork from `public/images/money-quest/` (worlds, sections and
-book covers, all in the locked 3D style), shown as a framed card with a slow zoom over a blurred,
-darkened version of the same image. Large animated text, gold highlights, crossfades, a progress
-bar and the compass-coin brand mark. There are no avatars or talking characters. The guide girl
-and puppy only appear as still artwork.
+**Visuals:** text only, no images. Each scene is a bold brand-colour card (teal, gold, purple,
+cream) with very large text that pops in word by word, highlighted key words, a push transition
+between cards, a progress bar and the compass-coin brand mark. The problem text starts
+appearing in the first frames.
 
 **Music:** `studio/music.py` composes an original track for every video (numpy synthesis, no
 samples), so there's no licence or commercial-use question to manage.

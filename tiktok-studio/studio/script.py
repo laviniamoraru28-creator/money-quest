@@ -3,13 +3,13 @@ from __future__ import annotations
 
 from .common import CATEGORY_LABELS, plain, word_count
 
-# Scene order follows the brief: hook -> what they learn -> why it matters
-# (with an everyday example) -> one practical insight for parents -> brand CTA.
+# Problem -> solution: a real-life problem a parent recognises, the fix to
+# try, why it works, and the skill the child builds. Then the brand CTA.
 SCENES = [
     ("hook", None),
-    ("learn", "WHAT CHILDREN LEARN"),
-    ("why", "WHY IT MATTERS"),
-    ("tip", "TRY THIS AT HOME"),
+    ("tip", "TRY THIS"),
+    ("why", "WHY IT WORKS"),
+    ("learn", "WHAT YOUR CHILD LEARNS"),
 ]
 
 # Base reading-time model: a short lead-in, then ~3.4 words/second, with a
@@ -36,7 +36,6 @@ def build_plan(topic: dict, config: dict) -> dict:
             "text": text,
             "start": round(t, 2),
             "duration": dur,
-            "image": topic["images"][i % len(topic["images"])],
         })
         t += dur
     cta_lines = config["brand"]["cta_lines"]
@@ -48,7 +47,6 @@ def build_plan(topic: dict, config: dict) -> dict:
         "explore": topic["explore"],
         "start": round(t, 2),
         "duration": CTA_SECONDS,
-        "image": topic["images"][-1],
     })
     t += CTA_SECONDS
     return {
@@ -65,9 +63,9 @@ def build_caption(topic: dict, config: dict) -> str:
     lines = [
         plain(topic["hook"]),
         "",
-        f"What kids learn: {plain(topic['learn'])}",
-        f"Why it matters: {plain(topic['why'])}",
         f"Try this: {plain(topic['tip'])}",
+        f"Why it works: {plain(topic['why'])}",
+        f"What your child learns: {plain(topic['learn'])}",
         "",
         f"Explore further on Money Quest ({topic['explore']}). Link in bio.",
         "",
