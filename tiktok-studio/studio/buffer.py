@@ -80,7 +80,7 @@ def tiktok_channels() -> list[dict]:
 
 # -- schema verification ------------------------------------------------------
 REQUIRED = {
-    "CreatePostInput": ["text", "channelId", "schedulingType", "mode", "dueAt", "assets"],
+    "CreatePostInput": ["text", "channelId", "schedulingType", "mode", "dueAt", "assets", "needsApproval"],
     "AssetInput": ["video"],
     "Post": ["id", "status", "dueAt", "sentAt", "externalLink"],
 }
@@ -188,6 +188,7 @@ def create_post(channel_id: str, text: str, video_url: str, scheduling: str, due
         "channelId": channel_id,
         "schedulingType": scheduling,
         "mode": "customScheduled",
+        "needsApproval": False,  # required by the live schema; Buffer's team-approval flow is not used
         "dueAt": due_at.astimezone(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.000Z"),
         "assets": [{"video": {"url": video_url, "metadata": {"thumbnailOffset": thumbnail_ms}}}],
     }}
