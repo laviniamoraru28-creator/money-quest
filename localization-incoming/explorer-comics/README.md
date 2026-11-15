@@ -59,3 +59,14 @@ All 9 matched uniquely, no duplicates.
 - **investing_basics is MISSING.** Its approved Portuguese title per the
   transcript is "Poupar ou fazer crescer o teu dinheiro" — no image with
   that title/content was sent.
+
+## nl/ — 9 of 10, received 2026-11-15
+
+10 files sent, but one is a duplicate render of digital_money's dialogue
+("Geld dat je niet vast kunt houden"), not investing_basics — same pattern
+as the first Romanian batch. Kept as
+`digital_money_DUPLICATE_not_investing_basics.jpg`; not used.
+
+- **investing_basics is MISSING.** Its approved Dutch title per the
+  transcript is "Sparen of je geld laten groeien" — no image with that
+  title/content was sent.
