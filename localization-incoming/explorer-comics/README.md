@@ -70,3 +70,28 @@ as the first Romanian batch. Kept as
 - **investing_basics is MISSING.** Its approved Dutch title per the
   transcript is "Sparen of je geld laten groeien" — no image with that
   title/content was sent.
+
+## pl/ — 9 of 10, received 2026-11-15
+
+All 9 matched uniquely, no duplicates.
+
+- **investing_basics is MISSING.** Its approved Polish title per the
+  transcript is "Oszczędzanie czy pomnażanie pieniędzy" — no image with
+  that title/content was sent.
+
+## Summary across all 9 languages (first pass complete)
+
+| Language | Status |
+|---|---|
+| ro | 10/10 complete |
+| es | 10/10 complete |
+| fr | 9/10 — missing investing_basics |
+| de | 9/10 — missing investing_basics |
+| it | 9/10 — missing investing_basics |
+| pt | 9/10 — missing investing_basics |
+| nl | 9/10 — missing investing_basics |
+| pl | 9/10 — missing investing_basics |
+
+investing_basics is missing in 6 of 9 languages — worth flagging to the
+user as likely a systematic gap in whatever process generated the source
+images, not 6 independent one-off misses.
