@@ -57,6 +57,8 @@ for (const group of groups) {
         if (!['unexpected', 'flaky'].includes(test.status)) continue;
         if (/browserType.launch:|Playwright Host validation warning|Executable doesn't exist/.test(error)) {
           incompleteBrowsers.add(group);
+          stats[test.status === 'flaky' ? 'flaky' : 'failed']--;
+          stats.skipped++;
           if (!browserLaunchFailures.has(group)) {
             browserLaunchFailures.add(group);
             findings.push({id: `browser-setup:${group}`, severity: 'High',
@@ -70,7 +72,7 @@ for (const group of groups) {
           .map(item => relative(dir, resolve(item.path))).filter(path => !isAbsolute(path) &&
             resolve(dir, path).startsWith(dir + sep) && existsSync(resolve(dir, path)));
         const accessibility = /accessibility|wcag|aria/.test(spec.file);
-        const severity = test.status === 'flaky' ? 'Medium' : /page crashed|HTTP 5\d\d.*document/i.test(error)
+        const severity = test.status === 'flaky' ? 'Medium' : /page crashed|document.*HTTP 5\d\d/i.test(error)
           ? 'Critical' : accessibility || /clipping|single.row|visual/i.test(name) && !/JavaScript|HTTP/.test(error)
             ? 'Medium' : 'High';
         findings.push({id: `browser:${spec.file}:${project}:${name}`, severity, title: name, route, locale,
@@ -105,14 +107,14 @@ for (const [key, status] of Object.entries(stages)) {
       reproduction: 'Open this run in GitHub Actions and expand the named step.',
       correction: 'Use the first error in the step log to fix the check or restore its inputs.'});
   }
-  if (status === 'skipped' && key !== 'lighthouse') gaps.push(`${stageNames[key] ?? key}: workflow step skipped.`);
+  if (status === 'skipped' && key !== 'lighthouse' && !incompleteBrowsers.has(key)) gaps.push(`${stageNames[key] ?? key}: workflow step skipped.`);
 }
 const metrics = {};
 const lines = ['# Money Quest website audit', '', `Generated ${new Date().toISOString()}`, '',
   `Scope: ${broad ? 'Broad' : 'Essential'} · ${process.env.GITHUB_SHA?.slice(0, 12) ?? 'local build'}`,
   '', '| Passed | Failed | Skipped | Flaky |', '| ---: | ---: | ---: | ---: |',
   `| ${stats.passed} | ${stats.failed} | ${stats.skipped} | ${stats.flaky} |`,
-  '', 'Counts combine browser cases and unit suites. Build steps and editorial findings are reported separately.'];
+  '', 'Counts combine browser cases and unit suites. Cases blocked by a browser launch error count as skipped. Build steps and editorial findings are reported separately.'];
 
 for (const [name, route] of [['home', '/en'], ['play-ro', '/ro/play']]) {
   const result = read(resolve(dir, `lighthouse-${name}.json`));
@@ -187,7 +189,7 @@ lines.push('LCP and CLS are lab measurements. TBT approximates main-thread respo
   ...skipped.map(value => `- ${escape(value)}`),
   '- Human review covers translation accuracy, text printed inside comic panels, educational accuracy, age suitability and near-duplicate activities or questions.',
   '- Confirm currency wording in prose and illustrations, real device voices, physical printing, full screen-reader journeys and subjective readability.',
-  '- The link scan samples English homepage links and excludes external links, commerce, query strings, document downloads and in-page anchors.',
+  `- The link scan samples ${broad ? 'the homepage, play and first lesson in each locale' : 'English homepage links'}. External links, commerce, query strings, document downloads and in-page anchors are outside its scope.`,
   '- Visual checks measure layout and image geometry on representative pages. They cannot detect every overlap or readability issue.', '');
 writeFileSync(resolve(dir, 'audit-report.md'), lines.join('\n'));
 writeFileSync(resolve(dir, 'comparison.json'), JSON.stringify({

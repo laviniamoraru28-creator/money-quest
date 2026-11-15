@@ -7,7 +7,7 @@
 3. Open the run. Read its summary, then download **money-quest-audit** from **Artifacts**.
 4. Unzip it and open `audit-report.md`. Keep the `evidence` folder next to the report so screenshot links work.
 
-Pull requests reuse the existing essential checks. They also collect content findings and sample browser health across the nine locales. Monday at 05:23 UTC, the broad audit adds iPad page checks and two Lighthouse lab samples. Manual runs use the broad profile. The schedule uses the default branch. Review the run result even when the job is red, since failed checks still produce a report when the runner has time to finish.
+Pull requests reuse the existing essential checks. They also collect content findings and sample browser health across the nine locales. Monday at 05:23 UTC, the broad audit adds iPad page checks, link checks on three pages per language and two Lighthouse lab samples. Manual runs use the broad profile. The schedule uses the default branch. Review the run result even when the job is red, since failed checks still produce a report when the runner has time to finish.
 
 ## Coverage
 
@@ -17,7 +17,7 @@ Pull requests reuse the existing essential checks. They also collect content fin
 | Languages | Nine locale routes, message validation, switcher, unexpected English and speech helpers | Page and asset health for each locale, exact long-text matches to English, missing or byte-identical comic files |
 | Explorer comics | Ten English comics on the base release. The existing comic suite expands to 90 lesson-language cases in [PR #58](https://github.com/laviniamoraru28-creator/money-quest/pull/58), including expected locale paths and narration | File inventory and aspect ratio and clipping checks on the first comic per enabled locale |
 | Accessibility | Axe, keyboard navigation, accessible controls, read aloud, reduced motion, Focus Mode and Night View | Lighthouse accessibility sample and page overflow in Chromium and broad iPad checks |
-| Navigation | Home, lesson navigation, settings, viewport single-row tests and browser journeys | Sampled English homepage links and visible asset errors, document status, wrong locale redirects and JavaScript errors |
+| Navigation | Home, lesson navigation, settings, viewport single-row tests and browser journeys | Sampled internal links and visible asset errors, document status, wrong locale redirects and JavaScript errors |
 | Certificates | Eligibility, browser download, and 27 localized PDF rendering and A4 print-boundary checks | Result included in the owner report |
 | Performance and SEO | Existing metadata and SEO checks | Lighthouse for English home and Romanian play, including performance, accessibility, SEO, LCP, CLS and TBT |
 

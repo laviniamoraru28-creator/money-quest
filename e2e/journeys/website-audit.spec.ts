@@ -3,8 +3,10 @@ import {LESSON_STRUCTURES} from '../../src/content/curriculum/structures';
 import {createDefaultState} from '../../src/lib/local-progress/state';
 import {LOCALES} from '../../src/i18n/config';
 
+const lesson = LESSON_STRUCTURES.find(item => item.ageBand === 'explorer')!;
+const broadAudit = process.env.WEBSITE_AUDIT_PROFILE === 'broad';
+
 for (const locale of LOCALES) {
-  const lesson = LESSON_STRUCTURES.find(item => item.ageBand === 'explorer')!;
   const lessonPath = `/${locale}/play/world/${lesson.worldId}/lesson/${lesson.id}`;
   const paths = [`/${locale}`, `/${locale}/play`, lessonPath];
 
@@ -36,7 +38,7 @@ for (const locale of LOCALES) {
         localStorage.setItem('moneyquest_local_progress_v1', JSON.stringify(state));
       }, {...createDefaultState(), ageBand: 'explorer'});
       const response = await page.goto(route);
-      expect(response?.ok()).toBe(true);
+      expect(response?.ok(), `Page document returned HTTP ${response?.status() ?? 'unknown'}`).toBe(true);
       await expect(page.locator('html')).toHaveAttribute('lang', new RegExp(`^${locale}(?:-|$)`));
       await expect(page.locator('main').first()).toBeVisible();
       await expect(page).toHaveURL(new URL(route, origin).href);
@@ -70,23 +72,46 @@ for (const locale of LOCALES) {
   }
 }
 
-test('audit en /en: sampled public internal links resolve', async ({page, request, baseURL}, info) => {
-  const origin = new URL(baseURL!);
-  expect(['localhost', '127.0.0.1']).toContain(origin.hostname);
-  test.skip(info.project.name !== 'desktop-chrome', 'Link responses are sampled once in desktop Chromium.');
-  info.annotations.push({type: 'audit-location', description: JSON.stringify({route: '/en', locale: 'en'})});
-  await page.goto('/en');
-  const hrefs = await page.locator('a[href]').evaluateAll(anchors => anchors.map(a => (a as HTMLAnchorElement).href));
-  const paths = [...new Set(hrefs.map(href => new URL(href))
-    .filter(url => url.origin === origin.origin && !url.search && !url.hash &&
-      /^\/en(?:\/|$)/.test(url.pathname) &&
-      !/\/(?:api|shop|checkout|reviews)(?:\/|$)|\.[^/]+$/.test(url.pathname))
-    .map(url => url.pathname))].sort();
-  expect(paths.length, 'The English homepage exposes public links').toBeGreaterThan(0);
-  // Fetch only public page paths on the isolated server. A redirect is not
-  // followed, so a bad link cannot send requests to another host.
-  for (const route of paths) {
-    const response = await request.get(route, {maxRedirects: 0, timeout: 5000});
-    expect.soft(response.ok(), `Homepage link ${route} returned HTTP ${response.status()}`).toBe(true);
-  }
-});
+// The essential run checks the homepage. The broad run checks the localized
+// public entry points and first lesson, then fetches each discovered page once.
+for (const locale of broadAudit ? LOCALES : ['en']) {
+  test(`audit ${locale} /${locale}: sampled public internal links resolve`, async ({page, request, baseURL}, info) => {
+    const origin = new URL(baseURL!);
+    expect(['localhost', '127.0.0.1']).toContain(origin.hostname);
+    test.skip(info.project.name !== 'desktop-chrome', 'Link responses are sampled once in desktop Chromium.');
+    const home = `/${locale}`;
+    await page.addInitScript(state => {
+      localStorage.setItem('moneyquest_local_progress_v1', JSON.stringify(state));
+    }, {...createDefaultState(), ageBand: 'explorer'});
+    info.annotations.push({type: 'audit-location', description: JSON.stringify({route: home, locale})});
+    const allowed = (url: URL) => url.origin === origin.origin && !url.search && !url.hash &&
+      new RegExp(`^/${locale}(?:/|$)`).test(url.pathname) &&
+      !/\/(?:api|shop|checkout|reviews)(?:\/|$)|\.[^/]+$/.test(url.pathname);
+    const pages = broadAudit
+      ? [home, `${home}/play`, `${home}/play/world/${lesson.worldId}/lesson/${lesson.id}`]
+      : [home];
+    const sources = new Map<string, string>();
+    for (const route of pages) {
+      await page.goto(route);
+      const hrefs = await page.locator('a[href]').evaluateAll(anchors => anchors.map(a => (a as HTMLAnchorElement).href));
+      for (const href of hrefs) {
+        const url = new URL(href);
+        if (allowed(url)) sources.set(url.pathname, route);
+      }
+    }
+    expect(sources.size, 'Public pages expose links in the selected language').toBeGreaterThan(0);
+    // Follow a canonical redirect only inside the same approved URL scope.
+    for (const [route, source] of sources) {
+      let target = new URL(route, origin);
+      let status = 0;
+      for (let hop = 0; hop < 4 && allowed(target); hop++) {
+        const response = await request.get(target.href, {maxRedirects: 0, timeout: 5000});
+        status = response.status();
+        const next = response.headers()['location'];
+        if (status < 300 || status >= 400 || !next) break;
+        target = new URL(next, target);
+      }
+      expect.soft(status >= 200 && status < 300, `Link from ${source} to ${route} returned HTTP ${status}`).toBe(true);
+    }
+  });
+}

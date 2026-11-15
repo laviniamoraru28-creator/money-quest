@@ -106,10 +106,10 @@ jobs:
       - name: Chromium journeys and axe checks
         id: chromium
         if: "!cancelled() && steps.server.outcome == 'success'"
-        timeout-minutes: 12
+        timeout-minutes: 20
         run: |
           PLAYWRIGHT_JSON_OUTPUT_FILE="$AUDIT_DIR/chromium.json" npx playwright test \
-            --project=desktop-chrome --project=mobile-chrome --workers=2 --global-timeout=630000 \
+            --project=desktop-chrome --project=mobile-chrome --workers=2 --global-timeout=1110000 \
             --output="$AUDIT_DIR/evidence/chromium" --reporter=line,json
       - name: iPhone and iPad journeys
         id: safari

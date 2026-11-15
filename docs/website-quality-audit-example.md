@@ -10,7 +10,7 @@ Overall status: Incomplete
 | ---: | ---: | ---: | ---: |
 | 61 | 0 | 0 | 0 |
 
-Counts combine browser cases and unit suites. Build steps and editorial findings are reported separately.
+Counts combine browser cases and unit suites. Cases blocked by a browser launch error count as skipped. Build steps and editorial findings are reported separately.
 
 Comparison: first result or baseline unavailable.
 
@@ -73,5 +73,5 @@ LCP and CLS are lab measurements. TBT approximates main-thread responsiveness. R
 - Lighthouse /ro/play: broad run only.
 - Human review covers translation accuracy, text printed inside comic panels, educational accuracy, age suitability and near-duplicate activities or questions.
 - Confirm currency wording in prose and illustrations, real device voices, physical printing, full screen-reader journeys and subjective readability.
-- The link scan samples English homepage links and excludes external links, commerce, query strings, document downloads and in-page anchors.
+- The link scan samples English homepage links. External links, commerce, query strings, document downloads and in-page anchors are outside its scope.
 - Visual checks measure layout and image geometry on representative pages. They cannot detect every overlap or readability issue.
