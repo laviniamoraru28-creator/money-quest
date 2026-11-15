@@ -28,7 +28,7 @@ for(const ageBand of ["explorer","builder","strategist"] as const) test(`all wor
 test("core lessons remain usable when storage is blocked",async({page})=>{
  await page.addInitScript(()=>{Storage.prototype.getItem=()=>{throw new DOMException("Blocked","SecurityError")};Storage.prototype.setItem=()=>{throw new DOMException("Blocked","SecurityError")}});
  await page.goto("/en/play");await page.getByRole("button",{name:/Explorer.*6-8/i}).click();
- await page.locator('a[href="/en/play/world/coin-cove"]').click();await expect(page.getByRole("heading",{name:"Meet money and ways to pay",exact:true})).toBeVisible();
+ await page.locator('a[href="/en/play/world/coin-cove"]').click();await expect(page.getByRole("heading",{name:"Money Explorer",exact:true})).toBeVisible();
  await page.locator('a[href*="/lesson/"]').first().click();
  // The first Coin Cove lesson for Explorer (money_basics) runs its own
  // picture-first interactive flow instead of a quiz, so there is no

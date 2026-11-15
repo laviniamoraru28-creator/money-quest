@@ -14,6 +14,7 @@ import { explorerOtherTopics } from "@/content/explorer-other-lessons";
 import { ExplorerInteractiveLesson } from "@/components/explorer/ExplorerInteractiveLesson";
 import { ReadAloudButton } from "@/components/ui/ReadAloudButton";
 import { LessonIllustration } from "@/components/lesson/LessonIllustration";
+import { ExplorerComicLesson, hasExplorerComic } from "@/components/lesson/ExplorerComicLesson";
 import { getWorldById } from "@/content/worlds";
 import { useAccessibilityPrefs } from "@/lib/accessibility/use-accessibility-preferences";
 import { useSound } from "@/lib/audio/use-sound";
@@ -97,6 +98,12 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
     : t("activityGuide.lessonGoal", {title: activity.title});
   const rewardCurrencyCode = isExplorer && isSupportedLocale(uiLocale) ? LOCALE_LEARNING_CURRENCY[uiLocale] : activity.childCurrencyCode;
   const hasInteractiveExplorerLesson = isExplorer && ["money_basics","needs_wants","saving",...explorerOtherTopics].includes(activity.topicId);
+  // English-only: Explorer's supplied comic strips replace the usual
+  // illustration+prose panel for the topics that have one. needs_wants
+  // and investing_basics have no comic yet, and every other locale
+  // keeps its existing lesson presentation until translated comics are
+  // supplied — see ExplorerComicLesson's own doc comment.
+  const explorerComicTopic = isExplorer && uiLocale === "en" && hasExplorerComic(activity.topicId) ? activity.topicId : null;
   const world = getWorldById(activity.worldId);
   const worldThemeColor = world?.themeColor ?? "#0F7A6B";
   // Display order only — handleCheckAnswer below always compares the
@@ -245,12 +252,25 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
         {phase === "correct" && t("a11y.answerCorrectAnnouncement")}
       </div>
 
-      {/* The book — a two-page spread on desktop/tablet, stacked into
+      {explorerComicTopic ? (
+        <ExplorerComicLesson
+          topicId={explorerComicTopic}
+          title={activity.title}
+          shortIntroduction={activity.content.shortIntroduction}
+          keyConcept={activity.content.keyConcept}
+          explanation={activity.content.explanation}
+          story={activity.content.story}
+          vocabulary={activity.content.vocabulary}
+          uiLocale={uiLocale}
+          headingRef={lessonHeading}
+        />
+      ) : (
+      /* The book — a two-page spread on desktop/tablet, stacked into
           a single page on mobile. Left page: an illustration relating
           directly to this lesson's topic (see LessonIllustration's
           own doc comment on scope). Right page: the actual reading
           content, broken into short sections rather than one long
-          block of prose, per the redesign brief. */}
+          block of prose, per the redesign brief. */
       <div className="overflow-hidden rounded-xl shadow-floating md:grid md:grid-cols-5">
         <div
           className="relative flex items-center justify-center p-lg md:col-span-2"
@@ -344,6 +364,7 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
           </span>
         </div>
       </div>
+      )}
 
       {isExplorer && <GuidePanel compact message={phase === "incorrect" ? t("activityGuide.lessonRetry") : phase === "correct" ? t("activityGuide.lessonComplete") : lessonGoal} />}
 

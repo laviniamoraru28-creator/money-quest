@@ -4,7 +4,7 @@ import Image from "next/image";
 import { GuidePanel } from "@/components/GuidePanel";
 import { MoneyExamples } from "@/components/MoneyExamples";
 import { useParams } from "next/navigation";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link, useRouter } from "@/i18n/navigation";
 import { useLocalProgress } from "@/lib/local-progress/use-local-progress";
 import { getWorldById } from "@/content/worlds";
@@ -17,6 +17,7 @@ export default function WorldPage() {
   const params = useParams<{ worldId: string }>();
   const router = useRouter();
   const t = useTranslations();
+  const locale = useLocale();
   const { state, isLoaded } = useLocalProgress();
 
   if (!isLoaded) return <div className="grid min-h-screen place-items-center bg-fog text-ink/70">{t("common.loading")}</div>;
@@ -74,7 +75,14 @@ export default function WorldPage() {
         </div>
         <Image unoptimized data-learning-decoration src={`/images/money-quest/worlds/${world.id}.webp`} alt="" width={768} height={768} className="mt-5 max-h-96 w-full rounded-2xl bg-cream object-contain" />
         <GuidePanel message={t("activityGuide.world", {name: world.name, description: t(`worldDescriptions.${world.id}`)})}/>
-        {world.id === "coin-cove" && <MoneyExamples explorer={state.ageBand === "explorer"}/>}
+        {/* English Explorer now begins the world directly with its first
+            comic-strip lesson, with no money-forms detour first — see
+            ExplorerComicLesson. Every other band/locale keeps this
+            intro exactly as before, including Explorer in languages
+            whose comics haven't been supplied yet. */}
+        {world.id === "coin-cove" && !(state.ageBand === "explorer" && locale === "en") && (
+          <MoneyExamples explorer={state.ageBand === "explorer"}/>
+        )}
         <p className="mt-2xs text-base text-ink/70">{t(`worldDescriptions.${world.id}`)}</p>
 
         <div className="mt-md grid gap-sm">
