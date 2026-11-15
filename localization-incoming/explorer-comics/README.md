@@ -43,3 +43,11 @@ All 9 matched uniquely, no duplicates.
 - **investing_basics is MISSING.** Its approved German title per the
   transcript is "Sparen oder dein Geld wachsen lassen" — no image with
   that title/content was sent.
+
+## it/ — 9 of 10, received 2026-11-15
+
+All 9 matched uniquely, no duplicates.
+
+- **investing_basics is MISSING.** Its approved Italian title per the
+  transcript is "Risparmiare o far crescere i tuoi soldi" — no image with
+  that title/content was sent.
