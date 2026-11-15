@@ -10,15 +10,14 @@ Layout: `<lang>/<topic_id>.jpg`, one file per Explorer comic topic:
 `money_basics, needs_wants, saving, currencies, scams, long_term_thinking,
 giving, digital_money, investing_basics, junior_isa`.
 
-## ro/ — received 2026-11-15
+## ro/ — complete (10/10), received 2026-11-15
 
-9 of 10 topics matched by comparing each image's on-page dialogue against the
+All 10 topics matched by comparing each image's on-page dialogue against the
 already-approved Romanian text in `src/content/explorer-comic-transcripts.ts`.
 
-- **investing_basics is MISSING.** Its Romanian title per the approved
-  transcript is "Economisire sau creșterea banilor?" — no image with that
-  title/content was in this batch.
-- The 10th file sent duplicates the digital_money comic's dialogue
-  ("Bani pe care nu-i poți ține în mână") with a different render, not the
-  investing_basics comic. Kept as `digital_money_DUPLICATE_not_investing_basics.jpg`
-  for the record; not used.
+- First batch of 10 had only 9 unique topics — the 10th file was a duplicate
+  render of digital_money's dialogue, not investing_basics. Kept as
+  `digital_money_DUPLICATE_not_investing_basics.jpg` for the record; not used.
+- The user then sent the correct investing_basics image separately, title
+  "Economisirea sau creșterea banilor?" — matches the approved transcript.
+  Romanian set is now complete.
