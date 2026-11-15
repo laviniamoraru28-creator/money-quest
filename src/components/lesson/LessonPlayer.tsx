@@ -98,12 +98,11 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
     : t("activityGuide.lessonGoal", {title: activity.title});
   const rewardCurrencyCode = isExplorer && isSupportedLocale(uiLocale) ? LOCALE_LEARNING_CURRENCY[uiLocale] : activity.childCurrencyCode;
   const hasInteractiveExplorerLesson = isExplorer && ["money_basics","needs_wants","saving",...explorerOtherTopics].includes(activity.topicId);
-  // English-only: Explorer's supplied comic strips replace the usual
-  // illustration+prose panel for the topics that have one. needs_wants
-  // and investing_basics have no comic yet, and every other locale
-  // keeps its existing lesson presentation until translated comics are
-  // supplied — see ExplorerComicLesson's own doc comment.
-  const explorerComicTopic = isExplorer && uiLocale === "en" && hasExplorerComic(activity.topicId) ? activity.topicId : null;
+  // Explorer's supplied comic strips replace the usual
+  // illustration+prose panel for the topics that have one, in every
+  // launch locale now that each one has its own localized image —
+  // see ExplorerComicLesson's own doc comment.
+  const explorerComicTopic = isExplorer && hasExplorerComic(activity.topicId) ? activity.topicId : null;
   const world = getWorldById(activity.worldId);
   const worldThemeColor = world?.themeColor ?? "#0F7A6B";
   // Display order only — handleCheckAnswer below always compares the

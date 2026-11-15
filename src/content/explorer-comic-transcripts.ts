@@ -8,14 +8,12 @@ import type { ExplorerComicTopic } from "./explorer-comic-topics";
  * the separate lesson-content fields (shortIntroduction/explanation/
  * story) those comics replaced, and not OCR.
  *
- * Only `en` is wired to narration today, because only the English
- * comic images exist. The other eight locales hold translated,
- * naturally-phrased text ready for the moment a localized comic image
- * exists for that language — ExplorerComicLesson deliberately does
- * not speak them yet (there is nothing on screen in that language for
- * the narration to match). Keep every language's wording in sync with
- * its own comic's visible text once that comic exists, the same way
- * this file was built from the English one.
+ * All 9 locales are wired to narration — ExplorerComicLesson picks
+ * this file's entry for whichever locale is selected, matching the
+ * localized comic image now supplied for every language. Keep every
+ * language's wording in sync with its own comic's visible text if
+ * that comic's text ever changes, the same way this file was built
+ * from the English one.
  */
 export const explorerComicTranscripts: Record<ExplorerComicTopic, Record<Locale, string>> = {
   needs_wants: {

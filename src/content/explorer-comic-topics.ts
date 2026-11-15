@@ -1,7 +1,6 @@
-/** Explorer topics with a supplied English comic strip, replacing the
- * usual illustration+prose lesson panel — all 10 Explorer topics now
- * have one. Every non-English locale keeps its existing presentation
- * for every topic until translated comics are supplied — see
+/** Explorer topics with a supplied comic strip, replacing the usual
+ * illustration+prose lesson panel — all 10 Explorer topics have one,
+ * in all 9 launch locales, each with its own localized image — see
  * ExplorerComicLesson's own doc comment. */
 export const EXPLORER_COMIC_TOPICS = [
   "money_basics",
