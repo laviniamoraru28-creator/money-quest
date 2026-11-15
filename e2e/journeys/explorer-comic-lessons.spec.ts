@@ -239,3 +239,34 @@ for (const locale of ['en', 'ro'] as const) {
     }
   });
 }
+
+for (const [from, to] of [['en', 'ro'], ['ro', 'de'], ['de', 'pl']] as const) {
+  test(`explorer money_basics: switching language from ${from} to ${to} via the language selector loads the correct comic without breaking navigation or progress`, async ({page}) => {
+    // LanguageSwitcher does a full page navigation (window.location.assign),
+    // not a client-side transition — so this exercises something the
+    // per-locale page.goto() tests above don't: that the real control a
+    // player clicks lands on the same lesson with the new locale's comic,
+    // and that durable progress (which only ever lives in localStorage,
+    // not transient component state — a hard navigation always drops the
+    // latter, for every lesson, comic or not) survives the round trip.
+    const lesson = lessonFor('money_basics');
+    await page.addInitScript((state) => localStorage.setItem('moneyquest_local_progress_v1', JSON.stringify(state)), {
+      ageBand: 'explorer', currencyCode: 'GBP', xpTotal: 40, walletBalanceMinorUnits: 100,
+      completedActivityIds: [lesson.id], goals: [], earnedBadgeIds: [],
+    });
+    await page.goto(`/${from}/play/world/${lesson.worldId}/lesson/${lesson.id}`);
+    await expect(page.locator(`[data-explorer-comic-lesson="money_basics"] img`)).toHaveAttribute('src', imagePathFor(from, 'money_basics'));
+
+    await page.getByRole('combobox', {name: messagesByLocale[from].language.changeLanguage}).selectOption(to);
+    await expect(page).toHaveURL(new RegExp(`/${to}/play/world/${lesson.worldId}/lesson/${lesson.id}$`));
+    const comic = page.locator('[data-explorer-comic-lesson="money_basics"]');
+    await expect(comic).toBeVisible();
+    await expect(comic.locator('img')).toHaveAttribute('src', imagePathFor(to, 'money_basics'));
+    await expect.poll(() => comic.locator('img').evaluate((n: HTMLImageElement) => n.complete && n.naturalWidth > 0)).toBe(true);
+    // Durable progress survived the navigation: this activity still
+    // reads as completed in the locale-independent local-progress store.
+    expect(await page.evaluate(() => JSON.parse(localStorage.getItem('moneyquest_local_progress_v1')!).completedActivityIds)).toContain(lesson.id);
+    await expect(page.locator('[data-explorer-interactive-lesson]')).toBeVisible();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(false);
+  });
+}
