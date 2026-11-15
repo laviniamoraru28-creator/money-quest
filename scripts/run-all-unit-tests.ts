@@ -12,7 +12,7 @@
  * new test script is picked up automatically the next time this runs
  * — no separate "register it here too" step to forget.
  */
-import { readdirSync } from "node:fs";
+import { readdirSync, writeFileSync } from "node:fs";
 import { spawnSync } from "node:child_process";
 import path from "node:path";
 
@@ -55,6 +55,10 @@ const failures = results.filter((r) => !r.passed);
 const totalMs = results.reduce((sum, r) => sum + r.durationMs, 0);
 console.log("=".repeat(60));
 console.log(`${results.length - failures.length}/${results.length} suites passed (${totalMs}ms total)`);
+
+if (process.env.WEBSITE_AUDIT_UNIT_JSON) {
+  writeFileSync(process.env.WEBSITE_AUDIT_UNIT_JSON, JSON.stringify(results));
+}
 
 if (failures.length > 0) {
   console.log(`\nFailed: ${failures.map((f) => f.file).join(", ")}`);
