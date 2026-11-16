@@ -4,79 +4,178 @@ on:
     branches: [feature/website-completion-20261027, "release/**", feature/academy-certificates-i18n, main]
   pull_request:
     branches: [main, feature/website-completion-20261027, review/website-completion-20261027, feature/library-first-original-book, feature/public-multilingual-launch, integration/launch-20261102]
+  schedule:
+    - cron: "23 5 * * 1"
   workflow_dispatch: {}
+
 permissions:
   contents: read
+
+concurrency:
+  group: website-quality-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   website:
-    name: website-node-${{ matrix.node }}
-    strategy:
-      fail-fast: false
-      matrix:
-        node: [24.22.1]
+    name: website-node-24.22.1
     runs-on: ubuntu-24.04
-    timeout-minutes: 60
+    timeout-minutes: 55
     env:
       NEXT_PUBLIC_SITE_URL: https://moneyquesteducation.com
       NEXT_TELEMETRY_DISABLED: 1
-      # Isolated test storage and non-production moderation fixture only.
+      WEBSITE_AUDIT_PROFILE: ${{ (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') && 'broad' || 'essential' }}
+      AUDIT_DIR: test-results/audit
+      E2E_BASE_URL: http://localhost:3000
+      MONEYQUEST_CHECKOUT_PAUSED: "true"
       MONEYQUEST_REVIEW_STORE_PATH: /tmp/moneyquest-ci-reviews.json
       MONEYQUEST_REVIEW_MODERATION_KEY: moneyquest-e2e-moderation-fixture-only
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node }}
+          node-version: "24.22.1"
           cache: npm
-      - name: Printable build dependencies
-        run: python3 -m pip install reportlab==4.4.9 PyMuPDF==1.26.6
-      - run: npm ci
+      - uses: actions/cache/restore@v4
+        id: browser-cache
+        with:
+          path: ~/.cache/ms-playwright
+          key: chromium-webkit-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+      - uses: actions/cache/restore@v4
+        with:
+          path: .website-audit-baseline.json
+          key: website-audit-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: website-audit-v1-
+      - name: Install project dependencies
+        id: setup
+        run: |
+          mkdir -p "$AUDIT_DIR"
+          python3 -m pip install reportlab==4.4.9 PyMuPDF==1.26.6
+          npm ci
       - run: npm run lint
+        id: lint
       - run: npm run typecheck
+        id: types
+        if: "!cancelled() && steps.setup.outcome == 'success'"
       - name: Redis binaries for assistant ledger tests
+        id: redis
+        if: "!cancelled() && steps.setup.outcome == 'success'"
         run: |
           sudo apt-get update
           sudo apt-get install -y redis-server redis-tools
-      - run: npm run test:unit
-        env:
-          MQ_TEST_REQUIRE_REDIS: "true"
+      - run: WEBSITE_AUDIT_UNIT_JSON="$AUDIT_DIR/unit.json" MQ_TEST_REQUIRE_REDIS="true" npm run test:unit
+        id: unit
+        if: "!cancelled() && steps.setup.outcome == 'success'"
+      - name: Audit educational content and comic asset inventory
+        id: content
+        if: "!cancelled() && steps.setup.outcome == 'success'"
+        run: node --import tsx scripts/website-audit/content.ts "$AUDIT_DIR/content.json"
       - name: Generate and inspect all 27 certificate PDFs
+        id: certificates
+        if: "!cancelled() && steps.setup.outcome == 'success'"
         run: |
           CERTIFICATE_QA_OUTPUT=certificate-qa node --import tsx scripts/test-academy-certificates.ts
           python3 scripts/inspect-certificate-pdfs.py certificate-qa
       - run: npm run build
+        id: build
+        if: "!cancelled() && steps.setup.outcome == 'success'"
+        timeout-minutes: 12
       - name: Package and rehearse extracted Namecheap runtime
+        id: package
+        if: "!cancelled() && steps.build.outcome == 'success' && env.WEBSITE_AUDIT_PROFILE == 'essential'"
+        timeout-minutes: 5
         run: |
           npm run package:namecheap -- --candidate --output=moneyquest-namecheap-candidate.zip
           node scripts/verify-namecheap-package.mjs moneyquest-namecheap-candidate.zip
-      - run: npx playwright install chromium
-      - name: Start production server
+      - name: Install Chromium and WebKit
+        id: browsers
+        if: "!cancelled() && steps.build.outcome == 'success'"
+        run: npx playwright install --with-deps chromium webkit
+        timeout-minutes: 6
+      - uses: actions/cache/save@v4
+        if: "!cancelled() && steps.browsers.outcome == 'success' && github.event_name == 'schedule' && steps.browser-cache.outputs.cache-hit != 'true'"
+        with:
+          path: ~/.cache/ms-playwright
+          key: chromium-webkit-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+      - name: Start isolated production build
+        id: server
+        if: "!cancelled() && steps.browsers.outcome == 'success'"
         run: |
-          npm run start > server.log 2>&1 &
+          npm run start > "$AUDIT_DIR/server.log" 2>&1 &
           for i in $(seq 1 60); do
-            if curl -sf http://localhost:3000/api/health; then exit 0; fi
+            if curl -sf "$E2E_BASE_URL/api/health"; then exit 0; fi
             sleep 1
           done
-          cat server.log
+          cat "$AUDIT_DIR/server.log"
           exit 1
-      - name: Browser journeys and WCAG checks
-        env:
-          E2E_BASE_URL: http://localhost:3000
-        run: npx playwright test --project=desktop-chrome --project=mobile-chrome --workers=2 --max-failures=8
-      - name: Safari certificate downloads on iPhone and iPad
+      - name: Chromium journeys and axe checks
+        id: chromium
+        if: "!cancelled() && steps.server.outcome == 'success'"
+        timeout-minutes: 20
         run: |
-          npx playwright install --with-deps webkit
-          npx playwright test academy-certificates.spec.ts lesson-assistant.spec.ts settings-panel.spec.ts business-save-and-simulate.spec.ts leadership-retry.spec.ts --project=iphone-safari --project=tablet-safari --workers=2
-          npx playwright test library-public.spec.ts nav-menu.spec.ts owner-navigation-search.spec.ts site-controls.spec.ts quiet-videos.spec.ts multilingual-release.spec.ts --project=tablet-safari
+          PLAYWRIGHT_JSON_OUTPUT_FILE="$AUDIT_DIR/chromium.json" npx playwright test \
+            --project=desktop-chrome --project=mobile-chrome --workers=2 --global-timeout=1110000 \
+            --output="$AUDIT_DIR/evidence/chromium" --reporter=line,json
+      - name: iPhone and iPad journeys
+        id: safari
+        if: "!cancelled() && steps.server.outcome == 'success'"
+        timeout-minutes: 6
+        run: |
+          PLAYWRIGHT_JSON_OUTPUT_FILE="$AUDIT_DIR/safari.json" npx playwright test \
+            academy-certificates.spec.ts lesson-assistant.spec.ts settings-panel.spec.ts business-save-and-simulate.spec.ts leadership-retry.spec.ts \
+            --project=iphone-safari --project=tablet-safari --workers=2 --global-timeout=300000 \
+            --output="$AUDIT_DIR/evidence/safari" --reporter=line,json
+      - name: Additional iPad journeys
+        id: tablet
+        if: "!cancelled() && steps.server.outcome == 'success'"
+        timeout-minutes: 6
+        run: |
+          extra=()
+          if [[ "$WEBSITE_AUDIT_PROFILE" == broad ]]; then extra+=(website-audit.spec.ts); fi
+          PLAYWRIGHT_JSON_OUTPUT_FILE="$AUDIT_DIR/tablet.json" npx playwright test \
+            library-public.spec.ts nav-menu.spec.ts owner-navigation-search.spec.ts site-controls.spec.ts quiet-videos.spec.ts multilingual-release.spec.ts "${extra[@]}" \
+            --project=tablet-safari --workers=2 --global-timeout=300000 \
+            --output="$AUDIT_DIR/evidence/tablet" --reporter=line,json
+      - name: Lighthouse lab samples
+        id: lighthouse
+        if: "!cancelled() && steps.server.outcome == 'success' && env.WEBSITE_AUDIT_PROFILE == 'broad'"
+        timeout-minutes: 4
+        run: node scripts/website-audit/lighthouse.mjs "$AUDIT_DIR"
       - name: Require complete published-book artwork before release
+        id: artwork
+        if: "!cancelled() && steps.setup.outcome == 'success'"
         run: node --import tsx scripts/test-library-artwork.ts --complete
-      - uses: actions/upload-artifact@v4
-        if: always()
+      - name: Generate owner report
+        id: report
+        if: "!cancelled()"
+        env:
+          WEBSITE_AUDIT_STAGES: >-
+            {"setup":"${{ steps.setup.outcome }}","lint":"${{ steps.lint.outcome }}","types":"${{ steps.types.outcome }}","unit":"${{ steps.unit.outcome }}","certificates":"${{ steps.certificates.outcome }}","build":"${{ steps.build.outcome }}","package":"${{ steps.package.outcome }}","browsers":"${{ steps.browsers.outcome }}","browser":"${{ steps.server.outcome }}","chromium":"${{ steps.chromium.outcome }}","safari":"${{ steps.safari.outcome }}","tablet":"${{ steps.tablet.outcome }}","content":"${{ steps.content.outcome }}","lighthouse":"${{ steps.lighthouse.outcome }}","artwork":"${{ steps.artwork.outcome }}"}
+        run: |
+          node scripts/website-audit/report.mjs "$AUDIT_DIR" .website-audit-baseline.json
+          head -n 15 "$AUDIT_DIR/audit-report.md" >> "$GITHUB_STEP_SUMMARY"
+          echo "Download **money-quest-audit** under Artifacts for screenshots and findings." >> "$GITHUB_STEP_SUMMARY"
+          if [[ "${{ github.event_name }}" == schedule ]] && node -e 'process.exit(require("./test-results/audit/comparison.json").complete ? 0 : 1)'; then
+            cp "$AUDIT_DIR/comparison.json" .website-audit-baseline.json
+            echo "save_baseline=true" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/cache/save@v4
+        if: "!cancelled() && steps.report.outputs.save_baseline == 'true'"
         with:
-          name: website-test-evidence-node-${{ matrix.node }}
+          path: .website-audit-baseline.json
+          key: website-audit-v1-${{ github.run_id }}-${{ github.run_attempt }}
+      - uses: actions/upload-artifact@v4
+        if: "!cancelled()"
+        with:
+          name: money-quest-audit
+          retention-days: 14
+          path: test-results/audit/
+      - uses: actions/upload-artifact@v4
+        if: "!cancelled()"
+        with:
+          name: website-test-evidence-node-24.22.1
           retention-days: 7
           path: |
             certificate-qa/
-            test-results/
-            server.log
             moneyquest-namecheap-candidate.zip

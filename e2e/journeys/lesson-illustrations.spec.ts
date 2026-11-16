@@ -46,10 +46,10 @@ async function checkLayout(page: Page) {
 for(const locale of LOCALES) for(const band of ['explorer','builder','strategist'] as const) {
  test(`${locale}/${band}: money sections stay mounted and preserve progress on forward/back navigation`, async({page})=>{
   // The whole money-forms round trip this test exercises was removed for
-  // English Explorer along with the "Back to forms of money" button that
-  // drove it (see explorer-comic-lessons.spec.ts for its replacement
-  // coverage) — every other locale/band still has it.
-  test.skip(locale==='en' && band==='explorer', 'the money-forms round trip was removed for English Explorer');
+  // Explorer, in every locale, along with the "Back to forms of money"
+  // button that drove it (see explorer-comic-lessons.spec.ts for its
+  // replacement coverage) — Builder/Strategist still have it.
+  test.skip(band==='explorer', 'the money-forms round trip was removed for Explorer in every locale');
   const messages=JSON.parse(readFileSync(`messages/${locale}.json`,'utf8'));
   const lesson=LESSON_STRUCTURES.find(item=>item.ageBand===band && item.topicId==='money_basics')!;
   const title=messages.curriculum[lesson.id].title;
@@ -137,8 +137,8 @@ for(const locale of LOCALES) for(const band of ['explorer','builder','strategist
   for(const lesson of LESSON_STRUCTURES.filter(item=>item.ageBand===band)) {
    await page.goto(`/${locale}/play/world/${lesson.worldId}/lesson/${lesson.id}`);
    // No "Back to forms of money" button (and no money-forms section to
-   // visit) for English Explorer any more — see explorer-comic-lessons.spec.ts.
-   if(lesson.topicId==='money_basics' && !(locale==='en' && band==='explorer')) {
+   // visit) for Explorer any more, in any locale — see explorer-comic-lessons.spec.ts.
+   if(lesson.topicId==='money_basics' && band!=='explorer') {
     await page.getByRole('button',{name:messages.lesson.backToMoneyForms,exact:true}).click();
     // Scoped to the money-forms section: Explorer's own money_basics
     // activity (mounted but hidden behind it) reuses the same card.webp
@@ -149,7 +149,7 @@ for(const locale of LOCALES) for(const band of ['explorer','builder','strategist
    }
    await expect(page.locator('html')).toHaveAttribute('data-image-size','minimal');
    await expect(page.locator('html')).toHaveAttribute('data-focus-mode','true');
-   if (locale === 'en' && band === 'explorer' && hasExplorerComic(lesson.topicId)) {
+   if (band === 'explorer' && hasExplorerComic(lesson.topicId)) {
     // Comic topics: the usual illustration+prose panel is replaced
     // entirely (see explorer-comic-lessons.spec.ts for the full
     // regression coverage) — just confirm it's gone and nothing

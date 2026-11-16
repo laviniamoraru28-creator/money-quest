@@ -23,9 +23,16 @@ for(const locale of LOCALES){
   await expect(page.locator('[data-lesson-section="lesson"]')).toBeVisible();
   await expect(menu).toBeHidden();
   await page.goto(`/${locale}/play/world/coin-cove/lesson/${band}-money_basics-l1`);
-  await page.getByRole('button',{name:messages.lesson.backToMoneyForms,exact:true}).click();
-  for(const kind of ['coins','banknote']){const image=page.locator(`[data-lesson-section="examples"] img[src="/images/money-quest/money/${kind}.webp"]`);await expect(image).toBeVisible();await expect.poll(()=>image.evaluate((e:HTMLImageElement)=>e.complete&&e.naturalWidth>0)).toBe(true);}
-  await expect(page.getByRole('button',{name:moneyExamplesCopy[locale].coins,exact:true})).toBeVisible();
+  // Explorer's money_basics lesson is comic-first now, in every locale,
+  // with no "Back to forms of money" reference section to check the
+  // original money pictures in (see explorer-comic-lessons.spec.ts) —
+  // that part of this check only still applies to Builder/Strategist,
+  // whichever one the search above actually surfaced.
+  if(band!=='explorer') {
+   await page.getByRole('button',{name:messages.lesson.backToMoneyForms,exact:true}).click();
+   for(const kind of ['coins','banknote']){const image=page.locator(`[data-lesson-section="examples"] img[src="/images/money-quest/money/${kind}.webp"]`);await expect(image).toBeVisible();await expect.poll(()=>image.evaluate((e:HTMLImageElement)=>e.complete&&e.naturalWidth>0)).toBe(true);}
+   await expect(page.getByRole('button',{name:moneyExamplesCopy[locale].coins,exact:true})).toBeVisible();
+  }
   await page.goto(`/${locale}/play`);
   await expect(page.locator('main a[href$="/brain-lab"]')).toHaveCount(0);
   await expect(page.locator('main a[href$="/play/goals"]')).toHaveCount(0);
