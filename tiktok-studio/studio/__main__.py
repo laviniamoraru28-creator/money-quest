@@ -115,7 +115,7 @@ def make_quote_video(q: dict, config: dict) -> tuple[str, dict]:
     render_res = None
     if not content["errors"]:
         quotes.render(q, plan, config, out_dir)
-        render_res = qa.check_render(out_dir, plan, config, contrast_pairs=quotes.contrast_pairs(), min_font=60, limits=(9, 18))
+        render_res = qa.check_render(out_dir, plan, config, contrast_pairs=quotes.contrast_pairs(), min_font=60, limits=(9, 19))
     result = qa.report(out_dir, content, render_res)
     history = load_history()
     history["videos"] = [v for v in history["videos"] if v["run"] != run]

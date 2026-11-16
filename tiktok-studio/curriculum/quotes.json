@@ -72,6 +72,7 @@
       "id": 1,
       "slug": "franklin-small-leak",
       "pillar": "Financial literacy and healthy money habits",
+      "hook": "Where does your child's pocket money go?",
       "quote": "Beware of little expenses; a small leak will sink a great ship.",
       "author": "Benjamin Franklin",
       "source_line": "The Way to Wealth, 1758",
@@ -95,13 +96,14 @@
         "spending habits for kids",
         "financial literacy for children"
       ],
-      "proposed_date": "2026-11-23",
+      "proposed_date": "2026-11-16",
       "proposed_time": "19:30 UK time"
     },
     {
       "id": 2,
       "slug": "alcott-storms",
       "pillar": "Growth mindset and resilience",
+      "hook": "Does your child give up when things get hard?",
       "quote": "I'm not afraid of storms, for I'm learning how to sail my ship.",
       "author": "Louisa May Alcott",
       "source_line": "Little Women, 1869",
@@ -125,13 +127,14 @@
         "growth mindset for kids",
         "emotional skills"
       ],
-      "proposed_date": "2026-11-25",
+      "proposed_date": "2026-11-18",
       "proposed_time": "19:30 UK time"
     },
     {
       "id": 3,
       "slug": "dewey-process-of-living",
       "pillar": "Psychology of learning and child development",
+      "hook": "How do children really learn about money?",
       "quote": "Education … is a process of living and not a preparation for future living.",
       "author": "John Dewey",
       "source_line": "My Pedagogic Creed, 1897",
@@ -155,13 +158,14 @@
         "child development",
         "how children learn"
       ],
-      "proposed_date": "2026-11-27",
+      "proposed_date": "2026-11-20",
       "proposed_time": "19:30 UK time"
     },
     {
       "id": 4,
       "slug": "washington-responsibility",
       "pillar": "Leadership and responsibility",
+      "hook": "How do you raise a responsible child?",
       "quote": "Few things help an individual more than to place responsibility upon him, and to let him know that you trust him.",
       "author": "Booker T. Washington",
       "source_line": "Up from Slavery, 1901",
@@ -185,13 +189,14 @@
         "leadership skills for kids",
         "raising confident children"
       ],
-      "proposed_date": "2026-11-30",
+      "proposed_date": "2026-11-23",
       "proposed_time": "19:30 UK time"
     },
     {
       "id": 5,
       "slug": "kahneman-focusing",
       "pillar": "Critical thinking and decision-making",
+      "hook": "Why does that toy feel so urgent right now?",
       "quote": "Nothing in life is as important as you think it is, while you are thinking about it.",
       "author": "Daniel Kahneman",
       "source_line": "Thinking, Fast and Slow, 2011",
@@ -215,13 +220,14 @@
         "impulse buying children",
         "critical thinking skills"
       ],
-      "proposed_date": "2026-12-02",
+      "proposed_date": "2026-11-25",
       "proposed_time": "19:30 UK time"
     },
     {
       "id": 6,
       "slug": "smiles-discover",
       "pillar": "Entrepreneurship and creative thinking",
+      "hook": "Is your child afraid of getting it wrong?",
       "quote": "We often discover what will do, by finding out what will not do; and probably he who never made a mistake never made a discovery.",
       "author": "Samuel Smiles",
       "source_line": "Self-Help, 1859",
@@ -245,13 +251,14 @@
         "learning from mistakes",
         "creative thinking"
       ],
-      "proposed_date": "2026-12-04",
+      "proposed_date": "2026-11-27",
       "proposed_time": "19:30 UK time"
     },
     {
       "id": 7,
       "slug": "epictetus-opinions",
       "pillar": "Emotional intelligence and self-regulation",
+      "hook": "Why do small things feel so big to children?",
       "quote": "Men are disturbed not by the things which happen, but by the opinions about the things.",
       "author": "Epictetus",
       "source_line": "The Encheiridion, trans. George Long",
@@ -275,13 +282,14 @@
         "self regulation",
         "naming feelings"
       ],
-      "proposed_date": "2026-12-07",
+      "proposed_date": "2026-11-30",
       "proposed_time": "19:30 UK time"
     },
     {
       "id": 8,
       "slug": "thoreau-cost",
       "pillar": "Saving, spending and budgeting",
+      "hook": "What does that toy really cost your child?",
       "quote": "The cost of a thing is the amount of what I will call life which is required to be exchanged for it, immediately or in the long run.",
       "author": "Henry David Thoreau",
       "source_line": "Walden, 1854",
@@ -305,13 +313,14 @@
         "needs vs wants",
         "value of money"
       ],
-      "proposed_date": "2026-12-09",
+      "proposed_date": "2026-12-02",
       "proposed_time": "19:30 UK time"
     },
     {
       "id": 9,
       "slug": "dewey-capacity-for-growth",
       "pillar": "Future skills and lifelong learning",
+      "hook": "What is the one skill your child will always need?",
       "quote": "The object and reward of learning is continued capacity for growth.",
       "author": "John Dewey",
       "source_line": "Democracy and Education, 1916",
@@ -335,13 +344,14 @@
         "lifelong learning",
         "learning how to learn"
       ],
-      "proposed_date": "2026-12-11",
+      "proposed_date": "2026-12-04",
       "proposed_time": "19:30 UK time"
     },
     {
       "id": 10,
       "slug": "clear-vote",
       "pillar": "Financial literacy and healthy money habits",
+      "hook": "Can one coin a week change a habit?",
       "quote": "Every action you take is a vote for the type of person you wish to become.",
       "author": "James Clear",
       "source_line": "Atomic Habits, 2018",
@@ -365,13 +375,14 @@
         "teaching kids to save",
         "habit building"
       ],
-      "proposed_date": "2026-12-14",
+      "proposed_date": "2026-12-07",
       "proposed_time": "19:30 UK time"
     },
     {
       "id": 11,
       "slug": "franklin-little-strokes",
       "pillar": "Saving, spending and budgeting",
+      "hook": "Can small savings really reach a big goal?",
       "quote": "Little strokes fell great oaks.",
       "author": "Benjamin Franklin",
       "source_line": "The Way to Wealth, 1758",
@@ -395,13 +406,14 @@
         "teaching patience",
         "pocket money"
       ],
-      "proposed_date": "2026-12-16",
+      "proposed_date": "2026-12-09",
       "proposed_time": "19:30 UK time"
     },
     {
       "id": 12,
       "slug": "james-habit",
       "pillar": "Psychology of learning and child development",
+      "hook": "Why do early habits matter so much?",
       "quote": "The great thing in all education is to make our nervous system our ally instead of our enemy.",
       "author": "William James",
       "source_line": "Talks to Teachers on Psychology, 1899",
@@ -425,13 +437,14 @@
         "child development",
         "building routines"
       ],
-      "proposed_date": "2026-12-18",
+      "proposed_date": "2026-12-11",
       "proposed_time": "19:30 UK time"
     },
     {
       "id": 13,
       "slug": "emerson-trust-thyself",
       "pillar": "Growth mindset and resilience",
+      "hook": "How do children learn to trust themselves?",
       "quote": "Trust thyself: every heart vibrates to that iron string.",
       "author": "Ralph Waldo Emerson",
       "source_line": "Self-Reliance, 1841",
@@ -455,13 +468,14 @@
         "growth mindset",
         "decision making for kids"
       ],
-      "proposed_date": "2026-12-21",
+      "proposed_date": "2026-12-14",
       "proposed_time": "19:30 UK time"
     },
     {
       "id": 14,
       "slug": "montessori-independent",
       "pillar": "Leadership and responsibility",
+      "hook": "Are you doing too much for your child?",
       "quote": "No one can be free unless he is independent.",
       "author": "Maria Montessori",
       "source_line": "The Montessori Method, 1912",
@@ -485,13 +499,14 @@
         "responsibility for kids",
         "montessori at home"
       ],
-      "proposed_date": "2026-12-23",
+      "proposed_date": "2026-12-16",
       "proposed_time": "19:30 UK time"
     },
     {
       "id": 15,
       "slug": "dickens-burden",
       "pillar": "Emotional intelligence and self-regulation",
+      "hook": "How do you raise a kind child?",
       "quote": "No one is useless in this world who lightens the burden of it for any one else.",
       "author": "Charles Dickens",
       "source_line": "Our Mutual Friend, 1865",
@@ -515,7 +530,7 @@
         "generosity for kids",
         "giving"
       ],
-      "proposed_date": "2026-12-28",
+      "proposed_date": "2026-12-18",
       "proposed_time": "19:30 UK time"
     }
   ]

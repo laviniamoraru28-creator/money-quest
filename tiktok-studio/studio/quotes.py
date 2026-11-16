@@ -35,6 +35,7 @@ CORAL = "#F3A995"        # accents and the link pill (never used for text)
 CORAL_MARK = "#E9907A"
 SAGE_CHIP = "#BFD6BA"
 BACKGROUNDS = {          # vertical gradients: (top, bottom)
+    "hook": ("#FCEBE3", "#F8DDD2"),       # soft coral
     "quote": ("#FBF6EC", "#F3EDE0"),      # cream
     "takeaway": ("#E6EFE2", "#D9E7D6"),   # sage
     "cta": ("#E7F0F6", "#DCE9F2"),        # soft blue
@@ -87,17 +88,21 @@ def build_plan(q: dict) -> dict:
     d_quote = round(_clamp(0.9 + word_count(q["quote"]) / 3.0, 3.4, 8.5), 2)
     d_take = round(_clamp(0.8 + word_count(q["takeaway"]) / 3.0, 2.8, 4.2), 2)
     d_cta = 3.0
-    scenes = [
-        {"kind": "quote", "text": q["quote"], "start": 0.0, "duration": d_quote},
-        {"kind": "takeaway", "text": q["takeaway"], "start": d_quote, "duration": d_take},
-        {"kind": "cta", "text": q["cta"], "start": round(d_quote + d_take, 2), "duration": d_cta},
-    ]
+    # The hook is a question that stops the scroll; the quotation answers it.
+    d_hook = round(_clamp(0.8 + word_count(q["hook"]) / 3.2, 2.0, 3.2), 2)
+    scenes, t = [], 0.0
+    for kind, text, dur in (("hook", q["hook"], d_hook), ("quote", q["quote"], d_quote),
+                            ("takeaway", q["takeaway"], d_take), ("cta", q["cta"], d_cta)):
+        scenes.append({"kind": kind, "text": text, "start": round(t, 2), "duration": dur})
+        t += dur
     return {"topic_id": topic_id(q), "category": q["pillar"], "quote_id": q["id"],
-            "duration": round(d_quote + d_take + d_cta, 2), "scenes": scenes, "caption": build_caption(q)}
+            "duration": round(t, 2), "scenes": scenes, "caption": build_caption(q)}
 
 
 def build_caption(q: dict) -> str:
     return "\n".join([
+        q["hook"],
+        "",
         f"“{q['quote']}” — {q['author']}, {q['source_line']}",
         "",
         q["caption"],
@@ -113,7 +118,7 @@ def check_content(q: dict, plan: dict, config: dict) -> dict:
     from . import qa
 
     errors, warnings = [], []
-    for field in ("quote", "author", "source_line", "source", "verification", "rights", "takeaway", "cta", "section", "route", "caption", "hashtags"):
+    for field in ("hook", "quote", "author", "source_line", "source", "verification", "rights", "takeaway", "cta", "section", "route", "caption", "hashtags"):
         if not q.get(field):
             errors.append(f"missing field: {field}")
     if q.get("verification") not in PUBLISHABLE:
@@ -124,23 +129,25 @@ def check_content(q: dict, plan: dict, config: dict) -> dict:
     if not page.exists():
         errors.append(f"CTA route {route} is not a public page in the website")
     # Our own words: spelling and no exaggerated claims. The quotation itself is verbatim and exempt.
-    own = [q.get("takeaway", ""), q.get("cta", ""), q.get("caption", ""), q.get("section", "")]
+    own = [q.get("hook", ""), q.get("takeaway", ""), q.get("cta", ""), q.get("caption", ""), q.get("section", "")]
     errors += qa.check_spelling(own)
     for text in own:
         for pattern, why in qa.GUARDRAILS:
             if re.search(pattern, text, flags=re.I):
                 errors.append(f"guardrail ({why}): \"{text[:70]}\"")
+    if word_count(q.get("hook", "")) > 10 or not q.get("hook", "").endswith("?"):
+        errors.append("hook must be a question of at most 10 words")
     if word_count(q.get("takeaway", "")) > 12:
         errors.append("takeaway longer than 12 words")
     if word_count(q.get("cta", "")) > 9:
         errors.append("CTA longer than 9 words")
     if not 3 <= len(q.get("hashtags", [])) <= 5:
         errors.append("use three to five hashtags")
-    wps = word_count(q.get("quote", "")) / plan["scenes"][0]["duration"]
+    wps = word_count(q.get("quote", "")) / plan["scenes"][1]["duration"]
     if wps > 3.3:
         errors.append(f"quotation too long to read comfortably ({wps:.1f} words/s)")
-    if not 9 <= plan["duration"] <= 18:
-        errors.append(f"duration {plan['duration']}s outside 9-18s")
+    if not 9 <= plan["duration"] <= 19:
+        errors.append(f"duration {plan['duration']}s outside 9-19s")
     elif plan["duration"] > 15.5:
         warnings.append(f"duration {plan['duration']}s is above the preferred 15s (long quotation)")
     return {"errors": errors, "warnings": warnings}
@@ -245,6 +252,22 @@ class _Scene:
             self.elements.append((img, x, y, delay))
             layout.append({"scene": kind, "element": name, "box": [x, y, x + img.width, y + img.height], "font_size": font_size})
 
+        def add_words(lines, font, y, lh, start, step, name, size):
+            """Kinetic text: each word is its own element, revealed in reading order."""
+            space = font.getlength(" ")
+            n = 0
+            for i, line in enumerate(lines):
+                words = line.split()
+                line_w = sum(font.getlength(w) for w in words) + space * (len(words) - 1)
+                x = CX - line_w / 2
+                layout.append({"scene": kind, "element": f"{name}{i}", "box": [int(x), y, int(x + line_w) + 8, y + lh], "font_size": size})
+                for w in words:
+                    self.elements.append((_text_img(w, font, DEEP), int(x) - 4, y, start + step * n))
+                    x += font.getlength(w) + space
+                    n += 1
+                y += lh
+            return y, start + step * n
+
         if kind != "cta":  # small brand row
             mark = _brand_mark(48)
             name = _text_img("Money Quest", _font(sans_b, 36), DEEP)
@@ -253,7 +276,12 @@ class _Scene:
             row.alpha_composite(name, (62, 2))
             add(row, 210, 0.0, "brand_row", 36)
 
-        if kind == "quote":
+        if kind == "hook":
+            font, lines, lh, size = _fit_lines(q["hook"], sans_b, 112, 72, 760)
+            top = 200 + (1500 - 200 - lh * len(lines)) // 2
+            add_words(lines, font, top, lh, 0.0, 0.16, "line", size)
+
+        elif kind == "quote":
             font, lines, lh, size = _fit_lines(q["quote"], serif_b, 96, 60, 640)
             author_f, source_f = _font(sans_b, 46), _font(sans_r, 34)
             source_lines = _wrap(q["source_line"], source_f, MAX_W)
@@ -261,18 +289,15 @@ class _Scene:
             top = 380 + max(0, (1500 - 380 - 150 - block_h) // 2) + 150
             mark = _text_img("“", _font(serif_b, 300), CORAL_MARK)
             self.elements.append((mark, CX - mark.width // 2, top - 250, 0.0))
-            y = top
-            for i, line in enumerate(lines):
-                add(_text_img(line, font, DEEP), y, 0.25 + 0.12 * i, f"line{i}", size)
-                y += lh
+            y, after = add_words(lines, font, top, lh, 0.3, 0.14, "line", size)
             y += 50
             rule = Image.new("RGBA", (120, 6), _hex(CORAL))
-            self.elements.append((rule, CX - 60, y, 0.5 + 0.12 * len(lines)))
+            self.elements.append((rule, CX - 60, y, after + 0.1))
             y += 44
-            add(_text_img(q["author"].upper(), author_f, DEEP, spacing=3), y, 0.6 + 0.12 * len(lines), "author", 46)
+            add(_text_img(q["author"].upper(), author_f, DEEP, spacing=3), y, after + 0.2, "author", 46)
             y += 68
             for j, line in enumerate(source_lines):
-                add(_text_img(line, source_f, MUTED), y, 0.7 + 0.12 * len(lines), f"source{j}", 34)
+                add(_text_img(line, source_f, MUTED), y, after + 0.3, f"source{j}", 34)
                 y += 46
 
         elif kind == "takeaway":
@@ -284,10 +309,7 @@ class _Scene:
             ImageDraw.Draw(chip).rounded_rectangle((0, 0, chip.width - 1, 75), radius=38, fill=_hex(SAGE_CHIP))
             chip.alpha_composite(label, (32, 14))
             add(chip, top - 140, 0.15, "label", 34)
-            y = top
-            for i, line in enumerate(lines):
-                add(_text_img(line, font, DEEP), y, 0.3 + 0.14 * i, f"line{i}", size)
-                y += lh
+            add_words(lines, font, top, lh, 0.3, 0.16, "line", size)
 
         else:  # cta
             mark = _brand_mark(190)
@@ -314,7 +336,7 @@ class _Scene:
             by = H * fy + 22 * math.cos(t * 0.2 + i * 1.3) - blob.height / 2
             img.paste(blob, (int(bx), int(by)), blob)
         for layer, x, y, delay in self.elements:
-            k = _ease((tau - delay * 0.5) / 0.45)
+            k = _ease((tau - delay * 0.5) / 0.28)
             if k > 0:
                 img.alpha_composite(_with_alpha(layer, k), (x, int(y + 14 * (1 - k))))
         return img
@@ -344,7 +366,7 @@ def render(q: dict, plan: dict, config: dict, out_dir: Path) -> dict:
                 return i
         return len(plan["scenes"]) - 1
 
-    cover_t = min(2.0, plan["scenes"][0]["duration"] - 0.3)
+    cover_t = min(1.6, plan["scenes"][0]["duration"] - 0.3)
     for n in range(int(round(total * fps))):
         t = n / fps
         i = scene_at(t)
@@ -382,9 +404,10 @@ def write_calendar(history: dict) -> Path:
     for q in doc["quotes"]:
         h = by_topic.get(topic_id(q), {})
         production = {"rendered": "Rendered, awaiting approval", "approved": "Approved", "qa_failed": "QA failed", "draft_in_buffer": "Produced on GitHub Actions, awaiting approval"}.get(h.get("status"), "Published or queued" if h else "Not produced")
-        buffer_status = {"sent_to_phone": "Reminder sent", "queued_in_buffer": "Queued", "draft_in_buffer": "Draft", "published": "Published"}.get(h.get("status"), "Not sent")
+        buffer_status = {"sent_to_phone": "Reminder sent", "reminder_sent": "Reminder sent", "queued_in_buffer": "Queued", "draft_in_buffer": "Draft", "published": "Published"}.get(h.get("status"), "Not sent")
         out += [
             f"## {q['id']}. {q['author']}: {q['pillar']}", "",
+            f"- **Opening question:** {q['hook']}",
             f"- **Quotation:** “{q['quote']}”",
             f"- **Source:** {q['source']}",
             f"- **Verification:** {'Verified' if q['verification'] == 'verified' else 'Needs print check'}. {q['verification_note']}",
