@@ -133,6 +133,7 @@ jobs:
         run: |
           python -m studio metrics || echo "::warning::metrics failed (Buffer post metrics are experimental)"
           python -m studio cleanup-hosting
+          python -m studio report
 
       - name: Attach video for review
         if: always() && steps.make.outputs.run != ''
@@ -164,7 +165,8 @@ jobs:
             git -C "$tmp" rm -rfq . || true
           fi
           cp state/history.json "$tmp/history.json"
-          git -C "$tmp" add history.json
+          if [ -f reports/WEEKLY_REPORT.md ]; then cp reports/WEEKLY_REPORT.md "$tmp/WEEKLY_REPORT.md"; fi
+          git -C "$tmp" add -A
           git -C "$tmp" commit -qm "studio state: ${{ steps.mode.outputs.task }} ${{ steps.make.outputs.run }}" || { echo "No state change"; exit 0; }
           for attempt in 1 2 3; do
             git -C "$tmp" push -q origin tiktok-studio-state && exit 0

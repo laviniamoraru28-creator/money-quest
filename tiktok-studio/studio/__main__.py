@@ -3,6 +3,10 @@
   quote-check                  QA for every quotation (verification, wording, CTA route)
   quote-make [--id N]          render + QA one quote video (default: next verified, unused)
   quote-calendar               write QUOTE_CALENDAR.md from curriculum/quotes.json
+  short-check                  QA for the version 2 videos in curriculum/shorts.json
+  short-make --id MQ-I-001     render + QA one version 2 video
+  report                       write reports/WEEKLY_REPORT.md from collected metrics
+  campaign-proposal            write CAMPAIGN_CALENDAR_PROPOSAL.md (proposal only)
   topics                       list the topic bank and what has been used
   check                        content QA for every topic (no rendering)
   make [--topic ID]            script + render + full QA (default: next topic)
@@ -35,7 +39,7 @@ import json
 import os
 import sys
 
-from . import buffer, hosting, qa, quotes, script, select, tiktok
+from . import buffer, hosting, qa, quotes, report, script, select, shorts, tiktok
 from .common import OUTPUT_DIR, get_topic, load_config, load_history, load_topics, now_iso, save_history
 
 MODES = ("buffer-draft", "buffer-notify", "buffer-auto", "tiktok-drafts", "tiktok-private")
@@ -126,6 +130,52 @@ def make_quote_video(q: dict, config: dict) -> tuple[str, dict]:
     })
     save_history(history)
     return run, result
+
+
+def make_short_video(v: dict, config: dict) -> tuple[str, dict]:
+    plan = shorts.build_plan(v)
+    run = f"{dt.date.today().isoformat()}-{v['id'].lower()}"
+    out_dir = OUTPUT_DIR / run
+    out_dir.mkdir(parents=True, exist_ok=True)
+    content = shorts.check_content(v, plan, config)
+    render_res = None
+    if not content["errors"]:
+        shorts.render(v, plan, config, out_dir)
+        render_res = qa.check_render(out_dir, plan, config, contrast_pairs=shorts.contrast_pairs(), min_font=60, limits=(8, 22))
+        render_res["errors"] += shorts.check_overlaps(json.loads((out_dir / "layout.json").read_text()))
+    result = qa.report(out_dir, content, render_res)
+    history = load_history()
+    history["videos"] = [h for h in history["videos"] if h["run"] != run]
+    history["videos"].append({
+        "run": run, "topic_id": v["id"], "video_id": v["id"], "category": v["category"], "series": "shorts", "hook": v["hook"],
+        "status": "rendered" if result["passed"] else "qa_failed", "rendered_at": now_iso(), "duration": plan["duration"],
+    })
+    save_history(history)
+    return run, result
+
+
+def cmd_short_check(_):
+    config = load_config()
+    for v in shorts.load_shorts():
+        plan = shorts.build_plan(v)
+        res = shorts.check_content(v, plan, config)
+        print(f"{'READY ' if not res['errors'] else 'HOLD  '} {v['id']} {v['category']:<10} {plan['duration']:5.2f}s  {v['cover_title']}")
+        for e in res["errors"]:
+            print(f"        - {e}")
+
+
+def cmd_short_make(args):
+    run, result = make_short_video(shorts.get_short(args.id), load_config())
+    _print_result(run, result)
+    return 0 if result["passed"] else 1
+
+
+def cmd_report(_):
+    print("Wrote", report.write_report(load_history()))
+
+
+def cmd_campaign_proposal(_):
+    print("Wrote", report.write_proposal(load_config(), load_history()))
 
 
 def _used_topics() -> set[str]:
@@ -358,6 +408,7 @@ def cmd_metrics(_):
             p = posts.get(e.get("buffer_post_id"))
             if p and p["metrics"]:
                 e["metrics"], e["metrics_raw"], e["metrics_at"] = buffer.normalise_metrics(p["metrics"]), p["metrics"], now_iso()
+                e.setdefault("metric_snapshots", []).append({"at": e["metrics_at"], **e["metrics"]})
                 updated += 1
     save_history(history)
     print(f"Updated metrics for {updated} video(s)")
@@ -408,8 +459,19 @@ def cmd_scheduled(_):
         if sent_today:
             print(f"Already sent today ({', '.join(sent_today)}): skipping this scheduled run.")
             return 0
-    if config.get("series") == "quotes":
-        q = quotes.next_quote(_used_topics())
+    series = config.get("series")
+    today_iso = dt.datetime.now(dt.timezone.utc).date().isoformat()
+    for start, name in sorted(config.get("publishing", {}).get("series_from", {}).items()):
+        if today_iso >= start:
+            series = name
+    used = _used_topics()
+    short = shorts.next_short(used) if series == "shorts" else None
+    if short:
+        run, result = make_short_video(short, config)
+    elif series in ("quotes", "shorts"):
+        # After the version 2 calendar, continue with library quotations it did not use.
+        placed = {f"quote-{quotes.get_quote(s['quote_id'])['slug']}" for v in shorts.load_shorts() for s in v["scenes"] if s["kind"] == "quote"}
+        q = quotes.next_quote(used | (placed if series == "shorts" else set()))
         if not q:
             print("::error::No verified, unused quotation left")
             return 1
@@ -462,6 +524,10 @@ def main(argv=None):
     sub.add_parser("quote-check").set_defaults(fn=cmd_quote_check)
     qm = sub.add_parser("quote-make"); qm.add_argument("--id"); qm.set_defaults(fn=cmd_quote_make)
     sub.add_parser("quote-calendar").set_defaults(fn=cmd_quote_calendar)
+    sub.add_parser("short-check").set_defaults(fn=cmd_short_check)
+    sm = sub.add_parser("short-make"); sm.add_argument("--id", required=True); sm.set_defaults(fn=cmd_short_make)
+    sub.add_parser("report").set_defaults(fn=cmd_report)
+    sub.add_parser("campaign-proposal").set_defaults(fn=cmd_campaign_proposal)
     sub.add_parser("buffer-setup").set_defaults(fn=cmd_buffer_setup)
     h = sub.add_parser("host"); h.add_argument("run"); h.set_defaults(fn=cmd_host)
     pb = sub.add_parser("publish"); pb.add_argument("run"); pb.add_argument("--mode", choices=MODES, required=True)
