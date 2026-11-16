@@ -1,0 +1,6 @@
+{
+  "task": "next-video",
+  "publish_mode": "buffer-notify",
+  "note": "Changing this file on the development branch runs one test. task: next-video | buffer-setup. publish_mode: review | buffer-notify. Automatic posting is not possible from here.",
+  "request": 4
+}

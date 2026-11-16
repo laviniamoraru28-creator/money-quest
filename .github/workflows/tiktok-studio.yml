@@ -1,0 +1,165 @@
+name: TikTok Studio (Money Quest videos)
+
+# Separate from the website: works only in tiktok-studio/, keeps its memory on
+# the `tiktok-studio-state` branch (never pushes to main, never triggers a
+# website build) and hosts finished videos as pre-releases named tiktok-*.
+#
+# Publishing goes through Buffer (Free plan) using Buffer's approved TikTok
+# integration. Three independent switches, all OFF by default:
+#   vars.PUBLISH_MODE             review | buffer-notify | buffer-auto
+#   vars.AUTOMATION_ENABLED       "true" lets scheduled runs send videos to Buffer
+#   vars.PUBLIC_POSTING_APPROVED  "true" allows buffer-auto (public posts)
+# With the defaults every run is review-only: render + QA + artifact.
+# Scheduled runs only fire from the default branch (GitHub rule).
+
+on:
+  # Pre-merge testing: committing a change to tiktok-studio/test-request.json on
+  # the development branch runs the requested test from that branch. It can
+  # only do buffer-setup, review or buffer-notify, never automatic posting.
+  # Remove this trigger once the studio is merged to main.
+  push:
+    branches: [ccr-845ea0e4-yysn7f]
+    paths: [tiktok-studio/test-request.json]
+  schedule:
+    - cron: "10 19 * * 1,3,5"   # Mon/Wed/Fri 19:10 UTC: one new video; Buffer reminder 20 minutes later (19:30 UK time in winter)
+    - cron: "13 9 * * 0"        # Sunday 09:13 UTC: status sync, metrics, cleanup
+  workflow_dispatch:
+    inputs:
+      task:
+        description: "What to run"
+        type: choice
+        options: [next-video, buffer-setup, weekly-maintenance]
+        default: next-video
+      publish_mode:
+        description: "review = render only; buffer-notify = Buffer reminds you and you tap to post; buffer-auto = Buffer posts publicly (needs PUBLIC_POSTING_APPROVED)"
+        type: choice
+        options: [review, buffer-draft, buffer-notify, buffer-auto]
+        default: review
+
+permissions:
+  contents: write   # state branch + hosting releases
+
+concurrency:
+  group: tiktok-studio
+  cancel-in-progress: false
+
+jobs:
+  studio:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    defaults:
+      run:
+        working-directory: tiktok-studio
+    env:
+      GH_TOKEN: ${{ github.token }}
+      BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+      BUFFER_CHANNEL_ID: ${{ vars.BUFFER_CHANNEL_ID }}
+      PUBLIC_POSTING_APPROVED: ${{ vars.PUBLIC_POSTING_APPROVED || 'false' }}
+      PUBLISH_DELAY_MINUTES: "20"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg fonts-liberation fonts-dejavu-core
+          pip install -q -r requirements.txt
+
+      - name: Restore studio memory
+        run: |
+          if git fetch -q origin tiktok-studio-state; then
+            git show origin/tiktok-studio-state:history.json > state/history.json
+            echo "Restored history ($(grep -c '"run"' state/history.json) runs)"
+          else
+            echo "No state branch yet: starting fresh"
+          fi
+
+      - name: Decide what to do
+        id: mode
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            task="${{ inputs.task }}"
+            mode="${{ inputs.publish_mode }}"
+            # Pressing "Run workflow" with a Buffer mode authorises this one video.
+            automation=$([ "$mode" != "review" ] && echo true || echo false)
+          elif [ "${{ github.event_name }}" = "push" ]; then
+            task=$(python -c "import json;print(json.load(open('test-request.json')).get('task','next-video'))")
+            mode=$(python -c "import json;print(json.load(open('test-request.json')).get('publish_mode','review'))")
+            case "$task" in next-video|buffer-setup) ;; *) echo "::error::test task must be next-video or buffer-setup"; exit 1;; esac
+            case "$mode" in review|buffer-draft|buffer-notify) ;; *) echo "::error::branch tests may only use review, buffer-draft or buffer-notify"; exit 1;; esac
+            automation=$([ "$mode" != "review" ] && echo true || echo false)
+            # Branch tests can never post publicly, whatever the repository variable says.
+            echo "PUBLIC_POSTING_APPROVED=false" >> "$GITHUB_ENV"
+          else
+            task=$([ "${{ github.event.schedule }}" = "13 9 * * 0" ] && echo weekly-maintenance || echo next-video)
+            mode="${{ vars.PUBLISH_MODE || 'review' }}"
+            automation="${{ vars.AUTOMATION_ENABLED || 'false' }}"
+          fi
+          { echo "task=$task"; echo "mode=$mode"; echo "automation=$automation"; } >> "$GITHUB_OUTPUT"
+          echo "task=$task mode=$mode automation=$automation public_approved=$PUBLIC_POSTING_APPROVED"
+
+      - name: Check Buffer connection
+        if: steps.mode.outputs.task == 'buffer-setup'
+        run: python -m studio buffer-setup
+
+      - name: Sync earlier Buffer posts
+        if: steps.mode.outputs.task != 'buffer-setup' && env.BUFFER_API_KEY != ''
+        continue-on-error: true
+        run: python -m studio sync
+
+      - name: Make (and maybe publish) the next video
+        id: make
+        if: steps.mode.outputs.task == 'next-video'
+        env:
+          PUBLISH_MODE: ${{ steps.mode.outputs.mode }}
+          AUTOMATION_ENABLED: ${{ steps.mode.outputs.automation }}
+        run: python -m studio scheduled
+
+      - name: Weekly metrics and hosting cleanup
+        if: steps.mode.outputs.task == 'weekly-maintenance'
+        run: |
+          python -m studio metrics || echo "::warning::metrics failed (Buffer post metrics are experimental)"
+          python -m studio cleanup-hosting
+
+      - name: Attach video for review
+        if: always() && steps.make.outputs.run != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: tiktok-${{ steps.make.outputs.run }}
+          path: |
+            tiktok-studio/output/${{ steps.make.outputs.run }}/video.mp4
+            tiktok-studio/output/${{ steps.make.outputs.run }}/cover.jpg
+            tiktok-studio/output/${{ steps.make.outputs.run }}/contact_sheet.jpg
+            tiktok-studio/output/${{ steps.make.outputs.run }}/caption.txt
+            tiktok-studio/output/${{ steps.make.outputs.run }}/script.txt
+            tiktok-studio/output/${{ steps.make.outputs.run }}/qa_report.json
+          retention-days: 30
+
+      - name: Save studio memory
+        if: always()
+        run: |
+          [ -f state/history.json ] || exit 0
+          git config user.name "money-quest-studio[bot]"
+          git config user.email "money-quest-studio@users.noreply.github.com"
+          tmp=$(mktemp -d)
+          if git fetch -q origin tiktok-studio-state; then
+            git worktree add -q "$tmp" origin/tiktok-studio-state
+            git -C "$tmp" checkout -q -B tiktok-studio-state
+          else
+            git worktree add -q --detach "$tmp"
+            git -C "$tmp" checkout -q --orphan tiktok-studio-state
+            git -C "$tmp" rm -rfq . || true
+          fi
+          cp state/history.json "$tmp/history.json"
+          git -C "$tmp" add history.json
+          git -C "$tmp" commit -qm "studio state: ${{ steps.mode.outputs.task }} ${{ steps.make.outputs.run }}" || { echo "No state change"; exit 0; }
+          for attempt in 1 2 3; do
+            git -C "$tmp" push -q origin tiktok-studio-state && exit 0
+            echo "State push failed (attempt $attempt); retrying"; sleep 15
+          done
+          echo "::error::Could not save studio memory. Record this run in tiktok-studio/state/pending.json."
+          exit 1

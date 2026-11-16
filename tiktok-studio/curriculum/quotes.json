@@ -1,0 +1,522 @@
+{
+  "_about": "Money Quest quote series. `verification` must be \"verified\" before a video can be produced. 12 of the 15 quotations were checked word for word against the Project Gutenberg text of the original work; Dewey (1897), Clear and Kahneman were confirmed from transcriptions or the author's own published text. Never change `quote` without re-verifying. `rights` records why the quotation may be used. No quoted author endorses Money Quest.",
+  "rejected": [
+    {
+      "quote": "An investment in knowledge pays the best interest.",
+      "attributed_to": "Benjamin Franklin",
+      "reason": "Not found in Franklin's papers or in any publication before 1818; reference works list it as unverified."
+    },
+    {
+      "quote": "Becoming is better than being.",
+      "attributed_to": "Carol Dweck",
+      "reason": "Dweck has said the saying predates her; not presented as her quotation."
+    },
+    {
+      "quote": "I got my start by giving myself a start.",
+      "attributed_to": "Madam C. J. Walker",
+      "reason": "Wording differs between sources and the 1917 newspaper source could not be checked."
+    },
+    {
+      "quote": "Begin with the end in mind.",
+      "attributed_to": "Stephen R. Covey",
+      "reason": "Genuine, but the phrase is a registered FranklinCovey trademark; avoided for brand content."
+    },
+    {
+      "quote": "The illiterate of the 21st century will not be those who cannot read and write, but those who cannot learn, unlearn, and relearn.",
+      "attributed_to": "Alvin Toffler",
+      "reason": "A later composite of two passages in Future Shock; the Gerjuoy sentence Toffler actually quotes is used instead."
+    },
+    {
+      "quote": "Leadership is not about being in charge. Leadership is about taking care of those in your charge.",
+      "attributed_to": "Simon Sinek",
+      "reason": "Could not be checked against the printed source; replaced with a public-domain quotation verified in the original text."
+    },
+    {
+      "quote": "Innovation is the specific instrument of entrepreneurship.",
+      "attributed_to": "Peter F. Drucker",
+      "reason": "Could not be checked against the printed source; replaced with a public-domain quotation verified in the original text."
+    },
+    {
+      "quote": "Price is what you pay; value is what you get.",
+      "attributed_to": "Benjamin Graham",
+      "reason": "Could not be checked against the printed source; replaced with a public-domain quotation verified in the original text."
+    },
+    {
+      "quote": "Tomorrow's illiterate will not be the man who can't read; he will be the man who has not learned how to learn.",
+      "attributed_to": "Herbert Gerjuoy",
+      "reason": "Could not be checked against the printed source; replaced with a public-domain quotation verified in the original text."
+    },
+    {
+      "quote": "What the child is able to do in collaboration today he will be able to do independently tomorrow.",
+      "attributed_to": "Lev Vygotsky",
+      "reason": "Could not be checked against the printed source; replaced with a public-domain quotation verified in the original text."
+    },
+    {
+      "quote": "Self-belief does not necessarily ensure success, but self-disbelief assuredly spawns failure.",
+      "attributed_to": "Albert Bandura",
+      "reason": "Could not be checked against the printed source; replaced with a public-domain quotation verified in the original text."
+    },
+    {
+      "quote": "The greatest sign of success for a teacher is to be able to say, \"The children are now working as if I did not exist.\"",
+      "attributed_to": "Maria Montessori",
+      "reason": "Could not be checked against the printed source; replaced with a public-domain quotation verified in the original text."
+    },
+    {
+      "quote": "The only way to have a friend is to be one.",
+      "attributed_to": "Ralph Waldo Emerson",
+      "reason": "Could not be checked against the printed source; replaced with a public-domain quotation verified in the original text."
+    }
+  ],
+  "quotes": [
+    {
+      "id": 1,
+      "slug": "franklin-small-leak",
+      "pillar": "Financial literacy and healthy money habits",
+      "quote": "Beware of little expenses; a small leak will sink a great ship.",
+      "author": "Benjamin Franklin",
+      "source_line": "The Way to Wealth, 1758",
+      "source": "Benjamin Franklin, \"The Way to Wealth\" (Father Abraham's speech, preface to Poor Richard Improved, 1758).",
+      "verification": "verified",
+      "verification_note": "Wording checked word for word against the Project Gutenberg text (ebook #20203) on 16 November 2026. Spelling modernised from \"Expences\"; capitalisation normalised.",
+      "rights": "Public domain.",
+      "takeaway": "Small spending choices add up. Children can learn to notice them.",
+      "cta": "Try the spending activities on Money Quest.",
+      "section": "Market Town",
+      "route": "/play",
+      "caption": "Franklin wrote this in 1758, and it still fits a child's pocket money. Small, everyday spending choices are where money habits begin. Noticing them is a skill children can practise.",
+      "hashtags": [
+        "#financialliteracy",
+        "#moneyhabits",
+        "#parenting",
+        "#kidsandmoney"
+      ],
+      "keywords": [
+        "teaching kids about money",
+        "spending habits for kids",
+        "financial literacy for children"
+      ],
+      "proposed_date": "2026-11-23",
+      "proposed_time": "19:30 UK time"
+    },
+    {
+      "id": 2,
+      "slug": "alcott-storms",
+      "pillar": "Growth mindset and resilience",
+      "quote": "I'm not afraid of storms, for I'm learning how to sail my ship.",
+      "author": "Louisa May Alcott",
+      "source_line": "Little Women, 1869",
+      "source": "Louisa May Alcott, Little Women, Part Second (1869), chapter 44. Spoken by the character Amy.",
+      "verification": "verified",
+      "verification_note": "Wording checked word for word against the Project Gutenberg text (ebook #514) on 16 November 2026. Spoken by the character Amy in chapter 44.",
+      "rights": "Public domain.",
+      "takeaway": "Resilience grows through practice, not perfection.",
+      "cta": "Try the Emotion Lab activities on Money Quest.",
+      "section": "Emotion Lab",
+      "route": "/mind-lab",
+      "caption": "Amy says this near the end of Little Women. Resilience isn't the absence of difficulty. It's the growing sense that you can handle it, and children build that sense through small, safe practice.",
+      "hashtags": [
+        "#resilience",
+        "#growthmindset",
+        "#parenting",
+        "#lifeskills"
+      ],
+      "keywords": [
+        "resilience in children",
+        "growth mindset for kids",
+        "emotional skills"
+      ],
+      "proposed_date": "2026-11-25",
+      "proposed_time": "19:30 UK time"
+    },
+    {
+      "id": 3,
+      "slug": "dewey-process-of-living",
+      "pillar": "Psychology of learning and child development",
+      "quote": "Education … is a process of living and not a preparation for future living.",
+      "author": "John Dewey",
+      "source_line": "My Pedagogic Creed, 1897",
+      "source": "John Dewey, \"My Pedagogic Creed\", The School Journal, vol. 54 (16 January 1897), Article I. Full sentence: \"I believe that education, therefore, is a process of living and not a preparation for future living.\"",
+      "verification": "verified",
+      "verification_note": "Confirmed in multiple transcriptions of the 1897 text. The ellipsis marks the omitted word \"therefore\". The popular version \"Education is life itself\" is a paraphrase and is not used.",
+      "rights": "Public domain.",
+      "takeaway": "Children learn by doing, one real choice at a time.",
+      "cta": "Try a Real Life Quest on Money Quest.",
+      "section": "Real Life Quests",
+      "route": "/real-life-quests",
+      "caption": "Dewey's point from 1897: learning isn't a rehearsal for later. Children learn when they take part in real things now, like choosing, planning and trying, with support.",
+      "hashtags": [
+        "#learningthroughplay",
+        "#education",
+        "#parenting",
+        "#lifeskills"
+      ],
+      "keywords": [
+        "learning by doing",
+        "child development",
+        "how children learn"
+      ],
+      "proposed_date": "2026-11-27",
+      "proposed_time": "19:30 UK time"
+    },
+    {
+      "id": 4,
+      "slug": "washington-responsibility",
+      "pillar": "Leadership and responsibility",
+      "quote": "Few things help an individual more than to place responsibility upon him, and to let him know that you trust him.",
+      "author": "Booker T. Washington",
+      "source_line": "Up from Slavery, 1901",
+      "source": "Booker T. Washington, Up from Slavery: An Autobiography (1901), chapter XI.",
+      "verification": "verified",
+      "verification_note": "Wording checked word for word against the Project Gutenberg text (ebook #2376) on 16 November 2026.",
+      "rights": "Public domain.",
+      "takeaway": "Trust and small responsibilities help children grow.",
+      "cta": "Try Leadership Quest on Money Quest.",
+      "section": "Leadership Quest",
+      "route": "/leadership-quest",
+      "caption": "Washington wrote this about running a school, and it holds for a family too. A small, real responsibility, given with trust, is one of the simplest ways to help a child grow.",
+      "hashtags": [
+        "#leadership",
+        "#responsibility",
+        "#parenting",
+        "#lifeskills"
+      ],
+      "keywords": [
+        "teaching responsibility",
+        "leadership skills for kids",
+        "raising confident children"
+      ],
+      "proposed_date": "2026-11-30",
+      "proposed_time": "19:30 UK time"
+    },
+    {
+      "id": 5,
+      "slug": "kahneman-focusing",
+      "pillar": "Critical thinking and decision-making",
+      "quote": "Nothing in life is as important as you think it is, while you are thinking about it.",
+      "author": "Daniel Kahneman",
+      "source_line": "Thinking, Fast and Slow, 2011",
+      "source": "Daniel Kahneman, \"Focusing Illusion\", Edge.org annual question essay (2011); the idea is developed in Thinking, Fast and Slow (2011), chapter 38.",
+      "verification": "verified",
+      "verification_note": "Wording confirmed from Kahneman's own Edge essay. The book's chapter 38 wording should be checked if the book is cited alone.",
+      "rights": "In copyright. One short sentence quoted with attribution for education and commentary; no endorsement implied.",
+      "takeaway": "A short pause helps children choose with care.",
+      "cta": "Try the Brain Lab activities on Money Quest.",
+      "section": "Brain Lab",
+      "route": "/brain-lab",
+      "caption": "In the moment, the thing a child wants can feel like the only thing that matters. Adults feel it too. A short pause before deciding is a habit worth practising together.",
+      "hashtags": [
+        "#decisionmaking",
+        "#criticalthinking",
+        "#parenting",
+        "#kidsandmoney"
+      ],
+      "keywords": [
+        "decision making for kids",
+        "impulse buying children",
+        "critical thinking skills"
+      ],
+      "proposed_date": "2026-12-02",
+      "proposed_time": "19:30 UK time"
+    },
+    {
+      "id": 6,
+      "slug": "smiles-discover",
+      "pillar": "Entrepreneurship and creative thinking",
+      "quote": "We often discover what will do, by finding out what will not do; and probably he who never made a mistake never made a discovery.",
+      "author": "Samuel Smiles",
+      "source_line": "Self-Help, 1859",
+      "source": "Samuel Smiles, Self-Help; with Illustrations of Conduct and Perseverance (1859), chapter XI.",
+      "verification": "verified",
+      "verification_note": "Wording checked word for word against the Project Gutenberg text (ebook #935) on 16 November 2026.",
+      "rights": "Public domain.",
+      "takeaway": "Testing an idea, and learning from it, is how children create.",
+      "cta": "Try Entrepreneur Quest on Money Quest.",
+      "section": "Entrepreneur Quest",
+      "route": "/entrepreneur-quest",
+      "caption": "Every young inventor needs to hear this. An idea that doesn't work is information, not failure. Children learn to create by testing small ideas and trying again.",
+      "hashtags": [
+        "#entrepreneurship",
+        "#creativethinking",
+        "#kidentrepreneur",
+        "#parenting"
+      ],
+      "keywords": [
+        "entrepreneurship for kids",
+        "learning from mistakes",
+        "creative thinking"
+      ],
+      "proposed_date": "2026-12-04",
+      "proposed_time": "19:30 UK time"
+    },
+    {
+      "id": 7,
+      "slug": "epictetus-opinions",
+      "pillar": "Emotional intelligence and self-regulation",
+      "quote": "Men are disturbed not by the things which happen, but by the opinions about the things.",
+      "author": "Epictetus",
+      "source_line": "The Encheiridion, trans. George Long",
+      "source": "Epictetus, The Encheiridion, section V, translated by George Long (1877).",
+      "verification": "verified",
+      "verification_note": "Wording checked word for word against the Project Gutenberg text (ebook #10661) on 16 November 2026. The sentence continues with an example, omitted here.",
+      "rights": "Public domain.",
+      "takeaway": "Children can learn to notice a feeling before they act.",
+      "cta": "Try the Emotion Lab activities on Money Quest.",
+      "section": "Emotion Lab",
+      "route": "/mind-lab",
+      "caption": "An idea almost two thousand years old: what we tell ourselves about an event shapes how it feels. Children can learn to notice a feeling and choose a next step.",
+      "hashtags": [
+        "#emotionalintelligence",
+        "#selfregulation",
+        "#parenting",
+        "#lifeskills"
+      ],
+      "keywords": [
+        "emotional intelligence for kids",
+        "self regulation",
+        "naming feelings"
+      ],
+      "proposed_date": "2026-12-07",
+      "proposed_time": "19:30 UK time"
+    },
+    {
+      "id": 8,
+      "slug": "thoreau-cost",
+      "pillar": "Saving, spending and budgeting",
+      "quote": "The cost of a thing is the amount of what I will call life which is required to be exchanged for it, immediately or in the long run.",
+      "author": "Henry David Thoreau",
+      "source_line": "Walden, 1854",
+      "source": "Henry David Thoreau, Walden (1854), \"Economy\".",
+      "verification": "verified",
+      "verification_note": "Wording checked word for word against the Project Gutenberg text (ebook #205) on 16 November 2026. The sentence begins mid-clause in the original; the first letter is capitalised.",
+      "rights": "Public domain.",
+      "takeaway": "Children can learn to ask what a purchase really costs.",
+      "cta": "Try the budgeting activities on Money Quest.",
+      "section": "Market Town",
+      "route": "/play",
+      "caption": "Thoreau measured cost in life, not money: the time and effort something takes to earn. It's a useful question for a child weighing a purchase against a savings goal.",
+      "hashtags": [
+        "#budgeting",
+        "#kidsandmoney",
+        "#financialliteracy",
+        "#parenting"
+      ],
+      "keywords": [
+        "budgeting for kids",
+        "needs vs wants",
+        "value of money"
+      ],
+      "proposed_date": "2026-12-09",
+      "proposed_time": "19:30 UK time"
+    },
+    {
+      "id": 9,
+      "slug": "dewey-capacity-for-growth",
+      "pillar": "Future skills and lifelong learning",
+      "quote": "The object and reward of learning is continued capacity for growth.",
+      "author": "John Dewey",
+      "source_line": "Democracy and Education, 1916",
+      "source": "John Dewey, Democracy and Education (1916), chapter eight, \"Aims in Education\".",
+      "verification": "verified",
+      "verification_note": "Wording checked word for word against the Project Gutenberg text (ebook #852) on 16 November 2026. The clause follows \"or that\" in the original; the first letter is capitalised.",
+      "rights": "Public domain.",
+      "takeaway": "Learning how to keep learning is a skill for life.",
+      "cta": "Try the Future Skills activities on Money Quest.",
+      "section": "Future Skills",
+      "route": "/future-skills",
+      "caption": "For Dewey, the point of learning was the ability to keep learning. That matters even more for children growing up with tools that change every year.",
+      "hashtags": [
+        "#futureskills",
+        "#lifelonglearning",
+        "#education",
+        "#parenting"
+      ],
+      "keywords": [
+        "future skills for kids",
+        "lifelong learning",
+        "learning how to learn"
+      ],
+      "proposed_date": "2026-12-11",
+      "proposed_time": "19:30 UK time"
+    },
+    {
+      "id": 10,
+      "slug": "clear-vote",
+      "pillar": "Financial literacy and healthy money habits",
+      "quote": "Every action you take is a vote for the type of person you wish to become.",
+      "author": "James Clear",
+      "source_line": "Atomic Habits, 2018",
+      "source": "James Clear, Atomic Habits (Avery, 2018), chapter 2.",
+      "verification": "verified",
+      "verification_note": "Confirmed on the author's own site, which publishes the chapter 2 excerpt and repeats the sentence.",
+      "rights": "In copyright. One short sentence quoted with attribution for education and commentary; no endorsement implied.",
+      "takeaway": "Small habits, repeated, build confidence.",
+      "cta": "Try the saving activities on Money Quest.",
+      "section": "Golden Vault",
+      "route": "/play",
+      "caption": "A coin in a jar is a small thing. Repeated every week, it becomes evidence a child can point to: \"I'm someone who saves.\"",
+      "hashtags": [
+        "#habits",
+        "#savingmoney",
+        "#kidsandmoney",
+        "#parenting"
+      ],
+      "keywords": [
+        "money habits for kids",
+        "teaching kids to save",
+        "habit building"
+      ],
+      "proposed_date": "2026-12-14",
+      "proposed_time": "19:30 UK time"
+    },
+    {
+      "id": 11,
+      "slug": "franklin-little-strokes",
+      "pillar": "Saving, spending and budgeting",
+      "quote": "Little strokes fell great oaks.",
+      "author": "Benjamin Franklin",
+      "source_line": "The Way to Wealth, 1758",
+      "source": "Benjamin Franklin, \"The Way to Wealth\" (1758), quoting his earlier Poor Richard's Almanack.",
+      "verification": "verified",
+      "verification_note": "Wording checked word for word against the Project Gutenberg text (ebook #20203) on 16 November 2026. Capitalisation normalised.",
+      "rights": "Public domain.",
+      "takeaway": "Small savings, repeated, reach big goals.",
+      "cta": "Set a savings goal on Money Quest.",
+      "section": "Savings Goals",
+      "route": "/play/goals",
+      "caption": "One small step doesn't look like much. Franklin's point is that many of them do the work. A savings goal lets a child see that for themselves.",
+      "hashtags": [
+        "#savingmoney",
+        "#goalsetting",
+        "#kidsandmoney",
+        "#financialliteracy"
+      ],
+      "keywords": [
+        "saving goals for kids",
+        "teaching patience",
+        "pocket money"
+      ],
+      "proposed_date": "2026-12-16",
+      "proposed_time": "19:30 UK time"
+    },
+    {
+      "id": 12,
+      "slug": "james-habit",
+      "pillar": "Psychology of learning and child development",
+      "quote": "The great thing in all education is to make our nervous system our ally instead of our enemy.",
+      "author": "William James",
+      "source_line": "Talks to Teachers on Psychology, 1899",
+      "source": "William James, Talks to Teachers on Psychology (1899), chapter VIII, \"The Laws of Habit\".",
+      "verification": "verified",
+      "verification_note": "Wording checked word for word against the Project Gutenberg text (ebook #16287) on 16 November 2026.",
+      "rights": "Public domain.",
+      "takeaway": "Good habits, started early, make later choices easier.",
+      "cta": "Try a Real Life Quest on Money Quest.",
+      "section": "Real Life Quests",
+      "route": "/real-life-quests",
+      "caption": "William James argued that habits do much of the work for us, for better or worse. Small routines practised in childhood, like saving a coin or checking a list, become things a child no longer has to think about.",
+      "hashtags": [
+        "#habits",
+        "#childdevelopment",
+        "#parenting",
+        "#education"
+      ],
+      "keywords": [
+        "habits for kids",
+        "child development",
+        "building routines"
+      ],
+      "proposed_date": "2026-12-18",
+      "proposed_time": "19:30 UK time"
+    },
+    {
+      "id": 13,
+      "slug": "emerson-trust-thyself",
+      "pillar": "Growth mindset and resilience",
+      "quote": "Trust thyself: every heart vibrates to that iron string.",
+      "author": "Ralph Waldo Emerson",
+      "source_line": "Self-Reliance, 1841",
+      "source": "Ralph Waldo Emerson, \"Self-Reliance\", in Essays (1841).",
+      "verification": "verified",
+      "verification_note": "Wording checked word for word against the Project Gutenberg text (ebook #2944) on 16 November 2026.",
+      "rights": "Public domain.",
+      "takeaway": "Confidence grows when children make real choices.",
+      "cta": "Try the Money Simulator on Money Quest.",
+      "section": "Money Simulator",
+      "route": "/play/simulator",
+      "caption": "Self-trust isn't something we can hand to a child. It comes from making real decisions and seeing what happens, ideally where mistakes cost nothing.",
+      "hashtags": [
+        "#confidence",
+        "#growthmindset",
+        "#parenting",
+        "#lifeskills"
+      ],
+      "keywords": [
+        "building confidence in children",
+        "growth mindset",
+        "decision making for kids"
+      ],
+      "proposed_date": "2026-12-21",
+      "proposed_time": "19:30 UK time"
+    },
+    {
+      "id": 14,
+      "slug": "montessori-independent",
+      "pillar": "Leadership and responsibility",
+      "quote": "No one can be free unless he is independent.",
+      "author": "Maria Montessori",
+      "source_line": "The Montessori Method, 1912",
+      "source": "Maria Montessori, The Montessori Method (1912), chapter V, translated by Anne E. George.",
+      "verification": "verified",
+      "verification_note": "Wording checked word for word against the Project Gutenberg text (ebook #39863) on 16 November 2026. The sentence continues after a colon in the original.",
+      "rights": "Public domain.",
+      "takeaway": "Independence is built one small responsibility at a time.",
+      "cta": "Try a Real Life Quest on Money Quest.",
+      "section": "Real Life Quests",
+      "route": "/real-life-quests",
+      "caption": "Montessori saw independence as the first goal of education. At home it can start small: one job, one decision, one thing a child manages alone.",
+      "hashtags": [
+        "#independence",
+        "#montessori",
+        "#parenting",
+        "#lifeskills"
+      ],
+      "keywords": [
+        "raising independent children",
+        "responsibility for kids",
+        "montessori at home"
+      ],
+      "proposed_date": "2026-12-23",
+      "proposed_time": "19:30 UK time"
+    },
+    {
+      "id": 15,
+      "slug": "dickens-burden",
+      "pillar": "Emotional intelligence and self-regulation",
+      "quote": "No one is useless in this world who lightens the burden of it for any one else.",
+      "author": "Charles Dickens",
+      "source_line": "Our Mutual Friend, 1865",
+      "source": "Charles Dickens, Our Mutual Friend (1865), Book the Third, chapter 9. Spoken by John Rokesmith.",
+      "verification": "verified",
+      "verification_note": "Wording checked word for word against the Project Gutenberg text (ebook #883) on 16 November 2026. In the novel the line is interrupted by \"retorted the Secretary\"; the narration is omitted.",
+      "rights": "Public domain.",
+      "takeaway": "Kindness and giving are skills children can practise.",
+      "cta": "Try the giving activities on Money Quest.",
+      "section": "Kindness Grove",
+      "route": "/play",
+      "caption": "A line from Dickens that children understand straight away: helping someone matters. Giving time, a toy or a little money is a habit that can start young.",
+      "hashtags": [
+        "#kindness",
+        "#generosity",
+        "#parenting",
+        "#lifeskills"
+      ],
+      "keywords": [
+        "teaching kindness",
+        "generosity for kids",
+        "giving"
+      ],
+      "proposed_date": "2026-12-28",
+      "proposed_time": "19:30 UK time"
+    }
+  ]
+}

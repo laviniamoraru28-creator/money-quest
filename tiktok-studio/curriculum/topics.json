@@ -1,0 +1,1043 @@
+{
+  "_about": "Verified topic bank. Every topic is grounded in published Money Quest content: each `sources` entry names a file in the website repo and an exact quote that QA checks is still present. Video scenes: `hook` (a real-life problem a parent recognises), `reframe` (a warm one-line reframe), `analogy` (from the child's world: games, sweets, sport), `steps` (a 3-step exercise to try today), `why` (why it works), `question` (asks viewers to comment). `learn` and `tip` appear in the caption. `explore` says where parents can go further on the site. Wrap a word or phrase in *asterisks* to highlight it.",
+  "topics": [
+    {
+      "id": "saving-why",
+      "category": "saving_spending",
+      "hook": "Your child's *pocket money*: gone by Saturday?",
+      "reframe": "They're not careless. Nobody showed them money has *more than one job*.",
+      "analogy": "It's like a video game: spend every coin on level one, and there's nothing left for the *big upgrade*.",
+      "steps": [
+        "Find a *clear jar*.",
+        "Pick one goal. Stick its picture on.",
+        "Add coins every week and *watch it fill*."
+      ],
+      "learn": "Saving means keeping some money now so you can use it later, for something bigger.",
+      "why": "Skipping one small treat brings a bigger goal closer. That's *patience*, practised for real.",
+      "question": "How old was your child when they first *saved up* for something?",
+      "tip": "Use a *clear jar* they can watch fill up. Seeing progress beats an abstract number.",
+      "explore": "Golden Vault: saving lessons for ages 6-14",
+      "hashtags": [
+        "#savingmoney",
+        "#moneyhabits"
+      ],
+      "sources": [
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.explorer-saving-l1.keyConcept",
+          "quote": "Saving is putting money aside now so you can use it later, often for something bigger."
+        },
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.builder-saving-l1.keyConcept",
+          "quote": "choosing not to spend on smaller things now, so you can afford something bigger later"
+        },
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.explorer-saving-l1.parentNote",
+          "quote": "a clear jar or a simple chart your child can actually see filling up tends to work far better at this age than a bank app or an abstract number"
+        }
+      ]
+    },
+    {
+      "id": "needs-vs-wants",
+      "category": "needs_wants",
+      "hook": "Your child says: \"But I *NEED* it!\"",
+      "reframe": "Wanting things is *normal*. The skill is telling the difference.",
+      "analogy": "Think of a backpack for a trip. Water goes in *first*. Toys only if there's room.",
+      "steps": [
+        "At the shop, ask: *need or want?*",
+        "Ask: \"What happens if we *don't* get it?\"",
+        "Let them decide. No lecture."
+      ],
+      "learn": "A *need* is something you must have. A *want* is nice to have.",
+      "why": "A strong want can feel as urgent as a need. Spotting the difference guides *spending choices*.",
+      "question": "What's the funniest thing your child ever said they *needed*?",
+      "tip": "Ask: *\"What would happen if you didn't get it?\"* It beats \"You don't need that.\"",
+      "explore": "Market Town: needs and wants lessons",
+      "hashtags": [
+        "#needsvswants",
+        "#moneyhabits"
+      ],
+      "sources": [
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.explorer-needs_wants-l1.keyConcept",
+          "quote": "A need is something you must have to be okay. A want is something nice to have"
+        },
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.explorer-needs_wants-l1.parentNote",
+          "quote": "a strong want can feel exactly as urgent as a real need"
+        },
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.explorer-needs_wants-l1.parentNote",
+          "quote": "('what would happen if you didn't get it?') works far better than telling them they're wrong to want something"
+        }
+      ]
+    },
+    {
+      "id": "think-like-entrepreneur",
+      "category": "entrepreneurship",
+      "hook": "Your child complains a lot, with *zero* solutions?",
+      "reframe": "Complaining is just spotting problems. That's *step one* of every business.",
+      "analogy": "Every game has a boss level. A problem is just a boss waiting for a *clever plan*.",
+      "steps": [
+        "Ask: \"What *annoys* you most this week?\"",
+        "Ask: \"How could you *fix* it?\"",
+        "Sketch the idea together."
+      ],
+      "learn": "Every good business starts by solving a problem that annoys people or wastes their time.",
+      "why": "Spotting everyday problems trains kids to look for *solutions*, not just complaints.",
+      "question": "What would your child *invent* if they could?",
+      "tip": "Ask: *\"What annoys you? How could you fix it?\"* Then sketch the idea together.",
+      "explore": "Entrepreneur Quest: build a virtual business",
+      "hashtags": [
+        "#kidentrepreneur",
+        "#problemsolving"
+      ],
+      "sources": [
+        {
+          "file": "messages/en.json",
+          "path": "entrepreneurQuest.stages.find-a-problem.learnText",
+          "quote": "Every good business starts by solving a problem. A problem is something that annoys people, wastes their time, or is hard to do."
+        },
+        {
+          "file": "messages/en.json",
+          "path": "entrepreneurQuest.stages.create-an-idea.learnText",
+          "quote": "Your idea is your answer to the problem you found."
+        }
+      ]
+    },
+    {
+      "id": "leadership-at-seven",
+      "category": "leadership",
+      "hook": "Does your child *take over* every group game?",
+      "reframe": "That's not bossy. That's a leader who hasn't learned to *listen* yet.",
+      "analogy": "A football captain doesn't take every shot. They *pass the ball*.",
+      "steps": [
+        "After a group game, ask: \"Who did what?\"",
+        "Ask: \"Whose idea did you *use*?\"",
+        "Praise the *listening*, not the winning."
+      ],
+      "learn": "Leadership means listening, agreeing roles and using everyone's strengths, not giving orders.",
+      "why": "Kids lead every day in games, group work and sport. *Listening first* makes a team work.",
+      "question": "Is your child the captain, or the *quiet one*?",
+      "tip": "After a team activity, ask: *\"Who did what, and how did you decide?\"*",
+      "explore": "Leadership Quest: lead a team, one choice at a time",
+      "hashtags": [
+        "#leadershipforkids",
+        "#teamwork"
+      ],
+      "sources": [
+        {
+          "file": "src/content/learning-labs.ts",
+          "quote": "A leader can listen and share responsibility."
+        },
+        {
+          "file": "src/content/learning-labs.ts",
+          "quote": "Clear shared roles and listening help a team use different strengths."
+        },
+        {
+          "file": "src/content/learning-labs.ts",
+          "quote": "Choose one job you would like to try."
+        }
+      ]
+    },
+    {
+      "id": "pause-before-buying",
+      "category": "decision_making",
+      "hook": "\"Offer ends soon!\" And your child *panics*?",
+      "reframe": "Countdown timers are *built* to rush us. Adults fall for them too.",
+      "analogy": "It's like a game that flashes \"Hurry!\" The best players *pause the game* first.",
+      "steps": [
+        "Make a family rule: *sleep on it*.",
+        "Next day, ask: \"Still want it?\"",
+        "Check the budget and the goal *together*."
+      ],
+      "learn": "A short pause gives time to compare options and check the budget and goal.",
+      "why": "Urgency pushes quick choices. *Pausing* protects pocket money, and it works for adults too.",
+      "question": "What did you buy in a rush and *regret* later?",
+      "tip": "Try a family *\"sleep on it\"* rule for unplanned buys, then talk it over.",
+      "explore": "Brain Lab: practise everyday thinking skills",
+      "hashtags": [
+        "#decisionmaking",
+        "#mindfulspending"
+      ],
+      "sources": [
+        {
+          "file": "src/content/learning-labs.ts",
+          "quote": "A short pause gives you time to compare options."
+        },
+        {
+          "file": "src/content/learning-labs.ts",
+          "quote": "Urgency can influence a choice. Checking the cost and your priorities helps you decide."
+        }
+      ]
+    },
+    {
+      "id": "notice-feelings",
+      "category": "emotional_intelligence",
+      "hook": "Your child lost a game. *Meltdown*. Now what?",
+      "reframe": "There is *no wrong feeling*. The skill is what happens next.",
+      "analogy": "Feelings are like a game controller *buzzing*: a signal, not a command.",
+      "steps": [
+        "Ask: \"*Where* do you feel it in your body?\"",
+        "*Name* the feeling together.",
+        "Pick a next step: pause, help, or try again."
+      ],
+      "learn": "Noticing a feeling helps you choose what to do next. There is no wrong feeling.",
+      "why": "A frustrated child who pauses can pick a calmer next step instead of reacting.",
+      "question": "What helps *your* child calm down?",
+      "tip": "Ask: *\"Where do you feel it in your body?\"* Then choose a next step together.",
+      "explore": "Emotion Lab: noticing feelings and asking for help",
+      "hashtags": [
+        "#emotionalintelligence",
+        "#feelings"
+      ],
+      "sources": [
+        {
+          "file": "src/content/learning-labs.ts",
+          "quote": "Noticing a feeling can help you choose what to do next. There is no wrong feeling."
+        },
+        {
+          "file": "src/content/learning-labs.ts",
+          "quote": "Name a body signal you notice when fr"
+        }
+      ]
+    },
+    {
+      "id": "check-a-claim",
+      "category": "critical_thinking",
+      "hook": "Your child believes *every* video they watch?",
+      "reframe": "Confident isn't the same as *correct*. Kids can't always tell yet.",
+      "analogy": "It's like a friend saying they beat the game in *one hour*. You'd ask: \"Show me!\"",
+      "steps": [
+        "Pick a claim from an *advert*.",
+        "Ask: \"*Who* says so? What's the evidence?\"",
+        "Look it up together."
+      ],
+      "learn": "A confident claim still needs evidence. Ask who made it and what supports it.",
+      "why": "Ads, influencers and AI answers are everywhere. *Checking* is a skill they'll use for life.",
+      "question": "What's the *wildest* thing your child believed from a video?",
+      "tip": "Play *\"Prove it!\"*: pick a claim from an advert and look for evidence together.",
+      "explore": "Future Skills: careful choices with information",
+      "hashtags": [
+        "#criticalthinking",
+        "#medialiteracy"
+      ],
+      "sources": [
+        {
+          "file": "src/content/learning-labs.ts",
+          "quote": "A confident claim still needs evidence."
+        },
+        {
+          "file": "src/content/learning-labs.ts",
+          "quote": "Who made the claim and what evidence supports it"
+        },
+        {
+          "file": "src/content/learning-labs.ts",
+          "quote": "Popularity and confidence do not prove a claim."
+        }
+      ]
+    },
+    {
+      "id": "budget-fixed-pie",
+      "category": "budgeting_planning",
+      "hook": "Your child wants *everything* at once?",
+      "reframe": "Wanting everything is normal. A budget is just *choosing*.",
+      "analogy": "It's a *pizza*. A bigger slice for toys means a smaller slice for something else.",
+      "steps": [
+        "Give a fixed amount of *play money*.",
+        "Four pots: *needs, wants, saving, giving*.",
+        "Let them choose the amounts."
+      ],
+      "learn": "With a fixed amount, giving more to one thing means less for another.",
+      "why": "That one idea is the foundation of *every budget* they'll ever make.",
+      "question": "Which pot would your child fill *first*?",
+      "tip": "Split play money into four pots: *needs, wants, saving, giving*. Let them choose the amounts.",
+      "explore": "Learning articles: budgeting for kids",
+      "hashtags": [
+        "#budgeting",
+        "#moneyhabits"
+      ],
+      "sources": [
+        {
+          "file": "messages/en.json",
+          "path": "articles.budgeting-for-kids",
+          "quote": "when you have a fixed amount of something, giving more to one thing means less for another"
+        },
+        {
+          "file": "messages/en.json",
+          "path": "articles.budgeting-for-kids",
+          "quote": "the entire foundation adult budgeting is built on"
+        },
+        {
+          "file": "messages/en.json",
+          "path": "articles.budgeting-for-kids",
+          "quote": "A simple split into needs, wants, saving, and giving"
+        }
+      ]
+    },
+    {
+      "id": "digital-money-feels-free",
+      "category": "financial_education",
+      "hook": "Your child says: \"Just *tap the card*!\"",
+      "reframe": "If they never see cash change hands, a tap looks like *magic*.",
+      "analogy": "It's like *lives* in a game. You can't see them leave, but every tap uses one.",
+      "steps": [
+        "Next time you pay, say it *out loud*.",
+        "\"This takes money *from my account*.\"",
+        "Show them the receipt or the message."
+      ],
+      "learn": "Card and phone payments move real money out of an account. Nothing is free.",
+      "why": "Without seeing cash change hands, spending can feel *less real*, for adults too.",
+      "question": "Does your child think the card is *magic*?",
+      "tip": "Narrate it: *\"My card takes this from my account, just like handing over coins.\"*",
+      "explore": "Sky Exchange: digital money lessons",
+      "hashtags": [
+        "#digitalmoney",
+        "#moneytalks"
+      ],
+      "sources": [
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.builder-money_basics-l1.parentNote",
+          "quote": "cards and apps can feel like 'free money' to a child who's never watched cash physically change hands"
+        },
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.builder-money_basics-l1.parentNote",
+          "quote": "I'm paying with my card, which takes the money from my account, the same as if I'd handed over coins"
+        },
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.strategist-digital_money-l1.keyConcept",
+          "quote": "they can feel less 'real' in the moment"
+        }
+      ]
+    },
+    {
+      "id": "spot-a-scam",
+      "category": "financial_education",
+      "hook": "Your child sees: \"You won a *free prize*!\"",
+      "reframe": "Kids meet fake prizes in games and chats *earlier* than we think.",
+      "analogy": "It's the stranger offering *free sweets*. Same trick, new screen.",
+      "steps": [
+        "Teach three signs: *rush, secret, password*.",
+        "One family rule: *check with a grown-up* first.",
+        "Praise them when they spot one."
+      ],
+      "learn": "Scams share warning signs: urgency, secrecy, and asking for passwords or personal details.",
+      "why": "Kids meet pop-ups and game-chat \"prizes\" early. Knowing the *pattern* protects them anywhere.",
+      "question": "Has your child ever seen a *fake prize* message?",
+      "tip": "Agree one family rule: *urgent message or password request? Check with a grown-up first.*",
+      "explore": "Guardian Gate: staying safe from scams",
+      "hashtags": [
+        "#onlinesafety",
+        "#scamawareness"
+      ],
+      "sources": [
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.builder-scams-l1.keyConcept",
+          "quote": "urgency (rushing you to act fast), secrecy (asking you to keep it quiet), and requests for personal information like passwords"
+        },
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.builder-scams-l1.parentNote",
+          "quote": "if a message asks for a password or feels urgent, always check with a grown-up first"
+        },
+        {
+          "file": "src/content/learning-labs.ts",
+          "quote": "A game chat asks for your password to give a prize."
+        }
+      ]
+    },
+    {
+      "id": "giving-plan",
+      "category": "giving",
+      "hook": "With your child, is it always *\"mine, mine, mine\"*?",
+      "reframe": "Sharing isn't automatic. It's a *habit* you can practise.",
+      "analogy": "Like sharing sweets: you still have some, and *someone else is happy*.",
+      "steps": [
+        "Add a *giving jar* next to the saving jar.",
+        "Let your child choose *who* to help.",
+        "Any amount counts. There's no correct amount."
+      ],
+      "learn": "Giving some of what you have to help others is a kind choice, not a loss.",
+      "why": "Planning to give makes *generosity* a habit, right alongside saving and spending.",
+      "question": "What was the first thing your child *chose* to give?",
+      "tip": "Let your child help choose a cause and a small amount. There's no \"correct\" amount.",
+      "explore": "Kindness Grove: giving lessons",
+      "hashtags": [
+        "#generosity",
+        "#kindness"
+      ],
+      "sources": [
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.explorer-giving-l1.keyConcept",
+          "quote": "Giving away some of what you have to help someone else is a kind, valuable choice, not a loss."
+        },
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.explorer-giving-l1.parentNote",
+          "quote": "generosity is a genuine, valuable financial habit worth building early, alongside saving and spending"
+        },
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.builder-giving-l1.parentNote",
+          "quote": "There's no 'correct' amount to give"
+        }
+      ]
+    },
+    {
+      "id": "savings-goal-own-effort",
+      "category": "saving_spending",
+      "hook": "Your child wants the *big toy*. Today.",
+      "reframe": "If you buy it today, they miss the *best part*: earning it.",
+      "analogy": "It's like a game: the reward feels great because you *unlocked* it yourself.",
+      "steps": [
+        "Let them pick *one* goal.",
+        "Work out *how many weeks* it takes.",
+        "Don't top it up. Let them *finish*."
+      ],
+      "learn": "A goal shows the trade-off: skip small treats now to afford something bigger later.",
+      "why": "Getting there through their *own effort*, even slowly, tends to matter more than the amount.",
+      "question": "What's the first big thing *you* saved for as a kid?",
+      "tip": "Let them pick the goal, then work out *how many weeks* it will take.",
+      "explore": "Savings Goals and Golden Vault",
+      "hashtags": [
+        "#savingmoney",
+        "#goalsetting"
+      ],
+      "sources": [
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.builder-saving-l1.keyConcept",
+          "quote": "Saving toward a specific goal means choosing not to spend on smaller things now, so you can afford something bigger later."
+        },
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.builder-saving-l1.parentNote",
+          "quote": "the experience of getting there on their own effort, even slowly, tends to matter more than the final amount"
+        },
+        {
+          "file": "messages/en.json",
+          "path": "parentInfo.pq6Body",
+          "quote": "work out together how many weeks of saving it would take"
+        }
+      ]
+    },
+    {
+      "id": "grey-area-needs",
+      "category": "needs_wants",
+      "hook": "Your child says: \"I *need* a phone!\"",
+      "reframe": "Some things are a need in one situation and a *want* in another.",
+      "analogy": "Shoes are a need. The *third pair* of sparkly ones? That's a want.",
+      "steps": [
+        "Pick something they want.",
+        "Ask them to *argue both sides*.",
+        "Decide together."
+      ],
+      "learn": "Some things can be a need in one situation and a want in another.",
+      "why": "Real life isn't black and white. Weighing the situation builds *real reasoning*, not rote rules.",
+      "question": "A phone at what age? *Need or want?*",
+      "tip": "Ask your child to *argue both sides* for something they want. Then decide together.",
+      "explore": "Market Town: needs and wants lessons",
+      "hashtags": [
+        "#needsvswants",
+        "#criticalthinking"
+      ],
+      "sources": [
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.builder-needs_wants-l1.keyConcept",
+          "quote": "Whether something is a need or a want can depend on the situation, not just the item itself."
+        },
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.builder-needs_wants-l1.parentNote",
+          "quote": "asking your child to argue BOTH sides for something they want, which builds real reasoning skill rather than rote categorising"
+        }
+      ]
+    },
+    {
+      "id": "test-small-idea",
+      "category": "entrepreneurship",
+      "hook": "Your child plans *100 bookmarks*. What if nobody buys?",
+      "reframe": "Big dreams are great. Big *first steps* are risky.",
+      "analogy": "Game makers release a *demo level* first. Then they build the rest.",
+      "steps": [
+        "Make just *one* sample.",
+        "Show three people. Ask what they think.",
+        "Change it. *Then* make more."
+      ],
+      "learn": "Making one sample and asking for feedback can prevent a costly mistake.",
+      "why": "Mistakes are cheaper when they're *small*. That applies to crafts, school projects and more.",
+      "question": "What was your child's first *business idea*?",
+      "tip": "Before making lots of anything, make *one*, show it, and ask what people think.",
+      "explore": "Entrepreneur Quest: test, build and pitch",
+      "hashtags": [
+        "#kidentrepreneur",
+        "#growthmindset"
+      ],
+      "sources": [
+        {
+          "file": "src/content/learning-labs.ts",
+          "quote": "Make a sample and ask for feedback"
+        },
+        {
+          "file": "src/content/learning-labs.ts",
+          "quote": "A small test helps you learn before spending more."
+        },
+        {
+          "file": "messages/en.json",
+          "path": "entrepreneurQuest.stages.test-the-idea.learnText",
+          "quote": "testing a small idea first can save you from a costly mistake"
+        }
+      ]
+    },
+    {
+      "id": "listen-in-conflict",
+      "category": "leadership",
+      "hook": "Your kids are *arguing* again?",
+      "reframe": "They don't need a judge. They need to feel *heard*.",
+      "analogy": "Like a game with two players: *take turns*, or nobody gets to play.",
+      "steps": [
+        "Say: \"*One at a time.*\"",
+        "Ask each: \"What happened *for you*?\"",
+        "Ask: \"What would be *fair*?\""
+      ],
+      "learn": "Ask each person to explain their side, one at a time.",
+      "why": "When people *feel heard*, they start to understand each other, in class, at play and at home.",
+      "question": "What do your kids argue about *most*?",
+      "tip": "In sibling arguments, try: *\"One at a time. What happened for you?\"*",
+      "explore": "Leadership Quest: the Team Conflict mission",
+      "hashtags": [
+        "#leadershipforkids",
+        "#siblings"
+      ],
+      "sources": [
+        {
+          "file": "messages/en.json",
+          "path": "leadershipQuest.missions.team-conflict",
+          "quote": "Ask each of them to explain their side, one at a time."
+        },
+        {
+          "file": "messages/en.json",
+          "path": "leadershipQuest.missions.team-conflict",
+          "quote": "They both feel heard, and start to understand each other's point."
+        }
+      ]
+    },
+    {
+      "id": "resilience-change-strategy",
+      "category": "emotional_intelligence",
+      "hook": "Your child cries: \"I *can't* do it!\"",
+      "reframe": "Struggling isn't failing. It's a signal to *change the plan*.",
+      "analogy": "Stuck on a level? You don't quit the game. You try a *different route*.",
+      "steps": [
+        "Swap \"Try harder\" for \"What could we *change*?\"",
+        "Change *one* thing and try again.",
+        "A break or asking for help counts too."
+      ],
+      "learn": "Try a different strategy, take a break, or ask for help.",
+      "why": "Struggling isn't failing. It's a signal to *change the plan*, a skill for school and beyond.",
+      "question": "What did your child *finally* manage after many tries?",
+      "tip": "When the tower falls twice, ask *\"What could we change?\"* instead of \"Try harder.\"",
+      "explore": "Emotion Lab: resilience and adapting plans",
+      "hashtags": [
+        "#resilience",
+        "#growthmindset"
+      ],
+      "sources": [
+        {
+          "file": "src/content/learning-labs.ts",
+          "quote": "Learning can involve changing the method, resting or getting help."
+        },
+        {
+          "file": "src/content/learning-labs.ts",
+          "quote": "Your block bridge falls twice. What could help?"
+        },
+        {
+          "file": "src/content/learning-labs.ts",
+          "quote": "A changed strategy or useful feedback can help. Taking a break is also a valid choice."
+        }
+      ]
+    },
+    {
+      "id": "feel-in-a-month",
+      "category": "decision_making",
+      "hook": "Your child's new toy: *forgotten* by Friday?",
+      "reframe": "In the moment, *now* is the only thing that exists for a child.",
+      "analogy": "Like sweets: delicious for a minute, then *gone*.",
+      "steps": [
+        "Before buying, *pause*.",
+        "Ask: \"How will you feel about this *in a month*?\"",
+        "Then let them choose."
+      ],
+      "learn": "Think about the likely outcome of a choice, not just the feeling right now.",
+      "why": "It's a *transferable skill*: it helps with money, friendships and schoolwork alike.",
+      "question": "Which toy was *forgotten* the fastest in your house?",
+      "tip": "Before a purchase, ask lightly: *\"How will you feel about this in a month?\"*",
+      "explore": "Horizon Peaks: planning ahead",
+      "hashtags": [
+        "#decisionmaking",
+        "#parentingtips"
+      ],
+      "sources": [
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.builder-long_term_thinking-l1.keyConcept",
+          "quote": "Thinking ahead about the likely outcome of a choice - not just the immediate feeling - leads to better decisions."
+        },
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.builder-long_term_thinking-l1.parentNote",
+          "quote": "'how do you think you'll feel about this in a month?'"
+        },
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.builder-long_term_thinking-l1.parentNote",
+          "quote": "not just about money, but decision-making generally"
+        }
+      ]
+    },
+    {
+      "id": "check-ai-answers",
+      "category": "critical_thinking",
+      "hook": "Your child says: \"But the *AI* said so!\"",
+      "reframe": "AI sounds certain even when it's *wrong*.",
+      "analogy": "It's like a classmate who always answers fast. Fast isn't always *right*.",
+      "steps": [
+        "Next time AI surprises you, *stop*.",
+        "Check the fact in a *reliable source*.",
+        "Do it together. Make it a habit."
+      ],
+      "learn": "AI can give useful suggestions and incorrect information. An AI answer is not proof.",
+      "why": "Checking important facts with a *reliable source* keeps kids in charge of the tool.",
+      "question": "Does your child use AI for *homework*?",
+      "tip": "Next time AI surprises you, check the fact together. Make it a *habit*, not a lecture.",
+      "explore": "Future Skills: AI literacy and digital safety",
+      "hashtags": [
+        "#ailiteracy",
+        "#criticalthinking"
+      ],
+      "sources": [
+        {
+          "file": "src/content/learning-labs.ts",
+          "quote": "AI can produce useful suggestions and incorrect information."
+        },
+        {
+          "file": "src/content/learning-labs.ts",
+          "quote": "An AI answer is not proof. Check important information."
+        },
+        {
+          "file": "src/content/learning-labs.ts",
+          "quote": "Technology is a tool. You stay in charge."
+        }
+      ]
+    },
+    {
+      "id": "what-is-money",
+      "category": "financial_education",
+      "hook": "Your child asks: \"Why can't we just *get more* money?\"",
+      "reframe": "It's a fair question. Nobody is born knowing what money *is*.",
+      "analogy": "Money is like *game tokens*: everyone agrees what they're worth, so you can trade them.",
+      "steps": [
+        "At the shop, hand your child the *coins*.",
+        "Let them pay and take the change.",
+        "Ask: \"What did we *trade*?\""
+      ],
+      "learn": "Money is something we trade for what we need or want, instead of swapping items.",
+      "why": "It's the starting point for *every money choice*, from pocket money to a first wage.",
+      "question": "What's the funniest *money question* your child has asked?",
+      "tip": "Let your child hand over the coins at the shop. *Real exchange* makes it click.",
+      "explore": "Coin Cove: where every quest begins",
+      "hashtags": [
+        "#moneybasics",
+        "#moneytalks"
+      ],
+      "sources": [
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.explorer-money_basics-l1.keyConcept",
+          "quote": "Money is something we trade for the things we want or need, instead of swapping items directly."
+        },
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.explorer-money_basics-l1.parentNote",
+          "quote": "reinforcing this with real coins during a shopping trip is one of the most effective things you can do this week"
+        }
+      ]
+    },
+    {
+      "id": "ads-make-wants-urgent",
+      "category": "needs_wants",
+      "hook": "One advert, and suddenly they *must* have it?",
+      "reframe": "Adverts are *designed* to make wants feel urgent. For adults too.",
+      "analogy": "It's like a game that keeps offering shiny *new outfits*. You were fine a minute ago.",
+      "steps": [
+        "Watch one advert *together*.",
+        "Play *spot the trick*: what makes it tempting?",
+        "Stay curious. No lecture."
+      ],
+      "learn": "Ads and social pressure are designed to make wants feel urgent.",
+      "why": "Noticing that design helps kids, and adults, *pause* before buying on impulse.",
+      "question": "Which advert does your child know *by heart*?",
+      "tip": "Turn it into a game: *spot the trick* together. Curious beats lecturing.",
+      "explore": "Market Town: needs, wants and social pressure",
+      "hashtags": [
+        "#needsvswants",
+        "#medialiteracy"
+      ],
+      "sources": [
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.strategist-needs_wants-l1.keyConcept",
+          "quote": "Advertising and social pressure are specifically designed to make wants feel urgent, like needs"
+        },
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.strategist-needs_wants-l1.parentNote",
+          "quote": "tends to land much better as a shared, curious observation"
+        }
+      ]
+    },
+    {
+      "id": "choice-with-budget",
+      "category": "budgeting_planning",
+      "hook": "Your child has 5 coins. Notebook: 3. Toy: 4. *Now what?*",
+      "reframe": "There isn't one right answer. That's the *whole lesson*.",
+      "analogy": "Like picking your team in a game: you can't have everyone, so you *choose*.",
+      "steps": [
+        "Give a small *fixed amount*.",
+        "Offer two things that cost *more together*.",
+        "Buy one, wait, or save more: *they decide*."
+      ],
+      "learn": "Every choice has a cost, and it may affect another goal.",
+      "why": "There's more than one good answer: *buy one, wait, or save more*. Kids learn to weigh them.",
+      "question": "Notebook or toy: what would *your* child pick?",
+      "tip": "Give small real choices with a *fixed amount*. Let them decide, then talk it through.",
+      "explore": "Future Skills: choosing with a budget",
+      "hashtags": [
+        "#budgeting",
+        "#decisionmaking"
+      ],
+      "sources": [
+        {
+          "file": "src/content/learning-labs.ts",
+          "quote": "Your choice has a cost and may affect another goal."
+        },
+        {
+          "file": "src/content/learning-labs.ts",
+          "quote": "You can choose one now, wait, or save more. There is more than one reasonable choice."
+        }
+      ]
+    },
+    {
+      "id": "profit-basics",
+      "category": "entrepreneurship",
+      "hook": "Your child's bake sale made 20 coins. All *profit*?",
+      "reframe": "Money earned isn't the same as money *kept*.",
+      "analogy": "Sell lemonade for 20 coins, but the lemons cost 8. What's *really* yours?",
+      "steps": [
+        "Before a sale, add up the *costs*.",
+        "After, count what came in.",
+        "*Sales minus costs*: that's the profit."
+      ],
+      "learn": "Profit is the money you keep after paying your costs: sales minus costs.",
+      "why": "Money earned isn't all money kept. Materials cost something, a lesson for *any project*.",
+      "question": "Has your child ever *sold* something?",
+      "tip": "At a bake sale, add up ingredient *costs* together before counting the takings.",
+      "explore": "Entrepreneur Quest: costs, prices and profit",
+      "hashtags": [
+        "#kidentrepreneur",
+        "#moneybasics"
+      ],
+      "sources": [
+        {
+          "file": "messages/en.json",
+          "path": "entrepreneurQuest.stages.calculate-your-profit.learnText",
+          "quote": "Profit is the money you keep after paying your costs. Profit = Sales minus Costs."
+        },
+        {
+          "file": "messages/en.json",
+          "path": "entrepreneurQuest.stages.understand-costs.learnText",
+          "quote": "Costs are how much money it takes to make one item."
+        }
+      ]
+    },
+    {
+      "id": "handle-mistakes",
+      "category": "leadership",
+      "hook": "Your child's teammate made a *big mistake*. Now what?",
+      "reframe": "How a leader reacts decides if people *speak up* next time.",
+      "analogy": "In a team game, shouting at a teammate never *wins the match*.",
+      "steps": [
+        "When your child slips up, talk *privately*.",
+        "Ask: \"What happened?\"",
+        "*Fix it together.*"
+      ],
+      "learn": "Talking privately and working out what happened beats blaming in front of everyone.",
+      "why": "Public blame can make people *afraid to speak up*. Kindness keeps a team working.",
+      "question": "How do *you* react when your child makes a mistake?",
+      "tip": "When your child makes a mistake, model it: talk *privately*, fix it together.",
+      "explore": "Leadership Quest: the Big Mistake mission",
+      "hashtags": [
+        "#leadershipforkids",
+        "#positiveparenting"
+      ],
+      "sources": [
+        {
+          "file": "messages/en.json",
+          "path": "leadershipQuest.missions.big-mistake",
+          "quote": "Talk to Mia privately and figure out what ha"
+        },
+        {
+          "file": "messages/en.json",
+          "path": "leadershipQuest.missions.big-mistake",
+          "quote": "Mia looks embarrassed, and seems nervous about speaking up again."
+        }
+      ]
+    },
+    {
+      "id": "listen-and-agree",
+      "category": "emotional_intelligence",
+      "hook": "Your child's friends want *two different games*. Now what?",
+      "reframe": "Nobody is being difficult. They just want *different things*.",
+      "analogy": "Like choosing a film: you *ask* everyone, you don't guess.",
+      "steps": [
+        "Each child says what they *want*.",
+        "Look for a plan with *turns*.",
+        "Remember: everyone can say no."
+      ],
+      "learn": "Listening and asking, rather than guessing, helps people find a fair plan.",
+      "why": "Kids who ask *\"What do you want?\"* make friendships easier, and everyone can still say no.",
+      "question": "How do your kids *decide* what to play?",
+      "tip": "Next disagreement, ask each child to say what they want. Then *agree a plan* together.",
+      "explore": "Emotion Lab: relationships and boundaries",
+      "hashtags": [
+        "#emotionalintelligence",
+        "#friendship"
+      ],
+      "sources": [
+        {
+          "file": "src/content/learning-labs.ts",
+          "quote": "People can want different things. Ask rather than guess."
+        },
+        {
+          "file": "src/content/learning-labs.ts",
+          "quote": "Listening and taking turns can help people find a plan. Everyone can say no."
+        }
+      ]
+    },
+    {
+      "id": "bigger-pack",
+      "category": "critical_thinking",
+      "hook": "Your child always grabs the *bigger* box?",
+      "reframe": "A bigger box doesn't always mean *more inside*.",
+      "analogy": "Like a huge bag of crisps that's *half air*.",
+      "steps": [
+        "Pick two packs in the shop.",
+        "Find the *weight* on each label.",
+        "Let your child pick the *better deal*."
+      ],
+      "learn": "A package can look bigger while holding less. Compare the labels, not the picture.",
+      "why": "Checking real numbers beats *first impressions*, at the shop and beyond.",
+      "question": "Does your child help you *shop*?",
+      "tip": "In the shop, let your child compare two *weight labels* and pick the better deal.",
+      "explore": "Brain Lab: perception and thinking",
+      "hashtags": [
+        "#criticalthinking",
+        "#smartshopping"
+      ],
+      "sources": [
+        {
+          "file": "src/content/learning-labs.ts",
+          "quote": "A package can look bigger while holding less. Compare the same units on the labels."
+        },
+        {
+          "file": "src/content/learning-labs.ts",
+          "quote": "First impressions can miss details."
+        }
+      ]
+    },
+    {
+      "id": "waiting-can-pay-off",
+      "category": "saving_spending",
+      "hook": "Your child shouts: \"I want it *NOW*!\"",
+      "reframe": "Waiting is a *skill*. Even adults find it hard.",
+      "analogy": "One sweet now, or *two* after dinner?",
+      "steps": [
+        "Offer a real choice: small now, *bigger later*.",
+        "Let them choose. No pressure.",
+        "Afterwards, ask *how it felt*."
+      ],
+      "learn": "Waiting a little can sometimes get you more than rushing to have it now.",
+      "why": "Small, real practice with waiting builds a habit they'll need for *bigger choices*.",
+      "question": "Can your child *wait* for a treat?",
+      "tip": "Offer a choice: a small treat now, or a bigger one *after a day*. Let them decide.",
+      "explore": "Horizon Peaks: waiting can pay off",
+      "hashtags": [
+        "#patience",
+        "#savingmoney"
+      ],
+      "sources": [
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.explorer-long_term_thinking-l1.keyConcept",
+          "quote": "Waiting a little bit can sometimes get you more than rushing to have something right away."
+        },
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.explorer-long_term_thinking-l1.parentNote",
+          "quote": "letting your child choose between a smaller treat now and a bigger one after waiting a day or two"
+        }
+      ]
+    },
+    {
+      "id": "money-around-the-world",
+      "category": "financial_education",
+      "hook": "On holiday, your child asks why money looks *different*?",
+      "reframe": "Different countries use *different money*. That's a great thing to explore.",
+      "analogy": "Like different games using different *tokens*: same idea, new look.",
+      "steps": [
+        "Show a *foreign coin*, or a photo of one.",
+        "Compare it with your own money.",
+        "Find out *which country* uses it."
+      ],
+      "learn": "Different countries use different currencies, and they look different from place to place.",
+      "why": "It sparks *curiosity* about the world, and shows money is a shared agreement.",
+      "question": "Which country's money has your child *seen*?",
+      "tip": "Show your child a foreign coin, or photos of one. A *real comparison* sticks.",
+      "explore": "Sky Exchange: currencies around the world",
+      "hashtags": [
+        "#currency",
+        "#moneybasics"
+      ],
+      "sources": [
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.explorer-currencies-l1.keyConcept",
+          "quote": "Different countries have their own kind of money, and it looks different from place to place."
+        },
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.strategist-money_basics-l1.keyConcept",
+          "quote": "a currency's value comes from people agreeing to use and trust it"
+        },
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.explorer-currencies-l1.parentNote",
+          "quote": "showing your child a real foreign coin or note, or photos of a few, if you have any"
+        }
+      ]
+    },
+    {
+      "id": "picture-checklist",
+      "category": "budgeting_planning",
+      "hook": "Every morning your child asks: \"Where's my *school bag*?\"",
+      "reframe": "They're not forgetful. They just need a *plan they can see*.",
+      "analogy": "Like a *quest list* in a game: tick, tick, done.",
+      "steps": [
+        "Draw a *3-item* picture checklist.",
+        "Stick it by the door.",
+        "*Step back.* Let them use it."
+      ],
+      "learn": "A short checklist helps children act independently.",
+      "why": "Packing a school bag from a *3-item checklist* builds planning they can use anywhere.",
+      "question": "What does your child *always* forget?",
+      "tip": "Make a *picture checklist* together. Then step back and let them use it.",
+      "explore": "Future Skills: practical everyday skills",
+      "hashtags": [
+        "#independence",
+        "#planning"
+      ],
+      "sources": [
+        {
+          "file": "src/content/learning-labs.ts",
+          "quote": "A short checklist can help you act independently."
+        },
+        {
+          "file": "src/content/learning-labs.ts",
+          "quote": "Make a three-item picture or written checkl"
+        }
+      ]
+    },
+    {
+      "id": "scams-use-emotions",
+      "category": "financial_education",
+      "hook": "A message says *\"Act now!\"* Your teen clicks?",
+      "reframe": "Scams don't target clever or silly. They target *feelings*.",
+      "analogy": "It's like a jump scare in a game: you react *before* you think.",
+      "steps": [
+        "Look at a suspicious message *together*.",
+        "Ask: \"What *feeling* is it trying to create?\"",
+        "Rule: pause, then *check with someone*."
+      ],
+      "learn": "Scams are built to trigger strong feelings like excitement, fear or urgency.",
+      "why": "A strong feeling makes us skip careful thinking. A *pause habit* protects older kids online.",
+      "question": "Have *you* ever nearly fallen for one?",
+      "tip": "Ask your teen: *\"What feeling is this message trying to create?\"*",
+      "explore": "Guardian Gate: scams target emotions",
+      "hashtags": [
+        "#onlinesafety",
+        "#scamawareness"
+      ],
+      "sources": [
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.strategist-scams-l1.keyConcept",
+          "quote": "Scams are engineered to trigger a strong emotion - excitement, fear, urgency, or trust - specifically because a strong emotion makes people skip careful thinking."
+        },
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.strategist-scams-l1.learningObjective",
+          "quote": "develop a habit of pausing before responding to financial pressure"
+        }
+      ]
+    },
+    {
+      "id": "saving-vs-investing",
+      "category": "financial_education",
+      "hook": "Your teen asks: *\"Should I invest?\"*",
+      "reframe": "Good question. Saving and investing are *not* the same thing.",
+      "analogy": "Saving is keeping seeds in a jar. Investing is *planting* them: they may grow, or not.",
+      "steps": [
+        "Explain: saving stays *safe*.",
+        "Investing can go *up or down*.",
+        "Practise with *pretend money* first."
+      ],
+      "learn": "Saving keeps money safe. Investing tries to grow it, but it can go up or down.",
+      "why": "Understanding *risk* early helps older kids tell investing apart from gambling.",
+      "question": "When did *you* first hear the word \"investing\"?",
+      "tip": "Explore the idea with *pretend money* first. Real decisions stay a family conversation.",
+      "explore": "Investing Lab: fictional companies, pretend money",
+      "hashtags": [
+        "#investingforkids",
+        "#moneybasics"
+      ],
+      "sources": [
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.explorer-investing_basics-l1.keyConcept",
+          "quote": "Saving keeps money safe and unchanged until you add to it. Investing means using money to try to grow it over time, but the amount can go up or down - it's never guaranteed."
+        },
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.strategist-investing_basics-l1.learningObjective",
+          "quote": "why investing differs from gambling"
+        },
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.strategist-investing_basics-l1.parentNote",
+          "quote": "entirely fictional companies and virtual money"
+        }
+      ]
+    }
+  ]
+}
