@@ -1,0 +1,297 @@
+{
+  "_about": "Version 2 short-form videos (see studio/shorts.py). `videos` are fully scripted and can be rendered; `planned` are approved ideas that still need scripting. Ids: MQ-Q quotation, MQ-I interactive question, MQ-A activity, MQ-M common mistake. Quotation scenes take their text from curriculum/quotes.json and never restate it. Other ideas must cite published Money Quest content in `sources`.",
+  "videos": [
+    {
+      "id": "MQ-Q-011",
+      "category": "quotation",
+      "cover_title": "Can 50p a week reach a big goal?",
+      "hook": "Can 50p a week reach a big goal?",
+      "icon": "coins",
+      "scenes": [
+        {
+          "kind": "quote",
+          "quote_id": 11
+        },
+        {
+          "kind": "action",
+          "text": "Start a savings jar together. Add a little every week.",
+          "icon": "jar"
+        },
+        {
+          "kind": "close",
+          "text": "What is your child saving for?"
+        }
+      ],
+      "description": "“Little strokes fell great oaks.” Benjamin Franklin, The Way to Wealth, 1758. Small, regular savings are how children reach a big goal. Try a savings jar and add to it every week. What is your child saving for? Money lessons for children at Money Quest Academy, link in bio.",
+      "hashtags": [
+        "#kidssavingmoney",
+        "#financialliteracyforkids",
+        "#moneylessons",
+        "#parenting"
+      ],
+      "section": "Savings Goals",
+      "route": "/play/goals",
+      "duration_recommendation": "11-13 seconds"
+    },
+    {
+      "id": "MQ-I-001",
+      "category": "question",
+      "cover_title": "Would your child save £5 or spend it?",
+      "hook": "Would your child save £5 or spend it?",
+      "icon": "question",
+      "scenes": [
+        {
+          "kind": "options",
+          "options": [
+            {
+              "label": "Save it",
+              "icon": "jar"
+            },
+            {
+              "label": "Spend it",
+              "icon": "bag"
+            },
+            {
+              "label": "Split it",
+              "icon": "coins"
+            }
+          ],
+          "note": "There is no wrong answer."
+        },
+        {
+          "kind": "idea",
+          "text": "Their reason shows how they think about money.",
+          "icon": "bulb"
+        },
+        {
+          "kind": "action",
+          "text": "Ask tonight. Listen first, then say what you would do.",
+          "icon": "heart"
+        },
+        {
+          "kind": "close",
+          "text": "What did your child choose?"
+        }
+      ],
+      "description": "Would your child save £5, spend it or split it? There is no wrong answer. Ask tonight, and ask why. Their reason shows how they think about money. Tell us what your child chose. Teaching children about money with Money Quest Academy, link in bio.",
+      "hashtags": [
+        "#teachingkidsaboutmoney",
+        "#financialliteracyforkids",
+        "#moneyquestion",
+        "#parenting"
+      ],
+      "section": "Money Simulator",
+      "route": "/play/simulator",
+      "duration_recommendation": "13-15 seconds",
+      "sources": [
+        {
+          "file": "messages/en.json",
+          "path": "parentInfo.pq6Body",
+          "quote": "ask what they'd do with a fixed amount of money before telling them what you'd do"
+        },
+        {
+          "file": "src/content/learning-labs.ts",
+          "quote": "There is more than one reasonable choice."
+        }
+      ]
+    },
+    {
+      "id": "MQ-A-001",
+      "category": "activity",
+      "cover_title": "A 2-minute money game for your next shop",
+      "hook": "Try this game on your next shop.",
+      "icon": "tags",
+      "scenes": [
+        {
+          "kind": "step",
+          "text": "Pick two packs of the same thing.",
+          "icon": "bag"
+        },
+        {
+          "kind": "step",
+          "text": "Read the weight on each label.",
+          "icon": "tags"
+        },
+        {
+          "kind": "step",
+          "text": "Ask your child: which one gives more?",
+          "icon": "question"
+        },
+        {
+          "kind": "action",
+          "text": "A bigger box can hold less. Let them check.",
+          "icon": "check"
+        },
+        {
+          "kind": "close",
+          "text": "Save this idea for your next shop."
+        }
+      ],
+      "description": "A 2-minute money game for the supermarket. Pick two packs, read the weight on each label and ask your child which one gives more. A bigger box can hold less, and children enjoy finding out. Save this for your next shop. Money lessons for children at Money Quest Academy, link in bio.",
+      "hashtags": [
+        "#moneylessonsforkids",
+        "#financialliteracyforkids",
+        "#parentingtips",
+        "#kidsactivities"
+      ],
+      "section": "Brain Lab",
+      "route": "/brain-lab",
+      "duration_recommendation": "14-16 seconds",
+      "sources": [
+        {
+          "file": "src/content/learning-labs.ts",
+          "quote": "A package can look bigger while holding less. Compare the same units on the labels."
+        }
+      ]
+    }
+  ],
+  "planned": [
+    {
+      "id": "MQ-I-002",
+      "category": "question",
+      "cover_title": "Need or want? Ask your child this",
+      "hook": "Need it, or just want it?",
+      "based_on_topic": "needs-vs-wants"
+    },
+    {
+      "id": "MQ-I-003",
+      "category": "question",
+      "cover_title": "Notebook or toy? One choice",
+      "hook": "£5. Notebook £3, toy £4. Now what?",
+      "based_on_topic": "choice-with-budget"
+    },
+    {
+      "id": "MQ-I-004",
+      "category": "question",
+      "cover_title": "One treat now or two later?",
+      "hook": "Would your child wait for two treats?",
+      "based_on_topic": "waiting-can-pay-off"
+    },
+    {
+      "id": "MQ-I-005",
+      "category": "question",
+      "cover_title": "Will they still want it in a month?",
+      "hook": "Will they still want it next month?",
+      "based_on_topic": "feel-in-a-month"
+    },
+    {
+      "id": "MQ-I-006",
+      "category": "question",
+      "cover_title": "Is a card tap real money?",
+      "hook": "Does your child think a card is magic?",
+      "based_on_topic": "digital-money-feels-free"
+    },
+    {
+      "id": "MQ-I-007",
+      "category": "question",
+      "cover_title": "Would your child spot a fake prize?",
+      "hook": "Would your child click \"You won\"?",
+      "based_on_topic": "spot-a-scam"
+    },
+    {
+      "id": "MQ-I-008",
+      "category": "question",
+      "cover_title": "What would your child invent?",
+      "hook": "What annoys your child most this week?",
+      "based_on_topic": "think-like-entrepreneur"
+    },
+    {
+      "id": "MQ-I-009",
+      "category": "question",
+      "cover_title": "Who would your child help with £1?",
+      "hook": "Who would your child help with £1?",
+      "based_on_topic": "giving-plan"
+    },
+    {
+      "id": "MQ-I-010",
+      "category": "question",
+      "cover_title": "Would your child check an AI answer?",
+      "hook": "\"The AI said so.\" Is that enough?",
+      "based_on_topic": "check-ai-answers"
+    },
+    {
+      "id": "MQ-A-002",
+      "category": "activity",
+      "cover_title": "The clear jar: watch savings grow",
+      "hook": "One jar changes how children save.",
+      "based_on_topic": "saving-why"
+    },
+    {
+      "id": "MQ-A-003",
+      "category": "activity",
+      "cover_title": "Four pots for pocket money",
+      "hook": "Four pots. One pocket-money plan.",
+      "based_on_topic": "budget-fixed-pie"
+    },
+    {
+      "id": "MQ-A-004",
+      "category": "activity",
+      "cover_title": "The sleep-on-it rule",
+      "hook": "Try the sleep-on-it rule this week.",
+      "based_on_topic": "pause-before-buying"
+    },
+    {
+      "id": "MQ-A-005",
+      "category": "activity",
+      "cover_title": "Spot the trick in one advert",
+      "hook": "Play spot the trick with one advert.",
+      "based_on_topic": "ads-make-wants-urgent"
+    },
+    {
+      "id": "MQ-A-006",
+      "category": "activity",
+      "cover_title": "Say one payment out loud",
+      "hook": "Say this next time you tap your card.",
+      "based_on_topic": "digital-money-feels-free"
+    },
+    {
+      "id": "MQ-A-007",
+      "category": "activity",
+      "cover_title": "A 3-item picture checklist",
+      "hook": "Three pictures that end the morning rush.",
+      "based_on_topic": "picture-checklist"
+    },
+    {
+      "id": "MQ-A-008",
+      "category": "activity",
+      "cover_title": "Make one before making ten",
+      "hook": "Make one sample before making ten.",
+      "based_on_topic": "test-small-idea"
+    },
+    {
+      "id": "MQ-A-009",
+      "category": "activity",
+      "cover_title": "The bake-sale sum",
+      "hook": "What did the bake sale really make?",
+      "based_on_topic": "profit-basics"
+    },
+    {
+      "id": "MQ-A-010",
+      "category": "activity",
+      "cover_title": "How many weeks to the goal?",
+      "hook": "Work out the weeks to their goal.",
+      "based_on_topic": "savings-goal-own-effort"
+    },
+    {
+      "id": "MQ-M-001",
+      "category": "mistake",
+      "cover_title": "Topping up your child's savings",
+      "hook": "Topping up their savings goal?",
+      "based_on_topic": "savings-goal-own-effort"
+    },
+    {
+      "id": "MQ-M-002",
+      "category": "mistake",
+      "cover_title": "Saying \"you don't need that\"",
+      "hook": "Do you say \"you don't need that\"?",
+      "based_on_topic": "needs-vs-wants"
+    },
+    {
+      "id": "MQ-M-003",
+      "category": "mistake",
+      "cover_title": "Telling off a child who reports a strange message",
+      "hook": "Your child shows you a strange message.",
+      "based_on_topic": "spot-a-scam"
+    }
+  ]
+}
