@@ -58,7 +58,13 @@ jobs:
       - run: npm run typecheck
         id: types
         if: "!cancelled() && steps.setup.outcome == 'success'"
-      - run: WEBSITE_AUDIT_UNIT_JSON="$AUDIT_DIR/unit.json" npm run test:unit
+      - name: Redis binaries for assistant ledger tests
+        id: redis
+        if: "!cancelled() && steps.setup.outcome == 'success'"
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y redis-server redis-tools
+      - run: WEBSITE_AUDIT_UNIT_JSON="$AUDIT_DIR/unit.json" MQ_TEST_REQUIRE_REDIS="true" npm run test:unit
         id: unit
         if: "!cancelled() && steps.setup.outcome == 'success'"
       - name: Audit educational content and comic asset inventory
@@ -117,7 +123,7 @@ jobs:
         timeout-minutes: 6
         run: |
           PLAYWRIGHT_JSON_OUTPUT_FILE="$AUDIT_DIR/safari.json" npx playwright test \
-            academy-certificates.spec.ts settings-panel.spec.ts business-save-and-simulate.spec.ts leadership-retry.spec.ts \
+            academy-certificates.spec.ts lesson-assistant.spec.ts settings-panel.spec.ts business-save-and-simulate.spec.ts leadership-retry.spec.ts \
             --project=iphone-safari --project=tablet-safari --workers=2 --global-timeout=300000 \
             --output="$AUDIT_DIR/evidence/safari" --reporter=line,json
       - name: Additional iPad journeys
