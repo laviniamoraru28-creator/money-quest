@@ -72,6 +72,11 @@ test('en/explorer: title, then guide, then comic, then activities — in that or
   for (const topicId of EXPLORER_COMIC_TOPICS) {
     const lesson = lessonFor(topicId);
     await page.goto(`/en/play/world/${lesson.worldId}/lesson/${lesson.id}`);
+    // Wait for the last element this test checks the position of —
+    // otherwise, under load from ten rapid navigations in this one
+    // loop, `evaluate` can run before React finishes mounting it,
+    // making the `!` assertions below throw on a still-null query.
+    await page.waitForSelector('[data-explorer-interactive-lesson]');
     const order = await page.evaluate(() => {
       const all = Array.from(document.querySelector('main')!.querySelectorAll('*'));
       return {
