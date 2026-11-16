@@ -394,6 +394,15 @@ def cmd_scheduled(_):
     """Pick -> render -> QA -> (host + publish, only when enabled)."""
     config = load_config()
     mode = os.environ.get("PUBLISH_MODE", "review").strip() or "review"
+    # One video per day: a scheduled run does nothing if a video was already
+    # sent to Buffer today (for example by a manual run earlier in the day).
+    if os.environ.get("GITHUB_EVENT_NAME") == "schedule" and mode != "review":
+        today = dt.datetime.now(dt.timezone.utc).date().isoformat()
+        sent_today = [v["run"] for v in load_history()["videos"]
+                      if v.get("status") in select.USED_STATUSES and str(v.get("submitted_at", "")).startswith(today)]
+        if sent_today:
+            print(f"Already sent today ({', '.join(sent_today)}): skipping this scheduled run.")
+            return 0
     if config.get("series") == "quotes":
         q = quotes.next_quote(_used_topics())
         if not q:
