@@ -1,6 +1,6 @@
 # Money Quest Academy: TikTok campaign plan (version 2)
 
-Status: **proposal for review**. The live schedule still runs the approved quote series until this is approved.
+Status: **approved by the owner on 16 November 2026.** The quote series runs until 20 November; the version 2 calendar starts on 23 November. Brand line in version 2: "Money Quest Academy".
 
 ## 1. Audit (16 November 2026)
 
@@ -89,11 +89,6 @@ One variable changes at a time; the rest of the template stays fixed.
 
 Each comparison needs at least two videos per side before it counts, read at 7 days. With three videos a week, tests A to D fit in the first ten videos; E follows. Results go in the weekly report. Views on a new account vary a lot from video to video, so small differences will be treated as noise.
 
-## 8. What needs approval
+## 8. After approval
 
-1. The version 2 template and the three pilots.
-2. The revised calendar in `CAMPAIGN_CALENDAR_PROPOSAL.md`.
-3. Brand line: "Money Quest" or "Money Quest Academy".
-4. Whether already-approved quote videos on the live schedule (18 and 20 November) stay as they are.
-
-After approval: script the remaining videos in batches, switch the scheduled run to the revised calendar, and keep the 35 unplaced quotations as a library.
+All 39 version 2 videos are scripted, rendered once and checked. The scheduled run follows `curriculum/shorts.json` from 23 November, then continues with the library quotations in the approved quote format.

@@ -9,12 +9,12 @@ This folder is fully separate from the website and its AI assistant. Nothing in 
 imports it, the website's build and packaging ignore it, and its scheduled workflow stores its
 memory on a separate branch (`tiktok-studio-state`), so it never pushes to `main`.
 
-## Version 2 format (proposal, not live)
+## Version 2 format (live from 23 November 2026)
 
 `CAMPAIGN_PLAN.md` describes the proposed four-category format (quotation, question, activity,
 mistake), `curriculum/shorts.json` holds the scripted pilots and the agreed ideas, and
-`studio/shorts.py` renders them. `CAMPAIGN_CALENDAR_PROPOSAL.md` is the proposed calendar. The
-scheduled run does not use any of this until it is approved.
+`studio/shorts.py` renders them. `CAMPAIGN_CALENDAR_PROPOSAL.md` is the proposed calendar. The scheduled run
+follows the `calendar` list in `curriculum/shorts.json` from 23 November.
 
 ```bash
 python -m studio short-check              # checks for every scripted version 2 video

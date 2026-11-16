@@ -158,7 +158,7 @@ def generate_calm(seconds: float, seed: str, path: Path, rms_db: float = -31.0) 
     def piano(freq: float, n: int) -> np.ndarray:
         t = np.arange(n) / SR
         tone = sum(a * np.sin(2 * np.pi * freq * k * t) * np.exp(-t * (1.4 + 0.7 * k)) for k, a in ((1, 1.0), (2, 0.45), (3, 0.2), (4, 0.08)))
-        attack = max(1, int(0.012 * SR))
+        attack = max(1, min(n, int(0.012 * SR)))  # a note cut short by the end of the track
         tone[:attack] *= np.linspace(0, 1, attack)
         return tone
 
