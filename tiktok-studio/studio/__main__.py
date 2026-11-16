@@ -331,7 +331,11 @@ def cmd_sync(_):
             e["buffer_status"] = p.get("status")
             print(f"{e['run']}: Buffer status={p.get('status')} type={p.get('schedulingType')} notification={p.get('notificationStatus')} due={p.get('dueAt')} sent={p.get('sentAt')} link={p.get('externalLink')}")
             if p.get("sentAt"):
-                e.update({"status": "published", "published_at": p["sentAt"], "external_link": p.get("externalLink")})
+                # For notification posts "sent" means Buffer sent the reminder;
+                # only the account owner knows whether it was then posted in TikTok.
+                reminder = e.get("publish_mode") == "buffer-notify" and not p.get("externalLink")
+                e.update({"status": "reminder_sent" if reminder else "published", "published_at": None if reminder else p["sentAt"],
+                          "reminder_sent_at": p["sentAt"] if reminder else None, "external_link": p.get("externalLink")})
                 changed += 1
             elif str(p.get("status")).lower() in ("error", "failed"):
                 e["status"] = "publish_failed"
