@@ -17,8 +17,8 @@ Production status comes from the studio's run history. Nothing is sent to Buffer
 - **Hashtags:** #financialliteracy #moneyhabits #parenting #kidsandmoney
 - **Search keywords:** teaching kids about money, spending habits for kids, financial literacy for children
 - **Proposed date:** 2026-11-23, 19:30 UK time
-- **Production status:** Produced on GitHub Actions, awaiting approval
-- **Buffer status:** Draft
+- **Production status:** Rendered, awaiting approval
+- **Buffer status:** Not sent
 
 ## 2. Louisa May Alcott: Growth mindset and resilience
 

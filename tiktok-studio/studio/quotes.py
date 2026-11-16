@@ -40,7 +40,7 @@ BACKGROUNDS = {          # vertical gradients: (top, bottom)
     "cta": ("#E7F0F6", "#DCE9F2"),        # soft blue
 }
 BLOBS = [("#BFD3BB", 0.18, 0.20, 420), ("#C5DAEA", 0.86, 0.50, 380), ("#F6C4B4", 0.22, 0.90, 340)]
-CROSSFADE = 0.5
+CROSSFADE = 0.35
 
 
 def contrast_pairs() -> list[tuple[str, str, str]]:
@@ -84,9 +84,9 @@ def _clamp(x, lo, hi):
 
 
 def build_plan(q: dict) -> dict:
-    d_quote = round(_clamp(1.5 + word_count(q["quote"]) / 2.6, 4.5, 8.5), 2)
-    d_take = round(_clamp(1.2 + word_count(q["takeaway"]) / 2.6, 3.5, 5.0), 2)
-    d_cta = 3.8
+    d_quote = round(_clamp(0.9 + word_count(q["quote"]) / 3.0, 3.4, 8.5), 2)
+    d_take = round(_clamp(0.8 + word_count(q["takeaway"]) / 3.0, 2.8, 4.2), 2)
+    d_cta = 3.0
     scenes = [
         {"kind": "quote", "text": q["quote"], "start": 0.0, "duration": d_quote},
         {"kind": "takeaway", "text": q["takeaway"], "start": d_quote, "duration": d_take},
@@ -139,8 +139,8 @@ def check_content(q: dict, plan: dict, config: dict) -> dict:
     wps = word_count(q.get("quote", "")) / plan["scenes"][0]["duration"]
     if wps > 3.3:
         errors.append(f"quotation too long to read comfortably ({wps:.1f} words/s)")
-    if not 10 <= plan["duration"] <= 18:
-        errors.append(f"duration {plan['duration']}s outside 10-18s")
+    if not 9 <= plan["duration"] <= 18:
+        errors.append(f"duration {plan['duration']}s outside 9-18s")
     elif plan["duration"] > 15.5:
         warnings.append(f"duration {plan['duration']}s is above the preferred 15s (long quotation)")
     return {"errors": errors, "warnings": warnings}
@@ -314,7 +314,7 @@ class _Scene:
             by = H * fy + 22 * math.cos(t * 0.2 + i * 1.3) - blob.height / 2
             img.paste(blob, (int(bx), int(by)), blob)
         for layer, x, y, delay in self.elements:
-            k = _ease((tau - delay) / 0.6)
+            k = _ease((tau - delay * 0.5) / 0.45)
             if k > 0:
                 img.alpha_composite(_with_alpha(layer, k), (x, int(y + 14 * (1 - k))))
         return img
@@ -344,7 +344,7 @@ def render(q: dict, plan: dict, config: dict, out_dir: Path) -> dict:
                 return i
         return len(plan["scenes"]) - 1
 
-    cover_t = min(2.6, plan["scenes"][0]["duration"] - 0.3)
+    cover_t = min(2.0, plan["scenes"][0]["duration"] - 0.3)
     for n in range(int(round(total * fps))):
         t = n / fps
         i = scene_at(t)
