@@ -157,4 +157,9 @@ jobs:
           cp state/history.json "$tmp/history.json"
           git -C "$tmp" add history.json
           git -C "$tmp" commit -qm "studio state: ${{ steps.mode.outputs.task }} ${{ steps.make.outputs.run }}" || { echo "No state change"; exit 0; }
-          git -C "$tmp" push -q origin tiktok-studio-state
+          for attempt in 1 2 3; do
+            git -C "$tmp" push -q origin tiktok-studio-state && exit 0
+            echo "State push failed (attempt $attempt); retrying"; sleep 15
+          done
+          echo "::error::Could not save studio memory. Record this run in tiktok-studio/state/pending.json."
+          exit 1

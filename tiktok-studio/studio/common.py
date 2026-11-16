@@ -53,8 +53,18 @@ def get_topic(topic_id: str) -> dict:
     raise SystemExit(f"Unknown topic id: {topic_id}")
 
 
+PENDING_PATH = STATE_DIR / "pending.json"
+
+
 def load_history() -> dict:
-    return load_json(HISTORY_PATH, {"videos": []})
+    history = load_json(HISTORY_PATH, {"videos": []})
+    # Recovery: entries a run produced but could not save to the state branch
+    # are recorded in state/pending.json and merged here until they are saved.
+    known = {v["run"] for v in history["videos"]}
+    for entry in load_json(PENDING_PATH, {"videos": []})["videos"]:
+        if entry["run"] not in known:
+            history["videos"].append(entry)
+    return history
 
 
 def save_history(history: dict) -> None:
