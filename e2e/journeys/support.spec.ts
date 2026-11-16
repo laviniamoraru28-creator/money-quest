@@ -17,7 +17,7 @@ for(const locale of ['en','ro','es','fr','de','it','pt','nl','pl']) {
 test('support links, cancellation, unverified success and shop pause',async({page,request})=>{
   await page.goto('/en');await page.getByRole('link',{name:'Support Money Quest',exact:true}).click();await expect(page).toHaveURL(/\/en\/support$/);
   await page.goto('/en/parents/resources');await expect(page.getByRole('link',{name:'Support Money Quest',exact:true})).toBeVisible();
-  await page.goto('/en/support?cancelled=1');await expect(page.getByRole('status')).toContainText('No payment is confirmed');
+  await page.goto('/en/support?cancelled=1');await expect(page.getByRole('status').filter({hasText:'No payment is confirmed'})).toBeVisible();
   await page.goto('/en/support/success?session_id=cs_test_fake');await expect(page.getByRole('status')).toContainText('cannot confirm');await expect(page.getByText('Your payment has been verified.',{exact:false})).toHaveCount(0);
   const shop=await request.post('/api/shop/checkout',{data:{}});expect(shop.status()).toBe(503);
   const support=await request.post('/api/support/checkout',{data:{}});expect(support.status()).toBe(503);

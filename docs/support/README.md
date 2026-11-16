@@ -50,6 +50,7 @@ Primary references checked on 16 November 2026:
 - [HMRC: freely given payments and VAT](https://www.gov.uk/hmrc-internal-manuals/vat-supply-and-consideration/vatsc06110)
 - [UK distance selling disclosures](https://www.gov.uk/online-and-distance-selling-for-businesses)
 - [Electronic Commerce Regulations, regulation 6](https://www.legislation.gov.uk/uksi/2002/2013/body/2026-05-07)
+- [ICO: privacy information](https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/individual-rights/individual-rights/right-to-be-informed/)
 - [Stripe Checkout](https://docs.stripe.com/payments/checkout)
 - [Stripe webhook fulfillment](https://docs.stripe.com/checkout/fulfillment)
 
