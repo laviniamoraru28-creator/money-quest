@@ -117,6 +117,17 @@ def load_shorts() -> list[dict]:
     return load_json(SHORTS_PATH)["videos"]
 
 
+def calendar() -> list[str]:
+    return load_json(SHORTS_PATH).get("calendar", [])
+
+
+def next_short(used_topic_ids: set[str]) -> dict | None:
+    for ident in calendar():
+        if ident not in used_topic_ids:
+            return get_short(ident)
+    return None
+
+
 def get_short(ident: str) -> dict:
     for v in load_shorts():
         if v["id"].lower() == str(ident).lower():
@@ -142,7 +153,7 @@ def build_plan(v: dict) -> dict:
         words = word_count(text)
         kind = spec["kind"]
         if kind == "hook":
-            dur = _clamp(0.7 + words / 3.2, 1.8, 2.6)
+            dur = _clamp(0.7 + words / 3.2, 1.8, 3.0)
         elif kind == "quote":
             dur = _clamp(0.9 + words / 3.0, 3.2, 8.5)
         elif kind == "options":
@@ -221,14 +232,17 @@ def check_content(v: dict, plan: dict, config: dict) -> dict:
             errors.append(f"{s['kind']} scene has more than 16 words: one idea per screen")
     if not 8 <= plan["duration"] <= 22:
         errors.append(f"duration {plan['duration']}s outside 8-22s")
-    # No repeated hooks, closes or takeaways across the library.
-    seen: dict[str, str] = {}
+    # Hooks and takeaways are never repeated; a closing line may serve at most three videos.
+    def key(text):
+        return re.sub(r"\W+", " ", text.lower()).strip()
+    mine = {("hook", key(v["hook"]))} | {(s["kind"], key(s.get("text", ""))) for s in v["scenes"] if s["kind"] in ("close", "action")}
+    counts: dict[tuple, int] = {}
     for other in load_shorts():
-        for label, text in [("hook", other["hook"])] + [(s["kind"], s.get("text", "")) for s in other["scenes"] if s["kind"] in ("close", "action")]:
-            key = re.sub(r"\W+", " ", text.lower()).strip()
-            if key and key in seen and seen[key] != other["id"] and v["id"] in (other["id"], seen[key]):
-                errors.append(f"repeated {label} text shared by {seen[key]} and {other['id']}: \"{text}\"")
-            seen.setdefault(key, other["id"])
+        for item in {("hook", key(other["hook"]))} | {(s["kind"], key(s.get("text", ""))) for s in other["scenes"] if s["kind"] in ("close", "action")}:
+            counts[item] = counts.get(item, 0) + 1
+    for kind, text in mine:
+        if counts.get((kind, text), 0) > (3 if kind == "close" else 1):
+            errors.append(f"repeated {kind} text: \"{text}\"")
     return {"errors": errors, "warnings": warnings}
 
 

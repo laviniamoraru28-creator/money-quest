@@ -459,8 +459,19 @@ def cmd_scheduled(_):
         if sent_today:
             print(f"Already sent today ({', '.join(sent_today)}): skipping this scheduled run.")
             return 0
-    if config.get("series") == "quotes":
-        q = quotes.next_quote(_used_topics())
+    series = config.get("series")
+    today_iso = dt.datetime.now(dt.timezone.utc).date().isoformat()
+    for start, name in sorted(config.get("publishing", {}).get("series_from", {}).items()):
+        if today_iso >= start:
+            series = name
+    used = _used_topics()
+    short = shorts.next_short(used) if series == "shorts" else None
+    if short:
+        run, result = make_short_video(short, config)
+    elif series in ("quotes", "shorts"):
+        # After the version 2 calendar, continue with library quotations it did not use.
+        placed = {f"quote-{quotes.get_quote(s['quote_id'])['slug']}" for v in shorts.load_shorts() for s in v["scenes"] if s["kind"] == "quote"}
+        q = quotes.next_quote(used | (placed if series == "shorts" else set()))
         if not q:
             print("::error::No verified, unused quotation left")
             return 1
