@@ -80,6 +80,11 @@
   "publishing": {
     "scheduled_mode": "buffer-notify",
     "scheduled_automation": true,
-    "_note": "Defaults for scheduled runs when the repository variables PUBLISH_MODE / AUTOMATION_ENABLED are not set. Allowed here: review, buffer-draft, buffer-notify. Automatic public posting can never be enabled from this file; it needs the repository variables PUBLISH_MODE=buffer-auto and PUBLIC_POSTING_APPROVED=true."
+    "_note": "Defaults for scheduled runs when the repository variables PUBLISH_MODE / AUTOMATION_ENABLED are not set. Allowed here: review, buffer-draft, buffer-notify. Automatic public posting can never be enabled from this file; it needs the repository variables PUBLISH_MODE=buffer-auto and PUBLIC_POSTING_APPROVED=true.",
+    "skip_dates": [
+      "2026-12-25",
+      "2027-01-01"
+    ],
+    "_skip_note": "Scheduled runs do nothing on these dates (UTC); the series simply continues on the next scheduled day."
   }
 }
