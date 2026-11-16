@@ -404,9 +404,10 @@ def write_calendar(history: dict) -> Path:
     for q in doc["quotes"]:
         h = by_topic.get(topic_id(q), {})
         production = {"rendered": "Rendered, awaiting approval", "approved": "Approved", "qa_failed": "QA failed", "draft_in_buffer": "Produced on GitHub Actions, awaiting approval"}.get(h.get("status"), "Published or queued" if h else "Not produced")
-        buffer_status = {"sent_to_phone": "Reminder sent", "queued_in_buffer": "Queued", "draft_in_buffer": "Draft", "published": "Published"}.get(h.get("status"), "Not sent")
+        buffer_status = {"sent_to_phone": "Reminder sent", "reminder_sent": "Reminder sent", "queued_in_buffer": "Queued", "draft_in_buffer": "Draft", "published": "Published"}.get(h.get("status"), "Not sent")
         out += [
             f"## {q['id']}. {q['author']}: {q['pillar']}", "",
+            f"- **Opening question:** {q['hook']}",
             f"- **Quotation:** “{q['quote']}”",
             f"- **Source:** {q['source']}",
             f"- **Verification:** {'Verified' if q['verification'] == 'verified' else 'Needs print check'}. {q['verification_note']}",
