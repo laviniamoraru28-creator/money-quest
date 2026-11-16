@@ -76,5 +76,10 @@
   "quote_series": {
     "music_rms_db": -31.0,
     "_note": "Average music level in dBFS. Typical TikTok music sits around -14; -31 is a very quiet bed."
+  },
+  "publishing": {
+    "scheduled_mode": "buffer-notify",
+    "scheduled_automation": true,
+    "_note": "Defaults for scheduled runs when the repository variables PUBLISH_MODE / AUTOMATION_ENABLED are not set. Allowed here: review, buffer-draft, buffer-notify. Automatic public posting can never be enabled from this file; it needs the repository variables PUBLISH_MODE=buffer-auto and PUBLIC_POSTING_APPROVED=true."
   }
 }
