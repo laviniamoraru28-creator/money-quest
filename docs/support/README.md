@@ -6,7 +6,7 @@ Status: sandbox-only, no merge or deployment authorized. Production payments can
 
 Based on main `0486170`, which already uses Next.js 15.5.28, Node 24.22.1 and Stripe 23.1.0. Open PRs inspected: #59 (auditor), #49 (Explorer styling), #45 (journal archive), #25/#24 (printables), #21 (currency), #12 (commerce audit). Remote branch inventory inspected; no existing support implementation found. No other branches changed.
 
-Connected account: Money Quest, `acct_1UVYX9QZFq5acwqx`, live access only. Existing products are Family Adventure Pack and My Future-Ready Money Quest Journal. No payment links or support product exist in the returned complete lists. Existing live webhook points to `/api/shop/webhook` for completed and asynchronously successful Checkout Sessions. No live object, webhook, price, credential or account setting was changed.
+Initially connected account: Money Quest, `acct_1UVYX9QZFq5acwqx`, live access only. During review, the owner also connected `Money Quest sandbox`, `acct_1UVTeNHDC3WzcjKr`, with `livemode=false`. Its complete product list contains only the two existing shop test products and its payment-link list is empty. No support product has been created in either environment. Existing products are Family Adventure Pack and My Future-Ready Money Quest Journal. No payment links or support product exist in the returned complete lists. Existing live webhook points to `/api/shop/webhook` for completed and asynchronously successful Checkout Sessions. No live object, webhook, price, credential or account setting was changed.
 
 `checkoutPaused()` defaults to true unless `MONEYQUEST_CHECKOUT_PAUSED=false`. This feature does not change that flag, shop navigation, product availability or fulfillment. Keep it absent or explicitly true. Support never imports the shop configuration, downloads or fulfillment. It reuses the installed Stripe SDK, body size guard, checkout URL validator, locale routing and design tokens.
 
@@ -24,7 +24,7 @@ Connected account: Money Quest, `acct_1UVYX9QZFq5acwqx`, live access only. Exist
 
 ## Sandbox setup still required
 
-The connected Stripe integration currently exposes only live mode. Add/authorize the Money Quest sandbox in the Stripe connection before creating any test resources. Do not substitute a real payment for a test.
+The Money Quest sandbox is now connected. Before creating the support product, confirm whether the owner collects VAT/sales tax; the Stripe product-creation workflow requires this clarification. Then provision and test only in `acct_1UVTeNHDC3WzcjKr`, `livemode=false`. Runtime test credentials and a dedicated sandbox webhook still need secure configuration. Do not substitute a real payment for a test.
 
 1. In that sandbox, list products by `metadata.app=moneyquest-voluntary-support-v1`. Reuse exactly one match; if none, create one product named `Support Money Quest`, description `One-time voluntary contribution to an independent educational project. No goods or additional access are supplied.`, with that metadata. No duplicate product or payment link is needed.
 2. Store a restricted test key in the hosting/CI secrets configuration, never in git or chat. Permissions: products read; Checkout Sessions write/read; PaymentIntents and Charges read (including expansion). Verify permissions with the test suite before live approval.
@@ -69,3 +69,15 @@ Run [43906993495](https://github.com/laviniamoraru28-creator/money-quest/actions
 The existing quality workflow now runs the support suite on desktop/mobile Chromium and iPhone/iPad WebKit before the broad suite, and uploads a small standalone screenshot artifact. This ensures unrelated broad-suite failures cannot prevent support review evidence. The broad Chromium suite excludes those exact already-run support tests.
 
 Additional local HTTP checks passed for all nine support routes (200), closed shop/support APIs (503), forged success URLs, and synthetic sandbox configuration rejection of foreign origins, invalid amounts, missing adult confirmation, extra fields, oversized requests and invalid webhook signatures. No Stripe API request or real/test charge was made by those HTTP checks. The browser build contains no Stripe secret configuration strings. Offline manifests contain zero support routes.
+
+### Support-specific browser verification
+
+Run [43909522722](https://github.com/laviniamoraru28-creator/money-quest/actions/runs/43909522722) passed the dedicated support review step: 44 tests across desktop Chromium, Pixel 7 Chromium, iPhone 13 WebKit and iPad Mini WebKit. All nine language routes, amount selection, optional/closed payment state, cancellation, unverified success, shop pause, keyboard navigation, overflow and axe checks passed. These checks do not constitute Stripe-hosted payment tests. Desktop and mobile screenshots were visually inspected; there is no clipped content or horizontal overflow.
+
+Screenshots are from the disabled, pre-launch review state, with £5 selected by the keyboard-navigation test:
+
+![Desktop](screenshots/desktop-chrome.png)
+
+![Mobile](screenshots/mobile-chrome.png)
+
+[Additional iPhone screenshot](screenshots/iphone-safari.png) · [Additional iPad screenshot](screenshots/tablet-safari.png)
