@@ -4,7 +4,7 @@
       "run": "2026-11-15-saving-why",
       "topic_id": "saving-why",
       "category": "saving_spending",
-      "status": "sent_to_phone",
+      "status": "published",
       "rendered_at": "2026-11-15T22:05:24+00:00",
       "duration": 19.53,
       "video_url": "https://github.com/laviniamoraru28-creator/money-quest/releases/download/tiktok-2026-11-15-saving-why/video.mp4",
@@ -13,7 +13,45 @@
       "buffer_post_id": "6afa2ca9a869c35e5b9c19e2",
       "buffer_channel_id": "6afa20c0ece6dfde5fd8b514",
       "buffer_org_id": "6afa203649dfc7619b889215",
-      "due_at": "2026-11-15T22:25:28+00:00"
+      "due_at": "2026-11-15T22:25:28+00:00",
+      "buffer_status": "sent",
+      "published_at": "2026-11-15T22:25:30.379Z",
+      "external_link": null
+    },
+    {
+      "run": "2026-11-16-needs-vs-wants",
+      "topic_id": "needs-vs-wants",
+      "category": "needs_wants",
+      "status": "published",
+      "rendered_at": "2026-11-16T03:39:09+00:00",
+      "duration": 34.86,
+      "video_url": "https://github.com/laviniamoraru28-creator/money-quest/releases/download/tiktok-2026-11-16-needs-vs-wants/video.mp4",
+      "publish_mode": "buffer-notify",
+      "submitted_at": "2026-11-16T03:39:14+00:00",
+      "buffer_post_id": "6afa7ae3a869c35e5bb56dea",
+      "buffer_channel_id": "6afa20c0ece6dfde5fd8b514",
+      "buffer_org_id": "6afa203649dfc7619b889215",
+      "due_at": "2026-11-16T03:59:14+00:00",
+      "buffer_status": "sent",
+      "published_at": "2026-11-16T03:59:15.338Z",
+      "external_link": null
+    },
+    {
+      "run": "2026-11-16-quote-01-franklin-small-leak",
+      "topic_id": "quote-franklin-small-leak",
+      "category": "Financial literacy and healthy money habits",
+      "series": "quotes",
+      "status": "draft_in_buffer",
+      "rendered_at": "2026-11-16T04:27:20+00:00",
+      "duration": 14.92,
+      "video_url": "https://github.com/laviniamoraru28-creator/money-quest/releases/download/tiktok-2026-11-16-quote-01-franklin-small-leak/video.mp4",
+      "publish_mode": "buffer-draft",
+      "submitted_at": "2026-11-16T04:27:24+00:00",
+      "buffer_status": "draft",
+      "buffer_post_id": "6afa862d60a910801c6a7eb4",
+      "buffer_channel_id": "6afa20c0ece6dfde5fd8b514",
+      "buffer_org_id": "6afa203649dfc7619b889215",
+      "due_at": "2026-11-16T04:47:25+00:00"
     }
   ]
 }
