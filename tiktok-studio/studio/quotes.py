@@ -381,7 +381,7 @@ def write_calendar(history: dict) -> Path:
            "Production status comes from the studio's run history. Nothing is sent to Buffer until a video is approved.", ""]
     for q in doc["quotes"]:
         h = by_topic.get(topic_id(q), {})
-        production = {"rendered": "Rendered, awaiting approval", "approved": "Approved", "qa_failed": "QA failed"}.get(h.get("status"), "Published or queued" if h else "Not produced")
+        production = {"rendered": "Rendered, awaiting approval", "approved": "Approved", "qa_failed": "QA failed", "draft_in_buffer": "Produced on GitHub Actions, awaiting approval"}.get(h.get("status"), "Published or queued" if h else "Not produced")
         buffer_status = {"sent_to_phone": "Reminder sent", "queued_in_buffer": "Queued", "draft_in_buffer": "Draft", "published": "Published"}.get(h.get("status"), "Not sent")
         out += [
             f"## {q['id']}. {q['author']}: {q['pillar']}", "",
