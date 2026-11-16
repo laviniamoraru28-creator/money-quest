@@ -1,3 +1,4 @@
+import {SupportCard} from "@/components/SupportCard";
 import Image from "next/image";
 import {ChooseLearningLevelLink} from "@/components/ChooseLearningLevelLink";
 import {certificateJourneyCopy} from "@/content/certificate-journey-copy";
@@ -82,6 +83,7 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
             <p className="mt-3">{journey.print}</p>
           </div>
         </section>
+        <SupportCard/>
       </main>
 
       <footer className="border-t border-ink/10 bg-white py-md">

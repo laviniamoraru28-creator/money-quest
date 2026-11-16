@@ -50,6 +50,7 @@ export default async function PrivacyPage({ params }: PageProps) {
   const { locale } = await params;
   const config=publicCommerce();if(config?.mode==="live"&&config.release)return <LiveShopPrivacy release={config.release} locale={publicParentLocale(locale)}/>;
   const t = await getTranslations();
+  const support = await getTranslations("support");
   const siteUrl = getSiteUrl();
   const breadcrumbSchema = buildBreadcrumbSchema([
     { name: "Home", url: `${siteUrl}/${locale}` },
@@ -92,6 +93,10 @@ export default async function PrivacyPage({ params }: PageProps) {
             </ul>
           </div>
 
+          <section className="mt-sm rounded-md border border-ink/10 bg-white p-md">
+            <h2 className="font-display text-lg font-bold">{support("privacyTitle")}</h2>
+            <p className="mt-2xs">{support("privacyBody")}</p>
+          </section>
           <p className="mt-md text-sm text-ink/70">
             {t("privacyPage.readMorePrefix")}{" "}
             <Link href="/parent-info" className="text-teal-text">

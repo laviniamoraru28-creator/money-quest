@@ -6438,5 +6438,33 @@
     "lessonComplete": "You checked your idea and finished this lesson. Choose the next activity when you are ready.",
     "lessonGoal": "Your goal: explore {title}. Read or listen, then try the question. You can take your time.",
     "world": "Welcome to {name}. {description} Choose a lesson or a game below. You can take your time."
+  },
+  "support": {
+    "title": "Support Money Quest",
+    "parents": "For parents and adults",
+    "intro": "We believe financial education should be accessible to every child.",
+    "project": "Money Quest Academy is an independent educational project offering free lessons, games and activities.",
+    "invitation": "If our resources have helped your family, you can support the continued development and maintenance of Money Quest with a small voluntary contribution.",
+    "optional": "Your support is completely optional.",
+    "free": "All free learning resources remain available whether you contribute or not.",
+    "thanks": "Thank you for helping us improve Money Quest Academy.",
+    "amount": "Voluntary contribution",
+    "custom": "Custom amount",
+    "limits": "Enter an amount between £2 and £100 (GBP), with up to two decimal places.",
+    "adult": "I am 18 or older.",
+    "pay": "Continue to secure payment",
+    "selected": "Selected amount",
+    "once": "One-time payment in GBP. No subscription, account or purchase required.",
+    "unavailable": "Contributions are not available yet. All free resources remain available.",
+    "invalid": "Check the amount and confirm that you are an adult.",
+    "rate": "Please wait one minute before trying again.",
+    "cancelled": "You returned from checkout. No payment is confirmed on this page.",
+    "success": "Your payment has been verified. Thank you for your support.",
+    "pending": "We cannot confirm your payment yet. It may still be processing. Refresh this page later or contact us before trying to pay again.",
+    "home": "Back to home",
+    "privacy": "Privacy policy",
+    "privacyTitle": "Payment privacy",
+    "privacyBody": "Stripe processes payment details and may collect your name, email and billing information. Money Quest does not receive your full card details. Payment records remain in Stripe. An essential, secure browser cookie lasts up to 24 hours and lets us verify your checkout. We do not use payment details for marketing.",
+    "contact": "Questions or refund requests: moneyquesteducation@gmail.com."
   }
 }

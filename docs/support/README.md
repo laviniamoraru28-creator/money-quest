@@ -1,0 +1,62 @@
+# Voluntary support: review implementation
+
+Status: sandbox-only, no merge or deployment authorized. Production payments cannot be enabled by setting an environment variable: the server rejects every live key and any mode other than `sandbox`. A separate reviewed change is required after owner approval.
+
+## Repository and Stripe inspection (16 November 2026)
+
+Based on main `0486170`, which already uses Next.js 15.5.28, Node 24.22.1 and Stripe 23.1.0. Open PRs inspected: #59 (auditor), #49 (Explorer styling), #45 (journal archive), #25/#24 (printables), #21 (currency), #12 (commerce audit). Remote branch inventory inspected; no existing support implementation found. No other branches changed.
+
+Connected account: Money Quest, `acct_1UVYX9QZFq5acwqx`, live access only. Existing products are Family Adventure Pack and My Future-Ready Money Quest Journal. No payment links or support product exist in the returned complete lists. Existing live webhook points to `/api/shop/webhook` for completed and asynchronously successful Checkout Sessions. No live object, webhook, price, credential or account setting was changed.
+
+`checkoutPaused()` defaults to true unless `MONEYQUEST_CHECKOUT_PAUSED=false`. This feature does not change that flag, shop navigation, product availability or fulfillment. Keep it absent or explicitly true. Support never imports the shop configuration, downloads or fulfillment. It reuses the installed Stripe SDK, body size guard, checkout URL validator, locale routing and design tokens.
+
+## Flow
+
+- Localized `/support` (middleware redirects the bare path to a language) and `/support/success`.
+- Discreet links only on the homepage parent section and Parent Resources. No global learning navigation changes.
+- £2, £5, £10, or £2–£100 custom GBP amount; decimal comma or point accepted. Integer pence validation on the server, adult checkbox, fixed currency, quantity one, payment mode only. No account or subscription.
+- One reusable support product identified by `metadata.app=moneyquest-voluntary-support-v1`. Checkout `price_data` creates the requested one-time amount. No need for four separate products or public payment links; user amounts cannot select shop products.
+- CSRF origin check, 1 KB body cap, bounded process-wide and browser rate limits (30/minute and 5/minute). Global limit still applies to rotating cookies and spoofed IP headers. Limits reset on process restart and multiply with workers; before any live release, confirm single worker or move limits into shared storage/reverse proxy. Stripe fraud controls also need review.
+- Stable Stripe idempotency key on retries; the browser token is set even when Stripe times out. Inputs are locked during submission. A changed amount starts a new attempt.
+- HTTP-only SameSite=Lax cookie binds the return page to the paying browser. Success requires a server retrieval: correct support metadata, test environment, one-time GBP amount, exact product/quantity, settled intent and no refund or dispute. Arbitrary success URLs and failed/pending payments cannot produce success text. No customer details are sent to the page.
+- Dedicated signed `/api/support/webhook` receives completed, asynchronously successful and failed events. It retrieves/validates paid sessions. Stripe remains the payment ledger. There are no local entitlements, emails or fulfillment side effects, so duplicate events are idempotent. Transient retrieval failures return 500 for Stripe retry; unrelated and unpaid events are acknowledged without confirmation.
+- Support pages are excluded from offline downloads. The return page is dynamic, non-indexable and uses a no-referrer policy.
+
+## Sandbox setup still required
+
+The connected Stripe integration currently exposes only live mode. Add/authorize the Money Quest sandbox in the Stripe connection before creating any test resources. Do not substitute a real payment for a test.
+
+1. In that sandbox, list products by `metadata.app=moneyquest-voluntary-support-v1`. Reuse exactly one match; if none, create one product named `Support Money Quest`, description `One-time voluntary contribution to an independent educational project. No goods or additional access are supplied.`, with that metadata. No duplicate product or payment link is needed.
+2. Store a restricted test key in the hosting/CI secrets configuration, never in git or chat. Permissions: products read; Checkout Sessions write/read; PaymentIntents and Charges read (including expansion). Verify permissions with the test suite before live approval.
+3. Set `MONEYQUEST_SUPPORT_MODE=sandbox`, `MONEYQUEST_SUPPORT_STRIPE_KEY` (test restricted key), `MONEYQUEST_SUPPORT_PRODUCT_ID` (the sandbox product), and `MONEYQUEST_SUPPORT_WEBHOOK_SECRET` (the dedicated endpoint signing secret). Existing `MONEYQUEST_STRIPE_KEY` can be reused only if it is a test key; live credentials are deliberately rejected and must not be replaced.
+4. Set `NEXT_PUBLIC_SITE_URL` to the staging HTTPS origin, or `http://localhost:3000` locally. Register a sandbox webhook for `/api/support/webhook` with `checkout.session.completed`, `checkout.session.async_payment_succeeded`, `checkout.session.async_payment_failed`. Locally forward those events with Stripe CLI. Keep the existing shop endpoint and secret unchanged.
+5. Run actual Stripe-hosted tests for £2, £5, £10 and £2.50; cancel, decline, required authentication, delayed payment, duplicate webhook, and refund. Check settled results in Stripe and confirm return-page browser ownership. Do not mark these tests passed based on mocks.
+
+No live setup is included in this PR. Before future activation, owner approval is required for the code gate, live product/key/webhook, merge and deployment.
+
+## Owner decisions before launch
+
+Money Quest is an independent educational project, not a registered charity. These contributions provide no goods, services, special access, Gift Aid or promised tax relief.
+
+- Confirm the legal recipient/trading name, business status, geographic contact address and applicable registration/VAT details. Do not invent or publish personal account details inferred from Stripe. Confirm statement descriptor and receipt contact information.
+- Confirm treatment of voluntary receipts with HMRC/an accountant, including income reporting and records. Voluntary does not automatically mean tax-free. Confirm whether the payment is genuinely unconditional and outside VAT, or whether VAT registration/treatment applies; this implementation does not collect VAT and is not a tax determination.
+- Confirm refund handling, mistaken payments and any applicable consumer cancellation/disclosure requirements. No blanket non-refundable claim or cancellation waiver is included.
+- Complete privacy/controller disclosures: legal identity/contact, processing basis, recipients/Stripe international transfers, retention of accounting/payment records and access/deletion rights, complaint route and applicable ICO registration. The nine-language payment paragraph explains Stripe processing, the essential cookie and no marketing, but is not a substitute for those owner-specific disclosures.
+- Confirm Stripe permits this account's contribution activity, account verification, payment methods, fraud controls and receipt settings.
+
+Primary references checked on 16 November 2026:
+
+- [HMRC: voluntary receipts](https://www.gov.uk/hmrc-internal-manuals/business-income-manual/bim41801)
+- [HMRC: freely given payments and VAT](https://www.gov.uk/hmrc-internal-manuals/vat-supply-and-consideration/vatsc06110)
+- [UK distance selling disclosures](https://www.gov.uk/online-and-distance-selling-for-businesses)
+- [Electronic Commerce Regulations, regulation 6](https://www.legislation.gov.uk/uksi/2002/2013/body/2026-05-07)
+- [Stripe Checkout](https://docs.stripe.com/payments/checkout)
+- [Stripe webhook fulfillment](https://docs.stripe.com/checkout/fulfillment)
+
+## Tests and review evidence
+
+`npm run test:unit` automatically discovers `scripts/test-support-payments.ts`. It checks parsing, tampering, the sandbox gate, settlement/refund rejection, browser ownership, stable retry payloads, rate limits, shop pause and nine-language key coverage using a fake Stripe client. This is not an actual Stripe test payment.
+
+`e2e/journeys/support.spec.ts` covers all nine locales, custom amounts, layout overflow, parent links, cancellation, false-success prevention, API closed states, absence on the learning hub, keyboard radio navigation and axe accessibility. It saves desktop/mobile (and CI Safari) screenshots in `docs/support/screenshots/`. The existing quality workflow runs these tests and uploads screenshots with its evidence. Optional `PLAYWRIGHT_CHROMIUM_EXECUTABLE` allows the installed system Chromium locally.
+
+See the PR for the actual run results and remaining Stripe access blocker.

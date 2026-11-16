@@ -6829,5 +6829,33 @@
     "lessonComplete": "Du hast deine Idee geprüft und die Lektion beendet. Wähle die nächste Aktivität, wenn du bereit bist.",
     "lessonGoal": "Dein Ziel: {title} entdecken. Lies oder höre zu und beantworte dann die Frage. Lass dir Zeit.",
     "world": "Willkommen in {name}. {description} Wähle eine Lektion oder ein Spiel. Lass dir Zeit."
+  },
+  "support": {
+    "title": "Money Quest unterstützen",
+    "parents": "Für Eltern und Erwachsene",
+    "intro": "Wir glauben, dass jedes Kind Zugang zu Finanzbildung haben sollte.",
+    "project": "Money Quest Academy ist ein unabhängiges Bildungsprojekt mit kostenlosen Lektionen, Spielen und Aktivitäten.",
+    "invitation": "Wenn unsere Materialien deiner Familie geholfen haben, kannst du die Weiterentwicklung und Pflege von Money Quest mit einem kleinen freiwilligen Beitrag unterstützen.",
+    "optional": "Deine Unterstützung ist völlig freiwillig.",
+    "free": "Alle kostenlosen Lernangebote bleiben verfügbar, unabhängig davon, ob du einen Beitrag leistest.",
+    "thanks": "Vielen Dank, dass du uns hilfst, Money Quest Academy zu verbessern.",
+    "amount": "Freiwilliger Beitrag",
+    "custom": "Anderer Betrag",
+    "limits": "Gib einen Betrag zwischen £2 und £100 (GBP) mit höchstens zwei Nachkommastellen ein.",
+    "adult": "Ich bin mindestens 18 Jahre alt.",
+    "pay": "Weiter zur sicheren Zahlung",
+    "selected": "Gewählter Betrag",
+    "once": "Einmalige Zahlung in GBP. Kein Abonnement, Konto oder Kauf erforderlich.",
+    "unavailable": "Beiträge sind noch nicht möglich. Alle kostenlosen Angebote bleiben verfügbar.",
+    "invalid": "Prüfe den Betrag und bestätige, dass du volljährig bist.",
+    "rate": "Bitte warte eine Minute, bevor du es erneut versuchst.",
+    "cancelled": "Du bist von der Zahlungsseite zurückgekehrt. Auf dieser Seite wird keine Zahlung bestätigt.",
+    "success": "Deine Zahlung wurde überprüft. Vielen Dank für deine Unterstützung.",
+    "pending": "Wir können deine Zahlung noch nicht bestätigen. Sie wird möglicherweise noch verarbeitet. Lade diese Seite später neu oder kontaktiere uns, bevor du erneut zahlst.",
+    "home": "Zur Startseite",
+    "privacy": "Datenschutzerklärung",
+    "privacyTitle": "Datenschutz bei Zahlungen",
+    "privacyBody": "Stripe verarbeitet Zahlungsdaten und kann deinen Namen, deine E-Mail-Adresse und Rechnungsinformationen erheben. Money Quest erhält keine vollständigen Kartendaten. Zahlungsaufzeichnungen bleiben bei Stripe. Ein notwendiges, sicheres Browser-Cookie bleibt bis zu 24 Stunden gültig und ermöglicht uns, deine Zahlung zu überprüfen. Wir verwenden Zahlungsdaten nicht für Werbung.",
+    "contact": "Fragen oder Erstattungsanfragen: moneyquesteducation@gmail.com."
   }
 }
