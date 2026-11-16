@@ -96,8 +96,17 @@ jobs:
             echo "PUBLIC_POSTING_APPROVED=false" >> "$GITHUB_ENV"
           else
             task=$([ "${{ github.event.schedule }}" = "13 9 * * 0" ] && echo weekly-maintenance || echo next-video)
-            mode="${{ vars.PUBLISH_MODE || 'review' }}"
-            automation="${{ vars.AUTOMATION_ENABLED || 'false' }}"
+            # Repository variables win; otherwise use the defaults in config.json.
+            mode="${{ vars.PUBLISH_MODE }}"
+            automation="${{ vars.AUTOMATION_ENABLED }}"
+            if [ -z "$mode" ]; then
+              mode=$(python -c "import json;print(json.load(open('config.json')).get('publishing',{}).get('scheduled_mode','review'))")
+              # The file can only choose modes that cannot publish by themselves.
+              case "$mode" in review|buffer-draft|buffer-notify) ;; *) mode=review;; esac
+            fi
+            if [ -z "$automation" ]; then
+              automation=$(python -c "import json;print(str(json.load(open('config.json')).get('publishing',{}).get('scheduled_automation',False)).lower())")
+            fi
           fi
           { echo "task=$task"; echo "mode=$mode"; echo "automation=$automation"; } >> "$GITHUB_OUTPUT"
           echo "task=$task mode=$mode automation=$automation public_approved=$PUBLIC_POSTING_APPROVED"
