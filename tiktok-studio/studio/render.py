@@ -323,7 +323,7 @@ def render(plan: dict, config: dict, out_dir: Path) -> dict:
 
     total = plan["duration"]
     n_frames = int(round(total * fps))
-    audio = music.generate(total, plan["topic_id"], out_dir / "music.wav")
+    audio = music.generate(total, plan["topic_id"], out_dir / "music.wav", config.get("music_gain", 1.0))
     video_path = out_dir / "video.mp4"
     cmd = [
         "ffmpeg", "-y", "-loglevel", "error",

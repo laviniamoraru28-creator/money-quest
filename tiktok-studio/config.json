@@ -64,5 +64,7 @@
     "#financialliteracy",
     "#parentingtips",
     "#kidsandmoney"
-  ]
+  ],
+  "music_gain": 0.25,
+  "_music_gain_note": "0.25 = quiet bed for notification publishing, where a TikTok sound is added in the app. Use 1.0 for fully automatic publishing."
 }

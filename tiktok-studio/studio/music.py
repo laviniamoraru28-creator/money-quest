@@ -48,7 +48,7 @@ def _tone(freq: float, n: int, harmonics=(1.0, 0.35, 0.12), detune=0.0) -> np.nd
     return out
 
 
-def generate(seconds: float, seed: str, path: Path) -> Path:
+def generate(seconds: float, seed: str, path: Path, gain: float = 1.0) -> Path:
     h = int(hashlib.sha256(seed.encode()).hexdigest(), 16)
     rng = np.random.default_rng(h % (2**32))
     key = KEYS[h % len(KEYS)]
@@ -128,7 +128,7 @@ def generate(seconds: float, seed: str, path: Path) -> Path:
 
     stereo = np.stack([left, right], axis=1)
     peak = np.max(np.abs(stereo)) or 1.0
-    stereo = stereo / peak * 0.45  # leaves headroom; sits under optional narration
+    stereo = stereo / peak * 0.45 * gain  # leaves headroom; sits under optional narration
     pcm = (stereo * 32767).astype(np.int16)
     path.parent.mkdir(parents=True, exist_ok=True)
     with wave.open(str(path), "wb") as w:
