@@ -306,7 +306,7 @@ Production status comes from the studio's run history. Nothing is sent to Buffer
 - **Caption:** Facts without thinking don't stick, and opinions without facts go wrong. Asking a child "why do you think that?" trains both at once.
 - **Hashtags:** #criticalthinking #education #parenting #lifeskills
 - **Search keywords:** critical thinking for kids, how children learn, thinking skills
-- **Proposed date:** 2026-12-25, 19:30 UK time
+- **Proposed date:** 2026-12-28, 19:30 UK time
 - **Production status:** Not produced
 - **Buffer status:** Not sent
 
@@ -323,7 +323,7 @@ Production status comes from the studio's run history. Nothing is sent to Buffer
 - **Caption:** Mr. Micawber's rule is the whole of budgeting in one line: spend slightly less than comes in. Children can practise it with pocket money long before they earn a wage.
 - **Hashtags:** #budgeting #kidsandmoney #financialliteracy #parenting
 - **Search keywords:** budgeting for kids, pocket money, teaching kids to budget
-- **Proposed date:** 2026-12-28, 19:30 UK time
+- **Proposed date:** 2026-12-30, 19:30 UK time
 - **Production status:** Not produced
 - **Buffer status:** Not sent
 
@@ -340,7 +340,7 @@ Production status comes from the studio's run history. Nothing is sent to Buffer
 - **Caption:** The thirsty crow in the fable drops pebbles into a pitcher to raise the water. A child who faces a small problem, and is given time, will often invent a way through.
 - **Hashtags:** #creativethinking #entrepreneurship #problemsolving #parenting
 - **Search keywords:** creative thinking for kids, problem solving, entrepreneurship for kids
-- **Proposed date:** 2026-12-30, 19:30 UK time
+- **Proposed date:** 2027-01-04, 19:30 UK time
 - **Production status:** Not produced
 - **Buffer status:** Not sent
 
@@ -357,7 +357,7 @@ Production status comes from the studio's run history. Nothing is sent to Buffer
 - **Caption:** Dorothea asks this in Middlemarch, and it's a fair question for a family. Small acts of help, noticed and named, teach children that other people matter.
 - **Hashtags:** #kindness #emotionalintelligence #parenting #lifeskills
 - **Search keywords:** teaching kindness, empathy for kids, generosity
-- **Proposed date:** 2027-01-01, 19:30 UK time
+- **Proposed date:** 2027-01-06, 19:30 UK time
 - **Production status:** Not produced
 - **Buffer status:** Not sent
 
@@ -374,7 +374,7 @@ Production status comes from the studio's run history. Nothing is sent to Buffer
 - **Caption:** Nobody is born careful with money. Smiles put it down to experience, example and thinking ahead, which is good news: all three can be given to a child.
 - **Hashtags:** #savingmoney #moneyhabits #kidsandmoney #parenting
 - **Search keywords:** teaching kids to save, money habits for kids, leading by example
-- **Proposed date:** 2027-01-04, 19:30 UK time
+- **Proposed date:** 2027-01-08, 19:30 UK time
 - **Production status:** Not produced
 - **Buffer status:** Not sent
 
@@ -391,7 +391,7 @@ Production status comes from the studio's run history. Nothing is sent to Buffer
 - **Caption:** Dewey noticed that everyone agrees with this and few act on it. A child told about saving nods. A child who saves for something learns it.
 - **Hashtags:** #learningbydoing #education #parenting #childdevelopment
 - **Search keywords:** learning by doing, how children learn, active learning
-- **Proposed date:** 2027-01-06, 19:30 UK time
+- **Proposed date:** 2027-01-11, 19:30 UK time
 - **Production status:** Not produced
 - **Buffer status:** Not sent
 
@@ -408,7 +408,7 @@ Production status comes from the studio's run history. Nothing is sent to Buffer
 - **Caption:** In the fable the sun does what the wind could not. Children meet the same choice in every group game: insist, or bring people with you.
 - **Hashtags:** #leadership #teamwork #parenting #lifeskills
 - **Search keywords:** leadership skills for kids, teamwork for children, social skills
-- **Proposed date:** 2027-01-08, 19:30 UK time
+- **Proposed date:** 2027-01-13, 19:30 UK time
 - **Production status:** Not produced
 - **Buffer status:** Not sent
 
@@ -425,7 +425,7 @@ Production status comes from the studio's run history. Nothing is sent to Buffer
 - **Caption:** Keller wrote this at 23. A child who expects that effort can change things is more willing to make the effort, and that expectation can be encouraged.
 - **Hashtags:** #growthmindset #resilience #parenting #lifeskills
 - **Search keywords:** growth mindset for kids, building confidence in children, resilience
-- **Proposed date:** 2027-01-11, 19:30 UK time
+- **Proposed date:** 2027-01-15, 19:30 UK time
 - **Production status:** Not produced
 - **Buffer status:** Not sent
 
@@ -442,7 +442,7 @@ Production status comes from the studio's run history. Nothing is sent to Buffer
 - **Caption:** Critical thinking starts with not deciding too fast. "Let's find out first" is a habit a child can practise on adverts, rumours and big purchases.
 - **Hashtags:** #criticalthinking #decisionmaking #parenting #lifeskills
 - **Search keywords:** critical thinking for kids, decision making for kids, media literacy
-- **Proposed date:** 2027-01-13, 19:30 UK time
+- **Proposed date:** 2027-01-18, 19:30 UK time
 - **Production status:** Not produced
 - **Buffer status:** Not sent
 
@@ -459,7 +459,7 @@ Production status comes from the studio's run history. Nothing is sent to Buffer
 - **Caption:** A big goal can look impossible to a child. The first coin in the jar is the single step, and it makes the second one easier.
 - **Hashtags:** #savingmoney #goalsetting #kidsandmoney #parenting
 - **Search keywords:** saving goals for kids, goal setting for kids, teaching patience
-- **Proposed date:** 2027-01-15, 19:30 UK time
+- **Proposed date:** 2027-01-20, 19:30 UK time
 - **Production status:** Not produced
 - **Buffer status:** Not sent
 
@@ -476,7 +476,7 @@ Production status comes from the studio's run history. Nothing is sent to Buffer
 - **Caption:** Four hundred years on, Bacon's list holds up: reading fills the mind, discussion sharpens it, writing makes it precise. Children need all three.
 - **Hashtags:** #lifelonglearning #reading #education #parenting
 - **Search keywords:** reading with children, lifelong learning, learning skills
-- **Proposed date:** 2027-01-18, 19:30 UK time
+- **Proposed date:** 2027-01-22, 19:30 UK time
 - **Production status:** Not produced
 - **Buffer status:** Not sent
 
@@ -493,7 +493,7 @@ Production status comes from the studio's run history. Nothing is sent to Buffer
 - **Caption:** Montessori is blunt here. Doing everything for a child feels kind, but it removes the practice they need. One task handed over this week is a start.
 - **Hashtags:** #independence #montessori #parenting #lifeskills
 - **Search keywords:** raising independent children, responsibility for kids, montessori at home
-- **Proposed date:** 2027-01-20, 19:30 UK time
+- **Proposed date:** 2027-01-25, 19:30 UK time
 - **Production status:** Not produced
 - **Buffer status:** Not sent
 
@@ -510,7 +510,7 @@ Production status comes from the studio's run history. Nothing is sent to Buffer
 - **Caption:** Franklin's warning in plain words: spend on what you don't need and you may run short of what you do. Sorting needs from wants is one of the first money skills.
 - **Hashtags:** #needsvswants #kidsandmoney #financialliteracy #parenting
 - **Search keywords:** needs vs wants, spending habits for kids, teaching kids about money
-- **Proposed date:** 2027-01-22, 19:30 UK time
+- **Proposed date:** 2027-01-27, 19:30 UK time
 - **Production status:** Not produced
 - **Buffer status:** Not sent
 
@@ -527,7 +527,7 @@ Production status comes from the studio's run history. Nothing is sent to Buffer
 - **Caption:** Burnett's point is about attention: a mind busy with something good has less room for something bad. Children can learn to choose what they tend.
 - **Hashtags:** #emotionalintelligence #mindset #parenting #lifeskills
 - **Search keywords:** emotional intelligence for kids, positive thinking for kids, self regulation
-- **Proposed date:** 2027-01-25, 19:30 UK time
+- **Proposed date:** 2027-01-29, 19:30 UK time
 - **Production status:** Not produced
 - **Buffer status:** Not sent
 
@@ -544,7 +544,7 @@ Production status comes from the studio's run history. Nothing is sent to Buffer
 - **Caption:** Enthusiasm isn't a distraction from learning. It's the fuel. A child's own idea, however small, is worth taking seriously enough to try.
 - **Hashtags:** #entrepreneurship #creativethinking #kidentrepreneur #parenting
 - **Search keywords:** entrepreneurship for kids, creative thinking, motivation for kids
-- **Proposed date:** 2027-01-27, 19:30 UK time
+- **Proposed date:** 2027-02-01, 19:30 UK time
 - **Production status:** Not produced
 - **Buffer status:** Not sent
 
@@ -561,7 +561,7 @@ Production status comes from the studio's run history. Nothing is sent to Buffer
 - **Caption:** James thought the test of education was what a person does, not what they can recite. For children that means practice: the same small thing, many times.
 - **Hashtags:** #habits #childdevelopment #education #parenting
 - **Search keywords:** habits for kids, child development, building routines
-- **Proposed date:** 2027-01-29, 19:30 UK time
+- **Proposed date:** 2027-02-03, 19:30 UK time
 - **Production status:** Not produced
 - **Buffer status:** Not sent
 
@@ -578,7 +578,7 @@ Production status comes from the studio's run history. Nothing is sent to Buffer
 - **Caption:** The tortoise never stops, and that's the whole lesson. A small amount saved every week beats a big burst that fades.
 - **Hashtags:** #savingmoney #patience #kidsandmoney #parenting
 - **Search keywords:** teaching patience, saving habits for kids, pocket money
-- **Proposed date:** 2027-02-01, 19:30 UK time
+- **Proposed date:** 2027-02-05, 19:30 UK time
 - **Production status:** Not produced
 - **Buffer status:** Not sent
 
@@ -595,7 +595,7 @@ Production status comes from the studio's run history. Nothing is sent to Buffer
 - **Caption:** Mr. Jaggers is a lawyer, but his rule suits anyone online. A confident video or a shiny advert isn't evidence. "How do we know?" is the question to practise.
 - **Hashtags:** #criticalthinking #medialiteracy #parenting #futureskills
 - **Search keywords:** critical thinking for kids, media literacy, spotting scams
-- **Proposed date:** 2027-02-03, 19:30 UK time
+- **Proposed date:** 2027-02-08, 19:30 UK time
 - **Production status:** Not produced
 - **Buffer status:** Not sent
 
@@ -612,7 +612,7 @@ Production status comes from the studio's run history. Nothing is sent to Buffer
 - **Caption:** Oz tells the Lion that fear and courage go together. Children often think brave people don't feel scared. It helps to tell them otherwise.
 - **Hashtags:** #confidence #resilience #parenting #lifeskills
 - **Search keywords:** building confidence in children, courage for kids, resilience
-- **Proposed date:** 2027-02-05, 19:30 UK time
+- **Proposed date:** 2027-02-10, 19:30 UK time
 - **Production status:** Not produced
 - **Buffer status:** Not sent
 
@@ -629,7 +629,7 @@ Production status comes from the studio's run history. Nothing is sent to Buffer
 - **Caption:** Smith's idea is easy to show a child: this toy costs three weeks of pocket money, or five jobs around the house. Price starts to mean something.
 - **Hashtags:** #financialliteracy #kidsandmoney #moneyhabits #parenting
 - **Search keywords:** value of money, teaching kids about money, earning for kids
-- **Proposed date:** 2027-02-08, 19:30 UK time
+- **Proposed date:** 2027-02-12, 19:30 UK time
 - **Production status:** Not produced
 - **Buffer status:** Not sent
 
@@ -646,7 +646,7 @@ Production status comes from the studio's run history. Nothing is sent to Buffer
 - **Caption:** Mrs. March says this after her daughters try a week with no duties at all. Children who help plan their own day start to feel that time is theirs to use.
 - **Hashtags:** #planning #routines #parenting #lifeskills
 - **Search keywords:** time management for kids, routines for children, responsibility for kids
-- **Proposed date:** 2027-02-10, 19:30 UK time
+- **Proposed date:** 2027-02-15, 19:30 UK time
 - **Production status:** Not produced
 - **Buffer status:** Not sent
 
@@ -663,7 +663,7 @@ Production status comes from the studio's run history. Nothing is sent to Buffer
 - **Caption:** "I know!" can close a conversation. Children learn more when they get used to checking, asking and being pleasantly wrong.
 - **Hashtags:** #curiosity #lifelonglearning #criticalthinking #parenting
 - **Search keywords:** curiosity in children, learning how to learn, open mindedness
-- **Proposed date:** 2027-02-12, 19:30 UK time
+- **Proposed date:** 2027-02-17, 19:30 UK time
 - **Production status:** Not produced
 - **Buffer status:** Not sent
 
@@ -680,7 +680,7 @@ Production status comes from the studio's run history. Nothing is sent to Buffer
 - **Caption:** Saving is thinking about your future self. For a child that might be next Saturday, which is a perfectly good place to begin.
 - **Hashtags:** #savingmoney #planning #kidsandmoney #parenting
 - **Search keywords:** planning ahead for kids, saving habits for kids, delayed gratification
-- **Proposed date:** 2027-02-15, 19:30 UK time
+- **Proposed date:** 2027-02-19, 19:30 UK time
 - **Production status:** Not produced
 - **Buffer status:** Not sent
 
@@ -697,7 +697,7 @@ Production status comes from the studio's run history. Nothing is sent to Buffer
 - **Caption:** Twain is joking, and he's right. A habit rarely changes by force. One small change, kept up, works better than a big new rule.
 - **Hashtags:** #habits #parenting #childdevelopment #lifeskills
 - **Search keywords:** habits for kids, changing habits, child development
-- **Proposed date:** 2027-02-17, 19:30 UK time
+- **Proposed date:** 2027-02-22, 19:30 UK time
 - **Production status:** Not produced
 - **Buffer status:** Not sent
 
@@ -714,7 +714,7 @@ Production status comes from the studio's run history. Nothing is sent to Buffer
 - **Caption:** Washington learned this as a student and said he carried it for life. Children find it out the same way, by helping and seeing the result.
 - **Hashtags:** #generosity #kindness #parenting #lifeskills
 - **Search keywords:** generosity for kids, teaching kindness, giving
-- **Proposed date:** 2027-02-19, 19:30 UK time
+- **Proposed date:** 2027-02-24, 19:30 UK time
 - **Production status:** Not produced
 - **Buffer status:** Not sent
 
@@ -731,7 +731,7 @@ Production status comes from the studio's run history. Nothing is sent to Buffer
 - **Caption:** School ends. Teaching yourself doesn't. A child who has looked something up, tried it and worked it out has started the habit that matters most.
 - **Hashtags:** #lifelonglearning #futureskills #education #parenting
 - **Search keywords:** lifelong learning, independent learning, future skills for kids
-- **Proposed date:** 2027-02-22, 19:30 UK time
+- **Proposed date:** 2027-02-26, 19:30 UK time
 - **Production status:** Not produced
 - **Buffer status:** Not sent
 
@@ -748,7 +748,7 @@ Production status comes from the studio's run history. Nothing is sent to Buffer
 - **Caption:** Stickers and prizes fade. The feeling of "I did that" lasts. It helps to notice the effort and the finished thing, more than the prize.
 - **Hashtags:** #motivation #growthmindset #parenting #lifeskills
 - **Search keywords:** motivating children, intrinsic motivation, growth mindset
-- **Proposed date:** 2027-02-24, 19:30 UK time
+- **Proposed date:** 2027-03-01, 19:30 UK time
 - **Production status:** Not produced
 - **Buffer status:** Not sent
 
@@ -765,7 +765,7 @@ Production status comes from the studio's run history. Nothing is sent to Buffer
 - **Caption:** Mr. Micawber gives excellent advice he never follows. For children, the trick is making the first step tiny enough to do now.
 - **Hashtags:** #responsibility #planning #parenting #lifeskills
 - **Search keywords:** responsibility for kids, time management for kids, planning
-- **Proposed date:** 2027-02-26, 19:30 UK time
+- **Proposed date:** 2027-03-03, 19:30 UK time
 - **Production status:** Not produced
 - **Buffer status:** Not sent
 
@@ -782,7 +782,7 @@ Production status comes from the studio's run history. Nothing is sent to Buffer
 - **Caption:** Children copy what they watch. Talking out loud about an everyday money choice, even a small one, is a lesson they'll remember.
 - **Hashtags:** #parenting #childdevelopment #moneytalks #leadbyexample
 - **Search keywords:** leading by example, talking to kids about money, child development
-- **Proposed date:** 2027-03-01, 19:30 UK time
+- **Proposed date:** 2027-03-05, 19:30 UK time
 - **Production status:** Not produced
 - **Buffer status:** Not sent
 
@@ -799,7 +799,7 @@ Production status comes from the studio's run history. Nothing is sent to Buffer
 - **Caption:** Tom Sawyer gets his friends to pay for the privilege of painting a fence. The same task feels different when a child chooses it.
 - **Hashtags:** #learningthroughplay #education #parenting #childdevelopment
 - **Search keywords:** learning through play, motivating children, how children learn
-- **Proposed date:** 2027-03-03, 19:30 UK time
+- **Proposed date:** 2027-03-08, 19:30 UK time
 - **Production status:** Not produced
 - **Buffer status:** Not sent
 
@@ -816,7 +816,7 @@ Production status comes from the studio's run history. Nothing is sent to Buffer
 - **Caption:** The first line of a very old handbook. A child can't control the weather or the result of the match, but they can control their effort and their next step.
 - **Hashtags:** #selfregulation #emotionalintelligence #parenting #lifeskills
 - **Search keywords:** self regulation, emotional intelligence for kids, coping skills for kids
-- **Proposed date:** 2027-03-05, 19:30 UK time
+- **Proposed date:** 2027-03-10, 19:30 UK time
 - **Production status:** Not produced
 - **Buffer status:** Not sent
 
@@ -833,7 +833,7 @@ Production status comes from the studio's run history. Nothing is sent to Buffer
 - **Caption:** Franklin didn't believe much in luck. Children who keep working at a small project notice the same thing: the more they try, the luckier they get.
 - **Hashtags:** #entrepreneurship #effort #growthmindset #parenting
 - **Search keywords:** effort and persistence, entrepreneurship for kids, growth mindset
-- **Proposed date:** 2027-03-08, 19:30 UK time
+- **Proposed date:** 2027-03-12, 19:30 UK time
 - **Production status:** Not produced
 - **Buffer status:** Not sent
 
@@ -850,7 +850,7 @@ Production status comes from the studio's run history. Nothing is sent to Buffer
 - **Caption:** Dewey borrows this from the Greeks to make a point about children: their questions are the raw material of thinking. Each "why?" is worth an answer.
 - **Hashtags:** #curiosity #futureskills #education #parenting
 - **Search keywords:** curiosity in children, encouraging questions, learning skills
-- **Proposed date:** 2027-03-10, 19:30 UK time
+- **Proposed date:** 2027-03-15, 19:30 UK time
 - **Production status:** Not produced
 - **Buffer status:** Not sent
 
@@ -867,7 +867,7 @@ Production status comes from the studio's run history. Nothing is sent to Buffer
 - **Caption:** Thoreau's answer was "simplify". For a child with pocket money it means fewer small treats and one thing they really want.
 - **Hashtags:** #needsvswants #savingmoney #kidsandmoney #parenting
 - **Search keywords:** needs vs wants, saving goals for kids, simple living
-- **Proposed date:** 2027-03-12, 19:30 UK time
+- **Proposed date:** 2027-03-17, 19:30 UK time
 - **Production status:** Not produced
 - **Buffer status:** Not sent
 
@@ -884,7 +884,7 @@ Production status comes from the studio's run history. Nothing is sent to Buffer
 - **Caption:** James recommended doing one small hard thing every day, just for practice. For a child that could be one tricky puzzle or one job done without being asked.
 - **Hashtags:** #effort #resilience #habits #parenting
 - **Search keywords:** building resilience, effort and persistence, habits for kids
-- **Proposed date:** 2027-03-15, 19:30 UK time
+- **Proposed date:** 2027-03-19, 19:30 UK time
 - **Production status:** Not produced
 - **Buffer status:** Not sent
 
@@ -901,7 +901,7 @@ Production status comes from the studio's run history. Nothing is sent to Buffer
 - **Caption:** Alice has changed size so often she isn't the same girl she was that morning. Children change fast too, and yesterday's mistake doesn't have to follow them.
 - **Hashtags:** #growthmindset #resilience #parenting #lifeskills
 - **Search keywords:** growth mindset for kids, learning from mistakes, resilience in children
-- **Proposed date:** 2027-03-17, 19:30 UK time
+- **Proposed date:** 2027-03-22, 19:30 UK time
 - **Production status:** Not produced
 - **Buffer status:** Not sent
 
@@ -918,7 +918,7 @@ Production status comes from the studio's run history. Nothing is sent to Buffer
 - **Caption:** Franklin thought happiness came from small daily advantages, not rare big wins. Money works the same way for children: the weekly habit matters more than the windfall.
 - **Hashtags:** #moneyhabits #habits #kidsandmoney #parenting
 - **Search keywords:** money habits for kids, daily habits, financial literacy for children
-- **Proposed date:** 2027-03-19, 19:30 UK time
+- **Proposed date:** 2027-03-24, 19:30 UK time
 - **Production status:** Not produced
 - **Buffer status:** Not sent
 
