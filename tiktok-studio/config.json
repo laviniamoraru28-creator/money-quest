@@ -74,6 +74,7 @@
   "series": "quotes",
   "_series_note": "quotes = quotation series (curriculum/quotes.json); tips = parent problem-to-solution series (curriculum/topics.json).",
   "quote_series": {
-    "music_gain": 0.5
+    "music_rms_db": -31.0,
+    "_note": "Average music level in dBFS. Typical TikTok music sits around -14; -31 is a very quiet bed."
   }
 }

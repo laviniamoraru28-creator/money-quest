@@ -282,6 +282,14 @@ def _publish(run: str, mode: str, *, video_url: str | None, privacy: str, delay_
         due = dt.datetime.now(dt.timezone.utc) + dt.timedelta(minutes=delay_min)
         scheduling = "automatic" if mode == "buffer-auto" else "notification"
         post = buffer.create_post(ch["id"], caption, video_url, scheduling, due, draft=(mode == "buffer-draft"))
+        try:  # read it back so the log shows what Buffer actually stored
+            check = buffer.get_post(post["id"])
+            e["buffer_status"] = check.get("status")
+            print(f"Buffer stored the post as: status={check.get('status')} type={check.get('schedulingType')} shareMode={check.get('shareMode')} due={check.get('dueAt')}")
+            if mode == "buffer-draft" and check.get("status") != "draft":
+                print("::warning::Buffer did not store this post as a draft. It is a notification-type post, so it still cannot publish by itself.")
+        except buffer.BufferError as err:
+            print(f"::warning::Could not read the post back from Buffer: {err}")
         e.update({"buffer_post_id": post["id"], "buffer_channel_id": ch["id"], "buffer_org_id": ch["organizationId"],
                   "due_at": due.isoformat(timespec="seconds"), "video_url": video_url,
                   "status": {"buffer-draft": "draft_in_buffer", "buffer-notify": "sent_to_phone"}.get(mode, "queued_in_buffer")})
@@ -314,13 +322,14 @@ def cmd_sync(_):
     history = load_history()
     changed = 0
     for e in history["videos"]:
-        if e.get("buffer_post_id") and e["status"] in ("queued_in_buffer", "sent_to_phone"):
+        if e.get("buffer_post_id") and e["status"] in ("queued_in_buffer", "sent_to_phone", "draft_in_buffer"):
             try:
                 p = buffer.get_post(e["buffer_post_id"])
             except buffer.BufferError as err:
                 print(f"{e['run']}: {err}")
                 continue
             e["buffer_status"] = p.get("status")
+            print(f"{e['run']}: Buffer status={p.get('status')} type={p.get('schedulingType')} notification={p.get('notificationStatus')} due={p.get('dueAt')} sent={p.get('sentAt')} link={p.get('externalLink')}")
             if p.get("sentAt"):
                 e.update({"status": "published", "published_at": p["sentAt"], "external_link": p.get("externalLink")})
                 changed += 1

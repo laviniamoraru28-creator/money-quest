@@ -201,7 +201,7 @@ def create_post(channel_id: str, text: str, video_url: str, scheduling: str, due
 
 
 def get_post(post_id: str) -> dict:
-    q = "query($id: PostId!) { post(input: {id: $id}) { id status dueAt sentAt externalLink } }"
+    q = "query($id: PostId!) { post(input: {id: $id}) { id status schedulingType notificationStatus shareMode dueAt sentAt externalLink } }"
     try:
         return gql(q, {"id": post_id})["post"]
     except BufferError:

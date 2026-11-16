@@ -328,7 +328,7 @@ def render(q: dict, plan: dict, config: dict, out_dir: Path) -> dict:
     scenes = [_Scene(s["kind"], q, fonts, layout) for s in plan["scenes"]]
     blobs = [(_blob(r, c), fx, fy) for c, fx, fy, r in BLOBS]
     total = plan["duration"]
-    audio = music.generate_calm(total, plan["topic_id"], out_dir / "music.wav", config.get("quote_series", {}).get("music_gain", 0.5))
+    audio = music.generate_calm(total, plan["topic_id"], out_dir / "music.wav", config.get("quote_series", {}).get("music_rms_db", -31.0))
     video_path = out_dir / "video.mp4"
     proc = subprocess.Popen([
         "ffmpeg", "-y", "-loglevel", "error",

@@ -139,7 +139,7 @@ def generate(seconds: float, seed: str, path: Path, gain: float = 1.0) -> Path:
     return path
 
 
-def generate_calm(seconds: float, seed: str, path: Path, gain: float = 0.5) -> Path:
+def generate_calm(seconds: float, seed: str, path: Path, rms_db: float = -31.0) -> Path:
     """Very quiet, slow, piano-like bed for the quote series.
 
     Synthesised from scratch like `generate` (original work, no third-party
@@ -191,7 +191,11 @@ def generate_calm(seconds: float, seed: str, path: Path, gain: float = 0.5) -> P
         ch[:fade_in] *= np.linspace(0, 1, fade_in)
         ch[-fade_out:] *= np.linspace(1, 0, fade_out)
     stereo = np.stack([left, right], axis=1)
-    stereo = stereo / (np.max(np.abs(stereo)) or 1.0) * 0.4 * gain
+    # Every track is levelled to the same average loudness, so the series
+    # sounds consistent from video to video.
+    rms = float(np.sqrt(np.mean(stereo ** 2))) or 1.0
+    stereo = stereo * (10 ** (rms_db / 20) / rms)
+    stereo = np.clip(stereo, -0.5, 0.5)
     path.parent.mkdir(parents=True, exist_ok=True)
     with wave.open(str(path), "wb") as w:
         w.setnchannels(2)
