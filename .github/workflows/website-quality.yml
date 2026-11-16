@@ -59,14 +59,28 @@ jobs:
           done
           cat server.log
           exit 1
+      - name: Voluntary support desktop, mobile and Safari review
+        env:
+          E2E_BASE_URL: http://localhost:3000
+        run: |
+          npx playwright install --with-deps webkit
+          npx playwright test support.spec.ts --project=desktop-chrome --project=mobile-chrome --project=iphone-safari --project=tablet-safari --workers=2
+      - name: Upload support review screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: support-review-screenshots
+          path: docs/support/screenshots/
+          if-no-files-found: warn
+          retention-days: 14
       - name: Browser journeys and WCAG checks
         env:
           E2E_BASE_URL: http://localhost:3000
-        run: npx playwright test --project=desktop-chrome --project=mobile-chrome --workers=2 --max-failures=8
+        run: npx playwright test --project=desktop-chrome --project=mobile-chrome --workers=2 --max-failures=8 --grep-invert "support (page|links|accessibility)"
       - name: Safari certificate downloads on iPhone and iPad
         run: |
           npx playwright install --with-deps webkit
-          npx playwright test academy-certificates.spec.ts lesson-assistant.spec.ts settings-panel.spec.ts business-save-and-simulate.spec.ts leadership-retry.spec.ts support.spec.ts --project=iphone-safari --project=tablet-safari --workers=2
+          npx playwright test academy-certificates.spec.ts lesson-assistant.spec.ts settings-panel.spec.ts business-save-and-simulate.spec.ts leadership-retry.spec.ts --project=iphone-safari --project=tablet-safari --workers=2
           npx playwright test library-public.spec.ts nav-menu.spec.ts owner-navigation-search.spec.ts site-controls.spec.ts quiet-videos.spec.ts multilingual-release.spec.ts --project=tablet-safari
       - name: Require complete published-book artwork before release
         run: node --import tsx scripts/test-library-artwork.ts --complete

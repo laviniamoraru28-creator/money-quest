@@ -61,3 +61,11 @@ Primary references checked on 16 November 2026:
 `e2e/journeys/support.spec.ts` covers all nine locales, custom amounts, layout overflow, parent links, cancellation, false-success prevention, API closed states, absence on the learning hub, keyboard radio navigation and axe accessibility. It saves desktop/mobile (and CI Safari) screenshots in `docs/support/screenshots/`. The existing quality workflow runs these tests and uploads screenshots with its evidence. Optional `PLAYWRIGHT_CHROMIUM_EXECUTABLE` allows the installed system Chromium locally.
 
 See the PR for the actual run results and remaining Stripe access blocker.
+
+### Broad-suite blocker observed
+
+Run [43906993495](https://github.com/laviniamoraru28-creator/money-quest/actions/runs/43906993495) passed lint, types, all unit suites, certificate QA, build and package rehearsal. The existing broad browser suite recorded 290 passed, 8 failed, 1 interrupted, 11 skipped and 828 not run before its failure limit. Failures are in `lesson-illustrations.spec.ts`, `lesson-sequence-integrity.spec.ts`, and `owner-navigation-search.spec.ts`, expecting pre-comic Explorer money-form controls/artwork. This feature does not modify those lesson implementations or tests. Full regression clearance is therefore still blocked; do not describe CI as fully green.
+
+The existing quality workflow now runs the support suite on desktop/mobile Chromium and iPhone/iPad WebKit before the broad suite, and uploads a small standalone screenshot artifact. This ensures unrelated broad-suite failures cannot prevent support review evidence. The broad Chromium suite excludes those exact already-run support tests.
+
+Additional local HTTP checks passed for all nine support routes (200), closed shop/support APIs (503), forged success URLs, and synthetic sandbox configuration rejection of foreign origins, invalid amounts, missing adult confirmation, extra fields, oversized requests and invalid webhook signatures. No Stripe API request or real/test charge was made by those HTTP checks. The browser build contains no Stripe secret configuration strings. Offline manifests contain zero support routes.
