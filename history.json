@@ -41,17 +41,17 @@
       "topic_id": "quote-franklin-small-leak",
       "category": "Financial literacy and healthy money habits",
       "series": "quotes",
-      "status": "draft_in_buffer",
-      "rendered_at": "2026-11-16T04:27:20+00:00",
-      "duration": 14.92,
+      "status": "sent_to_phone",
+      "rendered_at": "2026-11-16T10:30:14+00:00",
+      "duration": 12.1,
       "video_url": "https://github.com/laviniamoraru28-creator/money-quest/releases/download/tiktok-2026-11-16-quote-01-franklin-small-leak/video.mp4",
-      "publish_mode": "buffer-draft",
-      "submitted_at": "2026-11-16T04:27:24+00:00",
-      "buffer_status": "draft",
-      "buffer_post_id": "6afa862d60a910801c6a7eb4",
+      "publish_mode": "buffer-notify",
+      "submitted_at": "2026-11-16T10:30:16+00:00",
+      "buffer_status": "scheduled",
+      "buffer_post_id": "6afadb3987a8bd00b0474823",
       "buffer_channel_id": "6afa20c0ece6dfde5fd8b514",
       "buffer_org_id": "6afa203649dfc7619b889215",
-      "due_at": "2026-11-16T04:47:25+00:00"
+      "due_at": "2026-11-16T10:50:16+00:00"
     }
   ]
 }
