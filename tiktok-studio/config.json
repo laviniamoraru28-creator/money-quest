@@ -41,6 +41,10 @@
       "/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf",
       "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
       "/usr/share/fonts/truetype/freefont/FreeSans.ttf"
+    ],
+    "serif_bold": [
+      "/usr/share/fonts/truetype/liberation/LiberationSerif-Bold.ttf",
+      "/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf"
     ]
   },
   "schedule": {
@@ -66,5 +70,10 @@
     "#kidsandmoney"
   ],
   "music_gain": 0.25,
-  "_music_gain_note": "0.25 = quiet bed for notification publishing, where a TikTok sound is added in the app. Use 1.0 for fully automatic publishing."
+  "_music_gain_note": "0.25 = quiet bed for notification publishing, where a TikTok sound is added in the app. Use 1.0 for fully automatic publishing.",
+  "series": "quotes",
+  "_series_note": "quotes = quotation series (curriculum/quotes.json); tips = parent problem-to-solution series (curriculum/topics.json).",
+  "quote_series": {
+    "music_gain": 0.5
+  }
 }

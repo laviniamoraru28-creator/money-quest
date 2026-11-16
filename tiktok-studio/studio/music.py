@@ -137,3 +137,65 @@ def generate(seconds: float, seed: str, path: Path, gain: float = 1.0) -> Path:
         w.setframerate(SR)
         w.writeframes(pcm.tobytes())
     return path
+
+
+def generate_calm(seconds: float, seed: str, path: Path, gain: float = 0.5) -> Path:
+    """Very quiet, slow, piano-like bed for the quote series.
+
+    Synthesised from scratch like `generate` (original work, no third-party
+    audio): a soft pad plus sparse single notes with a piano-style decay.
+    No percussion, no sudden attacks, long fades.
+    """
+    h = int(hashlib.sha256(("calm" + seed).encode()).hexdigest(), 16)
+    key = [60, 65, 67][h % 3]               # C, F or G
+    prog = PROGRESSIONS[(h >> 4) % len(PROGRESSIONS)]
+    beat = 60.0 / (58 + (h >> 8) % 7)       # 58-64 bpm
+    bar = beat * 4
+    total = int(seconds * SR)
+    left, right = np.zeros(total), np.zeros(total)
+    pattern = [[0, 2, 1, 3], [0, 1, 2, 1], [2, 0, 1, 3]][(h >> 12) % 3]
+
+    def piano(freq: float, n: int) -> np.ndarray:
+        t = np.arange(n) / SR
+        tone = sum(a * np.sin(2 * np.pi * freq * k * t) * np.exp(-t * (1.4 + 0.7 * k)) for k, a in ((1, 1.0), (2, 0.45), (3, 0.2), (4, 0.08)))
+        attack = max(1, int(0.012 * SR))
+        tone[:attack] *= np.linspace(0, 1, attack)
+        return tone
+
+    for b in range(int(np.ceil(seconds / bar)) + 1):
+        root_off = prog[b % len(prog)]
+        quality = MINOR if root_off == 9 else MAJOR
+        root = key + root_off
+        start = int(b * bar * SR)
+        if start >= total:
+            break
+        length = min(int(bar * SR), total - start)
+        for iv in quality:  # pad
+            f = _midi_hz(root + iv - 12)
+            env = _env(length, 0.8, 0.8)
+            left[start:start + length] += 0.035 * env * _tone(f, length, harmonics=(1.0, 0.2), detune=-0.001)
+            right[start:start + length] += 0.035 * env * _tone(f, length, harmonics=(1.0, 0.2), detune=0.001)
+        notes = quality + [12]
+        for step in range(4):  # one note per beat
+            s = start + int(step * beat * SR)
+            n = min(int(beat * 3.0 * SR), total - s)
+            if n <= 0:
+                continue
+            sig = 0.11 * piano(_midi_hz(root + notes[pattern[step]]), n)
+            pan = 0.2 if step % 2 else -0.2
+            left[s:s + n] += sig * (1 - pan)
+            right[s:s + n] += sig * (1 + pan)
+
+    fade_in, fade_out = int(0.8 * SR), int(min(2.5, seconds / 3) * SR)
+    for ch in (left, right):
+        ch[:fade_in] *= np.linspace(0, 1, fade_in)
+        ch[-fade_out:] *= np.linspace(1, 0, fade_out)
+    stereo = np.stack([left, right], axis=1)
+    stereo = stereo / (np.max(np.abs(stereo)) or 1.0) * 0.4 * gain
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with wave.open(str(path), "wb") as w:
+        w.setnchannels(2)
+        w.setsampwidth(2)
+        w.setframerate(SR)
+        w.writeframes((stereo * 32767).astype(np.int16).tobytes())
+    return path

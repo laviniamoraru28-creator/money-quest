@@ -178,7 +178,7 @@ mutation CreatePost($input: CreatePostInput!) {
 }"""
 
 
-def create_post(channel_id: str, text: str, video_url: str, scheduling: str, due_at: dt.datetime, thumbnail_ms: int = 1400) -> dict:
+def create_post(channel_id: str, text: str, video_url: str, scheduling: str, due_at: dt.datetime, thumbnail_ms: int = 1400, draft: bool = False) -> dict:
     """scheduling = 'notification' (Buffer reminds you; you post from your phone)
     or 'automatic' (Buffer publishes to TikTok at due_at, publicly)."""
     if scheduling not in ("notification", "automatic"):
@@ -192,6 +192,8 @@ def create_post(channel_id: str, text: str, video_url: str, scheduling: str, due
         "dueAt": due_at.astimezone(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.000Z"),
         "assets": [{"video": {"url": video_url, "metadata": {"thumbnailOffset": thumbnail_ms}}}],
     }}
+    if draft:  # saved in Buffer's Drafts tab for review; not scheduled
+        variables["input"]["saveToDraft"] = True
     res = gql(CREATE, variables)["createPost"]
     if "message" in res and "post" not in res:
         raise BufferError(f"Buffer refused the post: {res['message']}")

@@ -188,7 +188,7 @@ def _frame(path: Path, t: float, dest: Path) -> Image.Image:
     return Image.open(dest).convert("RGB")
 
 
-def check_render(out_dir: Path, plan: dict, config: dict) -> dict:
+def check_render(out_dir: Path, plan: dict, config: dict, contrast_pairs=None, min_font: int = 64, limits=None) -> dict:
     errors, warnings = [], []
     video = out_dir / "video.mp4"
     if not video.exists():
@@ -206,7 +206,8 @@ def check_render(out_dir: Path, plan: dict, config: dict) -> dict:
     if not a or a["codec_name"] != "aac":
         errors.append("missing AAC audio track")
     dur = float(info["format"]["duration"])
-    if abs(dur - plan["duration"]) > 0.25 or not (vc["min_seconds"] <= dur <= vc["max_seconds"] + 0.05):
+    lo, hi = limits or (vc["min_seconds"], vc["max_seconds"])
+    if abs(dur - plan["duration"]) > 0.25 or not (lo <= dur <= hi + 0.05):
         errors.append(f"rendered duration {dur:.2f}s does not match plan / limits")
     size_mb = int(info["format"]["size"]) / 1e6
     if size_mb > 50:
@@ -219,22 +220,21 @@ def check_render(out_dir: Path, plan: dict, config: dict) -> dict:
         if x0 < x_min or x1 > x_max or y0 < y_min or y1 > y_max:
             errors.append(f"{item['scene']}/{item['element']} outside TikTok safe zone: {item['box']}")
         fs = item.get("font_size")
-        if fs and item["element"].startswith("line") and fs < 64:
+        if fs and item["element"].startswith("line") and fs < min_font:
             errors.append(f"{item['scene']} text shrank to {fs}px (too small on a phone)")
 
-    from .render import PALETTES
+    if contrast_pairs is None:
+        from .render import PALETTES
 
-    for kind, pal in PALETTES.items():
-        for bg in pal["bg"]:
-            pairs = [("text", pal["text"], bg)]
-            if pal.get("pill"):
-                pairs.append(("highlight", pal["hl"], pal["pill"]))
-            else:
-                pairs.append(("highlight", pal["hl"], bg))
-            for name, fg, back in pairs:
-                ratio = contrast(fg, back)
-                if ratio < 4.5:
-                    errors.append(f"{kind} {name} contrast {ratio:.2f}:1 < 4.5:1")
+        contrast_pairs = []
+        for kind, pal in PALETTES.items():
+            for bg in pal["bg"]:
+                contrast_pairs.append((f"{kind} text", pal["text"], bg))
+                contrast_pairs.append((f"{kind} highlight", pal["hl"], pal["pill"] or bg))
+    for name, fg, back in contrast_pairs:
+        ratio = contrast(fg, back)
+        if ratio < 4.5:
+            errors.append(f"{name} contrast {ratio:.2f}:1 < 4.5:1")
 
     mean, peak = _volume(video)
     if peak > -0.3:

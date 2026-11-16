@@ -9,6 +9,54 @@ This folder is fully separate from the website and its AI assistant. Nothing in 
 imports it, the website's build and packaging ignore it, and its scheduled workflow stores its
 memory on a separate branch (`tiktok-studio-state`), so it never pushes to `main`.
 
+## Quote series (current series)
+
+`config.json` has `"series": "quotes"`, so the scheduled workflow produces the quote series.
+The earlier parent-tips series (`curriculum/topics.json`) is kept and can be switched back with
+`"series": "tips"`.
+
+Each video is 10-15 seconds, text only, no narration:
+
+| Scene | Seconds | Content |
+|---|---|---|
+| Quotation | 4.5-8.5 | One authentic quotation, author and source on screen |
+| Why it matters for children | 3.5-5 | One educational connection, no exaggerated claims |
+| Invitation | 3.8 | MONEY QUEST, a CTA tied to a real site section, "Link in bio", moneyquesteducation.com |
+
+**Template:** cream, sage and soft-blue cards with slow, blurred pastel shapes; serif type for
+the quotation, sans-serif for everything else; fades only (reduced-motion friendly); all text
+inside TikTok's safe zone. **Music:** a very quiet piano-style bed synthesised by
+`music.generate_calm` (original, so no licence to manage).
+
+**Files**
+
+* `curriculum/quotes.json`: the 15 entries (quotation, author, source, verification status
+  and note, rights note, takeaway, CTA, site section and route, caption, hashtags, keywords,
+  proposed date) plus the quotations that were rejected and why.
+* `QUOTE_CALENDAR.md`: the editorial calendar, generated from the JSON and the run history.
+* `studio/quotes.py`: plan, checks, renderer, calendar.
+
+**Verification rule.** A video can only be produced when `verification` is `"verified"`,
+meaning the wording was confirmed against the source text. `"pending_print_check"` entries are
+held until someone checks the printed source and updates the JSON. The quotation itself is
+never edited by the tool. No quoted author endorses Money Quest, and captions never suggest it.
+
+**Adding a video**
+
+1. Add an entry to `curriculum/quotes.json` (copy an existing one). Record the source and how
+   you verified it.
+2. `python -m studio quote-check` (spelling of our own text, guardrails, CTA route exists on
+   the public site, reading speed, 3-5 hashtags).
+3. `python -m studio quote-make --id N`, then watch `output/<run>/video.mp4` and look at
+   `contact_sheet.jpg`.
+4. `python -m studio quote-calendar` to refresh the calendar.
+5. Publishing uses the same commands and switches as below (`approve`, `host`, `publish`).
+
+**Reporting.** Buffer exposes post metrics through an experimental API (`python -m studio
+metrics`), refreshed about daily. Average watch time, completion rate, saves, profile visits
+and website clicks are only in TikTok's own analytics: export them from TikTok Studio and load
+them with `python -m studio metrics-import file.csv`. Nothing is estimated or invented.
+
 ## How a video is made
 
 ```

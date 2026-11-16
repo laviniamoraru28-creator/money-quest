@@ -1,5 +1,8 @@
 """Command line: python -m studio <command>
 
+  quote-check                  QA for every quotation (verification, wording, CTA route)
+  quote-make [--id N]          render + QA one quote video (default: next verified, unused)
+  quote-calendar               write QUOTE_CALENDAR.md from curriculum/quotes.json
   topics                       list the topic bank and what has been used
   check                        content QA for every topic (no rendering)
   make [--topic ID]            script + render + full QA (default: next topic)
@@ -16,6 +19,7 @@
 
 Publish modes
   review          render + QA only (default; nothing leaves GitHub)
+  buffer-draft    saved in Buffer's Drafts for review; not scheduled (not yet tested live)
   buffer-notify   Buffer sends you a phone reminder; YOU tap to post. Safe test mode.
   buffer-auto     Buffer posts publicly at the scheduled time. Requires the
                   PUBLIC_POSTING_APPROVED=true repository variable.
@@ -31,10 +35,10 @@ import json
 import os
 import sys
 
-from . import buffer, hosting, qa, script, select, tiktok
+from . import buffer, hosting, qa, quotes, script, select, tiktok
 from .common import OUTPUT_DIR, get_topic, load_config, load_history, load_topics, now_iso, save_history
 
-MODES = ("buffer-notify", "buffer-auto", "tiktok-drafts", "tiktok-private")
+MODES = ("buffer-draft", "buffer-notify", "buffer-auto", "tiktok-drafts", "tiktok-private")
 
 
 def _entry(history: dict, run: str) -> dict:
@@ -100,6 +104,60 @@ def make_video(topic: dict, config: dict) -> tuple[str, dict]:
     })
     save_history(history)
     return run, result
+
+
+def make_quote_video(q: dict, config: dict) -> tuple[str, dict]:
+    plan = quotes.build_plan(q)
+    run = f"{dt.date.today().isoformat()}-quote-{q['id']:02d}-{q['slug']}"
+    out_dir = OUTPUT_DIR / run
+    out_dir.mkdir(parents=True, exist_ok=True)
+    content = quotes.check_content(q, plan, config)
+    render_res = None
+    if not content["errors"]:
+        quotes.render(q, plan, config, out_dir)
+        render_res = qa.check_render(out_dir, plan, config, contrast_pairs=quotes.contrast_pairs(), min_font=60, limits=(10, 18))
+    result = qa.report(out_dir, content, render_res)
+    history = load_history()
+    history["videos"] = [v for v in history["videos"] if v["run"] != run]
+    history["videos"].append({
+        "run": run, "topic_id": plan["topic_id"], "category": q["pillar"], "series": "quotes",
+        "status": "rendered" if result["passed"] else "qa_failed",
+        "rendered_at": now_iso(), "duration": plan["duration"],
+    })
+    save_history(history)
+    return run, result
+
+
+def _used_topics() -> set[str]:
+    return {v["topic_id"] for v in load_history()["videos"] if v.get("status") in select.USED_STATUSES}
+
+
+def cmd_quote_check(_):
+    config = load_config()
+    ready = 0
+    for q in quotes.load_quotes():
+        res = quotes.check_content(q, quotes.build_plan(q), config)
+        ready += not res["errors"]
+        print(f"{'READY ' if not res['errors'] else 'HOLD  '} {q['id']:>2} {q['author']:<22} {quotes.build_plan(q)['duration']:5.2f}s  {q['verification']}")
+        for e in res["errors"]:
+            print(f"        - {e}")
+    print(f"\n{ready} ready for production, {len(quotes.load_quotes()) - ready} on hold")
+
+
+def cmd_quote_make(args):
+    config = load_config()
+    q = quotes.get_quote(args.id) if args.id else quotes.next_quote(_used_topics())
+    if not q:
+        print("No verified, unused quotation left: verify more entries in curriculum/quotes.json")
+        return 1
+    run, result = make_quote_video(q, config)
+    _print_result(run, result)
+    _gh_output(run=run, qa_passed=str(result["passed"]).lower())
+    return 0 if result["passed"] else 1
+
+
+def cmd_quote_calendar(_):
+    print("Wrote", quotes.write_calendar(load_history()))
 
 
 def _print_result(run, result):
@@ -222,11 +280,11 @@ def _publish(run: str, mode: str, *, video_url: str | None, privacy: str, delay_
             raise SystemExit("Buffer needs a public video URL: run `host RUN` first or pass --video-url")
         ch = _channel()
         due = dt.datetime.now(dt.timezone.utc) + dt.timedelta(minutes=delay_min)
-        scheduling = "notification" if mode == "buffer-notify" else "automatic"
-        post = buffer.create_post(ch["id"], caption, video_url, scheduling, due)
+        scheduling = "automatic" if mode == "buffer-auto" else "notification"
+        post = buffer.create_post(ch["id"], caption, video_url, scheduling, due, draft=(mode == "buffer-draft"))
         e.update({"buffer_post_id": post["id"], "buffer_channel_id": ch["id"], "buffer_org_id": ch["organizationId"],
                   "due_at": due.isoformat(timespec="seconds"), "video_url": video_url,
-                  "status": "sent_to_phone" if scheduling == "notification" else "queued_in_buffer"})
+                  "status": {"buffer-draft": "draft_in_buffer", "buffer-notify": "sent_to_phone"}.get(mode, "queued_in_buffer")})
     else:
         token = tiktok.access_token()
         video = out_dir / "video.mp4"
@@ -323,11 +381,18 @@ def cmd_scheduled(_):
     """Pick -> render -> QA -> (host + publish, only when enabled)."""
     config = load_config()
     mode = os.environ.get("PUBLISH_MODE", "review").strip() or "review"
-    topic = select.next_topic()
-    if not topic:
-        print("::error::Topic bank exhausted")
-        return 1
-    run, result = make_video(topic, config)
+    if config.get("series") == "quotes":
+        q = quotes.next_quote(_used_topics())
+        if not q:
+            print("::error::No verified, unused quotation left")
+            return 1
+        run, result = make_quote_video(q, config)
+    else:
+        topic = select.next_topic()
+        if not topic:
+            print("::error::Topic bank exhausted")
+            return 1
+        run, result = make_video(topic, config)
     _print_result(run, result)
     _gh_output(run=run, qa_passed=str(result["passed"]).lower())
     if not result["passed"]:
@@ -367,6 +432,9 @@ def main(argv=None):
     sub.add_parser("check").set_defaults(fn=cmd_check)
     m = sub.add_parser("make"); m.add_argument("--topic"); m.set_defaults(fn=cmd_make)
     a = sub.add_parser("approve"); a.add_argument("run"); a.set_defaults(fn=cmd_approve)
+    sub.add_parser("quote-check").set_defaults(fn=cmd_quote_check)
+    qm = sub.add_parser("quote-make"); qm.add_argument("--id"); qm.set_defaults(fn=cmd_quote_make)
+    sub.add_parser("quote-calendar").set_defaults(fn=cmd_quote_calendar)
     sub.add_parser("buffer-setup").set_defaults(fn=cmd_buffer_setup)
     h = sub.add_parser("host"); h.add_argument("run"); h.set_defaults(fn=cmd_host)
     pb = sub.add_parser("publish"); pb.add_argument("run"); pb.add_argument("--mode", choices=MODES, required=True)

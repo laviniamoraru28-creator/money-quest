@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from .common import load_config, load_history, load_topics
 
-USED_STATUSES = {"approved", "scheduled", "published", "sent_to_drafts", "queued_in_buffer", "sent_to_phone"}
+USED_STATUSES = {"approved", "scheduled", "published", "sent_to_drafts", "queued_in_buffer", "sent_to_phone", "draft_in_buffer"}
 
 
 def category_scores(history: dict, bounds=(0.7, 1.3)) -> dict[str, float]:
