@@ -47,10 +47,34 @@ jobs:
           path: .website-audit-baseline.json
           key: website-audit-v1-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: website-audit-v1-
+      - name: Check monthly schedule window
+        id: schedule-gate
+        run: |
+          # The cron below fires every Monday so a missed week can't push the
+          # whole month's audit past its window, but the broad audit (and the
+          # monthly Claude review that reads it) is only wanted once a month,
+          # preferably the first Monday. Non-schedule events (PRs, pushes,
+          # manual dispatch) always proceed; a scheduled run only proceeds
+          # when today falls in the first 7 days of the month — exactly one
+          # Monday per month satisfies that. Other scheduled Mondays end here
+          # cheaply (checkout + this check only), still visible in the Actions
+          # history as a quick green run.
+          mkdir -p "$AUDIT_DIR"
+          if [[ "${{ github.event_name }}" != "schedule" ]]; then
+            echo "should_run=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          day=$(date -u +%-d)
+          if [[ "$day" -le 7 ]]; then
+            echo "should_run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "should_run=false" >> "$GITHUB_OUTPUT"
+            echo "Not the first Monday of the month (day $day) — skipping this scheduled run. The monthly broad audit runs on the next first Monday." >> "$GITHUB_STEP_SUMMARY"
+          fi
       - name: Install project dependencies
         id: setup
+        if: "steps.schedule-gate.outputs.should_run == 'true'"
         run: |
-          mkdir -p "$AUDIT_DIR"
           python3 -m pip install reportlab==4.4.9 PyMuPDF==1.26.6
           npm ci
       - run: npm run lint
@@ -148,7 +172,7 @@ jobs:
         run: node --import tsx scripts/test-library-artwork.ts --complete
       - name: Generate owner report
         id: report
-        if: "!cancelled()"
+        if: "!cancelled() && steps.schedule-gate.outputs.should_run == 'true'"
         env:
           WEBSITE_AUDIT_STAGES: >-
             {"setup":"${{ steps.setup.outcome }}","lint":"${{ steps.lint.outcome }}","types":"${{ steps.types.outcome }}","unit":"${{ steps.unit.outcome }}","certificates":"${{ steps.certificates.outcome }}","build":"${{ steps.build.outcome }}","package":"${{ steps.package.outcome }}","browsers":"${{ steps.browsers.outcome }}","browser":"${{ steps.server.outcome }}","chromium":"${{ steps.chromium.outcome }}","safari":"${{ steps.safari.outcome }}","tablet":"${{ steps.tablet.outcome }}","content":"${{ steps.content.outcome }}","lighthouse":"${{ steps.lighthouse.outcome }}","artwork":"${{ steps.artwork.outcome }}"}
@@ -166,13 +190,13 @@ jobs:
           path: .website-audit-baseline.json
           key: website-audit-v1-${{ github.run_id }}-${{ github.run_attempt }}
       - uses: actions/upload-artifact@v4
-        if: "!cancelled()"
+        if: "!cancelled() && steps.schedule-gate.outputs.should_run == 'true'"
         with:
           name: money-quest-audit
-          retention-days: 14
+          retention-days: 35
           path: test-results/audit/
       - uses: actions/upload-artifact@v4
-        if: "!cancelled()"
+        if: "!cancelled() && steps.schedule-gate.outputs.should_run == 'true'"
         with:
           name: website-test-evidence-node-24.22.1
           retention-days: 7

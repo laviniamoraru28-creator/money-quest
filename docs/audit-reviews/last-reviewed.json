@@ -1,0 +1,12 @@
+{
+  "_comment": "Durable marker for the monthly Claude review cycle (docs/monthly-claude-review-procedure.md). Updated by the PR each cycle opens, as part of that PR — never written directly to main. Committed to the repo (not GitHub Actions cache) so it survives indefinitely and is visible in history, per the requirement to avoid reprocessing the same audit findings.",
+  "lastReviewed": {
+    "runId": null,
+    "runUrl": null,
+    "auditDate": null,
+    "reviewedAt": null,
+    "prUrl": null,
+    "prState": null
+  },
+  "history": []
+}
