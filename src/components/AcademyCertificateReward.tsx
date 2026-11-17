@@ -20,7 +20,7 @@ export function AcademyCertificateReward() {
   const { state: entrepreneur, isLoaded: entrepreneurLoaded } = useEntrepreneurQuest();
   const { state: leadership, isLoaded: leadershipLoaded } = useLeadershipQuest();
   if(!isLoaded || !entrepreneurLoaded || !leadershipLoaded)return null;
-  const earned=CERTIFICATE_BANDS.filter(band=>isThreeQuestCertificateReady(state.completedActivityIds,band,entrepreneur,leadership));
+  const earned=CERTIFICATE_BANDS.filter(band=>band===state.ageBand && isThreeQuestCertificateReady(state.completedActivityIds,band,entrepreneur,leadership));
   if(!earned.length)return null;
   return <section aria-label={copy.ready} className="mx-auto mt-8 max-w-3xl rounded-2xl border-2 border-amber-600 bg-white p-5 text-center text-slate-900">
     <h2 className="font-display text-2xl font-bold">{copy.congratulations}</h2>
