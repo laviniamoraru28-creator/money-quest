@@ -26,8 +26,8 @@ jobs:
         run: python3 -m unittest discover -s tools/learning-intelligence -p 'test_*.py'
       - name: Optional Search Console collection
         env:
-          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
-          GSC_SITE_URL: ${{ vars.GSC_SITE_URL }}
+          GSC_SERVICE_ACCOUNT_JSON: ${{ github.event_name != 'pull_request' && secrets.GSC_SERVICE_ACCOUNT_JSON || '' }}
+          GSC_SITE_URL: ${{ github.event_name != 'pull_request' && vars.GSC_SITE_URL || '' }}
         run: |
           if [[ -n "$GSC_SERVICE_ACCOUNT_JSON" && -n "$GSC_SITE_URL" ]]; then
             python3 -m pip install google-auth==2.38.0 requests==2.32.3
