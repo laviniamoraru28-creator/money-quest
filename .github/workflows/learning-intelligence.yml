@@ -24,8 +24,19 @@ jobs:
           python-version: "3.12"
       - name: Unit tests
         run: python3 -m unittest discover -s tools/learning-intelligence -p 'test_*.py'
-      - name: Generate evidence report
-        run: python3 tools/learning-intelligence/analyze.py
+      - name: Optional Search Console collection
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+          GSC_SITE_URL: ${{ vars.GSC_SITE_URL }}
+        run: |
+          if [[ -n "$GSC_SERVICE_ACCOUNT_JSON" && -n "$GSC_SITE_URL" ]]; then
+            python3 -m pip install google-auth==2.38.0 requests==2.32.3
+            python3 tools/learning-intelligence/search_console.py --output "$RUNNER_TEMP/mq-search-console.csv"
+            python3 tools/learning-intelligence/analyze.py --search-console-csv "$RUNNER_TEMP/mq-search-console.csv"
+          else
+            python3 tools/learning-intelligence/analyze.py
+            echo "Search Console credentials unavailable: report marks search data as not connected." >> "$GITHUB_STEP_SUMMARY"
+          fi
       - name: Summary
         run: cat test-results/learning-intelligence/report.md >> "$GITHUB_STEP_SUMMARY"
       - uses: actions/upload-artifact@v4
