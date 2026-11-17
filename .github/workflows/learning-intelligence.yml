@@ -1,6 +1,12 @@
 name: Learning Intelligence (research only)
 on:
   workflow_dispatch: {}
+  pull_request:
+    branches: [main]
+    paths:
+      - 'tools/learning-intelligence/**'
+      - '.github/workflows/learning-intelligence.yml'
+      - 'docs/learning-intelligence.md'
   schedule:
     - cron: "17 7 * * 1"
 permissions:
