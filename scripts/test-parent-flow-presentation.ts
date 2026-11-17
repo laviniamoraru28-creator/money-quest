@@ -8,6 +8,7 @@ import {ShopCheckout} from "../src/components/ShopCheckout";
 import {ShopOrder} from "../src/components/ShopOrder";
 import {parentGuideCopy,PARENT_GUIDE_SOURCES,PARENT_GUIDE_CHECKED} from "../src/content/parent-guide-copy";
 import {shopFlowCopy} from "../src/content/shop-flow-copy";
+import {listAllWorksheets} from "../src/content/worksheets";
 import {shopErrorKey,validatedCheckoutUrl} from "../src/lib/commerce/client-messages";
 import {parentGuidePresentation,shopFlowPresentation,publicParentLocale} from "../src/lib/i18n/parent-presentation";
 import {sourceFingerprint} from "../src/lib/i18n/content-translations";
@@ -34,14 +35,23 @@ const escape=(text:string)=>text.replaceAll("&","&amp;").replaceAll("'","&#x27;"
 function render(locale:Locale,element:React.ReactElement){const messages=JSON.parse(readFileSync(`messages/${locale}.json`,"utf8"));return renderToStaticMarkup(React.createElement(NextIntlClientProvider,{locale,messages,timeZone:"Europe/London",children:element}));}
 let renders=0;
 for(const locale of LOCALES){
- const guide=parentGuidePresentation(locale),html=render(locale,React.createElement(ParentResourceGuide,guide)),copy=guide.copy;
+ const messages=JSON.parse(readFileSync(`messages/${locale}.json`,"utf8"));
+ const worksheets=listAllWorksheets().map(entry=>({...entry,title:messages.curriculum[entry.lessonId].title as string}));
+ const guide={...parentGuidePresentation(locale),worksheets},html=render(locale,React.createElement(ParentResourceGuide,guide)),copy=guide.copy;
  renders++;
- for(const text of [copy.title,copy.intro,copy.step3,copy.sendBody,copy.evidenceBody,copy.sampleBody,copy.journalSample,copy.freeBody])assert(html.includes(escape(text)),`${locale}: ${text}`);
+ for(const text of [copy.title,copy.intro,copy.step3,copy.sendBody,copy.evidenceBody,copy.freeBody,copy.printablesIntro,copy.downloadAllWorksheets])assert(html.includes(escape(text)),`${locale}: ${text}`);
  for(const level of ["Explorer","Builder","Strategist"])assert(copy.levelsBody.includes(level));
- assert(copy.printNote.includes("A4"));assert(copy.printNote.includes("100"));
- // The Academy Activity Pack is unpublished this release: its free sample
- // must not be promoted from the parent resources page either.
- assert(!html.includes("free-academy-activities-en.pdf"));assert(html.includes(`href="/resources/samples/free-journal-30-days-${locale}.pdf"`));
+ // The Printable Resources page shows the real worksheet ZIP/PDF links for
+ // every lesson that actually has one, and nothing from the retired paid
+ // journal — not its sample pages, not a link to the disabled shop.
+ assert(!html.includes("free-academy-activities-en.pdf"));
+ assert(!html.includes(`free-journal-30-days-${locale}.pdf`));
+ assert(!html.includes("/parents/shop"));
+ assert(html.includes(`href="/worksheets/${locale}/all-worksheets.zip"`));
+ for(const entry of worksheets){
+  assert(html.includes(escape(entry.title)),`${locale}: ${entry.title}`);
+  assert(html.includes(`href="/worksheets/${locale}/${entry.filename}"`),`${locale}: ${entry.filename}`);
+ }
  for(const source of PARENT_GUIDE_SOURCES){assert(html.includes(escape(source.title)));assert(html.includes(escape(source.url)));assert(html.includes(escape(copy[source.id])));}
  const flow=shopFlowPresentation(locale);
  for(const enabled of [false,true]){

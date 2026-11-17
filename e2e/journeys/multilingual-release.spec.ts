@@ -13,7 +13,6 @@ import {laboratoryCopy} from '../../src/content/laboratory-copy';
 import {experienceCopy} from '../../src/content/experience-copy';
 import {readerCopy} from '../../src/content/reader-copy';
 import {reviewsCopy} from '../../src/content/reviews-copy';
-import {parentGuideCopy} from '../../src/content/parent-guide-copy';
 import {LESSON_WORKSHEETS} from '../../src/content/worksheets';
 
 for(const locale of LOCALES){
@@ -52,10 +51,19 @@ for(const locale of LOCALES){
   await page.screenshot({path:info.outputPath(`book-${locale}.png`),fullPage:true});
   expect(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)).toBe(false);
   await page.goto(`/${locale}/parents/resources`);
-  await expect(page.getByRole('link',{name:parentGuideCopy[locale].journalSample,exact:true})).toHaveAttribute('href',`/resources/samples/free-journal-30-days-${locale}.pdf`);
+  // The retired paid journal's sample pages, and any shop/purchase
+  // reference, are gone from this public page in every locale - but the
+  // original journal source files stay in the repo/public build output,
+  // untouched, for potential future use (checked directly below). The
+  // page itself now shows the real worksheet ZIP downloads instead.
   await expect(page.locator('a[href="/resources/samples/free-academy-activities-en.pdf"]')).toHaveCount(0);
-  for(const file of ["/resources/samples/free-academy-activities-en.pdf",`/resources/samples/free-journal-30-days-${locale}.pdf`,`/worksheets/${locale}/${Object.values(LESSON_WORKSHEETS)[0]}`,`/worksheets/${locale}/money-quest-worksheets-answer-key.pdf`]){
-   const response=await request.get(file);expect(response.status(),file).toBe(200);expect((await response.body()).subarray(0,4).toString()).toBe('%PDF');
+  await expect(page.locator(`a[href="/resources/samples/free-journal-30-days-${locale}.pdf"]`)).toHaveCount(0);
+  await expect(page.locator('a[href="/parents/shop"]')).toHaveCount(0);
+  await expect(page.locator(`a[href="/worksheets/${locale}/all-worksheets.zip"]`)).toHaveCount(1);
+  for(const file of ["/resources/samples/free-academy-activities-en.pdf",`/resources/samples/free-journal-30-days-${locale}.pdf`,`/worksheets/${locale}/${Object.values(LESSON_WORKSHEETS)[0]}`,`/worksheets/${locale}/money-quest-worksheets-answer-key.pdf`,`/worksheets/${locale}/all-worksheets.zip`]){
+   const response=await request.get(file);expect(response.status(),file).toBe(200);
+   if(file.endsWith('.pdf'))expect((await response.body()).subarray(0,4).toString()).toBe('%PDF');
+   else expect((await response.body()).subarray(0,2).toString()).toBe('PK');
   }
   const fallback=await request.get(`/offline-pages/${locale}.html`);expect(fallback.status()).toBe(200);expect(await fallback.text()).toContain(`<html lang="${locale}">`);
   const canonical=page.locator('link[rel="canonical"]');await expect(canonical).toHaveAttribute('href',`https://moneyquesteducation.com/${locale}/parents/resources`);

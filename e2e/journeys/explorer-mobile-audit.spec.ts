@@ -58,6 +58,30 @@ for (const locale of LOCALES) test(`${locale}: sorting labels and answer control
   }
 });
 
+for (const locale of LOCALES) test(`${locale}: Spend/Save/Give jar labels never break mid-word and stay aligned on narrow screens`,async({page},info)=>{
+  test.skip(info.project.name==='desktop-chrome','checks narrow viewports in mobile projects');
+  await page.addInitScript(()=>localStorage.setItem('moneyquest_local_progress_v1',JSON.stringify({ageBand:'explorer'})));
+  await page.goto(`/${locale}/play/world/golden-vault/game/game-explorer-build-a-budget`);
+  await expect(page.locator('main .answer-label')).toHaveCount(3);
+  for(const width of [320,360,375,390,414,768]){
+    await page.setViewportSize({width,height:900});
+    const result=await page.evaluate(()=>{
+      const labels=Array.from(document.querySelectorAll<HTMLElement>('main .answer-label'));
+      const noOverflow=document.documentElement.scrollWidth<=innerWidth;
+      const noWrap=labels.length>0 && labels.every(label=>label.getClientRects().length===1);
+      const aligned=labels.every(label=>{
+        const row=label.closest('[class*="flex-col"]')!;
+        const controls=Array.from(row.querySelectorAll<HTMLElement>('button, span.tabular-nums'));
+        const mids=controls.map(el=>el.getBoundingClientRect().top+el.getBoundingClientRect().height/2);
+        return Math.max(...mids)-Math.min(...mids)<2;
+      });
+      return {noOverflow,noWrap,aligned,count:labels.length};
+    });
+    expect(result,`${locale} at ${width}px: ${JSON.stringify(result)}`).toEqual({noOverflow:true,noWrap:true,aligned:true,count:3});
+  }
+  await page.screenshot({path:info.outputPath(`build-a-budget-${locale}.png`),fullPage:true});
+});
+
 test('Romanian savings jar shows its lid, preserves feedback, and continues on request',async({page},info)=>{
   await page.addInitScript(()=>localStorage.setItem('moneyquest_local_progress_v1',JSON.stringify({ageBand:'explorer'})));
   await page.setViewportSize({width:360,height:812});

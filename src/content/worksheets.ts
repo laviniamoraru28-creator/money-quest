@@ -1,6 +1,12 @@
-/** Canonical lesson-to-filename mapping. Build generates all nine language editions
- * from each locale’s lesson text under /worksheets/{locale}/. Only these twenty
- * lessons have worksheets; other lessons must not guess a download path.
+/** Canonical lesson-to-filename mapping. Build generates all nine
+ * language editions from each locale's own lesson text, as the first
+ * step of `npm run build` (scripts/generate-localized-worksheets.py),
+ * into public/worksheets/{locale}/ — build output, not committed to
+ * git, same as .next/ itself; it won't exist in an unbuilt checkout.
+ * The flat public/worksheets/*.pdf files (no locale folder) are an
+ * older, English-only generation kept only so links made before the
+ * per-locale rebuild don't break. Only these twenty lessons have
+ * worksheets; other lessons must not guess a download path.
  */
 export const LESSON_WORKSHEETS: Record<string, string> = {
   "explorer-money_basics-l1": "01-what-is-money.pdf",
@@ -27,4 +33,24 @@ export const LESSON_WORKSHEETS: Record<string, string> = {
 
 export function getWorksheetFilename(lessonId: string): string | undefined {
   return LESSON_WORKSHEETS[lessonId];
+}
+
+export type WorksheetBand = "explorer" | "builder" | "strategist";
+
+export interface WorksheetEntry {
+  lessonId: string;
+  filename: string;
+  band: WorksheetBand;
+}
+
+/** The single source of truth the Printable Resources page and the
+ * per-lesson worksheet button both read from — adding, renaming or
+ * removing an entry in LESSON_WORKSHEETS above changes both places at
+ * once, by construction, rather than needing two lists kept in sync. */
+export function listAllWorksheets(): WorksheetEntry[] {
+  return Object.entries(LESSON_WORKSHEETS).map(([lessonId, filename]) => ({
+    lessonId,
+    filename,
+    band: lessonId.split("-")[0] as WorksheetBand,
+  }));
 }

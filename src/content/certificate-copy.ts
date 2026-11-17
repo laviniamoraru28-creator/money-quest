@@ -38,7 +38,9 @@ export const certificateCopy = {
     "error": "The PDF could not be prepared. Please try again.",
     "view": "View certificate",
     "back": "Back to learning",
-    "programme": "An educational programme by Money Quest Education"
+    "programme": "An educational programme by Money Quest Education",
+    "continueToNextSection": "Continue to {section} →",
+    "continueToNextSectionAria": "Continue to the next section: {section}"
   },
   "ro": {
     "title": "Certificat de merit",
@@ -76,7 +78,9 @@ export const certificateCopy = {
     "error": "Nu am putut pregăti PDF-ul. Încearcă din nou.",
     "view": "Vezi certificatul",
     "back": "Înapoi la activități",
-    "programme": "Un program educațional oferit de Money Quest Education"
+    "programme": "Un program educațional oferit de Money Quest Education",
+    "continueToNextSection": "Continuă către {section} →",
+    "continueToNextSectionAria": "Continuă către următoarea secțiune: {section}"
   },
   "es": {
     "title": "Certificado de aprovechamiento",
@@ -114,7 +118,9 @@ export const certificateCopy = {
     "error": "No se ha podido preparar el PDF. Inténtalo de nuevo.",
     "view": "Ver certificado",
     "back": "Volver a las actividades",
-    "programme": "Un programa educativo de Money Quest Education"
+    "programme": "Un programa educativo de Money Quest Education",
+    "continueToNextSection": "Continuar a {section} →",
+    "continueToNextSectionAria": "Continuar a la siguiente sección: {section}"
   },
   "fr": {
     "title": "Certificat de réussite",
@@ -152,7 +158,9 @@ export const certificateCopy = {
     "error": "Le PDF n’a pas pu être préparé. Réessaie.",
     "view": "Voir le certificat",
     "back": "Retour aux activités",
-    "programme": "Un programme éducatif de Money Quest Education"
+    "programme": "Un programme éducatif de Money Quest Education",
+    "continueToNextSection": "Continuer vers {section} →",
+    "continueToNextSectionAria": "Continuer vers la section suivante : {section}"
   },
   "de": {
     "title": "Leistungszertifikat",
@@ -190,7 +198,9 @@ export const certificateCopy = {
     "error": "Das PDF konnte nicht erstellt werden. Versuche es erneut.",
     "view": "Zertifikat ansehen",
     "back": "Zurück zum Lernen",
-    "programme": "Ein Bildungsprogramm von Money Quest Education"
+    "programme": "Ein Bildungsprogramm von Money Quest Education",
+    "continueToNextSection": "Weiter zu {section} →",
+    "continueToNextSectionAria": "Weiter zum nächsten Abschnitt: {section}"
   },
   "it": {
     "title": "Certificato di merito",
@@ -228,7 +238,9 @@ export const certificateCopy = {
     "error": "Non è stato possibile preparare il PDF. Riprova.",
     "view": "Visualizza il certificato",
     "back": "Torna alle attività",
-    "programme": "Un programma educativo di Money Quest Education"
+    "programme": "Un programma educativo di Money Quest Education",
+    "continueToNextSection": "Continua con {section} →",
+    "continueToNextSectionAria": "Continua alla sezione successiva: {section}"
   },
   "pt": {
     "title": "Certificado de mérito",
@@ -266,7 +278,9 @@ export const certificateCopy = {
     "error": "Não foi possível preparar o PDF. Tenta novamente.",
     "view": "Ver certificado",
     "back": "Voltar às atividades",
-    "programme": "Um programa educativo da Money Quest Education"
+    "programme": "Um programa educativo da Money Quest Education",
+    "continueToNextSection": "Continuar para {section} →",
+    "continueToNextSectionAria": "Continuar para a próxima secção: {section}"
   },
   "nl": {
     "title": "Certificaat van verdienste",
@@ -304,7 +318,9 @@ export const certificateCopy = {
     "error": "Het PDF-bestand kon niet worden gemaakt. Probeer het opnieuw.",
     "view": "Certificaat bekijken",
     "back": "Terug naar de activiteiten",
-    "programme": "Een educatief programma van Money Quest Education"
+    "programme": "Een educatief programma van Money Quest Education",
+    "continueToNextSection": "Verder naar {section} →",
+    "continueToNextSectionAria": "Verder naar het volgende onderdeel: {section}"
   },
   "pl": {
     "title": "Certyfikat osiągnięć",
@@ -342,7 +358,9 @@ export const certificateCopy = {
     "error": "Nie udało się przygotować pliku PDF. Spróbuj ponownie.",
     "view": "Zobacz certyfikat",
     "back": "Wróć do nauki",
-    "programme": "Program edukacyjny Money Quest Education"
+    "programme": "Program edukacyjny Money Quest Education",
+    "continueToNextSection": "Przejdź do {section} →",
+    "continueToNextSectionAria": "Przejdź do następnej sekcji: {section}"
   }
 } as const satisfies Record<Locale, Record<string,string>>;
 

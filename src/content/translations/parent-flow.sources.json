@@ -13,11 +13,11 @@
     "pl"
   ],
   "sourceHashes": {
-    "guide": "65b86da9b8a7e8a2d86850788e48e6ded676201d1b7c392054e305137aac52ad",
+    "guide": "82bcce0d5c5fb1af605ea99b34a059f938d239f6bdd44d941f314c45cae42126",
     "flow": "6fce6699953c5a56ce9e158b62481f1fb23fd88abf038d29599331d19bdb89e9"
   },
-  "stringsPerLocale": 59,
-  "translatedStrings": 472,
+  "stringsPerLocale": 67,
+  "translatedStrings": 536,
   "scope": "Full parent resource guide and checkout/order/recovery interface controls. Product catalogue/terms/receipt contents/download errors, PDFs and other parent pages are separate remaining work.",
   "review": "AI multilingual editorial pass, not native-editor or legal certification. Public English-only gate and sandbox-only commerce remain. Guide source titles/URLs and checked date preserved; source/UK-guidance spot-check on 29 October 2026 does not validate product outcomes or a live sales contract."
 }

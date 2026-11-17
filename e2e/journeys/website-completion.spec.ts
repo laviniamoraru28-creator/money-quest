@@ -57,7 +57,12 @@ for(const lab of learningLabs)test(`${lab.title} keeps English guide narration`,
  await expect(page.getByText(lab.tasks[0]!.idea,{exact:true})).toBeVisible();
 });
 test("money examples separate cash, account money and payment tools",async({page})=>{
- await page.goto("/en/inclusive-learning");await page.getByRole("button",{name:"Payment card",exact:true}).click();await expect(page.getByRole("status").filter({hasText:"A card is a payment tool"})).toBeVisible();
+ // MoneyExamples' own interactive-cards coverage — moved off the
+ // Inclusive Learning page (see inclusive-learning page.tsx), but it's
+ // still the real curriculum's component, rendered unconditionally on
+ // the Coin Cove world page for every non-Explorer band.
+ await page.addInitScript(()=>localStorage.setItem("moneyquest_local_progress_v1",JSON.stringify({ageBand:"builder"})));
+ await page.goto("/en/play/world/coin-cove");await page.getByRole("button",{name:"Payment card",exact:true}).click();await expect(page.getByRole("status").filter({hasText:"A card is a payment tool"})).toBeVisible();
  await page.getByRole("button",{name:"A £1 coin",exact:true}).click();await expect(page.getByRole("status").filter({hasText:"A coin is cash"})).toBeVisible();await page.getByRole("button",{name:"A payment card",exact:true}).click();await expect(page.getByRole("status").filter({hasText:"Yes. A card helps"})).toBeVisible();
 });
 test("storage failure leaves learning usable",async({page})=>{
@@ -69,5 +74,9 @@ test("keyboard settings and synchronized focus mode",async({page})=>{
 });
 
 test("picture choices fit at 320px without horizontal scrolling",async({page})=>{
- await page.setViewportSize({width:320,height:800});await page.goto("/en/inclusive-learning");await expect(page.getByRole("heading",{name:"Meet money and ways to pay",exact:true})).toBeVisible();expect(await page.evaluate(()=>document.documentElement.scrollWidth>window.innerWidth)).toBe(false);
+ // Same MoneyExamples picture-choice grid as the test above, checked at
+ // 320px — on the Coin Cove world page now, since Inclusive Learning no
+ // longer renders it (see inclusive-learning page.tsx).
+ await page.addInitScript(()=>localStorage.setItem("moneyquest_local_progress_v1",JSON.stringify({ageBand:"builder"})));
+ await page.setViewportSize({width:320,height:800});await page.goto("/en/play/world/coin-cove");await expect(page.getByRole("heading",{name:"Meet money and ways to pay",exact:true})).toBeVisible();expect(await page.evaluate(()=>document.documentElement.scrollWidth>window.innerWidth)).toBe(false);
 });

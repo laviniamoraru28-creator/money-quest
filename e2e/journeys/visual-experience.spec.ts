@@ -3,6 +3,7 @@ import {test,expect} from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import {museumMedia} from "../../src/content/museum-media";
 import {museumRooms} from "../../src/content/discovery";
+import {moneyExamplesCopy} from "../../src/content/money-examples-copy";
 
 test("illustrated shelf covers open and close books with keyboard and reduced motion",async({page})=>{
  await page.emulateMedia({reducedMotion:"reduce"});
@@ -69,6 +70,11 @@ test("retired picture learning is absent while Inclusive Learning remains availa
   const inclusive=await page.goto(`/${locale}/inclusive-learning`);
   expect(inclusive?.ok()).toBe(true);
   await expect(page.locator("main")).toBeVisible();
+  // The "Meet money and ways to pay" interactive component was removed
+  // from this page specifically (it stays on the real curriculum: the
+  // money_basics lesson and the Coin Cove world page) — confirm it's
+  // gone here, in every locale, not just English.
+  await expect(page.getByRole("heading",{name:moneyExamplesCopy[locale as keyof typeof moneyExamplesCopy].title,exact:true})).toHaveCount(0);
  }
 });
 

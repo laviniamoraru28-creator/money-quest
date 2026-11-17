@@ -62,15 +62,23 @@ export function AllocateMechanic({ round, currencyCode, uiLocale, usesCurrency, 
           const withinTolerance = target ? Math.abs(value - target.targetMinorUnits) <= target.toleranceMinorUnits : true;
 
           return (
-            <div key={category.key} className="flex items-center justify-between rounded-sm border border-ink/15 px-sm py-2xs">
+            // Stacked (label above the minus/amount/plus row), not side-by-side:
+            // the control row alone (two touch-min buttons + a min-w-[5rem]
+            // amount) already takes ~184px, which at a 320px viewport leaves
+            // under 25px next to it inside this card's padding — nowhere near
+            // enough for even "Spend", let alone a longer translated label
+            // like Romanian "Cheltuiește". Giving the label its own full-width
+            // line fits every launch-language label with room to spare, at
+            // every supported width, without ever breaking a word mid-way.
+            <div key={category.key} className="flex flex-col gap-2xs rounded-sm border border-ink/15 px-sm py-2xs">
               <span className={isExplorer ? "text-lg font-bold" : "font-medium"}><span className="answer-label">{category.label}</span></span>
-              <div className="flex items-center gap-2xs">
+              <div className="flex items-center justify-center gap-2xs">
                 <button
                   type="button"
                   aria-label={t("a11y.decreaseCategory", { category: category.label })}
                   disabled={isResolved || value === 0}
                   onClick={() => adjust(category.key, -STEP_MINOR_UNITS)}
-                  className={isExplorer ? "grid h-touch-min w-touch-min place-items-center rounded-sm border border-ink/20 text-xl disabled:opacity-30" : "grid h-touch-min w-touch-min place-items-center rounded-sm border border-ink/20 text-lg disabled:opacity-30"}
+                  className={isExplorer ? "grid h-touch-min w-touch-min flex-shrink-0 place-items-center rounded-sm border border-ink/20 text-xl disabled:opacity-30" : "grid h-touch-min w-touch-min flex-shrink-0 place-items-center rounded-sm border border-ink/20 text-lg disabled:opacity-30"}
                 >
                   −
                 </button>
@@ -85,7 +93,7 @@ export function AllocateMechanic({ round, currencyCode, uiLocale, usesCurrency, 
                   aria-label={t("a11y.increaseCategory", { category: category.label })}
                   disabled={isResolved || remaining <= 0}
                   onClick={() => adjust(category.key, STEP_MINOR_UNITS)}
-                  className={isExplorer ? "grid h-touch-min w-touch-min place-items-center rounded-sm border border-ink/20 text-xl disabled:opacity-30" : "grid h-touch-min w-touch-min place-items-center rounded-sm border border-ink/20 text-lg disabled:opacity-30"}
+                  className={isExplorer ? "grid h-touch-min w-touch-min flex-shrink-0 place-items-center rounded-sm border border-ink/20 text-xl disabled:opacity-30" : "grid h-touch-min w-touch-min flex-shrink-0 place-items-center rounded-sm border border-ink/20 text-lg disabled:opacity-30"}
                 >
                   +
                 </button>
