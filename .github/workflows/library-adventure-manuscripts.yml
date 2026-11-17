@@ -1,0 +1,17 @@
+name: Library adventure manuscript checks
+on:
+  pull_request:
+    paths:
+      - 'editorial/library-adventure-rewrites.en.json'
+      - 'scripts/test-library-adventure-drafts.py'
+      - '.github/workflows/library-adventure-manuscripts.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate manuscript structure and image mapping
+        run: python3 scripts/test-library-adventure-drafts.py
