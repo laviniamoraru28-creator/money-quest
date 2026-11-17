@@ -24,16 +24,16 @@ def inclusive(files):
         rel = path.relative_to(ROOT).as_posix()
         if "/app/" not in rel and "/components/" not in rel:
             continue
-        for match in list(re.finditer(r"<img\\b[^>]*>", content, re.S))[:40]:
+        for match in list(re.finditer(r"<img\b[^>]*>", content, re.S))[:40]:
             tag = match.group()
-            if not re.search(r"\\balt\\s*=", tag):
-                line = content.count("\\n", 0, match.start()) + 1
+            if not re.search(r"\balt\s*=", tag):
+                line = content.count("\n", 0, match.start()) + 1
                 results.append(finding("inclusive", "review", "Image missing alt attribute",
                     f"{rel}:{line}", "Check whether this image needs descriptive alt text or alt='' if decorative."))
-        for match in list(re.finditer(r"<button\\b[^>]*>", content, re.S))[:40]:
+        for match in list(re.finditer(r"<button\b[^>]*>", content, re.S))[:40]:
             tag = match.group()
-            if not re.search(r"aria-label\\s*=", tag) and re.search(r"<(?:svg|[A-Z][A-Za-z]+Icon)\\b", content[match.end():match.end()+180]):
-                line = content.count("\\n", 0, match.start()) + 1
+            if not re.search(r"aria-label\s*=", tag) and re.search(r"<(?:svg|[A-Z][A-Za-z]+Icon)\b", content[match.end():match.end()+180]):
+                line = content.count("\n", 0, match.start()) + 1
                 results.append(finding("inclusive", "review", "Potential icon-only button",
                     f"{rel}:{line}", "Verify accessible name via visible text, aria-label or aria-labelledby."))
     return results[:100]
@@ -45,7 +45,7 @@ def architect(files):
         if "/content/" not in rel and "/app/" not in rel:
             continue
         if re.search(r"(?:Explorer|Builder|Strategist)", content, re.I) and re.search(r"(?:lesson|mission|activity)", content, re.I):
-            if re.search(r"(?:Math\\.random\\(|shuffle\\()", content):
+            if re.search(r"(?:Math\.random\(|shuffle\()", content):
                 results.append(finding("architect", "review", "Randomized learning flow",
                     rel, "Review predictability, age-level scaffolding and reproducible activity tests."))
     results.append(finding("architect", "manual", "Curriculum progression review",
@@ -102,7 +102,7 @@ def main():
                 lines += [f"Source: {f['source']}", ""]
     lines += ["## Claude handoff", "",
         "Claude: review findings against actual code and primary sources. Fix confirmed issues only on a separate branch and draft PR. Run relevant tests. Do not merge or deploy. Do not invent research evidence.", ""]
-    Path(args.output).write_text("\\n".join(lines), encoding="utf-8")
+    Path(args.output).write_text("\n".join(lines), encoding="utf-8")
     print(f"Report: {args.output}; {len(findings)} review items")
 
 if __name__ == "__main__":
