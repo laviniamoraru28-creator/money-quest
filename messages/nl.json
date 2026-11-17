@@ -1,7 +1,7 @@
 {
   "seo": {
-    "defaultTitle": "Money Quest - Leer over geld door te spelen",
-    "defaultDescription": "Hoe Money Quest omgaat met leren, toegankelijkheid, privacy en optionele aankopen door volwassenen."
+    "defaultTitle": "Money Quest Education - Leer over geld door te spelen",
+    "defaultDescription": "Hoe Money Quest Education omgaat met leren, toegankelijkheid, privacy en optionele aankopen door volwassenen."
   },
   "common": {
     "back": "Terug",
@@ -28,7 +28,7 @@
   "landing": {
     "parentResourcesLink": "Oudermateriaal en winkel met printbare activiteiten",
     "heroTitle": "Leer over geld door te spelen, ontdekken en beslissingen te nemen.",
-    "heroSubtitle": "Money Quest is een gratis financiële-geletterdheidswereld voor kinderen van 6 tot 14 jaar - questen, een fictieve portemonnee en echte vaardigheden. Geen account nodig.",
+    "heroSubtitle": "Money Quest Education is een gratis financiële-geletterdheidswereld voor kinderen van 6 tot 14 jaar - questen, een fictieve portemonnee en echte vaardigheden. Geen account nodig.",
     "heroImageAlt": "Een illustratie van een glimlachend kind met een telefoon waarop de Money Quest-website staat.",
     "ctaGetStartedFree": "Begin je Money Quest",
     "ctaSeeHowItWorks": "Bekijk hoe het werkt",
@@ -48,7 +48,7 @@
     "readFullParentInfoLink": "Lees onze volledige pagina met Informatie voor Ouders →",
     "safetyTitle": "Veiligheid staat voorop",
     "safetyBody": "We vragen je kind nooit om zijn of haar echte naam, adres, school of financiële informatie. Elk spel, verhaal en uitdaging wordt getoetst aan echte financiële-educatiekaders van de OESO, de CFPB en de UK Money and Pensions Service.",
-    "copyright": "© {year} Money Quest"
+    "copyright": "© {year} Money Quest Education"
   },
   "dashboard": {
     "level": "Niveau"
