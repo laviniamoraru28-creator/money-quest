@@ -28,7 +28,15 @@
     "freeBody": "Read free stories and biographies in the Library, explore Museum rooms or choose activities at a suitable level. The optional parent products add printable formats; they do not unlock basic learning.",
     "library": "Open the Library",
     "worlds": "Explore the learning worlds",
-    "privacy": "Privacy and parent information"
+    "privacy": "Privacy and parent information",
+    "printablesHeading": "Printable lesson worksheets",
+    "printablesIntro": "Every worksheet below is the exact PDF linked from its lesson page — nothing extra, nothing missing.",
+    "downloadAllWorksheets": "Download All Worksheets",
+    "downloadExplorerWorksheets": "Download Explorer Worksheets",
+    "downloadBuilderWorksheets": "Download Builder Worksheets",
+    "downloadStrategistWorksheets": "Download Strategist Worksheets",
+    "downloadPdf": "Download PDF",
+    "worksheetLessonLabel": "Lesson: {title}"
   },
   "ro": {
     "home": "Pagina principală Money Quest",
@@ -59,7 +67,15 @@
     "freeBody": "Citiți gratuit povești și biografii în bibliotecă, explorați camerele muzeului sau alegeți activități la un nivel potrivit. Produsele opționale pentru părinți oferă formate printabile; învățarea de bază rămâne accesibilă fără ele.",
     "library": "Deschide biblioteca",
     "worlds": "Explorează lumile de învățare",
-    "privacy": "Confidențialitate și informații pentru părinți"
+    "privacy": "Confidențialitate și informații pentru părinți",
+    "printablesHeading": "Fișe de lucru pentru lecții",
+    "printablesIntro": "Fiecare fișă de mai jos este exact PDF-ul legat de pagina lecției sale — nimic în plus, nimic lipsă.",
+    "downloadAllWorksheets": "Descarcă toate fișele",
+    "downloadExplorerWorksheets": "Descarcă fișele Explorator",
+    "downloadBuilderWorksheets": "Descarcă fișele Constructor",
+    "downloadStrategistWorksheets": "Descarcă fișele Strateg",
+    "downloadPdf": "Descarcă PDF",
+    "worksheetLessonLabel": "Lecție: {title}"
   },
   "es": {
     "home": "Inicio de Money Quest",
@@ -90,7 +106,15 @@
     "freeBody": "Lee gratis historias y biografías en la biblioteca, explora las salas del museo o elige actividades de un nivel adecuado. Los productos opcionales para familias añaden formatos imprimibles; el aprendizaje básico sigue disponible sin ellos.",
     "library": "Abre la biblioteca",
     "worlds": "Explora los mundos de aprendizaje",
-    "privacy": "Privacidad e información para familias"
+    "privacy": "Privacidad e información para familias",
+    "printablesHeading": "Fichas imprimibles de las lecciones",
+    "printablesIntro": "Cada ficha de abajo es exactamente el PDF enlazado desde la página de su lección: nada de más, nada de menos.",
+    "downloadAllWorksheets": "Descargar todas las fichas",
+    "downloadExplorerWorksheets": "Descargar fichas de Explorador",
+    "downloadBuilderWorksheets": "Descargar fichas de Constructor",
+    "downloadStrategistWorksheets": "Descargar fichas de Estratega",
+    "downloadPdf": "Descargar PDF",
+    "worksheetLessonLabel": "Lección: {title}"
   },
   "fr": {
     "home": "Accueil de Money Quest",
@@ -121,7 +145,15 @@
     "freeBody": "Lis gratuitement des histoires et des biographies dans la bibliothèque, explore les salles du musée ou choisis un niveau adapté. Les produits facultatifs pour les familles ajoutent des formats à imprimer ; l’apprentissage de base reste accessible sans achat.",
     "library": "Ouvre la bibliothèque",
     "worlds": "Explore les mondes d’apprentissage",
-    "privacy": "Confidentialité et informations pour les parents"
+    "privacy": "Confidentialité et informations pour les parents",
+    "printablesHeading": "Fiches imprimables des leçons",
+    "printablesIntro": "Chaque fiche ci-dessous est exactement le PDF lié depuis la page de sa leçon : rien de plus, rien de moins.",
+    "downloadAllWorksheets": "Télécharger toutes les fiches",
+    "downloadExplorerWorksheets": "Télécharger les fiches Explorateur",
+    "downloadBuilderWorksheets": "Télécharger les fiches Bâtisseur",
+    "downloadStrategistWorksheets": "Télécharger les fiches Stratège",
+    "downloadPdf": "Télécharger le PDF",
+    "worksheetLessonLabel": "Leçon : {title}"
   },
   "de": {
     "home": "Money-Quest-Startseite",
@@ -152,7 +184,15 @@
     "freeBody": "Lies kostenlose Geschichten und Biografien in der Bibliothek, erkunde Museumsräume oder wähle passende Aktivitäten. Die freiwilligen Familienprodukte ergänzen Druckformate; das grundlegende Lernen bleibt ohne Kauf zugänglich.",
     "library": "Öffne die Bibliothek",
     "worlds": "Entdecke die Lernwelten",
-    "privacy": "Datenschutz und Informationen für Eltern"
+    "privacy": "Datenschutz und Informationen für Eltern",
+    "printablesHeading": "Druckbare Arbeitsblätter zu den Lektionen",
+    "printablesIntro": "Jedes Arbeitsblatt unten ist genau das PDF, das von seiner Lektionsseite verlinkt ist — nichts zusätzlich, nichts fehlt.",
+    "downloadAllWorksheets": "Alle Arbeitsblätter herunterladen",
+    "downloadExplorerWorksheets": "Entdecker-Arbeitsblätter herunterladen",
+    "downloadBuilderWorksheets": "Gestalter-Arbeitsblätter herunterladen",
+    "downloadStrategistWorksheets": "Stratege-Arbeitsblätter herunterladen",
+    "downloadPdf": "PDF herunterladen",
+    "worksheetLessonLabel": "Lektion: {title}"
   },
   "it": {
     "home": "Pagina iniziale di Money Quest",
@@ -183,7 +223,15 @@
     "freeBody": "Leggi gratis storie e biografie in biblioteca, esplora le sale del museo o scegli attività di livello adatto. I prodotti facoltativi per famiglie aggiungono formati stampabili; l’apprendimento di base resta accessibile senza acquisti.",
     "library": "Apri la biblioteca",
     "worlds": "Esplora i mondi di apprendimento",
-    "privacy": "Privacy e informazioni per i genitori"
+    "privacy": "Privacy e informazioni per i genitori",
+    "printablesHeading": "Schede stampabili delle lezioni",
+    "printablesIntro": "Ogni scheda qui sotto è esattamente il PDF collegato dalla pagina della sua lezione: niente di più, niente di meno.",
+    "downloadAllWorksheets": "Scarica tutte le schede",
+    "downloadExplorerWorksheets": "Scarica le schede Esploratore",
+    "downloadBuilderWorksheets": "Scarica le schede Costruttore",
+    "downloadStrategistWorksheets": "Scarica le schede Stratega",
+    "downloadPdf": "Scarica il PDF",
+    "worksheetLessonLabel": "Lezione: {title}"
   },
   "pt": {
     "home": "Página inicial do Money Quest",
@@ -214,7 +262,15 @@
     "freeBody": "Lê histórias e biografias gratuitas na biblioteca, explora as salas do museu ou escolhe atividades de um nível adequado. Os produtos opcionais para famílias acrescentam formatos para imprimir; a aprendizagem de base continua acessível sem compras.",
     "library": "Abre a biblioteca",
     "worlds": "Explora os mundos de aprendizagem",
-    "privacy": "Privacidade e informações para pais"
+    "privacy": "Privacidade e informações para pais",
+    "printablesHeading": "Fichas imprimíveis das lições",
+    "printablesIntro": "Cada ficha abaixo é exatamente o PDF associado à página da sua lição — nada a mais, nada a menos.",
+    "downloadAllWorksheets": "Transferir todas as fichas",
+    "downloadExplorerWorksheets": "Transferir fichas do Explorador",
+    "downloadBuilderWorksheets": "Transferir fichas do Construtor",
+    "downloadStrategistWorksheets": "Transferir fichas do Estratega",
+    "downloadPdf": "Transferir PDF",
+    "worksheetLessonLabel": "Lição: {title}"
   },
   "nl": {
     "home": "Startpagina van Money Quest",
@@ -245,7 +301,15 @@
     "freeBody": "Lees gratis verhalen en biografieën in de bibliotheek, ontdek museumzalen of kies passende activiteiten. De vrijwillige gezinsproducten voegen printformaten toe; het basisaanbod blijft zonder aankoop toegankelijk.",
     "library": "Open de bibliotheek",
     "worlds": "Ontdek de leerwerelden",
-    "privacy": "Privacy en informatie voor ouders"
+    "privacy": "Privacy en informatie voor ouders",
+    "printablesHeading": "Afdrukbare werkbladen bij de lessen",
+    "printablesIntro": "Elk werkblad hieronder is precies de PDF die vanaf de lespagina wordt gelinkt — niets extra, niets ontbrekend.",
+    "downloadAllWorksheets": "Alle werkbladen downloaden",
+    "downloadExplorerWorksheets": "Werkbladen Ontdekker downloaden",
+    "downloadBuilderWorksheets": "Werkbladen Bouwer downloaden",
+    "downloadStrategistWorksheets": "Werkbladen Strateeg downloaden",
+    "downloadPdf": "PDF downloaden",
+    "worksheetLessonLabel": "Les: {title}"
   },
   "pl": {
     "home": "Strona główna Money Quest",
@@ -276,6 +340,14 @@
     "freeBody": "Czytaj bezpłatne opowiadania i biografie w bibliotece, odwiedzaj sale muzeum lub wybieraj odpowiedni poziom ćwiczeń. Opcjonalne produkty rodzinne dodają formaty do druku; podstawowa nauka pozostaje dostępna bez zakupu.",
     "library": "Otwórz bibliotekę",
     "worlds": "Odkrywaj światy nauki",
-    "privacy": "Prywatność i informacje dla rodziców"
+    "privacy": "Prywatność i informacje dla rodziców",
+    "printablesHeading": "Drukowane karty pracy do lekcji",
+    "printablesIntro": "Każda karta poniżej to dokładnie ten sam plik PDF, co na stronie lekcji — nic więcej, nic mniej.",
+    "downloadAllWorksheets": "Pobierz wszystkie karty pracy",
+    "downloadExplorerWorksheets": "Pobierz karty pracy Odkrywcy",
+    "downloadBuilderWorksheets": "Pobierz karty pracy Budowniczego",
+    "downloadStrategistWorksheets": "Pobierz karty pracy Stratega",
+    "downloadPdf": "Pobierz PDF",
+    "worksheetLessonLabel": "Lekcja: {title}"
   }
 }

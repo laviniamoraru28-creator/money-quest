@@ -11,7 +11,10 @@ import {useReadAloud} from "@/lib/accessibility/use-read-aloud";
 import {ExplorerPictureChoice} from "@/components/explorer/ExplorerPictureChoice";
 import {explorerLabCopy} from "@/content/explorer-lab-copy";
 import {isSupportedLocale} from "@/i18n/config";
+import {useLocalProgress} from "@/lib/local-progress/use-local-progress";
+import {ContinueJourneyButton} from "@/components/ContinueJourneyButton";
 const levels=["Explorer","Builder","Strategist"];
+const BAND_TO_LEVEL={explorer:0,builder:1,strategist:2} as const;
 const ageRanges=["6–8","9–11","12–14"];
 const STORE="moneyquest_labs_v1";
 export default function LearningLabExperience({lab,locale="en",variants=labAgeVariants}:LaboratoryPresentation) {
@@ -19,8 +22,17 @@ export default function LearningLabExperience({lab,locale="en",variants=labAgeVa
   const [index,setIndex]=useState(0),[level,setLevel]=useState(0),[answer,setAnswer]=useState<number|null>(null),[done,setDone]=useState<string[]>([]),[storageReady,setStorageReady]=useState(false),[storageFailed,setStorageFailed]=useState(false);
   const heading=useRef<HTMLHeadingElement>(null);
   const {stop}=useReadAloud(speechLocale);
+  const {state:progressState}=useLocalProgress();
   useEffect(()=>{try {const value=JSON.parse(localStorage.getItem(STORE)||"[]");if(Array.isArray(value))setDone(value.filter((x):x is string=>typeof x==="string"))}catch{setStorageFailed(true)}setStorageReady(true)},[]);
   const item=labTaskAtLevel(lab.slug,lab.tasks[index]!,level,variants),key=`${lab.slug}:${item.id}:${level}`;
+  // No new storage or completion system: this reuses the exact same
+  // per-task "practised" marks `done` already tracks above, just
+  // checked against the child's real selected band (from local
+  // progress) rather than whichever level happens to be on screen -
+  // so switching levels here to look around never fakes a false
+  // "all done" the child didn't actually earn for their own band.
+  const bandLevel=progressState.ageBand?BAND_TO_LEVEL[progressState.ageBand]:null;
+  const allPractisedForBand=bandLevel!==null&&lab.tasks.every(task=>done.includes(`${lab.slug}:${labTaskAtLevel(lab.slug,task,bandLevel,variants).id}:${bandLevel}`));
   const choose=(next:number)=>{stop();setIndex(next);setAnswer(null);heading.current?.focus()};
   const mark=()=>{const next=Array.from(new Set([...done,key]));setDone(next);try{localStorage.setItem(STORE,JSON.stringify(next))}catch{setStorageFailed(true)}};
   const elc=explorerLabCopy[isSupportedLocale(locale)?locale:"en"];
@@ -45,5 +57,6 @@ export default function LearningLabExperience({lab,locale="en",variants=labAgeVa
     </>)}
     <section className="mt-6 border-t pt-5"><h3 className="text-xl">{copy.tryHeading}</h3><p className="mt-2 text-lg">{item.tryIt[level]}</p><p className="mt-2 text-sm">{copy.communication}</p><button type="button" disabled={!storageReady} onClick={mark} className="mt-4 min-h-12 rounded-xl bg-teal px-5 py-3 font-bold text-white">{done.includes(key)?copy.practised:copy.mark}</button><p role="status" className="mt-2 text-sm">{storageFailed?copy.storageFailed:done.includes(key)?copy.saved:""}</p></section>
     </article><nav aria-label={copy.steps} className="mt-5 flex flex-wrap gap-3"><button type="button" disabled={index===0} onClick={()=>choose(index-1)} className="min-h-12 rounded-xl border border-teal px-5 py-3 disabled:opacity-40">{copy.back}</button><button type="button" disabled={index===lab.tasks.length-1} onClick={()=>choose(index+1)} className="min-h-12 rounded-xl bg-teal px-5 py-3 text-white disabled:opacity-40">{copy.next}</button></nav>
+    {storageReady&&allPractisedForBand&&<div className="mt-6 flex justify-center"><ContinueJourneyButton currentHref={`/${lab.slug}`}/></div>}
     </main></div>;
 }

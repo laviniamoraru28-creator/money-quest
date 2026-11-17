@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Card } from "@/components/ui/Card";
+import { ContinueJourneyButton } from "@/components/ContinueJourneyButton";
 
 /**
  * A light, non-judgmental self-reflection quiz — deliberately NOT
@@ -128,6 +129,11 @@ export default function MoneyPersonalityPage() {
             <p className="mt-md text-sm font-medium">{content.challengeLabel}</p>
             <p className="mt-2xs text-base text-ink/80">{result.challenge}</p>
             <div className="mt-md flex flex-col items-center gap-2xs">
+              {/* The result above IS the completion - a light, self-contained
+                  quiz with no XP/progress tracking by design (see the
+                  component note at the top of this file), so nothing new
+                  needs to be stored to know the button belongs here. */}
+              <ContinueJourneyButton currentHref="/play/money-personality" />
               <button
                 type="button"
                 onClick={retake}

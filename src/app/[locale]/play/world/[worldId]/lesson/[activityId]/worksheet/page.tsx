@@ -1,7 +1,7 @@
 "use client";
 
 import { useParams } from "next/navigation";
-import { useTranslations,useLocale } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { getLessonStructureById } from "@/content/catalog";
 import { getWorksheetFilename } from "@/content/worksheets";
@@ -9,18 +9,20 @@ import { getWorksheetFilename } from "@/content/worksheets";
 /**
  * A thin, static page: just enough context (which lesson this
  * worksheet belongs to) plus a link straight to the PDF in
- * public/worksheets/. The PDF itself is the deliverable — opening it
- * in a new tab gives the browser's own native PDF viewer, which
- * already has Print and Save-as-PDF built in on every desktop and
- * mobile browser, so there's no need for an embedded viewer, a print
- * library, or any JS beyond a plain link. Worksheets are English-only
- * by design (see public/worksheets/README.txt) — only this
- * surrounding page chrome (title, buttons, hint text) is translated.
+ * public/worksheets/{locale}/. The PDF itself is the deliverable —
+ * opening it in a new tab gives the browser's own native PDF viewer,
+ * which already has Print and Save-as-PDF built in on every desktop
+ * and mobile browser, so there's no need for an embedded viewer, a
+ * print library, or any JS beyond a plain link. Each locale's edition
+ * is generated at build time (scripts/generate-localized-worksheets.py,
+ * run as the first step of `npm run build`) from that locale's own
+ * lesson story/quiz/challenge text in messages/{locale}.json — not a
+ * machine translation of the English PDF, and not English-only.
  */
 export default function WorksheetPage() {
   const params = useParams<{ worldId: string; activityId: string }>();
   const t = useTranslations();
-  const locale=useLocale();
+  const locale = useLocale();
 
   const structure = getLessonStructureById(params.activityId);
   const filename = getWorksheetFilename(params.activityId);
@@ -60,7 +62,6 @@ export default function WorksheetPage() {
 
         <h1 className="mt-sm font-display text-2xl font-bold">{t("worksheet.pageTitle")}</h1>
         <p className="mt-2xs text-base text-ink/70">{lessonTitle}</p>
-        <p className="mt-2xs text-sm text-ink/70">{t("worksheet.englishOnlyNote")}</p>
 
         <a
           href={`/worksheets/${locale}/${filename}`}

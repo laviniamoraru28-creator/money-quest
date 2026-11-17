@@ -9,6 +9,7 @@ import { formatCurrency, toMinorUnits } from "@/lib/currency/format";
 import { computeWeeksToGoal } from "@/lib/local-progress/state";
 import { Card } from "@/components/ui/Card";
 import { ProgressBar } from "@/components/ui/ProgressBar";
+import { ContinueJourneyButton } from "@/components/ContinueJourneyButton";
 
 export default function GoalsPage() {
   const uiLocale = useLocale();
@@ -138,6 +139,12 @@ export default function GoalsPage() {
               </Card>
             );
           })}
+        </div>
+
+        {/* Open-ended: a child can always add another goal, so this is
+            always shown, never gated on "finishing" the goals list. */}
+        <div className="mt-lg flex justify-center">
+          <ContinueJourneyButton currentHref="/play/goals" variant="explore" />
         </div>
       </main>
     </div>

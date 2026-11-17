@@ -6,6 +6,7 @@ import {CERTIFICATE_BANDS,requiredCertificateActivities} from "../../src/lib/cer
 import {LESSON_STRUCTURES} from "../../src/content/curriculum/structures";
 import {LOCALES} from "../../src/i18n/config";
 import {certificateCopy} from "../../src/content/certificate-copy";
+import {journeyCopy} from "../../src/content/journey-copy";
 
 for(const band of CERTIFICATE_BANDS)test(`certificate earned at real final ${band} lesson, date retained, no duplicate reward`,async({page})=>{
  const lesson=LESSON_STRUCTURES.find(item=>item.ageBand===band)!;
@@ -33,6 +34,19 @@ for(const band of CERTIFICATE_BANDS)test(`certificate earned at real final ${ban
   await page.getByRole("button",{name:"Check my answer",exact:true}).click();
  }
  await expect(page.getByRole("button",{name:certificateCopy.en.download,exact:true})).toBeVisible();
+ // Every band gets the same prominent "Continue to [next section] →" CTA
+ // once the certificate is earned, derived from the real nav menu order
+ // (see next-educational-section.ts): "/play" is immediately followed by
+ // "/entrepreneur-quest" there, never a hardcoded guess. It must not
+ // require downloading or viewing the certificate first - it already
+ // renders alongside the download button above, not after it.
+ const nextSectionLabel=messages.navMenu.entrepreneurQuest;
+ const continueLink=page.getByRole("link",{name:journeyCopy.en.continueToAria.replace("{section}",nextSectionLabel),exact:true});
+ await expect(continueLink).toHaveCount(1);
+ await expect(continueLink).toHaveAttribute("href","/en/entrepreneur-quest");
+ await expect(continueLink).toHaveText(journeyCopy.en.continueTo.replace("{section}",nextSectionLabel));
+ await continueLink.focus();await expect(continueLink).toBeFocused();
+ const box=await continueLink.boundingBox();expect(box!.height).toBeGreaterThanOrEqual(44);
  const readState=()=>page.evaluate(()=>JSON.parse(localStorage.getItem("moneyquest_local_progress_v1")!));
  const earned=await readState();
  expect(new Date(earned.certificateCompletionDates[band]).toISOString()).toBe("2026-11-03T12:34:00.000Z");

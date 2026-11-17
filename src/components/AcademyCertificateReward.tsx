@@ -6,6 +6,7 @@ import { isSupportedLocale } from "@/i18n/config";
 import { CERTIFICATE_BANDS, isCertificateEligible } from "@/lib/certificates/eligibility";
 import { CertificateDownload } from "@/components/CertificateDownload";
 import { Link } from "@/i18n/navigation";
+import { ContinueJourneyButton } from "@/components/ContinueJourneyButton";
 
 /** Earned levels remain accessible when a family switches to another level. */
 export function AcademyCertificateReward() {
@@ -24,6 +25,17 @@ export function AcademyCertificateReward() {
       <p className="mt-2">{copy.ready}</p>
       <CertificateDownload band={band} locale={locale} date={state.certificateCompletionDates[band]} />
       <Link className="inline-flex min-h-12 items-center underline" href={`/academy-certificate?level=${band}`}>{copy.view}</Link>
+      {/* Completing the certificate download/view above is never required
+          before this appears — local progress (and thus `earned`) is
+          already saved the moment the band's last activity completed, so
+          this renders alongside the download link, not after it. "/play"
+          (Money Quest itself) is where every band's curriculum lives, so
+          this is the one call in the whole guided journey that names its
+          own section explicitly rather than the next one - every other
+          placement names the section IT sits in, same as this. */}
+      <div className="mt-4 flex justify-center">
+        <ContinueJourneyButton currentHref="/play" />
+      </div>
     </div>)}
     <Link href="/play" className="mt-4 inline-flex min-h-12 items-center rounded-xl border border-teal px-4 py-2 text-teal-text">{t("nav.backToWorldMap")}</Link>
   </section>;

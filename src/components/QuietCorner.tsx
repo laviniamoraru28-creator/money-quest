@@ -2,6 +2,7 @@
 import type {Locale} from "@/i18n/config";
 import {quietCopy} from "@/content/quiet-corner";
 import QuietVideos from "@/components/QuietVideos";
+import {ContinueJourneyButton} from "@/components/ContinueJourneyButton";
 
 export default function QuietCorner({locale}:{locale:Locale}) {
   const t = quietCopy[locale];
@@ -9,6 +10,10 @@ export default function QuietCorner({locale}:{locale:Locale}) {
     <main id="main-content" tabIndex={-1} className="mx-auto max-w-5xl px-5 py-8">
       <h1 className="font-display text-3xl font-bold sm:text-4xl">{t.title}</h1>
       <QuietVideos locale={locale}/>
+      {/* A relaxation activity - never forces completion. */}
+      <div className="mt-8 flex justify-center">
+        <ContinueJourneyButton currentHref="/quiet-corner" variant="explore"/>
+      </div>
     </main>
   </div>;
 }

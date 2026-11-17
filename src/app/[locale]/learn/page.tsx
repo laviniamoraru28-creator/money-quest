@@ -6,6 +6,7 @@ import { buildBreadcrumbSchema, buildOrganizationSchema } from "@/lib/seo/struct
 import { safeJsonLd } from "@/lib/seo/safe-json-ld";
 import { getSiteUrl, DEFAULT_OG_IMAGE } from "@/lib/seo/site-url";
 import { ACTIVE_LOCALES } from "@/i18n/config";
+import { ContinueJourneyButton } from "@/components/ContinueJourneyButton";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -94,6 +95,12 @@ export default async function LearnHubPage({ params }: PageProps) {
           >
             {t("landing.ctaGetStartedFree")}
           </Link>
+        </div>
+
+        {/* Open-ended: articles can be read in any order or subset, so
+            this is always shown, never gated on "reading them all". */}
+        <div className="mt-lg flex justify-center">
+          <ContinueJourneyButton currentHref="/learn" variant="explore" />
         </div>
       </main>
     </div>

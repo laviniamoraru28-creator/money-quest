@@ -1,6 +1,6 @@
 import {test,expect} from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
-import {parentGuideCopy,PARENT_GUIDE_SOURCES} from "../../src/content/parent-guide-copy";
+import {PARENT_GUIDE_SOURCES} from "../../src/content/parent-guide-copy";
 import {shopFlowCopy} from "../../src/content/shop-flow-copy";
 import {shopTermsCopy} from "../../src/content/shop-terms-copy";
 import {SHOP_TERMS_VERSION} from "../../src/content/shop";
@@ -48,14 +48,18 @@ test("order and recovery routes are noindex and not listed in the sitemap",async
  for(const path of ["/en/parents/shop/success","/en/parents/shop/download"]){await page.goto(path);await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content",/noindex/);}
 });
 
-test("parent guide retains localized sample links, sources and English navigation",async({page})=>{
+test("parent guide retains sources, real worksheet downloads and English navigation",async({page})=>{
  await page.goto("/en/parents/resources");await expect(page).toHaveURL(/\/en\/parents\/resources$/);
  await expect(page.getByText(/augmentative and alternative communication \(AAC\)/)).toBeVisible();
  for(const source of PARENT_GUIDE_SOURCES)await expect(page.getByRole("link",{name:source.title,exact:true})).toHaveAttribute("href",source.url);
- await expect(page.getByRole("link",{name:parentGuideCopy.en.journalSample,exact:true})).toHaveAttribute("href","/resources/samples/free-journal-30-days-en.pdf");
- // The Academy Activity Pack is unpublished this release: no promotional
- // link to its free sample should remain on this page.
+ // The retired paid journal's sample pages, and the disabled shop, no
+ // longer have any promotional links on this page - the journal source
+ // files themselves stay in the repo/public build output untouched
+ // (free-samples existence is covered elsewhere in this file).
  await expect(page.locator('a[href="/resources/samples/free-academy-activities-en.pdf"]')).toHaveCount(0);
+ await expect(page.locator('a[href="/resources/samples/free-journal-30-days-en.pdf"]')).toHaveCount(0);
+ await expect(page.locator('a[href="/parents/shop"]')).toHaveCount(0);
+ await expect(page.locator('a[href="/worksheets/en/all-worksheets.zip"]')).toHaveCount(1);
 });
 
 test("order retry localizes errors without another payment and removes query references",async({page})=>{
