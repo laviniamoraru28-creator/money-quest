@@ -1,0 +1,52 @@
+name: Journey Improvement Agents
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 9 * * 3'
+  pull_request:
+    paths:
+      - 'scripts/journey-improvement-agents.py'
+      - '.github/workflows/journey-improvement-agents.yml'
+permissions:
+  contents: read
+  issues: write
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generate evidence report and ranked queue
+        run: python3 scripts/journey-improvement-agents.py
+      - name: Validate report outputs
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          data = json.loads(Path("journey-improvement-findings.json").read_text())
+          assert data and all("priority_score" in x for x in data)
+          assert "Claude handoff" in Path("journey-improvement-report.md").read_text()
+          print(f"Validated {len(data)} items")
+          PY
+      - name: Upload reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: journey-improvement-report
+          path: |
+            journey-improvement-report.md
+            journey-improvement-findings.json
+      - name: Deliver full report to Claude in GitHub issue
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          {
+            echo '# Money Quest: Journey Detective, Experiment Designer and Improvement Engine'
+            echo
+            cat journey-improvement-report.md
+            echo
+            echo "Full GitHub Actions run: $RUN_URL"
+          } > journey-handoff.md
+          issue_url=$(gh issue create --title "Journey Improvement Agents report: ${{ github.run_id }}" --body-file journey-handoff.md)
+          gh issue comment "$issue_url" --body "@claude Please acknowledge this report and review findings against the actual code. Propose fixes only through separate draft PRs. Do not merge, deploy, or introduce child tracking."
