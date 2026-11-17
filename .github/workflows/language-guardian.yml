@@ -1,0 +1,26 @@
+name: Language Guardian structural audit
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'messages/**'
+      - 'scripts/language-guardian.py'
+      - '.github/workflows/language-guardian.yml'
+  schedule:
+    - cron: '0 9 * * 1'
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check translation structure
+        run: python3 scripts/language-guardian.py
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: language-guardian-report
+          path: language-guardian-report.md
+          if-no-files-found: warn
