@@ -18,6 +18,7 @@ import json
 import re
 import sys
 import urllib.error
+import urllib.parse
 import urllib.request
 from pathlib import Path
 
@@ -160,9 +161,17 @@ def list_report_issues(repo, token):
     return [{"number": i["number"], "title": i["title"], "html_url": i["html_url"], "created_at": i["created_at"]} for i in issues]
 
 
+def digest_search_url(repo):
+    """Pure (no network) so the exact bug this once had - an unencoded
+    space/quote in the query string, rejected by Python 3.14's stricter
+    http.client path validator - has a regression test that doesn't need
+    to mock a GitHub response."""
+    query = f'repo:{repo} type:issue state:open in:title "{DIGEST_TITLE}"'
+    return "https://api.github.com/search/issues?q=" + urllib.parse.quote(query, safe="")
+
+
 def find_digest_issue(repo, token):
-    url = f"https://api.github.com/search/issues?q=repo:{repo}+type:issue+state:open+in:title+\"{DIGEST_TITLE}\""
-    result = _github_request(url, token)
+    result = _github_request(digest_search_url(repo), token)
     items = result.get("items", [])
     return items[0]["number"] if items else None
 

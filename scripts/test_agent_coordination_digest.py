@@ -1,5 +1,6 @@
 import importlib.util
 import unittest
+import urllib.parse
 from pathlib import Path
 
 spec = importlib.util.spec_from_file_location("digest", Path(__file__).with_name("agent-coordination-digest.py"))
@@ -9,6 +10,25 @@ spec.loader.exec_module(module)
 
 def make_issue(number, title, created_at="2026-11-17T12:00:00Z"):
     return {"number": number, "title": title, "html_url": f"https://example.invalid/issues/{number}", "created_at": created_at}
+
+
+class DigestSearchUrlTests(unittest.TestCase):
+    def test_url_has_no_raw_space_or_quote_characters(self):
+        # Regression test for the actual failure seen in CI run 44092562948:
+        # http.client.InvalidURL: URL can't contain control characters
+        # (found at least ' ') - the query string was interpolated
+        # unencoded. Guards against reintroducing that without needing to
+        # mock a live GitHub response.
+        url = module.digest_search_url("laviniamoraru28-creator/money-quest")
+        query_part = url.split("?q=", 1)[1]
+        self.assertNotIn(" ", query_part)
+        self.assertNotIn('"', query_part)
+        self.assertTrue(url.startswith("https://api.github.com/search/issues?q="))
+
+    def test_url_is_round_trip_decodable_to_the_intended_query(self):
+        url = module.digest_search_url("owner/repo")
+        decoded = urllib.parse.unquote(url.split("?q=", 1)[1])
+        self.assertEqual(decoded, f'repo:owner/repo type:issue state:open in:title "{module.DIGEST_TITLE}"')
 
 
 class ClassifyTitleTests(unittest.TestCase):
