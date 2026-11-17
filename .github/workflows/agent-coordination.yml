@@ -1,0 +1,41 @@
+name: Agent Coordination Hub
+on:
+  workflow_dispatch: {}
+  pull_request:
+    paths:
+      - 'scripts/agent-coordination-digest.py'
+      - 'scripts/test_agent_coordination_digest.py'
+      - '.github/workflows/agent-coordination.yml'
+  schedule:
+    # Daily, off-peak, ahead of the four agents' own weekly schedules
+    # (Language Guardian Mon 09:00 UTC, Learning Intelligence Mon 07:17
+    # UTC, Education Guardians Tue 08:00 UTC, Journey Improvement Agents
+    # Wed 09:00 UTC). Does not replace any of them - read-only index only.
+    - cron: '10 6 * * *'
+permissions:
+  contents: read
+  issues: write
+jobs:
+  coordinate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Unit tests
+        run: python3 -m unittest scripts.test_agent_coordination_digest -v
+      - name: Build digest (dry run on pull_request - never writes to Issues)
+        if: github.event_name == 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/agent-coordination-digest.py --repo "${{ github.repository }}" --dry-run
+      - name: Update the single rolling coordination issue
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/agent-coordination-digest.py --repo "${{ github.repository }}"
+      - name: Upload digest artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: agent-coordination-digest
+          path: agent-coordination-digest.md
+          if-no-files-found: warn
