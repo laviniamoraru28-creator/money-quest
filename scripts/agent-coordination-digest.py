@@ -62,7 +62,13 @@ def build_digest(issues, generated_at=None):
     generated_at = generated_at or dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
     by_agent = {agent: [] for agent, _p, _d in AGENT_PATTERNS}
     unmatched = []
+    # The digest issue itself must never appear in its own "unrecognized"
+    # section (confirmed in the wild: issue #79 listed itself there on its
+    # first live run, since its own title matches none of the four agent
+    # patterns) - it is an index, not a report.
     for issue in issues:
+        if issue["title"] == DIGEST_TITLE:
+            continue
         agent = classify_title(issue["title"])
         if agent:
             by_agent[agent].append(issue)

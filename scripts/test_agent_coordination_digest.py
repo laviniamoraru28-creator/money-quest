@@ -83,6 +83,17 @@ class BuildDigestTests(unittest.TestCase):
         self.assertNotIn("Unrecognized report-shaped issues", body)
         self.assertIn("0 open report issue(s) across 4 known agents.", body)
 
+    def test_never_lists_itself_as_unrecognized(self):
+        # Regression test: issue #79's first live run listed itself under
+        # "Unrecognized report-shaped issues" (its own title matches none
+        # of the four agent patterns) - the digest is an index, not a
+        # report, and must never appear in its own output.
+        issues = [make_issue(79, module.DIGEST_TITLE), make_issue(75, "Claude handoff: Education Guardians MVP report and review")]
+        body = module.build_digest(issues)
+        self.assertNotIn("Unrecognized report-shaped issues", body)
+        self.assertNotIn("#79", body)
+        self.assertIn("#75", body)
+
     def test_never_fabricates_a_fifth_agent(self):
         body = module.build_digest([make_issue(1, "Something completely unrelated")])
         self.assertIn("Unrecognized report-shaped issues", body)
