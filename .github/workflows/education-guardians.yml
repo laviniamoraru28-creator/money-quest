@@ -1,0 +1,45 @@
+name: Education Guardians
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 8 * * 2'
+  pull_request:
+    paths:
+      - 'scripts/education-guardians.py'
+      - '.github/workflows/education-guardians.yml'
+      - 'research/future-skills-evidence.json'
+permissions:
+  contents: read
+  issues: write
+jobs:
+  education-guardians:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run all three read-only agents
+        run: python3 scripts/education-guardians.py
+      - name: Upload evidence report
+        uses: actions/upload-artifact@v4
+        with:
+          name: education-guardians-report
+          path: education-guardians-report.md
+      - name: Deliver report to Claude through GitHub issue
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          cat > guardian-handoff.md <<'EOF'
+          # Education Guardians report for Claude
+
+          This issue contains findings from Inclusive Experience Guardian, Learning Architect, and Future Skills Radar.
+          Review the complete report in the linked GitHub Actions artifact. Static findings are candidates, not confirmed bugs.
+          Do not invent scientific sources. Validate educational recommendations with human review.
+          Create a separate branch and draft PR only for verified fixes. Run tests. Never merge or deploy automatically.
+
+          EOF
+          cat education-guardians-report.md >> guardian-handoff.md
+          printf '\nFull run and downloadable report: %s\n' "$RUN_URL" >> guardian-handoff.md
+          issue_url=$(gh issue create --title "Education Guardians report: ${{ github.run_id }}" --body-file guardian-handoff.md)
+          gh issue comment "$issue_url" --body "@claude Please review the evidence report above. Acknowledge receipt and propose a separate draft PR for verified corrections only. Do not merge or deploy."
