@@ -4095,7 +4095,10 @@
         "title": "Berechne deinen Gewinn",
         "learnText": "Gewinn ist das Geld, das dir bleibt, nachdem du deine Kosten bezahlt hast. Gewinn = Verkäufe minus Kosten.",
         "resultHint": "Hier ist dein Gewinn aus dem Unternehmens-Simulator.",
-        "noRunYetHint": "Besuche zuerst den Unternehmens-Simulator, um hier eine echte Gewinnzahl zu sehen."
+        "noRunYetHint": "Besuche zuerst den Unternehmens-Simulator, um hier eine echte Gewinnzahl zu sehen.",
+        "moneyInLabel": "Geld, das reinkommt",
+        "moneyOutLabel": "Geld, das rausgeht",
+        "leftOverLabel": "Was übrig bleibt:"
       },
       "handle-competition": {
         "title": "Geh mit Konkurrenz um",
@@ -6782,7 +6785,7 @@
       "chooseIdeaTitle": "Wähle deine Idee"
     }
   },
-  "navMenu":   {
+  "navMenu": {
     "openMenu": "Menü",
     "closeMenu": "Menü schließen",
     "title": "Money Quest entdecken",

@@ -4095,7 +4095,10 @@
         "title": "Calcola il Tuo Profitto",
         "learnText": "Il profitto è il denaro che ti resta dopo aver pagato i costi. Profitto = Vendite meno Costi.",
         "resultHint": "Ecco il tuo profitto dal Simulatore d'Impresa.",
-        "noRunYetHint": "Visita prima il Simulatore d'Impresa per vedere qui un numero reale di profitto."
+        "noRunYetHint": "Visita prima il Simulatore d'Impresa per vedere qui un numero reale di profitto.",
+        "moneyInLabel": "Soldi che entrano",
+        "moneyOutLabel": "Soldi che escono",
+        "leftOverLabel": "Quello che resta:"
       },
       "handle-competition": {
         "title": "Gestisci la Concorrenza",

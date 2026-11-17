@@ -19,7 +19,7 @@ import type { MissionRound } from "@/game-engine/types";
 export default function GrowPage() {
   const uiLocale = useLocale();
   const t = useTranslations();
-  const { isLoaded: progressLoaded } = useLocalProgress();
+  const { state: progressState, isLoaded: progressLoaded } = useLocalProgress();
   const { state, isLoaded, applyGrowDecision } = useEntrepreneurQuest();
   const [chosenKey, setChosenKey] = useState<string | null>(null);
 
@@ -61,6 +61,7 @@ export default function GrowPage() {
             currencyCode=""
             uiLocale={uiLocale}
             usesCurrency={false}
+            isExplorer={progressState.ageBand === "explorer"}
             onAnswer={(_isCorrect, choiceKey) => {
               setChosenKey(choiceKey ?? "");
               if (!alreadyDecided) applyGrowDecision(choiceKey ?? "");

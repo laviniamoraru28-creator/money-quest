@@ -53,6 +53,7 @@ export default function LeadershipLabPage() {
               choiceKeys={Object.keys(LQ_EFFECTS[scenarioId] ?? {})}
               currencyCode={progressState.currencyCode}
               uiLocale={uiLocale}
+              isExplorer={progressState.ageBand === "explorer"}
               isCompleted={state.completedLabScenarioIds.includes(scenarioId)}
               onAnswer={(choiceKey) => handleAnswer(scenarioId, choiceKey)}
             />

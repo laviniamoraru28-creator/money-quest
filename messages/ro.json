@@ -4095,7 +4095,10 @@
         "title": "Calculează-ți Profitul",
         "learnText": "Profitul este banii care îți rămân după ce plătești costurile. Profit = Vânzări minus Costuri.",
         "resultHint": "Iată profitul tău din Simulatorul de Afaceri.",
-        "noRunYetHint": "Vizitează mai întâi Simulatorul de Afaceri ca să vezi aici un profit real."
+        "noRunYetHint": "Vizitează mai întâi Simulatorul de Afaceri ca să vezi aici un profit real.",
+        "moneyInLabel": "Bani care intră",
+        "moneyOutLabel": "Bani care ies",
+        "leftOverLabel": "Ce rămâne:"
       },
       "handle-competition": {
         "title": "Gestionează Concurența",
@@ -6782,7 +6785,7 @@
       "chooseIdeaTitle": "Alege-ți ideea"
     }
   },
-  "navMenu":   {
+  "navMenu": {
     "openMenu": "Meniu",
     "closeMenu": "Închide meniul",
     "title": "Explorează Money Quest",

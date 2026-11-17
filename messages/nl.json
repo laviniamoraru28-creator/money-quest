@@ -359,7 +359,10 @@
         "title": "Bereken je Winst",
         "learnText": "Winst is het geld dat je overhoudt nadat je je kosten hebt betaald. Winst = Verkoop min Kosten.",
         "resultHint": "Hier is jouw winst uit de Bedrijfssimulator.",
-        "noRunYetHint": "Ga eerst naar de Bedrijfssimulator om hier een echt winstcijfer te zien."
+        "noRunYetHint": "Ga eerst naar de Bedrijfssimulator om hier een echt winstcijfer te zien.",
+        "moneyInLabel": "Geld dat binnenkomt",
+        "moneyOutLabel": "Geld dat uitgaat",
+        "leftOverLabel": "Wat overblijft:"
       },
       "handle-competition": {
         "title": "Ga om met Concurrentie",
@@ -6782,7 +6785,7 @@
       "chooseIdeaTitle": "Kies je idee"
     }
   },
-  "navMenu":   {
+  "navMenu": {
     "openMenu": "Menu",
     "closeMenu": "Menu sluiten",
     "title": "Ontdek Money Quest",

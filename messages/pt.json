@@ -359,7 +359,10 @@
         "title": "Calcula o Teu Lucro",
         "learnText": "O lucro é o dinheiro que ficas depois de pagares os teus custos. Lucro = Vendas menos Custos.",
         "resultHint": "Aqui está o teu lucro do Simulador de Negócio.",
-        "noRunYetHint": "Visita primeiro o Simulador de Negócio para veres aqui um número de lucro real."
+        "noRunYetHint": "Visita primeiro o Simulador de Negócio para veres aqui um número de lucro real.",
+        "moneyInLabel": "Dinheiro que entra",
+        "moneyOutLabel": "Dinheiro que sai",
+        "leftOverLabel": "O que sobra:"
       },
       "handle-competition": {
         "title": "Lida com a Concorrência",
@@ -6782,7 +6785,7 @@
       "chooseIdeaTitle": "Escolhe a tua ideia"
     }
   },
-  "navMenu":   {
+  "navMenu": {
     "openMenu": "Menu",
     "closeMenu": "Fechar menu",
     "title": "Explorar o Money Quest",
