@@ -11,7 +11,16 @@ import {test, expect} from '@playwright/test';
  * answer. Both sections now stay mounted and are only toggled with
  * `hidden`, so neither should happen any more.
  */
-test('Explorer: visiting Money Forms and returning keeps lesson progress (no stale overlay)', async ({page}) => {
+// Explorer's money_basics lesson is comic-first now, in every locale (see
+// explorer-comic-lessons.spec.ts) — there is no "Back to forms of money"
+// button, and with it gone, no toggled sibling section for the lesson
+// section to go stale underneath either. The mount/toggle mechanism this
+// test's own regression depended on no longer exists for Explorer, so the
+// regression it guarded against is structurally impossible to reintroduce
+// here. Explorer's interactive-flow progression is covered instead by
+// "full money_basics journey" in explorer-comic-lessons.spec.ts. Builder
+// below still has the real round trip and stays fully covered.
+test.skip('Explorer: visiting Money Forms and returning keeps lesson progress (no stale overlay)', async ({page}) => {
   await page.goto('/en/play');
   await page.getByRole('button', {name: /Explorer.*6-8/}).click();
   await page.goto('/en/play/world/coin-cove/lesson/explorer-money_basics-l1');

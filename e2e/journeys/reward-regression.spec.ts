@@ -49,7 +49,14 @@ for(const locale of LOCALES)for(const band of ['explorer','builder','strategist'
  await expect(page.getByText(messages.lesson.alreadyCompleted,{exact:true})).toBeVisible();
  if(band!=='explorer')await expect(page.getByRole('radio').first()).toBeDisabled();
  await expect(page.getByRole('button',{name:messages.lesson.checkMyAnswer,exact:true})).toHaveCount(0);
- await page.getByRole('button',{name:messages.lesson.backToMoneyForms,exact:true}).click();
- await page.getByRole('button',{name:messages.lesson.continueToLesson.replace('{title}',messages.curriculum[lesson.id].title),exact:true}).click();
- expect(await read()).toEqual(earned);await expect(page.locator('[data-coin-award]')).toHaveCount(0);
+ // Explorer's money_basics lesson is comic-first now, in every locale, with
+ // no "Back to forms of money" round trip to re-check against (see
+ // explorer-comic-lessons.spec.ts) — the reload above already proves the
+ // award persisted exactly once. Builder/Strategist still have the round
+ // trip, so they still get this extra no-double-award check through it.
+ if(band!=='explorer') {
+  await page.getByRole('button',{name:messages.lesson.backToMoneyForms,exact:true}).click();
+  await page.getByRole('button',{name:messages.lesson.continueToLesson.replace('{title}',messages.curriculum[lesson.id].title),exact:true}).click();
+  expect(await read()).toEqual(earned);await expect(page.locator('[data-coin-award]')).toHaveCount(0);
+ }
 });

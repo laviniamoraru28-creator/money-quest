@@ -85,6 +85,10 @@
       "2026-12-25",
       "2027-01-01"
     ],
-    "_skip_note": "Scheduled runs do nothing on these dates (UTC); the series simply continues on the next scheduled day."
+    "_skip_note": "Scheduled runs do nothing on these dates (UTC); the series simply continues on the next scheduled day.",
+    "series_from": {
+      "2026-11-23": "shorts"
+    },
+    "_series_note": "From each date, scheduled runs use that series. shorts = version 2 calendar in curriculum/shorts.json; quotes = the quote series."
   }
 }

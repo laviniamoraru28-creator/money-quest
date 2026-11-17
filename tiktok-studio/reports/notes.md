@@ -1,0 +1,1 @@
+- 16 Nov 2026: the first quote video (Franklin, "small leak") was posted. The owner reported fewer than 100 views and no likes shortly afterwards. Exact figures were not recorded. This is the baseline, not a verdict on the format.

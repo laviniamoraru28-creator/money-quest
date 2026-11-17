@@ -1,0 +1,1820 @@
+{
+  "_about": "Version 2 short-form videos (see studio/shorts.py). `calendar` is the publishing order; the scheduled run takes the first id not yet sent. Ids: MQ-Q quotation, MQ-I interactive question, MQ-A activity, MQ-M common mistake. Quotation scenes take their text from curriculum/quotes.json and never restate it. Other ideas must cite published Money Quest content in `sources`.",
+  "videos": [
+    {
+      "id": "MQ-Q-011",
+      "category": "quotation",
+      "cover_title": "Can 50p a week reach a big goal?",
+      "hook": "Can 50p a week reach a big goal?",
+      "icon": "coins",
+      "scenes": [
+        {
+          "kind": "quote",
+          "quote_id": 11
+        },
+        {
+          "kind": "action",
+          "text": "Start a savings jar together. Add a little every week.",
+          "icon": "jar"
+        },
+        {
+          "kind": "close",
+          "text": "What is your child saving for?"
+        }
+      ],
+      "description": "“Little strokes fell great oaks.” Benjamin Franklin, The Way to Wealth, 1758. Small, regular savings are how children reach a big goal. Try a savings jar and add to it every week. What is your child saving for? Money lessons for children at Money Quest Academy, link in bio.",
+      "hashtags": [
+        "#kidssavingmoney",
+        "#financialliteracyforkids",
+        "#moneylessons",
+        "#parenting"
+      ],
+      "section": "Savings Goals",
+      "route": "/play/goals",
+      "duration_recommendation": "11-13 seconds"
+    },
+    {
+      "id": "MQ-I-001",
+      "category": "question",
+      "cover_title": "Would your child save £5 or spend it?",
+      "hook": "Would your child save £5 or spend it?",
+      "icon": "question",
+      "scenes": [
+        {
+          "kind": "options",
+          "options": [
+            {
+              "label": "Save it",
+              "icon": "jar"
+            },
+            {
+              "label": "Spend it",
+              "icon": "bag"
+            },
+            {
+              "label": "Split it",
+              "icon": "coins"
+            }
+          ],
+          "note": "There is no wrong answer."
+        },
+        {
+          "kind": "idea",
+          "text": "Their reason shows how they think about money.",
+          "icon": "bulb"
+        },
+        {
+          "kind": "action",
+          "text": "Ask tonight. Listen first, then say what you would do.",
+          "icon": "heart"
+        },
+        {
+          "kind": "close",
+          "text": "What did your child choose?"
+        }
+      ],
+      "description": "Would your child save £5, spend it or split it? There is no wrong answer. Ask tonight, and ask why. Their reason shows how they think about money. Tell us what your child chose. Teaching children about money with Money Quest Academy, link in bio.",
+      "hashtags": [
+        "#teachingkidsaboutmoney",
+        "#financialliteracyforkids",
+        "#moneyquestion",
+        "#parenting"
+      ],
+      "section": "Money Simulator",
+      "route": "/play/simulator",
+      "duration_recommendation": "13-15 seconds",
+      "sources": [
+        {
+          "file": "messages/en.json",
+          "path": "parentInfo.pq6Body",
+          "quote": "ask what they'd do with a fixed amount of money before telling them what you'd do"
+        },
+        {
+          "file": "src/content/learning-labs.ts",
+          "quote": "There is more than one reasonable choice."
+        }
+      ]
+    },
+    {
+      "id": "MQ-A-001",
+      "category": "activity",
+      "cover_title": "A 2-minute money game for your next shop",
+      "hook": "Try this game on your next shop.",
+      "icon": "tags",
+      "scenes": [
+        {
+          "kind": "step",
+          "text": "Pick two packs of the same thing.",
+          "icon": "bag"
+        },
+        {
+          "kind": "step",
+          "text": "Read the weight on each label.",
+          "icon": "tags"
+        },
+        {
+          "kind": "step",
+          "text": "Ask your child: which one gives more?",
+          "icon": "question"
+        },
+        {
+          "kind": "action",
+          "text": "A bigger box can hold less. Let them check.",
+          "icon": "check"
+        },
+        {
+          "kind": "close",
+          "text": "Save this idea for your next shop."
+        }
+      ],
+      "description": "A 2-minute money game for the supermarket. Pick two packs, read the weight on each label and ask your child which one gives more. A bigger box can hold less, and children enjoy finding out. Save this for your next shop. Money lessons for children at Money Quest Academy, link in bio.",
+      "hashtags": [
+        "#moneylessonsforkids",
+        "#financialliteracyforkids",
+        "#parentingtips",
+        "#kidsactivities"
+      ],
+      "section": "Brain Lab",
+      "route": "/brain-lab",
+      "duration_recommendation": "14-16 seconds",
+      "sources": [
+        {
+          "file": "src/content/learning-labs.ts",
+          "quote": "A package can look bigger while holding less. Compare the same units on the labels."
+        }
+      ]
+    },
+    {
+      "id": "MQ-Q-004",
+      "category": "quotation",
+      "cover_title": "How do you raise a responsible child?",
+      "hook": "How do you raise a responsible child?",
+      "icon": "list",
+      "scenes": [
+        {
+          "kind": "quote",
+          "quote_id": 4
+        },
+        {
+          "kind": "action",
+          "text": "Give one real job this week, and trust them with it.",
+          "icon": "list"
+        },
+        {
+          "kind": "close",
+          "text": "Which job could your child own?"
+        }
+      ],
+      "description": "“Few things help an individual more than to place responsibility upon him, and to let him know that you trust him.” Booker T. Washington, Up from Slavery, 1901. Washington wrote this about running a school, and it holds for a family too. A small, real responsibility, given with trust, is one of the simplest ways to help a child grow. Which job could your child own? Money lessons for children at Money Quest Academy, link in bio.",
+      "hashtags": [
+        "#financialliteracyforkids",
+        "#moneylessonsforkids",
+        "#parenting",
+        "#lifeskills"
+      ],
+      "section": "Leadership Quest",
+      "route": "/leadership-quest"
+    },
+    {
+      "id": "MQ-Q-005",
+      "category": "quotation",
+      "cover_title": "Why does that toy feel so urgent right now?",
+      "hook": "Why does that toy feel so urgent right now?",
+      "icon": "question",
+      "scenes": [
+        {
+          "kind": "quote",
+          "quote_id": 5
+        },
+        {
+          "kind": "action",
+          "text": "Before buying, wait one day. Then ask if they still want it.",
+          "icon": "question"
+        },
+        {
+          "kind": "close",
+          "text": "Would your child still want it tomorrow?"
+        }
+      ],
+      "description": "“Nothing in life is as important as you think it is, while you are thinking about it.” Daniel Kahneman, Thinking, Fast and Slow, 2011. In the moment, the thing a child wants can feel like the only thing that matters. Adults feel it too. A short pause before deciding is a habit worth practising together. Would your child still want it tomorrow? Money lessons for children at Money Quest Academy, link in bio.",
+      "hashtags": [
+        "#financialliteracyforkids",
+        "#moneylessonsforkids",
+        "#parenting",
+        "#lifeskills"
+      ],
+      "section": "Brain Lab",
+      "route": "/brain-lab"
+    },
+    {
+      "id": "MQ-Q-006",
+      "category": "quotation",
+      "cover_title": "Is your child afraid of getting it wrong?",
+      "hook": "Is your child afraid of getting it wrong?",
+      "icon": "bulb",
+      "scenes": [
+        {
+          "kind": "quote",
+          "quote_id": 6
+        },
+        {
+          "kind": "action",
+          "text": "Praise the try, then ask what they would change.",
+          "icon": "bulb"
+        },
+        {
+          "kind": "close",
+          "text": "What did your child learn from a mistake?"
+        }
+      ],
+      "description": "“We often discover what will do, by finding out what will not do; and probably he who never made a mistake never made a discovery.” Samuel Smiles, Self-Help, 1859. Every young inventor needs to hear this. An idea that doesn't work is information, not failure. Children learn to create by testing small ideas and trying again. What did your child learn from a mistake? Money lessons for children at Money Quest Academy, link in bio.",
+      "hashtags": [
+        "#financialliteracyforkids",
+        "#moneylessonsforkids",
+        "#parenting",
+        "#lifeskills"
+      ],
+      "section": "Entrepreneur Quest",
+      "route": "/entrepreneur-quest"
+    },
+    {
+      "id": "MQ-Q-007",
+      "category": "quotation",
+      "cover_title": "Why do small things feel so big to children?",
+      "hook": "Why do small things feel so big to children?",
+      "icon": "heart",
+      "scenes": [
+        {
+          "kind": "quote",
+          "quote_id": 7
+        },
+        {
+          "kind": "action",
+          "text": "Name the feeling together before you fix the problem.",
+          "icon": "heart"
+        },
+        {
+          "kind": "close",
+          "text": "Which feeling is hardest for your child?"
+        }
+      ],
+      "description": "“Men are disturbed not by the things which happen, but by the opinions about the things.” Epictetus, The Encheiridion, trans. George Long. An idea almost two thousand years old: what we tell ourselves about an event shapes how it feels. Children can learn to notice a feeling and choose a next step. Which feeling is hardest for your child? Money lessons for children at Money Quest Academy, link in bio.",
+      "hashtags": [
+        "#financialliteracyforkids",
+        "#moneylessonsforkids",
+        "#parenting",
+        "#lifeskills"
+      ],
+      "section": "Emotion Lab",
+      "route": "/mind-lab"
+    },
+    {
+      "id": "MQ-Q-008",
+      "category": "quotation",
+      "cover_title": "What does that toy really cost your child?",
+      "hook": "What does that toy really cost your child?",
+      "icon": "coins",
+      "scenes": [
+        {
+          "kind": "quote",
+          "quote_id": 8
+        },
+        {
+          "kind": "action",
+          "text": "Count the cost in weeks of pocket money.",
+          "icon": "coins"
+        },
+        {
+          "kind": "close",
+          "text": "How many weeks would it take?"
+        }
+      ],
+      "description": "“The cost of a thing is the amount of what I will call life which is required to be exchanged for it, immediately or in the long run.” Henry David Thoreau, Walden, 1854. Thoreau measured cost in life, not money: the time and effort something takes to earn. It's a useful question for a child weighing a purchase against a savings goal. How many weeks would it take? Money lessons for children at Money Quest Academy, link in bio.",
+      "hashtags": [
+        "#financialliteracyforkids",
+        "#moneylessonsforkids",
+        "#parenting",
+        "#lifeskills"
+      ],
+      "section": "Market Town",
+      "route": "/play"
+    },
+    {
+      "id": "MQ-Q-009",
+      "category": "quotation",
+      "cover_title": "Which skill will your child always need?",
+      "hook": "Which skill will your child always need?",
+      "icon": "bulb",
+      "scenes": [
+        {
+          "kind": "quote",
+          "quote_id": 9
+        },
+        {
+          "kind": "action",
+          "text": "Let your child teach you one thing they learned.",
+          "icon": "bulb"
+        },
+        {
+          "kind": "close",
+          "text": "What did your child teach you?"
+        }
+      ],
+      "description": "“The object and reward of learning is continued capacity for growth.” John Dewey, Democracy and Education, 1916. For Dewey, the point of learning was the ability to keep learning. That matters even more for children growing up with tools that change every year. What did your child teach you? Money lessons for children at Money Quest Academy, link in bio.",
+      "hashtags": [
+        "#financialliteracyforkids",
+        "#moneylessonsforkids",
+        "#parenting",
+        "#lifeskills"
+      ],
+      "section": "Future Skills",
+      "route": "/future-skills"
+    },
+    {
+      "id": "MQ-Q-010",
+      "category": "quotation",
+      "cover_title": "Can one coin a week change a habit?",
+      "hook": "Can one coin a week change a habit?",
+      "icon": "jar",
+      "scenes": [
+        {
+          "kind": "quote",
+          "quote_id": 10
+        },
+        {
+          "kind": "action",
+          "text": "Pick one tiny money habit and repeat it weekly.",
+          "icon": "jar"
+        },
+        {
+          "kind": "close",
+          "text": "Which small habit will you start?"
+        }
+      ],
+      "description": "“Every action you take is a vote for the type of person you wish to become.” James Clear, Atomic Habits, 2018. A coin in a jar is a small thing. Repeated every week, it becomes evidence a child can point to: \"I'm someone who saves.\" Which small habit will you start? Money lessons for children at Money Quest Academy, link in bio.",
+      "hashtags": [
+        "#financialliteracyforkids",
+        "#moneylessonsforkids",
+        "#parenting",
+        "#lifeskills"
+      ],
+      "section": "Golden Vault",
+      "route": "/play"
+    },
+    {
+      "id": "MQ-Q-012",
+      "category": "quotation",
+      "cover_title": "Why do early habits matter so much?",
+      "hook": "Why do early habits matter so much?",
+      "icon": "list",
+      "scenes": [
+        {
+          "kind": "quote",
+          "quote_id": 12
+        },
+        {
+          "kind": "action",
+          "text": "Tie a new habit to something you already do.",
+          "icon": "list"
+        },
+        {
+          "kind": "close",
+          "text": "Which routine works in your home?"
+        }
+      ],
+      "description": "“The great thing in all education is to make our nervous system our ally instead of our enemy.” William James, Talks to Teachers on Psychology, 1899. William James argued that habits do much of the work for us, for better or worse. Small routines practised in childhood, like saving a coin or checking a list, become things a child no longer has to think about. Which routine works in your home? Money lessons for children at Money Quest Academy, link in bio.",
+      "hashtags": [
+        "#financialliteracyforkids",
+        "#moneylessonsforkids",
+        "#parenting",
+        "#lifeskills"
+      ],
+      "section": "Real Life Quests",
+      "route": "/real-life-quests"
+    },
+    {
+      "id": "MQ-Q-013",
+      "category": "quotation",
+      "cover_title": "How do children learn to trust themselves?",
+      "hook": "How do children learn to trust themselves?",
+      "icon": "check",
+      "scenes": [
+        {
+          "kind": "quote",
+          "quote_id": 13
+        },
+        {
+          "kind": "action",
+          "text": "Let your child make one real choice today.",
+          "icon": "check"
+        },
+        {
+          "kind": "close",
+          "text": "What did they decide?"
+        }
+      ],
+      "description": "“Trust thyself: every heart vibrates to that iron string.” Ralph Waldo Emerson, Self-Reliance, 1841. Self-trust isn't something we can hand to a child. It comes from making real decisions and seeing what happens, ideally where mistakes cost nothing. What did they decide? Money lessons for children at Money Quest Academy, link in bio.",
+      "hashtags": [
+        "#financialliteracyforkids",
+        "#moneylessonsforkids",
+        "#parenting",
+        "#lifeskills"
+      ],
+      "section": "Money Simulator",
+      "route": "/play/simulator"
+    },
+    {
+      "id": "MQ-Q-014",
+      "category": "quotation",
+      "cover_title": "Are you doing too much for your child?",
+      "hook": "Are you doing too much for your child?",
+      "icon": "list",
+      "scenes": [
+        {
+          "kind": "quote",
+          "quote_id": 14
+        },
+        {
+          "kind": "action",
+          "text": "Hand over one task, then step back.",
+          "icon": "list"
+        },
+        {
+          "kind": "close",
+          "text": "Which task will you hand over?"
+        }
+      ],
+      "description": "“No one can be free unless he is independent.” Maria Montessori, The Montessori Method, 1912. Montessori saw independence as the first goal of education. At home it can start small: one job, one decision, one thing a child manages alone. Which task will you hand over? Money lessons for children at Money Quest Academy, link in bio.",
+      "hashtags": [
+        "#financialliteracyforkids",
+        "#moneylessonsforkids",
+        "#parenting",
+        "#lifeskills"
+      ],
+      "section": "Real Life Quests",
+      "route": "/real-life-quests"
+    },
+    {
+      "id": "MQ-Q-015",
+      "category": "quotation",
+      "cover_title": "How do you raise a kind child?",
+      "hook": "How do you raise a kind child?",
+      "icon": "heart",
+      "scenes": [
+        {
+          "kind": "quote",
+          "quote_id": 15
+        },
+        {
+          "kind": "action",
+          "text": "Ask your child who they could help this week.",
+          "icon": "heart"
+        },
+        {
+          "kind": "close",
+          "text": "Who did your child choose to help?"
+        }
+      ],
+      "description": "“No one is useless in this world who lightens the burden of it for any one else.” Charles Dickens, Our Mutual Friend, 1865. A line from Dickens that children understand straight away: helping someone matters. Giving time, a toy or a little money is a habit that can start young. Who did your child choose to help? Money lessons for children at Money Quest Academy, link in bio.",
+      "hashtags": [
+        "#financialliteracyforkids",
+        "#moneylessonsforkids",
+        "#parenting",
+        "#lifeskills"
+      ],
+      "section": "Kindness Grove",
+      "route": "/play"
+    },
+    {
+      "id": "MQ-Q-016",
+      "category": "quotation",
+      "cover_title": "Is money in charge, or is your child?",
+      "hook": "Is money in charge, or is your child?",
+      "icon": "coins",
+      "scenes": [
+        {
+          "kind": "quote",
+          "quote_id": 16
+        },
+        {
+          "kind": "action",
+          "text": "Give a small amount and let them plan it.",
+          "icon": "coins"
+        },
+        {
+          "kind": "close",
+          "text": "What was their plan?"
+        }
+      ],
+      "description": "“Money is in some respects like fire; it is a very excellent servant but a terrible master.” P. T. Barnum, The Art of Money Getting, 1880. Barnum's image still works: money is useful when you direct it. Children can practise being the one in charge, with small amounts and real choices. What was their plan? Money lessons for children at Money Quest Academy, link in bio.",
+      "hashtags": [
+        "#financialliteracyforkids",
+        "#moneylessonsforkids",
+        "#parenting",
+        "#lifeskills"
+      ],
+      "section": "Coin Cove",
+      "route": "/play"
+    },
+    {
+      "id": "MQ-Q-017",
+      "category": "quotation",
+      "cover_title": "What do you say after your child's mistake?",
+      "hook": "What do you say after your child's mistake?",
+      "icon": "bulb",
+      "scenes": [
+        {
+          "kind": "quote",
+          "quote_id": 17
+        },
+        {
+          "kind": "action",
+          "text": "After a mistake, ask what they would try tomorrow.",
+          "icon": "bulb"
+        },
+        {
+          "kind": "close",
+          "text": "Save this for the next hard day."
+        }
+      ],
+      "description": "“Isn't it nice to think that tomorrow is a new day with no mistakes in it yet?” L. M. Montgomery, Anne of Green Gables, 1908. Anne says this after a very bad day. It's a kind thing to tell a child, and a useful one: tomorrow is a chance to try differently. Save this for the next hard day. Money lessons for children at Money Quest Academy, link in bio.",
+      "hashtags": [
+        "#financialliteracyforkids",
+        "#moneylessonsforkids",
+        "#parenting",
+        "#lifeskills"
+      ],
+      "section": "Emotion Lab",
+      "route": "/mind-lab"
+    },
+    {
+      "id": "MQ-Q-018",
+      "category": "quotation",
+      "cover_title": "Does your child memorise, or understand?",
+      "hook": "Does your child memorise, or understand?",
+      "icon": "question",
+      "scenes": [
+        {
+          "kind": "quote",
+          "quote_id": 18
+        },
+        {
+          "kind": "action",
+          "text": "Ask \"why do you think that?\" once a day.",
+          "icon": "question"
+        },
+        {
+          "kind": "close",
+          "text": "What was the best answer you heard?"
+        }
+      ],
+      "description": "“Learning without thought is labour lost; thought without learning is perilous.” Confucius, The Analects, trans. James Legge. Facts without thinking don't stick, and opinions without facts go wrong. Asking a child \"why do you think that?\" trains both at once. What was the best answer you heard? Money lessons for children at Money Quest Academy, link in bio.",
+      "hashtags": [
+        "#financialliteracyforkids",
+        "#moneylessonsforkids",
+        "#parenting",
+        "#lifeskills"
+      ],
+      "section": "Brain Lab",
+      "route": "/brain-lab"
+    },
+    {
+      "id": "MQ-Q-019",
+      "category": "quotation",
+      "cover_title": "What is the simplest budget rule of all?",
+      "hook": "What is the simplest budget rule of all?",
+      "icon": "coins",
+      "scenes": [
+        {
+          "kind": "quote",
+          "quote_id": 19
+        },
+        {
+          "kind": "action",
+          "text": "Try spending a little less than the pocket money.",
+          "icon": "coins"
+        },
+        {
+          "kind": "close",
+          "text": "Would you try this at home?"
+        }
+      ],
+      "description": "“Annual income twenty pounds, annual expenditure nineteen nineteen and six, result happiness.” Charles Dickens, David Copperfield, 1850. Mr. Micawber's rule is the whole of budgeting in one line: spend slightly less than comes in. Children can practise it with pocket money long before they earn a wage. Would you try this at home? Money lessons for children at Money Quest Academy, link in bio.",
+      "hashtags": [
+        "#financialliteracyforkids",
+        "#moneylessonsforkids",
+        "#parenting",
+        "#lifeskills"
+      ],
+      "section": "Market Town",
+      "route": "/play"
+    },
+    {
+      "id": "MQ-I-002",
+      "category": "question",
+      "cover_title": "Need or want? Ask your child this",
+      "hook": "Need it, or just want it?",
+      "icon": "question",
+      "scenes": [
+        {
+          "kind": "options",
+          "options": [
+            {
+              "label": "Need",
+              "icon": "check"
+            },
+            {
+              "label": "Want",
+              "icon": "heart"
+            }
+          ],
+          "note": "Wanting things is normal."
+        },
+        {
+          "kind": "idea",
+          "text": "A strong want can feel as urgent as a need.",
+          "icon": "bulb"
+        },
+        {
+          "kind": "action",
+          "text": "At the shop, ask what happens if you don't get it.",
+          "icon": "bag"
+        },
+        {
+          "kind": "close",
+          "text": "What does your child call a need?"
+        }
+      ],
+      "description": "Need or want? Ask your child this. At the shop, ask what happens if you don't get it. What does your child call a need? Money lessons for children at Money Quest Academy, link in bio.",
+      "hashtags": [
+        "#teachingkidsaboutmoney",
+        "#financialliteracyforkids",
+        "#moneyquestion",
+        "#parenting"
+      ],
+      "section": "Market Town",
+      "route": "/play",
+      "based_on_topic": "needs-vs-wants",
+      "sources": [
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.explorer-needs_wants-l1.keyConcept",
+          "quote": "A need is something you must have to be okay. A want is something nice to have"
+        },
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.explorer-needs_wants-l1.parentNote",
+          "quote": "a strong want can feel exactly as urgent as a real need"
+        },
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.explorer-needs_wants-l1.parentNote",
+          "quote": "('what would happen if you didn't get it?') works far better than telling them they're wrong to want something"
+        }
+      ]
+    },
+    {
+      "id": "MQ-I-003",
+      "category": "question",
+      "cover_title": "Notebook or toy? One choice",
+      "hook": "£5. Notebook £3, toy £4. Now what?",
+      "icon": "coins",
+      "scenes": [
+        {
+          "kind": "options",
+          "options": [
+            {
+              "label": "Buy one",
+              "icon": "bag"
+            },
+            {
+              "label": "Wait",
+              "icon": "target"
+            },
+            {
+              "label": "Save more",
+              "icon": "jar"
+            }
+          ],
+          "note": "More than one good answer."
+        },
+        {
+          "kind": "action",
+          "text": "Give a small fixed amount and let them decide.",
+          "icon": "coins"
+        },
+        {
+          "kind": "close",
+          "text": "Notebook or toy? Tell us."
+        }
+      ],
+      "description": "Notebook or toy? One choice. Give a small fixed amount and let them decide. Notebook or toy? Tell us. Money lessons for children at Money Quest Academy, link in bio.",
+      "hashtags": [
+        "#teachingkidsaboutmoney",
+        "#financialliteracyforkids",
+        "#moneyquestion",
+        "#parenting"
+      ],
+      "section": "Future Skills",
+      "route": "/future-skills",
+      "based_on_topic": "choice-with-budget",
+      "sources": [
+        {
+          "file": "src/content/learning-labs.ts",
+          "quote": "Your choice has a cost and may affect another goal."
+        },
+        {
+          "file": "src/content/learning-labs.ts",
+          "quote": "You can choose one now, wait, or save more. There is more than one reasonable choice."
+        }
+      ]
+    },
+    {
+      "id": "MQ-I-004",
+      "category": "question",
+      "cover_title": "One treat now or two later?",
+      "hook": "Would your child wait for two treats?",
+      "icon": "question",
+      "scenes": [
+        {
+          "kind": "options",
+          "options": [
+            {
+              "label": "One now",
+              "icon": "heart"
+            },
+            {
+              "label": "Two later",
+              "icon": "coins"
+            }
+          ],
+          "note": "Waiting is a skill."
+        },
+        {
+          "kind": "idea",
+          "text": "Even adults find waiting hard.",
+          "icon": "bulb"
+        },
+        {
+          "kind": "action",
+          "text": "Offer the choice for real, then ask how it felt.",
+          "icon": "check"
+        },
+        {
+          "kind": "close",
+          "text": "Did your child wait?"
+        }
+      ],
+      "description": "One treat now or two later?. Offer the choice for real, then ask how it felt. Did your child wait? Money lessons for children at Money Quest Academy, link in bio.",
+      "hashtags": [
+        "#teachingkidsaboutmoney",
+        "#financialliteracyforkids",
+        "#moneyquestion",
+        "#parenting"
+      ],
+      "section": "Horizon Peaks",
+      "route": "/play",
+      "based_on_topic": "waiting-can-pay-off",
+      "sources": [
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.explorer-long_term_thinking-l1.keyConcept",
+          "quote": "Waiting a little bit can sometimes get you more than rushing to have something right away."
+        },
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.explorer-long_term_thinking-l1.parentNote",
+          "quote": "letting your child choose between a smaller treat now and a bigger one after waiting a day or two"
+        }
+      ]
+    },
+    {
+      "id": "MQ-I-005",
+      "category": "question",
+      "cover_title": "Will they still want it in a month?",
+      "hook": "Will they still want it next month?",
+      "icon": "question",
+      "scenes": [
+        {
+          "kind": "idea",
+          "text": "In the moment, now feels like everything.",
+          "icon": "bulb"
+        },
+        {
+          "kind": "action",
+          "text": "Before buying, ask how they will feel in a month.",
+          "icon": "target"
+        },
+        {
+          "kind": "close",
+          "text": "Which toy was forgotten fastest?"
+        }
+      ],
+      "description": "Will they still want it in a month?. Before buying, ask how they will feel in a month. Which toy was forgotten fastest? Money lessons for children at Money Quest Academy, link in bio.",
+      "hashtags": [
+        "#teachingkidsaboutmoney",
+        "#financialliteracyforkids",
+        "#moneyquestion",
+        "#parenting"
+      ],
+      "section": "Horizon Peaks",
+      "route": "/play",
+      "based_on_topic": "feel-in-a-month",
+      "sources": [
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.builder-long_term_thinking-l1.keyConcept",
+          "quote": "Thinking ahead about the likely outcome of a choice - not just the immediate feeling - leads to better decisions."
+        },
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.builder-long_term_thinking-l1.parentNote",
+          "quote": "'how do you think you'll feel about this in a month?'"
+        },
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.builder-long_term_thinking-l1.parentNote",
+          "quote": "not just about money, but decision-making generally"
+        }
+      ]
+    },
+    {
+      "id": "MQ-I-006",
+      "category": "question",
+      "cover_title": "Is a card tap real money?",
+      "hook": "Does your child think a card is magic?",
+      "icon": "question",
+      "scenes": [
+        {
+          "kind": "idea",
+          "text": "A tap moves real money out of an account.",
+          "icon": "coins"
+        },
+        {
+          "kind": "action",
+          "text": "Say it aloud: this takes money from my account.",
+          "icon": "check"
+        },
+        {
+          "kind": "close",
+          "text": "What does your child think happens?"
+        }
+      ],
+      "description": "Is a card tap real money?. Say it aloud: this takes money from my account. What does your child think happens? Money lessons for children at Money Quest Academy, link in bio.",
+      "hashtags": [
+        "#teachingkidsaboutmoney",
+        "#financialliteracyforkids",
+        "#moneyquestion",
+        "#parenting"
+      ],
+      "section": "Sky Exchange",
+      "route": "/play",
+      "based_on_topic": "digital-money-feels-free",
+      "sources": [
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.builder-money_basics-l1.parentNote",
+          "quote": "cards and apps can feel like 'free money' to a child who's never watched cash physically change hands"
+        },
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.builder-money_basics-l1.parentNote",
+          "quote": "I'm paying with my card, which takes the money from my account, the same as if I'd handed over coins"
+        },
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.strategist-digital_money-l1.keyConcept",
+          "quote": "they can feel less 'real' in the moment"
+        }
+      ]
+    },
+    {
+      "id": "MQ-I-007",
+      "category": "question",
+      "cover_title": "Would your child spot a fake prize?",
+      "hook": "Would your child click \"You won\"?",
+      "icon": "question",
+      "scenes": [
+        {
+          "kind": "options",
+          "options": [
+            {
+              "label": "Click",
+              "icon": "cross"
+            },
+            {
+              "label": "Tell a grown-up",
+              "icon": "check"
+            }
+          ],
+          "note": "Praise the telling."
+        },
+        {
+          "kind": "idea",
+          "text": "Scams rush you, ask for secrets, or want a password.",
+          "icon": "bulb"
+        },
+        {
+          "kind": "action",
+          "text": "Agree one rule: check with a grown-up first.",
+          "icon": "list"
+        },
+        {
+          "kind": "close",
+          "text": "Has your child seen a fake prize?"
+        }
+      ],
+      "description": "Would your child spot a fake prize?. Agree one rule: check with a grown-up first. Has your child seen a fake prize? Money lessons for children at Money Quest Academy, link in bio.",
+      "hashtags": [
+        "#teachingkidsaboutmoney",
+        "#financialliteracyforkids",
+        "#moneyquestion",
+        "#parenting"
+      ],
+      "section": "Guardian Gate",
+      "route": "/play",
+      "based_on_topic": "spot-a-scam",
+      "sources": [
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.builder-scams-l1.keyConcept",
+          "quote": "urgency (rushing you to act fast), secrecy (asking you to keep it quiet), and requests for personal information like passwords"
+        },
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.builder-scams-l1.parentNote",
+          "quote": "if a message asks for a password or feels urgent, always check with a grown-up first"
+        },
+        {
+          "file": "src/content/learning-labs.ts",
+          "quote": "A game chat asks for your password to give a prize."
+        }
+      ]
+    },
+    {
+      "id": "MQ-I-008",
+      "category": "question",
+      "cover_title": "What would your child invent?",
+      "hook": "What annoys your child most this week?",
+      "icon": "bulb",
+      "scenes": [
+        {
+          "kind": "idea",
+          "text": "Every good business starts by solving a problem.",
+          "icon": "bulb"
+        },
+        {
+          "kind": "action",
+          "text": "Ask how they would fix it, then sketch it together.",
+          "icon": "list"
+        },
+        {
+          "kind": "close",
+          "text": "What would your child invent?"
+        }
+      ],
+      "description": "What would your child invent?. Ask how they would fix it, then sketch it together. What would your child invent? Money lessons for children at Money Quest Academy, link in bio.",
+      "hashtags": [
+        "#teachingkidsaboutmoney",
+        "#financialliteracyforkids",
+        "#moneyquestion",
+        "#parenting"
+      ],
+      "section": "Entrepreneur Quest",
+      "route": "/entrepreneur-quest",
+      "based_on_topic": "think-like-entrepreneur",
+      "sources": [
+        {
+          "file": "messages/en.json",
+          "path": "entrepreneurQuest.stages.find-a-problem.learnText",
+          "quote": "Every good business starts by solving a problem. A problem is something that annoys people, wastes their time, or is hard to do."
+        },
+        {
+          "file": "messages/en.json",
+          "path": "entrepreneurQuest.stages.create-an-idea.learnText",
+          "quote": "Your idea is your answer to the problem you found."
+        }
+      ]
+    },
+    {
+      "id": "MQ-I-009",
+      "category": "question",
+      "cover_title": "Who would your child help with £1?",
+      "hook": "Who would your child help with £1?",
+      "icon": "heart",
+      "scenes": [
+        {
+          "kind": "idea",
+          "text": "Giving is a kind choice, not a loss.",
+          "icon": "heart"
+        },
+        {
+          "kind": "action",
+          "text": "Let them choose who to help. Any amount counts.",
+          "icon": "coins"
+        },
+        {
+          "kind": "close",
+          "text": "Who did they pick?"
+        }
+      ],
+      "description": "Who would your child help with £1?. Let them choose who to help. Any amount counts. Who did they pick? Money lessons for children at Money Quest Academy, link in bio.",
+      "hashtags": [
+        "#teachingkidsaboutmoney",
+        "#financialliteracyforkids",
+        "#moneyquestion",
+        "#parenting"
+      ],
+      "section": "Kindness Grove",
+      "route": "/play",
+      "based_on_topic": "giving-plan",
+      "sources": [
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.explorer-giving-l1.keyConcept",
+          "quote": "Giving away some of what you have to help someone else is a kind, valuable choice, not a loss."
+        },
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.explorer-giving-l1.parentNote",
+          "quote": "generosity is a genuine, valuable financial habit worth building early, alongside saving and spending"
+        },
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.builder-giving-l1.parentNote",
+          "quote": "There's no 'correct' amount to give"
+        }
+      ]
+    },
+    {
+      "id": "MQ-I-010",
+      "category": "question",
+      "cover_title": "Would your child check an AI answer?",
+      "hook": "\"The AI said so.\" Is that enough?",
+      "icon": "question",
+      "scenes": [
+        {
+          "kind": "idea",
+          "text": "AI can sound certain and still be wrong.",
+          "icon": "bulb"
+        },
+        {
+          "kind": "action",
+          "text": "Check one surprising fact together in a reliable source.",
+          "icon": "check"
+        },
+        {
+          "kind": "close",
+          "text": "Does your child use AI for homework?"
+        }
+      ],
+      "description": "Would your child check an AI answer?. Check one surprising fact together in a reliable source. Does your child use AI for homework? Money lessons for children at Money Quest Academy, link in bio.",
+      "hashtags": [
+        "#teachingkidsaboutmoney",
+        "#financialliteracyforkids",
+        "#moneyquestion",
+        "#parenting"
+      ],
+      "section": "Future Skills",
+      "route": "/future-skills",
+      "based_on_topic": "check-ai-answers",
+      "sources": [
+        {
+          "file": "src/content/learning-labs.ts",
+          "quote": "AI can produce useful suggestions and incorrect information."
+        },
+        {
+          "file": "src/content/learning-labs.ts",
+          "quote": "An AI answer is not proof. Check important information."
+        },
+        {
+          "file": "src/content/learning-labs.ts",
+          "quote": "Technology is a tool. You stay in charge."
+        }
+      ]
+    },
+    {
+      "id": "MQ-A-002",
+      "category": "activity",
+      "cover_title": "The clear jar: watch savings grow",
+      "hook": "One jar changes how children save.",
+      "icon": "jar",
+      "scenes": [
+        {
+          "kind": "step",
+          "text": "Find a clear jar.",
+          "icon": "jar"
+        },
+        {
+          "kind": "step",
+          "text": "Stick a picture of the goal on it.",
+          "icon": "target"
+        },
+        {
+          "kind": "step",
+          "text": "Add coins weekly and watch it fill.",
+          "icon": "coins"
+        },
+        {
+          "kind": "action",
+          "text": "Seeing progress beats an abstract number.",
+          "icon": "check"
+        },
+        {
+          "kind": "close",
+          "text": "What goes on your child's jar?"
+        }
+      ],
+      "description": "The clear jar: watch savings grow. Seeing progress beats an abstract number. What goes on your child's jar? Money lessons for children at Money Quest Academy, link in bio.",
+      "hashtags": [
+        "#moneylessonsforkids",
+        "#financialliteracyforkids",
+        "#parentingtips",
+        "#kidsactivities"
+      ],
+      "section": "Savings Goals",
+      "route": "/play/goals",
+      "based_on_topic": "saving-why",
+      "sources": [
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.explorer-saving-l1.keyConcept",
+          "quote": "Saving is putting money aside now so you can use it later, often for something bigger."
+        },
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.builder-saving-l1.keyConcept",
+          "quote": "choosing not to spend on smaller things now, so you can afford something bigger later"
+        },
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.explorer-saving-l1.parentNote",
+          "quote": "a clear jar or a simple chart your child can actually see filling up tends to work far better at this age than a bank app or an abstract number"
+        }
+      ]
+    },
+    {
+      "id": "MQ-A-003",
+      "category": "activity",
+      "cover_title": "Four pots for pocket money",
+      "hook": "Four pots. One pocket-money plan.",
+      "icon": "coins",
+      "scenes": [
+        {
+          "kind": "step",
+          "text": "Label four pots: needs, wants, saving, giving.",
+          "icon": "list"
+        },
+        {
+          "kind": "step",
+          "text": "Hand over a fixed amount of play money.",
+          "icon": "coins"
+        },
+        {
+          "kind": "step",
+          "text": "Let your child choose the amounts.",
+          "icon": "check"
+        },
+        {
+          "kind": "action",
+          "text": "More in one pot means less in another.",
+          "icon": "bulb"
+        },
+        {
+          "kind": "close",
+          "text": "Which pot fills first?"
+        }
+      ],
+      "description": "Four pots for pocket money. More in one pot means less in another. Which pot fills first? Money lessons for children at Money Quest Academy, link in bio.",
+      "hashtags": [
+        "#moneylessonsforkids",
+        "#financialliteracyforkids",
+        "#parentingtips",
+        "#kidsactivities"
+      ],
+      "section": "Learning articles",
+      "route": "/learn",
+      "based_on_topic": "budget-fixed-pie",
+      "sources": [
+        {
+          "file": "messages/en.json",
+          "path": "articles.budgeting-for-kids",
+          "quote": "when you have a fixed amount of something, giving more to one thing means less for another"
+        },
+        {
+          "file": "messages/en.json",
+          "path": "articles.budgeting-for-kids",
+          "quote": "the entire foundation adult budgeting is built on"
+        },
+        {
+          "file": "messages/en.json",
+          "path": "articles.budgeting-for-kids",
+          "quote": "A simple split into needs, wants, saving, and giving"
+        }
+      ]
+    },
+    {
+      "id": "MQ-A-004",
+      "category": "activity",
+      "cover_title": "The sleep-on-it rule",
+      "hook": "Try the sleep-on-it rule this week.",
+      "icon": "bag",
+      "scenes": [
+        {
+          "kind": "step",
+          "text": "See something tempting? Don't buy yet.",
+          "icon": "bag"
+        },
+        {
+          "kind": "step",
+          "text": "Sleep on it.",
+          "icon": "target"
+        },
+        {
+          "kind": "step",
+          "text": "Next day, ask: still want it?",
+          "icon": "question"
+        },
+        {
+          "kind": "action",
+          "text": "Urgency pushes quick choices. A pause helps.",
+          "icon": "check"
+        },
+        {
+          "kind": "close",
+          "text": "Would your family try this rule?"
+        }
+      ],
+      "description": "The sleep-on-it rule. Urgency pushes quick choices. A pause helps. Would your family try this rule? Money lessons for children at Money Quest Academy, link in bio.",
+      "hashtags": [
+        "#moneylessonsforkids",
+        "#financialliteracyforkids",
+        "#parentingtips",
+        "#kidsactivities"
+      ],
+      "section": "Brain Lab",
+      "route": "/brain-lab",
+      "based_on_topic": "pause-before-buying",
+      "sources": [
+        {
+          "file": "src/content/learning-labs.ts",
+          "quote": "A short pause gives you time to compare options."
+        },
+        {
+          "file": "src/content/learning-labs.ts",
+          "quote": "Urgency can influence a choice. Checking the cost and your priorities helps you decide."
+        }
+      ]
+    },
+    {
+      "id": "MQ-A-005",
+      "category": "activity",
+      "cover_title": "Spot the trick in one advert",
+      "hook": "Play spot the trick with one advert.",
+      "icon": "bulb",
+      "scenes": [
+        {
+          "kind": "step",
+          "text": "Watch one advert together.",
+          "icon": "tags"
+        },
+        {
+          "kind": "step",
+          "text": "Ask: what makes it tempting?",
+          "icon": "question"
+        },
+        {
+          "kind": "step",
+          "text": "Name the trick. No lecture.",
+          "icon": "bulb"
+        },
+        {
+          "kind": "action",
+          "text": "Adverts are designed to make wants feel urgent.",
+          "icon": "check"
+        },
+        {
+          "kind": "close",
+          "text": "Which advert does your child know by heart?"
+        }
+      ],
+      "description": "Spot the trick in one advert. Adverts are designed to make wants feel urgent. Which advert does your child know by heart? Money lessons for children at Money Quest Academy, link in bio.",
+      "hashtags": [
+        "#moneylessonsforkids",
+        "#financialliteracyforkids",
+        "#parentingtips",
+        "#kidsactivities"
+      ],
+      "section": "Market Town",
+      "route": "/play",
+      "based_on_topic": "ads-make-wants-urgent",
+      "sources": [
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.strategist-needs_wants-l1.keyConcept",
+          "quote": "Advertising and social pressure are specifically designed to make wants feel urgent, like needs"
+        },
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.strategist-needs_wants-l1.parentNote",
+          "quote": "tends to land much better as a shared, curious observation"
+        }
+      ]
+    },
+    {
+      "id": "MQ-A-006",
+      "category": "activity",
+      "cover_title": "Say one payment out loud",
+      "hook": "Say this next time you tap your card.",
+      "icon": "coins",
+      "scenes": [
+        {
+          "kind": "step",
+          "text": "Tap your card as usual.",
+          "icon": "bag"
+        },
+        {
+          "kind": "step",
+          "text": "Say: this takes money from my account.",
+          "icon": "coins"
+        },
+        {
+          "kind": "step",
+          "text": "Show the receipt or the message.",
+          "icon": "list"
+        },
+        {
+          "kind": "action",
+          "text": "A tap can feel like free money to a child.",
+          "icon": "bulb"
+        },
+        {
+          "kind": "close",
+          "text": "Save this for your next card payment."
+        }
+      ],
+      "description": "Say one payment out loud. A tap can feel like free money to a child. Save this for your next card payment. Money lessons for children at Money Quest Academy, link in bio.",
+      "hashtags": [
+        "#moneylessonsforkids",
+        "#financialliteracyforkids",
+        "#parentingtips",
+        "#kidsactivities"
+      ],
+      "section": "Sky Exchange",
+      "route": "/play",
+      "based_on_topic": "digital-money-feels-free",
+      "sources": [
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.builder-money_basics-l1.parentNote",
+          "quote": "cards and apps can feel like 'free money' to a child who's never watched cash physically change hands"
+        },
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.builder-money_basics-l1.parentNote",
+          "quote": "I'm paying with my card, which takes the money from my account, the same as if I'd handed over coins"
+        },
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.strategist-digital_money-l1.keyConcept",
+          "quote": "they can feel less 'real' in the moment"
+        }
+      ]
+    },
+    {
+      "id": "MQ-A-007",
+      "category": "activity",
+      "cover_title": "A 3-item picture checklist",
+      "hook": "Three pictures that end the morning rush.",
+      "icon": "list",
+      "scenes": [
+        {
+          "kind": "step",
+          "text": "Draw a three-item picture checklist.",
+          "icon": "list"
+        },
+        {
+          "kind": "step",
+          "text": "Stick it by the door.",
+          "icon": "check"
+        },
+        {
+          "kind": "step",
+          "text": "Step back and let them use it.",
+          "icon": "heart"
+        },
+        {
+          "kind": "action",
+          "text": "A short checklist helps children act independently.",
+          "icon": "bulb"
+        },
+        {
+          "kind": "close",
+          "text": "What does your child always forget?"
+        }
+      ],
+      "description": "A 3-item picture checklist. A short checklist helps children act independently. What does your child always forget? Money lessons for children at Money Quest Academy, link in bio.",
+      "hashtags": [
+        "#moneylessonsforkids",
+        "#financialliteracyforkids",
+        "#parentingtips",
+        "#kidsactivities"
+      ],
+      "section": "Future Skills",
+      "route": "/future-skills",
+      "based_on_topic": "picture-checklist",
+      "sources": [
+        {
+          "file": "src/content/learning-labs.ts",
+          "quote": "A short checklist can help you act independently."
+        },
+        {
+          "file": "src/content/learning-labs.ts",
+          "quote": "Make a three-item picture or written checkl"
+        }
+      ]
+    },
+    {
+      "id": "MQ-A-008",
+      "category": "activity",
+      "cover_title": "Make one before making ten",
+      "hook": "Make one sample before making ten.",
+      "icon": "bulb",
+      "scenes": [
+        {
+          "kind": "step",
+          "text": "Make just one.",
+          "icon": "bulb"
+        },
+        {
+          "kind": "step",
+          "text": "Show three people and ask what they think.",
+          "icon": "question"
+        },
+        {
+          "kind": "step",
+          "text": "Change it, then make more.",
+          "icon": "check"
+        },
+        {
+          "kind": "action",
+          "text": "A small test teaches before you spend more.",
+          "icon": "coins"
+        },
+        {
+          "kind": "close",
+          "text": "What was your child's first idea?"
+        }
+      ],
+      "description": "Make one before making ten. A small test teaches before you spend more. What was your child's first idea? Money lessons for children at Money Quest Academy, link in bio.",
+      "hashtags": [
+        "#moneylessonsforkids",
+        "#financialliteracyforkids",
+        "#parentingtips",
+        "#kidsactivities"
+      ],
+      "section": "Entrepreneur Quest",
+      "route": "/entrepreneur-quest",
+      "based_on_topic": "test-small-idea",
+      "sources": [
+        {
+          "file": "src/content/learning-labs.ts",
+          "quote": "Make a sample and ask for feedback"
+        },
+        {
+          "file": "src/content/learning-labs.ts",
+          "quote": "A small test helps you learn before spending more."
+        },
+        {
+          "file": "messages/en.json",
+          "path": "entrepreneurQuest.stages.test-the-idea.learnText",
+          "quote": "testing a small idea first can save you from a costly mistake"
+        }
+      ]
+    },
+    {
+      "id": "MQ-A-009",
+      "category": "activity",
+      "cover_title": "The bake-sale sum",
+      "hook": "What did the bake sale really make?",
+      "icon": "coins",
+      "scenes": [
+        {
+          "kind": "step",
+          "text": "Add up what the ingredients cost.",
+          "icon": "list"
+        },
+        {
+          "kind": "step",
+          "text": "Count what came in.",
+          "icon": "coins"
+        },
+        {
+          "kind": "step",
+          "text": "Take the costs away from the sales.",
+          "icon": "tags"
+        },
+        {
+          "kind": "action",
+          "text": "What is left is the profit.",
+          "icon": "check"
+        },
+        {
+          "kind": "close",
+          "text": "Has your child ever sold something?"
+        }
+      ],
+      "description": "The bake-sale sum. What is left is the profit. Has your child ever sold something? Money lessons for children at Money Quest Academy, link in bio.",
+      "hashtags": [
+        "#moneylessonsforkids",
+        "#financialliteracyforkids",
+        "#parentingtips",
+        "#kidsactivities"
+      ],
+      "section": "Entrepreneur Quest",
+      "route": "/entrepreneur-quest",
+      "based_on_topic": "profit-basics",
+      "sources": [
+        {
+          "file": "messages/en.json",
+          "path": "entrepreneurQuest.stages.calculate-your-profit.learnText",
+          "quote": "Profit is the money you keep after paying your costs. Profit = Sales minus Costs."
+        },
+        {
+          "file": "messages/en.json",
+          "path": "entrepreneurQuest.stages.understand-costs.learnText",
+          "quote": "Costs are how much money it takes to make one item."
+        }
+      ]
+    },
+    {
+      "id": "MQ-A-010",
+      "category": "activity",
+      "cover_title": "How many weeks to the goal?",
+      "hook": "Work out the weeks to their goal.",
+      "icon": "target",
+      "scenes": [
+        {
+          "kind": "step",
+          "text": "Let your child pick one goal.",
+          "icon": "target"
+        },
+        {
+          "kind": "step",
+          "text": "Divide the price by their weekly savings.",
+          "icon": "coins"
+        },
+        {
+          "kind": "step",
+          "text": "Mark the weeks on a calendar.",
+          "icon": "list"
+        },
+        {
+          "kind": "action",
+          "text": "A number of weeks lands better than \"maybe later\".",
+          "icon": "check"
+        },
+        {
+          "kind": "close",
+          "text": "How many weeks is your child's goal?"
+        }
+      ],
+      "description": "How many weeks to the goal?. A number of weeks lands better than \"maybe later\". How many weeks is your child's goal? Money lessons for children at Money Quest Academy, link in bio.",
+      "hashtags": [
+        "#moneylessonsforkids",
+        "#financialliteracyforkids",
+        "#parentingtips",
+        "#kidsactivities"
+      ],
+      "section": "Savings Goals",
+      "route": "/play/goals",
+      "based_on_topic": "savings-goal-own-effort",
+      "sources": [
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.builder-saving-l1.keyConcept",
+          "quote": "Saving toward a specific goal means choosing not to spend on smaller things now, so you can afford something bigger later."
+        },
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.builder-saving-l1.parentNote",
+          "quote": "the experience of getting there on their own effort, even slowly, tends to matter more than the final amount"
+        },
+        {
+          "file": "messages/en.json",
+          "path": "parentInfo.pq6Body",
+          "quote": "work out together how many weeks of saving it would take"
+        },
+        {
+          "file": "messages/en.json",
+          "path": "parentInfo.pq6Body",
+          "quote": "work out together how many weeks of saving it would take"
+        }
+      ]
+    },
+    {
+      "id": "MQ-M-001",
+      "category": "mistake",
+      "cover_title": "Topping up your child's savings",
+      "hook": "Topping up their savings goal?",
+      "icon": "jar",
+      "scenes": [
+        {
+          "kind": "mistake",
+          "text": "Adding the last few pounds so they reach the goal sooner."
+        },
+        {
+          "kind": "fix",
+          "text": "Let them finish it themselves, even slowly."
+        },
+        {
+          "kind": "idea",
+          "text": "Getting there on their own effort matters more than the amount.",
+          "icon": "bulb"
+        },
+        {
+          "kind": "close",
+          "text": "Would you hold back?"
+        }
+      ],
+      "description": "Topping up your child's savings. Let them finish it themselves, even slowly. Would you hold back? Money lessons for children at Money Quest Academy, link in bio.",
+      "hashtags": [
+        "#teachingkidsaboutmoney",
+        "#financialliteracyforkids",
+        "#parentingtips",
+        "#parenting"
+      ],
+      "section": "Savings Goals",
+      "route": "/play/goals",
+      "based_on_topic": "savings-goal-own-effort",
+      "sources": [
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.builder-saving-l1.keyConcept",
+          "quote": "Saving toward a specific goal means choosing not to spend on smaller things now, so you can afford something bigger later."
+        },
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.builder-saving-l1.parentNote",
+          "quote": "the experience of getting there on their own effort, even slowly, tends to matter more than the final amount"
+        },
+        {
+          "file": "messages/en.json",
+          "path": "parentInfo.pq6Body",
+          "quote": "work out together how many weeks of saving it would take"
+        }
+      ]
+    },
+    {
+      "id": "MQ-M-002",
+      "category": "mistake",
+      "cover_title": "Saying \"you don't need that\"",
+      "hook": "Do you say \"you don't need that\"?",
+      "icon": "bag",
+      "scenes": [
+        {
+          "kind": "mistake",
+          "text": "Telling a child they are wrong to want something."
+        },
+        {
+          "kind": "fix",
+          "text": "Ask gently: what would happen if you didn't get it?"
+        },
+        {
+          "kind": "idea",
+          "text": "Wanting things is completely normal.",
+          "icon": "heart"
+        },
+        {
+          "kind": "close",
+          "text": "What do you say instead?"
+        }
+      ],
+      "description": "Saying \"you don't need that\". Ask gently: what would happen if you didn't get it? What do you say instead? Money lessons for children at Money Quest Academy, link in bio.",
+      "hashtags": [
+        "#teachingkidsaboutmoney",
+        "#financialliteracyforkids",
+        "#parentingtips",
+        "#parenting"
+      ],
+      "section": "Market Town",
+      "route": "/play",
+      "based_on_topic": "needs-vs-wants",
+      "sources": [
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.explorer-needs_wants-l1.keyConcept",
+          "quote": "A need is something you must have to be okay. A want is something nice to have"
+        },
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.explorer-needs_wants-l1.parentNote",
+          "quote": "a strong want can feel exactly as urgent as a real need"
+        },
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.explorer-needs_wants-l1.parentNote",
+          "quote": "('what would happen if you didn't get it?') works far better than telling them they're wrong to want something"
+        }
+      ]
+    },
+    {
+      "id": "MQ-M-003",
+      "category": "mistake",
+      "cover_title": "Telling off a child who reports a strange message",
+      "hook": "Your child shows you a strange message.",
+      "icon": "question",
+      "scenes": [
+        {
+          "kind": "mistake",
+          "text": "Telling them off for having seen it."
+        },
+        {
+          "kind": "fix",
+          "text": "Say \"well spotted\" and deal with it together."
+        },
+        {
+          "kind": "idea",
+          "text": "Praise makes them tell you next time.",
+          "icon": "heart"
+        },
+        {
+          "kind": "close",
+          "text": "Does your child know to tell you?"
+        }
+      ],
+      "description": "Telling off a child who reports a strange message. Say \"well spotted\" and deal with it together. Does your child know to tell you? Money lessons for children at Money Quest Academy, link in bio.",
+      "hashtags": [
+        "#teachingkidsaboutmoney",
+        "#financialliteracyforkids",
+        "#parentingtips",
+        "#parenting"
+      ],
+      "section": "Guardian Gate",
+      "route": "/play",
+      "based_on_topic": "spot-a-scam",
+      "sources": [
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.builder-scams-l1.keyConcept",
+          "quote": "urgency (rushing you to act fast), secrecy (asking you to keep it quiet), and requests for personal information like passwords"
+        },
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.builder-scams-l1.parentNote",
+          "quote": "if a message asks for a password or feels urgent, always check with a grown-up first"
+        },
+        {
+          "file": "src/content/learning-labs.ts",
+          "quote": "A game chat asks for your password to give a prize."
+        },
+        {
+          "file": "messages/en.json",
+          "path": "curriculum.explorer-scams-l1.parentNote",
+          "quote": "treating it as a genuine 'well spotted!' moment"
+        }
+      ]
+    }
+  ],
+  "calendar": [
+    "MQ-Q-004",
+    "MQ-I-001",
+    "MQ-A-001",
+    "MQ-Q-005",
+    "MQ-A-002",
+    "MQ-Q-006",
+    "MQ-Q-007",
+    "MQ-I-002",
+    "MQ-I-003",
+    "MQ-Q-008",
+    "MQ-A-003",
+    "MQ-M-001",
+    "MQ-Q-009",
+    "MQ-I-004",
+    "MQ-A-004",
+    "MQ-Q-010",
+    "MQ-A-005",
+    "MQ-Q-011",
+    "MQ-Q-012",
+    "MQ-I-005",
+    "MQ-I-006",
+    "MQ-Q-013",
+    "MQ-A-006",
+    "MQ-M-002",
+    "MQ-Q-014",
+    "MQ-I-007",
+    "MQ-A-007",
+    "MQ-Q-015",
+    "MQ-A-008",
+    "MQ-Q-016",
+    "MQ-Q-017",
+    "MQ-I-008",
+    "MQ-I-009",
+    "MQ-Q-018",
+    "MQ-A-009",
+    "MQ-M-003",
+    "MQ-Q-019",
+    "MQ-I-010",
+    "MQ-A-010"
+  ]
+}
