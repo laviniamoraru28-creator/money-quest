@@ -35,7 +35,7 @@ def audit():
             findings.append((locale, "extra_key", key, "Not present in English source"))
         for key in sorted(base.keys() & target.keys()):
             value = target[key]
-            if not value.strip():
+            if base[key].strip() and not value.strip():
                 findings.append((locale, "empty", key, "Translation is empty"))
             if sorted(TOKEN.findall(base[key])) != sorted(TOKEN.findall(value)):
                 findings.append((locale, "placeholders", key, "Placeholder mismatch"))
@@ -49,7 +49,7 @@ if __name__ == "__main__":
         lines.append(f"| {safe(locale)} | {safe(kind)} | {safe(key)} | {safe(detail)} |")
     if len(findings) > 300:
         lines.append(f"\\nOnly first 300 of {len(findings)} findings shown.")
-    report = "\\n".join(lines) + "\\n"
+    report = "\n".join(lines) + "\n"
     Path("language-guardian-report.md").write_text(report, encoding="utf-8")
     print(report)
     sys.exit(1 if findings else 0)
