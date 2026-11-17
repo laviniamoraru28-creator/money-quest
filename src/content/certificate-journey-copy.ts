@@ -10,3 +10,20 @@ export const certificateJourneyCopy:Record<Locale,{heading:string;steps:string;p
  nl:{heading:"Hoe het werkt",steps:"Kies Ontdekker (6–8), Bouwer (9–11) of Strateeg (12–14). Voltooi de lessen en spellen van je niveau.",print:"Na het afronden van Money Quest, Entrepreneur Quest en Leadership Quest kun je één gratis certificaat downloaden. Download en print het en schrijf je naam in het lege vak."},
  pl:{heading:"Jak to działa",steps:"Wybierz Odkrywcę (6–8), Budowniczego (9–11) lub Stratega (12–14). Ukończ lekcje i gry na swoim poziomie.",print:"Po ukończeniu Money Quest, Entrepreneur Quest i Leadership Quest możesz pobrać jeden bezpłatny certyfikat. Pobierz go, wydrukuj i wpisz swoje imię w pustym miejscu."},
 };
+
+/** Shown in place of the certificate reward once Money Quest (or
+ * Money Quest + Entrepreneur Quest) is done for the selected level,
+ * but the three-quest journey isn't finished yet - a visible nudge
+ * for the MQ -> EQ -> LQ -> certificate order, never a forced redirect
+ * (every quest stays voluntary and revisitable). */
+export const journeyContinueCopy:Record<Locale,{heading:string;toEntrepreneurQuest:string;toLeadershipQuest:string}> = {
+ en:{heading:"Great progress! Keep your quest going.",toEntrepreneurQuest:"Continue to Entrepreneur Quest",toLeadershipQuest:"Continue to Leadership Quest"},
+ ro:{heading:"Progres grozav! Continuă aventura.",toEntrepreneurQuest:"Continuă cu Entrepreneur Quest",toLeadershipQuest:"Continuă cu Leadership Quest"},
+ es:{heading:"¡Gran progreso! Sigue con tu aventura.",toEntrepreneurQuest:"Continuar con Entrepreneur Quest",toLeadershipQuest:"Continuar con Leadership Quest"},
+ fr:{heading:"Beau progrès ! Continue ton aventure.",toEntrepreneurQuest:"Continuer avec Entrepreneur Quest",toLeadershipQuest:"Continuer avec Leadership Quest"},
+ de:{heading:"Toller Fortschritt! Mach mit deinem Abenteuer weiter.",toEntrepreneurQuest:"Weiter mit Entrepreneur Quest",toLeadershipQuest:"Weiter mit Leadership Quest"},
+ it:{heading:"Ottimo progresso! Continua la tua avventura.",toEntrepreneurQuest:"Continua con Entrepreneur Quest",toLeadershipQuest:"Continua con Leadership Quest"},
+ pt:{heading:"Ótimo progresso! Continua a tua aventura.",toEntrepreneurQuest:"Continuar com o Entrepreneur Quest",toLeadershipQuest:"Continuar com o Leadership Quest"},
+ nl:{heading:"Goed bezig! Ga verder met je avontuur.",toEntrepreneurQuest:"Verder met Entrepreneur Quest",toLeadershipQuest:"Verder met Leadership Quest"},
+ pl:{heading:"Świetny postęp! Kontynuuj swoją przygodę.",toEntrepreneurQuest:"Przejdź do Entrepreneur Quest",toLeadershipQuest:"Przejdź do Leadership Quest"},
+};

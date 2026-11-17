@@ -7,6 +7,7 @@ import { certificateCopy, certificateCompetencies } from "@/content/certificate-
 import { isSupportedLocale } from "@/i18n/config";
 import { CERTIFICATE_BANDS } from "@/lib/certificates/eligibility";
 import { isThreeQuestCertificateReady } from "@/lib/certificates/three-quest-eligibility";
+import { useRecordThreeQuestCompletion } from "@/lib/certificates/use-record-three-quest-completion";
 import { useEntrepreneurQuest } from "@/lib/entrepreneur-quest/use-entrepreneur-quest";
 import { useLeadershipQuest } from "@/lib/leadership-quest/use-leadership-quest";
 import { CertificateDownload } from "@/components/CertificateDownload";
@@ -23,13 +24,20 @@ function CertificateContent() {
   const { state: leadership, isLoaded: leadershipLoaded } = useLeadershipQuest();
   const [preview,setPreview]=useState<string>();
   useEffect(()=>()=>{if(preview)URL.revokeObjectURL(preview);},[preview]);
-  const eligible=band&&entrepreneurLoaded&&leadershipLoaded&&isThreeQuestCertificateReady(state.completedActivityIds,band,entrepreneur,leadership);
+  // entrepreneur/leadership are already scoped to state.ageBand (the only
+  // band either hook can return a slice for) - requiring the URL's own
+  // ?level= to match it is what stops a direct link to another band's
+  // certificate from ever reading as eligible, per Issue #86 point 4.
+  const loaded=isLoaded&&entrepreneurLoaded&&leadershipLoaded;
+  const sameBand=!!band&&band===state.ageBand;
+  const eligible=loaded&&sameBand&&isThreeQuestCertificateReady(state.completedActivityIds,band,entrepreneur,leadership);
+  useRecordThreeQuestCompletion(sameBand?band!:null, eligible, loaded);
   return <main id="main-content" tabIndex={-1} className="mx-auto min-h-screen max-w-6xl p-4 text-center">
     <h1 className="text-2xl font-bold">{copy.title}</h1>
     {!isLoaded?<p>{t("common.loading")}</p>:!band||!eligible?<p className="mt-4">{copy.locked}</p>:<>
       <p className="mt-4">{copy.congratulations} {copy.level}: {copy[band]}</p>
-      
-      <CertificateDownload band={band} locale={locale} date={undefined} onPrepared={setPreview} />
+      {!state.threeQuestCertificateDates[band]&&<p className="mx-auto mt-2 max-w-2xl text-sm">{copy.dateUnknown}</p>}
+      <CertificateDownload band={band} locale={locale} date={state.threeQuestCertificateDates[band]} onPrepared={setPreview} />
       {preview&&<iframe src={preview} title={`${copy.title}: ${copy[band]}`} className="mt-4 h-[65vh] w-full rounded-lg border" />}
       <ul className="mx-auto mt-4 max-w-xl text-sm">{certificateCompetencies[band].map(key=><li key={key}>{copy[key]}</li>)}</ul>
     </>}

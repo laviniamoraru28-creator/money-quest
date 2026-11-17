@@ -1,6 +1,9 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { useLocalProgress } from "@/lib/local-progress/use-local-progress";
+import type { AgeBand } from "@/types/database.types";
+import { readBandScopedSlice, toBandScopedPayload } from "@/lib/band-scoped-storage";
 import {
   createDefaultState,
   recordChoice as recordChoicePure,
@@ -15,30 +18,36 @@ import {
  * pattern (pure state module + thin localStorage-backed hook), its own
  * storage key so nothing here can ever touch Entrepreneur Quest's or the
  * shared wallet's saved data (brief section 2/15).
+ *
+ * Scoped per age band under that one key, same as Entrepreneur Quest -
+ * see use-entrepreneur-quest.ts's own comment and band-scoped-storage.ts
+ * for why (Issue #86: a band's Leadership Quest completion must never
+ * silently also complete it for the other two bands).
  */
 const STORAGE_KEY = "moneyquest_leadership_quest_v1";
 
-function readFromStorage(): LeadershipQuestState {
+function mergeDefaults(defaults: LeadershipQuestState, parsed: unknown): LeadershipQuestState {
+  const value = (parsed ?? {}) as Partial<LeadershipQuestState> & {team?: Record<string, unknown>};
+  return { ...defaults, ...value, team: { ...defaults.team, ...value.team } };
+}
+
+function readFromStorage(band: AgeBand | null): LeadershipQuestState {
   if (typeof window === "undefined") return createDefaultState();
   try {
     const raw = window.localStorage.getItem(STORAGE_KEY);
-    if (!raw) return createDefaultState();
-    const parsed = JSON.parse(raw);
-    const defaults = createDefaultState();
-    return {
-      ...defaults,
-      ...parsed,
-      team: { ...defaults.team, ...parsed.team },
-    };
+    const parsed = raw ? JSON.parse(raw) : null;
+    return readBandScopedSlice(parsed, band, createDefaultState, mergeDefaults);
   } catch {
     return createDefaultState();
   }
 }
 
-function writeToStorage(state: LeadershipQuestState): void {
-  if (typeof window === "undefined") return;
+function writeToStorage(band: AgeBand | null, state: LeadershipQuestState): void {
+  if (typeof window === "undefined" || !band) return;
   try {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    const raw = window.localStorage.getItem(STORAGE_KEY);
+    const parsed = raw ? JSON.parse(raw) : null;
+    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(toBandScopedPayload(parsed, band, state)));
   } catch {
     // Storage can fail (private browsing, quota exceeded, disabled
     // entirely) — keep working in-memory for the rest of the session
@@ -46,24 +55,33 @@ function writeToStorage(state: LeadershipQuestState): void {
   }
 }
 
-export function resetLeadershipQuest(): LeadershipQuestState {
+export function resetLeadershipQuest(band: AgeBand | null): LeadershipQuestState {
   const fresh = createDefaultState();
-  writeToStorage(fresh);
+  writeToStorage(band, fresh);
   return fresh;
 }
 
 export function useLeadershipQuest() {
+  const { state: localProgress, isLoaded: localProgressLoaded } = useLocalProgress();
+  const band = localProgress.ageBand;
   const [state, setState] = useState<LeadershipQuestState>(createDefaultState());
   const [isLoaded, setIsLoaded] = useState(false);
+  const bandRef = useRef(band);
 
   useEffect(() => {
-    setState(readFromStorage());
+    // See use-entrepreneur-quest.ts's own version of this same guard for
+    // why: without it, this flips isLoaded true once on a transient
+    // band=null read, before local-progress's real band has loaded.
+    if (!localProgressLoaded) return;
+    bandRef.current = band;
+    setState(readFromStorage(band));
     setIsLoaded(true);
-  }, []);
+    // Re-reads on a band switch (no page reload) - that band's own save.
+  }, [band, localProgressLoaded]);
 
   const persist = useCallback((next: LeadershipQuestState) => {
     setState(next);
-    writeToStorage(next);
+    writeToStorage(bandRef.current, next);
   }, []);
 
   const recordChoice = useCallback(
@@ -95,7 +113,7 @@ export function useLeadershipQuest() {
   );
 
   const resetQuest = useCallback(() => {
-    const fresh = resetLeadershipQuest();
+    const fresh = resetLeadershipQuest(bandRef.current);
     setState(fresh);
   }, []);
 

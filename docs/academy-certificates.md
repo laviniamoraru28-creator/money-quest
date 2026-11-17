@@ -8,7 +8,9 @@ The three supplied Meta AI designs are the edit targets for the cleaned Explorer
 
 Browser-side pdf-lib/fontkit creates a genuine application/pdf Blob and downloads it through a native download link. No print dialog, account, payment, child name input or progress network request. Only public static assets are fetched. PDF is A4 landscape with the complete artwork inset 5 mm to accommodate home printers. The decorative blank name box remains entirely empty. The automatic institution signature is the text Money Quest. It does not represent a person's signature or outside accreditation. Fonts and PDF chunks are included in the existing offline manifest.
 
-English, Romanian, Spanish, French, German, Italian, Portuguese, Dutch and Polish use the existing next-intl selection. The copy includes title, localized level, achievement message, all six competencies, labels, buttons, error/loading/locked/legacy messages and programme attribution. Fixed branding remains MONEY QUEST ACADEMY and Money Quest Education. Seal branding remains in the artwork.
+English, Romanian, Spanish, French, German, Italian, Portuguese, Dutch and Polish use the existing next-intl selection. The copy includes title, localized level, achievement message, all six competencies, labels, buttons, error/loading/locked/legacy messages and programme attribution. Fixed branding is MONEY QUEST and Money Quest Education.
+
+**2026-11-17 update:** the public brand dropped "Academy." The vector header/PDF title text changed from "MONEY QUEST ACADEMY" to "MONEY QUEST" (src/lib/certificates/pdf.ts). The three background JPGs' baked-in seal text was also edited locally with OpenCV inpainting (scripts/fix-certificate-seal.py) to remove the word "ACADEMY" from the seal's curved ring text, leaving "MONEY QUEST" — the seal's separate "MQA" monogram (an abbreviation, not spelled-out text) was intentionally left untouched. Every other artwork element (colours, borders, wreath, monogram, illustrations) is unchanged.
 
 ## Completion and dates
 
