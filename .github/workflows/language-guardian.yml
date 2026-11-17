@@ -1,6 +1,12 @@
 name: Language Guardian structural audit
 on:
   workflow_dispatch:
+    inputs:
+      send_to_claude:
+        description: 'Create a GitHub issue with Claude handoff instructions (requires Claude GitHub integration)'
+        required: false
+        type: boolean
+        default: false
   pull_request:
     paths:
       - 'messages/**'
@@ -10,12 +16,15 @@ on:
     - cron: '0 9 * * 1'
 permissions:
   contents: read
+  issues: write
 jobs:
   audit:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Check translation structure
+        id: audit
+        continue-on-error: true
         run: python3 scripts/language-guardian.py
       - name: Upload report
         if: always()
@@ -24,3 +33,25 @@ jobs:
           name: language-guardian-report
           path: language-guardian-report.md
           if-no-files-found: warn
+      - name: Prepare Claude handoff issue
+        if: github.event_name == 'workflow_dispatch' && inputs.send_to_claude
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          cat > claude-handoff.md <<'EOF'
+          @claude Please review this localization audit for Money Quest Academy.
+
+          Scope: en-GB, ro-RO, es-ES, fr-FR, de-DE, it-IT, pt-PT, nl-NL, pl-PL.
+          Review natural educational language for ages 6-8, 9-11, 12-14, age-appropriate financial terminology, currency, placeholders, accessibility labels and mobile UI length.
+          The automated report only checks translation structure; it does not certify fluency.
+          Read the report attached to the workflow run. Do not change original educational meaning.
+          If your GitHub integration supports autonomous work, create a separate branch and draft PR with suggested fixes, preserve placeholders, run multilingual checks, and do not merge or deploy.
+          If not, leave a review plan and suggested corrections on this issue.
+          EOF
+          printf '\nWorkflow report: %s\n' "$RUN_URL" >> claude-handoff.md
+          gh issue create --title "Language Guardian: Claude translation review" --body-file claude-handoff.md
+      - name: Fail when structural errors found
+        if: steps.audit.outcome == 'failure'
+        run: exit 1
