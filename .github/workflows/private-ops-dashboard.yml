@@ -1,0 +1,41 @@
+name: Private Operations Dashboard
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '15 8 * * 1'
+  pull_request:
+    paths:
+      - 'scripts/private-ops-report.py'
+      - '.github/workflows/private-ops-dashboard.yml'
+permissions:
+  contents: read
+  actions: read
+  pull-requests: read
+  issues: read
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build private dashboard report
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: python3 scripts/private-ops-report.py
+      - name: Validate report
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          data = json.loads(Path('money-quest-ops-report.json').read_text())
+          assert data['repository'] and len(data['agents']) == 5
+          assert Path('money-quest-ops-report.md').is_file()
+          PY
+      - name: Upload private report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: private-operations-dashboard
+          path: |
+            money-quest-ops-report.md
+            money-quest-ops-report.json
+          retention-days: 14
