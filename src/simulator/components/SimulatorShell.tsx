@@ -108,15 +108,18 @@ export function SimulatorShell({ scenario, currencyCode, simulationActivityId, b
     );
   }
 
-  if (!week) {
-    // Unreachable in normal play: weekIndex only ever advances up to
-    // scenario.weeks.length via resolveWeek, and reaching that exact
-    // value routes to the "finished" phase above before this render is
-    // ever reached with no week available.
+  if (!week && phase !== "week-summary") {
+    // Unreachable in normal play outside week-summary: weekIndex only
+    // ever advances up to scenario.weeks.length via resolveWeek, and
+    // allocating/awaiting-choice always have a week to show. The final
+    // week's own summary, though, is rendered with weekIndex already at
+    // that out-of-range value (see below) - its branch doesn't need
+    // `week` at all, so it's excluded from this guard rather than being
+    // skipped by it.
     return null;
   }
 
-  const spendableIncome = getSpendableIncome(week);
+  const spendableIncome = week ? getSpendableIncome(week) : 0;
   const lastLogEntry = state.log[state.log.length - 1];
 
   return (
@@ -129,30 +132,35 @@ export function SimulatorShell({ scenario, currencyCode, simulationActivityId, b
           <span aria-hidden="true">🏠</span> {t("nav.home")}
         </Button>
       </div>
-      <div>
-        <p className="text-sm text-ink/70">
-          {t("simulator.weekOf", { week: week.weekLabel, total: scenario.weeks.length })}
-        </p>
-        <div className="mt-3xs h-2 w-full">
-          <ProgressBar percent={((state.weekIndex + 1) / scenario.weeks.length) * 100} label={t("simulator.weekProgressLabel")} />
-        </div>
-      </div>
 
-      <div className="rounded-md border border-ink/10 bg-white p-sm text-center">
-        <p className="text-sm text-ink/70">{t("simulator.youReceiveThisWeek")}</p>
-        <p className="font-display text-3xl font-bold text-teal-text">{formatCurrency(week.incomeMinorUnits, currencyCode, uiLocale)}</p>
-        {week.event?.type === "windfall" && (
-          <p className="mt-2xs text-sm font-medium text-gold-text">
-            {t("simulator.bonusThisWeek", { amount: formatCurrency(week.event.bonusMinorUnits ?? 0, currencyCode, uiLocale) })}
-          </p>
-        )}
-      </div>
+      {week && (
+        <>
+          <div>
+            <p className="text-sm text-ink/70">
+              {t("simulator.weekOf", { week: week.weekLabel, total: scenario.weeks.length })}
+            </p>
+            <div className="mt-3xs h-2 w-full">
+              <ProgressBar percent={((state.weekIndex + 1) / scenario.weeks.length) * 100} label={t("simulator.weekProgressLabel")} />
+            </div>
+          </div>
 
-      {week.event && (week.event.type === "expense" || week.event.type === "windfall") && (
-        <EventCard event={week.event} currencyCode={currencyCode} uiLocale={uiLocale} hasChosen />
+          <div className="rounded-md border border-ink/10 bg-white p-sm text-center">
+            <p className="text-sm text-ink/70">{t("simulator.youReceiveThisWeek")}</p>
+            <p className="font-display text-3xl font-bold text-teal-text">{formatCurrency(week.incomeMinorUnits, currencyCode, uiLocale)}</p>
+            {week.event?.type === "windfall" && (
+              <p className="mt-2xs text-sm font-medium text-gold-text">
+                {t("simulator.bonusThisWeek", { amount: formatCurrency(week.event.bonusMinorUnits ?? 0, currencyCode, uiLocale) })}
+              </p>
+            )}
+          </div>
+
+          {week.event && (week.event.type === "expense" || week.event.type === "windfall") && (
+            <EventCard event={week.event} currencyCode={currencyCode} uiLocale={uiLocale} hasChosen />
+          )}
+        </>
       )}
 
-      {phase === "allocating" && (
+      {phase === "allocating" && week && (
         <WeekAllocationPanel
           spendableIncomeMinorUnits={spendableIncome}
           currencyCode={currencyCode}
@@ -161,7 +169,7 @@ export function SimulatorShell({ scenario, currencyCode, simulationActivityId, b
         />
       )}
 
-      {phase === "awaiting-choice" && week.event?.type === "opportunity" && (
+      {phase === "awaiting-choice" && week?.event?.type === "opportunity" && (
         <EventCard event={week.event} currencyCode={currencyCode} uiLocale={uiLocale} onChoose={handleEventChoice} hasChosen={false} />
       )}
 

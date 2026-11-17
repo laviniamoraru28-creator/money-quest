@@ -8,6 +8,7 @@ import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { ProgressBar } from "@/components/ui/ProgressBar";
 import { MissionIcon, CategoryIcon, CompletedBadge } from "@/components/real-life-quests/MissionIcon";
+import { ContinueJourneyButton } from "@/components/ContinueJourneyButton";
 
 /**
  * The Real Life Quests hub — the landing page for all 12 missions,
@@ -96,6 +97,12 @@ export default function RealLifeQuestsHubPage() {
             </section>
           );
         })}
+
+        {completedCount === allMissionIds.length && (
+          <div className="mt-lg flex justify-center">
+            <ContinueJourneyButton currentHref="/real-life-quests" />
+          </div>
+        )}
 
         <Card variant="data" className="mt-lg">
           <h2 className="font-display text-lg font-bold">{t("realLifeQuests.parentIntroTitle")}</h2>

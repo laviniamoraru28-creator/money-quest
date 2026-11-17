@@ -6,6 +6,7 @@ import {CERTIFICATE_BANDS,requiredCertificateActivities} from "../../src/lib/cer
 import {LESSON_STRUCTURES} from "../../src/content/curriculum/structures";
 import {LOCALES} from "../../src/i18n/config";
 import {certificateCopy} from "../../src/content/certificate-copy";
+import {journeyCopy} from "../../src/content/journey-copy";
 
 for(const band of CERTIFICATE_BANDS)test(`certificate earned at real final ${band} lesson, date retained, no duplicate reward`,async({page})=>{
  const lesson=LESSON_STRUCTURES.find(item=>item.ageBand===band)!;
@@ -40,10 +41,10 @@ for(const band of CERTIFICATE_BANDS)test(`certificate earned at real final ${ban
  // require downloading or viewing the certificate first - it already
  // renders alongside the download button above, not after it.
  const nextSectionLabel=messages.navMenu.entrepreneurQuest;
- const continueLink=page.getByRole("link",{name:certificateCopy.en.continueToNextSectionAria.replace("{section}",nextSectionLabel),exact:true});
+ const continueLink=page.getByRole("link",{name:journeyCopy.en.continueToAria.replace("{section}",nextSectionLabel),exact:true});
  await expect(continueLink).toHaveCount(1);
  await expect(continueLink).toHaveAttribute("href","/en/entrepreneur-quest");
- await expect(continueLink).toHaveText(certificateCopy.en.continueToNextSection.replace("{section}",nextSectionLabel));
+ await expect(continueLink).toHaveText(journeyCopy.en.continueTo.replace("{section}",nextSectionLabel));
  await continueLink.focus();await expect(continueLink).toBeFocused();
  const box=await continueLink.boundingBox();expect(box!.height).toBeGreaterThanOrEqual(44);
  const readState=()=>page.evaluate(()=>JSON.parse(localStorage.getItem("moneyquest_local_progress_v1")!));

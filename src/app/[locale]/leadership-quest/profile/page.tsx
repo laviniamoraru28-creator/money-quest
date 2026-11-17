@@ -5,6 +5,7 @@ import { Link } from "@/i18n/navigation";
 import { useLeadershipQuest } from "@/lib/leadership-quest/use-leadership-quest";
 import { computeLeadershipProfile } from "@/lib/leadership-quest/state";
 import { Card } from "@/components/ui/Card";
+import { ContinueJourneyButton } from "@/components/ContinueJourneyButton";
 
 /**
  * The Leadership Profile (brief section 13) — deliberately NOT a score,
@@ -70,6 +71,13 @@ export default function LeadershipProfilePage() {
             )}
 
             <p className="mt-sm text-sm text-ink/70">{t("leadershipQuest.profile.noBetterOrWorseNote")}</p>
+
+            {/* final-challenge is done (that's what unlocked this profile
+                page) - a real earned completion, same as the certificate
+                and the pitch screen. */}
+            <div className="mt-md flex justify-center">
+              <ContinueJourneyButton currentHref="/leadership-quest" />
+            </div>
           </>
         )}
       </main>

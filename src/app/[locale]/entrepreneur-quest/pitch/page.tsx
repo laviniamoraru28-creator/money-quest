@@ -9,6 +9,7 @@ import { computeProfitMinorUnits } from "@/lib/entrepreneur-quest/state";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { EntrepreneurQuestLogo } from "@/components/entrepreneur-quest/EntrepreneurQuestLogo";
+import { ContinueJourneyButton } from "@/components/ContinueJourneyButton";
 
 export default function EntrepreneurQuestPitchPage() {
   const uiLocale = useLocale();
@@ -79,6 +80,14 @@ export default function EntrepreneurQuestPitchPage() {
             <PitchLine label={t("entrepreneurQuest.pitch.nextStepLabel")} value={business.nextStep} />
           </dl>
         </Card>
+
+        {/* The child just finished the final stage (18/18) - this is a real
+            earned completion, same as a Money Quest certificate, so it gets
+            the "continue" variant, placed prominently and before the
+            secondary "edit" action (which stays available, never removed). */}
+        <div className="mt-md flex justify-center">
+          <ContinueJourneyButton currentHref="/entrepreneur-quest" />
+        </div>
 
         <Link href="/entrepreneur-quest/build" className="mt-sm block">
           <Button variant="secondary" className="w-full">

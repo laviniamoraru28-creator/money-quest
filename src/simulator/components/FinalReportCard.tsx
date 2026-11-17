@@ -4,6 +4,7 @@ import { formatCurrency } from "@/lib/currency/format";
 import type { SimRunningState, SimScenario } from "../types";
 import { generateReportInsights } from "../report";
 import { useSound } from "@/lib/audio/use-sound";
+import { ContinueJourneyButton } from "@/components/ContinueJourneyButton";
 
 interface FinalReportCardProps {
   state: SimRunningState;
@@ -79,10 +80,18 @@ export function FinalReportCard({ state, scenario, currencyCode, uiLocale, award
         </div>
       )}
 
+      {/* Reusing completeActivity's own completedActivityIds (see
+          /play/simulator/page.tsx) as this scenario's real completion
+          signal - this report screen only renders once that activity is
+          done, exactly like the certificate and pitch screens. */}
+      <div className="mt-md flex justify-center">
+        <ContinueJourneyButton currentHref="/play/simulator" />
+      </div>
+
       <button
         type="button"
         onClick={onDone}
-        className="mt-md min-h-touch-min-child w-full rounded-lg bg-teal px-md py-xs font-medium text-white shadow-resting"
+        className="mt-sm min-h-touch-min-child w-full rounded-lg bg-teal px-md py-xs font-medium text-white shadow-resting"
       >
         {t("simulator.backToMyWorld")}
       </button>

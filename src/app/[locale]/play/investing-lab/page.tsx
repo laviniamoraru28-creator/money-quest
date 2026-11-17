@@ -18,6 +18,7 @@ import { DiversificationPanel } from "@/investing-lab/components/Diversification
 import { TransactionHistory } from "@/investing-lab/components/TransactionHistory";
 import { TimeMachine } from "@/investing-lab/components/TimeMachine";
 import type { TimePeriod } from "@/investing-lab/types";
+import { ContinueJourneyButton } from "@/components/ContinueJourneyButton";
 
 /**
  * The Investing Lab: a self-contained, entirely virtual-money
@@ -189,6 +190,12 @@ export default function InvestingLabPage() {
             <TimeMachine companies={companies} seriesByCompany={seriesByCompany} currencyCode={currencyCode} />
           </div>
         </section>
+
+        {/* Open-ended fictional-share sandbox - no "finish" state to earn,
+            so this is always shown, never gated on anything. */}
+        <div className="mt-lg flex justify-center">
+          <ContinueJourneyButton currentHref="/play/investing-lab" variant="explore" />
+        </div>
 
         <ResetInvestingLabButton onReset={reset} />
       </main>
