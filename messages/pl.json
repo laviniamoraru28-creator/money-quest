@@ -1,7 +1,7 @@
 {
   "seo": {
-    "defaultTitle": "Money Quest - Ucz się o pieniądzach, bawiąc się",
-    "defaultDescription": "Jak Money Quest obsługuje naukę, dostępność, prywatność i opcjonalne zakupy dorosłych."
+    "defaultTitle": "Money Quest Education - Ucz się o pieniądzach, bawiąc się",
+    "defaultDescription": "Jak Money Quest Education obsługuje naukę, dostępność, prywatność i opcjonalne zakupy dorosłych."
   },
   "common": {
     "back": "Wstecz",
@@ -28,7 +28,7 @@
   "landing": {
     "parentResourcesLink": "Materiały dla rodziców i sklep z plikami do druku",
     "heroTitle": "Ucz się o pieniądzach, bawiąc się, odkrywając i podejmując decyzje.",
-    "heroSubtitle": "Money Quest to bezpłatny świat edukacji finansowej dla dzieci w wieku 6–14 lat - questy, fikcyjny portfel i prawdziwe umiejętności. Bez konieczności zakładania konta.",
+    "heroSubtitle": "Money Quest Education to bezpłatny świat edukacji finansowej dla dzieci w wieku 6–14 lat - questy, fikcyjny portfel i prawdziwe umiejętności. Bez konieczności zakładania konta.",
     "heroImageAlt": "Ilustracja przedstawiająca uśmiechnięte dziecko trzymające telefon ze stroną Money Quest.",
     "ctaGetStartedFree": "Rozpocznij swoją Money Quest",
     "ctaSeeHowItWorks": "Zobacz, jak to działa",
@@ -48,7 +48,7 @@
     "readFullParentInfoLink": "Przeczytaj naszą pełną stronę z Informacjami dla Rodziców →",
     "safetyTitle": "Bezpieczeństwo przede wszystkim",
     "safetyBody": "Nigdy nie pytamy twojego dziecka o prawdziwe imię i nazwisko, adres, szkołę ani żadne informacje finansowe. Każda gra, historia i wyzwanie są sprawdzane zgodnie z prawdziwymi ramami edukacji finansowej OECD, CFPB oraz UK Money and Pensions Service.",
-    "copyright": "© {year} Money Quest"
+    "copyright": "© {year} Money Quest Education"
   },
   "dashboard": {
     "level": "Poziom"
