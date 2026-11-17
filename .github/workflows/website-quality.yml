@@ -136,10 +136,18 @@ jobs:
       - name: Chromium journeys and axe checks
         id: chromium
         if: "!cancelled() && steps.server.outcome == 'success'"
-        timeout-minutes: 20
+        # The 1110s global-timeout this used to carry was calibrated before
+        # the Explorer comic suite (90 cases) and the lesson assistant tests
+        # landed on main — a push-to-main run timed out with 1125/1172 passed,
+        # 0 failed, just 3 tests short of finishing (run 43925505579). Not a
+        # real regression, just no longer enough headroom for the suite's
+        # current size. 26 minutes gives real margin over the ~19 minutes
+        # that run actually needed; the job's own 55-minute ceiling has
+        # plenty of room left even at this step's worst case.
+        timeout-minutes: 28
         run: |
           PLAYWRIGHT_JSON_OUTPUT_FILE="$AUDIT_DIR/chromium.json" npx playwright test \
-            --project=desktop-chrome --project=mobile-chrome --workers=2 --global-timeout=1110000 \
+            --project=desktop-chrome --project=mobile-chrome --workers=2 --global-timeout=1560000 \
             --output="$AUDIT_DIR/evidence/chromium" --reporter=line,json
       - name: iPhone and iPad journeys
         id: safari
