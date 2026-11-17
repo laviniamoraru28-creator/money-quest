@@ -1,0 +1,52 @@
+name: Quarterly Content Intelligence
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 10 1 1,4,7,10 *'
+  pull_request:
+    paths:
+      - 'scripts/quarterly-content-intelligence.py'
+      - '.github/workflows/quarterly-content-intelligence.yml'
+      - 'research/tiktok-content-signals.json'
+permissions:
+  contents: read
+  issues: write
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generate quarterly content proposals
+        run: python3 scripts/quarterly-content-intelligence.py
+      - name: Validate no voice and no auto publishing
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          rows = json.loads(Path('quarterly-tiktok-content-plan.json').read_text())
+          assert len(rows) == 39
+          assert all(r['voice'] == 'none' and r['status'] == 'draft_needs_claude_and_owner_review' for r in rows)
+          assert Path('quarterly-tiktok-content-report.md').is_file()
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: quarterly-tiktok-content-proposals
+          path: |
+            quarterly-tiktok-content-report.md
+            quarterly-tiktok-content-plan.json
+      - name: Send report to Claude review queue
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          {
+            echo '# Quarterly TikTok content proposals for Claude review'
+            echo
+            cat quarterly-tiktok-content-report.md
+            echo
+            echo "Workflow run and artifact: $RUN_URL"
+          } > content-handoff.md
+          issue_url=$(gh issue create --title "Content Intelligence quarterly report: ${{ github.run_id }}" --body-file content-handoff.md)
+          gh issue comment "$issue_url" --body "@claude Please review the proposed scripts against existing video calendar and actual source evidence. Draft suggestions only. No voiceover, no publishing, no merge or deploy."
