@@ -10,7 +10,7 @@ import type { Article } from "@/content/types";
  * fields are the article's own real data, never backdated or invented.
  */
 
-const SITE_NAME = "Money Quest";
+const SITE_NAME = "Money Quest Education";
 
 export function buildArticleSchema(article: Article, url: string) {
   return {
