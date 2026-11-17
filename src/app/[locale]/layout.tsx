@@ -72,7 +72,7 @@ export async function generateMetadata({
     // safety net, not the primary mechanism.
     metadataBase: new URL(siteUrl),
     manifest: "/site.webmanifest",
-    title: { default: t("defaultTitle"), template: `%s - Money Quest` },
+    title: { default: t("defaultTitle"), template: `%s - Money Quest Education` },
     description: siteDescriptions[locale],
     // hreflang alternates (brief requirement 14) — one entry per
     // supported locale, pointing at the same page in each language, so
@@ -90,7 +90,7 @@ export async function generateMetadata({
       description: siteDescriptions[locale],
       url: `${siteUrl}/${locale}`,
       type: "website",
-      siteName: "Money Quest",
+      siteName: "Money Quest Education",
       locale,
       alternateLocale: ACTIVE_LOCALES.filter((l) => l !== locale),
       // The site's one existing lightweight photo, reused as the
