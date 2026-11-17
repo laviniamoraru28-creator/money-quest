@@ -68,7 +68,7 @@ def finalize(source, output):
         page.apply_redactions(images=0, graphics=0)
         page.insert_text((539.8, 805.04), str(index + 1), fontsize=8, color=GREEN)
     doc.set_metadata({**doc.metadata, 'title': 'Little Minds, Smart Money',
-                      'author': 'Money Quest Academy', 'subject': 'English Parent Toolkit guide, illustrated edition 2026-11-04'})
+                      'author': 'Money Quest', 'subject': 'English Parent Toolkit guide, illustrated edition 2026-11-04'})
     doc.xref_set_key(doc.pdf_catalog(), 'Lang', '(en-GB)')
     output.parent.mkdir(parents=True, exist_ok=True, mode=0o700)
     doc.save(output, garbage=4, deflate=True, no_new_id=True)
