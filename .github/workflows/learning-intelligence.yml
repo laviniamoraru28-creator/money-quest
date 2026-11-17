@@ -1,0 +1,29 @@
+name: Learning Intelligence (research only)
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "17 7 * * 1"
+permissions:
+  contents: read
+jobs:
+  research:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Unit tests
+        run: python3 -m unittest discover -s tools/learning-intelligence -p 'test_*.py'
+      - name: Generate evidence report
+        run: python3 tools/learning-intelligence/analyze.py
+      - name: Summary
+        run: cat test-results/learning-intelligence/report.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: learning-intelligence-evidence
+          path: test-results/learning-intelligence/
+          retention-days: 35
