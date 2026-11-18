@@ -1,10 +1,16 @@
-name: Parent Copywriting Editorial Briefs
+name: Parent Copywriting Strategist (read-only)
 on:
   workflow_dispatch:
+  pull_request:
+    paths:
+      - 'scripts/parent_copywriting_agent.py'
+      - 'scripts/test_parent_copywriting_agent.py'
+      - '.github/workflows/parent-copywriting.yml'
   schedule:
     - cron: '15 9 1 * *'
 permissions:
   contents: read
+  issues: write
 jobs:
   editorial-briefs:
     runs-on: ubuntu-latest
@@ -23,3 +29,27 @@ jobs:
           name: money-quest-parent-editorial-briefs
           path: artifacts/parent-copywriting/**/*.json
           retention-days: 60
+      - name: Deliver summary to Claude through GitHub issue
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          {
+            echo '# Money Quest Parent Copywriting Strategist report'
+            echo
+            echo 'Four editorial briefs for parent-facing articles (see docs/parent-copywriting-agent.md). Briefs only - no article is auto-written, auto-translated, or auto-published. Review each brief, author/fact-check a draft, run it through lint_draft() and translation_status(), then open a separate Draft PR for human approval before anything is added to the live site.'
+            echo
+            python3 -c "
+          import json, pathlib
+          period = sorted(pathlib.Path('artifacts/parent-copywriting').glob('20*'))[-1]
+          for f in sorted(period.glob('week-*.json')):
+              brief = json.loads(f.read_text())
+              print(f\"- Week {brief['slot']}: {brief['working_title']} ({brief['category']})\")
+          "
+            echo
+            echo "Full run and downloadable JSON reports: $RUN_URL"
+          } > parent-copywriting-handoff.md
+          issue_url=$(gh issue create --title "Parent Copywriting Strategist report: ${{ github.run_id }}" --body-file parent-copywriting-handoff.md)
+          gh issue comment "$issue_url" --body "@claude Please review these briefs, author and fact-check drafts for any that are safe and ready, run lint_draft() and translation_status(), and open a separate Draft PR for human approval. Never publish automatically, never link to Facebook or TikTok, never invent evidence or testimonials."
