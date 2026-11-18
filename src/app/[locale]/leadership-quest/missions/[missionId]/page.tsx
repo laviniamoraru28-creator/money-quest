@@ -33,6 +33,8 @@ import { SpotMechanic } from "@/game-engine/mechanics/SpotMechanic";
 import { AllocateMechanic } from "@/game-engine/mechanics/AllocateMechanic";
 import { SortMechanic } from "@/game-engine/mechanics/SortMechanic";
 import type { MissionRound, MatchRound, SpotRound, AllocateRound, SortRound } from "@/game-engine/types";
+import { ReadAloudButton } from "@/components/ui/ReadAloudButton";
+import { explorerSpeechLang } from "@/lib/explorer/speech-lang";
 
 type LQRoundKind = "match" | "spot" | "allocate" | "sort" | "mission";
 
@@ -102,8 +104,15 @@ export default function LeadershipQuestMissionPage() {
   const nextMission = LQ_MISSIONS[missionIndex + 1];
   const isMissionAlreadyDone = state.completedMissionIds.includes(mission.id);
   const allEventsAnswered = eventStepIndex >= mission.eventIds.length;
+  // Uh-oh moments (unexpected disruptions mid-mission) are reserved for
+  // Strategist (12-14) - "managing uncertainty" is explicit in the
+  // brief's Strategist activity list but absent from Builder's, and
+  // each band's mission progress is already stored separately (see
+  // band-scoped-storage.ts), so a Builder mission simply completes
+  // without this detour rather than skipping or faking one.
+  const isStrategist = progressState.ageBand === "strategist";
   const uhOhForThisMission = LQ_UH_OH_EVENTS.find((e) => e.triggerAfterMissionId === mission.id);
-  const showUhOh = allEventsAnswered && Boolean(uhOhForThisMission) && !state.uhOhEventsSeenIds.includes(uhOhForThisMission!.id);
+  const showUhOh = allEventsAnswered && isStrategist && Boolean(uhOhForThisMission) && !state.uhOhEventsSeenIds.includes(uhOhForThisMission!.id);
   const uhOhAnswered = uhOhForThisMission ? state.leadershipChoices[uhOhForThisMission.id] !== undefined : false;
   const isDone = allEventsAnswered && !showUhOh;
   const currentEventId = allEventsAnswered ? undefined : mission.eventIds[eventStepIndex];
@@ -138,6 +147,7 @@ export default function LeadershipQuestMissionPage() {
                 setRevealedClueIds={setRevealedClueIds}
                 currencyCode={progressState.currencyCode}
                 uiLocale={uiLocale}
+                isExplorer={progressState.ageBand === "explorer"}
                 isResolved={state.leadershipChoices[currentEventId] !== undefined}
                 dominantTag={deriveDominantTag(state.reflectionHistory)}
                 onEffect={handleEventEffect}
@@ -177,6 +187,7 @@ export default function LeadershipQuestMissionPage() {
                   uhOhId={uhOhForThisMission.id}
                   currencyCode={progressState.currencyCode}
                   uiLocale={uiLocale}
+                  isExplorer={progressState.ageBand === "explorer"}
                   isResolved={uhOhAnswered}
                   onEffect={handleEventEffect}
                 />
@@ -231,6 +242,7 @@ function MissionEventBody({
   setRevealedClueIds,
   currencyCode,
   uiLocale,
+  isExplorer,
   isResolved,
   dominantTag,
   onEffect,
@@ -241,6 +253,7 @@ function MissionEventBody({
   setRevealedClueIds: (updater: (prev: string[]) => string[]) => void;
   currencyCode: string;
   uiLocale: string;
+  isExplorer: boolean;
   isResolved: boolean;
   dominantTag: LQArchetypeId | null;
   onEffect: (eventId: string, choiceKey: string) => void;
@@ -281,6 +294,7 @@ function MissionEventBody({
         currencyCode={currencyCode}
         uiLocale={uiLocale}
         usesCurrency={false}
+        isExplorer={isExplorer}
         onAnswer={handleGradedAnswer}
         isResolved={isResolved}
       />
@@ -288,7 +302,13 @@ function MissionEventBody({
   }
 
   if (kind === "spot") {
-    const itemIds = eventId === "team-conflict-spot" ? LQ_TEAM_CONFLICT_SPOT_ITEM_IDS : LQ_MOTIVATION_SPOT_ITEM_IDS;
+    const fullItemIds = eventId === "team-conflict-spot" ? LQ_TEAM_CONFLICT_SPOT_ITEM_IDS : LQ_MOTIVATION_SPOT_ITEM_IDS;
+    // Explorer sees 3 of the existing 5 items (both genuinely suspicious
+    // ones, plus 1 neutral distractor) instead of all 5 - fewer things to
+    // read and weigh at once, same existing text, same two true answers.
+    const itemIds = isExplorer
+      ? [...fullItemIds.filter((item) => item.isSuspicious), ...fullItemIds.filter((item) => !item.isSuspicious).slice(0, 1)]
+      : fullItemIds;
     const scenarioKey = eventId === "team-conflict-spot" ? "leadershipQuest.missions.team-conflict.spotScenario" : "leadershipQuest.missions.motivation-problem.spotScenario";
     const itemTextNamespace = eventId === "team-conflict-spot" ? "leadershipQuest.spotItems.teamConflict" : "leadershipQuest.spotItems.motivationProblem";
     const round: SpotRound = {
@@ -306,6 +326,7 @@ function MissionEventBody({
         currencyCode={currencyCode}
         uiLocale={uiLocale}
         usesCurrency={false}
+        isExplorer={isExplorer}
         onAnswer={handleGradedAnswer}
         isResolved={isResolved}
       />
@@ -329,6 +350,7 @@ function MissionEventBody({
         currencyCode={currencyCode}
         uiLocale={uiLocale}
         usesCurrency={false}
+        isExplorer={isExplorer}
         onAnswer={handleGradedAnswer}
         isResolved={isResolved}
       />
@@ -336,6 +358,11 @@ function MissionEventBody({
   }
 
   if (kind === "sort") {
+    // Explorer sees 1 item per bucket (3 of the existing 5) instead of
+    // all 5 - every bucket still appears, same existing item text.
+    const sortItems = isExplorer
+      ? LQ_PRESSURE_TEST_BUCKET_KEYS.map((bucketKey) => LQ_PRESSURE_TEST_ITEMS.find((item) => item.correctBucketKey === bucketKey)!)
+      : LQ_PRESSURE_TEST_ITEMS;
     const round: SortRound = {
       id: eventId,
       mechanic: "sort",
@@ -343,7 +370,7 @@ function MissionEventBody({
       hint: "",
       explanation: "",
       buckets: LQ_PRESSURE_TEST_BUCKET_KEYS.map((key) => ({ key, label: t(`leadershipQuest.missions.pressure-test.buckets.${key}`) })),
-      items: LQ_PRESSURE_TEST_ITEMS.map((item) => ({ id: item.id, label: t(`leadershipQuest.missions.pressure-test.problems.${item.id}`), correctBucketKey: item.correctBucketKey })),
+      items: sortItems.map((item) => ({ id: item.id, label: t(`leadershipQuest.missions.pressure-test.problems.${item.id}`), correctBucketKey: item.correctBucketKey })),
     };
     return withRetry(
       <SortMechanic key={attempt}
@@ -351,6 +378,7 @@ function MissionEventBody({
         currencyCode={currencyCode}
         uiLocale={uiLocale}
         usesCurrency={false}
+        isExplorer={isExplorer}
         onAnswer={handleGradedAnswer}
         isResolved={isResolved}
       />
@@ -360,7 +388,12 @@ function MissionEventBody({
   // "mission" kind — a real branching decision, or the missing-task
   // investigate-then-decide flow, or the final-challenge choice whose
   // framing text depends on the child's dominant archetype so far.
-  const choices = t.raw(`leadershipQuest.missions.${mission.id}.events.${eventId}.choices`) as MissionRound["choices"];
+  // Explorer sees only the first 2 of the existing choices (a simple,
+  // mechanical reduction - not hand-curated per event) rather than all
+  // 3-4: fewer simultaneous options to read and weigh, same existing
+  // wording and consequences, never a new/invented choice.
+  const allChoices = t.raw(`leadershipQuest.missions.${mission.id}.events.${eventId}.choices`) as MissionRound["choices"];
+  const choices = isExplorer ? allChoices.slice(0, 2) : allChoices;
   let situation: string;
   if (eventId === "final-challenge-choice-1") {
     situation = t(`leadershipQuest.missions.final-challenge.events.final-challenge-choice-1.situationByTag.${dominantTag ?? "none"}`);
@@ -371,7 +404,7 @@ function MissionEventBody({
 
   return (
     <div>
-      {mission.id === "missing-task" && eventId === "missing-task-choice" && (
+      {mission.id === "missing-task" && eventId === "missing-task-choice" && !isExplorer && (
         <div className="mb-sm">
           <p className="text-sm font-medium">{t("leadershipQuest.missions.missing-task.investigateLabel")}</p>
           <div className="mt-2xs grid gap-2xs sm:grid-cols-3">
@@ -394,11 +427,13 @@ function MissionEventBody({
           </div>
         </div>
       )}
+      {isExplorer && <ReadAloudButton text={situation} uiLocale={explorerSpeechLang()} />}
       <MissionMechanic
         round={round}
         currencyCode={currencyCode}
         uiLocale={uiLocale}
         usesCurrency={false}
+        isExplorer={isExplorer}
         onAnswer={(_isCorrect, choiceKey) => {
           if (choiceKey) onEffect(eventId, choiceKey);
         }}
@@ -412,24 +447,27 @@ function UhOhEventBody({
   uhOhId,
   currencyCode,
   uiLocale,
+  isExplorer,
   isResolved,
   onEffect,
 }: {
   uhOhId: string;
   currencyCode: string;
   uiLocale: string;
+  isExplorer: boolean;
   isResolved: boolean;
   onEffect: (eventId: string, choiceKey: string) => void;
 }) {
   const t = useTranslations();
   const choices = t.raw(`leadershipQuest.uhOh.${uhOhId}.choices`) as MissionRound["choices"];
+  const situation = t(`leadershipQuest.uhOh.${uhOhId}.situation`);
   const round: MissionRound = {
     id: uhOhId,
     mechanic: "mission",
     prompt: "",
     hint: "",
     explanation: "",
-    situation: t(`leadershipQuest.uhOh.${uhOhId}.situation`),
+    situation,
     choices,
   };
   return (
@@ -438,11 +476,13 @@ function UhOhEventBody({
         <span aria-hidden="true">⚠️</span> {t(`leadershipQuest.uhOh.${uhOhId}.title`)}
       </p>
       <div className="mt-sm">
+        {isExplorer && <ReadAloudButton text={situation} uiLocale={explorerSpeechLang()} />}
         <MissionMechanic
           round={round}
           currencyCode={currencyCode}
           uiLocale={uiLocale}
           usesCurrency={false}
+          isExplorer={isExplorer}
           onAnswer={(_isCorrect, choiceKey) => {
             if (choiceKey) onEffect(uhOhId, choiceKey);
           }}

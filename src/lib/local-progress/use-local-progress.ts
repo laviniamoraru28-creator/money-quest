@@ -9,9 +9,11 @@ import {
   withdrawFromGoal as withdrawFromGoalPure,
   removeGoal as removeGoalPure,
   awardBadge as awardBadgePure,
+  recordThreeQuestCompletion as recordThreeQuestCompletionPure,
   computeLevel,
   type LocalProgressState,
 } from "./state";
+import type { AgeBand } from "@/types/database.types";
 
 /**
  * The ONLY place `window.localStorage` is touched directly — every
@@ -40,6 +42,10 @@ function readFromStorage(): LocalProgressState {
     const dates = next.certificateCompletionDates;
     next.certificateCompletionDates = dates && typeof dates === "object" && !Array.isArray(dates)
       ? Object.fromEntries(Object.entries(dates).filter(([key,value]) => ["explorer","builder","strategist"].includes(key) && typeof value === "string" && !Number.isNaN(Date.parse(value))))
+      : {};
+    const threeQuestDates = next.threeQuestCertificateDates;
+    next.threeQuestCertificateDates = threeQuestDates && typeof threeQuestDates === "object" && !Array.isArray(threeQuestDates)
+      ? Object.fromEntries(Object.entries(threeQuestDates).filter(([key,value]) => ["explorer","builder","strategist"].includes(key) && typeof value === "string" && !Number.isNaN(Date.parse(value))))
       : {};
     next.goals = Array.isArray(next.goals) ? next.goals.filter((goal: unknown) => {
       if (!goal || typeof goal !== "object") return false;
@@ -173,6 +179,13 @@ export function useLocalProgress() {
     [state, persist]
   );
 
+  const recordThreeQuestCompletion = useCallback(
+    (band: AgeBand) => {
+      persist(recordThreeQuestCompletionPure(state, band));
+    },
+    [state, persist]
+  );
+
   return {
     state,
     isLoaded,
@@ -186,5 +199,6 @@ export function useLocalProgress() {
     removeGoal,
     resetProgress,
     awardBadge,
+    recordThreeQuestCompletion,
   };
 }

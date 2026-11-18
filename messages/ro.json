@@ -4095,7 +4095,10 @@
         "title": "Calculează-ți Profitul",
         "learnText": "Profitul este banii care îți rămân după ce plătești costurile. Profit = Vânzări minus Costuri.",
         "resultHint": "Iată profitul tău din Simulatorul de Afaceri.",
-        "noRunYetHint": "Vizitează mai întâi Simulatorul de Afaceri ca să vezi aici un profit real."
+        "noRunYetHint": "Vizitează mai întâi Simulatorul de Afaceri ca să vezi aici un profit real.",
+        "moneyInLabel": "Bani care intră",
+        "moneyOutLabel": "Bani care ies",
+        "leftOverLabel": "Ce rămâne:"
       },
       "handle-competition": {
         "title": "Gestionează Concurența",
@@ -6782,7 +6785,7 @@
       "chooseIdeaTitle": "Alege-ți ideea"
     }
   },
-  "navMenu":   {
+  "navMenu": {
     "openMenu": "Meniu",
     "closeMenu": "Închide meniul",
     "title": "Explorează Money Quest",
@@ -6829,5 +6832,11 @@
     "lessonComplete": "Ți-ai verificat ideea și ai terminat lecția. Alege următoarea activitate când ești pregătit.",
     "lessonGoal": "Scopul tău: descoperă {title}. Citește sau ascultă, apoi răspunde la întrebare. Lucrează în ritmul tău.",
     "world": "Bine ai venit în {name}. {description} Alege o lecție sau un joc de mai jos. Lucrează în ritmul tău."
+  },
+  "bandGate": {
+    "strategistOnly": {
+      "title": "Nivel Strateg",
+      "body": "Această parte a călătoriei este concepută pentru exploratori mai mari (12-14 ani). Comută la nivelul Strateg din selectorul de nivel ca să o descoperi, sau continuă cu tot ce este deja deblocat pentru tine."
+    }
   }
 }

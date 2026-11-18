@@ -4095,7 +4095,10 @@
         "title": "Berechne deinen Gewinn",
         "learnText": "Gewinn ist das Geld, das dir bleibt, nachdem du deine Kosten bezahlt hast. Gewinn = Verkäufe minus Kosten.",
         "resultHint": "Hier ist dein Gewinn aus dem Unternehmens-Simulator.",
-        "noRunYetHint": "Besuche zuerst den Unternehmens-Simulator, um hier eine echte Gewinnzahl zu sehen."
+        "noRunYetHint": "Besuche zuerst den Unternehmens-Simulator, um hier eine echte Gewinnzahl zu sehen.",
+        "moneyInLabel": "Geld, das reinkommt",
+        "moneyOutLabel": "Geld, das rausgeht",
+        "leftOverLabel": "Was übrig bleibt:"
       },
       "handle-competition": {
         "title": "Geh mit Konkurrenz um",
@@ -6782,7 +6785,7 @@
       "chooseIdeaTitle": "Wähle deine Idee"
     }
   },
-  "navMenu":   {
+  "navMenu": {
     "openMenu": "Menü",
     "closeMenu": "Menü schließen",
     "title": "Money Quest entdecken",
@@ -6829,5 +6832,11 @@
     "lessonComplete": "Du hast deine Idee geprüft und die Lektion beendet. Wähle die nächste Aktivität, wenn du bereit bist.",
     "lessonGoal": "Dein Ziel: {title} entdecken. Lies oder höre zu und beantworte dann die Frage. Lass dir Zeit.",
     "world": "Willkommen in {name}. {description} Wähle eine Lektion oder ein Spiel. Lass dir Zeit."
+  },
+  "bandGate": {
+    "strategistOnly": {
+      "title": "Stufe Stratege",
+      "body": "Dieser Teil der Reise ist für ältere Entdecker (12-14 Jahre) gedacht. Wechsle in der Stufenauswahl zu Stratege, um ihn zu entdecken, oder mach einfach mit allem weiter, was für dich schon freigeschaltet ist."
+    }
   }
 }

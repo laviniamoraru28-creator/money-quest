@@ -110,6 +110,7 @@ export default function SupplierAndStockPage() {
                 currencyCode={progressState.currencyCode}
                 uiLocale={uiLocale}
                 usesCurrency={false}
+                isExplorer={progressState.ageBand === "explorer"}
                 onAnswer={(_isCorrect, choiceKey) => {
                   setSupplierChosen(choiceKey ?? "");
                   recordDecision("choose-a-supplier", choiceKey ?? "");
@@ -132,6 +133,7 @@ export default function SupplierAndStockPage() {
               currencyCode={progressState.currencyCode}
               uiLocale={uiLocale}
               usesCurrency={false}
+              isExplorer={progressState.ageBand === "explorer"}
               onAnswer={(_isCorrect, choiceKey) => {
                 setStockChosen(choiceKey ?? "");
                 recordDecision("stock-management-scenario", choiceKey ?? "");
