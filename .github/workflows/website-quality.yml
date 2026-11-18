@@ -155,7 +155,7 @@ jobs:
         timeout-minutes: 6
         run: |
           PLAYWRIGHT_JSON_OUTPUT_FILE="$AUDIT_DIR/safari.json" npx playwright test \
-            academy-certificates.spec.ts lesson-assistant.spec.ts settings-panel.spec.ts business-save-and-simulate.spec.ts leadership-retry.spec.ts \
+            academy-certificates.spec.ts lesson-assistant.spec.ts settings-panel.spec.ts business-save-and-simulate.spec.ts leadership-retry.spec.ts support.spec.ts \
             --project=iphone-safari --project=tablet-safari --workers=2 --global-timeout=300000 \
             --output="$AUDIT_DIR/evidence/safari" --reporter=line,json
       - name: Additional iPad journeys
@@ -211,3 +211,12 @@ jobs:
           path: |
             certificate-qa/
             moneyquest-namecheap-candidate.zip
+
+      - name: Upload support review screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: support-review-screenshots
+          path: docs/support/screenshots/
+          if-no-files-found: warn
+          retention-days: 14

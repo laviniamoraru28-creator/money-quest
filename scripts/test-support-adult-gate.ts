@@ -1,0 +1,16 @@
+import assert from 'node:assert/strict';
+import {adultChallenge, adultProof, solveAdultChallenge, verifiedAdult, ADULT_TTL} from '../src/lib/support/adult-gate';
+const now = Date.now();
+const challenge = adultChallenge(now);
+assert.equal(solveAdultChallenge(challenge.cookie, String(challenge.a * challenge.b), true, now), true);
+assert.equal(solveAdultChallenge(challenge.cookie, '0', true, now), false);
+assert.equal(solveAdultChallenge(challenge.cookie, String(challenge.a * challenge.b), false, now), false);
+assert.equal(solveAdultChallenge(challenge.cookie, String(challenge.a * challenge.b), true, now + ADULT_TTL * 1000), false);
+assert.equal(verifiedAdult(challenge.cookie, now), false);
+const proof = adultProof(now);
+assert.equal(verifiedAdult(proof, now), true);
+assert.equal(verifiedAdult(proof, now + ADULT_TTL * 1000), false);
+assert.equal(verifiedAdult(proof + 'x', now), false);
+assert.equal(verifiedAdult(undefined, now), false);
+assert.equal(solveAdultChallenge(proof, '100', true, now), false);
+console.log('PASS: adult challenge, consent, signature tampering, expiry and challenge/proof separation');
