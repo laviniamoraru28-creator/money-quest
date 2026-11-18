@@ -15,6 +15,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Unit tests
+        run: python3 -m unittest scripts.test_journey_improvement_agents -v
       - name: Generate evidence report and ranked queue
         run: python3 scripts/journey-improvement-agents.py
       - name: Validate report outputs
@@ -23,9 +28,11 @@ jobs:
           import json
           from pathlib import Path
           data = json.loads(Path("journey-improvement-findings.json").read_text())
-          assert data and all("priority_score" in x for x in data)
+          findings = data["findings"]
+          assert data["mode"] == "read_only" and data["safe_to_auto_merge"] is False
+          assert findings and all("priority_score" in x for x in findings)
           assert "Claude handoff" in Path("journey-improvement-report.md").read_text()
-          print(f"Validated {len(data)} items")
+          print(f"Validated {len(findings)} items")
           PY
       - name: Upload reports
         uses: actions/upload-artifact@v4

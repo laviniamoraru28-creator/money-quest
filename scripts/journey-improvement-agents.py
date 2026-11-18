@@ -81,14 +81,31 @@ def report(findings):
         "Claude: check each item against actual source code and tests. Distinguish hypothesis from defect. Propose validated changes on separate draft PRs. Do not deploy, merge, introduce child tracking, or spend paid API credits without approval.", ""]
     return "\n".join(lines)
 
+def write_json_report(findings, path="journey-improvement-findings.json"):
+    data = {
+        "schema_version": 1,
+        "agent": "journey-improvement-agents",
+        "generated_at": dt.datetime.now(dt.timezone.utc).isoformat(),
+        "mode": "read_only",
+        "findings": findings,
+        "limitations": ["Static source review only. No visitor telemetry, no measured abandonment or "
+                        "engagement data. Impact/confidence/effort scores are subjective planning aids, "
+                        "not measured business outcomes."],
+        "claude_auto_activation_verified": False,
+        "safe_to_auto_merge": False,
+    }
+    Path(path).write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    return data
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", default="journey-improvement-report.md")
+    parser.add_argument("--json-output", default="journey-improvement-findings.json")
     args = parser.parse_args()
     entries = files()
     findings = prioritize(journey(entries) + experiments(entries))
     Path(args.output).write_text(report(findings), encoding="utf-8")
-    Path("journey-improvement-findings.json").write_text(json.dumps(findings, indent=2) + "\n", encoding="utf-8")
+    write_json_report(findings, args.json_output)
     print(f"Generated {len(findings)} review items from {len(entries)} TSX files")
 
 if __name__ == "__main__":
