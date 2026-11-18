@@ -1,10 +1,16 @@
 name: Growth Agents (read-only MVP)
 on:
   workflow_dispatch:
+  pull_request:
+    paths:
+      - 'scripts/growth_agents.py'
+      - 'scripts/test_growth_agents.py'
+      - '.github/workflows/growth-agents.yml'
   schedule:
     - cron: '23 8 * * 1'
 permissions:
   contents: read
+  issues: write
 jobs:
   audit:
     runs-on: ubuntu-latest
@@ -14,6 +20,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Unit tests
+        run: python3 -m unittest scripts.test_growth_agents -v
       - name: Generate five read-only agent reports
         run: python3 scripts/growth_agents.py
       - name: Upload reports for human/Claude review
@@ -22,3 +30,25 @@ jobs:
           name: money-quest-growth-agents
           path: artifacts/growth-agents/*.json
           retention-days: 30
+      - name: Deliver summary to Claude through GitHub issue
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          {
+            echo '# Money Quest Growth Agents report'
+            echo
+            echo 'Five read-only agents: Search Opportunity Hunter, First Visit Experience Agent, SEO Technical Guardian, Growth Intelligence Director, Opportunity Prioritizer.'
+            echo 'Findings are review candidates, not confirmed defects. Search/growth agents report unavailable data until an authorized aggregated analytics source is connected - do not infer traffic, rankings or engagement.'
+            echo
+            for f in artifacts/growth-agents/*.json; do
+              echo "## $(basename "$f" .json)"
+              python3 -c "import json,sys; d=json.load(open('$f')); print(f'{len(d[\"findings\"])} finding(s)'); [print(f'- {x[\"title\"]} ({x[\"priority\"]})') for x in d['findings']]"
+              echo
+            done
+            echo "Full run and downloadable JSON reports: $RUN_URL"
+          } > growth-handoff.md
+          issue_url=$(gh issue create --title "Growth Agents report: ${{ github.run_id }}" --body-file growth-handoff.md)
+          gh issue comment "$issue_url" --body "@claude Please review the findings against the actual code. Propose fixes only through separate draft PRs. Do not merge, deploy, or invent search/traffic data."
