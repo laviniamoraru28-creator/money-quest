@@ -5,6 +5,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { Link, useRouter } from "@/i18n/navigation";
 import { useLocalProgress } from "@/lib/local-progress/use-local-progress";
 import { useEntrepreneurQuest } from "@/lib/entrepreneur-quest/use-entrepreneur-quest";
+import { BandGate } from "@/components/BandGate";
 import {
   EQ_AI_LAB_QA_IDS,
   EQ_AI_PROMPT_QUALITY_OPTION_IDS,
@@ -93,6 +94,7 @@ export default function AiLabPage() {
   };
 
   return (
+    <BandGate requiredBand="strategist" hubHref="/entrepreneur-quest" hubLabelKey="entrepreneurQuest.hubTitle">
     <div className="min-h-screen bg-fog px-sm py-lg">
       <main id="main-content" tabIndex={-1} className="mx-auto max-w-[700px]">
         <Link
@@ -140,7 +142,7 @@ export default function AiLabPage() {
               <p className="mt-2xs text-base text-ink/70">{t("entrepreneurQuest.aiLab.promptQuality.intro")}</p>
               <p className="mt-sm font-medium">{t("entrepreneurQuest.aiLab.promptQuality.question")}</p>
               <div className="mt-2xs">
-                <MultipleChoiceMechanic round={promptQualityRound} currencyCode={progressState.currencyCode} uiLocale={uiLocale} usesCurrency={false} onAnswer={() => advance("prompt-quality")} isResolved={false} />
+                <MultipleChoiceMechanic round={promptQualityRound} currencyCode={progressState.currencyCode} uiLocale={uiLocale} usesCurrency={false} isExplorer={progressState.ageBand === "explorer"} onAnswer={() => advance("prompt-quality")} isResolved={false} />
               </div>
             </div>
           )}
@@ -156,6 +158,7 @@ export default function AiLabPage() {
                   currencyCode={progressState.currencyCode}
                   uiLocale={uiLocale}
                   usesCurrency={false}
+                  isExplorer={progressState.ageBand === "explorer"}
                   onAnswer={(_isCorrect, choiceKey) => recordDecision(EQ_AI_WRONG_ANSWER_EVENT_ID, choiceKey ?? "")}
                   isResolved={false}
                 />
@@ -175,12 +178,13 @@ export default function AiLabPage() {
               <p className="mt-sm rounded-sm bg-fog p-sm text-sm text-ink/70">{t("entrepreneurQuest.safety.nameHint")}</p>
               <p className="mt-sm font-medium">{t("entrepreneurQuest.aiLab.privacy.quizQuestion")}</p>
               <div className="mt-2xs">
-                <MultipleChoiceMechanic round={privacyRound} currencyCode={progressState.currencyCode} uiLocale={uiLocale} usesCurrency={false} onAnswer={() => advance("privacy")} isResolved={false} />
+                <MultipleChoiceMechanic round={privacyRound} currencyCode={progressState.currencyCode} uiLocale={uiLocale} usesCurrency={false} isExplorer={progressState.ageBand === "explorer"} onAnswer={() => advance("privacy")} isResolved={false} />
               </div>
             </div>
           )}
         </Card>
       </main>
     </div>
+    </BandGate>
   );
 }

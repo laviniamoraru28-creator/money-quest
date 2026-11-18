@@ -84,6 +84,7 @@ export default function BusinessRescuePage() {
               statLines={statLines}
               currencyCode={progressState.currencyCode}
               uiLocale={uiLocale}
+              isExplorer={progressState.ageBand === "explorer"}
               onRespond={(responseKey) => recordRescueDecision(currentProblemId, responseKey)}
               onFinish={() => {
                 if (isLastProblem) {

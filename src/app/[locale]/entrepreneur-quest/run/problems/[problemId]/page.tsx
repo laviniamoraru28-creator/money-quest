@@ -63,6 +63,7 @@ export default function BusinessProblemDetailPage() {
             statLines={statLines}
             currencyCode={progressState.currencyCode}
             uiLocale={uiLocale}
+            isExplorer={progressState.ageBand === "explorer"}
             onRespond={(responseKey) => recordDecision(problemId, responseKey)}
             onFinish={() => {
               completeProblem(problemId);

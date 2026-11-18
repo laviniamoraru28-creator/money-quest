@@ -3,7 +3,8 @@ import {readFileSync, mkdirSync, writeFileSync} from "node:fs";
 import {PDFDocument, PDFName, PDFString} from "pdf-lib";
 import {CERTIFICATE_BANDS,requiredCertificateActivities,isCertificateEligible} from "../src/lib/certificates/eligibility";
 import {createDefaultState,applyActivityCompletion} from "../src/lib/local-progress/state";
-import {generateCertificatePdf,formatCertificateDate} from "../src/lib/certificates/pdf";
+import fontkit from "@pdf-lib/fontkit";
+import {generateCertificatePdf,formatCertificateDate,fitLines,CERTIFICATE_ASSETS} from "../src/lib/certificates/pdf";
 import {certificateCopy,certificateCompetencies} from "../src/content/certificate-copy";
 import {LOCALES,REGIONAL_LOCALES} from "../src/i18n/config";
 import {WORLDS} from "../src/content/worlds";
@@ -42,6 +43,21 @@ async function main(){
   assert.equal(formatCertificateDate("invalid","ro"),"");
   const output=process.env.CERTIFICATE_QA_OUTPUT;
   if(output)mkdirSync(output,{recursive:true});
+  // Regression for the competency-ribbon overflow reported in Romanian
+  // certificates: every competency label, in every one of the 9 languages
+  // and all 3 bands, must actually wrap within the ribbon's real text
+  // width - not merely not-crash, but every produced line measured at
+  // or under 104pt at the font size fitLines chose, and never below the
+  // readable floor's own line count as a last resort.
+  {
+    const fontDoc=await PDFDocument.create();fontDoc.registerFontkit(fontkit);
+    const sans=await fontDoc.embedFont(readFileSync(`public${CERTIFICATE_ASSETS}/fonts/DejaVuSans.ttf`),{subset:true});
+    for(const band of CERTIFICATE_BANDS)for(const locale of LOCALES)for(const key of certificateCompetencies[band]){
+      const {result,actual}=fitLines(certificateCopy[locale][key],104,11,sans,3);
+      assert(result.length<=3,`${locale}/${band}/${key}: ${result.length} lines`);
+      for(const line of result)assert(sans.widthOfTextAtSize(line,actual)<=104+0.01,`${locale}/${band}/${key}: line "${line}" overflows at ${actual}pt`);
+    }
+  }
   for(const locale of LOCALES)for(const band of CERTIFICATE_BANDS){
     const copy=certificateCopy[locale];
     assert.equal(certificateCompetencies[band].length,6);

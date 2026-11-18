@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { AcademyCertificateReward } from "@/components/AcademyCertificateReward";
 import { Link } from "@/i18n/navigation";
 import { useLocalProgress } from "@/lib/local-progress/use-local-progress";
 import { useLeadershipQuest } from "@/lib/leadership-quest/use-leadership-quest";
@@ -105,6 +106,8 @@ export default function LeadershipQuestHubPage() {
           </span>
           <span className="font-medium">{t("leadershipQuest.labLink")}</span>
         </Link>
+
+        {isQuestComplete && <AcademyCertificateReward />}
 
         {isQuestComplete ? (
           <Link href="/leadership-quest/profile" className="mt-sm flex items-center gap-xs rounded-lg border-2 border-ink/10 bg-white p-sm shadow-resting transition-shadow hover:shadow-floating hover:border-teal">

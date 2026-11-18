@@ -76,6 +76,7 @@ export default function CashFlowPage() {
             currencyCode={progressState.currencyCode}
             uiLocale={uiLocale}
             usesCurrency={false}
+            isExplorer={progressState.ageBand === "explorer"}
             onAnswer={(_isCorrect, choiceKey) => {
               setChosenKey(choiceKey ?? "");
               recordDecision("cash-flow-decision", choiceKey ?? "");
