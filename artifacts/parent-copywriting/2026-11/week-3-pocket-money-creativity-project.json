@@ -1,0 +1,38 @@
+{
+  "agent": "parent-communication-copywriting-strategist",
+  "period": "2026-11",
+  "slot": 3,
+  "topic": "pocket-money-creativity-project",
+  "working_title": "Turning pocket money into a creativity project",
+  "editorial_angle": "Give safe, imaginative project ideas that build creative thinking, not just saving habits.",
+  "category": "entrepreneurship and creativity",
+  "audience": "Parents and carers of children aged 6-14",
+  "formats": [
+    "600-900 word article",
+    "one practical at-home activity"
+  ],
+  "languages": [
+    "en"
+  ],
+  "translation_plan": "Localize into 9 supported languages only after editorial review",
+  "requirements": [
+    "Plain, empathetic, non-judgmental language",
+    "Specific, accessible examples",
+    "Link only to verified live Money Quest pages (see ALLOWED_CTA_SLUGS)",
+    "Distinguish evidence from editorial advice",
+    "Cite verified primary sources for factual research claims",
+    "Do not invent testimonials, statistics or user results",
+    "No pressure to purchase, donate, or urgency language",
+    "No collection of child or family personal data",
+    "No Facebook or TikTok links or calls to action",
+    "Include one gentle CTA to free Money Quest content"
+  ],
+  "learning_intelligence_signal": {
+    "available": false,
+    "ranked_topics": [],
+    "limitation": "Learning Intelligence report not found; topic selection used internal rotation only."
+  },
+  "status": "brief_awaiting_authoring",
+  "publication_approved": false,
+  "note": "This brief generator does not itself write prose. A separate authoring step (a human editor, or the coordinating Claude session acting as an authorized writer with no paid API) drafts, fact-checks and submits the article for review."
+}
