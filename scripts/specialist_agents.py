@@ -40,6 +40,25 @@ def read(path):
  except (OSError,UnicodeError): return ""
 def item(key,evidence,action,priority="low"):
  return {"id":key,"evidence":evidence,"recommended_action":action,"priority":priority,"status":"review_candidate"}
+def locale_findings(locale_paths, read_fn=read):
+ """Top-level key parity across messages/*.json. Pulled out of inspect()
+ as its own testable function - the inline version had a dead `if
+ ks-common: pass` branch left over from an abandoned attempt at
+ per-locale-specific-key handling, doing nothing. Flags every locale
+ missing any key present in the union across all locales, including
+ invalid JSON. Correctness unchanged from the original (minus the no-op
+ line); 0 findings against the real repository's 9 locale files."""
+ findings=[]
+ keys={}
+ for p in locale_paths:
+  try: keys[p.stem]=set(json.loads(read_fn(p)).keys())
+  except json.JSONDecodeError: findings.append(item("locale-invalid-"+p.stem,p.name+" invalid JSON","Validate translation file","high"))
+ if keys:
+  union=set.union(*keys.values())
+  for lang,ks in keys.items():
+   missing=union-ks
+   if missing: findings.append(item("locale-top-level-"+lang,f"{lang}: {len(missing)} missing top-level keys","Validate nested locale structure and intentional differences"))
+ return findings
 def inspect():
  findings={k:[] for k in AGENTS}
  pages=source_files("src/app/**/*.tsx")
@@ -48,7 +67,7 @@ def inspect():
  raw="\n".join(read(p) for p in code)
  if not any(p.name in ("sitemap.ts","sitemap.js") for p in source_files("src/app/**/sitemap.*")) and not (ROOT/"public/sitemap.xml").exists():
   findings["performance-optimizer"].append(item("review-sitemap","No conventional static sitemap path found","Check dynamic routes and deployed sitemap before making changes"))
- if re.search(r"<img\\b",raw) and not re.search(r"loading=|next/image",raw):
+ if re.search(r"<img\b",raw) and not re.search(r"loading=|next/image",raw):
   findings["performance-optimizer"].append(item("review-image-loading","Raw image tags found; optimization not established","Inspect rendered images, sizes and lazy loading"))
  if re.search(r"dangerouslySetInnerHTML",raw):
   findings["security-sentinel"].append(item("review-html-injection","dangerouslySetInnerHTML appears in source","Verify each value is sanitized or constant before proposing changes","medium"))
@@ -65,18 +84,7 @@ def inspect():
     findings["release-guardian"].append(item("review-unit-tests","No test:unit script in package.json","Verify release test suite"))
   except json.JSONDecodeError:
    findings["release-guardian"].append(item("review-package","package.json cannot be parsed","Repair invalid JSON","high"))
- locale_paths=source_files("messages/*.json")
- if locale_paths:
-  keys={}
-  for p in locale_paths:
-   try: keys[p.stem]=set(json.loads(read(p)).keys())
-   except json.JSONDecodeError: findings["cultural-learning-adapter"].append(item("locale-invalid-"+p.stem,p.name+" invalid JSON","Validate translation file","high"))
-  if keys:
-   common=set.intersection(*keys.values())
-   for lang,ks in keys.items():
-    if ks-common: pass
-    missing=set.union(*keys.values())-ks
-    if missing: findings["cultural-learning-adapter"].append(item("locale-top-level-"+lang,f"{lang}: {len(missing)} missing top-level keys","Validate nested locale structure and intentional differences"))
+ findings["cultural-learning-adapter"].extend(locale_findings(source_files("messages/*.json")))
  if re.search(r"\bAI\b|assistant",raw,re.I):
   findings["ai-cost-controller"].append(item("review-ai-budget","AI/assistant terms appear in UI code","Inspect server-side API budget caps when assistant is merged; UI text is not evidence of spend"))
  if re.search(r"curriculum|lesson|quest",raw,re.I):
@@ -100,6 +108,8 @@ def generate():
   (OUT/(agent+".json")).write_text(json.dumps(report,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
   counts[agent]=len(candidates)
  (OUT/"index.json").write_text(json.dumps({"generated_at":stamp,"agents":counts,"requires_human_validation":True},indent=2)+"\n",encoding="utf-8")
- print(json.dumps({"agents":len(AGENTS),"candidate_findings":sum(counts.values()),"output":str(OUT.relative_to(ROOT))}))
+ try: output_display=str(OUT.relative_to(ROOT))
+ except ValueError: output_display=str(OUT)
+ print(json.dumps({"agents":len(AGENTS),"candidate_findings":sum(counts.values()),"output":output_display}))
  return counts
 if __name__=="__main__": generate()

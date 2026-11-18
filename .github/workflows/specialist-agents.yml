@@ -1,10 +1,16 @@
 name: Specialist Agents (read-only)
 on:
   workflow_dispatch:
+  pull_request:
+    paths:
+      - 'scripts/specialist_agents.py'
+      - 'scripts/test_specialist_agents.py'
+      - '.github/workflows/specialist-agents.yml'
   schedule:
     - cron: '41 8 * * 2'
 permissions:
   contents: read
+  issues: write
 jobs:
   reports:
     runs-on: ubuntu-latest
@@ -25,3 +31,26 @@ jobs:
           name: money-quest-specialist-agent-reports
           path: artifacts/specialist-agents/*.json
           retention-days: 30
+      - name: Deliver summary to Claude through GitHub issue
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          {
+            echo '# Money Quest Specialist Agents report'
+            echo
+            echo 'Sixteen read-only agents (see docs/specialist-agents.md). Findings are review candidates, not confirmed defects. Data-dependent agents report missing authorized inputs rather than inventing social/research/feedback/partnership data.'
+            echo
+            python3 -c "
+          import json, pathlib
+          index = json.loads(pathlib.Path('artifacts/specialist-agents/index.json').read_text())
+          for agent, count in sorted(index['agents'].items()):
+              print(f'- {agent}: {count} finding(s)')
+          "
+            echo
+            echo "Full run and downloadable JSON reports: $RUN_URL"
+          } > specialist-handoff.md
+          issue_url=$(gh issue create --title "Specialist Agents report: ${{ github.run_id }}" --body-file specialist-handoff.md)
+          gh issue comment "$issue_url" --body "@claude Please review the findings against the actual code. Propose fixes only through separate draft PRs. Do not merge, deploy, or invent social/research/feedback/partnership data."
