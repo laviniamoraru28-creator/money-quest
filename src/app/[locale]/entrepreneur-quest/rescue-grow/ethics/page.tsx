@@ -26,7 +26,7 @@ const ETHICS_CHOICE_KEYS_BY_SCENARIO: Record<string, string[]> = {
 export default function EthicsPage() {
   const uiLocale = useLocale();
   const t = useTranslations();
-  const { isLoaded: progressLoaded } = useLocalProgress();
+  const { state: progressState, isLoaded: progressLoaded } = useLocalProgress();
   const { state, isLoaded, recordDecision } = useEntrepreneurQuest();
   const [step, setStep] = useState(0);
   const [chosenKey, setChosenKey] = useState<string | null>(null);
@@ -75,6 +75,7 @@ export default function EthicsPage() {
             currencyCode=""
             uiLocale={uiLocale}
             usesCurrency={false}
+            isExplorer={progressState.ageBand === "explorer"}
             onAnswer={(_isCorrect, choiceKey) => {
               setChosenKey(choiceKey ?? "");
               recordDecision(scenarioId, choiceKey ?? "");

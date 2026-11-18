@@ -56,7 +56,7 @@ export default function EntrepreneurQuestHubPage() {
         <p className="mt-2xs text-base text-ink/70">{t("entrepreneurQuest.hubIntro")}</p>
         <p className="mt-2xs text-xs text-ink/70">{t("entrepreneurQuest.virtualMoneyExplainer")}</p>
 
-        {hasStarted && (
+        {hasStarted && progressState.ageBand === "strategist" && (
           <PhaseProgressStrip buildDone={state.pitchCompleted} rescueGrowUnlocked={state.completedProblemIds.length > 0} />
         )}
 
@@ -101,7 +101,7 @@ export default function EntrepreneurQuestHubPage() {
               <span className="text-sm text-ink/70">{t("entrepreneurQuest.pitchLinkLockedHint")}</span>
             </div>
           )}
-          {state.pitchCompleted ? (
+          {progressState.ageBand === "strategist" && (state.pitchCompleted ? (
             <Link href="/entrepreneur-quest/run" className="flex items-center gap-xs rounded-lg border-2 border-ink/10 bg-white p-sm shadow-resting transition-shadow hover:shadow-floating hover:border-teal">
               <span aria-hidden="true" className="text-2xl">🏃</span>
               <span className="font-medium">{t("entrepreneurQuest.run.hubTitle")}</span>
@@ -111,8 +111,8 @@ export default function EntrepreneurQuestHubPage() {
               <span aria-hidden="true" className="text-2xl">🏃</span>
               <span className="text-sm text-ink/70">{t("entrepreneurQuest.run.lockedHint")}</span>
             </div>
-          )}
-          {state.completedProblemIds.length > 0 ? (
+          ))}
+          {progressState.ageBand === "strategist" && (state.completedProblemIds.length > 0 ? (
             <Link href="/entrepreneur-quest/rescue-grow" className="flex items-center gap-xs rounded-lg border-2 border-ink/10 bg-white p-sm shadow-resting transition-shadow hover:shadow-floating hover:border-teal">
               <span aria-hidden="true" className="text-2xl">🚀</span>
               <span className="font-medium">{t("entrepreneurQuest.rescueGrow.hubTitle")}</span>
@@ -122,7 +122,7 @@ export default function EntrepreneurQuestHubPage() {
               <span aria-hidden="true" className="text-2xl">🚀</span>
               <span className="text-sm text-ink/70">{t("entrepreneurQuest.rescueGrow.lockedHint")}</span>
             </div>
-          )}
+          ))}
         </div>
 
         <Card variant="data" className="mt-md">

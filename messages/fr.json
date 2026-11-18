@@ -4095,7 +4095,10 @@
         "title": "Calcule Ton Bénéfice",
         "learnText": "Le bénéfice, c'est l'argent qu'il te reste après avoir payé tes coûts. Bénéfice = Ventes moins Coûts.",
         "resultHint": "Voici ton bénéfice du Simulateur d'Entreprise.",
-        "noRunYetHint": "Va d'abord voir le Simulateur d'Entreprise pour voir un vrai chiffre de bénéfice ici."
+        "noRunYetHint": "Va d'abord voir le Simulateur d'Entreprise pour voir un vrai chiffre de bénéfice ici.",
+        "moneyInLabel": "Argent qui entre",
+        "moneyOutLabel": "Argent qui sort",
+        "leftOverLabel": "Ce qu'il reste :"
       },
       "handle-competition": {
         "title": "Gère la Concurrence",
@@ -6829,5 +6832,11 @@
     "lessonComplete": "Tu as vérifié ton idée et terminé la leçon. Choisis la prochaine activité quand tu veux.",
     "lessonGoal": "Ton objectif : découvrir {title}. Lis ou écoute, puis réponds à la question. Prends ton temps.",
     "world": "Bienvenue à {name}. {description} Choisis une leçon ou un jeu. Prends ton temps."
+  },
+  "bandGate": {
+    "strategistOnly": {
+      "title": "Niveau Stratège",
+      "body": "Cette partie du parcours est conçue pour les explorateurs plus âgés (12-14 ans). Passe au niveau Stratège dans le sélecteur de niveau pour la découvrir, ou continue avec tout ce qui est déjà débloqué pour toi."
+    }
   }
 }

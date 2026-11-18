@@ -97,6 +97,7 @@ export default function PricingExperimentPage() {
             currencyCode={progressState.currencyCode}
             uiLocale={uiLocale}
             usesCurrency={false}
+            isExplorer={progressState.ageBand === "explorer"}
             onAnswer={(_isCorrect, choiceKey) => {
               setChosenKey(choiceKey ?? "");
               recordDecision("pricing-experiment-reflection", choiceKey ?? "");

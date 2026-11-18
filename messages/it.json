@@ -4095,7 +4095,10 @@
         "title": "Calcola il Tuo Profitto",
         "learnText": "Il profitto è il denaro che ti resta dopo aver pagato i costi. Profitto = Vendite meno Costi.",
         "resultHint": "Ecco il tuo profitto dal Simulatore d'Impresa.",
-        "noRunYetHint": "Visita prima il Simulatore d'Impresa per vedere qui un numero reale di profitto."
+        "noRunYetHint": "Visita prima il Simulatore d'Impresa per vedere qui un numero reale di profitto.",
+        "moneyInLabel": "Soldi che entrano",
+        "moneyOutLabel": "Soldi che escono",
+        "leftOverLabel": "Quello che resta:"
       },
       "handle-competition": {
         "title": "Gestisci la Concorrenza",
@@ -6829,5 +6832,11 @@
     "lessonComplete": "Hai verificato la tua idea e terminato la lezione. Scegli la prossima attività quando vuoi.",
     "lessonGoal": "Il tuo obiettivo: esplorare {title}. Leggi o ascolta, poi rispondi alla domanda. Prenditi il tuo tempo.",
     "world": "Benvenuto a {name}. {description} Scegli una lezione o un gioco. Prenditi il tuo tempo."
+  },
+  "bandGate": {
+    "strategistOnly": {
+      "title": "Livello Strategist",
+      "body": "Questa parte del percorso è pensata per esploratori più grandi (12-14 anni). Passa al livello Strategist nel selettore di livello per scoprirla, oppure continua con tutto ciò che è già disponibile per te."
+    }
   }
 }
