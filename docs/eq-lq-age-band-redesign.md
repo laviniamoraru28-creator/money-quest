@@ -1,8 +1,9 @@
 # Entrepreneur Quest & Leadership Quest: age-band redesign — audit and plan
 
-Status: **Stage 1 (audit + gap analysis) complete.** Stage 2 (Explorer) in
-progress — see "What this PR delivers" at the end. This document is the
-curriculum gap analysis and per-mission activity matrix required before any
+Status: **Stages 1-4 complete** (audit, Explorer, Builder, Strategist — see
+section 7 for what Stages 3-4 actually delivered and section 7.3 for what
+remains deliberately deferred). This document is the curriculum gap
+analysis and per-mission activity matrix required before any
 implementation, per the brief.
 
 ## 1. Current state (as of this audit)
@@ -371,3 +372,125 @@ Dedicated mobile-viewport (320px) and axe (`wcag2a`/`wcag2aa`/`wcag21aa`)
 checks, plus keyboard-focus verification, were added for the new
 `CoinCountStage` and for LQ's reduced mission-choice view - both pass with
 zero violations and no horizontal scroll.
+
+## 7. What Stages 3-4 actually deliver (Builder and Strategist)
+
+### 7.1 The key realization that shaped this pass
+
+Re-reading EQ's and LQ's own content (§3-4 above) against the brief's two
+*separate* activity lists for Builder and Strategist, the lists are not
+"the same topics at two depths" - they are two genuinely different
+**scopes**. Builder's EQ list (business idea, customers, products,
+simple costs/prices/profit, a small virtual budget, business decisions,
+realistic challenges, a short presentation) maps almost verbatim onto EQ's
+original 18-stage Build path plus the Simulator and the Final Pitch -
+content already built, tested and (per §1.4) already close to
+Builder-appropriate because the original "8-14" design sits in the middle
+of Builder's own 9-11 band. Strategist's EQ list (market research,
+business models, revenue/costs/profit/cash flow, pricing strategy,
+competition/differentiation, **ethical marketing**, **risk/uncertainty**,
+**sustainable growth**, a final pitch) maps just as closely onto EQ's
+*existing* Run Your Business, Rescue & Grow and AI Business Lab modules -
+cash flow, pricing experiments, business ethics, pivoting, growing a
+business, and reasoning under uncertainty are literally what those modules
+already are. The same split holds for LQ: Builder's list (team, assigning
+responsibilities, listening, disagreements, fair decisions, planning a
+group project, limited resources, reflecting) is the existing 12 core
+missions end to end; Strategist's one item with no Builder equivalent -
+**"managing uncertainty"** - is exactly what LQ's existing Uh-oh events
+(unplanned mid-mission disruptions) already model.
+
+This means the highest-fidelity, least-invented way to deliver Stages 3-4
+is **scope, not new mechanics or new copy**: give Builder the core
+Build/Mission path (which already fits it), and give Strategist that same
+core path *plus* the existing deepening modules whose subject matter is
+explicitly Strategist's, not Builder's. Every brief bullet for both bands
+is accounted for by an existing, already-translated, already-tested
+content unit - nothing in this section invents a new activity, a new
+mechanic, or new copy requiring fresh translation (the one new string is
+the gate message itself, below).
+
+### 7.2 What changed in code
+
+- **Entrepreneur Quest's Run Your Business (pricing experiments, suppliers
+  & stock, cash flow, the Business Problems library), Rescue & Grow
+  (pivot, grow-or-stay-small, business ethics, business rescue) and the AI
+  Business Lab are now reserved for Strategist.** A new `<BandGate>`
+  component (`src/components/BandGate.tsx`) shows a short, friendly
+  "this part of the journey is for older explorers, switch levels in the
+  level selector to see it" message - never a broken page, never a silent
+  redirect - instead of the section, for any band other than Strategist.
+  Gated at the layout level (`entrepreneur-quest/run/layout.tsx`,
+  `entrepreneur-quest/rescue-grow/layout.tsx`) so every nested route is
+  covered from one place, plus directly in `ai-lab/page.tsx` (a standalone
+  route with no nested children). The Entrepreneur Quest hub
+  (`entrepreneur-quest/page.tsx`) only shows the Run/Rescue & Grow tiles
+  (and the Build→Run→Rescue & Grow phase strip) to Strategist, so a
+  Builder or Explorer child is never shown a tile for something they
+  cannot open - this also closes a pre-existing Explorer gap noted in §5
+  above as a known limitation (Explorer could previously reach these
+  modules too, with content never adapted for a 6-8-year-old).
+- **Leadership Quest's Uh-oh events** (the 5 unplanned mid-mission
+  disruptions - a broken printer, an absent teammate, a customer changing
+  their mind, misunderstood instructions, an idea stopping working) are
+  now shown only to Strategist (`missions/[missionId]/page.tsx`'s
+  `showUhOh` now also checks `progressState.ageBand === "strategist"`). A
+  Builder's mission completes right after its own event(s) are answered,
+  exactly as it always did before Uh-oh events existed in the codebase.
+  Nothing else about a Builder's mission flow changed.
+- **Nothing else changed for Builder.** The 18 EQ Build stages, the 12 LQ
+  missions, the Simulator, the Final Pitch, the 5 standalone Challenges,
+  the 4 Real-World Missions, and LQ's 8 Lab scenarios are all exactly as
+  they were - already accessible to Builder, already matching Builder's
+  own activity list (§7.1), and already covered by this programme's
+  existing automated tests. Builder's and Strategist's experience of all
+  of this shared content remains identical to each other, by design (see
+  §7.1): the brief's Strategist-specific depth comes from the *additional*
+  modules Strategist alone can reach, not from a second, separately
+  authored version of the core path.
+- **One new translated string pair** (`bandGate.strategistOnly.title`/
+  `.body`), shared by every gated EQ section - translated into all 9
+  languages, 100% coverage confirmed by `validate-translations.ts`. No
+  other new or changed strings were needed for this stage.
+- **Each band's progress for the gated sections stays exactly where it
+  already was.** Band-scoped storage (PR #85) already keeps every band's
+  EQ/LQ state in its own slice; gating only changes which slice a page is
+  allowed to render, never the data itself. A family that switches a
+  child from Builder to Strategist through the level selector immediately
+  sees Run/Rescue & Grow/AI Lab/Uh-oh events become available, picking up
+  Strategist's own saved progress in them (empty, the first time) -
+  nothing from Builder's play is lost, migrated, or shown out of place.
+
+### 7.3 Known limitations and deferred scope (disclosed, not hidden)
+
+- **Vocabulary/reading-level recalibration of the shared core path for
+  Builder specifically** (brief's own "simplify vocabulary" language for
+  Builder, §1.4) was not undertaken - the 18 EQ stages' and 12 LQ
+  missions' existing copy, written for the original "upper-primary/early-
+  secondary" target, is left as-is for both Builder and Strategist. Per
+  §1.4, this was already assessed as the lower-priority half of Builder's
+  "medium burden," and rewriting ~30 content units' prose across 9
+  languages without the same architecture-level payoff as the scope split
+  above was not attempted this pass. Builder's content is appropriate, not
+  separately re-levelled.
+- **No new mid-stage Strategist-only deepening** (e.g. an extra reflective
+  prompt inserted into an existing EQ stage or LQ mission) was added - the
+  "more complex challenges" and "decisions with consequences" the brief
+  asks for Strategist come entirely from the *additional* modules in
+  §7.2, not from altering the shared core stages/missions themselves.
+- **"Business models" and "team roles" are not modelled as their own
+  explicit activity** - they are the combined effect of several existing
+  stages/missions (naming, product/customer choice, pricing for "business
+  model"; character strengths and task assignment for "team roles"), not
+  a single dedicated unit. This is an interpretive mapping, disclosed
+  rather than silently assumed.
+- **The Simulator's own typed-number inputs** (flagged in §5 for Explorer)
+  remain unchanged for every band, including Builder and Strategist - out
+  of scope for this stage, since neither band's brief calls for a
+  different Simulator interaction.
+- **Supplementary EQ content Builder could technically still author
+  independently if the brief is later read more generously** (e.g. a
+  simplified, Builder-level cash-flow or pricing scenario distinct from
+  Strategist's) was not built - Builder's own brief list does not ask for
+  it, and inventing one risks exactly the "silently relabel identical
+  content as age-adapted" trap §5 already warns against.

@@ -6832,5 +6832,11 @@
     "lessonComplete": "Je hebt je idee gecontroleerd en de les afgerond. Kies de volgende activiteit wanneer je wilt.",
     "lessonGoal": "Je doel: {title} ontdekken. Lees of luister en beantwoord de vraag. Neem je tijd.",
     "world": "Welkom in {name}. {description} Kies een les of een spel. Neem je tijd."
+  },
+  "bandGate": {
+    "strategistOnly": {
+      "title": "Niveau Strateeg",
+      "body": "Dit deel van de reis is gemaakt voor oudere ontdekkers (12-14 jaar). Schakel in de niveaukiezer over naar Strateeg om het te ontdekken, of ga gewoon verder met alles wat al voor jou is ontgrendeld."
+    }
   }
 }

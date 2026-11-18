@@ -6832,5 +6832,11 @@
     "lessonComplete": "You checked your idea and finished this lesson. Choose the next activity when you are ready.",
     "lessonGoal": "Your goal: explore {title}. Read or listen, then try the question. You can take your time.",
     "world": "Welcome to {name}. {description} Choose a lesson or a game below. You can take your time."
+  },
+  "bandGate": {
+    "strategistOnly": {
+      "title": "Strategist Level",
+      "body": "This part of the journey is designed for older explorers (ages 12-14). Switch to Strategist in the level selector to explore it, or keep going with everything already unlocked for you."
+    }
   }
 }

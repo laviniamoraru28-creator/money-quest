@@ -6832,5 +6832,11 @@
     "lessonComplete": "Hai verificato la tua idea e terminato la lezione. Scegli la prossima attività quando vuoi.",
     "lessonGoal": "Il tuo obiettivo: esplorare {title}. Leggi o ascolta, poi rispondi alla domanda. Prenditi il tuo tempo.",
     "world": "Benvenuto a {name}. {description} Scegli una lezione o un gioco. Prenditi il tuo tempo."
+  },
+  "bandGate": {
+    "strategistOnly": {
+      "title": "Livello Strategist",
+      "body": "Questa parte del percorso è pensata per esploratori più grandi (12-14 anni). Passa al livello Strategist nel selettore di livello per scoprirla, oppure continua con tutto ciò che è già disponibile per te."
+    }
   }
 }

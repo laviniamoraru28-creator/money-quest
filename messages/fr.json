@@ -6832,5 +6832,11 @@
     "lessonComplete": "Tu as vérifié ton idée et terminé la leçon. Choisis la prochaine activité quand tu veux.",
     "lessonGoal": "Ton objectif : découvrir {title}. Lis ou écoute, puis réponds à la question. Prends ton temps.",
     "world": "Bienvenue à {name}. {description} Choisis une leçon ou un jeu. Prends ton temps."
+  },
+  "bandGate": {
+    "strategistOnly": {
+      "title": "Niveau Stratège",
+      "body": "Cette partie du parcours est conçue pour les explorateurs plus âgés (12-14 ans). Passe au niveau Stratège dans le sélecteur de niveau pour la découvrir, ou continue avec tout ce qui est déjà débloqué pour toi."
+    }
   }
 }

@@ -104,8 +104,15 @@ export default function LeadershipQuestMissionPage() {
   const nextMission = LQ_MISSIONS[missionIndex + 1];
   const isMissionAlreadyDone = state.completedMissionIds.includes(mission.id);
   const allEventsAnswered = eventStepIndex >= mission.eventIds.length;
+  // Uh-oh moments (unexpected disruptions mid-mission) are reserved for
+  // Strategist (12-14) - "managing uncertainty" is explicit in the
+  // brief's Strategist activity list but absent from Builder's, and
+  // each band's mission progress is already stored separately (see
+  // band-scoped-storage.ts), so a Builder mission simply completes
+  // without this detour rather than skipping or faking one.
+  const isStrategist = progressState.ageBand === "strategist";
   const uhOhForThisMission = LQ_UH_OH_EVENTS.find((e) => e.triggerAfterMissionId === mission.id);
-  const showUhOh = allEventsAnswered && Boolean(uhOhForThisMission) && !state.uhOhEventsSeenIds.includes(uhOhForThisMission!.id);
+  const showUhOh = allEventsAnswered && isStrategist && Boolean(uhOhForThisMission) && !state.uhOhEventsSeenIds.includes(uhOhForThisMission!.id);
   const uhOhAnswered = uhOhForThisMission ? state.leadershipChoices[uhOhForThisMission.id] !== undefined : false;
   const isDone = allEventsAnswered && !showUhOh;
   const currentEventId = allEventsAnswered ? undefined : mission.eventIds[eventStepIndex];

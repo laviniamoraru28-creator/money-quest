@@ -6832,5 +6832,11 @@
     "lessonComplete": "Has comprobado tu idea y terminado la lección. Elige otra actividad cuando quieras.",
     "lessonGoal": "Tu objetivo: explorar {title}. Lee o escucha y responde a la pregunta. Tómate tu tiempo.",
     "world": "Bienvenido a {name}. {description} Elige una lección o un juego. Tómate tu tiempo."
+  },
+  "bandGate": {
+    "strategistOnly": {
+      "title": "Nivel Estratega",
+      "body": "Esta parte del viaje está pensada para exploradores mayores (12-14 años). Cambia a Estratega en el selector de nivel para descubrirla, o sigue con todo lo que ya tienes desbloqueado."
+    }
   }
 }

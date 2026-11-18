@@ -6832,5 +6832,11 @@
     "lessonComplete": "Pomysł sprawdzony, lekcja ukończona. Wybierz następną aktywność, gdy zechcesz.",
     "lessonGoal": "Twój cel: poznaj {title}. Przeczytaj lub posłuchaj, potem odpowiedz na pytanie. Masz tyle czasu, ile potrzebujesz.",
     "world": "Witaj w {name}. {description} Wybierz lekcję lub grę. Masz tyle czasu, ile potrzebujesz."
+  },
+  "bandGate": {
+    "strategistOnly": {
+      "title": "Poziom Strateg",
+      "body": "Ta część podróży jest przygotowana dla starszych odkrywców (12-14 lat). Przełącz się na poziom Strateg w selektorze poziomu, aby ją odkryć, albo kontynuuj to, co jest już dla Ciebie odblokowane."
+    }
   }
 }

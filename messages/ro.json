@@ -6832,5 +6832,11 @@
     "lessonComplete": "Ți-ai verificat ideea și ai terminat lecția. Alege următoarea activitate când ești pregătit.",
     "lessonGoal": "Scopul tău: descoperă {title}. Citește sau ascultă, apoi răspunde la întrebare. Lucrează în ritmul tău.",
     "world": "Bine ai venit în {name}. {description} Alege o lecție sau un joc de mai jos. Lucrează în ritmul tău."
+  },
+  "bandGate": {
+    "strategistOnly": {
+      "title": "Nivel Strateg",
+      "body": "Această parte a călătoriei este concepută pentru exploratori mai mari (12-14 ani). Comută la nivelul Strateg din selectorul de nivel ca să o descoperi, sau continuă cu tot ce este deja deblocat pentru tine."
+    }
   }
 }
