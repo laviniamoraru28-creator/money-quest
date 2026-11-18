@@ -18,24 +18,75 @@ def finding(agent, severity, title, evidence, suggestion, source=""):
     return dict(agent=agent, severity=severity, title=title, evidence=evidence,
                 suggestion=suggestion, source=source)
 
+def tag_end(content, start, limit_chars=4000):
+    """Index one past the '>' that actually ends a JSX opening tag starting
+    at `start`. A naive [^>]*> regex stops at the FIRST '>', which commonly
+    appears inside a brace-delimited JS expression attribute long before
+    the real tag end - e.g. onClick={() => doThing()} - truncating the
+    captured tag and silently dropping any attribute (such as aria-label)
+    that comes after it. Confirmed in the wild: src/components/ui/NavMenu.tsx
+    has exactly this shape and was wrongly flagged as missing aria-label
+    before this fix, because the old regex cut the tag off at the '>' in
+    '=>' and never saw the real aria-label a few attributes later.
+    Tracks only brace depth (not quotes/JSX-in-expression nesting) - good
+    enough for this codebase's style, not a full JSX parser."""
+    depth = 0
+    i = start
+    n = min(len(content), start + limit_chars)
+    while i < n:
+        ch = content[i]
+        if ch == "{":
+            depth += 1
+        elif ch == "}":
+            depth = max(0, depth - 1)
+        elif ch == ">" and depth == 0:
+            return i + 1
+        i += 1
+    return None
+
 def inclusive(files):
     results = []
     for path, content in files:
         rel = path.relative_to(ROOT).as_posix()
         if "/app/" not in rel and "/components/" not in rel:
             continue
-        for match in list(re.finditer(r"<img\b[^>]*>", content, re.S))[:40]:
-            tag = match.group()
+        for match in list(re.finditer(r"<img\b", content))[:40]:
+            end = tag_end(content, match.start())
+            if end is None:
+                continue
+            tag = content[match.start():end]
             if not re.search(r"\balt\s*=", tag):
                 line = content.count("\n", 0, match.start()) + 1
                 results.append(finding("inclusive", "review", "Image missing alt attribute",
                     f"{rel}:{line}", "Check whether this image needs descriptive alt text or alt='' if decorative."))
-        for match in list(re.finditer(r"<button\b[^>]*>", content, re.S))[:40]:
-            tag = match.group()
-            if not re.search(r"aria-label\s*=", tag) and re.search(r"<(?:svg|[A-Z][A-Za-z]+Icon)\b", content[match.end():match.end()+180]):
-                line = content.count("\n", 0, match.start()) + 1
-                results.append(finding("inclusive", "review", "Potential icon-only button",
-                    f"{rel}:{line}", "Verify accessible name via visible text, aria-label or aria-labelledby."))
+        for match in list(re.finditer(r"<button\b", content))[:40]:
+            end = tag_end(content, match.start())
+            if end is None:
+                continue
+            tag = content[match.start():end]
+            if re.search(r"aria-label\s*=|aria-labelledby\s*=", tag):
+                continue
+            close = content.find("</button>", end)
+            window = content[end:close if close != -1 else end + 400]
+            if not re.search(r"<(?:svg|[A-Z][A-Za-z]+Icon)\b", window):
+                continue
+            # A visible text node near the icon (a translated {label}/{t.x}
+            # expression, or plain text) already gives the button an
+            # accessible name - flagging it anyway would be a false
+            # positive. Confirmed against VisualExplorer.tsx and
+            # VisualChoiceButton.tsx, both of which render exactly this
+            # pattern and were wrongly flagged before this check existed.
+            # Any brace expression right after a tag close is a potential
+            # visible text node - a plain {label}/{t.key}, or a translation
+            # function call like {t(section.labelKey)} (confirmed in the
+            # wild in NavMenu.tsx - the earlier identifier-only pattern
+            # missed this because of the parentheses). Not nesting-aware,
+            # but attribute-value braces were already consumed by tag_end.
+            if re.search(r">\s*\{(?:[^{}]|\{[^{}]*\})+\}", window) or re.search(r">[^<{}]*[A-Za-z]{2,}[^<{}]*(?:<|$)", window):
+                continue
+            line = content.count("\n", 0, match.start()) + 1
+            results.append(finding("inclusive", "review", "Potential icon-only button",
+                f"{rel}:{line}", "Verify accessible name via visible text, aria-label or aria-labelledby."))
     return results[:100]
 
 def architect(files):
@@ -81,9 +132,25 @@ def radar():
     return results or [finding("radar","needs-evidence","Research dataset empty","No source records",
         "Add verifiable studies before proposing future skills priorities.")]
 
+def write_json_report(findings, path="education-guardians-report.json"):
+    data = {
+        "schema_version": 1,
+        "agent": "education-guardians",
+        "generated_at": dt.datetime.now(dt.timezone.utc).isoformat(),
+        "mode": "read_only",
+        "findings": findings,
+        "limitations": ["Static source review only. Accessibility, learning-progression and future-skills "
+                        "findings are candidates requiring human/educator verification, not certification."],
+        "claude_auto_activation_verified": False,
+        "safe_to_auto_merge": False,
+    }
+    Path(path).write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    return data
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", default="education-guardians-report.md")
+    parser.add_argument("--json-output", default="education-guardians-report.json")
     args = parser.parse_args()
     files = collect()
     findings = inclusive(files) + architect(files) + radar()
@@ -103,6 +170,7 @@ def main():
     lines += ["## Claude handoff", "",
         "Claude: review findings against actual code and primary sources. Fix confirmed issues only on a separate branch and draft PR. Run relevant tests. Do not merge or deploy. Do not invent research evidence.", ""]
     Path(args.output).write_text("\n".join(lines), encoding="utf-8")
+    write_json_report(findings, args.json_output)
     print(f"Report: {args.output}; {len(findings)} review items")
 
 if __name__ == "__main__":

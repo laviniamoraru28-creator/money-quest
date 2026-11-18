@@ -16,13 +16,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Unit tests
+        run: python3 -m unittest scripts.test_education_guardians -v
       - name: Run all three read-only agents
         run: python3 scripts/education-guardians.py
       - name: Upload evidence report
         uses: actions/upload-artifact@v4
         with:
           name: education-guardians-report
-          path: education-guardians-report.md
+          path: |
+            education-guardians-report.md
+            education-guardians-report.json
       - name: Deliver report to Claude through GitHub issue
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         env:
