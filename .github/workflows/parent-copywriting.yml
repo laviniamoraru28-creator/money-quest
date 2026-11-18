@@ -1,0 +1,25 @@
+name: Parent Copywriting Editorial Briefs
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '15 9 1 * *'
+permissions:
+  contents: read
+jobs:
+  editorial-briefs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 -m unittest discover -s scripts -p 'test_parent_copywriting_agent.py'
+      - run: python3 scripts/parent_copywriting_agent.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: money-quest-parent-editorial-briefs
+          path: artifacts/parent-copywriting/**/*.json
+          retention-days: 60
