@@ -51,6 +51,43 @@ dispatch. Pull-request runs only dry-run the digest build and run unit
 tests — they never write to Issues, matching the other four agents'
 PR-safe convention.
 
+## Execution health and duplicate detection (2026-11-18)
+
+Two gaps closed in `scripts/agent-coordination-digest.py`, still purely
+additive and still not touching any other agent's branch:
+
+1. **Duplicate-report detection.** Within each agent's own open issues,
+   `find_duplicate_reports()` flags two or more issues with the same
+   (case/whitespace-normalized) title — a sign an agent's own workflow
+   opened a fresh issue instead of updating an existing one for the same
+   finding. Rendered inline under the affected agent's section with a
+   note to close the stale one rather than fixing both.
+2. **Agent execution health.** `fetch_workflow_health()` calls the GitHub
+   Actions API (`GET /repos/{repo}/actions/workflows/{file}/runs`) for
+   each of the four agents' own workflow plus this hub's own, and
+   `classify_workflow_health()` turns the most recent run into one of
+   `healthy` / `pending` / `stale` / `failed` / `never-run`, rendered as a
+   new `## Agent execution health` section. Needs `actions: read` in the
+   workflow's `permissions:` block (added here) on top of the existing
+   `issues: write`.
+
+**The honest finding this surfaced:** as of 2026-11-18, none of the five
+workflows (`language-guardian.yml`, `education-guardians.yml`,
+`journey-improvement-agents.yml`, `learning-intelligence.yml`,
+`agent-coordination.yml` itself) exist on `main` — each lives only on its
+own still-open draft PR's branch (#73, #74, #76, #72, #78 respectively).
+A GitHub Actions `schedule:` trigger only fires for a workflow file that
+is present on the repository's default branch, so **none of these five
+are actually running on their documented cron schedule today** — only
+this hub's own daily Claude Code Remote scheduled task (not a GitHub
+Action) keeps the digest current, by manually dispatching this workflow
+once a day. The new health section reports this plainly (`never-run` or
+`stale` for all five, with a note that this is expected pre-merge, not a
+new defect) rather than silently going quiet about it. **Merging the
+underlying PRs — starting with this one, since it depends on nothing else
+— is the one change that would make the schedules real; that merge
+decision belongs to the repository owner, not this coordination layer.**
+
 ## Recommended convention for future agents
 
 Going forward, a new agent's workflow should:

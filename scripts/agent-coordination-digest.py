@@ -46,6 +46,30 @@ AGENT_PATTERNS = [
 # see docs/agent-coordination.md for the recommended convention going
 # forward (a shared "agent-report" label, once the other branches merge).
 
+# Each agent's own workflow file and documented cadence (see each agent's
+# PR for its schedule - Language Guardian Mon 09:00 UTC, Learning
+# Intelligence Mon 07:17 UTC, Education Guardians Tue 08:00 UTC, Journey
+# Improvement Agents Wed 09:00 UTC), plus this hub's own workflow. None of
+# the five currently live on `main` - each exists only on its own open
+# draft PR's branch - so the GitHub Actions `schedule:` trigger cannot
+# fire any of them yet; this table lets the digest say that honestly
+# instead of silently going quiet. A workflow only starts appearing in
+# the Actions API once it has ever run (via `pull_request` or
+# `workflow_dispatch`) from any branch, which is how health-checking it
+# pre-merge is possible at all.
+KNOWN_WORKFLOWS = [
+    ("Language Guardian", "language-guardian.yml", 7),
+    ("Education Guardians", "education-guardians.yml", 7),
+    ("Journey Improvement Agents", "journey-improvement-agents.yml", 7),
+    ("Learning Intelligence", "learning-intelligence.yml", 7),
+    ("Agent Coordination Hub (this workflow)", "agent-coordination.yml", 1),
+]
+# A run is "stale" once this many cadence periods have passed with no
+# completed run - loose enough to absorb a skipped day/week without
+# false alarms, since none of these are merged to main yet and may only
+# ever run via manual dispatch or a PR-triggered dry run in the meantime.
+STALE_AFTER_CADENCES = 2
+
 
 def classify_title(title):
     for agent, pattern, _domain in AGENT_PATTERNS:
@@ -54,7 +78,48 @@ def classify_title(title):
     return None
 
 
-def build_digest(issues, generated_at=None):
+def classify_workflow_health(runs, cadence_days, now):
+    """runs: most-recent-first list of {status, conclusion, created_at,
+    html_url} dicts for one workflow (as returned by the Actions API), or
+    an empty list if the workflow has never run anywhere. Pure/offline so
+    it's testable without mocking network calls. Returns one of:
+    "never-run", "failed" (most recent *completed* run did not succeed),
+    "stale" (last completed run older than STALE_AFTER_CADENCES *
+    cadence_days), "pending" (a run is currently in progress and nothing
+    completed one is stale yet), or "healthy"."""
+    if not runs:
+        return "never-run", None
+    completed = [r for r in runs if r.get("status") == "completed"]
+    if not completed:
+        return "pending", runs[0]
+    latest = completed[0]
+    if latest.get("conclusion") not in ("success", "neutral", "skipped"):
+        return "failed", latest
+    age_days = (now - dt.datetime.fromisoformat(latest["created_at"].replace("Z", "+00:00"))).total_seconds() / 86400
+    if age_days > cadence_days * STALE_AFTER_CADENCES:
+        return "stale", latest
+    return "healthy", latest
+
+
+def find_duplicate_reports(by_agent):
+    """Within each agent's own open-issue list, flag titles that repeat
+    (normalized: case/whitespace-insensitive) - a sign the agent's own
+    workflow opened a new issue instead of updating an existing one for
+    the same finding. Cross-agent title collisions are not duplicates
+    (classify_title already resolved those to one agent each)."""
+    duplicates = {}
+    for agent, issues in by_agent.items():
+        seen = {}
+        for issue in issues:
+            key = " ".join(issue["title"].split()).casefold()
+            seen.setdefault(key, []).append(issue)
+        groups = [group for group in seen.values() if len(group) > 1]
+        if groups:
+            duplicates[agent] = groups
+    return duplicates
+
+
+def build_digest(issues, generated_at=None, workflow_health=None):
     """issues: list of {number, title, html_url, created_at, state} dicts
     for OPEN issues only (closed ones are out of scope for the digest -
     they've already been handled). Pure function, no network access, so
@@ -90,6 +155,7 @@ def build_digest(issues, generated_at=None):
         "## Open reports by agent",
         "",
     ]
+    duplicates = find_duplicate_reports(by_agent)
     total_open = 0
     for agent, _pattern, domain in AGENT_PATTERNS:
         items = sorted(by_agent[agent], key=lambda i: i["number"])
@@ -103,6 +169,12 @@ def build_digest(issues, generated_at=None):
                 lines.append(f"- #{issue['number']} [{issue['title']}]({issue['html_url']}) — opened {issue['created_at'][:10]}")
         else:
             lines.append("- None open.")
+        if agent in duplicates:
+            lines.append("")
+            lines.append("⚠️ **Possible duplicate reports** (same title, opened separately - review before acting on either, and close the stale one instead of fixing both):")
+            for group in duplicates[agent]:
+                numbers = ", ".join(f"#{issue['number']}" for issue in sorted(group, key=lambda i: i["number"]))
+                lines.append(f"  - {numbers}: \"{group[0]['title']}\"")
         lines.append("")
 
     if unmatched:
@@ -125,6 +197,42 @@ def build_digest(issues, generated_at=None):
         "",
         f"{total_open} open report issue(s) across {len(AGENT_PATTERNS)} known agents.",
         "",
+    ]
+
+    if workflow_health:
+        icons = {"healthy": "✅", "pending": "🔄", "stale": "⚠️", "failed": "❌", "never-run": "—"}
+        labels = {
+            "healthy": "healthy",
+            "pending": "run in progress",
+            "stale": "stale — no completed run in the expected window",
+            "failed": "last completed run failed",
+            "never-run": "never observed running (no run on any branch yet)",
+        }
+        lines.append("## Agent execution health")
+        lines.append("")
+        lines.append(
+            "Whether each agent's own workflow has actually executed recently - "
+            "not whether a report *issue* exists, which `Open reports by agent` "
+            "above already covers. A workflow only appears in GitHub's Actions "
+            "API once it has run at least once (via `pull_request` or "
+            "`workflow_dispatch`) from any branch; none of the five below are "
+            "on `main` yet, so none can fire on their own `schedule:` trigger - "
+            "\"stale\"/\"never-run\" here is therefore expected until the owner "
+            "merges the underlying PR, not itself a new problem to fix."
+        )
+        lines.append("")
+        for agent, workflow_file, cadence_days in KNOWN_WORKFLOWS:
+            state, latest = workflow_health.get(workflow_file, ("never-run", None))
+            icon = icons.get(state, "?")
+            detail = labels.get(state, state)
+            if latest:
+                when = latest["created_at"][:10]
+                link = f" ([run]({latest['html_url']}))" if latest.get("html_url") else ""
+                detail += f" — last completed run {when}{link}"
+            lines.append(f"- {icon} **{agent}** (`{workflow_file}`, every {cadence_days}d): {detail}")
+        lines.append("")
+
+    lines += [
         "## Claude handoff",
         "",
         "This digest exists so a scheduled poll (not a GitHub webhook - see "
@@ -165,6 +273,37 @@ def list_report_issues(repo, token):
             break
         page += 1
     return [{"number": i["number"], "title": i["title"], "html_url": i["html_url"], "created_at": i["created_at"]} for i in issues]
+
+
+def fetch_workflow_health(repo, token, now=None):
+    """One classify_workflow_health() result per entry in KNOWN_WORKFLOWS,
+    keyed by workflow filename. A workflow that has never run anywhere
+    (common pre-merge: its `pull_request` trigger only fires on an actual
+    PR event, and it may never have been manually dispatched) 404s on the
+    runs endpoint - that is "never-run", not an error, so it is caught
+    here rather than failing the whole digest build."""
+    now = now or dt.datetime.now(dt.timezone.utc)
+    health = {}
+    for _agent, workflow_file, cadence_days in KNOWN_WORKFLOWS:
+        url = f"https://api.github.com/repos/{repo}/actions/workflows/{workflow_file}/runs?per_page=5"
+        try:
+            result = _github_request(url, token)
+            runs = [
+                {
+                    "status": r["status"],
+                    "conclusion": r["conclusion"],
+                    "created_at": r["created_at"],
+                    "html_url": r["html_url"],
+                }
+                for r in result.get("workflow_runs", [])
+            ]
+        except urllib.error.HTTPError as exc:
+            if exc.code == 404:
+                runs = []
+            else:
+                raise
+        health[workflow_file] = classify_workflow_health(runs, cadence_days, now)
+    return health
 
 
 def digest_search_url(repo):
@@ -210,7 +349,12 @@ def main():
         return
 
     issues = list_report_issues(args.repo, token)
-    body = build_digest(issues)
+    try:
+        health = fetch_workflow_health(args.repo, token)
+    except urllib.error.HTTPError as exc:
+        print(f"Warning: could not fetch agent workflow health ({exc.code} {exc.reason}); digest will omit that section.", file=sys.stderr)
+        health = None
+    body = build_digest(issues, workflow_health=health)
     Path(args.output).write_text(body, encoding="utf-8")
 
     if args.dry_run:

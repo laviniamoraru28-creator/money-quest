@@ -1,3 +1,4 @@
+import datetime as dt
 import importlib.util
 import unittest
 import urllib.parse
@@ -10,6 +11,10 @@ spec.loader.exec_module(module)
 
 def make_issue(number, title, created_at="2026-11-17T12:00:00Z"):
     return {"number": number, "title": title, "html_url": f"https://example.invalid/issues/{number}", "created_at": created_at}
+
+
+def make_run(status="completed", conclusion="success", created_at="2026-11-18T06:10:00Z", html_url="https://example.invalid/runs/1"):
+    return {"status": status, "conclusion": conclusion, "created_at": created_at, "html_url": html_url}
 
 
 class DigestSearchUrlTests(unittest.TestCase):
@@ -100,6 +105,109 @@ class BuildDigestTests(unittest.TestCase):
         self.assertIn("#1", body)
         # Still exactly the four declared agents, each explicitly at zero.
         self.assertEqual(body.count("### "), 5)  # 4 agents + 1 "Unrecognized" section
+
+
+class WorkflowHealthTests(unittest.TestCase):
+    NOW = dt.datetime(2026, 11, 18, 12, 0, tzinfo=dt.timezone.utc)
+
+    def test_never_run_when_no_runs_at_all(self):
+        state, latest = module.classify_workflow_health([], cadence_days=7, now=self.NOW)
+        self.assertEqual(state, "never-run")
+        self.assertIsNone(latest)
+
+    def test_pending_when_only_an_in_progress_run_exists(self):
+        runs = [make_run(status="in_progress", conclusion=None, created_at="2026-11-18T11:00:00Z")]
+        state, latest = module.classify_workflow_health(runs, cadence_days=1, now=self.NOW)
+        self.assertEqual(state, "pending")
+        self.assertEqual(latest, runs[0])
+
+    def test_failed_when_latest_completed_run_did_not_succeed(self):
+        runs = [make_run(conclusion="failure", created_at="2026-11-18T11:00:00Z")]
+        state, latest = module.classify_workflow_health(runs, cadence_days=1, now=self.NOW)
+        self.assertEqual(state, "failed")
+        self.assertEqual(latest["conclusion"], "failure")
+
+    def test_healthy_when_recent_completed_run_succeeded(self):
+        runs = [make_run(conclusion="success", created_at="2026-11-18T06:10:00Z")]
+        state, _latest = module.classify_workflow_health(runs, cadence_days=1, now=self.NOW)
+        self.assertEqual(state, "healthy")
+
+    def test_stale_when_last_success_is_older_than_two_cadences(self):
+        # cadence 1 day, stale after 2 days; this run is ~15 days old.
+        runs = [make_run(conclusion="success", created_at="2026-11-03T06:10:00Z")]
+        state, _latest = module.classify_workflow_health(runs, cadence_days=1, now=self.NOW)
+        self.assertEqual(state, "stale")
+
+    def test_weekly_cadence_is_not_stale_a_few_days_after_success(self):
+        # cadence 7 days, stale threshold 14 days; this run is 3 days old.
+        runs = [make_run(conclusion="success", created_at="2026-11-15T06:10:00Z")]
+        state, _latest = module.classify_workflow_health(runs, cadence_days=7, now=self.NOW)
+        self.assertEqual(state, "healthy")
+
+    def test_skipped_and_neutral_conclusions_still_count_as_healthy(self):
+        for conclusion in ("skipped", "neutral"):
+            state, _latest = module.classify_workflow_health(
+                [make_run(conclusion=conclusion, created_at="2026-11-18T06:10:00Z")], cadence_days=1, now=self.NOW,
+            )
+            self.assertEqual(state, "healthy", conclusion)
+
+
+class DuplicateDetectionTests(unittest.TestCase):
+    def test_flags_same_title_twice_within_one_agent(self):
+        by_agent = {
+            "Language Guardian": [
+                make_issue(10, "Language Guardian report: 1"),
+                make_issue(12, "Language Guardian report: 1"),
+            ],
+            "Education Guardians": [make_issue(11, "Education Guardians report: 2")],
+        }
+        duplicates = module.find_duplicate_reports(by_agent)
+        self.assertIn("Language Guardian", duplicates)
+        self.assertNotIn("Education Guardians", duplicates)
+        [group] = duplicates["Language Guardian"]
+        self.assertEqual({issue["number"] for issue in group}, {10, 12})
+
+    def test_case_and_whitespace_insensitive(self):
+        by_agent = {"Language Guardian": [
+            make_issue(1, "Language Guardian report: 1"),
+            make_issue(2, "  language guardian   report: 1 "),
+        ]}
+        duplicates = module.find_duplicate_reports(by_agent)
+        self.assertIn("Language Guardian", duplicates)
+
+    def test_no_false_positive_across_different_titles(self):
+        by_agent = {"Language Guardian": [
+            make_issue(1, "Language Guardian report: 1"),
+            make_issue(2, "Language Guardian report: 2"),
+        ]}
+        self.assertEqual(module.find_duplicate_reports(by_agent), {})
+
+
+class BuildDigestHealthAndDuplicateRenderingTests(unittest.TestCase):
+    def test_omits_health_section_when_not_provided(self):
+        body = module.build_digest([make_issue(75, "Claude handoff: Education Guardians MVP report and review")])
+        self.assertNotIn("## Agent execution health", body)
+
+    def test_renders_health_section_with_each_known_workflow(self):
+        health = {workflow_file: ("never-run", None) for _agent, workflow_file, _cadence in module.KNOWN_WORKFLOWS}
+        health["language-guardian.yml"] = ("failed", make_run(conclusion="failure"))
+        body = module.build_digest([], workflow_health=health)
+        self.assertIn("## Agent execution health", body)
+        self.assertIn("language-guardian.yml", body)
+        self.assertIn("last completed run failed", body)
+        self.assertIn("never observed running", body)
+
+    def test_renders_duplicate_warning_for_the_affected_agent_only(self):
+        issues = [
+            make_issue(10, "Language Guardian report: 1"),
+            make_issue(12, "Language Guardian report: 1"),
+            make_issue(13, "Education Guardians report: 1"),
+        ]
+        body = module.build_digest(issues)
+        guardian_section = body.split("### Language Guardian")[1].split("### Education Guardians")[0]
+        education_section = body.split("### Education Guardians")[1]
+        self.assertIn("Possible duplicate reports", guardian_section)
+        self.assertNotIn("Possible duplicate reports", education_section)
 
 
 if __name__ == "__main__":
