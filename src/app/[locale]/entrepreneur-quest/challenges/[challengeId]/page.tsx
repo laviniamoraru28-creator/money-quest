@@ -68,6 +68,7 @@ export default function EntrepreneurQuestChallengePage() {
               currencyCode={progressState.currencyCode}
               uiLocale={uiLocale}
               usesCurrency={false}
+              isExplorer={progressState.ageBand === "explorer"}
               onAnswer={(_isCorrect, choiceKey) => setChosenKey(choiceKey ?? "")}
               isResolved={false}
             />

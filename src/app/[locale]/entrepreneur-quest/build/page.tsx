@@ -25,6 +25,9 @@ import { Button } from "@/components/ui/Button";
 import { ProgressBar } from "@/components/ui/ProgressBar";
 import { MissionMechanic } from "@/game-engine/mechanics/MissionMechanic";
 import type { MissionRound } from "@/game-engine/types";
+import { ReadAloudButton } from "@/components/ui/ReadAloudButton";
+import { explorerSpeechLang } from "@/lib/explorer/speech-lang";
+import { Coin } from "@/components/ui/Coin";
 import type { BusinessLogo, BusinessProfile } from "@/lib/entrepreneur-quest/state";
 import { EntrepreneurQuestLogo } from "@/components/entrepreneur-quest/EntrepreneurQuestLogo";
 import { CategorySelect } from "@/components/entrepreneur-quest/CategorySelect";
@@ -141,6 +144,7 @@ export default function EntrepreneurQuestBuildPage() {
               stepIndex={missionStepIndex}
               currencyCode={progressState.currencyCode}
               uiLocale={uiLocale}
+              isExplorer={progressState.ageBand === "explorer"}
               onChoose={(eventId, choiceKey) => recordDecision(eventId, choiceKey)}
               onFinishStage={goToNextStage}
             />
@@ -153,6 +157,7 @@ export default function EntrepreneurQuestBuildPage() {
               stepIndex={missionStepIndex}
               currencyCode={progressState.currencyCode}
               uiLocale={uiLocale}
+              isExplorer={progressState.ageBand === "explorer"}
               onChoose={(eventId, choiceKey) => {
                 recordDecision(eventId, choiceKey);
                 if (eventId === "test-before-invest") {
@@ -193,26 +198,51 @@ export default function EntrepreneurQuestBuildPage() {
           )}
 
           {stage.id === "understand-costs" && (
-            <NumericMoneyStage
-              value={state.business.costPerUnitMinorUnits}
-              currencyCode={progressState.currencyCode}
-              uiLocale={uiLocale}
-              onChange={(minorUnits) => updateBusinessField("costPerUnitMinorUnits", minorUnits)}
-              onContinue={goToNextStage}
-              labelText={t("entrepreneurQuest.stages.understand-costs.fieldLabel")}
-            />
+            progressState.ageBand === "explorer" ? (
+              <CoinCountStage
+                value={state.business.costPerUnitMinorUnits}
+                currencyCode={progressState.currencyCode}
+                uiLocale={uiLocale}
+                isExplorer
+                onChange={(minorUnits) => updateBusinessField("costPerUnitMinorUnits", minorUnits)}
+                onContinue={goToNextStage}
+                labelText={t("entrepreneurQuest.stages.understand-costs.fieldLabel")}
+              />
+            ) : (
+              <NumericMoneyStage
+                value={state.business.costPerUnitMinorUnits}
+                currencyCode={progressState.currencyCode}
+                uiLocale={uiLocale}
+                onChange={(minorUnits) => updateBusinessField("costPerUnitMinorUnits", minorUnits)}
+                onContinue={goToNextStage}
+                labelText={t("entrepreneurQuest.stages.understand-costs.fieldLabel")}
+              />
+            )
           )}
 
           {stage.id === "set-your-price" && (
-            <NumericMoneyStage
-              value={state.business.priceMinorUnits}
-              currencyCode={progressState.currencyCode}
-              uiLocale={uiLocale}
-              onChange={(minorUnits) => updateBusinessField("priceMinorUnits", minorUnits)}
-              onContinue={goToNextStage}
-              labelText={t("entrepreneurQuest.stages.set-your-price.fieldLabel")}
-              helpText={t("entrepreneurQuest.stages.set-your-price.helpText")}
-            />
+            progressState.ageBand === "explorer" ? (
+              <CoinCountStage
+                value={state.business.priceMinorUnits}
+                currencyCode={progressState.currencyCode}
+                uiLocale={uiLocale}
+                isExplorer
+                onChange={(minorUnits) => updateBusinessField("priceMinorUnits", minorUnits)}
+                onContinue={goToNextStage}
+                labelText={t("entrepreneurQuest.stages.set-your-price.fieldLabel")}
+                helpText={t("entrepreneurQuest.stages.set-your-price.helpText")}
+              />
+            ) : (
+              <NumericMoneyStage
+                value={state.business.priceMinorUnits}
+                currencyCode={progressState.currencyCode}
+                uiLocale={uiLocale}
+                onChange={(minorUnits) => updateBusinessField("priceMinorUnits", minorUnits)}
+                onContinue={goToNextStage}
+                labelText={t("entrepreneurQuest.stages.set-your-price.fieldLabel")}
+                helpText={t("entrepreneurQuest.stages.set-your-price.helpText")}
+              />
+            )
           )}
 
           {stage.id === "create-your-marketing" && stage.missionEventIds && (
@@ -240,6 +270,7 @@ export default function EntrepreneurQuestBuildPage() {
                 stepIndex={missionStepIndex}
                 currencyCode={progressState.currencyCode}
                 uiLocale={uiLocale}
+                isExplorer={progressState.ageBand === "explorer"}
                 onChoose={(eventId, choiceKey) => recordDecision(eventId, choiceKey)}
                 onAdvanceStep={() => setMissionStepIndex((i) => i + 1)}
                 onFinishStage={goToNextStage}
@@ -258,9 +289,10 @@ export default function EntrepreneurQuestBuildPage() {
 
           {stage.id === "calculate-your-profit" && (
             <ProfitReflectStage
-              profitMinorUnits={state.latestSimulatorRun?.profitMinorUnits ?? null}
+              run={state.latestSimulatorRun}
               currencyCode={progressState.currencyCode}
               uiLocale={uiLocale}
+              isExplorer={progressState.ageBand === "explorer"}
               onContinue={goToNextStage}
             />
           )}
@@ -272,6 +304,7 @@ export default function EntrepreneurQuestBuildPage() {
               stepIndex={missionStepIndex}
               currencyCode={progressState.currencyCode}
               uiLocale={uiLocale}
+              isExplorer={progressState.ageBand === "explorer"}
               onChoose={(eventId, choiceKey) => recordDecision(eventId, choiceKey)}
               onAdvanceStep={() => setMissionStepIndex((i) => i + 1)}
               onFinishStage={goToNextStage}
@@ -310,12 +343,14 @@ function MarketDetectiveStage({
   stepIndex,
   currencyCode,
   uiLocale,
+  isExplorer,
   onChoose,
   onFinishStage,
 }: {
   stepIndex: number;
   currencyCode: string;
   uiLocale: string;
+  isExplorer: boolean;
   onChoose: (eventId: string, choiceKey: string) => void;
   onFinishStage: () => void;
 }) {
@@ -354,6 +389,7 @@ function MarketDetectiveStage({
           stepIndex={stepIndex}
           currencyCode={currencyCode}
           uiLocale={uiLocale}
+          isExplorer={isExplorer}
           onChoose={onChoose}
           onAdvanceStep={() => {}}
           onFinishStage={onFinishStage}
@@ -630,32 +666,190 @@ function NumericMoneyStage({
   );
 }
 
-function ProfitReflectStage({
-  profitMinorUnits,
+/** Explorer/Builder replacement for NumericMoneyStage's typed
+ * `<input type="number">` — a 6-8-year-old who cannot yet read
+ * independently cannot type a decimal amount and read back a currency
+ * symbol. Tap-only, counts whole "coins" (one coin = 1 major currency
+ * unit, via toMinorUnits(1, currencyCode) so this works correctly for
+ * zero-decimal currencies like JPY too), shows the running count as
+ * actual Coin icons (never color-only) alongside the formatted amount.
+ * Capped at 50 coins, matching EQ_STARTING_MONEY_MINOR_UNITS's own
+ * "50" major-unit scale (toMinorUnits(50, currencyCode) / coinStep) -
+ * a child's starter business was never going to cost or price more
+ * than their own starting budget in this simulation. */
+function CoinCountStage({
+  value,
   currencyCode,
   uiLocale,
+  isExplorer,
+  onChange,
   onContinue,
+  labelText,
+  helpText,
 }: {
-  profitMinorUnits: number | null;
+  value: number;
   currencyCode: string;
   uiLocale: string;
+  isExplorer: boolean;
+  onChange: (minorUnits: number) => void;
+  onContinue: () => void;
+  labelText: string;
+  helpText?: string;
+}) {
+  const t = useTranslations();
+  const coinStep = toMinorUnits(1, currencyCode) || 1;
+  const maxCoins = 50;
+  const [coins, setCoins] = useState(() => Math.min(maxCoins, Math.max(1, Math.round(value / coinStep))));
+  const amountMinorUnits = coins * coinStep;
+  const maxDisplayedCoins = 20;
+
+  function adjust(delta: number) {
+    setCoins((prev) => Math.max(1, Math.min(maxCoins, prev + delta)));
+  }
+
+  const buttonClass = isExplorer
+    ? "grid h-touch-min w-touch-min shrink-0 place-items-center rounded-full border-2 border-ink/20 text-2xl font-bold disabled:opacity-30"
+    : "grid h-touch-min w-touch-min shrink-0 place-items-center rounded-full border-2 border-ink/20 text-xl font-bold disabled:opacity-30";
+
+  return (
+    <div className="mt-sm">
+      <label id="eq-coin-count-label" className={isExplorer ? "text-lg font-bold" : "text-sm font-medium"}>
+        {labelText}
+      </label>
+      {isExplorer && <ReadAloudButton text={labelText} uiLocale={explorerSpeechLang()} />}
+      {helpText && <p className={isExplorer ? "mt-3xs text-base text-ink/70" : "mt-3xs text-xs text-ink/70"}>{helpText}</p>}
+
+      <div className="mt-sm flex items-center justify-center gap-sm">
+        <button
+          type="button"
+          aria-label={t("a11y.decreaseCategory", { category: labelText })}
+          disabled={coins <= 1}
+          onClick={() => adjust(-1)}
+          className={buttonClass}
+        >
+          −
+        </button>
+
+        <div aria-labelledby="eq-coin-count-label" aria-live="polite" className="min-w-[9rem] text-center">
+          <div className="flex flex-wrap items-center justify-center gap-3xs" aria-hidden="true">
+            {Array.from({ length: Math.min(coins, maxDisplayedCoins) }).map((_, i) => (
+              <Coin key={i} size="sm" />
+            ))}
+            {coins > maxDisplayedCoins && <span className="text-lg font-bold">+{coins - maxDisplayedCoins}</span>}
+          </div>
+          <p className={isExplorer ? "mt-2xs text-xl font-bold text-teal-text" : "mt-2xs text-lg font-bold text-teal-text"}>
+            {formatCurrency(amountMinorUnits, currencyCode, uiLocale)}
+          </p>
+        </div>
+
+        <button
+          type="button"
+          aria-label={t("a11y.increaseCategory", { category: labelText })}
+          disabled={coins >= maxCoins}
+          onClick={() => adjust(1)}
+          className={buttonClass}
+        >
+          +
+        </button>
+      </div>
+
+      <Button
+        variant="quest-primary"
+        className="mt-md w-full"
+        onClick={() => {
+          onChange(amountMinorUnits);
+          onContinue();
+        }}
+      >
+        {t("entrepreneurQuest.saveAndContinueButton")}
+      </Button>
+    </div>
+  );
+}
+
+function ProfitReflectStage({
+  run,
+  currencyCode,
+  uiLocale,
+  isExplorer,
+  onContinue,
+}: {
+  run: { salesMinorUnits: number; costsMinorUnits: number; profitMinorUnits: number } | null;
+  currencyCode: string;
+  uiLocale: string;
+  isExplorer: boolean;
   onContinue: () => void;
 }) {
   const t = useTranslations();
   return (
     <div className="mt-sm">
-      <p className="rounded-sm bg-fog p-sm text-sm text-ink/80">{t("entrepreneurQuest.simulator.formulaReminder")}</p>
-      {profitMinorUnits === null ? (
-        <p className="mt-sm text-base text-ink/70">{t("entrepreneurQuest.stages.calculate-your-profit.noRunYetHint")}</p>
+      <p className={isExplorer ? "rounded-sm bg-fog p-sm text-lg font-bold text-ink/80" : "rounded-sm bg-fog p-sm text-sm text-ink/80"}>
+        {t("entrepreneurQuest.simulator.formulaReminder")}
+      </p>
+      {run === null ? (
+        <p className={isExplorer ? "mt-sm text-lg font-bold text-ink/70" : "mt-sm text-base text-ink/70"}>
+          {t("entrepreneurQuest.stages.calculate-your-profit.noRunYetHint")}
+        </p>
+      ) : isExplorer ? (
+        <CoinPileComparison revenueMinorUnits={run.salesMinorUnits} costsMinorUnits={run.costsMinorUnits} currencyCode={currencyCode} uiLocale={uiLocale} />
       ) : (
         <>
           <p className="mt-sm text-sm text-ink/70">{t("entrepreneurQuest.stages.calculate-your-profit.resultHint")}</p>
-          <p className="mt-2xs font-display text-2xl font-bold text-teal-text">{formatCurrency(profitMinorUnits, currencyCode, uiLocale)}</p>
+          <p className="mt-2xs font-display text-2xl font-bold text-teal-text">{formatCurrency(run.profitMinorUnits, currencyCode, uiLocale)}</p>
         </>
       )}
       <Button variant="quest-primary" className="mt-sm w-full" onClick={onContinue}>
         {t("entrepreneurQuest.saveAndContinueButton")}
       </Button>
+    </div>
+  );
+}
+
+/** Explorer-only: shows "money coming in" and "money going out" as two
+ * rows of Coin icons side by side (never a bare subtraction a
+ * non-reading child would have to compute), plus the formatted profit
+ * figure for anyone using read-aloud/a screen reader. Capped at 20
+ * coins per row purely for layout - amounts above that still show
+ * correctly via the "+N" overflow label and the formatted totals. */
+function CoinPileComparison({
+  revenueMinorUnits,
+  costsMinorUnits,
+  currencyCode,
+  uiLocale,
+}: {
+  revenueMinorUnits: number;
+  costsMinorUnits: number;
+  currencyCode: string;
+  uiLocale: string;
+}) {
+  const t = useTranslations();
+  const coinStep = toMinorUnits(1, currencyCode) || 1;
+  const maxDisplayedCoins = 20;
+  const pile = (amountMinorUnits: number) => Math.max(0, Math.round(amountMinorUnits / coinStep));
+  const revenueCoins = pile(revenueMinorUnits);
+  const costsCoins = pile(costsMinorUnits);
+
+  return (
+    <div className="mt-sm grid gap-sm sm:grid-cols-2">
+      <div className="rounded-md border border-teal/30 bg-teal/5 p-sm">
+        <p className="text-base font-bold text-ink">{t("entrepreneurQuest.stages.calculate-your-profit.moneyInLabel")}</p>
+        <div className="mt-2xs flex flex-wrap gap-3xs" aria-hidden="true">
+          {Array.from({ length: Math.min(revenueCoins, maxDisplayedCoins) }).map((_, i) => <Coin key={i} size="sm" />)}
+          {revenueCoins > maxDisplayedCoins && <span className="text-lg font-bold">+{revenueCoins - maxDisplayedCoins}</span>}
+        </div>
+        <p className="mt-2xs text-lg font-bold text-teal-text">{formatCurrency(revenueMinorUnits, currencyCode, uiLocale)}</p>
+      </div>
+      <div className="rounded-md border border-coral/30 bg-coral/5 p-sm">
+        <p className="text-base font-bold text-ink">{t("entrepreneurQuest.stages.calculate-your-profit.moneyOutLabel")}</p>
+        <div className="mt-2xs flex flex-wrap gap-3xs" aria-hidden="true">
+          {Array.from({ length: Math.min(costsCoins, maxDisplayedCoins) }).map((_, i) => <Coin key={i} size="sm" />)}
+          {costsCoins > maxDisplayedCoins && <span className="text-lg font-bold">+{costsCoins - maxDisplayedCoins}</span>}
+        </div>
+        <p className="mt-2xs text-lg font-bold text-ink">{formatCurrency(costsMinorUnits, currencyCode, uiLocale)}</p>
+      </div>
+      <p className="sm:col-span-2 mt-2xs text-center text-xl font-bold text-teal-text">
+        {t("entrepreneurQuest.stages.calculate-your-profit.leftOverLabel")} {formatCurrency(revenueMinorUnits - costsMinorUnits, currencyCode, uiLocale)}
+      </p>
     </div>
   );
 }
@@ -666,6 +860,7 @@ function MissionStage({
   stepIndex,
   currencyCode,
   uiLocale,
+  isExplorer,
   onChoose,
   onAdvanceStep,
   onFinishStage,
@@ -675,6 +870,7 @@ function MissionStage({
   stepIndex: number;
   currencyCode: string;
   uiLocale: string;
+  isExplorer: boolean;
   onChoose: (eventId: string, choiceKey: string) => void;
   onAdvanceStep: () => void;
   onFinishStage: () => void;
@@ -692,11 +888,13 @@ function MissionStage({
 
   return (
     <div className="mt-sm" key={eventId}>
+      {isExplorer && <ReadAloudButton text={situation} uiLocale={explorerSpeechLang()} />}
       <MissionMechanic
         round={round}
         currencyCode={currencyCode}
         uiLocale={uiLocale}
         usesCurrency={false}
+        isExplorer={isExplorer}
         onAnswer={(_isCorrect, choiceKey) => {
           setChosenKey(choiceKey ?? "");
           onChoose(eventId, choiceKey ?? "");

@@ -359,7 +359,10 @@
         "title": "Bereken je Winst",
         "learnText": "Winst is het geld dat je overhoudt nadat je je kosten hebt betaald. Winst = Verkoop min Kosten.",
         "resultHint": "Hier is jouw winst uit de Bedrijfssimulator.",
-        "noRunYetHint": "Ga eerst naar de Bedrijfssimulator om hier een echt winstcijfer te zien."
+        "noRunYetHint": "Ga eerst naar de Bedrijfssimulator om hier een echt winstcijfer te zien.",
+        "moneyInLabel": "Geld dat binnenkomt",
+        "moneyOutLabel": "Geld dat uitgaat",
+        "leftOverLabel": "Wat overblijft:"
       },
       "handle-competition": {
         "title": "Ga om met Concurrentie",
@@ -6782,7 +6785,7 @@
       "chooseIdeaTitle": "Kies je idee"
     }
   },
-  "navMenu":   {
+  "navMenu": {
     "openMenu": "Menu",
     "closeMenu": "Menu sluiten",
     "title": "Ontdek Money Quest",
@@ -6829,5 +6832,11 @@
     "lessonComplete": "Je hebt je idee gecontroleerd en de les afgerond. Kies de volgende activiteit wanneer je wilt.",
     "lessonGoal": "Je doel: {title} ontdekken. Lees of luister en beantwoord de vraag. Neem je tijd.",
     "world": "Welkom in {name}. {description} Kies een les of een spel. Neem je tijd."
+  },
+  "bandGate": {
+    "strategistOnly": {
+      "title": "Niveau Strateeg",
+      "body": "Dit deel van de reis is gemaakt voor oudere ontdekkers (12-14 jaar). Schakel in de niveaukiezer over naar Strateeg om het te ontdekken, of ga gewoon verder met alles wat al voor jou is ontgrendeld."
+    }
   }
 }

@@ -1,6 +1,9 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useLocalProgress } from "@/lib/local-progress/use-local-progress";
+import type { AgeBand } from "@/types/database.types";
+import { readBandScopedSlice, toBandScopedPayload } from "@/lib/band-scoped-storage";
 import {
   createDefaultState,
   updateBusinessField as updateBusinessFieldPure,
@@ -36,35 +39,46 @@ import {
  * `isLoaded` guard for the same reason (localStorage only exists after
  * mount), but its own storage key so a bug here can never corrupt the
  * shared wallet/goals/XP data every other feature depends on.
+ *
+ * Scoped per age band under that one key (see band-scoped-storage.ts):
+ * a child's Explorer business and Builder business are two completely
+ * separate saves, and a legacy single-business save (from before this
+ * change) is attributed to whichever band is active the first time it's
+ * read, never silently duplicated across all three - see Issue #86.
  */
 const STORAGE_KEY = "moneyquest_entrepreneur_quest_v1";
 
-function readFromStorage(): EntrepreneurQuestState {
+function mergeDefaults(defaults: EntrepreneurQuestState, parsed: unknown): EntrepreneurQuestState {
+  const value = (parsed ?? {}) as Partial<EntrepreneurQuestState> & {business?: Record<string, unknown>; stats?: Record<string, unknown>};
+  return {
+    ...defaults,
+    ...value,
+    business: {
+      ...defaults.business,
+      ...value.business,
+      logo: { ...defaults.business.logo, ...value.business?.logo },
+    },
+    stats: { ...defaults.stats, ...value.stats },
+  };
+}
+
+function readFromStorage(band: AgeBand | null): EntrepreneurQuestState {
   if (typeof window === "undefined") return createDefaultState();
   try {
     const raw = window.localStorage.getItem(STORAGE_KEY);
-    if (!raw) return createDefaultState();
-    const parsed = JSON.parse(raw);
-    const defaults = createDefaultState();
-    return {
-      ...defaults,
-      ...parsed,
-      business: {
-        ...defaults.business,
-        ...parsed.business,
-        logo: { ...defaults.business.logo, ...parsed.business?.logo },
-      },
-      stats: { ...defaults.stats, ...parsed.stats },
-    };
+    const parsed = raw ? JSON.parse(raw) : null;
+    return readBandScopedSlice(parsed, band, createDefaultState, mergeDefaults);
   } catch {
     return createDefaultState();
   }
 }
 
-function writeToStorage(state: EntrepreneurQuestState): void {
-  if (typeof window === "undefined") return;
+function writeToStorage(band: AgeBand | null, state: EntrepreneurQuestState): void {
+  if (typeof window === "undefined" || !band) return;
   try {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    const raw = window.localStorage.getItem(STORAGE_KEY);
+    const parsed = raw ? JSON.parse(raw) : null;
+    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(toBandScopedPayload(parsed, band, state)));
   } catch {
     // Storage can fail (private browsing, quota exceeded, disabled
     // entirely) — keep working in-memory for the rest of the session
@@ -72,29 +86,48 @@ function writeToStorage(state: EntrepreneurQuestState): void {
   }
 }
 
-export function resetEntrepreneurQuest(): EntrepreneurQuestState {
+export function resetEntrepreneurQuest(band: AgeBand | null): EntrepreneurQuestState {
   const fresh = createDefaultState();
-  writeToStorage(fresh);
+  writeToStorage(band, fresh);
   return fresh;
 }
 
 export function useEntrepreneurQuest() {
+  const { state: localProgress, isLoaded: localProgressLoaded } = useLocalProgress();
+  const band = localProgress.ageBand;
   const [state, setState] = useState<EntrepreneurQuestState>(createDefaultState());
   const [isLoaded, setIsLoaded] = useState(false);
   const latest = useRef(state);
+  const bandRef = useRef(band);
 
   useEffect(() => {
-    const restored = readFromStorage();
+    // Waiting for local-progress's OWN load matters, not just for a
+    // correct first read: without it, this would read band=null first
+    // (localProgress.ageBand defaults to null before ITS OWN mount
+    // effect runs), flip isLoaded true on that wrong read, then read
+    // again once the real band arrives - two reads, the first of which
+    // a consumer could already have observed as "loaded" with default
+    // data. That's exactly what made use-record-three-quest-completion's
+    // legacy-vs-fresh distinction misfire: it saw isLoaded flip true
+    // (with band=null's default pitchCompleted=false) before the real,
+    // already-true value arrived, and read the second flip as a fresh
+    // completion.
+    if (!localProgressLoaded) return;
+    bandRef.current = band;
+    const restored = readFromStorage(band);
     latest.current = restored;
     setState(restored);
     setIsLoaded(true);
-  }, []);
+    // Re-reads whenever the family switches bands via the global level
+    // selector (no page reload happens) - the other band's own saved
+    // slice, not a blank state and not the band just left behind.
+  }, [band, localProgressLoaded]);
 
   const persist = useCallback((change: (current: EntrepreneurQuestState) => EntrepreneurQuestState) => {
     const next = change(latest.current);
     latest.current = next;
     setState(next);
-    writeToStorage(next);
+    writeToStorage(bandRef.current, next);
   }, []);
 
   const updateBusinessField = useCallback(
@@ -153,7 +186,7 @@ export function useEntrepreneurQuest() {
   );
 
   const resetBusiness = useCallback(() => {
-    const fresh = resetEntrepreneurQuest();
+    const fresh = resetEntrepreneurQuest(bandRef.current);
     latest.current = fresh;
     setState(fresh);
   }, []);

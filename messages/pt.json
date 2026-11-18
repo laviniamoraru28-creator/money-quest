@@ -359,7 +359,10 @@
         "title": "Calcula o Teu Lucro",
         "learnText": "O lucro é o dinheiro que ficas depois de pagares os teus custos. Lucro = Vendas menos Custos.",
         "resultHint": "Aqui está o teu lucro do Simulador de Negócio.",
-        "noRunYetHint": "Visita primeiro o Simulador de Negócio para veres aqui um número de lucro real."
+        "noRunYetHint": "Visita primeiro o Simulador de Negócio para veres aqui um número de lucro real.",
+        "moneyInLabel": "Dinheiro que entra",
+        "moneyOutLabel": "Dinheiro que sai",
+        "leftOverLabel": "O que sobra:"
       },
       "handle-competition": {
         "title": "Lida com a Concorrência",
@@ -6782,7 +6785,7 @@
       "chooseIdeaTitle": "Escolhe a tua ideia"
     }
   },
-  "navMenu":   {
+  "navMenu": {
     "openMenu": "Menu",
     "closeMenu": "Fechar menu",
     "title": "Explorar o Money Quest",
@@ -6829,5 +6832,11 @@
     "lessonComplete": "Verificaste a tua ideia e terminaste a lição. Escolhe a próxima atividade quando quiseres.",
     "lessonGoal": "O teu objetivo: explorar {title}. Lê ou ouve e responde à pergunta. Segue o teu ritmo.",
     "world": "Bem-vindo a {name}. {description} Escolhe uma lição ou um jogo. Segue o teu ritmo."
+  },
+  "bandGate": {
+    "strategistOnly": {
+      "title": "Nível Estratega",
+      "body": "Esta parte da jornada foi criada para exploradores mais velhos (12-14 anos). Muda para o nível Estratega no seletor de nível para a descobrir, ou continua com tudo o que já está desbloqueado para ti."
+    }
   }
 }

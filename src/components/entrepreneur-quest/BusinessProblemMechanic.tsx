@@ -25,6 +25,7 @@ export function BusinessProblemMechanic({
   statLines,
   currencyCode,
   uiLocale,
+  isExplorer,
   onRespond,
   onFinish,
 }: {
@@ -32,6 +33,7 @@ export function BusinessProblemMechanic({
   statLines: { label: string; value: string }[];
   currencyCode: string;
   uiLocale: string;
+  isExplorer: boolean;
   onRespond: (responseKey: string) => void;
   onFinish: () => void;
 }) {
@@ -123,6 +125,7 @@ export function BusinessProblemMechanic({
             currencyCode={currencyCode}
             uiLocale={uiLocale}
             usesCurrency={false}
+            isExplorer={isExplorer}
             onAnswer={(_isCorrect, choiceKey) => {
               setRespondedKey(choiceKey ?? "");
               onRespond(choiceKey ?? "");
