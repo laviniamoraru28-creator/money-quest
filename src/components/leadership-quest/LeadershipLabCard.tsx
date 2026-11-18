@@ -18,6 +18,7 @@ export function LeadershipLabCard({
   choiceKeys,
   currencyCode,
   uiLocale,
+  isExplorer,
   isCompleted,
   onAnswer,
 }: {
@@ -25,6 +26,7 @@ export function LeadershipLabCard({
   choiceKeys: string[];
   currencyCode: string;
   uiLocale: string;
+  isExplorer: boolean;
   isCompleted: boolean;
   onAnswer: (choiceKey: string) => void;
 }) {
@@ -66,6 +68,7 @@ export function LeadershipLabCard({
             currencyCode={currencyCode}
             uiLocale={uiLocale}
             usesCurrency={false}
+            isExplorer={isExplorer}
             onAnswer={(_isCorrect, choiceKey) => {
               if (choiceKey) onAnswer(choiceKey);
             }}

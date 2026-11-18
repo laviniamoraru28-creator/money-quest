@@ -36,6 +36,14 @@ export interface LocalProgressState {
   goals: LocalGoal[];
   earnedBadgeIds: string[];
   certificateCompletionDates: Partial<Record<"explorer" | "builder" | "strategist", string>>;
+  /** Set once per band, the moment Money Quest + Entrepreneur Quest +
+   * Leadership Quest are ALL complete for that same band - the actual
+   * printable certificate's date. Deliberately separate from
+   * `certificateCompletionDates` above, which keeps its original,
+   * narrower meaning (Money Quest's own curriculum finished) rather
+   * than being repurposed, since other code and tests still read it
+   * for exactly that. */
+  threeQuestCertificateDates: Partial<Record<"explorer" | "builder" | "strategist", string>>;
 }
 
 export function createDefaultState(): LocalProgressState {
@@ -48,6 +56,7 @@ export function createDefaultState(): LocalProgressState {
     goals: [],
     earnedBadgeIds: [],
     certificateCompletionDates: {},
+    threeQuestCertificateDates: {},
   };
 }
 
@@ -102,6 +111,19 @@ export function applyActivityCompletion(
     coinsAwarded: coinRewardMinorUnits,
     wasFirstCompletion: true,
   };
+}
+
+/**
+ * Records the final, three-programme completion date for a band - once
+ * only, ever, matching `applyActivityCompletion`'s own "never overwrite
+ * an already-recorded date" rule above. The caller is responsible for
+ * having actually verified all three programmes are done for this band
+ * (see isThreeQuestCertificateReady); this function only guards against
+ * recording it twice, not against recording it wrongly.
+ */
+export function recordThreeQuestCompletion(state: LocalProgressState, band: AgeBand, now: Date = new Date()): LocalProgressState {
+  if (state.threeQuestCertificateDates[band]) return state;
+  return { ...state, threeQuestCertificateDates: { ...state.threeQuestCertificateDates, [band]: completionTimestamp(now) } };
 }
 
 export function createGoal(state: LocalProgressState, name: string, targetMinorUnits: number): LocalProgressState {
