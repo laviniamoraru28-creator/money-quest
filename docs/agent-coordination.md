@@ -4,7 +4,7 @@ This is the central, read-only index over the site's existing audit agents.
 It does not run any analysis itself, does not call a paid API, and does not
 modify any other agent's branch, workflow, or script.
 
-## The six agent groups, 25 agents total (and why each exists)
+## The seven agent groups, 26 agents total (and why each exists)
 
 | Agent group | Where | Domain | Overlap risk checked |
 |---|---|---|---|
@@ -14,8 +14,9 @@ modify any other agent's branch, workflow, or script.
 | **Journey Improvement Agents** (Child Journey Detective, Experiment Designer, Improvement Engine) | PR #76, `scripts/journey-improvement-agents.py` | UX-flow review prompts (disabled buttons, localStorage usage) and impact×confidence/effort-ranked usability-experiment hypotheses. | Child Journey Detective and Inclusive Experience Guardian both regex-scan the same `src/**/*.tsx` tree, but for different patterns (UX flow vs. accessibility) producing different findings — not true duplication, just a shared *mechanism*. Worth merging into one scan pass later purely as a performance/maintenance simplification, not urgent. |
 | **Growth Agents** (Search Opportunity Hunter, First Visit Experience Agent, SEO Technical Guardian, Growth Intelligence Director, Opportunity Prioritizer) | PR #92, `scripts/growth_agents.py` | SEO sitemap/robots/metadata review candidates, first-visit-journey review candidates, and a priority ranking over both. Search Opportunity Hunter and Growth Intelligence Director always report zero findings until an authorized aggregated GSC/analytics source is connected — neither may ever infer search demand, rankings, traffic or engagement. | Shares the "what might improve search/discovery" space with Future Skills Radar and Learning Intelligence, but from a technical-SEO angle rather than curriculum content — kept separate; worth a human comparing outputs occasionally, same as the existing Future Skills Radar / Learning Intelligence note above. |
 | **Specialist Agents** (Social Growth Scientist, Parent/Teacher Community Scout, Partnership Discovery Agent, Engagement Designer, Accessibility Personalization Agent, Feedback Intelligence Agent, Learning Gap Detector, Imagination & Innovation Scout, Cultural Learning Adapter, Research-to-Lesson Agent, Performance Optimizer, Security Sentinel, Release Guardian, AI Cost Controller, Privacy Guardian, Weekly Executive Reporter) | PR #94, `scripts/specialist_agents.py`, stacked on PR #92 | Sixteen agents: six (social, parent/teacher, partnership, feedback, imagination, research-to-lesson) explicitly await an approved external data source and report zero findings until then; the other ten run entirely on repository source (engagement/reward-loop language, accessibility axe-test coverage, locale top-level key parity, raw `<img>` tags, `dangerouslySetInnerHTML`, `localStorage`, release CI/test presence, AI/assistant budget review, a cross-agent summary). | Performance Optimizer's image-loading check and Education Guardians' `<img>`-missing-`alt` check both scan images but for different properties (loading strategy vs. accessible text) — not duplication. Security Sentinel's `dangerouslySetInnerHTML` check and Privacy Guardian's `localStorage` check are each the only agent covering that specific concern. |
+| **Parent Copywriting Strategist** | PR #95, `scripts/parent_copywriting_agent.py` | Monthly editorial briefs (4/month, rotating across all 8 required parent-education subject areas) and lint-checked article drafts for the existing `/learn` catalog (`src/content/articles.ts` + `messages/*.json`). Never writes to that catalog directly, never links to Facebook or TikTok, never fabricates evidence/testimonials — `lint_draft()` enforces this mechanically. | Parent/Teacher Community Scout (Specialist Agents) reviews *public community needs signals*; this agent *writes the articles* responding to them — different stage of the same pipeline, not duplication. Future Skills Radar (Education Guardians) and Learning Intelligence both inform *what* parents might search for; this agent is the one that actually drafts prose from a brief. |
 
-**No seventh agent group should be added without checking this table first** — specifically, before adding a workflow, confirm its domain isn't already one of the six above.
+**No eighth agent group should be added without checking this table first** — specifically, before adding a workflow, confirm its domain isn't already one of the seven above.
 
 ## Why a coordination hub, not edits to the four workflows
 
@@ -89,6 +90,21 @@ new defect) rather than silently going quiet about it. **Merging the
 underlying PRs — starting with this one, since it depends on nothing else
 — is the one change that would make the schedules real; that merge
 decision belongs to the repository owner, not this coordination layer.**
+
+## Registering the Parent Copywriting Strategist (2026-11-18)
+
+Extended in place a third time, same pattern, for the owner's "integrate
+the Parent Copywriting Strategist" brief: one new `AGENT_PATTERNS` entry
+and one new `KNOWN_WORKFLOWS` entry (`parent-copywriting.yml`, monthly
+cadence — 30-day `STALE_AFTER_CADENCES` window rather than weekly, since
+this agent's own schedule is `15 9 1 * *`). PR #95's workflow was
+separately given a `pull_request` dry-run trigger and a scheduled/
+dispatch-only "deliver to Claude through GitHub issue" step (it had
+neither before — the workflow had never been exercised by CI pre-merge),
+titled "Parent Copywriting Strategist report: `<run_id>`", matching the
+rest of the fleet. This hub's own 25 tests pass (1 new title-matching
+case; the agent-count assertions were already written dynamically against
+`len(AGENT_PATTERNS)`, so they needed no change).
 
 ## Registering Growth Agents and Specialist Agents (2026-11-18)
 

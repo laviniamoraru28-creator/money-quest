@@ -45,6 +45,10 @@ AGENT_PATTERNS = [
      "Sixteen read-only agents (see docs/specialist-agents.md): social/community/partnership/feedback/"
      "research agents await approved external data; the rest (engagement, accessibility, curriculum, "
      "performance, security, release, AI cost, privacy, weekly summary) run entirely on repository source."),
+    ("Parent Copywriting Strategist", re.compile(r"Parent Copywriting|Parent Communication.{0,5}Copywriting", re.I),
+     "Monthly editorial briefs and lint-checked drafts for parent-facing /learn articles. Never writes "
+     "to the live article catalog directly and never links to Facebook or TikTok; a draft reaches the "
+     "site only through a separate, human-approved Draft PR."),
 ]
 # Matching is deliberately "name appears anywhere in the title", not an
 # exact prefix: the four workflows' own automated issues ("Education
@@ -73,6 +77,7 @@ KNOWN_WORKFLOWS = [
     ("Learning Intelligence", "learning-intelligence.yml", 7),
     ("Growth Agents", "growth-agents.yml", 7),
     ("Specialist Agents", "specialist-agents.yml", 7),
+    ("Parent Copywriting Strategist", "parent-copywriting.yml", 30),
     ("Agent Coordination Hub (this workflow)", "agent-coordination.yml", 1),
 ]
 # A run is "stale" once this many cadence periods have passed with no

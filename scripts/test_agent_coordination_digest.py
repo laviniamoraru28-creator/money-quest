@@ -44,6 +44,7 @@ class ClassifyTitleTests(unittest.TestCase):
         self.assertEqual(module.classify_title("Learning Intelligence weekly research notes"), "Learning Intelligence")
         self.assertEqual(module.classify_title("Growth Agents report: 44300000000"), "Growth Agents")
         self.assertEqual(module.classify_title("Specialist Agents report: 44300000001"), "Specialist Agents")
+        self.assertEqual(module.classify_title("Parent Copywriting Strategist report: 44300000002"), "Parent Copywriting Strategist")
 
     def test_matches_individual_specialist_and_growth_sub_agent_mentions(self):
         # The 16 specialist / 5 growth sub-agents don't each open their own
@@ -53,6 +54,12 @@ class ClassifyTitleTests(unittest.TestCase):
         self.assertEqual(module.classify_title("SEO Technical Guardian found a missing sitemap"), "Growth Agents")
         self.assertEqual(module.classify_title("Security Sentinel flagged dangerouslySetInnerHTML"), "Specialist Agents")
         self.assertEqual(module.classify_title("Privacy Guardian: localStorage review"), "Specialist Agents")
+
+    def test_matches_parent_copywriting_strategist_regardless_of_connector_spacing(self):
+        # Original handoff doc used "Parent Communication & Copywriting
+        # Strategist"; the automated workflow's issue titles use the
+        # shorter "Parent Copywriting Strategist" - both must resolve.
+        self.assertEqual(module.classify_title("Parent Communication & Copywriting Strategist: November briefs"), "Parent Copywriting Strategist")
 
     def test_matches_real_manually_opened_handoff_titles(self):
         # These are the actual titles of issues #75 and #77 as opened by
