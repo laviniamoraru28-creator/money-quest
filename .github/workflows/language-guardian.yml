@@ -22,6 +22,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Unit tests
+        run: python3 -m unittest scripts.test_language_guardian -v
       - name: Check translation structure
         id: audit
         continue-on-error: true
@@ -31,7 +36,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: language-guardian-report
-          path: language-guardian-report.md
+          path: |
+            language-guardian-report.md
+            language-guardian-report.json
           if-no-files-found: warn
       - name: Prepare Claude handoff issue
         if: github.event_name == 'workflow_dispatch' && inputs.send_to_claude
@@ -51,7 +58,8 @@ jobs:
           If not, leave a review plan and suggested corrections on this issue.
           EOF
           printf '\nWorkflow report: %s\n' "$RUN_URL" >> claude-handoff.md
-          issue_url=$(gh issue create --title "Language Guardian: Claude translation review" --body-file claude-handoff.md)\n          gh issue comment "$issue_url" --body "@claude Please review the issue and linked audit report. Work only on a separate branch and draft PR. Do not merge or deploy."
+          issue_url=$(gh issue create --title "Language Guardian: Claude translation review" --body-file claude-handoff.md)
+          gh issue comment "$issue_url" --body "@claude Please review the issue and linked audit report. Work only on a separate branch and draft PR. Do not merge or deploy."
       - name: Fail when structural errors found
         if: steps.audit.outcome == 'failure'
         run: exit 1
