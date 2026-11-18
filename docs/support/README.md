@@ -1,6 +1,6 @@
 # Voluntary support: review implementation
 
-Status: sandbox-only, no merge or deployment authorized. Production payments cannot be enabled by setting an environment variable: the server rejects every live key and any mode other than `sandbox`. A separate reviewed change is required after owner approval.
+Status: sandbox-only code; owner has since authorized continuation through live launch. Staging was deployed on 17 November 2026. Production is not yet updated. Production payments cannot be enabled by setting an environment variable: the server rejects every live key and any mode other than `sandbox`. A separate reviewed change is required after owner approval.
 
 ## Repository and Stripe inspection (16 November 2026)
 
@@ -22,11 +22,15 @@ Initially connected account: Money Quest, `acct_1UVYX9QZFq5acwqx`, live access o
 - Dedicated signed `/api/support/webhook` receives completed, asynchronously successful and failed events. It retrieves/validates paid sessions. Stripe remains the payment ledger. There are no local entitlements, emails or fulfillment side effects, so duplicate events are idempotent. Transient retrieval failures return 500 for Stripe retry; unrelated and unpaid events are acknowledged without confirmation.
 - Support pages are excluded from offline downloads. The return page is dynamic, non-indexable and uses a no-referrer policy.
 
-## Sandbox setup still required
+## Sandbox setup and verified staging results
 
 The owner confirmed they do not collect VAT. Sandbox product `prod_MQVoluntarySupportV1` is configured with automatic tax disabled. Four actual Checkout Sessions were created for £2, £5, £10 and £2.50, all one-time GBP and livemode=false. The £2 hosted checkout was completed using Stripe's fictitious 4242 test card. Stripe subsequently confirmed status=complete and payment_status=paid, PaymentIntent `pi_3UcflTHDC3WzcjKr1kSNziPD`. No real money moved.
 
-The return URL currently leads to 404 because the support feature is not deployed. This connector/browser test does not verify the application's server-created checkout, browser-cookie binding or webhook end to end. The remaining three sessions are open and unpaid. Decline, cancellation, authentication, delayed settlement, refund and webhook delivery tests remain outstanding. Runtime test credentials and a dedicated sandbox webhook still need secure configuration.
+Staging is installed at https://staging.moneyquesteducation.com/en/support. The existing sandbox key and dedicated signing secret are configured securely in Namecheap, with the sandbox mode/product and staging origin. Endpoint `we_1Uckp6HDC3WzcjKr3fizIlUj` targets the independent support webhook.
+
+An application-created £2 checkout succeeded on 17 November: session `cs_test_a0GkN0RYBBoceTpARivquvM6hhH4HBtbaFwxuNCmABtth4pCS1FuWb7sET`, intent `pi_3UcpUAHDC3WzcjKr09medEKL`. The browser returned to the application and displayed its server-verified confirmation. Event `evt_1UcpUBHDC3WzcjKroodfl0Dn` delivered HTTP 200 with received=true and verified=true. The £5 cancellation returned safely without a success claim. £2.50 custom checkout displayed the correct amount. On 18 November, an app-created £10 checkout displayed the correct amount; Stripe declined the designated fictitious decline card and cancellation again displayed no payment confirmation. No real funds moved.
+
+The owner subsequently requested an adult gate. Its new code is not yet deployed to staging. It hides the support content and amounts until a randomly generated multiplication question and adult declaration are completed. An HTTP-only signed proof expires after three minutes and the checkout endpoint independently enforces it. Incorrect/expired/tampered proofs fail closed. This is an accidental-access barrier, not proof of age or a guarantee that an older child cannot solve the question. No parent email, account or personal information is collected for the gate. Dedicated consent tests and browser journeys cover all nine languages. Authentication/delayed/refund scenarios remain unverified with actual Stripe payments.
 
 1. Reuse `prod_MQVoluntarySupportV1` in this sandbox. For future environments, list products by `metadata.app=moneyquest-voluntary-support-v1`. Reuse exactly one match; if none, create one product named `Support Money Quest`, description `One-time voluntary contribution to an independent educational project. No goods or additional access are supplied.`, with that metadata. No duplicate product or payment link is needed.
 2. Store a restricted test key in the hosting/CI secrets configuration, never in git or chat. Permissions: products read; Checkout Sessions write/read; PaymentIntents and Charges read (including expansion). Verify permissions with the test suite before live approval.
@@ -66,7 +70,7 @@ See the PR for the actual run results and remaining Stripe access blocker.
 
 ### Broad-suite blocker observed
 
-Run [43906993495](https://github.com/laviniamoraru28-creator/money-quest/actions/runs/43906993495) passed lint, types, all unit suites, certificate QA, build and package rehearsal. The existing broad browser suite recorded 290 passed, 8 failed, 1 interrupted, 11 skipped and 828 not run before its failure limit. Failures are in `lesson-illustrations.spec.ts`, `lesson-sequence-integrity.spec.ts`, and `owner-navigation-search.spec.ts`, expecting pre-comic Explorer money-form controls/artwork. This feature does not modify those lesson implementations or tests. Full regression clearance is therefore still blocked; do not describe CI as fully green.
+Historical run [43906993495](https://github.com/laviniamoraru28-creator/money-quest/actions/runs/43906993495) passed lint, types, all unit suites, certificate QA, build and package rehearsal. The existing broad browser suite recorded 290 passed, 8 failed, 1 interrupted, 11 skipped and 828 not run before its failure limit. Failures are in `lesson-illustrations.spec.ts`, `lesson-sequence-integrity.spec.ts`, and `owner-navigation-search.spec.ts`, expecting pre-comic Explorer money-form controls/artwork. This feature does not modify those lesson implementations or tests. That run was superseded by run 44128085648 after merging main QA updates: lint, types, 64 unit suites, build, packaging, Chromium, iPhone/iPad and additional iPad journeys all passed. The new adult-gate revision needs its own CI result.
 
 The existing quality workflow now runs the support suite on desktop/mobile Chromium and iPhone/iPad WebKit before the broad suite, and uploads a small standalone screenshot artifact. This ensures unrelated broad-suite failures cannot prevent support review evidence. The broad Chromium suite excludes those exact already-run support tests.
 

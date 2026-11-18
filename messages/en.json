@@ -6465,6 +6465,12 @@
     "privacy": "Privacy policy",
     "privacyTitle": "Payment privacy",
     "privacyBody": "Stripe processes payment details and may collect your name, email and billing information. Money Quest does not receive your full card details. Payment records remain in Stripe. An essential, secure browser cookie lasts up to 24 hours and lets us verify your checkout. We do not use payment details for marketing.",
-    "contact": "Questions or refund requests: moneyquesteducation@gmail.com."
+    "contact": "Questions or refund requests: moneyquesteducation@gmail.com.",
+    "gateTitle": "For parents and adults",
+    "gateIntro": "Please ask a parent or another adult to complete this check before opening the contribution page.",
+    "gateQuestion": "Calculate the answer",
+    "gateContinue": "Continue as an adult",
+    "gateError": "The answer was incorrect or the check expired. Please try the new question.",
+    "gateUnavailable": "The check could not load. Please refresh the page."
   }
 }

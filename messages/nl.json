@@ -6856,6 +6856,12 @@
     "privacy": "Privacybeleid",
     "privacyTitle": "Privacy bij betalingen",
     "privacyBody": "Stripe verwerkt betaalgegevens en kan je naam, e-mailadres en factuurgegevens verzamelen. Money Quest ontvangt niet je volledige kaartgegevens. Betalingsgegevens blijven bij Stripe. Een noodzakelijke, veilige browsercookie blijft maximaal 24 uur geldig en helpt ons je betaling te controleren. We gebruiken betaalgegevens niet voor marketing.",
-    "contact": "Vragen of terugbetalingsverzoeken: moneyquesteducation@gmail.com."
+    "contact": "Vragen of terugbetalingsverzoeken: moneyquesteducation@gmail.com.",
+    "gateTitle": "Voor ouders en volwassenen",
+    "gateIntro": "Vraag een ouder of een andere volwassene om deze controle uit te voeren voordat de bijdragepagina wordt geopend.",
+    "gateQuestion": "Bereken het antwoord",
+    "gateContinue": "Doorgaan als volwassene",
+    "gateError": "Het antwoord is onjuist of de controle is verlopen. Probeer de nieuwe som.",
+    "gateUnavailable": "De controle kon niet worden geladen. Vernieuw de pagina."
   }
 }

@@ -26,6 +26,7 @@ export function SupportForm({locale, enabled}: {locale: string; enabled: boolean
     try {
       const response = await fetch("/api/support/checkout", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify({amount, adult, locale, requestId: requestId.current})});
       const data = await response.json();
+      if (data.code === "adult") {window.location.reload(); return;}
       if (!response.ok) {setError(t(data.code === "invalid" ? "invalid" : data.code === "rate" ? "rate" : "unavailable")); return;}
       window.location.assign(validatedCheckoutUrl(data.url));
     } catch {setError(t("unavailable"));}

@@ -6856,6 +6856,12 @@
     "privacy": "Politica de confidențialitate",
     "privacyTitle": "Confidențialitatea plăților",
     "privacyBody": "Stripe procesează datele de plată și poate colecta numele, adresa de e-mail și informațiile de facturare. Money Quest nu primește datele complete ale cardului. Evidența plăților rămâne în Stripe. Un cookie esențial și securizat, valabil până la 24 de ore, ne permite să verificăm plata din browserul tău. Nu folosim datele de plată pentru marketing.",
-    "contact": "Întrebări sau cereri de rambursare: moneyquesteducation@gmail.com."
+    "contact": "Întrebări sau cereri de rambursare: moneyquesteducation@gmail.com.",
+    "gateTitle": "Pentru părinți și adulți",
+    "gateIntro": "Roagă un părinte sau un alt adult să completeze această verificare înainte de a deschide pagina de contribuții.",
+    "gateQuestion": "Calculează rezultatul",
+    "gateContinue": "Continuă ca adult",
+    "gateError": "Răspunsul este greșit sau verificarea a expirat. Încearcă noul exercițiu.",
+    "gateUnavailable": "Verificarea nu s-a încărcat. Reîncarcă pagina."
   }
 }

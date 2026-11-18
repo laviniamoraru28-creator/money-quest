@@ -6465,6 +6465,12 @@
     "privacy": "Polityka prywatności",
     "privacyTitle": "Prywatność płatności",
     "privacyBody": "Stripe przetwarza dane płatności i może zbierać imię i nazwisko, adres e-mail oraz dane rozliczeniowe. Money Quest nie otrzymuje pełnych danych karty. Dane płatności pozostają w Stripe. Niezbędny, bezpieczny plik cookie działa do 24 godzin i pozwala nam zweryfikować płatność w tej przeglądarce. Nie wykorzystujemy danych płatności do marketingu.",
-    "contact": "Pytania lub prośby o zwrot: moneyquesteducation@gmail.com."
+    "contact": "Pytania lub prośby o zwrot: moneyquesteducation@gmail.com.",
+    "gateTitle": "Dla rodziców i dorosłych",
+    "gateIntro": "Poproś rodzica lub inną osobę dorosłą o wykonanie tej weryfikacji przed otwarciem strony wpłat.",
+    "gateQuestion": "Oblicz wynik",
+    "gateContinue": "Kontynuuj jako osoba dorosła",
+    "gateError": "Odpowiedź jest nieprawidłowa lub weryfikacja wygasła. Rozwiąż nowe zadanie.",
+    "gateUnavailable": "Nie udało się załadować weryfikacji. Odśwież stronę."
   }
 }

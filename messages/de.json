@@ -6856,6 +6856,12 @@
     "privacy": "Datenschutzerklärung",
     "privacyTitle": "Datenschutz bei Zahlungen",
     "privacyBody": "Stripe verarbeitet Zahlungsdaten und kann deinen Namen, deine E-Mail-Adresse und Rechnungsinformationen erheben. Money Quest erhält keine vollständigen Kartendaten. Zahlungsaufzeichnungen bleiben bei Stripe. Ein notwendiges, sicheres Browser-Cookie bleibt bis zu 24 Stunden gültig und ermöglicht uns, deine Zahlung zu überprüfen. Wir verwenden Zahlungsdaten nicht für Werbung.",
-    "contact": "Fragen oder Erstattungsanfragen: moneyquesteducation@gmail.com."
+    "contact": "Fragen oder Erstattungsanfragen: moneyquesteducation@gmail.com.",
+    "gateTitle": "Für Eltern und Erwachsene",
+    "gateIntro": "Bitte ein Elternteil oder eine andere erwachsene Person, diese Prüfung abzuschließen, bevor die Unterstützungsseite geöffnet wird.",
+    "gateQuestion": "Berechne das Ergebnis",
+    "gateContinue": "Als erwachsene Person fortfahren",
+    "gateError": "Die Antwort ist falsch oder die Prüfung ist abgelaufen. Versuche die neue Aufgabe.",
+    "gateUnavailable": "Die Prüfung konnte nicht geladen werden. Lade die Seite neu."
   }
 }

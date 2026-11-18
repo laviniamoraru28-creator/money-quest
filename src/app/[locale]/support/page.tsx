@@ -1,3 +1,6 @@
+import {cookies} from "next/headers";
+import {ADULT_COOKIE, verifiedAdult} from "@/lib/support/adult-gate";
+import {SupportAdultGate} from "@/components/SupportAdultGate";
 import {getTranslations} from "next-intl/server";
 import {Link} from "@/i18n/navigation";
 import {SupportForm} from "@/components/SupportForm";
@@ -8,6 +11,7 @@ export async function generateMetadata({params}: {params: Promise<{locale: strin
   return {title: t("title"), description: t("intro")};
 }
 export default async function SupportPage({params, searchParams}: {params: Promise<{locale: string}>; searchParams: Promise<{cancelled?: string}>}) {
+  if (!verifiedAdult((await cookies()).get(ADULT_COOKIE)?.value)) return <SupportAdultGate/>;
   const {locale} = await params; const query = await searchParams;
   const t = await getTranslations("support");
   return <main id="main-content" tabIndex={-1} className="mx-auto max-w-2xl px-4 py-8 text-ink">
