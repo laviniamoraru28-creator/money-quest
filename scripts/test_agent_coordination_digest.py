@@ -42,6 +42,17 @@ class ClassifyTitleTests(unittest.TestCase):
         self.assertEqual(module.classify_title("Education Guardians report: 44085326532"), "Education Guardians")
         self.assertEqual(module.classify_title("Journey Improvement Agents report: 44086354433"), "Journey Improvement Agents")
         self.assertEqual(module.classify_title("Learning Intelligence weekly research notes"), "Learning Intelligence")
+        self.assertEqual(module.classify_title("Growth Agents report: 44300000000"), "Growth Agents")
+        self.assertEqual(module.classify_title("Specialist Agents report: 44300000001"), "Specialist Agents")
+
+    def test_matches_individual_specialist_and_growth_sub_agent_mentions(self):
+        # The 16 specialist / 5 growth sub-agents don't each open their own
+        # issue today (one combined issue per workflow run), but a title
+        # naming one of them by name - a manual handoff, say - must still
+        # resolve to the right group, not fall through to unrecognized.
+        self.assertEqual(module.classify_title("SEO Technical Guardian found a missing sitemap"), "Growth Agents")
+        self.assertEqual(module.classify_title("Security Sentinel flagged dangerouslySetInnerHTML"), "Specialist Agents")
+        self.assertEqual(module.classify_title("Privacy Guardian: localStorage review"), "Specialist Agents")
 
     def test_matches_real_manually_opened_handoff_titles(self):
         # These are the actual titles of issues #75 and #77 as opened by
@@ -81,12 +92,12 @@ class BuildDigestTests(unittest.TestCase):
         self.assertIn("None open.", body)
         self.assertNotIn("Unrecognized report-shaped issues", body)
 
-    def test_empty_input_still_lists_all_four_agents_at_zero(self):
+    def test_empty_input_still_lists_every_declared_agent_at_zero(self):
         body = module.build_digest([], generated_at="2026-11-17T13:00:00+00:00")
         for agent, _pattern, _domain in module.AGENT_PATTERNS:
             self.assertIn(f"### {agent} (0 open)", body)
         self.assertNotIn("Unrecognized report-shaped issues", body)
-        self.assertIn("0 open report issue(s) across 4 known agents.", body)
+        self.assertIn(f"0 open report issue(s) across {len(module.AGENT_PATTERNS)} known agents.", body)
 
     def test_never_lists_itself_as_unrecognized(self):
         # Regression test: issue #79's first live run listed itself under
@@ -99,12 +110,12 @@ class BuildDigestTests(unittest.TestCase):
         self.assertNotIn("#79", body)
         self.assertIn("#75", body)
 
-    def test_never_fabricates_a_fifth_agent(self):
+    def test_never_fabricates_an_undeclared_agent(self):
         body = module.build_digest([make_issue(1, "Something completely unrelated")])
         self.assertIn("Unrecognized report-shaped issues", body)
         self.assertIn("#1", body)
-        # Still exactly the four declared agents, each explicitly at zero.
-        self.assertEqual(body.count("### "), 5)  # 4 agents + 1 "Unrecognized" section
+        # Still exactly the declared agents, each explicitly at zero.
+        self.assertEqual(body.count("### "), len(module.AGENT_PATTERNS) + 1)  # N agents + 1 "Unrecognized" section
 
 
 class WorkflowHealthTests(unittest.TestCase):

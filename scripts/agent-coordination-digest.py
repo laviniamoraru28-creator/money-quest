@@ -37,6 +37,14 @@ AGENT_PATTERNS = [
      "UX-flow review candidates, usability-experiment proposals, priority-ranked improvement queue."),
     ("Learning Intelligence", re.compile(r"Learning Intelligence", re.I),
      "Curriculum-navigation inventory and (optional) search-visibility topic signals."),
+    ("Growth Agents", re.compile(r"Growth Agents|Search Opportunity Hunter|First Visit Experience|SEO Technical Guardian|Growth Intelligence Director|Opportunity Prioritizer", re.I),
+     "Five read-only agents (Search Opportunity Hunter, First Visit Experience Agent, SEO Technical "
+     "Guardian, Growth Intelligence Director, Opportunity Prioritizer). Search/growth findings explicitly "
+     "require an authorized aggregated analytics source before claiming traffic, rankings or engagement."),
+    ("Specialist Agents", re.compile(r"Specialist Agents|Social Growth Scientist|Parent.Teacher Community Scout|Partnership Discovery|Engagement Designer|Accessibility Personalization|Feedback Intelligence|Learning Gap Detector|Imagination.Innovation Scout|Cultural Learning Adapter|Research.to.Lesson|Performance Optimizer|Security Sentinel|Release Guardian|AI Cost Controller|Privacy Guardian|Weekly Executive Reporter", re.I),
+     "Sixteen read-only agents (see docs/specialist-agents.md): social/community/partnership/feedback/"
+     "research agents await approved external data; the rest (engagement, accessibility, curriculum, "
+     "performance, security, release, AI cost, privacy, weekly summary) run entirely on repository source."),
 ]
 # Matching is deliberately "name appears anywhere in the title", not an
 # exact prefix: the four workflows' own automated issues ("Education
@@ -49,19 +57,22 @@ AGENT_PATTERNS = [
 # Each agent's own workflow file and documented cadence (see each agent's
 # PR for its schedule - Language Guardian Mon 09:00 UTC, Learning
 # Intelligence Mon 07:17 UTC, Education Guardians Tue 08:00 UTC, Journey
-# Improvement Agents Wed 09:00 UTC), plus this hub's own workflow. None of
-# the five currently live on `main` - each exists only on its own open
-# draft PR's branch - so the GitHub Actions `schedule:` trigger cannot
-# fire any of them yet; this table lets the digest say that honestly
-# instead of silently going quiet. A workflow only starts appearing in
-# the Actions API once it has ever run (via `pull_request` or
-# `workflow_dispatch`) from any branch, which is how health-checking it
-# pre-merge is possible at all.
+# Improvement Agents Wed 09:00 UTC, Growth Agents Mon 08:23 UTC,
+# Specialist Agents Tue 08:41 UTC), plus this hub's own workflow. As of
+# 2026-11-18 none of the seven live on `main` - each exists only on its
+# own open draft PR's branch - so the GitHub Actions `schedule:` trigger
+# cannot fire any of them yet; this table lets the digest say that
+# honestly instead of silently going quiet. A workflow only starts
+# appearing in the Actions API once it has ever run (via `pull_request`
+# or `workflow_dispatch`) from any branch, which is how health-checking
+# it pre-merge is possible at all.
 KNOWN_WORKFLOWS = [
     ("Language Guardian", "language-guardian.yml", 7),
     ("Education Guardians", "education-guardians.yml", 7),
     ("Journey Improvement Agents", "journey-improvement-agents.yml", 7),
     ("Learning Intelligence", "learning-intelligence.yml", 7),
+    ("Growth Agents", "growth-agents.yml", 7),
+    ("Specialist Agents", "specialist-agents.yml", 7),
     ("Agent Coordination Hub (this workflow)", "agent-coordination.yml", 1),
 ]
 # A run is "stale" once this many cadence periods have passed with no
