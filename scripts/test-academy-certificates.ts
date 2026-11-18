@@ -70,7 +70,7 @@ async function main(){
     assert.equal(pdf.getPageCount(),1);
     assert(Math.abs(pdf.getPage(0).getWidth()-841.89)<0.01);
     assert(Math.abs(pdf.getPage(0).getHeight()-595.28)<0.01);
-    assert.equal(pdf.getTitle(),`MONEY QUEST · ${copy[band]}`);
+    assert.equal(pdf.getTitle(),`MONEY QUEST ACADEMY · ${copy[band]}`);
     assert.equal((pdf.catalog.get(PDFName.of("Lang")) as PDFString).decodeText(),REGIONAL_LOCALES[locale]);
     if(output)writeFileSync(`${output}/${band}-${locale}.pdf`,bytes);
   }

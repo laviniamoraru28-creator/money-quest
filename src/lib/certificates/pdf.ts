@@ -59,7 +59,7 @@ export async function generateCertificatePdf(band: AgeBand, locale: Locale, time
     doc.embedFont(serifBytes, {subset: true}), doc.embedFont(sansBytes, {subset: true}),
     doc.embedFont(signatureBytes), doc.embedJpg(art),
   ]);
-  doc.setTitle(`MONEY QUEST · ${certificateCopy[locale][band]}`);
+  doc.setTitle(`MONEY QUEST ACADEMY · ${certificateCopy[locale][band]}`);
   doc.setAuthor("Money Quest Education");
   doc.setSubject(certificateCopy[locale].title);
   doc.setLanguage(REGIONAL_LOCALES[locale]);
@@ -81,7 +81,7 @@ export async function generateCertificatePdf(band: AgeBand, locale: Locale, time
     best.result.forEach((line,i)=>text(line,cx,y+i*best.actual*1.2,width,best.actual,font,color));
   }
   const copy = certificateCopy[locale];
-  text("MONEY QUEST",768,251,1000,57);
+  text("MONEY QUEST ACADEMY",768,251,1000,57);
   text(copy.programme,768,308,1030,18,serif,gold);
   text(copy.title.toLocaleUpperCase(REGIONAL_LOCALES[locale]),768,414,1080,57,serif,navy);
   text(`${locale === "en" ? `${copy[band]} ${copy.level}` : `${copy.level}: ${copy[band]}`} (${ages[band]})`,768,503,500,27,serif,cream);

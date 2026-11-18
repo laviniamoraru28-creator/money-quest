@@ -41,7 +41,7 @@ export function AcademyCertificateReward() {
   return <section aria-label={copy.ready} className="mx-auto mt-8 max-w-3xl rounded-2xl border-2 border-amber-600 bg-white p-5 text-center text-slate-900">
     <h2 className="font-display text-2xl font-bold">{copy.congratulations}</h2>
     {earned.map(earnedBand=><div key={earnedBand} className="mt-4">
-      <h3 className="font-bold">Money Quest · {copy[earnedBand]}</h3>
+      <h3 className="font-bold">Money Quest Academy · {copy[earnedBand]}</h3>
       <p className="mt-2">{copy.ready}</p>
       <CertificateDownload band={earnedBand} locale={locale} date={state.threeQuestCertificateDates[earnedBand]} />
       <Link className="inline-flex min-h-12 items-center underline" href={`/academy-certificate?level=${earnedBand}`}>{copy.view}</Link>
