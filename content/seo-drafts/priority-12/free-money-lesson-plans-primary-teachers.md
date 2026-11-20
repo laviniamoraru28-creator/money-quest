@@ -4,7 +4,7 @@
 **Primary keyword:** free money lesson plans primary teachers
 **SEO title:** Free Money Lesson Plans for Primary School Teachers
 **Meta description:** Three adaptable lesson plans with learning objectives, materials and checks for understanding.
-**Status:** Editorial draft. Not published or translated.
+**Status:** Expanded English editorial draft. Not published or translated.
 
 > Three adaptable lesson plans with learning objectives, materials and checks for understanding.
 
@@ -27,6 +27,31 @@ Offer symbol cards, spoken instructions, a quiet mode and alternative ways to re
 ## Link to the wider curriculum
 
 Connect budgeting to mathematics, advertisements to media literacy and choices to personal development. Keep each lesson focused on one objective, with practice before assessment.
+
+## Worked example: a decision children can explain
+
+In a 35-minute Year 4 lesson, pupils plan a £15 class snack purchase with six illustrated price cards. The teacher models one comparison, groups choose items, and the exit ticket asks them to respond to a £2 price increase.
+
+## Facilitator's step-by-step plan
+
+1. Starter, five minutes: recall the meaning of price and budget.
+2. Model, seven minutes: explain one worked example aloud.
+3. Practice, fifteen minutes: plan in pairs with price cards and counters.
+4. Assessment, eight minutes: use a new price and ask pupils to justify a revision.
+
+## How to check understanding
+
+Collect an explanation from each learner, not only the final total. Revisit pupils who can calculate but cannot justify a choice.
+
+## Common teaching mistake to avoid
+
+Avoid confusing age-based suggestions with statutory curriculum requirements. Adapt to school policies and pupils' prior learning.
+
+## Questions families and teachers often ask
+
+**How long should the activity take?** Start with a short session of around ten to fifteen minutes, then adapt to the learner's attention and access needs. The time is a practical suggestion, not a research-established optimum.
+
+**What if the child gives an unexpected answer?** Ask for the reason, check whether the instructions were understood and provide another example. Avoid using speed or spoken fluency as a proxy for financial understanding.
 
 ## Try this next
 
