@@ -4,7 +4,7 @@
 **Primary keyword:** how to teach kids about money
 **SEO title:** How to Teach Kids About Money: A Practical Guide for Parents
 **Meta description:** A practical age-by-age approach to talking about earning, spending, saving and giving, without turning every family decision into a money lesson.
-**Status:** Editorial draft. Not published or translated.
+**Status:** Expanded English editorial draft. Not published or translated.
 
 > A practical age-by-age approach to talking about earning, spending, saving and giving, without turning every family decision into a money lesson.
 
@@ -27,6 +27,31 @@ Discuss payslips in simplified form, digital payments, advertising, subscription
 ## A ten-minute family routine
 
 Choose one decision, model your thinking aloud, let the child choose, and ask what they would change next time. Repeat weekly with new examples. Progress means explaining a reason for a decision, not simply remembering a definition.
+
+## Worked example: a decision children can explain
+
+At a pretend café, a child has £8. Lunch costs £4, a drink £2 and a toy £5. Ask them to choose a combination and explain why. If they choose lunch and drink, £2 remains. If they choose the toy, ask what they would do about lunch. There is no need to connect the scenario to their real family finances.
+
+## Facilitator's step-by-step plan
+
+1. Prepare three illustrated price cards and eight £1 paper tokens.
+2. Model one choice aloud, including what must be given up.
+3. Let the child make a different choice and count the tokens left.
+4. Ask how the decision changes if a price increases by £1.
+
+## How to check understanding
+
+Present a new £9 scenario with different prices. Can the child stay within the budget and explain a trade-off without copying the first example?
+
+## Common teaching mistake to avoid
+
+Avoid treating allowance as a prerequisite. Fictional tokens are enough. Avoid promising that one conversation creates lasting financial habits.
+
+## Questions families and teachers often ask
+
+**How long should the activity take?** Start with a short session of around ten to fifteen minutes, then adapt to the learner's attention and access needs. The time is a practical suggestion, not a research-established optimum.
+
+**What if the child gives an unexpected answer?** Ask for the reason, check whether the instructions were understood and provide another example. Avoid using speed or spoken fluency as a proxy for financial understanding.
 
 ## Try this next
 
