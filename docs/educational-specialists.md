@@ -67,3 +67,8 @@ The script reports every observation as `human_review_candidate`, with `confirme
 python3 -m unittest scripts.test_education_content_audit -v
 python3 scripts/education_content_audit.py
 ```
+
+## Qualitative review packs
+`scripts/education_qualitative_pack.py` now prepares side-by-side Explorer/Builder/Strategist comparisons of actual English learning objectives, activities, challenges, quiz questions and text-length counts for all available Money Quest topics. It labels all verdicts `not_assessed` and requires a human reviewer. It uploads `qualitative-review-pack.json` in the workflow.
+
+A first manually inspected, source-grounded comparison of Money Basics and Saving is recorded in [education-initial-comparative-review.md](education-initial-comparative-review.md). It identifies potential assessment-alignment questions, not confirmed defects. No runtime or child testing has occurred.
