@@ -72,3 +72,14 @@ python3 scripts/education_content_audit.py
 `scripts/education_qualitative_pack.py` now prepares side-by-side Explorer/Builder/Strategist comparisons of actual English learning objectives, activities, challenges, quiz questions and text-length counts for all available Money Quest topics. It labels all verdicts `not_assessed` and requires a human reviewer. It uploads `qualitative-review-pack.json` in the workflow.
 
 A first manually inspected, source-grounded comparison of Money Basics and Saving is recorded in [education-initial-comparative-review.md](education-initial-comparative-review.md). It identifies potential assessment-alignment questions, not confirmed defects. No runtime or child testing has occurred.
+
+## Nine-language coverage and stacked PR CI (2026-11-20)
+Direct inspection of `messages/{en,ro,es,fr,de,it,pt,nl,pl}.json` confirmed that each locale has 30 Money Quest curriculum records, 18 Entrepreneur Quest stage records and 12 Leadership Quest mission records. This is count parity only. The new `scripts/multilingual_curriculum_coverage.py` checks exact record IDs and presence of titles, reporting missing/extra keys per language. It does **not** establish translation accuracy or runtime correctness.
+
+The educational workflow now includes stacked feature branch targets for PR validation. GitHub Actions may still require the workflow to exist on the PR base/default branch before triggering; until a successful run is inspected, CI remains **unverified**. No successful test execution is claimed.
+
+Run offline:
+```bash
+python3 -m unittest scripts.test_multilingual_curriculum_coverage -v
+python3 scripts/multilingual_curriculum_coverage.py
+```
