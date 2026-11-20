@@ -54,10 +54,10 @@ export function WorldCompletionCelebration() {
    <div aria-hidden="true" className="mq-trophy-reveal mb-4 text-8xl">🏆</div>
    <div className="mb-3 flex justify-center"><LevelBadgeStar size={64}/></div>
    <h2 id="mq-world-celebration-heading" className="text-2xl font-bold">{t(`levels.${celebration.worldId}`)}</h2>
-   <p className="mt-3 text-lg">{t("play.completeOfTotal", {completed: 1, total: 1})}</p>
+   <p className="mt-3 text-lg">{t("play.worldSequenceComplete")}</p>
    <button type="button" autoFocus onClick={() => {if (timer.current) clearTimeout(timer.current);setCelebration(null);}}
     className="mt-6 min-h-12 rounded-xl bg-teal px-8 py-3 font-bold text-white focus-visible:outline focus-visible:outline-4 focus-visible:outline-gold">
-    {t("nav.backToWorldMap")}
+    {t("common.back")}
    </button>
   </div>
  </div>;
