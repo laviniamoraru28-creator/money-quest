@@ -44,7 +44,10 @@ def request_json(url, token):
 
 def snapshot(registry, fetch, now):
     results = {}
-    for pr, filename in WORKFLOWS.items():
+    referenced = sorted({a.get("implementation", {}).get("reference_pr") for a in registry["agents"]
+                         if a.get("implementation", {}).get("reference_pr") in WORKFLOWS})
+    for pr in referenced:
+        filename = WORKFLOWS[pr]
         if filename is None:
             results[pr] = {"status": "workflow_not_mapped", "last_successful_run": None, "run_url": None}
             continue
