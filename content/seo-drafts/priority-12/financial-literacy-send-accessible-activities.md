@@ -4,7 +4,7 @@
 **Primary keyword:** financial literacy SEND activities
 **SEO title:** Financial Literacy for Children with SEND: Practical and Accessible Activities
 **Meta description:** Adapt money lessons for different communication, sensory, attention and learning needs without assuming one method suits every child.
-**Status:** Editorial draft. Not published or translated.
+**Status:** Expanded English editorial draft. Not published or translated.
 
 > Adapt money lessons for different communication, sensory, attention and learning needs without assuming one method suits every child.
 
@@ -27,6 +27,31 @@ Instead of a loud celebration for every tap, use a short message: 'You chose the
 ## Check understanding beyond the game
 
 Try the same decision with physical tokens or a new set of pictures. If performance changes, investigate whether the barrier is the concept, the interface or the language. SEND is diverse, and an adaptation that helps one learner may not help another.
+
+## Worked example: a decision children can explain
+
+A learner chooses between a pictured £2 snack and a £6 toy using a £5 pretend budget. Begin with two cards and a visible number line. Offer a switch-accessible selection or AAC response. Later change the items to see whether the learner applies the budget rule.
+
+## Facilitator's step-by-step plan
+
+1. Assess access needs and the preferred response method before the task.
+2. Use one clear instruction, a predictable sequence and an optional quiet mode.
+3. Offer modelling and a practice turn without scoring.
+4. Change the pictures while keeping the underlying money concept the same.
+
+## How to check understanding
+
+Can the learner make the same kind of choice with new materials or in a different setting? Record whether support or prompting was required.
+
+## Common teaching mistake to avoid
+
+Do not equate absence of speech with absence of understanding. Do not claim that one sensory design is universally accessible.
+
+## Questions families and teachers often ask
+
+**How long should the activity take?** Start with a short session of around ten to fifteen minutes, then adapt to the learner's attention and access needs. The time is a practical suggestion, not a research-established optimum.
+
+**What if the child gives an unexpected answer?** Ask for the reason, check whether the instructions were understood and provide another example. Avoid using speed or spoken fluency as a proxy for financial understanding.
 
 ## Try this next
 
