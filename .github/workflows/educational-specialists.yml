@@ -10,6 +10,8 @@ on:
       - 'feature/educational-psychology-*'
       - 'feature/specialists-curriculum-*'
       - 'feature/education-*'
+      - 'feature/all-agent-*'
+      - 'feature/educational-agent-*'
   workflow_dispatch: {}
   schedule:
     - cron: "20 8 * * 2"
@@ -27,8 +29,18 @@ jobs:
           python-version: '3.12'
       - name: Validate specialist reviews and inventory
         run: |
-          python3 -m unittest scripts.test_educational_specialists scripts.test_curriculum_source_inventory scripts.test_structured_curriculum_bridge scripts.test_education_content_audit scripts.test_education_qualitative_pack scripts.test_multilingual_curriculum_coverage scripts.test_education_runtime_wiring scripts.test_education_activity_inventory scripts.test_agent_registry -v
+          python3 -m unittest scripts.test_educational_specialists scripts.test_curriculum_source_inventory scripts.test_structured_curriculum_bridge scripts.test_education_content_audit scripts.test_education_qualitative_pack scripts.test_multilingual_curriculum_coverage scripts.test_education_runtime_wiring scripts.test_education_activity_inventory scripts.test_agent_registry scripts.test_educational_competency_gates scripts.test_agent_competency_framework scripts.test_agent_scorecards scripts.test_agent_evaluation_fixtures scripts.test_agent_implementation_inventory -v
           python3 scripts/agent_registry.py --output artifacts/education-specialists/registry-validation.json
+      - name: Check educational competency safeguards
+        run: python3 -m scripts.educational_competency_gates --output artifacts/education-specialists/competency-gates.json
+      - name: Audit competency profiles for all registered agents
+        run: python3 -m scripts.agent_competency_framework --output artifacts/education-specialists/all-agent-competency-audit.json
+      - name: Generate individual agent scorecards
+        run: python3 -m scripts.agent_scorecards --output artifacts/education-specialists/agent-scorecards.json
+      - name: Generate unexecuted evaluation scenarios for all agents
+        run: python3 -m scripts.agent_evaluation_fixtures --output artifacts/education-specialists/agent-evaluation-fixtures.json
+      - name: Audit registered agent implementation paths
+        run: python3 -m scripts.agent_implementation_inventory --output artifacts/education-specialists/agent-implementation-inventory.json
       - name: Inventory actual curriculum source candidates
         run: python3 scripts/curriculum_source_inventory.py --output artifacts/education-specialists/curriculum-source-inventory.json
       - name: Extract structured English lesson and mission records
