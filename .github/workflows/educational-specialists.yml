@@ -1,12 +1,14 @@
-name: Educational specialist pilot checks
+name: Educational specialist curriculum inventory
 on:
   pull_request:
     branches: [main]
   workflow_dispatch: {}
+  schedule:
+    - cron: "20 8 * * 2"
 permissions:
   contents: read
 jobs:
-  tests:
+  tests-and-inventory:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
@@ -15,9 +17,13 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: python3 -m unittest scripts.test_educational_specialists scripts.test_agent_registry -v
-      - run: python3 scripts/agent_registry.py --output artifacts/education-specialists/registry-validation.json
+      - name: Validate specialist reviews and inventory
+        run: |
+          python3 -m unittest scripts.test_educational_specialists scripts.test_curriculum_source_inventory scripts.test_agent_registry -v
+          python3 scripts/agent_registry.py --output artifacts/education-specialists/registry-validation.json
+      - name: Inventory actual curriculum source candidates
+        run: python3 scripts/curriculum_source_inventory.py --output artifacts/education-specialists/curriculum-source-inventory.json
       - uses: actions/upload-artifact@v4
         with:
-          name: education-specialists-registry-check
-          path: artifacts/education-specialists/registry-validation.json
+          name: educational-specialist-curriculum-inventory
+          path: artifacts/education-specialists/
