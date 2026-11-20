@@ -17,7 +17,7 @@ def sample():
         "impact": {"metric": "verified_errors", "baseline": 10, "after": 6,
                    "measured_at": "2026-11-20T10:00:00Z",
                    "evidence_url": "https://example.org/impact", "reviewer": "reviewer",
-                   "direction": "decrease"}}}
+                   "direction": "decrease"}}}}
 
 class OperationalHealthTests(unittest.TestCase):
     def level(self, evidence):
