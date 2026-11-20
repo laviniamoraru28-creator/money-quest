@@ -1,5 +1,8 @@
 name: Educational specialist curriculum inventory
 on:
+  push:
+    branches:
+      - 'feature/education-activity-inventory-20261120'
   pull_request:
     branches:
       - main
