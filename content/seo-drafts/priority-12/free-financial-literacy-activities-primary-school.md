@@ -4,7 +4,7 @@
 **Primary keyword:** free financial literacy activities for primary school
 **SEO title:** Free Financial Literacy Activities for Primary School Children
 **Meta description:** Six low-cost classroom and home activities using paper, pictures and imaginary money.
-**Status:** Editorial draft. Not published or translated.
+**Status:** Expanded English editorial draft. Not published or translated.
 
 > Six low-cost classroom and home activities using paper, pictures and imaginary money.
 
@@ -31,6 +31,31 @@ Show a fictional message asking someone to click an urgent payment link. Pupils 
 ## Reflection and assessment
 
 Finish with one question: 'What did you choose, and why?' Allow spoken, written, picture or AAC responses. A successful activity should reveal the child's reasoning. Reuse activities with different prices rather than adding complexity every week.
+
+## Worked example: a decision children can explain
+
+A class plans a fictional picnic for four people. The available budget is £18. Each group receives price cards for sandwiches, fruit, water and a decorative item. The group must explain how it includes food and drink before optional extras, then adapt when one price changes.
+
+## Facilitator's step-by-step plan
+
+1. Choose one objective, such as calculating change or justifying priorities.
+2. Give every group the same fictional price list and accessible visual cards.
+3. Offer counters, calculators or AAC as appropriate to the learning objective.
+4. Use an exit ticket with one new price and ask for a revised plan.
+
+## How to check understanding
+
+Can pupils apply the same rule with different items and explain their choice using words, pictures or symbols?
+
+## Common teaching mistake to avoid
+
+Do not assume all pupils know local coins or have spending money. Teach relevant vocabulary before testing it.
+
+## Questions families and teachers often ask
+
+**How long should the activity take?** Start with a short session of around ten to fifteen minutes, then adapt to the learner's attention and access needs. The time is a practical suggestion, not a research-established optimum.
+
+**What if the child gives an unexpected answer?** Ask for the reason, check whether the instructions were understood and provide another example. Avoid using speed or spoken fluency as a proxy for financial understanding.
 
 ## Try this next
 
