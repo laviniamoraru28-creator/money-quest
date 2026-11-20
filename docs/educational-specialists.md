@@ -40,3 +40,18 @@ python3 scripts/curriculum_source_inventory.py
 ```
 
 This is a source discovery connection, **not** semantic evaluation of actual lesson quality. File-level keyword hits may be shared components, translations or unused code. Human review must map each candidate to a real activity and supply age-specific objectives, evidence sources and rubric answers to `educational_specialists.py`. The source scanner does not automatically fill those fields or invent scientific citations.
+
+## Structured English curriculum bridge (2026-11-20)
+Verified source shape in `messages/en.json`: `curriculum` has 30 lesson records; `entrepreneurQuest.stages` has 18 stage records; `leadershipQuest.missions` has 12 mission records. This source represents **60 records**, not necessarily 60 fully distinct, accessible or pedagogically validated activities.
+
+`scripts/structured_curriculum_bridge.py` extracts these exact records with stable JSON pointers, source excerpts, available learning objectives and activity text into `artifacts/education-specialists/structured-curriculum-drafts.json`. The report includes counts by domain and warnings for malformed records. Explorer/Builder/Strategist are parsed only from explicit Money Quest lesson keys. Entrepreneurship and leadership age bands are left null pending verified age mappings. AI Quest records are not invented.
+
+Review drafts deliberately leave research sources, reviewer notes, assessments and psychology/domain rubric scores blank. They are **not automatically passed** to `educational_specialists.py` as approved evidence. The workflow uploads this extraction together with the source inventory, and unit tests cover the actual record structure and missing evidence.
+
+Run:
+```bash
+python3 -m unittest scripts.test_structured_curriculum_bridge -v
+python3 scripts/structured_curriculum_bridge.py
+```
+
+Next: a qualified reviewer maps individual mission goals and age differentiation, assesses specific examples and collects primary research sources before any learning-quality conclusions or lesson edits.
