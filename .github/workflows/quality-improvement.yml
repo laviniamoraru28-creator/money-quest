@@ -1,0 +1,27 @@
+name: Quality improvement coordination
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch: {}
+  schedule:
+    - cron: '35 8 * * 3'
+permissions:
+  contents: read
+jobs:
+  quality-intake:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test quality intake
+        run: python3 -m unittest scripts.test_quality_improvement -v
+      - name: Generate evidence-safe quality report
+        run: python3 -m scripts.quality_improvement --output artifacts/quality/quality-improvement-report.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: money-quest-quality-intake
+          path: artifacts/quality/
