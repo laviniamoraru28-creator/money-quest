@@ -142,7 +142,6 @@ export default function PlayPage() {
             const completedCount = catalog.filter((entry) => state.completedActivityIds.includes(entry.id)).length;
             const percent = catalog.length > 0 ? (completedCount / catalog.length) * 100 : 0;
             const isComplete = catalog.length > 0 && completedCount === catalog.length;
-            const nextActivity = catalog.find((entry) => !state.completedActivityIds.includes(entry.id));
             return (
               <Link
                 key={world.id}
@@ -166,7 +165,6 @@ export default function PlayPage() {
                   <div role="progressbar" aria-label={t(`levels.${world.id}`)} aria-valuenow={completedCount} aria-valuemin={0} aria-valuemax={Math.max(1, catalog.length)} className="mt-2 h-2.5 overflow-hidden rounded-full bg-ink/10">
                     <div className="h-full rounded-full bg-teal transition-[width] motion-reduce:transition-none" style={{width: `${percent}%`}} />
                   </div>
-                  {nextActivity && <p className="mt-2 text-xs font-medium text-teal-text">{t("nav.next")} →</p>}
                 </div>
                 {isComplete && <LevelBadgeStar size={32} className="shrink-0" />}
               </Link>
