@@ -4,7 +4,7 @@
 **Primary keyword:** entrepreneurial thinking for kids
 **SEO title:** How to Develop Entrepreneurial Thinking in Children
 **Meta description:** Use small problem-solving projects to teach empathy, planning and responsible experimentation.
-**Status:** Editorial draft. Not published or translated.
+**Status:** Expanded English editorial draft. Not published or translated.
 
 > Use small problem-solving projects to teach empathy, planning and responsible experimentation.
 
@@ -27,6 +27,31 @@ Ask whether an advertisement makes a promise the product cannot keep, whether ev
 ## Reflect and improve
 
 After feedback, ask what the child would keep, change or stop. Success means identifying a need, testing an idea and explaining a revision, not making money.
+
+## Worked example: a decision children can explain
+
+A school club loses pencils. Children propose a labelled return box, estimate materials at £4 and test it for a week. Success is fewer lost pencils, not sales or profit. They ask classmates whether the box is easy to use.
+
+## Facilitator's step-by-step plan
+
+1. Interview or observe potential users respectfully.
+2. Draw two possible solutions and select one using clear criteria.
+3. Create a prototype with recycled materials.
+4. Test it, gather feedback and make one change.
+
+## How to check understanding
+
+Can the child explain whose problem they addressed and what evidence led to a design change?
+
+## Common teaching mistake to avoid
+
+Do not imply entrepreneurship always means selling or earning money. Problem-solving and social value are valid outcomes.
+
+## Questions families and teachers often ask
+
+**How long should the activity take?** Start with a short session of around ten to fifteen minutes, then adapt to the learner's attention and access needs. The time is a practical suggestion, not a research-established optimum.
+
+**What if the child gives an unexpected answer?** Ask for the reason, check whether the instructions were understood and provide another example. Avoid using speed or spoken fluency as a proxy for financial understanding.
 
 ## Try this next
 
