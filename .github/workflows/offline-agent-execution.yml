@@ -1,0 +1,36 @@
+name: Offline agent execution audit
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "25 9 * * 1"
+permissions:
+  contents: read
+jobs:
+  offline-audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Unit tests
+        run: python3 -m unittest scripts.test_offline_agent_runner -v
+      - name: Execute repository-only agent scripts
+        run: python3 -m scripts.offline_agent_runner
+      - name: Upload evidence and reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: offline-agent-execution
+          path: |
+            artifacts/agents/offline-execution/
+            language-guardian-report.json
+            education-guardians-report.json
+            journey-improvement-findings.json
+            artifacts/growth-agents/
+            artifacts/specialist-agents/
+          if-no-files-found: warn
+          retention-days: 35
