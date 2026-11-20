@@ -6,7 +6,7 @@ class ContentAuditTests(unittest.TestCase):
         data={"curriculum":{},"entrepreneurQuest":{"stages":{"find-a-problem":{"title":"Find a Problem"}}},
               "leadershipQuest":{"missions":{}}}
         findings=audit(data)
-        self.assertEqual(len(findings),2)
+        self.assertEqual(len(findings),1)
         self.assertTrue(all(not f["confirmed_defect"] for f in findings))
         self.assertTrue(all("translation" in f["code"] for f in findings))
 

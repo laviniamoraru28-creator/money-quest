@@ -73,10 +73,6 @@ def audit(data):
                 findings.append(finding("no_explicit_objective_in_translation_record", "entrepreneurship", ptr,
                                         "Stage has no learningObjective field in English translation data",
                                         "Check objectives in stage model before concluding they are missing"))
-            if not stage.get("ageBand"):
-                findings.append(finding("no_explicit_age_band_in_translation_record", "entrepreneurship", ptr,
-                                        "Stage has no ageBand field in English translation data",
-                                        "Check level routing in application code before concluding it is not differentiated"))
     lq = data.get("leadershipQuest", {})
     missions = lq.get("missions", {}) if isinstance(lq, dict) else {}
     if isinstance(missions, dict):
