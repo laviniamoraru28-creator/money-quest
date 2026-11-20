@@ -1,0 +1,669 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-11-20",
+  "scope": "Documented named agents and pilots, including educational psychology and subject specialists",
+  "counting_note": "30 named agents in original coordination enumeration, 5 pilots in PR #98/#99, and 5 educational specialist pilots in this stacked branch; none are certified autonomous agents.",
+  "agents": [
+    {
+      "id": "language-guardian",
+      "name": "Language Guardian",
+      "department": "Quality & Security",
+      "purpose": "Translation key and placeholder consistency",
+      "implementation": {
+        "path": "scripts/language-guardian.py",
+        "reference_pr": 73,
+        "reference_url": "https://github.com/laviniamoraru28-creator/money-quest/pull/73"
+      },
+      "declared_capability": "read_only_or_data_dependent",
+      "operational_status": "unverified",
+      "last_successful_run": null,
+      "impact_metric": null,
+      "owner": "Money Quest Product Owner"
+    },
+    {
+      "id": "inclusive-experience-guardian",
+      "name": "Inclusive Experience Guardian",
+      "department": "Education & Research",
+      "purpose": "Accessibility review candidates",
+      "implementation": {
+        "path": "scripts/education-guardians.py",
+        "reference_pr": 74,
+        "reference_url": "https://github.com/laviniamoraru28-creator/money-quest/pull/74"
+      },
+      "declared_capability": "read_only_or_data_dependent",
+      "operational_status": "unverified",
+      "last_successful_run": null,
+      "impact_metric": null,
+      "owner": "Money Quest Product Owner"
+    },
+    {
+      "id": "learning-architect",
+      "name": "Learning Architect",
+      "department": "Education & Research",
+      "purpose": "Curriculum progression review",
+      "implementation": {
+        "path": "scripts/education-guardians.py",
+        "reference_pr": 74,
+        "reference_url": "https://github.com/laviniamoraru28-creator/money-quest/pull/74"
+      },
+      "declared_capability": "read_only_or_data_dependent",
+      "operational_status": "unverified",
+      "last_successful_run": null,
+      "impact_metric": null,
+      "owner": "Money Quest Product Owner"
+    },
+    {
+      "id": "future-skills-radar",
+      "name": "Future Skills Radar",
+      "department": "Education & Research",
+      "purpose": "Curated future skills evidence",
+      "implementation": {
+        "path": "scripts/education-guardians.py",
+        "reference_pr": 74,
+        "reference_url": "https://github.com/laviniamoraru28-creator/money-quest/pull/74"
+      },
+      "declared_capability": "read_only_or_data_dependent",
+      "operational_status": "unverified",
+      "last_successful_run": null,
+      "impact_metric": null,
+      "owner": "Money Quest Product Owner"
+    },
+    {
+      "id": "learning-intelligence",
+      "name": "Learning Intelligence",
+      "department": "Education & Research",
+      "purpose": "Curriculum inventory and optional search data",
+      "implementation": {
+        "path": "tools/learning-intelligence/analyze.py",
+        "reference_pr": 72,
+        "reference_url": "https://github.com/laviniamoraru28-creator/money-quest/pull/72"
+      },
+      "declared_capability": "read_only_or_data_dependent",
+      "operational_status": "unverified",
+      "last_successful_run": null,
+      "impact_metric": null,
+      "owner": "Money Quest Product Owner"
+    },
+    {
+      "id": "child-journey-detective",
+      "name": "Child Journey Detective",
+      "department": "Child Experience",
+      "purpose": "Journey friction candidates",
+      "implementation": {
+        "path": "scripts/journey-improvement-agents.py",
+        "reference_pr": 76,
+        "reference_url": "https://github.com/laviniamoraru28-creator/money-quest/pull/76"
+      },
+      "declared_capability": "read_only_or_data_dependent",
+      "operational_status": "unverified",
+      "last_successful_run": null,
+      "impact_metric": null,
+      "owner": "Money Quest Product Owner"
+    },
+    {
+      "id": "experiment-designer",
+      "name": "Experiment Designer",
+      "department": "Child Experience",
+      "purpose": "Usability experiment hypotheses",
+      "implementation": {
+        "path": "scripts/journey-improvement-agents.py",
+        "reference_pr": 76,
+        "reference_url": "https://github.com/laviniamoraru28-creator/money-quest/pull/76"
+      },
+      "declared_capability": "read_only_or_data_dependent",
+      "operational_status": "unverified",
+      "last_successful_run": null,
+      "impact_metric": null,
+      "owner": "Money Quest Product Owner"
+    },
+    {
+      "id": "improvement-engine",
+      "name": "Improvement Engine",
+      "department": "Child Experience",
+      "purpose": "Ranked improvement hypotheses",
+      "implementation": {
+        "path": "scripts/journey-improvement-agents.py",
+        "reference_pr": 76,
+        "reference_url": "https://github.com/laviniamoraru28-creator/money-quest/pull/76"
+      },
+      "declared_capability": "read_only_or_data_dependent",
+      "operational_status": "unverified",
+      "last_successful_run": null,
+      "impact_metric": null,
+      "owner": "Money Quest Product Owner"
+    },
+    {
+      "id": "search-opportunity-hunter",
+      "name": "Search Opportunity Hunter",
+      "department": "Growth & Marketing",
+      "purpose": "Search opportunities requiring verified data",
+      "implementation": {
+        "path": "scripts/growth_agents.py",
+        "reference_pr": 92,
+        "reference_url": "https://github.com/laviniamoraru28-creator/money-quest/pull/92"
+      },
+      "declared_capability": "read_only_or_data_dependent",
+      "operational_status": "unverified",
+      "last_successful_run": null,
+      "impact_metric": null,
+      "owner": "Money Quest Product Owner"
+    },
+    {
+      "id": "first-visit-experience-agent",
+      "name": "First Visit Experience Agent",
+      "department": "Growth & Marketing",
+      "purpose": "First visitor journey candidates",
+      "implementation": {
+        "path": "scripts/growth_agents.py",
+        "reference_pr": 92,
+        "reference_url": "https://github.com/laviniamoraru28-creator/money-quest/pull/92"
+      },
+      "declared_capability": "read_only_or_data_dependent",
+      "operational_status": "unverified",
+      "last_successful_run": null,
+      "impact_metric": null,
+      "owner": "Money Quest Product Owner"
+    },
+    {
+      "id": "seo-technical-guardian",
+      "name": "SEO Technical Guardian",
+      "department": "Growth & Marketing",
+      "purpose": "Technical SEO candidates",
+      "implementation": {
+        "path": "scripts/growth_agents.py",
+        "reference_pr": 92,
+        "reference_url": "https://github.com/laviniamoraru28-creator/money-quest/pull/92"
+      },
+      "declared_capability": "read_only_or_data_dependent",
+      "operational_status": "unverified",
+      "last_successful_run": null,
+      "impact_metric": null,
+      "owner": "Money Quest Product Owner"
+    },
+    {
+      "id": "growth-intelligence-director",
+      "name": "Growth Intelligence Director",
+      "department": "Growth & Marketing",
+      "purpose": "Growth signals requiring authorized data",
+      "implementation": {
+        "path": "scripts/growth_agents.py",
+        "reference_pr": 92,
+        "reference_url": "https://github.com/laviniamoraru28-creator/money-quest/pull/92"
+      },
+      "declared_capability": "read_only_or_data_dependent",
+      "operational_status": "unverified",
+      "last_successful_run": null,
+      "impact_metric": null,
+      "owner": "Money Quest Product Owner"
+    },
+    {
+      "id": "opportunity-prioritizer",
+      "name": "Opportunity Prioritizer",
+      "department": "Strategy & Operations",
+      "purpose": "Rank growth opportunities",
+      "implementation": {
+        "path": "scripts/growth_agents.py",
+        "reference_pr": 92,
+        "reference_url": "https://github.com/laviniamoraru28-creator/money-quest/pull/92"
+      },
+      "declared_capability": "read_only_or_data_dependent",
+      "operational_status": "unverified",
+      "last_successful_run": null,
+      "impact_metric": null,
+      "owner": "Money Quest Product Owner"
+    },
+    {
+      "id": "social-growth-scientist",
+      "name": "Social Growth Scientist",
+      "department": "Growth & Marketing",
+      "purpose": "Social analytics with approved exports",
+      "implementation": {
+        "path": "scripts/specialist_agents.py",
+        "reference_pr": 94,
+        "reference_url": "https://github.com/laviniamoraru28-creator/money-quest/pull/94"
+      },
+      "declared_capability": "read_only_or_data_dependent",
+      "operational_status": "unverified",
+      "last_successful_run": null,
+      "impact_metric": null,
+      "owner": "Money Quest Product Owner"
+    },
+    {
+      "id": "parent-teacher-community-scout",
+      "name": "Parent/Teacher Community Scout",
+      "department": "Content & Community",
+      "purpose": "Public parent and teacher needs",
+      "implementation": {
+        "path": "scripts/specialist_agents.py",
+        "reference_pr": 94,
+        "reference_url": "https://github.com/laviniamoraru28-creator/money-quest/pull/94"
+      },
+      "declared_capability": "read_only_or_data_dependent",
+      "operational_status": "unverified",
+      "last_successful_run": null,
+      "impact_metric": null,
+      "owner": "Money Quest Product Owner"
+    },
+    {
+      "id": "partnership-discovery-agent",
+      "name": "Partnership Discovery Agent",
+      "department": "Growth & Marketing",
+      "purpose": "Verified partnership opportunities",
+      "implementation": {
+        "path": "scripts/specialist_agents.py",
+        "reference_pr": 94,
+        "reference_url": "https://github.com/laviniamoraru28-creator/money-quest/pull/94"
+      },
+      "declared_capability": "read_only_or_data_dependent",
+      "operational_status": "unverified",
+      "last_successful_run": null,
+      "impact_metric": null,
+      "owner": "Money Quest Product Owner"
+    },
+    {
+      "id": "engagement-designer",
+      "name": "Engagement Designer",
+      "department": "Child Experience",
+      "purpose": "Reward and engagement review",
+      "implementation": {
+        "path": "scripts/specialist_agents.py",
+        "reference_pr": 94,
+        "reference_url": "https://github.com/laviniamoraru28-creator/money-quest/pull/94"
+      },
+      "declared_capability": "read_only_or_data_dependent",
+      "operational_status": "unverified",
+      "last_successful_run": null,
+      "impact_metric": null,
+      "owner": "Money Quest Product Owner"
+    },
+    {
+      "id": "accessibility-personalization-agent",
+      "name": "Accessibility Personalization Agent",
+      "department": "Child Experience",
+      "purpose": "Accessibility personalization candidates",
+      "implementation": {
+        "path": "scripts/specialist_agents.py",
+        "reference_pr": 94,
+        "reference_url": "https://github.com/laviniamoraru28-creator/money-quest/pull/94"
+      },
+      "declared_capability": "read_only_or_data_dependent",
+      "operational_status": "unverified",
+      "last_successful_run": null,
+      "impact_metric": null,
+      "owner": "Money Quest Product Owner"
+    },
+    {
+      "id": "feedback-intelligence-agent",
+      "name": "Feedback Intelligence Agent",
+      "department": "Content & Community",
+      "purpose": "Anonymized opt-in feedback themes",
+      "implementation": {
+        "path": "scripts/specialist_agents.py",
+        "reference_pr": 94,
+        "reference_url": "https://github.com/laviniamoraru28-creator/money-quest/pull/94"
+      },
+      "declared_capability": "read_only_or_data_dependent",
+      "operational_status": "unverified",
+      "last_successful_run": null,
+      "impact_metric": null,
+      "owner": "Money Quest Product Owner"
+    },
+    {
+      "id": "learning-gap-detector",
+      "name": "Learning Gap Detector",
+      "department": "Education & Research",
+      "purpose": "Curriculum coverage review candidates",
+      "implementation": {
+        "path": "scripts/specialist_agents.py",
+        "reference_pr": 94,
+        "reference_url": "https://github.com/laviniamoraru28-creator/money-quest/pull/94"
+      },
+      "declared_capability": "read_only_or_data_dependent",
+      "operational_status": "unverified",
+      "last_successful_run": null,
+      "impact_metric": null,
+      "owner": "Money Quest Product Owner"
+    },
+    {
+      "id": "imagination-innovation-scout",
+      "name": "Imagination & Innovation Scout",
+      "department": "Child Experience",
+      "purpose": "Research-backed innovation candidates",
+      "implementation": {
+        "path": "scripts/specialist_agents.py",
+        "reference_pr": 94,
+        "reference_url": "https://github.com/laviniamoraru28-creator/money-quest/pull/94"
+      },
+      "declared_capability": "read_only_or_data_dependent",
+      "operational_status": "unverified",
+      "last_successful_run": null,
+      "impact_metric": null,
+      "owner": "Money Quest Product Owner"
+    },
+    {
+      "id": "cultural-learning-adapter",
+      "name": "Cultural Learning Adapter",
+      "department": "Education & Research",
+      "purpose": "Culture and currency consistency",
+      "implementation": {
+        "path": "scripts/specialist_agents.py",
+        "reference_pr": 94,
+        "reference_url": "https://github.com/laviniamoraru28-creator/money-quest/pull/94"
+      },
+      "declared_capability": "read_only_or_data_dependent",
+      "operational_status": "unverified",
+      "last_successful_run": null,
+      "impact_metric": null,
+      "owner": "Money Quest Product Owner"
+    },
+    {
+      "id": "research-to-lesson-agent",
+      "name": "Research-to-Lesson Agent",
+      "department": "Education & Research",
+      "purpose": "Research to lesson proposals",
+      "implementation": {
+        "path": "scripts/specialist_agents.py",
+        "reference_pr": 94,
+        "reference_url": "https://github.com/laviniamoraru28-creator/money-quest/pull/94"
+      },
+      "declared_capability": "read_only_or_data_dependent",
+      "operational_status": "unverified",
+      "last_successful_run": null,
+      "impact_metric": null,
+      "owner": "Money Quest Product Owner"
+    },
+    {
+      "id": "performance-optimizer",
+      "name": "Performance Optimizer",
+      "department": "Technology",
+      "purpose": "Source-level performance candidates",
+      "implementation": {
+        "path": "scripts/specialist_agents.py",
+        "reference_pr": 94,
+        "reference_url": "https://github.com/laviniamoraru28-creator/money-quest/pull/94"
+      },
+      "declared_capability": "read_only_or_data_dependent",
+      "operational_status": "unverified",
+      "last_successful_run": null,
+      "impact_metric": null,
+      "owner": "Money Quest Product Owner"
+    },
+    {
+      "id": "security-sentinel",
+      "name": "Security Sentinel",
+      "department": "Quality & Security",
+      "purpose": "Source-level security candidates",
+      "implementation": {
+        "path": "scripts/specialist_agents.py",
+        "reference_pr": 94,
+        "reference_url": "https://github.com/laviniamoraru28-creator/money-quest/pull/94"
+      },
+      "declared_capability": "read_only_or_data_dependent",
+      "operational_status": "unverified",
+      "last_successful_run": null,
+      "impact_metric": null,
+      "owner": "Money Quest Product Owner"
+    },
+    {
+      "id": "release-guardian",
+      "name": "Release Guardian",
+      "department": "Quality & Security",
+      "purpose": "Release test and CI readiness signals",
+      "implementation": {
+        "path": "scripts/specialist_agents.py",
+        "reference_pr": 94,
+        "reference_url": "https://github.com/laviniamoraru28-creator/money-quest/pull/94"
+      },
+      "declared_capability": "read_only_or_data_dependent",
+      "operational_status": "unverified",
+      "last_successful_run": null,
+      "impact_metric": null,
+      "owner": "Money Quest Product Owner"
+    },
+    {
+      "id": "ai-cost-controller",
+      "name": "AI Cost Controller",
+      "department": "Technology",
+      "purpose": "AI budget control review candidates",
+      "implementation": {
+        "path": "scripts/specialist_agents.py",
+        "reference_pr": 94,
+        "reference_url": "https://github.com/laviniamoraru28-creator/money-quest/pull/94"
+      },
+      "declared_capability": "read_only_or_data_dependent",
+      "operational_status": "unverified",
+      "last_successful_run": null,
+      "impact_metric": null,
+      "owner": "Money Quest Product Owner"
+    },
+    {
+      "id": "privacy-guardian",
+      "name": "Privacy Guardian",
+      "department": "Quality & Security",
+      "purpose": "Browser storage and privacy review",
+      "implementation": {
+        "path": "scripts/specialist_agents.py",
+        "reference_pr": 94,
+        "reference_url": "https://github.com/laviniamoraru28-creator/money-quest/pull/94"
+      },
+      "declared_capability": "read_only_or_data_dependent",
+      "operational_status": "unverified",
+      "last_successful_run": null,
+      "impact_metric": null,
+      "owner": "Money Quest Product Owner"
+    },
+    {
+      "id": "weekly-executive-reporter",
+      "name": "Weekly Executive Reporter",
+      "department": "Strategy & Operations",
+      "purpose": "Summary of specialist reports",
+      "implementation": {
+        "path": "scripts/specialist_agents.py",
+        "reference_pr": 94,
+        "reference_url": "https://github.com/laviniamoraru28-creator/money-quest/pull/94"
+      },
+      "declared_capability": "read_only_or_data_dependent",
+      "operational_status": "unverified",
+      "last_successful_run": null,
+      "impact_metric": null,
+      "owner": "Money Quest Product Owner"
+    },
+    {
+      "id": "parent-copywriting-strategist",
+      "name": "Parent Copywriting Strategist",
+      "department": "Content & Community",
+      "purpose": "Editorial briefs and draft articles",
+      "implementation": {
+        "path": "scripts/parent_copywriting_agent.py",
+        "reference_pr": 95,
+        "reference_url": "https://github.com/laviniamoraru28-creator/money-quest/pull/95"
+      },
+      "declared_capability": "read_only_or_data_dependent",
+      "operational_status": "unverified",
+      "last_successful_run": null,
+      "impact_metric": null,
+      "owner": "Money Quest Product Owner"
+    },
+    {
+      "id": "innovation-ux-designer",
+      "name": "Innovation & UX Designer",
+      "department": "Child Experience",
+      "purpose": "UX innovation pilot",
+      "implementation": {
+        "path": "scripts/experience_lab.py",
+        "reference_pr": 98,
+        "reference_url": "https://github.com/laviniamoraru28-creator/money-quest/pull/98"
+      },
+      "declared_capability": "pilot",
+      "operational_status": "unverified",
+      "last_successful_run": null,
+      "impact_metric": null,
+      "owner": "Money Quest Product Owner"
+    },
+    {
+      "id": "child-experience-lab",
+      "name": "Child Experience Lab",
+      "department": "Child Experience",
+      "purpose": "Simulated child profile heuristics",
+      "implementation": {
+        "path": "scripts/experience_lab.py",
+        "reference_pr": 98,
+        "reference_url": "https://github.com/laviniamoraru28-creator/money-quest/pull/98"
+      },
+      "declared_capability": "pilot",
+      "operational_status": "unverified",
+      "last_successful_run": null,
+      "impact_metric": null,
+      "owner": "Money Quest Product Owner"
+    },
+    {
+      "id": "business-analyst",
+      "name": "Business Analyst",
+      "department": "Strategy & Operations",
+      "purpose": "Evidence gated proposal intake",
+      "implementation": {
+        "path": "scripts/role_capabilities.py",
+        "reference_pr": 99,
+        "reference_url": "https://github.com/laviniamoraru28-creator/money-quest/pull/99"
+      },
+      "declared_capability": "pilot",
+      "operational_status": "unverified",
+      "last_successful_run": null,
+      "impact_metric": null,
+      "owner": "Money Quest Product Owner"
+    },
+    {
+      "id": "senior-full-stack-engineer",
+      "name": "Senior Full Stack Engineer",
+      "department": "Technology",
+      "purpose": "Engineering readiness and change gates",
+      "implementation": {
+        "path": "scripts/role_capabilities.py",
+        "reference_pr": 99,
+        "reference_url": "https://github.com/laviniamoraru28-creator/money-quest/pull/99"
+      },
+      "declared_capability": "pilot",
+      "operational_status": "unverified",
+      "last_successful_run": null,
+      "impact_metric": null,
+      "owner": "Money Quest Product Owner"
+    },
+    {
+      "id": "visual-design-specialist",
+      "name": "Visual Design Specialist",
+      "department": "Visual Design",
+      "purpose": "Age-band and locale visual review candidates",
+      "implementation": {
+        "path": "scripts/role_capabilities.py",
+        "reference_pr": 99,
+        "reference_url": "https://github.com/laviniamoraru28-creator/money-quest/pull/99"
+      },
+      "declared_capability": "pilot",
+      "operational_status": "unverified",
+      "last_successful_run": null,
+      "impact_metric": null,
+      "owner": "Money Quest Product Owner"
+    },
+    {
+      "id": "educational-psychology-specialist",
+      "name": "Educational Psychology Specialist",
+      "department": "Education & Research",
+      "purpose": "Cognitive load, motivation, emotional safety, SEND and learning transfer review",
+      "implementation": {
+        "path": "scripts/educational_specialists.py",
+        "reference_pr": null,
+        "reference_url": null
+      },
+      "declared_capability": "pilot",
+      "operational_status": "unverified",
+      "last_successful_run": null,
+      "impact_metric": null,
+      "owner": "Money Quest Product Owner"
+    },
+    {
+      "id": "financial-education-specialist",
+      "name": "Financial Education Specialist",
+      "department": "Education & Research",
+      "purpose": "Financial concept accuracy and age-appropriate decisions",
+      "implementation": {
+        "path": "scripts/educational_specialists.py",
+        "reference_pr": null,
+        "reference_url": null
+      },
+      "declared_capability": "pilot",
+      "operational_status": "unverified",
+      "last_successful_run": null,
+      "impact_metric": null,
+      "owner": "Money Quest Product Owner"
+    },
+    {
+      "id": "entrepreneurship-education-specialist",
+      "name": "Entrepreneurship Education Specialist",
+      "department": "Education & Research",
+      "purpose": "Entrepreneurial concepts, cost/value and ethical decisions",
+      "implementation": {
+        "path": "scripts/educational_specialists.py",
+        "reference_pr": null,
+        "reference_url": null
+      },
+      "declared_capability": "pilot",
+      "operational_status": "unverified",
+      "last_successful_run": null,
+      "impact_metric": null,
+      "owner": "Money Quest Product Owner"
+    },
+    {
+      "id": "leadership-education-specialist",
+      "name": "Leadership Education Specialist",
+      "department": "Education & Research",
+      "purpose": "Collaboration, conflict resolution and inclusive leadership",
+      "implementation": {
+        "path": "scripts/educational_specialists.py",
+        "reference_pr": null,
+        "reference_url": null
+      },
+      "declared_capability": "pilot",
+      "operational_status": "unverified",
+      "last_successful_run": null,
+      "impact_metric": null,
+      "owner": "Money Quest Product Owner"
+    },
+    {
+      "id": "ai-literacy-specialist",
+      "name": "AI Literacy Specialist",
+      "department": "Education & Research",
+      "purpose": "AI limitations, privacy and critical evaluation for planned AI Quest",
+      "implementation": {
+        "path": "scripts/educational_specialists.py",
+        "reference_pr": null,
+        "reference_url": null
+      },
+      "declared_capability": "pilot",
+      "operational_status": "unverified",
+      "last_successful_run": null,
+      "impact_metric": null,
+      "owner": "Money Quest Product Owner"
+    }
+  ],
+  "shared_systems": [
+    {
+      "name": "Agent Coordination Hub",
+      "path": "scripts/agent-coordination-digest.py",
+      "purpose": "Index reports and workflow health",
+      "operational_status": "unverified"
+    }
+  ],
+  "deferred_roles": [
+    "Customer Support Specialist",
+    "Machine Learning Engineer",
+    "Backend Developer",
+    "Scrum Master",
+    "Content Creator",
+    "Cybersecurity Engineer"
+  ],
+  "safety": {
+    "automatic_merge": false,
+    "automatic_deploy": false,
+    "child_personal_data": false
+  }
+}
