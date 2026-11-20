@@ -10,6 +10,7 @@ on:
       - 'feature/educational-psychology-*'
       - 'feature/specialists-curriculum-*'
       - 'feature/education-*'
+      - 'feature/educational-agent-*'
   workflow_dispatch: {}
   schedule:
     - cron: "20 8 * * 2"
@@ -27,8 +28,10 @@ jobs:
           python-version: '3.12'
       - name: Validate specialist reviews and inventory
         run: |
-          python3 -m unittest scripts.test_educational_specialists scripts.test_curriculum_source_inventory scripts.test_structured_curriculum_bridge scripts.test_education_content_audit scripts.test_education_qualitative_pack scripts.test_multilingual_curriculum_coverage scripts.test_education_runtime_wiring scripts.test_education_activity_inventory scripts.test_agent_registry -v
+          python3 -m unittest scripts.test_educational_specialists scripts.test_curriculum_source_inventory scripts.test_structured_curriculum_bridge scripts.test_education_content_audit scripts.test_education_qualitative_pack scripts.test_multilingual_curriculum_coverage scripts.test_education_runtime_wiring scripts.test_education_activity_inventory scripts.test_agent_registry scripts.test_educational_competency_gates -v
           python3 scripts/agent_registry.py --output artifacts/education-specialists/registry-validation.json
+      - name: Check educational competency safeguards
+        run: python3 scripts/educational_competency_gates.py --output artifacts/education-specialists/competency-gates.json
       - name: Inventory actual curriculum source candidates
         run: python3 scripts/curriculum_source_inventory.py --output artifacts/education-specialists/curriculum-source-inventory.json
       - name: Extract structured English lesson and mission records
