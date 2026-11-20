@@ -4,7 +4,7 @@
 **Primary keyword:** critical thinking for children
 **SEO title:** Why Critical Thinking Matters More Than Ever for Children
 **Meta description:** Help children distinguish evidence from confidence, advertising and persuasive language.
-**Status:** Editorial draft. Not published or translated.
+**Status:** Expanded English editorial draft. Not published or translated.
 
 > Help children distinguish evidence from confidence, advertising and persuasive language.
 
@@ -27,6 +27,31 @@ Some questions have clear answers, such as whether £4 plus £3 fits a £6 budge
 ## Measure reasoning, not agreement
 
 Present a new scenario and ask the child to identify missing evidence or propose a fair comparison. A child who respectfully disagrees and explains why may be showing stronger thinking than one who repeats the adult's choice.
+
+## Worked example: a decision children can explain
+
+An advert claims that a £12 product is 'half price' but gives no original price. Children identify what information is missing. They compare it with another offer that shows both prices and delivery costs.
+
+## Facilitator's step-by-step plan
+
+1. Present one simple, fictional claim.
+2. Ask what the claim says and who benefits from it.
+3. Identify missing information and a safe way to check.
+4. Invite a revised decision once the evidence is available.
+
+## How to check understanding
+
+With a new claim, can the child distinguish a fact, an opinion and a question requiring evidence?
+
+## Common teaching mistake to avoid
+
+Avoid teaching children that all claims are equally uncertain. Some can be checked with straightforward arithmetic or observation.
+
+## Questions families and teachers often ask
+
+**How long should the activity take?** Start with a short session of around ten to fifteen minutes, then adapt to the learner's attention and access needs. The time is a practical suggestion, not a research-established optimum.
+
+**What if the child gives an unexpected answer?** Ask for the reason, check whether the instructions were understood and provide another example. Avoid using speed or spoken fluency as a proxy for financial understanding.
 
 ## Try this next
 
