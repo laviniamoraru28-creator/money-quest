@@ -29,3 +29,14 @@ This is a structured intake and review mechanism, **not** an automated expert th
 
 ## Next gates
 Map actual Money Quest / Entrepreneur Quest / Leadership Quest content into structured review records, verify source evidence and rubrics with qualified educators, inspect real lesson experiences, then propose changes in separate PRs. Human review is required before any curriculum changes.
+
+## Connected source inventory (2026-11-20)
+`scripts/curriculum_source_inventory.py` now scans actual repository files under `src/` for candidate references to Money Quest, Entrepreneur Quest, Leadership Quest and AI Quest, including age-band markers. It generates `artifacts/education-specialists/curriculum-source-inventory.json` with source paths, matched domains, marker evidence and explicit unverified fields. The workflow uploads this artifact on PR checks and, after merge into main, every Tuesday at 08:20 UTC.
+
+Run locally:
+```bash
+python3 -m unittest scripts.test_curriculum_source_inventory -v
+python3 scripts/curriculum_source_inventory.py
+```
+
+This is a source discovery connection, **not** semantic evaluation of actual lesson quality. File-level keyword hits may be shared components, translations or unused code. Human review must map each candidate to a real activity and supply age-specific objectives, evidence sources and rubric answers to `educational_specialists.py`. The source scanner does not automatically fill those fields or invent scientific citations.
