@@ -55,3 +55,15 @@ python3 scripts/structured_curriculum_bridge.py
 ```
 
 Next: a qualified reviewer maps individual mission goals and age differentiation, assesses specific examples and collects primary research sources before any learning-quality conclusions or lesson edits.
+
+## Initial content audit (2026-11-20)
+`scripts/education_content_audit.py` analyzes actual English curriculum record fields and generates source-pointer evidence candidates, not clinical or pedagogical verdicts. It checks missing explicit objectives and quiz questions in Money Quest translation records, long introductions for screen/audio review, exact identical objective/activity strings across age bands, and explicit objective/age-band metadata in Entrepreneur Quest and Leadership Quest translation records.
+
+Direct inspection of `messages/en.json` found 30 Money Quest lessons in 10 topics with all three age-band records represented, **zero exact duplicated English objectives/interactiveActivity texts between bands**, 18 Entrepreneur Quest stages and 12 Leadership Quest missions. This does **not** prove sufficient age differentiation or absence of repeated experiences. Entrepreneur Quest and Leadership Quest lack explicit `learningObjective` and `ageBand` fields in the sampled translation records, but these may be defined in application logic; no confirmed defect is claimed.
+
+The script reports every observation as `human_review_candidate`, with `confirmed_defect: false`. It does not inspect rendered screens, audio, real student comprehension or external evidence. The workflow uploads `initial-content-audit.json`.
+
+```bash
+python3 -m unittest scripts.test_education_content_audit -v
+python3 scripts/education_content_audit.py
+```
