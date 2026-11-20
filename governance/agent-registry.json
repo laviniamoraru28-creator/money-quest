@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "as_of": "2026-11-20",
-  "scope": "Documented named agents and active pilots; excludes role-only proposals and shared coordination infrastructure",
-  "counting_note": "Central document says 26 but enumerates 30 named agents; 5 further named pilots in PR #98 and #99. Count is not autonomous agents.",
+  "scope": "Documented named agents and pilots, including educational psychology and subject specialists",
+  "counting_note": "30 named agents in original coordination enumeration, 5 pilots in PR #98/#99, and 5 educational specialist pilots in this stacked branch; none are certified autonomous agents.",
   "agents": [
     {
       "id": "language-guardian",
@@ -557,6 +557,86 @@
         "path": "scripts/role_capabilities.py",
         "reference_pr": 99,
         "reference_url": "https://github.com/laviniamoraru28-creator/money-quest/pull/99"
+      },
+      "declared_capability": "pilot",
+      "operational_status": "unverified",
+      "last_successful_run": null,
+      "impact_metric": null,
+      "owner": "Money Quest Product Owner"
+    },
+    {
+      "id": "educational-psychology-specialist",
+      "name": "Educational Psychology Specialist",
+      "department": "Education & Research",
+      "purpose": "Cognitive load, motivation, emotional safety, SEND and learning transfer review",
+      "implementation": {
+        "path": "scripts/educational_specialists.py",
+        "reference_pr": null,
+        "reference_url": null
+      },
+      "declared_capability": "pilot",
+      "operational_status": "unverified",
+      "last_successful_run": null,
+      "impact_metric": null,
+      "owner": "Money Quest Product Owner"
+    },
+    {
+      "id": "financial-education-specialist",
+      "name": "Financial Education Specialist",
+      "department": "Education & Research",
+      "purpose": "Financial concept accuracy and age-appropriate decisions",
+      "implementation": {
+        "path": "scripts/educational_specialists.py",
+        "reference_pr": null,
+        "reference_url": null
+      },
+      "declared_capability": "pilot",
+      "operational_status": "unverified",
+      "last_successful_run": null,
+      "impact_metric": null,
+      "owner": "Money Quest Product Owner"
+    },
+    {
+      "id": "entrepreneurship-education-specialist",
+      "name": "Entrepreneurship Education Specialist",
+      "department": "Education & Research",
+      "purpose": "Entrepreneurial concepts, cost/value and ethical decisions",
+      "implementation": {
+        "path": "scripts/educational_specialists.py",
+        "reference_pr": null,
+        "reference_url": null
+      },
+      "declared_capability": "pilot",
+      "operational_status": "unverified",
+      "last_successful_run": null,
+      "impact_metric": null,
+      "owner": "Money Quest Product Owner"
+    },
+    {
+      "id": "leadership-education-specialist",
+      "name": "Leadership Education Specialist",
+      "department": "Education & Research",
+      "purpose": "Collaboration, conflict resolution and inclusive leadership",
+      "implementation": {
+        "path": "scripts/educational_specialists.py",
+        "reference_pr": null,
+        "reference_url": null
+      },
+      "declared_capability": "pilot",
+      "operational_status": "unverified",
+      "last_successful_run": null,
+      "impact_metric": null,
+      "owner": "Money Quest Product Owner"
+    },
+    {
+      "id": "ai-literacy-specialist",
+      "name": "AI Literacy Specialist",
+      "department": "Education & Research",
+      "purpose": "AI limitations, privacy and critical evaluation for planned AI Quest",
+      "implementation": {
+        "path": "scripts/educational_specialists.py",
+        "reference_pr": null,
+        "reference_url": null
       },
       "declared_capability": "pilot",
       "operational_status": "unverified",
