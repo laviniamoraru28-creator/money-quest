@@ -4,7 +4,7 @@
 **Primary keyword:** teach kids to save money by age
 **SEO title:** How to Teach Kids to Save Money at Different Ages
 **Meta description:** Build saving habits through visible goals, realistic timeframes and choices that respect different family circumstances.
-**Status:** Editorial draft. Not published or translated.
+**Status:** Expanded English editorial draft. Not published or translated.
 
 > Build saving habits through visible goals, realistic timeframes and choices that respect different family circumstances.
 
@@ -27,6 +27,31 @@ Children can learn with imaginary budgets. Do not require disclosure of allowanc
 ## Review without pressure
 
 Ask once a week: 'What is the goal?', 'What changed?', 'What will we try next?' Reward the explanation and planning, not the amount saved.
+
+## Worked example: a decision children can explain
+
+A fictional child wants an £18 board game. Saving £3 per week takes six weeks. After three weeks, the game costs £21. Ask whether to save another week, choose a cheaper option or change the goal. All are reasonable decisions to discuss.
+
+## Facilitator's step-by-step plan
+
+1. Choose an imaginary goal and draw its price clearly.
+2. Show how much is saved each week using counters.
+3. Introduce one realistic change, such as a price rise.
+4. Invite the child to update the plan and explain why.
+
+## How to check understanding
+
+Can the child recalculate progress and explain a revised goal without being told which option to choose?
+
+## Common teaching mistake to avoid
+
+Avoid rewarding the amount saved. Not all families can save, and money habits should not become a judgement of household income.
+
+## Questions families and teachers often ask
+
+**How long should the activity take?** Start with a short session of around ten to fifteen minutes, then adapt to the learner's attention and access needs. The time is a practical suggestion, not a research-established optimum.
+
+**What if the child gives an unexpected answer?** Ask for the reason, check whether the instructions were understood and provide another example. Avoid using speed or spoken fluency as a proxy for financial understanding.
 
 ## Try this next
 
