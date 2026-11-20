@@ -4,7 +4,7 @@
 **Primary keyword:** needs vs wants for kids
 **SEO title:** How to Teach Children the Difference Between Needs and Wants
 **Meta description:** Help children explain context, priorities and trade-offs without labelling ordinary pleasures as wrong.
-**Status:** Editorial draft. Not published or translated.
+**Status:** Expanded English editorial draft. Not published or translated.
 
 > Help children explain context, priorities and trade-offs without labelling ordinary pleasures as wrong.
 
@@ -27,6 +27,31 @@ Offer large images, limited choices, spoken instructions and an AAC option such 
 ## Avoid shame
 
 Children do not control household resources. Do not invite pupils to disclose what their family can afford. The lesson is about reasoning and priorities, not whether a family makes 'good' or 'bad' purchases.
+
+## Worked example: a decision children can explain
+
+Two children see the same bus ticket. One needs it to reach school, while the other could walk safely with a parent. Ask whether the ticket has the same role for both. This illustrates why context matters more than memorising categories.
+
+## Facilitator's step-by-step plan
+
+1. Select six picture cards with familiar items.
+2. Sort into need, want and depends.
+3. Invite one reason for each choice, using AAC or pointing if preferred.
+4. Change the situation and allow children to move a card.
+
+## How to check understanding
+
+Can the child explain why an item moves from 'want' to 'need' when the situation changes?
+
+## Common teaching mistake to avoid
+
+Do not label gifts, play or comfort as inherently wasteful. Discuss priorities without judging family circumstances.
+
+## Questions families and teachers often ask
+
+**How long should the activity take?** Start with a short session of around ten to fifteen minutes, then adapt to the learner's attention and access needs. The time is a practical suggestion, not a research-established optimum.
+
+**What if the child gives an unexpected answer?** Ask for the reason, check whether the instructions were understood and provide another example. Avoid using speed or spoken fluency as a proxy for financial understanding.
 
 ## Try this next
 
