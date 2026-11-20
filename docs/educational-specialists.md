@@ -83,3 +83,10 @@ Run offline:
 python3 -m unittest scripts.test_multilingual_curriculum_coverage -v
 python3 scripts/multilingual_curriculum_coverage.py
 ```
+
+## Real interactive implementation source review (2026-11-20)
+Inspected `src/content/catalog.ts`, `src/components/lesson/LessonPlayer.tsx`, `src/components/explorer/ExplorerInteractiveLesson.tsx`, and EQ/LQ structure files on `main`. Money Quest's catalog filters lessons and games by selected age band; standard lesson quiz compares the selected answer with the answer key, triggers completion and exposes a read-aloud control. Explorer's Money Basics source defines four interactive stages (discover money forms, count coins, mini shop, final picture choice) and completion callback. This is **source wiring evidence only**, not a successful browser run.
+
+Critical correction: `src/content/entrepreneur-quest/structures.ts` explicitly documents ONE unified 8–14 Entrepreneur Quest track. The previous metadata audit's missing `ageBand` flag for EQ was a false-positive candidate and is removed. Assess the appropriateness of a unified track through actual age-group usability and learning tests, rather than demand three bands by default. The missing explicit objectives in translation metadata remain review questions, not confirmed defects.
+
+`scripts/education_runtime_wiring.py` creates a line-numbered, read-only JSON report for known source checks. It never claims a browser test or learning effectiveness. The workflow publishes `runtime-wiring-evidence.json`. Next checks: Explorer complete journey using keyboard/touch and speech, age-appropriate EQ stages, and Builder/Strategist assessment alignment.
