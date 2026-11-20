@@ -1,0 +1,25 @@
+name: Role capabilities pilot
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch: {}
+permissions:
+  contents: read
+jobs:
+  review:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Unit tests
+        run: python3 -m unittest scripts.test_role_capabilities -v
+      - name: Generate read-only report
+        run: python3 scripts/role_capabilities.py --out artifacts/role-capabilities/report.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: money-quest-role-capabilities
+          path: artifacts/role-capabilities/report.json
