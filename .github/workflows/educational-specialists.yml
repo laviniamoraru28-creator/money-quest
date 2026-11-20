@@ -24,7 +24,7 @@ jobs:
           python-version: '3.12'
       - name: Validate specialist reviews and inventory
         run: |
-          python3 -m unittest scripts.test_educational_specialists scripts.test_curriculum_source_inventory scripts.test_structured_curriculum_bridge scripts.test_education_content_audit scripts.test_education_qualitative_pack scripts.test_multilingual_curriculum_coverage scripts.test_agent_registry -v
+          python3 -m unittest scripts.test_educational_specialists scripts.test_curriculum_source_inventory scripts.test_structured_curriculum_bridge scripts.test_education_content_audit scripts.test_education_qualitative_pack scripts.test_multilingual_curriculum_coverage scripts.test_education_runtime_wiring scripts.test_agent_registry -v
           python3 scripts/agent_registry.py --output artifacts/education-specialists/registry-validation.json
       - name: Inventory actual curriculum source candidates
         run: python3 scripts/curriculum_source_inventory.py --output artifacts/education-specialists/curriculum-source-inventory.json
@@ -36,6 +36,8 @@ jobs:
         run: python3 scripts/education_qualitative_pack.py --output artifacts/education-specialists/qualitative-review-pack.json
       - name: Compare nine-language curriculum record coverage
         run: python3 scripts/multilingual_curriculum_coverage.py --output artifacts/education-specialists/multilingual-curriculum-coverage.json
+      - name: Inspect interactive lesson wiring evidence
+        run: python3 scripts/education_runtime_wiring.py --output artifacts/education-specialists/runtime-wiring-evidence.json
       - uses: actions/upload-artifact@v4
         with:
           name: educational-specialist-curriculum-inventory
