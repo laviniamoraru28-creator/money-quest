@@ -4,7 +4,7 @@
 **Primary keyword:** financial literacy children age of AI
 **SEO title:** Why Financial Literacy Matters for Children in the Age of AI
 **Meta description:** Digital payments, recommendations and AI-generated content make financial judgement a skill worth practising early.
-**Status:** Editorial draft. Not published or translated.
+**Status:** Expanded English editorial draft. Not published or translated.
 
 > Digital payments, recommendations and AI-generated content make financial judgement a skill worth practising early.
 
@@ -27,6 +27,31 @@ Use fictional products and prices. Never ask children to enter real card details
 ## What to measure
 
 Instead of counting clicks or time spent, give two new examples and see whether the child identifies a risky claim, explains a trade-off and knows when to ask for help. These are learning checks, not evidence that one lesson prevents fraud.
+
+## Worked example: a decision children can explain
+
+Two fictional shopping recommendations appear on screen. Recommendation A says 'Buy now, everyone loves it' and hides delivery fees. Recommendation B lists the price, delivery fee and a reason to wait. Ask children to calculate total cost and identify which claims need checking.
+
+## Facilitator's step-by-step plan
+
+1. Show an imaginary online offer, with no live shopping link.
+2. Ask who created the message and what action it encourages.
+3. Check the total price, including delivery and any recurring charges.
+4. Compare the result with a stated fictional budget.
+
+## How to check understanding
+
+When shown a different AI-generated claim, can the child identify at least one missing piece of evidence and one safe verification step?
+
+## Common teaching mistake to avoid
+
+Do not imply every AI output is false or every digital payment is unsafe. Teach verification rather than fear.
+
+## Questions families and teachers often ask
+
+**How long should the activity take?** Start with a short session of around ten to fifteen minutes, then adapt to the learner's attention and access needs. The time is a practical suggestion, not a research-established optimum.
+
+**What if the child gives an unexpected answer?** Ask for the reason, check whether the instructions were understood and provide another example. Avoid using speed or spoken fluency as a proxy for financial understanding.
 
 ## Try this next
 
