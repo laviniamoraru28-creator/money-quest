@@ -1,5 +1,7 @@
 name: Offline agent execution audit
 on:
+  pull_request:
+    branches: [main]
   workflow_dispatch: {}
   schedule:
     - cron: "25 9 * * 1"
