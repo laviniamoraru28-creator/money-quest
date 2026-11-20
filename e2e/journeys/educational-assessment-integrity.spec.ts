@@ -12,8 +12,9 @@ function freshProgress() {
 }
 
 test('educational assessment: incorrect Builder answer explains and does not award progress', async ({page}) => {
-  await page.addInitScript((state) => localStorage.setItem('moneyquest_local_progress_v1', JSON.stringify(state)), freshProgress());
   await page.goto('/en/play/world/coin-cove/lesson/' + lessonId);
+  await page.evaluate((state) => localStorage.setItem('moneyquest_local_progress_v1', JSON.stringify(state)), freshProgress());
+  await page.reload();
   await expect(page.getByText(lesson.quiz.question, {exact: true})).toBeVisible();
 
   const wrong = lesson.quiz.options.find((option: string) => option !== lesson.quiz.correctAnswer);
@@ -45,8 +46,9 @@ test('educational assessment: incorrect Builder answer explains and does not awa
 });
 
 test('educational transparency: Builder interactiveActivity text is a suggestion, not an executable exercise', async ({page}) => {
-  await page.addInitScript((state) => localStorage.setItem('moneyquest_local_progress_v1', JSON.stringify(state)), freshProgress());
   await page.goto('/en/play/world/coin-cove/lesson/' + lessonId);
+  await page.evaluate((state) => localStorage.setItem('moneyquest_local_progress_v1', JSON.stringify(state)), freshProgress());
+  await page.reload();
   const details = page.locator('details').filter({has: page.getByText(messages.lesson.interactiveActivityLabel, {exact: true})});
   await expect(details).toHaveCount(1);
   await details.locator('summary').click();
