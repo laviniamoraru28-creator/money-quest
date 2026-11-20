@@ -35,3 +35,12 @@ Education & Research; Child Experience; Technology; Quality & Security; Growth &
 
 ## Known limitations
 No current live execution evidence is embedded in the register. Many existing agents are static scanners or require external approved data. PR #98 and PR #99 contain pilots, not complete autonomous roles. A future authenticated read-only GitHub sync may add verified run timestamps without modifying agent code.
+
+## Live GitHub Actions evidence (added 2026-11-20)
+`scripts/agent_registry_live.py` reads GitHub Actions run history through the repository's read-only `GITHUB_TOKEN`. It writes a dated JSON snapshot and a Markdown report as GitHub Actions artifacts. It never commits status back to the registry, creates issues, merges, deploys, or uses paid APIs.
+
+The workflow runs every Monday at 07:40 UTC **only after this workflow is merged into the default branch**, and can be manually dispatched from Actions when available. Pull request runs only validate offline tests and registry structure.
+
+The snapshot distinguishes successful scheduled/manual workflow runs from PR test runs. A successful group workflow is **not** evidence that every named subagent completed meaningful work; all per-agent execution fields remain unverified until independently audited. PR #98 has no verified dedicated workflow mapping. API errors and missing workflows are explicitly recorded instead of treated as success.
+
+View the artifact named `organizational-agent-registry` under the latest workflow run. It contains `report.json`, `live-evidence.json`, and `live-evidence.md` for scheduled or manual runs.
