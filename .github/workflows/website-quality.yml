@@ -116,7 +116,7 @@ jobs:
         id: browsers
         if: "!cancelled() && steps.build.outcome == 'success'"
         run: npx playwright install --with-deps chromium webkit
-        timeout-minutes: 6
+        timeout-minutes: 12
       - uses: actions/cache/save@v4
         if: "!cancelled() && steps.browsers.outcome == 'success' && github.event_name == 'schedule' && steps.browser-cache.outputs.cache-hit != 'true'"
         with:
