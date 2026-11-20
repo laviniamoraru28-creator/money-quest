@@ -4,7 +4,7 @@
 **Primary keyword:** skills children need AI future
 **SEO title:** What Skills Will Children Need in an AI-Powered Future?
 **Meta description:** Focus on adaptable capabilities rather than predictions about which jobs will exist.
-**Status:** Editorial draft. Not published or translated.
+**Status:** Expanded English editorial draft. Not published or translated.
 
 > Focus on adaptable capabilities rather than predictions about which jobs will exist.
 
@@ -27,6 +27,31 @@ Teach that AI systems can generate text and images but may make mistakes, reflec
 ## Self-regulation and reflection
 
 Teach a simple cycle: plan, try, check, improve. Ask what worked and what to change next time. Explicit modelling and guided reflection have a stronger evidence base than assuming these skills develop automatically from screen time.
+
+## Worked example: a decision children can explain
+
+A class wants to reduce paper waste. Teams propose a system for reusing scrap paper, estimate costs and test the idea for one week. Children plan, monitor results and explain what they would improve. AI is optional and should not replace their reasoning.
+
+## Facilitator's step-by-step plan
+
+1. Define a real, small problem in child-friendly terms.
+2. Ask for two solutions with different costs or constraints.
+3. Test one idea safely and record what happened.
+4. Review evidence and change the plan if needed.
+
+## How to check understanding
+
+Can pupils describe a decision they changed after seeing new evidence, rather than simply praising their first idea?
+
+## Common teaching mistake to avoid
+
+Avoid predicting specific future jobs as facts. Teach adaptable habits and digital safeguards.
+
+## Questions families and teachers often ask
+
+**How long should the activity take?** Start with a short session of around ten to fifteen minutes, then adapt to the learner's attention and access needs. The time is a practical suggestion, not a research-established optimum.
+
+**What if the child gives an unexpected answer?** Ask for the reason, check whether the instructions were understood and provide another example. Avoid using speed or spoken fluency as a proxy for financial understanding.
 
 ## Try this next
 
