@@ -21,10 +21,10 @@ PROFILES = {
 }
 
 def assess(record):
+    if not isinstance(record, dict):
+        return {"decision": "blocked", "blockers": ["record must be an object"], "baseline": None, "safe_to_auto_publish": False}
     baseline = review(record)
     blockers = []
-    if not isinstance(record, dict):
-        return {"decision": "blocked", "blockers": ["record must be an object"], "baseline": None}
     if baseline["missing_evidence"] or baseline["unchecked_psychology_criteria"] or baseline["unchecked_domain_criteria"]:
         blockers.append("incomplete required fields or rubric answers")
     if baseline["concerns"]:
