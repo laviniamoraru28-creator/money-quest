@@ -1,0 +1,26 @@
+name: Agent operational health
+on:
+  pull_request:
+    branches: [main, feature/all-agent-competency-framework-20261120]
+  workflow_dispatch: {}
+  schedule:
+    - cron: "15 8 * * 1"
+permissions:
+  contents: read
+jobs:
+  health:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test operational gates
+        run: python3 -m unittest scripts.test_agent_operational_health -v
+      - name: Generate evidence-gated report
+        run: python3 -m scripts.agent_operational_health
+      - uses: actions/upload-artifact@v4
+        with:
+          name: agent-operational-health
+          path: artifacts/agents/operational-health.json
+          retention-days: 35
