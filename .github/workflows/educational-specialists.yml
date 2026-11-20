@@ -1,7 +1,12 @@
 name: Educational specialist curriculum inventory
 on:
   pull_request:
-    branches: [main]
+    branches:
+      - main
+      - 'feature/organizational-agent-registry-*'
+      - 'feature/educational-psychology-*'
+      - 'feature/specialists-curriculum-*'
+      - 'feature/education-*'
   workflow_dispatch: {}
   schedule:
     - cron: "20 8 * * 2"
