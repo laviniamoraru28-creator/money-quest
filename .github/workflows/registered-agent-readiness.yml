@@ -1,0 +1,32 @@
+name: Registered agent readiness
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "40 8 * * 1"
+  pull_request:
+    branches: [main]
+    paths:
+      - "scripts/agent_readiness_monitor.py"
+      - "scripts/test_agent_readiness_monitor.py"
+      - "governance/agent-registry.json"
+      - ".github/workflows/registered-agent-readiness.yml"
+permissions:
+  contents: read
+jobs:
+  inventory:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test readiness monitor
+        run: python3 -m unittest scripts.test_agent_readiness_monitor -v
+      - name: Check registered agent implementations
+        run: python3 -m scripts.agent_readiness_monitor
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: registered-agent-readiness
+          path: artifacts/agent-readiness/readiness.json
+          retention-days: 35
