@@ -22,3 +22,13 @@ export function parseAIQuestProgress(value: unknown): AIQuestProgress {
 export function isAIQuestComplete(progress: AIQuestProgress, band: AIQuestBand): boolean {
   return safeAIMissionIds(progress[band]).length === 5;
 }
+
+/** Read one age band's progress without trusting browser storage contents. */
+export function readAIQuestBandProgress(raw: string | null, band: AIQuestBand): number[] {
+  if (!raw) return [];
+  try {
+    return parseAIQuestProgress(JSON.parse(raw))[band];
+  } catch {
+    return [];
+  }
+}
