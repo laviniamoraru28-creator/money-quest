@@ -137,6 +137,54 @@ const questCopy: Record<string, readonly string[]> = {
   ]
 };
 
+const valueCopy: Record<string, readonly string[]> = {
+  "en": [
+    "Four skills for the future",
+    "Money, business, leadership and AI. Explore each through age-appropriate activities.",
+    "Free to explore. No child account required. Progress stays on this device."
+  ],
+  "ro": [
+    "Patru competențe pentru viitor",
+    "Bani, antreprenoriat, leadership și AI. Descoperă-le prin activități adaptate vârstei.",
+    "Acces gratuit. Fără cont pentru copil. Progresul rămâne pe acest dispozitiv."
+  ],
+  "es": [
+    "Cuatro habilidades para el futuro",
+    "Dinero, emprendimiento, liderazgo e IA con actividades para cada edad.",
+    "Acceso gratuito. Sin cuenta infantil. El progreso permanece en este dispositivo."
+  ],
+  "fr": [
+    "Quatre compétences pour l’avenir",
+    "Argent, entrepreneuriat, leadership et IA, avec des activités adaptées à l’âge.",
+    "Accès gratuit. Aucun compte enfant requis. La progression reste sur cet appareil."
+  ],
+  "de": [
+    "Vier Fähigkeiten für die Zukunft",
+    "Geld, Unternehmertum, Führung und KI mit altersgerechten Aktivitäten.",
+    "Kostenlos nutzbar. Kein Kinderkonto nötig. Fortschritte bleiben auf diesem Gerät."
+  ],
+  "it": [
+    "Quattro competenze per il futuro",
+    "Denaro, imprenditorialità, leadership e IA con attività adatte all’età.",
+    "Accesso gratuito. Nessun account per bambini. I progressi restano su questo dispositivo."
+  ],
+  "pt": [
+    "Quatro competências para o futuro",
+    "Dinheiro, empreendedorismo, liderança e IA com atividades adequadas à idade.",
+    "Acesso gratuito. Sem conta infantil. O progresso fica neste dispositivo."
+  ],
+  "nl": [
+    "Vier vaardigheden voor de toekomst",
+    "Geld, ondernemen, leiderschap en AI met activiteiten voor elke leeftijd.",
+    "Gratis te gebruiken. Geen kinderaccount nodig. Voortgang blijft op dit apparaat."
+  ],
+  "pl": [
+    "Cztery umiejętności na przyszłość",
+    "Pieniądze, przedsiębiorczość, przywództwo i AI w ćwiczeniach dopasowanych do wieku.",
+    "Bezpłatny dostęp. Bez konta dziecka. Postępy pozostają na tym urządzeniu."
+  ]
+};
+
 const previewCopy: Record<string, readonly string[]> = {
   "en": [
     "Explore what children actually do",
@@ -246,6 +294,7 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
   const siteUrl = getSiteUrl();
   const preview = previewCopy[locale] ?? previewCopy.en;
   const questLabels = questCopy[locale] ?? questCopy.en;
+  const values = valueCopy[locale] ?? valueCopy.en;
   const orgSchema = buildOrganizationSchema(siteUrl);
   const webSiteSchema = buildWebSiteSchema(siteUrl, locale);
 
@@ -309,24 +358,24 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
         </section>
 
         <section aria-labelledby="quests-heading" className="mx-auto max-w-[1200px] px-sm pb-2xl">
-          <h2 id="quests-heading" className="font-display text-2xl font-bold text-ink">{questLabels[0]}</h2>
-          <div className="mt-md grid gap-sm sm:grid-cols-2 lg:grid-cols-3">
+          <h2 id="quests-heading" className="font-display text-2xl font-bold text-ink">{values[0]}</h2>
+          <p className="mt-2 max-w-[65ch] text-ink/80">{values[1]}</p>
+          <div className="mt-md grid gap-sm sm:grid-cols-2 lg:grid-cols-4">
             {([
               {title:questLabels[1], description:questLabels[2], icon:"🪙", href:"/play"},
               {title:questLabels[3], description:questLabels[4], icon:"💡", href:"/play"},
               {title:questLabels[5], description:questLabels[6], icon:"🤝", href:"/play"},
-              {title:questLabels[7], description:questLabels[8], icon:"🌱", href:"/real-life-quests"}
+              {title:questLabels[9], description:questLabels[10], icon:"🤖", href:"/ai-quest"}
             ] as const).map((quest) => (
               <Link key={quest.title} href={quest.href} className="flex min-h-28 items-center gap-3 rounded-2xl border border-teal/20 bg-white p-4 shadow-resting focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal">
                 <span aria-hidden="true" className="text-3xl">{quest.icon}</span>
                 <span><span className="block font-display font-bold text-ink">{quest.title}</span><span className="mt-1 block text-sm text-ink/75">{quest.description}</span></span>
               </Link>
             ))}
-            <Link href="/ai-quest" className="flex min-h-28 items-center gap-3 rounded-2xl border border-teal/30 bg-cream p-4 focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal">
-              <span aria-hidden="true" className="text-3xl">🤖</span>
-              <span><span className="block font-display font-bold text-ink">{questLabels[9]}</span><span className="mt-1 block text-sm text-ink/75">{questLabels[10]}</span></span>
-            </Link>
+
           </div>
+          <p className="mt-4 text-sm text-ink/75">{values[2]}</p>
+          <Link href="/real-life-quests" className="mt-3 inline-flex min-h-11 items-center font-semibold text-teal-text underline underline-offset-4 focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal">{questLabels[7]}: {questLabels[8]}</Link>
         </section>
 
         {/* Show genuine existing destinations instead of invented product claims. */}
