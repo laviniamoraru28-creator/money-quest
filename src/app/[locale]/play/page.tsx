@@ -71,7 +71,7 @@ export default function PlayPage() {
                 key={option.ageBand}
                 type="button"
                 onClick={() => setAgeBand(option.ageBand)}
-                className="min-h-touch-min-child rounded-lg border-2 border-ink/20 bg-white p-md text-left shadow-resting hover:border-teal hover:bg-teal/5"
+                className="min-h-touch-min-child rounded-lg border-2 border-ink/20 bg-white p-md text-left shadow-resting hover:border-teal hover:bg-teal/5 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-teal"
               >
                 <span className="font-display text-lg font-bold">{t(option.labelKey)}</span>
                 <span className="ml-2xs text-sm text-ink/70">{t(option.rangeKey)}</span>
@@ -123,7 +123,7 @@ export default function PlayPage() {
               id="currency-select"
               value={state.currencyCode}
               onChange={(e: { target: { value: string } }) => setCurrencyCode(e.target.value)}
-              className="mt-2xs w-full rounded-sm border border-ink/20 px-2xs py-2xs"
+              className="mt-2xs min-h-11 w-full rounded-sm border border-ink/20 px-2xs py-2xs focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-teal"
             >
               {CURRENCIES.map((c) => (
                 <option key={c.code} value={c.code}>
@@ -158,7 +158,6 @@ export default function PlayPage() {
                     {t("play.levelLabel", { number: world.orderIndex })}
                   </p>
                   <h2 className="font-display text-lg font-bold leading-tight">{t(`levels.${world.id}`)}</h2>
-                  <p className="text-sm text-ink/70">{world.name}</p>
                   <p className="mt-2xs text-sm font-medium text-ink/80">
                     {t("play.completeOfTotal", { completed: completedCount, total: catalog.length })}
                   </p>
