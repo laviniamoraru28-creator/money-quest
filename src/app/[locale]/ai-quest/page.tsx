@@ -3,7 +3,7 @@
 import {useEffect, useState} from "react";
 import {useLocale} from "next-intl";
 import {Link} from "@/i18n/navigation";
-import {AI_QUEST_STORAGE_KEY, parseAIQuestProgress} from "@/lib/ai-quest/progress";
+import {AI_QUEST_STORAGE_KEY, parseAIQuestProgress, completeAIMission} from "@/lib/ai-quest/progress";
 
 type Band = "explorer" | "builder" | "strategist";
 const units = [
@@ -562,7 +562,7 @@ export default function AIQuestPage(){
  useEffect(()=>{setSpeechAvailable(typeof window!=="undefined"&&"speechSynthesis" in window);const read=()=>{try{const raw=localStorage.getItem(key);setCompleted(parseAIQuestProgress(raw?JSON.parse(raw):null))}catch{setCompleted(parseAIQuestProgress(null))}};read();setLoaded(true);const sync=(event:StorageEvent)=>{if(event.key===key||event.key===null)read()};window.addEventListener("storage",sync);return()=>{window.removeEventListener("storage",sync);window.speechSynthesis?.cancel()}},[]);
  const unit=units[index]!;const translated=locale==="ro"?(romanian[index]??unit):(explorerTranslations[locale]?.[index]??unit);const activity=band==="explorer"?unit:(locale==="ro"?{...advanced[band][index]!,...advancedRomanian[band][index]!}:{...advanced[band][index]!,...(advancedTranslations[locale]?.[band]?.[index]??moreAdvancedTranslations[locale]?.[band]?.[index]??{})});const correct=selected===activity.correct;
  function speak(){if(typeof window==="undefined"||!("speechSynthesis" in window))return;try{window.speechSynthesis.cancel();const words=[translated.title,translated.concept,band==="explorer"?translated.task:activity.task,...(band==="explorer"?translated.choices:activity.choices)].join(". ");const utterance=new SpeechSynthesisUtterance(words);utterance.lang=({en:"en-GB",ro:"ro-RO",es:"es-ES",fr:"fr-FR",de:"de-DE",it:"it-IT",pt:"pt-PT",nl:"nl-NL",pl:"pl-PL"} as Record<string,string>)[locale]??"en-GB";utterance.rate=0.85;window.speechSynthesis.speak(utterance)}catch{setSpeechAvailable(false)}}
- function finish(){if(!loaded||!correct)return;let latest=completed;try{const raw=localStorage.getItem(key);if(raw)latest=parseAIQuestProgress(JSON.parse(raw))}catch{}const next={...latest,[band]:Array.from(new Set([...latest[band],index]))};setCompleted(next);try{localStorage.setItem(key,JSON.stringify(next));window.dispatchEvent(new CustomEvent("moneyquest-ai-quest-progress",{detail:{band,completedMissionIds:next[band]}}))}catch{}}
+ function finish(){if(!loaded||!correct)return;let latest=completed;try{const raw=localStorage.getItem(key);if(raw)latest=parseAIQuestProgress(JSON.parse(raw))}catch{}const next=completeAIMission(latest,band,index);setCompleted(next);try{localStorage.setItem(key,JSON.stringify(next));window.dispatchEvent(new CustomEvent("moneyquest-ai-quest-progress",{detail:{band,completedMissionIds:next[band]}}))}catch{}}
  return <main id="main-content" className="mx-auto max-w-3xl px-sm py-xl text-ink">
   <Link href="/play" className="text-teal-text underline">← Money Quest</Link>
   <h1 className="mt-md font-display text-3xl font-bold">{labels[0]}</h1><p className="mt-2 text-ink/75">{labels[1]}</p>
