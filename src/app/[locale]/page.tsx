@@ -20,7 +20,7 @@ const questCopy: Record<string, readonly string[]> = {
     "Real Life Quests",
     "Practice in everyday life",
     "AI Quest",
-    "Learning about AI, in development",
+    "Try AI learning activities",
     "Coming soon"
   ],
   "ro": [
@@ -34,7 +34,7 @@ const questCopy: Record<string, readonly string[]> = {
     "Real Life Quests",
     "Exersare în viața reală",
     "AI Quest",
-    "Învățare despre AI, în dezvoltare",
+    "Încearcă activitățile despre AI",
     "În pregătire"
   ],
   "es": [
@@ -48,7 +48,7 @@ const questCopy: Record<string, readonly string[]> = {
     "Real Life Quests",
     "Práctica en la vida real",
     "AI Quest",
-    "Aprender sobre IA, en desarrollo",
+    "Prueba actividades de IA",
     "Próximamente"
   ],
   "fr": [
@@ -62,7 +62,7 @@ const questCopy: Record<string, readonly string[]> = {
     "Real Life Quests",
     "Pratique au quotidien",
     "AI Quest",
-    "Découvrir l’IA, en préparation",
+    "Découvre les activités IA",
     "À venir"
   ],
   "de": [
@@ -76,7 +76,7 @@ const questCopy: Record<string, readonly string[]> = {
     "Real Life Quests",
     "Üben im Alltag",
     "AI Quest",
-    "KI verstehen, in Entwicklung",
+    "KI-Aktivitäten ausprobieren",
     "In Vorbereitung"
   ],
   "it": [
@@ -90,7 +90,7 @@ const questCopy: Record<string, readonly string[]> = {
     "Real Life Quests",
     "Pratica nella vita reale",
     "AI Quest",
-    "Imparare l’IA, in sviluppo",
+    "Prova le attività sull’IA",
     "In arrivo"
   ],
   "pt": [
@@ -104,7 +104,7 @@ const questCopy: Record<string, readonly string[]> = {
     "Real Life Quests",
     "Prática na vida real",
     "AI Quest",
-    "Aprender sobre IA, em desenvolvimento",
+    "Experimenta atividades de IA",
     "Em breve"
   ],
   "nl": [
@@ -118,7 +118,7 @@ const questCopy: Record<string, readonly string[]> = {
     "Real Life Quests",
     "Oefenen in het dagelijks leven",
     "AI Quest",
-    "Leren over AI, in ontwikkeling",
+    "Probeer AI-activiteiten",
     "Binnenkort"
   ],
   "pl": [
@@ -132,7 +132,7 @@ const questCopy: Record<string, readonly string[]> = {
     "Real Life Quests",
     "Ćwiczenia w codziennym życiu",
     "AI Quest",
-    "Nauka o AI, w przygotowaniu",
+    "Wypróbuj ćwiczenia o AI",
     "Wkrótce"
   ]
 };
