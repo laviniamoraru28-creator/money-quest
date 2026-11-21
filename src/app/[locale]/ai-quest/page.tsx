@@ -12,6 +12,14 @@ const units = [
   {title:"The Truth Detective",concept:"AI sometimes produces convincing but false claims.",task:"An AI says your product will sell 1,000 units tomorrow. What now?",choices:["Check evidence, ask how it knows, and avoid presenting the claim as fact.","Publish it immediately.","Add more zeros to make it exciting."],correct:0,feedback:"Evidence matters more than a confident answer."},
   {title:"The Golden Rules",concept:"Protect privacy, respect people, verify claims and keep a human responsible.",task:"Choose the responsible way to use AI.",choices:["Upload a classmate's photo without permission.","Use AI to draft an advert, check its claims and ask permission before using anyone's data.","Copy AI output and pretend you created every idea."],correct:1,feedback:"Responsible AI use protects privacy and gives credit."}
 ] as const;
+const romanian = [
+ {title:"Noul tău coleg",concept:"AI învață tipare din exemple. Te poate ajuta, dar poate greși.",task:"Alege o activitate potrivită pentru AI.",choices:["Cere trei nume pentru un stand de limonadă.","Lasă AI să decidă cine îți este prieten.","Spune-i AI adresa ta de acasă."],feedback:"AI poate propune idei. Oamenii iau deciziile personale."},
+ {title:"Vorbește clar",concept:"Spune ce dorești, pentru cine și cu ce limite. Verifică răspunsul.",task:"Alege instrucțiunea cea mai clară.",choices:["Fă ceva.","Propune trei nume prietenoase pentru o librărie pentru copii, fiecare cu maximum patru cuvinte.","Construiește afacerea perfectă fără întrebări."],feedback:"Un scop clar și limitele ajută. Tu verifici rezultatul."},
+ {title:"AI și banii",concept:"AI poate compara opțiuni, dar nu garantează profit sau prețuri corecte.",task:"Alege decizia financiară sigură.",choices:["Crede o predicție de profit fără verificare.","Cheltuiește toate economiile la recomandarea AI.","Compară costurile și cere ajutorul unui adult înainte de a cheltui bani reali."],feedback:"Verifică cifrele și riscurile."},
+ {title:"Detectivul adevărului",concept:"AI poate prezenta informații false într-un mod convingător.",task:"AI spune că vei vinde 1.000 de produse mâine. Ce faci?",choices:["Caută dovezi și nu prezenta afirmația ca fapt sigur.","Publică imediat.","Mărește cifra ca să impresionezi."],feedback:"Dovezile sunt mai importante decât un răspuns sigur pe sine."},
+ {title:"Regulile de aur",concept:"Protejează datele, respectă oamenii și verifică afirmațiile.",task:"Alege utilizarea responsabilă a AI.",choices:["Încarcă fotografia unui coleg fără permisiune.","Folosește AI pentru o reclamă, verifică afirmațiile și cere acordul pentru orice date personale.","Copiază răspunsul AI și spune că toate ideile sunt ale tale."],feedback:"Protejează datele și recunoaște contribuțiile."}
+] as const;
+const explorerIcons=[["💡","👫","🏠"],["❓","📚","✨"],["🎲","💸","🧮"],["🔎","📢","🔢"],["📸","🛡️","📝"]] as const;
 const ageTasks:Record<Band,readonly string[]> = {
   explorer:["🧠 AI helps us think of ideas. Which choice is kind and safe?","🗣️ Which request gives AI a clear job?","🪙 Which choice keeps our money safe?","🔎 Which choice checks if a story is true?","🛡️ Which choice protects other people?"],
   builder:["Junior mission: pick an appropriate use of AI for a small project.","Junior mission: improve a vague prompt with a goal and a limit.","Junior mission: compare costs before trusting an AI suggestion.","Junior mission: verify a claim before sharing it.","Junior mission: apply privacy, fairness and credit rules."],
@@ -49,7 +57,8 @@ export default function AIQuestPage(){
  const locale=useLocale();const labels=ui[locale]??ui.en;
  const [band,setBand]=useState<Band>("explorer");const [index,setIndex]=useState(0);const [selected,setSelected]=useState<number|null>(null);const [completed,setCompleted]=useState<Record<Band,number[]>>({explorer:[],builder:[],strategist:[]});
  useEffect(()=>{try{const raw=localStorage.getItem(key);if(raw){const data=JSON.parse(raw);if(data&&typeof data==="object"){setCompleted({explorer:safe(data.explorer),builder:safe(data.builder),strategist:safe(data.strategist)})}}}catch{}},[]);
- const unit=units[index];const activity=band==="explorer"?unit:advanced[band][index];const correct=selected===activity.correct;
+ const unit=units[index];const translated=locale==="ro"?romanian[index]:unit;const activity=band==="explorer"?unit:advanced[band][index];const correct=selected===activity.correct;
+ function speak(){if(typeof window==="undefined"||!("speechSynthesis" in window))return;window.speechSynthesis.cancel();const words=[translated.title,translated.concept,band==="explorer"?translated.task:activity.task,...(band==="explorer"?translated.choices:activity.choices)].join(". ");const utterance=new SpeechSynthesisUtterance(words);utterance.lang=locale==="ro"?"ro-RO":"en-GB";utterance.rate=0.85;window.speechSynthesis.speak(utterance)}
  function finish(){if(!correct)return;const next={...completed,[band]:Array.from(new Set([...completed[band],index]))};setCompleted(next);try{localStorage.setItem(key,JSON.stringify(next))}catch{}}
  return <main id="main-content" className="mx-auto max-w-3xl px-sm py-xl text-ink">
   <Link href="/play" className="text-teal-text underline">← Money Quest</Link>
@@ -57,14 +66,15 @@ export default function AIQuestPage(){
   <div className="mt-md flex flex-wrap gap-2" role="group" aria-label="Age level">{(["explorer","builder","strategist"] as const).map((b,i)=><button type="button" key={b} aria-pressed={band===b} onClick={()=>{setBand(b);setSelected(null)}} className={`rounded-xl border px-3 py-3 font-bold ${band===b?"bg-teal text-white":"bg-white text-ink"}`}>{labels[i+2]}</button>)}</div>
   <div className="mt-lg grid grid-cols-5 gap-2" aria-label="Mission progress">{units.map((u,i)=><button key={u.title} type="button" onClick={()=>{setIndex(i);setSelected(null)}} aria-current={index===i?"step":undefined} className={`min-h-12 rounded-lg border font-bold ${index===i?"border-teal bg-cream":"bg-white"}`}>{completed[band].includes(i)?"✓":i+1}</button>)}</div>
   <article className="mt-md rounded-2xl border border-teal/20 bg-white p-md">
-    <p className="text-sm text-ink/70">{index+1} / {units.length}</p><h2 className="mt-2 font-display text-2xl font-bold">{unit.title}</h2>
-    <p className="mt-sm">{unit.concept}</p><p className="mt-md font-bold">{ageTasks[band][index]}</p>
-    <p className="mt-sm">{activity.task}</p>
-    <div className="mt-md grid gap-3">{activity.choices.map((choice,i)=><button type="button" key={choice} disabled={correct} onClick={()=>setSelected(i)} className={`min-h-14 rounded-xl border-2 p-3 text-left focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal ${selected===i?"border-teal bg-cream":"border-ink/20 bg-white"}`}>{choice}</button>)}</div>
-    {selected!==null&&<div role="status" aria-live="polite" className="mt-md rounded-xl bg-cream p-4"><p>{correct?activity.feedback:labels[5]}</p>{correct&&<button type="button" onClick={()=>{finish();if(index<units.length-1){setIndex(index+1);setSelected(null)}}} className="mt-3 min-h-12 rounded-xl bg-teal px-5 py-3 font-bold text-white">{index<units.length-1?labels[7]:labels[6]}</button>}</div>}
+    <p className="text-sm text-ink/70">{index+1} / {units.length}</p><h2 className="mt-2 font-display text-2xl font-bold">{translated.title}</h2>
+    <p className="mt-sm">{translated.concept}</p><p className="mt-md font-bold">{ageTasks[band][index]}</p>
+    <p className="mt-sm">{band==="explorer"?translated.task:activity.task}</p>
+    <button type="button" onClick={speak} className="mt-3 min-h-12 rounded-xl border border-teal px-4 py-2 font-bold text-teal-text">🔊 {locale==="ro"?"Ascultă":"Listen"}</button>
+    <div className="mt-md grid gap-3">{(band==="explorer"?translated.choices:activity.choices).map((choice,i)=><button type="button" key={choice} disabled={correct} onClick={()=>setSelected(i)} className={`min-h-14 rounded-xl border-2 p-3 text-left focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal ${selected===i?"border-teal bg-cream":"border-ink/20 bg-white"}`}>{band==="explorer"&&<span aria-hidden="true" className="mr-3 text-2xl">{explorerIcons[index][i]}</span>}{choice}</button>)}</div>
+    {selected!==null&&<div role="status" aria-live="polite" className="mt-md rounded-xl bg-cream p-4"><p>{correct?(band==="explorer"?translated.feedback:activity.feedback):labels[5]}</p>{correct&&<button type="button" onClick={()=>{finish();if(index<units.length-1){setIndex(index+1);setSelected(null)}}} className="mt-3 min-h-12 rounded-xl bg-teal px-5 py-3 font-bold text-white">{index<units.length-1?labels[7]:labels[6]}</button>}</div>}
   </article>
   {completed[band].length===units.length&&<p role="status" className="mt-md rounded-xl bg-cream p-4 font-bold">✓ {labels[6]}: 5 / 5</p>}
-  <p className="mt-md text-sm text-ink/70">Lessons are currently in English. No AI API, account, personal data submission or real money is required.</p>
+  <p className="mt-md text-sm text-ink/70">Some activities are available only in English. No AI API, account, personal data submission or real money is required.</p>
  </main>;
 }
 function safe(value:unknown):number[]{return Array.isArray(value)?value.filter((v):v is number=>Number.isInteger(v)&&v>=0&&v<5):[]}
