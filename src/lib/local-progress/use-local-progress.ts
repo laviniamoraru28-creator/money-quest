@@ -101,9 +101,12 @@ export function useLocalProgress() {
     setState(readFromStorage());
     setIsLoaded(true);
     const sync = (event: Event) => setState(event instanceof CustomEvent ? event.detail : readFromStorage());
+    const syncStorage = (event: StorageEvent) => {
+      if (event.key === STORAGE_KEY || event.key === null) setState(readFromStorage());
+    };
     window.addEventListener("moneyquest-progress", sync);
-    window.addEventListener("storage", sync);
-    return () => {window.removeEventListener("moneyquest-progress", sync);window.removeEventListener("storage", sync)};
+    window.addEventListener("storage", syncStorage);
+    return () => {window.removeEventListener("moneyquest-progress", sync);window.removeEventListener("storage", syncStorage)};
   }, []);
 
   const persist = useCallback((next: LocalProgressState) => {
@@ -113,14 +116,14 @@ export function useLocalProgress() {
 
   const setAgeBand = useCallback(
     (ageBand: LocalProgressState["ageBand"]) => {
-      persist({ ...state, ageBand });
+      persist({ ...readFromStorage(), ageBand });
     },
     [state, persist]
   );
 
   const setCurrencyCode = useCallback(
     (currencyCode: string) => {
-      persist({ ...state, currencyCode });
+      persist({ ...readFromStorage(), currencyCode });
     },
     [state, persist]
   );
@@ -137,14 +140,14 @@ export function useLocalProgress() {
 
   const createGoal = useCallback(
     (name: string, targetMinorUnits: number) => {
-      persist(createGoalPure(state, name, targetMinorUnits));
+      persist(createGoalPure(readFromStorage(), name, targetMinorUnits));
     },
     [state, persist]
   );
 
   const contributeToGoal = useCallback(
     (goalId: string, amountMinorUnits: number) => {
-      const result = contributeToGoalPure(state, goalId, amountMinorUnits);
+      const result = contributeToGoalPure(readFromStorage(), goalId, amountMinorUnits);
       persist(result.state);
       return result;
     },
@@ -153,7 +156,7 @@ export function useLocalProgress() {
 
   const withdrawFromGoal = useCallback(
     (goalId: string, amountMinorUnits: number) => {
-      const result = withdrawFromGoalPure(state, goalId, amountMinorUnits);
+      const result = withdrawFromGoalPure(readFromStorage(), goalId, amountMinorUnits);
       persist(result.state);
       return result;
     },
@@ -162,7 +165,7 @@ export function useLocalProgress() {
 
   const removeGoal = useCallback(
     (goalId: string) => {
-      persist(removeGoalPure(state, goalId));
+      persist(removeGoalPure(readFromStorage(), goalId));
     },
     [state, persist]
   );
@@ -174,14 +177,14 @@ export function useLocalProgress() {
 
   const awardBadge = useCallback(
     (badgeId: string) => {
-      persist(awardBadgePure(state, badgeId));
+      persist(awardBadgePure(readFromStorage(), badgeId));
     },
     [state, persist]
   );
 
   const recordThreeQuestCompletion = useCallback(
     (band: AgeBand) => {
-      persist(recordThreeQuestCompletionPure(state, band));
+      persist(recordThreeQuestCompletionPure(readFromStorage(), band));
     },
     [state, persist]
   );
