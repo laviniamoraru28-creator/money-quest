@@ -5,6 +5,8 @@ const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  // Do not disclose the framework in the X-Powered-By response header.
+  poweredByHeader: false,
   // No image domains are configured yet because the MVP ships with no
   // external or user-uploaded images: avatars are built from a closed set
   // of local SVG parts (src/data/avatar-options.ts), never a URL a child
