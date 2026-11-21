@@ -1,0 +1,32 @@
+name: Innovation and Child Experience Lab
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 9 * * 3'
+  pull_request:
+    paths:
+      - 'scripts/experience_lab.py'
+      - 'scripts/test_experience_lab.py'
+      - '.github/workflows/experience-lab.yml'
+permissions:
+  contents: read
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test
+        run: python3 -m unittest discover -s scripts -p 'test_experience_lab.py' -v
+      - name: Generate evidence-labelled reports
+        run: python3 scripts/experience_lab.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: money-quest-experience-lab
+          path: artifacts/experience-lab/*.json
+          retention-days: 30
