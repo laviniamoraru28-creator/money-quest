@@ -164,3 +164,26 @@ html[data-high-contrast="true"]:not([data-night-view="true"]) { filter: contrast
    (animation-duration: 0.01ms !important), so no separate override is
    needed here - matches every other animation in this file. */
 @keyframes nav-drawer-in { from { transform: translateX(100%); } to { transform: translateX(0); } }
+
+
+/* Reward motion stays decorative, never blocks lesson navigation. */
+@keyframes mq-coin-pop { 0% {opacity:0;transform:scale(.7)} 55% {opacity:1;transform:scale(1.07)} 100% {opacity:1;transform:scale(1)} }
+@keyframes mq-coin-arrive { 0% {opacity:0;transform:translate(var(--from-x),var(--from-y)) scale(.6)} 65% {opacity:1} 100% {opacity:0;transform:translate(0,0) scale(.8)} }
+@keyframes mq-sparkle { 0%,100% {opacity:0;transform:scale(.5)} 45% {opacity:1;transform:scale(1.2)} }
+@keyframes mq-trophy-reveal { 0% {opacity:0;transform:scale(.65)} 65% {opacity:1;transform:scale(1.08)} 100% {transform:scale(1)} }
+.mq-coin-celebration {animation:mq-coin-pop .42s ease-out both}
+.mq-coin-main {animation:mq-trophy-reveal .7s ease-out both}
+.mq-coin-fly {animation:mq-coin-arrive 1.2s ease-in-out both}
+.mq-coin-fly-left {--from-x:-5rem;--from-y:3rem}
+.mq-coin-fly-right {--from-x:5rem;--from-y:3rem}
+.mq-coin-fly-top {--from-x:0rem;--from-y:-3rem}
+.mq-coin-spark {animation:mq-sparkle 1.1s ease-in-out both}
+.mq-trophy-reveal {animation:mq-trophy-reveal .75s ease-out both}
+@media (prefers-reduced-motion:reduce) {
+ .mq-coin-celebration,.mq-coin-main,.mq-coin-fly,.mq-coin-spark,.mq-trophy-reveal {animation:none!important}
+}
+[data-reduced-motion="true"] .mq-coin-celebration,
+[data-reduced-motion="true"] .mq-coin-main,
+[data-reduced-motion="true"] .mq-coin-fly,
+[data-reduced-motion="true"] .mq-coin-spark,
+[data-reduced-motion="true"] .mq-trophy-reveal {animation:none!important}

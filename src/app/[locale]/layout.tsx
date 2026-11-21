@@ -10,6 +10,7 @@ import { Space_Grotesk, Atkinson_Hyperlegible } from "next/font/google";
 import { ACTIVE_LOCALES, getTextDirection, isSupportedLocale, type Locale } from "@/i18n/config";
 import { getSiteUrl, DEFAULT_OG_IMAGE } from "@/lib/seo/site-url";
 import {CoinRewardEffect} from "@/components/ui/CoinRewardEffect";
+import {WorldCompletionCelebration} from "@/components/ui/WorldCompletionCelebration";
 import {PageReadAloud} from "@/components/ui/PageReadAloud";
 import "../globals.css";
 
@@ -144,6 +145,7 @@ export default async function LocaleLayout({
           <PageReadAloud locale={locale} copy={siteControlsCopy[locale]}/>
           {children}
           <CoinRewardEffect/>
+          <WorldCompletionCelebration/>
         </NextIntlClientProvider>
       </body>
     </html>

@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import {FirstVisitWelcome} from "@/components/FirstVisitWelcome";
 import {certificateJourneyCopy} from "@/content/certificate-journey-copy";
 
 import { useLocale, useTranslations } from "next-intl";
@@ -60,7 +61,8 @@ export default function PlayPage() {
           <div className="mt-sm flex justify-center">
             <GuidePanel uiLocale={safeLocale} labels={guideLabels} message={t("play.levelChoiceHint")} />
           </div>
-          <h1 className="mt-sm font-display text-2xl font-bold">{t("play.chooseYourLevel")}</h1>
+          <FirstVisitWelcome />
+          <h1 id="level-choices" tabIndex={-1} className="mt-sm font-display text-2xl font-bold">{t("play.chooseYourLevel")}</h1>
           <p className="mt-2xs text-base text-ink/70">{t("play.levelChoiceHint")}</p>
           <p className="mt-4 text-sm text-ink/80">{journey.steps} {journey.print}</p>
           <div className="mt-md grid gap-sm">
@@ -157,9 +159,12 @@ export default function PlayPage() {
                   </p>
                   <h2 className="font-display text-lg font-bold leading-tight">{t(`levels.${world.id}`)}</h2>
                   <p className="text-sm text-ink/70">{world.name}</p>
-                  <p className="mt-2xs text-xs text-ink/70">
+                  <p className="mt-2xs text-sm font-medium text-ink/80">
                     {t("play.completeOfTotal", { completed: completedCount, total: catalog.length })}
                   </p>
+                  <div role="progressbar" aria-label={t(`levels.${world.id}`)} aria-valuenow={completedCount} aria-valuemin={0} aria-valuemax={Math.max(1, catalog.length)} className="mt-2 h-2.5 overflow-hidden rounded-full bg-ink/10">
+                    <div className="h-full rounded-full bg-teal transition-[width] motion-reduce:transition-none" style={{width: `${percent}%`}} />
+                  </div>
                 </div>
                 {isComplete && <LevelBadgeStar size={32} className="shrink-0" />}
               </Link>
