@@ -118,14 +118,14 @@ export function useLocalProgress() {
     (ageBand: LocalProgressState["ageBand"]) => {
       persist({ ...readFromStorage(), ageBand });
     },
-    [state, persist]
+    [persist]
   );
 
   const setCurrencyCode = useCallback(
     (currencyCode: string) => {
       persist({ ...readFromStorage(), currencyCode });
     },
-    [state, persist]
+    [persist]
   );
 
   const completeActivity = useCallback(
@@ -142,7 +142,7 @@ export function useLocalProgress() {
     (name: string, targetMinorUnits: number) => {
       persist(createGoalPure(readFromStorage(), name, targetMinorUnits));
     },
-    [state, persist]
+    [persist]
   );
 
   const contributeToGoal = useCallback(
@@ -151,7 +151,7 @@ export function useLocalProgress() {
       persist(result.state);
       return result;
     },
-    [state, persist]
+    [persist]
   );
 
   const withdrawFromGoal = useCallback(
@@ -160,14 +160,14 @@ export function useLocalProgress() {
       persist(result.state);
       return result;
     },
-    [state, persist]
+    [persist]
   );
 
   const removeGoal = useCallback(
     (goalId: string) => {
       persist(removeGoalPure(readFromStorage(), goalId));
     },
-    [state, persist]
+    [persist]
   );
 
   const resetProgress = useCallback(() => {
@@ -179,14 +179,14 @@ export function useLocalProgress() {
     (badgeId: string) => {
       persist(awardBadgePure(readFromStorage(), badgeId));
     },
-    [state, persist]
+    [persist]
   );
 
   const recordThreeQuestCompletion = useCallback(
     (band: AgeBand) => {
       persist(recordThreeQuestCompletionPure(readFromStorage(), band));
     },
-    [state, persist]
+    [persist]
   );
 
   return {
