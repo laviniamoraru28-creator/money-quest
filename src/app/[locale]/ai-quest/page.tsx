@@ -468,7 +468,7 @@ export default function AIQuestPage(){
   <div className="mt-lg grid grid-cols-5 gap-2" aria-label="Mission progress">{units.map((u,i)=><button key={u.title} type="button" onClick={()=>{setIndex(i);setSelected(null)}} aria-current={index===i?"step":undefined} className={`min-h-12 rounded-lg border font-bold ${index===i?"border-teal bg-cream":"bg-white"}`}>{completed[band].includes(i)?"✓":i+1}</button>)}</div>
   <article className="mt-md rounded-2xl border border-teal/20 bg-white p-md">
     <p className="text-sm text-ink/70">{index+1} / {units.length}</p><h2 className="mt-2 font-display text-2xl font-bold">{translated.title}</h2>
-    <p className="mt-sm">{translated.concept}</p><p className="mt-md font-bold">{ageTasks[band][index]}</p>
+    <p className="mt-sm">{translated.concept}</p>{band!=="explorer"&&<p className="mt-md font-bold">{ageTasks[band][index]}</p>}
     <p className="mt-sm">{band==="explorer"?translated.task:activity.task}</p>
     <button type="button" onClick={speak} className="mt-3 min-h-12 rounded-xl border border-teal px-4 py-2 font-bold text-teal-text">🔊 {locale==="ro"?"Ascultă":"Listen"}</button>
     <div className="mt-md grid gap-3">{(band==="explorer"?translated.choices:activity.choices).map((choice,i)=><button type="button" key={choice} disabled={correct} onClick={()=>setSelected(i)} className={`min-h-14 rounded-xl border-2 p-3 text-left focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal ${selected===i?"border-teal bg-cream":"border-ink/20 bg-white"}`}>{band==="explorer"&&<span aria-hidden="true" className="mr-3 text-2xl">{explorerIcons[index][i]}</span>}{choice}</button>)}</div>
