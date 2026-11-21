@@ -1,0 +1,46 @@
+name: GA4 aggregate research (read only)
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: '37 8 * * 1'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'tools/learning-intelligence/ga4.py'
+      - 'tools/learning-intelligence/test_ga4.py'
+      - '.github/workflows/ga4-aggregate-research.yml'
+permissions:
+  contents: read
+jobs:
+  report:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Unit tests
+        run: python3 -m unittest tools/learning-intelligence/test_ga4.py
+      - name: Optional GA4 collection
+        if: github.event_name != 'pull_request'
+        env:
+          GA4_SERVICE_ACCOUNT_JSON: ${{ secrets.GA4_SERVICE_ACCOUNT_JSON }}
+          GA4_PROPERTY_ID: ${{ vars.GA4_PROPERTY_ID }}
+        run: |
+          if [[ -n "$GA4_SERVICE_ACCOUNT_JSON" && -n "$GA4_PROPERTY_ID" ]]; then
+            python3 -m pip install google-auth==2.38.0 requests==2.32.3
+            python3 tools/learning-intelligence/ga4.py --output "$RUNNER_TEMP/ga4-aggregate.json"
+            python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          data = json.loads((Path(os.environ['RUNNER_TEMP']) / 'ga4-aggregate.json').read_text())
+          summary = Path(os.environ['GITHUB_STEP_SUMMARY'])
+          with summary.open('a') as out:
+              out.write(f"GA4 verified: {len(data['rows'])} aggregate page rows, {data['days']} days.\n")
+          PY
+          else
+            echo 'GA4 not connected; no analytics data fetched.' >> "$GITHUB_STEP_SUMMARY"
+          fi
