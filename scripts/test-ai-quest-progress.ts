@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import {parseAIQuestProgress, safeAIMissionIds, isAIQuestComplete, readAIQuestBandProgress} from "../src/lib/ai-quest/progress";
+import {parseAIQuestProgress, safeAIMissionIds, isAIQuestComplete, readAIQuestBandProgress, completeAIMission} from "../src/lib/ai-quest/progress";
 
 assert.deepEqual(safeAIMissionIds([0,1,1,2,3,4,5,-1,"2",null,2.5]),[0,1,2,3,4]);
 assert.deepEqual(safeAIMissionIds(null),[]);
@@ -16,3 +16,11 @@ console.log("AI Quest progress validation: passed");
 assert.deepEqual(readAIQuestBandProgress('{"explorer":[0,1,2,3,4]}',"explorer"),[0,1,2,3,4]);
 assert.deepEqual(readAIQuestBandProgress('not json',"explorer"),[]);
 assert.deepEqual(readAIQuestBandProgress(null,"builder"),[]);
+
+const before=parseAIQuestProgress({explorer:[0,1],builder:[2],strategist:[]});
+const after=completeAIMission(before,"explorer",2);
+assert.deepEqual(after.explorer,[0,1,2]);
+assert.deepEqual(after.builder,[2]);
+assert.deepEqual(before.explorer,[0,1]);
+assert.deepEqual(completeAIMission(after,"explorer",2).explorer,[0,1,2]);
+assert.equal(completeAIMission(after,"explorer",9),after);
