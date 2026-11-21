@@ -322,10 +322,10 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
                 <span><span className="block font-display font-bold text-ink">{quest.title}</span><span className="mt-1 block text-sm text-ink/75">{quest.description}</span></span>
               </Link>
             ))}
-            <div className="flex min-h-28 items-center gap-3 rounded-2xl border border-dashed border-teal/30 bg-cream p-4">
+            <Link href="/ai-quest" className="flex min-h-28 items-center gap-3 rounded-2xl border border-teal/30 bg-cream p-4 focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal">
               <span aria-hidden="true" className="text-3xl">🤖</span>
-              <span><span className="block font-display font-bold text-ink">{questLabels[9]}</span><span className="mt-1 block text-sm text-ink/75">{questLabels[10]}</span><span className="mt-1 block text-xs font-semibold text-teal-text">{questLabels[11]}</span></span>
-            </div>
+              <span><span className="block font-display font-bold text-ink">{questLabels[9]}</span><span className="mt-1 block text-sm text-ink/75">{questLabels[10]}</span></span>
+            </Link>
           </div>
         </section>
 
