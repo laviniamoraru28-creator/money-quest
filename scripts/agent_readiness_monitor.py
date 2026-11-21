@@ -10,6 +10,7 @@ from scripts.agent_registry import REGISTRY, ROOT
 
 def build_report(registry, root=ROOT, now=None):
     now = now or datetime.now(timezone.utc)
+    (root / "artifacts" / "agent-readiness").mkdir(parents=True, exist_ok=True)
     agents = []
     for agent in registry["agents"]:
         rel = agent["implementation"]["path"]
