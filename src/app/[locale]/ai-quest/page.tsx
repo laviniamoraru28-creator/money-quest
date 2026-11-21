@@ -3,6 +3,7 @@
 import {useEffect, useState} from "react";
 import {useLocale} from "next-intl";
 import {Link} from "@/i18n/navigation";
+import {AI_QUEST_STORAGE_KEY, parseAIQuestProgress} from "@/lib/ai-quest/progress";
 
 type Band = "explorer" | "builder" | "strategist";
 const units = [
@@ -552,13 +553,13 @@ const ui:Record<string,[string,string,string,string,string,string,string,string]
   nl:["AI Quest","Vijf missies om verantwoord met AI om te gaan","Explorer (6–8)","Builder (9–11)","Strategist (12–14)","Probeer een ander antwoord","Missie voltooid","Volgende missie"],
   pl:["AI Quest","Pięć misji o odpowiedzialnym korzystaniu z AI","Explorer (6–8)","Builder (9–11)","Strategist (12–14)","Spróbuj ponownie","Misja ukończona","Następna misja"]
 };
-const key="moneyquest_ai_quest_v1";
+const key=AI_QUEST_STORAGE_KEY;
 export default function AIQuestPage(){
  const locale=useLocale();const labels=ui[locale]??ui.en;
  const [band,setBand]=useState<Band>("explorer");const [index,setIndex]=useState(0);const [selected,setSelected]=useState<number|null>(null);const [completed,setCompleted]=useState<Record<Band,number[]>>({explorer:[],builder:[],strategist:[]});
  const [loaded,setLoaded]=useState(false);
  const [speechAvailable,setSpeechAvailable]=useState(false);
- useEffect(()=>{setSpeechAvailable(typeof window!=="undefined"&&"speechSynthesis" in window);try{const raw=localStorage.getItem(key);if(raw){const data=JSON.parse(raw);if(data&&typeof data==="object"){setCompleted({explorer:safe(data.explorer),builder:safe(data.builder),strategist:safe(data.strategist)})}}}catch{}finally{setLoaded(true)}},[]);
+ useEffect(()=>{setSpeechAvailable(typeof window!=="undefined"&&"speechSynthesis" in window);try{const raw=localStorage.getItem(key);if(raw){const data=JSON.parse(raw);if(data&&typeof data==="object"){setCompleted(parseAIQuestProgress(data))}}}catch{}finally{setLoaded(true)}},[]);
  const unit=units[index]!;const translated=locale==="ro"?(romanian[index]??unit):(explorerTranslations[locale]?.[index]??unit);const activity=band==="explorer"?unit:(locale==="ro"?{...advanced[band][index]!,...advancedRomanian[band][index]!}:{...advanced[band][index]!,...(advancedTranslations[locale]?.[band]?.[index]??moreAdvancedTranslations[locale]?.[band]?.[index]??{})});const correct=selected===activity.correct;
  function speak(){if(typeof window==="undefined"||!("speechSynthesis" in window))return;window.speechSynthesis.cancel();const words=[translated.title,translated.concept,band==="explorer"?translated.task:activity.task,...(band==="explorer"?translated.choices:activity.choices)].join(". ");const utterance=new SpeechSynthesisUtterance(words);utterance.lang=({en:"en-GB",ro:"ro-RO",es:"es-ES",fr:"fr-FR",de:"de-DE",it:"it-IT",pt:"pt-PT",nl:"nl-NL",pl:"pl-PL"} as Record<string,string>)[locale]??"en-GB";utterance.rate=0.85;window.speechSynthesis.speak(utterance)}
  function finish(){if(!loaded||!correct)return;const next={...completed,[band]:Array.from(new Set([...completed[band],index]))};setCompleted(next);try{localStorage.setItem(key,JSON.stringify(next));window.dispatchEvent(new CustomEvent("moneyquest-ai-quest-progress",{detail:{band,completedMissionIds:next[band]}}))}catch{}}
@@ -579,4 +580,3 @@ export default function AIQuestPage(){
   <p className="mt-md text-sm text-ink/70">{({en:"No AI API, account, personal data submission or real money is required.",ro:"Nu ai nevoie de cont, API AI, date personale sau bani reali.",es:"No necesitas cuenta, API de IA, datos personales ni dinero real.",fr:"Aucun compte, service IA, donnée personnelle ou argent réel n’est nécessaire.",de:"Kein Konto, KI-Dienst, persönliche Daten oder echtes Geld nötig.",it:"Non servono account, API IA, dati personali o denaro reale.",pt:"Não precisas de conta, API de IA, dados pessoais ou dinheiro real.",nl:"Geen account, AI-dienst, persoonsgegevens of echt geld nodig.",pl:"Nie potrzebujesz konta, usługi AI, danych osobowych ani prawdziwych pieniędzy."} as Record<string,string>)[locale]}</p>
  </main>;
 }
-function safe(value:unknown):number[]{return Array.isArray(value)?Array.from(new Set(value.filter((v):v is number=>Number.isInteger(v)&&v>=0&&v<5))):[]}
