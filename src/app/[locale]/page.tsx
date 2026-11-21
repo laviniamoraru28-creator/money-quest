@@ -29,7 +29,7 @@ const previewCopy: Record<string, readonly string[]> = {
     "Vizitează muzeul",
     "Vezi parcursul educațional",
     "Pentru părinți și profesori",
-    "Explorează activitățile înainte de a alege nivelul. Progresul rămâne pe acest dispozitiv."",
+    "Explorează activitățile înainte de a alege nivelul. Progresul rămâne pe acest dispozitiv.",
     "Explorează cele șapte lumi ale banilor"
   ],
   "es": [
@@ -40,7 +40,7 @@ const previewCopy: Record<string, readonly string[]> = {
     "Visita el museo",
     "Descubre el recorrido",
     "Para familias y docentes",
-    "Explora las actividades antes de elegir un nivel. El progreso se guarda en este dispositivo."",
+    "Explora las actividades antes de elegir un nivel. El progreso se guarda en este dispositivo.",
     "Explora los siete mundos del dinero"
   ],
   "fr": [
@@ -51,7 +51,7 @@ const previewCopy: Record<string, readonly string[]> = {
     "Visiter le musée",
     "Voir le parcours",
     "Pour les parents et enseignants",
-    "Découvrez les activités avant de choisir un niveau. La progression reste sur cet appareil."",
+    "Découvrez les activités avant de choisir un niveau. La progression reste sur cet appareil.",
     "Explore les sept mondes de l’argent"
   ],
   "de": [
@@ -62,7 +62,7 @@ const previewCopy: Record<string, readonly string[]> = {
     "Museum besuchen",
     "Lernweg ansehen",
     "Für Eltern und Lehrkräfte",
-    "Sieh dir die Aktivitäten an, bevor du eine Altersstufe wählst. Fortschritte bleiben auf diesem Gerät."",
+    "Sieh dir die Aktivitäten an, bevor du eine Altersstufe wählst. Fortschritte bleiben auf diesem Gerät.",
     "Entdecke die sieben Geldwelten"
   ],
   "it": [
@@ -73,7 +73,7 @@ const previewCopy: Record<string, readonly string[]> = {
     "Visita il museo",
     "Scopri il percorso",
     "Per genitori e insegnanti",
-    "Esplora le attività prima di scegliere un livello. I progressi restano su questo dispositivo."",
+    "Esplora le attività prima di scegliere un livello. I progressi restano su questo dispositivo.",
     "Esplora i sette mondi del denaro"
   ],
   "pt": [
@@ -84,7 +84,7 @@ const previewCopy: Record<string, readonly string[]> = {
     "Visitar o museu",
     "Ver o percurso",
     "Para pais e professores",
-    "Explora as atividades antes de escolher um nível. O progresso fica neste dispositivo."",
+    "Explora as atividades antes de escolher um nível. O progresso fica neste dispositivo.",
     "Explora os sete mundos do dinheiro"
   ],
   "nl": [
@@ -95,7 +95,7 @@ const previewCopy: Record<string, readonly string[]> = {
     "Bezoek het museum",
     "Bekijk het leertraject",
     "Voor ouders en leerkrachten",
-    "Bekijk de activiteiten voordat je een niveau kiest. Voortgang blijft op dit apparaat."",
+    "Bekijk de activiteiten voordat je een niveau kiest. Voortgang blijft op dit apparaat.",
     "Ontdek de zeven geldwerelden"
   ],
   "pl": [
@@ -106,7 +106,7 @@ const previewCopy: Record<string, readonly string[]> = {
     "Odwiedź muzeum",
     "Zobacz ścieżkę nauki",
     "Dla rodziców i nauczycieli",
-    "Poznaj aktywności przed wyborem poziomu. Postępy pozostają na tym urządzeniu."",
+    "Poznaj aktywności przed wyborem poziomu. Postępy pozostają na tym urządzeniu.",
     "Odkryj siedem światów pieniędzy"
   ]
 };
