@@ -50,6 +50,10 @@ for (const band of CERTIFICATE_BANDS) {
     !isFinalAIQuestCertificateReady(requiredMQ, band, pitchDone, leadershipDone, [0,1,2,3,3]));
   check(`${band}: final certificate unlocked after all four quests`,
     isFinalAIQuestCertificateReady(requiredMQ, band, pitchDone, leadershipDone, [0,1,2,3,4]));
+  check(`${band}: missing MQ blocks final certificate`,
+    !isFinalAIQuestCertificateReady(requiredMQ.slice(0,-1), band, pitchDone, leadershipDone, [0,1,2,3,4]));
+  check(`${band}: invalid AI mission identifiers do not unlock certificate`,
+    !isFinalAIQuestCertificateReady(requiredMQ, band, pitchDone, leadershipDone, [0,1,2,3,99]));
   check(`${band}: missing EQ blocks final certificate`,
     !isFinalAIQuestCertificateReady(requiredMQ, band, createEntrepreneurDefault(), leadershipDone, [0,1,2,3,4]));
   check(`${band}: missing LQ blocks final certificate`,
