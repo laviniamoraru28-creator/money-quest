@@ -1,4 +1,5 @@
 import Image from "next/image";
+import {WORLDS} from "@/content/worlds";
 import {ChooseLearningLevelLink} from "@/components/ChooseLearningLevelLink";
 import {certificateJourneyCopy} from "@/content/certificate-journey-copy";
 import {isSupportedLocale} from "@/i18n/config";
@@ -17,7 +18,8 @@ const previewCopy: Record<string, readonly string[]> = {
     "Visit the museum",
     "See the learning journey",
     "For parents and teachers",
-    "Explore the activities before you choose an age level. Progress stays on this device."
+    "Explore the activities before you choose an age level. Progress stays on this device.",
+    "Explore the seven money worlds"
   ],
   "ro": [
     "Descoperă ce fac copiii",
@@ -27,7 +29,8 @@ const previewCopy: Record<string, readonly string[]> = {
     "Vizitează muzeul",
     "Vezi parcursul educațional",
     "Pentru părinți și profesori",
-    "Explorează activitățile înainte de a alege nivelul. Progresul rămâne pe acest dispozitiv."
+    "Explorează activitățile înainte de a alege nivelul. Progresul rămâne pe acest dispozitiv."",
+    "Explorează cele șapte lumi ale banilor"
   ],
   "es": [
     "Descubre lo que hacen los niños",
@@ -37,7 +40,8 @@ const previewCopy: Record<string, readonly string[]> = {
     "Visita el museo",
     "Descubre el recorrido",
     "Para familias y docentes",
-    "Explora las actividades antes de elegir un nivel. El progreso se guarda en este dispositivo."
+    "Explora las actividades antes de elegir un nivel. El progreso se guarda en este dispositivo."",
+    "Explora los siete mundos del dinero"
   ],
   "fr": [
     "Découvrez les activités des enfants",
@@ -47,7 +51,8 @@ const previewCopy: Record<string, readonly string[]> = {
     "Visiter le musée",
     "Voir le parcours",
     "Pour les parents et enseignants",
-    "Découvrez les activités avant de choisir un niveau. La progression reste sur cet appareil."
+    "Découvrez les activités avant de choisir un niveau. La progression reste sur cet appareil."",
+    "Explore les sept mondes de l’argent"
   ],
   "de": [
     "Entdecke, was Kinder hier tun",
@@ -57,7 +62,8 @@ const previewCopy: Record<string, readonly string[]> = {
     "Museum besuchen",
     "Lernweg ansehen",
     "Für Eltern und Lehrkräfte",
-    "Sieh dir die Aktivitäten an, bevor du eine Altersstufe wählst. Fortschritte bleiben auf diesem Gerät."
+    "Sieh dir die Aktivitäten an, bevor du eine Altersstufe wählst. Fortschritte bleiben auf diesem Gerät."",
+    "Entdecke die sieben Geldwelten"
   ],
   "it": [
     "Scopri cosa fanno i bambini",
@@ -67,7 +73,8 @@ const previewCopy: Record<string, readonly string[]> = {
     "Visita il museo",
     "Scopri il percorso",
     "Per genitori e insegnanti",
-    "Esplora le attività prima di scegliere un livello. I progressi restano su questo dispositivo."
+    "Esplora le attività prima di scegliere un livello. I progressi restano su questo dispositivo."",
+    "Esplora i sette mondi del denaro"
   ],
   "pt": [
     "Descobre o que as crianças fazem",
@@ -77,7 +84,8 @@ const previewCopy: Record<string, readonly string[]> = {
     "Visitar o museu",
     "Ver o percurso",
     "Para pais e professores",
-    "Explora as atividades antes de escolher um nível. O progresso fica neste dispositivo."
+    "Explora as atividades antes de escolher um nível. O progresso fica neste dispositivo."",
+    "Explora os sete mundos do dinheiro"
   ],
   "nl": [
     "Ontdek wat kinderen doen",
@@ -87,7 +95,8 @@ const previewCopy: Record<string, readonly string[]> = {
     "Bezoek het museum",
     "Bekijk het leertraject",
     "Voor ouders en leerkrachten",
-    "Bekijk de activiteiten voordat je een niveau kiest. Voortgang blijft op dit apparaat."
+    "Bekijk de activiteiten voordat je een niveau kiest. Voortgang blijft op dit apparaat."",
+    "Ontdek de zeven geldwerelden"
   ],
   "pl": [
     "Zobacz, co robią dzieci",
@@ -97,7 +106,8 @@ const previewCopy: Record<string, readonly string[]> = {
     "Odwiedź muzeum",
     "Zobacz ścieżkę nauki",
     "Dla rodziców i nauczycieli",
-    "Poznaj aktywności przed wyborem poziomu. Postępy pozostają na tym urządzeniu."
+    "Poznaj aktywności przed wyborem poziomu. Postępy pozostają na tym urządzeniu."",
+    "Odkryj siedem światów pieniędzy"
   ]
 };
 
@@ -165,6 +175,21 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
                   <span className="mt-sm inline-block font-bold text-teal-text">{t("nav.getStarted")} →</span>
                 </div>
               </ChooseLearningLevelLink>
+            ))}
+          </div>
+        </section>
+
+        <section aria-labelledby="worlds-preview-heading" className="mx-auto max-w-[1200px] px-sm pb-2xl">
+          <h2 id="worlds-preview-heading" className="font-display text-2xl font-bold text-ink">{preview[8]}</h2>
+          <div className="mt-md grid gap-sm sm:grid-cols-2 lg:grid-cols-4">
+            {WORLDS.map((world) => (
+              <Link key={world.id} href="/play" className="group flex items-center gap-3 rounded-2xl border-2 bg-white p-3 shadow-resting focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal" style={{borderColor:world.themeColor}}>
+                <Image unoptimized src={`/images/money-quest/worlds/${world.id}-thumb.webp`} alt="" width={112} height={112} loading="lazy" className="h-20 w-20 shrink-0 rounded-xl object-cover" />
+                <span className="min-w-0">
+                  <span className="block text-xs font-medium text-ink/70">{world.orderIndex} / {WORLDS.length}</span>
+                  <span className="block font-display font-bold text-ink">{world.name}</span>
+                </span>
+              </Link>
             ))}
           </div>
         </section>
