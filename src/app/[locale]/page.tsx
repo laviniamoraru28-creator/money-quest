@@ -8,11 +8,105 @@ import { buildOrganizationSchema, buildWebSiteSchema } from "@/lib/seo/structure
 import { safeJsonLd } from "@/lib/seo/safe-json-ld";
 import { getSiteUrl } from "@/lib/seo/site-url";
 
+const previewCopy: Record<string, readonly string[]> = {
+  "en": [
+    "Explore what children actually do",
+    "A learning journey, not just a list of lessons",
+    "Discover places, make choices and practise skills at your own pace.",
+    "Explore the library",
+    "Visit the museum",
+    "See the learning journey",
+    "For parents and teachers",
+    "Explore the activities before you choose an age level. Progress stays on this device."
+  ],
+  "ro": [
+    "Descoperă ce fac copiii",
+    "O aventură de învățare, nu doar o listă de lecții",
+    "Descoperă locuri, ia decizii și exersează în ritmul tău.",
+    "Explorează biblioteca",
+    "Vizitează muzeul",
+    "Vezi parcursul educațional",
+    "Pentru părinți și profesori",
+    "Explorează activitățile înainte de a alege nivelul. Progresul rămâne pe acest dispozitiv."
+  ],
+  "es": [
+    "Descubre lo que hacen los niños",
+    "Un recorrido de aprendizaje, no solo lecciones",
+    "Explora lugares, toma decisiones y practica a tu ritmo.",
+    "Explora la biblioteca",
+    "Visita el museo",
+    "Descubre el recorrido",
+    "Para familias y docentes",
+    "Explora las actividades antes de elegir un nivel. El progreso se guarda en este dispositivo."
+  ],
+  "fr": [
+    "Découvrez les activités des enfants",
+    "Un parcours éducatif, pas seulement des leçons",
+    "Explore des lieux, fais des choix et progresse à ton rythme.",
+    "Explorer la bibliothèque",
+    "Visiter le musée",
+    "Voir le parcours",
+    "Pour les parents et enseignants",
+    "Découvrez les activités avant de choisir un niveau. La progression reste sur cet appareil."
+  ],
+  "de": [
+    "Entdecke, was Kinder hier tun",
+    "Ein Lernabenteuer statt einer Liste von Lektionen",
+    "Erkunde Orte, triff Entscheidungen und übe in deinem Tempo.",
+    "Bibliothek entdecken",
+    "Museum besuchen",
+    "Lernweg ansehen",
+    "Für Eltern und Lehrkräfte",
+    "Sieh dir die Aktivitäten an, bevor du eine Altersstufe wählst. Fortschritte bleiben auf diesem Gerät."
+  ],
+  "it": [
+    "Scopri cosa fanno i bambini",
+    "Un percorso di apprendimento, non solo lezioni",
+    "Esplora luoghi, prendi decisioni e impara al tuo ritmo.",
+    "Esplora la biblioteca",
+    "Visita il museo",
+    "Scopri il percorso",
+    "Per genitori e insegnanti",
+    "Esplora le attività prima di scegliere un livello. I progressi restano su questo dispositivo."
+  ],
+  "pt": [
+    "Descobre o que as crianças fazem",
+    "Uma jornada de aprendizagem, não apenas lições",
+    "Explora lugares, toma decisões e aprende ao teu ritmo.",
+    "Explorar a biblioteca",
+    "Visitar o museu",
+    "Ver o percurso",
+    "Para pais e professores",
+    "Explora as atividades antes de escolher um nível. O progresso fica neste dispositivo."
+  ],
+  "nl": [
+    "Ontdek wat kinderen doen",
+    "Een leeravontuur, niet alleen lessen",
+    "Verken plekken, maak keuzes en oefen in je eigen tempo.",
+    "Ontdek de bibliotheek",
+    "Bezoek het museum",
+    "Bekijk het leertraject",
+    "Voor ouders en leerkrachten",
+    "Bekijk de activiteiten voordat je een niveau kiest. Voortgang blijft op dit apparaat."
+  ],
+  "pl": [
+    "Zobacz, co robią dzieci",
+    "Przygoda edukacyjna, nie tylko lista lekcji",
+    "Odkrywaj miejsca, podejmuj decyzje i ucz się we własnym tempie.",
+    "Odkryj bibliotekę",
+    "Odwiedź muzeum",
+    "Zobacz ścieżkę nauki",
+    "Dla rodziców i nauczycieli",
+    "Poznaj aktywności przed wyborem poziomu. Postępy pozostają na tym urządzeniu."
+  ]
+};
+
 export default async function LandingPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const t = await getTranslations();
   const journey=certificateJourneyCopy[isSupportedLocale(locale)?locale:"en"];
   const siteUrl = getSiteUrl();
+  const preview = previewCopy[locale] ?? previewCopy.en;
   const orgSchema = buildOrganizationSchema(siteUrl);
   const webSiteSchema = buildWebSiteSchema(siteUrl, locale);
 
@@ -72,6 +166,30 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
                 </div>
               </ChooseLearningLevelLink>
             ))}
+          </div>
+        </section>
+
+        {/* Show genuine existing destinations instead of invented product claims. */}
+        <section aria-labelledby="discover-heading" className="mx-auto max-w-[1200px] px-sm pb-2xl">
+          <div className="rounded-3xl border border-teal/20 bg-white p-md md:p-lg">
+            <p className="font-bold text-teal-text">{preview[0]}</p>
+            <h2 id="discover-heading" className="mt-2 font-display text-2xl font-bold text-ink">{preview[1]}</h2>
+            <p className="mt-3 max-w-[65ch] text-ink/80">{preview[2]}</p>
+            <div className="mt-md grid gap-md sm:grid-cols-2">
+              <Link href="/library" className="group overflow-hidden rounded-2xl border border-teal/20 bg-cream focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal">
+                <Image unoptimized src="/images/money-quest/sections/library.webp" alt="" width={720} height={420} loading="lazy" className="h-48 w-full object-contain p-3 transition-transform motion-safe:group-hover:scale-[1.02]" />
+                <span className="block p-4 font-bold text-teal-text">{preview[3]} →</span>
+              </Link>
+              <Link href="/museum" className="group overflow-hidden rounded-2xl border border-teal/20 bg-cream focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal">
+                <Image unoptimized src="/images/money-quest/sections/museum.webp" alt="" width={720} height={420} loading="lazy" className="h-48 w-full object-contain p-3 transition-transform motion-safe:group-hover:scale-[1.02]" />
+                <span className="block p-4 font-bold text-teal-text">{preview[4]} →</span>
+              </Link>
+            </div>
+            <div className="mt-md flex flex-wrap gap-3">
+              <Link href="/play" className="inline-flex min-h-12 items-center rounded-xl bg-teal px-5 py-3 font-bold text-white hover:bg-teal/90">{preview[5]} →</Link>
+              <Link href="/parent-info" className="inline-flex min-h-12 items-center rounded-xl border border-teal px-5 py-3 font-bold text-teal-text hover:bg-cream">{preview[6]} →</Link>
+            </div>
+            <p className="mt-4 text-sm text-ink/70">{preview[7]}</p>
           </div>
         </section>
 
