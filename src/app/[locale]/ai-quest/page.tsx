@@ -538,6 +538,7 @@ const advancedRomanian:Record<"builder"|"strategist",readonly {task:string;choic
   }
  ]
 };
+const localizedAgeTasks:Record<string,Record<"builder"|"strategist",readonly string[]>> = {ro:{"builder":["Misiune: alege un rol potrivit pentru AI într-un proiect.","Misiune: îmbunătățește cererea printr-un obiectiv și o limită.","Misiune: compară costurile înainte să crezi o sugestie AI.","Misiune: verifică o afirmație înainte de distribuire.","Misiune: respectă confidențialitatea și drepturile celorlalți."],"strategist":["Misiune: separă deciziile automatizate de judecata umană.","Misiune: formulează o cerere verificabilă, cu public și limite.","Misiune: evaluează incertitudinea și estimările de profit.","Misiune: identifică previziunile fără dovezi.","Misiune: analizează etica unei reclame realizate cu AI."]}};
 const ui:Record<string,[string,string,string,string,string,string,string,string]> = {
   en:["AI Quest","Five missions about using AI responsibly","Explorer (6–8)","Builder (9–11)","Strategist (12–14)","Try another answer","Mission complete","Next mission"],
   ro:["AI Quest","Cinci misiuni despre folosirea responsabilă a AI","Explorer (6–8 ani)","Builder (9–11 ani)","Strategist (12–14 ani)","Încearcă alt răspuns","Misiune finalizată","Misiunea următoare"],
@@ -564,14 +565,14 @@ export default function AIQuestPage(){
   <div className="mt-lg grid grid-cols-5 gap-2" aria-label="Mission progress">{units.map((u,i)=><button key={u.title} type="button" onClick={()=>{setIndex(i);setSelected(null)}} aria-current={index===i?"step":undefined} className={`min-h-12 rounded-lg border font-bold ${index===i?"border-teal bg-cream":"bg-white"}`}>{completed[band].includes(i)?"✓":i+1}</button>)}</div>
   <article className="mt-md rounded-2xl border border-teal/20 bg-white p-md">
     <p className="text-sm text-ink/70">{index+1} / {units.length}</p><h2 className="mt-2 font-display text-2xl font-bold">{translated.title}</h2>
-    <p className="mt-sm">{translated.concept}</p>{band!=="explorer"&&<p className="mt-md font-bold">{ageTasks[band][index]}</p>}
+    <p className="mt-sm">{translated.concept}</p>{band!=="explorer"&&<p className="mt-md font-bold">{localizedAgeTasks[locale]?.[band]?.[index]??ageTasks[band][index]}</p>}
     <p className="mt-sm">{band==="explorer"?translated.task:activity.task}</p>
     <button type="button" onClick={speak} className="mt-3 min-h-12 rounded-xl border border-teal px-4 py-2 font-bold text-teal-text">🔊 {locale==="ro"?"Ascultă":"Listen"}</button>
     <div className="mt-md grid gap-3">{(band==="explorer"?translated.choices:activity.choices).map((choice,i)=><button type="button" key={choice} disabled={correct} onClick={()=>setSelected(i)} className={`min-h-14 rounded-xl border-2 p-3 text-left focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal ${selected===i?"border-teal bg-cream":"border-ink/20 bg-white"}`}>{band==="explorer"&&<span aria-hidden="true" className="mr-3 text-2xl">{explorerIcons[index][i]}</span>}{choice}</button>)}</div>
     {selected!==null&&<div role="status" aria-live="polite" className="mt-md rounded-xl bg-cream p-4"><p>{correct?(band==="explorer"?translated.feedback:activity.feedback):labels[5]}</p>{correct&&<button type="button" onClick={()=>{finish();if(index<units.length-1){setIndex(index+1);setSelected(null)}}} className="mt-3 min-h-12 rounded-xl bg-teal px-5 py-3 font-bold text-white">{index<units.length-1?labels[7]:labels[6]}</button>}</div>}
   </article>
   {completed[band].length===units.length&&<p role="status" className="mt-md rounded-xl bg-cream p-4 font-bold">✓ {labels[6]}: 5 / 5</p>}
-  <p className="mt-md text-sm text-ink/70">Some Builder and Strategist scenarios are currently available in English. No AI API, account, personal data submission or real money is required.</p>
+  <p className="mt-md text-sm text-ink/70">Some translations are still in progress. No AI API, account, personal data submission or real money is required.</p>
  </main>;
 }
 function safe(value:unknown):number[]{return Array.isArray(value)?value.filter((v):v is number=>Number.isInteger(v)&&v>=0&&v<5):[]}
