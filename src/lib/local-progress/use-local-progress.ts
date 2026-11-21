@@ -30,7 +30,7 @@ function readFromStorage(): LocalProgressState {
   if (typeof window === "undefined") return createDefaultState();
   try {
     const raw = window.localStorage.getItem(STORAGE_KEY);
-    if (!raw) return memoryState;
+    if (!raw) return createDefaultState();
     const parsed = JSON.parse(raw);
     if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) return memoryState;
     const next = { ...createDefaultState(), ...parsed };
