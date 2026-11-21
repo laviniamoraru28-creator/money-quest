@@ -1,0 +1,25 @@
+name: Google Trends CSV research (offline)
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'tools/learning-intelligence/trends_csv.py'
+      - 'tools/learning-intelligence/test_trends_csv.py'
+      - '.github/workflows/google-trends-csv-research.yml'
+  workflow_dispatch: {}
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate offline Trends CSV parser
+        run: python3 -m unittest discover -s tools/learning-intelligence -p 'test_trends_csv.py'
+      - name: Data collection status
+        run: echo 'No Google Trends data fetched. Manual CSV required; official API access not configured.' >> "$GITHUB_STEP_SUMMARY"
