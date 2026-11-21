@@ -4,7 +4,8 @@ import type { EntrepreneurQuestState } from "@/lib/entrepreneur-quest/state";
 import type { LeadershipQuestState } from "@/lib/leadership-quest/state";
 import { isCertificateEligible } from "@/lib/certificates/eligibility";
 
-/** All three journeys are voluntary. A certificate is awarded only after all three. */
+/** Legacy three-quest eligibility. The final website certificate must use
+ * isFinalAIQuestCertificateReady instead. */
 export function isThreeQuestCertificateReady(
   completedMoneyQuestIds: readonly string[],
   band: AgeBand,
