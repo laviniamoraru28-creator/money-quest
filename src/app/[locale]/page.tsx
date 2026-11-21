@@ -1,5 +1,4 @@
 import Image from "next/image";
-import {WORLDS} from "@/content/worlds";
 import {ChooseLearningLevelLink} from "@/components/ChooseLearningLevelLink";
 import {certificateJourneyCopy} from "@/content/certificate-journey-copy";
 import {isSupportedLocale} from "@/i18n/config";
@@ -8,6 +7,135 @@ import { Link } from "@/i18n/navigation";
 import { buildOrganizationSchema, buildWebSiteSchema } from "@/lib/seo/structured-data";
 import { safeJsonLd } from "@/lib/seo/safe-json-ld";
 import { getSiteUrl } from "@/lib/seo/site-url";
+
+const questCopy: Record<string, readonly string[]> = {
+  "en": [
+    "Explore the quests",
+    "Money Quest",
+    "Financial choices and saving",
+    "Entrepreneur Quest",
+    "Ideas and small businesses",
+    "Leadership Quest",
+    "Teamwork and responsibility",
+    "Real Life Quests",
+    "Practice in everyday life",
+    "AI Quest",
+    "Learning about AI, in development",
+    "Coming soon"
+  ],
+  "ro": [
+    "Descoperă questurile",
+    "Money Quest",
+    "Bani, alegeri și economisire",
+    "Entrepreneur Quest",
+    "Idei și mici afaceri",
+    "Leadership Quest",
+    "Colaborare și responsabilitate",
+    "Real Life Quests",
+    "Exersare în viața reală",
+    "AI Quest",
+    "Învățare despre AI, în dezvoltare",
+    "În pregătire"
+  ],
+  "es": [
+    "Explora las misiones",
+    "Money Quest",
+    "Dinero, decisiones y ahorro",
+    "Entrepreneur Quest",
+    "Ideas y pequeños negocios",
+    "Leadership Quest",
+    "Colaboración y responsabilidad",
+    "Real Life Quests",
+    "Práctica en la vida real",
+    "AI Quest",
+    "Aprender sobre IA, en desarrollo",
+    "Próximamente"
+  ],
+  "fr": [
+    "Explore les parcours",
+    "Money Quest",
+    "Argent, choix et épargne",
+    "Entrepreneur Quest",
+    "Idées et petites entreprises",
+    "Leadership Quest",
+    "Coopération et responsabilité",
+    "Real Life Quests",
+    "Pratique au quotidien",
+    "AI Quest",
+    "Découvrir l’IA, en préparation",
+    "À venir"
+  ],
+  "de": [
+    "Entdecke die Quests",
+    "Money Quest",
+    "Geld, Entscheidungen und Sparen",
+    "Entrepreneur Quest",
+    "Ideen und kleine Unternehmen",
+    "Leadership Quest",
+    "Teamarbeit und Verantwortung",
+    "Real Life Quests",
+    "Üben im Alltag",
+    "AI Quest",
+    "KI verstehen, in Entwicklung",
+    "In Vorbereitung"
+  ],
+  "it": [
+    "Esplora i percorsi",
+    "Money Quest",
+    "Denaro, scelte e risparmio",
+    "Entrepreneur Quest",
+    "Idee e piccole imprese",
+    "Leadership Quest",
+    "Collaborazione e responsabilità",
+    "Real Life Quests",
+    "Pratica nella vita reale",
+    "AI Quest",
+    "Imparare l’IA, in sviluppo",
+    "In arrivo"
+  ],
+  "pt": [
+    "Explora as missões",
+    "Money Quest",
+    "Dinheiro, escolhas e poupança",
+    "Entrepreneur Quest",
+    "Ideias e pequenos negócios",
+    "Leadership Quest",
+    "Colaboração e responsabilidade",
+    "Real Life Quests",
+    "Prática na vida real",
+    "AI Quest",
+    "Aprender sobre IA, em desenvolvimento",
+    "Em breve"
+  ],
+  "nl": [
+    "Ontdek de quests",
+    "Money Quest",
+    "Geld, keuzes en sparen",
+    "Entrepreneur Quest",
+    "Ideeën en kleine bedrijven",
+    "Leadership Quest",
+    "Samenwerken en verantwoordelijkheid",
+    "Real Life Quests",
+    "Oefenen in het dagelijks leven",
+    "AI Quest",
+    "Leren over AI, in ontwikkeling",
+    "Binnenkort"
+  ],
+  "pl": [
+    "Poznaj ścieżki",
+    "Money Quest",
+    "Pieniądze, wybory i oszczędzanie",
+    "Entrepreneur Quest",
+    "Pomysły i małe firmy",
+    "Leadership Quest",
+    "Współpraca i odpowiedzialność",
+    "Real Life Quests",
+    "Ćwiczenia w codziennym życiu",
+    "AI Quest",
+    "Nauka o AI, w przygotowaniu",
+    "Wkrótce"
+  ]
+};
 
 const previewCopy: Record<string, readonly string[]> = {
   "en": [
@@ -117,6 +245,7 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
   const journey=certificateJourneyCopy[isSupportedLocale(locale)?locale:"en"];
   const siteUrl = getSiteUrl();
   const preview = previewCopy[locale] ?? previewCopy.en;
+  const questLabels = questCopy[locale] ?? questCopy.en;
   const orgSchema = buildOrganizationSchema(siteUrl);
   const webSiteSchema = buildWebSiteSchema(siteUrl, locale);
 
@@ -179,18 +308,24 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
           </div>
         </section>
 
-        <section aria-labelledby="worlds-preview-heading" className="mx-auto max-w-[1200px] px-sm pb-2xl">
-          <h2 id="worlds-preview-heading" className="font-display text-2xl font-bold text-ink">{preview[8]}</h2>
-          <div className="mt-md grid gap-sm sm:grid-cols-2 lg:grid-cols-4">
-            {WORLDS.map((world) => (
-              <Link key={world.id} href="/play" className="group flex items-center gap-3 rounded-2xl border-2 bg-white p-3 shadow-resting focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal" style={{borderColor:world.themeColor}}>
-                <Image unoptimized src={`/images/money-quest/worlds/${world.id}-thumb.webp`} alt="" width={112} height={112} loading="lazy" className="h-20 w-20 shrink-0 rounded-xl object-cover" />
-                <span className="min-w-0">
-                  <span className="block text-xs font-medium text-ink/70">{world.orderIndex} / {WORLDS.length}</span>
-                  <span className="block font-display font-bold text-ink">{world.name}</span>
-                </span>
+        <section aria-labelledby="quests-heading" className="mx-auto max-w-[1200px] px-sm pb-2xl">
+          <h2 id="quests-heading" className="font-display text-2xl font-bold text-ink">{questLabels[0]}</h2>
+          <div className="mt-md grid gap-sm sm:grid-cols-2 lg:grid-cols-3">
+            {([
+              {title:questLabels[1], description:questLabels[2], icon:"🪙", href:"/play"},
+              {title:questLabels[3], description:questLabels[4], icon:"💡", href:"/play"},
+              {title:questLabels[5], description:questLabels[6], icon:"🤝", href:"/play"},
+              {title:questLabels[7], description:questLabels[8], icon:"🌱", href:"/real-life-quests"}
+            ] as const).map((quest) => (
+              <Link key={quest.title} href={quest.href} className="flex min-h-28 items-center gap-3 rounded-2xl border border-teal/20 bg-white p-4 shadow-resting focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal">
+                <span aria-hidden="true" className="text-3xl">{quest.icon}</span>
+                <span><span className="block font-display font-bold text-ink">{quest.title}</span><span className="mt-1 block text-sm text-ink/75">{quest.description}</span></span>
               </Link>
             ))}
+            <div className="flex min-h-28 items-center gap-3 rounded-2xl border border-dashed border-teal/30 bg-cream p-4">
+              <span aria-hidden="true" className="text-3xl">🤖</span>
+              <span><span className="block font-display font-bold text-ink">{questLabels[9]}</span><span className="mt-1 block text-sm text-ink/75">{questLabels[10]}</span><span className="mt-1 block text-xs font-semibold text-teal-text">{questLabels[11]}</span></span>
+            </div>
           </div>
         </section>
 
