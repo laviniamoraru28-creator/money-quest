@@ -1,3 +1,4 @@
+import {safeAIMissionIds} from "@/lib/ai-quest/progress";
 import type { AgeBand } from "@/types/database.types";
 import type { EntrepreneurQuestState } from "@/lib/entrepreneur-quest/state";
 import type { LeadershipQuestState } from "@/lib/leadership-quest/state";
@@ -24,9 +25,7 @@ export function isFinalAIQuestCertificateReady(
   leadership: LeadershipQuestState,
   completedAIMissions: readonly number[]
 ): boolean {
-  const missions = new Set(completedAIMissions.filter(
-    value => Number.isInteger(value) && value >= 0 && value < 5
-  ));
+  const missions = safeAIMissionIds(completedAIMissions);
   return isThreeQuestCertificateReady(completedMoneyQuestIds, band, entrepreneur, leadership)
-    && missions.size === 5;
+    && missions.length === 5;
 }
