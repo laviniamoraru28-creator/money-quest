@@ -1,7 +1,7 @@
 {
   "seo": {
-    "defaultTitle": "Money Quest - Învață despre bani prin joc, prin explorare și prin luarea deciziilor",
-    "defaultDescription": "Cum gestionează Money Quest învățarea, accesibilitatea, confidențialitatea și cumpărăturile opționale ale adulților."
+    "defaultTitle": "Money Quest Education - Învață despre bani prin joc, prin explorare și prin luarea deciziilor",
+    "defaultDescription": "Cum gestionează Money Quest Education învățarea, accesibilitatea, confidențialitatea și cumpărăturile opționale ale adulților."
   },
   "common": {
     "back": "Înapoi",
@@ -28,7 +28,7 @@
   "landing": {
     "parentResourcesLink": "Resurse pentru părinți și materiale de imprimat",
     "heroTitle": "Învață despre bani prin joc, prin explorare și prin luarea deciziilor.",
-    "heroSubtitle": "Money Quest este o lume gratuită de educație financiară pentru copii de 6–14 ani - misiuni, un portofel fictiv și abilități reale. Fără cont necesar.",
+    "heroSubtitle": "Money Quest Education este o lume gratuită de educație financiară pentru copii de 6–14 ani - misiuni, un portofel fictiv și abilități reale. Fără cont necesar.",
     "heroImageAlt": "O ilustrație cu un copil zâmbitor care ține un telefon pe care apare website-ul Money Quest.",
     "ctaGetStartedFree": "Începe-ți Aventura Money Quest",
     "ctaSeeHowItWorks": "Vezi cum funcționează",
@@ -48,7 +48,7 @@
     "readFullParentInfoLink": "Citește toată pagina noastră de Informații pentru Părinți →",
     "safetyTitle": "Siguranța este pe primul loc",
     "safetyBody": "Nu cerem niciodată copilului tău numele real, adresa, școala sau orice informație financiară. Fiecare joc, poveste și provocare este verificată conform cadrelor reale de educație financiară de la OECD, CFPB și UK Money and Pensions Service.",
-    "copyright": "© {year} Money Quest"
+    "copyright": "© {year} Money Quest Education"
   },
   "dashboard": {
     "level": "Nivel"
