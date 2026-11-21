@@ -32,3 +32,9 @@ export function readAIQuestBandProgress(raw: string | null, band: AIQuestBand): 
     return [];
   }
 }
+
+/** Merge a completed mission without dropping other age bands or prior missions. */
+export function completeAIMission(progress: AIQuestProgress, band: AIQuestBand, mission: number): AIQuestProgress {
+  if (!Number.isInteger(mission) || mission < 0 || mission >= 5) return progress;
+  return {...progress, [band]: safeAIMissionIds([...progress[band], mission])};
+}
