@@ -442,6 +442,102 @@ const advanced:Record<"builder"|"strategist",readonly {task:string;choices:reado
  {task:"A teammate enters customer email addresses into a public AI tool. What should the team do?",choices:["Stop, minimize exposure, follow the privacy process and use anonymized examples.","Add phone numbers for accuracy.","Keep using the tool because it is convenient."],correct:0,feedback:"Minimize personal data and assess tools before using them."}
  ]
 };
+const advancedRomanian:Record<"builder"|"strategist",readonly {task:string;choices:readonly [string,string,string];feedback:string}[]> = {
+ "builder": [
+  {
+   "task": "Pregătești un afiș pentru grădina școlii. Cum te poate ajuta AI?",
+   "choices": [
+    "Să propună sloganuri pe care le verifici.",
+    "Să decidă cine este cel mai inteligent coleg.",
+    "Să ceară numerele de telefon ale tuturor."
+   ],
+   "feedback": "Folosește AI pentru idei, nu pentru evaluarea colegilor sau colectarea datelor."
+  },
+  {
+   "task": "Vrei idei pentru un stand la târgul școlii. Care cerere este mai bună?",
+   "choices": [
+    "Fă-l minunat.",
+    "Spune-mi tot.",
+    "Propune trei idei de stand sub 10 lire, cu materiale și verificări de siguranță."
+   ],
+   "feedback": "Un obiectiv și un buget clar te ajută să verifici propunerile."
+  },
+  {
+   "task": "AI propune să vinzi 20 de produse la 3 lire. Materialele costă 25 de lire. Care este profitul înaintea altor costuri?",
+   "choices": [
+    "60 de lire",
+    "35 de lire",
+    "85 de lire"
+   ],
+   "feedback": "Încasezi 60 de lire și scazi 25 de lire. Rămân 35 de lire înaintea altor costuri."
+  },
+  {
+   "task": "AI spune că un joc nou este potrivit pentru toți copiii. Ce faci?",
+   "choices": [
+    "Verifici recomandările de vârstă și alte surse credibile.",
+    "Crezi AI pentru că pare sigur.",
+    "Repeti afirmația fără verificare."
+   ],
+   "feedback": "Verifică dovezile și recomandările de vârstă."
+  },
+  {
+   "task": "Vrei un afiș AI cu fotografia unui prieten. Ce faci mai întâi?",
+   "choices": [
+    "Încarci fotografia fără să întrebi.",
+    "Ceri permisiunea și eviți datele personale.",
+    "Publici numele și adresa prietenului."
+   ],
+   "feedback": "Acordul și protejarea datelor sunt esențiale."
+  }
+ ],
+ "strategist": [
+  {
+   "task": "Un antreprenor vrea ca AI să respingă automat candidați. Ce măsură este necesară?",
+   "choices": [
+    "Lași AI să decidă în secret.",
+    "Elimini verificarea umană.",
+    "Păstrezi supravegherea umană și verifici discriminarea."
+   ],
+   "feedback": "Deciziile importante au nevoie de responsabilitate și verificarea prejudecăților."
+  },
+  {
+   "task": "Vrei să evaluezi o idee de afacere. Care cerere AI poate fi verificată?",
+   "choices": [
+    "Compară două idei de sticle reutilizabile pentru 12–14 ani, cu costuri, riscuri și dovezi lipsă.",
+    "Spune-mi cea mai bună idee din lume.",
+    "Garantează lansarea reușită."
+   ],
+   "feedback": "O evaluare bună arată presupunerile și incertitudinea."
+  },
+  {
+   "task": "AI estimează 200 de vânzări la 5 lire, cost variabil de 3 lire și cost fix de 250 de lire. Ce profit estimezi?",
+   "choices": [
+    "750 de lire",
+    "150 de lire",
+    "400 de lire"
+   ],
+   "feedback": "200 × (5 − 3) = 400 de lire. Scazi 250 de lire și obții 150, dacă estimările se confirmă."
+  },
+  {
+   "task": "AI inventează o recenzie favorabilă pentru produs. Ce este corect?",
+   "choices": [
+    "O publici drept recenzie reală.",
+    "Schimbi numele și o publici.",
+    "Nu prezinți mărturia inventată ca dovadă reală."
+   ],
+   "feedback": "Recenziile inventate induc clienții în eroare. Cere feedback autentic."
+  },
+  {
+   "task": "Un coleg introduce adresele de email ale clienților într-un AI public. Ce face echipa?",
+   "choices": [
+    "Oprește introducerea datelor, verifică incidentul și folosește exemple anonime.",
+    "Adaugă și numere de telefon.",
+    "Continuă pentru că este comod."
+   ],
+   "feedback": "Redu la minimum datele personale și verifică instrumentele înainte de folosire."
+  }
+ ]
+};
 const ui:Record<string,[string,string,string,string,string,string,string,string]> = {
   en:["AI Quest","Five missions about using AI responsibly","Explorer (6–8)","Builder (9–11)","Strategist (12–14)","Try another answer","Mission complete","Next mission"],
   ro:["AI Quest","Cinci misiuni despre folosirea responsabilă a AI","Explorer (6–8 ani)","Builder (9–11 ani)","Strategist (12–14 ani)","Încearcă alt răspuns","Misiune finalizată","Misiunea următoare"],
@@ -458,7 +554,7 @@ export default function AIQuestPage(){
  const locale=useLocale();const labels=ui[locale]??ui.en;
  const [band,setBand]=useState<Band>("explorer");const [index,setIndex]=useState(0);const [selected,setSelected]=useState<number|null>(null);const [completed,setCompleted]=useState<Record<Band,number[]>>({explorer:[],builder:[],strategist:[]});
  useEffect(()=>{try{const raw=localStorage.getItem(key);if(raw){const data=JSON.parse(raw);if(data&&typeof data==="object"){setCompleted({explorer:safe(data.explorer),builder:safe(data.builder),strategist:safe(data.strategist)})}}}catch{}},[]);
- const unit=units[index];const translated=locale==="ro"?romanian[index]:(explorerTranslations[locale]?.[index]??unit);const activity=band==="explorer"?unit:advanced[band][index];const correct=selected===activity.correct;
+ const unit=units[index];const translated=locale==="ro"?romanian[index]:(explorerTranslations[locale]?.[index]??unit);const activity=band==="explorer"?unit:(locale==="ro"?{...advanced[band][index],...advancedRomanian[band][index]}:advanced[band][index]);const correct=selected===activity.correct;
  function speak(){if(typeof window==="undefined"||!("speechSynthesis" in window))return;window.speechSynthesis.cancel();const words=[translated.title,translated.concept,band==="explorer"?translated.task:activity.task,...(band==="explorer"?translated.choices:activity.choices)].join(". ");const utterance=new SpeechSynthesisUtterance(words);utterance.lang=locale==="ro"?"ro-RO":"en-GB";utterance.rate=0.85;window.speechSynthesis.speak(utterance)}
  function finish(){if(!correct)return;const next={...completed,[band]:Array.from(new Set([...completed[band],index]))};setCompleted(next);try{localStorage.setItem(key,JSON.stringify(next))}catch{}}
  return <main id="main-content" className="mx-auto max-w-3xl px-sm py-xl text-ink">
@@ -475,7 +571,7 @@ export default function AIQuestPage(){
     {selected!==null&&<div role="status" aria-live="polite" className="mt-md rounded-xl bg-cream p-4"><p>{correct?(band==="explorer"?translated.feedback:activity.feedback):labels[5]}</p>{correct&&<button type="button" onClick={()=>{finish();if(index<units.length-1){setIndex(index+1);setSelected(null)}}} className="mt-3 min-h-12 rounded-xl bg-teal px-5 py-3 font-bold text-white">{index<units.length-1?labels[7]:labels[6]}</button>}</div>}
   </article>
   {completed[band].length===units.length&&<p role="status" className="mt-md rounded-xl bg-cream p-4 font-bold">✓ {labels[6]}: 5 / 5</p>}
-  <p className="mt-md text-sm text-ink/70">Builder and Strategist scenarios are currently available in English. No AI API, account, personal data submission or real money is required.</p>
+  <p className="mt-md text-sm text-ink/70">Some Builder and Strategist scenarios are currently available in English. No AI API, account, personal data submission or real money is required.</p>
  </main>;
 }
 function safe(value:unknown):number[]{return Array.isArray(value)?value.filter((v):v is number=>Number.isInteger(v)&&v>=0&&v<5):[]}
