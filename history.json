@@ -81,17 +81,37 @@
       "topic_id": "quote-dewey-process-of-living",
       "category": "Psychology of learning and child development",
       "series": "quotes",
-      "status": "sent_to_phone",
+      "status": "reminder_sent",
       "rendered_at": "2026-11-19T01:10:47+00:00",
       "duration": 15.35,
       "video_url": "https://github.com/laviniamoraru28-creator/money-quest/releases/download/tiktok-2026-11-19-quote-03-dewey-process-of-living/video.mp4",
       "publish_mode": "buffer-notify",
       "submitted_at": "2026-11-19T01:10:51+00:00",
-      "buffer_status": "scheduled",
+      "buffer_status": "sent",
       "buffer_post_id": "6afe4c9b01ba7c5e79272c51",
       "buffer_channel_id": "6afa20c0ece6dfde5fd8b514",
       "buffer_org_id": "6afa203649dfc7619b889215",
-      "due_at": "2026-11-19T01:30:51+00:00"
+      "due_at": "2026-11-19T01:30:51+00:00",
+      "published_at": null,
+      "reminder_sent_at": "2026-11-19T01:31:07.851Z",
+      "external_link": null
+    },
+    {
+      "run": "2026-11-21-quote-04-washington-responsibility",
+      "topic_id": "quote-washington-responsibility",
+      "category": "Leadership and responsibility",
+      "series": "quotes",
+      "status": "sent_to_phone",
+      "rendered_at": "2026-11-21T00:48:30+00:00",
+      "duration": 17.02,
+      "video_url": "https://github.com/laviniamoraru28-creator/money-quest/releases/download/tiktok-2026-11-21-quote-04-washington-responsibility/video.mp4",
+      "publish_mode": "buffer-notify",
+      "submitted_at": "2026-11-21T00:48:33+00:00",
+      "buffer_status": "scheduled",
+      "buffer_post_id": "6b00ea625e993799d83ebb74",
+      "buffer_channel_id": "6afa20c0ece6dfde5fd8b514",
+      "buffer_org_id": "6afa203649dfc7619b889215",
+      "due_at": "2026-11-21T01:08:33+00:00"
     }
   ]
 }
