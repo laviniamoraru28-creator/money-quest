@@ -15,27 +15,32 @@ pl:{pause:"Wstrzymaj animację",play:"Odtwórz animację",description:"Cztery un
 };
 export function LivingWorldHero({locale}:{locale:string}){
  const video=useRef<HTMLVideoElement>(null);
+ const manuallyPaused=useRef(false);
  const [available,setAvailable]=useState(false);
  const [playing,setPlaying]=useState(false);
  const [reduced,setReduced]=useState(true);
+ const [desktop,setDesktop]=useState(false);
  const t=labels[locale]??labels.en!;
  useEffect(()=>{
    const mq=window.matchMedia("(prefers-reduced-motion: reduce)");
+   const wide=window.matchMedia("(min-width: 768px)");
+   const onWidth=()=>{setDesktop(wide.matches);if(!wide.matches){video.current?.pause();setPlaying(false);}};
+   onWidth();wide.addEventListener("change",onWidth);
    const update=()=>{setReduced(mq.matches);if(mq.matches){video.current?.pause();setPlaying(false);}};
    update();mq.addEventListener("change",update);
-   return ()=>mq.removeEventListener("change",update);
+   return ()=>{mq.removeEventListener("change",update);wide.removeEventListener("change",onWidth);};
  },[]);
  useEffect(()=>{
-   if(!available||reduced||!video.current)return;
+   if(!available||reduced||!desktop||!video.current)return;
    const v=video.current;
    const onScreen=new IntersectionObserver(([entry])=>{
-     if(entry?.isIntersecting){void v.play().then(()=>setPlaying(true)).catch(()=>setPlaying(false));}
+     if(entry?.isIntersecting&&!manuallyPaused.current){void v.play().then(()=>setPlaying(true)).catch(()=>setPlaying(false));}
      else{v.pause();setPlaying(false);}
    },{threshold:0.25});
    onScreen.observe(v);
    return ()=>{onScreen.disconnect();v.pause();};
- },[available,reduced]);
- const toggle=()=>{const v=video.current;if(!v)return;if(v.paused){void v.play().then(()=>setPlaying(true)).catch(()=>setPlaying(false));}else{v.pause();setPlaying(false);}};
+ },[available,reduced,desktop]);
+ const toggle=()=>{const v=video.current;if(!v)return;if(v.paused){manuallyPaused.current=false;void v.play().then(()=>setPlaying(true)).catch(()=>setPlaying(false));}else{manuallyPaused.current=true;v.pause();setPlaying(false);}};
  return <div className="relative overflow-hidden rounded-3xl border border-teal/15 bg-cream shadow-lg" data-homepage-hero>
    <div role="img" aria-label={t.description} className="relative aspect-video w-full">
      <Image unoptimized src="/images/money-quest/worlds/coin-cove-thumb.webp" alt="" fill priority sizes="(max-width: 767px) 100vw, 50vw" className="object-cover" />
@@ -46,7 +51,7 @@ export function LivingWorldHero({locale}:{locale:string}){
      </video>
    </div>
    {available&&<button type="button" onClick={toggle} aria-label={playing?t.pause:t.play}
-     className="absolute bottom-3 right-3 min-h-11 rounded-xl border border-white/70 bg-ink px-4 py-2 font-bold text-white focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal">
+     className="absolute bottom-3 right-3 hidden min-h-11 md:block rounded-xl border border-white/70 bg-ink px-4 py-2 font-bold text-white focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal">
      {playing?"Ⅱ":"▶"} <span className="sr-only">{playing?t.pause:t.play}</span>
    </button>}
  </div>;
