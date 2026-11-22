@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { LivingWorldHero } from "@/components/LivingWorldHero";
 import { HomepageMissionPreview } from "@/components/HomepageMissionPreview";
 import {ChooseLearningLevelLink} from "@/components/ChooseLearningLevelLink";
 import {certificateJourneyCopy} from "@/content/certificate-journey-copy";
@@ -41,15 +42,7 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
               </p>
 
             </div>
-            <div className="relative overflow-hidden rounded-3xl border border-teal/15 bg-cream shadow-lg">
-              <picture data-homepage-hero>
-                <source media="(max-width: 767px)" srcSet="/images/money-quest/homepage-family-v2-mobile.webp" />
-                <Image unoptimized src="/images/money-quest/homepage-family-v2.webp"
-                  alt={t("landing.heroImageAlt")} width={1536} height={1024} priority
-                  className="h-auto w-full object-cover" />
-              </picture>
-              <div className="bg-white px-4 pb-4"><Link href="/play" className="inline-flex min-h-12 w-full items-center justify-center rounded-xl bg-teal px-5 py-3 text-center font-bold text-white hover:bg-teal/90">{t("landing.ctaGetStartedFree")}</Link></div>
-            </div>
+            <LivingWorldHero locale={locale} />
           </div>
         </section>
 
