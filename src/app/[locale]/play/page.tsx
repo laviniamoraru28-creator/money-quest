@@ -134,6 +134,26 @@ export default function PlayPage() {
           </Card>
         </div>
 
+        <section aria-label={safeLocale === "ro" ? "Recompensele tale" : "Your learning milestones"} className="mt-md rounded-2xl border border-teal/20 bg-white p-md">
+          <h2 className="font-display text-lg font-bold text-ink">{safeLocale === "ro" ? "Colecția ta de realizări" : "Your achievement collection"}</h2>
+          <p className="mt-1 text-sm text-ink/70">{safeLocale === "ro" ? "Recompense pentru activități finalizate, nu pentru timpul petrecut online." : "Milestones for completed activities, not screen time."}</p>
+          <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4">
+            {([
+              {icon:"🌟",count:1,title:safeLocale==="ro"?"Primul pas":"First step"},
+              {icon:"🥉",count:5,title:safeLocale==="ro"?"Medalie de bronz":"Bronze medal"},
+              {icon:"🥈",count:15,title:safeLocale==="ro"?"Medalie de argint":"Silver medal"},
+              {icon:"🏆",count:30,title:safeLocale==="ro"?"Trofeu de explorator":"Explorer trophy"}
+            ] as const).map((reward)=>{
+              const earned=state.completedActivityIds.length>=reward.count;
+              return <div key={reward.count} className={`rounded-xl border p-3 text-center ${earned?"border-teal/40 bg-cream":"border-ink/10 bg-fog"}`}>
+                <span aria-hidden="true" className={`block text-4xl ${earned?"":"grayscale opacity-40"}`}>{reward.icon}</span>
+                <p className="mt-2 text-sm font-bold text-ink">{reward.title}</p>
+                <p className="mt-1 text-xs text-ink/70">{earned?(safeLocale==="ro"?"Obținută":"Earned"):`${state.completedActivityIds.length} / ${reward.count}`}</p>
+              </div>;
+            })}
+          </div>
+        </section>
+
         <p className="mt-sm text-xs text-ink/70">{t("play.virtualMoneyExplainer")}</p>
 
         <div className="mt-md grid gap-sm sm:grid-cols-2">
