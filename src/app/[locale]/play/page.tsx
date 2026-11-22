@@ -158,6 +158,7 @@ export default function PlayPage() {
                     {t("play.levelLabel", { number: world.orderIndex })}
                   </p>
                   <h2 className="font-display text-lg font-bold leading-tight">{t(`levels.${world.id}`)}</h2>
+                  <span className="sr-only">{world.name}</span>
                   <p className="mt-2xs text-sm font-medium text-ink/80">
                     {t("play.completeOfTotal", { completed: completedCount, total: catalog.length })}
                   </p>
