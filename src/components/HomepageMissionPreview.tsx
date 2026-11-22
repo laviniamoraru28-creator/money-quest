@@ -20,7 +20,7 @@ export function HomepageMissionPreview({locale}:{locale:string}){
  const [choice,setChoice]=useState<number|null>(null);
  return <section aria-labelledby="mission-preview-heading" className="mx-auto max-w-[1200px] px-sm pb-2xl">
   <div className="overflow-hidden rounded-3xl border border-teal/20 bg-white shadow-lg">
-   <div className="bg-teal p-md text-white md:p-lg"><h2 id="mission-preview-heading" className="font-display text-2xl font-bold md:text-3xl">{t.heading}</h2></div>
+   <div className="bg-teal p-md text-white md:p-lg"><h2 id="mission-preview-heading" className="font-display text-2xl font-bold text-white md:text-3xl">{t.heading}</h2></div>
    <div className="grid gap-lg p-md md:grid-cols-2 md:p-lg">
     <div><p className="text-lg font-bold text-ink">{t.question}</p><div className="mt-md grid gap-3">{t.options.map((option,i)=><button key={i} type="button" aria-pressed={choice===i} onClick={()=>setChoice(i)} className={`min-h-14 rounded-xl border-2 p-3 text-left font-semibold focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal ${choice===i?"border-teal bg-cream":"border-ink/20 bg-white hover:border-teal"}`}>{option}</button>)}</div></div>
     <div aria-live="polite" aria-atomic="true" className="flex min-h-64 flex-col items-center justify-center rounded-2xl bg-cream p-md text-center">
