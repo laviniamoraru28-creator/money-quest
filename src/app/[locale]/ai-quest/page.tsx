@@ -554,7 +554,7 @@ const ui:Record<string,[string,string,string,string,string,string,string,string]
 };
 const key=AI_QUEST_STORAGE_KEY;
 export default function AIQuestPage(){
- const locale=useLocale();const labels=ui[locale]??ui.en;
+ const locale=useLocale();const labels=ui[locale]??ui.en!;
  const [band,setBand]=useState<Band>("explorer");const [index,setIndex]=useState(0);const [selected,setSelected]=useState<number|null>(null);const [completed,setCompleted]=useState<Record<Band,number[]>>({explorer:[],builder:[],strategist:[]});
  const [loaded,setLoaded]=useState(false);
  const [speechAvailable,setSpeechAvailable]=useState(false);
