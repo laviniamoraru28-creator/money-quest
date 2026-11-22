@@ -10,6 +10,7 @@ import { buildOrganizationSchema, buildWebSiteSchema } from "@/lib/seo/structure
 import { safeJsonLd } from "@/lib/seo/safe-json-ld";
 import { getSiteUrl } from "@/lib/seo/site-url";
 
+const audienceCopy: Record<string, readonly string[]> = {"en":["Built for curious kids. Useful for adults.","For parents","See how learning works and support your child without an account.","Parent information","For teachers","Explore learning topics and activities to adapt for your classroom.","Explore resources","Designed with privacy in mind","No child account is needed. Progress stays on this device, so switching devices or clearing browser storage can remove it."],"ro":["Pentru copiii curioși. Util și pentru adulți.","Pentru părinți","Află cum funcționează învățarea și cum îți poți sprijini copilul fără cont.","Informații pentru părinți","Pentru profesori","Explorează teme și activități pe care le poți adapta pentru clasă.","Descoperă resursele","Confidențialitatea contează","Copilul nu are nevoie de cont. Progresul rămâne pe dispozitiv și se poate pierde dacă ștergi datele browserului."],"es":["Para niños curiosos y adultos.","Para familias","Descubre cómo apoyar el aprendizaje sin crear una cuenta.","Información para familias","Para docentes","Explora temas y actividades para el aula.","Explorar recursos","Privacidad desde el diseño","No se necesita cuenta infantil. El progreso queda en este dispositivo y puede perderse al borrar el navegador."],"fr":["Pour les enfants curieux et les adultes.","Pour les parents","Découvrez comment accompagner votre enfant sans compte.","Informations parents","Pour les enseignants","Explorez des activités à adapter en classe.","Explorer les ressources","Respect de la vie privée","Aucun compte enfant. La progression reste sur cet appareil et peut disparaître si les données du navigateur sont effacées."],"de":["Für neugierige Kinder und Erwachsene.","Für Eltern","Erfahren Sie, wie Sie Ihr Kind ohne Konto begleiten.","Elterninformationen","Für Lehrkräfte","Entdecken Sie Themen und Aktivitäten für den Unterricht.","Materialien entdecken","Datenschutz im Mittelpunkt","Kein Kinderkonto nötig. Fortschritte bleiben auf diesem Gerät und können beim Löschen der Browserdaten verloren gehen."],"it":["Per bambini curiosi e adulti.","Per i genitori","Scopri come sostenere tuo figlio senza account.","Informazioni per genitori","Per insegnanti","Esplora attività da adattare in classe.","Esplora risorse","Privacy al centro","Nessun account bambino. I progressi restano sul dispositivo e possono sparire cancellando i dati del browser."],"pt":["Para crianças curiosas e adultos.","Para pais","Descobre como apoiar a aprendizagem sem conta.","Informações para pais","Para professores","Explora atividades para a sala de aula.","Explorar recursos","Privacidade em primeiro lugar","Sem conta infantil. O progresso fica neste dispositivo e pode perder-se ao apagar os dados do navegador."],"nl":["Voor nieuwsgierige kinderen en volwassenen.","Voor ouders","Ontdek hoe je leren ondersteunt zonder account.","Informatie voor ouders","Voor leerkrachten","Ontdek activiteiten voor in de klas.","Bekijk bronnen","Privacy voorop","Geen kinderaccount. Voortgang blijft op dit apparaat en kan verdwijnen als browsergegevens worden gewist."],"pl":["Dla ciekawych dzieci i dorosłych.","Dla rodziców","Dowiedz się, jak wspierać dziecko bez konta.","Informacje dla rodziców","Dla nauczycieli","Odkryj zajęcia do wykorzystania w klasie.","Zobacz materiały","Prywatność ma znaczenie","Bez konta dziecka. Postępy pozostają na urządzeniu i mogą zniknąć po wyczyszczeniu danych przeglądarki."]};
 const heroCopy: Record<string, readonly string[]> = {"en":["Real-world skills start with one decision.","Explore money, entrepreneurship, leadership and AI through interactive quests where every choice teaches something new.","Start Your Adventure","Free to explore. No child account required. Progress stays on this device."],"ro":["Abilitățile pentru viață încep cu o decizie.","Descoperă banii, antreprenoriatul, leadershipul și inteligența artificială prin misiuni interactive.","Începe aventura","Acces gratuit. Fără cont pentru copil. Progresul rămâne pe acest dispozitiv."],"es":["Las habilidades para la vida empiezan con una decisión.","Explora dinero, emprendimiento, liderazgo e IA con misiones interactivas.","Empieza tu aventura","Gratis. Sin cuenta infantil. Progreso guardado en este dispositivo."],"fr":["Les compétences de la vie commencent par un choix.","Explore l'argent, l'entrepreneuriat, le leadership et l'IA avec des missions interactives.","Commence l'aventure","Gratuit. Sans compte enfant. Progression sur cet appareil."],"de":["Wichtige Fähigkeiten beginnen mit einer Entscheidung.","Entdecke Geld, Unternehmertum, Führung und KI in interaktiven Quests.","Abenteuer starten","Kostenlos. Kein Kinderkonto. Fortschritt auf diesem Gerät."],"it":["Le competenze per la vita iniziano con una scelta.","Esplora denaro, imprenditorialità, leadership e IA con missioni interattive.","Inizia l'avventura","Gratis. Nessun account bambino. Progressi su questo dispositivo."],"pt":["As competências para a vida começam com uma decisão.","Explora dinheiro, empreendedorismo, liderança e IA em missões interativas.","Começa a aventura","Grátis. Sem conta infantil. Progresso neste dispositivo."],"nl":["Vaardigheden voor het leven beginnen met één keuze.","Ontdek geld, ondernemen, leiderschap en AI met interactieve quests.","Begin je avontuur","Gratis. Geen kinderaccount. Voortgang op dit apparaat."],"pl":["Umiejętności życiowe zaczynają się od jednej decyzji.","Poznaj pieniądze, przedsiębiorczość, przywództwo i AI w interaktywnych misjach.","Rozpocznij przygodę","Bezpłatnie. Bez konta dziecka. Postępy na tym urządzeniu."]};
 
 export default async function LandingPage({ params }: { params: Promise<{ locale: string }> }) {
@@ -17,6 +18,7 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
   const t = await getTranslations();
   const journey=certificateJourneyCopy[isSupportedLocale(locale)?locale:"en"];
   const hero=heroCopy[locale] ?? heroCopy.en!;
+  const audience=audienceCopy[locale] ?? audienceCopy.en!;
   const siteUrl = getSiteUrl();
   const orgSchema = buildOrganizationSchema(siteUrl);
   const webSiteSchema = buildWebSiteSchema(siteUrl, locale);
@@ -72,6 +74,27 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
                 </div>
               </ChooseLearningLevelLink>
             ))}
+          </div>
+        </section>
+
+        <section aria-labelledby="audience-heading" className="mx-auto max-w-[1200px] px-sm pb-2xl">
+          <h2 id="audience-heading" className="font-display text-2xl font-bold text-ink">{audience[0]}</h2>
+          <div className="mt-md grid gap-md md:grid-cols-2">
+            <div className="rounded-2xl border border-teal/20 bg-white p-md">
+              <h3 className="font-display text-xl font-bold">{audience[1]}</h3>
+              <p className="mt-2 text-ink/80">{audience[2]}</p>
+              <Link href="/parent-info" className="mt-4 inline-flex min-h-11 items-center font-bold text-teal-text underline underline-offset-4">{audience[3]} →</Link>
+            </div>
+            <div className="rounded-2xl border border-teal/20 bg-white p-md">
+              <h3 className="font-display text-xl font-bold">{audience[4]}</h3>
+              <p className="mt-2 text-ink/80">{audience[5]}</p>
+              <Link href="/learn" className="mt-4 inline-flex min-h-11 items-center font-bold text-teal-text underline underline-offset-4">{audience[6]} →</Link>
+            </div>
+          </div>
+          <div className="mt-md rounded-2xl border border-teal/20 bg-cream p-md">
+            <h3 className="font-display text-lg font-bold">{audience[7]}</h3>
+            <p className="mt-2 text-ink/80">{audience[8]}</p>
+            <Link href="/privacy" className="mt-3 inline-flex min-h-11 items-center font-bold text-teal-text underline underline-offset-4">{t("footer.privacy")} →</Link>
           </div>
         </section>
 
