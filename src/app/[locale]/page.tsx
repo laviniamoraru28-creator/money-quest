@@ -292,9 +292,9 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
   const t = await getTranslations();
   const journey=certificateJourneyCopy[isSupportedLocale(locale)?locale:"en"];
   const siteUrl = getSiteUrl();
-  const preview = previewCopy[locale] ?? previewCopy.en;
-  const questLabels = questCopy[locale] ?? questCopy.en;
-  const values = valueCopy[locale] ?? valueCopy.en;
+  const preview = previewCopy[locale] ?? previewCopy.en!;
+  const questLabels = questCopy[locale] ?? questCopy.en!;
+  const values = valueCopy[locale] ?? valueCopy.en!;
   const orgSchema = buildOrganizationSchema(siteUrl);
   const webSiteSchema = buildWebSiteSchema(siteUrl, locale);
 
