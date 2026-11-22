@@ -1,8 +1,8 @@
 # Money Quest Academy: weekly TikTok report
 
-Generated 2026-11-16 by `python -m studio report`. Only collected numbers are shown; nothing is estimated.
+Generated 2026-11-22 by `python -m studio report`. Only collected numbers are shown; nothing is estimated.
 
-- Videos sent to Buffer so far: 3
+- Videos sent to Buffer so far: 6
 - Videos with measured results: 0
 
 ## Notes recorded by hand
