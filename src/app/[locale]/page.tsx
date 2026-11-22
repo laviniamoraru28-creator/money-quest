@@ -10,10 +10,13 @@ import { buildOrganizationSchema, buildWebSiteSchema } from "@/lib/seo/structure
 import { safeJsonLd } from "@/lib/seo/safe-json-ld";
 import { getSiteUrl } from "@/lib/seo/site-url";
 
+const heroCopy: Record<string, readonly string[]> = {"en":["Real-world skills start with one decision.","Explore money, entrepreneurship, leadership and AI through interactive quests where every choice teaches something new.","Start Your Adventure","Free to explore. No child account required. Progress stays on this device."],"ro":["Abilitățile pentru viață încep cu o decizie.","Descoperă banii, antreprenoriatul, leadershipul și inteligența artificială prin misiuni interactive.","Începe aventura","Acces gratuit. Fără cont pentru copil. Progresul rămâne pe acest dispozitiv."],"es":["Las habilidades para la vida empiezan con una decisión.","Explora dinero, emprendimiento, liderazgo e IA con misiones interactivas.","Empieza tu aventura","Gratis. Sin cuenta infantil. Progreso guardado en este dispositivo."],"fr":["Les compétences de la vie commencent par un choix.","Explore l'argent, l'entrepreneuriat, le leadership et l'IA avec des missions interactives.","Commence l'aventure","Gratuit. Sans compte enfant. Progression sur cet appareil."],"de":["Wichtige Fähigkeiten beginnen mit einer Entscheidung.","Entdecke Geld, Unternehmertum, Führung und KI in interaktiven Quests.","Abenteuer starten","Kostenlos. Kein Kinderkonto. Fortschritt auf diesem Gerät."],"it":["Le competenze per la vita iniziano con una scelta.","Esplora denaro, imprenditorialità, leadership e IA con missioni interattive.","Inizia l'avventura","Gratis. Nessun account bambino. Progressi su questo dispositivo."],"pt":["As competências para a vida começam com uma decisão.","Explora dinheiro, empreendedorismo, liderança e IA em missões interativas.","Começa a aventura","Grátis. Sem conta infantil. Progresso neste dispositivo."],"nl":["Vaardigheden voor het leven beginnen met één keuze.","Ontdek geld, ondernemen, leiderschap en AI met interactieve quests.","Begin je avontuur","Gratis. Geen kinderaccount. Voortgang op dit apparaat."],"pl":["Umiejętności życiowe zaczynają się od jednej decyzji.","Poznaj pieniądze, przedsiębiorczość, przywództwo i AI w interaktywnych misjach.","Rozpocznij przygodę","Bezpłatnie. Bez konta dziecka. Postępy na tym urządzeniu."]};
+
 export default async function LandingPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const t = await getTranslations();
   const journey=certificateJourneyCopy[isSupportedLocale(locale)?locale:"en"];
+  const hero=heroCopy[locale] ?? heroCopy.en!;
   const siteUrl = getSiteUrl();
   const orgSchema = buildOrganizationSchema(siteUrl);
   const webSiteSchema = buildWebSiteSchema(siteUrl, locale);
@@ -35,12 +38,13 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
           <div className="grid gap-lg md:grid-cols-2 md:items-center">
             <div>
               <h1 className="font-display text-3xl font-bold leading-tight text-ink md:text-4xl">
-                {t("landing.heroTitle")}
+                {hero[0]}
               </h1>
               <p className="mt-sm text-lg text-ink/80">
-                {t("landing.heroSubtitle")}
+                {hero[1]}
               </p>
-
+              <Link href="/play" className="mt-md inline-flex min-h-12 items-center justify-center rounded-xl bg-teal px-6 py-3 text-center font-bold text-white hover:bg-teal/90 focus-visible:outline focus-visible:outline-4 focus-visible:outline-ink">{hero[2]} →</Link>
+              <p className="mt-3 text-sm text-ink/70">{hero[3]}</p>
             </div>
             <LivingWorldHero locale={locale} />
           </div>
