@@ -21,6 +21,8 @@ import { isSupportedLocale } from "@/i18n/config";
 import { LEVEL_OPTIONS } from "@/content/level-options";
 import type { AgeBand } from "@/types/database.types";
 
+const rewardLabels: Record<string, readonly string[]> = {"en":["Your learning milestones","Your achievement collection","Milestones for completed activities, not screen time.","First step","Bronze medal","Silver medal","Explorer trophy","Earned"],"ro":["Recompensele tale","Colecția ta de realizări","Recompense pentru activități finalizate, nu pentru timpul petrecut online.","Primul pas","Medalie de bronz","Medalie de argint","Trofeu de explorator","Obținută"],"es":["Tus logros","Tu colección de logros","Premios por actividades completadas, no por tiempo en pantalla.","Primer paso","Medalla de bronce","Medalla de plata","Trofeo explorador","Conseguido"],"fr":["Tes réussites","Ta collection de récompenses","Récompenses pour les activités terminées, pas pour le temps d'écran.","Premier pas","Médaille de bronze","Médaille d'argent","Trophée explorateur","Obtenu"],"de":["Deine Erfolge","Deine Auszeichnungen","Belohnungen für abgeschlossene Aufgaben, nicht für Bildschirmzeit.","Erster Schritt","Bronzemedaille","Silbermedaille","Entdeckerpokal","Erreicht"],"it":["I tuoi traguardi","La tua collezione di premi","Premi per le attività completate, non per il tempo sullo schermo.","Primo passo","Medaglia di bronzo","Medaglia d'argento","Trofeo esploratore","Ottenuto"],"pt":["As tuas conquistas","A tua coleção de prémios","Prémios por atividades concluídas, não pelo tempo de ecrã.","Primeiro passo","Medalha de bronze","Medalha de prata","Troféu explorador","Conquistado"],"nl":["Jouw mijlpalen","Jouw verzameling prestaties","Beloningen voor voltooide activiteiten, niet voor schermtijd.","Eerste stap","Bronzen medaille","Zilveren medaille","Ontdekkertrofee","Behaald"],"pl":["Twoje osiągnięcia","Twoja kolekcja nagród","Nagrody za ukończone zadania, nie za czas przed ekranem.","Pierwszy krok","Brązowy medal","Srebrny medal","Puchar odkrywcy","Zdobyto"]};
+
 /**
  * The entire entry point to the app, replacing signup, login, and the
  * 4-step onboarding wizard — no account, no server round-trip. A level
@@ -40,6 +42,7 @@ export default function PlayPage() {
   const safeLocale = isSupportedLocale(uiLocale) ? uiLocale : "en";
   const guideLabels = laboratoryCopy[safeLocale];
   const journey=certificateJourneyCopy[safeLocale];
+  const rewards=rewardLabels[safeLocale] ?? rewardLabels.en!;
   const t = useTranslations();
   const { state, isLoaded, level, setAgeBand, setCurrencyCode } = useLocalProgress();
 
@@ -133,6 +136,26 @@ export default function PlayPage() {
             </select>
           </Card>
         </div>
+
+        <section aria-label={rewards[0]} className="mt-md rounded-2xl border border-teal/20 bg-white p-md">
+          <h2 className="font-display text-lg font-bold text-ink">{rewards[1]}</h2>
+          <p className="mt-1 text-sm text-ink/70">{rewards[2]}</p>
+          <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4">
+            {([
+              {icon:"🌟",count:1,title:rewards[3]},
+              {icon:"🥉",count:5,title:rewards[4]},
+              {icon:"🥈",count:15,title:rewards[5]},
+              {icon:"🏆",count:30,title:rewards[6]}
+            ] as const).map((reward)=>{
+              const earned=state.completedActivityIds.length>=reward.count;
+              return <div key={reward.count} className={`rounded-xl border p-3 text-center ${earned?"border-teal/40 bg-cream":"border-ink/10 bg-fog"}`}>
+                <span aria-hidden="true" className={`block text-4xl ${earned?"":"grayscale opacity-40"}`}>{reward.icon}</span>
+                <p className="mt-2 text-sm font-bold text-ink">{reward.title}</p>
+                <p className="mt-1 text-xs text-ink/70">{earned?(rewards[7]):`${state.completedActivityIds.length} / ${reward.count}`}</p>
+              </div>;
+            })}
+          </div>
+        </section>
 
         <p className="mt-sm text-xs text-ink/70">{t("play.virtualMoneyExplainer")}</p>
 

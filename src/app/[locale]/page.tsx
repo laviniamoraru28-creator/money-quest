@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { HomepageMissionPreview } from "@/components/HomepageMissionPreview";
 import {ChooseLearningLevelLink} from "@/components/ChooseLearningLevelLink";
 import {certificateJourneyCopy} from "@/content/certificate-journey-copy";
 import {isSupportedLocale} from "@/i18n/config";
@@ -52,6 +53,8 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
           </div>
         </section>
 
+
+        <HomepageMissionPreview locale={locale} />
 
         {/* Three clear age-level entry points. Existing world artwork is retained. */}
         <section aria-labelledby="levels-heading" className="mx-auto max-w-[1200px] px-sm py-2xl">
