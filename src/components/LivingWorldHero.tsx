@@ -39,9 +39,9 @@ export function LivingWorldHero({locale}:{locale:string}){
  return <div className="relative overflow-hidden rounded-3xl border border-teal/15 bg-cream shadow-lg" data-homepage-hero>
    <div role="img" aria-label={t.description} className="relative aspect-video w-full">
      <Image unoptimized src="/images/money-quest/worlds/coin-cove-thumb.webp" alt="" fill priority sizes="(max-width: 767px) 100vw, 50vw" className="object-cover" />
-     <video ref={video} aria-hidden="true" muted playsInline loop preload="metadata" poster="/images/money-quest/worlds/coin-cove-thumb.webp"
+     <video ref={video} aria-hidden="true" muted playsInline loop preload="metadata" poster="/images/money-quest/living-world-poster.webp"
        onLoadedMetadata={()=>setAvailable(true)} onError={()=>setAvailable(false)}
-       className={`absolute inset-0 h-full w-full object-contain ${available?"opacity-100":"opacity-0"}`}>
+       className={`absolute inset-0 hidden h-full w-full object-contain md:block ${available?"opacity-100":"opacity-0"}`}>
        <source src={VIDEO} type="video/mp4" />
      </video>
    </div>
