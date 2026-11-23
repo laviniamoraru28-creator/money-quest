@@ -61,7 +61,7 @@
 .mq-age-portal { position:relative;border-color:#d6b77e!important;box-shadow:0 12px 28px #14263e17; }
 .mq-age-portal:hover { transform:translateY(-3px);box-shadow:0 16px 34px #14263e30; }
 @media(max-width:760px) { .mq-hero-inner { grid-template-columns:1fr;padding:32px 16px;gap:26px; } .mq-hero-copy { text-align:center; } .mq-hero-subtitle { margin-inline:auto; } .mq-hero-media { border-radius:18px; } }
-@media(prefers-reduced-motion:reduce) { .mq-hero-video { display:none; } .mq-hero-cta:hover,.mq-age-portal:hover { transform:none; } }
+@media(prefers-reduced-motion:reduce) { video.mq-hero-video { display:none; } .mq-hero-cta:hover,.mq-age-portal:hover { transform:none; } }
 
 .mq-learning [data-card="activity"], .mq-learning fieldset:has(input[type="radio"]) {
   border: 2px solid var(--mq-accent-soft);

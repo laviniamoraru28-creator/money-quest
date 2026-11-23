@@ -18,6 +18,7 @@ export function CinematicWorldHero({
 }: Props) {
   return (
     <section
+      data-homepage-hero
       className="mq-cinematic mq-cinematic-hero"
       aria-labelledby="mq-hero-heading"
     >
