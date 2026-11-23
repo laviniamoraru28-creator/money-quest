@@ -13,7 +13,8 @@ import {CinematicScene} from "../CinematicScene";
 import {AdventureAvatar} from "../AdventureAvatar";
 
 type Progress = {ageBand?: AgeBand | null; completedActivityIds?: string[]};
-type Celebration = {title:string; major:boolean; sequence:number};
+import {milestones, milestoneIndex, questBadges, type QuestKey} from "@/content/quest-milestones";
+type Celebration = {title:string; quest?:QuestKey; sequence:number};
 
 export function WorldCompletionCelebration() {
  const t = useTranslations(),locale=useLocale() as Locale;
@@ -28,14 +29,14 @@ export function WorldCompletionCelebration() {
    const stored = window.localStorage.getItem("moneyquest_local_progress_v1");
    previous.current = stored ? JSON.parse(stored) as Progress : {completedActivityIds: []};
   } catch {previous.current = {completedActivityIds: []};}
-  const show=(title:string,major=false)=>{
-   setCelebration({title,major,sequence:++sequence.current});
+  const show=(title:string,quest?:QuestKey)=>{
+   setCelebration({title,quest,sequence:++sequence.current});
    if(timer.current)clearTimeout(timer.current);
-   timer.current=setTimeout(()=>setCelebration(null),6500);
+   if (!quest) timer.current=setTimeout(()=>setCelebration(null),6500);
   };
   const onQuest=(event:Event)=>{
    const key=(event as CustomEvent<string>).detail;
-   if(key==="entrepreneur"||key==="leadership")show(t(`${key}Quest.hubTitle`),true);
+   if(key==="entrepreneur"||key==="leadership")show(t(`${key}Quest.hubTitle`),key);
   };
   const onProgress = (event: Event) => {
    const next = (event as CustomEvent<Progress>).detail;
@@ -46,8 +47,8 @@ export function WorldCompletionCelebration() {
    const oldIds = new Set(before.completedActivityIds);
    const newIds = new Set(next.completedActivityIds);
    if (newIds.size <= oldIds.size) return;
-   if(newIds.has(`ai-quest-${next.ageBand}`)&&!oldIds.has(`ai-quest-${next.ageBand}`)){show("AI Quest",true);return;}
-   if(isCertificateEligible(next.completedActivityIds,next.ageBand)&&!isCertificateEligible(before.completedActivityIds,next.ageBand)){show("Money Quest",true);return;}
+   if(newIds.has(`ai-quest-${next.ageBand}`)&&!oldIds.has(`ai-quest-${next.ageBand}`)){show("AI Quest","ai");return;}
+   if(isCertificateEligible(next.completedActivityIds,next.ageBand)&&!isCertificateEligible(before.completedActivityIds,next.ageBand)){show("Money Quest","money");return;}
    for (const world of WORLDS) {
     const catalog = getWorldCatalog(world.id, next.ageBand, t);
     if (!catalog.length) continue;
@@ -68,13 +69,14 @@ export function WorldCompletionCelebration() {
   return ()=>element.close();
  },[celebration]);
  if (!celebration) return null;
- return <dialog ref={dialog} onCancel={()=>setCelebration(null)} aria-labelledby="mq-world-celebration-heading" className="m-auto max-w-[94vw] rounded-3xl bg-transparent p-0 backdrop:bg-ink/80">
+ return <dialog ref={dialog} onCancel={()=>setCelebration(null)} aria-labelledby="mq-world-celebration-heading" className={celebration.quest ? "fixed inset-0 m-0 h-[100dvh] max-h-none w-screen max-w-none overflow-auto bg-[#14263e] p-4 text-center open:grid open:place-items-center" : "m-auto max-w-[94vw] rounded-3xl bg-transparent p-0 backdrop:bg-ink/80"}>
   <div key={celebration.sequence} data-reduced-motion={reducedMotion ? "true" : "false"}
    className="relative w-full max-w-lg rounded-3xl border-4 border-gold bg-cream p-8 text-center shadow-floating">
+   {celebration.quest && <Image unoptimized alt="" width={48} height={48} className="mx-auto" src="/cinematic/rewards/crystal.webp"/>}
    <AdventureAvatar animated={!reducedMotion}/>
-   <div className="relative isolate mx-auto mb-3 grid h-20 w-20 place-items-center overflow-hidden rounded-full border-2 border-gold bg-ink"><CinematicScene controls={false} className="absolute inset-0 h-full w-full object-cover mix-blend-screen" src={celebration.major?"/cinematic/rewards/golden-particles.mp4":"/cinematic/rewards/star-animation.mp4"} poster={celebration.major?"/cinematic/rewards/golden-particles.webp":"/cinematic/rewards/star-animation.webp"}/><Image unoptimized alt="" width={56} height={56} className="relative object-contain" src={celebration.major?"/cinematic/rewards/crystal.webp":"/cinematic/rewards/star.webp"}/></div>
+   <div className="relative isolate mx-auto mb-3 grid h-20 w-20 place-items-center overflow-hidden rounded-full border-2 border-gold bg-ink"><CinematicScene controls={false} className="absolute inset-0 h-full w-full object-cover mix-blend-screen" src={celebration.quest?"/cinematic/rewards/golden-particles.mp4":"/cinematic/rewards/star-animation.mp4"} poster={celebration.quest?"/cinematic/rewards/golden-particles.webp":"/cinematic/rewards/star-animation.webp"}/><Image unoptimized alt="" width={56} height={56} className="relative object-contain" src={celebration.quest?`/cinematic/rewards/badge-${questBadges[celebration.quest]}.webp`:"/cinematic/rewards/star.webp"}/></div>
    <h2 id="mq-world-celebration-heading" className="text-2xl font-bold">{celebration.title}</h2>
-   <p className="mt-3 text-lg">{t("play.worldSequenceComplete")}</p>
+   <p className="mt-3 text-lg">{celebration.quest ? milestones[locale][milestoneIndex[celebration.quest]] : t("play.worldSequenceComplete")}</p>
    <button type="button" autoFocus onClick={() => {if (timer.current) clearTimeout(timer.current);setCelebration(null);}}
     className="mt-6 min-h-12 rounded-xl bg-teal px-8 py-3 font-bold text-white focus-visible:outline focus-visible:outline-4 focus-visible:outline-gold">
     {skipScene[locale]}

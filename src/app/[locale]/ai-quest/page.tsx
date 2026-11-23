@@ -46,7 +46,7 @@ function Challenge({ band }: { band: AgeBand }) {
     t = useTranslations(),
     lab = useTranslations("entrepreneurQuest.aiLab");
   const { state, completeActivity } = useLocalProgress();
-  const [retry, setRetry] = useState(false);
+  const [retry, setRetry] = useState("");
   const id = `ai-quest-${band}`,
     done = state.completedActivityIds.includes(id),
     s = scenarios[band];
@@ -90,14 +90,14 @@ function Challenge({ band }: { band: AgeBand }) {
                 variant="secondary"
                 onClick={() => {
                   if (index === s.correct) completeActivity(id, true, 0, 0);
-                  else setRetry(true);
+                  else setRetry(band === "strategist" ? lab(key.replace(/\.label$/, ".consequence")) : lab(s.intro));
                 }}
               >
                 {lab(key)}
               </Button>
             ))}
           </div>
-          <p role="status">{retry ? t("common.tryAgain") : ""}</p>
+          <p role="status">{retry ? `${retry} ${t("common.tryAgain")}` : ""}</p>
         </>
       )}
       <AcademyCertificateReward />

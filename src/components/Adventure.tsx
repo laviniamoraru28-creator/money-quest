@@ -11,7 +11,12 @@ import { useLocalProgress } from "@/lib/local-progress/use-local-progress";
 import { AdventureAvatar, avatarKey, readAvatar } from "./AdventureAvatar";
 import { CinematicScene } from "./CinematicScene";
 
-const worlds = [
+import { milestones, questBadges, type QuestKey } from "@/content/quest-milestones";
+import { isCertificateEligible } from "@/lib/certificates/eligibility";
+import { useEntrepreneurQuest } from "@/lib/entrepreneur-quest/use-entrepreneur-quest";
+import { useLeadershipQuest } from "@/lib/leadership-quest/use-leadership-quest";
+
+const worlds: { key: QuestKey; title: string; href: string }[] = [
   { key: "money", title: "Money Quest", href: "/play" },
   {
     key: "entrepreneur",
@@ -30,7 +35,17 @@ export function Adventure({ band }: { band?: AgeBand }) {
   const [choice, setChoice] = useState(0),
     [step, setStep] = useState<"avatar" | "enter" | "map" | "intro">("avatar");
   const [quest, setQuest] = useState(worlds[0]!);
-  const { setAgeBand } = useLocalProgress();
+  const { setAgeBand, state, isLoaded } = useLocalProgress();
+  const business = useEntrepreneurQuest();
+  const leadership = useLeadershipQuest();
+  const loaded = isLoaded && business.isLoaded && leadership.isLoaded;
+  const completed = {
+    money: !!state.ageBand && isCertificateEligible(state.completedActivityIds, state.ageBand),
+    entrepreneur: business.state.pitchCompleted,
+    leadership: leadership.state.completedMissionIds.includes("final-challenge"),
+    ai: state.completedActivityIds.includes(`ai-quest-${state.ageBand}`),
+  };
+  const nextQuest = worlds.find(world => !completed[world.key])?.key;
   useEffect(() => {
     setChoice(readAvatar());
     if (band) setAgeBand(band);
@@ -147,6 +162,8 @@ export function Adventure({ band }: { band?: AgeBand }) {
               {worlds.map((world) => (
                 <button
                   key={world.key}
+                  aria-label={world.title}
+                  aria-describedby={loaded ? `map-status-${world.key}` : undefined}
                   className={action + " flex-col gap-2"}
                   onClick={() => {
                     setQuest(world);
@@ -162,6 +179,10 @@ export function Adventure({ band }: { band?: AgeBand }) {
                     src={`/cinematic/quests/${world.key}/intro.webp`}
                   />
                   {world.title}
+                  {loaded && <span id={`map-status-${world.key}`} className="flex items-center gap-2 text-sm">
+                    {completed[world.key] && <Image unoptimized alt="" width={36} height={36} src={`/cinematic/rewards/badge-${questBadges[world.key]}.webp`}/>}
+                    {completed[world.key] ? milestones[locale][1] : nextQuest === world.key ? milestones[locale][0] : ""}
+                  </span>}
                 </button>
               ))}
             </div>

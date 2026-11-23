@@ -63,7 +63,7 @@ for (const [index, locale] of (
   });
 }
 
-test("a new family's certificate requires AI Quest and a retry cannot grant a second completion",async({page})=>{
+test("a new family's certificate requires AI Quest and a retry cannot grant a second completion",async({page},info)=>{
  const {createDefaultState}=await import("../../src/lib/local-progress/state");
  const {requiredCertificateActivities}=await import("../../src/lib/certificates/eligibility");
  const band="explorer";
@@ -79,6 +79,10 @@ test("a new family's certificate requires AI Quest and a retry cannot grant a se
  await page.getByRole("button",{name:"Your home address",exact:true}).click();
  await expect(page.getByRole("status").filter({hasText:"Try again"})).toBeVisible();
  await page.getByRole("button",{name:"The name of your product",exact:true}).click();
+ const celebration=page.getByRole("dialog",{name:"AI Quest"});
+ await expect(celebration.getByText("You completed your AI challenge.")).toBeVisible();
+ await expect(celebration.locator('img[src$="badge-ai.webp"]')).toBeVisible();
+ await info.attach("quest-complete",{body:await page.screenshot({path:info.outputPath("quest-complete.png")}),contentType:"image/png"});
  await page.getByRole("button",{name:"Skip",exact:true}).click();
  await expect(page.locator('a[href$="academy-certificate?level=explorer"]').first()).toBeVisible();
  await page.reload();
@@ -86,4 +90,13 @@ test("a new family's certificate requires AI Quest and a retry cannot grant a se
  const data=await page.evaluate(()=>JSON.parse(localStorage.getItem("moneyquest_local_progress_v1")!));
  expect(data.completedActivityIds.filter((id:string)=>id==="ai-quest-explorer")).toHaveLength(1);
  expect(data.threeQuestCertificateDates.explorer).toBeTruthy();
+ await page.goto("/en");
+ await page.locator('.mq-age-portal[href*="band=explorer"]').click();
+ await page.getByRole("button",{name:"Avatar 1",exact:true}).click();
+ await page.getByRole("button",{name:"Enter the world",exact:true}).click();
+ await page.getByRole("button",{name:"World map",exact:true}).click();
+ for(const name of ["Money Quest","Entrepreneur Quest","Leadership Quest","AI Quest"]){
+   await expect(page.getByRole("button",{name,exact:true})).toHaveAccessibleDescription("Completed");
+ }
+ await info.attach("earned-badges",{body:await page.screenshot({path:info.outputPath("earned-badges.png")}),contentType:"image/png"});
 });
