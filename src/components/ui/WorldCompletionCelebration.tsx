@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import {useEffect, useRef, useState} from "react";
 import {skipScene} from "@/content/cinematic-copy";
 import {type Locale} from "@/i18n/config";
@@ -71,7 +72,7 @@ export function WorldCompletionCelebration() {
   <div key={celebration.sequence} data-reduced-motion={reducedMotion ? "true" : "false"}
    className="relative w-full max-w-lg rounded-3xl border-4 border-gold bg-cream p-8 text-center shadow-floating">
    <AdventureAvatar animated={!reducedMotion}/>
-   <div className="mb-3 flex justify-center"><CinematicScene controls={false} className="h-20 w-28 rounded-xl object-contain" src={celebration.major?"/cinematic/rewards/golden-particles.mp4":"/cinematic/rewards/star-animation.mp4"} poster={celebration.major?"/cinematic/rewards/crystal.webp":"/cinematic/rewards/star.webp"}/></div>
+   <div className="relative isolate mx-auto mb-3 grid h-20 w-20 place-items-center overflow-hidden rounded-full border-2 border-gold bg-ink"><CinematicScene controls={false} className="absolute inset-0 h-full w-full object-cover mix-blend-screen" src={celebration.major?"/cinematic/rewards/golden-particles.mp4":"/cinematic/rewards/star-animation.mp4"} poster={celebration.major?"/cinematic/rewards/golden-particles.webp":"/cinematic/rewards/star-animation.webp"}/><Image unoptimized alt="" width={56} height={56} className="relative object-contain" src={celebration.major?"/cinematic/rewards/crystal.webp":"/cinematic/rewards/star.webp"}/></div>
    <h2 id="mq-world-celebration-heading" className="text-2xl font-bold">{celebration.title}</h2>
    <p className="mt-3 text-lg">{t("play.worldSequenceComplete")}</p>
    <button type="button" autoFocus onClick={() => {if (timer.current) clearTimeout(timer.current);setCelebration(null);}}
