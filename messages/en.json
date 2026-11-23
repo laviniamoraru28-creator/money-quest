@@ -6147,6 +6147,26 @@
           "paragraphs": [
             "Money Quest's Save or Spend and Building a Budget activities let a child practice exactly this decision - with fictional coins, not real money - before the stakes are real. Every amount is play money in the family's own currency, and nothing a child does inside the app ever touches a real bank account."
           ]
+        },
+        {
+          "heading": "A worked example: when the goal changes partway through",
+          "paragraphs": [
+            "Plans rarely stay exactly the same, and it's worth practising that on purpose rather than only hitting it by accident. Picture a child saving for a board game that costs £18, putting aside £3 a week — six weeks in total. Partway through, in week three, the price rises to £21.",
+            "Rather than solving it for them, ask what they'd do: save for one week longer than planned, pick a cheaper alternative, or change the goal altogether. All three are reasonable choices, and the point of the exercise is that the child can explain their reasoning for whichever one they pick — not that they land on a single 'correct' answer."
+          ]
+        },
+        {
+          "heading": "A weekly check-in that keeps the pressure off",
+          "paragraphs": [
+            "A short, relaxed weekly check-in usually works better than daily tracking, which can turn saving into a chore. Three questions usually cover it: What's the goal? Has anything changed? What will we try next? Keep the focus on the explanation and the plan, not on praising the exact amount saved that week — some weeks will be slower than others, and that's normal, not a failure."
+          ]
+        },
+        {
+          "heading": "Keeping it accessible and private",
+          "paragraphs": [
+            "This works with physical tokens, a drawn jar, large-print images, or a counting app — whatever best matches how a particular child communicates and processes information. Pointing to add a token, or using a switch or AAC device to indicate \"add one\", is just as valid as physically dropping a coin in the jar.",
+            "It's also worth keeping a family's actual finances entirely out of the exercise. A child doesn't need to know or disclose the family's real income, allowance, or savings to learn the underlying skill — fictional goals and amounts teach the same reasoning without ever requiring that kind of disclosure, which matters both for privacy and for children whose families may not have money available to save at all."
+          ]
         }
       ],
       "faqs": [
@@ -6157,6 +6177,10 @@
         {
           "question": "Should I match or add to what my child saves?",
           "answer": "There's no single right answer, but many educators suggest letting a child reach a modest goal on their own effort first, since the experience of actually getting there tends to matter more to a child's sense of capability than the amount involved."
+        },
+        {
+          "question": "What if my child's family can't set aside any money to save at all?",
+          "answer": "The underlying skill — planning towards a goal and adjusting when circumstances change — can be practised entirely with fictional tokens or play money. The concept of saving doesn't need to depend on a family's actual financial circumstances, and shouldn't be taught in a way that requires a child to disclose or compare them."
         }
       ]
     },
@@ -6230,6 +6254,26 @@
             "\"But I really need it\" is worth taking seriously as a feeling, even while gently distinguishing it from the concept - dismissing the feeling outright tends to make a child defensive rather than reflective, which works against the goal.",
             "It also helps to occasionally point out your OWN needs-vs-wants reasoning out loud as a parent (\"I want a new coat, but my old one still works, so I'm going to wait\") - children absorb this distinction more from watching it modeled than from being told the rule."
           ]
+        },
+        {
+          "heading": "A hands-on activity: the three-column sort",
+          "paragraphs": [
+            "For a more structured session than a day-to-day conversation, try a short sorting activity with picture cards and three columns: \"Need now\", \"Want now\" and \"Depends\". The third column matters more than it looks — it stops the exercise becoming a game of guessing the adult's expected answer, and instead invites a real reason.",
+            "A useful variation once a child is confident with basic sorting: change the situation and ask them to move a card. Two children might see the same bus ticket — one needs it to get to school, the other could walk safely with a parent. The ticket hasn't changed; the context has. That's the real skill being built: reasoning about a new example, not memorising a fixed list."
+          ],
+          "list": [
+            "Prepare five or six picture cards with familiar items (food, a toy, a coat, a bus ticket, a video game).",
+            "Sort each card into Need now, Want now, or Depends, and ask for a reason for each choice.",
+            "Change one detail of the situation (the season, the destination, who's involved) and see if the child moves the card and explains why.",
+            "There's no fixed 'correct' answer for most cards — what you're assessing is the explanation, not which column it lands in."
+          ]
+        },
+        {
+          "heading": "Accessible ways to take part",
+          "paragraphs": [
+            "This activity works for children who don't yet have, or don't use, spoken language the same way, too. Offer large, clear images, a small number of choices at a time, and spoken instructions alongside the visuals. For a child using AAC (augmentative and alternative communication), simple core words like \"need\", \"want\", \"depends\" and \"because\" cover most of what's needed to take part.",
+            "Pointing, sorting physical cards, or selecting on a device are all valid ways to respond — there's no need to require eye contact or a full sentence as proof of understanding. A child who consistently points to the right card and can gesture towards a reason, even without naming it aloud, is demonstrating the same reasoning as a child who explains it verbally."
+          ]
         }
       ],
       "faqs": [
@@ -6240,6 +6284,14 @@
         {
           "question": "How do I respond when my child insists something is a need?",
           "answer": "Asking \"what would actually happen if you didn't have it?\" tends to work better than simply saying no - it invites the child to reason it through themselves rather than just accepting or resisting a parent's verdict."
+        },
+        {
+          "question": "How long should the sorting activity take?",
+          "answer": "Ten to fifteen minutes is a reasonable starting point, but treat that as a practical suggestion rather than a fixed rule — adapt it to the child's attention span and any access needs, and it's fine to stop after two or three cards if that's where genuine engagement ends."
+        },
+        {
+          "question": "What if my child gives an answer I didn't expect?",
+          "answer": "Ask for the reason before correcting anything. Sometimes an unexpected answer reveals a perfectly reasonable bit of context you hadn't considered (a toy that's genuinely needed for a school project, for example); other times it shows the instructions weren't fully understood, which another example usually sorts out."
         }
       ]
     },
@@ -6356,6 +6408,1201 @@
         {
           "question": "Does Money Quest use real currency exchange rates?",
           "answer": "No - Money Quest's currencies are entirely fictional play money within each child's own account, set to match their family's real-world currency for familiarity, but never connected to real exchange rates, real accounts, or real transactions."
+        }
+      ]
+    },
+    "naming-big-feelings-about-money": {
+      "title": "Helping Your Child Name Big Feelings About Money",
+      "metaDescription": "Why money moments trigger such big feelings in children, and a simple at-home activity that helps them calm down, name the feeling, and think clearly.",
+      "sections": [
+        {
+          "heading": "Why \"I want it NOW\" turns into a meltdown",
+          "paragraphs": [
+            "You say no to one more toy at the shop, or ask your child to put a coin toward savings instead of a treat, and suddenly you're dealing with tears, shouting, or a flat refusal to move. It can feel like the reaction is wildly out of proportion to a few coins - and you're not imagining that gap. The reaction usually isn't really about the item or the money at all."
+          ]
+        },
+        {
+          "heading": "It's not really about the money",
+          "paragraphs": [
+            "Children's brains are still building the skills that let adults pause, weigh a decision, and accept disappointment calmly. The part of the brain most responsible for that kind of self-control develops gradually through childhood and adolescence, which is exactly why a six-year-old and a sixteen-year-old handle the same 'you can't have that' moment so differently. Money decisions are a frequent, visible stage for this - a toy at the till, a sibling's bigger allowance, a saving goal that feels impossibly far away - but the underlying skill being practiced is emotional regulation in general, not a special 'money' skill.",
+            "That reframe matters for how you respond. A child who is melting down about money isn't being greedy or ungrateful; they're having a big feeling they don't yet have the words or the self-control to manage smoothly. Naming the feeling out loud, calmly, is one of the most consistently recommended strategies in child development for helping a child move from an overwhelmed reaction toward being able to think again - sometimes summarised as \"name it to tame it\"."
+          ]
+        },
+        {
+          "heading": "A simple at-home activity: name the feeling, then the choice",
+          "paragraphs": [
+            "You don't need a special kit for this - a calm minute and a few words are enough, and it works just as well after the moment has passed as during it."
+          ],
+          "list": [
+            "Get down to their eye level and name what you see: \"You really wanted that, and I said no. That feels frustrating.\"",
+            "Wait. Don't jump straight to explaining the budget or the rule - let the naming land first.",
+            "Once they're calmer, offer a real, small choice they do have control over: \"We're not getting that today. Would you like to put a coin toward your save jar, or save the decision for next time we're here?\"",
+            "Afterwards, when everyone is calm, talk through it again in a sentence or two - not as a lecture, but so they start to recognise the pattern themselves next time."
+          ]
+        },
+        {
+          "heading": "Accessible adaptations",
+          "paragraphs": [
+            "This approach works for children who don't yet have the words to describe feelings, or who need things shown rather than told."
+          ],
+          "list": [
+            "For a non-reading or pre-verbal child: use simple feelings cards or faces (happy, sad, frustrated, worried) and let them point instead of speaking.",
+            "For a child who needs more processing time: skip the in-the-moment conversation entirely and revisit it later at home, when there's no audience and no time pressure.",
+            "For a child who finds spoken words hard in the moment: a visual schedule or a written note (\"not today - next time\") can land better than talking."
+          ]
+        },
+        {
+          "heading": "Where this fits with Money Quest",
+          "paragraphs": [
+            "Money Quest's free Emotion Lab gives children guided practice at recognising and naming feelings in a low-pressure, game-based setting - the same \"name it to tame it\" skill this activity uses, just with Money Quest's characters doing the modelling instead of you. It's a gentle way to build the skill outside the heat of an actual shop-till moment, so it's more available for children when they need it."
+          ]
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Is it bad that my child gets this upset over such small amounts of money?",
+          "answer": "No - it's a completely normal part of learning to handle disappointment and delayed reward, skills every child is still building. The size of the reaction doesn't reflect how 'good' your child is with money; it reflects how much practice they've had regulating big feelings in general."
+        },
+        {
+          "question": "Should I just give in sometimes to avoid the meltdown?",
+          "answer": "Occasionally changing your mind for a genuine reason is fine, but giving in specifically to stop a meltdown tends to teach that big feelings are the way to change a decision. Naming the feeling and holding the boundary calmly, even if it takes longer in the moment, gives more practice at the actual skill you're trying to build."
+        }
+      ]
+    },
+    "entrepreneurial-thinking-in-children": {
+      "title": "How to Develop Entrepreneurial Thinking in Children",
+      "metaDescription": "Teach entrepreneurial thinking through small, no-money problem-solving projects that build empathy, planning and honest reflection on setbacks.",
+      "sections": [
+        {
+          "heading": "What entrepreneurial thinking actually means at this age",
+          "paragraphs": [
+            "When people hear \"entrepreneurial thinking for kids,\" they often picture a lemonade stand or a craft sale with real coins changing hands. That's not what this guide is about: everything here uses pretend budgets and fictional prices. There's no real money, no unsupervised selling to the public, and nothing here promises that a child could or should earn money from any of it.",
+            "What entrepreneurial thinking actually means at this age is a cluster of transferable habits: noticing a problem worth solving, coming up with more than one possible fix, building something cheap enough to test, and being honest about whether it worked. None of that requires a product, a sale, or a profit - a child who designs a fairer way to share one toy between two younger siblings has practised the same thinking as a child who designs a gadget, just without the money attached.",
+            "This article focuses on spotting problems and testing small ideas. If you're looking for guidance on how children lead a team through the decisions that come after - who does what, how a group decides fairly, what happens when something goes wrong - our companion guide on teaching leadership skills to children covers that side in more depth."
+          ]
+        },
+        {
+          "heading": "Start with a problem, not a product",
+          "paragraphs": [
+            "The single most common mistake adults make here is starting with \"what could you invent?\" That question is wide open and genuinely hard, even for adults. It works much better the other way round: ask a child to notice something small and annoying, then build towards a fix.",
+            "A good starting question is simply: \"What's something that keeps going wrong, even in a small way?\" Classroom examples that tend to work well include pencils that go missing or a reading corner that's always messy by lunchtime. At home, a shared toy box that always ends in an argument works just as well.",
+            "Once a problem is named, ask who actually experiences it and what would genuinely help them. Then ask for two or three different possible fixes - not just the first idea that comes to mind - before picking one to try."
+          ]
+        },
+        {
+          "heading": "Build a prototype that costs almost nothing",
+          "paragraphs": [
+            "A prototype at this stage is not a finished product - it's a rough, cheap way of testing whether an idea actually works for the person it's meant to help. Paper, cardboard, recycled packaging, string, and simple drawings are usually all that's needed. Setting a small fictional budget and a short time limit (say, a pretend £5 - a UK-style example in pounds, easy to swap for another currency - and twenty minutes) keeps the activity focused and stops it sprawling into a much bigger craft project.",
+            "The test that matters is not \"does it look good?\" but \"does it help the person it's for?\" A younger child (Money Quest's Explorer band, roughly ages 6-8) might manage this with a single drawn plan. An older child (Builder, roughly 9-11, or Strategist, roughly 12-14) can usually handle a more detailed prototype - but the underlying process is the same at every age."
+          ]
+        },
+        {
+          "heading": "Talk about cost and value - without talking about profit",
+          "paragraphs": [
+            "This is a good moment to introduce cost and value as separate ideas, using fictional numbers. A simple version: \"If the materials for your fix cost £3, and people say they'd pay £5 for it, where does that £2 difference actually go?\" (This is a UK-style example in pounds; the same conversation works with any country's currency and any small amounts.) The honest answer is that it doesn't go straight into anyone's pocket - real costs like time, transport, and mistakes along the way eat into it too, and sales are never guaranteed in the first place.",
+            "The point of this conversation isn't to teach a child how much they could earn. It's to build the habit of separating what something costs to make from what it's worth to the person using it - a useful distinction well beyond anything to do with business."
+          ]
+        },
+        {
+          "heading": "Practise ethical choices alongside the idea",
+          "paragraphs": [
+            "Build ethics into the activity as a normal step, not an afterthought. Three questions work with almost any project: Does the way we're describing this make a promise it can't keep? Can everyone who needs this solution actually use it? What happens to the leftover materials when we're done?",
+            "A child who gets into the habit of checking \"is this fair, and is this honest?\" before finishing any project is building a transferable standard, not a business rule."
+          ]
+        },
+        {
+          "heading": "When things don't go to plan",
+          "paragraphs": [
+            "A prototype that doesn't work on the first test is not a failed activity - it's the most useful part of it. After testing an idea with its intended user, ask three simple questions: What would you keep? What would you change? What would you stop doing altogether? Research on metacognition and self-regulation from the Education Endowment Foundation suggests that explicitly prompting children to plan, monitor and evaluate their own work like this helps the thinking skill transfer to other tasks - which is exactly what a structured \"keep, change, stop\" reflection is designed to do.",
+            "Resist the urge to rescue the idea for them. A child who can explain why their pencil-return box didn't work, and what evidence led them to that conclusion, has learned more than a child whose adult quietly fixed the design before anyone noticed it had failed."
+          ]
+        },
+        {
+          "heading": "Worked example: the case of the missing pencils",
+          "paragraphs": [
+            "A school club keeps losing pencils, and nobody can say exactly why. A small group of children interview a few classmates and notice that pencils get left on tables after group work and then swept into bags by mistake. They propose a labelled return box by the door, estimate the materials - a shoebox, some tape, a marker pen - at around £4 (again, a UK-style example in pounds), and agree to test it for one week.",
+            "Success here is not measured in sales or profit - there's nothing being sold. It's measured by one question: are fewer pencils going missing by the end of the week? The children ask classmates whether the box is easy to notice, and adjust its label or position based on what they hear. That's the whole cycle: problem, prototype, test, honest adjustment."
+          ]
+        },
+        {
+          "heading": "Facilitator's step-by-step plan",
+          "paragraphs": [],
+          "list": [
+            "Interview or observe potential users respectfully, and ask permission before watching or asking anyone about their habits.",
+            "Sketch two or three possible solutions and choose one together using a simple, named reason (cheapest, quickest, easiest to use).",
+            "Build a rough prototype from recycled or low-cost materials within an agreed, small fictional budget.",
+            "Test it with the people it's meant to help, gather their reactions, and make exactly one change based on what you heard.",
+            "Finish with a short \"keep, change, stop\" conversation rather than moving straight on to the next idea."
+          ]
+        },
+        {
+          "heading": "Making this accessible to every child",
+          "paragraphs": [
+            "This activity should work for children with a wide range of needs, and a few small adjustments usually do most of the work. For a child who doesn't use spoken language, or who finds speaking under pressure difficult, let the \"interview\" step happen through an AAC (augmentative and alternative communication) device, picture cards, or written notes instead of a spoken conversation - the goal is finding out what the user needs, not demonstrating verbal fluency.",
+            "For a child who finds busy, noisy environments overwhelming, run the testing step in a quiet corner with one or two people rather than in front of the whole class, and allow longer than feels natural between a question and an answer - some children need noticeably more processing time. A child can show their understanding by pointing to parts of a drawing or physically demonstrating how the prototype is used, rather than explaining it out loud - that's an equally valid way of showing the same thinking."
+          ]
+        },
+        {
+          "heading": "How to check understanding",
+          "paragraphs": [
+            "Don't rely on how confidently or quickly a child talks about their project as a sign of whether they understood it - speed and fluency are not the same thing as grasping the idea. Instead, ask two specific questions at the end: \"Whose problem were you trying to solve, and how do you know?\" and \"What's one thing you changed because of what someone told you, and why?\"",
+            "A child who genuinely understood the process can usually answer both questions, even briefly, using words, pictures, objects, or whatever communication method suits them. A child who can only describe what they built, but not why it changed or who it was for, has learned to make something - which is a fine start - but hasn't yet connected it to the problem-and-feedback cycle this activity is trying to teach."
+          ]
+        },
+        {
+          "heading": "Common teaching mistake to avoid",
+          "paragraphs": [
+            "The mistake to watch for is implying that entrepreneurship always means selling something or making money. It doesn't - and treating money as the only valid outcome quietly excludes children whose families can't practise with spare cash. Identifying a real need, building something cheap enough to test, and explaining a sensible revision are all complete, valid outcomes on their own."
+          ]
+        },
+        {
+          "heading": "Try this next",
+          "paragraphs": [
+            "Pick one activity from this guide and repeat it with a different fictional problem - a messy bag hook, a slow queue for the sink, a confusing set of instructions. Ask the child to explain one choice they made, using whichever method suits them: spoken words, pictures, a model, or pointing. As always, keep any real family financial information out of the exercise entirely; fictional numbers teach exactly the same lesson."
+          ]
+        },
+        {
+          "heading": "Editorial references",
+          "paragraphs": [
+            "The reflection step in this guide (\"keep, change, stop\") draws on the general principle behind the Education Endowment Foundation's guidance on metacognition and self-regulation, which supports structured planning, monitoring and evaluation of one's own work as a way of making thinking skills transfer across tasks: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/metacognition-and-self-regulation.",
+            "For broader context on children's financial education in the UK, see the Money and Pensions Service's resources for children and young people: https://maps.org.uk/en/our-work/children-and-young-people."
+          ]
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How long should the activity take?",
+          "answer": "Start with a short session of around ten to fifteen minutes, then adjust based on the child's attention span and access needs. That's a practical starting point, not a research-established optimum, so feel free to shorten or extend it."
+        },
+        {
+          "question": "What if the child gives an unexpected answer?",
+          "answer": "Ask them for their reasoning, check whether the instructions were understood as intended, and offer a second example if needed. Try not to use how quickly or fluently a child speaks as a stand-in for whether they've actually understood the idea."
+        },
+        {
+          "question": "Should children actually sell what they make?",
+          "answer": "No - this guide is deliberately designed around fictional prices and pretend budgets, with no real transactions. Real selling to the public raises safety, supervision and sometimes legal questions well beyond the scope of a classroom or family activity, so it's best kept out of this exercise entirely."
+        }
+      ]
+    },
+    "financial-literacy-age-of-ai": {
+      "title": "Why Financial Literacy Matters in the Age of AI",
+      "metaDescription": "Digital payments, AI recommendations and auto-generated content are changing what kids need to know to make sound money decisions.",
+      "sections": [
+        {
+          "heading": "Money decisions have moved onto screens",
+          "paragraphs": [
+            "A generation ago, a child's first money decisions mostly happened somewhere a parent could see them: a corner shop, a market stall, a vending machine with visible coins. Today, many of a child's first money decisions happen inside an app, a game or a chat window - one-click purchases, in-game currency, personalised recommendations and subscription offers, often before the child understands how money actually leaves an account.",
+            "That shift doesn't make financial literacy less important; it makes a specific part of it more urgent. A child now needs to tell the difference between a game's own currency and real money, and between an advertisement dressed up as a recommendation and genuinely independent advice. Neither distinction is obvious from a screen, and neither used to be a core part of financial education."
+          ]
+        },
+        {
+          "heading": "AI can sound confident while being wrong",
+          "paragraphs": [
+            "A newer layer sits on top of that shift: AI tools that generate shopping suggestions, comparisons, and even financial-sounding advice. These tools are good at producing a response that sounds fluent and reasonable - that is what they are built to do. They are not built to know a particular family's budget, and they can be confidently, plausibly wrong.",
+            "UNESCO's guidance for generative AI in education and research makes a related point about AI use in learning generally: it calls for teaching learners to critically evaluate AI-generated content rather than treat it as automatically authoritative. For money decisions specifically, that means a child should learn, early, that an AI-generated answer is a starting point to check, not a verdict to accept.",
+            "A practical way to build this habit without any real purchase: show a child two hypothetical AI-generated recommendations for the same item, and ask which one includes evidence, which one ignores the stated budget, and which one is mostly trying to create a sense of urgency. None of this needs a real shopping site, real money, or even a real AI tool - fictional examples teach the same reasoning safely."
+          ]
+        },
+        {
+          "heading": "Three protective questions, practised like a habit",
+          "paragraphs": [
+            "The aim isn't to make a child suspicious of every screen; it's to give them a short, repeatable routine they run before buying something or sharing information - the same way they might check both ways before crossing a road."
+          ],
+          "list": [
+            "'Do I need it?' - the needs-vs-wants question, asked before anything else.",
+            "'Can I afford it?' - checked against a real or fictional budget, not a guess.",
+            "'How can I check the claim?' - is there a price, a delivery fee, a stated reason, or just confident wording?",
+            "For older children (roughly Key Stage 2 and above, ages 7-11 in the English school system - a UK-specific term; adapt it to your own country's school stages elsewhere), add a fourth question: 'Who benefits if I click?' - a useful first step into thinking about sponsorship and persuasion."
+          ]
+        },
+        {
+          "heading": "A worked example: two AI shopping recommendations",
+          "paragraphs": [
+            "This is a UK-style example using pounds; adjust the currency and amounts for your own context. Imagine a fictional £15 budget for a water bottle, and two AI-generated recommendations shown side by side. Recommendation A says 'Buy now - everyone loves this one!' and says nothing about delivery. Recommendation B lists an £11 price, a £3 delivery fee, and a note suggesting the child wait for next month's sale.",
+            "Ask the child to work out the total cost of each option, including delivery, and compare both totals against the £15 budget. Then ask which recommendation gives them enough information to check its claim, and which one is mostly creating urgency instead of giving facts. There's no trick here - Recommendation B is simply more checkable, and that's the point being taught."
+          ]
+        },
+        {
+          "heading": "A step-by-step plan for a short session",
+          "paragraphs": [
+            "This works as a ten-to-fifteen-minute activity at home or in a classroom; adjust the length to the child's attention span and any access needs."
+          ],
+          "list": [
+            "Show an imaginary online offer or recommendation - never a live shopping site or a real purchase link.",
+            "Ask who created the message and what action it's encouraging the child to take.",
+            "Work out the total price together, including delivery and any recurring or hidden charges.",
+            "Compare the total against a stated fictional budget, and decide together whether it fits."
+          ]
+        },
+        {
+          "heading": "How to check understanding",
+          "paragraphs": [
+            "Counting how quickly a child answers, or how confidently they speak, isn't a reliable check - it tests fluency, not understanding. A more reliable check is whether the skill transfers to something the child hasn't seen before.",
+            "Show the child a new, different AI-generated claim - a different fictional product, a different hook - and ask them to name one piece of missing evidence and one safe way to check the claim. The Education Endowment Foundation's guidance on metacognition and self-regulation points to exactly this kind of transfer - explaining reasoning on a new example - as a more reliable sign of genuine learning than recalling a rule from memory."
+          ]
+        },
+        {
+          "heading": "Keeping the exercise safe, private and accessible",
+          "paragraphs": [
+            "Use only fictional products, prices and names throughout. Never ask a child to enter real card details, a real address, or real family income into any learning tool, AI or otherwise - the lesson works exactly as well, and far more safely, with invented numbers.",
+            "For a child with SEND (special educational needs and disabilities), the questioning routine above can be delivered without relying on spoken explanation at all. Offer audio alongside text, large and uncluttered images, and fewer choices at once. A child using AAC (augmentative and alternative communication) can show the same reasoning by selecting or pointing to the safer of two options, rather than writing or saying why - and some children will need extra processing time between being shown an example and being asked to respond, which is worth building into the session rather than treating as a delay to work around."
+          ]
+        },
+        {
+          "heading": "A common teaching mistake to avoid",
+          "paragraphs": [
+            "It's tempting to simplify this into 'AI is untrustworthy' or 'online shopping is dangerous', but that overcorrection tends to produce either anxiety or, just as often, a child who tunes the warning out entirely. The more durable lesson is verification as a habit, not fear as a reflex: most AI-generated content and most digital payments are neither reliably true nor reliably false, which is exactly why a quick check matters every time, not only when something feels obviously wrong."
+          ]
+        },
+        {
+          "heading": "How this differs from our step-by-step companion guide",
+          "paragraphs": [
+            "This article is about why financial literacy now needs to include AI literacy, and the underlying habits worth building. For a more detailed, practical walkthrough of specific scripts, examples and session plans for discussing AI-generated financial suggestions with a child, see our companion guide, Teaching Children AI Money Safety - it doesn't repeat this reasoning, it puts it into practice."
+          ]
+        },
+        {
+          "heading": "Try this next",
+          "paragraphs": [
+            "Pick one activity from this guide and repeat it with a different fictional example a few days later. Ask the child to explain their choice out loud, point to it, draw it, or communicate it using their preferred method - any of these show the same reasoning. Keep real family financial information out of the exercise entirely."
+          ]
+        },
+        {
+          "heading": "Editorial references for fact checking",
+          "paragraphs": [
+            "Money and Pensions Service - guidance on financial education for children and young people: https://maps.org.uk/en/our-work/children-and-young-people",
+            "Education Endowment Foundation - Metacognition and self-regulation teaching and learning toolkit: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/metacognition-and-self-regulation",
+            "UNESCO - Guidance for generative AI in education and research: https://www.unesco.org/en/articles/guidance-generative-ai-education-and-research"
+          ]
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How long should an AI-and-money activity take?",
+          "answer": "Ten to fifteen minutes is a reasonable starting point, but treat it as a practical suggestion rather than a fixed rule - shorten it or split it across two sessions based on the child's attention span and any access needs."
+        },
+        {
+          "question": "What if the child gives an answer I didn't expect?",
+          "answer": "Ask for the reason behind it before correcting anything. Sometimes an unexpected answer reveals the instructions weren't fully understood, which another example usually resolves; other times it reveals a perfectly reasonable piece of context you hadn't considered."
+        },
+        {
+          "question": "Is it safe to use a real AI chatbot for this activity?",
+          "answer": "It's safer, and just as effective, to use fictional screenshots or role-played examples you create yourself. If you do use a real AI tool, treat it like any other public website: never enter a child's real name, address, school or financial details into it, and supervise the session throughout."
+        }
+      ]
+    },
+    "financial-literacy-send-accessible-activities": {
+      "title": "Financial Literacy Activities for Children with SEND",
+      "metaDescription": "Concrete ways to adapt money activities for children with SEND, covering AAC, switch and eye-gaze access, sensory load and processing time.",
+      "sections": [
+        {
+          "heading": "Start with an access check, not an activity",
+          "paragraphs": [
+            "Before picking a worksheet or a game, the most useful question isn't \"which money activity is best?\" - it's \"how does this particular child take in and give out information most reliably?\" SEND (special educational needs and disabilities) covers an enormous range of children, so there is no single accessible format that works for everyone. A layout that works beautifully for a child who reads symbols fluently can be the wrong starting point for a child who needs real objects in their hands, and a screen-based game that delights one learner can overwhelm another before the money concept has even been introduced.",
+            "A short access check looks at three things. Communication: does the child understand spoken words, pictures, symbols, objects or written text most reliably, and how do they respond - speech, pointing, an AAC (augmentative and alternative communication) device, eye gaze, or a switch? Motor access: can they manage a mouse, a touchscreen or a keyboard, or do they need a single switch, eye-gaze equipment, or a person moving objects on their behalf? Sensory load: are there loud sounds, flashing animations or visually busy screens that will distract or distress before the activity's actual content gets a fair chance?",
+            "This doesn't need to be a formal assessment. Watching how a child already uses a favourite toy, app or communication aid for two or three minutes usually tells you enough to choose a sensible starting point - and you can always adjust once the activity is under way."
+          ]
+        },
+        {
+          "heading": "Teach one decision at a time, with symbols doing the work",
+          "paragraphs": [
+            "Once you know how the child takes in information, keep the money concept itself as small as possible. A practical starting point: show two pictured items and a visible budget - for example, a snack at £2 and a toy at £6 against a pretend budget of £5 (this is a UK-style example in pounds; swap in your own currency and amounts). Ask the child to choose the item that fits. Keep the layout predictable every time, and give a clear, consistent 'finished' signal so the child always knows when the decision has been registered.",
+            "Where a child already uses a core-vocabulary AAC system, choose symbols that match their existing vocabulary rather than introducing new money-specific icons. If their board already has 'want', 'need', 'more' and 'stop', build the activity around those symbols instead of adding unfamiliar ones - the barrier you're trying to remove is the money concept, not the symbol set.",
+            "Once the two-item choice is solid, add a third option, then repeat the whole activity with a different set of pictures. If the child applies the same rule to new items without re-teaching it, that's a strong sign the underlying concept - not just this specific picture set - has transferred."
+          ]
+        },
+        {
+          "heading": "Concrete alternatives to speaking or writing an answer",
+          "paragraphs": [
+            "A learner doesn't need speech or handwriting to show they understand a money decision, and treating either as the only valid 'answer' will undercount plenty of children who understand perfectly well. A few concrete routes:",
+            "Always record the decision and, where possible, the reason given for it - rather than scoring how the child communicated it. A child who selects 'save' through partner-assisted scanning has given exactly as valid an answer as a child who says the word aloud."
+          ],
+          "list": [
+            "AAC selection: the learner chooses 'save', 'spend', 'need' or 'help' on their core-vocabulary AAC device or board, exactly as they would for any other message.",
+            "Switch access with scanning: set the activity so each option is highlighted in turn and a single switch press selects it. Use the scan speed the child already uses day to day rather than a new default - a scan that's too fast turns the task into a guessing game before the money concept is even tested.",
+            "Eye gaze: space the two or three choices far enough apart that a fixation is unambiguous, and use the same dwell time (how long a look must be held to register as a choice) the child's everyday eye-gaze setup already uses.",
+            "Partner-assisted scanning: an adult names or points to each option in turn ('snack... toy... save it'), and the child responds with an established personal yes/no signal - a blink, a sound, or a hand movement.",
+            "Objects: the learner physically moves a coin, token or picture card into a 'spend' or 'save' tray."
+          ]
+        },
+        {
+          "heading": "Reduce sensory load and allow more processing time",
+          "paragraphs": [
+            "Feedback that's calm and specific works better than feedback that's loud and celebratory. Instead of a fanfare for every correct tap, a short neutral confirmation - 'You chose the £3 item. £2 left' - gives the information without adding sensory noise. Build in a retry that carries no penalty, and give the learner (or their supporting adult) a way to turn off animation and narration before the activity starts, not as something they have to discover or ask for part-way through.",
+            "Processing time matters at least as much as sensory load. Many children with SEND need considerably longer than the 'think time' an activity assumes by default. A practical approach is to wait in silence for a genuine eight to ten seconds after asking a question before repeating or rephrasing it - rephrasing too quickly can itself become the real barrier, more than the money concept ever was. It's worth writing that pause into your own plan explicitly, because in practice it's very easy to fill the silence without noticing.",
+            "For the same reason, leave out timed elements - countdown clocks, response-speed scoring - entirely for first-pass teaching of a new money concept. They measure processing speed, not financial understanding, and for many learners the two are only loosely related."
+          ]
+        },
+        {
+          "heading": "Worked example: a decision the child can explain",
+          "paragraphs": [
+            "A learner chooses between a pictured £2 snack and a £6 toy against a visible £5 pretend budget (a UK-style example in pounds - adapt the currency for your context). Start with just the two cards and a visible number line showing the £5 limit. Offer whichever access route matches the individual check from the first step - a switch-accessible selection, an AAC response, eye gaze, or partner-assisted scanning. Once the child is choosing confidently, swap in new pictures and a new amount to see whether they apply the same budget rule to unfamiliar items, rather than having simply memorised this one pairing."
+          ]
+        },
+        {
+          "heading": "Facilitator's step-by-step plan",
+          "paragraphs": [],
+          "list": [
+            "Run a short, informal access check: preferred communication method, motor access, and any sensory sensitivities, before choosing the activity format.",
+            "Set up one clear instruction, a predictable sequence, and a quiet mode (no sound, no animation) that's available from the start, not added later.",
+            "Model the decision once yourself, then give a practice turn that isn't scored.",
+            "Ask the question, then wait a genuine eight to ten seconds in silence before repeating or rephrasing it.",
+            "Change the pictures and the amounts while keeping the underlying money concept the same, to test whether the idea has transferred."
+          ]
+        },
+        {
+          "heading": "How to check understanding",
+          "paragraphs": [
+            "The clearest sign of real understanding is that the same decision holds up when something irrelevant changes - the setting, the materials, or the adult asking. Try the same budget decision with physical tokens instead of pictures, in a different room, or with a different familiar adult leading it. If the response changes only because one of those surface details changed, the barrier is probably environmental or interface-related rather than a gap in the money concept itself.",
+            "It's also worth noting whether a correct response needed a prompt, a model, or came independently, and writing that down rather than only recording whether the answer was right. A learner who reliably chooses the same option regardless of who is asking, and without a repeated prompt, is showing understanding that doesn't depend on one particular person's style of asking."
+          ]
+        },
+        {
+          "heading": "Common teaching mistakes to avoid",
+          "paragraphs": [],
+          "list": [
+            "Don't equate absence of speech with absence of understanding - a non-verbal response through AAC, a switch, or eye gaze can be exactly as valid.",
+            "Don't assume one sensory design - bright colours, celebratory sounds, fast animation - is universally accessible. What one learner finds motivating, another finds overwhelming.",
+            "Don't read a longer processing time as confusion. Waiting it out is usually more informative than repeating the question.",
+            "Don't require a written or spoken explanation as the only acceptable proof of understanding when the activity itself didn't need one."
+          ]
+        },
+        {
+          "heading": "Try this next",
+          "paragraphs": [
+            "Choose one activity from this guide and repeat it with a different fictional example and a different access route - pictures instead of objects, or an AAC response instead of pointing. Ask the child to show their choice using whichever method suits them best, and keep any real family financial details private; fictional names and amounts work just as well for practice."
+          ]
+        },
+        {
+          "heading": "Editorial references",
+          "paragraphs": [
+            "General guidance on introducing money concepts to children, including keeping early activities concrete and goal-based, draws on the approach set out by the UK's Money and Pensions Service in its work on children and young people's financial education: https://maps.org.uk/en/our-work/children-and-young-people."
+          ]
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How long should one of these activities take?",
+          "answer": "Start with a short session of around ten to fifteen minutes, and let the learner's attention and access needs set the real length rather than a fixed clock - for some children that will mean stopping sooner, for others it will mean several short repeats across a day. This is a practical starting point, not a research-established optimum."
+        },
+        {
+          "question": "What if the child gives an unexpected answer?",
+          "answer": "Ask for the reason behind the choice if they can give one, check that the instruction itself was understood (not just the money concept), and try a fresh example before assuming the concept hasn't landed. Avoid treating speed or spoken fluency as a stand-in for financial understanding - a slow, non-verbal answer can be just as sound as a fast spoken one."
+        },
+        {
+          "question": "Do I need specialist AAC training to run these activities?",
+          "answer": "No. You mainly need to know the symbols and access method the child already uses day to day, and to build the money activity around that existing system rather than introducing a new one. Where a speech and language therapist or AAC specialist already supports the child, it's worth checking the vocabulary you're planning to use with them, but a parent or teacher who already supports the child's communication can adapt these activities without new equipment."
+        },
+        {
+          "question": "The child's needs seem to vary from day to day - how do I plan for that?",
+          "answer": "Build flexibility in rather than picking one fixed format. Having the same concept available two ways - say, pictures plus objects, or screen-based plus a physical tray - means you can offer whichever route suits the child on a given day without redesigning the activity each time."
+        }
+      ]
+    },
+    "free-financial-literacy-activities-primary-school": {
+      "title": "Free Financial Literacy Activities for Primary School",
+      "metaDescription": "Six free, low-prep group activities for teaching primary school children about money, using paper, pictures and imaginary budgets only.",
+      "sections": [
+        {
+          "heading": "What makes these activities different",
+          "paragraphs": [
+            "Everything here runs on paper, pictures and imaginary money — no accounts, no app, no printing budget beyond a few price cards. That makes these activities genuinely free and genuinely low-prep: most can be set up in the time it takes to write six prices on cards and cut them out.",
+            "They're also specifically designed for pairs, small groups or a whole class working together, which is a different angle from an individual or digital money game. If you're after single-player or screen-based games instead, our guide to money games for kids covers that separately — this guide is about shared, talk-it-through activities where pupils reason out loud and justify choices to each other, not ones a child plays alone.",
+            "Each activity below gives one clear objective, works with a fictional budget, and ends with a question that reveals whether pupils actually understood the reasoning, not just whether they filled in an answer."
+          ]
+        },
+        {
+          "heading": "1. The £10 shopping challenge",
+          "paragraphs": [
+            "Give pairs of pupils a fictional £10 budget (a UK-style example in pounds — adjust the currency for your own classroom) and picture cards showing a sandwich (£3), fruit (£2), a drink (£2) and a toy (£6). Ask them to plan a basket and explain out loud what they chose to leave out and why.",
+            "Once most pairs have a basket, change one price — raise the sandwich to £4, for instance — and ask them to revise their plan. The objective is reasoning within a changing budget, not landing on one single \"correct\" basket, so resist the urge to reveal an ideal answer at the end."
+          ]
+        },
+        {
+          "heading": "2. Needs and wants sorting",
+          "paragraphs": [
+            "Provide picture cards for food, shelter, a bus ticket, a game and a birthday gift, and ask pupils to sort them into needs and wants. The useful follow-up question is why an item might move category depending on context: a bus ticket may be essential for one family's daily routine and entirely optional for another.",
+            "This is a good activity for surfacing different family situations without putting any one pupil's circumstances on display — keep all the examples on the cards fictional, and avoid asking pupils to compare the cards to their own family's real purchases."
+          ]
+        },
+        {
+          "heading": "3. The saving timeline",
+          "paragraphs": [
+            "Draw four weekly boxes on the board or on paper. A fictional character wants an £8 item and saves £2 a week. Pupils add coins, tally marks or stickers to each box as the weeks pass, then answer: how many weeks until the character can afford it?",
+            "Add a complication once the basic version works: what happens if the price rises to £10 partway through? For pupils who find handwriting difficult, swap in movable counters or digital tokens on a tablet rather than asking them to draw in each box."
+          ]
+        },
+        {
+          "heading": "4. Design a tiny business",
+          "paragraphs": [
+            "Teams choose a pretend product, estimate what it costs to make, and set a selling price. Give each team three fictional customer requests and ask how they'd respond to each one.",
+            "Use this activity to introduce one specific distinction clearly: revenue is the money a business receives, while profit is what's left once costs are subtracted — the two get conflated constantly, including by adults, so it's worth stating the difference explicitly rather than assuming it's obvious. Avoid implying that every business idea in the room will succeed; a team whose costs outweigh their price is learning something just as useful as a team that turns a profit."
+          ]
+        },
+        {
+          "heading": "5. Spot the suspicious message",
+          "paragraphs": [
+            "Show pupils a fictional message asking someone to click an urgent payment link. Ask them to circle pressure words (\"now,\" \"urgent,\" \"final warning\"), identify what evidence is missing, and practise the response of asking a trusted adult before acting on anything like it.",
+            "Keep this entirely hypothetical: use invented names, invented amounts, and never a real account number, real link or real company name. The skill being practised is the pause-and-check habit, not identification of any specific real-world scam."
+          ]
+        },
+        {
+          "heading": "6. Reflection and assessment: the one question that matters",
+          "paragraphs": [
+            "Finish any of the activities above with a single question: \"What did you choose, and why?\" Accept spoken, written, picture or AAC (augmentative and alternative communication) responses equally — the format doesn't matter, the reasoning does.",
+            "A successful activity is one where the answer reveals the pupil's thinking, not one where every pupil arrives at the same answer. It's usually more valuable to reuse an activity with new prices the following week than to pile a new, more complex activity on top before the first one has settled in."
+          ]
+        },
+        {
+          "heading": "Worked example: planning a fictional picnic on a budget",
+          "paragraphs": [
+            "A class plans a fictional picnic for four people on an £18 budget (again, a UK-style figure to adjust as needed). Each group receives price cards for sandwiches, fruit, water and one decorative extra, such as bunting or napkins.",
+            "Ask each group to explain how they included food and drink before any optional extras, then introduce a change — one price rises — and ask them to adapt their plan. This mirrors the shopping challenge above but at a slightly larger scale, which works well as a second or third session once pupils are comfortable with the basic format."
+          ]
+        },
+        {
+          "heading": "A simple four-step lesson plan",
+          "paragraphs": [
+            "However you combine the activities above, this structure keeps a session focused:"
+          ],
+          "list": [
+            "Choose one objective for the session, such as calculating change or justifying priorities — not several at once.",
+            "Give every group the same fictional price list and accessible visual cards.",
+            "Offer counters, calculators or AAC as appropriate to the specific learning objective, not as an afterthought.",
+            "Finish with an exit ticket showing one new price, and ask each pupil for a revised plan."
+          ]
+        },
+        {
+          "heading": "How to check pupils actually understood",
+          "paragraphs": [
+            "The most reliable check is whether a pupil can apply the same rule to different items, not whether they can repeat the exact example you used in class. After any activity, swap in two or three new items at new prices and ask pupils to explain their choice again using words, pictures or symbols.",
+            "A pupil who can only solve the version with the exact numbers you demonstrated has memorised an answer, not learned the reasoning behind it — that's a useful distinction to hold onto when deciding whether to move on to a harder version or repeat the same one with new numbers."
+          ]
+        },
+        {
+          "heading": "Making these activities accessible for every pupil",
+          "paragraphs": [
+            "Every activity above can be run with the whole class, but not every pupil will show understanding the same way, and these are worth planning for rather than fixing on the day. For a pupil with SEND (special educational needs and disabilities), reduce visual and auditory clutter on the cards themselves — one item per card, high contrast, no competing background pattern — and give noticeably more processing time before expecting a response in a group setting.",
+            "For a pupil who uses AAC, build their existing vocabulary board into the activity directly: core words like \"more,\" \"less,\" \"same\" and \"choose\" cover most of what these activities ask for, so there's rarely a need for a bespoke vocabulary set. A pupil can also demonstrate the full reasoning non-verbally — sorting physical cards into piles, pointing to a sequence of pictures, or using eye gaze with a partner reading out the options — and any of these count as a complete answer, not a partial one."
+          ]
+        },
+        {
+          "heading": "A common mistake to avoid",
+          "paragraphs": [
+            "Don't assume every pupil already knows local coins, has spending money at home, or has shopped unsupervised — any of these assumptions can leave some pupils guessing at vocabulary rather than reasoning about money. Teach the relevant vocabulary (price, budget, change, cost) explicitly before testing it in an activity, rather than assuming it arrives already in place."
+          ]
+        },
+        {
+          "heading": "Try this next",
+          "paragraphs": [
+            "Pick one activity from this guide and run it this week with a different fictional example than the ones shown here. Ask pupils to explain a choice, show it with pictures, or communicate it using their preferred method, and plan to reuse the same activity with new numbers before adding a new one."
+          ]
+        },
+        {
+          "heading": "Editorial references",
+          "paragraphs": [
+            "Guidance from the Money and Pensions Service on children and young people's financial education supports building financial understanding through concrete, repeated, real-world-style decisions rather than one-off lessons: https://maps.org.uk/en/our-work/children-and-young-people",
+            "The Education Endowment Foundation's guidance on metacognition and self-regulation supports asking pupils to explain their reasoning aloud as a way of building transferable thinking skills, which is the basis for the \"what did you choose, and why\" question used throughout this guide: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/metacognition-and-self-regulation"
+          ]
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How long should each activity take?",
+          "answer": "Start with a short session of around ten to fifteen minutes, then adapt to the group's attention span and access needs. That's a practical starting point rather than a research-established optimum, so a shorter or longer session is perfectly fine."
+        },
+        {
+          "question": "What if a pupil gives an unexpected answer?",
+          "answer": "Ask for the reasoning behind it, check whether the instructions were understood, and offer another example before assuming the answer was simply wrong. Avoid treating speed or confident talking as a proxy for genuine financial understanding."
+        },
+        {
+          "question": "Do I need any materials or a budget for these?",
+          "answer": "No. Every activity here uses paper, hand-drawn or printed picture cards, and imaginary money — there's no cost beyond a few minutes of preparation, and nothing here requires an app, an account or real money of any kind."
+        }
+      ]
+    },
+    "free-money-lesson-plans-primary-teachers": {
+      "title": "Free Money Lesson Plans for Primary Teachers",
+      "metaDescription": "Three ready-to-teach money lesson plans for primary classrooms, each with an objective, materials, procedure, differentiation and assessment built in.",
+      "sections": [
+        {
+          "heading": "Why these are lesson plans, not just activity ideas",
+          "paragraphs": [
+            "A list of fun money activities is useful for five minutes of filler time. A lesson plan is different: it has a single objective, a timed procedure you can follow in order, a way to adapt it for different learners, and a way to check whether the objective was actually met. That's the format used below for all three lessons, because \"we did a money activity\" and \"pupils can now do X\" are not the same outcome, and only one of them is worth planning around.",
+            "Each plan is written to be taught as-is or adapted to your own class, timings and curriculum map. None of them need real money, real cards, or any real account information - every example uses fictional names and fictional prices, which keeps the lesson focused on reasoning rather than on anyone's actual family finances."
+          ],
+          "list": []
+        },
+        {
+          "heading": "Before you start: three ground rules",
+          "paragraphs": [
+            "A few rules apply across all three lessons, so they're worth stating once rather than repeating in every plan: never use real payment cards, account numbers or banking apps, even as a demonstration; treat every price and scenario as fictional, and redirect kindly if a child brings up their own family's finances; and collect only the learning response you need for assessment - a pupil's explanation, never any detail about their household's real income or spending."
+          ],
+          "list": []
+        },
+        {
+          "heading": "Lesson 1: Recognise Ways to Pay (ages 6-8, Key Stage 1)",
+          "paragraphs": [
+            "Objective: pupils can identify coins, notes, and the general idea of card or digital payment, and can apply that to a picture they haven't seen before.",
+            "Materials: a set of printed images showing different payment methods (coins, notes, a card being tapped, a phone making a payment), a small set of pretend coins for sorting, and one new 'mystery' image kept aside for the final check.",
+            "This is a UK-style example using pounds and pence; if you're teaching outside the UK, swap in your own currency's coins and notes before printing the images.",
+            "Differentiation: offer symbol or picture cards instead of spoken instructions, allow extra processing time, and accept a point, a gesture or a card placed in a tray as a valid response - a spoken answer should never be the only accepted proof. For a pupil who finds the full set overwhelming, reduce it to two contrasting images first.",
+            "Assessment: show the held-back mystery image and ask the pupil to name or point to the payment method it shows. A pupil who can do this with a genuinely new image has met the objective; a pupil who can only repeat images already seen in the lesson probably needs another round of modelling before moving on."
+          ],
+          "list": [
+            "Starter (5 minutes): show two contrasting images - a coin and a card - and ask pupils what's different about them.",
+            "Model (5 minutes): act out a simple purchase using pretend coins, narrating each step aloud (\"I'm giving three coins because the price is three\").",
+            "Practice (10-12 minutes): in pairs or small groups, pupils sort a mixed set of payment images into categories you've agreed on together.",
+            "Check (5 minutes): each pupil identifies the payment method in the held-back mystery image, individually or with their preferred communication method."
+          ]
+        },
+        {
+          "heading": "Lesson 2: Plan Within a Budget (ages 9-11, Key Stage 2)",
+          "paragraphs": [
+            "Objective: pupils can compare priced options against a fixed budget and explain the trade-off behind their choice, including when the plan has to change.",
+            "Materials: six to eight fictional price cards for a class snack or event, counters or pretend coins for tracking a running total, and a fixed budget figure written where everyone can see it.",
+            "Worked example (a UK-style lesson in pounds; adapt the currency for your own context): a Year 5 class (the UK school-year label for ages 9-10) plans a snack purchase with a £15 budget and six illustrated price cards. The teacher models comparing two options aloud, then groups choose their own combination of items within the budget.",
+            "Differentiation: for pupils who find open-ended choice difficult, pre-sort the cards into two manageable piles, and allow a visual running total (coins lined up, a bar that fills in) alongside or instead of written addition. Accept an explanation given through pointing, a device, or a trusted adult scribing a pupil's spoken reasoning - what's being assessed is the reasoning, not the handwriting or the speech.",
+            "Assessment: present a price change partway through (for example, one item rising by £2) and ask each group to explain, not just recalculate, their revised plan. Mark the explanation, not only whether the new total is arithmetically correct - a pupil who gets the sum wrong but correctly identifies that they now need to drop an item, or swap it for a cheaper one, is demonstrating the real skill this lesson is teaching."
+          ],
+          "list": [
+            "Starter (5 minutes): recap what 'price' and 'budget' mean, using one quick example.",
+            "Model (7 minutes): the teacher thinks aloud through one full comparison between two items, including a trade-off ('if I get this, I can't also get that').",
+            "Practice (15 minutes): in pairs, pupils plan a purchase within the fixed budget using the price cards and counters.",
+            "Assessment (8 minutes): introduce the price change and ask each pair to explain their revised plan, either in writing, aloud, or through their usual communication method."
+          ]
+        },
+        {
+          "heading": "Lesson 3: Spot a Risky Offer or Message (ages 9-11, upper Key Stage 2)",
+          "paragraphs": [
+            "Objective: pupils can identify common warning signs in a message or advertisement - urgency, a request for personal details, or a claim with no evidence behind it - and name a safe next step.",
+            "Materials: two fictional advertisements and one fictional 'prize' message, all clearly marked as made-up, with warning signs built in (a countdown, a request for an address, a vague claim like 'everyone needs this').",
+            "This lesson also works well as a short transition activity for Year 7 (the UK school-year label for ages 11-12), right after primary school, when pupils start managing more of their own online messages and offers.",
+            "Differentiation: read the message aloud as well as showing it in print, pre-underline one warning sign as a worked example, and offer a simple three-item checklist (urgency? personal details asked for? no evidence given?) rather than expecting pupils to generate signs unprompted. Pointing to a pre-identified warning sign and indicating 'yes, risky' counts as real understanding, even without a full written explanation.",
+            "Assessment: give each pupil one new fictional message and ask them to highlight anything that feels like a warning sign, then name one safe next step. The correct safe next step for this age group is consistently the same: check with a trusted adult before responding, clicking, or sharing any information - the lesson should reinforce that habit explicitly, not leave it as an unstated assumption."
+          ],
+          "list": [
+            "Starter (5 minutes): show one obviously exaggerated fictional claim and ask what feels 'off' about it.",
+            "Model (7 minutes): work through one fictional advertisement together, pointing out urgency language and any missing evidence.",
+            "Practice (12-15 minutes): in pairs, pupils highlight warning signs on the second advertisement and the prize message.",
+            "Check (8 minutes): using a new fictional message, each pupil identifies at least one warning sign and states the safe next step."
+          ]
+        },
+        {
+          "heading": "Adapting these lessons for SEND and additional needs",
+          "paragraphs": [
+            "Each lesson above already includes a differentiation note, but the underlying principle is worth stating once, clearly: the objective is a piece of reasoning, and there is almost always more than one way for a pupil to demonstrate it. For a pupil with SEND (special educational needs and disabilities), that can mean symbol cards instead of spoken instructions, fewer options at once, considerably more processing time, plain-background cards instead of busy images to lower sensory load, or accepting a non-verbal response - pointing, eye gaze, a switch, or an AAC (augmentative and alternative communication) device - as fully valid evidence. None of the three lessons require spoken fluency or fast recall, and none should be scored as if they did."
+          ],
+          "list": []
+        },
+        {
+          "heading": "Linking to the wider curriculum",
+          "paragraphs": [
+            "None of these lessons need to stand alone. Lesson 2's budgeting connects naturally to mathematics, Lesson 3's advertisement analysis to media literacy and English comprehension, and all three to personal development work around making choices and asking for help. Keep each lesson focused on its single objective rather than combining all three into one longer session - separate objectives are easier for pupils to meet, and easier for you to assess, one at a time."
+          ],
+          "list": []
+        },
+        {
+          "heading": "How to check pupils actually understood, not just complied",
+          "paragraphs": [
+            "The single most useful habit across all three lessons is collecting an explanation from every pupil, not just a final answer or total. A pupil who sorts cards correctly, reaches the right total, or ticks the right box can still be pattern-matching rather than reasoning - and the only way to tell the difference is to ask 'why did you choose that?' and listen to the answer. If a pupil can calculate but genuinely cannot explain, that's useful information in itself: it suggests the arithmetic is solid but the underlying concept needs another round of modelling before you move on, rather than being a gap to paper over with more practice sums."
+          ],
+          "list": []
+        },
+        {
+          "heading": "A common planning mistake to avoid",
+          "paragraphs": [
+            "It's easy to treat the age bands here as a fixed curriculum requirement rather than a practical starting point. They're not: a strong Year 3 class (the UK school-year label for ages 7-8) might be ready for Lesson 2 earlier than suggested, while a Year 6 class (ages 10-11) might need more time on Lesson 1's basics if it wasn't covered before. Adapt the suggested ages to your pupils' prior learning and your school's own curriculum map."
+          ],
+          "list": []
+        },
+        {
+          "heading": "Try this next",
+          "paragraphs": [
+            "Pick one lesson from this guide and teach it as written before adapting it further - that gives you a genuine baseline for how your class responds, which makes any later adaptation more targeted. Then repeat the same lesson later in the term with a new fictional example and compare how pupils explain their reasoning the second time around; a stronger, more confident explanation on a new example is a better sign of real progress than a faster or more accurate answer on a repeated one."
+          ],
+          "list": []
+        },
+        {
+          "heading": "Editorial references",
+          "paragraphs": [
+            "General guidance on age-appropriate financial education for children and young people draws on the Money and Pensions Service's work in this area (maps.org.uk). The emphasis in these lessons on assessing a pupil's explanation of their reasoning, rather than only their final answer, is consistent with the Education Endowment Foundation's summary of evidence on metacognition and self-regulation in the classroom (educationendowmentfoundation.org.uk), which finds that getting pupils to articulate and reflect on their own thinking is strongly linked to how well new learning sticks."
+          ],
+          "list": []
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How long should each lesson take?",
+          "answer": "Each plan above is built around a 30-40 minute session, but treat that as a practical starting point rather than a fixed rule. Shorten the practice section for younger classes or those with shorter attention spans, and always adapt timing to individual pupils' access needs."
+        },
+        {
+          "question": "What if a pupil gives an answer I didn't expect?",
+          "answer": "Ask for the reasoning behind it before correcting anything. Sometimes an unexpected answer reveals context you hadn't considered; other times it shows an instruction wasn't fully understood, which a second worked example usually resolves. Either way, the follow-up question is more useful than the correction itself."
+        },
+        {
+          "question": "Do I need any specialist resources to run these lessons?",
+          "answer": "No. Every lesson uses printed images, pretend coins or counters, and fictional price or message cards you can make yourself from a template. None of the three lessons require real money, a real card reader, or any online account."
+        }
+      ]
+    },
+    "how-to-teach-kids-about-money": {
+      "title": "How to Teach Kids About Money: A Parent's Guide",
+      "metaDescription": "An age-by-age guide to talking with children about earning, spending, saving and risk, using everyday decisions instead of lectures.",
+      "sections": [
+        {
+          "heading": "Start with the money decisions your child can already see",
+          "paragraphs": [
+            "Money lessons tend to land best when they're attached to a real decision a child has actually watched happen, rather than a rule recited at them out of nowhere. At the shop, comparing two similar products out loud and explaining why you picked one gives a child something concrete to hold onto. At home, talking through the difference between paying for something today and saving toward something bigger does the same job without a single worksheet.",
+            "You do not need to open up your household budget to do this. Many parents feel understandably uncomfortable discussing real income, debt or financial stress with a child, and you don't have to for any of this to work. Fictional amounts and made-up scenarios teach the same reasoning skills while keeping your actual finances private.",
+            "This guide focuses on conversations and short routines for one child, or a small family group, across roughly ages 6 to 14. If you're after ready-made group activities for a classroom instead, our companion guide to free financial literacy activities for primary school covers that specifically."
+          ]
+        },
+        {
+          "heading": "Ages 6 to 8: recognise, sort and choose",
+          "paragraphs": [
+            "At this age, children are building a foundation skill: recognising money and sorting choices into \"things we need\" and \"things we might want.\" Show real coins and notes if you have them, plus simple pictures of card payments — this age group often has no mental model at all for what tapping a card actually represents.",
+            "A good starting activity: give a fictional budget of £5 (this is a UK-style example in pounds — swap in whatever currency suits your family) and let your child choose between three items pictured on cards. Ask them to say which one they picked and why, not just point at it.",
+            "For a child who isn't reading fluently yet, strip the activity down to pictures and spoken instructions, with only one decision presented at a time. Offering three decisions at once at this age usually produces guessing rather than reasoning. Money Quest's own in-app age bands follow roughly this same split, starting with the Explorer stage (6-8) before moving into more planning-based activities."
+          ],
+          "list": [
+            "\"Which one costs less?\"",
+            "\"Which one would you choose if you only had enough for one?\"",
+            "\"What would you have to give up to get the toy instead of the drink?\""
+          ]
+        },
+        {
+          "heading": "Ages 9 to 11: plan and compare",
+          "paragraphs": [
+            "By nine or ten, most children can hold a short plan in mind, which is where saving toward a goal across several weeks starts to make real sense. Set a fictional goal costing £12 (again, a UK-style figure — adjust for your own currency) and ask: if they save £3 a week, how many weeks will it take?",
+            "The more useful follow-up is a complication: what happens if they spend £3 in week two instead of saving it? Ask your child to explain the trade-off in their own words rather than just recalculating the total — the explanation is usually where the real learning shows up, not the arithmetic.",
+            "It's worth saying explicitly, every so often, that real families have very different budgets and that there's no single \"right\" amount to save or spend. This is the age where children start comparing themselves to friends, and a throwaway comment from you can reassure them that budgets are personal, not a competition."
+          ]
+        },
+        {
+          "heading": "Ages 12 to 14: investigate systems and risks",
+          "paragraphs": [
+            "Early teens are ready to look behind the curtain. In simplified form, payslips, digital payments, advertising, subscriptions and online scams are all fair territory. This is also the age where \"how would I check if this is real?\" becomes a genuinely useful habit to start building.",
+            "Ask your child to talk through how they'd verify an unexpected payment request, not to recite a security policy, but to say out loud what signs would make them pause. Use entirely hypothetical accounts and amounts; there's no need for a young teenager to handle real banking details to practise this kind of reasoning."
+          ]
+        },
+        {
+          "heading": "A ten-minute family money routine you can repeat weekly",
+          "paragraphs": [
+            "You don't need a formal curriculum for any of this. A short, repeatable routine does more over several months than one long lecture does in an afternoon: pick one decision, think aloud as you make it yourself, let your child choose next, and ask what they'd do differently next time.",
+            "Repeat weekly with new fictional numbers or a slightly different scenario. Progress at this stage looks like your child offering a reason for a decision unprompted — not reciting a definition back to you word for word."
+          ]
+        },
+        {
+          "heading": "Worked example: the pretend café decision",
+          "paragraphs": [
+            "At a pretend café, your child has £8 to spend (another UK-style example — swap in a local currency as needed). Lunch costs £4, a drink costs £2 and a toy costs £5. Ask them to choose a combination and explain the choice out loud.",
+            "If they choose lunch and a drink, £2 is left over — ask what they'd do with it. If they choose the toy instead, ask what they'd do about lunch. There's no need to tie this back to your own family's finances; a fictional scenario builds the same reasoning."
+          ]
+        },
+        {
+          "heading": "A simple four-step plan for a first session",
+          "paragraphs": [
+            "If you'd like a little more structure than \"just start talking,\" here's a plan that takes about ten minutes:"
+          ],
+          "list": [
+            "Prepare three illustrated price cards and eight £1 paper tokens (or your local equivalent).",
+            "Model one choice aloud yourself first, including what you're giving up to make it.",
+            "Let your child make a different choice and count what's left afterwards.",
+            "Ask how the decision would change if one price went up by £1."
+          ]
+        },
+        {
+          "heading": "How to check your child actually understood",
+          "paragraphs": [
+            "The clearest test isn't whether your child can repeat a definition back to you — it's whether they can handle a new version of the same problem. Present a new £9 scenario with different prices. Can they stay inside the budget and explain a trade-off, without simply copying the earlier example?",
+            "Watch for a child substituting speed or confident-sounding talk for actual understanding — a fast, fluent answer isn't automatically a reasoned one. If they struggle, treat that as useful information: repeat the activity with simpler numbers before adding complexity."
+          ]
+        },
+        {
+          "heading": "Adapting this for SEND and different communication styles",
+          "paragraphs": [
+            "Every child can take part in these conversations, but not every child will show their understanding in the same way. For a child with SEND (special educational needs and disabilities), reduce the sensory load first — a quiet moment with two cards on a plain background usually works better than the same activity at a busy shop counter. Give extra processing time before expecting an answer, and resist filling a silence with another question straight away; a longer pause is often just thinking time, not disengagement.",
+            "For a child who uses AAC (augmentative and alternative communication), or who doesn't use spoken language, build the activity around their existing system rather than adapting it afterwards. Point-and-select on a small number of picture cards, or a core-vocabulary AAC board with words like \"more,\" \"less,\" \"same\" and \"choose,\" lets a child demonstrate the same reasoning a spoken explanation would show. A nod, a pointed finger, or a sorted pile of cards can all count as a complete answer."
+          ]
+        },
+        {
+          "heading": "A common mistake to avoid",
+          "paragraphs": [
+            "Treating a weekly allowance as a prerequisite for any of this is a common and unnecessary mistake — fictional tokens work just as well. It's also worth not promising yourself, or your child, that one good conversation creates a lasting financial habit; these are skills built through repetition over months and years, the same way children pick up most other everyday skills."
+          ]
+        },
+        {
+          "heading": "Try this next",
+          "paragraphs": [
+            "Pick one activity from this guide and repeat it with a different fictional example this week. Ask your child to explain a choice, show it with pictures, or communicate it using whatever method works best for them. Keep your real family financial information private throughout — it was never necessary for the lesson in the first place."
+          ]
+        },
+        {
+          "heading": "Editorial references",
+          "paragraphs": [
+            "Guidance from the Money and Pensions Service on children and young people's financial education supports starting with concrete, everyday decisions rather than abstract rules, particularly for younger children: https://maps.org.uk/en/our-work/children-and-young-people",
+            "The Education Endowment Foundation's guidance on metacognition and self-regulation supports asking a child to explain their reasoning aloud, rather than only checking whether their final answer is correct, as a way of building transferable thinking skills — the principle behind most of the \"ask them why\" prompts in this guide: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/metacognition-and-self-regulation"
+          ]
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How long should each activity take?",
+          "answer": "Start with a short session of around ten to fifteen minutes, then adapt to your child's attention span and access needs. That's a practical starting point rather than a research-established optimum, so don't worry if your family's rhythm ends up shorter or longer."
+        },
+        {
+          "question": "What if my child gives an unexpected answer?",
+          "answer": "Ask for the reasoning behind it, check whether the instructions were understood, and try another example before assuming the answer was simply wrong. Avoid using speed or confident talking as a stand-in for genuine financial understanding — a slower, well-reasoned answer is worth more than a quick guess."
+        },
+        {
+          "question": "What age should I start?",
+          "answer": "Most children can begin sorting pictures into needs and wants from around age five or six, as soon as they can compare two simple options and give a reason. There's no need to wait for reading or arithmetic skills first."
+        }
+      ]
+    },
+    "how-to-teach-leadership-skills-to-children": {
+      "title": "How to Teach Leadership Skills to Children",
+      "metaDescription": "Teach leadership as behaviour - listening, fair decisions and shared responsibility - rather than confidence, volume or who talks the most.",
+      "sections": [
+        {
+          "heading": "Leadership is a set of behaviours, not a personality type",
+          "paragraphs": [
+            "It's easy to assume the most confident child in the group, the one who speaks first and loudest, is automatically the \"natural leader.\" That assumption causes real harm: it quietly tells quieter, slower-to-speak, or non-speaking children that leadership isn't for them, when none of those traits actually predict whether a group works well together.",
+            "This guide treats leadership as a specific set of observable behaviours any child can practise: listening carefully enough to summarise someone else's point, helping a group choose fairly between options, taking responsibility for a shared outcome, and responding to a mistake without needing to blame someone for it. All four can be taught and noticed - which is why they're a better focus than something as vague as \"confidence.\"",
+            "This article focuses on leadership as everyday group behaviour. If you're also working on how children generate and test their own ideas - spotting a problem and building something cheap to try it out - our companion guide on developing entrepreneurial thinking in children covers that earlier stage in more depth."
+          ]
+        },
+        {
+          "heading": "What to ignore (and what to look for instead)",
+          "paragraphs": [
+            "It's worth being explicit about what doesn't count as evidence of leadership ability, because these are the easiest things to notice by accident. Don't score a child's confidence, how loudly or quickly they speak, or how much eye contact they make as signs of leadership - none of these reliably predict whether a group makes good, fair decisions together, and treating them as if they do disadvantages children who communicate differently.",
+            "Look instead for whether a child invites other people to contribute, shares responsibility for the outcome rather than claiming all the credit (or none of the blame), explains the reasoning behind a choice, and changes their approach in response to feedback. These are things you can actually see happen, regardless of how a child talks, moves, or communicates."
+          ]
+        },
+        {
+          "heading": "Give everyone a meaningful role",
+          "paragraphs": [
+            "In any small group project, rotate clear roles - organiser, question-asker, materials checker, presenter - so every child practises more than one kind of contribution over time. Make space for non-speaking or AAC (augmentative and alternative communication) based participation in every role, not just a token \"quiet\" one; a materials checker can tick off a picture list just as effectively by pointing as by talking.",
+            "Be explicit about what a role actually means: a leader for the week is responsible for helping the group make progress, not entitled to tell everyone else what to do. That distinction - responsibility to the group, rather than authority over it - is worth repeating out loud, because children (and plenty of adults) default to the opposite assumption."
+          ]
+        },
+        {
+          "heading": "Practise listening and disagreement",
+          "paragraphs": [
+            "Give the group a small, fictional disagreement to work through - for example, deciding how to spend a pretend £10 activity budget between two things the group wants (this is a UK-style example in pounds; any small amount in any currency works just as well). Before anyone proposes a decision, ask each child to summarise someone else's view in their own words first. That single step does most of the work of teaching real listening.",
+            "Model respectful disagreement yourself: it's entirely possible to say \"I don't think that's the best option, and here's why\" without raising your voice. Invite quieter group members to contribute without pressuring them to speak - a written note, a drawn preference, or a point at a picture works just as well as a spoken opinion."
+          ]
+        },
+        {
+          "heading": "Make decisions transparently",
+          "paragraphs": [
+            "Ask the group to agree on their decision-making criteria before comparing options - cost, fairness and safety are a reliable starting set for most children's activities. Once criteria are agreed, compare the options against them openly, out loud or in writing, rather than letting one person simply announce a choice.",
+            "If the plan changes partway through, say why, in front of the whole group, rather than quietly adjusting it. This single habit - explaining changes rather than just making them - turns leadership from something that happens inside one child's head into something the whole group can see and learn from."
+          ]
+        },
+        {
+          "heading": "Respond to mistakes without assigning blame",
+          "paragraphs": [
+            "Mistakes are where leadership behaviour is tested most directly, so it's worth practising on purpose rather than only reacting to real ones as they happen. Use a scenario where a group runs out of materials partway through a project - for example, a group making a shared poster that runs short of card halfway through. Ask three questions: What happened? What can we repair right now? How do we prevent this next time?",
+            "Deliberately avoid letting the group settle on blaming one child for a shared shortfall - in almost every case, several small decisions led to the gap. Research on metacognition and self-regulation from the Education Endowment Foundation suggests that prompting children to reflect on what happened and what they'd do differently next time, rather than simply moving on, helps that kind of reasoning transfer to future situations."
+          ]
+        },
+        {
+          "heading": "Worked example: the poster that ran out of card",
+          "paragraphs": [
+            "A group of four children is making a shared poster for a class display. Halfway through, they realise they've used more card than planned and won't have enough to finish the second half as designed. Rather than an adult stepping in, the group works through it themselves: what happened (too much was used before anyone checked how much was left), what can be repaired now (a smaller layout, or the back of an already-used sheet), and how to prevent it next time (check materials halfway through, not just at the start).",
+            "The adult's role here is to ask the three questions and then stay quiet while the group works it out - resisting the urge to supply the fix is often harder for the adult than for the children."
+          ]
+        },
+        {
+          "heading": "Facilitator's step-by-step plan",
+          "paragraphs": [],
+          "list": [
+            "Rotate roles at the start of each session, and agree what each role is actually responsible for.",
+            "Introduce the day's scenario and ask the group to agree their decision-making criteria before discussing options.",
+            "Ask each child to restate someone else's point before responding to it.",
+            "Compare the options against the agreed criteria openly, and have the group explain their choice out loud or in writing.",
+            "If something goes wrong, run the \"what happened, what can we repair, how do we prevent it\" sequence before moving on."
+          ]
+        },
+        {
+          "heading": "Making this accessible to every child",
+          "paragraphs": [
+            "Every activity in this guide should flex to different communication styles and needs. For a child who uses AAC or doesn't use spoken language, build their contributions into the structure from the start rather than adding them as an afterthought - a role like \"materials checker\" or \"criteria reminder\" can be carried out entirely through pointing, a picture-based communication board, or a written list, with no speaking required at all.",
+            "For a child who finds group discussion overwhelming - too many voices, too much noise, too much eye contact expected of them - offer a smaller sub-group of two or three, and allow extra processing time before expecting a response; several seconds of silence after a question is not a sign a child doesn't understand. A child can show they've understood a decision by pointing to their choice on a written or picture-based list, rather than explaining it verbally - that's an equally valid demonstration of the same thinking."
+          ]
+        },
+        {
+          "heading": "How to check understanding",
+          "paragraphs": [
+            "The clearest sign a child has understood this isn't how confidently they talk about the activity afterwards - it's whether they can point to a specific decision and explain, in their own way, why the group chose it. Ask: \"What did the group decide, and what was the reason?\" and \"What would you do differently next time, and why?\"",
+            "A child who can answer both, even briefly or non-verbally, has grasped the behaviour this guide is trying to build. A child who can only say \"we made a poster\" or \"I was in charge\" without being able to connect that to a reason or a reflection has learned the activity's surface, not its point - which is a useful thing to notice and revisit, not a reason to worry."
+          ]
+        },
+        {
+          "heading": "Common teaching mistake to avoid",
+          "paragraphs": [
+            "The mistake to watch for is rewarding the loudest, fastest, or most confident-sounding child by default, because it's the easiest signal to notice in a busy classroom or living room. Over time, that quietly teaches every child in the group that leadership is about dominating a conversation rather than making it work well for everyone in it. Noticing and naming the quieter behaviours - summarising someone else's point, changing a plan based on feedback, sharing credit - takes more deliberate effort, but it's what actually builds the skill this guide is about."
+          ]
+        },
+        {
+          "heading": "Try this next",
+          "paragraphs": [
+            "Pick one activity from this guide and repeat it with a different fictional scenario - choosing a game for a rainy afternoon, deciding how to arrange a shared shelf, or planning a small group task. Ask the child to explain one decision, using whichever method suits them best: spoken words, pictures, writing, or pointing. Keep any real family financial details out of the exercise; fictional numbers teach exactly the same lesson."
+          ]
+        },
+        {
+          "heading": "Editorial references",
+          "paragraphs": [
+            "The approach to mistakes in this guide (\"what happened, what can we repair, how do we prevent it\") draws on the general principle behind the Education Endowment Foundation's guidance on metacognition and self-regulation, which supports structured reflection - planning, monitoring and evaluating one's own actions - as a way of helping children apply reasoning to future situations: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/metacognition-and-self-regulation."
+          ]
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What age can children start practising these leadership behaviours?",
+          "answer": "Even young children can practise a simplified version - taking turns, naming how a choice was made, saying what they'd do differently - from around age six or seven. The underlying behaviours stay the same; what changes with age is how much they can explain their own reasoning in words."
+        },
+        {
+          "question": "What if one child always wants to take charge?",
+          "answer": "Rotating roles with a clear, stated job description for each one usually helps more than directly telling an eager child to step back. Frame it as \"this week you're the question-asker, and the organiser role is someone else's job\" rather than as a criticism of their enthusiasm."
+        },
+        {
+          "question": "My child is quiet and rarely speaks up in group activities. Does that mean they can't be a leader?",
+          "answer": "No. Quietness and leadership ability are unrelated. Many of the behaviours this guide focuses on - listening carefully, noticing when a plan needs to change, treating a decision fairly - don't require speaking first or loudest, and a quiet child often does them very well once a role makes space for their preferred way of contributing."
+        }
+      ]
+    },
+    "skills-for-ai-powered-future": {
+      "title": "Skills Children Need for an AI-Powered Future",
+      "metaDescription": "Five adaptable skills worth building now: critical thinking, collaboration, creativity, digital literacy and self-regulation, with practical activities.",
+      "sections": [
+        {
+          "heading": "Build capabilities, not job predictions",
+          "paragraphs": [
+            "Nobody can say with confidence which specific jobs will exist when today's children are adults, and plenty of adults have learned not to trust the predictions that circulated even five or ten years ago. What's more useful than a guess about future jobs is a short list of capabilities that hold up well whatever that future turns out to look like: thinking critically about information, working well with other people, being creative inside real constraints, using digital tools (including AI tools) sensibly, and managing your own learning. None of these are new - good teachers and parents have cultivated them for decades - but they matter more, not less, in a world where generating plausible-sounding text and images is suddenly cheap and instant.",
+            "This article is about building those five capabilities directly, mostly away from any screen. It's a companion to - not a substitute for - Money Quest's articles that focus specifically on AI and money together; here, money shows up only occasionally, as one example among several, because the skills themselves are broader than any single domain."
+          ]
+        },
+        {
+          "heading": "Critical thinking and verification",
+          "paragraphs": [
+            "A practical way in is to make checking a claim feel normal rather than confrontational. Give a child two different answers to the same question - one right, one subtly wrong - and ask which one they'd trust and why, rather than simply telling them which is correct. The useful skill isn't spotting this particular error; it's getting comfortable with the question 'what would convince me either way?'",
+            "It's just as important to make revising a view feel normal, not like losing an argument. When new information changes the picture, say so out loud yourself - 'I thought X, but this new information changes my mind, so now I think Y' - so children see an adult model changing course without treating it as a defeat."
+          ]
+        },
+        {
+          "heading": "Communication and collaboration",
+          "paragraphs": [
+            "A useful task asks a small group to design a low-cost community service - a shared tool library, a lift-sharing rota, a repair café. Each child contributes an idea, listens to someone else's, and has to explain a decision the group makes, which is a genuinely different skill from just having a good idea alone.",
+            "Making this genuinely inclusive takes a bit more than good intentions. Allow spoken, typed, drawn, and AAC (augmentative and alternative communication) contributions side by side within the same task, so a child who communicates through a device or through drawing is contributing on equal footing with a child who's comfortable speaking up. For a child who needs longer to process a question or formulate a response, build in a real pause before moving on - some children will also do better contributing in writing first and sharing it rather than being asked to think aloud in the moment. None of these adjustments change what's being assessed; they change who gets a fair chance to show it."
+          ]
+        },
+        {
+          "heading": "Creativity with constraints",
+          "paragraphs": [
+            "Ask children to solve a real problem using only three available materials, or a fictional £20 budget (this is a UK-style example in pounds; adapt the currency and amount for your own context). The constraint is doing the work here, not the budget itself - it's just one convenient way to force comparison between options. A tight limit makes children compare trade-offs and explain their reasoning, rather than producing an endless list of ideas with no way to choose between them.",
+            "The same approach works with time limits, material limits, or a 'must include everyone's idea in some form' rule instead of a budget - the underlying skill is choosing well under a real constraint, and money is simply one familiar constraint among several that work equally well."
+          ]
+        },
+        {
+          "heading": "Digital and AI literacy",
+          "paragraphs": [
+            "Children benefit from an early, concrete understanding that AI systems can generate plausible-sounding text and images while still making mistakes, reflecting biases in the material they were built from, or mishandling personal information. The most effective way to teach this with younger children is through adult-led demonstrations using fictional prompts, rather than open independent use - UNESCO's guidance for generative AI in education specifically recommends age-appropriate, adult-supervised approaches and age limits for independent use of general-purpose AI tools (https://www.unesco.org/en/articles/guidance-generative-ai-education-and-research).",
+            "In practice, that means children should not be set up with independent accounts on general-purpose AI services, and any AI output they see should be framed from the start as something to check, not something to trust by default."
+          ]
+        },
+        {
+          "heading": "Self-regulation and reflection",
+          "paragraphs": [
+            "A simple cycle - plan, try, check, improve - gives children a repeatable structure for almost any task, including ones that have nothing to do with money or technology. After an activity, ask what worked and what they'd change next time, and treat the answer as useful information rather than a formality to get through before moving on.",
+            "This kind of explicit modelling and guided reflection has a stronger evidence base than simply assuming these habits develop on their own from screen time or general life experience - the Education Endowment Foundation's review of metacognition and self-regulation strategies finds that teaching pupils to plan, monitor and evaluate their own learning has a consistently positive, moderate effect, when it's taught explicitly rather than left implicit (https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/metacognition-and-self-regulation)."
+          ]
+        },
+        {
+          "heading": "Worked example: a decision children can explain",
+          "paragraphs": [
+            "A class wants to reduce paper waste. Teams propose a system for reusing scrap paper, estimate roughly what it would cost to set up, and test the idea for one week. Children plan the system, monitor what actually happens once it's running, and explain afterwards what they'd change. AI tools are optional here and shouldn't replace the children's own reasoning - if a team uses one to brainstorm options, the group still has to evaluate and choose between them itself."
+          ]
+        },
+        {
+          "heading": "Facilitator's step-by-step plan",
+          "paragraphs": [],
+          "list": [
+            "Define a real, small problem in child-friendly terms, with no single 'correct' answer already in mind.",
+            "Ask each team for two solutions with genuinely different costs or constraints, not just two versions of the same idea.",
+            "Test one idea safely over a short, fixed period and record what actually happened, not just what was predicted.",
+            "Review the evidence together and change the plan if it doesn't hold up - treat this as the point of the exercise, not a sign it went wrong."
+          ]
+        },
+        {
+          "heading": "How to check understanding",
+          "paragraphs": [
+            "The clearest sign a child has actually built these skills, rather than just enjoyed the activity, is being able to describe a decision they changed after seeing new evidence - not simply having their first idea praised and left unchallenged. Ask directly: 'what did you think at the start, and what's different now?' A child who can answer that is demonstrating revision, which is the actual skill being taught.",
+            "It's also worth checking whether a child can apply the same reasoning habit to an unfamiliar problem, not just the one just practised - a child who only ever compares options in the exact format they were taught hasn't yet generalised the underlying skill."
+          ]
+        },
+        {
+          "heading": "Common teaching mistakes to avoid",
+          "paragraphs": [],
+          "list": [
+            "Avoid presenting predictions about specific future jobs as settled fact - nobody genuinely knows, and treating a guess as certain undermines the more useful message about adaptable habits.",
+            "Avoid letting 'AI literacy' mean only tool fluency - knowing how to prompt a system well is far less important than knowing when to question its output.",
+            "Avoid rewarding only the first idea a child produces; reward the process of comparing, checking and revising, since that's the transferable part.",
+            "Avoid treating this as a separate AI-safety topic - online safety and AI-specific risks are covered in Money Quest's dedicated AI-safety articles; this article's angle is building the underlying thinking and collaboration skills that make a child better equipped generally, with or without AI in the picture."
+          ]
+        },
+        {
+          "heading": "Try this next",
+          "paragraphs": [
+            "Pick one activity from this guide and run it with a different fictional scenario - a different constraint, a different small problem to solve. Ask the child to explain a decision they changed their mind about, in whichever way suits them best - spoken, written, drawn or through an AAC device - and keep any real family or school details private by using fictional names and figures."
+          ]
+        },
+        {
+          "heading": "Editorial references",
+          "paragraphs": [
+            "Guidance on age-appropriate, adult-supervised approaches to generative AI in education draws on UNESCO's Guidance for generative AI in education and research: https://www.unesco.org/en/articles/guidance-generative-ai-education-and-research. The evidence on teaching planning, monitoring and evaluation explicitly draws on the Education Endowment Foundation's Metacognition and self-regulation guidance: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/metacognition-and-self-regulation."
+          ]
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How long should one of these activities take?",
+          "answer": "Start with a short session of around ten to fifteen minutes, then adapt to the group's attention span and the complexity of the problem chosen. This is a practical starting point rather than a research-established optimum."
+        },
+        {
+          "question": "What if a child gives an answer I didn't expect?",
+          "answer": "Ask for the reasoning behind it, check that the task itself was understood as intended, and offer another example if needed. An unexpected answer that's well-reasoned is often more useful to discuss than a predictable 'correct' one."
+        },
+        {
+          "question": "Should children be using AI tools directly for these activities?",
+          "answer": "For most of these activities, no independent account or direct access is needed, and younger children in particular benefit more from adult-led demonstrations with fictional prompts than from open-ended independent use. Where an older child does use an AI tool as part of a task, treat its output as a starting point to question, not a finished answer."
+        },
+        {
+          "question": "Why does money only come up occasionally in this article?",
+          "answer": "The five skills here - critical thinking, collaboration, creativity, digital literacy and self-regulation - are broader than any one domain, so money appears only as one convenient, familiar constraint for the creativity activity. Money Quest covers AI and money together in more depth in its other articles on that specific topic."
+        }
+      ]
+    },
+    "teaching-children-ai-money-safety": {
+      "title": "How to Teach Children About AI and Money Safely",
+      "metaDescription": "A practical, step-by-step guide to discussing AI-generated financial suggestions with children safely and privately.",
+      "sections": [
+        {
+          "heading": "A practical companion to our AI financial-literacy guide",
+          "paragraphs": [
+            "This guide is the practical companion to Why Financial Literacy Matters in the Age of AI, which covers the bigger-picture reasons AI makes financial judgement worth practising early. Here, the focus is narrower and more hands-on: specific scripts, examples and session plans for discussing AI-generated financial suggestions with a child, step by step."
+          ]
+        },
+        {
+          "heading": "Explain the limits of AI in plain language",
+          "paragraphs": [
+            "An AI tool generates a response by predicting what a useful-looking answer looks like, based on patterns in text it was trained on. It does not know a specific family's budget, it has no memory of what was decided last time unless you tell it again, and it can produce an answer that sounds confident while being wrong.",
+            "UNESCO's guidance for generative AI in education and research makes a similar point: it stresses that learners should be taught to question and verify AI output rather than treat it as authoritative - a principle that applies just as much to a shopping suggestion as to a homework answer.",
+            "Say this to a child directly, in whatever words fit their age: an AI's answer is not financial advice, and it should never replace a parent's or teacher's judgement about money. That single sentence, repeated across a few different examples, tends to stick better than one long explanation."
+          ]
+        },
+        {
+          "heading": "A fictional example: comparing two AI suggestions for a £12 budget",
+          "paragraphs": [
+            "This is a UK-style example using pounds; adapt the currency for your own context. Give a child a fictional £12 budget for a water bottle or a small toy, and show two invented AI-style suggestions. Suggestion One recommends an item at '£14, but it's worth it' - over budget, with no acknowledgement of the limit. Suggestion Two lists a £9 price, states its own assumptions ('this doesn't include postage, which I don't know'), and flags what it doesn't know.",
+            "Ask which suggestion is easier to check, and why. Then do the arithmetic together rather than trusting either suggestion's maths - working out the real total, including any extra costs, is the actual skill being practised, not just spotting which answer 'sounds' more honest."
+          ]
+        },
+        {
+          "heading": "Protect personal and family information",
+          "paragraphs": [
+            "Use made-up names, invented balances and imaginary purchases throughout - never a real one. Never type a child's real address, school name, date of birth, or any payment information into a general-purpose AI tool, and don't let a child do this unsupervised either.",
+            "Adult supervision matters here in a specific way: it's not just about screen time, it's about being the second check on anything an AI tool suggests before a child acts on it, and about deciding what access, if any, is age-appropriate for a particular child."
+          ]
+        },
+        {
+          "heading": "Spotting sponsorship and persuasion",
+          "paragraphs": [
+            "Ask three questions about any AI-generated recommendation: is it sponsored, or does someone else benefit if the child buys? What evidence actually supports it? Is there a cheaper or free alternative it hasn't mentioned?",
+            "It's worth naming persuasion techniques out loud when you spot them in a fictional example - confident wording, claims of popularity, or a sense that the child needs to decide quickly - so the child learns to notice the technique itself, separately from whether the underlying product is actually good or bad."
+          ]
+        },
+        {
+          "heading": "Finish every session with a human decision",
+          "paragraphs": [
+            "AI can be useful as a practice example to analyse, but the goal of every session is independent reasoning the child does themselves, not a better AI tool. End by having the child state the budget out loud, check the total cost, compare the available options, and say what they'd do if they were still unsure - which is ask an adult, not guess. Guidance from the Money and Pensions Service on children's financial education treats this kind of independent decision-making as a core early building block, not an advanced skill reserved for teenagers."
+          ]
+        },
+        {
+          "heading": "A step-by-step plan you can reuse",
+          "paragraphs": [],
+          "list": [
+            "State the fictional budget first, out loud, before showing any suggestion.",
+            "Show one or two invented AI-style recommendations - never a real chatbot session using the child's real details.",
+            "Ask the three persuasion questions: sponsored? evidence? cheaper alternative?",
+            "Work out the real total cost together, including anything hidden in the small print.",
+            "Finish by asking what the child would actually decide, and why."
+          ]
+        },
+        {
+          "heading": "How to check understanding",
+          "paragraphs": [
+            "Rather than asking 'did you get it?', give the child a brand new fictional recommendation they haven't seen and watch what they do unprompted - do they check the total, notice what's missing, or ask about sponsorship without being reminded? That unprompted transfer is the strongest sign the habit has actually formed, rather than just been repeated back a moment after you explained it."
+          ]
+        },
+        {
+          "heading": "Making this accessible",
+          "paragraphs": [
+            "For a child with SEND (special educational needs and disabilities), break each step into one question at a time rather than presenting the full list at once, and allow extra processing time between showing an example and expecting a response. A child using AAC (augmentative and alternative communication) can answer the persuasion questions by selecting from a small symbol set - a thumbs-up or thumbs-down for 'sponsored or not', for example - rather than producing a spoken or written explanation. Reducing visual clutter in the fictional examples themselves (plain text, one claim at a time, no busy backgrounds) also helps children who find a cluttered screen harder to process, regardless of whether they have a formal SEND designation."
+          ]
+        },
+        {
+          "heading": "Why this is a companion, not a repeat",
+          "paragraphs": [
+            "If you've already read Why Financial Literacy Matters in the Age of AI, you'll recognise the same three-question habit referenced there. This guide doesn't re-explain why that habit matters - it gives you a ready-to-run session plan and a fresh set of fictional examples, so you're not reusing the same scenario twice."
+          ]
+        },
+        {
+          "heading": "Try this next",
+          "paragraphs": [
+            "Pick one activity from this guide and repeat it with a different fictional example. Ask the child to explain a choice, show it with pictures, or communicate it using their preferred method. Keep real family financial information private throughout."
+          ]
+        },
+        {
+          "heading": "Editorial references for fact checking",
+          "paragraphs": [
+            "Money and Pensions Service - guidance on financial education for children and young people: https://maps.org.uk/en/our-work/children-and-young-people",
+            "Education Endowment Foundation - Metacognition and self-regulation teaching and learning toolkit: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/metacognition-and-self-regulation",
+            "UNESCO - Guidance for generative AI in education and research: https://www.unesco.org/en/articles/guidance-generative-ai-education-and-research"
+          ]
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Should I let my child use a real AI chatbot to practise this?",
+          "answer": "It isn't necessary - fictional, pre-written examples are safer and just as effective for building the skill. If you do use a real AI tool, stay with the child throughout and never let them enter real financial or personal details."
+        },
+        {
+          "question": "What age is this appropriate for?",
+          "answer": "The underlying habit works from around Key Stage 1 (roughly ages 5-7 in the English school system - a UK-specific term) with very simple yes/no questions, scaling up to the fuller persuasion-spotting version from around age 9 upward."
+        },
+        {
+          "question": "What if my child trusts the AI suggestion more than me?",
+          "answer": "That's common, and it's worth treating as curiosity rather than defiance. Ask the child to explain what made the suggestion convincing - usually it's confident wording or a claim of popularity, not actual evidence - and work through checking it together rather than simply overruling the choice."
+        }
+      ]
+    },
+    "why-critical-thinking-matters-for-children": {
+      "title": "Why Critical Thinking Matters for Children",
+      "metaDescription": "How to help children tell evidence from confidence, spot persuasive claims, and reason through everyday decisions, including ones about money.",
+      "sections": [
+        {
+          "heading": "Why this is a money skill, not just a classroom skill",
+          "paragraphs": [
+            "Children meet persuasive claims constantly - an advert, a friend's confident opinion, a game promising a reward, a message that something is scarce or urgent. Critical thinking is simply the habit of pausing on a claim before accepting or acting on it: who's making it, what evidence backs it up, and what it wants the listener to do next. Money is one of the clearest places to practise this, because so many claims a child encounters - 'this is a bargain', 'everyone has one', 'you'll miss out' - are specifically designed to bypass that pause.",
+            "This article is about the general habit of evaluating claims and evidence, with money as one recurring example among several. It's a close relative of, but distinct from, learning to sort needs from wants: that's a specific category judgement about a single decision, while critical thinking is the broader skill of asking what's actually being claimed and how you'd check it, which applies just as much to a friend's opinion or a game's promised reward as it does to a purchase."
+          ],
+          "list": []
+        },
+        {
+          "heading": "Start with claims children already encounter",
+          "paragraphs": [
+            "You don't need an abstract lesson in logic to begin - children can recognise persuasive language well before they could define it. A simple way in: show a fictional poster claiming 'Everyone needs this toy!' and ask three plain questions. Who made this claim? What evidence do they give for it? What do they want me to do next? Most children, even quite young ones, can answer all three once they've been asked a couple of times, because the pattern - someone wants me to do something, and is using a strong claim to get there - is one they half-notice already."
+          ],
+          "list": []
+        },
+        {
+          "heading": "Model changing your mind out loud",
+          "paragraphs": [
+            "One of the most useful things an adult can do is narrate their own reasoning when it changes, rather than only modelling confident, finished conclusions. Try saying something like: 'I thought this was the cheaper one, but I forgot to add the delivery cost - let me compare the total price instead.' This is a UK-style phrasing using pounds as the example currency; the same idea works with any currency, just swap the units. The point isn't the specific numbers - it's showing a child that revising a decision when new information turns up is what good thinking looks like, not a failure to have got it right the first time."
+          ],
+          "list": []
+        },
+        {
+          "heading": "A three-question routine you can use anywhere",
+          "paragraphs": [
+            "A short, repeatable routine travels better than a one-off lesson. Three questions cover most everyday claims: What is the claim, exactly? How could we check it? What else might explain it? Use them on familiar, low-stakes material - a price, an online recommendation, a claim about a game's rewards - rather than saving them for big decisions, so the habit is already comfortable by the time it matters. One caution worth building in from the start: use the routine as a genuine question, not as the opening move of a debate. A child who feels cross-examined every time they say something stops volunteering claims to test at all, which defeats the purpose."
+          ],
+          "list": []
+        },
+        {
+          "heading": "Teach productive uncertainty, not blanket doubt",
+          "paragraphs": [
+            "Some questions have a clean, checkable answer. Whether £4 plus £3 fits inside a £6 budget (a UK-style example in pounds; use your own currency's amounts if that's clearer for your child) is settled by arithmetic, not opinion. Other questions - which of two toys is more fun, whether a particular purchase is worth it - genuinely depend on priorities, and don't have one correct answer at all. Children benefit from learning to tell these apart, and from having permission to say 'I'm not sure yet' when a genuine answer requires information they don't currently have, rather than guessing confidently just to produce an answer."
+          ],
+          "list": []
+        },
+        {
+          "heading": "A worked example across three ages",
+          "paragraphs": [
+            "Here's one scenario, scaled for different ages. A fictional advert claims a £12 product (a UK-style example in pounds) is 'half price', but never states the original price it's half of."
+          ],
+          "list": [
+            "Ages 6-8: ask simply, 'does the advert tell us what it used to cost?' If not, the child can learn that 'half price' isn't a fact yet - it's a claim missing a piece.",
+            "Ages 9-11: ask the child to compare this advert with a second one that does show both the original price and a delivery cost, and decide which offer actually gives them enough information to judge.",
+            "Ages 12-14: ask the child to propose what they'd need to see before trusting the 'half price' claim at all, and to explain what someone benefits from by leaving that information out."
+          ]
+        },
+        {
+          "heading": "A step-by-step way to run this with a group or a class",
+          "paragraphs": [
+            "This structure works for a family conversation or a short classroom activity alike."
+          ],
+          "list": [
+            "Present one simple, clearly fictional claim.",
+            "Ask what the claim actually says, and who benefits if people believe it.",
+            "Ask what information is missing, and one safe way it could be checked.",
+            "Invite a revised decision once the missing evidence is filled in, and ask the child to explain what changed their mind."
+          ]
+        },
+        {
+          "heading": "How to check whether a child actually understood",
+          "paragraphs": [
+            "The test that matters isn't agreement - it's reasoning on a new example. Present a claim the child hasn't seen before and see whether they can, unprompted, identify what's missing or propose a fair way to compare two options. A child who respectfully disagrees with you and gives a sound reason for it is very often demonstrating stronger critical thinking than one who simply repeats back the adult's conclusion. If a child gives an answer you didn't expect, ask for their reasoning before correcting anything; sometimes it reveals a perfectly valid angle you hadn't considered, and sometimes it shows the instructions weren't fully understood - either way, the follow-up question teaches you more than the answer alone did."
+          ],
+          "list": []
+        },
+        {
+          "heading": "Making this accessible for different learners",
+          "paragraphs": [
+            "This kind of reasoning doesn't depend on fluent spoken language, and shouldn't be assessed as if it did. For a child with SEND (special educational needs and disabilities), break the three-question routine down to one question at a time rather than all three at once, use large, uncluttered images instead of a busy printed advert to reduce sensory load, and allow considerably more processing time before expecting a response. A child using AAC (augmentative and alternative communication) can take part fully with a small set of core symbols - 'true', 'not sure', 'missing', 'check' - covering most of what the three-question routine needs. Pointing to a symbol, selecting an option on a device, or physically sorting picture cards into 'checked' and 'not checked yet' piles are all valid, equally real demonstrations of the same reasoning a verbal child shows by explaining aloud."
+          ],
+          "list": []
+        },
+        {
+          "heading": "A common mistake to avoid",
+          "paragraphs": [
+            "It's tempting, once a child starts questioning claims well, to push the lesson further than it should go - treating every statement as equally uncertain, including ones that are genuinely checkable by simple arithmetic or direct observation. That's not critical thinking, it's just generalised doubt, and it can leave a child more confused rather than more capable. Keep the distinction explicit: some things can be settled with a calculation or a quick check, and the skill is knowing which kind of claim you're looking at, not assuming nothing can ever be known for sure."
+          ],
+          "list": []
+        },
+        {
+          "heading": "Try this next",
+          "paragraphs": [
+            "Pick one claim from something your child or class has actually seen this week - an advert, a game, a confident statement from a friend - and run the three-question routine on it together. Ask the child to explain their reasoning, show it with pictures, or communicate it in their preferred way, and keep any real family financial information out of the example; a fictional price or fictional scenario teaches exactly the same skill without requiring that kind of disclosure."
+          ],
+          "list": []
+        },
+        {
+          "heading": "Editorial references",
+          "paragraphs": [
+            "The emphasis throughout this article on getting children to explain and revise their own reasoning, rather than simply reach a correct answer, draws on the Education Endowment Foundation's summary of evidence on metacognition and self-regulation (educationendowmentfoundation.org.uk), which finds that pupils who are taught to plan, monitor and reflect on their own thinking tend to retain and transfer new learning more effectively. General guidance on age-appropriate financial education, including how children encounter persuasive claims around money specifically, draws on the Money and Pensions Service's work with children and young people (maps.org.uk)."
+          ],
+          "list": []
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How long should this kind of activity take?",
+          "answer": "Ten to fifteen minutes is a reasonable starting point for most families or classrooms, but treat that as a practical suggestion rather than a fixed rule - adapt it to the child's attention span and any access needs, and it's fine to stop after one example if that's where genuine engagement ends."
+        },
+        {
+          "question": "Isn't teaching kids to question everything going to make them cynical?",
+          "answer": "Not if the goal is clear: the aim is distinguishing checkable facts from unsupported claims, not treating everything as equally doubtful. A child who learns that some things genuinely can be verified, while others depend on evidence that's missing, ends up more confident in their own judgement, not more suspicious of everything."
+        },
+        {
+          "question": "What age can children start learning this?",
+          "answer": "Even quite young children, around age 6-8, can answer simple versions of 'what does this claim say, and who made it?' The questions and expected depth of answer should scale up with age, but the underlying habit of pausing on a claim can start early."
+        },
+        {
+          "question": "What if my child gives an answer I didn't expect?",
+          "answer": "Ask for their reasoning before correcting anything. An unexpected answer sometimes reveals a reasonable angle you hadn't considered, and sometimes shows the instructions weren't fully understood - either way, a follow-up question and another example usually clears it up."
         }
       ]
     }

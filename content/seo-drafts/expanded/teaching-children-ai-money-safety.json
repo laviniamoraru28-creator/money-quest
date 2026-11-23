@@ -1,0 +1,114 @@
+{
+  "slug": "teaching-children-ai-money-safety",
+  "targetKeywords": [
+    "teach children AI money safety",
+    "AI financial advice kids safety",
+    "how to discuss AI shopping suggestions with children"
+  ],
+  "audience": ["parents", "teachers"],
+  "relatedSlugs": ["financial-literacy-age-of-ai", "budgeting-for-kids"],
+  "publishedDate": "2026-11-23",
+  "updatedDate": "2026-11-23",
+  "title": "How to Teach Children About AI and Money Safely",
+  "metaDescription": "A practical, step-by-step guide to discussing AI-generated financial suggestions with children safely and privately.",
+  "sections": [
+    {
+      "heading": "A practical companion to our AI financial-literacy guide",
+      "paragraphs": [
+        "This guide is the practical companion to Why Financial Literacy Matters in the Age of AI, which covers the bigger-picture reasons AI makes financial judgement worth practising early. Here, the focus is narrower and more hands-on: specific scripts, examples and session plans for discussing AI-generated financial suggestions with a child, step by step."
+      ]
+    },
+    {
+      "heading": "Explain the limits of AI in plain language",
+      "paragraphs": [
+        "An AI tool generates a response by predicting what a useful-looking answer looks like, based on patterns in text it was trained on. It does not know a specific family's budget, it has no memory of what was decided last time unless you tell it again, and it can produce an answer that sounds confident while being wrong.",
+        "UNESCO's guidance for generative AI in education and research makes a similar point: it stresses that learners should be taught to question and verify AI output rather than treat it as authoritative - a principle that applies just as much to a shopping suggestion as to a homework answer.",
+        "Say this to a child directly, in whatever words fit their age: an AI's answer is not financial advice, and it should never replace a parent's or teacher's judgement about money. That single sentence, repeated across a few different examples, tends to stick better than one long explanation."
+      ]
+    },
+    {
+      "heading": "A fictional example: comparing two AI suggestions for a £12 budget",
+      "paragraphs": [
+        "This is a UK-style example using pounds; adapt the currency for your own context. Give a child a fictional £12 budget for a water bottle or a small toy, and show two invented AI-style suggestions. Suggestion One recommends an item at '£14, but it's worth it' - over budget, with no acknowledgement of the limit. Suggestion Two lists a £9 price, states its own assumptions ('this doesn't include postage, which I don't know'), and flags what it doesn't know.",
+        "Ask which suggestion is easier to check, and why. Then do the arithmetic together rather than trusting either suggestion's maths - working out the real total, including any extra costs, is the actual skill being practised, not just spotting which answer 'sounds' more honest."
+      ]
+    },
+    {
+      "heading": "Protect personal and family information",
+      "paragraphs": [
+        "Use made-up names, invented balances and imaginary purchases throughout - never a real one. Never type a child's real address, school name, date of birth, or any payment information into a general-purpose AI tool, and don't let a child do this unsupervised either.",
+        "Adult supervision matters here in a specific way: it's not just about screen time, it's about being the second check on anything an AI tool suggests before a child acts on it, and about deciding what access, if any, is age-appropriate for a particular child."
+      ]
+    },
+    {
+      "heading": "Spotting sponsorship and persuasion",
+      "paragraphs": [
+        "Ask three questions about any AI-generated recommendation: is it sponsored, or does someone else benefit if the child buys? What evidence actually supports it? Is there a cheaper or free alternative it hasn't mentioned?",
+        "It's worth naming persuasion techniques out loud when you spot them in a fictional example - confident wording, claims of popularity, or a sense that the child needs to decide quickly - so the child learns to notice the technique itself, separately from whether the underlying product is actually good or bad."
+      ]
+    },
+    {
+      "heading": "Finish every session with a human decision",
+      "paragraphs": [
+        "AI can be useful as a practice example to analyse, but the goal of every session is independent reasoning the child does themselves, not a better AI tool. End by having the child state the budget out loud, check the total cost, compare the available options, and say what they'd do if they were still unsure - which is ask an adult, not guess. Guidance from the Money and Pensions Service on children's financial education treats this kind of independent decision-making as a core early building block, not an advanced skill reserved for teenagers."
+      ]
+    },
+    {
+      "heading": "A step-by-step plan you can reuse",
+      "paragraphs": [],
+      "list": [
+        "State the fictional budget first, out loud, before showing any suggestion.",
+        "Show one or two invented AI-style recommendations - never a real chatbot session using the child's real details.",
+        "Ask the three persuasion questions: sponsored? evidence? cheaper alternative?",
+        "Work out the real total cost together, including anything hidden in the small print.",
+        "Finish by asking what the child would actually decide, and why."
+      ]
+    },
+    {
+      "heading": "How to check understanding",
+      "paragraphs": [
+        "Rather than asking 'did you get it?', give the child a brand new fictional recommendation they haven't seen and watch what they do unprompted - do they check the total, notice what's missing, or ask about sponsorship without being reminded? That unprompted transfer is the strongest sign the habit has actually formed, rather than just been repeated back a moment after you explained it."
+      ]
+    },
+    {
+      "heading": "Making this accessible",
+      "paragraphs": [
+        "For a child with SEND (special educational needs and disabilities), break each step into one question at a time rather than presenting the full list at once, and allow extra processing time between showing an example and expecting a response. A child using AAC (augmentative and alternative communication) can answer the persuasion questions by selecting from a small symbol set - a thumbs-up or thumbs-down for 'sponsored or not', for example - rather than producing a spoken or written explanation. Reducing visual clutter in the fictional examples themselves (plain text, one claim at a time, no busy backgrounds) also helps children who find a cluttered screen harder to process, regardless of whether they have a formal SEND designation."
+      ]
+    },
+    {
+      "heading": "Why this is a companion, not a repeat",
+      "paragraphs": [
+        "If you've already read Why Financial Literacy Matters in the Age of AI, you'll recognise the same three-question habit referenced there. This guide doesn't re-explain why that habit matters - it gives you a ready-to-run session plan and a fresh set of fictional examples, so you're not reusing the same scenario twice."
+      ]
+    },
+    {
+      "heading": "Try this next",
+      "paragraphs": [
+        "Pick one activity from this guide and repeat it with a different fictional example. Ask the child to explain a choice, show it with pictures, or communicate it using their preferred method. Keep real family financial information private throughout."
+      ]
+    },
+    {
+      "heading": "Editorial references for fact checking",
+      "paragraphs": [
+        "Money and Pensions Service - guidance on financial education for children and young people: https://maps.org.uk/en/our-work/children-and-young-people",
+        "Education Endowment Foundation - Metacognition and self-regulation teaching and learning toolkit: https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/metacognition-and-self-regulation",
+        "UNESCO - Guidance for generative AI in education and research: https://www.unesco.org/en/articles/guidance-generative-ai-education-and-research"
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Should I let my child use a real AI chatbot to practise this?",
+      "answer": "It isn't necessary - fictional, pre-written examples are safer and just as effective for building the skill. If you do use a real AI tool, stay with the child throughout and never let them enter real financial or personal details."
+    },
+    {
+      "question": "What age is this appropriate for?",
+      "answer": "The underlying habit works from around Key Stage 1 (roughly ages 5-7 in the English school system - a UK-specific term) with very simple yes/no questions, scaling up to the fuller persuasion-spotting version from around age 9 upward."
+    },
+    {
+      "question": "What if my child trusts the AI suggestion more than me?",
+      "answer": "That's common, and it's worth treating as curiosity rather than defiance. Ask the child to explain what made the suggestion convincing - usually it's confident wording or a claim of popularity, not actual evidence - and work through checking it together rather than simply overruling the choice."
+    }
+  ]
+}
