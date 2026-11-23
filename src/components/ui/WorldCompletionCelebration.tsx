@@ -5,7 +5,8 @@ import {WORLDS} from "@/content/worlds";
 import {getWorldCatalog} from "@/content/catalog";
 import type {AgeBand} from "@/types/database.types";
 import {useAccessibilityPrefs} from "@/lib/accessibility/use-accessibility-preferences";
-import {LevelBadgeStar} from "./LevelBadgeStar";
+import Image from "next/image";
+import {AdventureAvatar} from "../AdventureAvatar";
 
 type Progress = {ageBand?: AgeBand | null; completedActivityIds?: string[]};
 type Celebration = {worldId: string; sequence: number};
@@ -51,8 +52,8 @@ export function WorldCompletionCelebration() {
   role="dialog" aria-modal="true" aria-labelledby="mq-world-celebration-heading">
   <div key={celebration.sequence} data-reduced-motion={reducedMotion ? "true" : "false"}
    className="relative w-full max-w-lg rounded-3xl border-4 border-gold bg-cream p-8 text-center shadow-floating">
-   <div aria-hidden="true" className="mq-trophy-reveal mb-4 text-8xl">🏆</div>
-   <div className="mb-3 flex justify-center"><LevelBadgeStar size={64}/></div>
+   <AdventureAvatar animated={!reducedMotion}/>
+   <div className="mb-3 flex justify-center"><Image unoptimized alt="" width={64} height={64} src="/cinematic/rewards/star.webp"/></div>
    <h2 id="mq-world-celebration-heading" className="text-2xl font-bold">{t(`levels.${celebration.worldId}`)}</h2>
    <p className="mt-3 text-lg">{t("play.worldSequenceComplete")}</p>
    <button type="button" autoFocus onClick={() => {if (timer.current) clearTimeout(timer.current);setCelebration(null);}}

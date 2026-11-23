@@ -35,8 +35,9 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
           title={t("landing.heroTitle")}
           subtitle={t("landing.heroSubtitle")}
           cta={t("landing.ctaGetStartedFree")}
-          href={`/${locale}/play`}
-          poster="/images/money-quest/homepage-family-v2.webp"
+          href="#levels-heading"
+          poster="/cinematic/world/homepage-worlds-original.webp"
+          video="/cinematic/world/homepage-worlds-original.mp4"
         />
 
         <HomepageMissionPreview locale={locale} />

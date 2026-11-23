@@ -16,7 +16,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 // and compact (Parent/Public restraint).
 const VARIANT_CLASSES: Record<ButtonVariant, string> = {
   "quest-primary":
-    "rounded-lg bg-teal text-white shadow-resting hover:bg-teal/90 active:scale-[0.98] font-medium",
+    "rounded-xl border border-[#b89657] bg-[#243448] text-white shadow-resting hover:bg-[#34475e] active:scale-[0.98] font-medium",
   "portal-primary": "rounded-sm bg-teal text-white hover:bg-teal/90 active:bg-teal/80 font-medium",
   secondary: "rounded-sm border-[1.5px] border-teal text-teal-text bg-transparent hover:bg-teal/5 font-medium",
   reward: "rounded-lg bg-gold text-ink shadow-resting hover:bg-gold/90 active:scale-[0.98] font-bold",

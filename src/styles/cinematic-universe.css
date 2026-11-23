@@ -52,8 +52,8 @@
 .mq-hero-cta { display:inline-flex;align-items:center;justify-content:center;gap:12px;margin-top:24px;padding:14px 26px;border-radius:16px;background:#243448;color:#fff!important;font-weight:800;text-decoration:none;min-height:48px;box-shadow:0 10px 26px #14263e33; }
 .mq-hero-cta:hover { background:#365472;transform:translateY(-2px); }
 .mq-hero-scene { min-width:0; }
-.mq-hero-media { position:relative;overflow:hidden;aspect-ratio:16/9;background-position:center;background-size:cover;border-radius:26px;border:3px solid #dfc78f;box-shadow:0 22px 65px #14263e33; }
-.mq-hero-video { position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .35s; }
+.mq-hero-media { position:relative;overflow:hidden;aspect-ratio:16/9;background-position:center;background-repeat:no-repeat;background-size:contain;border-radius:26px;border:3px solid #dfc78f;box-shadow:0 22px 65px #14263e33; }
+.mq-hero-video { position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .35s; }
 .mq-hero-video.is-ready { opacity:1; }
 .mq-hero-vignette { position:absolute;inset:0;background:linear-gradient(0deg,#1329437a,transparent 45%);pointer-events:none; }
 .mq-hero-quest-pills { position:absolute;bottom:14px;left:12px;right:12px;display:flex;gap:6px;flex-wrap:wrap;justify-content:center;pointer-events:none; }
