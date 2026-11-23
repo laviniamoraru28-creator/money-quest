@@ -8,7 +8,7 @@
  * instead of the actual, later point all three quests were done.
  */
 import { CERTIFICATE_BANDS, requiredCertificateActivities } from "../src/lib/certificates/eligibility";
-import { isThreeQuestCertificateReady } from "../src/lib/certificates/three-quest-eligibility";
+import { isThreeQuestCertificateReady, isFinalAIQuestCertificateReady } from "../src/lib/certificates/three-quest-eligibility";
 import { createDefaultState as createLocalProgressDefault, recordThreeQuestCompletion } from "../src/lib/local-progress/state";
 import { createDefaultState as createEntrepreneurDefault } from "../src/lib/entrepreneur-quest/state";
 import { createDefaultState as createLeadershipDefault } from "../src/lib/leadership-quest/state";
@@ -35,6 +35,29 @@ for (const band of CERTIFICATE_BANDS) {
   check(`${band}: ready only once all three are done`, isThreeQuestCertificateReady(requiredMQ, band, pitchDone, finalChallengeDone));
   // Missing even one required MQ activity still blocks it, even with EQ+LQ done.
   check(`${band}: MQ alone incomplete still blocks it`, !isThreeQuestCertificateReady(requiredMQ.slice(0, -1), band, pitchDone, finalChallengeDone));
+}
+
+// --- Final certificate: all MQ, EQ, LQ and five AI missions for the SAME band ---
+for (const band of CERTIFICATE_BANDS) {
+  const requiredMQ = requiredCertificateActivities(band);
+  const pitchDone = { ...createEntrepreneurDefault(), pitchCompleted: true };
+  const leadershipDone = { ...createLeadershipDefault(), completedMissionIds: ["final-challenge"] };
+  check(`${band}: final certificate blocked before AI Quest`,
+    !isFinalAIQuestCertificateReady(requiredMQ, band, pitchDone, leadershipDone, []));
+  check(`${band}: final certificate blocked with four AI missions`,
+    !isFinalAIQuestCertificateReady(requiredMQ, band, pitchDone, leadershipDone, [0,1,2,3]));
+  check(`${band}: duplicate AI mission does not unlock certificate`,
+    !isFinalAIQuestCertificateReady(requiredMQ, band, pitchDone, leadershipDone, [0,1,2,3,3]));
+  check(`${band}: final certificate unlocked after all four quests`,
+    isFinalAIQuestCertificateReady(requiredMQ, band, pitchDone, leadershipDone, [0,1,2,3,4]));
+  check(`${band}: missing MQ blocks final certificate`,
+    !isFinalAIQuestCertificateReady(requiredMQ.slice(0,-1), band, pitchDone, leadershipDone, [0,1,2,3,4]));
+  check(`${band}: invalid AI mission identifiers do not unlock certificate`,
+    !isFinalAIQuestCertificateReady(requiredMQ, band, pitchDone, leadershipDone, [0,1,2,3,99]));
+  check(`${band}: missing EQ blocks final certificate`,
+    !isFinalAIQuestCertificateReady(requiredMQ, band, createEntrepreneurDefault(), leadershipDone, [0,1,2,3,4]));
+  check(`${band}: missing LQ blocks final certificate`,
+    !isFinalAIQuestCertificateReady(requiredMQ, band, pitchDone, createLeadershipDefault(), [0,1,2,3,4]));
 }
 
 // --- recordThreeQuestCompletion: set once, never overwritten, per band ---
