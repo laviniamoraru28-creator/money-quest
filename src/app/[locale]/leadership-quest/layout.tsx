@@ -25,8 +25,8 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
 
 export default function LeadershipQuestLayout({ children }: LayoutProps & { children: ReactNode }) {
   return (
-    <>
+    <div className="mq-cinematic mq-learning" data-quest="leadership">
       {children}
-    </>
+    </div>
   );
 }

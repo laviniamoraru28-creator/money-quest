@@ -115,12 +115,12 @@ self.addEventListener("fetch", event => {
       } catch {}
       return await cache?.match("/offline.html") || new Response("Reconnect to download Money Quest for offline use.",{status:503,headers:{"Content-Type":"text/plain; charset=utf-8"}});
     })());
-  } else if(url.pathname.startsWith("/_next/static/")||/\.(webp|png|jpg|jpeg|svg|avif|pdf|mp4|woff2?|webmanifest)$/.test(url.pathname)) {
+  } else if(url.pathname.startsWith("/_next/static/")||/\.(webp|png|jpg|jpeg|svg|avif|pdf|mp4|webm|woff2?|webmanifest)$/.test(url.pathname)) {
     event.respondWith((async()=>{
       const cache=await savedCache();
       const saved=await cache?.match(cacheKey(url.pathname));
       if(!saved)return fetch(event.request);
-      return url.pathname.endsWith(".mp4")?mediaRange(saved,event.request.headers.get("Range")):saved;
+      return /\.(mp4|webm)$/.test(url.pathname)?mediaRange(saved,event.request.headers.get("Range")):saved;
     })());
   }
 });

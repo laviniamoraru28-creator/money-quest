@@ -47,7 +47,10 @@ function writeToStorage(band: AgeBand | null, state: LeadershipQuestState): void
   try {
     const raw = window.localStorage.getItem(STORAGE_KEY);
     const parsed = raw ? JSON.parse(raw) : null;
+    const previous=readBandScopedSlice(parsed,band,createDefaultState,mergeDefaults);
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(toBandScopedPayload(parsed, band, state)));
+    window.dispatchEvent(new CustomEvent(STORAGE_KEY,{detail:{band,state}}));
+    if (!previous.completedMissionIds.includes("final-challenge") && state.completedMissionIds.includes("final-challenge")) window.dispatchEvent(new CustomEvent("moneyquest-quest-complete",{detail:"leadership"}));
   } catch {
     // Storage can fail (private browsing, quota exceeded, disabled
     // entirely) — keep working in-memory for the rest of the session
@@ -78,6 +81,17 @@ export function useLeadershipQuest() {
     setIsLoaded(true);
     // Re-reads on a band switch (no page reload) - that band's own save.
   }, [band, localProgressLoaded]);
+
+  useEffect(()=>{
+    const sync=(event:Event)=>{
+      const saved=(event as CustomEvent<{band:AgeBand;state:LeadershipQuestState}>).detail;
+      if(saved.band!==band)return;
+
+      setState(saved.state);
+    };
+    window.addEventListener(STORAGE_KEY,sync);
+    return ()=>window.removeEventListener(STORAGE_KEY,sync);
+  },[band]);
 
   const persist = useCallback((next: LeadershipQuestState) => {
     setState(next);

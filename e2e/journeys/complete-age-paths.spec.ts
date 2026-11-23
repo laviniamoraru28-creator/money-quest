@@ -1,3 +1,4 @@
+import {cinematicCopy} from "../../src/content/cinematic-copy";
 import {readFileSync} from 'node:fs';
 import {test,expect,type Page} from '@playwright/test';
 import {LESSON_STRUCTURES} from '../../src/content/curriculum/structures';
@@ -199,6 +200,11 @@ for(const locale of ['ro','en'] as const)test(`${locale}: Explorer follows the f
  const itinerary=WORLDS.flatMap(world=>getWorldCatalog(world.id,'explorer',key=>key));
  await page.goto(`/${locale}`);
  await page.getByRole('link',{name:new RegExp(locale==='ro'?romanianExplorerCopy.play.earlyLearner:copy.play.earlyLearner)}).click();
+ await page.getByRole("button",{name:"Avatar 1",exact:true}).click();
+ await page.getByRole("button",{name:cinematicCopy[locale][1],exact:true}).click();
+ await page.getByRole("button",{name:cinematicCopy[locale][2],exact:true}).click();
+ await page.getByRole("button",{name:"Money Quest",exact:true}).click();
+ await page.getByRole("link",{name:cinematicCopy[locale][3],exact:true}).click();
  await page.getByRole('link',{name:/Coin Cove/}).click();
  await page.locator(`main a[href$="${itinerary[0]!.id}"]`).click();
  const expected:string[]=[];

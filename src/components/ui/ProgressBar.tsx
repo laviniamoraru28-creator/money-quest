@@ -42,7 +42,7 @@ export function ProgressBar({ percent, label, className = "" }: ProgressBarProps
       aria-label={label}
     >
       <div
-        className="h-full w-full origin-left rounded-full bg-teal transition-transform duration-moderate"
+        className="h-full w-full origin-left rounded-full bg-gradient-to-r from-[#876323] to-[#b38235] transition-transform duration-moderate"
         style={{ transform: `scaleX(${clamped / 100})` }}
       />
     </div>

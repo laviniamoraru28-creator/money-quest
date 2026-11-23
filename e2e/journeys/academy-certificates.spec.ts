@@ -20,7 +20,7 @@ import type {AgeBand} from "../../src/types/database.types";
 // so an unconditional set would silently discard any progress a test
 // made in between navigations.
 async function seedQuestState(page: Page, band: AgeBand, options: {mqCompletedIds: string[]; eqDone: boolean; lqDone: boolean}) {
-  const mq = {...createDefaultState(), ageBand: band, completedActivityIds: options.mqCompletedIds};
+  const mq = {...createDefaultState(), certificateQuestCount:3, ageBand: band, completedActivityIds: options.mqCompletedIds};
   const eq = {byBand: {[band]: {...createEntrepreneurDefault(), pitchCompleted: options.eqDone}}};
   const lq = {byBand: {[band]: {...createLeadershipDefault(), completedMissionIds: options.lqDone ? ["final-challenge"] : []}}};
   await page.addInitScript(([mqState, eqState, lqState]) => {
@@ -72,7 +72,7 @@ for (const band of CERTIFICATE_BANDS) {
     // stay exactly as seeded (never recomputed) while the NEW
     // threeQuestCertificateDates.<band> reflects today instead.
     const state = {
-      ...createDefaultState(), ageBand: band,
+      ...createDefaultState(), certificateQuestCount:3, ageBand: band,
       completedActivityIds: requiredCertificateActivities(band).filter(id => id !== lesson.id),
       certificateCompletionDates: {[band]: "2026-10-20T08:00:00.000+00:00"},
     };

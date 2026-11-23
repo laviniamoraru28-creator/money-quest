@@ -1,3 +1,4 @@
+import {AdventureHud} from "@/components/AdventureHud";
 import {publicNavigationCopy} from "@/content/public-navigation-copy";
 import {siteDescriptions} from "@/content/seo-descriptions";
 import {siteControlsCopy} from "@/content/site-controls-copy";
@@ -13,6 +14,7 @@ import {CoinRewardEffect} from "@/components/ui/CoinRewardEffect";
 import {WorldCompletionCelebration} from "@/components/ui/WorldCompletionCelebration";
 import {PageReadAloud} from "@/components/ui/PageReadAloud";
 import "../globals.css";
+import "@/styles/cinematic-universe.css";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin", "latin-ext"],
@@ -144,6 +146,7 @@ export default async function LocaleLayout({
           <a href="#main-content" className="sr-only z-50 rounded-lg bg-white p-4 font-bold text-teal-text focus:not-sr-only focus:absolute focus:left-4 focus:top-4">{publicNavigationCopy[locale].skip}</a>
           <PageReadAloud locale={locale} copy={siteControlsCopy[locale]}/>
           {children}
+          <AdventureHud/>
           <CoinRewardEffect/>
           <WorldCompletionCelebration/>
         </NextIntlClientProvider>

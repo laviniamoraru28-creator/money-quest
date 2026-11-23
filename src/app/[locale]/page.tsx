@@ -1,4 +1,8 @@
+import {cinematicCopy} from "@/content/cinematic-copy";
+import {CinematicScene} from "@/components/CinematicScene";
 import Image from "next/image";
+import {CinematicWorldHero} from "@/components/CinematicWorldHero";
+
 import { HomepageMissionPreview } from "@/components/HomepageMissionPreview";
 import {ChooseLearningLevelLink} from "@/components/ChooseLearningLevelLink";
 import {certificateJourneyCopy} from "@/content/certificate-journey-copy";
@@ -29,44 +33,29 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(webSiteSchema) }} />
 
       <main id="main-content" tabIndex={-1}>
-        {/* Hero */}
-        <section className="mx-auto max-w-[1200px] px-sm py-2xl md:py-3xl">
-          <div className="grid gap-lg md:grid-cols-2 md:items-center">
-            <div>
-              <h1 className="font-display text-3xl font-bold leading-tight text-ink md:text-4xl">
-                {t("landing.heroTitle")}
-              </h1>
-              <p className="mt-sm text-lg text-ink/80">
-                {t("landing.heroSubtitle")}
-              </p>
-
-            </div>
-            <div className="relative overflow-hidden rounded-3xl border border-teal/15 bg-cream shadow-lg">
-              <picture data-homepage-hero>
-                <source media="(max-width: 767px)" srcSet="/images/money-quest/homepage-family-v2-mobile.webp" />
-                <Image unoptimized src="/images/money-quest/homepage-family-v2.webp"
-                  alt={t("landing.heroImageAlt")} width={1536} height={1024} priority
-                  className="h-auto w-full object-cover" />
-              </picture>
-              <div className="bg-white px-4 pb-4"><Link href="/play" className="inline-flex min-h-12 w-full items-center justify-center rounded-xl bg-teal px-5 py-3 text-center font-bold text-white hover:bg-teal/90">{t("landing.ctaGetStartedFree")}</Link></div>
-            </div>
-          </div>
-        </section>
+        <CinematicWorldHero
+          title={t("landing.heroTitle")}
+          subtitle={t("landing.heroSubtitle")}
+          cta={cinematicCopy[isSupportedLocale(locale)?locale:"en"][3]}
+          href="#levels-heading"
+          poster="/cinematic/world/homepage-worlds-original.webp"
+          video="/cinematic/world/homepage-worlds-original.mp4"
+        />
 
 
-        <HomepageMissionPreview locale={locale} />
 
         {/* Three clear age-level entry points. Existing world artwork is retained. */}
         <section aria-labelledby="levels-heading" className="mx-auto max-w-[1200px] px-sm py-2xl">
           <h2 id="levels-heading" className="text-center font-display text-2xl font-bold">{t("play.chooseYourLevel")}</h2>
           <p className="mx-auto mt-2xs max-w-[65ch] text-center text-ink/70">{t("play.levelChoiceHint")}</p>
-          <div className="mt-md grid gap-md sm:grid-cols-3">
+          <CinematicScene src="/cinematic/world/age-portals.mp4" poster="/cinematic/world/age-portals.webp" className="mx-auto mt-4 max-h-60 w-full rounded-2xl object-contain"/>
+          <div className="mq-cinematic mt-md grid gap-md sm:grid-cols-3">
             {([
               { ageBand: "explorer", image: "coin-cove", label: t("play.earlyLearner"), range: t("play.earlyLearnerRange") },
               { ageBand: "builder", image: "market-town", label: t("play.primary"), range: t("play.primaryRange") },
               { ageBand: "strategist", image: "golden-vault", label: t("play.olderLearner"), range: t("play.olderLearnerRange") },
             ] as const).map((level) => (
-              <ChooseLearningLevelLink key={level.image} ageBand={level.ageBand} className="group overflow-hidden rounded-2xl border border-teal/20 bg-white shadow-resting transition-shadow hover:shadow-lg focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal">
+              <ChooseLearningLevelLink key={level.image} ageBand={level.ageBand} className="mq-age-portal group overflow-hidden rounded-2xl border border-teal/20 bg-white shadow-resting transition-shadow hover:shadow-lg focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal">
                 <Image unoptimized src={`/images/money-quest/worlds/${level.image}-thumb.webp`} alt="" width={640} height={400} loading="lazy" className="h-48 w-full object-contain bg-cream p-3 transition-transform motion-safe:group-hover:scale-[1.02]" />
                 <div className="p-md text-center">
                   <h3 className="font-display text-xl font-bold text-teal-text">{level.label}</h3>
@@ -78,6 +67,7 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
           </div>
         </section>
 
+        <HomepageMissionPreview locale={locale} />
         <section aria-labelledby="how-it-works-heading" className="mx-auto max-w-[1200px] px-sm pb-2xl">
           <div className="rounded-2xl border border-teal/20 bg-white p-md md:p-lg">
             <h2 id="how-it-works-heading" className="font-display text-2xl font-bold">{journey.heading}</h2>
