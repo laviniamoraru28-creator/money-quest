@@ -58,6 +58,19 @@ export const ARTICLE_STRUCTURES: ArticleStructure[] = [
     publishedDate: "2026-01-15",
     updatedDate: "2026-01-15",
   },
+  {
+    // First article produced by the Parent Copywriting Strategist
+    // (scripts/parent_copywriting_agent.py, PR #95) — drafted and
+    // lint-checked there, wired into the live catalog here only as a
+    // separate, human-reviewed Draft PR per the owner's "do not
+    // publish articles automatically" instruction.
+    slug: "naming-big-feelings-about-money",
+    targetKeywords: ["child upset about money", "money meltdown kids", "child anxious about money", "emotional regulation money"],
+    audience: ["parents", "families"],
+    relatedSlugs: ["needs-vs-wants", "saving-money-for-kids"],
+    publishedDate: "2026-11-18",
+    updatedDate: "2026-11-18",
+  },
 ];
 
 export function getArticleStructureBySlug(slug: string): ArticleStructure | undefined {
