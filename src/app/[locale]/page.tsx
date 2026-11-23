@@ -2,7 +2,7 @@ import {cinematicCopy} from "@/content/cinematic-copy";
 import {CinematicScene} from "@/components/CinematicScene";
 import Image from "next/image";
 import {CinematicWorldHero} from "@/components/CinematicWorldHero";
-import "@/styles/cinematic-universe.css";
+
 import { HomepageMissionPreview } from "@/components/HomepageMissionPreview";
 import {ChooseLearningLevelLink} from "@/components/ChooseLearningLevelLink";
 import {certificateJourneyCopy} from "@/content/certificate-journey-copy";
@@ -42,7 +42,7 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
           video="/cinematic/world/homepage-worlds-original.mp4"
         />
 
-        
+
 
         {/* Three clear age-level entry points. Existing world artwork is retained. */}
         <section aria-labelledby="levels-heading" className="mx-auto max-w-[1200px] px-sm py-2xl">

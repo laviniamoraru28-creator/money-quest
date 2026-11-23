@@ -8,8 +8,8 @@ import { Link } from "@/i18n/navigation";
 import { useLocalProgress } from "@/lib/local-progress/use-local-progress";
 import { WORLDS } from "@/content/worlds";
 import { getWorldCatalog } from "@/content/catalog";
-import { formatCurrency } from "@/lib/currency/format";
-import { CURRENCIES } from "@/data/currencies";
+
+
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { ProgressBar } from "@/components/ui/ProgressBar";
@@ -44,7 +44,7 @@ export default function PlayPage() {
   const journey=certificateJourneyCopy[safeLocale];
   const rewards=rewardLabels[safeLocale] ?? rewardLabels.en!;
   const t = useTranslations();
-  const { state, isLoaded, level, setAgeBand, setCurrencyCode } = useLocalProgress();
+  const { state, isLoaded, level, setAgeBand } = useLocalProgress();
 
   if (!isLoaded) {
     return <div className="grid min-h-screen place-items-center bg-fog text-ink/70">{t("common.loading")}</div>;
@@ -104,36 +104,13 @@ export default function PlayPage() {
           </div>
         </div>
 
-        <div className="mt-sm grid gap-sm sm:grid-cols-3">
+        <div className="mt-sm grid gap-sm">
           <Card variant="data">
             <p className="text-sm text-ink/70">{t("dashboard.level")}</p>
             <p className="mt-2xs font-display text-2xl font-bold">{level}</p>
             <div className="mt-2xs h-2 w-full">
               <ProgressBar percent={state.xpTotal % 100} label={t("a11y.xpProgressLabel")} />
             </div>
-          </Card>
-          <Card variant="data">
-            <p className="text-sm text-ink/70">{t("play.yourCoins")}</p>
-            <p className="mt-2xs font-display text-2xl font-bold text-teal-text">
-              {formatCurrency(state.walletBalanceMinorUnits, state.currencyCode, uiLocale)}
-            </p>
-          </Card>
-          <Card variant="data">
-            <label htmlFor="currency-select" className="text-sm text-ink/70">
-              {t("play.currency")}
-            </label>
-            <select
-              id="currency-select"
-              value={state.currencyCode}
-              onChange={(e: { target: { value: string } }) => setCurrencyCode(e.target.value)}
-              className="mt-2xs min-h-11 w-full rounded-sm border border-ink/20 px-2xs py-2xs focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-teal"
-            >
-              {CURRENCIES.map((c) => (
-                <option key={c.code} value={c.code}>
-                  {c.name} ({c.symbol})
-                </option>
-              ))}
-            </select>
           </Card>
         </div>
 

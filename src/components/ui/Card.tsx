@@ -26,7 +26,7 @@ const VARIANT_CLASSES: Record<CardVariant, string> = {
 
 export function Card({ variant = "data", className = "", children, ...props }: CardProps) {
   return (
-    <div className={["p-md", VARIANT_CLASSES[variant], className].join(" ")} {...props}>
+    <div data-card={variant} className={["p-md", VARIANT_CLASSES[variant], className].join(" ")} {...props}>
       {children}
     </div>
   );

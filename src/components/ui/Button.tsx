@@ -34,6 +34,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
 ) {
   return (
     <button
+      data-action={variant}
       ref={ref}
       disabled={disabled || isLoading}
       aria-busy={isLoading || undefined}

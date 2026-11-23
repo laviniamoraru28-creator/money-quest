@@ -14,6 +14,7 @@ import {CoinRewardEffect} from "@/components/ui/CoinRewardEffect";
 import {WorldCompletionCelebration} from "@/components/ui/WorldCompletionCelebration";
 import {PageReadAloud} from "@/components/ui/PageReadAloud";
 import "../globals.css";
+import "@/styles/cinematic-universe.css";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin", "latin-ext"],

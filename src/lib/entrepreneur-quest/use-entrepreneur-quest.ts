@@ -78,7 +78,10 @@ function writeToStorage(band: AgeBand | null, state: EntrepreneurQuestState): vo
   try {
     const raw = window.localStorage.getItem(STORAGE_KEY);
     const parsed = raw ? JSON.parse(raw) : null;
+    const previous=readBandScopedSlice(parsed,band,createDefaultState,mergeDefaults);
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(toBandScopedPayload(parsed, band, state)));
+    window.dispatchEvent(new CustomEvent(STORAGE_KEY,{detail:{band,state}}));
+    if (!previous.pitchCompleted && state.pitchCompleted) window.dispatchEvent(new CustomEvent("moneyquest-quest-complete",{detail:"entrepreneur"}));
   } catch {
     // Storage can fail (private browsing, quota exceeded, disabled
     // entirely) — keep working in-memory for the rest of the session
@@ -122,6 +125,17 @@ export function useEntrepreneurQuest() {
     // selector (no page reload happens) - the other band's own saved
     // slice, not a blank state and not the band just left behind.
   }, [band, localProgressLoaded]);
+
+  useEffect(()=>{
+    const sync=(event:Event)=>{
+      const saved=(event as CustomEvent<{band:AgeBand;state:EntrepreneurQuestState}>).detail;
+      if(saved.band!==band)return;
+      latest.current=saved.state;
+      setState(saved.state);
+    };
+    window.addEventListener(STORAGE_KEY,sync);
+    return ()=>window.removeEventListener(STORAGE_KEY,sync);
+  },[band]);
 
   const persist = useCallback((change: (current: EntrepreneurQuestState) => EntrepreneurQuestState) => {
     const next = change(latest.current);
