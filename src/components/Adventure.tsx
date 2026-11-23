@@ -13,7 +13,7 @@ const worlds=[
  {key:"money",title:"Money Quest",href:"/play"},
  {key:"entrepreneur",title:"Entrepreneur Quest",href:"/entrepreneur-quest"},
  {key:"leadership",title:"Leadership Quest",href:"/leadership-quest"},
- {key:"ai",title:"AI Lab",href:"/entrepreneur-quest/ai-lab"}
+ {key:"ai",title:"AI Quest",href:"/ai-quest"}
 ];
 const action="inline-flex min-h-12 items-center justify-center rounded-xl border border-[#c9953d] bg-[#14263e] px-5 py-3 font-bold text-white";
 export function Adventure({band}:{band?:AgeBand}){

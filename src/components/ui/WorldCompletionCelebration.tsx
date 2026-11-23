@@ -5,7 +5,7 @@ import {WORLDS} from "@/content/worlds";
 import {getWorldCatalog} from "@/content/catalog";
 import type {AgeBand} from "@/types/database.types";
 import {useAccessibilityPrefs} from "@/lib/accessibility/use-accessibility-preferences";
-import Image from "next/image";
+import {CinematicScene} from "../CinematicScene";
 import {AdventureAvatar} from "../AdventureAvatar";
 
 type Progress = {ageBand?: AgeBand | null; completedActivityIds?: string[]};
@@ -53,7 +53,7 @@ export function WorldCompletionCelebration() {
   <div key={celebration.sequence} data-reduced-motion={reducedMotion ? "true" : "false"}
    className="relative w-full max-w-lg rounded-3xl border-4 border-gold bg-cream p-8 text-center shadow-floating">
    <AdventureAvatar animated={!reducedMotion}/>
-   <div className="mb-3 flex justify-center"><Image unoptimized alt="" width={64} height={64} src="/cinematic/rewards/star.webp"/></div>
+   <div className="mb-3 flex justify-center"><CinematicScene controls={false} className="h-20 w-28 rounded-xl object-contain" src="/cinematic/rewards/star-animation.mp4" poster="/cinematic/rewards/star.webp"/></div>
    <h2 id="mq-world-celebration-heading" className="text-2xl font-bold">{t(`levels.${celebration.worldId}`)}</h2>
    <p className="mt-3 text-lg">{t("play.worldSequenceComplete")}</p>
    <button type="button" autoFocus onClick={() => {if (timer.current) clearTimeout(timer.current);setCelebration(null);}}

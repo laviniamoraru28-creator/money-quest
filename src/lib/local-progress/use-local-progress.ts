@@ -34,6 +34,7 @@ function readFromStorage(): LocalProgressState {
     const parsed = JSON.parse(raw);
     if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) return memoryState;
     const next = { ...createDefaultState(), ...parsed };
+    next.certificateQuestCount = parsed.certificateQuestCount === 4 ? 4 : 3;
     if (![null,"explorer","builder","strategist"].includes(next.ageBand)) next.ageBand = null;
     if (typeof next.currencyCode !== "string" || !/^[A-Z]{3}$/.test(next.currencyCode)) next.currencyCode = "GBP";
     for (const field of ["xpTotal","walletBalanceMinorUnits"] as const) if (!Number.isSafeInteger(next[field]) || next[field] < 0) next[field] = 0;

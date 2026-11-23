@@ -418,7 +418,7 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
         <p className="mt-2xs text-base font-medium">{quiz.question}</p>
         {isExplorer && <ReadAloudButton text={quiz.question} uiLocale={uiLocale} />}
 
-        <fieldset className="mt-sm" disabled={phase === "correct" || activity.isCompleted}>
+        <fieldset className="mt-sm rounded-2xl border border-[#d8bd88] bg-gradient-to-br from-white to-[#fff5df] p-sm" disabled={phase === "correct" || activity.isCompleted}>
           <legend className="sr-only">{t("lesson.answerOptions")}</legend>
           <div className={isExplorer ? "grid gap-4" : "grid gap-2xs"}>
             {shuffledOptions.map((option) => {
@@ -430,7 +430,7 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
                 <label
                   key={option}
                   className={[
-                    "flex min-h-touch-min-child cursor-pointer items-center gap-xs rounded-lg border-2 px-sm py-2xs text-base shadow-resting transition-colors duration-quick",
+                    "flex min-h-touch-min-child cursor-pointer items-center gap-xs rounded-xl border-2 px-sm py-2xs text-base shadow-resting transition-colors duration-quick",
                     isExplorer ? "min-h-24 p-4 text-lg" : "",
                     showAsCorrect ? "border-success bg-success/10" : "",
                     showAsIncorrect ? "border-error bg-error/10" : "",

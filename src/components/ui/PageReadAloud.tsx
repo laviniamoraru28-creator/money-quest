@@ -52,7 +52,7 @@ export function PageReadAloud({locale,copy}:{locale:Locale;copy:SiteControlsCopy
     if (!text) { setMessage("noText"); return; }
     setMessage(null); speak(text);
   };
-  return <aside aria-label={copy.region} data-read-aloud-ignore className="sticky top-0 z-40 border-b border-white/20 bg-emerald-800 px-2 py-2 text-white shadow-sm sm:px-5">
+  return <aside aria-label={copy.region} data-read-aloud-ignore className="sticky top-0 z-40 border-b border-white/20 bg-[#14263e]/95 backdrop-blur-md px-2 py-2 text-white shadow-sm sm:px-5">
     <div className="mx-auto flex max-w-6xl items-center justify-between gap-1 sm:gap-3">
       <Link href="/" className="min-w-0 flex-1 truncate px-1 font-display text-sm font-bold tracking-tight text-white min-[375px]:text-base sm:text-xl" aria-label="Money Quest">Money Quest</Link>
       <div className="flex shrink-0 items-center gap-1 sm:gap-2">

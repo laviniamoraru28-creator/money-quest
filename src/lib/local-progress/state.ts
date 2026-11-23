@@ -28,6 +28,7 @@ export interface LocalGoal {
 }
 
 export interface LocalProgressState {
+  certificateQuestCount: 3 | 4;
   ageBand: AgeBand | null;
   currencyCode: string;
   xpTotal: number;
@@ -48,6 +49,7 @@ export interface LocalProgressState {
 
 export function createDefaultState(): LocalProgressState {
   return {
+    certificateQuestCount: 4,
     ageBand: null,
     currencyCode: "GBP",
     xpTotal: 0,

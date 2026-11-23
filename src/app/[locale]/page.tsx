@@ -1,3 +1,5 @@
+import {cinematicCopy} from "@/content/cinematic-copy";
+import {CinematicScene} from "@/components/CinematicScene";
 import Image from "next/image";
 import {CinematicWorldHero} from "@/components/CinematicWorldHero";
 import "@/styles/cinematic-universe.css";
@@ -34,18 +36,19 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
         <CinematicWorldHero
           title={t("landing.heroTitle")}
           subtitle={t("landing.heroSubtitle")}
-          cta={t("landing.ctaGetStartedFree")}
+          cta={cinematicCopy[isSupportedLocale(locale)?locale:"en"][3]}
           href="#levels-heading"
           poster="/cinematic/world/homepage-worlds-original.webp"
           video="/cinematic/world/homepage-worlds-original.mp4"
         />
 
-        <HomepageMissionPreview locale={locale} />
+        
 
         {/* Three clear age-level entry points. Existing world artwork is retained. */}
         <section aria-labelledby="levels-heading" className="mx-auto max-w-[1200px] px-sm py-2xl">
           <h2 id="levels-heading" className="text-center font-display text-2xl font-bold">{t("play.chooseYourLevel")}</h2>
           <p className="mx-auto mt-2xs max-w-[65ch] text-center text-ink/70">{t("play.levelChoiceHint")}</p>
+          <CinematicScene src="/cinematic/world/age-portals.mp4" poster="/cinematic/world/age-portals.webp" className="mx-auto mt-4 max-h-60 w-full rounded-2xl object-contain"/>
           <div className="mq-cinematic mt-md grid gap-md sm:grid-cols-3">
             {([
               { ageBand: "explorer", image: "coin-cove", label: t("play.earlyLearner"), range: t("play.earlyLearnerRange") },
@@ -64,6 +67,7 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
           </div>
         </section>
 
+        <HomepageMissionPreview locale={locale} />
         <section aria-labelledby="how-it-works-heading" className="mx-auto max-w-[1200px] px-sm pb-2xl">
           <div className="rounded-2xl border border-teal/20 bg-white p-md md:p-lg">
             <h2 id="how-it-works-heading" className="font-display text-2xl font-bold">{journey.heading}</h2>

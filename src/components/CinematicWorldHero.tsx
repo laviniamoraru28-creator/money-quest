@@ -1,6 +1,6 @@
 "use client";
 import {CinematicScene} from "./CinematicScene";
-type Props = {title: string; subtitle: string; cta: string; href: string; poster: string; video?: string; videoWebm?: string};
+type Props = {title: string; subtitle: string; cta: string; href: string; poster: string; video?: string};
 export function CinematicWorldHero({title, subtitle, cta, href, poster, video}: Props) {
   return <section className="mq-cinematic mq-cinematic-hero" aria-labelledby="mq-hero-heading">
     <div className="mq-hero-sky" aria-hidden="true"/>
