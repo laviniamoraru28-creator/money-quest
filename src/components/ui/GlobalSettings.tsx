@@ -51,9 +51,9 @@ export function GlobalSettings({locale,copy,compact=false}:{locale:Locale;copy:S
     <button ref={close} type="button" aria-label={closeLabels[locale]} title={closeLabels[locale]} onClick={closePanel} className="flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-lg border border-teal text-xl font-bold text-teal-text"><span aria-hidden="true">×</span></button>
    </div>
    <fieldset className="min-w-0 space-y-2"><legend className="font-bold">{t[1]}</legend>
+    {toggle(copy.night,p.nightView,p.toggleNightView)}
     <label className="block">{t[1]}<select value={p.presentation} onChange={e=>p.setPreference("presentation",e.target.value as typeof p.presentation)} className="block min-h-11 w-full rounded-lg border p-2">{(["cinematic","balanced","calm"] as const).map((mode,i)=><option key={mode} value={mode}>{cinematicCopy[locale][4+i]}</option>)}</select></label>
     <Link href={`/${locale}/adventure`} className="inline-flex min-h-11 items-center underline">{cinematicCopy[locale][0]}</Link>
-    {toggle(copy.night,p.nightView,p.toggleNightView)}
     <label className="block">{t[2]}<select disabled={!p.isLoaded} value={p.imageSize} onChange={e=>p.setPreference("imageSize",e.target.value as typeof p.imageSize)} className="mt-1 min-h-11 w-full rounded-lg border border-ink/30 bg-white p-2"><option value="full">{t[3]}</option><option value="small">{t[4]}</option><option value="minimal">{t[5]}</option></select></label>
     {toggle(t[6],p.reducedMotion,p.toggleReducedMotion)}
     {toggle(t[7],p.highContrast,()=>p.setPreference("highContrast",!p.highContrast))}

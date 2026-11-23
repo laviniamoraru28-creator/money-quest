@@ -72,3 +72,12 @@
 .mq-learning [data-card="reward"] { border:2px solid var(--mq-accent-soft); }
 .mq-learning [role="progressbar"] > div { background: var(--mq-accent); }
 #levels-heading { scroll-margin-top:5rem; }
+
+.mq-mission-links {display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+.mq-mission-links a,.mq-mission-evidence summary {display:inline-flex;align-items:center;min-height:44px;padding:.5rem 1rem;border:1px solid var(--mq-accent-soft);border-radius:.75rem;background:var(--mq-surface);color:var(--mq-text);text-decoration:underline;cursor:pointer}
+.mq-mission-evidence {margin-top:1rem}
+.mq-mission-evidence p {padding:1rem;border-inline-start:3px solid var(--mq-accent)}
+.mq-mission-story,#mission-decision,#mission-result {scroll-margin-top:5rem}
+.mq-mission-story {border:2px solid var(--mq-accent-soft);border-radius:1.25rem;overflow:hidden}
+[data-mission-band="strategist"] .mq-mission-story {border-radius:.6rem}
+[data-mission-result] {border:2px solid var(--mq-accent-soft);border-radius:1rem;background:var(--mq-quest-surface);padding:1rem}
