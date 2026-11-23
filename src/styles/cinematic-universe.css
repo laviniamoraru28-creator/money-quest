@@ -1,0 +1,43 @@
+/* Opt-in cinematic tokens. Do not globally override existing lessons before QA. */
+.mq-cinematic {
+  --mq-text: #243448;
+  --mq-muted: #586779;
+  --mq-surface: #fffcf6;
+  --mq-background: #f7f5f0;
+  --mq-chrome: #14263e;
+  --mq-focus: #2457d6;
+  --mq-success: #287d64;
+  --mq-error: #b64c50;
+  --mq-accent: #c9953d;
+  --mq-accent-soft: #f2d79b;
+  --mq-quest-surface: #fff5df;
+  color: var(--mq-text);
+  background: var(--mq-background);
+}
+.mq-cinematic[data-quest="entrepreneur"] { --mq-accent: #c77938; --mq-accent-soft: #f1b66c; --mq-quest-surface: #fff0de; }
+.mq-cinematic[data-quest="leadership"] { --mq-accent: #287e80; --mq-accent-soft: #a5d2c8; --mq-quest-surface: #eaf6f2; }
+.mq-cinematic[data-quest="ai"] { --mq-accent: #5867b7; --mq-accent-soft: #a79bdb; --mq-quest-surface: #f0eeff; }
+.mq-cinematic .mq-glass {
+  color: #fff;
+  background: rgba(20,38,62,.92);
+  border: 1px solid rgba(242,215,155,.3);
+  border-radius: 1.25rem;
+  box-shadow: 0 10px 28px rgba(20,38,62,.14);
+}
+@supports (backdrop-filter: blur(12px)) {
+  .mq-cinematic .mq-glass { background: rgba(20,38,62,.84); backdrop-filter: blur(12px); }
+}
+.mq-cinematic .mq-lesson-frame {
+  color: var(--mq-text);
+  background: var(--mq-quest-surface);
+  border: 2px solid var(--mq-accent-soft);
+  border-radius: 1.5rem;
+  box-shadow: 0 12px 30px rgba(20,38,62,.08);
+}
+.mq-cinematic :is(a,button,input,select,textarea):focus-visible { outline: 3px solid var(--mq-focus); outline-offset: 3px; }
+.mq-cinematic button, .mq-cinematic a.mq-action { min-height: 44px; min-width: 44px; }
+.mq-cinematic[data-presentation="calm"] [data-cinematic-decoration] { display:none; }
+@media (prefers-reduced-motion: reduce) {
+  .mq-cinematic [data-cinematic-decoration] { display:none; }
+  .mq-cinematic *, .mq-cinematic *::before, .mq-cinematic *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
