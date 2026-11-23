@@ -12,11 +12,11 @@ import type { ArticleStructure } from "./types";
 export const ARTICLE_STRUCTURES: ArticleStructure[] = [
   {
     slug: "saving-money-for-kids",
-    targetKeywords: ["saving money for kids", "how to teach kids to save"],
+    targetKeywords: ["saving money for kids", "how to teach kids to save", "teach kids to save money by age"],
     audience: ["parents", "families"],
     relatedSlugs: ["budgeting-for-kids", "needs-vs-wants"],
     publishedDate: "2026-01-15",
-    updatedDate: "2026-01-15",
+    updatedDate: "2026-11-23",
   },
   {
     slug: "budgeting-for-kids",
@@ -28,11 +28,11 @@ export const ARTICLE_STRUCTURES: ArticleStructure[] = [
   },
   {
     slug: "needs-vs-wants",
-    targetKeywords: ["needs vs wants", "needs vs wants for kids"],
+    targetKeywords: ["needs vs wants", "needs vs wants for kids", "how to teach needs vs wants"],
     audience: ["parents", "teachers", "families"],
     relatedSlugs: ["budgeting-for-kids", "saving-money-for-kids"],
     publishedDate: "2026-01-15",
-    updatedDate: "2026-01-15",
+    updatedDate: "2026-11-23",
   },
   {
     slug: "money-games-for-kids",
