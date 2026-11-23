@@ -44,6 +44,10 @@ try{
  assert.ok(healthy,'Extracted production server health');
  const routes=['/en','/en/library','/en/museum','/en/mind-lab','/en/brain-lab','/en/privacy','/sitemap.xml','/robots.txt','/offline-manifest.json','/resources/samples/free-family-sample-en.pdf','/resources/samples/free-journal-week-one-en.pdf','/resources/samples/free-academy-activities-en.pdf','/resources/samples/free-journal-30-days-en.pdf'];
  for(const locale of ['ro','fr','de','es','it','pt','nl','pl']) routes.push(`/${locale}`,`/${locale}/library`,`/${locale}/brain-lab`,`/resources/samples/free-family-sample-${locale}.pdf`,`/worksheets/${locale}/money-quest-worksheets-answer-key.pdf`);
+ routes.push('/cinematic/world/home-mobile.mp4','/cinematic/world/homepage-worlds-original.mp4','/cinematic/world/homepage-worlds-original.webp');
+ for(const id of ['01','02','03','04','05','06']) routes.push(`/cinematic/avatars/avatar-${id}/portrait.webp`,`/cinematic/avatars/avatar-${id}/animation.webm`);
+ for(const quest of ['money','entrepreneur','leadership','ai']) routes.push(`/cinematic/quests/${quest}/intro.mp4`);
+ for(const locale of status.activeLocales) routes.push(`/${locale}/adventure?band=builder`,`/${locale}/ai-quest`);
  for(const route of routes)assert.equal((await fetch(origin+route)).status,200,route);
  // The Parent Shop storefront is intentionally unpublished while purchases
  // are paused (see src/app/[locale]/parents/shop/page.tsx) — the homepage
