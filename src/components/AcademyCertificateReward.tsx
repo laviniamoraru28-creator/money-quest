@@ -34,7 +34,8 @@ export function AcademyCertificateReward() {
   const { state: leadership, isLoaded: leadershipLoaded } = useLeadershipQuest();
   const loaded = isLoaded && entrepreneurLoaded && leadershipLoaded;
   const band = state.ageBand;
-  const ready = loaded && !!band && isThreeQuestCertificateReady(state.completedActivityIds,band,entrepreneur,leadership);
+  const ready = loaded && !!band && isThreeQuestCertificateReady(state.completedActivityIds,band,entrepreneur,leadership)
+    && (state.certificateQuestCount === 3 || !!state.threeQuestCertificateDates[band] || state.completedActivityIds.includes(`ai-quest-${band}`));
   useRecordThreeQuestCompletion(band, ready, loaded);
   if(!loaded || !ready || !band)return null;
   const earned=CERTIFICATE_BANDS.filter(candidate=>candidate===band);

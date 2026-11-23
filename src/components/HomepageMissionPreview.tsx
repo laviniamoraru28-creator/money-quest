@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useState } from "react";
 import { Link } from "@/i18n/navigation";
 
@@ -14,7 +15,7 @@ const copy:Record<string,Copy>={
  nl:{heading:"Probeer je eerste beslissing",question:"Je hebt £10. Een boek kost £7, maar je hebt £5 nodig voor lunch. Wat doe je?",options:["Het boek kopen","Sparen voor het boek en lunchgeld bewaren","Alles uitgeven"],feedback:"Je beschermde een behoefte en plande een doel.",retry:"Andere keuze proberen",badge:"Badge Slimme beslissing",demo:"Alleen voorbeeld. Echte beloningen verdien je met activiteiten.",cta:"Ontdek de quests",pillars:["Geld en keuzes","Ondernemen","Leiderschap","AI begrijpen"],descriptions:["Oefen sparen en afwegen.","Test ideeën en gevolgen.","Leer samenwerken.","Controleer AI-antwoorden."]},
  pl:{heading:"Wypróbuj pierwszą decyzję",question:"Masz £10. Książka kosztuje £7, ale potrzebujesz £5 na obiad. Co robisz?",options:["Kupujesz książkę","Oszczędzasz na książkę i zachowujesz pieniądze na obiad","Wydajesz wszystko"],feedback:"Chronisz potrzebę i planujesz cel.",retry:"Spróbuj innego wyboru",badge:"Odznaka Mądra decyzja",demo:"Tylko pokaz. Prawdziwe nagrody zdobywasz w ćwiczeniach.",cta:"Odkryj misje",pillars:["Pieniądze i decyzje","Przedsiębiorczość","Przywództwo","Wiedza o AI"],descriptions:["Ćwicz oszczędzanie.","Testuj pomysły i skutki.","Ucz się współpracy.","Sprawdzaj odpowiedzi AI."]}
 };
-const icons=["🪙","🚀","🤝","🤖"] as const;
+const icons=["coin","badge-building","badge-decision","badge-ai"] as const;
 export function HomepageMissionPreview({locale}:{locale:string}){
  const t=copy[locale]??copy.en!;
  const [choice,setChoice]=useState<number|null>(null);
@@ -24,10 +25,10 @@ export function HomepageMissionPreview({locale}:{locale:string}){
    <div className="grid gap-lg p-md md:grid-cols-2 md:p-lg">
     <div><p className="text-lg font-bold text-ink">{t.question}</p><div className="mt-md grid gap-3">{t.options.map((option,i)=><button key={i} type="button" aria-pressed={choice===i} onClick={()=>setChoice(i)} className={`min-h-14 rounded-xl border-2 p-3 text-left font-semibold focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal ${choice===i?"border-teal bg-cream":"border-ink/20 bg-white hover:border-teal"}`}>{option}</button>)}</div></div>
     <div aria-live="polite" aria-atomic="true" className="flex min-h-64 flex-col items-center justify-center rounded-2xl bg-cream p-md text-center">
-     {choice===1?<><span aria-hidden="true" className="text-7xl motion-safe:animate-bounce">🏅</span><h3 className="mt-3 font-display text-xl font-bold text-teal-text">{t.badge}</h3><p className="mt-2">{t.feedback}</p><p className="mt-2 text-xs text-ink/70">{t.demo}</p><button type="button" onClick={()=>setChoice(null)} className="mt-4 min-h-11 rounded-xl border border-teal px-4 font-semibold text-teal-text">{t.retry}</button></>:<><span aria-hidden="true" className="text-7xl">🎯</span><p className="mt-3 text-ink/80">{choice===null?t.heading:t.retry}</p></>}
+     {choice===1?<><Image unoptimized alt="" width={96} height={96} src="/cinematic/rewards/badge-decision.webp"/><h3 className="mt-3 font-display text-xl font-bold text-teal-text">{t.badge}</h3><p className="mt-2">{t.feedback}</p><p className="mt-2 text-xs text-ink/70">{t.demo}</p><button type="button" onClick={()=>setChoice(null)} className="mt-4 min-h-11 rounded-xl border border-teal px-4 font-semibold text-teal-text">{t.retry}</button></>:<><Image unoptimized alt="" width={96} height={96} src="/cinematic/rewards/badge-curiosity.webp"/><p className="mt-3 text-ink/80">{choice===null?t.heading:t.retry}</p></>}
     </div>
    </div>
-   <div className="border-t border-teal/15 p-md md:px-lg"><div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">{t.pillars.map((title,i)=><div key={title} className="rounded-xl bg-fog p-3"><span aria-hidden="true" className="text-3xl">{icons[i]}</span><h3 className="mt-2 font-display font-bold text-ink">{title}</h3><p className="mt-1 text-sm text-ink/75">{t.descriptions[i]}</p></div>)}</div><div className="mt-5 flex justify-center"><Link href="/play" className="inline-flex min-h-12 items-center justify-center rounded-xl bg-teal px-7 py-3 text-center font-bold text-white focus-visible:outline focus-visible:outline-4 focus-visible:outline-ink">{t.cta} →</Link></div></div>
+   <div className="border-t border-teal/15 p-md md:px-lg"><div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">{t.pillars.map((title,i)=><div key={title} className="rounded-xl bg-fog p-3"><Image unoptimized alt="" width={48} height={48} src={`/cinematic/rewards/${icons[i]}.webp`}/><h3 className="mt-2 font-display font-bold text-ink">{title}</h3><p className="mt-1 text-sm text-ink/75">{t.descriptions[i]}</p></div>)}</div><div className="mt-5 flex justify-center"><Link href="/play" className="inline-flex min-h-12 items-center justify-center rounded-xl bg-teal px-7 py-3 text-center font-bold text-white focus-visible:outline focus-visible:outline-4 focus-visible:outline-ink">{t.cta} →</Link></div></div>
   </div>
  </section>;
 }

@@ -31,6 +31,8 @@ export function JourneyContinuePrompt() {
     ? { href: "/entrepreneur-quest" as const, label: copy.toEntrepreneurQuest }
     : !leadership.completedMissionIds.includes("final-challenge")
     ? { href: "/leadership-quest" as const, label: copy.toLeadershipQuest }
+    : !state.completedActivityIds.includes(`ai-quest-${band}`)
+    ? {href:"/ai-quest",label:"AI Quest"}
     : null;
   if (!next) return null;
 

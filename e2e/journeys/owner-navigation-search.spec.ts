@@ -9,8 +9,8 @@ for(const locale of LOCALES){
  const messages=JSON.parse(readFileSync(`messages/${locale}.json`,'utf8'));
  test(`${locale}: menu-only destinations, original money pictures and lesson keyword search`,async({page})=>{
   await page.goto(`/${locale}`);
-  const hero=page.locator('[data-homepage-hero] img');
-  await expect(hero).toBeVisible();await expect.poll(()=>hero.evaluate((e:HTMLImageElement)=>e.complete&&e.naturalWidth>0)).toBe(true);
+  const hero=page.locator('[data-homepage-hero] :is(img,video)');
+  await expect(hero).toBeVisible();await expect.poll(()=>hero.evaluate(e=>e instanceof HTMLVideoElement?e.readyState>=2:e instanceof HTMLImageElement&&e.complete&&e.naturalWidth>0)).toBe(true);
   await expect(page.locator('main').getByRole('heading',{name:reviewsCopy[locale].title,exact:true})).toHaveCount(0);
   await expect(page.locator('footer a[href$="/reviews"]')).toHaveCount(0);
   await page.getByRole('button',{name:messages.navMenu.openMenu,exact:true}).click();

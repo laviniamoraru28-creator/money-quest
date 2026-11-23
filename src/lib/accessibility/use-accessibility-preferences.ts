@@ -13,6 +13,7 @@ import { useCallback, useEffect, useState } from "react";
 const PREFS_STORAGE_KEY = "moneyquest_accessibility_prefs_v1";
 
 interface AccessibilityPrefs {
+  presentation: "cinematic" | "balanced" | "calm";
   reducedMotion: boolean;
   focusMode: boolean;
   nightView: boolean;
@@ -21,7 +22,7 @@ interface AccessibilityPrefs {
   highContrast: boolean;
 }
 
-const DEFAULT_PREFS: AccessibilityPrefs = { reducedMotion: false, focusMode: false, nightView: false, imageSize: "full", textSize: "normal", highContrast: false };
+const DEFAULT_PREFS: AccessibilityPrefs = { presentation: "balanced", reducedMotion: false, focusMode: false, nightView: false, imageSize: "full", textSize: "normal", highContrast: false };
 
 function readPrefsFromStorage(): AccessibilityPrefs {
   if (typeof window === "undefined") return DEFAULT_PREFS;
@@ -30,6 +31,7 @@ function readPrefsFromStorage(): AccessibilityPrefs {
     if (!raw) return DEFAULT_PREFS;
     const parsed = JSON.parse(raw);
     return {
+      presentation: ["cinematic","calm"].includes(parsed.presentation) ? parsed.presentation : "balanced",
       reducedMotion: Boolean(parsed.reducedMotion),
       focusMode: Boolean(parsed.focusMode),
       nightView: Boolean(parsed.nightView),

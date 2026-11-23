@@ -30,7 +30,8 @@ function CertificateContent() {
   // certificate from ever reading as eligible, per Issue #86 point 4.
   const loaded=isLoaded&&entrepreneurLoaded&&leadershipLoaded;
   const sameBand=!!band&&band===state.ageBand;
-  const eligible=loaded&&sameBand&&isThreeQuestCertificateReady(state.completedActivityIds,band,entrepreneur,leadership);
+  const eligible=loaded&&sameBand&&isThreeQuestCertificateReady(state.completedActivityIds,band,entrepreneur,leadership)
+    && (state.certificateQuestCount === 3 || !!state.threeQuestCertificateDates[band] || state.completedActivityIds.includes(`ai-quest-${band}`));
   useRecordThreeQuestCompletion(sameBand?band!:null, eligible, loaded);
   return <main id="main-content" tabIndex={-1} className="mx-auto min-h-screen max-w-6xl p-4 text-center">
     <h1 className="text-2xl font-bold">{copy.title}</h1>

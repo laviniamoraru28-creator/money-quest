@@ -59,7 +59,7 @@ for(const locale of LOCALES) for(const band of ['explorer','builder','strategist
   // (see explorer-comic-lessons.spec.ts) — every other locale/band still
   // does.
   if (!(locale === 'en' && band === 'explorer')) await expect(page.locator('#money-examples-heading')).toBeVisible();
-  await page.locator(`a[href="/${locale}/play/world/${lesson.worldId}/lesson/${lesson.id}"]`).click();
+  await page.locator(`main a[href="/${locale}/play/world/${lesson.worldId}/lesson/${lesson.id}"]`).click();
   await expect(page.locator('[data-lesson-section="lesson"]')).toBeVisible();
   // The examples section is mounted alongside the lesson section from the
   // start (toggled with `hidden`, not conditionally rendered) — it just

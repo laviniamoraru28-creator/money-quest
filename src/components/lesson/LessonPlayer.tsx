@@ -8,6 +8,7 @@ import { Card } from "@/components/ui/Card";
 import { MoneyAmount } from "@/components/ui/MoneyAmount";
 import { LevelBadgeStar } from "@/components/ui/LevelBadgeStar";
 import { KeyTermBadge } from "@/components/ui/KeyTermBadge";
+import { AdventureAvatar } from "@/components/AdventureAvatar";
 import { GuidePanel } from "@/components/GuidePanel";
 import { MoneyExamples } from "@/components/MoneyExamples";
 import { explorerOtherTopics } from "@/content/explorer-other-lessons";
@@ -141,7 +142,8 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
   // Explorer interactive-activity flow — the reward itself (XP, coins,
   // next-activity routing) doesn't depend on how the lesson was answered.
   const rewardPanel = (phase === "correct" || activity.isCompleted) && (
-    <div ref={isExplorer ? explorerReward : undefined} tabIndex={isExplorer ? -1 : undefined} className="mt-md rounded-sm border border-success/30 bg-success/5 p-sm">
+    <div id="mission-result" data-mission-result ref={isExplorer ? explorerReward : undefined} tabIndex={isExplorer ? -1 : undefined} className="mt-md rounded-sm border border-success/30 bg-success/5 p-sm">
+      {!focusMode && <AdventureAvatar size={56}/>}
       {(!hasInteractiveExplorerLesson || phase === "unanswered") && (
         <p className="font-medium text-success-text">
           {activity.isCompleted && phase === "unanswered" ? t("lesson.alreadyCompleted") : feedbackMessage.success}
@@ -196,7 +198,7 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
   );
 
   return (
-    <div className="flex flex-col gap-md">
+    <div className="flex flex-col gap-md" data-mission-band={activity.childAgeBand}>
       {/* Journey navigation — a real "Back" (to the previous activity,
           not just to the World menu) and an always-visible "Back to
           World" button, alongside a simple "Activity X of Y" position
@@ -273,6 +275,12 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
         </>
       )}
 
+      <nav className="mq-mission-links" aria-label={t("lesson.interactiveActivityLabel")}>
+        <a href="#mission-story">{isExplorer?t("lesson.keyIdea"):t("lesson.realLifeScenario")}</a>
+        <a href="#mission-decision">{isExplorer?t("lesson.interactiveActivityLabel"):t("lesson.whatWouldYouDo")}</a>
+        {(phase==="correct" || activity.isCompleted) && <a href="#mission-result">{t("play.levelComplete")}</a>}
+      </nav>
+      <div id="mission-story" tabIndex={-1} className="mq-mission-story">
       {explorerComicTopic ? (
         <ExplorerComicLesson topicId={explorerComicTopic} uiLocale={uiLocale} />
       ) : (
@@ -352,7 +360,7 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
             </details>
           )}
 
-          {activity.content.interactiveActivity && (
+          {activity.childAgeBand!=="strategist" && activity.content.interactiveActivity && (
             <details className="mt-2xs rounded-md border border-ink/15 bg-fog/60 p-sm text-sm">
               <summary className="cursor-pointer font-medium text-ink/70">
                 {t("lesson.interactiveActivityLabel")}
@@ -377,12 +385,13 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
       </div>
       )}
 
+      </div>
       {!explorerComicTopic && isExplorer && <GuidePanel compact message={phase === "incorrect" ? t("activityGuide.lessonRetry") : phase === "correct" ? t("activityGuide.lessonComplete") : lessonGoal} />}
 
       {isSupportedLocale(uiLocale) && <LessonAssistant lessonId={activity.id} locale={uiLocale} />}
 
       {hasInteractiveExplorerLesson ? (
-        <Card variant="activity" className="min-w-0 border-2 border-coral/30 p-3 sm:p-lg">
+        <Card id="mission-decision" tabIndex={-1} variant="activity" className="min-w-0 border-2 border-coral/30 p-3 sm:p-lg">
           <ExplorerInteractiveLesson topicId={activity.topicId} onComplete={() => {
             stopSpeech();
             if (activity.isCompleted || phase === "correct") {
@@ -405,9 +414,9 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
           {rewardPanel}
         </Card>
       ) : (
-      <Card variant="activity" className="border-2 border-coral/30">
+      <Card id="mission-decision" tabIndex={-1} variant="activity" className="border-2 border-coral/30">
         <div className="flex items-center gap-2xs">
-          <span aria-hidden="true" className="text-xl">📖</span>
+          {!focusMode && <AdventureAvatar size={48}/>}
           <h3 className="font-display text-base font-bold text-ink">{t("lesson.realLifeScenario")}</h3>
         </div>
         <p className="mt-2xs rounded-lg bg-soft-blue/15 p-sm text-base leading-relaxed text-ink/80">
@@ -416,9 +425,12 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
 
         <p className="mt-md font-display text-lg font-bold text-teal-text">{t("lesson.whatWouldYouDo")}</p>
         <p className="mt-2xs text-base font-medium">{quiz.question}</p>
-        {isExplorer && <ReadAloudButton text={quiz.question} uiLocale={uiLocale} />}
+        <ReadAloudButton text={[activity.content.story,quiz.question,...shuffledOptions].join(". ")} uiLocale={uiLocale}/>
+        {activity.childAgeBand==="strategist" && activity.content.interactiveActivity && <details className="mq-mission-evidence">
+          <summary>{t("lesson.interactiveActivityLabel")}</summary><p>{activity.content.interactiveActivity}</p>
+        </details>}
 
-        <fieldset className="mt-sm" disabled={phase === "correct" || activity.isCompleted}>
+        <fieldset className="mt-sm rounded-2xl border border-[#d8bd88] bg-gradient-to-br from-white to-[#fff5df] p-sm" disabled={phase === "correct" || activity.isCompleted}>
           <legend className="sr-only">{t("lesson.answerOptions")}</legend>
           <div className={isExplorer ? "grid gap-4" : "grid gap-2xs"}>
             {shuffledOptions.map((option) => {
@@ -430,7 +442,7 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
                 <label
                   key={option}
                   className={[
-                    "flex min-h-touch-min-child cursor-pointer items-center gap-xs rounded-lg border-2 px-sm py-2xs text-base shadow-resting transition-colors duration-quick",
+                    "flex min-h-touch-min-child cursor-pointer items-center gap-xs rounded-xl border-2 px-sm py-2xs text-base shadow-resting transition-colors duration-quick",
                     isExplorer ? "min-h-24 p-4 text-lg" : "",
                     showAsCorrect ? "border-success bg-success/10" : "",
                     showAsIncorrect ? "border-error bg-error/10" : "",

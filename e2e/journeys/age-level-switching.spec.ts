@@ -77,12 +77,15 @@ test('switching to a band with no variant for the open game shows "not available
 });
 
 test('homepage level cards replace the previously selected age band', async ({page}) => {
-  await page.goto('/en');
-  await page.getByRole('link',{name:/Builder Ages 9-11/}).click();
-  await page.getByRole('link',{name:/Coin Cove/}).click();
-  await expect(page.locator('main a[href$="/builder-money_basics-l1"]')).toBeVisible();
-  await page.goto('/en');
-  await page.getByRole('link',{name:/Strategist Ages 12-14/}).click();
-  await page.getByRole('link',{name:/Coin Cove/}).click();
-  await expect(page.locator('main a[href$="/strategist-money_basics-l1"]')).toBeVisible();
+  for(const [label,band] of [[/Builder Ages 9-11/,"builder"],[/Strategist Ages 12-14/,"strategist"]] as const){
+    await page.goto("/en");
+    await page.getByRole("link",{name:label}).click();
+    await page.getByRole("button",{name:"Avatar 2",exact:true}).click();
+    await page.getByRole("button",{name:"Enter the world",exact:true}).click();
+    await page.getByRole("button",{name:"World map",exact:true}).click();
+    await page.getByRole("button",{name:"Money Quest",exact:true}).click();
+    await page.getByRole("link",{name:"Start adventure",exact:true}).click();
+    await page.getByRole("link",{name:/Coin Cove/}).click();
+    await expect(page.locator(`main a[href$="/${band}-money_basics-l1"]`)).toBeVisible();
+  }
 });

@@ -19,14 +19,14 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
 // of truth the same way `fog` is for the page background.
 const VARIANT_CLASSES: Record<CardVariant, string> = {
   data: "rounded-md border border-ink/10 bg-cream",
-  activity: "rounded-md border border-ink/10 bg-cream",
+  activity: "rounded-2xl border border-[#d8bd88] bg-gradient-to-br from-white to-[#fff5df] shadow-resting",
   place: "rounded-xl shadow-resting bg-cream",
   reward: "rounded-lg shadow-floating bg-cream",
 };
 
 export function Card({ variant = "data", className = "", children, ...props }: CardProps) {
   return (
-    <div className={["p-md", VARIANT_CLASSES[variant], className].join(" ")} {...props}>
+    <div data-card={variant} className={["p-md", VARIANT_CLASSES[variant], className].join(" ")} {...props}>
       {children}
     </div>
   );
