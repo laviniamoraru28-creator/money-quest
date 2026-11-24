@@ -46,7 +46,7 @@ TOPICS = [
     ("teaching-cooperation", "Teaching cooperation and everyday leadership", "Offer collaborative activities without pressuring children.", "leadership and decision-making"),
     ("accessible-money-learning", "Accessible money learning for different needs", "Use respectful SEND language and concrete visual/audio supports.", "inclusive education and SEND"),
     ("family-money-conversations", "How to talk with children about a family budget", "Use fictional examples, avoid asking families to disclose finances.", "financial education"),
-    ("naming-big-feelings-about-money", "Helping children name and manage big feelings about money", "Connect emotional regulation to everyday money moments without clinical claims.", "emotional intelligence and self-regulation"),
+    ("staying-calm-after-a-money-mistake", "Helping children stay calm and bounce back after a money mistake", "Build resilience and self-forgiveness after an overspend or a lost item, without shame or guilt.", "emotional intelligence and self-regulation"),
     ("skills-for-a-changing-world", "The skills children will need for a changing world", "Cover adaptability, digital literacy and creative problem-solving with concrete home examples.", "future skills"),
     ("pocket-money-creativity-project", "Turning pocket money into a creativity project", "Give safe, imaginative project ideas that build creative thinking, not just saving habits.", "entrepreneurship and creativity"),
     ("everyday-independence", "Building confidence with everyday money choices", "Age-appropriate independence steps, not real unsupervised purchases or responsibilities.", "building independence and confidence"),
