@@ -49,12 +49,12 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
           <CinematicScene src="/cinematic/world/age-portals.mp4" poster="/cinematic/world/age-portals.webp" className="mx-auto mt-4 max-h-60 w-full rounded-2xl object-contain"/>
           <div className="mq-cinematic mt-md grid gap-md sm:grid-cols-3">
             {([
-              { ageBand: "explorer", image: "coin-cove", label: t("play.earlyLearner"), range: t("play.earlyLearnerRange") },
-              { ageBand: "builder", image: "market-town", label: t("play.primary"), range: t("play.primaryRange") },
-              { ageBand: "strategist", image: "golden-vault", label: t("play.olderLearner"), range: t("play.olderLearnerRange") },
+              { ageBand: "explorer", label: t("play.earlyLearner"), range: t("play.earlyLearnerRange") },
+              { ageBand: "builder", label: t("play.primary"), range: t("play.primaryRange") },
+              { ageBand: "strategist", label: t("play.olderLearner"), range: t("play.olderLearnerRange") },
             ] as const).map((level) => (
-              <ChooseLearningLevelLink key={level.image} ageBand={level.ageBand} className="mq-age-portal group overflow-hidden rounded-2xl border border-teal/20 bg-white shadow-resting transition-shadow hover:shadow-lg focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal">
-                <Image unoptimized src={`/images/money-quest/worlds/${level.image}-thumb.webp`} alt="" width={640} height={400} loading="lazy" className="h-48 w-full object-contain bg-cream p-3 transition-transform motion-safe:group-hover:scale-[1.02]" />
+              <ChooseLearningLevelLink key={level.ageBand} ageBand={level.ageBand} className="mq-age-portal group overflow-hidden rounded-2xl border border-teal/20 bg-white shadow-resting transition-shadow hover:shadow-lg focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal">
+                <Image unoptimized src={`/cinematic/world/portal-${level.ageBand}.webp`} alt="" width={640} height={501} loading="lazy" className="h-48 w-full object-cover bg-cream transition-transform motion-safe:group-hover:scale-[1.02]" />
                 <div className="p-md text-center">
                   <h3 className="font-display text-xl font-bold text-teal-text">{level.label}</h3>
                   <p className="mt-1 text-ink/70">{level.range}</p>
