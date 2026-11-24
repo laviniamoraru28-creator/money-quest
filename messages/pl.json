@@ -8095,7 +8095,11 @@
       "projectQuality": "Jakość projektu",
       "privacyScore": "Prywatność",
       "planQuality": "Jakość planu",
-      "trustworthiness": "Wiarygodność"
+      "trustworthiness": "Wiarygodność",
+      "teamSpirit": "Duch zespołu",
+      "teamMorale": "Morale zespołu",
+      "projectProgress": "Postęp projektu",
+      "teamTrust": "Zaufanie zespołu"
     },
     "recoveryBadge": "Rozwiążmy to razem",
     "askForHelpButton": "Potrzebuję pomocy",
@@ -8346,6 +8350,129 @@
           "disclosed-ai-use": "Byłeś otwarty co do tego, że AI pomogło stworzyć obraz - to buduje prawdziwe zaufanie.",
           "got-help-ai-strategist": "Osoba dorosła pomogła ci wzmocnić plan. To mądre planowanie, a nie porażka.",
           "rebuilt-honestly": "Wybrałeś uczciwe odbudowanie planu, stawiając zaufanie ponad szybkość."
+        }
+      },
+      "leadership-explorer-fort": {
+        "title": "Zbudujcie Razem Fort",
+        "intro": "Ty i twoi przyjaciele budujecie fort. Twoje wybory decydują, jak to jest pracować razem.",
+        "nodes": {
+          "sharing-blocks": {
+            "prompt": "Masz najlepsze klocki do budowania. Co robisz?"
+          },
+          "someone-left-out": {
+            "prompt": "Jeden z przyjaciół czuje się wykluczony z budowy. Co robisz?"
+          },
+          "recovery": {
+            "prompt": "Zespół nie czuje się teraz najlepiej. Nic się nie stało - oto, co możesz zrobić."
+          },
+          "result": {
+            "prompt": "Zobaczmy, jak poszła wspólna budowa fortu."
+          }
+        },
+        "choices": {
+          "share-the-blocks": "Podziel się najlepszymi klockami ze wszystkimi",
+          "keep-best-blocks": "Zatrzymaj najlepsze klocki dla siebie",
+          "invite-them-in": "Zaproś go do dołączenia",
+          "keep-building-without-them": "Buduj dalej bez niego",
+          "ask-for-help": "Poproś osobę dorosłą o pomoc",
+          "share-now-instead": "Podziel się teraz zamiast tego"
+        },
+        "outcomes": {
+          "shared-blocks": "Podzieliłeś się najlepszymi klockami ze wszystkimi.",
+          "kept-best-blocks": "Zatrzymałeś najlepsze klocki dla siebie.",
+          "invited-them-in": "Zaprosiłeś przyjaciela do dołączenia.",
+          "kept-building-without-them": "Budowałeś dalej bez niego.",
+          "got-help-leadership-explorer": "Osoba dorosła ci pomogła. Proszenie o pomoc nigdy nie jest błędem.",
+          "shared-now-instead": "Zdecydowałeś się podzielić teraz zamiast tego."
+        }
+      },
+      "leadership-builder-fundraiser": {
+        "title": "Planowanie Zbiórki Pieniędzy w Klasie",
+        "intro": "Twoja klasa planuje zbiórkę pieniędzy. Twoje wybory decydują, jak zespół pracuje razem - i ile udaje się zrobić.",
+        "nodes": {
+          "assign-tasks": {
+            "prompt": "Czas przydzielić zadania do zbiórki. Co robisz?"
+          },
+          "disagreement": {
+            "prompt": "Dwóch kolegów z zespołu nie zgadza się co do wyglądu stołu ze słodyczami. Co robisz?"
+          },
+          "falling-behind": {
+            "prompt": "Projekt zaczyna się opóźniać. Co robisz?"
+          },
+          "credit": {
+            "prompt": "Zbiórka zakończyła się sukcesem! Co robisz?"
+          },
+          "recovery": {
+            "prompt": "Zespół nie czuje się teraz najlepiej. Nic się nie stało - oto, co możesz zrobić."
+          },
+          "result": {
+            "prompt": "Zobaczmy, jak poszła zbiórka pieniędzy w klasie."
+          }
+        },
+        "choices": {
+          "let-everyone-pick": "Pozwól każdemu wybrać własne zadanie",
+          "assign-tasks-yourself": "Przydziel zadania sam, żeby iść szybciej",
+          "let-them-work-it-out": "Pozwól im rozwiązać to samodzielnie",
+          "help-them-find-a-compromise": "Pomóż im znaleźć kompromis",
+          "push-the-team-harder": "Zmuś zespół do cięższej pracy",
+          "ask-who-needs-help": "Zapytaj, kto potrzebuje pomocy",
+          "take-credit-yourself": "Przypisz sobie samemu zasługę za pomysł",
+          "share-credit-with-team": "Podziel się zasługą z całym zespołem",
+          "ask-for-help": "Poproś osobę dorosłą o pomoc",
+          "apologize-and-reset": "Przeproś i zacznij od nowa z zespołem"
+        },
+        "outcomes": {
+          "let-everyone-pick": "Pozwoliłeś każdemu wybrać własne zadanie.",
+          "assigned-tasks-yourself": "Przydzieliłeś zadania sam, żeby iść szybciej.",
+          "let-them-work-it-out": "Zostawiłeś spór nierozwiązany.",
+          "helped-find-compromise": "Pomogłeś kolegom znaleźć kompromis.",
+          "pushed-team-harder": "Zmusiłeś zespół do cięższej pracy.",
+          "asked-who-needs-help": "Zapytałeś, kto potrzebuje pomocy.",
+          "took-credit-yourself": "Przypisałeś sobie samemu zasługę za pomysł.",
+          "shared-credit-with-team": "Podzieliłeś się zasługą z całym zespołem.",
+          "got-help-leadership-builder": "Osoba dorosła ci pomogła. Proszenie o pomoc jest częścią dobrego przywództwa.",
+          "apologized-and-reset": "Przeprosiłeś i zacząłeś od nowa z zespołem."
+        }
+      },
+      "leadership-strategist-garden": {
+        "title": "Prowadzenie Projektu Ogrodu Społecznościowego",
+        "intro": "Prowadzisz projekt ogrodu społecznościowego. Twoje wybory decydują, jak bardzo zespół ci ufa - i jak bardzo korzysta na tym społeczność.",
+        "nodes": {
+          "volunteer-dispute": {
+            "prompt": "Wolontariusz chce pominąć zasadę bezpieczeństwa, żeby iść szybciej. Co robisz?"
+          },
+          "resource-allocation": {
+            "prompt": "Budżet jest ograniczony. Co robisz?"
+          },
+          "credit-and-visibility": {
+            "prompt": "Lokalny dziennikarz chce przeprowadzić wywiad z liderem projektu. Co robisz?"
+          },
+          "recovery": {
+            "prompt": "Zaufanie zespołu do ciebie nie jest teraz takie, jakie powinno być. Nic się nie stało - oto, co możesz zrobić."
+          },
+          "result": {
+            "prompt": "Zobaczmy, jak wypadł projekt ogrodu społecznościowego."
+          }
+        },
+        "choices": {
+          "let-it-slide-to-save-time": "Puść to płazem, żeby zaoszczędzić czas",
+          "enforce-the-safety-rules": "Wyegzekwuj zasady bezpieczeństwa",
+          "prioritize-team-tools": "Postaw na narzędzia dla zespołu",
+          "prioritize-community-benefit": "Postaw na korzyść dla społeczności",
+          "take-the-spotlight-alone": "Zgarnij uwagę tylko dla siebie",
+          "bring-the-whole-team-to-the-interview": "Zabierz cały zespół na wywiad",
+          "ask-for-help": "Poproś osobę dorosłą o pomoc",
+          "rebuild-trust-through-action": "Odbuduj zaufanie poprzez działanie"
+        },
+        "outcomes": {
+          "let-it-slide-to-save-time": "Puściłeś płazem skrót bezpieczeństwa, żeby zaoszczędzić czas.",
+          "enforced-safety-rules": "Wyegzekwowałeś zasady bezpieczeństwa.",
+          "prioritized-team-tools": "Postawiłeś na narzędzia dla zespołu.",
+          "prioritized-community-benefit": "Postawiłeś na korzyść dla społeczności.",
+          "took-spotlight-alone": "Zgarnąłeś uwagę tylko dla siebie.",
+          "brought-whole-team": "Zabrałeś cały zespół na wywiad.",
+          "got-help-leadership-strategist": "Osoba dorosła pomogła ci odbudować zaufanie. To mądre przywództwo, a nie porażka.",
+          "rebuilt-trust-through-action": "Wybrałeś odbudowanie zaufania poprzez działanie, wzmacniając zarówno zespół, jak i projekt."
         }
       }
     }

@@ -8095,7 +8095,11 @@
       "projectQuality": "Projectkwaliteit",
       "privacyScore": "Privacy",
       "planQuality": "Planskwaliteit",
-      "trustworthiness": "Betrouwbaarheid"
+      "trustworthiness": "Betrouwbaarheid",
+      "teamSpirit": "Teamgeest",
+      "teamMorale": "Teammoraal",
+      "projectProgress": "Projectvoortgang",
+      "teamTrust": "Vertrouwen in het team"
     },
     "recoveryBadge": "Dat lossen we samen op",
     "askForHelpButton": "Ik heb hulp nodig",
@@ -8346,6 +8350,129 @@
           "disclosed-ai-use": "Je was open over het feit dat AI hielp bij het maken van de afbeelding - dat schept echt vertrouwen.",
           "got-help-ai-strategist": "Een volwassene heeft je geholpen het plan te versterken. Dat is slim plannen, geen mislukking.",
           "rebuilt-honestly": "Je koos ervoor het plan eerlijk opnieuw op te bouwen, met vertrouwen boven snelheid."
+        }
+      },
+      "leadership-explorer-fort": {
+        "title": "Samen een Fort Bouwen",
+        "intro": "Jij en je vrienden bouwen een fort. Jouw keuzes bepalen hoe het voelt om samen te werken.",
+        "nodes": {
+          "sharing-blocks": {
+            "prompt": "Jij hebt de beste bouwblokken. Wat doe je?"
+          },
+          "someone-left-out": {
+            "prompt": "Een vriend voelt zich buitengesloten van het bouwen. Wat doe je?"
+          },
+          "recovery": {
+            "prompt": "Het team voelt zich nu niet zo goed. Geen probleem - dit kun je doen."
+          },
+          "result": {
+            "prompt": "Laten we kijken hoe het bouwen van het fort samen ging."
+          }
+        },
+        "choices": {
+          "share-the-blocks": "Deel de beste blokken met iedereen",
+          "keep-best-blocks": "Houd de beste blokken voor jezelf",
+          "invite-them-in": "Nodig hem uit om mee te doen",
+          "keep-building-without-them": "Blijf bouwen zonder hem",
+          "ask-for-help": "Vraag een volwassene om hulp",
+          "share-now-instead": "Deel nu in plaats daarvan"
+        },
+        "outcomes": {
+          "shared-blocks": "Je deelde de beste blokken met iedereen.",
+          "kept-best-blocks": "Je hield de beste blokken voor jezelf.",
+          "invited-them-in": "Je nodigde je vriend uit om mee te doen.",
+          "kept-building-without-them": "Je bleef bouwen zonder hem.",
+          "got-help-leadership-explorer": "Een volwassene heeft je geholpen. Om hulp vragen is nooit een fout.",
+          "shared-now-instead": "Je besloot in plaats daarvan nu te delen."
+        }
+      },
+      "leadership-builder-fundraiser": {
+        "title": "De Klassen-Inzamelingsactie Plannen",
+        "intro": "Jouw klas plant een inzamelingsactie. Jouw keuzes bepalen hoe het team samenwerkt - en hoeveel er gedaan wordt.",
+        "nodes": {
+          "assign-tasks": {
+            "prompt": "Het is tijd om taken te verdelen voor de inzamelingsactie. Wat doe je?"
+          },
+          "disagreement": {
+            "prompt": "Twee teamgenoten zijn het oneens over het ontwerp van de bakverkooptafel. Wat doe je?"
+          },
+          "falling-behind": {
+            "prompt": "Het project loopt achter op schema. Wat doe je?"
+          },
+          "credit": {
+            "prompt": "De inzamelingsactie was een succes! Wat doe je?"
+          },
+          "recovery": {
+            "prompt": "Het team voelt zich nu niet zo goed. Geen probleem - dit kun je doen."
+          },
+          "result": {
+            "prompt": "Laten we kijken hoe de klassen-inzamelingsactie ging."
+          }
+        },
+        "choices": {
+          "let-everyone-pick": "Laat iedereen zijn eigen taak kiezen",
+          "assign-tasks-yourself": "Verdeel de taken zelf om sneller te gaan",
+          "let-them-work-it-out": "Laat hen het zelf oplossen",
+          "help-them-find-a-compromise": "Help hen een compromis te vinden",
+          "push-the-team-harder": "Zet het team aan om harder te werken",
+          "ask-who-needs-help": "Vraag wie hulp nodig heeft",
+          "take-credit-yourself": "Schrijf het idee alleen aan jezelf toe",
+          "share-credit-with-team": "Deel de eer met het hele team",
+          "ask-for-help": "Vraag een volwassene om hulp",
+          "apologize-and-reset": "Bied je excuses aan en begin opnieuw met het team"
+        },
+        "outcomes": {
+          "let-everyone-pick": "Je liet iedereen zijn eigen taak kiezen.",
+          "assigned-tasks-yourself": "Je verdeelde de taken zelf om sneller te gaan.",
+          "let-them-work-it-out": "Je liet het meningsverschil onopgelost.",
+          "helped-find-compromise": "Je hielp je teamgenoten een compromis te vinden.",
+          "pushed-team-harder": "Je zette het team aan om harder te werken.",
+          "asked-who-needs-help": "Je vroeg wie hulp nodig had.",
+          "took-credit-yourself": "Je schreef het idee alleen aan jezelf toe.",
+          "shared-credit-with-team": "Je deelde de eer met het hele team.",
+          "got-help-leadership-builder": "Een volwassene heeft je geholpen. Om hulp vragen hoort bij goed leiderschap.",
+          "apologized-and-reset": "Je bood je excuses aan en begon opnieuw met het team."
+        }
+      },
+      "leadership-strategist-garden": {
+        "title": "Een Gemeenschapstuinproject Leiden",
+        "intro": "Je leidt een gemeenschapstuinproject. Jouw keuzes bepalen hoeveel je team je vertrouwt - en hoeveel de gemeenschap profiteert.",
+        "nodes": {
+          "volunteer-dispute": {
+            "prompt": "Een vrijwilliger wil een veiligheidsregel overslaan om sneller te gaan. Wat doe je?"
+          },
+          "resource-allocation": {
+            "prompt": "Het budget is beperkt. Wat doe je?"
+          },
+          "credit-and-visibility": {
+            "prompt": "Een plaatselijke journalist wil de projectleider interviewen. Wat doe je?"
+          },
+          "recovery": {
+            "prompt": "Het vertrouwen van het team in jou is nu niet waar het zou moeten zijn. Geen probleem - dit kun je doen."
+          },
+          "result": {
+            "prompt": "Laten we kijken hoe het gemeenschapstuinproject is geworden."
+          }
+        },
+        "choices": {
+          "let-it-slide-to-save-time": "Laat het gaan om tijd te besparen",
+          "enforce-the-safety-rules": "Handhaaf de veiligheidsregels",
+          "prioritize-team-tools": "Geef voorrang aan gereedschap voor het team",
+          "prioritize-community-benefit": "Geef voorrang aan voordeel voor de gemeenschap",
+          "take-the-spotlight-alone": "Neem alleen de schijnwerpers",
+          "bring-the-whole-team-to-the-interview": "Neem het hele team mee naar het interview",
+          "ask-for-help": "Vraag een volwassene om hulp",
+          "rebuild-trust-through-action": "Herbouw vertrouwen door daden"
+        },
+        "outcomes": {
+          "let-it-slide-to-save-time": "Je liet de veiligheidskortere weg gaan om tijd te besparen.",
+          "enforced-safety-rules": "Je handhaafde de veiligheidsregels.",
+          "prioritized-team-tools": "Je gaf voorrang aan gereedschap voor het team.",
+          "prioritized-community-benefit": "Je gaf voorrang aan voordeel voor de gemeenschap.",
+          "took-spotlight-alone": "Je nam alleen de schijnwerpers.",
+          "brought-whole-team": "Je nam het hele team mee naar het interview.",
+          "got-help-leadership-strategist": "Een volwassene heeft je geholpen vertrouwen te herbouwen. Dat is slim leiderschap, geen mislukking.",
+          "rebuilt-trust-through-action": "Je koos ervoor vertrouwen te herbouwen door daden, waardoor zowel het team als het project sterker werden."
         }
       }
     }

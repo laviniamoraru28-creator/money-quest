@@ -8095,7 +8095,11 @@
       "projectQuality": "Project quality",
       "privacyScore": "Privacy",
       "planQuality": "Plan quality",
-      "trustworthiness": "Trustworthiness"
+      "trustworthiness": "Trustworthiness",
+      "teamSpirit": "Team spirit",
+      "teamMorale": "Team morale",
+      "projectProgress": "Project progress",
+      "teamTrust": "Team trust"
     },
     "recoveryBadge": "Let's sort this out together",
     "askForHelpButton": "I need help",
@@ -8346,6 +8350,129 @@
           "disclosed-ai-use": "You were upfront that AI helped create the image - that builds real trust.",
           "got-help-ai-strategist": "A grown-up helped you strengthen the plan. That's smart planning, not a failure.",
           "rebuilt-honestly": "You chose to rebuild the plan honestly, prioritising trust over speed."
+        }
+      },
+      "leadership-explorer-fort": {
+        "title": "Build a Fort Together",
+        "intro": "You and your friends are building a fort. Your choices decide how it feels to work together.",
+        "nodes": {
+          "sharing-blocks": {
+            "prompt": "You have the best building blocks. What do you do?"
+          },
+          "someone-left-out": {
+            "prompt": "One friend feels left out of the building. What do you do?"
+          },
+          "recovery": {
+            "prompt": "The team isn't feeling great right now. That's okay - here's what you can do."
+          },
+          "result": {
+            "prompt": "Let's see how building the fort together went."
+          }
+        },
+        "choices": {
+          "share-the-blocks": "Share the best blocks with everyone",
+          "keep-best-blocks": "Keep the best blocks for yourself",
+          "invite-them-in": "Invite them to join in",
+          "keep-building-without-them": "Keep building without them",
+          "ask-for-help": "Ask a grown-up for help",
+          "share-now-instead": "Share now instead"
+        },
+        "outcomes": {
+          "shared-blocks": "You shared the best blocks with everyone.",
+          "kept-best-blocks": "You kept the best blocks for yourself.",
+          "invited-them-in": "You invited your friend to join in.",
+          "kept-building-without-them": "You kept building without them.",
+          "got-help-leadership-explorer": "A grown-up helped you out. Asking for help is never a mistake.",
+          "shared-now-instead": "You decided to share now instead."
+        }
+      },
+      "leadership-builder-fundraiser": {
+        "title": "Planning the Class Fundraiser",
+        "intro": "Your class is planning a fundraiser. Your choices decide how the team works together - and how much gets done.",
+        "nodes": {
+          "assign-tasks": {
+            "prompt": "It's time to assign tasks for the fundraiser. What do you do?"
+          },
+          "disagreement": {
+            "prompt": "Two teammates disagree about the bake sale table design. What do you do?"
+          },
+          "falling-behind": {
+            "prompt": "The project is falling behind schedule. What do you do?"
+          },
+          "credit": {
+            "prompt": "The fundraiser was a success! What do you do?"
+          },
+          "recovery": {
+            "prompt": "The team isn't feeling great right now. That's okay - here's what you can do."
+          },
+          "result": {
+            "prompt": "Let's see how the class fundraiser went."
+          }
+        },
+        "choices": {
+          "let-everyone-pick": "Let everyone pick their own task",
+          "assign-tasks-yourself": "Assign tasks yourself to move faster",
+          "let-them-work-it-out": "Let them work it out on their own",
+          "help-them-find-a-compromise": "Help them find a compromise",
+          "push-the-team-harder": "Push the team to work harder",
+          "ask-who-needs-help": "Ask who needs help",
+          "take-credit-yourself": "Take credit for the idea yourself",
+          "share-credit-with-team": "Share the credit with the whole team",
+          "ask-for-help": "Ask a grown-up for help",
+          "apologize-and-reset": "Apologise and reset with the team"
+        },
+        "outcomes": {
+          "let-everyone-pick": "You let everyone pick their own task.",
+          "assigned-tasks-yourself": "You assigned tasks yourself to move faster.",
+          "let-them-work-it-out": "You let the disagreement go unresolved.",
+          "helped-find-compromise": "You helped your teammates find a compromise.",
+          "pushed-team-harder": "You pushed the team to work harder.",
+          "asked-who-needs-help": "You asked who needed help.",
+          "took-credit-yourself": "You took credit for the idea yourself.",
+          "shared-credit-with-team": "You shared the credit with the whole team.",
+          "got-help-leadership-builder": "A grown-up helped you out. Asking for help is part of good leadership.",
+          "apologized-and-reset": "You apologised and reset with the team."
+        }
+      },
+      "leadership-strategist-garden": {
+        "title": "Leading a Community Garden Project",
+        "intro": "You're leading a community garden project. Your choices decide how much your team trusts you - and how much the community benefits.",
+        "nodes": {
+          "volunteer-dispute": {
+            "prompt": "A volunteer wants to skip a safety rule to go faster. What do you do?"
+          },
+          "resource-allocation": {
+            "prompt": "The budget is limited. What do you do?"
+          },
+          "credit-and-visibility": {
+            "prompt": "A local reporter wants to interview the project's leader. What do you do?"
+          },
+          "recovery": {
+            "prompt": "The team's trust in you isn't where it should be right now. That's okay - here's what you can do."
+          },
+          "result": {
+            "prompt": "Let's see how the community garden project turned out."
+          }
+        },
+        "choices": {
+          "let-it-slide-to-save-time": "Let it slide to save time",
+          "enforce-the-safety-rules": "Enforce the safety rules",
+          "prioritize-team-tools": "Prioritise tools for the team",
+          "prioritize-community-benefit": "Prioritise benefit for the community",
+          "take-the-spotlight-alone": "Take the spotlight alone",
+          "bring-the-whole-team-to-the-interview": "Bring the whole team to the interview",
+          "ask-for-help": "Ask a grown-up for help",
+          "rebuild-trust-through-action": "Rebuild trust through action"
+        },
+        "outcomes": {
+          "let-it-slide-to-save-time": "You let the safety shortcut slide to save time.",
+          "enforced-safety-rules": "You enforced the safety rules.",
+          "prioritized-team-tools": "You prioritised tools for the team.",
+          "prioritized-community-benefit": "You prioritised benefit for the community.",
+          "took-spotlight-alone": "You took the spotlight alone.",
+          "brought-whole-team": "You brought the whole team to the interview.",
+          "got-help-leadership-strategist": "A grown-up helped you rebuild trust. That's smart leadership, not a failure.",
+          "rebuilt-trust-through-action": "You chose to rebuild trust through action, strengthening both the team and the project."
         }
       }
     }

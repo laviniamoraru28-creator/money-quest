@@ -8095,7 +8095,11 @@
       "projectQuality": "Calitatea proiectului",
       "privacyScore": "Confidențialitate",
       "planQuality": "Calitatea planului",
-      "trustworthiness": "Încredere câștigată"
+      "trustworthiness": "Încredere câștigată",
+      "teamSpirit": "Spirit de echipă",
+      "teamMorale": "Moralul echipei",
+      "projectProgress": "Progresul proiectului",
+      "teamTrust": "Încrederea echipei"
     },
     "recoveryBadge": "Să rezolvăm asta împreună",
     "askForHelpButton": "Am nevoie de ajutor",
@@ -8346,6 +8350,129 @@
           "disclosed-ai-use": "Ai fost sincer că AI a ajutat la crearea imaginii - asta construiește încredere reală.",
           "got-help-ai-strategist": "Un adult te-a ajutat să consolidezi planul. Asta înseamnă planificare inteligentă, nu un eșec.",
           "rebuilt-honestly": "Ai ales să reconstruiești planul onest, punând încrederea înaintea vitezei."
+        }
+      },
+      "leadership-explorer-fort": {
+        "title": "Construiește un Fort Împreună",
+        "intro": "Tu și prietenii tăi construiți un fort. Alegerile tale decid cum e să lucrați împreună.",
+        "nodes": {
+          "sharing-blocks": {
+            "prompt": "Ai cele mai bune cuburi de construcție. Ce faci?"
+          },
+          "someone-left-out": {
+            "prompt": "Un prieten se simte exclus de la construcție. Ce faci?"
+          },
+          "recovery": {
+            "prompt": "Echipa nu se simte prea bine chiar acum. Nu-i nicio problemă - iată ce poți face."
+          },
+          "result": {
+            "prompt": "Să vedem cum a mers construirea fortului împreună."
+          }
+        },
+        "choices": {
+          "share-the-blocks": "Împarte cele mai bune cuburi cu toți",
+          "keep-best-blocks": "Păstrează cele mai bune cuburi pentru tine",
+          "invite-them-in": "Invită-l să se alăture",
+          "keep-building-without-them": "Continuă să construiești fără el",
+          "ask-for-help": "Cere ajutorul unui adult",
+          "share-now-instead": "Împarte acum în schimb"
+        },
+        "outcomes": {
+          "shared-blocks": "Ai împărțit cele mai bune cuburi cu toți.",
+          "kept-best-blocks": "Ai păstrat cele mai bune cuburi pentru tine.",
+          "invited-them-in": "Ți-ai invitat prietenul să se alăture.",
+          "kept-building-without-them": "Ai continuat să construiești fără el.",
+          "got-help-leadership-explorer": "Un adult te-a ajutat. A cere ajutor nu este niciodată o greșeală.",
+          "shared-now-instead": "Ai decis să împarți acum în schimb."
+        }
+      },
+      "leadership-builder-fundraiser": {
+        "title": "Planificarea Strângerii de Fonduri a Clasei",
+        "intro": "Clasa ta planifică o strângere de fonduri. Alegerile tale decid cum lucrează echipa împreună - și cât se realizează.",
+        "nodes": {
+          "assign-tasks": {
+            "prompt": "E timpul să repartizați sarcinile pentru strângerea de fonduri. Ce faci?"
+          },
+          "disagreement": {
+            "prompt": "Doi colegi de echipă nu se înțeleg asupra designului mesei de prăjituri. Ce faci?"
+          },
+          "falling-behind": {
+            "prompt": "Proiectul rămâne în urmă față de program. Ce faci?"
+          },
+          "credit": {
+            "prompt": "Strângerea de fonduri a fost un succes! Ce faci?"
+          },
+          "recovery": {
+            "prompt": "Echipa nu se simte prea bine chiar acum. Nu-i nicio problemă - iată ce poți face."
+          },
+          "result": {
+            "prompt": "Să vedem cum a mers strângerea de fonduri a clasei."
+          }
+        },
+        "choices": {
+          "let-everyone-pick": "Lasă pe fiecare să-și aleagă propria sarcină",
+          "assign-tasks-yourself": "Repartizează sarcinile tu însuți, ca să mergeți mai repede",
+          "let-them-work-it-out": "Lasă-i să rezolve singuri",
+          "help-them-find-a-compromise": "Ajută-i să găsească un compromis",
+          "push-the-team-harder": "Împinge echipa să muncească mai mult",
+          "ask-who-needs-help": "Întreabă cine are nevoie de ajutor",
+          "take-credit-yourself": "Atribuie-ți singur meritul ideii",
+          "share-credit-with-team": "Împarte meritul cu toată echipa",
+          "ask-for-help": "Cere ajutorul unui adult",
+          "apologize-and-reset": "Cere-ți scuze și reia relația cu echipa"
+        },
+        "outcomes": {
+          "let-everyone-pick": "Ai lăsat pe fiecare să-și aleagă propria sarcină.",
+          "assigned-tasks-yourself": "Ai repartizat sarcinile tu însuți, ca să mergeți mai repede.",
+          "let-them-work-it-out": "Ai lăsat neînțelegerea nerezolvată.",
+          "helped-find-compromise": "I-ai ajutat pe colegi să găsească un compromis.",
+          "pushed-team-harder": "Ai împins echipa să muncească mai mult.",
+          "asked-who-needs-help": "Ai întrebat cine are nevoie de ajutor.",
+          "took-credit-yourself": "Ți-ai atribuit singur meritul ideii.",
+          "shared-credit-with-team": "Ai împărțit meritul cu toată echipa.",
+          "got-help-leadership-builder": "Un adult te-a ajutat. A cere ajutor face parte dintr-o conducere bună.",
+          "apologized-and-reset": "Ți-ai cerut scuze și ai reluat relația cu echipa."
+        }
+      },
+      "leadership-strategist-garden": {
+        "title": "Conducerea unui Proiect de Grădină Comunitară",
+        "intro": "Conduci un proiect de grădină comunitară. Alegerile tale decid cât de mult are echipa încredere în tine - și cât beneficiază comunitatea.",
+        "nodes": {
+          "volunteer-dispute": {
+            "prompt": "Un voluntar vrea să sară peste o regulă de siguranță ca să meargă mai repede. Ce faci?"
+          },
+          "resource-allocation": {
+            "prompt": "Bugetul este limitat. Ce faci?"
+          },
+          "credit-and-visibility": {
+            "prompt": "Un reporter local vrea să intervieveze liderul proiectului. Ce faci?"
+          },
+          "recovery": {
+            "prompt": "Încrederea echipei în tine nu este chiar acum unde ar trebui să fie. Nu-i nicio problemă - iată ce poți face."
+          },
+          "result": {
+            "prompt": "Să vedem cum a ieșit proiectul grădinii comunitare."
+          }
+        },
+        "choices": {
+          "let-it-slide-to-save-time": "Lasă să treacă, ca să economisești timp",
+          "enforce-the-safety-rules": "Impune regulile de siguranță",
+          "prioritize-team-tools": "Prioritizează uneltele pentru echipă",
+          "prioritize-community-benefit": "Prioritizează beneficiul pentru comunitate",
+          "take-the-spotlight-alone": "Acceptă atenția doar pentru tine",
+          "bring-the-whole-team-to-the-interview": "Adu toată echipa la interviu",
+          "ask-for-help": "Cere ajutorul unui adult",
+          "rebuild-trust-through-action": "Reconstruiește încrederea prin acțiune"
+        },
+        "outcomes": {
+          "let-it-slide-to-save-time": "Ai lăsat scurtătura de siguranță să treacă, ca să economisești timp.",
+          "enforced-safety-rules": "Ai impus regulile de siguranță.",
+          "prioritized-team-tools": "Ai prioritizat uneltele pentru echipă.",
+          "prioritized-community-benefit": "Ai prioritizat beneficiul pentru comunitate.",
+          "took-spotlight-alone": "Ai acceptat atenția doar pentru tine.",
+          "brought-whole-team": "Ai adus toată echipa la interviu.",
+          "got-help-leadership-strategist": "Un adult te-a ajutat să reconstruiești încrederea. Asta înseamnă o conducere inteligentă, nu un eșec.",
+          "rebuilt-trust-through-action": "Ai ales să reconstruiești încrederea prin acțiune, consolidând atât echipa, cât și proiectul."
         }
       }
     }

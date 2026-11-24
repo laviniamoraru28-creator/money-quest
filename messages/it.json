@@ -8095,7 +8095,11 @@
       "projectQuality": "Qualità del progetto",
       "privacyScore": "Privacy",
       "planQuality": "Qualità del piano",
-      "trustworthiness": "Affidabilità"
+      "trustworthiness": "Affidabilità",
+      "teamSpirit": "Spirito di squadra",
+      "teamMorale": "Morale del team",
+      "projectProgress": "Avanzamento del progetto",
+      "teamTrust": "Fiducia del team"
     },
     "recoveryBadge": "Risolviamo insieme",
     "askForHelpButton": "Ho bisogno di aiuto",
@@ -8346,6 +8350,129 @@
           "disclosed-ai-use": "Sei stato trasparente sul fatto che l'IA ha aiutato a creare l'immagine - questo costruisce fiducia reale.",
           "got-help-ai-strategist": "Un adulto ti ha aiutato a rafforzare il piano. Questa è pianificazione intelligente, non un fallimento.",
           "rebuilt-honestly": "Hai scelto di ricostruire il piano onestamente, mettendo la fiducia prima della velocità."
+        }
+      },
+      "leadership-explorer-fort": {
+        "title": "Costruire un Fortino Insieme",
+        "intro": "Tu e i tuoi amici state costruendo un fortino. Le tue scelte decidono com'è lavorare insieme.",
+        "nodes": {
+          "sharing-blocks": {
+            "prompt": "Hai i mattoncini migliori. Cosa fai?"
+          },
+          "someone-left-out": {
+            "prompt": "Un amico si sente escluso dalla costruzione. Cosa fai?"
+          },
+          "recovery": {
+            "prompt": "La squadra non si sente molto bene adesso. Non preoccuparti - ecco cosa puoi fare."
+          },
+          "result": {
+            "prompt": "Vediamo come è andata la costruzione del fortino insieme."
+          }
+        },
+        "choices": {
+          "share-the-blocks": "Condividi i mattoncini migliori con tutti",
+          "keep-best-blocks": "Tieni i mattoncini migliori per te",
+          "invite-them-in": "Invitalo a partecipare",
+          "keep-building-without-them": "Continua a costruire senza di lui",
+          "ask-for-help": "Chiedi aiuto a un adulto",
+          "share-now-instead": "Condividi adesso invece"
+        },
+        "outcomes": {
+          "shared-blocks": "Hai condiviso i mattoncini migliori con tutti.",
+          "kept-best-blocks": "Hai tenuto i mattoncini migliori per te.",
+          "invited-them-in": "Hai invitato il tuo amico a partecipare.",
+          "kept-building-without-them": "Hai continuato a costruire senza di lui.",
+          "got-help-leadership-explorer": "Un adulto ti ha aiutato. Chiedere aiuto non è mai un errore.",
+          "shared-now-instead": "Hai deciso di condividere adesso invece."
+        }
+      },
+      "leadership-builder-fundraiser": {
+        "title": "Pianificare la Raccolta Fondi della Classe",
+        "intro": "La tua classe sta pianificando una raccolta fondi. Le tue scelte decidono come lavora insieme la squadra - e quanto si riesce a fare.",
+        "nodes": {
+          "assign-tasks": {
+            "prompt": "È ora di assegnare i compiti per la raccolta fondi. Cosa fai?"
+          },
+          "disagreement": {
+            "prompt": "Due compagni di squadra non sono d'accordo sul design del banco dei dolci. Cosa fai?"
+          },
+          "falling-behind": {
+            "prompt": "Il progetto sta accumulando ritardo. Cosa fai?"
+          },
+          "credit": {
+            "prompt": "La raccolta fondi è stata un successo! Cosa fai?"
+          },
+          "recovery": {
+            "prompt": "La squadra non si sente molto bene adesso. Non preoccuparti - ecco cosa puoi fare."
+          },
+          "result": {
+            "prompt": "Vediamo com'è andata la raccolta fondi della classe."
+          }
+        },
+        "choices": {
+          "let-everyone-pick": "Lascia che ognuno scelga il proprio compito",
+          "assign-tasks-yourself": "Assegna i compiti tu stesso per andare più veloce",
+          "let-them-work-it-out": "Lasciali risolvere da soli",
+          "help-them-find-a-compromise": "Aiutali a trovare un compromesso",
+          "push-the-team-harder": "Spingi la squadra a lavorare di più",
+          "ask-who-needs-help": "Chiedi chi ha bisogno di aiuto",
+          "take-credit-yourself": "Prenditi tu solo il merito dell'idea",
+          "share-credit-with-team": "Condividi il merito con tutta la squadra",
+          "ask-for-help": "Chiedi aiuto a un adulto",
+          "apologize-and-reset": "Scusati e riparti con la squadra"
+        },
+        "outcomes": {
+          "let-everyone-pick": "Hai lasciato che ognuno scegliesse il proprio compito.",
+          "assigned-tasks-yourself": "Hai assegnato i compiti tu stesso per andare più veloce.",
+          "let-them-work-it-out": "Hai lasciato il disaccordo irrisolto.",
+          "helped-find-compromise": "Hai aiutato i compagni a trovare un compromesso.",
+          "pushed-team-harder": "Hai spinto la squadra a lavorare di più.",
+          "asked-who-needs-help": "Hai chiesto chi avesse bisogno di aiuto.",
+          "took-credit-yourself": "Ti sei preso tu solo il merito dell'idea.",
+          "shared-credit-with-team": "Hai condiviso il merito con tutta la squadra.",
+          "got-help-leadership-builder": "Un adulto ti ha aiutato. Chiedere aiuto fa parte di una buona leadership.",
+          "apologized-and-reset": "Ti sei scusato e sei ripartito con la squadra."
+        }
+      },
+      "leadership-strategist-garden": {
+        "title": "Guidare un Progetto di Orto Comunitario",
+        "intro": "Stai guidando un progetto di orto comunitario. Le tue scelte decidono quanto la tua squadra si fidi di te - e quanto ne benefici la comunità.",
+        "nodes": {
+          "volunteer-dispute": {
+            "prompt": "Un volontario vuole saltare una regola di sicurezza per andare più veloce. Cosa fai?"
+          },
+          "resource-allocation": {
+            "prompt": "Il budget è limitato. Cosa fai?"
+          },
+          "credit-and-visibility": {
+            "prompt": "Un giornalista locale vuole intervistare il leader del progetto. Cosa fai?"
+          },
+          "recovery": {
+            "prompt": "La fiducia della squadra in te non è dove dovrebbe essere adesso. Non preoccuparti - ecco cosa puoi fare."
+          },
+          "result": {
+            "prompt": "Vediamo com'è andato il progetto dell'orto comunitario."
+          }
+        },
+        "choices": {
+          "let-it-slide-to-save-time": "Lascia correre per risparmiare tempo",
+          "enforce-the-safety-rules": "Fai rispettare le regole di sicurezza",
+          "prioritize-team-tools": "Dai priorità agli strumenti per la squadra",
+          "prioritize-community-benefit": "Dai priorità al beneficio per la comunità",
+          "take-the-spotlight-alone": "Prenditi tutta l'attenzione da solo",
+          "bring-the-whole-team-to-the-interview": "Porta tutta la squadra all'intervista",
+          "ask-for-help": "Chiedi aiuto a un adulto",
+          "rebuild-trust-through-action": "Ricostruisci la fiducia con i fatti"
+        },
+        "outcomes": {
+          "let-it-slide-to-save-time": "Hai lasciato correre la scorciatoia di sicurezza per risparmiare tempo.",
+          "enforced-safety-rules": "Hai fatto rispettare le regole di sicurezza.",
+          "prioritized-team-tools": "Hai dato priorità agli strumenti per la squadra.",
+          "prioritized-community-benefit": "Hai dato priorità al beneficio per la comunità.",
+          "took-spotlight-alone": "Ti sei preso tutta l'attenzione da solo.",
+          "brought-whole-team": "Hai portato tutta la squadra all'intervista.",
+          "got-help-leadership-strategist": "Un adulto ti ha aiutato a ricostruire la fiducia. Questa è una leadership intelligente, non un fallimento.",
+          "rebuilt-trust-through-action": "Hai scelto di ricostruire la fiducia con i fatti, rafforzando sia la squadra che il progetto."
         }
       }
     }

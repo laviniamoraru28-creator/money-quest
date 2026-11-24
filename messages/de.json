@@ -8095,7 +8095,11 @@
       "projectQuality": "Projektqualität",
       "privacyScore": "Privatsphäre",
       "planQuality": "Planqualität",
-      "trustworthiness": "Vertrauenswürdigkeit"
+      "trustworthiness": "Vertrauenswürdigkeit",
+      "teamSpirit": "Teamgeist",
+      "teamMorale": "Teammoral",
+      "projectProgress": "Projektfortschritt",
+      "teamTrust": "Vertrauen im Team"
     },
     "recoveryBadge": "Das lösen wir gemeinsam",
     "askForHelpButton": "Ich brauche Hilfe",
@@ -8346,6 +8350,129 @@
           "disclosed-ai-use": "Du warst offen, dass KI bei der Erstellung des Bildes geholfen hat - das schafft echtes Vertrauen.",
           "got-help-ai-strategist": "Ein Erwachsener hat dir geholfen, den Plan zu stärken. Das ist kluge Planung, kein Scheitern.",
           "rebuilt-honestly": "Du hast dich entschieden, den Plan ehrlich neu aufzubauen und Vertrauen vor Geschwindigkeit zu stellen."
+        }
+      },
+      "leadership-explorer-fort": {
+        "title": "Gemeinsam eine Festung Bauen",
+        "intro": "Du und deine Freunde baut eine Festung. Deine Entscheidungen bestimmen, wie es sich anfühlt, zusammenzuarbeiten.",
+        "nodes": {
+          "sharing-blocks": {
+            "prompt": "Du hast die besten Bausteine. Was machst du?"
+          },
+          "someone-left-out": {
+            "prompt": "Ein Freund fühlt sich beim Bauen ausgeschlossen. Was machst du?"
+          },
+          "recovery": {
+            "prompt": "Das Team fühlt sich gerade nicht so gut. Das ist in Ordnung - hier ist, was du tun kannst."
+          },
+          "result": {
+            "prompt": "Schauen wir, wie der gemeinsame Bau der Festung gelaufen ist."
+          }
+        },
+        "choices": {
+          "share-the-blocks": "Teile die besten Bausteine mit allen",
+          "keep-best-blocks": "Behalte die besten Bausteine für dich",
+          "invite-them-in": "Lade ihn ein, mitzumachen",
+          "keep-building-without-them": "Bau ohne ihn weiter",
+          "ask-for-help": "Einen Erwachsenen um Hilfe bitten",
+          "share-now-instead": "Stattdessen jetzt teilen"
+        },
+        "outcomes": {
+          "shared-blocks": "Du hast die besten Bausteine mit allen geteilt.",
+          "kept-best-blocks": "Du hast die besten Bausteine für dich behalten.",
+          "invited-them-in": "Du hast deinen Freund eingeladen mitzumachen.",
+          "kept-building-without-them": "Du hast ohne ihn weitergebaut.",
+          "got-help-leadership-explorer": "Ein Erwachsener hat dir geholfen. Um Hilfe zu bitten ist nie ein Fehler.",
+          "shared-now-instead": "Du hast dich entschieden, stattdessen jetzt zu teilen."
+        }
+      },
+      "leadership-builder-fundraiser": {
+        "title": "Den Spendenlauf der Klasse Planen",
+        "intro": "Deine Klasse plant einen Spendenlauf. Deine Entscheidungen bestimmen, wie das Team zusammenarbeitet - und wie viel geschafft wird.",
+        "nodes": {
+          "assign-tasks": {
+            "prompt": "Es ist Zeit, Aufgaben für den Spendenlauf zu verteilen. Was machst du?"
+          },
+          "disagreement": {
+            "prompt": "Zwei Teammitglieder streiten über die Gestaltung des Kuchenverkaufstisches. Was machst du?"
+          },
+          "falling-behind": {
+            "prompt": "Das Projekt gerät in Verzug. Was machst du?"
+          },
+          "credit": {
+            "prompt": "Der Spendenlauf war ein Erfolg! Was machst du?"
+          },
+          "recovery": {
+            "prompt": "Das Team fühlt sich gerade nicht so gut. Das ist in Ordnung - hier ist, was du tun kannst."
+          },
+          "result": {
+            "prompt": "Schauen wir, wie der Spendenlauf der Klasse gelaufen ist."
+          }
+        },
+        "choices": {
+          "let-everyone-pick": "Lass jeden seine eigene Aufgabe wählen",
+          "assign-tasks-yourself": "Verteile die Aufgaben selbst, um schneller voranzukommen",
+          "let-them-work-it-out": "Lass sie es selbst klären",
+          "help-them-find-a-compromise": "Hilf ihnen, einen Kompromiss zu finden",
+          "push-the-team-harder": "Dränge das Team, härter zu arbeiten",
+          "ask-who-needs-help": "Frage, wer Hilfe braucht",
+          "take-credit-yourself": "Schreib dir die Idee allein zu",
+          "share-credit-with-team": "Teile die Anerkennung mit dem ganzen Team",
+          "ask-for-help": "Einen Erwachsenen um Hilfe bitten",
+          "apologize-and-reset": "Entschuldige dich und starte mit dem Team neu"
+        },
+        "outcomes": {
+          "let-everyone-pick": "Du hast jeden seine eigene Aufgabe wählen lassen.",
+          "assigned-tasks-yourself": "Du hast die Aufgaben selbst verteilt, um schneller voranzukommen.",
+          "let-them-work-it-out": "Du hast den Streit ungelöst gelassen.",
+          "helped-find-compromise": "Du hast deinen Teammitgliedern geholfen, einen Kompromiss zu finden.",
+          "pushed-team-harder": "Du hast das Team gedrängt, härter zu arbeiten.",
+          "asked-who-needs-help": "Du hast gefragt, wer Hilfe braucht.",
+          "took-credit-yourself": "Du hast dir die Idee allein zugeschrieben.",
+          "shared-credit-with-team": "Du hast die Anerkennung mit dem ganzen Team geteilt.",
+          "got-help-leadership-builder": "Ein Erwachsener hat dir geholfen. Um Hilfe zu bitten gehört zu guter Führung.",
+          "apologized-and-reset": "Du hast dich entschuldigt und mit dem Team neu gestartet."
+        }
+      },
+      "leadership-strategist-garden": {
+        "title": "Ein Gemeinschaftsgarten-Projekt Leiten",
+        "intro": "Du leitest ein Gemeinschaftsgarten-Projekt. Deine Entscheidungen bestimmen, wie sehr dein Team dir vertraut - und wie sehr die Gemeinschaft profitiert.",
+        "nodes": {
+          "volunteer-dispute": {
+            "prompt": "Ein Freiwilliger möchte eine Sicherheitsregel überspringen, um schneller voranzukommen. Was machst du?"
+          },
+          "resource-allocation": {
+            "prompt": "Das Budget ist begrenzt. Was machst du?"
+          },
+          "credit-and-visibility": {
+            "prompt": "Ein lokaler Reporter möchte die Projektleitung interviewen. Was machst du?"
+          },
+          "recovery": {
+            "prompt": "Das Vertrauen des Teams in dich ist gerade nicht dort, wo es sein sollte. Das ist in Ordnung - hier ist, was du tun kannst."
+          },
+          "result": {
+            "prompt": "Schauen wir, wie das Gemeinschaftsgarten-Projekt geworden ist."
+          }
+        },
+        "choices": {
+          "let-it-slide-to-save-time": "Lass es durchgehen, um Zeit zu sparen",
+          "enforce-the-safety-rules": "Setze die Sicherheitsregeln durch",
+          "prioritize-team-tools": "Priorisiere Werkzeuge für das Team",
+          "prioritize-community-benefit": "Priorisiere den Nutzen für die Gemeinschaft",
+          "take-the-spotlight-alone": "Nimm das Rampenlicht allein",
+          "bring-the-whole-team-to-the-interview": "Bring das ganze Team zum Interview mit",
+          "ask-for-help": "Einen Erwachsenen um Hilfe bitten",
+          "rebuild-trust-through-action": "Vertrauen durch Taten wiederaufbauen"
+        },
+        "outcomes": {
+          "let-it-slide-to-save-time": "Du hast die Sicherheitsabkürzung durchgehen lassen, um Zeit zu sparen.",
+          "enforced-safety-rules": "Du hast die Sicherheitsregeln durchgesetzt.",
+          "prioritized-team-tools": "Du hast Werkzeuge für das Team priorisiert.",
+          "prioritized-community-benefit": "Du hast den Nutzen für die Gemeinschaft priorisiert.",
+          "took-spotlight-alone": "Du hast das Rampenlicht allein genommen.",
+          "brought-whole-team": "Du hast das ganze Team zum Interview mitgebracht.",
+          "got-help-leadership-strategist": "Ein Erwachsener hat dir geholfen, Vertrauen wiederaufzubauen. Das ist kluge Führung, kein Scheitern.",
+          "rebuilt-trust-through-action": "Du hast dich entschieden, Vertrauen durch Taten wiederaufzubauen und damit Team und Projekt zu stärken."
         }
       }
     }
