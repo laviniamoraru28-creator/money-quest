@@ -77,6 +77,7 @@ export function Adventure({ band }: { band?: AgeBand }) {
         : `quests/${quest.key}/intro`;
   return (
     <main
+      aria-label={title}
       id="main-content"
       className={step === "enter" ? "mq-entry-screen" : "mx-auto max-w-4xl space-y-5 px-4 py-8 text-center"}
     >

@@ -16,7 +16,11 @@ import type { Locale } from "@/i18n/config";
 import { milestones } from "@/content/quest-milestones";
 
 type Option = { label: string; icon?: string; correct?: boolean; feedback?: string };
-type Mission = { prompt: string; hint: string; options: Option[]; evidence?: string };
+type Mission = {
+  prompt: string; hint: string; options: Option[]; evidence?: string;
+  workshop?: { question: string; reply: string }[];
+  calculation?: { answer: number; label: string };
+};
 
 function MissionCard({ title, mission, number, onComplete }: {
   title: string; mission: Mission; number: number; onComplete: () => void;
@@ -26,6 +30,12 @@ function MissionCard({ title, mission, number, onComplete }: {
   const ordered = useAnswerOrder(mission.options);
   const [feedback, setFeedback] = useState("");
   const [solved, setSolved] = useState(false);
+  const [reply, setReply] = useState("");
+  const [estimate, setEstimate] = useState("");
+  const answer = (correct: boolean, message = mission.hint) => {
+    setSolved(correct);
+    setFeedback(message);
+  };
   return (
     <Card variant="activity" className="space-y-4">
       <p>{number} / 5</p>
@@ -33,16 +43,24 @@ function MissionCard({ title, mission, number, onComplete }: {
       <p>{mission.prompt}</p>
       {mission.evidence && <p className="rounded-xl bg-cream p-4 text-xl text-ink">{mission.evidence}</p>}
       <ReadAloudButton uiLocale={locale} text={[title, mission.prompt, mission.evidence, ...ordered.map(item => item.label)].filter(Boolean).join(". ")} />
-      <div className="grid gap-3">
+      {mission.workshop && <div className="grid gap-2">
+        {mission.workshop.map(example => <Button key={example.question} variant="secondary" aria-pressed={reply === example.reply} onClick={() => setReply(example.reply)}>{example.question}</Button>)}
+        {reply && <div role="status"><p>{reply}</p><ReadAloudButton uiLocale={locale} text={reply}/></div>}
+      </div>}
+      {mission.calculation ? <form onSubmit={event => {
+        event.preventDefault();
+        answer(estimate.trim() !== "" && Number(estimate) === mission.calculation?.answer);
+      }} className="grid gap-3">
+        <label>{mission.calculation.label}<input type="number" step="1" required inputMode="numeric" value={estimate} disabled={solved}
+          onChange={event => setEstimate(event.target.value)} className="ml-2 w-28 rounded-lg border-2 border-teal p-2 text-ink"/></label>
+        <Button type="submit" disabled={solved}>{t("lesson.checkMyAnswer")}</Button>
+      </form> : <div className="grid gap-3">
         {ordered.map(option => (
-          <Button key={option.label} variant="secondary" disabled={solved} onClick={() => {
-            setSolved(!!option.correct);
-            setFeedback(option.correct ? mission.hint : option.feedback || mission.hint);
-          }}>
+          <Button key={option.label} variant="secondary" disabled={solved || (!!mission.workshop && !reply)} onClick={() => answer(!!option.correct, option.feedback || mission.hint)}>
             {option.icon && <span aria-hidden="true" className="mr-2 text-2xl">{option.icon}</span>}{option.label}
           </Button>
         ))}
-      </div>
+      </div>}
       <p role="status">{feedback && (solved ? "✓ " : t("common.tryAgain") + ". ")}{feedback}</p>
       {feedback && <ReadAloudButton uiLocale={locale} text={feedback} />}
       {solved && <Button onClick={onComplete}>{t("entrepreneurQuest.continueButton")}</Button>}
@@ -67,7 +85,10 @@ function Challenge({ band }: { band: AgeBand }) {
   const missions: Mission[] = [
     {
       prompt: c.definition + " " + c.helperTask,
-      evidence: explorer ? "🤖 💭 → 🧒" : lab("askAi.questions." + (pro ? "compare-options" : "brainstorm-ideas") + ".answer"),
+      evidence: explorer ? "🤖 💭 → 🧒" : lab("askAi.intro"),
+      workshop: explorer ? undefined : (pro ? ["compare-options","analyse-feedback"] : ["brainstorm-ideas","marketing-ideas"]).map(key => ({
+        question:lab("askAi.questions." + key + ".question"), reply:lab("askAi.questions." + key + ".answer"),
+      })),
       hint: c.definition,
       options: [{label:c.suggestIdeas,icon:"💡",correct:true},{label:c.decideForAll,icon:"👑"}],
     },
@@ -83,6 +104,7 @@ function Challenge({ band }: { band: AgeBand }) {
     {
       prompt: explorer ? c.coinTask : c.budgetTask,
       evidence: (explorer ? "🪙 🪙 🪙" : c.sales + ": " + sales + " · " + c.costs + ": " + costs.join(" + ")) + " · " + c.aiEstimate + ": " + (counted + 1),
+      calculation: explorer ? undefined : {answer: balance, label:c.yourTotal},
       hint: explorer ? c.countHint : sales + " − " + costs.join(" − ") + " = " + balance,
       options: [counted-1,counted,counted+1].map(n => ({label:String(n),correct:n === counted})),
     },

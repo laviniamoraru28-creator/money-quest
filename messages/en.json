@@ -8085,5 +8085,522 @@
       "title": "Strategist Level",
       "body": "This part of the journey is designed for older explorers (ages 12-14). Switch to Strategist in the level selector to explore it, or keep going with everything already unlocked for you."
     }
+  },
+  "agency": {
+    "resourceLabels": {
+      "coins": "Coins",
+      "savedForBike": "Saved for bike",
+      "communityImpact": "Community impact",
+      "confidence": "Confidence",
+      "projectQuality": "Project quality",
+      "privacyScore": "Privacy",
+      "planQuality": "Plan quality",
+      "trustworthiness": "Trustworthiness",
+      "teamSpirit": "Team spirit",
+      "teamMorale": "Team morale",
+      "projectProgress": "Project progress",
+      "teamTrust": "Team trust",
+      "reputation": "Reputation",
+      "profit": "Profit",
+      "customerSatisfaction": "Customer satisfaction"
+    },
+    "recoveryBadge": "Let's sort this out together",
+    "askForHelpButton": "I need help",
+    "restartButton": "Start the week again",
+    "statusCompletedHeading": "Week complete!",
+    "statusCompletedBody": "Here's what happened this week. You can try again anytime to explore a different plan.",
+    "historyHeading": "What you chose",
+    "missions": {
+      "money-explorer-week-one": {
+        "title": "A Week of Pocket Money",
+        "intro": "You have 25 coins for the week. Choose what to do each day and see what happens.",
+        "nodes": {
+          "monday": {
+            "prompt": "It's Monday! What would you like to do with your coins today?"
+          },
+          "wednesday": {
+            "prompt": "A school trip costs 10 coins. What do you do?"
+          },
+          "recovery": {
+            "prompt": "You don't have enough coins right now. That's okay - here's what you can do."
+          },
+          "friday": {
+            "prompt": "The week is over! Let's see how it went."
+          }
+        },
+        "choices": {
+          "save": "Save your coins today",
+          "treat": "Buy a fun treat (20 coins)",
+          "pay-trip": "Pay for the trip (10 coins)",
+          "skip-trip": "Skip the trip this time",
+          "ask-for-help": "Ask a grown-up for a top-up (+10 coins)",
+          "reorganise-budget": "Carry on with what you have"
+        },
+        "outcomes": {
+          "saved-monday": "Great saving! You kept all your coins for later.",
+          "spent-on-treat": "You enjoyed a treat today.",
+          "paid-trip": "You paid for the trip. Nice planning!",
+          "skipped-trip": "You skipped the trip and kept your coins.",
+          "got-help": "A grown-up helped you out. Asking for help is a smart money move, not a mistake.",
+          "reorganised": "You worked out a new plan with what you had left. That's real problem-solving!"
+        }
+      },
+      "money-builder-month-one": {
+        "title": "Saving for a Bike",
+        "intro": "You have 40 coins and want to save up for a bike. Make choices over four weeks and see how your plan works out.",
+        "nodes": {
+          "week1": {
+            "prompt": "Week 1: you have some spending money. What do you do?"
+          },
+          "week2": {
+            "prompt": "Week 2: a friend invites you out and it costs a little extra. What do you do?"
+          },
+          "week3": {
+            "prompt": "Week 3: there's a chance to earn a bit more by doing some chores. What do you do?"
+          },
+          "week4": {
+            "prompt": "Week 4: the last stretch before the end of the month. What do you do?"
+          },
+          "recovery": {
+            "prompt": "You don't have enough coins right now. That's okay - here's what you can do."
+          },
+          "result": {
+            "prompt": "The month is over! Let's see how your plan worked out."
+          }
+        },
+        "choices": {
+          "save-15": "Put 15 coins toward your bike",
+          "spend-on-games": "Spend 15 coins on games now",
+          "share-treat": "Treat your friend too (5 coins)",
+          "decline-politely": "Say no thanks, politely",
+          "do-chores": "Do some extra chores (+10 coins)",
+          "skip-chores": "Skip the chores this week",
+          "add-10-more": "Add 10 more coins to your bike fund",
+          "wait-and-save-later": "Wait and save more next time",
+          "ask-for-help": "Ask a grown-up for a top-up (+15 coins)",
+          "adjust-goal": "Adjust your savings goal and carry on"
+        },
+        "outcomes": {
+          "saved-week1": "You put money straight toward your bike.",
+          "spent-week1": "You spent your coins on games today.",
+          "shared-treat": "You treated your friend too.",
+          "declined-politely": "You said no thanks and kept your coins.",
+          "did-chores": "You earned some extra coins doing chores.",
+          "skipped-chores": "You skipped the chores this week.",
+          "added-more": "You added even more toward your bike fund.",
+          "waited": "You decided to wait and save more another time.",
+          "got-help-builder": "A grown-up helped you out. Asking for help is part of good planning, not a mistake.",
+          "adjusted-goal": "You adjusted your savings goal to fit what you actually have. That's smart budgeting!"
+        }
+      },
+      "money-strategist-term-one": {
+        "title": "A Term of Smart Choices",
+        "intro": "You have 35 coins. Decide how to grow them, where they go, and how to handle the unexpected - then see how your term plays out.",
+        "nodes": {
+          "decision1": {
+            "prompt": "You could put some coins into a long-term plan, or keep them ready to spend. What do you do?"
+          },
+          "decision2": {
+            "prompt": "Your community is running a fundraiser. What do you do?"
+          },
+          "decision3": {
+            "prompt": "Something needs an unexpected repair. What do you do?"
+          },
+          "recovery": {
+            "prompt": "You don't have enough coins right now. That's okay - here's what you can do."
+          },
+          "result": {
+            "prompt": "The term is over! Let's see how your choices played out."
+          }
+        },
+        "choices": {
+          "invest-half": "Put 20 coins into a long-term plan",
+          "keep-liquid": "Keep all your coins ready to spend",
+          "contribute-to-fundraiser": "Contribute 15 coins to the fundraiser",
+          "keep-for-yourself": "Keep your coins for yourself",
+          "pay-for-repair": "Pay 30 coins for the repair now",
+          "delay-repair": "Put off the repair for now",
+          "ask-for-help": "Ask a grown-up for a top-up (+20 coins)",
+          "reassess-budget": "Reassess your budget and carry on"
+        },
+        "outcomes": {
+          "invested": "You put some coins into a long-term plan.",
+          "kept-liquid": "You kept all your coins ready to spend.",
+          "contributed": "You contributed to the fundraiser - that's real impact in your community.",
+          "kept-for-self": "You kept your coins for yourself. That's a fair choice too.",
+          "paid-repair": "You paid for the repair straight away.",
+          "delayed-repair": "You put off the repair for now.",
+          "got-help-strategist": "A grown-up helped you out. Asking for help is part of smart planning, not a mistake.",
+          "reassessed": "You reassessed your budget and kept going with a clearer plan."
+        }
+      },
+      "ai-explorer-helper-robot": {
+        "title": "The Helper Robot",
+        "intro": "A helper robot can answer questions for you. Sometimes it's right, and sometimes it isn't - let's find out together.",
+        "nodes": {
+          "question1": {
+            "prompt": "The Helper Robot says 2 + 2 = 5. What do you do?"
+          },
+          "question2": {
+            "prompt": "The Helper Robot says a week has 7 days. What do you do?"
+          },
+          "recovery": {
+            "prompt": "That answer wasn't right. That's okay - here's what you can do."
+          },
+          "result": {
+            "prompt": "Let's see how it went with the Helper Robot."
+          }
+        },
+        "choices": {
+          "trust-the-robot": "Trust the robot's answer",
+          "check-with-grownup": "Check with a grown-up first",
+          "ask-for-help": "Ask a grown-up for help",
+          "try-again": "Try again"
+        },
+        "outcomes": {
+          "trusted-wrong-answer": "You trusted the robot, but this time it was wrong.",
+          "checked-first": "You checked first - a smart habit with any helper.",
+          "trusted-right-answer": "You trusted the robot, and this time it was right!",
+          "checked-again": "You checked again, just to be sure.",
+          "got-help-ai-explorer": "A grown-up helped you out. Checking is never a mistake.",
+          "tried-again": "You decided to try again."
+        }
+      },
+      "ai-builder-book-report": {
+        "title": "Writing a Book Report with a Robot Helper",
+        "intro": "A helper robot can write a first draft of your book report. Your choices decide how good - and how honest - the finished report is.",
+        "nodes": {
+          "draft": {
+            "prompt": "The robot writes a first draft for you. What do you do?"
+          },
+          "fact-check": {
+            "prompt": "The robot says the book was written in the wrong year. What do you do?"
+          },
+          "personal-info": {
+            "prompt": "The robot asks for your full name and school 'to personalize the report'. What do you do?"
+          },
+          "final-review": {
+            "prompt": "Your report is almost ready. What do you do?"
+          },
+          "recovery": {
+            "prompt": "Your report needs some work right now. That's okay - here's what you can do."
+          },
+          "result": {
+            "prompt": "Let's see how your book report turned out."
+          }
+        },
+        "choices": {
+          "use-as-is": "Use the robot's draft exactly as it is",
+          "add-your-own-ideas": "Add your own ideas and words",
+          "trust-it": "Trust the robot's fact",
+          "look-it-up": "Look it up to make sure",
+          "share-it": "Share your name and school",
+          "keep-it-private": "Keep that information private",
+          "submit-without-reviewing": "Submit it without reviewing",
+          "review-with-an-adult": "Review it with an adult first",
+          "ask-for-help": "Ask a grown-up for help",
+          "start-this-section-over": "Start this section over"
+        },
+        "outcomes": {
+          "used-draft-as-is": "You used the robot's draft exactly as it was.",
+          "improved-draft": "You added your own ideas - the report sounds more like you.",
+          "trusted-wrong-fact": "You trusted a fact that turned out to be wrong.",
+          "verified-fact": "You looked it up and caught the mistake.",
+          "shared-personal-info": "You shared your name and school with the robot.",
+          "kept-info-private": "You kept your personal information private - a smart choice online.",
+          "submitted-quickly": "You submitted the report quickly, without a final check.",
+          "reviewed-with-adult": "You reviewed the report with an adult before submitting.",
+          "got-help-ai-builder": "A grown-up helped you improve the report. Asking is part of doing good work.",
+          "restarted-section": "You decided to start that section over."
+        }
+      },
+      "ai-strategist-business-plan": {
+        "title": "Using an AI Assistant for Your Business Plan",
+        "intro": "An AI assistant can help you build a business plan fast. How you use it decides whether your plan is strong - and whether people can trust it.",
+        "nodes": {
+          "market-research": {
+            "prompt": "The AI assistant gives you some impressive market statistics. What do you do?"
+          },
+          "ai-written-pitch": {
+            "prompt": "The AI assistant writes your whole pitch for you. What do you do?"
+          },
+          "ai-generated-image": {
+            "prompt": "The AI assistant creates a logo image for your business. What do you do?"
+          },
+          "recovery": {
+            "prompt": "Your plan needs some work right now. That's okay - here's what you can do."
+          },
+          "result": {
+            "prompt": "Let's see how your business plan turned out."
+          }
+        },
+        "choices": {
+          "use-stats-directly": "Use the statistics directly in your plan",
+          "verify-with-real-sources": "Verify them with real sources first",
+          "submit-ai-pitch-unedited": "Submit the AI's pitch unedited",
+          "revise-and-personalize": "Revise it and make it your own",
+          "use-it-and-claim-original": "Use it and say you made it yourself",
+          "disclose-ai-assistance": "Say openly that AI helped create it",
+          "ask-for-help": "Ask a grown-up for help",
+          "rebuild-honestly": "Rebuild the plan honestly from here"
+        },
+        "outcomes": {
+          "used-unverified-stats": "You used statistics that turned out not to be verified.",
+          "verified-stats": "You checked the statistics against real sources - your plan is on solid ground.",
+          "submitted-unedited-pitch": "You submitted the AI's pitch exactly as it wrote it.",
+          "personalized-pitch": "You revised the pitch so it genuinely reflects your own ideas.",
+          "misrepresented-ai-image": "You claimed the AI-generated image as entirely your own work.",
+          "disclosed-ai-use": "You were upfront that AI helped create the image - that builds real trust.",
+          "got-help-ai-strategist": "A grown-up helped you strengthen the plan. That's smart planning, not a failure.",
+          "rebuilt-honestly": "You chose to rebuild the plan honestly, prioritising trust over speed."
+        }
+      },
+      "leadership-explorer-fort": {
+        "title": "Build a Fort Together",
+        "intro": "You and your friends are building a fort. Your choices decide how it feels to work together.",
+        "nodes": {
+          "sharing-blocks": {
+            "prompt": "You have the best building blocks. What do you do?"
+          },
+          "someone-left-out": {
+            "prompt": "One friend feels left out of the building. What do you do?"
+          },
+          "recovery": {
+            "prompt": "The team isn't feeling great right now. That's okay - here's what you can do."
+          },
+          "result": {
+            "prompt": "Let's see how building the fort together went."
+          }
+        },
+        "choices": {
+          "share-the-blocks": "Share the best blocks with everyone",
+          "keep-best-blocks": "Keep the best blocks for yourself",
+          "invite-them-in": "Invite them to join in",
+          "keep-building-without-them": "Keep building without them",
+          "ask-for-help": "Ask a grown-up for help",
+          "share-now-instead": "Share now instead"
+        },
+        "outcomes": {
+          "shared-blocks": "You shared the best blocks with everyone.",
+          "kept-best-blocks": "You kept the best blocks for yourself.",
+          "invited-them-in": "You invited your friend to join in.",
+          "kept-building-without-them": "You kept building without them.",
+          "got-help-leadership-explorer": "A grown-up helped you out. Asking for help is never a mistake.",
+          "shared-now-instead": "You decided to share now instead."
+        }
+      },
+      "leadership-builder-fundraiser": {
+        "title": "Planning the Class Fundraiser",
+        "intro": "Your class is planning a fundraiser. Your choices decide how the team works together - and how much gets done.",
+        "nodes": {
+          "assign-tasks": {
+            "prompt": "It's time to assign tasks for the fundraiser. What do you do?"
+          },
+          "disagreement": {
+            "prompt": "Two teammates disagree about the bake sale table design. What do you do?"
+          },
+          "falling-behind": {
+            "prompt": "The project is falling behind schedule. What do you do?"
+          },
+          "credit": {
+            "prompt": "The fundraiser was a success! What do you do?"
+          },
+          "recovery": {
+            "prompt": "The team isn't feeling great right now. That's okay - here's what you can do."
+          },
+          "result": {
+            "prompt": "Let's see how the class fundraiser went."
+          }
+        },
+        "choices": {
+          "let-everyone-pick": "Let everyone pick their own task",
+          "assign-tasks-yourself": "Assign tasks yourself to move faster",
+          "let-them-work-it-out": "Let them work it out on their own",
+          "help-them-find-a-compromise": "Help them find a compromise",
+          "push-the-team-harder": "Push the team to work harder",
+          "ask-who-needs-help": "Ask who needs help",
+          "take-credit-yourself": "Take credit for the idea yourself",
+          "share-credit-with-team": "Share the credit with the whole team",
+          "ask-for-help": "Ask a grown-up for help",
+          "apologize-and-reset": "Apologise and reset with the team"
+        },
+        "outcomes": {
+          "let-everyone-pick": "You let everyone pick their own task.",
+          "assigned-tasks-yourself": "You assigned tasks yourself to move faster.",
+          "let-them-work-it-out": "You let the disagreement go unresolved.",
+          "helped-find-compromise": "You helped your teammates find a compromise.",
+          "pushed-team-harder": "You pushed the team to work harder.",
+          "asked-who-needs-help": "You asked who needed help.",
+          "took-credit-yourself": "You took credit for the idea yourself.",
+          "shared-credit-with-team": "You shared the credit with the whole team.",
+          "got-help-leadership-builder": "A grown-up helped you out. Asking for help is part of good leadership.",
+          "apologized-and-reset": "You apologised and reset with the team."
+        }
+      },
+      "leadership-strategist-garden": {
+        "title": "Leading a Community Garden Project",
+        "intro": "You're leading a community garden project. Your choices decide how much your team trusts you - and how much the community benefits.",
+        "nodes": {
+          "volunteer-dispute": {
+            "prompt": "A volunteer wants to skip a safety rule to go faster. What do you do?"
+          },
+          "resource-allocation": {
+            "prompt": "The budget is limited. What do you do?"
+          },
+          "credit-and-visibility": {
+            "prompt": "A local reporter wants to interview the project's leader. What do you do?"
+          },
+          "recovery": {
+            "prompt": "The team's trust in you isn't where it should be right now. That's okay - here's what you can do."
+          },
+          "result": {
+            "prompt": "Let's see how the community garden project turned out."
+          }
+        },
+        "choices": {
+          "let-it-slide-to-save-time": "Let it slide to save time",
+          "enforce-the-safety-rules": "Enforce the safety rules",
+          "prioritize-team-tools": "Prioritise tools for the team",
+          "prioritize-community-benefit": "Prioritise benefit for the community",
+          "take-the-spotlight-alone": "Take the spotlight alone",
+          "bring-the-whole-team-to-the-interview": "Bring the whole team to the interview",
+          "ask-for-help": "Ask a grown-up for help",
+          "rebuild-trust-through-action": "Rebuild trust through action"
+        },
+        "outcomes": {
+          "let-it-slide-to-save-time": "You let the safety shortcut slide to save time.",
+          "enforced-safety-rules": "You enforced the safety rules.",
+          "prioritized-team-tools": "You prioritised tools for the team.",
+          "prioritized-community-benefit": "You prioritised benefit for the community.",
+          "took-spotlight-alone": "You took the spotlight alone.",
+          "brought-whole-team": "You brought the whole team to the interview.",
+          "got-help-leadership-strategist": "A grown-up helped you rebuild trust. That's smart leadership, not a failure.",
+          "rebuilt-trust-through-action": "You chose to rebuild trust through action, strengthening both the team and the project."
+        }
+      },
+      "entrepreneur-explorer-lemonade": {
+        "title": "Lemonade Stand Day",
+        "intro": "You're running a lemonade stand today. Your choices decide how the day goes.",
+        "nodes": {
+          "pricing": {
+            "prompt": "It's time to set a price for your lemonade. What do you do?"
+          },
+          "weather": {
+            "prompt": "It starts to rain! What do you do?"
+          },
+          "recovery": {
+            "prompt": "Today didn't go quite as planned. That's okay - here's what you can do."
+          },
+          "result": {
+            "prompt": "Let's see how your lemonade stand did today."
+          }
+        },
+        "choices": {
+          "price-it-fair": "Price it fairly",
+          "price-it-high": "Price it high",
+          "move-under-a-tent": "Move the stand under a tent",
+          "pack-up-for-the-day": "Pack up for the day",
+          "ask-for-help": "Ask a grown-up for help",
+          "try-a-new-price-tomorrow": "Try a new price tomorrow"
+        },
+        "outcomes": {
+          "priced-it-fair": "You priced your lemonade fairly, and people were happy to buy it.",
+          "priced-it-high": "You priced it high, and fewer people bought any.",
+          "moved-under-tent": "You moved the stand under a tent and kept selling.",
+          "packed-up-for-the-day": "You packed up for the day.",
+          "got-help-entrepreneur-explorer": "A grown-up helped you out. Asking for help is never a mistake.",
+          "tried-new-price-tomorrow": "You decided to try a new price tomorrow."
+        }
+      },
+      "entrepreneur-builder-dogwalking": {
+        "title": "Running a Dog-Walking Business",
+        "intro": "You're running a small dog-walking business. Your choices decide how much you earn - and how much people trust you.",
+        "nodes": {
+          "set-price": {
+            "prompt": "It's time to set your price for a walk. What do you do?"
+          },
+          "quality": {
+            "prompt": "It's time to think about how reliable you'll be. What do you do?"
+          },
+          "marketing": {
+            "prompt": "You want more customers. What do you do?"
+          },
+          "unexpected": {
+            "prompt": "A dog gets loose during a walk! What do you do?"
+          },
+          "recovery": {
+            "prompt": "Business isn't going quite as planned right now. That's okay - here's what you can do."
+          },
+          "result": {
+            "prompt": "Let's see how your dog-walking business did."
+          }
+        },
+        "choices": {
+          "charge-a-fair-price": "Charge a fair price",
+          "charge-too-much": "Charge too much",
+          "always-show-up-on-time": "Always show up on time",
+          "sometimes-run-late": "Sometimes run late",
+          "make-flyers": "Make flyers",
+          "rely-on-word-of-mouth": "Rely on word of mouth",
+          "chase-and-return-it-safely": "Chase after it and return it safely",
+          "tell-the-owner-right-away": "Tell the owner right away",
+          "ask-for-help": "Ask a grown-up for help",
+          "adjust-your-price": "Adjust your price"
+        },
+        "outcomes": {
+          "charged-fair-price": "You charged a fair price, and customers kept coming back.",
+          "charged-too-much": "You charged too much, and customers went elsewhere.",
+          "always-on-time": "You always showed up on time.",
+          "sometimes-late": "You sometimes ran late.",
+          "made-flyers": "You spent some money making flyers.",
+          "relied-on-word-of-mouth": "You relied on word of mouth instead.",
+          "chased-and-returned-safely": "You chased after the dog and returned it safely.",
+          "told-owner-right-away": "You told the owner right away.",
+          "got-help-entrepreneur-builder": "A grown-up helped you out. Asking for help is part of running a good business.",
+          "adjusted-price": "You adjusted your price and kept going."
+        }
+      },
+      "entrepreneur-strategist-bakery": {
+        "title": "Scaling a Small Bakery",
+        "intro": "You're growing a small bakery. Your choices decide its profit - and whether customers stay happy.",
+        "nodes": {
+          "ingredients": {
+            "prompt": "It's time to choose your ingredients. What do you do?"
+          },
+          "pricing-strategy": {
+            "prompt": "Costs are rising. What do you do?"
+          },
+          "expansion": {
+            "prompt": "It's time to think about growing the bakery. What do you do?"
+          },
+          "recovery": {
+            "prompt": "The bakery isn't doing quite as well as it should right now. That's okay - here's what you can do."
+          },
+          "result": {
+            "prompt": "Let's see how your bakery turned out."
+          }
+        },
+        "choices": {
+          "buy-cheaper-ingredients": "Buy cheaper ingredients",
+          "buy-quality-ingredients": "Buy quality ingredients",
+          "raise-prices-to-cover-costs": "Raise prices to cover rising costs",
+          "keep-prices-steady-absorb-cost": "Keep prices steady and absorb the cost",
+          "open-a-second-location-fast": "Open a second location quickly",
+          "grow-slowly-and-steadily": "Grow slowly and steadily",
+          "ask-for-help": "Ask a grown-up for help",
+          "win-back-customers-with-quality": "Win back customers with quality"
+        },
+        "outcomes": {
+          "bought-cheaper-ingredients": "You bought cheaper ingredients to protect your profit.",
+          "bought-quality-ingredients": "You bought quality ingredients, even though it cost more.",
+          "raised-prices": "You raised prices to cover rising costs.",
+          "kept-prices-steady": "You kept prices steady and absorbed the cost yourself.",
+          "expanded-fast": "You opened a second location quickly.",
+          "grew-slowly": "You grew the bakery slowly and steadily.",
+          "got-help-entrepreneur-strategist": "A grown-up helped you strengthen the business. That's smart planning, not a failure.",
+          "won-back-customers-with-quality": "You chose to win back customers with quality, prioritising trust over short-term profit."
+        }
+      }
+    }
   }
 }

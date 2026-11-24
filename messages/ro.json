@@ -8085,5 +8085,522 @@
       "title": "Nivel Strateg",
       "body": "Această parte a călătoriei este concepută pentru exploratori mai mari (12-14 ani). Comută la nivelul Strateg din selectorul de nivel ca să o descoperi, sau continuă cu tot ce este deja deblocat pentru tine."
     }
+  },
+  "agency": {
+    "resourceLabels": {
+      "coins": "Monede",
+      "savedForBike": "Economisit pentru bicicletă",
+      "communityImpact": "Impact în comunitate",
+      "confidence": "Încredere",
+      "projectQuality": "Calitatea proiectului",
+      "privacyScore": "Confidențialitate",
+      "planQuality": "Calitatea planului",
+      "trustworthiness": "Încredere câștigată",
+      "teamSpirit": "Spirit de echipă",
+      "teamMorale": "Moralul echipei",
+      "projectProgress": "Progresul proiectului",
+      "teamTrust": "Încrederea echipei",
+      "reputation": "Reputație",
+      "profit": "Profit",
+      "customerSatisfaction": "Satisfacția clienților"
+    },
+    "recoveryBadge": "Să rezolvăm asta împreună",
+    "askForHelpButton": "Am nevoie de ajutor",
+    "restartButton": "Începe săptămâna din nou",
+    "statusCompletedHeading": "Săptămână încheiată!",
+    "statusCompletedBody": "Iată ce s-a întâmplat în această săptămână. Poți încerca din nou oricând pentru a explora un alt plan.",
+    "historyHeading": "Ce ai ales",
+    "missions": {
+      "money-explorer-week-one": {
+        "title": "O săptămână de bani de buzunar",
+        "intro": "Ai 25 de monede pentru această săptămână. Alege ce faci în fiecare zi și vezi ce se întâmplă.",
+        "nodes": {
+          "monday": {
+            "prompt": "E luni! Ce vrei să faci cu monedele tale astăzi?"
+          },
+          "wednesday": {
+            "prompt": "O excursie școlară costă 10 monede. Ce faci?"
+          },
+          "recovery": {
+            "prompt": "Nu ai suficiente monede chiar acum. Nu-i nicio problemă - iată ce poți face."
+          },
+          "friday": {
+            "prompt": "Săptămâna s-a terminat! Să vedem cum a fost."
+          }
+        },
+        "choices": {
+          "save": "Economisește monedele astăzi",
+          "treat": "Cumpără o răsfățare (20 de monede)",
+          "pay-trip": "Plătește excursia (10 monede)",
+          "skip-trip": "Renunță la excursie de această dată",
+          "ask-for-help": "Cere unui adult o sumă suplimentară (+10 monede)",
+          "reorganise-budget": "Continuă cu ce ai"
+        },
+        "outcomes": {
+          "saved-monday": "Economie excelentă! Ai păstrat toate monedele pentru mai târziu.",
+          "spent-on-treat": "Te-ai bucurat de o răsfățare astăzi.",
+          "paid-trip": "Ai plătit excursia. Bună planificare!",
+          "skipped-trip": "Ai renunțat la excursie și ți-ai păstrat monedele.",
+          "got-help": "Un adult te-a ajutat. A cere ajutor este o mișcare inteligentă, nu o greșeală.",
+          "reorganised": "Ai găsit un nou plan cu ce îți rămăsese. Asta înseamnă să rezolvi probleme cu adevărat!"
+        }
+      },
+      "money-builder-month-one": {
+        "title": "Economisind pentru o bicicletă",
+        "intro": "Ai 40 de monede și vrei să economisești pentru o bicicletă. Fă alegeri pe parcursul a patru săptămâni și vezi cum funcționează planul tău.",
+        "nodes": {
+          "week1": {
+            "prompt": "Săptămâna 1: ai niște bani de cheltuit. Ce faci?"
+          },
+          "week2": {
+            "prompt": "Săptămâna 2: un prieten te invită undeva și costă puțin în plus. Ce faci?"
+          },
+          "week3": {
+            "prompt": "Săptămâna 3: ai ocazia să câștigi ceva în plus făcând treabă prin casă. Ce faci?"
+          },
+          "week4": {
+            "prompt": "Săptămâna 4: ultima perioadă înainte de final de lună. Ce faci?"
+          },
+          "recovery": {
+            "prompt": "Nu ai suficiente monede chiar acum. Nu-i nicio problemă - iată ce poți face."
+          },
+          "result": {
+            "prompt": "Luna s-a terminat! Să vedem cum a mers planul tău."
+          }
+        },
+        "choices": {
+          "save-15": "Pune 15 monede pentru bicicletă",
+          "spend-on-games": "Cheltuie 15 monede pe jocuri acum",
+          "share-treat": "Răsfață-ți și prietenul (5 monede)",
+          "decline-politely": "Spune nu, politicos",
+          "do-chores": "Fă treabă în plus prin casă (+10 monede)",
+          "skip-chores": "Sari peste treburi săptămâna asta",
+          "add-10-more": "Adaugă încă 10 monede pentru bicicletă",
+          "wait-and-save-later": "Așteaptă și economisește mai mult altă dată",
+          "ask-for-help": "Cere unui adult o sumă suplimentară (+15 monede)",
+          "adjust-goal": "Ajustează-ți obiectivul de economisire și continuă"
+        },
+        "outcomes": {
+          "saved-week1": "Ai pus banii direct pentru bicicletă.",
+          "spent-week1": "Ai cheltuit monedele pe jocuri astăzi.",
+          "shared-treat": "Ți-ai răsfățat și prietenul.",
+          "declined-politely": "Ai spus nu, politicos, și ți-ai păstrat monedele.",
+          "did-chores": "Ai câștigat monede în plus făcând treabă prin casă.",
+          "skipped-chores": "Ai sărit peste treburi săptămâna asta.",
+          "added-more": "Ai adăugat și mai mult pentru bicicletă.",
+          "waited": "Ai decis să aștepți și să economisești mai mult altă dată.",
+          "got-help-builder": "Un adult te-a ajutat. A cere ajutor face parte dintr-o planificare bună, nu e o greșeală.",
+          "adjusted-goal": "Ți-ai ajustat obiectivul de economisire ca să se potrivească cu ce ai cu adevărat. Asta înseamnă buget inteligent!"
+        }
+      },
+      "money-strategist-term-one": {
+        "title": "Un semestru de alegeri inteligente",
+        "intro": "Ai 35 de monede. Decide cum să le faci să crească, unde se duc și cum gestionezi neprevăzutul - apoi vezi cum a mers semestrul tău.",
+        "nodes": {
+          "decision1": {
+            "prompt": "Ai putea pune niște monede într-un plan pe termen lung sau le poți păstra gata de cheltuit. Ce faci?"
+          },
+          "decision2": {
+            "prompt": "Comunitatea ta organizează o strângere de fonduri. Ce faci?"
+          },
+          "decision3": {
+            "prompt": "Ceva are nevoie de o reparație neprevăzută. Ce faci?"
+          },
+          "recovery": {
+            "prompt": "Nu ai suficiente monede chiar acum. Nu-i nicio problemă - iată ce poți face."
+          },
+          "result": {
+            "prompt": "Semestrul s-a terminat! Să vedem cum au mers alegerile tale."
+          }
+        },
+        "choices": {
+          "invest-half": "Pune 20 de monede într-un plan pe termen lung",
+          "keep-liquid": "Păstrează toate monedele gata de cheltuit",
+          "contribute-to-fundraiser": "Contribuie cu 15 monede la strângerea de fonduri",
+          "keep-for-yourself": "Păstrează monedele pentru tine",
+          "pay-for-repair": "Plătește 30 de monede pentru reparație acum",
+          "delay-repair": "Amână reparația deocamdată",
+          "ask-for-help": "Cere unui adult o sumă suplimentară (+20 monede)",
+          "reassess-budget": "Reevaluează-ți bugetul și continuă"
+        },
+        "outcomes": {
+          "invested": "Ai pus niște monede într-un plan pe termen lung.",
+          "kept-liquid": "Ai păstrat toate monedele gata de cheltuit.",
+          "contributed": "Ai contribuit la strângerea de fonduri - asta înseamnă un impact real în comunitatea ta.",
+          "kept-for-self": "Ți-ai păstrat monedele pentru tine. Este și aceasta o alegere corectă.",
+          "paid-repair": "Ai plătit reparația imediat.",
+          "delayed-repair": "Ai amânat reparația deocamdată.",
+          "got-help-strategist": "Un adult te-a ajutat. A cere ajutor face parte dintr-o planificare inteligentă, nu e o greșeală.",
+          "reassessed": "Ți-ai reevaluat bugetul și ai continuat cu un plan mai clar."
+        }
+      },
+      "ai-explorer-helper-robot": {
+        "title": "Robotul Ajutor",
+        "intro": "Un robot ajutor poate răspunde la întrebări pentru tine. Uneori are dreptate, alteori nu - hai să aflăm împreună.",
+        "nodes": {
+          "question1": {
+            "prompt": "Robotul Ajutor spune că 2 + 2 = 5. Ce faci?"
+          },
+          "question2": {
+            "prompt": "Robotul Ajutor spune că o săptămână are 7 zile. Ce faci?"
+          },
+          "recovery": {
+            "prompt": "Răspunsul acela nu a fost corect. Nu-i nicio problemă - iată ce poți face."
+          },
+          "result": {
+            "prompt": "Să vedem cum a mers cu Robotul Ajutor."
+          }
+        },
+        "choices": {
+          "trust-the-robot": "Ai încredere în răspunsul robotului",
+          "check-with-grownup": "Verifică mai întâi cu un adult",
+          "ask-for-help": "Cere ajutorul unui adult",
+          "try-again": "Încearcă din nou"
+        },
+        "outcomes": {
+          "trusted-wrong-answer": "Ai avut încredere în robot, dar de data asta a greșit.",
+          "checked-first": "Ai verificat mai întâi - un obicei inteligent cu orice ajutor.",
+          "trusted-right-answer": "Ai avut încredere în robot, și de data asta a avut dreptate!",
+          "checked-again": "Ai verificat din nou, ca să fii sigur.",
+          "got-help-ai-explorer": "Un adult te-a ajutat. A verifica nu este niciodată o greșeală.",
+          "tried-again": "Ai decis să încerci din nou."
+        }
+      },
+      "ai-builder-book-report": {
+        "title": "Scrierea unui Referat de Carte cu un Robot Ajutor",
+        "intro": "Un robot ajutor poate scrie o primă variantă a referatului tău de carte. Alegerile tale decid cât de bun - și cât de onest - este referatul final.",
+        "nodes": {
+          "draft": {
+            "prompt": "Robotul scrie o primă variantă pentru tine. Ce faci?"
+          },
+          "fact-check": {
+            "prompt": "Robotul spune că anul în care a fost scrisă cartea e greșit. Ce faci?"
+          },
+          "personal-info": {
+            "prompt": "Robotul îți cere numele complet și școala 'ca să personalizeze referatul'. Ce faci?"
+          },
+          "final-review": {
+            "prompt": "Referatul tău este aproape gata. Ce faci?"
+          },
+          "recovery": {
+            "prompt": "Referatul tău are nevoie de puțină muncă chiar acum. Nu-i nicio problemă - iată ce poți face."
+          },
+          "result": {
+            "prompt": "Să vedem cum a ieșit referatul tău de carte."
+          }
+        },
+        "choices": {
+          "use-as-is": "Folosește varianta robotului exact așa cum este",
+          "add-your-own-ideas": "Adaugă propriile tale idei și cuvinte",
+          "trust-it": "Ai încredere în afirmația robotului",
+          "look-it-up": "Caută să te asiguri",
+          "share-it": "Împărtășește numele și școala ta",
+          "keep-it-private": "Păstrează acea informație privată",
+          "submit-without-reviewing": "Trimite-l fără să-l revizuiești",
+          "review-with-an-adult": "Revizuiește-l mai întâi cu un adult",
+          "ask-for-help": "Cere ajutorul unui adult",
+          "start-this-section-over": "Reia această secțiune de la capăt"
+        },
+        "outcomes": {
+          "used-draft-as-is": "Ai folosit varianta robotului exact așa cum a fost.",
+          "improved-draft": "Ai adăugat propriile tale idei - referatul sună mai mult ca tine.",
+          "trusted-wrong-fact": "Ai avut încredere într-o afirmație care s-a dovedit greșită.",
+          "verified-fact": "Ai căutat și ai prins greșeala.",
+          "shared-personal-info": "Ți-ai împărtășit numele și școala cu robotul.",
+          "kept-info-private": "Ți-ai păstrat informațiile personale private - o alegere inteligentă online.",
+          "submitted-quickly": "Ai trimis referatul repede, fără o verificare finală.",
+          "reviewed-with-adult": "Ai revizuit referatul cu un adult înainte de a-l trimite.",
+          "got-help-ai-builder": "Un adult te-a ajutat să îmbunătățești referatul. A cere ajutor face parte dintr-o muncă bună.",
+          "restarted-section": "Ai decis să reiei acea secțiune de la capăt."
+        }
+      },
+      "ai-strategist-business-plan": {
+        "title": "Folosirea unui Asistent AI pentru Planul Tău de Afaceri",
+        "intro": "Un asistent AI te poate ajuta să construiești rapid un plan de afaceri. Felul în care îl folosești decide dacă planul tău este solid - și dacă oamenii pot avea încredere în el.",
+        "nodes": {
+          "market-research": {
+            "prompt": "Asistentul AI îți oferă câteva statistici de piață impresionante. Ce faci?"
+          },
+          "ai-written-pitch": {
+            "prompt": "Asistentul AI îți scrie întreaga prezentare. Ce faci?"
+          },
+          "ai-generated-image": {
+            "prompt": "Asistentul AI creează o imagine de logo pentru afacerea ta. Ce faci?"
+          },
+          "recovery": {
+            "prompt": "Planul tău are nevoie de puțină muncă chiar acum. Nu-i nicio problemă - iată ce poți face."
+          },
+          "result": {
+            "prompt": "Să vedem cum a ieșit planul tău de afaceri."
+          }
+        },
+        "choices": {
+          "use-stats-directly": "Folosește statisticile direct în planul tău",
+          "verify-with-real-sources": "Verifică-le mai întâi cu surse reale",
+          "submit-ai-pitch-unedited": "Trimite prezentarea AI nemodificată",
+          "revise-and-personalize": "Revizuiește-o și personalizeaz-o",
+          "use-it-and-claim-original": "Folosește-o și spune că ai făcut-o singur",
+          "disclose-ai-assistance": "Spune deschis că AI a ajutat la crearea ei",
+          "ask-for-help": "Cere ajutorul unui adult",
+          "rebuild-honestly": "Reconstruiește planul onest de aici încolo"
+        },
+        "outcomes": {
+          "used-unverified-stats": "Ai folosit statistici care s-au dovedit a nu fi verificate.",
+          "verified-stats": "Ai verificat statisticile cu surse reale - planul tău stă pe o bază solidă.",
+          "submitted-unedited-pitch": "Ai trimis prezentarea AI exact așa cum a scris-o.",
+          "personalized-pitch": "Ai revizuit prezentarea ca să reflecte cu adevărat propriile tale idei.",
+          "misrepresented-ai-image": "Ai pretins că imaginea generată de AI este în întregime munca ta.",
+          "disclosed-ai-use": "Ai fost sincer că AI a ajutat la crearea imaginii - asta construiește încredere reală.",
+          "got-help-ai-strategist": "Un adult te-a ajutat să consolidezi planul. Asta înseamnă planificare inteligentă, nu un eșec.",
+          "rebuilt-honestly": "Ai ales să reconstruiești planul onest, punând încrederea înaintea vitezei."
+        }
+      },
+      "leadership-explorer-fort": {
+        "title": "Construiește un Fort Împreună",
+        "intro": "Tu și prietenii tăi construiți un fort. Alegerile tale decid cum e să lucrați împreună.",
+        "nodes": {
+          "sharing-blocks": {
+            "prompt": "Ai cele mai bune cuburi de construcție. Ce faci?"
+          },
+          "someone-left-out": {
+            "prompt": "Un prieten se simte exclus de la construcție. Ce faci?"
+          },
+          "recovery": {
+            "prompt": "Echipa nu se simte prea bine chiar acum. Nu-i nicio problemă - iată ce poți face."
+          },
+          "result": {
+            "prompt": "Să vedem cum a mers construirea fortului împreună."
+          }
+        },
+        "choices": {
+          "share-the-blocks": "Împarte cele mai bune cuburi cu toți",
+          "keep-best-blocks": "Păstrează cele mai bune cuburi pentru tine",
+          "invite-them-in": "Invită-l să se alăture",
+          "keep-building-without-them": "Continuă să construiești fără el",
+          "ask-for-help": "Cere ajutorul unui adult",
+          "share-now-instead": "Împarte acum în schimb"
+        },
+        "outcomes": {
+          "shared-blocks": "Ai împărțit cele mai bune cuburi cu toți.",
+          "kept-best-blocks": "Ai păstrat cele mai bune cuburi pentru tine.",
+          "invited-them-in": "Ți-ai invitat prietenul să se alăture.",
+          "kept-building-without-them": "Ai continuat să construiești fără el.",
+          "got-help-leadership-explorer": "Un adult te-a ajutat. A cere ajutor nu este niciodată o greșeală.",
+          "shared-now-instead": "Ai decis să împarți acum în schimb."
+        }
+      },
+      "leadership-builder-fundraiser": {
+        "title": "Planificarea Strângerii de Fonduri a Clasei",
+        "intro": "Clasa ta planifică o strângere de fonduri. Alegerile tale decid cum lucrează echipa împreună - și cât se realizează.",
+        "nodes": {
+          "assign-tasks": {
+            "prompt": "E timpul să repartizați sarcinile pentru strângerea de fonduri. Ce faci?"
+          },
+          "disagreement": {
+            "prompt": "Doi colegi de echipă nu se înțeleg asupra designului mesei de prăjituri. Ce faci?"
+          },
+          "falling-behind": {
+            "prompt": "Proiectul rămâne în urmă față de program. Ce faci?"
+          },
+          "credit": {
+            "prompt": "Strângerea de fonduri a fost un succes! Ce faci?"
+          },
+          "recovery": {
+            "prompt": "Echipa nu se simte prea bine chiar acum. Nu-i nicio problemă - iată ce poți face."
+          },
+          "result": {
+            "prompt": "Să vedem cum a mers strângerea de fonduri a clasei."
+          }
+        },
+        "choices": {
+          "let-everyone-pick": "Lasă pe fiecare să-și aleagă propria sarcină",
+          "assign-tasks-yourself": "Repartizează sarcinile tu însuți, ca să mergeți mai repede",
+          "let-them-work-it-out": "Lasă-i să rezolve singuri",
+          "help-them-find-a-compromise": "Ajută-i să găsească un compromis",
+          "push-the-team-harder": "Împinge echipa să muncească mai mult",
+          "ask-who-needs-help": "Întreabă cine are nevoie de ajutor",
+          "take-credit-yourself": "Atribuie-ți singur meritul ideii",
+          "share-credit-with-team": "Împarte meritul cu toată echipa",
+          "ask-for-help": "Cere ajutorul unui adult",
+          "apologize-and-reset": "Cere-ți scuze și reia relația cu echipa"
+        },
+        "outcomes": {
+          "let-everyone-pick": "Ai lăsat pe fiecare să-și aleagă propria sarcină.",
+          "assigned-tasks-yourself": "Ai repartizat sarcinile tu însuți, ca să mergeți mai repede.",
+          "let-them-work-it-out": "Ai lăsat neînțelegerea nerezolvată.",
+          "helped-find-compromise": "I-ai ajutat pe colegi să găsească un compromis.",
+          "pushed-team-harder": "Ai împins echipa să muncească mai mult.",
+          "asked-who-needs-help": "Ai întrebat cine are nevoie de ajutor.",
+          "took-credit-yourself": "Ți-ai atribuit singur meritul ideii.",
+          "shared-credit-with-team": "Ai împărțit meritul cu toată echipa.",
+          "got-help-leadership-builder": "Un adult te-a ajutat. A cere ajutor face parte dintr-o conducere bună.",
+          "apologized-and-reset": "Ți-ai cerut scuze și ai reluat relația cu echipa."
+        }
+      },
+      "leadership-strategist-garden": {
+        "title": "Conducerea unui Proiect de Grădină Comunitară",
+        "intro": "Conduci un proiect de grădină comunitară. Alegerile tale decid cât de mult are echipa încredere în tine - și cât beneficiază comunitatea.",
+        "nodes": {
+          "volunteer-dispute": {
+            "prompt": "Un voluntar vrea să sară peste o regulă de siguranță ca să meargă mai repede. Ce faci?"
+          },
+          "resource-allocation": {
+            "prompt": "Bugetul este limitat. Ce faci?"
+          },
+          "credit-and-visibility": {
+            "prompt": "Un reporter local vrea să intervieveze liderul proiectului. Ce faci?"
+          },
+          "recovery": {
+            "prompt": "Încrederea echipei în tine nu este chiar acum unde ar trebui să fie. Nu-i nicio problemă - iată ce poți face."
+          },
+          "result": {
+            "prompt": "Să vedem cum a ieșit proiectul grădinii comunitare."
+          }
+        },
+        "choices": {
+          "let-it-slide-to-save-time": "Lasă să treacă, ca să economisești timp",
+          "enforce-the-safety-rules": "Impune regulile de siguranță",
+          "prioritize-team-tools": "Prioritizează uneltele pentru echipă",
+          "prioritize-community-benefit": "Prioritizează beneficiul pentru comunitate",
+          "take-the-spotlight-alone": "Acceptă atenția doar pentru tine",
+          "bring-the-whole-team-to-the-interview": "Adu toată echipa la interviu",
+          "ask-for-help": "Cere ajutorul unui adult",
+          "rebuild-trust-through-action": "Reconstruiește încrederea prin acțiune"
+        },
+        "outcomes": {
+          "let-it-slide-to-save-time": "Ai lăsat scurtătura de siguranță să treacă, ca să economisești timp.",
+          "enforced-safety-rules": "Ai impus regulile de siguranță.",
+          "prioritized-team-tools": "Ai prioritizat uneltele pentru echipă.",
+          "prioritized-community-benefit": "Ai prioritizat beneficiul pentru comunitate.",
+          "took-spotlight-alone": "Ai acceptat atenția doar pentru tine.",
+          "brought-whole-team": "Ai adus toată echipa la interviu.",
+          "got-help-leadership-strategist": "Un adult te-a ajutat să reconstruiești încrederea. Asta înseamnă o conducere inteligentă, nu un eșec.",
+          "rebuilt-trust-through-action": "Ai ales să reconstruiești încrederea prin acțiune, consolidând atât echipa, cât și proiectul."
+        }
+      },
+      "entrepreneur-explorer-lemonade": {
+        "title": "Ziua Tarabei cu Limonadă",
+        "intro": "Astăzi conduci o tarabă cu limonadă. Alegerile tale decid cum merge ziua.",
+        "nodes": {
+          "pricing": {
+            "prompt": "E timpul să stabilești un preț pentru limonada ta. Ce faci?"
+          },
+          "weather": {
+            "prompt": "Începe să plouă! Ce faci?"
+          },
+          "recovery": {
+            "prompt": "Ziua nu a mers chiar cum ai plănuit. Nu-i nicio problemă - iată ce poți face."
+          },
+          "result": {
+            "prompt": "Să vedem cum a mers taraba ta cu limonadă astăzi."
+          }
+        },
+        "choices": {
+          "price-it-fair": "Stabilește un preț corect",
+          "price-it-high": "Stabilește un preț mare",
+          "move-under-a-tent": "Mută taraba sub un cort",
+          "pack-up-for-the-day": "Strânge taraba pentru azi",
+          "ask-for-help": "Cere ajutorul unui adult",
+          "try-a-new-price-tomorrow": "Încearcă un preț nou mâine"
+        },
+        "outcomes": {
+          "priced-it-fair": "Ai stabilit un preț corect, iar oamenii au fost bucuroși să cumpere.",
+          "priced-it-high": "Ai stabilit un preț mare, și mai puțini oameni au cumpărat.",
+          "moved-under-tent": "Ai mutat taraba sub un cort și ai continuat să vinzi.",
+          "packed-up-for-the-day": "Ai strâns taraba pentru azi.",
+          "got-help-entrepreneur-explorer": "Un adult te-a ajutat. A cere ajutor nu este niciodată o greșeală.",
+          "tried-new-price-tomorrow": "Ai decis să încerci un preț nou mâine."
+        }
+      },
+      "entrepreneur-builder-dogwalking": {
+        "title": "Conducerea unei Afaceri de Plimbat Câini",
+        "intro": "Conduci o mică afacere de plimbat câini. Alegerile tale decid cât câștigi - și cât de mult au oamenii încredere în tine.",
+        "nodes": {
+          "set-price": {
+            "prompt": "E timpul să stabilești prețul pentru o plimbare. Ce faci?"
+          },
+          "quality": {
+            "prompt": "E timpul să te gândești cât de de încredere vei fi. Ce faci?"
+          },
+          "marketing": {
+            "prompt": "Vrei mai mulți clienți. Ce faci?"
+          },
+          "unexpected": {
+            "prompt": "Un câine scapă în timpul unei plimbări! Ce faci?"
+          },
+          "recovery": {
+            "prompt": "Afacerea nu merge chiar cum ai plănuit chiar acum. Nu-i nicio problemă - iată ce poți face."
+          },
+          "result": {
+            "prompt": "Să vedem cum a mers afacerea ta de plimbat câini."
+          }
+        },
+        "choices": {
+          "charge-a-fair-price": "Cere un preț corect",
+          "charge-too-much": "Cere prea mult",
+          "always-show-up-on-time": "Vino mereu la timp",
+          "sometimes-run-late": "Întârzie uneori",
+          "make-flyers": "Fă fluturași publicitari",
+          "rely-on-word-of-mouth": "Bazează-te pe recomandări din gură în gură",
+          "chase-and-return-it-safely": "Fugi după el și adu-l înapoi în siguranță",
+          "tell-the-owner-right-away": "Anunță proprietarul imediat",
+          "ask-for-help": "Cere ajutorul unui adult",
+          "adjust-your-price": "Ajustează-ți prețul"
+        },
+        "outcomes": {
+          "charged-fair-price": "Ai cerut un preț corect, iar clienții au continuat să revină.",
+          "charged-too-much": "Ai cerut prea mult, iar clienții au plecat în altă parte.",
+          "always-on-time": "Ai venit mereu la timp.",
+          "sometimes-late": "Ai întârziat uneori.",
+          "made-flyers": "Ai cheltuit niște bani pe fluturași publicitari.",
+          "relied-on-word-of-mouth": "Te-ai bazat pe recomandări din gură în gură în schimb.",
+          "chased-and-returned-safely": "Ai fugit după câine și l-ai adus înapoi în siguranță.",
+          "told-owner-right-away": "Ai anunțat proprietarul imediat.",
+          "got-help-entrepreneur-builder": "Un adult te-a ajutat. A cere ajutor face parte dintr-o afacere bună.",
+          "adjusted-price": "Ți-ai ajustat prețul și ai continuat."
+        }
+      },
+      "entrepreneur-strategist-bakery": {
+        "title": "Extinderea unei Mici Brutării",
+        "intro": "Dezvolți o mică brutărie. Alegerile tale decid profitul ei - și dacă clienții rămân mulțumiți.",
+        "nodes": {
+          "ingredients": {
+            "prompt": "E timpul să alegi ingredientele. Ce faci?"
+          },
+          "pricing-strategy": {
+            "prompt": "Costurile cresc. Ce faci?"
+          },
+          "expansion": {
+            "prompt": "E timpul să te gândești la extinderea brutăriei. Ce faci?"
+          },
+          "recovery": {
+            "prompt": "Brutăria nu merge chiar atât de bine pe cât ar trebui chiar acum. Nu-i nicio problemă - iată ce poți face."
+          },
+          "result": {
+            "prompt": "Să vedem cum a ieșit brutăria ta."
+          }
+        },
+        "choices": {
+          "buy-cheaper-ingredients": "Cumpără ingrediente mai ieftine",
+          "buy-quality-ingredients": "Cumpără ingrediente de calitate",
+          "raise-prices-to-cover-costs": "Crește prețurile ca să acoperi costurile în creștere",
+          "keep-prices-steady-absorb-cost": "Păstrează prețurile constante și absoarbe costul",
+          "open-a-second-location-fast": "Deschide rapid o a doua locație",
+          "grow-slowly-and-steadily": "Crește încet și constant",
+          "ask-for-help": "Cere ajutorul unui adult",
+          "win-back-customers-with-quality": "Recâștigă clienții prin calitate"
+        },
+        "outcomes": {
+          "bought-cheaper-ingredients": "Ai cumpărat ingrediente mai ieftine ca să-ți protejezi profitul.",
+          "bought-quality-ingredients": "Ai cumpărat ingrediente de calitate, chiar dacă a costat mai mult.",
+          "raised-prices": "Ai crescut prețurile ca să acoperi costurile în creștere.",
+          "kept-prices-steady": "Ai păstrat prețurile constante și ai absorbit costul tu însuți.",
+          "expanded-fast": "Ai deschis rapid o a doua locație.",
+          "grew-slowly": "Ai dezvoltat brutăria încet și constant.",
+          "got-help-entrepreneur-strategist": "Un adult te-a ajutat să consolidezi afacerea. Asta înseamnă planificare inteligentă, nu un eșec.",
+          "won-back-customers-with-quality": "Ai ales să recâștigi clienții prin calitate, punând încrederea înaintea profitului pe termen scurt."
+        }
+      }
+    }
   }
 }

@@ -3,6 +3,8 @@ import Image from "next/image";
 import { useRef } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { rewardLabels } from "@/content/reward-labels";
+import { EQ_BADGE_IDS } from "@/content/entrepreneur-quest/structures";
+import { LQ_BADGE_IDS } from "@/content/leadership-quest/structures";
 import { cinematicQuests } from "@/content/cinematic-quests";
 import { questBadges } from "@/content/quest-milestones";
 import { useLocalProgress } from "@/lib/local-progress/use-local-progress";
@@ -45,6 +47,11 @@ export function RewardsPanel() {
           <Image unoptimized alt="" width={56} height={56} className={"mx-auto " + (earned[quest.key] ? "" : "grayscale opacity-50")} src={`/cinematic/rewards/badge-${questBadges[quest.key]}.webp`}/>
           <p>{quest.title}</p><small>{earned[quest.key] ? labels[7] : "0 / 1"}</small>
         </li>)}
+        {[...Object.values(EQ_BADGE_IDS).map(id => ({id, group:"entrepreneurQuest"})), ...Object.values(LQ_BADGE_IDS).map(id => ({id,group:"leadershipQuest"}))].map(({id,group}) =>
+          <li key={id} className="rounded-xl border border-gold/50 p-2 text-center">
+            <span aria-hidden="true">{state.earnedBadgeIds.includes(id) ? "🏅" : "🔒"}</span>
+            <p>{t(`${group}.badges.${id}.name`)}</p><small>{state.earnedBadgeIds.includes(id) ? labels[7] : "0 / 1"}</small>
+          </li>)}
       </ul>
     </dialog>
   </>;

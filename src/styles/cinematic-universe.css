@@ -83,6 +83,10 @@
 [data-mission-result] {border:2px solid var(--mq-accent-soft);border-radius:1rem;background:var(--mq-quest-surface);padding:1rem}
 
 .mq-entry-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 45;
+  overflow-y: auto;
   box-sizing: border-box;
   display: grid;
   min-height: 100svh;
