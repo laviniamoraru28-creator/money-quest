@@ -72,7 +72,7 @@ export default function WorldPage() {
             <LevelBadgeStar size={36} className="ml-auto shrink-0" />
           )}
         </div>
-        <Image unoptimized data-learning-decoration src={`/images/money-quest/worlds/${world.id}.webp`} alt="" width={768} height={768} className="mt-5 max-h-96 w-full rounded-2xl bg-cream object-contain" />
+        <Image unoptimized data-learning-decoration src={`/cinematic/world/islands/${world.id}.webp`} alt="" width={768} height={768} className="mt-5 max-h-96 w-full rounded-2xl bg-cream object-contain" />
         <GuidePanel message={t("activityGuide.world", {name: world.name, description: t(`worldDescriptions.${world.id}`)})}/>
         {/* Explorer now begins the world directly with its first
             comic-strip lesson, with no money-forms detour first — see
