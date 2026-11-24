@@ -8099,7 +8099,10 @@
       "teamSpirit": "Teamgeest",
       "teamMorale": "Teammoraal",
       "projectProgress": "Projectvoortgang",
-      "teamTrust": "Vertrouwen in het team"
+      "teamTrust": "Vertrouwen in het team",
+      "reputation": "Reputatie",
+      "profit": "Winst",
+      "customerSatisfaction": "Klanttevredenheid"
     },
     "recoveryBadge": "Dat lossen we samen op",
     "askForHelpButton": "Ik heb hulp nodig",
@@ -8473,6 +8476,129 @@
           "brought-whole-team": "Je nam het hele team mee naar het interview.",
           "got-help-leadership-strategist": "Een volwassene heeft je geholpen vertrouwen te herbouwen. Dat is slim leiderschap, geen mislukking.",
           "rebuilt-trust-through-action": "Je koos ervoor vertrouwen te herbouwen door daden, waardoor zowel het team als het project sterker werden."
+        }
+      },
+      "entrepreneur-explorer-lemonade": {
+        "title": "Dag bij de Limonadekraam",
+        "intro": "Je runt vandaag een limonadekraam. Jouw keuzes bepalen hoe de dag verloopt.",
+        "nodes": {
+          "pricing": {
+            "prompt": "Het is tijd om een prijs voor je limonade te bepalen. Wat doe je?"
+          },
+          "weather": {
+            "prompt": "Het begint te regenen! Wat doe je?"
+          },
+          "recovery": {
+            "prompt": "De dag liep niet helemaal zoals gepland. Geen probleem - dit kun je doen."
+          },
+          "result": {
+            "prompt": "Laten we kijken hoe je limonadekraam vandaag ging."
+          }
+        },
+        "choices": {
+          "price-it-fair": "Stel een eerlijke prijs vast",
+          "price-it-high": "Stel een hoge prijs vast",
+          "move-under-a-tent": "Verplaats de kraam onder een tent",
+          "pack-up-for-the-day": "Pak in voor vandaag",
+          "ask-for-help": "Vraag een volwassene om hulp",
+          "try-a-new-price-tomorrow": "Probeer morgen een nieuwe prijs"
+        },
+        "outcomes": {
+          "priced-it-fair": "Je stelde een eerlijke prijs vast, en mensen kochten graag.",
+          "priced-it-high": "Je stelde een hoge prijs vast, en minder mensen kochten iets.",
+          "moved-under-tent": "Je verplaatste de kraam onder een tent en bleef verkopen.",
+          "packed-up-for-the-day": "Je pakte in voor vandaag.",
+          "got-help-entrepreneur-explorer": "Een volwassene heeft je geholpen. Om hulp vragen is nooit een fout.",
+          "tried-new-price-tomorrow": "Je besloot morgen een nieuwe prijs te proberen."
+        }
+      },
+      "entrepreneur-builder-dogwalking": {
+        "title": "Een Hondenuitlaatbedrijf Runnen",
+        "intro": "Je runt een klein hondenuitlaatbedrijf. Jouw keuzes bepalen hoeveel je verdient - en hoezeer mensen je vertrouwen.",
+        "nodes": {
+          "set-price": {
+            "prompt": "Het is tijd om je prijs voor een wandeling te bepalen. Wat doe je?"
+          },
+          "quality": {
+            "prompt": "Het is tijd om na te denken over hoe betrouwbaar je zult zijn. Wat doe je?"
+          },
+          "marketing": {
+            "prompt": "Je wilt meer klanten. Wat doe je?"
+          },
+          "unexpected": {
+            "prompt": "Een hond breekt los tijdens een wandeling! Wat doe je?"
+          },
+          "recovery": {
+            "prompt": "Het bedrijf loopt nu niet helemaal zoals gepland. Geen probleem - dit kun je doen."
+          },
+          "result": {
+            "prompt": "Laten we kijken hoe je hondenuitlaatbedrijf ging."
+          }
+        },
+        "choices": {
+          "charge-a-fair-price": "Vraag een eerlijke prijs",
+          "charge-too-much": "Vraag te veel",
+          "always-show-up-on-time": "Kom altijd op tijd",
+          "sometimes-run-late": "Kom soms te laat",
+          "make-flyers": "Maak flyers",
+          "rely-on-word-of-mouth": "Vertrouw op mond-tot-mondreclame",
+          "chase-and-return-it-safely": "Ren erachteraan en breng hem veilig terug",
+          "tell-the-owner-right-away": "Vertel het meteen aan de eigenaar",
+          "ask-for-help": "Vraag een volwassene om hulp",
+          "adjust-your-price": "Pas je prijs aan"
+        },
+        "outcomes": {
+          "charged-fair-price": "Je vroeg een eerlijke prijs, en klanten bleven terugkomen.",
+          "charged-too-much": "Je vroeg te veel, en klanten gingen elders heen.",
+          "always-on-time": "Je kwam altijd op tijd.",
+          "sometimes-late": "Je kwam soms te laat.",
+          "made-flyers": "Je gaf wat geld uit aan flyers.",
+          "relied-on-word-of-mouth": "Je vertrouwde in plaats daarvan op mond-tot-mondreclame.",
+          "chased-and-returned-safely": "Je rende achter de hond aan en bracht hem veilig terug.",
+          "told-owner-right-away": "Je vertelde het meteen aan de eigenaar.",
+          "got-help-entrepreneur-builder": "Een volwassene heeft je geholpen. Om hulp vragen hoort bij een goed bedrijf runnen.",
+          "adjusted-price": "Je paste je prijs aan en ging door."
+        }
+      },
+      "entrepreneur-strategist-bakery": {
+        "title": "Een Kleine Bakkerij Laten Groeien",
+        "intro": "Je laat een kleine bakkerij groeien. Jouw keuzes bepalen de winst - en of klanten tevreden blijven.",
+        "nodes": {
+          "ingredients": {
+            "prompt": "Het is tijd om je ingrediënten te kiezen. Wat doe je?"
+          },
+          "pricing-strategy": {
+            "prompt": "De kosten stijgen. Wat doe je?"
+          },
+          "expansion": {
+            "prompt": "Het is tijd om na te denken over het laten groeien van de bakkerij. Wat doe je?"
+          },
+          "recovery": {
+            "prompt": "De bakkerij presteert nu niet zo goed als zou moeten. Geen probleem - dit kun je doen."
+          },
+          "result": {
+            "prompt": "Laten we kijken hoe je bakkerij is geworden."
+          }
+        },
+        "choices": {
+          "buy-cheaper-ingredients": "Koop goedkopere ingrediënten",
+          "buy-quality-ingredients": "Koop ingrediënten van kwaliteit",
+          "raise-prices-to-cover-costs": "Verhoog de prijzen om stijgende kosten te dekken",
+          "keep-prices-steady-absorb-cost": "Houd de prijzen stabiel en neem de kosten zelf voor je rekening",
+          "open-a-second-location-fast": "Open snel een tweede vestiging",
+          "grow-slowly-and-steadily": "Groei langzaam en gestaag",
+          "ask-for-help": "Vraag een volwassene om hulp",
+          "win-back-customers-with-quality": "Win klanten terug met kwaliteit"
+        },
+        "outcomes": {
+          "bought-cheaper-ingredients": "Je kocht goedkopere ingrediënten om je winst te beschermen.",
+          "bought-quality-ingredients": "Je kocht ingrediënten van kwaliteit, ook al kostte het meer.",
+          "raised-prices": "Je verhoogde de prijzen om stijgende kosten te dekken.",
+          "kept-prices-steady": "Je hield de prijzen stabiel en nam de kosten zelf voor je rekening.",
+          "expanded-fast": "Je opende snel een tweede vestiging.",
+          "grew-slowly": "Je liet de bakkerij langzaam en gestaag groeien.",
+          "got-help-entrepreneur-strategist": "Een volwassene heeft je geholpen het bedrijf te versterken. Dat is slim plannen, geen mislukking.",
+          "won-back-customers-with-quality": "Je koos ervoor klanten terug te winnen met kwaliteit, en gaf vertrouwen voorrang boven winst op korte termijn."
         }
       }
     }

@@ -8099,7 +8099,10 @@
       "teamSpirit": "Espírito de equipa",
       "teamMorale": "Moral da equipa",
       "projectProgress": "Progresso do projeto",
-      "teamTrust": "Confiança da equipa"
+      "teamTrust": "Confiança da equipa",
+      "reputation": "Reputação",
+      "profit": "Lucro",
+      "customerSatisfaction": "Satisfação do cliente"
     },
     "recoveryBadge": "Vamos resolver isto juntos",
     "askForHelpButton": "Preciso de ajuda",
@@ -8473,6 +8476,129 @@
           "brought-whole-team": "Levaste toda a equipa à entrevista.",
           "got-help-leadership-strategist": "Um adulto ajudou-te a reconstruir a confiança. Isso é liderança inteligente, não um fracasso.",
           "rebuilt-trust-through-action": "Escolheste reconstruir a confiança através de ações, fortalecendo tanto a equipa como o projeto."
+        }
+      },
+      "entrepreneur-explorer-lemonade": {
+        "title": "Dia da Banca de Limonada",
+        "intro": "Hoje tens uma banca de limonada. As tuas escolhas decidem como corre o dia.",
+        "nodes": {
+          "pricing": {
+            "prompt": "É hora de definir um preço para a tua limonada. O que fazes?"
+          },
+          "weather": {
+            "prompt": "Começa a chover! O que fazes?"
+          },
+          "recovery": {
+            "prompt": "O dia não correu exatamente como planeado. Não faz mal - aqui está o que podes fazer."
+          },
+          "result": {
+            "prompt": "Vamos ver como correu a tua banca de limonada hoje."
+          }
+        },
+        "choices": {
+          "price-it-fair": "Define um preço justo",
+          "price-it-high": "Define um preço alto",
+          "move-under-a-tent": "Muda a banca para debaixo de uma tenda",
+          "pack-up-for-the-day": "Arruma tudo por hoje",
+          "ask-for-help": "Pede ajuda a um adulto",
+          "try-a-new-price-tomorrow": "Experimenta um preço novo amanhã"
+        },
+        "outcomes": {
+          "priced-it-fair": "Definiste um preço justo, e as pessoas ficaram felizes por comprar.",
+          "priced-it-high": "Definiste um preço alto, e menos pessoas compraram.",
+          "moved-under-tent": "Mudaste a banca para debaixo de uma tenda e continuaste a vender.",
+          "packed-up-for-the-day": "Arrumaste tudo por hoje.",
+          "got-help-entrepreneur-explorer": "Um adulto ajudou-te. Pedir ajuda nunca é um erro.",
+          "tried-new-price-tomorrow": "Decidiste experimentar um preço novo amanhã."
+        }
+      },
+      "entrepreneur-builder-dogwalking": {
+        "title": "Gerir um Negócio de Passear Cães",
+        "intro": "Geres um pequeno negócio de passear cães. As tuas escolhas decidem quanto ganhas - e quanto as pessoas confiam em ti.",
+        "nodes": {
+          "set-price": {
+            "prompt": "É hora de definir o teu preço por passeio. O que fazes?"
+          },
+          "quality": {
+            "prompt": "É hora de pensar em quão fiável vais ser. O que fazes?"
+          },
+          "marketing": {
+            "prompt": "Queres mais clientes. O que fazes?"
+          },
+          "unexpected": {
+            "prompt": "Um cão foge durante um passeio! O que fazes?"
+          },
+          "recovery": {
+            "prompt": "O negócio não está a correr exatamente como planeado agora. Não faz mal - aqui está o que podes fazer."
+          },
+          "result": {
+            "prompt": "Vamos ver como correu o teu negócio de passear cães."
+          }
+        },
+        "choices": {
+          "charge-a-fair-price": "Cobra um preço justo",
+          "charge-too-much": "Cobra demasiado",
+          "always-show-up-on-time": "Chega sempre a horas",
+          "sometimes-run-late": "Atrasa-te às vezes",
+          "make-flyers": "Faz panfletos",
+          "rely-on-word-of-mouth": "Conta com o passa-palavra",
+          "chase-and-return-it-safely": "Persegue-o e traz-o de volta em segurança",
+          "tell-the-owner-right-away": "Avisa o dono imediatamente",
+          "ask-for-help": "Pede ajuda a um adulto",
+          "adjust-your-price": "Ajusta o teu preço"
+        },
+        "outcomes": {
+          "charged-fair-price": "Cobraste um preço justo, e os clientes continuaram a voltar.",
+          "charged-too-much": "Cobraste demasiado, e os clientes foram para outro lado.",
+          "always-on-time": "Chegaste sempre a horas.",
+          "sometimes-late": "Às vezes atrasaste-te.",
+          "made-flyers": "Gastaste algum dinheiro a fazer panfletos.",
+          "relied-on-word-of-mouth": "Confiaste no passa-palavra em vez disso.",
+          "chased-and-returned-safely": "Perseguiste o cão e trouxeste-o de volta em segurança.",
+          "told-owner-right-away": "Avisaste o dono imediatamente.",
+          "got-help-entrepreneur-builder": "Um adulto ajudou-te. Pedir ajuda faz parte de gerir um bom negócio.",
+          "adjusted-price": "Ajustaste o teu preço e continuaste."
+        }
+      },
+      "entrepreneur-strategist-bakery": {
+        "title": "Expandir uma Pequena Padaria",
+        "intro": "Estás a fazer crescer uma pequena padaria. As tuas escolhas decidem o seu lucro - e se os clientes continuam satisfeitos.",
+        "nodes": {
+          "ingredients": {
+            "prompt": "É hora de escolher os teus ingredientes. O que fazes?"
+          },
+          "pricing-strategy": {
+            "prompt": "Os custos estão a subir. O que fazes?"
+          },
+          "expansion": {
+            "prompt": "É hora de pensar em expandir a padaria. O que fazes?"
+          },
+          "recovery": {
+            "prompt": "A padaria não está a correr tão bem quanto devia agora. Não faz mal - aqui está o que podes fazer."
+          },
+          "result": {
+            "prompt": "Vamos ver como ficou a tua padaria."
+          }
+        },
+        "choices": {
+          "buy-cheaper-ingredients": "Compra ingredientes mais baratos",
+          "buy-quality-ingredients": "Compra ingredientes de qualidade",
+          "raise-prices-to-cover-costs": "Sobe os preços para cobrir os custos crescentes",
+          "keep-prices-steady-absorb-cost": "Mantém os preços estáveis e absorve o custo",
+          "open-a-second-location-fast": "Abre rapidamente uma segunda loja",
+          "grow-slowly-and-steadily": "Cresce devagar e de forma constante",
+          "ask-for-help": "Pede ajuda a um adulto",
+          "win-back-customers-with-quality": "Reconquista clientes com qualidade"
+        },
+        "outcomes": {
+          "bought-cheaper-ingredients": "Compraste ingredientes mais baratos para proteger o teu lucro.",
+          "bought-quality-ingredients": "Compraste ingredientes de qualidade, mesmo custando mais.",
+          "raised-prices": "Subiste os preços para cobrir os custos crescentes.",
+          "kept-prices-steady": "Mantiveste os preços estáveis e absorveste o custo tu mesmo.",
+          "expanded-fast": "Abriste rapidamente uma segunda loja.",
+          "grew-slowly": "Fizeste a padaria crescer devagar e de forma constante.",
+          "got-help-entrepreneur-strategist": "Um adulto ajudou-te a reforçar o negócio. Isso é planeamento inteligente, não um fracasso.",
+          "won-back-customers-with-quality": "Escolheste reconquistar clientes com qualidade, dando prioridade à confiança sobre o lucro a curto prazo."
         }
       }
     }

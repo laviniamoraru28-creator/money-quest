@@ -8099,7 +8099,10 @@
       "teamSpirit": "Teamgeist",
       "teamMorale": "Teammoral",
       "projectProgress": "Projektfortschritt",
-      "teamTrust": "Vertrauen im Team"
+      "teamTrust": "Vertrauen im Team",
+      "reputation": "Ruf",
+      "profit": "Gewinn",
+      "customerSatisfaction": "Kundenzufriedenheit"
     },
     "recoveryBadge": "Das lösen wir gemeinsam",
     "askForHelpButton": "Ich brauche Hilfe",
@@ -8473,6 +8476,129 @@
           "brought-whole-team": "Du hast das ganze Team zum Interview mitgebracht.",
           "got-help-leadership-strategist": "Ein Erwachsener hat dir geholfen, Vertrauen wiederaufzubauen. Das ist kluge Führung, kein Scheitern.",
           "rebuilt-trust-through-action": "Du hast dich entschieden, Vertrauen durch Taten wiederaufzubauen und damit Team und Projekt zu stärken."
+        }
+      },
+      "entrepreneur-explorer-lemonade": {
+        "title": "Limonadenstand-Tag",
+        "intro": "Du betreibst heute einen Limonadenstand. Deine Entscheidungen bestimmen, wie der Tag läuft.",
+        "nodes": {
+          "pricing": {
+            "prompt": "Es ist Zeit, einen Preis für deine Limonade festzulegen. Was machst du?"
+          },
+          "weather": {
+            "prompt": "Es fängt an zu regnen! Was machst du?"
+          },
+          "recovery": {
+            "prompt": "Der Tag ist nicht ganz wie geplant gelaufen. Das ist in Ordnung - hier ist, was du tun kannst."
+          },
+          "result": {
+            "prompt": "Schauen wir, wie dein Limonadenstand heute gelaufen ist."
+          }
+        },
+        "choices": {
+          "price-it-fair": "Setze einen fairen Preis",
+          "price-it-high": "Setze einen hohen Preis",
+          "move-under-a-tent": "Verschiebe den Stand unter ein Zelt",
+          "pack-up-for-the-day": "Pack für heute zusammen",
+          "ask-for-help": "Einen Erwachsenen um Hilfe bitten",
+          "try-a-new-price-tomorrow": "Probiere morgen einen neuen Preis"
+        },
+        "outcomes": {
+          "priced-it-fair": "Du hast einen fairen Preis festgelegt, und die Leute haben gerne gekauft.",
+          "priced-it-high": "Du hast einen hohen Preis festgelegt, und weniger Leute haben gekauft.",
+          "moved-under-tent": "Du hast den Stand unter ein Zelt verschoben und weiterverkauft.",
+          "packed-up-for-the-day": "Du hast für heute zusammengepackt.",
+          "got-help-entrepreneur-explorer": "Ein Erwachsener hat dir geholfen. Um Hilfe zu bitten ist nie ein Fehler.",
+          "tried-new-price-tomorrow": "Du hast dich entschieden, morgen einen neuen Preis zu probieren."
+        }
+      },
+      "entrepreneur-builder-dogwalking": {
+        "title": "Ein Gassi-Geh-Geschäft Führen",
+        "intro": "Du führst ein kleines Gassi-Geh-Geschäft. Deine Entscheidungen bestimmen, wie viel du verdienst - und wie sehr man dir vertraut.",
+        "nodes": {
+          "set-price": {
+            "prompt": "Es ist Zeit, deinen Preis für einen Spaziergang festzulegen. Was machst du?"
+          },
+          "quality": {
+            "prompt": "Es ist Zeit, darüber nachzudenken, wie zuverlässig du sein wirst. Was machst du?"
+          },
+          "marketing": {
+            "prompt": "Du willst mehr Kunden. Was machst du?"
+          },
+          "unexpected": {
+            "prompt": "Ein Hund reißt sich während eines Spaziergangs los! Was machst du?"
+          },
+          "recovery": {
+            "prompt": "Das Geschäft läuft gerade nicht ganz wie geplant. Das ist in Ordnung - hier ist, was du tun kannst."
+          },
+          "result": {
+            "prompt": "Schauen wir, wie dein Gassi-Geh-Geschäft gelaufen ist."
+          }
+        },
+        "choices": {
+          "charge-a-fair-price": "Verlange einen fairen Preis",
+          "charge-too-much": "Verlange zu viel",
+          "always-show-up-on-time": "Komm immer pünktlich",
+          "sometimes-run-late": "Komm manchmal zu spät",
+          "make-flyers": "Mach Flyer",
+          "rely-on-word-of-mouth": "Verlass dich auf Mundpropaganda",
+          "chase-and-return-it-safely": "Lauf ihm hinterher und bring ihn sicher zurück",
+          "tell-the-owner-right-away": "Informiere den Besitzer sofort",
+          "ask-for-help": "Einen Erwachsenen um Hilfe bitten",
+          "adjust-your-price": "Passe deinen Preis an"
+        },
+        "outcomes": {
+          "charged-fair-price": "Du hast einen fairen Preis verlangt, und die Kunden kamen immer wieder.",
+          "charged-too-much": "Du hast zu viel verlangt, und die Kunden gingen woanders hin.",
+          "always-on-time": "Du warst immer pünktlich.",
+          "sometimes-late": "Du bist manchmal zu spät gekommen.",
+          "made-flyers": "Du hast etwas Geld für Flyer ausgegeben.",
+          "relied-on-word-of-mouth": "Du hast dich stattdessen auf Mundpropaganda verlassen.",
+          "chased-and-returned-safely": "Du bist dem Hund hinterhergelaufen und hast ihn sicher zurückgebracht.",
+          "told-owner-right-away": "Du hast den Besitzer sofort informiert.",
+          "got-help-entrepreneur-builder": "Ein Erwachsener hat dir geholfen. Um Hilfe zu bitten gehört zu einem guten Geschäft.",
+          "adjusted-price": "Du hast deinen Preis angepasst und weitergemacht."
+        }
+      },
+      "entrepreneur-strategist-bakery": {
+        "title": "Eine Kleine Bäckerei Vergrößern",
+        "intro": "Du baust eine kleine Bäckerei aus. Deine Entscheidungen bestimmen ihren Gewinn - und ob die Kunden zufrieden bleiben.",
+        "nodes": {
+          "ingredients": {
+            "prompt": "Es ist Zeit, deine Zutaten zu wählen. Was machst du?"
+          },
+          "pricing-strategy": {
+            "prompt": "Die Kosten steigen. Was machst du?"
+          },
+          "expansion": {
+            "prompt": "Es ist Zeit, über das Wachstum der Bäckerei nachzudenken. Was machst du?"
+          },
+          "recovery": {
+            "prompt": "Die Bäckerei läuft gerade nicht so gut, wie sie sollte. Das ist in Ordnung - hier ist, was du tun kannst."
+          },
+          "result": {
+            "prompt": "Schauen wir, wie deine Bäckerei geworden ist."
+          }
+        },
+        "choices": {
+          "buy-cheaper-ingredients": "Kaufe günstigere Zutaten",
+          "buy-quality-ingredients": "Kaufe hochwertige Zutaten",
+          "raise-prices-to-cover-costs": "Erhöhe die Preise, um steigende Kosten zu decken",
+          "keep-prices-steady-absorb-cost": "Halte die Preise stabil und trage die Kosten selbst",
+          "open-a-second-location-fast": "Eröffne schnell einen zweiten Standort",
+          "grow-slowly-and-steadily": "Wachse langsam und stetig",
+          "ask-for-help": "Einen Erwachsenen um Hilfe bitten",
+          "win-back-customers-with-quality": "Gewinne Kunden durch Qualität zurück"
+        },
+        "outcomes": {
+          "bought-cheaper-ingredients": "Du hast günstigere Zutaten gekauft, um deinen Gewinn zu schützen.",
+          "bought-quality-ingredients": "Du hast hochwertige Zutaten gekauft, auch wenn es mehr gekostet hat.",
+          "raised-prices": "Du hast die Preise erhöht, um steigende Kosten zu decken.",
+          "kept-prices-steady": "Du hast die Preise stabil gehalten und die Kosten selbst getragen.",
+          "expanded-fast": "Du hast schnell einen zweiten Standort eröffnet.",
+          "grew-slowly": "Du hast die Bäckerei langsam und stetig wachsen lassen.",
+          "got-help-entrepreneur-strategist": "Ein Erwachsener hat dir geholfen, das Geschäft zu stärken. Das ist kluge Planung, kein Scheitern.",
+          "won-back-customers-with-quality": "Du hast dich entschieden, Kunden durch Qualität zurückzugewinnen und Vertrauen über kurzfristigen Gewinn zu stellen."
         }
       }
     }

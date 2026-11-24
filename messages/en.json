@@ -8099,7 +8099,10 @@
       "teamSpirit": "Team spirit",
       "teamMorale": "Team morale",
       "projectProgress": "Project progress",
-      "teamTrust": "Team trust"
+      "teamTrust": "Team trust",
+      "reputation": "Reputation",
+      "profit": "Profit",
+      "customerSatisfaction": "Customer satisfaction"
     },
     "recoveryBadge": "Let's sort this out together",
     "askForHelpButton": "I need help",
@@ -8473,6 +8476,129 @@
           "brought-whole-team": "You brought the whole team to the interview.",
           "got-help-leadership-strategist": "A grown-up helped you rebuild trust. That's smart leadership, not a failure.",
           "rebuilt-trust-through-action": "You chose to rebuild trust through action, strengthening both the team and the project."
+        }
+      },
+      "entrepreneur-explorer-lemonade": {
+        "title": "Lemonade Stand Day",
+        "intro": "You're running a lemonade stand today. Your choices decide how the day goes.",
+        "nodes": {
+          "pricing": {
+            "prompt": "It's time to set a price for your lemonade. What do you do?"
+          },
+          "weather": {
+            "prompt": "It starts to rain! What do you do?"
+          },
+          "recovery": {
+            "prompt": "Today didn't go quite as planned. That's okay - here's what you can do."
+          },
+          "result": {
+            "prompt": "Let's see how your lemonade stand did today."
+          }
+        },
+        "choices": {
+          "price-it-fair": "Price it fairly",
+          "price-it-high": "Price it high",
+          "move-under-a-tent": "Move the stand under a tent",
+          "pack-up-for-the-day": "Pack up for the day",
+          "ask-for-help": "Ask a grown-up for help",
+          "try-a-new-price-tomorrow": "Try a new price tomorrow"
+        },
+        "outcomes": {
+          "priced-it-fair": "You priced your lemonade fairly, and people were happy to buy it.",
+          "priced-it-high": "You priced it high, and fewer people bought any.",
+          "moved-under-tent": "You moved the stand under a tent and kept selling.",
+          "packed-up-for-the-day": "You packed up for the day.",
+          "got-help-entrepreneur-explorer": "A grown-up helped you out. Asking for help is never a mistake.",
+          "tried-new-price-tomorrow": "You decided to try a new price tomorrow."
+        }
+      },
+      "entrepreneur-builder-dogwalking": {
+        "title": "Running a Dog-Walking Business",
+        "intro": "You're running a small dog-walking business. Your choices decide how much you earn - and how much people trust you.",
+        "nodes": {
+          "set-price": {
+            "prompt": "It's time to set your price for a walk. What do you do?"
+          },
+          "quality": {
+            "prompt": "It's time to think about how reliable you'll be. What do you do?"
+          },
+          "marketing": {
+            "prompt": "You want more customers. What do you do?"
+          },
+          "unexpected": {
+            "prompt": "A dog gets loose during a walk! What do you do?"
+          },
+          "recovery": {
+            "prompt": "Business isn't going quite as planned right now. That's okay - here's what you can do."
+          },
+          "result": {
+            "prompt": "Let's see how your dog-walking business did."
+          }
+        },
+        "choices": {
+          "charge-a-fair-price": "Charge a fair price",
+          "charge-too-much": "Charge too much",
+          "always-show-up-on-time": "Always show up on time",
+          "sometimes-run-late": "Sometimes run late",
+          "make-flyers": "Make flyers",
+          "rely-on-word-of-mouth": "Rely on word of mouth",
+          "chase-and-return-it-safely": "Chase after it and return it safely",
+          "tell-the-owner-right-away": "Tell the owner right away",
+          "ask-for-help": "Ask a grown-up for help",
+          "adjust-your-price": "Adjust your price"
+        },
+        "outcomes": {
+          "charged-fair-price": "You charged a fair price, and customers kept coming back.",
+          "charged-too-much": "You charged too much, and customers went elsewhere.",
+          "always-on-time": "You always showed up on time.",
+          "sometimes-late": "You sometimes ran late.",
+          "made-flyers": "You spent some money making flyers.",
+          "relied-on-word-of-mouth": "You relied on word of mouth instead.",
+          "chased-and-returned-safely": "You chased after the dog and returned it safely.",
+          "told-owner-right-away": "You told the owner right away.",
+          "got-help-entrepreneur-builder": "A grown-up helped you out. Asking for help is part of running a good business.",
+          "adjusted-price": "You adjusted your price and kept going."
+        }
+      },
+      "entrepreneur-strategist-bakery": {
+        "title": "Scaling a Small Bakery",
+        "intro": "You're growing a small bakery. Your choices decide its profit - and whether customers stay happy.",
+        "nodes": {
+          "ingredients": {
+            "prompt": "It's time to choose your ingredients. What do you do?"
+          },
+          "pricing-strategy": {
+            "prompt": "Costs are rising. What do you do?"
+          },
+          "expansion": {
+            "prompt": "It's time to think about growing the bakery. What do you do?"
+          },
+          "recovery": {
+            "prompt": "The bakery isn't doing quite as well as it should right now. That's okay - here's what you can do."
+          },
+          "result": {
+            "prompt": "Let's see how your bakery turned out."
+          }
+        },
+        "choices": {
+          "buy-cheaper-ingredients": "Buy cheaper ingredients",
+          "buy-quality-ingredients": "Buy quality ingredients",
+          "raise-prices-to-cover-costs": "Raise prices to cover rising costs",
+          "keep-prices-steady-absorb-cost": "Keep prices steady and absorb the cost",
+          "open-a-second-location-fast": "Open a second location quickly",
+          "grow-slowly-and-steadily": "Grow slowly and steadily",
+          "ask-for-help": "Ask a grown-up for help",
+          "win-back-customers-with-quality": "Win back customers with quality"
+        },
+        "outcomes": {
+          "bought-cheaper-ingredients": "You bought cheaper ingredients to protect your profit.",
+          "bought-quality-ingredients": "You bought quality ingredients, even though it cost more.",
+          "raised-prices": "You raised prices to cover rising costs.",
+          "kept-prices-steady": "You kept prices steady and absorbed the cost yourself.",
+          "expanded-fast": "You opened a second location quickly.",
+          "grew-slowly": "You grew the bakery slowly and steadily.",
+          "got-help-entrepreneur-strategist": "A grown-up helped you strengthen the business. That's smart planning, not a failure.",
+          "won-back-customers-with-quality": "You chose to win back customers with quality, prioritising trust over short-term profit."
         }
       }
     }

@@ -8099,7 +8099,10 @@
       "teamSpirit": "Spirit de echipă",
       "teamMorale": "Moralul echipei",
       "projectProgress": "Progresul proiectului",
-      "teamTrust": "Încrederea echipei"
+      "teamTrust": "Încrederea echipei",
+      "reputation": "Reputație",
+      "profit": "Profit",
+      "customerSatisfaction": "Satisfacția clienților"
     },
     "recoveryBadge": "Să rezolvăm asta împreună",
     "askForHelpButton": "Am nevoie de ajutor",
@@ -8473,6 +8476,129 @@
           "brought-whole-team": "Ai adus toată echipa la interviu.",
           "got-help-leadership-strategist": "Un adult te-a ajutat să reconstruiești încrederea. Asta înseamnă o conducere inteligentă, nu un eșec.",
           "rebuilt-trust-through-action": "Ai ales să reconstruiești încrederea prin acțiune, consolidând atât echipa, cât și proiectul."
+        }
+      },
+      "entrepreneur-explorer-lemonade": {
+        "title": "Ziua Tarabei cu Limonadă",
+        "intro": "Astăzi conduci o tarabă cu limonadă. Alegerile tale decid cum merge ziua.",
+        "nodes": {
+          "pricing": {
+            "prompt": "E timpul să stabilești un preț pentru limonada ta. Ce faci?"
+          },
+          "weather": {
+            "prompt": "Începe să plouă! Ce faci?"
+          },
+          "recovery": {
+            "prompt": "Ziua nu a mers chiar cum ai plănuit. Nu-i nicio problemă - iată ce poți face."
+          },
+          "result": {
+            "prompt": "Să vedem cum a mers taraba ta cu limonadă astăzi."
+          }
+        },
+        "choices": {
+          "price-it-fair": "Stabilește un preț corect",
+          "price-it-high": "Stabilește un preț mare",
+          "move-under-a-tent": "Mută taraba sub un cort",
+          "pack-up-for-the-day": "Strânge taraba pentru azi",
+          "ask-for-help": "Cere ajutorul unui adult",
+          "try-a-new-price-tomorrow": "Încearcă un preț nou mâine"
+        },
+        "outcomes": {
+          "priced-it-fair": "Ai stabilit un preț corect, iar oamenii au fost bucuroși să cumpere.",
+          "priced-it-high": "Ai stabilit un preț mare, și mai puțini oameni au cumpărat.",
+          "moved-under-tent": "Ai mutat taraba sub un cort și ai continuat să vinzi.",
+          "packed-up-for-the-day": "Ai strâns taraba pentru azi.",
+          "got-help-entrepreneur-explorer": "Un adult te-a ajutat. A cere ajutor nu este niciodată o greșeală.",
+          "tried-new-price-tomorrow": "Ai decis să încerci un preț nou mâine."
+        }
+      },
+      "entrepreneur-builder-dogwalking": {
+        "title": "Conducerea unei Afaceri de Plimbat Câini",
+        "intro": "Conduci o mică afacere de plimbat câini. Alegerile tale decid cât câștigi - și cât de mult au oamenii încredere în tine.",
+        "nodes": {
+          "set-price": {
+            "prompt": "E timpul să stabilești prețul pentru o plimbare. Ce faci?"
+          },
+          "quality": {
+            "prompt": "E timpul să te gândești cât de de încredere vei fi. Ce faci?"
+          },
+          "marketing": {
+            "prompt": "Vrei mai mulți clienți. Ce faci?"
+          },
+          "unexpected": {
+            "prompt": "Un câine scapă în timpul unei plimbări! Ce faci?"
+          },
+          "recovery": {
+            "prompt": "Afacerea nu merge chiar cum ai plănuit chiar acum. Nu-i nicio problemă - iată ce poți face."
+          },
+          "result": {
+            "prompt": "Să vedem cum a mers afacerea ta de plimbat câini."
+          }
+        },
+        "choices": {
+          "charge-a-fair-price": "Cere un preț corect",
+          "charge-too-much": "Cere prea mult",
+          "always-show-up-on-time": "Vino mereu la timp",
+          "sometimes-run-late": "Întârzie uneori",
+          "make-flyers": "Fă fluturași publicitari",
+          "rely-on-word-of-mouth": "Bazează-te pe recomandări din gură în gură",
+          "chase-and-return-it-safely": "Fugi după el și adu-l înapoi în siguranță",
+          "tell-the-owner-right-away": "Anunță proprietarul imediat",
+          "ask-for-help": "Cere ajutorul unui adult",
+          "adjust-your-price": "Ajustează-ți prețul"
+        },
+        "outcomes": {
+          "charged-fair-price": "Ai cerut un preț corect, iar clienții au continuat să revină.",
+          "charged-too-much": "Ai cerut prea mult, iar clienții au plecat în altă parte.",
+          "always-on-time": "Ai venit mereu la timp.",
+          "sometimes-late": "Ai întârziat uneori.",
+          "made-flyers": "Ai cheltuit niște bani pe fluturași publicitari.",
+          "relied-on-word-of-mouth": "Te-ai bazat pe recomandări din gură în gură în schimb.",
+          "chased-and-returned-safely": "Ai fugit după câine și l-ai adus înapoi în siguranță.",
+          "told-owner-right-away": "Ai anunțat proprietarul imediat.",
+          "got-help-entrepreneur-builder": "Un adult te-a ajutat. A cere ajutor face parte dintr-o afacere bună.",
+          "adjusted-price": "Ți-ai ajustat prețul și ai continuat."
+        }
+      },
+      "entrepreneur-strategist-bakery": {
+        "title": "Extinderea unei Mici Brutării",
+        "intro": "Dezvolți o mică brutărie. Alegerile tale decid profitul ei - și dacă clienții rămân mulțumiți.",
+        "nodes": {
+          "ingredients": {
+            "prompt": "E timpul să alegi ingredientele. Ce faci?"
+          },
+          "pricing-strategy": {
+            "prompt": "Costurile cresc. Ce faci?"
+          },
+          "expansion": {
+            "prompt": "E timpul să te gândești la extinderea brutăriei. Ce faci?"
+          },
+          "recovery": {
+            "prompt": "Brutăria nu merge chiar atât de bine pe cât ar trebui chiar acum. Nu-i nicio problemă - iată ce poți face."
+          },
+          "result": {
+            "prompt": "Să vedem cum a ieșit brutăria ta."
+          }
+        },
+        "choices": {
+          "buy-cheaper-ingredients": "Cumpără ingrediente mai ieftine",
+          "buy-quality-ingredients": "Cumpără ingrediente de calitate",
+          "raise-prices-to-cover-costs": "Crește prețurile ca să acoperi costurile în creștere",
+          "keep-prices-steady-absorb-cost": "Păstrează prețurile constante și absoarbe costul",
+          "open-a-second-location-fast": "Deschide rapid o a doua locație",
+          "grow-slowly-and-steadily": "Crește încet și constant",
+          "ask-for-help": "Cere ajutorul unui adult",
+          "win-back-customers-with-quality": "Recâștigă clienții prin calitate"
+        },
+        "outcomes": {
+          "bought-cheaper-ingredients": "Ai cumpărat ingrediente mai ieftine ca să-ți protejezi profitul.",
+          "bought-quality-ingredients": "Ai cumpărat ingrediente de calitate, chiar dacă a costat mai mult.",
+          "raised-prices": "Ai crescut prețurile ca să acoperi costurile în creștere.",
+          "kept-prices-steady": "Ai păstrat prețurile constante și ai absorbit costul tu însuți.",
+          "expanded-fast": "Ai deschis rapid o a doua locație.",
+          "grew-slowly": "Ai dezvoltat brutăria încet și constant.",
+          "got-help-entrepreneur-strategist": "Un adult te-a ajutat să consolidezi afacerea. Asta înseamnă planificare inteligentă, nu un eșec.",
+          "won-back-customers-with-quality": "Ai ales să recâștigi clienții prin calitate, punând încrederea înaintea profitului pe termen scurt."
         }
       }
     }
