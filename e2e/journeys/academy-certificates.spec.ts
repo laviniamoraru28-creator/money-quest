@@ -124,8 +124,7 @@ test("switching to a different band shows no certificate for it, even though ano
   await seedQuestState(page, "explorer", {mqCompletedIds: requiredCertificateActivities("explorer"), eqDone: true, lqDone: true});
   await page.goto("/en/play");
   await expect(page.getByRole("button", {name: certificateCopy.en.download, exact: true})).toHaveCount(1);
-  await page.getByRole("button", {name: "Change level", exact: true}).click();
-  await page.getByRole("button", {name: /Builder.*/}).click();
+  await page.getByRole("combobox", {name: "Choose your learning level", exact: true}).selectOption("builder");
   // Builder's own Money Quest, Entrepreneur Quest and Leadership Quest
   // are all untouched - the certificate must not follow the switch.
   await expect(page.getByRole("button", {name: certificateCopy.en.download, exact: true})).toHaveCount(0);

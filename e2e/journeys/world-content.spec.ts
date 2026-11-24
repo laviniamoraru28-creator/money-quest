@@ -9,7 +9,7 @@ for(const ageBand of ["explorer","builder","strategist"] as const) test(`all wor
  const errors:string[]=[];page.on("pageerror",error=>errors.push(error.message));
  for(const world of WORLDS){
   await page.goto(`/en/play/world/${world.id}`);await expect(page.locator("main")).toBeVisible();
-  await expect(page.locator(`img[src="/images/money-quest/worlds/${world.id}.webp"]`)).toBeVisible();
+  await expect(page.locator(`img[src="/cinematic/world/islands/${world.id}.webp"]`)).toBeVisible();
   if(ageBand === "explorer") await page.screenshot({path:test.info().outputPath(`${world.id}.png`),fullPage:true});
   const catalog=getWorldCatalog(world.id,ageBand,key=>key);
   for(const entry of catalog){
