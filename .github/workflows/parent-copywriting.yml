@@ -5,6 +5,8 @@ on:
     paths:
       - 'scripts/parent_copywriting_agent.py'
       - 'scripts/test_parent_copywriting_agent.py'
+      - 'scripts/agent_issue_reporting.py'
+      - 'scripts/deliver_simple_report.py'
       - '.github/workflows/parent-copywriting.yml'
   schedule:
     - cron: '15 9 1 * *'
@@ -36,9 +38,11 @@ jobs:
           GH_REPO: ${{ github.repository }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
+          period_name=$(python3 -c "import pathlib; print(sorted(pathlib.Path('artifacts/parent-copywriting').glob('20*'))[-1].name)")
           {
             echo '# Money Quest Parent Copywriting Strategist report'
             echo
+            echo "Period: $period_name."
             echo 'Four editorial briefs for parent-facing articles (see docs/parent-copywriting-agent.md). Briefs only - no article is auto-written, auto-translated, or auto-published. Review each brief, author/fact-check a draft, run it through lint_draft() and translation_status(), then open a separate Draft PR for human approval before anything is added to the live site.'
             echo
             python3 -c "
@@ -51,5 +55,10 @@ jobs:
             echo
             echo "Full run and downloadable JSON reports: $RUN_URL"
           } > parent-copywriting-handoff.md
-          issue_url=$(gh issue create --title "Parent Copywriting Strategist report: ${{ github.run_id }}" --body-file parent-copywriting-handoff.md)
-          gh issue comment "$issue_url" --body "@claude Please review these briefs, author and fact-check drafts for any that are safe and ready, run lint_draft() and translation_status(), and open a separate Draft PR for human approval. Never publish automatically, never link to Facebook or TikTok, never invent evidence or testimonials."
+          # Keyed by period, not a global key: each month's briefs are genuinely new
+          # content, not a recurring finding, so they get their own stable issue -
+          # but re-running this workflow again within the SAME month (e.g. a manual
+          # workflow_dispatch retry) updates that month's issue instead of duplicating it.
+          python3 scripts/deliver_simple_report.py --report-key "parent-copywriting-$period_name" \
+            --title "Parent Copywriting Strategist report: $period_name" --body-file parent-copywriting-handoff.md \
+            --claude-instruction "@claude Please review these briefs, author and fact-check drafts for any that are safe and ready, run lint_draft() and translation_status(), and open a separate Draft PR for human approval. Never publish automatically, never link to Facebook or TikTok, never invent evidence or testimonials."

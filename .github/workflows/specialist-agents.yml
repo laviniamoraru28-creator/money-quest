@@ -5,6 +5,8 @@ on:
     paths:
       - 'scripts/specialist_agents.py'
       - 'scripts/test_specialist_agents.py'
+      - 'scripts/agent_issue_reporting.py'
+      - 'scripts/deliver_simple_report.py'
       - '.github/workflows/specialist-agents.yml'
   schedule:
     - cron: '41 8 * * 2'
@@ -52,5 +54,6 @@ jobs:
             echo
             echo "Full run and downloadable JSON reports: $RUN_URL"
           } > specialist-handoff.md
-          issue_url=$(gh issue create --title "Specialist Agents report: ${{ github.run_id }}" --body-file specialist-handoff.md)
-          gh issue comment "$issue_url" --body "@claude Please review the findings against the actual code. Propose fixes only through separate draft PRs. Do not merge, deploy, or invent social/research/feedback/partnership data."
+          python3 scripts/deliver_simple_report.py --report-key specialist-agents \
+            --title "Specialist Agents report" --body-file specialist-handoff.md \
+            --claude-instruction "@claude Please review the findings against the actual code. Propose fixes only through separate draft PRs. Do not merge, deploy, or invent social/research/feedback/partnership data."

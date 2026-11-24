@@ -5,6 +5,12 @@ on:
     paths:
       - 'scripts/growth_agents.py'
       - 'scripts/test_growth_agents.py'
+      - 'scripts/agent_issue_reporting.py'
+      - 'scripts/test_agent_issue_reporting.py'
+      - 'scripts/deliver_growth_agents_report.py'
+      - 'scripts/test_deliver_growth_agents_report.py'
+      - 'tools/learning-intelligence/ga4.py'
+      - 'tools/learning-intelligence/search_console.py'
       - '.github/workflows/growth-agents.yml'
   schedule:
     - cron: '23 8 * * 1'
@@ -21,8 +27,23 @@ jobs:
         with:
           python-version: '3.12'
       - name: Unit tests
-        run: python3 -m unittest scripts.test_growth_agents -v
+        run: |
+          python3 -m unittest scripts.test_growth_agents -v
+          python3 -m unittest scripts.test_agent_issue_reporting -v
+          python3 -m unittest scripts.test_deliver_growth_agents_report -v
+      - name: Install optional real-data connector dependencies
+        # Same packages, same secrets, as the already-approved GA4/Search
+        # Console connectors used by Learning Intelligence - no new cost,
+        # no new credentials. Installed unconditionally (tiny, pure-Python
+        # deps) so growth_agents.py's own connector-missing detection (not
+        # an import error) is what decides whether a connector ran.
+        run: python3 -m pip install google-auth==2.38.0 requests==2.32.3
       - name: Generate five read-only agent reports
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+          GSC_SITE_URL: ${{ vars.GSC_SITE_URL }}
+          GA4_SERVICE_ACCOUNT_JSON: ${{ secrets.GA4_SERVICE_ACCOUNT_JSON }}
+          GA4_PROPERTY_ID: ${{ vars.GA4_PROPERTY_ID }}
         run: python3 scripts/growth_agents.py
       - name: Upload reports for human/Claude review
         uses: actions/upload-artifact@v4
@@ -30,25 +51,10 @@ jobs:
           name: money-quest-growth-agents
           path: artifacts/growth-agents/*.json
           retention-days: 30
-      - name: Deliver summary to Claude through GitHub issue
+      - name: Deliver summary to Claude through one stable GitHub issue
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-        run: |
-          {
-            echo '# Money Quest Growth Agents report'
-            echo
-            echo 'Five read-only agents: Search Opportunity Hunter, First Visit Experience Agent, SEO Technical Guardian, Growth Intelligence Director, Opportunity Prioritizer.'
-            echo 'Findings are review candidates, not confirmed defects. Search/growth agents report unavailable data until an authorized aggregated analytics source is connected - do not infer traffic, rankings or engagement.'
-            echo
-            for f in artifacts/growth-agents/*.json; do
-              echo "## $(basename "$f" .json)"
-              python3 -c "import json,sys; d=json.load(open('$f')); print(f'{len(d[\"findings\"])} finding(s)'); [print(f'- {x[\"title\"]} ({x[\"priority\"]})') for x in d['findings']]"
-              echo
-            done
-            echo "Full run and downloadable JSON reports: $RUN_URL"
-          } > growth-handoff.md
-          issue_url=$(gh issue create --title "Growth Agents report: ${{ github.run_id }}" --body-file growth-handoff.md)
-          gh issue comment "$issue_url" --body "@claude Please review the findings against the actual code. Propose fixes only through separate draft PRs. Do not merge, deploy, or invent search/traffic data."
+        run: python3 scripts/deliver_growth_agents_report.py
