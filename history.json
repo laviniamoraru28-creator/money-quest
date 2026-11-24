@@ -115,6 +115,25 @@
       "published_at": null,
       "reminder_sent_at": "2026-11-21T01:08:45.379Z",
       "external_link": null
+    },
+    {
+      "run": "2026-11-24-mq-q-004",
+      "topic_id": "MQ-Q-004",
+      "video_id": "MQ-Q-004",
+      "category": "quotation",
+      "series": "shorts",
+      "hook": "How do you raise a responsible child?",
+      "status": "sent_to_phone",
+      "rendered_at": "2026-11-24T04:17:26+00:00",
+      "duration": 17.6,
+      "video_url": "https://github.com/laviniamoraru28-creator/money-quest/releases/download/tiktok-2026-11-24-mq-q-004/video.mp4",
+      "publish_mode": "buffer-notify",
+      "submitted_at": "2026-11-24T04:17:30+00:00",
+      "buffer_status": "scheduled",
+      "buffer_post_id": "6b050fdb9a4bd32ca3f21791",
+      "buffer_channel_id": "6afa20c0ece6dfde5fd8b514",
+      "buffer_org_id": "6afa203649dfc7619b889215",
+      "due_at": "2026-11-24T04:37:30+00:00"
     }
   ]
 }
