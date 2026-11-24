@@ -8090,7 +8090,12 @@
     "resourceLabels": {
       "coins": "Monede",
       "savedForBike": "Economisit pentru bicicletă",
-      "communityImpact": "Impact în comunitate"
+      "communityImpact": "Impact în comunitate",
+      "confidence": "Încredere",
+      "projectQuality": "Calitatea proiectului",
+      "privacyScore": "Confidențialitate",
+      "planQuality": "Calitatea planului",
+      "trustworthiness": "Încredere câștigată"
     },
     "recoveryBadge": "Să rezolvăm asta împreună",
     "askForHelpButton": "Am nevoie de ajutor",
@@ -8220,6 +8225,127 @@
           "delayed-repair": "Ai amânat reparația deocamdată.",
           "got-help-strategist": "Un adult te-a ajutat. A cere ajutor face parte dintr-o planificare inteligentă, nu e o greșeală.",
           "reassessed": "Ți-ai reevaluat bugetul și ai continuat cu un plan mai clar."
+        }
+      },
+      "ai-explorer-helper-robot": {
+        "title": "Robotul Ajutor",
+        "intro": "Un robot ajutor poate răspunde la întrebări pentru tine. Uneori are dreptate, alteori nu - hai să aflăm împreună.",
+        "nodes": {
+          "question1": {
+            "prompt": "Robotul Ajutor spune că 2 + 2 = 5. Ce faci?"
+          },
+          "question2": {
+            "prompt": "Robotul Ajutor spune că o săptămână are 7 zile. Ce faci?"
+          },
+          "recovery": {
+            "prompt": "Răspunsul acela nu a fost corect. Nu-i nicio problemă - iată ce poți face."
+          },
+          "result": {
+            "prompt": "Să vedem cum a mers cu Robotul Ajutor."
+          }
+        },
+        "choices": {
+          "trust-the-robot": "Ai încredere în răspunsul robotului",
+          "check-with-grownup": "Verifică mai întâi cu un adult",
+          "ask-for-help": "Cere ajutorul unui adult",
+          "try-again": "Încearcă din nou"
+        },
+        "outcomes": {
+          "trusted-wrong-answer": "Ai avut încredere în robot, dar de data asta a greșit.",
+          "checked-first": "Ai verificat mai întâi - un obicei inteligent cu orice ajutor.",
+          "trusted-right-answer": "Ai avut încredere în robot, și de data asta a avut dreptate!",
+          "checked-again": "Ai verificat din nou, ca să fii sigur.",
+          "got-help-ai-explorer": "Un adult te-a ajutat. A verifica nu este niciodată o greșeală.",
+          "tried-again": "Ai decis să încerci din nou."
+        }
+      },
+      "ai-builder-book-report": {
+        "title": "Scrierea unui Referat de Carte cu un Robot Ajutor",
+        "intro": "Un robot ajutor poate scrie o primă variantă a referatului tău de carte. Alegerile tale decid cât de bun - și cât de onest - este referatul final.",
+        "nodes": {
+          "draft": {
+            "prompt": "Robotul scrie o primă variantă pentru tine. Ce faci?"
+          },
+          "fact-check": {
+            "prompt": "Robotul spune că anul în care a fost scrisă cartea e greșit. Ce faci?"
+          },
+          "personal-info": {
+            "prompt": "Robotul îți cere numele complet și școala 'ca să personalizeze referatul'. Ce faci?"
+          },
+          "final-review": {
+            "prompt": "Referatul tău este aproape gata. Ce faci?"
+          },
+          "recovery": {
+            "prompt": "Referatul tău are nevoie de puțină muncă chiar acum. Nu-i nicio problemă - iată ce poți face."
+          },
+          "result": {
+            "prompt": "Să vedem cum a ieșit referatul tău de carte."
+          }
+        },
+        "choices": {
+          "use-as-is": "Folosește varianta robotului exact așa cum este",
+          "add-your-own-ideas": "Adaugă propriile tale idei și cuvinte",
+          "trust-it": "Ai încredere în afirmația robotului",
+          "look-it-up": "Caută să te asiguri",
+          "share-it": "Împărtășește numele și școala ta",
+          "keep-it-private": "Păstrează acea informație privată",
+          "submit-without-reviewing": "Trimite-l fără să-l revizuiești",
+          "review-with-an-adult": "Revizuiește-l mai întâi cu un adult",
+          "ask-for-help": "Cere ajutorul unui adult",
+          "start-this-section-over": "Reia această secțiune de la capăt"
+        },
+        "outcomes": {
+          "used-draft-as-is": "Ai folosit varianta robotului exact așa cum a fost.",
+          "improved-draft": "Ai adăugat propriile tale idei - referatul sună mai mult ca tine.",
+          "trusted-wrong-fact": "Ai avut încredere într-o afirmație care s-a dovedit greșită.",
+          "verified-fact": "Ai căutat și ai prins greșeala.",
+          "shared-personal-info": "Ți-ai împărtășit numele și școala cu robotul.",
+          "kept-info-private": "Ți-ai păstrat informațiile personale private - o alegere inteligentă online.",
+          "submitted-quickly": "Ai trimis referatul repede, fără o verificare finală.",
+          "reviewed-with-adult": "Ai revizuit referatul cu un adult înainte de a-l trimite.",
+          "got-help-ai-builder": "Un adult te-a ajutat să îmbunătățești referatul. A cere ajutor face parte dintr-o muncă bună.",
+          "restarted-section": "Ai decis să reiei acea secțiune de la capăt."
+        }
+      },
+      "ai-strategist-business-plan": {
+        "title": "Folosirea unui Asistent AI pentru Planul Tău de Afaceri",
+        "intro": "Un asistent AI te poate ajuta să construiești rapid un plan de afaceri. Felul în care îl folosești decide dacă planul tău este solid - și dacă oamenii pot avea încredere în el.",
+        "nodes": {
+          "market-research": {
+            "prompt": "Asistentul AI îți oferă câteva statistici de piață impresionante. Ce faci?"
+          },
+          "ai-written-pitch": {
+            "prompt": "Asistentul AI îți scrie întreaga prezentare. Ce faci?"
+          },
+          "ai-generated-image": {
+            "prompt": "Asistentul AI creează o imagine de logo pentru afacerea ta. Ce faci?"
+          },
+          "recovery": {
+            "prompt": "Planul tău are nevoie de puțină muncă chiar acum. Nu-i nicio problemă - iată ce poți face."
+          },
+          "result": {
+            "prompt": "Să vedem cum a ieșit planul tău de afaceri."
+          }
+        },
+        "choices": {
+          "use-stats-directly": "Folosește statisticile direct în planul tău",
+          "verify-with-real-sources": "Verifică-le mai întâi cu surse reale",
+          "submit-ai-pitch-unedited": "Trimite prezentarea AI nemodificată",
+          "revise-and-personalize": "Revizuiește-o și personalizeaz-o",
+          "use-it-and-claim-original": "Folosește-o și spune că ai făcut-o singur",
+          "disclose-ai-assistance": "Spune deschis că AI a ajutat la crearea ei",
+          "ask-for-help": "Cere ajutorul unui adult",
+          "rebuild-honestly": "Reconstruiește planul onest de aici încolo"
+        },
+        "outcomes": {
+          "used-unverified-stats": "Ai folosit statistici care s-au dovedit a nu fi verificate.",
+          "verified-stats": "Ai verificat statisticile cu surse reale - planul tău stă pe o bază solidă.",
+          "submitted-unedited-pitch": "Ai trimis prezentarea AI exact așa cum a scris-o.",
+          "personalized-pitch": "Ai revizuit prezentarea ca să reflecte cu adevărat propriile tale idei.",
+          "misrepresented-ai-image": "Ai pretins că imaginea generată de AI este în întregime munca ta.",
+          "disclosed-ai-use": "Ai fost sincer că AI a ajutat la crearea imaginii - asta construiește încredere reală.",
+          "got-help-ai-strategist": "Un adult te-a ajutat să consolidezi planul. Asta înseamnă planificare inteligentă, nu un eșec.",
+          "rebuilt-honestly": "Ai ales să reconstruiești planul onest, punând încrederea înaintea vitezei."
         }
       }
     }

@@ -8090,7 +8090,12 @@
     "resourceLabels": {
       "coins": "Münzen",
       "savedForBike": "Gespart fürs Fahrrad",
-      "communityImpact": "Gemeinschaftswirkung"
+      "communityImpact": "Gemeinschaftswirkung",
+      "confidence": "Zuversicht",
+      "projectQuality": "Projektqualität",
+      "privacyScore": "Privatsphäre",
+      "planQuality": "Planqualität",
+      "trustworthiness": "Vertrauenswürdigkeit"
     },
     "recoveryBadge": "Das lösen wir gemeinsam",
     "askForHelpButton": "Ich brauche Hilfe",
@@ -8220,6 +8225,127 @@
           "delayed-repair": "Du hast die Reparatur erst einmal verschoben.",
           "got-help-strategist": "Ein Erwachsener hat dir geholfen. Um Hilfe zu bitten gehört zu kluger Planung, ist kein Fehler.",
           "reassessed": "Du hast dein Budget überdacht und mit einem klareren Plan weitergemacht."
+        }
+      },
+      "ai-explorer-helper-robot": {
+        "title": "Der Helferroboter",
+        "intro": "Ein Helferroboter kann Fragen für dich beantworten. Manchmal hat er recht, manchmal nicht - finden wir es gemeinsam heraus.",
+        "nodes": {
+          "question1": {
+            "prompt": "Der Helferroboter sagt, 2 + 2 = 5. Was machst du?"
+          },
+          "question2": {
+            "prompt": "Der Helferroboter sagt, eine Woche hat 7 Tage. Was machst du?"
+          },
+          "recovery": {
+            "prompt": "Diese Antwort war nicht richtig. Das ist in Ordnung - hier ist, was du tun kannst."
+          },
+          "result": {
+            "prompt": "Schauen wir, wie es mit dem Helferroboter gelaufen ist."
+          }
+        },
+        "choices": {
+          "trust-the-robot": "Vertraue der Antwort des Roboters",
+          "check-with-grownup": "Erst mit einem Erwachsenen nachprüfen",
+          "ask-for-help": "Einen Erwachsenen um Hilfe bitten",
+          "try-again": "Noch einmal versuchen"
+        },
+        "outcomes": {
+          "trusted-wrong-answer": "Du hast dem Roboter vertraut, aber diesmal lag er falsch.",
+          "checked-first": "Du hast zuerst nachgeprüft - eine kluge Gewohnheit bei jedem Helfer.",
+          "trusted-right-answer": "Du hast dem Roboter vertraut, und diesmal hatte er recht!",
+          "checked-again": "Du hast noch einmal nachgeprüft, um sicherzugehen.",
+          "got-help-ai-explorer": "Ein Erwachsener hat dir geholfen. Nachprüfen ist nie ein Fehler.",
+          "tried-again": "Du hast dich entschieden, es noch einmal zu versuchen."
+        }
+      },
+      "ai-builder-book-report": {
+        "title": "Einen Buchbericht mit einem Roboter-Helfer schreiben",
+        "intro": "Ein Helferroboter kann einen ersten Entwurf deines Buchberichts schreiben. Deine Entscheidungen bestimmen, wie gut - und wie ehrlich - der fertige Bericht ist.",
+        "nodes": {
+          "draft": {
+            "prompt": "Der Roboter schreibt einen ersten Entwurf für dich. Was machst du?"
+          },
+          "fact-check": {
+            "prompt": "Der Roboter nennt das falsche Jahr, in dem das Buch geschrieben wurde. Was machst du?"
+          },
+          "personal-info": {
+            "prompt": "Der Roboter fragt nach deinem vollen Namen und deiner Schule, 'um den Bericht zu personalisieren'. Was machst du?"
+          },
+          "final-review": {
+            "prompt": "Dein Bericht ist fast fertig. Was machst du?"
+          },
+          "recovery": {
+            "prompt": "Dein Bericht braucht gerade etwas Arbeit. Das ist in Ordnung - hier ist, was du tun kannst."
+          },
+          "result": {
+            "prompt": "Schauen wir, wie dein Buchbericht geworden ist."
+          }
+        },
+        "choices": {
+          "use-as-is": "Nutze den Entwurf des Roboters genau so, wie er ist",
+          "add-your-own-ideas": "Füge deine eigenen Ideen und Worte hinzu",
+          "trust-it": "Vertraue der Angabe des Roboters",
+          "look-it-up": "Schlage es nach, um sicherzugehen",
+          "share-it": "Teile deinen Namen und deine Schule",
+          "keep-it-private": "Halte diese Information privat",
+          "submit-without-reviewing": "Reiche ihn ein, ohne ihn zu überprüfen",
+          "review-with-an-adult": "Überprüfe ihn zuerst mit einem Erwachsenen",
+          "ask-for-help": "Einen Erwachsenen um Hilfe bitten",
+          "start-this-section-over": "Diesen Abschnitt noch einmal beginnen"
+        },
+        "outcomes": {
+          "used-draft-as-is": "Du hast den Entwurf des Roboters genau so verwendet, wie er war.",
+          "improved-draft": "Du hast deine eigenen Ideen hinzugefügt - der Bericht klingt mehr nach dir.",
+          "trusted-wrong-fact": "Du hast einer Angabe vertraut, die sich als falsch herausstellte.",
+          "verified-fact": "Du hast nachgeschlagen und den Fehler entdeckt.",
+          "shared-personal-info": "Du hast deinen Namen und deine Schule mit dem Roboter geteilt.",
+          "kept-info-private": "Du hast deine persönlichen Daten privat gehalten - eine kluge Entscheidung im Internet.",
+          "submitted-quickly": "Du hast den Bericht schnell eingereicht, ohne eine letzte Prüfung.",
+          "reviewed-with-adult": "Du hast den Bericht vor der Abgabe mit einem Erwachsenen überprüft.",
+          "got-help-ai-builder": "Ein Erwachsener hat dir geholfen, den Bericht zu verbessern. Um Hilfe zu bitten gehört zu guter Arbeit.",
+          "restarted-section": "Du hast beschlossen, diesen Abschnitt noch einmal zu beginnen."
+        }
+      },
+      "ai-strategist-business-plan": {
+        "title": "Einen KI-Assistenten für deinen Businessplan nutzen",
+        "intro": "Ein KI-Assistent kann dir helfen, schnell einen Businessplan zu erstellen. Wie du ihn nutzt, entscheidet, ob dein Plan solide ist - und ob man ihm vertrauen kann.",
+        "nodes": {
+          "market-research": {
+            "prompt": "Der KI-Assistent gibt dir beeindruckende Marktstatistiken. Was machst du?"
+          },
+          "ai-written-pitch": {
+            "prompt": "Der KI-Assistent schreibt deinen ganzen Pitch. Was machst du?"
+          },
+          "ai-generated-image": {
+            "prompt": "Der KI-Assistent erstellt ein Logo-Bild für dein Unternehmen. Was machst du?"
+          },
+          "recovery": {
+            "prompt": "Dein Plan braucht gerade etwas Arbeit. Das ist in Ordnung - hier ist, was du tun kannst."
+          },
+          "result": {
+            "prompt": "Schauen wir, wie dein Businessplan geworden ist."
+          }
+        },
+        "choices": {
+          "use-stats-directly": "Nutze die Statistiken direkt in deinem Plan",
+          "verify-with-real-sources": "Überprüfe sie zuerst mit echten Quellen",
+          "submit-ai-pitch-unedited": "Reiche den KI-Pitch unbearbeitet ein",
+          "revise-and-personalize": "Überarbeite ihn und mach ihn zu deinem eigenen",
+          "use-it-and-claim-original": "Nutze es und behaupte, du hättest es selbst gemacht",
+          "disclose-ai-assistance": "Sag offen, dass KI bei der Erstellung geholfen hat",
+          "ask-for-help": "Einen Erwachsenen um Hilfe bitten",
+          "rebuild-honestly": "Baue den Plan von hier an ehrlich neu auf"
+        },
+        "outcomes": {
+          "used-unverified-stats": "Du hast Statistiken verwendet, die sich als ungeprüft herausstellten.",
+          "verified-stats": "Du hast die Statistiken mit echten Quellen überprüft - dein Plan steht auf solidem Boden.",
+          "submitted-unedited-pitch": "Du hast den KI-Pitch genau so eingereicht, wie er geschrieben wurde.",
+          "personalized-pitch": "Du hast den Pitch überarbeitet, sodass er wirklich deine eigenen Ideen widerspiegelt.",
+          "misrepresented-ai-image": "Du hast behauptet, das KI-generierte Bild sei vollständig deine eigene Arbeit.",
+          "disclosed-ai-use": "Du warst offen, dass KI bei der Erstellung des Bildes geholfen hat - das schafft echtes Vertrauen.",
+          "got-help-ai-strategist": "Ein Erwachsener hat dir geholfen, den Plan zu stärken. Das ist kluge Planung, kein Scheitern.",
+          "rebuilt-honestly": "Du hast dich entschieden, den Plan ehrlich neu aufzubauen und Vertrauen vor Geschwindigkeit zu stellen."
         }
       }
     }

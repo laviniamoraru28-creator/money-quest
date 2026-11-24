@@ -8090,7 +8090,12 @@
     "resourceLabels": {
       "coins": "Monety",
       "savedForBike": "Zaoszczędzone na rower",
-      "communityImpact": "Wpływ na społeczność"
+      "communityImpact": "Wpływ na społeczność",
+      "confidence": "Pewność",
+      "projectQuality": "Jakość projektu",
+      "privacyScore": "Prywatność",
+      "planQuality": "Jakość planu",
+      "trustworthiness": "Wiarygodność"
     },
     "recoveryBadge": "Rozwiążmy to razem",
     "askForHelpButton": "Potrzebuję pomocy",
@@ -8220,6 +8225,127 @@
           "delayed-repair": "Odłożyłeś naprawę na później.",
           "got-help-strategist": "Osoba dorosła pomogła ci. Proszenie o pomoc jest częścią mądrego planowania, a nie błędem.",
           "reassessed": "Przejrzałeś swój budżet i kontynuowałeś z jaśniejszym planem."
+        }
+      },
+      "ai-explorer-helper-robot": {
+        "title": "Robot Pomocnik",
+        "intro": "Robot pomocnik może odpowiadać na pytania za ciebie. Czasem ma rację, a czasem nie - odkryjmy to razem.",
+        "nodes": {
+          "question1": {
+            "prompt": "Robot Pomocnik mówi, że 2 + 2 = 5. Co robisz?"
+          },
+          "question2": {
+            "prompt": "Robot Pomocnik mówi, że tydzień ma 7 dni. Co robisz?"
+          },
+          "recovery": {
+            "prompt": "Ta odpowiedź nie była poprawna. Nic się nie stało - oto, co możesz zrobić."
+          },
+          "result": {
+            "prompt": "Zobaczmy, jak poszło z Robotem Pomocnikiem."
+          }
+        },
+        "choices": {
+          "trust-the-robot": "Zaufaj odpowiedzi robota",
+          "check-with-grownup": "Sprawdź najpierw z osobą dorosłą",
+          "ask-for-help": "Poproś osobę dorosłą o pomoc",
+          "try-again": "Spróbuj ponownie"
+        },
+        "outcomes": {
+          "trusted-wrong-answer": "Zaufałeś robotowi, ale tym razem się pomylił.",
+          "checked-first": "Sprawdziłeś najpierw - mądry nawyk przy każdym pomocniku.",
+          "trusted-right-answer": "Zaufałeś robotowi, i tym razem miał rację!",
+          "checked-again": "Sprawdziłeś ponownie, żeby mieć pewność.",
+          "got-help-ai-explorer": "Osoba dorosła pomogła ci. Sprawdzanie nigdy nie jest błędem.",
+          "tried-again": "Zdecydowałeś się spróbować ponownie."
+        }
+      },
+      "ai-builder-book-report": {
+        "title": "Pisanie Recenzji Książki z Robotem Pomocnikiem",
+        "intro": "Robot pomocnik może napisać pierwszą wersję twojej recenzji książki. Twoje wybory decydują, jak dobra - i jak uczciwa - jest ostateczna recenzja.",
+        "nodes": {
+          "draft": {
+            "prompt": "Robot pisze pierwszą wersję za ciebie. Co robisz?"
+          },
+          "fact-check": {
+            "prompt": "Robot podaje zły rok napisania książki. Co robisz?"
+          },
+          "personal-info": {
+            "prompt": "Robot prosi o twoje pełne imię i nazwisko oraz szkołę, 'aby spersonalizować recenzję'. Co robisz?"
+          },
+          "final-review": {
+            "prompt": "Twoja recenzja jest prawie gotowa. Co robisz?"
+          },
+          "recovery": {
+            "prompt": "Twoja recenzja potrzebuje teraz trochę pracy. Nic się nie stało - oto, co możesz zrobić."
+          },
+          "result": {
+            "prompt": "Zobaczmy, jak wyszła twoja recenzja książki."
+          }
+        },
+        "choices": {
+          "use-as-is": "Użyj wersji robota dokładnie taką, jaka jest",
+          "add-your-own-ideas": "Dodaj własne pomysły i słowa",
+          "trust-it": "Zaufaj twierdzeniu robota",
+          "look-it-up": "Sprawdź to, aby mieć pewność",
+          "share-it": "Podziel się swoim imieniem i szkołą",
+          "keep-it-private": "Zachowaj tę informację w prywatności",
+          "submit-without-reviewing": "Oddaj ją bez sprawdzania",
+          "review-with-an-adult": "Sprawdź ją najpierw z osobą dorosłą",
+          "ask-for-help": "Poproś osobę dorosłą o pomoc",
+          "start-this-section-over": "Zacznij tę część od nowa"
+        },
+        "outcomes": {
+          "used-draft-as-is": "Użyłeś wersji robota dokładnie taką, jaka była.",
+          "improved-draft": "Dodałeś własne pomysły - recenzja brzmi bardziej jak ty.",
+          "trusted-wrong-fact": "Zaufałeś twierdzeniu, które okazało się błędne.",
+          "verified-fact": "Sprawdziłeś to i wychwyciłeś błąd.",
+          "shared-personal-info": "Podzieliłeś się swoim imieniem i szkołą z robotem.",
+          "kept-info-private": "Zachowałeś swoje dane osobowe w prywatności - mądry wybór w internecie.",
+          "submitted-quickly": "Oddałeś recenzję szybko, bez ostatecznego sprawdzenia.",
+          "reviewed-with-adult": "Sprawdziłeś recenzję z osobą dorosłą przed oddaniem.",
+          "got-help-ai-builder": "Osoba dorosła pomogła ci poprawić recenzję. Proszenie o pomoc jest częścią dobrej pracy.",
+          "restarted-section": "Zdecydowałeś się zacząć tę część od nowa."
+        }
+      },
+      "ai-strategist-business-plan": {
+        "title": "Korzystanie z Asystenta AI przy Planie Biznesowym",
+        "intro": "Asystent AI może pomóc ci szybko zbudować plan biznesowy. Sposób, w jaki go używasz, decyduje, czy twój plan jest solidny - i czy ludzie mogą mu zaufać.",
+        "nodes": {
+          "market-research": {
+            "prompt": "Asystent AI podaje ci imponujące statystyki rynkowe. Co robisz?"
+          },
+          "ai-written-pitch": {
+            "prompt": "Asystent AI pisze za ciebie całą prezentację. Co robisz?"
+          },
+          "ai-generated-image": {
+            "prompt": "Asystent AI tworzy obraz logo dla twojej firmy. Co robisz?"
+          },
+          "recovery": {
+            "prompt": "Twój plan potrzebuje teraz trochę pracy. Nic się nie stało - oto, co możesz zrobić."
+          },
+          "result": {
+            "prompt": "Zobaczmy, jak wyszedł twój plan biznesowy."
+          }
+        },
+        "choices": {
+          "use-stats-directly": "Użyj statystyk bezpośrednio w swoim planie",
+          "verify-with-real-sources": "Zweryfikuj je najpierw w prawdziwych źródłach",
+          "submit-ai-pitch-unedited": "Prześlij prezentację AI bez zmian",
+          "revise-and-personalize": "Popraw ją i uczyń własną",
+          "use-it-and-claim-original": "Użyj jej i powiedz, że zrobiłeś to sam",
+          "disclose-ai-assistance": "Powiedz otwarcie, że AI pomogło ją stworzyć",
+          "ask-for-help": "Poproś osobę dorosłą o pomoc",
+          "rebuild-honestly": "Odbuduj plan uczciwie od tego miejsca"
+        },
+        "outcomes": {
+          "used-unverified-stats": "Użyłeś statystyk, które okazały się niezweryfikowane.",
+          "verified-stats": "Zweryfikowałeś statystyki w prawdziwych źródłach - twój plan stoi na solidnych podstawach.",
+          "submitted-unedited-pitch": "Przesłałeś prezentację AI dokładnie tak, jak ją napisano.",
+          "personalized-pitch": "Poprawiłeś prezentację, aby naprawdę odzwierciedlała twoje własne pomysły.",
+          "misrepresented-ai-image": "Twierdziłeś, że obraz wygenerowany przez AI jest w całości twoją własną pracą.",
+          "disclosed-ai-use": "Byłeś otwarty co do tego, że AI pomogło stworzyć obraz - to buduje prawdziwe zaufanie.",
+          "got-help-ai-strategist": "Osoba dorosła pomogła ci wzmocnić plan. To mądre planowanie, a nie porażka.",
+          "rebuilt-honestly": "Wybrałeś uczciwe odbudowanie planu, stawiając zaufanie ponad szybkość."
         }
       }
     }

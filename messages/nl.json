@@ -8090,7 +8090,12 @@
     "resourceLabels": {
       "coins": "Muntjes",
       "savedForBike": "Gespaard voor de fiets",
-      "communityImpact": "Impact op de gemeenschap"
+      "communityImpact": "Impact op de gemeenschap",
+      "confidence": "Zelfvertrouwen",
+      "projectQuality": "Projectkwaliteit",
+      "privacyScore": "Privacy",
+      "planQuality": "Planskwaliteit",
+      "trustworthiness": "Betrouwbaarheid"
     },
     "recoveryBadge": "Dat lossen we samen op",
     "askForHelpButton": "Ik heb hulp nodig",
@@ -8220,6 +8225,127 @@
           "delayed-repair": "Je stelde de reparatie voorlopig uit.",
           "got-help-strategist": "Een volwassene heeft je geholpen. Om hulp vragen hoort bij slim plannen, geen fout.",
           "reassessed": "Je herzag je budget en ging verder met een duidelijker plan."
+        }
+      },
+      "ai-explorer-helper-robot": {
+        "title": "De Helperrobot",
+        "intro": "Een helperrobot kan vragen voor je beantwoorden. Soms heeft hij gelijk, soms niet - laten we het samen ontdekken.",
+        "nodes": {
+          "question1": {
+            "prompt": "De Helperrobot zegt dat 2 + 2 = 5. Wat doe je?"
+          },
+          "question2": {
+            "prompt": "De Helperrobot zegt dat een week 7 dagen heeft. Wat doe je?"
+          },
+          "recovery": {
+            "prompt": "Dat antwoord klopte niet. Geen probleem - dit kun je doen."
+          },
+          "result": {
+            "prompt": "Laten we kijken hoe het ging met de Helperrobot."
+          }
+        },
+        "choices": {
+          "trust-the-robot": "Vertrouw op het antwoord van de robot",
+          "check-with-grownup": "Controleer eerst bij een volwassene",
+          "ask-for-help": "Vraag een volwassene om hulp",
+          "try-again": "Probeer het opnieuw"
+        },
+        "outcomes": {
+          "trusted-wrong-answer": "Je vertrouwde de robot, maar deze keer had hij het mis.",
+          "checked-first": "Je controleerde eerst - een slimme gewoonte bij elke helper.",
+          "trusted-right-answer": "Je vertrouwde de robot, en deze keer had hij gelijk!",
+          "checked-again": "Je controleerde nog een keer, om zeker te zijn.",
+          "got-help-ai-explorer": "Een volwassene heeft je geholpen. Controleren is nooit een fout.",
+          "tried-again": "Je besloot het opnieuw te proberen."
+        }
+      },
+      "ai-builder-book-report": {
+        "title": "Een Boekverslag Schrijven met een Robot-Helper",
+        "intro": "Een helperrobot kan een eerste versie van je boekverslag schrijven. Jouw keuzes bepalen hoe goed - en hoe eerlijk - het uiteindelijke verslag is.",
+        "nodes": {
+          "draft": {
+            "prompt": "De robot schrijft een eerste versie voor je. Wat doe je?"
+          },
+          "fact-check": {
+            "prompt": "De robot noemt het verkeerde jaar waarin het boek is geschreven. Wat doe je?"
+          },
+          "personal-info": {
+            "prompt": "De robot vraagt om je volledige naam en school 'om het verslag te personaliseren'. Wat doe je?"
+          },
+          "final-review": {
+            "prompt": "Je verslag is bijna klaar. Wat doe je?"
+          },
+          "recovery": {
+            "prompt": "Je verslag heeft nu wat werk nodig. Geen probleem - dit kun je doen."
+          },
+          "result": {
+            "prompt": "Laten we kijken hoe je boekverslag is geworden."
+          }
+        },
+        "choices": {
+          "use-as-is": "Gebruik de versie van de robot precies zoals die is",
+          "add-your-own-ideas": "Voeg je eigen ideeën en woorden toe",
+          "trust-it": "Vertrouw op de bewering van de robot",
+          "look-it-up": "Zoek het op om zeker te zijn",
+          "share-it": "Deel je naam en school",
+          "keep-it-private": "Houd die informatie privé",
+          "submit-without-reviewing": "Lever het in zonder het na te kijken",
+          "review-with-an-adult": "Bekijk het eerst samen met een volwassene",
+          "ask-for-help": "Vraag een volwassene om hulp",
+          "start-this-section-over": "Begin dit onderdeel opnieuw"
+        },
+        "outcomes": {
+          "used-draft-as-is": "Je gebruikte de versie van de robot precies zoals die was.",
+          "improved-draft": "Je voegde je eigen ideeën toe - het verslag klinkt meer als jij.",
+          "trusted-wrong-fact": "Je vertrouwde op een bewering die onjuist bleek te zijn.",
+          "verified-fact": "Je zocht het op en ontdekte de fout.",
+          "shared-personal-info": "Je deelde je naam en school met de robot.",
+          "kept-info-private": "Je hield je persoonlijke gegevens privé - een slimme keuze online.",
+          "submitted-quickly": "Je leverde het verslag snel in, zonder laatste controle.",
+          "reviewed-with-adult": "Je bekeek het verslag samen met een volwassene voordat je het inleverde.",
+          "got-help-ai-builder": "Een volwassene heeft je geholpen het verslag te verbeteren. Om hulp vragen hoort bij goed werk.",
+          "restarted-section": "Je besloot dat onderdeel opnieuw te beginnen."
+        }
+      },
+      "ai-strategist-business-plan": {
+        "title": "Een AI-assistent Gebruiken voor je Ondernemingsplan",
+        "intro": "Een AI-assistent kan je helpen snel een ondernemingsplan op te stellen. Hoe je het gebruikt bepaalt of je plan solide is - en of mensen het kunnen vertrouwen.",
+        "nodes": {
+          "market-research": {
+            "prompt": "De AI-assistent geeft je indrukwekkende marktstatistieken. Wat doe je?"
+          },
+          "ai-written-pitch": {
+            "prompt": "De AI-assistent schrijft je hele pitch. Wat doe je?"
+          },
+          "ai-generated-image": {
+            "prompt": "De AI-assistent maakt een logo-afbeelding voor je onderneming. Wat doe je?"
+          },
+          "recovery": {
+            "prompt": "Je plan heeft nu wat werk nodig. Geen probleem - dit kun je doen."
+          },
+          "result": {
+            "prompt": "Laten we kijken hoe je ondernemingsplan is geworden."
+          }
+        },
+        "choices": {
+          "use-stats-directly": "Gebruik de statistieken rechtstreeks in je plan",
+          "verify-with-real-sources": "Controleer ze eerst bij echte bronnen",
+          "submit-ai-pitch-unedited": "Lever de AI-pitch ongewijzigd in",
+          "revise-and-personalize": "Bewerk hem en maak hem van jezelf",
+          "use-it-and-claim-original": "Gebruik het en zeg dat je het zelf hebt gemaakt",
+          "disclose-ai-assistance": "Zeg openlijk dat AI heeft geholpen het te maken",
+          "ask-for-help": "Vraag een volwassene om hulp",
+          "rebuild-honestly": "Bouw het plan vanaf hier eerlijk opnieuw op"
+        },
+        "outcomes": {
+          "used-unverified-stats": "Je gebruikte statistieken die niet geverifieerd bleken te zijn.",
+          "verified-stats": "Je controleerde de statistieken bij echte bronnen - je plan staat op stevige grond.",
+          "submitted-unedited-pitch": "Je leverde de AI-pitch precies in zoals hij was geschreven.",
+          "personalized-pitch": "Je bewerkte de pitch zodat hij echt je eigen ideeën weergeeft.",
+          "misrepresented-ai-image": "Je beweerde dat de door AI gegenereerde afbeelding volledig je eigen werk was.",
+          "disclosed-ai-use": "Je was open over het feit dat AI hielp bij het maken van de afbeelding - dat schept echt vertrouwen.",
+          "got-help-ai-strategist": "Een volwassene heeft je geholpen het plan te versterken. Dat is slim plannen, geen mislukking.",
+          "rebuilt-honestly": "Je koos ervoor het plan eerlijk opnieuw op te bouwen, met vertrouwen boven snelheid."
         }
       }
     }

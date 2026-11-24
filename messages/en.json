@@ -8090,7 +8090,12 @@
     "resourceLabels": {
       "coins": "Coins",
       "savedForBike": "Saved for bike",
-      "communityImpact": "Community impact"
+      "communityImpact": "Community impact",
+      "confidence": "Confidence",
+      "projectQuality": "Project quality",
+      "privacyScore": "Privacy",
+      "planQuality": "Plan quality",
+      "trustworthiness": "Trustworthiness"
     },
     "recoveryBadge": "Let's sort this out together",
     "askForHelpButton": "I need help",
@@ -8220,6 +8225,127 @@
           "delayed-repair": "You put off the repair for now.",
           "got-help-strategist": "A grown-up helped you out. Asking for help is part of smart planning, not a mistake.",
           "reassessed": "You reassessed your budget and kept going with a clearer plan."
+        }
+      },
+      "ai-explorer-helper-robot": {
+        "title": "The Helper Robot",
+        "intro": "A helper robot can answer questions for you. Sometimes it's right, and sometimes it isn't - let's find out together.",
+        "nodes": {
+          "question1": {
+            "prompt": "The Helper Robot says 2 + 2 = 5. What do you do?"
+          },
+          "question2": {
+            "prompt": "The Helper Robot says a week has 7 days. What do you do?"
+          },
+          "recovery": {
+            "prompt": "That answer wasn't right. That's okay - here's what you can do."
+          },
+          "result": {
+            "prompt": "Let's see how it went with the Helper Robot."
+          }
+        },
+        "choices": {
+          "trust-the-robot": "Trust the robot's answer",
+          "check-with-grownup": "Check with a grown-up first",
+          "ask-for-help": "Ask a grown-up for help",
+          "try-again": "Try again"
+        },
+        "outcomes": {
+          "trusted-wrong-answer": "You trusted the robot, but this time it was wrong.",
+          "checked-first": "You checked first - a smart habit with any helper.",
+          "trusted-right-answer": "You trusted the robot, and this time it was right!",
+          "checked-again": "You checked again, just to be sure.",
+          "got-help-ai-explorer": "A grown-up helped you out. Checking is never a mistake.",
+          "tried-again": "You decided to try again."
+        }
+      },
+      "ai-builder-book-report": {
+        "title": "Writing a Book Report with a Robot Helper",
+        "intro": "A helper robot can write a first draft of your book report. Your choices decide how good - and how honest - the finished report is.",
+        "nodes": {
+          "draft": {
+            "prompt": "The robot writes a first draft for you. What do you do?"
+          },
+          "fact-check": {
+            "prompt": "The robot says the book was written in the wrong year. What do you do?"
+          },
+          "personal-info": {
+            "prompt": "The robot asks for your full name and school 'to personalize the report'. What do you do?"
+          },
+          "final-review": {
+            "prompt": "Your report is almost ready. What do you do?"
+          },
+          "recovery": {
+            "prompt": "Your report needs some work right now. That's okay - here's what you can do."
+          },
+          "result": {
+            "prompt": "Let's see how your book report turned out."
+          }
+        },
+        "choices": {
+          "use-as-is": "Use the robot's draft exactly as it is",
+          "add-your-own-ideas": "Add your own ideas and words",
+          "trust-it": "Trust the robot's fact",
+          "look-it-up": "Look it up to make sure",
+          "share-it": "Share your name and school",
+          "keep-it-private": "Keep that information private",
+          "submit-without-reviewing": "Submit it without reviewing",
+          "review-with-an-adult": "Review it with an adult first",
+          "ask-for-help": "Ask a grown-up for help",
+          "start-this-section-over": "Start this section over"
+        },
+        "outcomes": {
+          "used-draft-as-is": "You used the robot's draft exactly as it was.",
+          "improved-draft": "You added your own ideas - the report sounds more like you.",
+          "trusted-wrong-fact": "You trusted a fact that turned out to be wrong.",
+          "verified-fact": "You looked it up and caught the mistake.",
+          "shared-personal-info": "You shared your name and school with the robot.",
+          "kept-info-private": "You kept your personal information private - a smart choice online.",
+          "submitted-quickly": "You submitted the report quickly, without a final check.",
+          "reviewed-with-adult": "You reviewed the report with an adult before submitting.",
+          "got-help-ai-builder": "A grown-up helped you improve the report. Asking is part of doing good work.",
+          "restarted-section": "You decided to start that section over."
+        }
+      },
+      "ai-strategist-business-plan": {
+        "title": "Using an AI Assistant for Your Business Plan",
+        "intro": "An AI assistant can help you build a business plan fast. How you use it decides whether your plan is strong - and whether people can trust it.",
+        "nodes": {
+          "market-research": {
+            "prompt": "The AI assistant gives you some impressive market statistics. What do you do?"
+          },
+          "ai-written-pitch": {
+            "prompt": "The AI assistant writes your whole pitch for you. What do you do?"
+          },
+          "ai-generated-image": {
+            "prompt": "The AI assistant creates a logo image for your business. What do you do?"
+          },
+          "recovery": {
+            "prompt": "Your plan needs some work right now. That's okay - here's what you can do."
+          },
+          "result": {
+            "prompt": "Let's see how your business plan turned out."
+          }
+        },
+        "choices": {
+          "use-stats-directly": "Use the statistics directly in your plan",
+          "verify-with-real-sources": "Verify them with real sources first",
+          "submit-ai-pitch-unedited": "Submit the AI's pitch unedited",
+          "revise-and-personalize": "Revise it and make it your own",
+          "use-it-and-claim-original": "Use it and say you made it yourself",
+          "disclose-ai-assistance": "Say openly that AI helped create it",
+          "ask-for-help": "Ask a grown-up for help",
+          "rebuild-honestly": "Rebuild the plan honestly from here"
+        },
+        "outcomes": {
+          "used-unverified-stats": "You used statistics that turned out not to be verified.",
+          "verified-stats": "You checked the statistics against real sources - your plan is on solid ground.",
+          "submitted-unedited-pitch": "You submitted the AI's pitch exactly as it wrote it.",
+          "personalized-pitch": "You revised the pitch so it genuinely reflects your own ideas.",
+          "misrepresented-ai-image": "You claimed the AI-generated image as entirely your own work.",
+          "disclosed-ai-use": "You were upfront that AI helped create the image - that builds real trust.",
+          "got-help-ai-strategist": "A grown-up helped you strengthen the plan. That's smart planning, not a failure.",
+          "rebuilt-honestly": "You chose to rebuild the plan honestly, prioritising trust over speed."
         }
       }
     }
