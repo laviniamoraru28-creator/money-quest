@@ -81,3 +81,21 @@
 .mq-mission-story {border:2px solid var(--mq-accent-soft);border-radius:1.25rem;overflow:hidden}
 [data-mission-band="strategist"] .mq-mission-story {border-radius:.6rem}
 [data-mission-result] {border:2px solid var(--mq-accent-soft);border-radius:1rem;background:var(--mq-quest-surface);padding:1rem}
+
+.mq-entry-screen {
+  box-sizing: border-box;
+  display: grid;
+  min-height: 100svh;
+  grid-template-rows: minmax(0, 1fr) auto auto;
+  justify-items: center;
+  gap: .5rem;
+  padding: max(.5rem, env(safe-area-inset-top)) max(.75rem, env(safe-area-inset-right)) max(.75rem, env(safe-area-inset-bottom)) max(.75rem, env(safe-area-inset-left));
+  background: #14263e;
+  color: white;
+}
+.mq-entry-screen picture { display: contents; }
+.mq-entry-media {
+  width: 100%;
+  height: max(12rem, calc(100svh - 9rem - env(safe-area-inset-bottom) - env(safe-area-inset-top)));
+  object-fit: contain;
+}

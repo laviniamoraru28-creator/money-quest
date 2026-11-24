@@ -23,6 +23,13 @@ for (const [index, locale] of (
     await page.emulateMedia({ reducedMotion: "reduce" });
     await page.goto(`/${locale}`);
     await expect(page.locator(".mq-cinematic-hero video")).toHaveCount(0);
+    for (const [title, route] of [
+      ["Money Quest", "play"], ["Entrepreneur Quest", "entrepreneur-quest"],
+      ["Leadership Quest", "leadership-quest"], ["AI Quest", "ai-quest"],
+    ] as const) {
+      await expect(page.getByRole("main").getByRole("link", {name: title, exact: true})).toHaveAttribute("href", `/${locale}/${route}`);
+    }
+    await expect(page.locator("#mission-preview-heading")).toHaveCount(0);
     await page.locator(".mq-hero-cta").click();
     await page.locator(`.mq-age-portal[href*="band=${band}"]`).click();
     const avatar = page.getByRole("button", {
