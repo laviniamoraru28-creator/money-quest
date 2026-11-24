@@ -7,7 +7,6 @@ import { Link, useRouter } from "@/i18n/navigation";
 import { useLocalProgress } from "@/lib/local-progress/use-local-progress";
 import { getGameByKey, parseGameActivityId, getNextActivityAcrossWorlds, getPreviousActivityAcrossWorlds, getActivityPosition, getActivityHref } from "@/content/catalog";
 import { GameShell } from "@/game-engine/GameShell";
-import { getLevelLabelKey } from "@/content/level-options";
 
 export default function GamePage() {
   const params = useParams<{ worldId: string; activityId: string }>();
@@ -60,9 +59,6 @@ export default function GamePage() {
   return (
     <div className="min-h-screen bg-fog px-sm py-lg">
       <main id="main-content" tabIndex={-1} data-explorer-answers={state.ageBand === "explorer" ? "" : undefined} className="mx-auto max-w-[700px]">
-        <p className="text-xs font-medium uppercase tracking-wide text-ink/70">
-          {t("play.yourLevelLabel", { level: t(getLevelLabelKey(state.ageBand)) })}
-        </p>
         <GameShell key={params.activityId}
           config={config}
           ageBand={state.ageBand}

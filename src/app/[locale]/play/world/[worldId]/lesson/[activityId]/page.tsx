@@ -9,7 +9,6 @@ import { getLessonStructureById, getNextActivityAcrossWorlds, getPreviousActivit
 import { buildActivityDetailFromLesson } from "@/lib/domain/activity";
 import type { LocalizedLessonText } from "@/content/curriculum/localized-types";
 import { LessonPlayer } from "@/components/lesson/LessonPlayer";
-import { getLevelLabelKey } from "@/content/level-options";
 
 export default function LessonPage() {
   const params = useParams<{ worldId: string; activityId: string }>();
@@ -62,9 +61,6 @@ export default function LessonPage() {
   return (
     <div className="min-h-screen bg-fog px-sm py-lg">
       <main id="main-content" tabIndex={-1} data-explorer-answers={state.ageBand === "explorer" ? "" : undefined} className="mx-auto max-w-[700px]">
-        <p className="text-xs font-medium uppercase tracking-wide text-ink/70">
-          {t("play.yourLevelLabel", { level: t(getLevelLabelKey(state.ageBand)) })}
-        </p>
         <LessonPlayer key={`${locale}:${params.activityId}`}
           activity={activity}
           backToWorldHref={`/play/world/${params.worldId}`}

@@ -47,13 +47,13 @@ test('switching from Builder to Strategist redirects an open game to the new ban
   await chooseLevel(page, /Builder.*9-11/);
   const builderHref = `/en/play/world/${game.worldId}/game/game-builder-${game.key}`;
   await page.goto(builderHref);
-  await expect(page.getByText(/YOUR LEVEL/i)).toContainText('Builder');
+  await expect(page.getByRole('combobox', {name: messages.play.chooseYourLevel, exact: true})).toHaveValue('builder');
 
   await chooseLevel(page, /Strategist.*12-14/);
   // Revisit the now-stale Builder game URL directly.
   await page.goto(builderHref);
   await expect(page).toHaveURL(new RegExp(`/game/game-strategist-${game.key}$`));
-  await expect(page.getByText(/YOUR LEVEL/i)).toContainText('Strategist');
+  await expect(page.getByRole('combobox', {name: messages.play.chooseYourLevel, exact: true})).toHaveValue('strategist');
   // The rendered round must be the Strategist variant's own content, not a
   // leftover Builder round under the new label.
   const strategistVariant = game.variants.find((v) => v.ageBand === 'strategist')!;
@@ -70,7 +70,7 @@ test('switching to a band with no variant for the open game shows "not available
   await page.getByRole('button', {name: /Explorer.*6-8/}).click();
   const explorerHref = `/en/play/world/${game.worldId}/game/game-explorer-${game.key}`;
   await page.goto(explorerHref);
-  await expect(page.getByText(/YOUR LEVEL/i)).toContainText('Explorer');
+  await expect(page.getByRole('combobox', {name: messages.play.chooseYourLevel, exact: true})).toHaveValue('explorer');
 
   await chooseLevel(page, /Builder.*9-11/);
   await page.goto(explorerHref);

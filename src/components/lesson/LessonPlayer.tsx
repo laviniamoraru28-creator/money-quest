@@ -58,7 +58,7 @@ type QuizPhase = "unanswered" | "correct" | "incorrect";
 
 const TERM_ACCENTS = ["gold", "coral", "soft-blue"] as const;
 
-export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, previousActivityHref, activityPosition, onComplete }: LessonPlayerProps) {
+export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, activityPosition, onComplete }: LessonPlayerProps) {
   const router = useRouter();
   const [section, setSection] = useState<"examples" | "lesson">("lesson");
   // Separate refs per section: both sections stay mounted at once (see
@@ -199,36 +199,7 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
 
   return (
     <div className="flex flex-col gap-md" data-mission-band={activity.childAgeBand}>
-      {/* Journey navigation — a real "Back" (to the previous activity,
-          not just to the World menu) and an always-visible "Back to
-          World" button, alongside a simple "Activity X of Y" position
-          indicator, so a child always knows where they are and always
-          has both stepping-backward options without returning to a
-          menu first, matching the redesign brief's navigation
-          requirements. Real Button components (not muted text links)
-          so both read as actionable controls, not secondary metadata;
-          flex-wrap keeps this from overflowing on narrow phones when a
-          locale's labels run long. */}
       <div className="flex flex-col gap-2xs">
-        {/* No flex-wrap here: all three stay on one row at every
-            supported width, down to 320px. The label text is sr-only
-            below the `sm` breakpoint and reappears at tablet/desktop
-            width — the icon alone, inside the same min-h-touch-min
-            button, is enough tap target on a phone and keeps every
-            language's (often longer) label from forcing a wrap. */}
-        <div className="flex items-center gap-2xs text-sm">
-          {previousActivityHref && (
-            <Button variant="secondary" onClick={() => router.push(previousActivityHref)}>
-              <span aria-hidden="true">←</span> <span className="sr-only sm:not-sr-only">{t("common.back")}</span>
-            </Button>
-          )}
-          <Button variant="secondary" onClick={() => router.push(backToWorldHref)}>
-            <span aria-hidden="true">🗺️</span> <span className="sr-only sm:not-sr-only">{t("game.backToTheWorld")}</span>
-          </Button>
-          <Button variant="secondary" onClick={() => router.push("/")}>
-            <span aria-hidden="true">🏠</span> <span className="sr-only sm:not-sr-only">{t("nav.home")}</span>
-          </Button>
-        </div>
         {activityPosition && (
           <span className="self-start rounded-full bg-teal/10 px-sm py-3xs text-sm font-medium text-teal-text">
             {world && t("play.levelActivityProgress", { level: world.orderIndex, position: activityPosition.position, total: activityPosition.total })}
