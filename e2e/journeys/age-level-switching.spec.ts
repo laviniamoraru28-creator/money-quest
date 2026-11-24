@@ -18,9 +18,11 @@ const messages = JSON.parse(readFileSync('messages/en.json', 'utf8'));
  */
 async function chooseLevel(page: import('@playwright/test').Page, label: RegExp) {
   await page.goto('/en/play');
-  const changeLevel = page.getByRole('button', {name: messages.play.changeLevel, exact: true});
-  if (await changeLevel.isVisible().catch(() => false)) await changeLevel.click();
-  await page.getByRole('button', {name: label}).click();
+  const picker = page.getByRole('combobox', {name: messages.play.chooseYourLevel, exact: true});
+  const initial = page.getByRole('button', {name: label});
+  await initial.or(picker).first().waitFor();
+  if (await picker.isVisible()) await picker.selectOption(label.test('Builder 9-11') ? 'builder' : 'strategist');
+  else await initial.click();
 }
 
 test('switching from Builder to Strategist redirects an open lesson to the new band', async ({page}) => {

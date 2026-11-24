@@ -5,17 +5,15 @@ import { GuidePanel } from "@/components/GuidePanel";
 import { MoneyExamples } from "@/components/MoneyExamples";
 import { useParams } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { Link, useRouter } from "@/i18n/navigation";
+import { Link } from "@/i18n/navigation";
 import { useLocalProgress } from "@/lib/local-progress/use-local-progress";
 import { getWorldById } from "@/content/worlds";
 import { getWorldCatalog } from "@/content/catalog";
 import { LevelBadgeStar } from "@/components/ui/LevelBadgeStar";
-import { Button } from "@/components/ui/Button";
 import type { AgeBand } from "@/types/database.types";
 
 export default function WorldPage() {
   const params = useParams<{ worldId: string }>();
-  const router = useRouter();
   const t = useTranslations();
   const { state, isLoaded } = useLocalProgress();
 
@@ -52,28 +50,19 @@ export default function WorldPage() {
   return (
     <div className="min-h-screen bg-fog px-sm py-lg">
       <main id="main-content" tabIndex={-1} className="mx-auto max-w-[700px]">
-        <div className="flex flex-wrap gap-xs">
-          <Button variant="secondary" onClick={() => router.push("/")}>
-            <span aria-hidden="true">🏠</span> {t("nav.home")}
-          </Button>
-          <Button variant="secondary" onClick={() => router.push("/play")}>
-            <span aria-hidden="true">←</span> {t("nav.backToWorldMap")}
-          </Button>
-        </div>
         <div className="mt-sm flex items-center gap-xs">
           <div>
             <p className="text-xs font-medium uppercase tracking-wide text-ink/70">
               {t("play.levelLabel", { number: world.orderIndex })}
             </p>
             <h1 className="font-display text-2xl font-bold leading-tight">{t(`levels.${world.id}`)}</h1>
-            <p className="text-sm text-ink/70">{world.name}</p>
           </div>
           {catalog.length > 0 && catalog.every((entry) => state.completedActivityIds.includes(entry.id)) && (
             <LevelBadgeStar size={36} className="ml-auto shrink-0" />
           )}
         </div>
         <Image unoptimized data-learning-decoration src={`/cinematic/world/islands/${world.id}.webp`} alt="" width={768} height={768} className="mt-5 max-h-96 w-full rounded-2xl bg-cream object-contain" />
-        <GuidePanel message={t("activityGuide.world", {name: world.name, description: t(`worldDescriptions.${world.id}`)})}/>
+        <GuidePanel message={t("activityGuide.world", {name: t(`levels.${world.id}`), description: t(`worldDescriptions.${world.id}`)})}/>
         {/* Explorer now begins the world directly with its first
             comic-strip lesson, with no money-forms detour first — see
             ExplorerComicLesson. Every other band keeps this intro

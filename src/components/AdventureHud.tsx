@@ -1,4 +1,5 @@
 "use client";
+import { useEffect, useRef } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { useLocalProgress } from "@/lib/local-progress/use-local-progress";
@@ -9,6 +10,7 @@ import { useLeadershipQuest } from "@/lib/leadership-quest/use-leadership-quest"
 import { LQ_MISSIONS } from "@/content/leadership-quest/structures";
 import { WORLDS } from "@/content/worlds";
 import { getWorldCatalog, getActivityHref } from "@/content/catalog";
+import { isCertificateEligible } from "@/lib/certificates/eligibility";
 import { RewardsPanel } from "./RewardsPanel";
 import { type AgeBand } from "@/types/database.types";
 import { cinematicCopy } from "@/content/cinematic-copy";
@@ -32,6 +34,18 @@ export function AdventureHud() {
   const index = paths.findIndex(
     (href) => path === href || path.startsWith(href + "/"),
   );
+  const navRef = useRef<HTMLElement>(null);
+  const spacerRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const nav = navRef.current;
+    const spacer = spacerRef.current;
+    if (!nav || !spacer) return;
+    const resize = () => { spacer.style.height = nav.offsetHeight + "px"; };
+    resize();
+    const observer = new ResizeObserver(resize);
+    observer.observe(nav);
+    return () => observer.disconnect();
+  }, [index, isLoaded, state.ageBand]);
   if (index < 0 || !isLoaded || !state.ageBand) return null;
   const band = state.ageBand;
   const match = path.match(
@@ -72,12 +86,16 @@ export function AdventureHud() {
           ? "/leadership-quest"
           : "/leadership-quest/missions/" + mission.id;
     }
-    if (index === 3 && state.completedActivityIds.includes(`ai-quest-${band}`))
-      next = "/academy-certificate?level=" + band;
+    if (index === 3) {
+      const aiDone = state.completedActivityIds.includes(`ai-quest-${band}`);
+      next = aiDone && eq.state.pitchCompleted && lq.state.completedMissionIds.includes("final-challenge") && isCertificateEligible(state.completedActivityIds, band)
+        ? "/academy-certificate?level=" + band
+        : aiDone ? paths.find((_, i) => [!isCertificateEligible(state.completedActivityIds, band), !eq.state.pitchCompleted, !lq.state.completedMissionIds.includes("final-challenge")][i]) ?? "/play" : "/ai-quest#ai-mission";
+    }
   }
   return (
-    <div className="h-28 sm:h-16">
-      <nav
+    <div ref={spacerRef} className="h-28 sm:h-16" data-hud-band={band}>
+      <nav ref={navRef}
         aria-label={cinematicCopy[locale][2]}
         className="fixed inset-x-0 bottom-0 z-30 flex flex-wrap items-center justify-center gap-1 border-t border-[#d8bd88] bg-[#14263e]/95 px-1 pb-[env(safe-area-inset-bottom)] text-sm text-white backdrop-blur"
       >

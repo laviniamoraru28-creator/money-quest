@@ -24,7 +24,7 @@ import { useAnswerOrder } from "@/lib/answer-order";
 import type { ActivityDetail } from "@/lib/domain/activity";
 import { isSupportedLocale } from "@/i18n/config";
 import { romanianExplorerCopy } from "@/i18n/explorer-copy";
-import { LOCALE_LEARNING_CURRENCY } from "@/lib/currency/learning-currency";
+import { CinematicScene } from "@/components/CinematicScene";
 
 interface LessonPlayerProps {
   activity: ActivityDetail;
@@ -98,7 +98,7 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
   const lessonGoal = isExplorer && uiLocale === "ro" && activity.topicId === "money_basics"
     ? romanianExplorerCopy.moneyBasicsLessonGoal
     : t("activityGuide.lessonGoal", {title: activity.title});
-  const rewardCurrencyCode = isExplorer && isSupportedLocale(uiLocale) ? LOCALE_LEARNING_CURRENCY[uiLocale] : activity.childCurrencyCode;
+  const rewardCurrencyCode = activity.childCurrencyCode;
   const hasInteractiveExplorerLesson = isExplorer && ["money_basics","needs_wants","saving",...explorerOtherTopics].includes(activity.topicId);
   // Explorer's supplied comic strips replace the usual
   // illustration+prose panel for the topics that have one, in every
@@ -150,11 +150,11 @@ export function LessonPlayer({ activity, backToWorldHref, nextActivityHref, prev
         </p>
       )}
       {!hasInteractiveExplorerLesson && <p className="mt-2xs text-sm text-ink/70">{quiz.explanation}</p>}
-      {award && (award.xp > 0 || award.coins > 0) && (
+      {award && award.coins > 0 && (
         <div className="mt-sm flex items-center gap-md">
-          {award.xp > 0 && <span className="font-bold text-teal-text">{t("lesson.xpEarned", { xp: award.xp })}</span>}
           {award.coins > 0 && (
             <span className="flex flex-col items-start">
+              <CinematicScene controls={false} src="/cinematic/rewards/star-animation.mp4" poster="/cinematic/rewards/star-animation.webp" className="h-12 w-16 object-contain" />
               <span className="text-xs font-normal text-ink/70">{t("lesson.virtualCoinsLabel")}</span>
               <MoneyAmount amountMinorUnits={award.coins} currencyCode={rewardCurrencyCode} uiLocale={uiLocale} showCoinIcon />
             </span>

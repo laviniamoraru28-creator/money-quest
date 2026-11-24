@@ -29,7 +29,7 @@ function MissionCard({ title, mission, number, onComplete }: {
   return (
     <Card variant="activity" className="space-y-4">
       <p>{number} / 5</p>
-      <h2 className="font-display text-2xl font-bold">{title}</h2>
+      <h2 id="ai-mission" tabIndex={-1} className="font-display text-2xl font-bold">{title}</h2>
       <p>{mission.prompt}</p>
       {mission.evidence && <p className="rounded-xl bg-cream p-4 text-xl text-ink">{mission.evidence}</p>}
       <ReadAloudButton uiLocale={locale} text={[title, mission.prompt, mission.evidence, ...ordered.map(item => item.label)].filter(Boolean).join(". ")} />

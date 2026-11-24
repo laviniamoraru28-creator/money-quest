@@ -47,9 +47,9 @@ for(const lab of learningLabs)test(`${lab.title} keeps English guide narration`,
  await page.goto(`/en/${lab.slug}`);
  await expect(page).toHaveURL(new RegExp(`/en/${lab.slug}$`));
  await expect(page.getByRole("heading",{level:1,name:lab.title,exact:true})).toBeVisible();
- const guide=page.getByRole("complementary",{name:"Your learning guides",exact:true});
- await guide.getByRole("button",{name:"Hide guide",exact:true}).click();await expect(guide).toHaveCount(0);
- const show=page.getByRole("button",{name:"Show guide",exact:true});await show.focus();await page.keyboard.press("Enter");await expect(guide).toBeVisible();
+ const guide=page.getByRole("complementary",{name:"Mission instructions",exact:true});
+ await guide.getByRole("button",{name:"Hide instructions",exact:true}).click();await expect(guide).toHaveCount(0);
+ const show=page.getByRole("button",{name:"Show instructions",exact:true});await show.focus();await page.keyboard.press("Enter");await expect(guide).toBeVisible();
  await guide.getByRole("button",{name:"Listen",exact:true}).click();
  await expect.poll(()=>page.evaluate(()=>(window as unknown as {labSpeech:{lang:string}[]}).labSpeech.map(call=>call.lang))).toEqual(["en-GB"]);
  await guide.getByRole("button",{name:"Stop",exact:true}).click();
@@ -65,7 +65,7 @@ test("storage failure leaves learning usable",async({page})=>{
  await page.goto("/en/brain-lab");await page.getByRole("button",{name:"Mark as practised",exact:true}).click();await expect(page.getByRole("status").filter({hasText:"could not save"})).toBeVisible();await page.getByRole("button",{name:"Next",exact:true}).click();await expect(page.getByRole("heading",{name:"One thing at a time",exact:true})).toBeVisible();
 });
 test("keyboard settings and synchronized focus mode",async({page})=>{
- await page.goto("/en/brain-lab");await page.locator("[data-settings-trigger]").click();const checkbox=page.getByRole("checkbox",{name:/Focus Mode/i});await checkbox.check();await expect(page.locator('aside[aria-label="Your learning guides"] img')).toHaveCount(0);await expect(page.locator('[data-learning-decoration]').first()).toBeHidden();await page.keyboard.press("Escape");await expect(checkbox).toBeHidden();await expect(page.locator("[data-settings-trigger]")).toBeFocused();
+ await page.goto("/en/brain-lab");await page.locator("[data-settings-trigger]").click();const checkbox=page.getByRole("checkbox",{name:/Focus Mode/i});await checkbox.check();await expect(page.locator('aside[aria-label="Mission instructions"] img')).toHaveCount(0);await expect(page.locator('[data-learning-decoration]').first()).toBeHidden();await page.keyboard.press("Escape");await expect(checkbox).toBeHidden();await expect(page.locator("[data-settings-trigger]")).toBeFocused();
 });
 
 test("picture choices fit at 320px without horizontal scrolling",async({page})=>{

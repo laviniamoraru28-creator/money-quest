@@ -17,8 +17,7 @@ import { explorerSpeechLang } from "@/lib/explorer/speech-lang";
 import { GuidePanel } from "@/components/GuidePanel";
 import { getWorldById } from "@/content/worlds";
 import { useSound } from "@/lib/audio/use-sound";
-import { isSupportedLocale } from "@/i18n/config";
-import { LOCALE_LEARNING_CURRENCY } from "@/lib/currency/learning-currency";
+import { CinematicScene } from "@/components/CinematicScene";
 
 interface GameShellProps {
   config: GameConfig;
@@ -73,7 +72,7 @@ export function GameShell({ config, ageBand, difficulty = "standard", currencyCo
   // changed on the shared classes, which must stay as they are for the
   // older children those bands serve.
   const isExplorer = ageBand === "explorer";
-  const activityCurrencyCode = isExplorer && isSupportedLocale(uiLocale) ? LOCALE_LEARNING_CURRENCY[uiLocale] : currencyCode;
+  const activityCurrencyCode = currencyCode;
 
   const [roundIndex, setRoundIndex] = useState(0);
   const [attemptKey, setAttemptKey] = useState(0); // bumped on retry to force the mechanic to remount with fresh state
@@ -185,12 +184,12 @@ export function GameShell({ config, ageBand, difficulty = "standard", currencyCo
 
         {isAwarding && <p className="mt-sm text-sm text-ink/70">{t("game.addingUpRewards")}</p>}
 
-        {award && (award.xp > 0 || award.coins > 0) && (
+        {award && award.coins > 0 && (
           <div className="mt-sm flex items-center justify-center gap-md">
-            <span className="font-bold text-teal-text">{t("lesson.xpEarned", { xp: award.xp })}</span>
             {award.coins > 0 && (
               <span className="flex flex-col items-start">
-                <span className="text-xs font-normal text-ink/70">{t("lesson.virtualCoinsLabel")}</span>
+                <CinematicScene controls={false} src="/cinematic/rewards/star-animation.mp4" poster="/cinematic/rewards/star-animation.webp" className="h-12 w-16 object-contain" />
+              <span className="text-xs font-normal text-ink/70">{t("lesson.virtualCoinsLabel")}</span>
                 <MoneyAmount amountMinorUnits={award.coins} currencyCode={activityCurrencyCode} uiLocale={uiLocale} showCoinIcon />
               </span>
             )}

@@ -33,8 +33,8 @@ export const LOCALE_LEARNING_CURRENCY: Record<Locale, string> = {
  * logic. It still reuses the single centralized symbol/position table in
  * src/data/currencies.ts rather than hand-rolling a per-component map.
  */
-export function learningAmount(value: number, locale: Locale): string {
-  const currency = getCurrencyOption(LOCALE_LEARNING_CURRENCY[locale]);
-  const symbol = locale === "ro" && value === 1 ? "leu" : currency.symbol;
+export function learningAmount(value: number, locale: Locale, code = LOCALE_LEARNING_CURRENCY[locale]): string {
+  const currency = getCurrencyOption(code);
+  const symbol = currency.code === "RON" && value === 1 ? "leu" : currency.symbol;
   return currency.symbolPosition === "before" ? `${symbol}${value}` : `${value} ${symbol}`;
 }

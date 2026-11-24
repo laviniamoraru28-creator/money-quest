@@ -99,3 +99,24 @@
   height: max(12rem, calc(100svh - 9rem - env(safe-area-inset-bottom) - env(safe-area-inset-top)));
   object-fit: contain;
 }
+
+body:has([data-hud-band="explorer"]) {
+  --quest-trim: #ab793e;
+  --quest-panel: #49331e;
+}
+body:has([data-hud-band="builder"]) {
+  --quest-trim: #bc8054;
+  --quest-panel: #134a48;
+}
+body:has([data-hud-band="strategist"]) {
+  --quest-trim: #d4af67;
+  --quest-panel: #252944;
+}
+[data-hud-band] nav {
+  background-color: var(--quest-panel);
+  border-color: var(--quest-trim);
+}
+[data-hud-band] dialog h2 { color: white; }
+[data-explorer-picture-choice], [data-explorer-coin-count], [data-explorer-saving-jar] {
+  border-color: var(--quest-trim, #ab793e);
+}
