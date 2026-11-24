@@ -8085,5 +8085,52 @@
       "title": "Livello Strategist",
       "body": "Questa parte del percorso è pensata per esploratori più grandi (12-14 anni). Passa al livello Strategist nel selettore di livello per scoprirla, oppure continua con tutto ciò che è già disponibile per te."
     }
+  },
+  "agency": {
+    "resourceLabels": {
+      "coins": "Monete"
+    },
+    "recoveryBadge": "Risolviamo insieme",
+    "askForHelpButton": "Ho bisogno di aiuto",
+    "restartButton": "Ricomincia la settimana",
+    "statusCompletedHeading": "Settimana completata!",
+    "statusCompletedBody": "Ecco cosa è successo questa settimana. Puoi riprovare quando vuoi per provare un piano diverso.",
+    "historyHeading": "Cosa hai scelto",
+    "missions": {
+      "money-explorer-week-one": {
+        "title": "Una settimana di paghetta",
+        "intro": "Hai 25 monete per la settimana. Scegli cosa fare ogni giorno e guarda cosa succede.",
+        "nodes": {
+          "monday": {
+            "prompt": "È lunedì! Cosa vuoi fare oggi con le tue monete?"
+          },
+          "wednesday": {
+            "prompt": "Una gita scolastica costa 10 monete. Cosa fai?"
+          },
+          "recovery": {
+            "prompt": "In questo momento non hai abbastanza monete. Non preoccuparti - ecco cosa puoi fare."
+          },
+          "friday": {
+            "prompt": "La settimana è finita! Vediamo com'è andata."
+          }
+        },
+        "choices": {
+          "save": "Risparmia le tue monete oggi",
+          "treat": "Compra un piccolo premio (20 monete)",
+          "pay-trip": "Paga la gita (10 monete)",
+          "skip-trip": "Salta la gita questa volta",
+          "ask-for-help": "Chiedi a un adulto un piccolo extra (+10 monete)",
+          "reorganise-budget": "Continua con quello che hai"
+        },
+        "outcomes": {
+          "saved-monday": "Ottimo risparmio! Hai tenuto tutte le monete per dopo.",
+          "spent-on-treat": "Oggi ti sei goduto un premio.",
+          "paid-trip": "Hai pagato la gita. Bella pianificazione!",
+          "skipped-trip": "Hai saltato la gita e hai tenuto le monete.",
+          "got-help": "Un adulto ti ha aiutato. Chiedere aiuto è una scelta intelligente, non un errore.",
+          "reorganised": "Hai trovato un nuovo piano con quello che ti restava. Questo è vero problem solving!"
+        }
+      }
+    }
   }
 }

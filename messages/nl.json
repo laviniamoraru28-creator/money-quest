@@ -8085,5 +8085,52 @@
       "title": "Niveau Strateeg",
       "body": "Dit deel van de reis is gemaakt voor oudere ontdekkers (12-14 jaar). Schakel in de niveaukiezer over naar Strateeg om het te ontdekken, of ga gewoon verder met alles wat al voor jou is ontgrendeld."
     }
+  },
+  "agency": {
+    "resourceLabels": {
+      "coins": "Muntjes"
+    },
+    "recoveryBadge": "Dat lossen we samen op",
+    "askForHelpButton": "Ik heb hulp nodig",
+    "restartButton": "Begin de week opnieuw",
+    "statusCompletedHeading": "Week afgerond!",
+    "statusCompletedBody": "Dit is wat er deze week gebeurde. Je kunt altijd opnieuw proberen om een ander plan te verkennen.",
+    "historyHeading": "Wat je koos",
+    "missions": {
+      "money-explorer-week-one": {
+        "title": "Een week zakgeld",
+        "intro": "Je hebt 25 muntjes voor deze week. Kies elke dag wat je doet en kijk wat er gebeurt.",
+        "nodes": {
+          "monday": {
+            "prompt": "Het is maandag! Wat wil je vandaag met je muntjes doen?"
+          },
+          "wednesday": {
+            "prompt": "Een schoolreisje kost 10 muntjes. Wat doe je?"
+          },
+          "recovery": {
+            "prompt": "Je hebt nu niet genoeg muntjes. Geen probleem - dit kun je doen."
+          },
+          "friday": {
+            "prompt": "De week is voorbij! Laten we kijken hoe het ging."
+          }
+        },
+        "choices": {
+          "save": "Spaar je muntjes vandaag",
+          "treat": "Koop een leuke traktatie (20 muntjes)",
+          "pay-trip": "Betaal het schoolreisje (10 muntjes)",
+          "skip-trip": "Sla het schoolreisje deze keer over",
+          "ask-for-help": "Vraag een volwassene om een extraatje (+10 muntjes)",
+          "reorganise-budget": "Ga door met wat je hebt"
+        },
+        "outcomes": {
+          "saved-monday": "Goed gespaard! Je hield al je muntjes over voor later.",
+          "spent-on-treat": "Je hebt vandaag van een traktatie genoten.",
+          "paid-trip": "Je betaalde het schoolreisje. Goed gepland!",
+          "skipped-trip": "Je sloeg het schoolreisje over en hield je muntjes.",
+          "got-help": "Een volwassene heeft je geholpen. Om hulp vragen is een slimme zet, geen fout.",
+          "reorganised": "Je maakte een nieuw plan met wat je nog had. Dat is echt een probleem oplossen!"
+        }
+      }
+    }
   }
 }

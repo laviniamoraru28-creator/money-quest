@@ -8085,5 +8085,52 @@
       "title": "Niveau Stratège",
       "body": "Cette partie du parcours est conçue pour les explorateurs plus âgés (12-14 ans). Passe au niveau Stratège dans le sélecteur de niveau pour la découvrir, ou continue avec tout ce qui est déjà débloqué pour toi."
     }
+  },
+  "agency": {
+    "resourceLabels": {
+      "coins": "Pièces"
+    },
+    "recoveryBadge": "Réglons ça ensemble",
+    "askForHelpButton": "J'ai besoin d'aide",
+    "restartButton": "Recommencer la semaine",
+    "statusCompletedHeading": "Semaine terminée !",
+    "statusCompletedBody": "Voici ce qui s'est passé cette semaine. Tu peux réessayer à tout moment pour explorer un autre plan.",
+    "historyHeading": "Ce que tu as choisi",
+    "missions": {
+      "money-explorer-week-one": {
+        "title": "Une semaine d'argent de poche",
+        "intro": "Tu as 25 pièces pour la semaine. Choisis ce que tu fais chaque jour et regarde ce qui se passe.",
+        "nodes": {
+          "monday": {
+            "prompt": "C'est lundi ! Que veux-tu faire avec tes pièces aujourd'hui ?"
+          },
+          "wednesday": {
+            "prompt": "Une sortie scolaire coûte 10 pièces. Que fais-tu ?"
+          },
+          "recovery": {
+            "prompt": "Tu n'as pas assez de pièces pour le moment. Ce n'est pas grave - voici ce que tu peux faire."
+          },
+          "friday": {
+            "prompt": "La semaine est terminée ! Voyons comment ça s'est passé."
+          }
+        },
+        "choices": {
+          "save": "Économise tes pièces aujourd'hui",
+          "treat": "Achète une petite gourmandise (20 pièces)",
+          "pay-trip": "Paie la sortie (10 pièces)",
+          "skip-trip": "Ne pars pas en sortie cette fois",
+          "ask-for-help": "Demande à un adulte un petit extra (+10 pièces)",
+          "reorganise-budget": "Continue avec ce qu'il te reste"
+        },
+        "outcomes": {
+          "saved-monday": "Bien joué pour l'épargne ! Tu as gardé toutes tes pièces pour plus tard.",
+          "spent-on-treat": "Tu as profité d'une gourmandise aujourd'hui.",
+          "paid-trip": "Tu as payé la sortie. Bien planifié !",
+          "skipped-trip": "Tu n'es pas parti en sortie et tu as gardé tes pièces.",
+          "got-help": "Un adulte t'a aidé. Demander de l'aide est une décision intelligente, pas une erreur.",
+          "reorganised": "Tu as trouvé un nouveau plan avec ce qu'il te restait. C'est vraiment résoudre un problème !"
+        }
+      }
+    }
   }
 }

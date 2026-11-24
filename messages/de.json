@@ -8085,5 +8085,52 @@
       "title": "Stufe Stratege",
       "body": "Dieser Teil der Reise ist für ältere Entdecker (12-14 Jahre) gedacht. Wechsle in der Stufenauswahl zu Stratege, um ihn zu entdecken, oder mach einfach mit allem weiter, was für dich schon freigeschaltet ist."
     }
+  },
+  "agency": {
+    "resourceLabels": {
+      "coins": "Münzen"
+    },
+    "recoveryBadge": "Das lösen wir gemeinsam",
+    "askForHelpButton": "Ich brauche Hilfe",
+    "restartButton": "Woche neu starten",
+    "statusCompletedHeading": "Woche abgeschlossen!",
+    "statusCompletedBody": "So ist diese Woche verlaufen. Du kannst jederzeit einen neuen Plan ausprobieren.",
+    "historyHeading": "Was du gewählt hast",
+    "missions": {
+      "money-explorer-week-one": {
+        "title": "Eine Woche Taschengeld",
+        "intro": "Du hast 25 Münzen für die Woche. Wähle jeden Tag, was du tun möchtest, und sieh, was passiert.",
+        "nodes": {
+          "monday": {
+            "prompt": "Es ist Montag! Was möchtest du heute mit deinen Münzen tun?"
+          },
+          "wednesday": {
+            "prompt": "Ein Schulausflug kostet 10 Münzen. Was machst du?"
+          },
+          "recovery": {
+            "prompt": "Du hast gerade nicht genug Münzen. Das ist in Ordnung - hier ist, was du tun kannst."
+          },
+          "friday": {
+            "prompt": "Die Woche ist zu Ende! Schauen wir, wie es gelaufen ist."
+          }
+        },
+        "choices": {
+          "save": "Spare deine Münzen heute",
+          "treat": "Kaufe dir eine kleine Belohnung (20 Münzen)",
+          "pay-trip": "Bezahle den Ausflug (10 Münzen)",
+          "skip-trip": "Verzichte dieses Mal auf den Ausflug",
+          "ask-for-help": "Bitte einen Erwachsenen um einen Zuschuss (+10 Münzen)",
+          "reorganise-budget": "Mach weiter mit dem, was du hast"
+        },
+        "outcomes": {
+          "saved-monday": "Gut gespart! Du hast alle Münzen für später behalten.",
+          "spent-on-treat": "Du hast dir heute eine Belohnung gegönnt.",
+          "paid-trip": "Du hast den Ausflug bezahlt. Gut geplant!",
+          "skipped-trip": "Du hast auf den Ausflug verzichtet und deine Münzen behalten.",
+          "got-help": "Ein Erwachsener hat dir geholfen. Um Hilfe zu bitten ist eine kluge Entscheidung, kein Fehler.",
+          "reorganised": "Du hast einen neuen Plan mit dem gemacht, was übrig war. Das ist echtes Problemlösen!"
+        }
+      }
+    }
   }
 }

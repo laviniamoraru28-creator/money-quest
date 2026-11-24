@@ -8085,5 +8085,52 @@
       "title": "Strategist Level",
       "body": "This part of the journey is designed for older explorers (ages 12-14). Switch to Strategist in the level selector to explore it, or keep going with everything already unlocked for you."
     }
+  },
+  "agency": {
+    "resourceLabels": {
+      "coins": "Coins"
+    },
+    "recoveryBadge": "Let's sort this out together",
+    "askForHelpButton": "I need help",
+    "restartButton": "Start the week again",
+    "statusCompletedHeading": "Week complete!",
+    "statusCompletedBody": "Here's what happened this week. You can try again anytime to explore a different plan.",
+    "historyHeading": "What you chose",
+    "missions": {
+      "money-explorer-week-one": {
+        "title": "A Week of Pocket Money",
+        "intro": "You have 25 coins for the week. Choose what to do each day and see what happens.",
+        "nodes": {
+          "monday": {
+            "prompt": "It's Monday! What would you like to do with your coins today?"
+          },
+          "wednesday": {
+            "prompt": "A school trip costs 10 coins. What do you do?"
+          },
+          "recovery": {
+            "prompt": "You don't have enough coins right now. That's okay - here's what you can do."
+          },
+          "friday": {
+            "prompt": "The week is over! Let's see how it went."
+          }
+        },
+        "choices": {
+          "save": "Save your coins today",
+          "treat": "Buy a fun treat (20 coins)",
+          "pay-trip": "Pay for the trip (10 coins)",
+          "skip-trip": "Skip the trip this time",
+          "ask-for-help": "Ask a grown-up for a top-up (+10 coins)",
+          "reorganise-budget": "Carry on with what you have"
+        },
+        "outcomes": {
+          "saved-monday": "Great saving! You kept all your coins for later.",
+          "spent-on-treat": "You enjoyed a treat today.",
+          "paid-trip": "You paid for the trip. Nice planning!",
+          "skipped-trip": "You skipped the trip and kept your coins.",
+          "got-help": "A grown-up helped you out. Asking for help is a smart money move, not a mistake.",
+          "reorganised": "You worked out a new plan with what you had left. That's real problem-solving!"
+        }
+      }
+    }
   }
 }

@@ -8085,5 +8085,52 @@
       "title": "Poziom Strateg",
       "body": "Ta część podróży jest przygotowana dla starszych odkrywców (12-14 lat). Przełącz się na poziom Strateg w selektorze poziomu, aby ją odkryć, albo kontynuuj to, co jest już dla Ciebie odblokowane."
     }
+  },
+  "agency": {
+    "resourceLabels": {
+      "coins": "Monety"
+    },
+    "recoveryBadge": "Rozwiążmy to razem",
+    "askForHelpButton": "Potrzebuję pomocy",
+    "restartButton": "Zacznij tydzień od nowa",
+    "statusCompletedHeading": "Tydzień zakończony!",
+    "statusCompletedBody": "Tak wyglądał ten tydzień. Możesz spróbować ponownie w każdej chwili, aby wypróbować inny plan.",
+    "historyHeading": "Co wybrałeś",
+    "missions": {
+      "money-explorer-week-one": {
+        "title": "Tydzień kieszonkowego",
+        "intro": "Masz 25 monet na ten tydzień. Wybierz, co robisz każdego dnia, i zobacz, co się stanie.",
+        "nodes": {
+          "monday": {
+            "prompt": "Jest poniedziałek! Co chcesz zrobić dzisiaj ze swoimi monetami?"
+          },
+          "wednesday": {
+            "prompt": "Szkolna wycieczka kosztuje 10 monet. Co robisz?"
+          },
+          "recovery": {
+            "prompt": "W tej chwili nie masz wystarczająco monet. Nic się nie stało - oto, co możesz zrobić."
+          },
+          "friday": {
+            "prompt": "Tydzień się skończył! Zobaczmy, jak poszło."
+          }
+        },
+        "choices": {
+          "save": "Zaoszczędź swoje monety dzisiaj",
+          "treat": "Kup sobie małą przyjemność (20 monet)",
+          "pay-trip": "Zapłać za wycieczkę (10 monet)",
+          "skip-trip": "Tym razem nie jedź na wycieczkę",
+          "ask-for-help": "Poproś osobę dorosłą o dodatkowe monety (+10 monet)",
+          "reorganise-budget": "Kontynuuj z tym, co masz"
+        },
+        "outcomes": {
+          "saved-monday": "Świetne oszczędzanie! Zachowałeś wszystkie monety na później.",
+          "spent-on-treat": "Dzisiaj zafundowałeś sobie przyjemność.",
+          "paid-trip": "Zapłaciłeś za wycieczkę. Dobre planowanie!",
+          "skipped-trip": "Nie poszedłeś na wycieczkę i zachowałeś monety.",
+          "got-help": "Osoba dorosła pomogła ci. Proszenie o pomoc to mądry krok, a nie błąd.",
+          "reorganised": "Znalazłeś nowy plan z tym, co ci zostało. To jest prawdziwe rozwiązywanie problemów!"
+        }
+      }
+    }
   }
 }

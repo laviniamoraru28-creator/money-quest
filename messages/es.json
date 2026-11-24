@@ -8085,5 +8085,52 @@
       "title": "Nivel Estratega",
       "body": "Esta parte del viaje está pensada para exploradores mayores (12-14 años). Cambia a Estratega en el selector de nivel para descubrirla, o sigue con todo lo que ya tienes desbloqueado."
     }
+  },
+  "agency": {
+    "resourceLabels": {
+      "coins": "Monedas"
+    },
+    "recoveryBadge": "Vamos a resolverlo juntos",
+    "askForHelpButton": "Necesito ayuda",
+    "restartButton": "Empezar la semana de nuevo",
+    "statusCompletedHeading": "¡Semana completada!",
+    "statusCompletedBody": "Esto es lo que pasó esta semana. Puedes volver a intentarlo cuando quieras para probar un plan diferente.",
+    "historyHeading": "Lo que elegiste",
+    "missions": {
+      "money-explorer-week-one": {
+        "title": "Una semana de dinero de bolsillo",
+        "intro": "Tienes 25 monedas para la semana. Elige qué hacer cada día y mira qué pasa.",
+        "nodes": {
+          "monday": {
+            "prompt": "¡Es lunes! ¿Qué quieres hacer con tus monedas hoy?"
+          },
+          "wednesday": {
+            "prompt": "Una excursión escolar cuesta 10 monedas. ¿Qué haces?"
+          },
+          "recovery": {
+            "prompt": "Ahora mismo no tienes suficientes monedas. No pasa nada - esto es lo que puedes hacer."
+          },
+          "friday": {
+            "prompt": "¡La semana ha terminado! Veamos cómo fue."
+          }
+        },
+        "choices": {
+          "save": "Ahorra tus monedas hoy",
+          "treat": "Compra un capricho (20 monedas)",
+          "pay-trip": "Paga la excursión (10 monedas)",
+          "skip-trip": "Esta vez no vayas a la excursión",
+          "ask-for-help": "Pide a una persona adulta un extra (+10 monedas)",
+          "reorganise-budget": "Sigue con lo que tienes"
+        },
+        "outcomes": {
+          "saved-monday": "¡Buen ahorro! Guardaste todas tus monedas para después.",
+          "spent-on-treat": "Hoy disfrutaste de un capricho.",
+          "paid-trip": "Pagaste la excursión. ¡Buena planificación!",
+          "skipped-trip": "No fuiste a la excursión y guardaste tus monedas.",
+          "got-help": "Una persona adulta te ayudó. Pedir ayuda es una decisión inteligente, no un error.",
+          "reorganised": "Encontraste un nuevo plan con lo que te quedaba. ¡Eso es resolver problemas de verdad!"
+        }
+      }
+    }
   }
 }

@@ -8085,5 +8085,52 @@
       "title": "Nivel Strateg",
       "body": "Această parte a călătoriei este concepută pentru exploratori mai mari (12-14 ani). Comută la nivelul Strateg din selectorul de nivel ca să o descoperi, sau continuă cu tot ce este deja deblocat pentru tine."
     }
+  },
+  "agency": {
+    "resourceLabels": {
+      "coins": "Monede"
+    },
+    "recoveryBadge": "Să rezolvăm asta împreună",
+    "askForHelpButton": "Am nevoie de ajutor",
+    "restartButton": "Începe săptămâna din nou",
+    "statusCompletedHeading": "Săptămână încheiată!",
+    "statusCompletedBody": "Iată ce s-a întâmplat în această săptămână. Poți încerca din nou oricând pentru a explora un alt plan.",
+    "historyHeading": "Ce ai ales",
+    "missions": {
+      "money-explorer-week-one": {
+        "title": "O săptămână de bani de buzunar",
+        "intro": "Ai 25 de monede pentru această săptămână. Alege ce faci în fiecare zi și vezi ce se întâmplă.",
+        "nodes": {
+          "monday": {
+            "prompt": "E luni! Ce vrei să faci cu monedele tale astăzi?"
+          },
+          "wednesday": {
+            "prompt": "O excursie școlară costă 10 monede. Ce faci?"
+          },
+          "recovery": {
+            "prompt": "Nu ai suficiente monede chiar acum. Nu-i nicio problemă - iată ce poți face."
+          },
+          "friday": {
+            "prompt": "Săptămâna s-a terminat! Să vedem cum a fost."
+          }
+        },
+        "choices": {
+          "save": "Economisește monedele astăzi",
+          "treat": "Cumpără o răsfățare (20 de monede)",
+          "pay-trip": "Plătește excursia (10 monede)",
+          "skip-trip": "Renunță la excursie de această dată",
+          "ask-for-help": "Cere unui adult o sumă suplimentară (+10 monede)",
+          "reorganise-budget": "Continuă cu ce ai"
+        },
+        "outcomes": {
+          "saved-monday": "Economie excelentă! Ai păstrat toate monedele pentru mai târziu.",
+          "spent-on-treat": "Te-ai bucurat de o răsfățare astăzi.",
+          "paid-trip": "Ai plătit excursia. Bună planificare!",
+          "skipped-trip": "Ai renunțat la excursie și ți-ai păstrat monedele.",
+          "got-help": "Un adult te-a ajutat. A cere ajutor este o mișcare inteligentă, nu o greșeală.",
+          "reorganised": "Ai găsit un nou plan cu ce îți rămăsese. Asta înseamnă să rezolvi probleme cu adevărat!"
+        }
+      }
+    }
   }
 }

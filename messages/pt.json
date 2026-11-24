@@ -8085,5 +8085,52 @@
       "title": "Nível Estratega",
       "body": "Esta parte da jornada foi criada para exploradores mais velhos (12-14 anos). Muda para o nível Estratega no seletor de nível para a descobrir, ou continua com tudo o que já está desbloqueado para ti."
     }
+  },
+  "agency": {
+    "resourceLabels": {
+      "coins": "Moedas"
+    },
+    "recoveryBadge": "Vamos resolver isto juntos",
+    "askForHelpButton": "Preciso de ajuda",
+    "restartButton": "Começar a semana outra vez",
+    "statusCompletedHeading": "Semana concluída!",
+    "statusCompletedBody": "Foi isto que aconteceu esta semana. Podes tentar novamente quando quiseres para explorar outro plano.",
+    "historyHeading": "O que escolheste",
+    "missions": {
+      "money-explorer-week-one": {
+        "title": "Uma semana de mesada",
+        "intro": "Tens 25 moedas para a semana. Escolhe o que fazer cada dia e vê o que acontece.",
+        "nodes": {
+          "monday": {
+            "prompt": "É segunda-feira! O que queres fazer hoje com as tuas moedas?"
+          },
+          "wednesday": {
+            "prompt": "Uma visita de estudo custa 10 moedas. O que fazes?"
+          },
+          "recovery": {
+            "prompt": "Agora não tens moedas suficientes. Não faz mal - aqui está o que podes fazer."
+          },
+          "friday": {
+            "prompt": "A semana acabou! Vamos ver como correu."
+          }
+        },
+        "choices": {
+          "save": "Poupa as tuas moedas hoje",
+          "treat": "Compra um mimo (20 moedas)",
+          "pay-trip": "Paga a visita de estudo (10 moedas)",
+          "skip-trip": "Não vás à visita desta vez",
+          "ask-for-help": "Pede a um adulto um extra (+10 moedas)",
+          "reorganise-budget": "Continua com o que tens"
+        },
+        "outcomes": {
+          "saved-monday": "Boa poupança! Guardaste todas as moedas para mais tarde.",
+          "spent-on-treat": "Hoje desfrutaste de um mimo.",
+          "paid-trip": "Pagaste a visita de estudo. Bom planeamento!",
+          "skipped-trip": "Não foste à visita e guardaste as tuas moedas.",
+          "got-help": "Um adulto ajudou-te. Pedir ajuda é uma decisão inteligente, não um erro.",
+          "reorganised": "Encontraste um novo plano com o que te restava. Isso é resolver problemas a sério!"
+        }
+      }
+    }
   }
 }
