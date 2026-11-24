@@ -8085,5 +8085,522 @@
       "title": "Niveau Strateeg",
       "body": "Dit deel van de reis is gemaakt voor oudere ontdekkers (12-14 jaar). Schakel in de niveaukiezer over naar Strateeg om het te ontdekken, of ga gewoon verder met alles wat al voor jou is ontgrendeld."
     }
+  },
+  "agency": {
+    "resourceLabels": {
+      "coins": "Muntjes",
+      "savedForBike": "Gespaard voor de fiets",
+      "communityImpact": "Impact op de gemeenschap",
+      "confidence": "Zelfvertrouwen",
+      "projectQuality": "Projectkwaliteit",
+      "privacyScore": "Privacy",
+      "planQuality": "Planskwaliteit",
+      "trustworthiness": "Betrouwbaarheid",
+      "teamSpirit": "Teamgeest",
+      "teamMorale": "Teammoraal",
+      "projectProgress": "Projectvoortgang",
+      "teamTrust": "Vertrouwen in het team",
+      "reputation": "Reputatie",
+      "profit": "Winst",
+      "customerSatisfaction": "Klanttevredenheid"
+    },
+    "recoveryBadge": "Dat lossen we samen op",
+    "askForHelpButton": "Ik heb hulp nodig",
+    "restartButton": "Begin de week opnieuw",
+    "statusCompletedHeading": "Week afgerond!",
+    "statusCompletedBody": "Dit is wat er deze week gebeurde. Je kunt altijd opnieuw proberen om een ander plan te verkennen.",
+    "historyHeading": "Wat je koos",
+    "missions": {
+      "money-explorer-week-one": {
+        "title": "Een week zakgeld",
+        "intro": "Je hebt 25 muntjes voor deze week. Kies elke dag wat je doet en kijk wat er gebeurt.",
+        "nodes": {
+          "monday": {
+            "prompt": "Het is maandag! Wat wil je vandaag met je muntjes doen?"
+          },
+          "wednesday": {
+            "prompt": "Een schoolreisje kost 10 muntjes. Wat doe je?"
+          },
+          "recovery": {
+            "prompt": "Je hebt nu niet genoeg muntjes. Geen probleem - dit kun je doen."
+          },
+          "friday": {
+            "prompt": "De week is voorbij! Laten we kijken hoe het ging."
+          }
+        },
+        "choices": {
+          "save": "Spaar je muntjes vandaag",
+          "treat": "Koop een leuke traktatie (20 muntjes)",
+          "pay-trip": "Betaal het schoolreisje (10 muntjes)",
+          "skip-trip": "Sla het schoolreisje deze keer over",
+          "ask-for-help": "Vraag een volwassene om een extraatje (+10 muntjes)",
+          "reorganise-budget": "Ga door met wat je hebt"
+        },
+        "outcomes": {
+          "saved-monday": "Goed gespaard! Je hield al je muntjes over voor later.",
+          "spent-on-treat": "Je hebt vandaag van een traktatie genoten.",
+          "paid-trip": "Je betaalde het schoolreisje. Goed gepland!",
+          "skipped-trip": "Je sloeg het schoolreisje over en hield je muntjes.",
+          "got-help": "Een volwassene heeft je geholpen. Om hulp vragen is een slimme zet, geen fout.",
+          "reorganised": "Je maakte een nieuw plan met wat je nog had. Dat is echt een probleem oplossen!"
+        }
+      },
+      "money-builder-month-one": {
+        "title": "Sparen voor een fiets",
+        "intro": "Je hebt 40 muntjes en wilt sparen voor een fiets. Maak keuzes over vier weken en kijk hoe je plan uitpakt.",
+        "nodes": {
+          "week1": {
+            "prompt": "Week 1: je hebt wat geld om uit te geven. Wat doe je?"
+          },
+          "week2": {
+            "prompt": "Week 2: een vriend nodigt je uit en het kost iets extra. Wat doe je?"
+          },
+          "week3": {
+            "prompt": "Week 3: je hebt de kans om iets extra te verdienen door klusjes te doen. Wat doe je?"
+          },
+          "week4": {
+            "prompt": "Week 4: de laatste fase voor het einde van de maand. Wat doe je?"
+          },
+          "recovery": {
+            "prompt": "Je hebt nu niet genoeg muntjes. Geen probleem - dit kun je doen."
+          },
+          "result": {
+            "prompt": "De maand is voorbij! Laten we kijken hoe je plan is gelukt."
+          }
+        },
+        "choices": {
+          "save-15": "Zet 15 muntjes opzij voor je fiets",
+          "spend-on-games": "Geef nu 15 muntjes uit aan spelletjes",
+          "share-treat": "Trakteer je vriend ook (5 muntjes)",
+          "decline-politely": "Zeg beleefd nee",
+          "do-chores": "Doe extra klusjes (+10 muntjes)",
+          "skip-chores": "Sla de klusjes deze week over",
+          "add-10-more": "Voeg nog 10 muntjes toe aan je fietspot",
+          "wait-and-save-later": "Wacht en spaar later meer",
+          "ask-for-help": "Vraag een volwassene om een extraatje (+15 muntjes)",
+          "adjust-goal": "Pas je spaardoel aan en ga verder"
+        },
+        "outcomes": {
+          "saved-week1": "Je zette het geld direct opzij voor je fiets.",
+          "spent-week1": "Je gaf je muntjes vandaag uit aan spelletjes.",
+          "shared-treat": "Je hebt ook je vriend getrakteerd.",
+          "declined-politely": "Je zei beleefd nee en hield je muntjes.",
+          "did-chores": "Je verdiende extra muntjes met klusjes.",
+          "skipped-chores": "Je sloeg de klusjes deze week over.",
+          "added-more": "Je voegde nog meer toe aan je fietspot.",
+          "waited": "Je besloot te wachten en later meer te sparen.",
+          "got-help-builder": "Een volwassene heeft je geholpen. Om hulp vragen hoort bij een goed plan, geen fout.",
+          "adjusted-goal": "Je paste je spaardoel aan wat je echt hebt. Dat is slim begroten!"
+        }
+      },
+      "money-strategist-term-one": {
+        "title": "Een kwartaal van slimme keuzes",
+        "intro": "Je hebt 35 muntjes. Beslis hoe je ze laat groeien, waar ze heen gaan en hoe je met het onverwachte omgaat - en kijk dan hoe je kwartaal verliep.",
+        "nodes": {
+          "decision1": {
+            "prompt": "Je zou wat muntjes in een langetermijnplan kunnen stoppen, of ze klaar houden om uit te geven. Wat doe je?"
+          },
+          "decision2": {
+            "prompt": "Je gemeenschap organiseert een inzamelingsactie. Wat doe je?"
+          },
+          "decision3": {
+            "prompt": "Iets heeft een onverwachte reparatie nodig. Wat doe je?"
+          },
+          "recovery": {
+            "prompt": "Je hebt nu niet genoeg muntjes. Geen probleem - dit kun je doen."
+          },
+          "result": {
+            "prompt": "Het kwartaal is voorbij! Laten we kijken hoe je keuzes uitpakten."
+          }
+        },
+        "choices": {
+          "invest-half": "Stop 20 muntjes in een langetermijnplan",
+          "keep-liquid": "Houd al je muntjes klaar om uit te geven",
+          "contribute-to-fundraiser": "Draag 15 muntjes bij aan de inzamelingsactie",
+          "keep-for-yourself": "Houd je muntjes voor jezelf",
+          "pay-for-repair": "Betaal nu 30 muntjes voor de reparatie",
+          "delay-repair": "Stel de reparatie voorlopig uit",
+          "ask-for-help": "Vraag een volwassene om een extraatje (+20 muntjes)",
+          "reassess-budget": "Herzie je budget en ga verder"
+        },
+        "outcomes": {
+          "invested": "Je stopte wat muntjes in een langetermijnplan.",
+          "kept-liquid": "Je hield al je muntjes klaar om uit te geven.",
+          "contributed": "Je droeg bij aan de inzamelingsactie - dat is echte impact in je gemeenschap.",
+          "kept-for-self": "Je hield je muntjes voor jezelf. Ook dat is een eerlijke keuze.",
+          "paid-repair": "Je betaalde de reparatie meteen.",
+          "delayed-repair": "Je stelde de reparatie voorlopig uit.",
+          "got-help-strategist": "Een volwassene heeft je geholpen. Om hulp vragen hoort bij slim plannen, geen fout.",
+          "reassessed": "Je herzag je budget en ging verder met een duidelijker plan."
+        }
+      },
+      "ai-explorer-helper-robot": {
+        "title": "De Helperrobot",
+        "intro": "Een helperrobot kan vragen voor je beantwoorden. Soms heeft hij gelijk, soms niet - laten we het samen ontdekken.",
+        "nodes": {
+          "question1": {
+            "prompt": "De Helperrobot zegt dat 2 + 2 = 5. Wat doe je?"
+          },
+          "question2": {
+            "prompt": "De Helperrobot zegt dat een week 7 dagen heeft. Wat doe je?"
+          },
+          "recovery": {
+            "prompt": "Dat antwoord klopte niet. Geen probleem - dit kun je doen."
+          },
+          "result": {
+            "prompt": "Laten we kijken hoe het ging met de Helperrobot."
+          }
+        },
+        "choices": {
+          "trust-the-robot": "Vertrouw op het antwoord van de robot",
+          "check-with-grownup": "Controleer eerst bij een volwassene",
+          "ask-for-help": "Vraag een volwassene om hulp",
+          "try-again": "Probeer het opnieuw"
+        },
+        "outcomes": {
+          "trusted-wrong-answer": "Je vertrouwde de robot, maar deze keer had hij het mis.",
+          "checked-first": "Je controleerde eerst - een slimme gewoonte bij elke helper.",
+          "trusted-right-answer": "Je vertrouwde de robot, en deze keer had hij gelijk!",
+          "checked-again": "Je controleerde nog een keer, om zeker te zijn.",
+          "got-help-ai-explorer": "Een volwassene heeft je geholpen. Controleren is nooit een fout.",
+          "tried-again": "Je besloot het opnieuw te proberen."
+        }
+      },
+      "ai-builder-book-report": {
+        "title": "Een Boekverslag Schrijven met een Robot-Helper",
+        "intro": "Een helperrobot kan een eerste versie van je boekverslag schrijven. Jouw keuzes bepalen hoe goed - en hoe eerlijk - het uiteindelijke verslag is.",
+        "nodes": {
+          "draft": {
+            "prompt": "De robot schrijft een eerste versie voor je. Wat doe je?"
+          },
+          "fact-check": {
+            "prompt": "De robot noemt het verkeerde jaar waarin het boek is geschreven. Wat doe je?"
+          },
+          "personal-info": {
+            "prompt": "De robot vraagt om je volledige naam en school 'om het verslag te personaliseren'. Wat doe je?"
+          },
+          "final-review": {
+            "prompt": "Je verslag is bijna klaar. Wat doe je?"
+          },
+          "recovery": {
+            "prompt": "Je verslag heeft nu wat werk nodig. Geen probleem - dit kun je doen."
+          },
+          "result": {
+            "prompt": "Laten we kijken hoe je boekverslag is geworden."
+          }
+        },
+        "choices": {
+          "use-as-is": "Gebruik de versie van de robot precies zoals die is",
+          "add-your-own-ideas": "Voeg je eigen ideeën en woorden toe",
+          "trust-it": "Vertrouw op de bewering van de robot",
+          "look-it-up": "Zoek het op om zeker te zijn",
+          "share-it": "Deel je naam en school",
+          "keep-it-private": "Houd die informatie privé",
+          "submit-without-reviewing": "Lever het in zonder het na te kijken",
+          "review-with-an-adult": "Bekijk het eerst samen met een volwassene",
+          "ask-for-help": "Vraag een volwassene om hulp",
+          "start-this-section-over": "Begin dit onderdeel opnieuw"
+        },
+        "outcomes": {
+          "used-draft-as-is": "Je gebruikte de versie van de robot precies zoals die was.",
+          "improved-draft": "Je voegde je eigen ideeën toe - het verslag klinkt meer als jij.",
+          "trusted-wrong-fact": "Je vertrouwde op een bewering die onjuist bleek te zijn.",
+          "verified-fact": "Je zocht het op en ontdekte de fout.",
+          "shared-personal-info": "Je deelde je naam en school met de robot.",
+          "kept-info-private": "Je hield je persoonlijke gegevens privé - een slimme keuze online.",
+          "submitted-quickly": "Je leverde het verslag snel in, zonder laatste controle.",
+          "reviewed-with-adult": "Je bekeek het verslag samen met een volwassene voordat je het inleverde.",
+          "got-help-ai-builder": "Een volwassene heeft je geholpen het verslag te verbeteren. Om hulp vragen hoort bij goed werk.",
+          "restarted-section": "Je besloot dat onderdeel opnieuw te beginnen."
+        }
+      },
+      "ai-strategist-business-plan": {
+        "title": "Een AI-assistent Gebruiken voor je Ondernemingsplan",
+        "intro": "Een AI-assistent kan je helpen snel een ondernemingsplan op te stellen. Hoe je het gebruikt bepaalt of je plan solide is - en of mensen het kunnen vertrouwen.",
+        "nodes": {
+          "market-research": {
+            "prompt": "De AI-assistent geeft je indrukwekkende marktstatistieken. Wat doe je?"
+          },
+          "ai-written-pitch": {
+            "prompt": "De AI-assistent schrijft je hele pitch. Wat doe je?"
+          },
+          "ai-generated-image": {
+            "prompt": "De AI-assistent maakt een logo-afbeelding voor je onderneming. Wat doe je?"
+          },
+          "recovery": {
+            "prompt": "Je plan heeft nu wat werk nodig. Geen probleem - dit kun je doen."
+          },
+          "result": {
+            "prompt": "Laten we kijken hoe je ondernemingsplan is geworden."
+          }
+        },
+        "choices": {
+          "use-stats-directly": "Gebruik de statistieken rechtstreeks in je plan",
+          "verify-with-real-sources": "Controleer ze eerst bij echte bronnen",
+          "submit-ai-pitch-unedited": "Lever de AI-pitch ongewijzigd in",
+          "revise-and-personalize": "Bewerk hem en maak hem van jezelf",
+          "use-it-and-claim-original": "Gebruik het en zeg dat je het zelf hebt gemaakt",
+          "disclose-ai-assistance": "Zeg openlijk dat AI heeft geholpen het te maken",
+          "ask-for-help": "Vraag een volwassene om hulp",
+          "rebuild-honestly": "Bouw het plan vanaf hier eerlijk opnieuw op"
+        },
+        "outcomes": {
+          "used-unverified-stats": "Je gebruikte statistieken die niet geverifieerd bleken te zijn.",
+          "verified-stats": "Je controleerde de statistieken bij echte bronnen - je plan staat op stevige grond.",
+          "submitted-unedited-pitch": "Je leverde de AI-pitch precies in zoals hij was geschreven.",
+          "personalized-pitch": "Je bewerkte de pitch zodat hij echt je eigen ideeën weergeeft.",
+          "misrepresented-ai-image": "Je beweerde dat de door AI gegenereerde afbeelding volledig je eigen werk was.",
+          "disclosed-ai-use": "Je was open over het feit dat AI hielp bij het maken van de afbeelding - dat schept echt vertrouwen.",
+          "got-help-ai-strategist": "Een volwassene heeft je geholpen het plan te versterken. Dat is slim plannen, geen mislukking.",
+          "rebuilt-honestly": "Je koos ervoor het plan eerlijk opnieuw op te bouwen, met vertrouwen boven snelheid."
+        }
+      },
+      "leadership-explorer-fort": {
+        "title": "Samen een Fort Bouwen",
+        "intro": "Jij en je vrienden bouwen een fort. Jouw keuzes bepalen hoe het voelt om samen te werken.",
+        "nodes": {
+          "sharing-blocks": {
+            "prompt": "Jij hebt de beste bouwblokken. Wat doe je?"
+          },
+          "someone-left-out": {
+            "prompt": "Een vriend voelt zich buitengesloten van het bouwen. Wat doe je?"
+          },
+          "recovery": {
+            "prompt": "Het team voelt zich nu niet zo goed. Geen probleem - dit kun je doen."
+          },
+          "result": {
+            "prompt": "Laten we kijken hoe het bouwen van het fort samen ging."
+          }
+        },
+        "choices": {
+          "share-the-blocks": "Deel de beste blokken met iedereen",
+          "keep-best-blocks": "Houd de beste blokken voor jezelf",
+          "invite-them-in": "Nodig hem uit om mee te doen",
+          "keep-building-without-them": "Blijf bouwen zonder hem",
+          "ask-for-help": "Vraag een volwassene om hulp",
+          "share-now-instead": "Deel nu in plaats daarvan"
+        },
+        "outcomes": {
+          "shared-blocks": "Je deelde de beste blokken met iedereen.",
+          "kept-best-blocks": "Je hield de beste blokken voor jezelf.",
+          "invited-them-in": "Je nodigde je vriend uit om mee te doen.",
+          "kept-building-without-them": "Je bleef bouwen zonder hem.",
+          "got-help-leadership-explorer": "Een volwassene heeft je geholpen. Om hulp vragen is nooit een fout.",
+          "shared-now-instead": "Je besloot in plaats daarvan nu te delen."
+        }
+      },
+      "leadership-builder-fundraiser": {
+        "title": "De Klassen-Inzamelingsactie Plannen",
+        "intro": "Jouw klas plant een inzamelingsactie. Jouw keuzes bepalen hoe het team samenwerkt - en hoeveel er gedaan wordt.",
+        "nodes": {
+          "assign-tasks": {
+            "prompt": "Het is tijd om taken te verdelen voor de inzamelingsactie. Wat doe je?"
+          },
+          "disagreement": {
+            "prompt": "Twee teamgenoten zijn het oneens over het ontwerp van de bakverkooptafel. Wat doe je?"
+          },
+          "falling-behind": {
+            "prompt": "Het project loopt achter op schema. Wat doe je?"
+          },
+          "credit": {
+            "prompt": "De inzamelingsactie was een succes! Wat doe je?"
+          },
+          "recovery": {
+            "prompt": "Het team voelt zich nu niet zo goed. Geen probleem - dit kun je doen."
+          },
+          "result": {
+            "prompt": "Laten we kijken hoe de klassen-inzamelingsactie ging."
+          }
+        },
+        "choices": {
+          "let-everyone-pick": "Laat iedereen zijn eigen taak kiezen",
+          "assign-tasks-yourself": "Verdeel de taken zelf om sneller te gaan",
+          "let-them-work-it-out": "Laat hen het zelf oplossen",
+          "help-them-find-a-compromise": "Help hen een compromis te vinden",
+          "push-the-team-harder": "Zet het team aan om harder te werken",
+          "ask-who-needs-help": "Vraag wie hulp nodig heeft",
+          "take-credit-yourself": "Schrijf het idee alleen aan jezelf toe",
+          "share-credit-with-team": "Deel de eer met het hele team",
+          "ask-for-help": "Vraag een volwassene om hulp",
+          "apologize-and-reset": "Bied je excuses aan en begin opnieuw met het team"
+        },
+        "outcomes": {
+          "let-everyone-pick": "Je liet iedereen zijn eigen taak kiezen.",
+          "assigned-tasks-yourself": "Je verdeelde de taken zelf om sneller te gaan.",
+          "let-them-work-it-out": "Je liet het meningsverschil onopgelost.",
+          "helped-find-compromise": "Je hielp je teamgenoten een compromis te vinden.",
+          "pushed-team-harder": "Je zette het team aan om harder te werken.",
+          "asked-who-needs-help": "Je vroeg wie hulp nodig had.",
+          "took-credit-yourself": "Je schreef het idee alleen aan jezelf toe.",
+          "shared-credit-with-team": "Je deelde de eer met het hele team.",
+          "got-help-leadership-builder": "Een volwassene heeft je geholpen. Om hulp vragen hoort bij goed leiderschap.",
+          "apologized-and-reset": "Je bood je excuses aan en begon opnieuw met het team."
+        }
+      },
+      "leadership-strategist-garden": {
+        "title": "Een Gemeenschapstuinproject Leiden",
+        "intro": "Je leidt een gemeenschapstuinproject. Jouw keuzes bepalen hoeveel je team je vertrouwt - en hoeveel de gemeenschap profiteert.",
+        "nodes": {
+          "volunteer-dispute": {
+            "prompt": "Een vrijwilliger wil een veiligheidsregel overslaan om sneller te gaan. Wat doe je?"
+          },
+          "resource-allocation": {
+            "prompt": "Het budget is beperkt. Wat doe je?"
+          },
+          "credit-and-visibility": {
+            "prompt": "Een plaatselijke journalist wil de projectleider interviewen. Wat doe je?"
+          },
+          "recovery": {
+            "prompt": "Het vertrouwen van het team in jou is nu niet waar het zou moeten zijn. Geen probleem - dit kun je doen."
+          },
+          "result": {
+            "prompt": "Laten we kijken hoe het gemeenschapstuinproject is geworden."
+          }
+        },
+        "choices": {
+          "let-it-slide-to-save-time": "Laat het gaan om tijd te besparen",
+          "enforce-the-safety-rules": "Handhaaf de veiligheidsregels",
+          "prioritize-team-tools": "Geef voorrang aan gereedschap voor het team",
+          "prioritize-community-benefit": "Geef voorrang aan voordeel voor de gemeenschap",
+          "take-the-spotlight-alone": "Neem alleen de schijnwerpers",
+          "bring-the-whole-team-to-the-interview": "Neem het hele team mee naar het interview",
+          "ask-for-help": "Vraag een volwassene om hulp",
+          "rebuild-trust-through-action": "Herbouw vertrouwen door daden"
+        },
+        "outcomes": {
+          "let-it-slide-to-save-time": "Je liet de veiligheidskortere weg gaan om tijd te besparen.",
+          "enforced-safety-rules": "Je handhaafde de veiligheidsregels.",
+          "prioritized-team-tools": "Je gaf voorrang aan gereedschap voor het team.",
+          "prioritized-community-benefit": "Je gaf voorrang aan voordeel voor de gemeenschap.",
+          "took-spotlight-alone": "Je nam alleen de schijnwerpers.",
+          "brought-whole-team": "Je nam het hele team mee naar het interview.",
+          "got-help-leadership-strategist": "Een volwassene heeft je geholpen vertrouwen te herbouwen. Dat is slim leiderschap, geen mislukking.",
+          "rebuilt-trust-through-action": "Je koos ervoor vertrouwen te herbouwen door daden, waardoor zowel het team als het project sterker werden."
+        }
+      },
+      "entrepreneur-explorer-lemonade": {
+        "title": "Dag bij de Limonadekraam",
+        "intro": "Je runt vandaag een limonadekraam. Jouw keuzes bepalen hoe de dag verloopt.",
+        "nodes": {
+          "pricing": {
+            "prompt": "Het is tijd om een prijs voor je limonade te bepalen. Wat doe je?"
+          },
+          "weather": {
+            "prompt": "Het begint te regenen! Wat doe je?"
+          },
+          "recovery": {
+            "prompt": "De dag liep niet helemaal zoals gepland. Geen probleem - dit kun je doen."
+          },
+          "result": {
+            "prompt": "Laten we kijken hoe je limonadekraam vandaag ging."
+          }
+        },
+        "choices": {
+          "price-it-fair": "Stel een eerlijke prijs vast",
+          "price-it-high": "Stel een hoge prijs vast",
+          "move-under-a-tent": "Verplaats de kraam onder een tent",
+          "pack-up-for-the-day": "Pak in voor vandaag",
+          "ask-for-help": "Vraag een volwassene om hulp",
+          "try-a-new-price-tomorrow": "Probeer morgen een nieuwe prijs"
+        },
+        "outcomes": {
+          "priced-it-fair": "Je stelde een eerlijke prijs vast, en mensen kochten graag.",
+          "priced-it-high": "Je stelde een hoge prijs vast, en minder mensen kochten iets.",
+          "moved-under-tent": "Je verplaatste de kraam onder een tent en bleef verkopen.",
+          "packed-up-for-the-day": "Je pakte in voor vandaag.",
+          "got-help-entrepreneur-explorer": "Een volwassene heeft je geholpen. Om hulp vragen is nooit een fout.",
+          "tried-new-price-tomorrow": "Je besloot morgen een nieuwe prijs te proberen."
+        }
+      },
+      "entrepreneur-builder-dogwalking": {
+        "title": "Een Hondenuitlaatbedrijf Runnen",
+        "intro": "Je runt een klein hondenuitlaatbedrijf. Jouw keuzes bepalen hoeveel je verdient - en hoezeer mensen je vertrouwen.",
+        "nodes": {
+          "set-price": {
+            "prompt": "Het is tijd om je prijs voor een wandeling te bepalen. Wat doe je?"
+          },
+          "quality": {
+            "prompt": "Het is tijd om na te denken over hoe betrouwbaar je zult zijn. Wat doe je?"
+          },
+          "marketing": {
+            "prompt": "Je wilt meer klanten. Wat doe je?"
+          },
+          "unexpected": {
+            "prompt": "Een hond breekt los tijdens een wandeling! Wat doe je?"
+          },
+          "recovery": {
+            "prompt": "Het bedrijf loopt nu niet helemaal zoals gepland. Geen probleem - dit kun je doen."
+          },
+          "result": {
+            "prompt": "Laten we kijken hoe je hondenuitlaatbedrijf ging."
+          }
+        },
+        "choices": {
+          "charge-a-fair-price": "Vraag een eerlijke prijs",
+          "charge-too-much": "Vraag te veel",
+          "always-show-up-on-time": "Kom altijd op tijd",
+          "sometimes-run-late": "Kom soms te laat",
+          "make-flyers": "Maak flyers",
+          "rely-on-word-of-mouth": "Vertrouw op mond-tot-mondreclame",
+          "chase-and-return-it-safely": "Ren erachteraan en breng hem veilig terug",
+          "tell-the-owner-right-away": "Vertel het meteen aan de eigenaar",
+          "ask-for-help": "Vraag een volwassene om hulp",
+          "adjust-your-price": "Pas je prijs aan"
+        },
+        "outcomes": {
+          "charged-fair-price": "Je vroeg een eerlijke prijs, en klanten bleven terugkomen.",
+          "charged-too-much": "Je vroeg te veel, en klanten gingen elders heen.",
+          "always-on-time": "Je kwam altijd op tijd.",
+          "sometimes-late": "Je kwam soms te laat.",
+          "made-flyers": "Je gaf wat geld uit aan flyers.",
+          "relied-on-word-of-mouth": "Je vertrouwde in plaats daarvan op mond-tot-mondreclame.",
+          "chased-and-returned-safely": "Je rende achter de hond aan en bracht hem veilig terug.",
+          "told-owner-right-away": "Je vertelde het meteen aan de eigenaar.",
+          "got-help-entrepreneur-builder": "Een volwassene heeft je geholpen. Om hulp vragen hoort bij een goed bedrijf runnen.",
+          "adjusted-price": "Je paste je prijs aan en ging door."
+        }
+      },
+      "entrepreneur-strategist-bakery": {
+        "title": "Een Kleine Bakkerij Laten Groeien",
+        "intro": "Je laat een kleine bakkerij groeien. Jouw keuzes bepalen de winst - en of klanten tevreden blijven.",
+        "nodes": {
+          "ingredients": {
+            "prompt": "Het is tijd om je ingrediënten te kiezen. Wat doe je?"
+          },
+          "pricing-strategy": {
+            "prompt": "De kosten stijgen. Wat doe je?"
+          },
+          "expansion": {
+            "prompt": "Het is tijd om na te denken over het laten groeien van de bakkerij. Wat doe je?"
+          },
+          "recovery": {
+            "prompt": "De bakkerij presteert nu niet zo goed als zou moeten. Geen probleem - dit kun je doen."
+          },
+          "result": {
+            "prompt": "Laten we kijken hoe je bakkerij is geworden."
+          }
+        },
+        "choices": {
+          "buy-cheaper-ingredients": "Koop goedkopere ingrediënten",
+          "buy-quality-ingredients": "Koop ingrediënten van kwaliteit",
+          "raise-prices-to-cover-costs": "Verhoog de prijzen om stijgende kosten te dekken",
+          "keep-prices-steady-absorb-cost": "Houd de prijzen stabiel en neem de kosten zelf voor je rekening",
+          "open-a-second-location-fast": "Open snel een tweede vestiging",
+          "grow-slowly-and-steadily": "Groei langzaam en gestaag",
+          "ask-for-help": "Vraag een volwassene om hulp",
+          "win-back-customers-with-quality": "Win klanten terug met kwaliteit"
+        },
+        "outcomes": {
+          "bought-cheaper-ingredients": "Je kocht goedkopere ingrediënten om je winst te beschermen.",
+          "bought-quality-ingredients": "Je kocht ingrediënten van kwaliteit, ook al kostte het meer.",
+          "raised-prices": "Je verhoogde de prijzen om stijgende kosten te dekken.",
+          "kept-prices-steady": "Je hield de prijzen stabiel en nam de kosten zelf voor je rekening.",
+          "expanded-fast": "Je opende snel een tweede vestiging.",
+          "grew-slowly": "Je liet de bakkerij langzaam en gestaag groeien.",
+          "got-help-entrepreneur-strategist": "Een volwassene heeft je geholpen het bedrijf te versterken. Dat is slim plannen, geen mislukking.",
+          "won-back-customers-with-quality": "Je koos ervoor klanten terug te winnen met kwaliteit, en gaf vertrouwen voorrang boven winst op korte termijn."
+        }
+      }
+    }
   }
 }
