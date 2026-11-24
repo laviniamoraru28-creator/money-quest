@@ -19,7 +19,7 @@ jobs:
   website:
     name: website-node-24.22.1
     runs-on: ubuntu-24.04
-    timeout-minutes: 70
+    timeout-minutes: 80
     env:
       NEXT_PUBLIC_SITE_URL: https://moneyquesteducation.com
       NEXT_TELEMETRY_DISABLED: 1
@@ -42,6 +42,23 @@ jobs:
         with:
           path: ~/.cache/ms-playwright
           key: chromium-webkit-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+      - name: Make the apt archive cache directory writable for cache restore/save
+        # playwright install --with-deps shells out to `sudo apt-get install`,
+        # which is what actually times out here - not the browser binary
+        # download. On a fresh runner it has to pull ~126MB across 180+ new
+        # packages (WebKit's GStreamer/multimedia dependency chain), and that
+        # download alone has twice taken longer than the 22-minute step
+        # budget on a slow regional apt mirror (observed ~100KB/s). Caching
+        # /var/cache/apt/archives lets apt skip re-downloading .deb files it
+        # already has, leaving only the fast local dpkg install. The
+        # directory is root-owned by default; actions/cache runs as the
+        # unprivileged runner user, so it needs write access to restore/save.
+        run: sudo chown -R "$(id -u):$(id -g)" /var/cache/apt/archives
+      - uses: actions/cache/restore@v4
+        id: apt-cache
+        with:
+          path: /var/cache/apt/archives
+          key: apt-playwright-deps-${{ runner.os }}-24.04-${{ hashFiles('package-lock.json') }}
       - uses: actions/cache/restore@v4
         with:
           path: .website-audit-baseline.json
@@ -116,12 +133,24 @@ jobs:
         id: browsers
         if: "!cancelled() && steps.build.outcome == 'success'"
         run: npx playwright install --with-deps chromium webkit
-        timeout-minutes: 22
+        timeout-minutes: 30
       - uses: actions/cache/save@v4
-        if: "!cancelled() && steps.browsers.outcome == 'success' && github.event_name == 'schedule' && steps.browser-cache.outputs.cache-hit != 'true'"
+        # Previously gated on `github.event_name == 'schedule'` - but the
+        # only scheduled run this workflow has ever had failed in 18
+        # seconds (schedule-gate skip), so this cache had never actually
+        # been populated by any event, and every pull_request/push run paid
+        # the full cold-install cost. Save on any successful install now;
+        # GitHub Actions cache scoping still lets every branch read back
+        # whatever main's own push-triggered runs save.
+        if: "!cancelled() && steps.browsers.outcome == 'success' && steps.browser-cache.outputs.cache-hit != 'true'"
         with:
           path: ~/.cache/ms-playwright
           key: chromium-webkit-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+      - uses: actions/cache/save@v4
+        if: "!cancelled() && steps.browsers.outcome == 'success' && steps.apt-cache.outputs.cache-hit != 'true'"
+        with:
+          path: /var/cache/apt/archives
+          key: apt-playwright-deps-${{ runner.os }}-24.04-${{ hashFiles('package-lock.json') }}
       - name: Start isolated production build
         id: server
         if: "!cancelled() && steps.browsers.outcome == 'success'"
