@@ -3,9 +3,8 @@ import {CinematicScene} from "@/components/CinematicScene";
 import Image from "next/image";
 import {CinematicWorldHero} from "@/components/CinematicWorldHero";
 
-import { HomepageMissionPreview } from "@/components/HomepageMissionPreview";
+import { cinematicQuests } from "@/content/cinematic-quests";
 import {ChooseLearningLevelLink} from "@/components/ChooseLearningLevelLink";
-import {certificateJourneyCopy} from "@/content/certificate-journey-copy";
 import {isSupportedLocale} from "@/i18n/config";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
@@ -16,7 +15,6 @@ import { getSiteUrl } from "@/lib/seo/site-url";
 export default async function LandingPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const t = await getTranslations();
-  const journey=certificateJourneyCopy[isSupportedLocale(locale)?locale:"en"];
   const siteUrl = getSiteUrl();
   const orgSchema = buildOrganizationSchema(siteUrl);
   const webSiteSchema = buildWebSiteSchema(siteUrl, locale);
@@ -67,14 +65,16 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
           </div>
         </section>
 
-        <HomepageMissionPreview locale={locale} />
-        <section aria-labelledby="how-it-works-heading" className="mx-auto max-w-[1200px] px-sm pb-2xl">
-          <div className="rounded-2xl border border-teal/20 bg-white p-md md:p-lg">
-            <h2 id="how-it-works-heading" className="font-display text-2xl font-bold">{journey.heading}</h2>
-            <p className="mt-3">{journey.steps}</p>
-            <p className="mt-3">{journey.print}</p>
-          </div>
-        </section>
+        <ul className="mx-auto grid max-w-[1200px] gap-md px-sm pb-2xl sm:grid-cols-2 lg:grid-cols-4">
+          {cinematicQuests.map(quest => (
+            <li key={quest.key}>
+              <Link href={quest.href} className="block overflow-hidden rounded-2xl bg-[#14263e] text-white focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal">
+                <Image unoptimized src={`/cinematic/quests/${quest.key}/intro.webp`} alt="" width={480} height={270} loading="lazy" className="aspect-video w-full object-cover" />
+                <span className="block p-md text-center font-display text-xl font-bold">{quest.title}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </main>
 
       <footer className="border-t border-ink/10 bg-white py-md">

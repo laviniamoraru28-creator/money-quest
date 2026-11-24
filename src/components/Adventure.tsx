@@ -11,21 +11,13 @@ import { useLocalProgress } from "@/lib/local-progress/use-local-progress";
 import { AdventureAvatar, avatarKey, readAvatar } from "./AdventureAvatar";
 import { CinematicScene } from "./CinematicScene";
 
-import { milestones, questBadges, type QuestKey } from "@/content/quest-milestones";
+import { milestones, questBadges } from "@/content/quest-milestones";
 import { isCertificateEligible } from "@/lib/certificates/eligibility";
 import { useEntrepreneurQuest } from "@/lib/entrepreneur-quest/use-entrepreneur-quest";
 import { useLeadershipQuest } from "@/lib/leadership-quest/use-leadership-quest";
 
-const worlds: { key: QuestKey; title: string; href: string }[] = [
-  { key: "money", title: "Money Quest", href: "/play" },
-  {
-    key: "entrepreneur",
-    title: "Entrepreneur Quest",
-    href: "/entrepreneur-quest",
-  },
-  { key: "leadership", title: "Leadership Quest", href: "/leadership-quest" },
-  { key: "ai", title: "AI Quest", href: "/ai-quest" },
-];
+import { cinematicQuests as worlds } from "@/content/cinematic-quests";
+
 const action =
   "inline-flex min-h-12 items-center justify-center rounded-xl border border-[#c9953d] bg-[#14263e] px-5 py-3 font-bold text-white";
 export function Adventure({ band }: { band?: AgeBand }) {
