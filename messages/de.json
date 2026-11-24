@@ -8085,5 +8085,522 @@
       "title": "Stufe Stratege",
       "body": "Dieser Teil der Reise ist für ältere Entdecker (12-14 Jahre) gedacht. Wechsle in der Stufenauswahl zu Stratege, um ihn zu entdecken, oder mach einfach mit allem weiter, was für dich schon freigeschaltet ist."
     }
+  },
+  "agency": {
+    "resourceLabels": {
+      "coins": "Münzen",
+      "savedForBike": "Gespart fürs Fahrrad",
+      "communityImpact": "Gemeinschaftswirkung",
+      "confidence": "Zuversicht",
+      "projectQuality": "Projektqualität",
+      "privacyScore": "Privatsphäre",
+      "planQuality": "Planqualität",
+      "trustworthiness": "Vertrauenswürdigkeit",
+      "teamSpirit": "Teamgeist",
+      "teamMorale": "Teammoral",
+      "projectProgress": "Projektfortschritt",
+      "teamTrust": "Vertrauen im Team",
+      "reputation": "Ruf",
+      "profit": "Gewinn",
+      "customerSatisfaction": "Kundenzufriedenheit"
+    },
+    "recoveryBadge": "Das lösen wir gemeinsam",
+    "askForHelpButton": "Ich brauche Hilfe",
+    "restartButton": "Woche neu starten",
+    "statusCompletedHeading": "Woche abgeschlossen!",
+    "statusCompletedBody": "So ist diese Woche verlaufen. Du kannst jederzeit einen neuen Plan ausprobieren.",
+    "historyHeading": "Was du gewählt hast",
+    "missions": {
+      "money-explorer-week-one": {
+        "title": "Eine Woche Taschengeld",
+        "intro": "Du hast 25 Münzen für die Woche. Wähle jeden Tag, was du tun möchtest, und sieh, was passiert.",
+        "nodes": {
+          "monday": {
+            "prompt": "Es ist Montag! Was möchtest du heute mit deinen Münzen tun?"
+          },
+          "wednesday": {
+            "prompt": "Ein Schulausflug kostet 10 Münzen. Was machst du?"
+          },
+          "recovery": {
+            "prompt": "Du hast gerade nicht genug Münzen. Das ist in Ordnung - hier ist, was du tun kannst."
+          },
+          "friday": {
+            "prompt": "Die Woche ist zu Ende! Schauen wir, wie es gelaufen ist."
+          }
+        },
+        "choices": {
+          "save": "Spare deine Münzen heute",
+          "treat": "Kaufe dir eine kleine Belohnung (20 Münzen)",
+          "pay-trip": "Bezahle den Ausflug (10 Münzen)",
+          "skip-trip": "Verzichte dieses Mal auf den Ausflug",
+          "ask-for-help": "Bitte einen Erwachsenen um einen Zuschuss (+10 Münzen)",
+          "reorganise-budget": "Mach weiter mit dem, was du hast"
+        },
+        "outcomes": {
+          "saved-monday": "Gut gespart! Du hast alle Münzen für später behalten.",
+          "spent-on-treat": "Du hast dir heute eine Belohnung gegönnt.",
+          "paid-trip": "Du hast den Ausflug bezahlt. Gut geplant!",
+          "skipped-trip": "Du hast auf den Ausflug verzichtet und deine Münzen behalten.",
+          "got-help": "Ein Erwachsener hat dir geholfen. Um Hilfe zu bitten ist eine kluge Entscheidung, kein Fehler.",
+          "reorganised": "Du hast einen neuen Plan mit dem gemacht, was übrig war. Das ist echtes Problemlösen!"
+        }
+      },
+      "money-builder-month-one": {
+        "title": "Sparen für ein Fahrrad",
+        "intro": "Du hast 40 Münzen und möchtest für ein Fahrrad sparen. Triff über vier Wochen Entscheidungen und sieh, wie dein Plan funktioniert.",
+        "nodes": {
+          "week1": {
+            "prompt": "Woche 1: Du hast etwas Geld zum Ausgeben. Was machst du?"
+          },
+          "week2": {
+            "prompt": "Woche 2: Ein Freund lädt dich ein, und es kostet etwas extra. Was machst du?"
+          },
+          "week3": {
+            "prompt": "Woche 3: Du hast die Gelegenheit, mit Aufgaben etwas mehr zu verdienen. Was machst du?"
+          },
+          "week4": {
+            "prompt": "Woche 4: die letzte Etappe vor Monatsende. Was machst du?"
+          },
+          "recovery": {
+            "prompt": "Du hast gerade nicht genug Münzen. Das ist in Ordnung - hier ist, was du tun kannst."
+          },
+          "result": {
+            "prompt": "Der Monat ist zu Ende! Schauen wir, wie dein Plan gelaufen ist."
+          }
+        },
+        "choices": {
+          "save-15": "Lege 15 Münzen für dein Fahrrad beiseite",
+          "spend-on-games": "Gib jetzt 15 Münzen für Spiele aus",
+          "share-treat": "Lade deinen Freund auch ein (5 Münzen)",
+          "decline-politely": "Sag höflich nein",
+          "do-chores": "Erledige zusätzliche Aufgaben (+10 Münzen)",
+          "skip-chores": "Lass die Aufgaben diese Woche aus",
+          "add-10-more": "Füge 10 weitere Münzen für dein Fahrrad hinzu",
+          "wait-and-save-later": "Warte und spare später mehr",
+          "ask-for-help": "Bitte einen Erwachsenen um einen Zuschuss (+15 Münzen)",
+          "adjust-goal": "Passe dein Sparziel an und mach weiter"
+        },
+        "outcomes": {
+          "saved-week1": "Du hast das Geld direkt für dein Fahrrad zurückgelegt.",
+          "spent-week1": "Du hast deine Münzen heute für Spiele ausgegeben.",
+          "shared-treat": "Du hast auch deinen Freund eingeladen.",
+          "declined-politely": "Du hast höflich nein gesagt und deine Münzen behalten.",
+          "did-chores": "Du hast mit Aufgaben extra Münzen verdient.",
+          "skipped-chores": "Du hast die Aufgaben diese Woche ausgelassen.",
+          "added-more": "Du hast noch mehr für dein Fahrrad hinzugefügt.",
+          "waited": "Du hast beschlossen zu warten und später mehr zu sparen.",
+          "got-help-builder": "Ein Erwachsener hat dir geholfen. Um Hilfe zu bitten gehört zu einem guten Plan, ist kein Fehler.",
+          "adjusted-goal": "Du hast dein Sparziel an das angepasst, was du wirklich hast. Das ist kluges Haushalten!"
+        }
+      },
+      "money-strategist-term-one": {
+        "title": "Ein Halbjahr kluger Entscheidungen",
+        "intro": "Du hast 35 Münzen. Entscheide, wie sie wachsen sollen, wohin sie gehen, und wie du mit dem Unerwarteten umgehst - und sieh dann, wie dein Halbjahr verlaufen ist.",
+        "nodes": {
+          "decision1": {
+            "prompt": "Du könntest einige Münzen in einen langfristigen Plan stecken oder sie griffbereit halten. Was machst du?"
+          },
+          "decision2": {
+            "prompt": "Deine Gemeinschaft veranstaltet eine Spendenaktion. Was machst du?"
+          },
+          "decision3": {
+            "prompt": "Etwas braucht eine unerwartete Reparatur. Was machst du?"
+          },
+          "recovery": {
+            "prompt": "Du hast gerade nicht genug Münzen. Das ist in Ordnung - hier ist, was du tun kannst."
+          },
+          "result": {
+            "prompt": "Das Halbjahr ist zu Ende! Schauen wir, wie deine Entscheidungen gelaufen sind."
+          }
+        },
+        "choices": {
+          "invest-half": "Lege 20 Münzen in einen langfristigen Plan an",
+          "keep-liquid": "Halte alle Münzen griffbereit",
+          "contribute-to-fundraiser": "Spende 15 Münzen für die Spendenaktion",
+          "keep-for-yourself": "Behalte deine Münzen für dich",
+          "pay-for-repair": "Zahle jetzt 30 Münzen für die Reparatur",
+          "delay-repair": "Verschiebe die Reparatur erst einmal",
+          "ask-for-help": "Bitte einen Erwachsenen um einen Zuschuss (+20 Münzen)",
+          "reassess-budget": "Überdenke dein Budget und mach weiter"
+        },
+        "outcomes": {
+          "invested": "Du hast einige Münzen in einen langfristigen Plan gesteckt.",
+          "kept-liquid": "Du hast alle Münzen griffbereit gehalten.",
+          "contributed": "Du hast zur Spendenaktion beigetragen - das ist echte Wirkung in deiner Gemeinschaft.",
+          "kept-for-self": "Du hast deine Münzen für dich behalten. Auch das ist eine faire Entscheidung.",
+          "paid-repair": "Du hast die Reparatur sofort bezahlt.",
+          "delayed-repair": "Du hast die Reparatur erst einmal verschoben.",
+          "got-help-strategist": "Ein Erwachsener hat dir geholfen. Um Hilfe zu bitten gehört zu kluger Planung, ist kein Fehler.",
+          "reassessed": "Du hast dein Budget überdacht und mit einem klareren Plan weitergemacht."
+        }
+      },
+      "ai-explorer-helper-robot": {
+        "title": "Der Helferroboter",
+        "intro": "Ein Helferroboter kann Fragen für dich beantworten. Manchmal hat er recht, manchmal nicht - finden wir es gemeinsam heraus.",
+        "nodes": {
+          "question1": {
+            "prompt": "Der Helferroboter sagt, 2 + 2 = 5. Was machst du?"
+          },
+          "question2": {
+            "prompt": "Der Helferroboter sagt, eine Woche hat 7 Tage. Was machst du?"
+          },
+          "recovery": {
+            "prompt": "Diese Antwort war nicht richtig. Das ist in Ordnung - hier ist, was du tun kannst."
+          },
+          "result": {
+            "prompt": "Schauen wir, wie es mit dem Helferroboter gelaufen ist."
+          }
+        },
+        "choices": {
+          "trust-the-robot": "Vertraue der Antwort des Roboters",
+          "check-with-grownup": "Erst mit einem Erwachsenen nachprüfen",
+          "ask-for-help": "Einen Erwachsenen um Hilfe bitten",
+          "try-again": "Noch einmal versuchen"
+        },
+        "outcomes": {
+          "trusted-wrong-answer": "Du hast dem Roboter vertraut, aber diesmal lag er falsch.",
+          "checked-first": "Du hast zuerst nachgeprüft - eine kluge Gewohnheit bei jedem Helfer.",
+          "trusted-right-answer": "Du hast dem Roboter vertraut, und diesmal hatte er recht!",
+          "checked-again": "Du hast noch einmal nachgeprüft, um sicherzugehen.",
+          "got-help-ai-explorer": "Ein Erwachsener hat dir geholfen. Nachprüfen ist nie ein Fehler.",
+          "tried-again": "Du hast dich entschieden, es noch einmal zu versuchen."
+        }
+      },
+      "ai-builder-book-report": {
+        "title": "Einen Buchbericht mit einem Roboter-Helfer schreiben",
+        "intro": "Ein Helferroboter kann einen ersten Entwurf deines Buchberichts schreiben. Deine Entscheidungen bestimmen, wie gut - und wie ehrlich - der fertige Bericht ist.",
+        "nodes": {
+          "draft": {
+            "prompt": "Der Roboter schreibt einen ersten Entwurf für dich. Was machst du?"
+          },
+          "fact-check": {
+            "prompt": "Der Roboter nennt das falsche Jahr, in dem das Buch geschrieben wurde. Was machst du?"
+          },
+          "personal-info": {
+            "prompt": "Der Roboter fragt nach deinem vollen Namen und deiner Schule, 'um den Bericht zu personalisieren'. Was machst du?"
+          },
+          "final-review": {
+            "prompt": "Dein Bericht ist fast fertig. Was machst du?"
+          },
+          "recovery": {
+            "prompt": "Dein Bericht braucht gerade etwas Arbeit. Das ist in Ordnung - hier ist, was du tun kannst."
+          },
+          "result": {
+            "prompt": "Schauen wir, wie dein Buchbericht geworden ist."
+          }
+        },
+        "choices": {
+          "use-as-is": "Nutze den Entwurf des Roboters genau so, wie er ist",
+          "add-your-own-ideas": "Füge deine eigenen Ideen und Worte hinzu",
+          "trust-it": "Vertraue der Angabe des Roboters",
+          "look-it-up": "Schlage es nach, um sicherzugehen",
+          "share-it": "Teile deinen Namen und deine Schule",
+          "keep-it-private": "Halte diese Information privat",
+          "submit-without-reviewing": "Reiche ihn ein, ohne ihn zu überprüfen",
+          "review-with-an-adult": "Überprüfe ihn zuerst mit einem Erwachsenen",
+          "ask-for-help": "Einen Erwachsenen um Hilfe bitten",
+          "start-this-section-over": "Diesen Abschnitt noch einmal beginnen"
+        },
+        "outcomes": {
+          "used-draft-as-is": "Du hast den Entwurf des Roboters genau so verwendet, wie er war.",
+          "improved-draft": "Du hast deine eigenen Ideen hinzugefügt - der Bericht klingt mehr nach dir.",
+          "trusted-wrong-fact": "Du hast einer Angabe vertraut, die sich als falsch herausstellte.",
+          "verified-fact": "Du hast nachgeschlagen und den Fehler entdeckt.",
+          "shared-personal-info": "Du hast deinen Namen und deine Schule mit dem Roboter geteilt.",
+          "kept-info-private": "Du hast deine persönlichen Daten privat gehalten - eine kluge Entscheidung im Internet.",
+          "submitted-quickly": "Du hast den Bericht schnell eingereicht, ohne eine letzte Prüfung.",
+          "reviewed-with-adult": "Du hast den Bericht vor der Abgabe mit einem Erwachsenen überprüft.",
+          "got-help-ai-builder": "Ein Erwachsener hat dir geholfen, den Bericht zu verbessern. Um Hilfe zu bitten gehört zu guter Arbeit.",
+          "restarted-section": "Du hast beschlossen, diesen Abschnitt noch einmal zu beginnen."
+        }
+      },
+      "ai-strategist-business-plan": {
+        "title": "Einen KI-Assistenten für deinen Businessplan nutzen",
+        "intro": "Ein KI-Assistent kann dir helfen, schnell einen Businessplan zu erstellen. Wie du ihn nutzt, entscheidet, ob dein Plan solide ist - und ob man ihm vertrauen kann.",
+        "nodes": {
+          "market-research": {
+            "prompt": "Der KI-Assistent gibt dir beeindruckende Marktstatistiken. Was machst du?"
+          },
+          "ai-written-pitch": {
+            "prompt": "Der KI-Assistent schreibt deinen ganzen Pitch. Was machst du?"
+          },
+          "ai-generated-image": {
+            "prompt": "Der KI-Assistent erstellt ein Logo-Bild für dein Unternehmen. Was machst du?"
+          },
+          "recovery": {
+            "prompt": "Dein Plan braucht gerade etwas Arbeit. Das ist in Ordnung - hier ist, was du tun kannst."
+          },
+          "result": {
+            "prompt": "Schauen wir, wie dein Businessplan geworden ist."
+          }
+        },
+        "choices": {
+          "use-stats-directly": "Nutze die Statistiken direkt in deinem Plan",
+          "verify-with-real-sources": "Überprüfe sie zuerst mit echten Quellen",
+          "submit-ai-pitch-unedited": "Reiche den KI-Pitch unbearbeitet ein",
+          "revise-and-personalize": "Überarbeite ihn und mach ihn zu deinem eigenen",
+          "use-it-and-claim-original": "Nutze es und behaupte, du hättest es selbst gemacht",
+          "disclose-ai-assistance": "Sag offen, dass KI bei der Erstellung geholfen hat",
+          "ask-for-help": "Einen Erwachsenen um Hilfe bitten",
+          "rebuild-honestly": "Baue den Plan von hier an ehrlich neu auf"
+        },
+        "outcomes": {
+          "used-unverified-stats": "Du hast Statistiken verwendet, die sich als ungeprüft herausstellten.",
+          "verified-stats": "Du hast die Statistiken mit echten Quellen überprüft - dein Plan steht auf solidem Boden.",
+          "submitted-unedited-pitch": "Du hast den KI-Pitch genau so eingereicht, wie er geschrieben wurde.",
+          "personalized-pitch": "Du hast den Pitch überarbeitet, sodass er wirklich deine eigenen Ideen widerspiegelt.",
+          "misrepresented-ai-image": "Du hast behauptet, das KI-generierte Bild sei vollständig deine eigene Arbeit.",
+          "disclosed-ai-use": "Du warst offen, dass KI bei der Erstellung des Bildes geholfen hat - das schafft echtes Vertrauen.",
+          "got-help-ai-strategist": "Ein Erwachsener hat dir geholfen, den Plan zu stärken. Das ist kluge Planung, kein Scheitern.",
+          "rebuilt-honestly": "Du hast dich entschieden, den Plan ehrlich neu aufzubauen und Vertrauen vor Geschwindigkeit zu stellen."
+        }
+      },
+      "leadership-explorer-fort": {
+        "title": "Gemeinsam eine Festung Bauen",
+        "intro": "Du und deine Freunde baut eine Festung. Deine Entscheidungen bestimmen, wie es sich anfühlt, zusammenzuarbeiten.",
+        "nodes": {
+          "sharing-blocks": {
+            "prompt": "Du hast die besten Bausteine. Was machst du?"
+          },
+          "someone-left-out": {
+            "prompt": "Ein Freund fühlt sich beim Bauen ausgeschlossen. Was machst du?"
+          },
+          "recovery": {
+            "prompt": "Das Team fühlt sich gerade nicht so gut. Das ist in Ordnung - hier ist, was du tun kannst."
+          },
+          "result": {
+            "prompt": "Schauen wir, wie der gemeinsame Bau der Festung gelaufen ist."
+          }
+        },
+        "choices": {
+          "share-the-blocks": "Teile die besten Bausteine mit allen",
+          "keep-best-blocks": "Behalte die besten Bausteine für dich",
+          "invite-them-in": "Lade ihn ein, mitzumachen",
+          "keep-building-without-them": "Bau ohne ihn weiter",
+          "ask-for-help": "Einen Erwachsenen um Hilfe bitten",
+          "share-now-instead": "Stattdessen jetzt teilen"
+        },
+        "outcomes": {
+          "shared-blocks": "Du hast die besten Bausteine mit allen geteilt.",
+          "kept-best-blocks": "Du hast die besten Bausteine für dich behalten.",
+          "invited-them-in": "Du hast deinen Freund eingeladen mitzumachen.",
+          "kept-building-without-them": "Du hast ohne ihn weitergebaut.",
+          "got-help-leadership-explorer": "Ein Erwachsener hat dir geholfen. Um Hilfe zu bitten ist nie ein Fehler.",
+          "shared-now-instead": "Du hast dich entschieden, stattdessen jetzt zu teilen."
+        }
+      },
+      "leadership-builder-fundraiser": {
+        "title": "Den Spendenlauf der Klasse Planen",
+        "intro": "Deine Klasse plant einen Spendenlauf. Deine Entscheidungen bestimmen, wie das Team zusammenarbeitet - und wie viel geschafft wird.",
+        "nodes": {
+          "assign-tasks": {
+            "prompt": "Es ist Zeit, Aufgaben für den Spendenlauf zu verteilen. Was machst du?"
+          },
+          "disagreement": {
+            "prompt": "Zwei Teammitglieder streiten über die Gestaltung des Kuchenverkaufstisches. Was machst du?"
+          },
+          "falling-behind": {
+            "prompt": "Das Projekt gerät in Verzug. Was machst du?"
+          },
+          "credit": {
+            "prompt": "Der Spendenlauf war ein Erfolg! Was machst du?"
+          },
+          "recovery": {
+            "prompt": "Das Team fühlt sich gerade nicht so gut. Das ist in Ordnung - hier ist, was du tun kannst."
+          },
+          "result": {
+            "prompt": "Schauen wir, wie der Spendenlauf der Klasse gelaufen ist."
+          }
+        },
+        "choices": {
+          "let-everyone-pick": "Lass jeden seine eigene Aufgabe wählen",
+          "assign-tasks-yourself": "Verteile die Aufgaben selbst, um schneller voranzukommen",
+          "let-them-work-it-out": "Lass sie es selbst klären",
+          "help-them-find-a-compromise": "Hilf ihnen, einen Kompromiss zu finden",
+          "push-the-team-harder": "Dränge das Team, härter zu arbeiten",
+          "ask-who-needs-help": "Frage, wer Hilfe braucht",
+          "take-credit-yourself": "Schreib dir die Idee allein zu",
+          "share-credit-with-team": "Teile die Anerkennung mit dem ganzen Team",
+          "ask-for-help": "Einen Erwachsenen um Hilfe bitten",
+          "apologize-and-reset": "Entschuldige dich und starte mit dem Team neu"
+        },
+        "outcomes": {
+          "let-everyone-pick": "Du hast jeden seine eigene Aufgabe wählen lassen.",
+          "assigned-tasks-yourself": "Du hast die Aufgaben selbst verteilt, um schneller voranzukommen.",
+          "let-them-work-it-out": "Du hast den Streit ungelöst gelassen.",
+          "helped-find-compromise": "Du hast deinen Teammitgliedern geholfen, einen Kompromiss zu finden.",
+          "pushed-team-harder": "Du hast das Team gedrängt, härter zu arbeiten.",
+          "asked-who-needs-help": "Du hast gefragt, wer Hilfe braucht.",
+          "took-credit-yourself": "Du hast dir die Idee allein zugeschrieben.",
+          "shared-credit-with-team": "Du hast die Anerkennung mit dem ganzen Team geteilt.",
+          "got-help-leadership-builder": "Ein Erwachsener hat dir geholfen. Um Hilfe zu bitten gehört zu guter Führung.",
+          "apologized-and-reset": "Du hast dich entschuldigt und mit dem Team neu gestartet."
+        }
+      },
+      "leadership-strategist-garden": {
+        "title": "Ein Gemeinschaftsgarten-Projekt Leiten",
+        "intro": "Du leitest ein Gemeinschaftsgarten-Projekt. Deine Entscheidungen bestimmen, wie sehr dein Team dir vertraut - und wie sehr die Gemeinschaft profitiert.",
+        "nodes": {
+          "volunteer-dispute": {
+            "prompt": "Ein Freiwilliger möchte eine Sicherheitsregel überspringen, um schneller voranzukommen. Was machst du?"
+          },
+          "resource-allocation": {
+            "prompt": "Das Budget ist begrenzt. Was machst du?"
+          },
+          "credit-and-visibility": {
+            "prompt": "Ein lokaler Reporter möchte die Projektleitung interviewen. Was machst du?"
+          },
+          "recovery": {
+            "prompt": "Das Vertrauen des Teams in dich ist gerade nicht dort, wo es sein sollte. Das ist in Ordnung - hier ist, was du tun kannst."
+          },
+          "result": {
+            "prompt": "Schauen wir, wie das Gemeinschaftsgarten-Projekt geworden ist."
+          }
+        },
+        "choices": {
+          "let-it-slide-to-save-time": "Lass es durchgehen, um Zeit zu sparen",
+          "enforce-the-safety-rules": "Setze die Sicherheitsregeln durch",
+          "prioritize-team-tools": "Priorisiere Werkzeuge für das Team",
+          "prioritize-community-benefit": "Priorisiere den Nutzen für die Gemeinschaft",
+          "take-the-spotlight-alone": "Nimm das Rampenlicht allein",
+          "bring-the-whole-team-to-the-interview": "Bring das ganze Team zum Interview mit",
+          "ask-for-help": "Einen Erwachsenen um Hilfe bitten",
+          "rebuild-trust-through-action": "Vertrauen durch Taten wiederaufbauen"
+        },
+        "outcomes": {
+          "let-it-slide-to-save-time": "Du hast die Sicherheitsabkürzung durchgehen lassen, um Zeit zu sparen.",
+          "enforced-safety-rules": "Du hast die Sicherheitsregeln durchgesetzt.",
+          "prioritized-team-tools": "Du hast Werkzeuge für das Team priorisiert.",
+          "prioritized-community-benefit": "Du hast den Nutzen für die Gemeinschaft priorisiert.",
+          "took-spotlight-alone": "Du hast das Rampenlicht allein genommen.",
+          "brought-whole-team": "Du hast das ganze Team zum Interview mitgebracht.",
+          "got-help-leadership-strategist": "Ein Erwachsener hat dir geholfen, Vertrauen wiederaufzubauen. Das ist kluge Führung, kein Scheitern.",
+          "rebuilt-trust-through-action": "Du hast dich entschieden, Vertrauen durch Taten wiederaufzubauen und damit Team und Projekt zu stärken."
+        }
+      },
+      "entrepreneur-explorer-lemonade": {
+        "title": "Limonadenstand-Tag",
+        "intro": "Du betreibst heute einen Limonadenstand. Deine Entscheidungen bestimmen, wie der Tag läuft.",
+        "nodes": {
+          "pricing": {
+            "prompt": "Es ist Zeit, einen Preis für deine Limonade festzulegen. Was machst du?"
+          },
+          "weather": {
+            "prompt": "Es fängt an zu regnen! Was machst du?"
+          },
+          "recovery": {
+            "prompt": "Der Tag ist nicht ganz wie geplant gelaufen. Das ist in Ordnung - hier ist, was du tun kannst."
+          },
+          "result": {
+            "prompt": "Schauen wir, wie dein Limonadenstand heute gelaufen ist."
+          }
+        },
+        "choices": {
+          "price-it-fair": "Setze einen fairen Preis",
+          "price-it-high": "Setze einen hohen Preis",
+          "move-under-a-tent": "Verschiebe den Stand unter ein Zelt",
+          "pack-up-for-the-day": "Pack für heute zusammen",
+          "ask-for-help": "Einen Erwachsenen um Hilfe bitten",
+          "try-a-new-price-tomorrow": "Probiere morgen einen neuen Preis"
+        },
+        "outcomes": {
+          "priced-it-fair": "Du hast einen fairen Preis festgelegt, und die Leute haben gerne gekauft.",
+          "priced-it-high": "Du hast einen hohen Preis festgelegt, und weniger Leute haben gekauft.",
+          "moved-under-tent": "Du hast den Stand unter ein Zelt verschoben und weiterverkauft.",
+          "packed-up-for-the-day": "Du hast für heute zusammengepackt.",
+          "got-help-entrepreneur-explorer": "Ein Erwachsener hat dir geholfen. Um Hilfe zu bitten ist nie ein Fehler.",
+          "tried-new-price-tomorrow": "Du hast dich entschieden, morgen einen neuen Preis zu probieren."
+        }
+      },
+      "entrepreneur-builder-dogwalking": {
+        "title": "Ein Gassi-Geh-Geschäft Führen",
+        "intro": "Du führst ein kleines Gassi-Geh-Geschäft. Deine Entscheidungen bestimmen, wie viel du verdienst - und wie sehr man dir vertraut.",
+        "nodes": {
+          "set-price": {
+            "prompt": "Es ist Zeit, deinen Preis für einen Spaziergang festzulegen. Was machst du?"
+          },
+          "quality": {
+            "prompt": "Es ist Zeit, darüber nachzudenken, wie zuverlässig du sein wirst. Was machst du?"
+          },
+          "marketing": {
+            "prompt": "Du willst mehr Kunden. Was machst du?"
+          },
+          "unexpected": {
+            "prompt": "Ein Hund reißt sich während eines Spaziergangs los! Was machst du?"
+          },
+          "recovery": {
+            "prompt": "Das Geschäft läuft gerade nicht ganz wie geplant. Das ist in Ordnung - hier ist, was du tun kannst."
+          },
+          "result": {
+            "prompt": "Schauen wir, wie dein Gassi-Geh-Geschäft gelaufen ist."
+          }
+        },
+        "choices": {
+          "charge-a-fair-price": "Verlange einen fairen Preis",
+          "charge-too-much": "Verlange zu viel",
+          "always-show-up-on-time": "Komm immer pünktlich",
+          "sometimes-run-late": "Komm manchmal zu spät",
+          "make-flyers": "Mach Flyer",
+          "rely-on-word-of-mouth": "Verlass dich auf Mundpropaganda",
+          "chase-and-return-it-safely": "Lauf ihm hinterher und bring ihn sicher zurück",
+          "tell-the-owner-right-away": "Informiere den Besitzer sofort",
+          "ask-for-help": "Einen Erwachsenen um Hilfe bitten",
+          "adjust-your-price": "Passe deinen Preis an"
+        },
+        "outcomes": {
+          "charged-fair-price": "Du hast einen fairen Preis verlangt, und die Kunden kamen immer wieder.",
+          "charged-too-much": "Du hast zu viel verlangt, und die Kunden gingen woanders hin.",
+          "always-on-time": "Du warst immer pünktlich.",
+          "sometimes-late": "Du bist manchmal zu spät gekommen.",
+          "made-flyers": "Du hast etwas Geld für Flyer ausgegeben.",
+          "relied-on-word-of-mouth": "Du hast dich stattdessen auf Mundpropaganda verlassen.",
+          "chased-and-returned-safely": "Du bist dem Hund hinterhergelaufen und hast ihn sicher zurückgebracht.",
+          "told-owner-right-away": "Du hast den Besitzer sofort informiert.",
+          "got-help-entrepreneur-builder": "Ein Erwachsener hat dir geholfen. Um Hilfe zu bitten gehört zu einem guten Geschäft.",
+          "adjusted-price": "Du hast deinen Preis angepasst und weitergemacht."
+        }
+      },
+      "entrepreneur-strategist-bakery": {
+        "title": "Eine Kleine Bäckerei Vergrößern",
+        "intro": "Du baust eine kleine Bäckerei aus. Deine Entscheidungen bestimmen ihren Gewinn - und ob die Kunden zufrieden bleiben.",
+        "nodes": {
+          "ingredients": {
+            "prompt": "Es ist Zeit, deine Zutaten zu wählen. Was machst du?"
+          },
+          "pricing-strategy": {
+            "prompt": "Die Kosten steigen. Was machst du?"
+          },
+          "expansion": {
+            "prompt": "Es ist Zeit, über das Wachstum der Bäckerei nachzudenken. Was machst du?"
+          },
+          "recovery": {
+            "prompt": "Die Bäckerei läuft gerade nicht so gut, wie sie sollte. Das ist in Ordnung - hier ist, was du tun kannst."
+          },
+          "result": {
+            "prompt": "Schauen wir, wie deine Bäckerei geworden ist."
+          }
+        },
+        "choices": {
+          "buy-cheaper-ingredients": "Kaufe günstigere Zutaten",
+          "buy-quality-ingredients": "Kaufe hochwertige Zutaten",
+          "raise-prices-to-cover-costs": "Erhöhe die Preise, um steigende Kosten zu decken",
+          "keep-prices-steady-absorb-cost": "Halte die Preise stabil und trage die Kosten selbst",
+          "open-a-second-location-fast": "Eröffne schnell einen zweiten Standort",
+          "grow-slowly-and-steadily": "Wachse langsam und stetig",
+          "ask-for-help": "Einen Erwachsenen um Hilfe bitten",
+          "win-back-customers-with-quality": "Gewinne Kunden durch Qualität zurück"
+        },
+        "outcomes": {
+          "bought-cheaper-ingredients": "Du hast günstigere Zutaten gekauft, um deinen Gewinn zu schützen.",
+          "bought-quality-ingredients": "Du hast hochwertige Zutaten gekauft, auch wenn es mehr gekostet hat.",
+          "raised-prices": "Du hast die Preise erhöht, um steigende Kosten zu decken.",
+          "kept-prices-steady": "Du hast die Preise stabil gehalten und die Kosten selbst getragen.",
+          "expanded-fast": "Du hast schnell einen zweiten Standort eröffnet.",
+          "grew-slowly": "Du hast die Bäckerei langsam und stetig wachsen lassen.",
+          "got-help-entrepreneur-strategist": "Ein Erwachsener hat dir geholfen, das Geschäft zu stärken. Das ist kluge Planung, kein Scheitern.",
+          "won-back-customers-with-quality": "Du hast dich entschieden, Kunden durch Qualität zurückzugewinnen und Vertrauen über kurzfristigen Gewinn zu stellen."
+        }
+      }
+    }
   }
 }
