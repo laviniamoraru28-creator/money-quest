@@ -8088,7 +8088,9 @@
   },
   "agency": {
     "resourceLabels": {
-      "coins": "Monety"
+      "coins": "Monety",
+      "savedForBike": "Zaoszczędzone na rower",
+      "communityImpact": "Wpływ na społeczność"
     },
     "recoveryBadge": "Rozwiążmy to razem",
     "askForHelpButton": "Potrzebuję pomocy",
@@ -8129,6 +8131,95 @@
           "skipped-trip": "Nie poszedłeś na wycieczkę i zachowałeś monety.",
           "got-help": "Osoba dorosła pomogła ci. Proszenie o pomoc to mądry krok, a nie błąd.",
           "reorganised": "Znalazłeś nowy plan z tym, co ci zostało. To jest prawdziwe rozwiązywanie problemów!"
+        }
+      },
+      "money-builder-month-one": {
+        "title": "Oszczędzanie na rower",
+        "intro": "Masz 40 monet i chcesz zaoszczędzić na rower. Podejmuj decyzje przez cztery tygodnie i zobacz, jak działa twój plan.",
+        "nodes": {
+          "week1": {
+            "prompt": "Tydzień 1: masz trochę pieniędzy do wydania. Co robisz?"
+          },
+          "week2": {
+            "prompt": "Tydzień 2: znajomy zaprasza cię gdzieś i to kosztuje trochę więcej. Co robisz?"
+          },
+          "week3": {
+            "prompt": "Tydzień 3: masz okazję zarobić trochę więcej, wykonując obowiązki domowe. Co robisz?"
+          },
+          "week4": {
+            "prompt": "Tydzień 4: ostatni etap przed końcem miesiąca. Co robisz?"
+          },
+          "recovery": {
+            "prompt": "W tej chwili nie masz wystarczająco monet. Nic się nie stało - oto, co możesz zrobić."
+          },
+          "result": {
+            "prompt": "Miesiąc się skończył! Zobaczmy, jak poszedł twój plan."
+          }
+        },
+        "choices": {
+          "save-15": "Odłóż 15 monet na rower",
+          "spend-on-games": "Wydaj teraz 15 monet na gry",
+          "share-treat": "Postaw też koledze/koleżance (5 monet)",
+          "decline-politely": "Grzecznie odmów",
+          "do-chores": "Zrób dodatkowe obowiązki domowe (+10 monet)",
+          "skip-chores": "Pomiń obowiązki w tym tygodniu",
+          "add-10-more": "Dodaj jeszcze 10 monet do funduszu na rower",
+          "wait-and-save-later": "Poczekaj i zaoszczędź więcej innym razem",
+          "ask-for-help": "Poproś osobę dorosłą o dodatkowe monety (+15 monet)",
+          "adjust-goal": "Dostosuj swój cel oszczędzania i kontynuuj"
+        },
+        "outcomes": {
+          "saved-week1": "Odłożyłeś pieniądze bezpośrednio na rower.",
+          "spent-week1": "Dzisiaj wydałeś monety na gry.",
+          "shared-treat": "Postawiłeś też koledze/koleżance.",
+          "declined-politely": "Grzecznie odmówiłeś i zachowałeś swoje monety.",
+          "did-chores": "Zarobiłeś dodatkowe monety, robiąc obowiązki domowe.",
+          "skipped-chores": "Pominąłeś obowiązki w tym tygodniu.",
+          "added-more": "Dodałeś jeszcze więcej do funduszu na rower.",
+          "waited": "Zdecydowałeś się poczekać i zaoszczędzić więcej innym razem.",
+          "got-help-builder": "Osoba dorosła pomogła ci. Proszenie o pomoc jest częścią dobrego planowania, a nie błędem.",
+          "adjusted-goal": "Dostosowałeś swój cel oszczędzania do tego, co naprawdę masz. To mądre budżetowanie!"
+        }
+      },
+      "money-strategist-term-one": {
+        "title": "Semestr mądrych wyborów",
+        "intro": "Masz 35 monet. Zdecyduj, jak je pomnożyć, dokąd trafią i jak poradzić sobie z niespodziewanym - a potem zobacz, jak poszedł twój semestr.",
+        "nodes": {
+          "decision1": {
+            "prompt": "Możesz włożyć kilka monet w plan długoterminowy albo trzymać je w gotowości do wydania. Co robisz?"
+          },
+          "decision2": {
+            "prompt": "Twoja społeczność organizuje zbiórkę funduszy. Co robisz?"
+          },
+          "decision3": {
+            "prompt": "Coś wymaga niespodziewanej naprawy. Co robisz?"
+          },
+          "recovery": {
+            "prompt": "W tej chwili nie masz wystarczająco monet. Nic się nie stało - oto, co możesz zrobić."
+          },
+          "result": {
+            "prompt": "Semestr się skończył! Zobaczmy, jak poszły twoje wybory."
+          }
+        },
+        "choices": {
+          "invest-half": "Włóż 20 monet w plan długoterminowy",
+          "keep-liquid": "Trzymaj wszystkie monety gotowe do wydania",
+          "contribute-to-fundraiser": "Wpłać 15 monet na zbiórkę funduszy",
+          "keep-for-yourself": "Zatrzymaj monety dla siebie",
+          "pay-for-repair": "Zapłać teraz 30 monet za naprawę",
+          "delay-repair": "Odłóż naprawę na później",
+          "ask-for-help": "Poproś osobę dorosłą o dodatkowe monety (+20 monet)",
+          "reassess-budget": "Przejrzyj swój budżet i kontynuuj"
+        },
+        "outcomes": {
+          "invested": "Włożyłeś kilka monet w plan długoterminowy.",
+          "kept-liquid": "Trzymałeś wszystkie monety gotowe do wydania.",
+          "contributed": "Wpłaciłeś na zbiórkę funduszy - to prawdziwy wpływ na twoją społeczność.",
+          "kept-for-self": "Zatrzymałeś monety dla siebie. To też uczciwy wybór.",
+          "paid-repair": "Od razu zapłaciłeś za naprawę.",
+          "delayed-repair": "Odłożyłeś naprawę na później.",
+          "got-help-strategist": "Osoba dorosła pomogła ci. Proszenie o pomoc jest częścią mądrego planowania, a nie błędem.",
+          "reassessed": "Przejrzałeś swój budżet i kontynuowałeś z jaśniejszym planem."
         }
       }
     }

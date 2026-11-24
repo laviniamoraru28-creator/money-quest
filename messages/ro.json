@@ -8088,7 +8088,9 @@
   },
   "agency": {
     "resourceLabels": {
-      "coins": "Monede"
+      "coins": "Monede",
+      "savedForBike": "Economisit pentru bicicletă",
+      "communityImpact": "Impact în comunitate"
     },
     "recoveryBadge": "Să rezolvăm asta împreună",
     "askForHelpButton": "Am nevoie de ajutor",
@@ -8129,6 +8131,95 @@
           "skipped-trip": "Ai renunțat la excursie și ți-ai păstrat monedele.",
           "got-help": "Un adult te-a ajutat. A cere ajutor este o mișcare inteligentă, nu o greșeală.",
           "reorganised": "Ai găsit un nou plan cu ce îți rămăsese. Asta înseamnă să rezolvi probleme cu adevărat!"
+        }
+      },
+      "money-builder-month-one": {
+        "title": "Economisind pentru o bicicletă",
+        "intro": "Ai 40 de monede și vrei să economisești pentru o bicicletă. Fă alegeri pe parcursul a patru săptămâni și vezi cum funcționează planul tău.",
+        "nodes": {
+          "week1": {
+            "prompt": "Săptămâna 1: ai niște bani de cheltuit. Ce faci?"
+          },
+          "week2": {
+            "prompt": "Săptămâna 2: un prieten te invită undeva și costă puțin în plus. Ce faci?"
+          },
+          "week3": {
+            "prompt": "Săptămâna 3: ai ocazia să câștigi ceva în plus făcând treabă prin casă. Ce faci?"
+          },
+          "week4": {
+            "prompt": "Săptămâna 4: ultima perioadă înainte de final de lună. Ce faci?"
+          },
+          "recovery": {
+            "prompt": "Nu ai suficiente monede chiar acum. Nu-i nicio problemă - iată ce poți face."
+          },
+          "result": {
+            "prompt": "Luna s-a terminat! Să vedem cum a mers planul tău."
+          }
+        },
+        "choices": {
+          "save-15": "Pune 15 monede pentru bicicletă",
+          "spend-on-games": "Cheltuie 15 monede pe jocuri acum",
+          "share-treat": "Răsfață-ți și prietenul (5 monede)",
+          "decline-politely": "Spune nu, politicos",
+          "do-chores": "Fă treabă în plus prin casă (+10 monede)",
+          "skip-chores": "Sari peste treburi săptămâna asta",
+          "add-10-more": "Adaugă încă 10 monede pentru bicicletă",
+          "wait-and-save-later": "Așteaptă și economisește mai mult altă dată",
+          "ask-for-help": "Cere unui adult o sumă suplimentară (+15 monede)",
+          "adjust-goal": "Ajustează-ți obiectivul de economisire și continuă"
+        },
+        "outcomes": {
+          "saved-week1": "Ai pus banii direct pentru bicicletă.",
+          "spent-week1": "Ai cheltuit monedele pe jocuri astăzi.",
+          "shared-treat": "Ți-ai răsfățat și prietenul.",
+          "declined-politely": "Ai spus nu, politicos, și ți-ai păstrat monedele.",
+          "did-chores": "Ai câștigat monede în plus făcând treabă prin casă.",
+          "skipped-chores": "Ai sărit peste treburi săptămâna asta.",
+          "added-more": "Ai adăugat și mai mult pentru bicicletă.",
+          "waited": "Ai decis să aștepți și să economisești mai mult altă dată.",
+          "got-help-builder": "Un adult te-a ajutat. A cere ajutor face parte dintr-o planificare bună, nu e o greșeală.",
+          "adjusted-goal": "Ți-ai ajustat obiectivul de economisire ca să se potrivească cu ce ai cu adevărat. Asta înseamnă buget inteligent!"
+        }
+      },
+      "money-strategist-term-one": {
+        "title": "Un semestru de alegeri inteligente",
+        "intro": "Ai 35 de monede. Decide cum să le faci să crească, unde se duc și cum gestionezi neprevăzutul - apoi vezi cum a mers semestrul tău.",
+        "nodes": {
+          "decision1": {
+            "prompt": "Ai putea pune niște monede într-un plan pe termen lung sau le poți păstra gata de cheltuit. Ce faci?"
+          },
+          "decision2": {
+            "prompt": "Comunitatea ta organizează o strângere de fonduri. Ce faci?"
+          },
+          "decision3": {
+            "prompt": "Ceva are nevoie de o reparație neprevăzută. Ce faci?"
+          },
+          "recovery": {
+            "prompt": "Nu ai suficiente monede chiar acum. Nu-i nicio problemă - iată ce poți face."
+          },
+          "result": {
+            "prompt": "Semestrul s-a terminat! Să vedem cum au mers alegerile tale."
+          }
+        },
+        "choices": {
+          "invest-half": "Pune 20 de monede într-un plan pe termen lung",
+          "keep-liquid": "Păstrează toate monedele gata de cheltuit",
+          "contribute-to-fundraiser": "Contribuie cu 15 monede la strângerea de fonduri",
+          "keep-for-yourself": "Păstrează monedele pentru tine",
+          "pay-for-repair": "Plătește 30 de monede pentru reparație acum",
+          "delay-repair": "Amână reparația deocamdată",
+          "ask-for-help": "Cere unui adult o sumă suplimentară (+20 monede)",
+          "reassess-budget": "Reevaluează-ți bugetul și continuă"
+        },
+        "outcomes": {
+          "invested": "Ai pus niște monede într-un plan pe termen lung.",
+          "kept-liquid": "Ai păstrat toate monedele gata de cheltuit.",
+          "contributed": "Ai contribuit la strângerea de fonduri - asta înseamnă un impact real în comunitatea ta.",
+          "kept-for-self": "Ți-ai păstrat monedele pentru tine. Este și aceasta o alegere corectă.",
+          "paid-repair": "Ai plătit reparația imediat.",
+          "delayed-repair": "Ai amânat reparația deocamdată.",
+          "got-help-strategist": "Un adult te-a ajutat. A cere ajutor face parte dintr-o planificare inteligentă, nu e o greșeală.",
+          "reassessed": "Ți-ai reevaluat bugetul și ai continuat cu un plan mai clar."
         }
       }
     }

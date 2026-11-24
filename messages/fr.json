@@ -8088,7 +8088,9 @@
   },
   "agency": {
     "resourceLabels": {
-      "coins": "Pièces"
+      "coins": "Pièces",
+      "savedForBike": "Épargné pour le vélo",
+      "communityImpact": "Impact communautaire"
     },
     "recoveryBadge": "Réglons ça ensemble",
     "askForHelpButton": "J'ai besoin d'aide",
@@ -8129,6 +8131,95 @@
           "skipped-trip": "Tu n'es pas parti en sortie et tu as gardé tes pièces.",
           "got-help": "Un adulte t'a aidé. Demander de l'aide est une décision intelligente, pas une erreur.",
           "reorganised": "Tu as trouvé un nouveau plan avec ce qu'il te restait. C'est vraiment résoudre un problème !"
+        }
+      },
+      "money-builder-month-one": {
+        "title": "Économiser pour un vélo",
+        "intro": "Tu as 40 pièces et tu veux économiser pour un vélo. Fais des choix pendant quatre semaines et vois comment ton plan fonctionne.",
+        "nodes": {
+          "week1": {
+            "prompt": "Semaine 1 : tu as un peu d'argent à dépenser. Que fais-tu ?"
+          },
+          "week2": {
+            "prompt": "Semaine 2 : un ami t'invite à sortir et ça coûte un peu plus. Que fais-tu ?"
+          },
+          "week3": {
+            "prompt": "Semaine 3 : tu as une occasion de gagner un peu plus en faisant des tâches. Que fais-tu ?"
+          },
+          "week4": {
+            "prompt": "Semaine 4 : la dernière ligne droite avant la fin du mois. Que fais-tu ?"
+          },
+          "recovery": {
+            "prompt": "Tu n'as pas assez de pièces pour le moment. Ce n'est pas grave - voici ce que tu peux faire."
+          },
+          "result": {
+            "prompt": "Le mois est terminé ! Voyons comment ton plan s'est passé."
+          }
+        },
+        "choices": {
+          "save-15": "Mets 15 pièces de côté pour ton vélo",
+          "spend-on-games": "Dépense 15 pièces en jeux maintenant",
+          "share-treat": "Invite ton ami aussi (5 pièces)",
+          "decline-politely": "Dis non, poliment",
+          "do-chores": "Fais des tâches en plus (+10 pièces)",
+          "skip-chores": "Ne fais pas les tâches cette semaine",
+          "add-10-more": "Ajoute 10 pièces de plus pour ton vélo",
+          "wait-and-save-later": "Attends et économise plus une autre fois",
+          "ask-for-help": "Demande à un adulte un petit extra (+15 pièces)",
+          "adjust-goal": "Ajuste ton objectif d'épargne et continue"
+        },
+        "outcomes": {
+          "saved-week1": "Tu as mis l'argent directement de côté pour ton vélo.",
+          "spent-week1": "Tu as dépensé tes pièces en jeux aujourd'hui.",
+          "shared-treat": "Tu as invité ton ami aussi.",
+          "declined-politely": "Tu as dit non poliment et gardé tes pièces.",
+          "did-chores": "Tu as gagné des pièces en plus en faisant des tâches.",
+          "skipped-chores": "Tu n'as pas fait les tâches cette semaine.",
+          "added-more": "Tu as ajouté encore plus pour ton vélo.",
+          "waited": "Tu as décidé d'attendre et d'économiser plus une autre fois.",
+          "got-help-builder": "Un adulte t'a aidé. Demander de l'aide fait partie d'un bon plan, ce n'est pas une erreur.",
+          "adjusted-goal": "Tu as ajusté ton objectif d'épargne à ce que tu as vraiment. C'est un budget intelligent !"
+        }
+      },
+      "money-strategist-term-one": {
+        "title": "Un trimestre de choix intelligents",
+        "intro": "Tu as 35 pièces. Décide comment les faire fructifier, où elles vont, et comment gérer l'imprévu - puis regarde comment ton trimestre s'est passé.",
+        "nodes": {
+          "decision1": {
+            "prompt": "Tu pourrais mettre quelques pièces dans un plan à long terme, ou les garder prêtes à dépenser. Que fais-tu ?"
+          },
+          "decision2": {
+            "prompt": "Ta communauté organise une collecte de fonds. Que fais-tu ?"
+          },
+          "decision3": {
+            "prompt": "Quelque chose a besoin d'une réparation imprévue. Que fais-tu ?"
+          },
+          "recovery": {
+            "prompt": "Tu n'as pas assez de pièces pour le moment. Ce n'est pas grave - voici ce que tu peux faire."
+          },
+          "result": {
+            "prompt": "Le trimestre est terminé ! Voyons comment tes choix se sont passés."
+          }
+        },
+        "choices": {
+          "invest-half": "Mets 20 pièces dans un plan à long terme",
+          "keep-liquid": "Garde toutes tes pièces prêtes à dépenser",
+          "contribute-to-fundraiser": "Contribue avec 15 pièces à la collecte de fonds",
+          "keep-for-yourself": "Garde tes pièces pour toi",
+          "pay-for-repair": "Paie 30 pièces pour la réparation maintenant",
+          "delay-repair": "Reporte la réparation pour l'instant",
+          "ask-for-help": "Demande à un adulte un petit extra (+20 pièces)",
+          "reassess-budget": "Réévalue ton budget et continue"
+        },
+        "outcomes": {
+          "invested": "Tu as mis quelques pièces dans un plan à long terme.",
+          "kept-liquid": "Tu as gardé toutes tes pièces prêtes à dépenser.",
+          "contributed": "Tu as contribué à la collecte de fonds - un vrai impact dans ta communauté.",
+          "kept-for-self": "Tu as gardé tes pièces pour toi. C'est aussi un choix valable.",
+          "paid-repair": "Tu as payé la réparation tout de suite.",
+          "delayed-repair": "Tu as reporté la réparation pour l'instant.",
+          "got-help-strategist": "Un adulte t'a aidé. Demander de l'aide fait partie d'une bonne planification, ce n'est pas une erreur.",
+          "reassessed": "Tu as réévalué ton budget et continué avec un plan plus clair."
         }
       }
     }

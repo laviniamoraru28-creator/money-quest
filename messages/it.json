@@ -8088,7 +8088,9 @@
   },
   "agency": {
     "resourceLabels": {
-      "coins": "Monete"
+      "coins": "Monete",
+      "savedForBike": "Risparmiato per la bici",
+      "communityImpact": "Impatto nella comunità"
     },
     "recoveryBadge": "Risolviamo insieme",
     "askForHelpButton": "Ho bisogno di aiuto",
@@ -8129,6 +8131,95 @@
           "skipped-trip": "Hai saltato la gita e hai tenuto le monete.",
           "got-help": "Un adulto ti ha aiutato. Chiedere aiuto è una scelta intelligente, non un errore.",
           "reorganised": "Hai trovato un nuovo piano con quello che ti restava. Questo è vero problem solving!"
+        }
+      },
+      "money-builder-month-one": {
+        "title": "Risparmiare per una bicicletta",
+        "intro": "Hai 40 monete e vuoi risparmiare per una bicicletta. Fai scelte per quattro settimane e scopri come va il tuo piano.",
+        "nodes": {
+          "week1": {
+            "prompt": "Settimana 1: hai un po' di soldi da spendere. Cosa fai?"
+          },
+          "week2": {
+            "prompt": "Settimana 2: un amico ti invita e costa un po' di più. Cosa fai?"
+          },
+          "week3": {
+            "prompt": "Settimana 3: hai l'occasione di guadagnare qualcosa in più facendo faccende. Cosa fai?"
+          },
+          "week4": {
+            "prompt": "Settimana 4: l'ultimo tratto prima della fine del mese. Cosa fai?"
+          },
+          "recovery": {
+            "prompt": "In questo momento non hai abbastanza monete. Non preoccuparti - ecco cosa puoi fare."
+          },
+          "result": {
+            "prompt": "Il mese è finito! Vediamo com'è andato il tuo piano."
+          }
+        },
+        "choices": {
+          "save-15": "Metti 15 monete per la tua bicicletta",
+          "spend-on-games": "Spendi 15 monete in giochi ora",
+          "share-treat": "Offri anche al tuo amico (5 monete)",
+          "decline-politely": "Di' di no, gentilmente",
+          "do-chores": "Fai faccende extra (+10 monete)",
+          "skip-chores": "Salta le faccende questa settimana",
+          "add-10-more": "Aggiungi altre 10 monete per la bicicletta",
+          "wait-and-save-later": "Aspetta e risparmia di più un'altra volta",
+          "ask-for-help": "Chiedi a un adulto un piccolo extra (+15 monete)",
+          "adjust-goal": "Modifica il tuo obiettivo di risparmio e continua"
+        },
+        "outcomes": {
+          "saved-week1": "Hai messo i soldi direttamente per la tua bicicletta.",
+          "spent-week1": "Oggi hai speso le tue monete in giochi.",
+          "shared-treat": "Hai offerto anche al tuo amico.",
+          "declined-politely": "Hai detto no gentilmente e hai tenuto le tue monete.",
+          "did-chores": "Hai guadagnato monete extra facendo faccende.",
+          "skipped-chores": "Hai saltato le faccende questa settimana.",
+          "added-more": "Hai aggiunto ancora di più per la tua bicicletta.",
+          "waited": "Hai deciso di aspettare e risparmiare di più un'altra volta.",
+          "got-help-builder": "Un adulto ti ha aiutato. Chiedere aiuto fa parte di un buon piano, non è un errore.",
+          "adjusted-goal": "Hai adattato il tuo obiettivo di risparmio a quello che hai davvero. Questo è un bilancio intelligente!"
+        }
+      },
+      "money-strategist-term-one": {
+        "title": "Un trimestre di scelte intelligenti",
+        "intro": "Hai 35 monete. Decidi come farle crescere, dove vanno e come gestire l'imprevisto - poi scopri come è andato il tuo trimestre.",
+        "nodes": {
+          "decision1": {
+            "prompt": "Potresti mettere alcune monete in un piano a lungo termine, oppure tenerle pronte da spendere. Cosa fai?"
+          },
+          "decision2": {
+            "prompt": "La tua comunità organizza una raccolta fondi. Cosa fai?"
+          },
+          "decision3": {
+            "prompt": "Qualcosa ha bisogno di una riparazione imprevista. Cosa fai?"
+          },
+          "recovery": {
+            "prompt": "In questo momento non hai abbastanza monete. Non preoccuparti - ecco cosa puoi fare."
+          },
+          "result": {
+            "prompt": "Il trimestre è finito! Vediamo come sono andate le tue scelte."
+          }
+        },
+        "choices": {
+          "invest-half": "Metti 20 monete in un piano a lungo termine",
+          "keep-liquid": "Tieni tutte le monete pronte da spendere",
+          "contribute-to-fundraiser": "Contribuisci con 15 monete alla raccolta fondi",
+          "keep-for-yourself": "Tieni le monete per te",
+          "pay-for-repair": "Paga subito 30 monete per la riparazione",
+          "delay-repair": "Rimanda la riparazione per ora",
+          "ask-for-help": "Chiedi a un adulto un piccolo extra (+20 monete)",
+          "reassess-budget": "Rivaluta il tuo bilancio e continua"
+        },
+        "outcomes": {
+          "invested": "Hai messo alcune monete in un piano a lungo termine.",
+          "kept-liquid": "Hai tenuto tutte le monete pronte da spendere.",
+          "contributed": "Hai contribuito alla raccolta fondi - un impatto vero nella tua comunità.",
+          "kept-for-self": "Hai tenuto le monete per te. Anche questa è una scelta giusta.",
+          "paid-repair": "Hai pagato subito la riparazione.",
+          "delayed-repair": "Hai rimandato la riparazione per ora.",
+          "got-help-strategist": "Un adulto ti ha aiutato. Chiedere aiuto fa parte di una buona pianificazione, non è un errore.",
+          "reassessed": "Hai rivalutato il tuo bilancio e sei andato avanti con un piano più chiaro."
         }
       }
     }

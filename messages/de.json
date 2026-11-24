@@ -8088,7 +8088,9 @@
   },
   "agency": {
     "resourceLabels": {
-      "coins": "Münzen"
+      "coins": "Münzen",
+      "savedForBike": "Gespart fürs Fahrrad",
+      "communityImpact": "Gemeinschaftswirkung"
     },
     "recoveryBadge": "Das lösen wir gemeinsam",
     "askForHelpButton": "Ich brauche Hilfe",
@@ -8129,6 +8131,95 @@
           "skipped-trip": "Du hast auf den Ausflug verzichtet und deine Münzen behalten.",
           "got-help": "Ein Erwachsener hat dir geholfen. Um Hilfe zu bitten ist eine kluge Entscheidung, kein Fehler.",
           "reorganised": "Du hast einen neuen Plan mit dem gemacht, was übrig war. Das ist echtes Problemlösen!"
+        }
+      },
+      "money-builder-month-one": {
+        "title": "Sparen für ein Fahrrad",
+        "intro": "Du hast 40 Münzen und möchtest für ein Fahrrad sparen. Triff über vier Wochen Entscheidungen und sieh, wie dein Plan funktioniert.",
+        "nodes": {
+          "week1": {
+            "prompt": "Woche 1: Du hast etwas Geld zum Ausgeben. Was machst du?"
+          },
+          "week2": {
+            "prompt": "Woche 2: Ein Freund lädt dich ein, und es kostet etwas extra. Was machst du?"
+          },
+          "week3": {
+            "prompt": "Woche 3: Du hast die Gelegenheit, mit Aufgaben etwas mehr zu verdienen. Was machst du?"
+          },
+          "week4": {
+            "prompt": "Woche 4: die letzte Etappe vor Monatsende. Was machst du?"
+          },
+          "recovery": {
+            "prompt": "Du hast gerade nicht genug Münzen. Das ist in Ordnung - hier ist, was du tun kannst."
+          },
+          "result": {
+            "prompt": "Der Monat ist zu Ende! Schauen wir, wie dein Plan gelaufen ist."
+          }
+        },
+        "choices": {
+          "save-15": "Lege 15 Münzen für dein Fahrrad beiseite",
+          "spend-on-games": "Gib jetzt 15 Münzen für Spiele aus",
+          "share-treat": "Lade deinen Freund auch ein (5 Münzen)",
+          "decline-politely": "Sag höflich nein",
+          "do-chores": "Erledige zusätzliche Aufgaben (+10 Münzen)",
+          "skip-chores": "Lass die Aufgaben diese Woche aus",
+          "add-10-more": "Füge 10 weitere Münzen für dein Fahrrad hinzu",
+          "wait-and-save-later": "Warte und spare später mehr",
+          "ask-for-help": "Bitte einen Erwachsenen um einen Zuschuss (+15 Münzen)",
+          "adjust-goal": "Passe dein Sparziel an und mach weiter"
+        },
+        "outcomes": {
+          "saved-week1": "Du hast das Geld direkt für dein Fahrrad zurückgelegt.",
+          "spent-week1": "Du hast deine Münzen heute für Spiele ausgegeben.",
+          "shared-treat": "Du hast auch deinen Freund eingeladen.",
+          "declined-politely": "Du hast höflich nein gesagt und deine Münzen behalten.",
+          "did-chores": "Du hast mit Aufgaben extra Münzen verdient.",
+          "skipped-chores": "Du hast die Aufgaben diese Woche ausgelassen.",
+          "added-more": "Du hast noch mehr für dein Fahrrad hinzugefügt.",
+          "waited": "Du hast beschlossen zu warten und später mehr zu sparen.",
+          "got-help-builder": "Ein Erwachsener hat dir geholfen. Um Hilfe zu bitten gehört zu einem guten Plan, ist kein Fehler.",
+          "adjusted-goal": "Du hast dein Sparziel an das angepasst, was du wirklich hast. Das ist kluges Haushalten!"
+        }
+      },
+      "money-strategist-term-one": {
+        "title": "Ein Halbjahr kluger Entscheidungen",
+        "intro": "Du hast 35 Münzen. Entscheide, wie sie wachsen sollen, wohin sie gehen, und wie du mit dem Unerwarteten umgehst - und sieh dann, wie dein Halbjahr verlaufen ist.",
+        "nodes": {
+          "decision1": {
+            "prompt": "Du könntest einige Münzen in einen langfristigen Plan stecken oder sie griffbereit halten. Was machst du?"
+          },
+          "decision2": {
+            "prompt": "Deine Gemeinschaft veranstaltet eine Spendenaktion. Was machst du?"
+          },
+          "decision3": {
+            "prompt": "Etwas braucht eine unerwartete Reparatur. Was machst du?"
+          },
+          "recovery": {
+            "prompt": "Du hast gerade nicht genug Münzen. Das ist in Ordnung - hier ist, was du tun kannst."
+          },
+          "result": {
+            "prompt": "Das Halbjahr ist zu Ende! Schauen wir, wie deine Entscheidungen gelaufen sind."
+          }
+        },
+        "choices": {
+          "invest-half": "Lege 20 Münzen in einen langfristigen Plan an",
+          "keep-liquid": "Halte alle Münzen griffbereit",
+          "contribute-to-fundraiser": "Spende 15 Münzen für die Spendenaktion",
+          "keep-for-yourself": "Behalte deine Münzen für dich",
+          "pay-for-repair": "Zahle jetzt 30 Münzen für die Reparatur",
+          "delay-repair": "Verschiebe die Reparatur erst einmal",
+          "ask-for-help": "Bitte einen Erwachsenen um einen Zuschuss (+20 Münzen)",
+          "reassess-budget": "Überdenke dein Budget und mach weiter"
+        },
+        "outcomes": {
+          "invested": "Du hast einige Münzen in einen langfristigen Plan gesteckt.",
+          "kept-liquid": "Du hast alle Münzen griffbereit gehalten.",
+          "contributed": "Du hast zur Spendenaktion beigetragen - das ist echte Wirkung in deiner Gemeinschaft.",
+          "kept-for-self": "Du hast deine Münzen für dich behalten. Auch das ist eine faire Entscheidung.",
+          "paid-repair": "Du hast die Reparatur sofort bezahlt.",
+          "delayed-repair": "Du hast die Reparatur erst einmal verschoben.",
+          "got-help-strategist": "Ein Erwachsener hat dir geholfen. Um Hilfe zu bitten gehört zu kluger Planung, ist kein Fehler.",
+          "reassessed": "Du hast dein Budget überdacht und mit einem klareren Plan weitergemacht."
         }
       }
     }

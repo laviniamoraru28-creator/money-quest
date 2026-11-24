@@ -8088,7 +8088,9 @@
   },
   "agency": {
     "resourceLabels": {
-      "coins": "Muntjes"
+      "coins": "Muntjes",
+      "savedForBike": "Gespaard voor de fiets",
+      "communityImpact": "Impact op de gemeenschap"
     },
     "recoveryBadge": "Dat lossen we samen op",
     "askForHelpButton": "Ik heb hulp nodig",
@@ -8129,6 +8131,95 @@
           "skipped-trip": "Je sloeg het schoolreisje over en hield je muntjes.",
           "got-help": "Een volwassene heeft je geholpen. Om hulp vragen is een slimme zet, geen fout.",
           "reorganised": "Je maakte een nieuw plan met wat je nog had. Dat is echt een probleem oplossen!"
+        }
+      },
+      "money-builder-month-one": {
+        "title": "Sparen voor een fiets",
+        "intro": "Je hebt 40 muntjes en wilt sparen voor een fiets. Maak keuzes over vier weken en kijk hoe je plan uitpakt.",
+        "nodes": {
+          "week1": {
+            "prompt": "Week 1: je hebt wat geld om uit te geven. Wat doe je?"
+          },
+          "week2": {
+            "prompt": "Week 2: een vriend nodigt je uit en het kost iets extra. Wat doe je?"
+          },
+          "week3": {
+            "prompt": "Week 3: je hebt de kans om iets extra te verdienen door klusjes te doen. Wat doe je?"
+          },
+          "week4": {
+            "prompt": "Week 4: de laatste fase voor het einde van de maand. Wat doe je?"
+          },
+          "recovery": {
+            "prompt": "Je hebt nu niet genoeg muntjes. Geen probleem - dit kun je doen."
+          },
+          "result": {
+            "prompt": "De maand is voorbij! Laten we kijken hoe je plan is gelukt."
+          }
+        },
+        "choices": {
+          "save-15": "Zet 15 muntjes opzij voor je fiets",
+          "spend-on-games": "Geef nu 15 muntjes uit aan spelletjes",
+          "share-treat": "Trakteer je vriend ook (5 muntjes)",
+          "decline-politely": "Zeg beleefd nee",
+          "do-chores": "Doe extra klusjes (+10 muntjes)",
+          "skip-chores": "Sla de klusjes deze week over",
+          "add-10-more": "Voeg nog 10 muntjes toe aan je fietspot",
+          "wait-and-save-later": "Wacht en spaar later meer",
+          "ask-for-help": "Vraag een volwassene om een extraatje (+15 muntjes)",
+          "adjust-goal": "Pas je spaardoel aan en ga verder"
+        },
+        "outcomes": {
+          "saved-week1": "Je zette het geld direct opzij voor je fiets.",
+          "spent-week1": "Je gaf je muntjes vandaag uit aan spelletjes.",
+          "shared-treat": "Je hebt ook je vriend getrakteerd.",
+          "declined-politely": "Je zei beleefd nee en hield je muntjes.",
+          "did-chores": "Je verdiende extra muntjes met klusjes.",
+          "skipped-chores": "Je sloeg de klusjes deze week over.",
+          "added-more": "Je voegde nog meer toe aan je fietspot.",
+          "waited": "Je besloot te wachten en later meer te sparen.",
+          "got-help-builder": "Een volwassene heeft je geholpen. Om hulp vragen hoort bij een goed plan, geen fout.",
+          "adjusted-goal": "Je paste je spaardoel aan wat je echt hebt. Dat is slim begroten!"
+        }
+      },
+      "money-strategist-term-one": {
+        "title": "Een kwartaal van slimme keuzes",
+        "intro": "Je hebt 35 muntjes. Beslis hoe je ze laat groeien, waar ze heen gaan en hoe je met het onverwachte omgaat - en kijk dan hoe je kwartaal verliep.",
+        "nodes": {
+          "decision1": {
+            "prompt": "Je zou wat muntjes in een langetermijnplan kunnen stoppen, of ze klaar houden om uit te geven. Wat doe je?"
+          },
+          "decision2": {
+            "prompt": "Je gemeenschap organiseert een inzamelingsactie. Wat doe je?"
+          },
+          "decision3": {
+            "prompt": "Iets heeft een onverwachte reparatie nodig. Wat doe je?"
+          },
+          "recovery": {
+            "prompt": "Je hebt nu niet genoeg muntjes. Geen probleem - dit kun je doen."
+          },
+          "result": {
+            "prompt": "Het kwartaal is voorbij! Laten we kijken hoe je keuzes uitpakten."
+          }
+        },
+        "choices": {
+          "invest-half": "Stop 20 muntjes in een langetermijnplan",
+          "keep-liquid": "Houd al je muntjes klaar om uit te geven",
+          "contribute-to-fundraiser": "Draag 15 muntjes bij aan de inzamelingsactie",
+          "keep-for-yourself": "Houd je muntjes voor jezelf",
+          "pay-for-repair": "Betaal nu 30 muntjes voor de reparatie",
+          "delay-repair": "Stel de reparatie voorlopig uit",
+          "ask-for-help": "Vraag een volwassene om een extraatje (+20 muntjes)",
+          "reassess-budget": "Herzie je budget en ga verder"
+        },
+        "outcomes": {
+          "invested": "Je stopte wat muntjes in een langetermijnplan.",
+          "kept-liquid": "Je hield al je muntjes klaar om uit te geven.",
+          "contributed": "Je droeg bij aan de inzamelingsactie - dat is echte impact in je gemeenschap.",
+          "kept-for-self": "Je hield je muntjes voor jezelf. Ook dat is een eerlijke keuze.",
+          "paid-repair": "Je betaalde de reparatie meteen.",
+          "delayed-repair": "Je stelde de reparatie voorlopig uit.",
+          "got-help-strategist": "Een volwassene heeft je geholpen. Om hulp vragen hoort bij slim plannen, geen fout.",
+          "reassessed": "Je herzag je budget en ging verder met een duidelijker plan."
         }
       }
     }

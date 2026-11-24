@@ -8088,7 +8088,9 @@
   },
   "agency": {
     "resourceLabels": {
-      "coins": "Monedas"
+      "coins": "Monedas",
+      "savedForBike": "Ahorrado para la bici",
+      "communityImpact": "Impacto comunitario"
     },
     "recoveryBadge": "Vamos a resolverlo juntos",
     "askForHelpButton": "Necesito ayuda",
@@ -8129,6 +8131,95 @@
           "skipped-trip": "No fuiste a la excursión y guardaste tus monedas.",
           "got-help": "Una persona adulta te ayudó. Pedir ayuda es una decisión inteligente, no un error.",
           "reorganised": "Encontraste un nuevo plan con lo que te quedaba. ¡Eso es resolver problemas de verdad!"
+        }
+      },
+      "money-builder-month-one": {
+        "title": "Ahorrando para una bicicleta",
+        "intro": "Tienes 40 monedas y quieres ahorrar para una bicicleta. Toma decisiones durante cuatro semanas y mira cómo funciona tu plan.",
+        "nodes": {
+          "week1": {
+            "prompt": "Semana 1: tienes algo de dinero para gastar. ¿Qué haces?"
+          },
+          "week2": {
+            "prompt": "Semana 2: un amigo te invita a salir y cuesta un poco más. ¿Qué haces?"
+          },
+          "week3": {
+            "prompt": "Semana 3: tienes la oportunidad de ganar un poco más haciendo tareas. ¿Qué haces?"
+          },
+          "week4": {
+            "prompt": "Semana 4: el último tramo antes de fin de mes. ¿Qué haces?"
+          },
+          "recovery": {
+            "prompt": "Ahora mismo no tienes suficientes monedas. No pasa nada - esto es lo que puedes hacer."
+          },
+          "result": {
+            "prompt": "¡El mes ha terminado! Veamos cómo salió tu plan."
+          }
+        },
+        "choices": {
+          "save-15": "Pon 15 monedas para tu bicicleta",
+          "spend-on-games": "Gasta 15 monedas en juegos ahora",
+          "share-treat": "Invita también a tu amigo (5 monedas)",
+          "decline-politely": "Di que no, educadamente",
+          "do-chores": "Haz tareas extra (+10 monedas)",
+          "skip-chores": "Esta semana no hagas las tareas",
+          "add-10-more": "Añade 10 monedas más a tu bicicleta",
+          "wait-and-save-later": "Espera y ahorra más otra vez",
+          "ask-for-help": "Pide a una persona adulta un extra (+15 monedas)",
+          "adjust-goal": "Ajusta tu objetivo de ahorro y sigue adelante"
+        },
+        "outcomes": {
+          "saved-week1": "Pusiste el dinero directamente para tu bicicleta.",
+          "spent-week1": "Hoy gastaste tus monedas en juegos.",
+          "shared-treat": "Invitaste también a tu amigo.",
+          "declined-politely": "Dijiste que no, educadamente, y guardaste tus monedas.",
+          "did-chores": "Ganaste monedas extra haciendo tareas.",
+          "skipped-chores": "Esta semana no hiciste las tareas.",
+          "added-more": "Añadiste aún más a tu fondo para la bicicleta.",
+          "waited": "Decidiste esperar y ahorrar más otra vez.",
+          "got-help-builder": "Una persona adulta te ayudó. Pedir ayuda forma parte de un buen plan, no es un error.",
+          "adjusted-goal": "Ajustaste tu objetivo de ahorro a lo que realmente tienes. ¡Eso es un presupuesto inteligente!"
+        }
+      },
+      "money-strategist-term-one": {
+        "title": "Un trimestre de decisiones inteligentes",
+        "intro": "Tienes 35 monedas. Decide cómo hacerlas crecer, adónde van y cómo manejar lo inesperado - luego mira cómo resultó tu trimestre.",
+        "nodes": {
+          "decision1": {
+            "prompt": "Podrías poner algunas monedas en un plan a largo plazo, o mantenerlas listas para gastar. ¿Qué haces?"
+          },
+          "decision2": {
+            "prompt": "Tu comunidad organiza una colecta solidaria. ¿Qué haces?"
+          },
+          "decision3": {
+            "prompt": "Algo necesita una reparación inesperada. ¿Qué haces?"
+          },
+          "recovery": {
+            "prompt": "Ahora mismo no tienes suficientes monedas. No pasa nada - esto es lo que puedes hacer."
+          },
+          "result": {
+            "prompt": "¡El trimestre ha terminado! Veamos cómo resultaron tus decisiones."
+          }
+        },
+        "choices": {
+          "invest-half": "Pon 20 monedas en un plan a largo plazo",
+          "keep-liquid": "Mantén todas tus monedas listas para gastar",
+          "contribute-to-fundraiser": "Aporta 15 monedas a la colecta solidaria",
+          "keep-for-yourself": "Guarda tus monedas para ti",
+          "pay-for-repair": "Paga 30 monedas por la reparación ahora",
+          "delay-repair": "Pospón la reparación por ahora",
+          "ask-for-help": "Pide a una persona adulta un extra (+20 monedas)",
+          "reassess-budget": "Revisa tu presupuesto y sigue adelante"
+        },
+        "outcomes": {
+          "invested": "Pusiste algunas monedas en un plan a largo plazo.",
+          "kept-liquid": "Mantuviste todas tus monedas listas para gastar.",
+          "contributed": "Aportaste a la colecta solidaria - eso es un impacto real en tu comunidad.",
+          "kept-for-self": "Guardaste tus monedas para ti. También es una elección justa.",
+          "paid-repair": "Pagaste la reparación de inmediato.",
+          "delayed-repair": "Pospusiste la reparación por ahora.",
+          "got-help-strategist": "Una persona adulta te ayudó. Pedir ayuda forma parte de una buena planificación, no es un error.",
+          "reassessed": "Revisaste tu presupuesto y seguiste adelante con un plan más claro."
         }
       }
     }

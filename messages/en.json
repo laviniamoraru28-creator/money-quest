@@ -8088,7 +8088,9 @@
   },
   "agency": {
     "resourceLabels": {
-      "coins": "Coins"
+      "coins": "Coins",
+      "savedForBike": "Saved for bike",
+      "communityImpact": "Community impact"
     },
     "recoveryBadge": "Let's sort this out together",
     "askForHelpButton": "I need help",
@@ -8129,6 +8131,95 @@
           "skipped-trip": "You skipped the trip and kept your coins.",
           "got-help": "A grown-up helped you out. Asking for help is a smart money move, not a mistake.",
           "reorganised": "You worked out a new plan with what you had left. That's real problem-solving!"
+        }
+      },
+      "money-builder-month-one": {
+        "title": "Saving for a Bike",
+        "intro": "You have 40 coins and want to save up for a bike. Make choices over four weeks and see how your plan works out.",
+        "nodes": {
+          "week1": {
+            "prompt": "Week 1: you have some spending money. What do you do?"
+          },
+          "week2": {
+            "prompt": "Week 2: a friend invites you out and it costs a little extra. What do you do?"
+          },
+          "week3": {
+            "prompt": "Week 3: there's a chance to earn a bit more by doing some chores. What do you do?"
+          },
+          "week4": {
+            "prompt": "Week 4: the last stretch before the end of the month. What do you do?"
+          },
+          "recovery": {
+            "prompt": "You don't have enough coins right now. That's okay - here's what you can do."
+          },
+          "result": {
+            "prompt": "The month is over! Let's see how your plan worked out."
+          }
+        },
+        "choices": {
+          "save-15": "Put 15 coins toward your bike",
+          "spend-on-games": "Spend 15 coins on games now",
+          "share-treat": "Treat your friend too (5 coins)",
+          "decline-politely": "Say no thanks, politely",
+          "do-chores": "Do some extra chores (+10 coins)",
+          "skip-chores": "Skip the chores this week",
+          "add-10-more": "Add 10 more coins to your bike fund",
+          "wait-and-save-later": "Wait and save more next time",
+          "ask-for-help": "Ask a grown-up for a top-up (+15 coins)",
+          "adjust-goal": "Adjust your savings goal and carry on"
+        },
+        "outcomes": {
+          "saved-week1": "You put money straight toward your bike.",
+          "spent-week1": "You spent your coins on games today.",
+          "shared-treat": "You treated your friend too.",
+          "declined-politely": "You said no thanks and kept your coins.",
+          "did-chores": "You earned some extra coins doing chores.",
+          "skipped-chores": "You skipped the chores this week.",
+          "added-more": "You added even more toward your bike fund.",
+          "waited": "You decided to wait and save more another time.",
+          "got-help-builder": "A grown-up helped you out. Asking for help is part of good planning, not a mistake.",
+          "adjusted-goal": "You adjusted your savings goal to fit what you actually have. That's smart budgeting!"
+        }
+      },
+      "money-strategist-term-one": {
+        "title": "A Term of Smart Choices",
+        "intro": "You have 35 coins. Decide how to grow them, where they go, and how to handle the unexpected - then see how your term plays out.",
+        "nodes": {
+          "decision1": {
+            "prompt": "You could put some coins into a long-term plan, or keep them ready to spend. What do you do?"
+          },
+          "decision2": {
+            "prompt": "Your community is running a fundraiser. What do you do?"
+          },
+          "decision3": {
+            "prompt": "Something needs an unexpected repair. What do you do?"
+          },
+          "recovery": {
+            "prompt": "You don't have enough coins right now. That's okay - here's what you can do."
+          },
+          "result": {
+            "prompt": "The term is over! Let's see how your choices played out."
+          }
+        },
+        "choices": {
+          "invest-half": "Put 20 coins into a long-term plan",
+          "keep-liquid": "Keep all your coins ready to spend",
+          "contribute-to-fundraiser": "Contribute 15 coins to the fundraiser",
+          "keep-for-yourself": "Keep your coins for yourself",
+          "pay-for-repair": "Pay 30 coins for the repair now",
+          "delay-repair": "Put off the repair for now",
+          "ask-for-help": "Ask a grown-up for a top-up (+20 coins)",
+          "reassess-budget": "Reassess your budget and carry on"
+        },
+        "outcomes": {
+          "invested": "You put some coins into a long-term plan.",
+          "kept-liquid": "You kept all your coins ready to spend.",
+          "contributed": "You contributed to the fundraiser - that's real impact in your community.",
+          "kept-for-self": "You kept your coins for yourself. That's a fair choice too.",
+          "paid-repair": "You paid for the repair straight away.",
+          "delayed-repair": "You put off the repair for now.",
+          "got-help-strategist": "A grown-up helped you out. Asking for help is part of smart planning, not a mistake.",
+          "reassessed": "You reassessed your budget and kept going with a clearer plan."
         }
       }
     }
