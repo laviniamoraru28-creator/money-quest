@@ -9,7 +9,7 @@ import { useLeadershipQuest } from "@/lib/leadership-quest/use-leadership-quest"
 import { LQ_MISSIONS } from "@/content/leadership-quest/structures";
 import { WORLDS } from "@/content/worlds";
 import { getWorldCatalog, getActivityHref } from "@/content/catalog";
-import { formatCurrency } from "@/lib/currency/format";
+import { RewardsPanel } from "./RewardsPanel";
 import { type AgeBand } from "@/types/database.types";
 import { cinematicCopy } from "@/content/cinematic-copy";
 import { type Locale } from "@/i18n/config";
@@ -115,13 +115,8 @@ export function AdventureHud() {
             </option>
           ))}
         </select>
-        <span aria-label={t("play.yourCoins")} className="px-1">
-          {formatCurrency(
-            state.walletBalanceMinorUnits,
-            state.currencyCode,
-            locale,
-          )}
-        </span>
+        <RewardsPanel />
+        <Link href="/play" aria-label={t("play.yourWorldMap")} className="grid h-11 w-11 place-items-center"><span aria-hidden="true">🗺️</span></Link>
         <select
           id="currency-select"
           aria-label={t("play.currency")}

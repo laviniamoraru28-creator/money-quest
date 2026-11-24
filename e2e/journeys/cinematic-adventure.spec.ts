@@ -83,9 +83,16 @@ test("a new family's certificate requires AI Quest and a retry cannot grant a se
  await page.goto("/en/academy-certificate?level=explorer");
  await expect(page.locator("main button")).toHaveCount(0);
  await page.goto("/en/ai-quest");
+ for(const answer of ["Suggest ideas","Draw a poster showing two ways to save water.","3","4"]){
+   await page.getByRole("button",{name:answer,exact:true}).click();
+   await page.getByRole("button",{name:"Continue",exact:true}).click();
+   await expect(page.getByRole("dialog",{name:"AI Quest"})).toHaveCount(0);
+   await page.reload();
+ }
  await page.getByRole("button",{name:"Your home address",exact:true}).click();
  await expect(page.getByRole("status").filter({hasText:"Try again"})).toBeVisible();
  await page.getByRole("button",{name:"The name of your product",exact:true}).click();
+ await page.getByRole("button",{name:"Continue",exact:true}).click();
  const celebration=page.getByRole("dialog",{name:"AI Quest"});
  await expect(celebration.getByText("You completed your AI challenge.")).toBeVisible();
  await expect(celebration.locator('img[src$="badge-ai.webp"]')).toBeVisible();
