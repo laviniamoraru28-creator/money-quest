@@ -11,6 +11,7 @@ import { LQ_MISSIONS } from "@/content/leadership-quest/structures";
 import { WORLDS } from "@/content/worlds";
 import { getWorldCatalog, getActivityHref } from "@/content/catalog";
 import { isCertificateEligible } from "@/lib/certificates/eligibility";
+import { isFourQuestCertificateReady, requiredAiLessons } from "@/lib/certificates/three-quest-eligibility";
 import { RewardsPanel } from "./RewardsPanel";
 import { type AgeBand } from "@/types/database.types";
 import { cinematicCopy } from "@/content/cinematic-copy";
@@ -87,10 +88,10 @@ export function AdventureHud() {
           : "/leadership-quest/missions/" + mission.id;
     }
     if (index === 3) {
-      const aiDone = state.completedActivityIds.includes(`ai-quest-${band}`);
-      next = aiDone && eq.state.pitchCompleted && lq.state.completedMissionIds.includes("final-challenge") && isCertificateEligible(state.completedActivityIds, band)
+      const aiDone = requiredAiLessons(band).every(id => state.completedActivityIds.includes(id));
+      next = isFourQuestCertificateReady(state.completedActivityIds, band, eq.state, lq.state)
         ? "/academy-certificate?level=" + band
-        : aiDone ? paths.find((_, i) => [!isCertificateEligible(state.completedActivityIds, band), !eq.state.pitchCompleted, !lq.state.completedMissionIds.includes("final-challenge")][i]) ?? "/play" : "/ai-quest#ai-mission";
+        : aiDone ? paths.find((_, i) => [!isCertificateEligible(state.completedActivityIds, band), !eq.state.pitchCompleted, !LQ_MISSIONS.every(mission => lq.state.completedMissionIds.includes(mission.id))][i]) ?? "/play" : "/ai-quest#ai-mission";
     }
   }
   return (
@@ -124,7 +125,7 @@ export function AdventureHud() {
           className="h-11 w-16 rounded bg-[#243448]"
           onChange={(e) => {
             setAgeBand(e.target.value as AgeBand);
-            router.push(paths[index]!);
+            if (path !== paths[index]) router.push(paths[index]!);
           }}
         >
           {LEVEL_OPTIONS.map((opt) => (

@@ -8,7 +8,8 @@
  * instead of the actual, later point all three quests were done.
  */
 import { CERTIFICATE_BANDS, requiredCertificateActivities } from "../src/lib/certificates/eligibility";
-import { isThreeQuestCertificateReady } from "../src/lib/certificates/three-quest-eligibility";
+import { LQ_MISSIONS } from "../src/content/leadership-quest/structures";
+import { isFourQuestCertificateReady, requiredAiLessons, isThreeQuestCertificateReady } from "../src/lib/certificates/three-quest-eligibility";
 import { createDefaultState as createLocalProgressDefault, recordThreeQuestCompletion } from "../src/lib/local-progress/state";
 import { createDefaultState as createEntrepreneurDefault } from "../src/lib/entrepreneur-quest/state";
 import { createDefaultState as createLeadershipDefault } from "../src/lib/leadership-quest/state";
@@ -33,6 +34,15 @@ for (const band of CERTIFICATE_BANDS) {
   check(`${band}: not ready with MQ + EQ, no LQ`, !isThreeQuestCertificateReady(requiredMQ, band, pitchDone, noMissions));
   check(`${band}: not ready with MQ + LQ, no EQ`, !isThreeQuestCertificateReady(requiredMQ, band, notReady, finalChallengeDone));
   check(`${band}: ready only once all three are done`, isThreeQuestCertificateReady(requiredMQ, band, pitchDone, finalChallengeDone));
+  const leadershipDone = {...noMissions, completedMissionIds: LQ_MISSIONS.map(mission => mission.id)};
+  const ai = requiredAiLessons(band);
+  const legacy = [...requiredMQ, `ai-quest-${band}`];
+  check(`${band}: legacy one-question award cannot unlock a PDF`, !isFourQuestCertificateReady(legacy, band, pitchDone, leadershipDone));
+  for (const lesson of ai) {
+    check(`${band}: missing ${lesson} blocks the PDF`, !isFourQuestCertificateReady([...legacy, ...ai.filter(id => id !== lesson)], band, pitchDone, leadershipDone));
+  }
+  check(`${band}: final leadership mission alone cannot unlock the PDF`, !isFourQuestCertificateReady([...legacy, ...ai], band, pitchDone, finalChallengeDone));
+  check(`${band}: all four quests unlock the PDF`, isFourQuestCertificateReady([...legacy, ...ai], band, pitchDone, leadershipDone));
   // Missing even one required MQ activity still blocks it, even with EQ+LQ done.
   check(`${band}: MQ alone incomplete still blocks it`, !isThreeQuestCertificateReady(requiredMQ.slice(0, -1), band, pitchDone, finalChallengeDone));
 }

@@ -6,7 +6,7 @@ import { useLocalProgress } from "@/lib/local-progress/use-local-progress";
 import { certificateCopy, certificateCompetencies } from "@/content/certificate-copy";
 import { isSupportedLocale } from "@/i18n/config";
 import { CERTIFICATE_BANDS } from "@/lib/certificates/eligibility";
-import { isThreeQuestCertificateReady } from "@/lib/certificates/three-quest-eligibility";
+import { isFourQuestCertificateReady } from "@/lib/certificates/three-quest-eligibility";
 import { useRecordThreeQuestCompletion } from "@/lib/certificates/use-record-three-quest-completion";
 import { useEntrepreneurQuest } from "@/lib/entrepreneur-quest/use-entrepreneur-quest";
 import { useLeadershipQuest } from "@/lib/leadership-quest/use-leadership-quest";
@@ -30,8 +30,7 @@ function CertificateContent() {
   // certificate from ever reading as eligible, per Issue #86 point 4.
   const loaded=isLoaded&&entrepreneurLoaded&&leadershipLoaded;
   const sameBand=!!band&&band===state.ageBand;
-  const eligible=loaded&&sameBand&&isThreeQuestCertificateReady(state.completedActivityIds,band,entrepreneur,leadership)
-    && (state.certificateQuestCount === 3 || !!state.threeQuestCertificateDates[band] || state.completedActivityIds.includes(`ai-quest-${band}`));
+  const eligible=loaded&&sameBand&&isFourQuestCertificateReady(state.completedActivityIds,band,entrepreneur,leadership);
   useRecordThreeQuestCompletion(sameBand?band!:null, eligible, loaded);
   return <main id="main-content" tabIndex={-1} className="mx-auto min-h-screen max-w-6xl p-4 text-center">
     <h1 className="text-2xl font-bold">{copy.title}</h1>

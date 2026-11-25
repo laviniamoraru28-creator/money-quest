@@ -181,11 +181,18 @@ jobs:
       - name: iPhone and iPad journeys
         id: safari
         if: "!cancelled() && steps.server.outcome == 'success'"
-        timeout-minutes: 6
+        # The 300s global-timeout this used to carry was calibrated before
+        # this spec list grew to 132 cases across iphone-safari and
+        # tablet-safari — a broad-profile workflow_dispatch run timed out
+        # with 125/132 passed, 0 failed, 7 tests short of finishing (run
+        # 45445060163). Not a real regression, the same headroom problem
+        # already fixed once for the chromium step above. 12 minutes gives
+        # real margin over the ~5 minutes that run actually needed.
+        timeout-minutes: 12
         run: |
           PLAYWRIGHT_JSON_OUTPUT_FILE="$AUDIT_DIR/safari.json" npx playwright test \
             educational-mission.spec.ts cinematic-adventure.spec.ts academy-certificates.spec.ts lesson-assistant.spec.ts settings-panel.spec.ts business-save-and-simulate.spec.ts leadership-retry.spec.ts \
-            --project=iphone-safari --project=tablet-safari --workers=2 --global-timeout=300000 \
+            --project=iphone-safari --project=tablet-safari --workers=2 --global-timeout=600000 \
             --output="$AUDIT_DIR/evidence/safari" --reporter=line,json
       - name: Additional iPad journeys
         id: tablet

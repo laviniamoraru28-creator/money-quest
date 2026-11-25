@@ -98,7 +98,7 @@ function Challenge({ band }: { band: AgeBand }) {
     } : {
       prompt: lab("promptQuality.question"), hint: lab("promptQuality.intro"),
       options: (pro ? ["poor","better","best"] : ["poor","better"]).map(key => ({
-        label:lab("promptQuality.options." + key), correct:key === (pro ? "best" : "better"),
+        label:lab("promptQuality.options." + key), correct:key !== "poor",
       })),
     },
     {

@@ -1,3 +1,5 @@
+import {requiredAiLessons} from "../../src/lib/certificates/three-quest-eligibility";
+import {LQ_MISSIONS} from "../../src/content/leadership-quest/structures";
 import {test,expect,type Page} from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import {readFileSync} from "node:fs";
@@ -20,9 +22,9 @@ import type {AgeBand} from "../../src/types/database.types";
 // so an unconditional set would silently discard any progress a test
 // made in between navigations.
 async function seedQuestState(page: Page, band: AgeBand, options: {mqCompletedIds: string[]; eqDone: boolean; lqDone: boolean}) {
-  const mq = {...createDefaultState(), certificateQuestCount:3, ageBand: band, completedActivityIds: options.mqCompletedIds};
+  const mq = {...createDefaultState(), certificateQuestCount:3, ageBand: band, completedActivityIds: [...options.mqCompletedIds, ...requiredAiLessons(band)]};
   const eq = {byBand: {[band]: {...createEntrepreneurDefault(), pitchCompleted: options.eqDone}}};
-  const lq = {byBand: {[band]: {...createLeadershipDefault(), completedMissionIds: options.lqDone ? ["final-challenge"] : []}}};
+  const lq = {byBand: {[band]: {...createLeadershipDefault(), completedMissionIds: options.lqDone ? LQ_MISSIONS.map(mission => mission.id) : []}}};
   await page.addInitScript(([mqState, eqState, lqState]) => {
     // addInitScript also reruns on the transient about:blank document
     // Chromium creates before each real navigation commits, where
@@ -73,7 +75,7 @@ for (const band of CERTIFICATE_BANDS) {
     // threeQuestCertificateDates.<band> reflects today instead.
     const state = {
       ...createDefaultState(), certificateQuestCount:3, ageBand: band,
-      completedActivityIds: requiredCertificateActivities(band).filter(id => id !== lesson.id),
+      completedActivityIds: [...requiredCertificateActivities(band).filter(id => id !== lesson.id), ...requiredAiLessons(band)],
       certificateCompletionDates: {[band]: "2026-10-20T08:00:00.000+00:00"},
     };
     await page.addInitScript(([mqState, eqState, lqState]) => {
@@ -86,7 +88,7 @@ for (const band of CERTIFICATE_BANDS) {
       if (!localStorage.getItem("moneyquest_local_progress_v1")) localStorage.setItem("moneyquest_local_progress_v1", JSON.stringify(mqState));
       if (!localStorage.getItem("moneyquest_entrepreneur_quest_v1")) localStorage.setItem("moneyquest_entrepreneur_quest_v1", JSON.stringify(eqState));
       if (!localStorage.getItem("moneyquest_leadership_quest_v1")) localStorage.setItem("moneyquest_leadership_quest_v1", JSON.stringify(lqState));
-    }, [state, {byBand: {[band]: {...createEntrepreneurDefault(), pitchCompleted: true}}}, {byBand: {[band]: {...createLeadershipDefault(), completedMissionIds: ["final-challenge"]}}}]);
+    }, [state, {byBand: {[band]: {...createEntrepreneurDefault(), pitchCompleted: true}}}, {byBand: {[band]: {...createLeadershipDefault(), completedMissionIds: LQ_MISSIONS.map(mission => mission.id)}}}]);
     await page.clock.setFixedTime(new Date("2026-11-03T12:34:00Z"));
     await page.goto(`/en/play/world/${lesson.worldId}/lesson/${lesson.id}`);
     await expect(page.getByRole("button", {name: certificateCopy.en.download, exact: true})).toHaveCount(0);
@@ -167,9 +169,9 @@ for(const locale of LOCALES)test(`certificate direct PDF downloads, localized ${
  const errors:string[]=[];page.on("pageerror",error=>errors.push(error.message));
  const outgoing:string[]=[];page.on("request",request=>{if(request.method()!=="GET")outgoing.push(request.url());});
  const seed=(band:typeof CERTIFICATE_BANDS[number])=>[
-  {...createDefaultState(),ageBand:band,completedActivityIds:requiredCertificateActivities(band),threeQuestCertificateDates},
+  {...createDefaultState(),ageBand:band,completedActivityIds:[...requiredCertificateActivities(band),...requiredAiLessons(band)],threeQuestCertificateDates},
   {byBand:{[band]:{...createEntrepreneurDefault(),pitchCompleted:true}}},
-  {byBand:{[band]:{...createLeadershipDefault(),completedMissionIds:["final-challenge"]}}},
+  {byBand:{[band]:{...createLeadershipDefault(),completedMissionIds:LQ_MISSIONS.map(mission => mission.id)}}},
  ] as const;
  const keys=["moneyquest_local_progress_v1","moneyquest_entrepreneur_quest_v1","moneyquest_leadership_quest_v1"] as const;
  // Guarded so the registered addInitScript (which reruns on every later

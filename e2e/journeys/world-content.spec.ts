@@ -16,7 +16,7 @@ for(const ageBand of ["explorer","builder","strategist"] as const) test(`all wor
    const type=entry.activityType==="lesson"?"lesson":"game";
    const response=await page.goto(`/en/play/world/${world.id}/${type}/${entry.id}`);expect(response?.status()).toBe(200);await expect(page.locator("main")).toBeVisible();
    await expect(page.getByText(/isn't available|Choose your learning level first/i)).toHaveCount(0);
-   await expect(page.locator("main button").first()).toBeVisible();
+   await expect(page.locator("main").getByRole("button").first()).toBeVisible();
    const accessibility=await new AxeBuilder({page}).withTags(["wcag2a","wcag2aa","wcag21aa"]).analyze();
    if(accessibility.violations.length)accessibilityFailures.push({activity:entry.id,violations:accessibility.violations.map(({id,nodes})=>({id,nodes:nodes.map(node=>({html:node.html,failure:node.failureSummary}))}))});
    expect(await page.evaluate(()=>document.documentElement.scrollWidth>window.innerWidth),entry.id).toBe(false);
