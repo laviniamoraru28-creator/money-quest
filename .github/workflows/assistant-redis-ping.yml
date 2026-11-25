@@ -1,0 +1,16 @@
+name: Assistant Redis PING
+on:
+  push:
+    branches: [verify/assistant-synthetic-20261125]
+    paths: [.github/workflows/assistant-redis-ping.yml]
+permissions: {}
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    environment: MQ_AI_OPENAI_KEY
+    steps:
+      - name: Verify PONG
+        env:
+          TOKEN: ${{ secrets.MQ_AI_REDIS_REST_TOKEN }}
+        run: |
+          curl -fsS --max-time 10 -H "Authorization: Bearer $TOKEN" -d '["PING"]' https://diverse-ghost-204254.upstash.io | jq -e '.result == "PONG"'
