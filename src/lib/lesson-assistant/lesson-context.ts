@@ -5,6 +5,11 @@ import type { LocalizedLessonText } from "@/content/curriculum/localized-types";
 import { romanianExplorerCopy } from "@/i18n/explorer-copy";
 import { LOCALE_LABELS, type Locale } from "@/i18n/config";
 import { LOCALE_LEARNING_CURRENCY } from "@/lib/currency/learning-currency";
+import { getMission } from "@/lib/agency/missions";
+
+const questLabels = {
+  money: "Money Quest", entrepreneur: "Entrepreneur Quest", leadership: "Leadership Quest", ai: "AI Quest",
+} as const;
 
 const levelGuide = {
   explorer: "Ages 6 to 8. Use tiny sentences with a single idea each. At most 40 words of main text. Use familiar objects and two choices with distinct meaningful picture icons and very short labels. Assume reading ability varies.",
@@ -58,3 +63,48 @@ export async function getAssistantLesson(lessonId: string, locale: Locale) {
 }
 
 export type AssistantLesson = NonNullable<Awaited<ReturnType<typeof getAssistantLesson>>>;
+
+/**
+ * Same role as getAssistantLesson, for the Agency vertical slice
+ * (src/lib/agency/missions/*) instead of the core Money Quest
+ * curriculum - the one existing content system that already spans all
+ * four Quests (Money/Entrepreneur/Leadership/AI) x all three age bands
+ * uniformly, so it's the natural place to give the assistant real
+ * cross-Quest coverage without touching Entrepreneur Quest's,
+ * Leadership Quest's or Real-Life Quests' own separate, older systems.
+ * Mission ids and curriculum lesson ids share no overlap (see each
+ * mission file's own id), so the two lookups can't collide; the route
+ * tries getAssistantLesson first and falls back to this.
+ */
+export async function getAssistantMission(missionId: string, locale: Locale): Promise<AssistantLesson | null> {
+  const mission = getMission(missionId);
+  if (!mission) return null;
+
+  const messages = (await import(`../../../messages/${locale}.json`)).default;
+  const base = (messages.agency?.missions as Record<string, {
+    title: string; intro: string;
+    nodes: Record<string, { prompt: string }>;
+    choices: Record<string, string>;
+  }> | undefined)?.[missionId];
+  if (!base) return null;
+
+  const introduction = base.nodes[mission.startNodeId]?.prompt ?? base.intro;
+  const existingActivities = Object.values(mission.nodes)
+    .flatMap((node) => node.choices.map((choice) => base.choices[choice.id]))
+    .filter((label): label is string => !!label)
+    .slice(0, 8);
+
+  return {
+    level: mission.band,
+    instructions: levelGuide[mission.band],
+    language: LOCALE_LABELS[locale].englishName,
+    currency: LOCALE_LEARNING_CURRENCY[locale],
+    topic: `${questLabels[mission.quest]}: ${base.title}`,
+    title: base.title,
+    objective: base.intro.slice(0, 220),
+    concept: introduction.slice(0, 220),
+    explanation: base.intro.slice(0, 550),
+    misconception: "",
+    existingActivities,
+  };
+}

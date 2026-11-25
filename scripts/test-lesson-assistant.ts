@@ -4,7 +4,8 @@ import { lessonAssistantCopy } from "@/i18n/lesson-assistant-copy";
 import { hasExplorerComic } from "@/content/explorer-comic-topics";
 import { explorerComicTranscripts } from "@/content/explorer-comic-transcripts";
 import { LESSON_STRUCTURES } from "@/content/curriculum/structures";
-import { getAssistantLesson } from "@/lib/lesson-assistant/lesson-context";
+import { AGENCY_MISSIONS } from "@/lib/agency/missions";
+import { getAssistantLesson, getAssistantMission } from "@/lib/lesson-assistant/lesson-context";
 import { containsPersonalData, makeVisitorCookie, readFollowUp, sealFollowUp, visitorFromCookie } from "@/lib/lesson-assistant/privacy";
 import { parseRequest } from "@/lib/lesson-assistant/protocol";
 import { answerLesson, type AssistantConfig } from "@/lib/lesson-assistant/service";
@@ -23,6 +24,25 @@ async function main() {
       if (structure.ageBand === "explorer" && hasExplorerComic(structure.topicId)) {
         assert.equal(context.explanation, explorerComicTranscripts[structure.topicId][locale].slice(0, 550));
       }
+    }
+
+    // Agency missions (the vertical slice that already spans all four
+    // Quests x three bands) get the same assistant context coverage,
+    // via a separate resolver the route falls back to - see
+    // getAssistantMission's own doc comment for why it's a sibling
+    // function rather than a change to getAssistantLesson's curriculum
+    // logic.
+    for (const mission of Object.values(AGENCY_MISSIONS)) {
+      const context = await getAssistantMission(mission.id, locale);
+      assert.equal(context?.level, mission.band, mission.id);
+      assert.ok(context?.title, mission.id);
+      assert.ok(context?.objective, mission.id);
+      assert.ok(context!.existingActivities.length > 0, mission.id);
+      // No id collision between the two content systems.
+      assert.equal(await getAssistantLesson(mission.id, locale), null, mission.id);
+    }
+    for (const structure of LESSON_STRUCTURES) {
+      assert.equal(await getAssistantMission(structure.id, locale), null, structure.id);
     }
   }
 
@@ -80,6 +100,12 @@ async function main() {
     const second = await answerLesson(config, provider, { ...input, followUp: first.followUp }, lesson, visitor, now);
     assert.ok("answer" in second);
     assert.equal(JSON.parse(generatedInput).previousReply, "Coins can buy an apple.");
+    ledger.splice(0);
+
+    // Same pipeline, a mission-resolved context instead of a curriculum one.
+    const missionContext = (await getAssistantMission("money-explorer-week-one", "en"))!;
+    const missionResult = await answerLesson(config, provider, { ...input, lessonId: "money-explorer-week-one" }, missionContext, visitor, now);
+    assert.ok("answer" in missionResult);
     ledger.splice(0);
 
     assert.deepEqual(await answerLesson(config, provider, { ...input, question: "My name is Ana" }, lesson, visitor, now), { status: "private" });
