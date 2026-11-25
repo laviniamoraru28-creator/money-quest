@@ -80,7 +80,7 @@ export default function AgencyMissionPage() {
         <div aria-live="polite" className="mt-sm flex flex-wrap gap-xs">
           {resourceEntries.map(([key, value]) => (
             <Card key={key} variant="data" className="px-sm py-2xs text-center">
-              <p className="text-xs uppercase tracking-wide text-ink/60">{t(`agency.resourceLabels.${key}`)}</p>
+              <p className="text-xs uppercase tracking-wide text-ink">{t(`agency.resourceLabels.${key}`)}</p>
               <p className="font-display text-xl font-bold">{value}</p>
             </Card>
           ))}
@@ -137,7 +137,7 @@ export default function AgencyMissionPage() {
             <h2 className="font-display text-xl font-bold">{t("agency.statusCompletedHeading")}</h2>
             <p className="mt-2xs text-base text-ink/80">{t("agency.statusCompletedBody")}</p>
 
-            <h3 className="mt-sm text-sm font-medium uppercase tracking-wide text-ink/60">{t("agency.historyHeading")}</h3>
+            <h3 className="mt-sm text-sm font-medium uppercase tracking-wide text-ink">{t("agency.historyHeading")}</h3>
             <ul className="mt-2xs flex flex-col gap-2xs">
               {state.history.map((entry, index) => {
                 const outcome = outcomeTextFor(entry);
