@@ -1,4 +1,5 @@
 "use client";
+import {AgencyMissionLink} from "@/components/AgencyMissionLink";
 import Image from "next/image";
 import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
@@ -164,6 +165,7 @@ export default function AiQuest() {
         ) : (
           <Link href="/#levels-heading">{t("play.chooseYourLevel")}</Link>
         ))}
-    </main>
+    <AgencyMissionLink quest="ai" band={state.ageBand} />
+      </main>
   );
 }

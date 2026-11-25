@@ -1,5 +1,6 @@
 "use client";
 
+import {agencyHubPaths} from "@/components/AgencyMissionLink";
 import { useParams } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
@@ -153,6 +154,7 @@ export default function AgencyMissionPage() {
             </Button>
           </Card>
         )}
+      <Link href={agencyHubPaths[def.quest]} className="mt-sm inline-flex min-h-12 items-center underline">{t("common.back")}</Link>
       </main>
     </div>
   );

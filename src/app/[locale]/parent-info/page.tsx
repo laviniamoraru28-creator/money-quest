@@ -1,3 +1,4 @@
+import {certificateCopy} from "@/content/certificate-copy";
 import {liveShopCopy} from "@/content/live-shop-copy";
 import {publicParentLocale} from "@/lib/i18n/parent-presentation";
 import type { Metadata } from "next";
@@ -67,6 +68,7 @@ export default async function ParentInfoPage({ params }: PageProps) {
         </Link>
         <h1 className="mt-2xs font-display text-2xl font-bold">{t("parentInfo.title")}</h1>
         <p className="mt-2xs text-base text-ink/70">{t("parentInfo.intro")}</p>
+        <p className="mt-sm">{certificateCopy[publicParentLocale(locale)].locked}</p>
 
         <h2 className="mt-lg font-display text-xl font-bold text-teal-text">{t("parentInfo.aboutSectionTitle")}</h2>
         <div className="mt-md grid gap-md">

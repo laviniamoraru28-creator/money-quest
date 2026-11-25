@@ -1,5 +1,6 @@
 "use client";
 
+import {AgencyMissionLink} from "@/components/AgencyMissionLink";
 import { useTranslations } from "next-intl";
 import { AcademyCertificateReward } from "@/components/AcademyCertificateReward";
 import { Link } from "@/i18n/navigation";
@@ -138,6 +139,7 @@ export default function LeadershipQuestHubPage() {
             <ResetLeadershipQuestButton />
           </div>
         )}
+      <AgencyMissionLink quest="leadership" band={progressState.ageBand} />
       </main>
     </div>
   );

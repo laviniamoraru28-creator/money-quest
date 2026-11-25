@@ -1,4 +1,5 @@
 "use client";
+import {AgencyMissionLink} from "@/components/AgencyMissionLink";
 import Image from "next/image";
 import {FirstVisitWelcome} from "@/components/FirstVisitWelcome";
 
@@ -127,6 +128,7 @@ export default function PlayPage() {
         <div className="mt-md flex justify-end">
           <ResetProgressButton />
         </div>
+      <AgencyMissionLink quest="money" band={state.ageBand} />
       </main>
     </div>
   );

@@ -1,5 +1,6 @@
 "use client";
 
+import {AgencyMissionLink} from "@/components/AgencyMissionLink";
 import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
@@ -154,6 +155,7 @@ export default function EntrepreneurQuestHubPage() {
             <ResetBusinessButton />
           </div>
         )}
+      <AgencyMissionLink quest="entrepreneur" band={progressState.ageBand} />
       </main>
     </div>
   );

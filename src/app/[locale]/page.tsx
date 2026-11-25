@@ -1,3 +1,4 @@
+import {certificateCopy} from "@/content/certificate-copy";
 import {cinematicCopy} from "@/content/cinematic-copy";
 import {CinematicScene} from "@/components/CinematicScene";
 import Image from "next/image";
@@ -75,6 +76,7 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
             </li>
           ))}
         </ul>
+        <p className="mx-auto max-w-[65ch] px-sm pb-lg text-center">{certificateCopy[isSupportedLocale(locale) ? locale : "en"].locked}</p>
       </main>
 
       <footer className="border-t border-ink/10 bg-white py-md">
