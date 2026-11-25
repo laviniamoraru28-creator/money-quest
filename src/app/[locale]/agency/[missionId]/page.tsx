@@ -10,6 +10,8 @@ import { getMission } from "@/lib/agency/missions";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { ReadAloudButton } from "@/components/ui/ReadAloudButton";
+import { LessonAssistant } from "@/components/lesson/LessonAssistant";
+import { isSupportedLocale } from "@/i18n/config";
 
 /**
  * One generic page renders every Agency mission, driven entirely by
@@ -155,6 +157,12 @@ export default function AgencyMissionPage() {
           </Card>
         )}
       <Link href={agencyHubPaths[def.quest]} className="mt-sm inline-flex min-h-12 items-center underline">{t("common.back")}</Link>
+
+        {isSupportedLocale(uiLocale) && (
+          <div className="mt-md">
+            <LessonAssistant lessonId={def.id} locale={uiLocale} />
+          </div>
+        )}
       </main>
     </div>
   );
