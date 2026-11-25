@@ -1,0 +1,26 @@
+name: Explorer availability diagnostic
+on:
+  push:
+    branches: [verify/assistant-synthetic-20261125]
+    paths: [.github/workflows/assistant-explorer-check.yml]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 6
+    environment: MQ_AI_OPENAI_KEY
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: 7d14a13bbcb4d191b0ae26cc3f437afd108d11bf
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.22.1'
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Synthetic generation and independent review
+        env:
+          MQ_AI_OPENAI_KEY: ${{ secrets.MQ_AI_OPENAI_KEY }}
+          MQ_AI_REDIS_REST_TOKEN: ${{ secrets.MQ_AI_REDIS_REST_TOKEN }}
+        run: node --import tsx scripts/verify-explorer-repeat.ts
