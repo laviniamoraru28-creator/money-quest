@@ -96,9 +96,9 @@ function Challenge({ band }: { band: AgeBand }) {
       prompt: c.posterTask, hint: c.clearPrompt,
       options: [{label:c.clearPrompt,icon:"🎨💧",correct:true},{label:c.vaguePrompt,icon:"❔"}],
     } : {
-      prompt: lab("promptQuality.question"), hint: lab("promptQuality.intro"),
+      prompt: c.promptTask, hint: c.promptRetry,
       options: (pro ? ["poor","better","best"] : ["poor","better"]).map(key => ({
-        label:lab("promptQuality.options." + key), correct:key !== "poor",
+        label:lab("promptQuality.options." + key), correct:key !== "poor", feedback:key === "poor" ? c.promptRetry : c.promptSuccess,
       })),
     },
     {

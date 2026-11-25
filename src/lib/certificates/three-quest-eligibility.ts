@@ -1,3 +1,4 @@
+import { EQ_STAGES } from "@/content/entrepreneur-quest/structures";
 import { LQ_MISSIONS } from "@/content/leadership-quest/structures";
 import type { AgeBand } from "@/types/database.types";
 import type { EntrepreneurQuestState } from "@/lib/entrepreneur-quest/state";
@@ -21,10 +22,16 @@ export function requiredAiLessons(band: AgeBand): string[] {
   return Array.from({ length: 5 }, (_, index) => `ai-quest-${band}-lesson-${index + 1}`);
 }
 
+export function isEntrepreneurCurriculumComplete(state: EntrepreneurQuestState): boolean {
+  return state.pitchCompleted && !!state.latestSimulatorRun
+    && EQ_STAGES.every(stage => state.completedStageIds.includes(stage.id));
+}
+
 export function isFourQuestCertificateReady(
   ids: readonly string[], band: AgeBand, entrepreneur: EntrepreneurQuestState, leadership: LeadershipQuestState
 ): boolean {
   return isThreeQuestCertificateReady(ids, band, entrepreneur, leadership)
+    && isEntrepreneurCurriculumComplete(entrepreneur)
     && LQ_MISSIONS.every(mission => leadership.completedMissionIds.includes(mission.id))
     && requiredAiLessons(band).every(id => ids.includes(id));
 }

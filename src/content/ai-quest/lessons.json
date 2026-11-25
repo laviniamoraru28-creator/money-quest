@@ -23,7 +23,10 @@
     "yourTotal": "Your total",
     "compare": "Compare the AI answer with the evidence.",
     "appleTask": "Count the apples. Which answer matches the picture?",
-    "privacy": "Share a product idea. Keep your address private."
+    "privacy": "Share a product idea. Keep your address private.",
+    "promptTask": "Which request gives the AI a specific task?",
+    "promptRetry": "What should the AI help with? Describe the change in sales and ask what you could check.",
+    "promptSuccess": "You gave the AI something specific to investigate. Check its ideas against your own evidence."
   },
   "ro": {
     "titles": [
@@ -49,7 +52,10 @@
     "yourTotal": "Totalul tău",
     "compare": "Compară răspunsul AI cu dovezile.",
     "appleTask": "Numără merele. Ce răspuns se potrivește imaginii?",
-    "privacy": "Poți vorbi despre o idee de produs. Păstrează adresa ta privată."
+    "privacy": "Poți vorbi despre o idee de produs. Păstrează adresa ta privată.",
+    "promptTask": "Care cerere îi dă asistentului AI o sarcină precisă?",
+    "promptRetry": "Cu ce să te ajute? Descrie schimbarea vânzărilor și întreabă ce ai putea verifica.",
+    "promptSuccess": "Ai dat asistentului o problemă precisă. Compară ideile lui cu datele tale."
   },
   "fr": {
     "titles": [
@@ -75,7 +81,10 @@
     "yourTotal": "Ton total",
     "compare": "Compare la réponse de l’IA aux indices.",
     "appleTask": "Compte les pommes. Quelle réponse correspond à l’image ?",
-    "privacy": "Tu peux parler d’une idée de produit. Garde ton adresse privée."
+    "privacy": "Tu peux parler d’une idée de produit. Garde ton adresse privée.",
+    "promptTask": "Quelle demande donne une tâche précise à l’IA ?",
+    "promptRetry": "Pour quoi veux-tu de l’aide ? Décris le changement des ventes et demande ce que tu pourrais vérifier.",
+    "promptSuccess": "Tu as donné une tâche précise. Compare les idées proposées avec tes données."
   },
   "es": {
     "titles": [
@@ -101,7 +110,10 @@
     "yourTotal": "Tu total",
     "compare": "Compara la respuesta de la IA con las pruebas.",
     "appleTask": "Cuenta las manzanas. ¿Qué respuesta coincide con la imagen?",
-    "privacy": "Puedes compartir una idea de producto. Mantén privada tu dirección."
+    "privacy": "Puedes compartir una idea de producto. Mantén privada tu dirección.",
+    "promptTask": "¿Qué petición le da a la IA una tarea concreta?",
+    "promptRetry": "¿En qué debe ayudarte? Describe el cambio en las ventas y pregunta qué podrías comprobar.",
+    "promptSuccess": "Has planteado una tarea concreta. Contrasta sus ideas con tus datos."
   },
   "de": {
     "titles": [
@@ -127,7 +139,10 @@
     "yourTotal": "Deine Summe",
     "compare": "Vergleiche die KI-Antwort mit den Belegen.",
     "appleTask": "Zähle die Äpfel. Welche Antwort passt zum Bild?",
-    "privacy": "Eine Produktidee darfst du teilen. Behalte deine Adresse für dich."
+    "privacy": "Eine Produktidee darfst du teilen. Behalte deine Adresse für dich.",
+    "promptTask": "Welche Bitte gibt der KI eine konkrete Aufgabe?",
+    "promptRetry": "Wobei soll sie helfen? Beschreibe die Änderung der Verkaufszahlen und frage, was du prüfen könntest.",
+    "promptSuccess": "Du hast eine konkrete Aufgabe gestellt. Vergleiche die Vorschläge mit deinen Daten."
   },
   "it": {
     "titles": [
@@ -153,7 +168,10 @@
     "yourTotal": "Il tuo totale",
     "compare": "Confronta la risposta dell’IA con le prove.",
     "appleTask": "Conta le mele. Quale risposta corrisponde all’immagine?",
-    "privacy": "Puoi condividere un’idea per un prodotto. Tieni privato il tuo indirizzo."
+    "privacy": "Puoi condividere un’idea per un prodotto. Tieni privato il tuo indirizzo.",
+    "promptTask": "Quale richiesta dà un compito preciso all’IA?",
+    "promptRetry": "In cosa deve aiutarti? Descrivi il cambiamento delle vendite e chiedi cosa potresti verificare.",
+    "promptSuccess": "Hai dato un compito preciso. Confronta le idee proposte con i tuoi dati."
   },
   "pt": {
     "titles": [
@@ -179,7 +197,10 @@
     "yourTotal": "O teu total",
     "compare": "Compara a resposta da IA com as provas.",
     "appleTask": "Conta as maçãs. Qual resposta corresponde à imagem?",
-    "privacy": "Podes partilhar uma ideia de produto. Guarda a tua morada para ti."
+    "privacy": "Podes partilhar uma ideia de produto. Guarda a tua morada para ti.",
+    "promptTask": "Qual pedido dá à IA uma tarefa concreta?",
+    "promptRetry": "Em que precisas de ajuda? Descreve a mudança nas vendas e pergunta o que poderias verificar.",
+    "promptSuccess": "Deste uma tarefa concreta. Compara as ideias sugeridas com os teus dados."
   },
   "nl": {
     "titles": [
@@ -205,7 +226,10 @@
     "yourTotal": "Jouw totaal",
     "compare": "Vergelijk het antwoord van AI met de aanwijzingen.",
     "appleTask": "Tel de appels. Welk antwoord past bij het plaatje?",
-    "privacy": "Een productidee kun je delen. Houd je adres privé."
+    "privacy": "Een productidee kun je delen. Houd je adres privé.",
+    "promptTask": "Welke vraag geeft de AI een duidelijke taak?",
+    "promptRetry": "Waarmee moet de AI helpen? Beschrijf hoe de verkoop is veranderd en vraag wat je kunt controleren.",
+    "promptSuccess": "Je gaf een duidelijke taak. Vergelijk de ideeën met je eigen gegevens."
   },
   "pl": {
     "titles": [
@@ -231,6 +255,9 @@
     "yourTotal": "Twój wynik",
     "compare": "Porównaj odpowiedź AI z dowodami.",
     "appleTask": "Policz jabłka. Która odpowiedź pasuje do obrazka?",
-    "privacy": "Możesz podzielić się pomysłem na produkt. Zachowaj swój adres dla siebie."
+    "privacy": "Możesz podzielić się pomysłem na produkt. Zachowaj swój adres dla siebie.",
+    "promptTask": "Która prośba wyznacza AI konkretne zadanie?",
+    "promptRetry": "W czym AI ma pomóc? Opisz zmianę sprzedaży i zapytaj, co możesz sprawdzić.",
+    "promptSuccess": "To konkretne zadanie. Porównaj podane pomysły z własnymi danymi."
   }
 }

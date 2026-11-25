@@ -11,7 +11,7 @@ import { LQ_MISSIONS } from "@/content/leadership-quest/structures";
 import { WORLDS } from "@/content/worlds";
 import { getWorldCatalog, getActivityHref } from "@/content/catalog";
 import { isCertificateEligible } from "@/lib/certificates/eligibility";
-import { isFourQuestCertificateReady, requiredAiLessons } from "@/lib/certificates/three-quest-eligibility";
+import { isEntrepreneurCurriculumComplete, isFourQuestCertificateReady, requiredAiLessons } from "@/lib/certificates/three-quest-eligibility";
 import { RewardsPanel } from "./RewardsPanel";
 import { type AgeBand } from "@/types/database.types";
 import { cinematicCopy } from "@/content/cinematic-copy";
@@ -74,7 +74,7 @@ export function AdventureHud() {
         : "/";
   } else {
     if (path !== paths[index]) back = paths[index]!;
-    if (index === 1 && !eq.state.pitchCompleted)
+    if (index === 1 && !isEntrepreneurCurriculumComplete(eq.state))
       next = path.startsWith("/entrepreneur-quest/build")
         ? "/entrepreneur-quest"
         : "/entrepreneur-quest/build";
@@ -91,7 +91,7 @@ export function AdventureHud() {
       const aiDone = requiredAiLessons(band).every(id => state.completedActivityIds.includes(id));
       next = isFourQuestCertificateReady(state.completedActivityIds, band, eq.state, lq.state)
         ? "/academy-certificate?level=" + band
-        : aiDone ? paths.find((_, i) => [!isCertificateEligible(state.completedActivityIds, band), !eq.state.pitchCompleted, !LQ_MISSIONS.every(mission => lq.state.completedMissionIds.includes(mission.id))][i]) ?? "/play" : "/ai-quest#ai-mission";
+        : aiDone ? paths.find((_, i) => [!isCertificateEligible(state.completedActivityIds, band), !isEntrepreneurCurriculumComplete(eq.state), !LQ_MISSIONS.every(mission => lq.state.completedMissionIds.includes(mission.id))][i]) ?? "/play" : "/ai-quest#ai-mission";
     }
   }
   return (

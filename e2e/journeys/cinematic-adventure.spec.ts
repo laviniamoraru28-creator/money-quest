@@ -1,3 +1,4 @@
+import {completedBusiness, completedLeadershipIds} from "../fixtures/completed-quests";
 import { expect, test } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import { cinematicCopy } from "../../src/content/cinematic-copy";
@@ -74,12 +75,12 @@ test("a new family's certificate requires AI Quest and a retry cannot grant a se
  const {createDefaultState}=await import("../../src/lib/local-progress/state");
  const {requiredCertificateActivities}=await import("../../src/lib/certificates/eligibility");
  const band="explorer";
- await page.addInitScript((progress)=>{
+ await page.addInitScript(({progress,eq,lq})=>{
    if(localStorage.getItem("moneyquest_local_progress_v1"))return;
    localStorage.setItem("moneyquest_local_progress_v1",JSON.stringify(progress));
-   localStorage.setItem("moneyquest_entrepreneur_quest_v1",JSON.stringify({byBand:{explorer:{pitchCompleted:true}}}));
-   localStorage.setItem("moneyquest_leadership_quest_v1",JSON.stringify({byBand:{explorer:{completedMissionIds:["final-challenge"]}}}));
- },{...createDefaultState(),ageBand:band,completedActivityIds:requiredCertificateActivities(band)});
+   localStorage.setItem("moneyquest_entrepreneur_quest_v1",JSON.stringify({byBand:{explorer:eq}}));
+   localStorage.setItem("moneyquest_leadership_quest_v1",JSON.stringify({byBand:{explorer:{completedMissionIds:lq}}}));
+ },{progress:{...createDefaultState(),ageBand:band,completedActivityIds:requiredCertificateActivities(band)},eq:completedBusiness(),lq:completedLeadershipIds});
  await page.goto("/en/academy-certificate?level=explorer");
  await expect(page.locator("main button")).toHaveCount(0);
  await page.goto("/en/ai-quest");

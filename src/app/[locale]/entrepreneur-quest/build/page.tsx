@@ -18,7 +18,6 @@ import {
   EQ_MARKET_DETECTIVE_SCENARIO,
   EQ_DEMAND_LADDER,
   EQ_TEST_IDEA_TEST_FIRST_KEY,
-  getEQStageByOrder,
 } from "@/content/entrepreneur-quest/structures";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
@@ -81,15 +80,10 @@ export default function EntrepreneurQuestBuildPage() {
   // starting fresh — a simple, linear progression matching the brief's
   // LEARN -> CREATE -> DECIDE flow rather than letting a child jump
   // around and lose the sense of building one thing step by step.
-  const currentOrder = Math.min(EQ_STAGES.length, state.completedStageIds.length + 1);
-  const stage = getEQStageByOrder(currentOrder);
-
-  if (!stage) {
-    // Every stage already completed — send back to the hub, where the
-    // pitch card is now unlocked.
-    router.push("/entrepreneur-quest");
-    return null;
-  }
+  const stage = EQ_STAGES.find(item => !state.completedStageIds.includes(item.id)
+    || (item.id === "make-your-first-sale" && !state.latestSimulatorRun))
+    ?? EQ_STAGES[EQ_STAGES.length - 1]!;
+  const currentOrder = stage.order;
 
   function goToNextStage() {
     setMissionStepIndex(0);
@@ -280,7 +274,7 @@ export default function EntrepreneurQuestBuildPage() {
 
           {stage.id === "make-your-first-sale" && (
             <div className="mt-sm">
-              <Link href="/entrepreneur-quest/simulator" onClick={goToNextStage}
+              <Link href="/entrepreneur-quest/simulator"
                 className="inline-flex min-h-touch-min w-full items-center justify-center rounded-lg bg-teal px-sm py-2xs text-base font-medium text-white shadow-resting hover:bg-teal/90 focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-[3px] focus-visible:outline-teal">
                 {t("entrepreneurQuest.stages.make-your-first-sale.ctaButton")}
               </Link>
