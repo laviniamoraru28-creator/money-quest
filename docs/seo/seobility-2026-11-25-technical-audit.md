@@ -74,6 +74,30 @@ link[rel="canonical"]` / `head meta[name="description"]` / `head title`, so this
 of bug (present but in the wrong part of the document) fails CI next time instead of passing
 silently.
 
+**A second, genuine regression this same fix introduced, found via CI and fixed before
+merge**: essential-profile CI caught `parent-bonus.spec.ts`'s "unverified or legacy orders do
+not expose the parent guide" test failing on both `desktop-chrome` and `mobile-chrome` -
+`GET /Little_Minds_Smart_Money_Illustrated.pdf` (a path with no matching file or route,
+checking that the bonus PDF isn't directly web-accessible) returned 500 instead of the
+expected 404. Reproduced locally and confirmed, by building the commit *before* this fix in a
+separate worktree, that this is new: unfixed, the same request cleanly 404s. The server's own
+log named the exact cause: `Error: Page changed from static to dynamic at runtime
+/Little_Minds_Smart_Money_Illustrated.pdf, reason: headers`, inside next-intl's own
+`requestLocale` resolution. Root cause: `/Little_Minds_Smart_Money_Illustrated.pdf` has no
+path separator, so it syntactically matches the single-segment `[locale]` route (the
+middleware's matcher deliberately excludes `.pdf` paths - see its own comment - so this
+request reaches the App Router with no locale pre-validation at all). Before this fix, the
+whole route was dynamic anyway, so landing on an unsupported "locale" value just hit this
+layout's own `isSupportedLocale` → `notFound()` check cleanly. After making the route
+genuinely static, Next attempts to resolve an unlisted param as a static-generation candidate
+*before* that check runs, and next-intl's internal locale resolution calling `headers()`
+mid-way through trips Next's hard "static→dynamic at runtime" error - a 500, not a graceful
+404. Fixed with `export const dynamicParams = false` alongside `generateStaticParams`, which
+is also the more correct behavior: an unlisted locale value is now rejected before any render
+is attempted at all, rather than relying on this layout's own runtime check to catch it after
+the fact. Re-verified: the bonus-PDF request now 404s again, and all 9 real locale routes
+still return 200.
+
 ## 2. `X-Powered-By` header
 
 Already fixed on the `fix/seobility-audit-2026-11-21` branch (`poweredByHeader: false`),

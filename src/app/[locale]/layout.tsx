@@ -37,6 +37,20 @@ export function generateStaticParams() {
   return ACTIVE_LOCALES.map((locale) => ({ locale }));
 }
 
+// Required alongside setRequestLocale below: without this, a request whose
+// `[locale]` segment is NOT one of the 9 values above (confirmed live: any
+// single-segment path with no real route, e.g. a mistyped filename request
+// that middleware doesn't intercept - see the matcher's extension
+// exclusions above) now reaches the "static or dynamic?" decision Next
+// makes for a statically-optimized route before this layout's own
+// isSupportedLocale()/notFound() check ever runs, and next-intl's locale
+// resolution calling headers() mid-way through that trips Next's hard
+// "page changed from static to dynamic at runtime" error - a 500, not a
+// 404. Setting this tells Next to reject any unlisted param immediately,
+// before attempting to render it at all, which is also strictly more
+// correct than relying on this layout's own runtime check for that case.
+export const dynamicParams = false;
+
 /**
  * Explicit, rather than relying on Next.js's implicit default —
  * self-documents a real accessibility decision: zoom is deliberately
