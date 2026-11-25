@@ -82,8 +82,16 @@ export function parseAnswer(value: unknown, requiresChallenge: boolean, explorer
   const { kind, text, choices, correct, explanation } = value as Record<string, unknown>;
   if (kind === "scope") return "scope";
   if (!cleanText(text, explorer ? 340 : 850) || !Array.isArray(choices)) return null;
-  if (kind === "answer" && !requiresChallenge && choices.length === 0) return { text, challenge: null };
-  if (kind !== "challenge" || !requiresChallenge || choices.length < 2 || choices.length > (explorer ? 2 : 3) ||
+  // `kind` is the model's own label, not a reliable signal: live testing
+  // against the real API shows it sometimes populates `choices` for a
+  // plain answer even when told to leave them empty (harmless - the UI
+  // only ever renders `text` when there's no challenge, so any such
+  // extra choices are simply discarded here, not a reason to reject an
+  // otherwise good answer), and sometimes labels a genuinely
+  // challenge-shaped reply "answer" instead of "challenge". Judge by the
+  // actual field shape instead of requiring `kind` to match the action.
+  if (!requiresChallenge) return { text, challenge: null };
+  if (choices.length < 2 || choices.length > (explorer ? 2 : 3) ||
     typeof correct !== "number" || !Number.isInteger(correct) || correct < 0 || correct >= choices.length ||
     !cleanText(explanation, explorer ? 120 : 320)) return null;
   if (!choices.every((item) => item && cleanText(item.label, explorer ? 28 : 80) &&
