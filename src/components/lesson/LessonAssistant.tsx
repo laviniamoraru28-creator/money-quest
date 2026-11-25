@@ -22,32 +22,22 @@ export function LessonAssistant({ lessonId, locale }: { lessonId: string; locale
   const t = useTranslations("lessonAssistant");
   const panelId = useId();
   const [open, setOpen] = useState(false);
-  return (
-    <div className="min-w-0" data-lesson-assistant>
-      <Button type="button" variant="secondary" size="large" className="w-full motion-reduce:transform-none"
-        aria-expanded={open} aria-controls={panelId} onClick={() => setOpen(!open)}>
-        <span aria-hidden="true">💬</span>{t("title")}
-      </Button>
-      <div id={panelId} hidden={!open}>
-        {open && <AssistantPanel lessonId={lessonId} locale={locale} />}
-      </div>
-    </div>
-  );
-}
-
-function AssistantPanel({ lessonId, locale }: { lessonId: string; locale: Locale }) {
-  const t = useTranslations("lessonAssistant");
-  const questionId = useId();
-  const privacyId = useId();
-  const active = useRef<AbortController | null>(null);
+  // Readiness lives here, checked once as soon as the lesson page mounts -
+  // not re-fetched on every panel toggle. Lifting it out of AssistantPanel
+  // (which used to run this same fetch every time it mounted, i.e. every
+  // single open) closes a real focus-order race: AssistantPanel's
+  // interactive content only exists once `ready` is known, so opening the
+  // panel and tabbing into it before that fetch resolved could send focus
+  // straight past the panel's (not yet rendered) controls. Checking
+  // availability this early gives the fetch the whole rest of the page's
+  // load and hydration time to resolve before anyone can open the panel at
+  // all, instead of racing it against a keypress the instant it opens.
+  // Staleness over a long-open session is still covered separately by
+  // ask()'s own pre-flight recheck below.
   const [ready, setReady] = useState(false);
   const [busy, setBusy] = useState(true);
   const [status, setStatus] = useState<AssistantStatus | null>(null);
-  const [question, setQuestion] = useState("");
-  const [answer, setAnswer] = useState<Answer | null>(null);
-  const [followUp, setFollowUp] = useState("");
-  const [picked, setPicked] = useState<number | null>(null);
-  const { isSupported, isSpeaking, speak, stop } = useReadAloud(REGIONAL_LOCALES[locale], true);
+  const active = useRef<AbortController | null>(null);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -63,6 +53,42 @@ function AssistantPanel({ lessonId, locale }: { lessonId: string; locale: Locale
       .finally(() => { if (!controller.signal.aborted) { active.current = null; setBusy(false); } });
     return () => active.current?.abort();
   }, []);
+
+  return (
+    <div className="min-w-0" data-lesson-assistant>
+      <Button type="button" variant="secondary" size="large" className="w-full motion-reduce:transform-none"
+        aria-expanded={open} aria-controls={panelId} onClick={() => setOpen(!open)}>
+        <span aria-hidden="true">💬</span>{t("title")}
+      </Button>
+      <div id={panelId} hidden={!open}>
+        {open && (
+          <AssistantPanel lessonId={lessonId} locale={locale} ready={ready} busy={busy} status={status}
+            setReady={setReady} setBusy={setBusy} setStatus={setStatus} />
+        )}
+      </div>
+    </div>
+  );
+}
+
+function AssistantPanel({ lessonId, locale, ready, busy, status, setReady, setBusy, setStatus }: {
+  lessonId: string;
+  locale: Locale;
+  ready: boolean;
+  busy: boolean;
+  status: AssistantStatus | null;
+  setReady: (value: boolean) => void;
+  setBusy: (value: boolean) => void;
+  setStatus: (value: AssistantStatus | null) => void;
+}) {
+  const t = useTranslations("lessonAssistant");
+  const questionId = useId();
+  const privacyId = useId();
+  const active = useRef<AbortController | null>(null);
+  const [question, setQuestion] = useState("");
+  const [answer, setAnswer] = useState<Answer | null>(null);
+  const [followUp, setFollowUp] = useState("");
+  const [picked, setPicked] = useState<number | null>(null);
+  const { isSupported, isSpeaking, speak, stop } = useReadAloud(REGIONAL_LOCALES[locale], true);
 
   async function ask(action: AssistantAction) {
     if (!ready || active.current || (action === "question" && !question.trim())) return;
