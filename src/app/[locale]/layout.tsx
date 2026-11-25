@@ -6,7 +6,7 @@ import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages, getTranslations } from "next-intl/server";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { Space_Grotesk, Atkinson_Hyperlegible } from "next/font/google";
 import { ACTIVE_LOCALES, getTextDirection, isSupportedLocale, type Locale } from "@/i18n/config";
 import { getSiteUrl, DEFAULT_OG_IMAGE } from "@/lib/seo/site-url";
@@ -37,6 +37,20 @@ export function generateStaticParams() {
   return ACTIVE_LOCALES.map((locale) => ({ locale }));
 }
 
+// Required alongside setRequestLocale below: without this, a request whose
+// `[locale]` segment is NOT one of the 9 values above (confirmed live: any
+// single-segment path with no real route, e.g. a mistyped filename request
+// that middleware doesn't intercept - see the matcher's extension
+// exclusions above) now reaches the "static or dynamic?" decision Next
+// makes for a statically-optimized route before this layout's own
+// isSupportedLocale()/notFound() check ever runs, and next-intl's locale
+// resolution calling headers() mid-way through that trips Next's hard
+// "page changed from static to dynamic at runtime" error - a 500, not a
+// 404. Setting this tells Next to reject any unlisted param immediately,
+// before attempting to render it at all, which is also strictly more
+// correct than relying on this layout's own runtime check for that case.
+export const dynamicParams = false;
+
 /**
  * Explicit, rather than relying on Next.js's implicit default —
  * self-documents a real accessibility decision: zoom is deliberately
@@ -61,6 +75,20 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   if (!isSupportedLocale(locale)) notFound();
+  // Every one of this app's 9 locales is already enumerated by
+  // generateStaticParams below, so this route should be statically
+  // rendered per locale. Without this call, next-intl's requestLocale
+  // reads the locale via a dynamic (per-request) API regardless, which
+  // opts the whole route out of static rendering — confirmed live: the
+  // production response was `Cache-Control: private, no-cache, no-store`
+  // on every page, and metadata resolved too late to land in the
+  // initial static <head> at all (title/meta description/canonical
+  // were found as children of <body> after full page load, which
+  // search engines and Lighthouse's SEO audit do not read as <head>
+  // metadata). Setting it explicitly, as next-intl's own static
+  // rendering guide requires, restores both static generation and
+  // correct <head> placement.
+  setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "seo" });
   const siteUrl = getSiteUrl();
 
@@ -126,6 +154,10 @@ export default async function LocaleLayout({
     notFound();
   }
 
+  // See the matching call in generateMetadata above — needed again here
+  // because the page body and metadata are resolved in separate render
+  // passes.
+  setRequestLocale(locale);
   const messages = await getMessages();
   const direction = getTextDirection(locale as Locale);
 
