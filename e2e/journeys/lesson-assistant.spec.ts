@@ -106,8 +106,15 @@ test("challenge, keyboard, narration, focus mode and progress work together", as
   await trigger.focus();
   await page.keyboard.press("Enter");
   await expect(trigger).toHaveAttribute("aria-expanded", "true");
+  // Same wait-for-visible idiom the locale-coverage test above already
+  // uses for these same async-gated buttons (line 48) - the panel's
+  // content only exists once the availability check resolves, so Tab
+  // order into it isn't meaningful (and isn't what toBeFocused() below
+  // is testing) until the button it's aiming for actually exists.
+  const listenButton = assistant.getByRole("button", { name: "Listen", exact: true });
+  await expect(listenButton).toBeVisible();
   await page.keyboard.press("Tab");
-  await expect(assistant.getByRole("button", { name: "Listen", exact: true })).toBeFocused();
+  await expect(listenButton).toBeFocused();
   await assistant.getByRole("button", { name: "Give me a challenge" }).press("Enter");
   await expect(assistant.locator("[aria-live]").getByText("Which item is food?")).toBeVisible();
   const speech = () => page.evaluate(() => (window as unknown as { assistantTestSpeech: { text: string; lang: string }[] }).assistantTestSpeech);
