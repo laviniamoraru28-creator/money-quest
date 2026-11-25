@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getAssistantLesson } from "@/lib/lesson-assistant/lesson-context";
+import { getAssistantLesson, getAssistantMission } from "@/lib/lesson-assistant/lesson-context";
 import { makeVisitorCookie, visitorCookie, visitorFromCookie } from "@/lib/lesson-assistant/privacy";
 import { parseRequest } from "@/lib/lesson-assistant/protocol";
 import { openAIProvider } from "@/lib/lesson-assistant/provider";
@@ -82,7 +82,7 @@ export async function POST(request: NextRequest) {
   if (!input) return json({ status: "unavailable" }, 400);
 
   try {
-    const lesson = await getAssistantLesson(input.lessonId, input.locale);
+    const lesson = await getAssistantLesson(input.lessonId, input.locale) ?? await getAssistantMission(input.lessonId, input.locale);
     if (!lesson) return json({ status: "unavailable" }, 404);
     const result = await answerLesson(config, openAIProvider(config.key), input, lesson, visitor);
     if ("status" in result && (result.status === "monthly" || result.status === "daily")) return json(result, 429);
