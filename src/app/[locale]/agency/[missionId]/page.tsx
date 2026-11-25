@@ -9,6 +9,8 @@ import { getMission } from "@/lib/agency/missions";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { ReadAloudButton } from "@/components/ui/ReadAloudButton";
+import { LessonAssistant } from "@/components/lesson/LessonAssistant";
+import { isSupportedLocale } from "@/i18n/config";
 
 /**
  * One generic page renders every Agency mission, driven entirely by
@@ -152,6 +154,12 @@ export default function AgencyMissionPage() {
               {t("agency.restartButton")}
             </Button>
           </Card>
+        )}
+
+        {isSupportedLocale(uiLocale) && (
+          <div className="mt-md">
+            <LessonAssistant lessonId={def.id} locale={uiLocale} />
+          </div>
         )}
       </main>
     </div>
