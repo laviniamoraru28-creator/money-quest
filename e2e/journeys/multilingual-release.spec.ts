@@ -58,8 +58,11 @@ for(const locale of LOCALES){
    const response=await request.get(file);expect(response.status(),file).toBe(200);expect((await response.body()).subarray(0,4).toString()).toBe('%PDF');
   }
   const fallback=await request.get(`/offline-pages/${locale}.html`);expect(fallback.status()).toBe(200);expect(await fallback.text()).toContain(`<html lang="${locale}">`);
-  const canonical=page.locator('link[rel="canonical"]');await expect(canonical).toHaveAttribute('href',`https://moneyquesteducation.com/${locale}/parents/resources`);
-  expect(await page.locator('link[rel="alternate"][hreflang]').count()).toBeGreaterThanOrEqual(9);
+  // `head`-scoped, not just anywhere in the document - see the matching
+  // comment in website-completion.spec.ts for why that distinction matters.
+  const canonical=page.locator('head link[rel="canonical"]');await expect(canonical).toHaveAttribute('href',`https://moneyquesteducation.com/${locale}/parents/resources`);
+  expect(await page.locator('head link[rel="alternate"][hreflang]').count()).toBeGreaterThanOrEqual(9);
+  await expect(page.locator('head meta[name="description"]')).toHaveCount(1);
   await page.goto(`/${locale}/reviews`);await expect(page.getByRole('heading',{level:1})).toHaveText(reviewsCopy[locale].title);
   if(locale==='pl')await expect(page.getByRole('radio',{name:'2 gwiazdki',exact:true})).toBeVisible();
  });
