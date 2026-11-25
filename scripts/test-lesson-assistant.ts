@@ -51,6 +51,21 @@ async function main() {
   assert.equal(parseAnswer({ kind: "challenge", text: "Choose one.", correct: 2, explanation: "Reason.", choices: [
     { label: "Apple", icon: "food" }, { label: "Book", icon: "book" },
   ] }, true, true), null);
+  // `kind` is the model's own label, not load-bearing - live API testing
+  // showed it sometimes fills `choices` for a plain answer despite being
+  // told to leave them empty, and sometimes labels a genuinely
+  // challenge-shaped reply "answer" instead of "challenge". Both must
+  // still work: extra choices on a non-challenge turn are unused by the
+  // UI and simply discarded, and challenge-shaped content is recognised
+  // by its fields, not by the kind string.
+  assert.deepEqual(parseAnswer({ kind: "answer", text: "Coins and notes are both money.",
+    choices: [{ label: "Coins", icon: "coin" }, { label: "Notes", icon: "wallet" }], correct: -1, explanation: "" },
+    false, true), { text: "Coins and notes are both money.", challenge: null });
+  assert.deepEqual(parseAnswer({ kind: "answer", text: "Pick the fictional friend who saved the most.",
+    correct: 1, explanation: "Mia saved more coins than Sam.",
+    choices: [{ label: "Sam", icon: "coin" }, { label: "Mia", icon: "jar" }] }, true, true),
+    { text: "Pick the fictional friend who saved the most.",
+      challenge: { choices: [{ label: "Sam", icon: "coin" }, { label: "Mia", icon: "jar" }], correct: 1, explanation: "Mia saved more coins than Sam." } });
   assert.equal(microPounds({ input: 1000, output: 200 }, 1), 720);
 
   const originalFetch = globalThis.fetch;
