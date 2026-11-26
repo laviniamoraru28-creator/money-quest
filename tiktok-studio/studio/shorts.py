@@ -39,7 +39,7 @@ def _ease_punch(x: float) -> float:
 
 SHORTS_PATH = STUDIO_ROOT / "curriculum" / "shorts.json"
 CATEGORIES = ("quotation", "question", "activity", "mistake")
-BRAND = "Money Quest Academy"
+BRAND = "Money Quest Education"
 WEBSITE_TEXT = "moneyquesteducation.com"
 BG_FOR = {"hook": "hook", "quote": "quote", "idea": "quote", "options": "cta", "step": "quote", "mistake": "hook",
           "fix": "takeaway", "action": "takeaway", "close": "cta"}

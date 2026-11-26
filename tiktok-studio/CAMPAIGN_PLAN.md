@@ -1,6 +1,8 @@
-# Money Quest Academy: TikTok campaign plan (version 2)
+# Money Quest Education: TikTok campaign plan (version 2)
 
-Status: **approved by the owner on 16 November 2026.** The quote series runs until 20 November; the version 2 calendar starts on 23 November. Brand line in version 2: "Money Quest Academy".
+Status: **approved by the owner on 16 November 2026.** The quote series runs until 20 November; the version 2 calendar starts on 23 November.
+
+**Correction (26 November 2026):** the version-2 brand line below was originally approved as "Money Quest Academy". The owner has since corrected this — the brand is "Money Quest Education", matching the website itself, which has never called itself "Academy". Every video caption, the report templates and this plan now use "Money Quest Education". This also resolves the "This needs one decision" open item in the audit row below: the decision is Money Quest Education.
 
 ## 1. Audit (16 November 2026)
 
@@ -13,7 +15,7 @@ Status: **approved by the owner on 16 November 2026.** The quote series runs unt
 | Publishing | Buffer reminders on Monday, Wednesday and Friday at 19:30 UK time; the owner posts in TikTok. Automatic public posting is blocked. Skip dates: 25 December, 1 January. |
 | Sent so far | One quote video (Franklin, 16 November) plus two earlier test reminders. Buffer cannot tell us whether a reminder was posted in TikTok. |
 | First video | Quotation first, no hook, 12 seconds. Owner-reported: under 100 views, no likes. One video is too little to judge the format or the account. |
-| Brand name | The website calls itself "Money Quest". The pilots use "Money Quest Academy" as requested; the live series still says "Money Quest". This needs one decision. |
+| Brand name | The website calls itself "Money Quest". The pilots used "Money Quest Academy" as originally requested; the live series still says "Money Quest". Resolved 26 November 2026: the brand line is "Money Quest Education". |
 
 ### Opportunities
 
