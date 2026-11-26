@@ -18,7 +18,16 @@ for(const path of pages) test(`page, images, hydration and accessibility: ${path
 });
 test("all museum and library detail routes have correct canonical metadata",async({page})=>{
  for(const [kind,entries] of [["museum",museumRooms],["library",publicOriginalBooks]] as const) for(const item of entries){
-  const path=`/en/${kind}/${item.slug}`;const response=await page.goto(path);expect(response?.status()).toBe(200);await expect(page.getByRole("heading",{name:item.title,exact:true,level:1})).toBeVisible();await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href",`https://moneyquesteducation.com${path}`);
+  const path=`/en/${kind}/${item.slug}`;const response=await page.goto(path);expect(response?.status()).toBe(200);await expect(page.getByRole("heading",{name:item.title,exact:true,level:1})).toBeVisible();
+  // Scoped to `head` specifically, not just anywhere in the document: Next's
+  // metadata streaming can resolve a canonical/meta/title tag late enough
+  // that the browser places it as a child of `<body>` instead of moving it
+  // into `<head>` (confirmed live - this is exactly what search engines and
+  // Lighthouse's SEO audit miss, even though it's still present in the DOM
+  // and would pass an unscoped locator like this test used before).
+  await expect(page.locator('head link[rel="canonical"]')).toHaveAttribute("href",`https://moneyquesteducation.com${path}`);
+  await expect(page.locator('head meta[name="description"]')).toHaveCount(1);
+  await expect(page.locator('head title')).toHaveCount(1);
  }
 });
 test("unfinished short reads have no public routes or catalogue links",async({page})=>{
