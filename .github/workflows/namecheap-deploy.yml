@@ -1,0 +1,259 @@
+name: Namecheap production deploy
+
+# SAFETY INVARIANTS - do not change without re-reading docs/namecheap-ssh-deploy.md:
+#   - workflow_dispatch ONLY. Never add `pull_request`, `pull_request_target`
+#     or `push` triggers to this file: those would hand production SSH
+#     secrets to automatically-run, potentially untrusted code.
+#   - The deploy job is hard-gated to the `main` branch and a typed
+#     confirmation phrase, and requires the `production` GitHub Environment
+#     (Settings -> Environments) - secrets are only readable once that
+#     Environment's own deployment-branch policy is satisfied.
+#   - The connectivity-test job is read-only and always runs first.
+#   - Host key checking is never disabled (no StrictHostKeyChecking=no, no
+#     UserKnownHostsFile=/dev/null) - see .github/actions/namecheap-ssh.
+#   - Remote commands run from checked-in scripts (scripts/namecheap-deploy/),
+#     piped via `bash -s < script.sh`, never as inline heredocs: a heredoc's
+#     closing delimiter can't carry the leading spaces YAML's block-scalar
+#     indentation requires, and a plain `<<EOF` only matches an unindented
+#     terminator - real script files avoid that failure mode entirely and
+#     are independently reviewable/shellcheck-able.
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "connectivity-test (read-only, safe to run any time) or deploy (writes to production)"
+        type: choice
+        options: [connectivity-test, deploy]
+        default: connectivity-test
+        required: true
+      app_path:
+        description: "Confirmed absolute remote application root (e.g. /home/<user>/moneyquest-app). Required for deploy. Run connectivity-test first if unsure."
+        type: string
+        required: false
+      activate_cmd:
+        description: "Optional: command to source the correct Node runtime on the server before npm ci/restart, e.g. 'source ~/nodevenv/moneyquest-app/24/bin/activate'. Leave blank if the account's default node/npm on PATH is already correct (connectivity-test reports this)."
+        type: string
+        required: false
+      confirm:
+        description: "Deploy only: type DEPLOY exactly to confirm a production write"
+        type: string
+        required: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: namecheap-production-deploy
+  cancel-in-progress: false
+
+env:
+  SITE_URL: https://moneyquesteducation.com
+
+jobs:
+  connectivity-test:
+    name: Read-only connectivity + discovery (always runs first)
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ./.github/actions/namecheap-ssh
+        with:
+          ssh-host: ${{ secrets.NAMECHEAP_SSH_HOST }}
+          ssh-port: ${{ secrets.NAMECHEAP_SSH_PORT }}
+          ssh-user: ${{ secrets.NAMECHEAP_SSH_USER }}
+          ssh-private-key: ${{ secrets.NAMECHEAP_SSH_PRIVATE_KEY }}
+          ssh-passphrase: ${{ secrets.NAMECHEAP_SSH_PASSPHRASE }}
+
+      - name: Read-only discovery (no writes of any kind)
+        run: |
+          set -euo pipefail
+          run_remote() { ssh $NAMECHEAP_SSH_OPTS "$NAMECHEAP_SSH_TARGET" "$1" 2>&1 || true; }
+          {
+            echo "## Namecheap connectivity + discovery"
+            echo
+            echo "### Identity"
+            echo '```'
+            run_remote "whoami && hostname && uname -a"
+            echo '```'
+            echo
+            echo "### Node / npm on PATH"
+            echo '```'
+            run_remote "node --version; npm --version; which node; which npm"
+            echo '```'
+            echo
+            echo "### cPanel Node.js app convention (~/nodevenv)"
+            echo '```'
+            run_remote "ls -la ~/nodevenv 2>&1"
+            echo '```'
+            echo
+            echo "### Candidate application directories (server.js, not inside node_modules)"
+            echo '```'
+            run_remote "find \$HOME -maxdepth 5 -iname server.js -not -path '*/node_modules/*' 2>&1"
+            echo '```'
+            echo
+            echo "### Candidate .next build directories"
+            echo '```'
+            run_remote "find \$HOME -maxdepth 5 -type d -iname .next -not -path '*/node_modules/*' 2>&1"
+            echo '```'
+            echo
+            echo "### Running node processes (Passenger spawns these)"
+            echo '```'
+            run_remote "ps -ef | grep -i node | grep -v grep"
+            echo '```'
+            echo
+            echo "### .cpanel app registration markers"
+            echo '```'
+            run_remote "find \$HOME -maxdepth 2 -iname '.cpanel*' 2>&1"
+            echo '```'
+            echo
+            echo "### Disk space"
+            echo '```'
+            run_remote "df -h \$HOME"
+            echo '```'
+          } | tee -a "$GITHUB_STEP_SUMMARY"
+          echo "Discovery complete - nothing above was written to. Use its output to confirm the app_path / activate_cmd inputs for a deploy run."
+
+      - name: Clean up SSH agent
+        if: always()
+        run: ssh-agent -k > /dev/null 2>&1 || true
+
+  deploy:
+    name: Backup, deploy, restart, health-check, rollback-on-failure
+    needs: connectivity-test
+    if: >
+      inputs.mode == 'deploy' &&
+      github.ref == 'refs/heads/main' &&
+      inputs.confirm == 'DEPLOY'
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Require app_path
+        env:
+          APP_PATH: ${{ inputs.app_path }}
+        run: |
+          if [ -z "$APP_PATH" ]; then
+            echo "::error::app_path is required for a deploy run. Run connectivity-test first to confirm it."
+            exit 1
+          fi
+
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24.22.1"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Production build
+        env:
+          NODE_ENV: production
+          NEXT_PUBLIC_SITE_URL: ${{ env.SITE_URL }}
+        run: npm run build
+
+      - name: Package (same checksummed path used for manual releases)
+        id: package
+        run: |
+          set -euo pipefail
+          npm run package:namecheap -- --output=moneyquest-namecheap-release.zip
+          echo "archive=moneyquest-namecheap-release.zip" >> "$GITHUB_OUTPUT"
+
+      - name: Unzip release for transfer
+        run: |
+          set -euo pipefail
+          rm -rf release_staging
+          mkdir release_staging
+          unzip -q "${{ steps.package.outputs.archive }}" -d release_staging
+
+      - uses: ./.github/actions/namecheap-ssh
+        with:
+          ssh-host: ${{ secrets.NAMECHEAP_SSH_HOST }}
+          ssh-port: ${{ secrets.NAMECHEAP_SSH_PORT }}
+          ssh-user: ${{ secrets.NAMECHEAP_SSH_USER }}
+          ssh-private-key: ${{ secrets.NAMECHEAP_SSH_PRIVATE_KEY }}
+          ssh-passphrase: ${{ secrets.NAMECHEAP_SSH_PASSPHRASE }}
+
+      - name: Verified backup of the current live release
+        id: backup
+        env:
+          APP_PATH: ${{ inputs.app_path }}
+        run: |
+          set -euo pipefail
+          backup_file="backup-$(date -u +%Y%m%dT%H%M%SZ).tar.gz"
+          ssh $NAMECHEAP_SSH_OPTS "$NAMECHEAP_SSH_TARGET" bash -s "$APP_PATH" "$backup_file" \
+            < scripts/namecheap-deploy/remote-backup.sh
+          echo "file=$backup_file" >> "$GITHUB_OUTPUT"
+
+      - name: Deploy new release (rsync overlay, preserving node_modules/tmp)
+        env:
+          APP_PATH: ${{ inputs.app_path }}
+        run: |
+          set -euo pipefail
+          rsync -a --delete \
+            --exclude='node_modules/' --exclude='tmp/' \
+            -e "ssh $NAMECHEAP_SSH_OPTS" \
+            ./release_staging/ "$NAMECHEAP_SSH_TARGET:$APP_PATH/"
+
+      - name: Install production dependencies and restart on the server
+        env:
+          APP_PATH: ${{ inputs.app_path }}
+          ACTIVATE_CMD: ${{ inputs.activate_cmd }}
+        run: |
+          set -euo pipefail
+          ssh $NAMECHEAP_SSH_OPTS "$NAMECHEAP_SSH_TARGET" bash -s "$APP_PATH" "$ACTIVATE_CMD" \
+            < scripts/namecheap-deploy/remote-install-restart.sh
+
+      - name: Health check (with automatic rollback on failure)
+        env:
+          APP_PATH: ${{ inputs.app_path }}
+          BACKUP_FILE: ${{ steps.backup.outputs.file }}
+        run: |
+          set -euo pipefail
+          ok=""
+          for i in $(seq 1 15); do
+            sleep 5
+            health="$(curl -fsS --max-time 10 "$SITE_URL/api/health" || true)"
+            if printf '%s' "$health" | grep -q '"status":"ok"'; then
+              ok=1
+              echo "Health check passed on attempt $i: $health"
+              break
+            fi
+            echo "Attempt $i: not healthy yet ($health)"
+          done
+          if [ -z "$ok" ]; then
+            echo "::error::Health check never passed after restart. Rolling back to $BACKUP_FILE."
+            ssh $NAMECHEAP_SSH_OPTS "$NAMECHEAP_SSH_TARGET" bash -s "$APP_PATH" "$BACKUP_FILE" \
+              < scripts/namecheap-deploy/remote-rollback.sh
+            sleep 10
+            echo "::error::Rolled back to the pre-deploy backup ($BACKUP_FILE). Deploy FAILED - investigate before retrying."
+            exit 1
+          fi
+
+      - name: Verify the AI Lesson Assistant is disabled in production
+        run: |
+          set -euo pipefail
+          assistant="$(curl -fsS --max-time 10 "$SITE_URL/api/lesson-assistant" || true)"
+          echo "Assistant status endpoint: $assistant"
+          if printf '%s' "$assistant" | grep -q '"ready":true'; then
+            echo "::error::The AI Lesson Assistant reports ready:true in production. This deploy must not leave it enabled - investigate hosting env vars immediately."
+            exit 1
+          fi
+          echo "Confirmed: AI Lesson Assistant is disabled in production."
+
+      - name: Deploy summary
+        if: always()
+        env:
+          APP_PATH: ${{ inputs.app_path }}
+        run: |
+          {
+            echo "## Namecheap deploy summary"
+            echo "- Source commit: ${{ github.sha }}"
+            echo "- Package archive: ${{ steps.package.outputs.archive }}"
+            echo "- Remote app path: $APP_PATH"
+            echo "- Backup taken: \$HOME/moneyquest-backups/${{ steps.backup.outputs.file }}"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Clean up SSH agent
+        if: always()
+        run: ssh-agent -k > /dev/null 2>&1 || true

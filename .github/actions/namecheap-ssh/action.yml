@@ -1,0 +1,91 @@
+name: Set up verified Namecheap SSH connection
+description: >
+  Verifies the Namecheap server's ED25519 host key against an independently
+  obtained fingerprint, then loads the deploy key into ssh-agent. Never
+  disables host key checking. Exports SSH_AUTH_SOCK and KNOWN_HOSTS_PATH
+  (and a ready-to-use SSH_OPTS string) for later steps in the SAME job -
+  composite action steps run in the caller's job, not a separate one, so
+  GITHUB_ENV exports here are visible to every step after this one.
+inputs:
+  ssh-host:
+    required: true
+  ssh-port:
+    required: true
+  ssh-user:
+    required: true
+  ssh-private-key:
+    required: true
+  ssh-passphrase:
+    required: true
+  # SHA256 fingerprint obtained 26 November 2026 from an authenticated
+  # cPanel Terminal session on the server itself (server392), independent
+  # of any connection this workflow makes - NOT fetched over the same
+  # channel it verifies. Update only by repeating that out-of-band check;
+  # never by trusting a runner's own first-contact ssh-keyscan.
+  expected-fingerprint:
+    required: false
+    default: "SHA256:sPkJ6HjJJ8rC8yiCrno8Y2+4Z/I4YBljLddFFyDHqNQ"
+runs:
+  using: composite
+  steps:
+    - name: Verify host key fingerprint (abort on any mismatch)
+      shell: bash
+      env:
+        SSH_HOST: ${{ inputs.ssh-host }}
+        SSH_PORT: ${{ inputs.ssh-port }}
+        EXPECTED_FP: ${{ inputs.expected-fingerprint }}
+      run: |
+        set -euo pipefail
+        scan="$(ssh-keyscan -T 10 -t ed25519 -p "$SSH_PORT" "$SSH_HOST" 2>/dev/null || true)"
+        if [ -z "$scan" ]; then
+          echo "::error::No ED25519 host key returned by the server - aborting, not proceeding without verification."
+          exit 1
+        fi
+        actual_fp="$(printf '%s\n' "$scan" | ssh-keygen -lf - | awk '{print $2}')"
+        echo "Presented host key fingerprint: $actual_fp"
+        if [ "$actual_fp" != "$EXPECTED_FP" ]; then
+          echo "::error::HOST KEY MISMATCH. Expected $EXPECTED_FP, server presented $actual_fp. This could mean the host key legitimately rotated, OR a man-in-the-middle. Aborting - do not retry with checking disabled. Re-verify the fingerprint out-of-band (cPanel Terminal) before updating expected-fingerprint."
+          exit 1
+        fi
+        echo "Host key verified against the independently-obtained fingerprint."
+        known_hosts_path="$RUNNER_TEMP/namecheap_known_hosts"
+        printf '%s\n' "$scan" > "$known_hosts_path"
+        chmod 600 "$known_hosts_path"
+        echo "KNOWN_HOSTS_PATH=$known_hosts_path" >> "$GITHUB_ENV"
+
+    - name: Load deploy key into ssh-agent (passphrase never on the command line or echoed)
+      shell: bash
+      env:
+        SSH_PRIVATE_KEY: ${{ inputs.ssh-private-key }}
+        SSH_PASSPHRASE: ${{ inputs.ssh-passphrase }}
+      run: |
+        set -euo pipefail
+        eval "$(ssh-agent -s)" > /dev/null
+        echo "SSH_AUTH_SOCK=$SSH_AUTH_SOCK" >> "$GITHUB_ENV"
+        echo "SSH_AGENT_PID=$SSH_AGENT_PID" >> "$GITHUB_ENV"
+        key_path="$RUNNER_TEMP/namecheap_deploy_key"
+        askpass_path="$RUNNER_TEMP/namecheap_askpass.sh"
+        umask 077
+        printf '%s\n' "$SSH_PRIVATE_KEY" > "$key_path"
+        printf '#!/bin/sh\nprintf %%s "$SSH_PASSPHRASE"\n' > "$askpass_path"
+        chmod 700 "$askpass_path"
+        # SSH_ASKPASS_REQUIRE=force (OpenSSH >=8.4) plus a detached session with
+        # no controlling tty forces ssh-add to use the askpass script on every
+        # supported runner image, rather than relying on DISPLAY heuristics.
+        DISPLAY="${DISPLAY:-:0}" SSH_ASKPASS="$askpass_path" SSH_ASKPASS_REQUIRE=force \
+          setsid ssh-add "$key_path" < /dev/null
+        rm -f "$key_path" "$askpass_path"
+        echo "Deploy key loaded into ssh-agent; key file and askpass script removed from disk."
+
+    - name: Export ready-to-use SSH options
+      shell: bash
+      env:
+        SSH_USER: ${{ inputs.ssh-user }}
+        SSH_HOST: ${{ inputs.ssh-host }}
+        SSH_PORT: ${{ inputs.ssh-port }}
+      run: |
+        set -euo pipefail
+        {
+          echo "NAMECHEAP_SSH_TARGET=$SSH_USER@$SSH_HOST"
+          echo "NAMECHEAP_SSH_OPTS=-p $SSH_PORT -o StrictHostKeyChecking=yes -o UserKnownHostsFile=$KNOWN_HOSTS_PATH -o BatchMode=yes -o ConnectTimeout=20"
+        } >> "$GITHUB_ENV"
