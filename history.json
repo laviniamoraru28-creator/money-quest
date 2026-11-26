@@ -145,17 +145,31 @@
       "category": "question",
       "series": "shorts",
       "hook": "Would your child save £5 or spend it?",
-      "status": "sent_to_phone",
+      "status": "reminder_sent",
       "rendered_at": "2026-11-26T02:11:31+00:00",
       "duration": 16.09,
       "video_url": "https://github.com/laviniamoraru28-creator/money-quest/releases/download/tiktok-2026-11-26-mq-i-001/video.mp4",
       "publish_mode": "buffer-notify",
       "submitted_at": "2026-11-26T02:11:36+00:00",
-      "buffer_status": "scheduled",
+      "buffer_status": "sent",
       "buffer_post_id": "6b079559b96dd8d3517ece36",
       "buffer_channel_id": "6afa20c0ece6dfde5fd8b514",
       "buffer_org_id": "6afa203649dfc7619b889215",
-      "due_at": "2026-11-26T02:31:37+00:00"
+      "due_at": "2026-11-26T02:31:37+00:00",
+      "published_at": null,
+      "reminder_sent_at": "2026-11-26T02:31:45.216Z",
+      "external_link": null
+    },
+    {
+      "run": "2026-11-26-mq-a-001",
+      "topic_id": "MQ-A-001",
+      "video_id": "MQ-A-001",
+      "category": "activity",
+      "series": "shorts",
+      "hook": "Try this game on your next shop.",
+      "status": "rendered",
+      "rendered_at": "2026-11-26T09:13:24+00:00",
+      "duration": 17.36
     }
   ]
 }
