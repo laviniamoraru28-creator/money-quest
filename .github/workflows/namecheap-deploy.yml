@@ -203,35 +203,48 @@ jobs:
         run: |
           set -euo pipefail
           backup_file="backup-$(date -u +%Y%m%dT%H%M%SZ).tar.gz"
-          ssh $NAMECHEAP_SSH_OPTS "$NAMECHEAP_SSH_TARGET" bash -s "$APP_PATH" "$backup_file" \
+          # Arguments are individually shell-quoted with %q and sent as ONE
+          # remote command string. ssh's non-interactive mode joins ALL
+          # trailing arguments with plain spaces and hands that single
+          # string to the remote shell to re-parse - passing them as
+          # separate argv entries here is not enough on its own; any
+          # argument containing a space (activate_cmd, below) would
+          # otherwise be split into extra words server-side. This bit a
+          # real production deploy (2026-11-26): an unquoted activate_cmd
+          # caused `source` to run with no filename argument at all.
+          remote_cmd="bash -s $(printf '%q' "$APP_PATH") $(printf '%q' "$backup_file")"
+          ssh $NAMECHEAP_SSH_OPTS "$NAMECHEAP_SSH_TARGET" "$remote_cmd" \
             < scripts/namecheap-deploy/remote-backup.sh
           echo "file=$backup_file" >> "$GITHUB_OUTPUT"
 
-      - name: Deploy new release (rsync overlay, preserving node_modules/tmp)
-        env:
-          APP_PATH: ${{ steps.resolve.outputs.app_path }}
-        run: |
-          set -euo pipefail
-          rsync -a --delete \
-            --exclude='node_modules/' --exclude='tmp/' \
-            -e "ssh $NAMECHEAP_SSH_OPTS" \
-            ./release_staging/ "$NAMECHEAP_SSH_TARGET:$APP_PATH/"
-
-      - name: Install production dependencies and restart on the server
+      - name: Deploy, restart and health-check (automatic rollback on ANY failure from here on)
         env:
           APP_PATH: ${{ steps.resolve.outputs.app_path }}
           ACTIVATE_CMD: ${{ inputs.activate_cmd }}
-        run: |
-          set -euo pipefail
-          ssh $NAMECHEAP_SSH_OPTS "$NAMECHEAP_SSH_TARGET" bash -s "$APP_PATH" "$ACTIVATE_CMD" \
-            < scripts/namecheap-deploy/remote-install-restart.sh
-
-      - name: Health check (with automatic rollback on failure)
-        env:
-          APP_PATH: ${{ steps.resolve.outputs.app_path }}
           BACKUP_FILE: ${{ steps.backup.outputs.file }}
         run: |
-          set -euo pipefail
+          set -uo pipefail
+          rollback() {
+            echo "::error::$1 Rolling back to $BACKUP_FILE."
+            remote_cmd="bash -s $(printf '%q' "$APP_PATH") $(printf '%q' "$BACKUP_FILE")"
+            ssh $NAMECHEAP_SSH_OPTS "$NAMECHEAP_SSH_TARGET" "$remote_cmd" \
+              < scripts/namecheap-deploy/remote-rollback.sh
+            sleep 10
+            echo "::error::Rolled back to the pre-deploy backup ($BACKUP_FILE). Deploy FAILED - investigate before retrying."
+            exit 1
+          }
+
+          rsync -a --delete \
+            --exclude='node_modules/' --exclude='tmp/' \
+            -e "ssh $NAMECHEAP_SSH_OPTS" \
+            ./release_staging/ "$NAMECHEAP_SSH_TARGET:$APP_PATH/" \
+            || rollback "rsync deploy failed."
+
+          remote_cmd="bash -s $(printf '%q' "$APP_PATH") $(printf '%q' "$ACTIVATE_CMD")"
+          ssh $NAMECHEAP_SSH_OPTS "$NAMECHEAP_SSH_TARGET" "$remote_cmd" \
+            < scripts/namecheap-deploy/remote-install-restart.sh \
+            || rollback "Install dependencies / restart failed on the server."
+
           ok=""
           for i in $(seq 1 15); do
             sleep 5
@@ -243,14 +256,7 @@ jobs:
             fi
             echo "Attempt $i: not healthy yet ($health)"
           done
-          if [ -z "$ok" ]; then
-            echo "::error::Health check never passed after restart. Rolling back to $BACKUP_FILE."
-            ssh $NAMECHEAP_SSH_OPTS "$NAMECHEAP_SSH_TARGET" bash -s "$APP_PATH" "$BACKUP_FILE" \
-              < scripts/namecheap-deploy/remote-rollback.sh
-            sleep 10
-            echo "::error::Rolled back to the pre-deploy backup ($BACKUP_FILE). Deploy FAILED - investigate before retrying."
-            exit 1
-          fi
+          [ -n "$ok" ] || rollback "Health check never passed after restart."
 
       - name: Verify the AI Lesson Assistant is disabled in production
         run: |
