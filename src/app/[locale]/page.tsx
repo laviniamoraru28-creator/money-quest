@@ -1,11 +1,11 @@
+import {certificateCopy} from "@/content/certificate-copy";
 import {cinematicCopy} from "@/content/cinematic-copy";
 import {CinematicScene} from "@/components/CinematicScene";
 import Image from "next/image";
 import {CinematicWorldHero} from "@/components/CinematicWorldHero";
 
-import { HomepageMissionPreview } from "@/components/HomepageMissionPreview";
+import { cinematicQuests } from "@/content/cinematic-quests";
 import {ChooseLearningLevelLink} from "@/components/ChooseLearningLevelLink";
-import {certificateJourneyCopy} from "@/content/certificate-journey-copy";
 import {isSupportedLocale} from "@/i18n/config";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
@@ -16,7 +16,6 @@ import { getSiteUrl } from "@/lib/seo/site-url";
 export default async function LandingPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const t = await getTranslations();
-  const journey=certificateJourneyCopy[isSupportedLocale(locale)?locale:"en"];
   const siteUrl = getSiteUrl();
   const orgSchema = buildOrganizationSchema(siteUrl);
   const webSiteSchema = buildWebSiteSchema(siteUrl, locale);
@@ -51,12 +50,12 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
           <CinematicScene src="/cinematic/world/age-portals.mp4" poster="/cinematic/world/age-portals.webp" className="mx-auto mt-4 max-h-60 w-full rounded-2xl object-contain"/>
           <div className="mq-cinematic mt-md grid gap-md sm:grid-cols-3">
             {([
-              { ageBand: "explorer", image: "coin-cove", label: t("play.earlyLearner"), range: t("play.earlyLearnerRange") },
-              { ageBand: "builder", image: "market-town", label: t("play.primary"), range: t("play.primaryRange") },
-              { ageBand: "strategist", image: "golden-vault", label: t("play.olderLearner"), range: t("play.olderLearnerRange") },
+              { ageBand: "explorer", label: t("play.earlyLearner"), range: t("play.earlyLearnerRange") },
+              { ageBand: "builder", label: t("play.primary"), range: t("play.primaryRange") },
+              { ageBand: "strategist", label: t("play.olderLearner"), range: t("play.olderLearnerRange") },
             ] as const).map((level) => (
-              <ChooseLearningLevelLink key={level.image} ageBand={level.ageBand} className="mq-age-portal group overflow-hidden rounded-2xl border border-teal/20 bg-white shadow-resting transition-shadow hover:shadow-lg focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal">
-                <Image unoptimized src={`/images/money-quest/worlds/${level.image}-thumb.webp`} alt="" width={640} height={400} loading="lazy" className="h-48 w-full object-contain bg-cream p-3 transition-transform motion-safe:group-hover:scale-[1.02]" />
+              <ChooseLearningLevelLink key={level.ageBand} ageBand={level.ageBand} className="mq-age-portal group overflow-hidden rounded-2xl border border-teal/20 bg-white shadow-resting transition-shadow hover:shadow-lg focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal">
+                <Image unoptimized src={`/cinematic/world/portal-${level.ageBand}.webp`} alt="" width={640} height={501} loading="lazy" className="h-48 w-full object-cover bg-cream transition-transform motion-safe:group-hover:scale-[1.02]" />
                 <div className="p-md text-center">
                   <h3 className="font-display text-xl font-bold text-teal-text">{level.label}</h3>
                   <p className="mt-1 text-ink/70">{level.range}</p>
@@ -67,14 +66,17 @@ export default async function LandingPage({ params }: { params: Promise<{ locale
           </div>
         </section>
 
-        <HomepageMissionPreview locale={locale} />
-        <section aria-labelledby="how-it-works-heading" className="mx-auto max-w-[1200px] px-sm pb-2xl">
-          <div className="rounded-2xl border border-teal/20 bg-white p-md md:p-lg">
-            <h2 id="how-it-works-heading" className="font-display text-2xl font-bold">{journey.heading}</h2>
-            <p className="mt-3">{journey.steps}</p>
-            <p className="mt-3">{journey.print}</p>
-          </div>
-        </section>
+        <ul className="mx-auto grid max-w-[1200px] gap-md px-sm pb-2xl sm:grid-cols-2 lg:grid-cols-4">
+          {cinematicQuests.map(quest => (
+            <li key={quest.key}>
+              <Link href={quest.href} className="block overflow-hidden rounded-2xl bg-[#14263e] text-white focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal">
+                <Image unoptimized src={`/cinematic/quests/${quest.key}/intro.webp`} alt="" width={480} height={270} loading="lazy" className="aspect-video w-full object-cover" />
+                <span className="block p-md text-center font-display text-xl font-bold">{quest.title}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <p className="mx-auto max-w-[65ch] px-sm pb-lg text-center">{certificateCopy[isSupportedLocale(locale) ? locale : "en"].locked}</p>
       </main>
 
       <footer className="border-t border-ink/10 bg-white py-md">

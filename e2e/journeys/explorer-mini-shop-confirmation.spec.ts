@@ -136,8 +136,8 @@ for (const locale of LOCALES) test(`${locale}: paid amount and remaining balance
   await shop.locator('button[aria-pressed]').first().click();
   const feedback = shop.locator('[role="status"]');
   const paidText = await feedback.textContent();
-  const price = learningAmount(2, locale);
-  const remaining = learningAmount(3, locale);
+  const price = learningAmount(2, locale, "GBP");
+  const remaining = learningAmount(3, locale, "GBP");
   expect(price).not.toBe('2');
   expect(remaining).not.toBe('3');
   expect(paidText).toContain(price);

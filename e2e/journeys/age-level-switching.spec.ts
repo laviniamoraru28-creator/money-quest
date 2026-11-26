@@ -18,9 +18,11 @@ const messages = JSON.parse(readFileSync('messages/en.json', 'utf8'));
  */
 async function chooseLevel(page: import('@playwright/test').Page, label: RegExp) {
   await page.goto('/en/play');
-  const changeLevel = page.getByRole('button', {name: messages.play.changeLevel, exact: true});
-  if (await changeLevel.isVisible().catch(() => false)) await changeLevel.click();
-  await page.getByRole('button', {name: label}).click();
+  const picker = page.getByRole('combobox', {name: messages.play.chooseYourLevel, exact: true});
+  const initial = page.getByRole('button', {name: label});
+  await initial.or(picker).first().waitFor();
+  if (await picker.isVisible()) await picker.selectOption(label.test('Builder 9-11') ? 'builder' : 'strategist');
+  else await initial.click();
 }
 
 test('switching from Builder to Strategist redirects an open lesson to the new band', async ({page}) => {
@@ -45,13 +47,13 @@ test('switching from Builder to Strategist redirects an open game to the new ban
   await chooseLevel(page, /Builder.*9-11/);
   const builderHref = `/en/play/world/${game.worldId}/game/game-builder-${game.key}`;
   await page.goto(builderHref);
-  await expect(page.getByText(/YOUR LEVEL/i)).toContainText('Builder');
+  await expect(page.getByRole('combobox', {name: messages.play.chooseYourLevel, exact: true})).toHaveValue('builder');
 
   await chooseLevel(page, /Strategist.*12-14/);
   // Revisit the now-stale Builder game URL directly.
   await page.goto(builderHref);
   await expect(page).toHaveURL(new RegExp(`/game/game-strategist-${game.key}$`));
-  await expect(page.getByText(/YOUR LEVEL/i)).toContainText('Strategist');
+  await expect(page.getByRole('combobox', {name: messages.play.chooseYourLevel, exact: true})).toHaveValue('strategist');
   // The rendered round must be the Strategist variant's own content, not a
   // leftover Builder round under the new label.
   const strategistVariant = game.variants.find((v) => v.ageBand === 'strategist')!;
@@ -68,7 +70,7 @@ test('switching to a band with no variant for the open game shows "not available
   await page.getByRole('button', {name: /Explorer.*6-8/}).click();
   const explorerHref = `/en/play/world/${game.worldId}/game/game-explorer-${game.key}`;
   await page.goto(explorerHref);
-  await expect(page.getByText(/YOUR LEVEL/i)).toContainText('Explorer');
+  await expect(page.getByRole('combobox', {name: messages.play.chooseYourLevel, exact: true})).toHaveValue('explorer');
 
   await chooseLevel(page, /Builder.*9-11/);
   await page.goto(explorerHref);

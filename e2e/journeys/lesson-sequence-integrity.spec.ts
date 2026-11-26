@@ -45,7 +45,7 @@ test('Builder: visiting Money Forms and returning keeps the selected quiz answer
   await page.goto('/en/play');
   await page.getByRole('button', {name: /Builder.*9-11/}).click();
   await page.goto('/en/play/world/coin-cove/lesson/builder-money_basics-l1');
-  const firstOption = page.getByRole('radio').first();
+  const firstOption = page.getByRole('radio', {name: 'Doing a job', exact: true});
   await firstOption.check();
   await expect(firstOption).toBeChecked();
 

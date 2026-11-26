@@ -126,7 +126,7 @@ test('en/explorer: title, then guide, then comic, then activities — in that or
       const all = Array.from(document.querySelector('main')!.querySelectorAll('*'));
       return {
         h1: all.indexOf(document.querySelector('[data-lesson-section="lesson"] h1')!),
-        guide: all.indexOf(document.querySelector('aside[aria-label="Your learning guides"]')!),
+        guide: all.indexOf(document.querySelector('aside[aria-label="Mission instructions"]')!),
         comic: all.indexOf(document.querySelector('[data-explorer-comic-lesson]')!),
         activities: all.indexOf(document.querySelector('[data-explorer-interactive-lesson]')!),
       };

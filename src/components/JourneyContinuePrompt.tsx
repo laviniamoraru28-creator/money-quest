@@ -3,6 +3,8 @@ import { useLocale } from "next-intl";
 import { useLocalProgress } from "@/lib/local-progress/use-local-progress";
 import { useEntrepreneurQuest } from "@/lib/entrepreneur-quest/use-entrepreneur-quest";
 import { useLeadershipQuest } from "@/lib/leadership-quest/use-leadership-quest";
+import { LQ_MISSIONS } from "@/content/leadership-quest/structures";
+import { isEntrepreneurCurriculumComplete, requiredAiLessons } from "@/lib/certificates/three-quest-eligibility";
 import { isCertificateEligible } from "@/lib/certificates/eligibility";
 import { journeyContinueCopy } from "@/content/certificate-journey-copy";
 import { isSupportedLocale } from "@/i18n/config";
@@ -10,7 +12,7 @@ import { Link } from "@/i18n/navigation";
 
 /**
  * The visible nudge for the Money Quest -> Entrepreneur Quest ->
- * Leadership Quest -> certificate order (Issue #86 point 6). Never a
+ * Leadership Quest -> AI Quest -> certificate order (Issue #86 point 6). Never a
  * forced redirect - every quest stays voluntary and revisitable; this
  * only ever offers the next step for the family's own selected band,
  * and disappears on its own once that step is no longer next (either
@@ -27,11 +29,11 @@ export function JourneyContinuePrompt() {
   const band = state.ageBand;
   if (!band || !isCertificateEligible(state.completedActivityIds, band)) return null;
 
-  const next = !entrepreneur.pitchCompleted
+  const next = !isEntrepreneurCurriculumComplete(entrepreneur)
     ? { href: "/entrepreneur-quest" as const, label: copy.toEntrepreneurQuest }
-    : !leadership.completedMissionIds.includes("final-challenge")
+    : !LQ_MISSIONS.every(mission => leadership.completedMissionIds.includes(mission.id))
     ? { href: "/leadership-quest" as const, label: copy.toLeadershipQuest }
-    : !state.completedActivityIds.includes(`ai-quest-${band}`)
+    : !requiredAiLessons(band).every(id => state.completedActivityIds.includes(id))
     ? {href:"/ai-quest",label:"AI Quest"}
     : null;
   if (!next) return null;

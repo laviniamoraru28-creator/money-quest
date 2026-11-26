@@ -18,7 +18,16 @@ for(const path of pages) test(`page, images, hydration and accessibility: ${path
 });
 test("all museum and library detail routes have correct canonical metadata",async({page})=>{
  for(const [kind,entries] of [["museum",museumRooms],["library",publicOriginalBooks]] as const) for(const item of entries){
-  const path=`/en/${kind}/${item.slug}`;const response=await page.goto(path);expect(response?.status()).toBe(200);await expect(page.getByRole("heading",{name:item.title,exact:true,level:1})).toBeVisible();await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href",`https://moneyquesteducation.com${path}`);
+  const path=`/en/${kind}/${item.slug}`;const response=await page.goto(path);expect(response?.status()).toBe(200);await expect(page.getByRole("heading",{name:item.title,exact:true,level:1})).toBeVisible();
+  // Scoped to `head` specifically, not just anywhere in the document: Next's
+  // metadata streaming can resolve a canonical/meta/title tag late enough
+  // that the browser places it as a child of `<body>` instead of moving it
+  // into `<head>` (confirmed live - this is exactly what search engines and
+  // Lighthouse's SEO audit miss, even though it's still present in the DOM
+  // and would pass an unscoped locator like this test used before).
+  await expect(page.locator('head link[rel="canonical"]')).toHaveAttribute("href",`https://moneyquesteducation.com${path}`);
+  await expect(page.locator('head meta[name="description"]')).toHaveCount(1);
+  await expect(page.locator('head title')).toHaveCount(1);
  }
 });
 test("unfinished short reads have no public routes or catalogue links",async({page})=>{
@@ -47,9 +56,9 @@ for(const lab of learningLabs)test(`${lab.title} keeps English guide narration`,
  await page.goto(`/en/${lab.slug}`);
  await expect(page).toHaveURL(new RegExp(`/en/${lab.slug}$`));
  await expect(page.getByRole("heading",{level:1,name:lab.title,exact:true})).toBeVisible();
- const guide=page.getByRole("complementary",{name:"Your learning guides",exact:true});
- await guide.getByRole("button",{name:"Hide guide",exact:true}).click();await expect(guide).toHaveCount(0);
- const show=page.getByRole("button",{name:"Show guide",exact:true});await show.focus();await page.keyboard.press("Enter");await expect(guide).toBeVisible();
+ const guide=page.getByRole("complementary",{name:"Mission instructions",exact:true});
+ await guide.getByRole("button",{name:"Hide instructions",exact:true}).click();await expect(guide).toHaveCount(0);
+ const show=page.getByRole("button",{name:"Show instructions",exact:true});await show.focus();await page.keyboard.press("Enter");await expect(guide).toBeVisible();
  await guide.getByRole("button",{name:"Listen",exact:true}).click();
  await expect.poll(()=>page.evaluate(()=>(window as unknown as {labSpeech:{lang:string}[]}).labSpeech.map(call=>call.lang))).toEqual(["en-GB"]);
  await guide.getByRole("button",{name:"Stop",exact:true}).click();
@@ -65,7 +74,7 @@ test("storage failure leaves learning usable",async({page})=>{
  await page.goto("/en/brain-lab");await page.getByRole("button",{name:"Mark as practised",exact:true}).click();await expect(page.getByRole("status").filter({hasText:"could not save"})).toBeVisible();await page.getByRole("button",{name:"Next",exact:true}).click();await expect(page.getByRole("heading",{name:"One thing at a time",exact:true})).toBeVisible();
 });
 test("keyboard settings and synchronized focus mode",async({page})=>{
- await page.goto("/en/brain-lab");await page.locator("[data-settings-trigger]").click();const checkbox=page.getByRole("checkbox",{name:/Focus Mode/i});await checkbox.check();await expect(page.locator('aside[aria-label="Your learning guides"] img')).toHaveCount(0);await expect(page.locator('[data-learning-decoration]').first()).toBeHidden();await page.keyboard.press("Escape");await expect(checkbox).toBeHidden();await expect(page.locator("[data-settings-trigger]")).toBeFocused();
+ await page.goto("/en/brain-lab");await page.locator("[data-settings-trigger]").click();const checkbox=page.getByRole("checkbox",{name:/Focus Mode/i});await checkbox.check();await expect(page.locator('aside[aria-label="Mission instructions"] img')).toHaveCount(0);await expect(page.locator('[data-learning-decoration]').first()).toBeHidden();await page.keyboard.press("Escape");await expect(checkbox).toBeHidden();await expect(page.locator("[data-settings-trigger]")).toBeFocused();
 });
 
 test("picture choices fit at 320px without horizontal scrolling",async({page})=>{

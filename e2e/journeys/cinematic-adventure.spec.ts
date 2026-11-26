@@ -1,3 +1,4 @@
+import {completedBusiness, completedLeadershipIds} from "../fixtures/completed-quests";
 import { expect, test } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import { cinematicCopy } from "../../src/content/cinematic-copy";
@@ -23,6 +24,13 @@ for (const [index, locale] of (
     await page.emulateMedia({ reducedMotion: "reduce" });
     await page.goto(`/${locale}`);
     await expect(page.locator(".mq-cinematic-hero video")).toHaveCount(0);
+    for (const [title, route] of [
+      ["Money Quest", "play"], ["Entrepreneur Quest", "entrepreneur-quest"],
+      ["Leadership Quest", "leadership-quest"], ["AI Quest", "ai-quest"],
+    ] as const) {
+      await expect(page.getByRole("main").getByRole("link", {name: title, exact: true})).toHaveAttribute("href", `/${locale}/${route}`);
+    }
+    await expect(page.locator("#mission-preview-heading")).toHaveCount(0);
     await page.locator(".mq-hero-cta").click();
     await page.locator(`.mq-age-portal[href*="band=${band}"]`).click();
     const avatar = page.getByRole("button", {
@@ -67,18 +75,25 @@ test("a new family's certificate requires AI Quest and a retry cannot grant a se
  const {createDefaultState}=await import("../../src/lib/local-progress/state");
  const {requiredCertificateActivities}=await import("../../src/lib/certificates/eligibility");
  const band="explorer";
- await page.addInitScript((progress)=>{
+ await page.addInitScript(({progress,eq,lq})=>{
    if(localStorage.getItem("moneyquest_local_progress_v1"))return;
    localStorage.setItem("moneyquest_local_progress_v1",JSON.stringify(progress));
-   localStorage.setItem("moneyquest_entrepreneur_quest_v1",JSON.stringify({byBand:{explorer:{pitchCompleted:true}}}));
-   localStorage.setItem("moneyquest_leadership_quest_v1",JSON.stringify({byBand:{explorer:{completedMissionIds:["final-challenge"]}}}));
- },{...createDefaultState(),ageBand:band,completedActivityIds:requiredCertificateActivities(band)});
+   localStorage.setItem("moneyquest_entrepreneur_quest_v1",JSON.stringify({byBand:{explorer:eq}}));
+   localStorage.setItem("moneyquest_leadership_quest_v1",JSON.stringify({byBand:{explorer:{completedMissionIds:lq}}}));
+ },{progress:{...createDefaultState(),ageBand:band,completedActivityIds:requiredCertificateActivities(band)},eq:completedBusiness(),lq:completedLeadershipIds});
  await page.goto("/en/academy-certificate?level=explorer");
  await expect(page.locator("main button")).toHaveCount(0);
  await page.goto("/en/ai-quest");
+ for(const answer of ["Suggest ideas","Draw a poster showing two ways to save water.","3","4"]){
+   await page.getByRole("button",{name:answer,exact:true}).click();
+   await page.getByRole("button",{name:"Continue",exact:true}).click();
+   await expect(page.getByRole("dialog",{name:"AI Quest"})).toHaveCount(0);
+   await page.reload();
+ }
  await page.getByRole("button",{name:"Your home address",exact:true}).click();
  await expect(page.getByRole("status").filter({hasText:"Try again"})).toBeVisible();
  await page.getByRole("button",{name:"The name of your product",exact:true}).click();
+ await page.getByRole("button",{name:"Continue",exact:true}).click();
  const celebration=page.getByRole("dialog",{name:"AI Quest"});
  await expect(celebration.getByText("You completed your AI challenge.")).toBeVisible();
  await expect(celebration.locator('img[src$="badge-ai.webp"]')).toBeVisible();

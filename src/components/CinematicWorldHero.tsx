@@ -41,7 +41,6 @@ export function CinematicWorldHero({
             {video && (
               <CinematicScene
                 src={video}
-                mobile="/cinematic/world/home-mobile.mp4"
                 poster={poster}
                 className="mq-hero-video is-ready"
               />

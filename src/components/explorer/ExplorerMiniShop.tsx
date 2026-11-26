@@ -3,6 +3,7 @@
 import {useState} from "react";
 import {ExplorerPicture} from "./ExplorerPicture";
 import type {Locale} from "@/i18n/config";
+import {useLocalProgress} from "@/lib/local-progress/use-local-progress";
 import {learningAmount} from "@/lib/currency/learning-currency";
 import {ReadAloudButton} from "@/components/ui/ReadAloudButton";
 import {explorerSpeechLang} from "@/lib/explorer/speech-lang";
@@ -22,10 +23,12 @@ const rows:Record<Locale,string>={
 };
 const keys=(["title","instruction","coins","banknote","card","balance","price","paid","insufficient","again","listen","continueLabel"] as const);
 const copy=Object.fromEntries(Object.entries(rows).map(([locale,row])=>[locale,Object.fromEntries(keys.map((key,i)=>[key,row.split("|")[i]]))])) as Record<Locale,Copy>;
-const money=learningAmount;
+
 
 /** Pretend purchase only. All three methods debit the same five-unit balance. */
 export function ExplorerMiniShop({locale,onComplete}: {locale:Locale;onComplete?:()=>void}) {
+ const {state:{currencyCode}}=useLocalProgress();
+ const money=(value:number, language:Locale)=>learningAmount(value,language,currencyCode);
  const t=copy[locale];
  const instruction=t.instruction.replace("2",money(2,locale)).replace("5",money(5,locale));
  const [balance,setBalance]=useState(5);

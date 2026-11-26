@@ -4,7 +4,7 @@ import { useLocalProgress } from "@/lib/local-progress/use-local-progress";
 import { certificateCopy } from "@/content/certificate-copy";
 import { isSupportedLocale } from "@/i18n/config";
 import { CERTIFICATE_BANDS } from "@/lib/certificates/eligibility";
-import { isThreeQuestCertificateReady } from "@/lib/certificates/three-quest-eligibility";
+import { isFourQuestCertificateReady } from "@/lib/certificates/three-quest-eligibility";
 import { useRecordThreeQuestCompletion } from "@/lib/certificates/use-record-three-quest-completion";
 import { useEntrepreneurQuest } from "@/lib/entrepreneur-quest/use-entrepreneur-quest";
 import { useLeadershipQuest } from "@/lib/leadership-quest/use-leadership-quest";
@@ -34,8 +34,7 @@ export function AcademyCertificateReward() {
   const { state: leadership, isLoaded: leadershipLoaded } = useLeadershipQuest();
   const loaded = isLoaded && entrepreneurLoaded && leadershipLoaded;
   const band = state.ageBand;
-  const ready = loaded && !!band && isThreeQuestCertificateReady(state.completedActivityIds,band,entrepreneur,leadership)
-    && (state.certificateQuestCount === 3 || !!state.threeQuestCertificateDates[band] || state.completedActivityIds.includes(`ai-quest-${band}`));
+  const ready = loaded && !!band && isFourQuestCertificateReady(state.completedActivityIds,band,entrepreneur,leadership);
   useRecordThreeQuestCompletion(band, ready, loaded);
   if(!loaded || !ready || !band)return null;
   const earned=CERTIFICATE_BANDS.filter(candidate=>candidate===band);

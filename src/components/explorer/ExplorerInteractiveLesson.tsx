@@ -22,6 +22,8 @@ import {needsWantsLessonCopy} from "@/content/explorer-needs-wants-lesson";
 import {savingExtraLessonCopy} from "@/content/explorer-saving-lesson-extra";
 import {isSupportedLocale, type Locale} from "@/i18n/config";
 import {explorerSpeechLang} from "@/lib/explorer/speech-lang";
+import {useLocalProgress} from "@/lib/local-progress/use-local-progress";
+import {LearningCash} from "./LearningCash";
 import {learningAmount} from "@/lib/currency/learning-currency";
 
 /** Topics with their own dedicated multi-activity flow below, instead of
@@ -50,6 +52,7 @@ const copy=Object.fromEntries(Object.entries(rows).map(([locale,row])=>{
 export function ExplorerInteractiveLesson({topicId,onComplete}:{
  topicId:string;onComplete:()=>void;
 }) {
+ const {state:{currencyCode}}=useLocalProgress();
  const requested=useLocale();
  const locale=isSupportedLocale(requested)?requested:"en";
  const t=copy[locale];
@@ -82,7 +85,7 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
              aria-pressed={discovered.includes(item.id)}
              onClick={()=>{setDiscovered(prev=>prev.includes(item.id)?prev:[...prev,item.id]);}}
              className="flex min-h-40 flex-col items-center justify-center gap-3 rounded-3xl border-4 border-white bg-gradient-to-b from-white to-soft-blue/10 p-5 text-center shadow-md aria-pressed:border-teal aria-pressed:bg-teal/10 focus-visible:outline focus-visible:outline-4 focus-visible:outline-teal">
-             <Image src={`/images/money-quest/money/${item.image}.webp`} alt="" width={384} height={384} unoptimized className="h-20 w-20 object-contain" />
+             {item.id === "card" ? <Image src="/images/money-quest/money/card.webp" alt="" width={80} height={80} unoptimized className="h-20 w-20 object-contain" /> : <LearningCash kind={item.id === "coin" ? "coin" : "note"}/>}
              <span className="break-words text-lg font-extrabold leading-snug text-ink">{item.label}</span>
              {discovered.includes(item.id) && <span className="text-lg leading-relaxed text-ink">{item.desc}</span>}
            </button>)}
@@ -124,7 +127,7 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
        // budgetPrompt's "5"/"5"/"10" are monetary amounts (a budget and two
        // prices), not object counts — give them a currency label instead of
        // bare digits, same pattern as ExplorerMiniShop's instruction text.
-       key="stage-1" prompt={c.budgetPrompt.replace("10",learningAmount(10,locale)).split("5").join(learningAmount(5,locale))}
+       key="stage-1" prompt={c.budgetPrompt.replace("10",learningAmount(10,locale,currencyCode)).split("5").join(learningAmount(5,locale,currencyCode))}
        options={[
          {id:"ball", label:c.ballChoice, symbol:"⚽", explanation:""},
          {id:"car", label:c.carChoice, symbol:"🚗", explanation:""},
@@ -154,23 +157,14 @@ export function ExplorerInteractiveLesson({topicId,onComplete}:{
    })()}
    {topicId==="currencies" && (() => {
      const c = currenciesLessonCopy[locale];
-     if (stage === 0) return <ExplorerPictureSort
-       key="stage-0"
-       prompt={c.prompt1}
-       items={[
-         {id:"pound", symbol:"£", label:c.pound, destinationId:"uk"},
-         {id:"leu", symbol:"lei", label:c.leu, destinationId:"romania"},
-         {id:"euro", symbol:"€", label:c.euro, destinationId:"europe"},
-         {id:"yen", symbol:"¥", label:c.yen, destinationId:"japan"},
+     if (stage === 0) return <ExplorerPictureChoice
+       key="symbol" prompt={c.prompt3}
+       options={[
+         {id:"pound", symbol:"£", label:c.symbolPoundQuestion, explanation:""},
+         {id:"euro", symbol:"€", label:c.symbolPoundWrong, explanation:""},
        ]}
-       destinations={[
-         {id:"uk", symbol:"🇬🇧", label:c.uk},
-         {id:"romania", symbol:"🇷🇴", label:c.romania},
-         {id:"europe", symbol:"🇪🇺", label:c.europe},
-         {id:"japan", symbol:"🇯🇵", label:c.japan},
-       ]}
-       nextLabel={t.next} tryAgainMessage={c.retry} successMessage={c.success}
-       onComplete={()=>setStage(1)}/>;
+       correctId="pound" successMessage={c.success} retryMessage={c.retry}
+       nextLabel={c.next} onComplete={()=>setStage(1)}/>;
      return <ExplorerPictureChoice
        key="stage-1"
        prompt={c.prompt4tripJapan}

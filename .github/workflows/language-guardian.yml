@@ -11,6 +11,8 @@ on:
     paths:
       - 'messages/**'
       - 'scripts/language-guardian.py'
+      - 'scripts/agent_issue_reporting.py'
+      - 'scripts/deliver_simple_report.py'
       - '.github/workflows/language-guardian.yml'
   schedule:
     - cron: '0 9 * * 1'
@@ -58,8 +60,9 @@ jobs:
           If not, leave a review plan and suggested corrections on this issue.
           EOF
           printf '\nWorkflow report: %s\n' "$RUN_URL" >> claude-handoff.md
-          issue_url=$(gh issue create --title "Language Guardian: Claude translation review" --body-file claude-handoff.md)
-          gh issue comment "$issue_url" --body "@claude Please review the issue and linked audit report. Work only on a separate branch and draft PR. Do not merge or deploy."
+          python3 scripts/deliver_simple_report.py --report-key language-guardian \
+            --title "Language Guardian: Claude translation review" --body-file claude-handoff.md \
+            --claude-instruction "@claude Please review the issue and linked audit report. Work only on a separate branch and draft PR. Do not merge or deploy."
       - name: Fail when structural errors found
         if: steps.audit.outcome == 'failure'
         run: exit 1

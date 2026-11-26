@@ -6,6 +6,8 @@ on:
   pull_request:
     paths:
       - 'scripts/journey-improvement-agents.py'
+      - 'scripts/agent_issue_reporting.py'
+      - 'scripts/deliver_simple_report.py'
       - '.github/workflows/journey-improvement-agents.yml'
 permissions:
   contents: read
@@ -55,5 +57,6 @@ jobs:
             echo
             echo "Full GitHub Actions run: $RUN_URL"
           } > journey-handoff.md
-          issue_url=$(gh issue create --title "Journey Improvement Agents report: ${{ github.run_id }}" --body-file journey-handoff.md)
-          gh issue comment "$issue_url" --body "@claude Please acknowledge this report and review findings against the actual code. Propose fixes only through separate draft PRs. Do not merge, deploy, or introduce child tracking."
+          python3 scripts/deliver_simple_report.py --report-key journey-improvement-agents \
+            --title "Journey Improvement Agents report" --body-file journey-handoff.md \
+            --claude-instruction "@claude Please acknowledge this report and review findings against the actual code. Propose fixes only through separate draft PRs. Do not merge, deploy, or introduce child tracking."
