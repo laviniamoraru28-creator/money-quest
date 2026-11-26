@@ -27,7 +27,7 @@ on:
         default: connectivity-test
         required: true
       app_path:
-        description: "Confirmed absolute remote application root (e.g. /home/<user>/moneyquest-app). Required for deploy. Run connectivity-test first if unsure."
+        description: "Confirmed remote application root. Either absolute (/home/<user>/moneyquest-app) or, preferably, relative to the account's home directory (e.g. moneyquestapp) - resolved server-side so the literal home path never needs to appear in this input or any log. Required for deploy. Run connectivity-test first if unsure."
         type: string
         required: false
       activate_cmd:
@@ -85,6 +85,11 @@ jobs:
             echo "### cPanel Node.js app convention (~/nodevenv)"
             echo '```'
             run_remote "ls -la ~/nodevenv 2>&1"
+            echo '```'
+            echo
+            echo "### Node version available per nodevenv app (for activate_cmd)"
+            echo '```'
+            run_remote "for d in ~/nodevenv/*/; do echo \"\$d:\"; ls \"\$d\" 2>&1; done"
             echo '```'
             echo
             echo "### Candidate application directories (server.js, not inside node_modules)"
@@ -174,10 +179,25 @@ jobs:
           ssh-private-key: ${{ secrets.NAMECHEAP_SSH_PRIVATE_KEY }}
           ssh-passphrase: ${{ secrets.NAMECHEAP_SSH_PASSPHRASE }}
 
+      - name: Resolve app_path against the server's own $HOME (never printed)
+        id: resolve
+        env:
+          APP_PATH_INPUT: ${{ inputs.app_path }}
+        run: |
+          set -euo pipefail
+          if [[ "$APP_PATH_INPUT" == /* ]]; then
+            resolved="$APP_PATH_INPUT"
+          else
+            remote_home="$(ssh $NAMECHEAP_SSH_OPTS "$NAMECHEAP_SSH_TARGET" 'printf %s "$HOME"')"
+            resolved="$remote_home/$APP_PATH_INPUT"
+          fi
+          echo "::add-mask::$resolved"
+          echo "app_path=$resolved" >> "$GITHUB_OUTPUT"
+
       - name: Verified backup of the current live release
         id: backup
         env:
-          APP_PATH: ${{ inputs.app_path }}
+          APP_PATH: ${{ steps.resolve.outputs.app_path }}
         run: |
           set -euo pipefail
           backup_file="backup-$(date -u +%Y%m%dT%H%M%SZ).tar.gz"
@@ -187,7 +207,7 @@ jobs:
 
       - name: Deploy new release (rsync overlay, preserving node_modules/tmp)
         env:
-          APP_PATH: ${{ inputs.app_path }}
+          APP_PATH: ${{ steps.resolve.outputs.app_path }}
         run: |
           set -euo pipefail
           rsync -a --delete \
@@ -197,7 +217,7 @@ jobs:
 
       - name: Install production dependencies and restart on the server
         env:
-          APP_PATH: ${{ inputs.app_path }}
+          APP_PATH: ${{ steps.resolve.outputs.app_path }}
           ACTIVATE_CMD: ${{ inputs.activate_cmd }}
         run: |
           set -euo pipefail
@@ -206,7 +226,7 @@ jobs:
 
       - name: Health check (with automatic rollback on failure)
         env:
-          APP_PATH: ${{ inputs.app_path }}
+          APP_PATH: ${{ steps.resolve.outputs.app_path }}
           BACKUP_FILE: ${{ steps.backup.outputs.file }}
         run: |
           set -euo pipefail
@@ -243,14 +263,12 @@ jobs:
 
       - name: Deploy summary
         if: always()
-        env:
-          APP_PATH: ${{ inputs.app_path }}
         run: |
           {
             echo "## Namecheap deploy summary"
             echo "- Source commit: ${{ github.sha }}"
             echo "- Package archive: ${{ steps.package.outputs.archive }}"
-            echo "- Remote app path: $APP_PATH"
+            echo "- Remote app path (as given): ${{ inputs.app_path }}"
             echo "- Backup taken: \$HOME/moneyquest-backups/${{ steps.backup.outputs.file }}"
           } >> "$GITHUB_STEP_SUMMARY"
 
