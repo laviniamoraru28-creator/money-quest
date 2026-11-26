@@ -56,7 +56,9 @@ async function main() {
 
   for (const example of ["My name is Test Child", "Mă numesc Ana", "Me llamo Ana", "Je m'appelle Ana",
     "Ich heiße Anna", "Mi chiamo Anna", "O meu nome é Ana", "Ik heet Anna", "Nazywam się Anna",
-    "a@example.test", "Please call 07700 900000", "LE12 9EH"]) assert.equal(containsPersonalData(example), true, example);
+    "Școala mea este Exemplu", "Mi escuela es Ejemplo", "Mon école est Exemple", "Je m’appelle Exemple",
+    "Meine Schule heißt Beispiel", "La mia scuola è Esempio", "Minha escola é Exemplo", "Mijn school is Voorbeeld",
+    "Mam na imię Przykład", "My\u200b name is Example", "a@example.test", "Please call 07700 900000", "LE12 9EH"]) assert.equal(containsPersonalData(example), true, example);
   assert.equal(containsPersonalData("What is 12.50 plus 3.80?"), false);
 
   const secret = "test-secret-with-at-least-32-characters";
@@ -103,7 +105,11 @@ async function main() {
   let generatedInput = "";
   const provider: AssistantProvider = async ({ maxOutput, data }) => {
     ledger.push(maxOutput === answerTokens ? "generate" : "review");
-    if (maxOutput === reviewTokens) return { value: { safe: reviewSafe }, usage: { input: 300, output: 8 } };
+    if (maxOutput === reviewTokens) {
+      assert.ok(JSON.parse(data).objective);
+      assert.ok(JSON.parse(data).topic);
+      return { value: { safe: reviewSafe }, usage: { input: 300, output: 8 } };
+    }
     generatedInput = data;
     return { value: { kind: "answer", text: "Coins can buy an apple.", choices: [] }, usage: { input: 650, output: 40 } };
   };
@@ -114,6 +120,10 @@ async function main() {
     assert.deepEqual(ledger.splice(0), ["reserve", "generate", "review", "settle"]);
     const second = await answerLesson(config, provider, { ...input, followUp: first.followUp }, lesson, visitor, now);
     assert.ok("answer" in second);
+    const signedPrivate = sealFollowUp(secret, [now.toISOString().slice(0, 10), visitor, input.locale, lessonId].join(":"), "My school is Example");
+    ledger.splice(0);
+    assert.deepEqual(await answerLesson(config, provider, { ...input, followUp: signedPrivate }, lesson, visitor, now), { status: "private" });
+    assert.deepEqual(ledger, []);
     assert.equal(JSON.parse(generatedInput).previousReply, "Coins can buy an apple.");
     ledger.splice(0);
 

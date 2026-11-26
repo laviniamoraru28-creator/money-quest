@@ -1,3 +1,22 @@
+# Optional AI Lesson Assistant: draft assessment, 25 November 2026
+
+The historical assessment below describes the core learning experience with the assistant off. Its statements about the absence of AI, server processing and personal data do not apply to the assistant.
+
+Children aged 6–14 may enter identifying details, distress disclosures or disability information. Automated multilingual screening can miss indirect, misspelled or unfamiliar disclosures. Treat permitted text as potentially personal. Shortcuts and continued access to lessons without AI reduce the need for free text. Assess whether shortcuts alone would meet the learning objective before approving free text.
+
+Money Quest processes the question on its server. OpenAI receives allowed questions, lesson context and a short previous reply when applicable. A separate request reviews the draft. Upstash receives pseudonymous rate-limit identifiers and financial counters. The application retains no assistant transcript. Browser memory holds the current exchange. Hosting, CDN, error reporting and provider retention require separate verification. See [implementation and ledger lifetimes](lesson-assistant.md).
+
+| Residual risk | Control and outstanding decision |
+|---|---|
+| Disclosure to processors or logs | Verify project-specific ZDR for Chat Completions, host and proxy logs, contracts, transfer safeguards and deletion arrangements. |
+| Harmful advice, dependency or missed safeguarding disclosure | Independent review can also err. Evaluate synthetic disclosures and appropriate trusted-adult guidance in all nine languages. Assign a safeguarding contact and escalation process. |
+| Inaccessible notice or undue pressure | Test voluntary use, comprehension, keyboard, narration and screen readers with age-appropriate consultation including SEND perspectives. |
+| Pseudonymous tracking | Confirm cookie necessity, expiry and lawful basis. Clearing cookies resets the daily limit. Monthly controls apply across visitors. |
+
+Decision pending. The controller should record the lawful basis, processor roles, necessity, child and parent consultation, notice wording, rights request route, responsible person, review date and residual risk decision. Escalate unresolved high risk before launch. Record approvals separately from test results. [ICO DPIA standard](https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/childrens-information/childrens-code-guidance-and-resources/age-appropriate-design-a-code-of-practice-for-online-services/2-data-protection-impact-assessments/)
+
+## Historical core-site assessment
+
 > Not a legal certification of compliance. Rewritten during the 2026 launch-readiness audit: an earlier version of this DPIA described a parent-account, Supabase-backed architecture that has since been fully removed from this website (see `docs/final-architecture-report.md` for the privacy-first redesign this reflects). Statements marked **[LEGAL REVIEW NEEDED]** below are this audit's good-faith position, not a substitute for a qualified UK privacy professional's review.
 
 # Money Quest — Data Protection Impact Assessment (DPIA)

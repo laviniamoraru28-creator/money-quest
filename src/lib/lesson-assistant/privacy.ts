@@ -48,10 +48,10 @@ const personalPatterns = [
   /[\p{L}\d._%+-]+\s*@\s*[\p{L}\d.-]+\.[\p{L}]{2,}|https?:|www\./iu,
   /(?:\d[ .()+-]*){7,}/u,
   /\b[A-Z]{1,2}\d[A-Z\d]?\s*\d[A-Z]{2}\b/iu,
-  /(?<!\p{L})(?:my name is|i live (?:at|in)|my (?:address|school|password)|mă numesc|ma numesc|numele meu|locuiesc (?:la|în)|parola mea|me llamo|mi dirección|vivo en|je m'appelle|mon adresse|j'habite|ich heiße|ich wohne|meine adresse|mi chiamo|il mio indirizzo|mi nombre|meu nome|chamo-me|moro em|ik heet|ik woon|mijn adres|nazywam się|mieszkam|mój adres)(?!\p{L})/iu,
+  /(?<!\p{L})(?:my name is|i live (?:at|in)|my (?:address|school|password)|școala mea|şcoala mea|adresa mea|mi (?:escuela|colegio)|mon école|mein[e]? schule|la mia scuola|minha escola|mijn school|moja szkoła|mam na imię|mă numesc|ma numesc|numele meu|locuiesc (?:la|în)|parola mea|me llamo|mi dirección|vivo en|je m'appelle|mon adresse|j'habite|ich heiße|ich wohne|meine adresse|mi chiamo|il mio indirizzo|mi nombre|meu nome|chamo-me|moro em|ik heet|ik woon|mijn adres|nazywam się|mieszkam|mój adres)(?!\p{L})/iu,
 ];
 
 export function containsPersonalData(text: string) {
-  const normalized = text.normalize("NFKC").replace(/[\p{Cf}\p{Cc}]/gu, " ");
+  const normalized = text.normalize("NFKC").replace(/\p{Cf}/gu, "").replace(/\p{Cc}/gu, " ").replace(/[’ʼ]/gu, "'").replace(/\s+/gu, " ");
   return personalPatterns.some((pattern) => pattern.test(normalized));
 }
