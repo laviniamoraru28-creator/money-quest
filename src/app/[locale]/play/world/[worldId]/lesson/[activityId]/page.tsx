@@ -9,8 +9,6 @@ import { getLessonStructureById, getNextActivityAcrossWorlds, getPreviousActivit
 import { buildActivityDetailFromLesson } from "@/lib/domain/activity";
 import type { LocalizedLessonText } from "@/content/curriculum/localized-types";
 import { LessonPlayer } from "@/components/lesson/LessonPlayer";
-import { getLevelLabelKey } from "@/content/level-options";
-import { getWorksheetFilename } from "@/content/worksheets";
 
 export default function LessonPage() {
   const params = useParams<{ worldId: string; activityId: string }>();
@@ -63,9 +61,6 @@ export default function LessonPage() {
   return (
     <div className="min-h-screen bg-fog px-sm py-lg">
       <main id="main-content" tabIndex={-1} data-explorer-answers={state.ageBand === "explorer" ? "" : undefined} className="mx-auto max-w-[700px]">
-        <p className="text-xs font-medium uppercase tracking-wide text-ink/70">
-          {t("play.yourLevelLabel", { level: t(getLevelLabelKey(state.ageBand)) })}
-        </p>
         <LessonPlayer key={`${locale}:${params.activityId}`}
           activity={activity}
           backToWorldHref={`/play/world/${params.worldId}`}
@@ -77,14 +72,6 @@ export default function LessonPage() {
             return { xpAwarded: result.xpAwarded, coinsAwarded: result.coinsAwarded };
           }}
         />
-        {getWorksheetFilename(structure.id) && (
-          <Link
-            href={`/play/world/${params.worldId}/lesson/${structure.id}/worksheet`}
-            className="mt-sm inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal-text transition-colors duration-quick hover:bg-teal/5"
-          >
-            <span aria-hidden="true">🖨️</span> {t("lesson.printableWorksheetButton")}
-          </Link>
-        )}
       </main>
     </div>
   );

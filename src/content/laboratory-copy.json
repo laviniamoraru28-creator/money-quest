@@ -27,9 +27,9 @@
     "entrepreneur": "Entrepreneur Quest",
     "leadership": "Leadership Quest",
     "realLife": "Real Life Quests",
-    "showGuide": "Show guide",
-    "hideGuide": "Hide guide",
-    "guideLabel": "Your learning guides"
+    "showGuide": "Show instructions",
+    "hideGuide": "Hide instructions",
+    "guideLabel": "Mission instructions"
   },
   "ro": {
     "navigation": "Navigare pentru învățare",
@@ -59,9 +59,9 @@
     "entrepreneur": "Misiuni de antreprenoriat",
     "leadership": "Misiuni de leadership",
     "realLife": "Misiuni din viața de zi cu zi",
-    "showGuide": "Arată ghidul",
-    "hideGuide": "Ascunde ghidul",
-    "guideLabel": "Ghizii tăi pentru învățare"
+    "showGuide": "Arată instrucțiunile",
+    "hideGuide": "Ascunde instrucțiunile",
+    "guideLabel": "Instrucțiunile misiunii"
   },
   "es": {
     "navigation": "Navegación de aprendizaje",
@@ -91,9 +91,9 @@
     "entrepreneur": "Misiones de emprendimiento",
     "leadership": "Misiones de liderazgo",
     "realLife": "Misiones de la vida cotidiana",
-    "showGuide": "Mostrar la guía",
-    "hideGuide": "Ocultar la guía",
-    "guideLabel": "Tus guías de aprendizaje"
+    "showGuide": "Mostrar instrucciones",
+    "hideGuide": "Ocultar instrucciones",
+    "guideLabel": "Instrucciones de la misión"
   },
   "fr": {
     "navigation": "Navigation d’apprentissage",
@@ -123,9 +123,9 @@
     "entrepreneur": "Missions d’entrepreneuriat",
     "leadership": "Missions de leadership",
     "realLife": "Missions du quotidien",
-    "showGuide": "Afficher le guide",
-    "hideGuide": "Masquer le guide",
-    "guideLabel": "Tes guides d’apprentissage"
+    "showGuide": "Afficher les consignes",
+    "hideGuide": "Masquer les consignes",
+    "guideLabel": "Consignes de la mission"
   },
   "de": {
     "navigation": "Lernnavigation",
@@ -155,9 +155,9 @@
     "entrepreneur": "Aufgaben zum Unternehmertum",
     "leadership": "Aufgaben zum Führen eines Teams",
     "realLife": "Aufgaben aus dem Alltag",
-    "showGuide": "Lernbegleitung anzeigen",
-    "hideGuide": "Lernbegleitung ausblenden",
-    "guideLabel": "Deine Lernbegleitung"
+    "showGuide": "Anleitung anzeigen",
+    "hideGuide": "Anleitung ausblenden",
+    "guideLabel": "Auftragsanleitung"
   },
   "it": {
     "navigation": "Navigazione per l’apprendimento",
@@ -187,9 +187,9 @@
     "entrepreneur": "Missioni di imprenditorialità",
     "leadership": "Missioni di leadership",
     "realLife": "Missioni della vita quotidiana",
-    "showGuide": "Mostra la guida",
-    "hideGuide": "Nascondi la guida",
-    "guideLabel": "Le tue guide per imparare"
+    "showGuide": "Mostra le istruzioni",
+    "hideGuide": "Nascondi le istruzioni",
+    "guideLabel": "Istruzioni della missione"
   },
   "pt": {
     "navigation": "Navegação de aprendizagem",
@@ -219,9 +219,9 @@
     "entrepreneur": "Missões de empreendedorismo",
     "leadership": "Missões de liderança",
     "realLife": "Missões do dia a dia",
-    "showGuide": "Mostrar o guia",
-    "hideGuide": "Ocultar o guia",
-    "guideLabel": "Os teus guias de aprendizagem"
+    "showGuide": "Mostrar instruções",
+    "hideGuide": "Ocultar instruções",
+    "guideLabel": "Instruções da missão"
   },
   "nl": {
     "navigation": "Leernavigatie",
@@ -251,9 +251,9 @@
     "entrepreneur": "Opdrachten over ondernemen",
     "leadership": "Opdrachten over leiderschap",
     "realLife": "Opdrachten uit het dagelijks leven",
-    "showGuide": "Leerhulp tonen",
-    "hideGuide": "Leerhulp verbergen",
-    "guideLabel": "Jouw leerhulp"
+    "showGuide": "Toon instructies",
+    "hideGuide": "Verberg instructies",
+    "guideLabel": "Instructies voor de missie"
   },
   "pl": {
     "navigation": "Nawigacja edukacyjna",
@@ -283,8 +283,8 @@
     "entrepreneur": "Misje o przedsiębiorczości",
     "leadership": "Misje o przywództwie",
     "realLife": "Misje z życia codziennego",
-    "showGuide": "Pokaż pomoc",
-    "hideGuide": "Ukryj pomoc",
-    "guideLabel": "Twoja pomoc w nauce"
+    "showGuide": "Pokaż instrukcje",
+    "hideGuide": "Ukryj instrukcje",
+    "guideLabel": "Instrukcje misji"
   }
 }

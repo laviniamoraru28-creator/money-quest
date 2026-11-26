@@ -15,13 +15,14 @@ test('Money Basics explains money before practice and waits for the child after 
   const pictures = page.locator('[data-explorer-discover]');
   await expect(title).toBeVisible();
   await expect(page.getByText('Scopul tău este să descoperi ce sunt banii. Citește sau ascultă, apoi răspunde la întrebare. Lucrează în ritmul tău.',{exact:true})).toBeVisible();
-  await expect(pictures.locator('img')).toHaveCount(3);
+  await expect(pictures.locator('img, [data-learning-cash]')).toHaveCount(3);
   await expect(page.locator('[data-explorer-mini-shop]')).toHaveCount(0);
   expect(await title.evaluate(el => Boolean(el.compareDocumentPosition(document.querySelector('[data-explorer-discover]')!) & Node.DOCUMENT_POSITION_FOLLOWING))).toBe(true);
   for (const picture of await pictures.locator('button[aria-pressed]').all()) await picture.click();
   await pictures.getByRole('button',{name:'Continuă',exact:true}).click();
   const count = page.locator('[data-explorer-coin-count]');
   for (let coin=0;coin<3;coin++) await count.getByRole('button',{name:'Adaugă'}).click();
+  await expect(count.locator('[data-learning-cash="coin"]')).toHaveCount(3);
   await count.getByRole('button',{name:'Verifică',exact:true}).click();
   await expect(count.getByRole('status')).toHaveText('Bravo!');
   await expect(page.locator('[data-explorer-mini-shop]')).toHaveCount(0);
@@ -62,6 +63,7 @@ test('Romanian savings jar shows its lid, preserves feedback, and continues on r
   await page.addInitScript(()=>localStorage.setItem('moneyquest_local_progress_v1',JSON.stringify({ageBand:'explorer'})));
   await page.setViewportSize({width:360,height:812});
   await page.goto('/ro/play/world/golden-vault/lesson/explorer-saving-l1');
+  await page.locator('#currency-select').selectOption('RON');
   const jar=page.locator('[data-explorer-saving-jar]');
   const container=jar.getByRole('img',{name:/Ai strâns/});
   await expect(container).toBeVisible();
@@ -71,7 +73,7 @@ test('Romanian savings jar shows its lid, preserves feedback, and continues on r
   await expect(money).toHaveCount(11);
   const notes=await jar.getByRole('button',{name:'Bancnotă 1 leu',exact:true}).all();
   expect(notes).toHaveLength(4);
-  await expect(money.locator('svg, img')).toHaveCount(11);
+  await expect(money.locator('[data-learning-cash][data-currency="RON"]')).toHaveCount(11);
   await jar.getByRole('button',{name:'Bancnotă 5 lei',exact:true}).click();
   for(const note of notes)await note.click();
   await expect(jar.getByText('1 leu rămas',{exact:true})).toBeVisible();
@@ -85,18 +87,18 @@ test('Romanian savings jar shows its lid, preserves feedback, and continues on r
 });
 
 
-test('Romanian Explorer prices and rewards use lei with a GBP wallet',async({page})=>{
+test('Romanian Explorer prices and rewards respect a GBP wallet',async({page})=>{
   await page.addInitScript(()=>localStorage.setItem('moneyquest_local_progress_v1',JSON.stringify({ageBand:'explorer',currencyCode:'GBP'})));
   await page.goto('/ro/play/world/market-town/game/game-explorer-smart-shopper');
-  await expect(page.getByRole('button',{name:/Ghiozdan simplu, rezistent.*15,00 lei/})).toBeVisible();
-  await expect(page.getByRole('main')).not.toContainText('GBP');
+  await expect(page.getByRole('button',{name:/Ghiozdan simplu, rezistent.*15,00.*(?:GBP|£)/})).toBeVisible();
+  await expect(page.getByRole('main')).not.toContainText(' lei');
 
   await page.goto('/ro/play/world/sky-exchange/lesson/explorer-digital_money-l1');
   const question=page.locator('[data-explorer-picture-choice]');
   await question.getByRole('button',{name:'Nu, rămân mai puțini bani',exact:true}).click();
   const reward=page.getByText('Monede virtuale câștigate',{exact:true}).locator('..');
-  await expect(reward).toContainText('5,00 lei');
-  await expect(page.getByRole('main')).not.toContainText('GBP');
+  await expect(reward).toContainText(/5,00.*(?:GBP|£)/);
+  await expect(page.getByRole('main')).not.toContainText(' lei');
   const progress=await page.evaluate(()=>JSON.parse(localStorage.getItem('moneyquest_local_progress_v1')!));
   expect(progress.currencyCode).toBe('GBP');
 });

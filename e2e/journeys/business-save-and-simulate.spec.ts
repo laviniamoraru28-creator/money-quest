@@ -45,7 +45,7 @@ test('saving costs and price keeps both edits when advancing, reloading and simu
  await expect(page.getByText('£24.00',{exact:true})).toBeVisible();
 });
 
-test('keyboard activation of the simulator link saves the build stage',async({page})=>{
+test('keyboard entry opens the simulator and only a completed run advances the build stage',async({page})=>{
  const initial=createDefaultState();
  initial.completedStageIds=EQ_STAGES.filter(stage=>stage.order<12).map(stage=>stage.id);
  await page.addInitScript(([localProgress,eqState])=>{
@@ -57,6 +57,16 @@ test('keyboard activation of the simulator link saves the build stage',async({pa
  await expect(link.locator('button')).toHaveCount(0);
  await link.focus();await page.keyboard.press('Enter');
  await expect(page).toHaveURL(/\/entrepreneur-quest\/simulator$/);
+ await page.goto('/en/entrepreneur-quest/build');
+ await expect(link).toBeVisible();
+ const saved=await page.evaluate(band=>JSON.parse(localStorage.getItem('moneyquest_entrepreneur_quest_v1')!).byBand[band],BAND);
+ expect(saved.completedStageIds).not.toContain('make-your-first-sale');
+ await link.press('Enter');
+ for(const [category,amount] of [['Materials',20],['Packaging',5],['Advertising',10],['Money kept aside',15]] as const){
+  for(let i=0;i<amount;i++)await page.getByRole('button',{name:`Increase ${category}`,exact:true}).click();
+ }
+ await page.getByRole('button',{name:'See What Happens',exact:true}).press('Enter');
+ await expect.poll(()=>page.evaluate(band=>JSON.parse(localStorage.getItem('moneyquest_entrepreneur_quest_v1')!).byBand[band].latestSimulatorRun,BAND)).toBeTruthy();
  await page.goto('/en/entrepreneur-quest/build');
  await expect(page.getByRole('heading',{name:'Calculate Your Profit',exact:true})).toBeVisible();
 });

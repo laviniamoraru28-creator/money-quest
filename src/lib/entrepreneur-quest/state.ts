@@ -585,6 +585,7 @@ export function runSimulator(business: BusinessProfile, input: SimulatorInput): 
 export function applySimulatorRun(state: EntrepreneurQuestState, run: SimulatorRun): EntrepreneurQuestState {
   return {
     ...state,
+    completedStageIds: completeStage(state, "make-your-first-sale").completedStageIds,
     latestSimulatorRun: run,
     stats: {
       ...state.stats,

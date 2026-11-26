@@ -1,5 +1,6 @@
 "use client";
 
+import {AgencyMissionLink} from "@/components/AgencyMissionLink";
 import { useTranslations } from "next-intl";
 import { AcademyCertificateReward } from "@/components/AcademyCertificateReward";
 import { Link } from "@/i18n/navigation";
@@ -31,21 +32,6 @@ export default function LeadershipQuestHubPage() {
   return (
     <div className="min-h-screen bg-fog px-sm py-lg">
       <main id="main-content" tabIndex={-1} className="mx-auto max-w-[700px]">
-        <div className="flex flex-wrap gap-2xs">
-          <Link
-            href="/"
-            className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal-text transition-colors duration-quick hover:bg-teal/5"
-          >
-            <span aria-hidden="true">🏠</span> {t("nav.home")}
-          </Link>
-          <Link
-            href="/play"
-            className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal-text transition-colors duration-quick hover:bg-teal/5"
-          >
-            {t("play.yourWorldMap")}
-          </Link>
-        </div>
-
         <h1 className="mt-sm font-display text-2xl font-bold">{t("leadershipQuest.hubTitle")}</h1>
         <p className="mt-2xs text-base text-ink/70">{t("leadershipQuest.hubIntro")}</p>
 
@@ -153,6 +139,7 @@ export default function LeadershipQuestHubPage() {
             <ResetLeadershipQuestButton />
           </div>
         )}
+      <AgencyMissionLink quest="leadership" band={progressState.ageBand} />
       </main>
     </div>
   );

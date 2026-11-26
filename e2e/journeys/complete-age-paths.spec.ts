@@ -110,14 +110,15 @@ async function completeExplorerLesson(page:Page,topicId:string,locale:"en"|"ro"=
    const c=savingExtraLessonCopy[locale];
    const jar=page.locator('[data-explorer-saving-jar]');
    const coins=jar.locator('button[draggable]');
-   await expect(coins).toHaveCount(locale==='ro'?11:6);
+   const currency = await page.locator('#currency-select').inputValue();
+   await expect(coins).toHaveCount(currency === 'RON' ? 11 : 6);
    for(const coin of await coins.all())await coin.click();
    await jar.getByRole('button',{name:next,exact:true}).click();
    await choice(c.bankChoice);await choice(c.saveChoice,true);break;
   }
   case 'currencies':{
    const c=currenciesLessonCopy[locale];
-   await sort([[c.pound,c.uk],[c.leu,c.romania],[c.euro,c.europe],[c.yen,c.japan]]);
+   await choice(c.symbolPoundQuestion);
    await choice(c.prompt4yen,true);break;
   }
   case 'scams':{

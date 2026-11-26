@@ -1,7 +1,7 @@
 "use client";
+import {AgencyMissionLink} from "@/components/AgencyMissionLink";
 import Image from "next/image";
 import {FirstVisitWelcome} from "@/components/FirstVisitWelcome";
-import {certificateJourneyCopy} from "@/content/certificate-journey-copy";
 
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
@@ -10,9 +10,7 @@ import { WORLDS } from "@/content/worlds";
 import { getWorldCatalog } from "@/content/catalog";
 
 
-import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
-import { ProgressBar } from "@/components/ui/ProgressBar";
 import { LevelProgressRing } from "@/components/ui/LevelProgressRing";
 import { LevelBadgeStar } from "@/components/ui/LevelBadgeStar";
 import { GuidePanel } from "@/components/GuidePanel";
@@ -21,7 +19,7 @@ import { isSupportedLocale } from "@/i18n/config";
 import { LEVEL_OPTIONS } from "@/content/level-options";
 import type { AgeBand } from "@/types/database.types";
 
-const rewardLabels: Record<string, readonly string[]> = {"en":["Your learning milestones","Your achievement collection","Milestones for completed activities, not screen time.","First step","Bronze medal","Silver medal","Explorer trophy","Earned"],"ro":["Recompensele tale","Colecția ta de realizări","Recompense pentru activități finalizate, nu pentru timpul petrecut online.","Primul pas","Medalie de bronz","Medalie de argint","Trofeu de explorator","Obținută"],"es":["Tus logros","Tu colección de logros","Premios por actividades completadas, no por tiempo en pantalla.","Primer paso","Medalla de bronce","Medalla de plata","Trofeo explorador","Conseguido"],"fr":["Tes réussites","Ta collection de récompenses","Récompenses pour les activités terminées, pas pour le temps d'écran.","Premier pas","Médaille de bronze","Médaille d'argent","Trophée explorateur","Obtenu"],"de":["Deine Erfolge","Deine Auszeichnungen","Belohnungen für abgeschlossene Aufgaben, nicht für Bildschirmzeit.","Erster Schritt","Bronzemedaille","Silbermedaille","Entdeckerpokal","Erreicht"],"it":["I tuoi traguardi","La tua collezione di premi","Premi per le attività completate, non per il tempo sullo schermo.","Primo passo","Medaglia di bronzo","Medaglia d'argento","Trofeo esploratore","Ottenuto"],"pt":["As tuas conquistas","A tua coleção de prémios","Prémios por atividades concluídas, não pelo tempo de ecrã.","Primeiro passo","Medalha de bronze","Medalha de prata","Troféu explorador","Conquistado"],"nl":["Jouw mijlpalen","Jouw verzameling prestaties","Beloningen voor voltooide activiteiten, niet voor schermtijd.","Eerste stap","Bronzen medaille","Zilveren medaille","Ontdekkertrofee","Behaald"],"pl":["Twoje osiągnięcia","Twoja kolekcja nagród","Nagrody za ukończone zadania, nie za czas przed ekranem.","Pierwszy krok","Brązowy medal","Srebrny medal","Puchar odkrywcy","Zdobyto"]};
+
 
 /**
  * The entire entry point to the app, replacing signup, login, and the
@@ -41,10 +39,8 @@ export default function PlayPage() {
   const uiLocale = useLocale();
   const safeLocale = isSupportedLocale(uiLocale) ? uiLocale : "en";
   const guideLabels = laboratoryCopy[safeLocale];
-  const journey=certificateJourneyCopy[safeLocale];
-  const rewards=rewardLabels[safeLocale] ?? rewardLabels.en!;
   const t = useTranslations();
-  const { state, isLoaded, level, setAgeBand } = useLocalProgress();
+  const { state, isLoaded, setAgeBand } = useLocalProgress();
 
   if (!isLoaded) {
     return <div className="grid min-h-screen place-items-center bg-fog text-ink/70">{t("common.loading")}</div>;
@@ -67,7 +63,6 @@ export default function PlayPage() {
           <FirstVisitWelcome />
           <h1 id="level-choices" tabIndex={-1} className="mt-sm font-display text-2xl font-bold">{t("play.chooseYourLevel")}</h1>
           <p className="mt-2xs text-base text-ink/70">{t("play.levelChoiceHint")}</p>
-          <p className="mt-4 text-sm text-ink/80">{journey.steps} {journey.print}</p>
           <div className="mt-md grid gap-sm">
             {LEVEL_OPTIONS.map((option) => (
               <button
@@ -89,51 +84,7 @@ export default function PlayPage() {
   return (
     <div className="min-h-screen bg-fog px-sm py-lg">
       <main id="main-content" tabIndex={-1} className="mx-auto max-w-[900px]">
-        <div className="flex flex-wrap items-center justify-between gap-xs">
-          <h1 className="font-display text-2xl font-bold">{t("play.yourWorldMap")}</h1>
-          <div className="flex flex-wrap gap-xs">
-            <Link
-              href="/"
-              className="inline-flex items-center justify-center gap-2xs rounded-sm border-[1.5px] border-teal bg-transparent px-sm py-2xs text-base font-medium text-teal-text transition-colors duration-quick hover:bg-teal/5"
-            >
-              <span aria-hidden="true">🏠</span> {t("nav.home")}
-            </Link>
-            <Button type="button" variant="secondary" onClick={() => setAgeBand(null)}>
-              {t("play.changeLevel")}
-            </Button>
-          </div>
-        </div>
-
-        <div className="mt-sm grid gap-sm">
-          <Card variant="data">
-            <p className="text-sm text-ink/70">{t("dashboard.level")}</p>
-            <p className="mt-2xs font-display text-2xl font-bold">{level}</p>
-            <div className="mt-2xs h-2 w-full">
-              <ProgressBar percent={state.xpTotal % 100} label={t("a11y.xpProgressLabel")} />
-            </div>
-          </Card>
-        </div>
-
-        <section aria-label={rewards[0]} className="mt-md rounded-2xl border border-teal/20 bg-white p-md">
-          <h2 className="font-display text-lg font-bold text-ink">{rewards[1]}</h2>
-          <p className="mt-1 text-sm text-ink/70">{rewards[2]}</p>
-          <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4">
-            {([
-              {icon:"🌟",count:1,title:rewards[3]},
-              {icon:"🥉",count:5,title:rewards[4]},
-              {icon:"🥈",count:15,title:rewards[5]},
-              {icon:"🏆",count:30,title:rewards[6]}
-            ] as const).map((reward)=>{
-              const earned=state.completedActivityIds.length>=reward.count;
-              return <div key={reward.count} className={`rounded-xl border p-3 text-center ${earned?"border-teal/40 bg-cream":"border-ink/10 bg-fog"}`}>
-                <span aria-hidden="true" className={`block text-4xl ${earned?"":"grayscale opacity-40"}`}>{reward.icon}</span>
-                <p className="mt-2 text-sm font-bold text-ink">{reward.title}</p>
-                <p className="mt-1 text-xs text-ink/70">{earned?(rewards[7]):`${state.completedActivityIds.length} / ${reward.count}`}</p>
-              </div>;
-            })}
-          </div>
-        </section>
-
+        <h1 className="font-display text-2xl font-bold">{t("play.yourWorldMap")}</h1>
         <p className="mt-sm text-xs text-ink/70">{t("play.virtualMoneyExplainer")}</p>
 
         <div className="mt-md grid gap-sm sm:grid-cols-2">
@@ -150,7 +101,7 @@ export default function PlayPage() {
                 style={{ borderColor: world.themeColor }}
               >
                 <div className="flex shrink-0 flex-col items-center gap-2xs">
-                  <Image unoptimized src={`/images/money-quest/worlds/${world.id}-thumb.webp`} alt="" width={144} height={144} loading="lazy" className="h-24 w-24 rounded-2xl object-cover sm:h-36 sm:w-36" />
+                  <Image unoptimized src={`/cinematic/world/islands/${world.id}-thumb.webp`} alt="" width={144} height={144} loading="lazy" className="h-24 w-24 rounded-2xl object-cover sm:h-36 sm:w-36" />
                   <LevelProgressRing percent={percent} color={world.themeColor} />
                 </div>
                 <div className="min-w-0 flex-1">
@@ -177,6 +128,7 @@ export default function PlayPage() {
         <div className="mt-md flex justify-end">
           <ResetProgressButton />
         </div>
+      <AgencyMissionLink quest="money" band={state.ageBand} />
       </main>
     </div>
   );

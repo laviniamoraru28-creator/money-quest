@@ -17,8 +17,7 @@ import { explorerSpeechLang } from "@/lib/explorer/speech-lang";
 import { GuidePanel } from "@/components/GuidePanel";
 import { getWorldById } from "@/content/worlds";
 import { useSound } from "@/lib/audio/use-sound";
-import { isSupportedLocale } from "@/i18n/config";
-import { LOCALE_LEARNING_CURRENCY } from "@/lib/currency/learning-currency";
+import { CinematicScene } from "@/components/CinematicScene";
 
 interface GameShellProps {
   config: GameConfig;
@@ -60,7 +59,7 @@ type RoundPhase = "playing" | "correct" | "incorrect";
  * game-specific content or scoring rules for any individual game — those
  * all live in the config.
  */
-export function GameShell({ config, ageBand, difficulty = "standard", currencyCode, gameActivityId, onComplete, backHref, nextActivityHref, previousActivityHref, activityPosition, worldId }: GameShellProps) {
+export function GameShell({ config, ageBand, difficulty = "standard", currencyCode, gameActivityId, onComplete, backHref, nextActivityHref, activityPosition, worldId }: GameShellProps) {
   const router = useRouter();
   const uiLocale = useLocale();
   const t = useTranslations();
@@ -73,7 +72,7 @@ export function GameShell({ config, ageBand, difficulty = "standard", currencyCo
   // changed on the shared classes, which must stay as they are for the
   // older children those bands serve.
   const isExplorer = ageBand === "explorer";
-  const activityCurrencyCode = isExplorer && isSupportedLocale(uiLocale) ? LOCALE_LEARNING_CURRENCY[uiLocale] : currencyCode;
+  const activityCurrencyCode = currencyCode;
 
   const [roundIndex, setRoundIndex] = useState(0);
   const [attemptKey, setAttemptKey] = useState(0); // bumped on retry to force the mechanic to remount with fresh state
@@ -185,12 +184,12 @@ export function GameShell({ config, ageBand, difficulty = "standard", currencyCo
 
         {isAwarding && <p className="mt-sm text-sm text-ink/70">{t("game.addingUpRewards")}</p>}
 
-        {award && (award.xp > 0 || award.coins > 0) && (
+        {award && award.coins > 0 && (
           <div className="mt-sm flex items-center justify-center gap-md">
-            <span className="font-bold text-teal-text">{t("lesson.xpEarned", { xp: award.xp })}</span>
             {award.coins > 0 && (
               <span className="flex flex-col items-start">
-                <span className="text-xs font-normal text-ink/70">{t("lesson.virtualCoinsLabel")}</span>
+                <CinematicScene controls={false} src="/cinematic/rewards/star-animation.mp4" poster="/cinematic/rewards/star-animation.webp" className="h-12 w-16 object-contain" />
+              <span className="text-xs font-normal text-ink/70">{t("lesson.virtualCoinsLabel")}</span>
                 <MoneyAmount amountMinorUnits={award.coins} currencyCode={activityCurrencyCode} uiLocale={uiLocale} showCoinIcon />
               </span>
             )}
@@ -231,33 +230,7 @@ export function GameShell({ config, ageBand, difficulty = "standard", currencyCo
 
   return (
     <div className="flex flex-col gap-sm">
-      {/* Journey navigation — same "Back to the previous activity" +
-          always-visible "Back to World" + "Activity X of Y" pattern as
-          LessonPlayer, so the two activity types (lessons and games)
-          give a child identical navigation and positioning cues
-          throughout a World. Real Button components, not muted text
-          links, matching LessonPlayer's own reasoning. Shown only on
-          the "still playing" view, not the completion screen below —
-          there, the Next/Back-to-World buttons already are the
-          navigation, and a back-to-previous-activity link at that
-          point would just replay the game the child just finished. */}
       <div className="flex flex-col gap-2xs">
-        {/* No flex-wrap here: all three stay on one row at every
-            supported width, down to 320px — see LessonPlayer's
-            identical nav row for why the label is sr-only on mobile. */}
-        <div className="flex items-center gap-2xs text-sm">
-          {previousActivityHref && (
-            <Button variant="secondary" onClick={() => router.push(previousActivityHref)}>
-              <span aria-hidden="true">←</span> <span className="sr-only sm:not-sr-only">{t("common.back")}</span>
-            </Button>
-          )}
-          <Button variant="secondary" onClick={() => router.push(backHref)}>
-            <span aria-hidden="true">🗺️</span> <span className="sr-only sm:not-sr-only">{t("game.backToTheWorld")}</span>
-          </Button>
-          <Button variant="secondary" onClick={() => router.push("/")}>
-            <span aria-hidden="true">🏠</span> <span className="sr-only sm:not-sr-only">{t("nav.home")}</span>
-          </Button>
-        </div>
         {activityPosition && (
           <span className="self-start rounded-full bg-teal/10 px-sm py-3xs text-sm font-medium text-teal-text">
             {world && t("play.levelActivityProgress", { level: world.orderIndex, position: activityPosition.position, total: activityPosition.total })}

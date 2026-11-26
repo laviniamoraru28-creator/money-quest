@@ -1,4 +1,5 @@
 "use client";
+import { useEffect, useRef } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { useLocalProgress } from "@/lib/local-progress/use-local-progress";
@@ -9,7 +10,9 @@ import { useLeadershipQuest } from "@/lib/leadership-quest/use-leadership-quest"
 import { LQ_MISSIONS } from "@/content/leadership-quest/structures";
 import { WORLDS } from "@/content/worlds";
 import { getWorldCatalog, getActivityHref } from "@/content/catalog";
-import { formatCurrency } from "@/lib/currency/format";
+import { isCertificateEligible } from "@/lib/certificates/eligibility";
+import { isEntrepreneurCurriculumComplete, isFourQuestCertificateReady, requiredAiLessons } from "@/lib/certificates/three-quest-eligibility";
+import { RewardsPanel } from "./RewardsPanel";
 import { type AgeBand } from "@/types/database.types";
 import { cinematicCopy } from "@/content/cinematic-copy";
 import { type Locale } from "@/i18n/config";
@@ -32,6 +35,18 @@ export function AdventureHud() {
   const index = paths.findIndex(
     (href) => path === href || path.startsWith(href + "/"),
   );
+  const navRef = useRef<HTMLElement>(null);
+  const spacerRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const nav = navRef.current;
+    const spacer = spacerRef.current;
+    if (!nav || !spacer) return;
+    const resize = () => { spacer.style.height = nav.offsetHeight + "px"; };
+    resize();
+    const observer = new ResizeObserver(resize);
+    observer.observe(nav);
+    return () => observer.disconnect();
+  }, [index, isLoaded, state.ageBand]);
   if (index < 0 || !isLoaded || !state.ageBand) return null;
   const band = state.ageBand;
   const match = path.match(
@@ -59,7 +74,7 @@ export function AdventureHud() {
         : "/";
   } else {
     if (path !== paths[index]) back = paths[index]!;
-    if (index === 1 && !eq.state.pitchCompleted)
+    if (index === 1 && !isEntrepreneurCurriculumComplete(eq.state))
       next = path.startsWith("/entrepreneur-quest/build")
         ? "/entrepreneur-quest"
         : "/entrepreneur-quest/build";
@@ -72,12 +87,16 @@ export function AdventureHud() {
           ? "/leadership-quest"
           : "/leadership-quest/missions/" + mission.id;
     }
-    if (index === 3 && state.completedActivityIds.includes(`ai-quest-${band}`))
-      next = "/academy-certificate?level=" + band;
+    if (index === 3) {
+      const aiDone = requiredAiLessons(band).every(id => state.completedActivityIds.includes(id));
+      next = isFourQuestCertificateReady(state.completedActivityIds, band, eq.state, lq.state)
+        ? "/academy-certificate?level=" + band
+        : aiDone ? paths.find((_, i) => [!isCertificateEligible(state.completedActivityIds, band), !isEntrepreneurCurriculumComplete(eq.state), !LQ_MISSIONS.every(mission => lq.state.completedMissionIds.includes(mission.id))][i]) ?? "/play" : "/ai-quest#ai-mission";
+    }
   }
   return (
-    <div className="h-28 sm:h-16">
-      <nav
+    <div ref={spacerRef} className="h-28 sm:h-16" data-hud-band={band}>
+      <nav ref={navRef}
         aria-label={cinematicCopy[locale][2]}
         className="fixed inset-x-0 bottom-0 z-30 flex flex-wrap items-center justify-center gap-1 border-t border-[#d8bd88] bg-[#14263e]/95 px-1 pb-[env(safe-area-inset-bottom)] text-sm text-white backdrop-blur"
       >
@@ -106,7 +125,7 @@ export function AdventureHud() {
           className="h-11 w-16 rounded bg-[#243448]"
           onChange={(e) => {
             setAgeBand(e.target.value as AgeBand);
-            router.push(paths[index]!);
+            if (path !== paths[index]) router.push(paths[index]!);
           }}
         >
           {LEVEL_OPTIONS.map((opt) => (
@@ -115,13 +134,8 @@ export function AdventureHud() {
             </option>
           ))}
         </select>
-        <span aria-label={t("play.yourCoins")} className="px-1">
-          {formatCurrency(
-            state.walletBalanceMinorUnits,
-            state.currencyCode,
-            locale,
-          )}
-        </span>
+        <RewardsPanel />
+        <Link href="/play" aria-label={t("play.yourWorldMap")} className="grid h-11 w-11 place-items-center"><span aria-hidden="true">🗺️</span></Link>
         <select
           id="currency-select"
           aria-label={t("play.currency")}

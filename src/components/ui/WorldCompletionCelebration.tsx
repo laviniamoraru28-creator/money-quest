@@ -1,4 +1,6 @@
 "use client";
+import {Link} from "@/i18n/navigation";
+import {cinematicQuests} from "@/content/cinematic-quests";
 import Image from "next/image";
 import {useEffect, useRef, useState} from "react";
 import {skipScene} from "@/content/cinematic-copy";
@@ -69,6 +71,9 @@ export function WorldCompletionCelebration() {
   return ()=>element.close();
  },[celebration]);
  if (!celebration) return null;
+ const nextQuest = celebration.quest && celebration.quest !== "ai"
+   ? cinematicQuests[cinematicQuests.findIndex(quest => quest.key === celebration.quest) + 1]
+   : undefined;
  return <dialog ref={dialog} onCancel={()=>setCelebration(null)} aria-labelledby="mq-world-celebration-heading" className={celebration.quest ? "fixed inset-0 m-0 h-[100dvh] max-h-none w-screen max-w-none overflow-auto bg-[#14263e] p-4 text-center open:grid open:place-items-center" : "m-auto max-w-[94vw] rounded-3xl bg-transparent p-0 backdrop:bg-ink/80"}>
   <div key={celebration.sequence} data-reduced-motion={reducedMotion ? "true" : "false"}
    className="relative w-full max-w-lg rounded-3xl border-4 border-gold bg-cream p-8 text-center shadow-floating">
@@ -77,6 +82,7 @@ export function WorldCompletionCelebration() {
    <div className="relative isolate mx-auto mb-3 grid h-20 w-20 place-items-center overflow-hidden rounded-full border-2 border-gold bg-ink"><CinematicScene controls={false} className="absolute inset-0 h-full w-full object-cover mix-blend-screen" src={celebration.quest?"/cinematic/rewards/golden-particles.mp4":"/cinematic/rewards/star-animation.mp4"} poster={celebration.quest?"/cinematic/rewards/golden-particles.webp":"/cinematic/rewards/star-animation.webp"}/><Image unoptimized alt="" width={56} height={56} className="relative object-contain" src={celebration.quest?`/cinematic/rewards/badge-${questBadges[celebration.quest]}.webp`:"/cinematic/rewards/star.webp"}/></div>
    <h2 id="mq-world-celebration-heading" className="text-2xl font-bold">{celebration.title}</h2>
    <p className="mt-3 text-lg">{celebration.quest ? milestones[locale][milestoneIndex[celebration.quest]] : t("play.worldSequenceComplete")}</p>
+   {nextQuest && <Link href={nextQuest.href} onClick={() => setCelebration(null)} className="mx-auto mt-6 flex min-h-12 w-fit items-center rounded-xl bg-teal px-6 font-bold text-white">{milestones[locale][0]} · {nextQuest.title} →</Link>}
    <button type="button" autoFocus onClick={() => {if (timer.current) clearTimeout(timer.current);setCelebration(null);}}
     className="mt-6 min-h-12 rounded-xl bg-teal px-8 py-3 font-bold text-white focus-visible:outline focus-visible:outline-4 focus-visible:outline-gold">
     {skipScene[locale]}

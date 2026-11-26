@@ -1,5 +1,6 @@
 "use client";
 
+import {LearningCash} from "./LearningCash";
 import {useState} from "react";
 import {ReadAloudButton} from "@/components/ui/ReadAloudButton";
 import { explorerSpeechLang } from "@/lib/explorer/speech-lang";
@@ -57,8 +58,8 @@ export function ExplorerCoinCount({
       <ReadAloudButton text={feedback || prompt} uiLocale={explorerSpeechLang()} />
       <div aria-label={coinLabel} className="flex min-h-28 flex-wrap items-center justify-center gap-3 rounded-2xl bg-cream p-4">
         {Array.from({ length: count }, (_, index) => (
-          <span key={index} role="img" aria-label={coinLabel} className="flex h-16 w-16 items-center justify-center rounded-full border-4 border-amber-700 bg-amber-300 text-3xl text-amber-950 shadow-sm">
-            <span aria-hidden="true">●</span>
+          <span key={index} role="img" aria-label={coinLabel}>
+            <LearningCash kind="coin" size={64}/>
           </span>
         ))}
       </div>
