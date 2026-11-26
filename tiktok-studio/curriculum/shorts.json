@@ -142,7 +142,8 @@
           "file": "src/content/learning-labs.ts",
           "quote": "A package can look bigger while holding less. Compare the same units on the labels."
         }
-      ]
+      ],
+      "hot_word": "game"
     },
     {
       "id": "MQ-Q-004",
@@ -173,7 +174,8 @@
         "#lifeskills"
       ],
       "section": "Leadership Quest",
-      "route": "/leadership-quest"
+      "route": "/leadership-quest",
+      "hot_word": "responsible"
     },
     {
       "id": "MQ-Q-005",
@@ -204,7 +206,8 @@
         "#lifeskills"
       ],
       "section": "Brain Lab",
-      "route": "/brain-lab"
+      "route": "/brain-lab",
+      "hot_word": "urgent"
     },
     {
       "id": "MQ-Q-006",
@@ -1151,7 +1154,8 @@
           "path": "curriculum.explorer-saving-l1.parentNote",
           "quote": "a clear jar or a simple chart your child can actually see filling up tends to work far better at this age than a bank app or an abstract number"
         }
-      ]
+      ],
+      "hot_word": "changes"
     },
     {
       "id": "MQ-A-003",
