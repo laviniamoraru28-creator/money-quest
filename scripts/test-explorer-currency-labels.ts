@@ -33,3 +33,7 @@ assert.equal(learningAmount(2, 'en'), '£2', 'EN learningAmount(2) regressed');
 assert.equal(learningAmount(3, 'ro'), '3 lei', 'RO learningAmount(3) regressed');
 
 console.log(`PASS: Explorer currency amounts resolve to real currency-labelled strings (not bare digits) across ${checked} locales.`);
+
+assert.equal(learningAmount(1, 'ro', 'GBP'), '£1');
+assert.equal(learningAmount(5, 'en', 'RON'), '5 lei');
+assert.equal(learningAmount(100, 'fr', 'JPY'), '¥100');

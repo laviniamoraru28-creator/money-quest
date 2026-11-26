@@ -11,21 +11,13 @@ import { useLocalProgress } from "@/lib/local-progress/use-local-progress";
 import { AdventureAvatar, avatarKey, readAvatar } from "./AdventureAvatar";
 import { CinematicScene } from "./CinematicScene";
 
-import { milestones, questBadges, type QuestKey } from "@/content/quest-milestones";
+import { milestones, questBadges } from "@/content/quest-milestones";
 import { isCertificateEligible } from "@/lib/certificates/eligibility";
 import { useEntrepreneurQuest } from "@/lib/entrepreneur-quest/use-entrepreneur-quest";
 import { useLeadershipQuest } from "@/lib/leadership-quest/use-leadership-quest";
 
-const worlds: { key: QuestKey; title: string; href: string }[] = [
-  { key: "money", title: "Money Quest", href: "/play" },
-  {
-    key: "entrepreneur",
-    title: "Entrepreneur Quest",
-    href: "/entrepreneur-quest",
-  },
-  { key: "leadership", title: "Leadership Quest", href: "/leadership-quest" },
-  { key: "ai", title: "AI Quest", href: "/ai-quest" },
-];
+import { cinematicQuests as worlds } from "@/content/cinematic-quests";
+
 const action =
   "inline-flex min-h-12 items-center justify-center rounded-xl border border-[#c9953d] bg-[#14263e] px-5 py-3 font-bold text-white";
 export function Adventure({ band }: { band?: AgeBand }) {
@@ -85,10 +77,11 @@ export function Adventure({ band }: { band?: AgeBand }) {
         : `quests/${quest.key}/intro`;
   return (
     <main
+      aria-label={title}
       id="main-content"
-      className="mx-auto max-w-4xl space-y-5 px-4 py-8 text-center"
+      className={step === "enter" ? "mq-entry-screen" : "mx-auto max-w-4xl space-y-5 px-4 py-8 text-center"}
     >
-      <h1 aria-live="polite" className="font-display text-3xl font-bold">
+      <h1 aria-live="polite" className={step === "enter" ? "sr-only" : "font-display text-3xl font-bold"}>
         {title}
       </h1>
       {transition && allowTransition ? (
@@ -124,7 +117,7 @@ export function Adventure({ band }: { band?: AgeBand }) {
                     /* Session choice remains available. */
                   }
                 }}
-                className="flex min-h-40 flex-col items-center justify-center rounded-2xl border-2 bg-white p-2 aria-pressed:border-blue-700"
+                className="flex min-h-40 flex-col items-center justify-center rounded-2xl border-2 bg-white p-2 aria-pressed:border-[#96681c]"
               >
                 <AdventureAvatar id={id} animated={choice === id} />
                 <span>
@@ -137,7 +130,7 @@ export function Adventure({ band }: { band?: AgeBand }) {
           <button
             disabled={!choice}
             className={action + " disabled:opacity-50"}
-            onClick={() => move("enter", "blue-portal")}
+            onClick={() => setStep("enter")}
           >
             {copy[1]}
           </button>
@@ -145,14 +138,15 @@ export function Adventure({ band }: { band?: AgeBand }) {
       ) : (
         <>
           <CinematicScene
+            autoplay={step === "enter"}
             src={`/cinematic/${clip}.mp4`}
             poster={`/cinematic/${clip}.webp`}
-            className="mx-auto h-[min(44vh,420px)] w-full rounded-2xl bg-[#14263e] object-contain"
+            className={step === "enter" ? "mq-entry-media" : "mx-auto h-[min(44vh,420px)] w-full rounded-2xl bg-[#14263e] object-contain"}
           />
           {step === "enter" && (
             <button
               className={action}
-              onClick={() => move("map", "golden-path")}
+              onClick={() => setStep("map")}
             >
               {copy[2]}
             </button>

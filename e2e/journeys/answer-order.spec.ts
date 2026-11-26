@@ -67,7 +67,8 @@ test.describe("Lesson quiz answer order", () => {
     await page.getByRole("button", { name: "Check my answer" }).click();
 
     await expect(page.getByText("Right - small amounts really do add up over time. 📈")).toBeVisible();
-    await expect(page.getByText(/\+\d+ XP/)).toBeVisible();
+    await expect(page.locator("[data-mission-result]")).toBeVisible();
+    await expect.poll(() => page.evaluate(() => JSON.parse(localStorage.getItem("moneyquest_local_progress_v1")!).xpTotal)).toBeGreaterThan(0);
   });
 
   test("selecting a wrong answer shows retry feedback, and Try Again returns to an answerable state", async ({ page }) => {

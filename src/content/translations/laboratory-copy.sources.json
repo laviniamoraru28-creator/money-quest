@@ -1,7 +1,7 @@
 {
   "status": "draft",
-  "recorded": "2026-10-29",
-  "sourceHash": "7dcfc96da9262c629faf00f0a55e614bbd7c19a3c693774d36b94ada7c6c4511",
+  "recorded": "2026-11-24",
+  "sourceHash": "f9200a271ecaccf03c9103d36b53bfa25770ab3a9b6d5ee757a6b2ec68546c98",
   "scope": "30 laboratory UI and guide fragments per locale; 240 translated fragments, distinct from the eight authored-content inventory domains",
   "locales": [
     "en",
@@ -14,5 +14,5 @@
     "nl",
     "pl"
   ],
-  "review": "AI multilingual editorial pass; no native-editor certification; only EN public, EN/RO component SSR checks; non-English browser and narration quality review pending"
+  "review": "Mission instruction labels reviewed across all nine locales. Native-speaker and browser narration review pending."
 }

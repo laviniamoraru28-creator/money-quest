@@ -5,7 +5,6 @@ import { useTranslations } from "next-intl";
 import { useLocalProgress } from "@/lib/local-progress/use-local-progress";
 import { getStandardScenarioForAgeBand } from "@/simulator/all-scenarios";
 import { SimulatorShell } from "@/simulator/components/SimulatorShell";
-import { getLevelLabelKey } from "@/content/level-options";
 
 /**
  * Connects the Money Life Simulator — found during the final pre-launch
@@ -40,9 +39,6 @@ export default function SimulatorPage() {
   return (
     <div className="min-h-screen bg-fog px-sm py-lg">
       <main id="main-content" tabIndex={-1} className="mx-auto max-w-[700px]">
-        <p className="text-xs font-medium uppercase tracking-wide text-ink/70">
-          {t("play.yourLevelLabel", { level: t(getLevelLabelKey(state.ageBand)) })}
-        </p>
         <p className="mb-sm mt-2xs text-xs text-ink/70">{t("play.virtualMoneyExplainer")}</p>
         <SimulatorShell
           scenario={scenario}

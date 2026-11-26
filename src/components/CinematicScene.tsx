@@ -8,12 +8,14 @@ export function CinematicScene({
   poster,
   className,
   controls = true,
+  autoplay = false,
 }: {
   src: string;
   mobile?: string;
   poster: string;
   className?: string;
   controls?: boolean;
+  autoplay?: boolean;
 }) {
   const element = useRef<HTMLVideoElement>(null);
   const [visible, setVisible] = useState(true);
@@ -56,7 +58,7 @@ export function CinematicScene({
       className={className}
       muted
       autoPlay={
-        visible && (prefs.presentation === "cinematic" || !controls || !!mobile)
+        visible && (autoplay || prefs.presentation === "cinematic" || !controls || !!mobile)
       }
       playsInline
       controls={controls}
