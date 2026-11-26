@@ -123,17 +123,39 @@
       "category": "quotation",
       "series": "shorts",
       "hook": "How do you raise a responsible child?",
-      "status": "sent_to_phone",
+      "status": "reminder_sent",
       "rendered_at": "2026-11-24T04:17:26+00:00",
       "duration": 17.6,
       "video_url": "https://github.com/laviniamoraru28-creator/money-quest/releases/download/tiktok-2026-11-24-mq-q-004/video.mp4",
       "publish_mode": "buffer-notify",
       "submitted_at": "2026-11-24T04:17:30+00:00",
-      "buffer_status": "scheduled",
+      "buffer_status": "sent",
       "buffer_post_id": "6b050fdb9a4bd32ca3f21791",
       "buffer_channel_id": "6afa20c0ece6dfde5fd8b514",
       "buffer_org_id": "6afa203649dfc7619b889215",
-      "due_at": "2026-11-24T04:37:30+00:00"
+      "due_at": "2026-11-24T04:37:30+00:00",
+      "published_at": null,
+      "reminder_sent_at": "2026-11-24T04:37:30.392Z",
+      "external_link": null
+    },
+    {
+      "run": "2026-11-26-mq-i-001",
+      "topic_id": "MQ-I-001",
+      "video_id": "MQ-I-001",
+      "category": "question",
+      "series": "shorts",
+      "hook": "Would your child save £5 or spend it?",
+      "status": "sent_to_phone",
+      "rendered_at": "2026-11-26T02:11:31+00:00",
+      "duration": 16.09,
+      "video_url": "https://github.com/laviniamoraru28-creator/money-quest/releases/download/tiktok-2026-11-26-mq-i-001/video.mp4",
+      "publish_mode": "buffer-notify",
+      "submitted_at": "2026-11-26T02:11:36+00:00",
+      "buffer_status": "scheduled",
+      "buffer_post_id": "6b079559b96dd8d3517ece36",
+      "buffer_channel_id": "6afa20c0ece6dfde5fd8b514",
+      "buffer_org_id": "6afa203649dfc7619b889215",
+      "due_at": "2026-11-26T02:31:37+00:00"
     }
   ]
 }
