@@ -62,8 +62,14 @@ before ever setting `mode: deploy`.**
 
 To actually deploy:
 - `mode`: `deploy`
-- `app_path`: the exact absolute path `connectivity-test` confirmed (e.g.
-  `/home/youraccount/moneyquest-app`)
+- `app_path`: either an absolute path, or — the normal case — just the
+  account-relative directory name `connectivity-test` confirmed (e.g.
+  `moneyquestapp`). It's resolved against the server's own `$HOME` in a
+  dedicated step whose output is captured only via `$GITHUB_OUTPUT` and
+  never printed to the log: GitHub masks the SSH username (and anything
+  matching it) everywhere in log output, including inside file paths, so a
+  literal absolute path typed here could never be read back from the logs
+  to confirm.
 - `activate_cmd`: only if `connectivity-test` shows the default `node`/`npm`
   on `PATH` is wrong for this app — typically something like
   `source ~/nodevenv/moneyquest-app/24/bin/activate`. Leave blank otherwise.
@@ -75,30 +81,93 @@ To actually deploy:
 ### What `deploy` actually does, in order
 
 1. Builds the app fresh on the runner (Node 24.22.1, `NODE_ENV=production`,
-   `NEXT_PUBLIC_SITE_URL=https://moneyquesteducation.com`) and packages it
-   with the same `npm run package:namecheap` script used for manual
-   releases — one packaging path, not two.
+   `NEXT_PUBLIC_SITE_URL=https://moneyquesteducation.com`). Build-time
+   dependencies include two Python packages (`reportlab`, `PyMuPDF`) for
+   `scripts/generate-localized-worksheets.py` — installed explicitly before
+   `npm ci`, matching `website-quality.yml`'s own versions, because the
+   runner doesn't have them preinstalled (a real first-deploy failure).
+   Packages with the same `npm run package:namecheap` script used for
+   manual releases — one packaging path, not two.
 2. Verifies the server's host key against the pinned fingerprint again (see
    below) and loads the deploy key into `ssh-agent`.
-3. **Backs up** the live `app_path` (tar, excluding `node_modules`) to
+3. Resolves `app_path` against the server's own `$HOME` (see above).
+4. **Backs up** the live `app_path` (tar, excluding `node_modules`) to
    `~/moneyquest-backups/backup-<UTC timestamp>.tar.gz` on the server, and
    verifies the tarball is readable and non-trivially sized before
    continuing.
-4. **Deploys**: `rsync`s the new release into `app_path` in place (never
-   touching `node_modules/` or `tmp/`), then runs `npm ci --omit=dev` and
-   touches `tmp/restart.txt` (the standard Phusion Passenger restart
-   trigger Namecheap's Node.js hosting uses).
-5. **Health-checks** `https://moneyquesteducation.com/api/health` for up to
-   75 seconds. If it never reports `"status":"ok"`, the workflow
-   **automatically rolls back** to the backup from step 3, restarts again,
-   and still fails the run loudly — a failed deploy never leaves the site
-   silently degraded, but it also never claims success it didn't verify.
+5. **Deploys, restarts and health-checks as ONE step with a shared
+   rollback path** — `rsync`s the new release into `app_path` in place
+   (never touching `node_modules/` or `tmp/`), then over one SSH call runs
+   `npm ci --omit=dev` (after sourcing `activate_cmd`, if given — wrapped
+   in `set +u`/`set -u` so a third-party, non-strict-mode activate script
+   can't abort the deploy) and touches `tmp/restart.txt` (the standard
+   Phusion Passenger restart trigger Namecheap's Node.js hosting uses),
+   then polls `https://moneyquesteducation.com/api/health` for up to 75
+   seconds. **Any failure anywhere in that sequence — rsync, install,
+   restart, or a health check that never reports `"status":"ok"` —
+   triggers the same automatic rollback** to the backup from step 4, and
+   the run still fails loudly. All three steps share one rollback path
+   deliberately: an earlier version only guarded the health check, and a
+   real production failure inside the install/restart step once left new
+   files rsynced in with no restart and no rollback at all (see
+   "Incidents" below).
 6. Separately confirms `https://moneyquesteducation.com/api/lesson-assistant`
    does **not** report `"ready":true` — i.e., the AI Lesson Assistant stays
    disabled through this deploy, checked, not assumed.
 7. Writes a summary (commit SHA, package name, app path, backup filename)
    to the run's job summary. Never prints the private key, passphrase, or
    full SSH command with credentials.
+
+### Multi-argument SSH commands: always build one pre-quoted string
+
+Every remote command that takes more than one argument (backup, rollback,
+install/restart) builds a single string with each argument individually
+quoted via bash's `printf '%q'`, e.g.:
+
+```bash
+remote_cmd="bash -s $(printf '%q' "$APP_PATH") $(printf '%q' "$ACTIVATE_CMD")"
+ssh $NAMECHEAP_SSH_OPTS "$NAMECHEAP_SSH_TARGET" "$remote_cmd" < script.sh
+```
+
+This is not optional style — `ssh host bash -s "$A" "$B" < script.sh`
+passes each local argument as a separate argv entry, but OpenSSH's
+non-interactive mode joins all trailing arguments into **one** string with
+plain spaces before handing it to the remote shell to re-parse. Any
+argument containing a space (an `activate_cmd` like
+`source ~/nodevenv/app/24/bin/activate`) gets silently torn into multiple
+words server-side otherwise. See "Incidents" below for what this caused in
+practice.
+
+### Incidents (kept here so the failure modes aren't rediscovered)
+
+Two real production failures were found and fixed only by running this
+workflow against the actual server, not by local testing alone:
+
+- **Argument-rejoin outage (2026-11-26)**: an unquoted multi-argument SSH
+  call (see above) split `activate_cmd` into pieces, `source` ran with no
+  filename, and the script aborted under `set -e` *after* rsync had
+  already replaced the live files but *before* the restart — leaving the
+  site serving a half-updated, non-restarted, broken process (confirmed
+  with a direct `curl` → `503`). No rollback fired because rollback logic
+  at the time only lived inside the health-check step, never reached.
+  Fixed by the `%q`-quoting above and by consolidating rsync, install and
+  health-check into the single rollback-covered step described above.
+- **Unbound-variable abort (2026-11-26, same incident window)**: after the
+  fix above, a second attempt got further — backup and rsync succeeded —
+  but `source`-ing the server's own `~/nodevenv/.../activate` script
+  failed with `CL_VIRTUAL_ENV: unbound variable`, because that
+  cPanel-generated script isn't written for `set -u` and this workflow's
+  remote scripts run under `set -euo pipefail`. Rollback fired correctly
+  this time and completed — but it could only restore the state from
+  immediately before that run, which was already the broken state left by
+  the first incident, so the site stayed down. Fixed by wrapping the
+  `eval "$activate_cmd"` call in `set +u` / `set -u` so a script we don't
+  control can't trip our own strict-mode settings.
+
+Both fixes were verified with a direct local bash simulation reproducing
+the exact failure *before* being trusted against production again, and a
+subsequent real deploy run completed every step successfully with the live
+site independently re-verified afterward.
 
 ### Manual rollback (if you ever need it outside the automatic one above)
 
