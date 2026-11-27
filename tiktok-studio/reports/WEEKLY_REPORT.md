@@ -1,4 +1,4 @@
-# Money Quest Academy: weekly TikTok report
+# Money Quest Education: weekly TikTok report
 
 Generated 2026-11-16 by `python -m studio report`. Only collected numbers are shown; nothing is estimated.
 

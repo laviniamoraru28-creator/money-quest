@@ -27,9 +27,19 @@ from .common import STUDIO_ROOT, load_json, website_root, word_count
 from .quotes import (BACKGROUNDS, BLOBS, CORAL, CX, DEEP, H, MAX_W, MUTED, SAGE_CHIP, W, _blob, _clamp, _ease, _fit_lines,
                      _font, _gradient, _hex, _text_img, _with_alpha, _wrap)
 
+def _ease_punch(x: float) -> float:
+    """easeOutBack: overshoots past 1.0 then settles - the "pop" a hook or
+    close line scales in with, instead of just rising into place. Used only
+    for the handful of elements marked punch=True below (hook/close main
+    text, icons); everything else keeps the original gentle fade+rise so
+    one video is not wall-to-wall motion."""
+    x = _clamp(x, 0.0, 1.0)
+    c1, c3 = 1.70158, 1.70158 + 1
+    return 1 + c3 * (x - 1) ** 3 + c1 * (x - 1) ** 2
+
 SHORTS_PATH = STUDIO_ROOT / "curriculum" / "shorts.json"
 CATEGORIES = ("quotation", "question", "activity", "mistake")
-BRAND = "Money Quest Academy"
+BRAND = "Money Quest Education"
 WEBSITE_TEXT = "moneyquesteducation.com"
 BG_FOR = {"hook": "hook", "quote": "quote", "idea": "quote", "options": "cta", "step": "quote", "mistake": "hook",
           "fix": "takeaway", "action": "takeaway", "close": "cta"}
@@ -145,7 +155,7 @@ def _scene_text(scene: dict) -> str:
 
 def build_plan(v: dict) -> dict:
     scenes, t = [], 0.0
-    specs = [{"kind": "hook", "text": v["hook"], "icon": v.get("icon")}] + v["scenes"]
+    specs = [{"kind": "hook", "text": v["hook"], "icon": v.get("icon"), "hot_word": v.get("hot_word")}] + v["scenes"]
     steps = sum(1 for s in specs if s["kind"] == "step")
     n_step = 0
     for spec in specs:
@@ -208,6 +218,16 @@ def check_content(v: dict, plan: dict, config: dict) -> dict:
             own.append(s["text"])
         if s.get("icon") and s["icon"] not in ICONS:
             errors.append(f"unknown icon {s['icon']}")
+    # An optional single emphasis word on the hook or a close scene - the
+    # only kinds that render as big punched-in text - and it must be a word
+    # actually in that text (never invented here, never silently ignored).
+    for owner, text in [(v, v.get("hook", ""))] + [(s, s.get("text", "")) for s in v.get("scenes", []) if s["kind"] == "close"]:
+        hot = owner.get("hot_word")
+        if hot is None:
+            continue
+        words_in_text = {w.strip(".,!?").lower() for w in text.split()}
+        if hot.lower() not in words_in_text:
+            errors.append(f"hot_word \"{hot}\" is not one of the words in \"{text}\"")
     if v.get("category") == "quotation" and "quote" not in kinds:
         errors.append("a quotation video needs a quote scene")
     errors += qa.check_spelling(own)
@@ -275,12 +295,12 @@ class _Scene:
         self.elements: list[tuple] = []
         sans_b, sans_r, serif_b = fonts["bold"], fonts["regular"], fonts["serif_bold"]
 
-        def add(img, y, delay, name, font_size=None, x=None, floats=False):
+        def add(img, y, delay, name, font_size=None, x=None, floats=False, punch=False):
             x = CX - img.width // 2 if x is None else x
-            self.elements.append((img, x, y, delay, floats))
+            self.elements.append((img, x, y, delay, floats, punch))
             layout.append({"scene": self.name, "element": name, "box": [x, y, x + img.width, y + img.height], "font_size": font_size})
 
-        def words(lines, font, y, lh, start, step, name, size):
+        def words(lines, font, y, lh, start, step, name, size, punch=False, hot_word=None):
             space = font.getlength(" ")
             n = 0
             for i, line in enumerate(lines):
@@ -289,7 +309,12 @@ class _Scene:
                 x = CX - line_w / 2
                 layout.append({"scene": self.name, "element": f"{name}{i}", "box": [int(x), y, int(x + line_w) + 8, y + lh], "font_size": size})
                 for w in parts:
-                    self.elements.append((_text_img(w, font, DEEP), int(x) - 4, y, start + step * n, False))
+                    # One word per hook/close line may be marked as the single
+                    # emphasis word (picked by the content author in shorts.json,
+                    # never guessed here) and renders in the accent gold instead
+                    # of the usual ink color - a highlight, not a new claim.
+                    color = HOT_WORD_COLOR if hot_word and w.strip(".,!?").lower() == hot_word.lower() else DEEP
+                    self.elements.append((_text_img(w, font, color), int(x) - 4, y, start + step * n, False, punch))
                     x += font.getlength(w) + space
                     n += 1
                 y += lh
@@ -344,10 +369,10 @@ class _Scene:
             block = lh * len(lines) + 50 + 44 + 66 + 46 * len(source_lines)
             y = 330 + (1480 - 330 - block) // 2
             mark = _text_img("“", _font(serif_b, 220), quotes.CORAL_MARK)
-            self.elements.append((mark, CX - mark.width // 2, y - 190, 0.0, False))
+            self.elements.append((mark, CX - mark.width // 2, y - 190, 0.0, False, False))
             y, after = words(lines, font, y, lh, 0.2, 0.13, "line", size)
             y += 44
-            self.elements.append((Image.new("RGBA", (120, 6), _hex(CORAL)), CX - 60, y, after + 0.1, False))
+            self.elements.append((Image.new("RGBA", (120, 6), _hex(CORAL)), CX - 60, y, after + 0.1, False, False))
             y += 40
             add(_text_img(q["author"].upper(), _font(sans_b, 46), DEEP, spacing=3), y, after + 0.2, "author", 46)
             y += 66
@@ -364,12 +389,13 @@ class _Scene:
         block = icon_h + chip_h + lh * len(lines) + brand_h
         y = 330 + (1480 - 330 - block) // 2
         if ic:
-            add(icon(ic, 210), y, 0.0, "icon", floats=True)
+            add(icon(ic, 210), y, 0.0, "icon", floats=True, punch=big)
             y += icon_h
         if chip:
             add(chip_img(chip), y, 0.1, "chip", 34)
             y += chip_h
-        y, after = words(lines, font, y, lh, 0.0 if kind == "hook" else 0.2, 0.15, "line", size)
+        y, after = words(lines, font, y, lh, 0.0 if kind == "hook" else 0.2, 0.15, "line", size,
+                          punch=big, hot_word=scene.get("hot_word"))
         if kind == "close":
             y += 70
             mark, name = _brand_mark(54), _text_img(BRAND, _font(sans_b, 44), DEEP)
@@ -386,16 +412,42 @@ class _Scene:
             bx = W * fx + 18 * math.sin(t * 0.25 + i * 2.0) - blob.width / 2
             by = H * fy + 22 * math.cos(t * 0.2 + i * 1.3) - blob.height / 2
             img.paste(blob, (int(bx), int(by)), blob)
-        for layer, x, y, delay, floats in self.elements:
-            k = _ease((tau - delay * 0.5) / 0.28)
+        for layer, x, y, delay, floats, punch in self.elements:
+            start = (tau - delay * 0.5)
+            if punch:
+                # Scale-in "pop" for a hook/close line or its icon: opacity
+                # reaches full quickly (0.14s) so the word is readable almost
+                # at once, while the scale continues to settle from a slight
+                # overshoot back to 1.0 over 0.32s - the "impact" entrance the
+                # brief asked for, in place of the plain fade+rise every other
+                # element on screen still uses.
+                k = _ease(_clamp(start / 0.14, 0.0, 1.0))
+                s = 0.55 + 0.45 * _ease_punch(_clamp(start / 0.32, 0.0, 1.0))
+                if k <= 0:
+                    continue
+                cx, cy = x + layer.width / 2, y + layer.height / 2
+                scaled = layer if abs(s - 1.0) < 0.01 else layer.resize(
+                    (max(1, int(layer.width * s)), max(1, int(layer.height * s))), Image.LANCZOS)
+                px, py = int(cx - scaled.width / 2), int(cy - scaled.height / 2)
+                img.alpha_composite(_with_alpha(scaled, k), (px, py))
+                continue
+            k = _ease(start / 0.28)
             if k > 0:
                 dy = 14 * (1 - k) + (7 * math.sin(t * 2.2) if floats else 0)
                 img.alpha_composite(_with_alpha(layer, k), (x, int(y + dy)))
         return img
 
 
+HOT_WORD_COLOR = "#5B3D85"  # brand purple (config.json) - passes 4.5:1 against every hook/close background
+
+
 def contrast_pairs() -> list[tuple[str, str, str]]:
-    return quotes.contrast_pairs() + [("option card", DEEP, CREAM)]
+    hook_top, hook_bottom = BACKGROUNDS["hook"]
+    cta_top, cta_bottom = BACKGROUNDS["cta"]
+    return quotes.contrast_pairs() + [("option card", DEEP, CREAM)] + [
+        (f"hot word on {bg}", HOT_WORD_COLOR, color)
+        for bg, color in (("hook top", hook_top), ("hook bottom", hook_bottom), ("close top", cta_top), ("close bottom", cta_bottom))
+    ]
 
 
 def render(v: dict, plan: dict, config: dict, out_dir: Path) -> dict:

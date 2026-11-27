@@ -22,7 +22,7 @@
           "text": "What is your child saving for?"
         }
       ],
-      "description": "“Little strokes fell great oaks.” Benjamin Franklin, The Way to Wealth, 1758. Small, regular savings are how children reach a big goal. Try a savings jar and add to it every week. What is your child saving for? Money lessons for children at Money Quest Academy, link in bio.",
+      "description": "“Little strokes fell great oaks.” Benjamin Franklin, The Way to Wealth, 1758. Small, regular savings are how children reach a big goal. Try a savings jar and add to it every week. What is your child saving for? Money lessons for children at Money Quest Education, link in bio.",
       "hashtags": [
         "#kidssavingmoney",
         "#financialliteracyforkids",
@@ -73,7 +73,7 @@
           "text": "What did your child choose?"
         }
       ],
-      "description": "Would your child save £5, spend it or split it? There is no wrong answer. Ask tonight, and ask why. Their reason shows how they think about money. Tell us what your child chose. Teaching children about money with Money Quest Academy, link in bio.",
+      "description": "Would your child save £5, spend it or split it? There is no wrong answer. Ask tonight, and ask why. Their reason shows how they think about money. Tell us what your child chose. Teaching children about money with Money Quest Education, link in bio.",
       "hashtags": [
         "#teachingkidsaboutmoney",
         "#financialliteracyforkids",
@@ -109,17 +109,17 @@
         },
         {
           "kind": "step",
-          "text": "Read the weight on each label.",
+          "text": "Read the weight and the price on each label.",
           "icon": "tags"
         },
         {
           "kind": "step",
-          "text": "Ask your child: which one gives more?",
+          "text": "Work out the price per 100g for each pack.",
           "icon": "question"
         },
         {
           "kind": "action",
-          "text": "A bigger box can hold less. Let them check.",
+          "text": "The smaller pack can be the cheaper one. Let them check.",
           "icon": "check"
         },
         {
@@ -127,7 +127,7 @@
           "text": "Save this idea for your next shop."
         }
       ],
-      "description": "A 2-minute money game for the supermarket. Pick two packs, read the weight on each label and ask your child which one gives more. A bigger box can hold less, and children enjoy finding out. Save this for your next shop. Money lessons for children at Money Quest Academy, link in bio.",
+      "description": "A 2-minute money game for the supermarket. Pick two packs, read the weight and price on each label, and work out the price per 100g for each one. The smaller pack can be the cheaper one, and children enjoy finding out. Save this for your next shop. Money lessons for children at Money Quest Education, link in bio.",
       "hashtags": [
         "#moneylessonsforkids",
         "#financialliteracyforkids",
@@ -136,13 +136,18 @@
       ],
       "section": "Brain Lab",
       "route": "/brain-lab",
-      "duration_recommendation": "14-16 seconds",
+      "duration_recommendation": "15-17 seconds",
       "sources": [
         {
           "file": "src/content/learning-labs.ts",
           "quote": "A package can look bigger while holding less. Compare the same units on the labels."
+        },
+        {
+          "file": "src/content/learning-labs.ts",
+          "quote": "Compare 200 g for £2 with 300 g for £2.40. Calculate the price per 100 g."
         }
-      ]
+      ],
+      "hot_word": "game"
     },
     {
       "id": "MQ-Q-004",
@@ -165,7 +170,7 @@
           "text": "Which job could your child own?"
         }
       ],
-      "description": "“Few things help an individual more than to place responsibility upon him, and to let him know that you trust him.” Booker T. Washington, Up from Slavery, 1901. Washington wrote this about running a school, and it holds for a family too. A small, real responsibility, given with trust, is one of the simplest ways to help a child grow. Which job could your child own? Money lessons for children at Money Quest Academy, link in bio.",
+      "description": "“Few things help an individual more than to place responsibility upon him, and to let him know that you trust him.” Booker T. Washington, Up from Slavery, 1901. Washington wrote this about running a school, and it holds for a family too. A small, real responsibility, given with trust, is one of the simplest ways to help a child grow. Which job could your child own? Money lessons for children at Money Quest Education, link in bio.",
       "hashtags": [
         "#financialliteracyforkids",
         "#moneylessonsforkids",
@@ -173,7 +178,8 @@
         "#lifeskills"
       ],
       "section": "Leadership Quest",
-      "route": "/leadership-quest"
+      "route": "/leadership-quest",
+      "hot_word": "responsible"
     },
     {
       "id": "MQ-Q-005",
@@ -196,7 +202,7 @@
           "text": "Would your child still want it tomorrow?"
         }
       ],
-      "description": "“Nothing in life is as important as you think it is, while you are thinking about it.” Daniel Kahneman, Thinking, Fast and Slow, 2011. In the moment, the thing a child wants can feel like the only thing that matters. Adults feel it too. A short pause before deciding is a habit worth practising together. Would your child still want it tomorrow? Money lessons for children at Money Quest Academy, link in bio.",
+      "description": "“Nothing in life is as important as you think it is, while you are thinking about it.” Daniel Kahneman, Thinking, Fast and Slow, 2011. In the moment, the thing a child wants can feel like the only thing that matters. Adults feel it too. A short pause before deciding is a habit worth practising together. Would your child still want it tomorrow? Money lessons for children at Money Quest Education, link in bio.",
       "hashtags": [
         "#financialliteracyforkids",
         "#moneylessonsforkids",
@@ -204,7 +210,8 @@
         "#lifeskills"
       ],
       "section": "Brain Lab",
-      "route": "/brain-lab"
+      "route": "/brain-lab",
+      "hot_word": "urgent"
     },
     {
       "id": "MQ-Q-006",
@@ -227,7 +234,7 @@
           "text": "What did your child learn from a mistake?"
         }
       ],
-      "description": "“We often discover what will do, by finding out what will not do; and probably he who never made a mistake never made a discovery.” Samuel Smiles, Self-Help, 1859. Every young inventor needs to hear this. An idea that doesn't work is information, not failure. Children learn to create by testing small ideas and trying again. What did your child learn from a mistake? Money lessons for children at Money Quest Academy, link in bio.",
+      "description": "“We often discover what will do, by finding out what will not do; and probably he who never made a mistake never made a discovery.” Samuel Smiles, Self-Help, 1859. Every young inventor needs to hear this. An idea that doesn't work is information, not failure. Children learn to create by testing small ideas and trying again. What did your child learn from a mistake? Money lessons for children at Money Quest Education, link in bio.",
       "hashtags": [
         "#financialliteracyforkids",
         "#moneylessonsforkids",
@@ -258,7 +265,7 @@
           "text": "Which feeling is hardest for your child?"
         }
       ],
-      "description": "“Men are disturbed not by the things which happen, but by the opinions about the things.” Epictetus, The Encheiridion, trans. George Long. An idea almost two thousand years old: what we tell ourselves about an event shapes how it feels. Children can learn to notice a feeling and choose a next step. Which feeling is hardest for your child? Money lessons for children at Money Quest Academy, link in bio.",
+      "description": "“Men are disturbed not by the things which happen, but by the opinions about the things.” Epictetus, The Encheiridion, trans. George Long. An idea almost two thousand years old: what we tell ourselves about an event shapes how it feels. Children can learn to notice a feeling and choose a next step. Which feeling is hardest for your child? Money lessons for children at Money Quest Education, link in bio.",
       "hashtags": [
         "#financialliteracyforkids",
         "#moneylessonsforkids",
@@ -289,7 +296,7 @@
           "text": "How many weeks would it take?"
         }
       ],
-      "description": "“The cost of a thing is the amount of what I will call life which is required to be exchanged for it, immediately or in the long run.” Henry David Thoreau, Walden, 1854. Thoreau measured cost in life, not money: the time and effort something takes to earn. It's a useful question for a child weighing a purchase against a savings goal. How many weeks would it take? Money lessons for children at Money Quest Academy, link in bio.",
+      "description": "“The cost of a thing is the amount of what I will call life which is required to be exchanged for it, immediately or in the long run.” Henry David Thoreau, Walden, 1854. Thoreau measured cost in life, not money: the time and effort something takes to earn. It's a useful question for a child weighing a purchase against a savings goal. How many weeks would it take? Money lessons for children at Money Quest Education, link in bio.",
       "hashtags": [
         "#financialliteracyforkids",
         "#moneylessonsforkids",
@@ -320,7 +327,7 @@
           "text": "What did your child teach you?"
         }
       ],
-      "description": "“The object and reward of learning is continued capacity for growth.” John Dewey, Democracy and Education, 1916. For Dewey, the point of learning was the ability to keep learning. That matters even more for children growing up with tools that change every year. What did your child teach you? Money lessons for children at Money Quest Academy, link in bio.",
+      "description": "“The object and reward of learning is continued capacity for growth.” John Dewey, Democracy and Education, 1916. For Dewey, the point of learning was the ability to keep learning. That matters even more for children growing up with tools that change every year. What did your child teach you? Money lessons for children at Money Quest Education, link in bio.",
       "hashtags": [
         "#financialliteracyforkids",
         "#moneylessonsforkids",
@@ -351,7 +358,7 @@
           "text": "Which small habit will you start?"
         }
       ],
-      "description": "“Every action you take is a vote for the type of person you wish to become.” James Clear, Atomic Habits, 2018. A coin in a jar is a small thing. Repeated every week, it becomes evidence a child can point to: \"I'm someone who saves.\" Which small habit will you start? Money lessons for children at Money Quest Academy, link in bio.",
+      "description": "“Every action you take is a vote for the type of person you wish to become.” James Clear, Atomic Habits, 2018. A coin in a jar is a small thing. Repeated every week, it becomes evidence a child can point to: \"I'm someone who saves.\" Which small habit will you start? Money lessons for children at Money Quest Education, link in bio.",
       "hashtags": [
         "#financialliteracyforkids",
         "#moneylessonsforkids",
@@ -382,7 +389,7 @@
           "text": "Which routine works in your home?"
         }
       ],
-      "description": "“The great thing in all education is to make our nervous system our ally instead of our enemy.” William James, Talks to Teachers on Psychology, 1899. William James argued that habits do much of the work for us, for better or worse. Small routines practised in childhood, like saving a coin or checking a list, become things a child no longer has to think about. Which routine works in your home? Money lessons for children at Money Quest Academy, link in bio.",
+      "description": "“The great thing in all education is to make our nervous system our ally instead of our enemy.” William James, Talks to Teachers on Psychology, 1899. William James argued that habits do much of the work for us, for better or worse. Small routines practised in childhood, like saving a coin or checking a list, become things a child no longer has to think about. Which routine works in your home? Money lessons for children at Money Quest Education, link in bio.",
       "hashtags": [
         "#financialliteracyforkids",
         "#moneylessonsforkids",
@@ -413,7 +420,7 @@
           "text": "What did they decide?"
         }
       ],
-      "description": "“Trust thyself: every heart vibrates to that iron string.” Ralph Waldo Emerson, Self-Reliance, 1841. Self-trust isn't something we can hand to a child. It comes from making real decisions and seeing what happens, ideally where mistakes cost nothing. What did they decide? Money lessons for children at Money Quest Academy, link in bio.",
+      "description": "“Trust thyself: every heart vibrates to that iron string.” Ralph Waldo Emerson, Self-Reliance, 1841. Self-trust isn't something we can hand to a child. It comes from making real decisions and seeing what happens, ideally where mistakes cost nothing. What did they decide? Money lessons for children at Money Quest Education, link in bio.",
       "hashtags": [
         "#financialliteracyforkids",
         "#moneylessonsforkids",
@@ -444,7 +451,7 @@
           "text": "Which task will you hand over?"
         }
       ],
-      "description": "“No one can be free unless he is independent.” Maria Montessori, The Montessori Method, 1912. Montessori saw independence as the first goal of education. At home it can start small: one job, one decision, one thing a child manages alone. Which task will you hand over? Money lessons for children at Money Quest Academy, link in bio.",
+      "description": "“No one can be free unless he is independent.” Maria Montessori, The Montessori Method, 1912. Montessori saw independence as the first goal of education. At home it can start small: one job, one decision, one thing a child manages alone. Which task will you hand over? Money lessons for children at Money Quest Education, link in bio.",
       "hashtags": [
         "#financialliteracyforkids",
         "#moneylessonsforkids",
@@ -475,7 +482,7 @@
           "text": "Who did your child choose to help?"
         }
       ],
-      "description": "“No one is useless in this world who lightens the burden of it for any one else.” Charles Dickens, Our Mutual Friend, 1865. A line from Dickens that children understand straight away: helping someone matters. Giving time, a toy or a little money is a habit that can start young. Who did your child choose to help? Money lessons for children at Money Quest Academy, link in bio.",
+      "description": "“No one is useless in this world who lightens the burden of it for any one else.” Charles Dickens, Our Mutual Friend, 1865. A line from Dickens that children understand straight away: helping someone matters. Giving time, a toy or a little money is a habit that can start young. Who did your child choose to help? Money lessons for children at Money Quest Education, link in bio.",
       "hashtags": [
         "#financialliteracyforkids",
         "#moneylessonsforkids",
@@ -506,7 +513,7 @@
           "text": "What was their plan?"
         }
       ],
-      "description": "“Money is in some respects like fire; it is a very excellent servant but a terrible master.” P. T. Barnum, The Art of Money Getting, 1880. Barnum's image still works: money is useful when you direct it. Children can practise being the one in charge, with small amounts and real choices. What was their plan? Money lessons for children at Money Quest Academy, link in bio.",
+      "description": "“Money is in some respects like fire; it is a very excellent servant but a terrible master.” P. T. Barnum, The Art of Money Getting, 1880. Barnum's image still works: money is useful when you direct it. Children can practise being the one in charge, with small amounts and real choices. What was their plan? Money lessons for children at Money Quest Education, link in bio.",
       "hashtags": [
         "#financialliteracyforkids",
         "#moneylessonsforkids",
@@ -537,7 +544,7 @@
           "text": "Save this for the next hard day."
         }
       ],
-      "description": "“Isn't it nice to think that tomorrow is a new day with no mistakes in it yet?” L. M. Montgomery, Anne of Green Gables, 1908. Anne says this after a very bad day. It's a kind thing to tell a child, and a useful one: tomorrow is a chance to try differently. Save this for the next hard day. Money lessons for children at Money Quest Academy, link in bio.",
+      "description": "“Isn't it nice to think that tomorrow is a new day with no mistakes in it yet?” L. M. Montgomery, Anne of Green Gables, 1908. Anne says this after a very bad day. It's a kind thing to tell a child, and a useful one: tomorrow is a chance to try differently. Save this for the next hard day. Money lessons for children at Money Quest Education, link in bio.",
       "hashtags": [
         "#financialliteracyforkids",
         "#moneylessonsforkids",
@@ -568,7 +575,7 @@
           "text": "What was the best answer you heard?"
         }
       ],
-      "description": "“Learning without thought is labour lost; thought without learning is perilous.” Confucius, The Analects, trans. James Legge. Facts without thinking don't stick, and opinions without facts go wrong. Asking a child \"why do you think that?\" trains both at once. What was the best answer you heard? Money lessons for children at Money Quest Academy, link in bio.",
+      "description": "“Learning without thought is labour lost; thought without learning is perilous.” Confucius, The Analects, trans. James Legge. Facts without thinking don't stick, and opinions without facts go wrong. Asking a child \"why do you think that?\" trains both at once. What was the best answer you heard? Money lessons for children at Money Quest Education, link in bio.",
       "hashtags": [
         "#financialliteracyforkids",
         "#moneylessonsforkids",
@@ -599,7 +606,7 @@
           "text": "Would you try this at home?"
         }
       ],
-      "description": "“Annual income twenty pounds, annual expenditure nineteen nineteen and six, result happiness.” Charles Dickens, David Copperfield, 1850. Mr. Micawber's rule is the whole of budgeting in one line: spend slightly less than comes in. Children can practise it with pocket money long before they earn a wage. Would you try this at home? Money lessons for children at Money Quest Academy, link in bio.",
+      "description": "“Annual income twenty pounds, annual expenditure nineteen nineteen and six, result happiness.” Charles Dickens, David Copperfield, 1850. Mr. Micawber's rule is the whole of budgeting in one line: spend slightly less than comes in. Children can practise it with pocket money long before they earn a wage. Would you try this at home? Money lessons for children at Money Quest Education, link in bio.",
       "hashtags": [
         "#financialliteracyforkids",
         "#moneylessonsforkids",
@@ -645,7 +652,7 @@
           "text": "What does your child call a need?"
         }
       ],
-      "description": "Need or want? Ask your child this. At the shop, ask what happens if you don't get it. What does your child call a need? Money lessons for children at Money Quest Academy, link in bio.",
+      "description": "Need or want? Ask your child this. At the shop, ask what happens if you don't get it. What does your child call a need? Money lessons for children at Money Quest Education, link in bio.",
       "hashtags": [
         "#teachingkidsaboutmoney",
         "#financialliteracyforkids",
@@ -708,7 +715,7 @@
           "text": "Notebook or toy? Tell us."
         }
       ],
-      "description": "Notebook or toy? One choice. Give a small fixed amount and let them decide. Notebook or toy? Tell us. Money lessons for children at Money Quest Academy, link in bio.",
+      "description": "Notebook or toy? One choice. Give a small fixed amount and let them decide. Notebook or toy? Tell us. Money lessons for children at Money Quest Education, link in bio.",
       "hashtags": [
         "#teachingkidsaboutmoney",
         "#financialliteracyforkids",
@@ -765,7 +772,7 @@
           "text": "Did your child wait?"
         }
       ],
-      "description": "One treat now or two later?. Offer the choice for real, then ask how it felt. Did your child wait? Money lessons for children at Money Quest Academy, link in bio.",
+      "description": "One treat now or two later?. Offer the choice for real, then ask how it felt. Did your child wait? Money lessons for children at Money Quest Education, link in bio.",
       "hashtags": [
         "#teachingkidsaboutmoney",
         "#financialliteracyforkids",
@@ -810,7 +817,7 @@
           "text": "Which toy was forgotten fastest?"
         }
       ],
-      "description": "Will they still want it in a month?. Before buying, ask how they will feel in a month. Which toy was forgotten fastest? Money lessons for children at Money Quest Academy, link in bio.",
+      "description": "Will they still want it in a month?. Before buying, ask how they will feel in a month. Which toy was forgotten fastest? Money lessons for children at Money Quest Education, link in bio.",
       "hashtags": [
         "#teachingkidsaboutmoney",
         "#financialliteracyforkids",
@@ -860,7 +867,7 @@
           "text": "What does your child think happens?"
         }
       ],
-      "description": "Is a card tap real money?. Say it aloud: this takes money from my account. What does your child think happens? Money lessons for children at Money Quest Academy, link in bio.",
+      "description": "Is a card tap real money?. Say it aloud: this takes money from my account. What does your child think happens? Money lessons for children at Money Quest Education, link in bio.",
       "hashtags": [
         "#teachingkidsaboutmoney",
         "#financialliteracyforkids",
@@ -924,7 +931,7 @@
           "text": "Has your child seen a fake prize?"
         }
       ],
-      "description": "Would your child spot a fake prize?. Agree one rule: check with a grown-up first. Has your child seen a fake prize? Money lessons for children at Money Quest Academy, link in bio.",
+      "description": "Would your child spot a fake prize?. Agree one rule: check with a grown-up first. Has your child seen a fake prize? Money lessons for children at Money Quest Education, link in bio.",
       "hashtags": [
         "#teachingkidsaboutmoney",
         "#financialliteracyforkids",
@@ -973,7 +980,7 @@
           "text": "What would your child invent?"
         }
       ],
-      "description": "What would your child invent?. Ask how they would fix it, then sketch it together. What would your child invent? Money lessons for children at Money Quest Academy, link in bio.",
+      "description": "What would your child invent?. Ask how they would fix it, then sketch it together. What would your child invent? Money lessons for children at Money Quest Education, link in bio.",
       "hashtags": [
         "#teachingkidsaboutmoney",
         "#financialliteracyforkids",
@@ -1018,7 +1025,7 @@
           "text": "Who did they pick?"
         }
       ],
-      "description": "Who would your child help with £1?. Let them choose who to help. Any amount counts. Who did they pick? Money lessons for children at Money Quest Academy, link in bio.",
+      "description": "Who would your child help with £1?. Let them choose who to help. Any amount counts. Who did they pick? Money lessons for children at Money Quest Education, link in bio.",
       "hashtags": [
         "#teachingkidsaboutmoney",
         "#financialliteracyforkids",
@@ -1068,7 +1075,7 @@
           "text": "Does your child use AI for homework?"
         }
       ],
-      "description": "Would your child check an AI answer?. Check one surprising fact together in a reliable source. Does your child use AI for homework? Money lessons for children at Money Quest Academy, link in bio.",
+      "description": "Would your child check an AI answer?. Check one surprising fact together in a reliable source. Does your child use AI for homework? Money lessons for children at Money Quest Education, link in bio.",
       "hashtags": [
         "#teachingkidsaboutmoney",
         "#financialliteracyforkids",
@@ -1097,7 +1104,7 @@
       "id": "MQ-A-002",
       "category": "activity",
       "cover_title": "The clear jar: watch savings grow",
-      "hook": "One jar changes how children save.",
+      "hook": "Could one jar change how your child saves?",
       "icon": "jar",
       "scenes": [
         {
@@ -1117,7 +1124,7 @@
         },
         {
           "kind": "action",
-          "text": "Seeing progress beats an abstract number.",
+          "text": "Seeing progress can work better than an abstract number.",
           "icon": "check"
         },
         {
@@ -1125,7 +1132,7 @@
           "text": "What goes on your child's jar?"
         }
       ],
-      "description": "The clear jar: watch savings grow. Seeing progress beats an abstract number. What goes on your child's jar? Money lessons for children at Money Quest Academy, link in bio.",
+      "description": "The clear jar: watch savings grow. Seeing progress can work better than an abstract number. What goes on your child's jar? Money lessons for children at Money Quest Education, link in bio.",
       "hashtags": [
         "#moneylessonsforkids",
         "#financialliteracyforkids",
@@ -1151,7 +1158,8 @@
           "path": "curriculum.explorer-saving-l1.parentNote",
           "quote": "a clear jar or a simple chart your child can actually see filling up tends to work far better at this age than a bank app or an abstract number"
         }
-      ]
+      ],
+      "hot_word": "jar"
     },
     {
       "id": "MQ-A-003",
@@ -1185,7 +1193,7 @@
           "text": "Which pot fills first?"
         }
       ],
-      "description": "Four pots for pocket money. More in one pot means less in another. Which pot fills first? Money lessons for children at Money Quest Academy, link in bio.",
+      "description": "Four pots for pocket money. More in one pot means less in another. Which pot fills first? Money lessons for children at Money Quest Education, link in bio.",
       "hashtags": [
         "#moneylessonsforkids",
         "#financialliteracyforkids",
@@ -1245,7 +1253,7 @@
           "text": "Would your family try this rule?"
         }
       ],
-      "description": "The sleep-on-it rule. Urgency pushes quick choices. A pause helps. Would your family try this rule? Money lessons for children at Money Quest Academy, link in bio.",
+      "description": "The sleep-on-it rule. Urgency pushes quick choices. A pause helps. Would your family try this rule? Money lessons for children at Money Quest Education, link in bio.",
       "hashtags": [
         "#moneylessonsforkids",
         "#financialliteracyforkids",
@@ -1298,7 +1306,7 @@
           "text": "Which advert does your child know by heart?"
         }
       ],
-      "description": "Spot the trick in one advert. Adverts are designed to make wants feel urgent. Which advert does your child know by heart? Money lessons for children at Money Quest Academy, link in bio.",
+      "description": "Spot the trick in one advert. Adverts are designed to make wants feel urgent. Which advert does your child know by heart? Money lessons for children at Money Quest Education, link in bio.",
       "hashtags": [
         "#moneylessonsforkids",
         "#financialliteracyforkids",
@@ -1353,7 +1361,7 @@
           "text": "Save this for your next card payment."
         }
       ],
-      "description": "Say one payment out loud. A tap can feel like free money to a child. Save this for your next card payment. Money lessons for children at Money Quest Academy, link in bio.",
+      "description": "Say one payment out loud. A tap can feel like free money to a child. Save this for your next card payment. Money lessons for children at Money Quest Education, link in bio.",
       "hashtags": [
         "#moneylessonsforkids",
         "#financialliteracyforkids",
@@ -1405,7 +1413,7 @@
         },
         {
           "kind": "action",
-          "text": "A short checklist helps children act independently.",
+          "text": "A short checklist can help children act independently.",
           "icon": "bulb"
         },
         {
@@ -1413,7 +1421,7 @@
           "text": "What does your child always forget?"
         }
       ],
-      "description": "A 3-item picture checklist. A short checklist helps children act independently. What does your child always forget? Money lessons for children at Money Quest Academy, link in bio.",
+      "description": "A 3-item picture checklist. A short checklist can help children act independently. What does your child always forget? Money lessons for children at Money Quest Education, link in bio.",
       "hashtags": [
         "#moneylessonsforkids",
         "#financialliteracyforkids",
@@ -1466,7 +1474,7 @@
           "text": "What was your child's first idea?"
         }
       ],
-      "description": "Make one before making ten. A small test teaches before you spend more. What was your child's first idea? Money lessons for children at Money Quest Academy, link in bio.",
+      "description": "Make one before making ten. A small test teaches before you spend more. What was your child's first idea? Money lessons for children at Money Quest Education, link in bio.",
       "hashtags": [
         "#moneylessonsforkids",
         "#financialliteracyforkids",
@@ -1524,7 +1532,7 @@
           "text": "Has your child ever sold something?"
         }
       ],
-      "description": "The bake-sale sum. What is left is the profit. Has your child ever sold something? Money lessons for children at Money Quest Academy, link in bio.",
+      "description": "The bake-sale sum. What is left is the profit. Has your child ever sold something? Money lessons for children at Money Quest Education, link in bio.",
       "hashtags": [
         "#moneylessonsforkids",
         "#financialliteracyforkids",
@@ -1579,7 +1587,7 @@
           "text": "How many weeks is your child's goal?"
         }
       ],
-      "description": "How many weeks to the goal?. A number of weeks lands better than \"maybe later\". How many weeks is your child's goal? Money lessons for children at Money Quest Academy, link in bio.",
+      "description": "How many weeks to the goal?. A number of weeks lands better than \"maybe later\". How many weeks is your child's goal? Money lessons for children at Money Quest Education, link in bio.",
       "hashtags": [
         "#moneylessonsforkids",
         "#financialliteracyforkids",
@@ -1637,7 +1645,7 @@
           "text": "Would you hold back?"
         }
       ],
-      "description": "Topping up your child's savings. Let them finish it themselves, even slowly. Would you hold back? Money lessons for children at Money Quest Academy, link in bio.",
+      "description": "Topping up your child's savings. Let them finish it themselves, even slowly. Would you hold back? Money lessons for children at Money Quest Education, link in bio.",
       "hashtags": [
         "#teachingkidsaboutmoney",
         "#financialliteracyforkids",
@@ -1690,7 +1698,7 @@
           "text": "What do you say instead?"
         }
       ],
-      "description": "Saying \"you don't need that\". Ask gently: what would happen if you didn't get it? What do you say instead? Money lessons for children at Money Quest Academy, link in bio.",
+      "description": "Saying \"you don't need that\". Ask gently: what would happen if you didn't get it? What do you say instead? Money lessons for children at Money Quest Education, link in bio.",
       "hashtags": [
         "#teachingkidsaboutmoney",
         "#financialliteracyforkids",
@@ -1735,7 +1743,7 @@
         },
         {
           "kind": "idea",
-          "text": "Praise makes them tell you next time.",
+          "text": "A calm \"well spotted\" keeps the door open for next time.",
           "icon": "heart"
         },
         {
@@ -1743,7 +1751,7 @@
           "text": "Does your child know to tell you?"
         }
       ],
-      "description": "Telling off a child who reports a strange message. Say \"well spotted\" and deal with it together. Does your child know to tell you? Money lessons for children at Money Quest Academy, link in bio.",
+      "description": "Telling off a child who reports a strange message. Say \"well spotted\" and deal with it together. Does your child know to tell you? Money lessons for children at Money Quest Education, link in bio.",
       "hashtags": [
         "#teachingkidsaboutmoney",
         "#financialliteracyforkids",
