@@ -170,6 +170,25 @@
       "status": "rendered",
       "rendered_at": "2026-11-26T09:13:24+00:00",
       "duration": 17.36
+    },
+    {
+      "run": "2026-11-28-mq-a-001",
+      "topic_id": "MQ-A-001",
+      "video_id": "MQ-A-001",
+      "category": "activity",
+      "series": "shorts",
+      "hook": "Try this game on your next shop.",
+      "status": "sent_to_phone",
+      "rendered_at": "2026-11-28T01:57:01+00:00",
+      "duration": 17.36,
+      "video_url": "https://github.com/laviniamoraru28-creator/money-quest/releases/download/tiktok-2026-11-28-mq-a-001/video.mp4",
+      "publish_mode": "buffer-notify",
+      "submitted_at": "2026-11-28T01:57:05+00:00",
+      "buffer_status": "scheduled",
+      "buffer_post_id": "6b0a34f241454797eae01fc8",
+      "buffer_channel_id": "6afa20c0ece6dfde5fd8b514",
+      "buffer_org_id": "6afa203649dfc7619b889215",
+      "due_at": "2026-11-28T02:17:05+00:00"
     }
   ]
 }
